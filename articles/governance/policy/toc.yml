@@ -118,7 +118,7 @@
           href: samples/enforce-data-lake-store-encryption.md
     - name: Configurazione guest
       items:
-        - name: Controllare le applicazioni installate in Linux
+        - name: Controllare se le applicazioni non sono installate in Linux
           displayName: 'audit, vm'
           href: samples/guest-configuration-applications-installed-linux.md
     - name: Insiemi di credenziali delle chiavi

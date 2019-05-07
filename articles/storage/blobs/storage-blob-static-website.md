@@ -2,18 +2,19 @@
 title: Hosting di siti Web statici in Archiviazione di Azure
 description: Hosting di siti Web statici in Archiviazione di Azure che fornisce una soluzione economica e scalabile per l'hosting di applicazioni Web moderne.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
+ms.author: normesta
+ms.reviewer: seguler
 ms.date: 04/29/2019
-ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cd1fa71cb2a10c7e61f76bdd224ba6d0f039346f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925274"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148465"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 Gli account per utilizzo generico v2 di Archiviazione di Azure consentono di usare contenuti statici (file HTML, CSS, JavaScript e di immagine) direttamente da un contenitore di archiviazione denominato *$web*. Sfruttando i vantaggi dell'hosting in Archiviazione di Azure è possibile di usare le architetture serverless tra cui [Funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi PaaS.

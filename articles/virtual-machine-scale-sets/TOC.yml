@@ -129,6 +129,8 @@
         - name: Prestazioni di Archiviazione Premium
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
+        - name: Dischi del sistema operativo temporanei
+          href: ephemeral-os-disks.md
         - name: Obiettivi di scalabilità per i dischi
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
@@ -204,7 +206,7 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: Utilizzare l’interfaccia della riga di comando di Azure
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
-            - name: Crittografia del disco con la sequenziazione delle estensioni
+            - name: Sequenziazione delle estensioni
               href: ../security/azure-security-disk-encryption-extension-sequencing.md
               maintainContext: true
         - name: Usare set di scalabilità di grandi dimensioni
@@ -221,13 +223,16 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Usare Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
-        - name: Raccolte di immagini condivise (anteprima)
-          href: shared-image-galleries.md
+        - name: Raccolte di immagini condivise
           items:
+            - name: Panoramica
+              href: shared-image-galleries.md
             - name: CLI
               href: shared-images-cli.md
             - name: PowerShell
               href: shared-images-powershell.md
+            - name: Condividere immagini tra tenant
+              href: share-images-across-tenants.md
             - name: Risolvere i problemi relativi alle immagini condivise
               href: troubleshooting-shared-images.md
         - name: Ridimensionamento verticale in un set di scalabilità

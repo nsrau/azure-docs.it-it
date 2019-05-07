@@ -18,9 +18,9 @@
   items:
     - name: Connettersi alle risorse di Desktop virtuale Windows
       items:
-        - name: Connettersi con Windows 7 e Windows 10
+        - name: Connettersi da Windows 10 o Windows 7
           href: connect-windows-7-and-10.md
-        - name: Connettersi con il client Web
+        - name: Connettersi da un Web browser
           href: connect-web.md
     - name: Creare un pool di host con un modello di Azure Resource Manager
       href: create-host-pools-arm-template.md
@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: Preparare e personalizzare un'immagine master di disco rigido virtuale
       href: set-up-customize-master-image.md
+    - name: Configurare la GPU per Desktop virtuale Windows
+      href: configure-vm-gpu.md
     - name: Ridimensionare automaticamente gli host della sessione
       href: set-up-scaling-script.md
 - name: Concetti

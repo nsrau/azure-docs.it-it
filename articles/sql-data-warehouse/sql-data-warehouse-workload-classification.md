@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 888a64de29178834fc47199a033eb6bc62858e57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474828"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154216"
 ---
-# <a name="sql-data-warehouse-workload-classification-preview"></a>Classificazione del carico di lavoro di SQL Data Warehouse (anteprima)
+# <a name="sql-data-warehouse-workload-classification"></a>Classificazione del carico di lavoro di SQL Data Warehouse
 
 Questo articolo illustra il processo di classificazione del carico di lavoro di SQL Data Warehouse di assegnazione di una classe di risorse e l'importanza alle richieste in ingresso.
-
-> [!Note]
-> La classificazione del carico di lavoro è disponibile in anteprima in SQL Data Warehouse Gen2. L'anteprima delle funzionalità di classificazione e priorità della gestione del carico di lavoro è disponibile per le build con data di rilascio 9 aprile 2019 o successiva.  Gli utenti dovrebbero evitare di usare le build precedenti a questa data per i test di gestione del carico di lavoro.  Per determinare se la build è in grado di gestire il carico di lavoro, eseguire select @@version quando si è connessi all'istanza di SQL Data Warehouse.
 
 ## <a name="classification"></a>classificazione
 
@@ -63,10 +60,10 @@ Classificatori di sistema creati per tuo conto forniscono un percorso semplice p
 
 Si consideri lo scenario seguente:
 
-Data warehouse esistente •an dispone di un utente del database che dbauser assegnato al ruolo di classe della risorsa largerc. L'assegnazione della classe di risorse è stata eseguita con sp_addrolemember.
-Data warehouse di •the è ora aggiornata con la gestione del carico di lavoro.
-• Per sostituire testare la nuova sintassi di classificazione, il ruolo del database DBARole (ovvero DBAUser un membro di), dispone di un classificatore creato per la loro esecuzione del mapping mediumrc e priorità alta.
-• Se DBAUser accede e viene eseguita una query, la query verrà assegnata a largerc. Poiché un utente ha la precedenza su un'appartenenza a ruoli.
+- Un data warehouse esistente dispone di un utente del database che dbauser assegnato al ruolo di classe della risorsa largerc. L'assegnazione della classe di risorse è stata eseguita con sp_addrolemember.
+- Il data warehouse è ora aggiornato con la gestione del carico di lavoro.
+- Per testare la nuova sintassi di classificazione, il ruolo del database DBARole (ovvero DBAUser un membro di), dispone di un classificatore creato per la loro esecuzione del mapping mediumrc e priorità alta.
+- Quando DBAUser accede e si esegue una query, la query verrà assegnata a largerc. Poiché un utente ha la precedenza su un'appartenenza a ruoli.
 
 Per semplificare la risoluzione dei problemi di errata classificazione, è consigliabile che rimuoverlo mapping dei ruoli di classe di risorse durante la creazione di classificatori di carico di lavoro.  Il codice seguente restituisce la risorsa esistente le appartenenze ai ruoli di classe.  Eseguire [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) per ogni nome di membro restituito dalla classe di risorse corrispondente.
 
@@ -84,4 +81,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla classificazione del carico di lavoro di SQL Data Warehouse e importanza, vedere [crea un classificatore di carico di lavoro](quickstart-create-a-workload-classifier-tsql.md) e [importanza di SQL Data Warehouse](sql-data-warehouse-workload-importance.md). Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la loro priorità.
+Per iniziare a usare la creazione di un classificatore, vedere la [CLASSIFICATORE di carico di lavoro CREATE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Per altre informazioni sulla classificazione del carico di lavoro di SQL Data Warehouse e importanza, vedere [crea un classificatore di carico di lavoro](quickstart-create-a-workload-classifier-tsql.md) e [importanza di SQL Data Warehouse](sql-data-warehouse-workload-importance.md). Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la loro priorità.

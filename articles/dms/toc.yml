@@ -32,6 +32,8 @@
       href: tutorial-mongodb-cosmos-db.md
     - name: Eseguire la migrazione online di MongoDB all'API Mongo di Azure Cosmos DB
       href: tutorial-mongodb-cosmos-db-online.md
+    - name: Eseguire la migrazione online di Oracle al database di Azure per PostgreSQL
+      href: tutorial-oracle-azure-postgresql-online.md
 - name: Guide alle procedure
   items:
     - name: Usare PowerShell per eseguire la migrazione di SQL Server al database SQL di Azure

@@ -16,6 +16,8 @@
   items:
     - name: Località e partner
       href: virtual-wan-locations-partners.md
+    - name: Architettura di transito di rete globale
+      href: virtual-wan-global-transit-architecture.md
     - name: Piano di controllo di Office 365 nella rete WAN virtuale
       href: virtual-wan-office365-overview.md
 - name: Guide alle procedure

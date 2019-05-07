@@ -167,6 +167,8 @@
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
             - name: Abilitare la replica da Azure ad Azure per le macchine virtuali S2D
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
+            - name: Abilitare la replica per un disco aggiunto
+              href: azure-to-azure-enable-replication-added-disk.md
             - name: Escludere dischi
               href: azure-to-azure-exclude-disks.md
             - name: Riproteggere le VM di Azure dopo il failover

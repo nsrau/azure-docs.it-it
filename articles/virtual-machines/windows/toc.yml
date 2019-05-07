@@ -326,6 +326,8 @@
           href: detach-disk.md
         - name: Eseguire la distribuzione di dischi con un modello
           href: using-managed-disks-template-deployments.md
+        - name: Caricare un VHD su disco - PowerShell
+          href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: Ridimensionare un disco
           href: expand-os-disk.md
         - name: Snapshot di un disco

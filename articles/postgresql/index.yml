@@ -9,9 +9,9 @@ metadata:
   ms.author: raagyema
   ms.service: postgresql
   ms.topic: landing-page
-  ms.date: 02/25/2019
+  ms.date: 04/26/2019
 abstract:
-  description: 'Il database di Azure per PostgreSQL è un servizio di database relazionale basato sul motore di database Postgres open source.  Si tratta di un database distribuito come servizio completamente gestito in grado di gestire carichi di lavoro cruciali con prestazioni prevedibili, sicurezza, disponibilità elevata e scalabilità dinamica.  È possibile sviluppare applicazioni con il database di Azure per PostgreSQL sfruttando la piattaforma e gli strumenti open source preferiti.  Informazioni su come usare il database di Azure per PostgreSQL con le guide rapide, le esercitazioni e gli esempi.'
+  description: 'Il database di Azure per PostgreSQL è un servizio di database relazionale basato sul motore di database Postgres open source.  Si tratta di un database distribuito come servizio completamente gestito in grado di gestire carichi di lavoro cruciali con prestazioni prevedibili, sicurezza, disponibilità elevata e scalabilità dinamica. È disponibile con due opzioni di distribuzione, Server singolo e Hyperscale (Citus) (anteprima). L''opzione Hyperscale (Citus) scala orizzontalmente le query tra più computer tramite partizionamento orizzontale e risponde ai requisiti di scalabilità e prestazioni superiori delle applicazioni. Informazioni su come usare il database di Azure per PostgreSQL con le guide rapide, le esercitazioni e gli esempi.'
 sections:
   - title: Guide introduttive di 5 minuti
     items:
@@ -22,22 +22,33 @@ sections:
         items:
           - image:
               src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: Portale di Azure
+            text: Portale di Azure per Server singolo
             href: /azure/postgresql/quickstart-create-server-database-portal
           - image:
               src: 'https://docs.microsoft.com/azure/sql-database/media/index/cli.svg'
-            text: Interfaccia della riga di comando di Azure
+            text: Interfaccia della riga di comando di Azure per Server singolo
             href: /azure/postgresql/quickstart-create-server-database-azure-cli
+          - image:
+              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
+            text: Portale di Azure per Hyperscale (Citus)
+            href: /azure/postgresql/quickstart-create-hyperscale-portal
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph
-        text: 'È possibile passare agli argomenti seguenti:'
+        text: 'Per Server singolo:'
       - type: list
         style: ordered
         items:
           - html: 'Progettare un database&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">portale di Azure</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">interfaccia della riga di comando di Azure</a>'
           - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Compilare un'app Web usando Python e l'interfaccia della riga di comando</a>
           - html: <a href="/azure/postgresql/tutorial-monitor-and-tune">Monitorare e ottimizzare il servizio</a>
+      - type: paragraph
+        text: 'Per Hyperscale (Citus) (anteprima):'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant">Progettare un database multitenant</a>
+          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-realtime">Progettare un database in tempo reale</a>
   - title: Sviluppare le proprie competenze con Microsoft Learn
     items:
       - type: list

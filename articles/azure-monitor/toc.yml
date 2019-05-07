@@ -555,6 +555,8 @@
                   href: app/usage-workbooks.md
             - name: Soluzione di analisi per app Web
               href: insights/azure-web-apps-analytics.md
+            - name: App ospitate in Kubernetes
+              href: app/kubernetes.md
         - name: Monitorare i contenitori
           items:
             - name: Monitoraggio di Azure per contenitori
@@ -563,13 +565,19 @@
                   href: insights/container-insights-overview.md
                 - name: Domande frequenti
                   href: insights/container-insights-faq.md
-                - name: Onboarding
-                  href: insights/container-insights-onboard.md
+                - name: Abilitare il monitoraggio
+                  items:
+                    - name: Abilitare il monitoraggio - Panoramica
+                      href: insights/container-insights-onboard.md
+                    - name: Abilitare per un nuovo cluster
+                      href: insights/container-insights-enable-new-cluster.md
+                    - name: Abilitare per un cluster esistente
+                      href: insights/container-insights-enable-existing-clusters.md
                 - name: Analizzare
                   href: insights/container-insights-analyze.md
                 - name: Disabilitare il monitoraggio
                   href: insights/container-insights-optout.md
-                - name: Visualizzare i log attivi dei contenitori
+                - name: Visualizzare i log in tempo reale
                   href: insights/container-insights-live-logs.md
                 - name: Analizzare i dati con le query sui log
                   href: insights/container-insights-log-search.md
@@ -585,8 +593,6 @@
               href: insights/containers.md
             - name: Monitorare applicazioni Docker
               href: app/docker.md
-            - name: Application Insights per Kubernetes
-              href: app/kubernetes.md
         - name: Monitorare i gruppi di risorse
           href: insights/resource-group-insights.md
         - name: Monitorare i database

@@ -79,37 +79,40 @@
       displayName: 'metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard'
 - name: Guide alle procedure
   items:
+    - name: Modificare la knowledge base
+      items:
+        - name: Modificare una Knowledge Base
+          href: How-To/edit-knowledge-base.md
+        - name: Creare conversazioni in più turni con prompt di follow-up
+          href: How-To/multiturn-conversation.md
+          displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'
+        - name: Aggiungere chit chat
+          href: How-to/chit-chat-knowledge-base.md
+        - name: Aggiungere un file di SharePoint protetto
+          href: How-To/add-sharepoint-datasources.md
+          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
     - name: Gestire la knowledge base
       items:
         - name: Creare e pubblicare una knowledge base
           href: Quickstarts/create-publish-knowledge-base.md
           displayName: 'create bot, bot, publish to bot, test, edit'
-        - name: Aggiungere chiacchiere a una knowledge base
-          href: How-to/chit-chat-knowledge-base.md
-        - name: Eseguire la migrazione di una knowledge base
-          href: Tutorials/migrate-knowledge-base.md
-        - name: Modificare una Knowledge Base
-          href: How-To/edit-knowledge-base.md
-          displayName: 'metadata, pair'
-        - name: Aggiungere un file di SharePoint protetto
-          href: How-To/add-sharepoint-datasources.md
-          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
-        - name: Collaborare a una knowledge base
-          href: How-To/collaborate-knowledge-base.md
+        - name: Ottenere la risposta
+          href: How-To/metadata-generateanswer-usage.md
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer'
+        - name: Creare un bot abilitato con knowledge base
+          href: Tutorials/integrate-qnamaker-luis.md
         - name: Creare una knowledge base in una lingua diversa
           href: How-To/language-knowledge-base.md
+        - name: Eseguire la migrazione di una knowledge base
+          href: Tutorials/migrate-knowledge-base.md
+          displayName: 'metadata, pair'
+        - name: Collaborare a una knowledge base
+          href: How-To/collaborate-knowledge-base.md
         - name: Testare una knowledge base
           href: How-To/test-knowledge-base.md
         - name: Usare l'apprendimento attivo per migliorare la knowledge base
           href: How-to/improve-knowledge-base.md
           displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning'
-    - name: Uso di una knowledge base
-      items:
-        - name: Usare metadati con l'API GenerateAnswer
-          href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters'
-        - name: Con un bot
-          href: Tutorials/integrate-qnamaker-luis.md
     - name: Gestire il servizio
       items:
         - name: Configurare un servizio QnA Maker
@@ -154,7 +157,7 @@
     - name: Esempi
       items:
         - name: Bot della Guida di QnA Maker
-          href: 'https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot'
+          href: 'https://aka.ms/qnamakerhelpbotsample'
     - name: SDK
       items:
         - name: 'C#'

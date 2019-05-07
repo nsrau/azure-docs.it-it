@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d4374b329049e2e55966a28567c5232be77abda
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c7d5d9421ec89f1d75723d3538ee9a73e56dc6a3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025422"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143032"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installare ed eseguire i contenitori Riconoscimento modulo
 Riconoscimento modulo applica la tecnologia di Machine Learning per identificare ed estrarre le coppie chiave-valore e le tabelle dai moduli, associando i valori e le voci della tabella e quindi restituendo dati strutturati che includono le relazioni nel file originale. È possibile chiamare il modello Riconoscimento modulo personalizzato usando una semplice API REST per ridurre la complessità e integrarlo facilmente nel processo di automazione del flusso di lavoro o in un'altra applicazione. Sono necessari solo cinque documenti (o un modulo vuoto) per ottenere risultati in modo rapido, accurato e su misura per il contenuto specifico, senza alcun intervento manuale impegnativo né competenze approfondite di data science. Non richiede l'assegnazione di etichette dati né l'annotazione dei dati.
@@ -34,7 +34,7 @@ Prima di usare i contenitori Riconoscimento modulo, è necessario soddisfare i p
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.|
 |Interfaccia della riga di comando di Azure| È necessario installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) nell'host.|
-|Risorsa API Visione artificiale| Per poter elaborare documenti e immagini digitalizzati, è obbligatoria una **Risorsa Visione artificiale** è obbligatorio. È possibile la funzionalità di **riconoscimento del testo** come risorsa di Azure (API REST o SDK) oppure come contenitore `cognitive-services-recognize-text`. Si applicano le normali tariffe di fatturazione. <br><br>È necessario passare la chiave e l'endpoint di fatturazione per la risorsa di Visione artificiale specifica (cloud di Azure o un contenitore di Servizi cognitivi). Usare questa chiave e l'endpoint di fatturazione come {COMPUTER_VISION_API_KEY} e {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Se si usa il **contenitore `cognitive-services-recognize-text`**, assicurarsi che:<br><br>* La chiave Visione artificiale per il contenitore Riconoscimento modulo sia quella specificata nel comando `docker run` di Visione artificiale per il contenitore `cognitive-services-recognize-text`.<br>* L'endpoint di fatturazione sia quello del contenitore, ad esempio `https://localhost:5000`. Se si usano insieme i contenitori Visione artificiale e Riconoscimento modulo sullo stesso host, non sarà possibile avviarli entrambi con la porta `5000` predefinita.  |  
+|Risorsa API Visione artificiale| Per poter elaborare documenti e immagini digitalizzati, è obbligatoria una **Risorsa Visione artificiale** è obbligatorio. È possibile accedere alla funzione di **riconoscimento del testo** come risorsa di Azure (API REST o SDK) o come [contenitore](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) `cognitive-services-recognize-text`. Si applicano le normali tariffe di fatturazione. <br><br>È necessario passare la chiave e l'endpoint di fatturazione per la risorsa di Visione artificiale specifica (cloud di Azure o un contenitore di Servizi cognitivi). Usare questa chiave e l'endpoint di fatturazione come {COMPUTER_VISION_API_KEY} e {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Se si usa il **contenitore `cognitive-services-recognize-text`**, assicurarsi che:<br><br>* La chiave Visione artificiale per il contenitore Riconoscimento modulo sia quella specificata nel comando `docker run` di Visione artificiale per il contenitore `cognitive-services-recognize-text`.<br>* L'endpoint di fatturazione sia quello del contenitore, ad esempio `https://localhost:5000`. Se si usano insieme i contenitori Visione artificiale e Riconoscimento modulo sullo stesso host, non sarà possibile avviarli entrambi con la porta `5000` predefinita.  |  
 |Risorsa Riconoscimento modulo |Per usare questi contenitori, è necessario avere:<br><br>Una risorsa di _Riconoscimento modulo_ di Azure per ottenere la chiave di fatturazione associata e l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine delle chiavi e della panoramica di **Riconoscimento modulo** nel portale di Azure e sono necessarie per avviare il contenitore.<br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è: `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
 
 ## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
@@ -65,13 +65,19 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 > [!Note]
 > I valori minimi e consigliati sono basati sui limiti di Docker e *non* sulle risorse del computer host.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Ottenere l'immagine del contenitore con `docker pull`
+## <a name="get-the-container-image-with-docker-pull-command"></a>Ottenere l'immagine del contenitore con il comando docker pull
 
 Sono disponibili le immagini del contenitore per il Riconoscimento modulo.
 
 | Contenitore | Repository |
 |-----------|------------|
 | cognitive-services-form-recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+
+Se si intende usare il ​​[contenitore](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) `cognitive-services-recognize-text` invece del servizio Riconoscimento modulo, usare il comando `docker pull` con il nome contenitore corretto: 
+
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
+```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 

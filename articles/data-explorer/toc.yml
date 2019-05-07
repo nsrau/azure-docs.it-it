@@ -66,6 +66,10 @@
       items:
         - name: Inserire dati di esempio
           href: ingest-sample-data.md
+    - name: Distribuire
+      items:
+        - name: Attività DevOps
+          href: devops.md
     - name: Eseguire query sui dati
       items:
         - name: Scrivere query
