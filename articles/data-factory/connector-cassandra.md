@@ -173,21 +173,21 @@ Quando si copiano dati da Cassandra, vengono usati i mapping seguenti tra i tipi
 
 | Tipo di dati di Cassandra | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| ASCII |string |
+| ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |BOOLEAN |
+| BOOLEAN |Boolean |
 | DECIMAL |Decimal |
-| DOUBLE |DOUBLE |
+| DOUBLE |Double |
 | FLOAT |Single |
-| INET |string |
+| INET |String |
 | INT |Int32 |
-| TEXT |string |
+| TEXT |String |
 | TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |string |
-| VARINT |DECIMAL |
+| VARCHAR |String |
+| VARINT |Decimal |
 
 > [!NOTE]
 > Per i tipi di raccolta (mappa, set, elenco e così via), vedere la sezione [Uso delle raccolte con una tabella virtuale](#work-with-collections-using-virtual-table) .
