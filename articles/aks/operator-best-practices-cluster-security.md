@@ -195,7 +195,7 @@ Per altre informazioni sugli aggiornamenti nel servizio Azure Container, vedere 
 
 ## <a name="process-node-updates-and-reboots-using-kured"></a>Elaborare gli aggiornamenti e i riavvii dei nodi tramite kured
 
-**Indicazioni sulle procedure consigliate** - Il servizio Azure Kubernetes scarica e installa automaticamente le correzioni per la sicurezza in ogni nodo del ruolo di lavoro, ma esegue il riavvio automaticamente se necessario. Usare `kured` per controllare i riavvii in sospeso, quindi isolare e svuotare il nodo per consentirne il riavvio e applicare gli aggiornamenti in modo che sia il più possibile protetto relativamente al sistema operativo.
+**Indicazioni sulle procedure consigliate** - Il servizio Azure Kubernetes scarica e installa automaticamente le correzioni per la sicurezza in ogni nodo del ruolo di lavoro, ma non esegue il riavvio automaticamente se necessario. Usare `kured` per controllare i riavvii in sospeso, quindi isolare e svuotare il nodo per consentirne il riavvio e applicare gli aggiornamenti in modo che sia il più possibile protetto relativamente al sistema operativo.
 
 Ogni sera i nodi AKS ricevono le patch di protezione disponibili tramite il canale di aggiornamento della distribuzione. Questo comportamento viene configurato automaticamente quando i nodi vengono distribuiti in un cluster AKS. Per ridurre al minimo le interruzioni del servizio e l'impatto sui carichi di lavoro in esecuzione, i nodi non vengono riavviati automaticamente se una patch di protezione o un aggiornamento del kernel lo richiede.
 
