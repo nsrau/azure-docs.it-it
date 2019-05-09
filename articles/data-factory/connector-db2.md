@@ -175,29 +175,29 @@ Quando si copiano dati da DB2, vengono usati i mapping seguenti tra i tipi di da
 |:--- |:--- |
 | BigInt |Int64 |
 | Binary |Byte[] |
-| BLOB |Byte[] |
-| Char |string |
-| Clob |string |
-| Data |Datetime |
-| DB2DynArray |string |
-| DbClob |string |
+| Blob |Byte[] |
+| Char |String |
+| Clob |String |
+| Date |Datetime |
+| DB2DynArray |String |
+| DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Graphic |string |
+| Graphic |String |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |string |
-| LongVarGraphic |string |
+| LongVarChar |String |
+| LongVarGraphic |String |
 | Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
-| Tempo |TimeSpan |
+| Time |TimeSpan |
 | Timestamp |DateTime |
 | VarBinary |Byte[] |
-| VarChar |string |
-| VarGraphic |string |
+| VarChar |String |
+| VarGraphic |String |
 | Xml |Byte[] |
 
 
