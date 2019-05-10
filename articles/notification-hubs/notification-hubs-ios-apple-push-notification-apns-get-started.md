@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 520d01327b5809d453bb777165899770ea4c130b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2793f64528baa2b9a84c671fc73bbe399e2387ea
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885034"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411607"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Esercitazione: Effettuare il push di notifiche alle app iOS con Hub di notifica di Azure
 
@@ -40,7 +40,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Inviare notifiche push di prova
 > * Verificare che l'app riceve le notifiche
 
-Il codice completo per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted). 
+Il codice completo per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 

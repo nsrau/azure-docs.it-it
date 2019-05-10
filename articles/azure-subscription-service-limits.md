@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: 8d7fa7bbb501675ee38ccc9183e981ce7bb714cf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cb0203e3413ab525d6885f23c5936c64e1bef189
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150317"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233697"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo, l'elenco verrà espanso e aggiornato per illustrare altri servizi.
@@ -127,9 +127,9 @@ I limiti seguenti si applicano quando si usa Azure Resource Manager e i gruppi d
 #### <a name="shared-image-gallery-limits"></a>I limiti di raccolta di immagini condivise
 
 Sono previsti limiti, per ogni sottoscrizione, per la distribuzione di risorse usando raccolte di immagini condivise:
-- 10 raccolte di immagini condivise, per ogni sottoscrizione per area
-- 200 definizioni di immagini, per ogni sottoscrizione per area
-- 2000 versionidi immagini, per ogni sottoscrizione per area
+- 100 raccolte di immagini condivise, per ogni sottoscrizione per area
+- 1.000 definizioni di immagini, per ogni sottoscrizione per area
+- 10.000 versioni dell'immagine, per ogni sottoscrizione per area
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Limiti dei set di scalabilità di macchine virtuali
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]

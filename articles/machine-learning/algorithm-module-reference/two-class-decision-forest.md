@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f3e7cab6e33fa9373095441685f6ecb04f1d91a5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 73b7822c56e2b07eeefdedce1bce6d410d110ebc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029371"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411495"
 ---
 # <a name="two-class-decision-forest-module"></a>Modulo Two-Class Decision Forest
 
@@ -46,7 +46,7 @@ In generale, gli alberi delle decisioni offrono molti vantaggi per le attività 
 
 Tuttavia, gli alberi delle decisioni semplici possibile overfitting sui dati e sono meno generalizzabile rispetto a insiemi di struttura ad albero.
 
-Per altre informazioni, vedere [foreste delle decisioni](http://go.microsoft.com/fwlink/?LinkId=403677).  
+Per altre informazioni, vedere [foreste delle decisioni](https://go.microsoft.com/fwlink/?LinkId=403677).  
 
 ## <a name="how-to-configure"></a>Come configurare
   

@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: cba01b5ad5c2cfea32f1faa6cb67c5ce7ee98fcd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 136141f5b598fd080edf3254fd01200f2742c763
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024910"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235826"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -63,7 +63,7 @@ In ogni automatizzato esperimento di machine learning, i dati viene pre-elaborat
 ### <a name="automatic-preprocessing-standard"></a>Automatic pre-elaborazione (standard)
 In ogni automatizzato esperimento di machine learning, i dati viene automaticamente ridimensionati o normalizzati offrono prestazioni adeguate per gli algoritmi.  Durante il training del modello, una delle seguenti tecniche scalano o normalizzano autonomamente verrà applicata a ogni modello.
 
-|Ridimensionamento&nbsp;&&nbsp;normalizzazione| DESCRIZIONE |
+|Ridimensionamento&nbsp;&&nbsp;normalizzazione| Descrizione |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardizzare funzionalità rimuovendo la media e ridimensionamento in base alla varianza unitaria  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Trasforma le funzionalità da ogni funzionalità per tale colonna minimo e massimo di ridimensionamento  |
@@ -90,7 +90,7 @@ Con Azure Machine Learning, è possibile usare ML automatizzati per compilare un
 ## <a name="automated-ml-across-microsoft"></a>Machine Learning automatizzati in Microsoft
 
 Automatizzati di Machine Learning è disponibile anche in altre soluzioni Microsoft, ad esempio:
-+ Nelle app .NET con Visual Studio e Visual Studio Code con [a ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet)
++ Nelle app .NET con Visual Studio e Visual Studio Code con [a ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)
 + [In HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), in cui la scalabilità orizzontale ML training automatizzate su Spark nei cluster HDInsight in parallelo. 
 + [In Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
 

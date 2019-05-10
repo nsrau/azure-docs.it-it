@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: aahi
-ms.openlocfilehash: 5dcec0d5f313b1c746c0674d0f9bf4d30ed19e5c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cc82e091ae4c033bda7f1d91c9aed36bb081de88
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026313"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233625"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installare ed eseguire i contenitori di rilevatore di anomalie
 
@@ -33,11 +33,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 È necessario soddisfare i prerequisiti seguenti prima di usare i contenitori di rilevatore di anomalie:
 
-|Obbligatoria|Scopo|
+|Obbligatorio|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|Risorsa di rilevamento anomalie |Per usare questi contenitori, è necessario disporre di:<br><br>Un' _rilevatore di anomalie_ risorse di Azure per ottenere la chiave di fatturazione associata e l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine di panoramica di rilevatore di anomalie e le chiavi del portale di Azure e sono necessari per avviare il contenitore.<br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è: `https://westus2.api.cognitive.microsoft.com`|
+|Risorsa di rilevamento anomalie |Per usare questi contenitori, è necessario avere:<br><br>Un' _rilevatore di anomalie_ risorse di Azure per ottenere la chiave di fatturazione associata e l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine di panoramica di rilevatore di anomalie e le chiavi del portale di Azure e sono necessari per avviare il contenitore.<br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è: `https://westus2.api.cognitive.microsoft.com`|
 
 ## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
 
@@ -49,18 +49,15 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="the-host-computer"></a>Computer host
 
-L'**host** è il computer che esegue il contenitore Docker. Può essere un computer nell'ambiente locale o un servizio di hosting Docker in Azure, tra cui:
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-* [Servizio Azure Kubernetes](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
-* [Istanze di Azure Container](https://docs.microsoft.com/container-instances/index.yml)
-* Cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](https://docs.microsoft.com/azure-stack/index.yml). Per altre informazioni, vedere [Deploy Kubernetes to Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md) (Distribuire Kubernetes in Azure Stack).
 <!--* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
 ### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
 
 La tabella seguente descrive i minimi e consigliati di core CPU e memoria da allocare per il contenitore di rilevatore di anomalie.
 
-| Query al secondo (query al secondo) | Minima | Consigliato |
+| Query al secondo (query al secondo) | Minima | Consigliati |
 |-----------|---------|-------------|
 | 10 QUERY AL SECONDO | 4 core, 1GB di memoria | 8 core 2GB di memoria |
 | 20 QUERY AL SECONDO | 8 core, 2GB di memoria | 16 core 4GB di memoria |
@@ -100,7 +97,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Il comando usa i parametri seguenti:
 
-| Placeholder | Value |
+| Segnaposto | Value |
 |-------------|-------|
 |{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore e è disponibile nella pagina chiavi di rilevamento delle anomalie del portale di Azure.  |
 |{BILLING_ENDPOINT_URI} | Il valore URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica di rilevatore di anomalie del portale di Azure.|
@@ -127,9 +124,9 @@ Questo comando:
 
 ### <a name="running-multiple-containers-on-the-same-host"></a>Esecuzione di più contenitori nello stesso host
 
-Se si prevede di eseguire più contenitori con porte esposte, assicurarsi di eseguire ciascun contenitore con una porta diversa. Ad esempio, eseguire il primo contenitore sulla porta 5000 e il secondo contenitore sulla porta 5001.
+Se si intende eseguire più contenitori con porte esposte, assicurarsi di eseguire ogni contenitore con una porta diversa. Eseguire ad esempio il primo contenitore sulla porta 5000 e il secondo sulla porta 5001.
 
-Sostituire il `<container-registry>` e `<container-name>` con i valori dei contenitori è utilizzare. Questi non è necessario essere il contenitore stesso. È possibile che il contenitore di rilevatore di anomalie e il contenitore di LUIS in esecuzione contemporaneamente nell'HOST oppure è possibile avere più contenitori di rilevatore di anomalie in esecuzione. 
+Sostituire `<container-registry>` e `<container-name>` con i valori dei contenitori usati. Questi non devono trovarsi necessariamente nello stesso contenitore. È possibile che il contenitore di rilevatore di anomalie e il contenitore di LUIS in esecuzione contemporaneamente nell'HOST oppure è possibile avere più contenitori di rilevatore di anomalie in esecuzione. 
 
 Eseguire il primo contenitore sulla porta 5000. 
 

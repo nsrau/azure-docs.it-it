@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911545"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234078"
 ---
 # <a name="azure-security-center-data-security"></a>Sicurezza dei dati nel Centro sicurezza di Azure
 Per consentire ai clienti di impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati correlati alla sicurezza, tra cui informazioni di configurazione, metadati, log eventi, file di dump di arresto anomalo del sistema e altro. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio.
@@ -46,12 +46,18 @@ Il Centro sicurezza di Azure analizza i dati provenienti dalle origini seguenti 
 
 **Aree di lavoro**: per le seguenti aree geografiche è specificata un'area di lavoro e i dati raccolti dalle macchine virtuali di Azure, inclusi i dump di arresto anomalo del sistema e alcuni tipi di dati di avviso, vengono archiviati nell'area di lavoro più vicina.
 
-| Area geografica VM                        | Area geografica area di lavoro |
-|-------------------------------|---------------|
-| Stati Uniti, Brasile, Canada | Stati Uniti |
-| Europa, Regno Unito        | Europa        |
-| Asia Pacifico, Giappone, India    | Asia/Pacifico  |
-| Australia                     | Australia     |
+| Area geografica VM                              | Area geografica area di lavoro |
+|-------------------------------------|---------------|
+| Stati Uniti, Brasile, Sudafrica | Stati Uniti |
+| Canada                              | Canada        |
+| Europa (escluso Regno Unito)   | Europa        |
+| Regno Unito                      | Regno Unito |
+| Asia orientale (escluso India, Giappone, Corea, Cina)   | Asia/Pacifico  |
+| Corea del Sud                              | Asia/Pacifico  |
+| India                               | India         |
+| Giappone                               | Giappone         |
+| Cina                               | Cina         |
+| Australia                           | Australia     |
 
 
 Gli snapshot del disco della VM vengono archiviati nello stesso account di archiviazione del disco della VM.

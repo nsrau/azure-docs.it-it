@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.date: 05/01/219
 ms.author: bwren
-ms.openlocfilehash: 53e24a6874a1e43b0de07893a6ace3a44b81d373
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454063"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234193"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importare i dati di log di monitoraggio di Azure in Power BI
 
@@ -60,7 +60,9 @@ Power BI Desktop è un'applicazione desktop che consente di creare set di dati e
 ## <a name="publish-to-power-bi"></a>Pubblicare in Power BI
 Quando si pubblica in Power BI, vengono creati un set di dati e un report.  Se si crea un report in Power BI Desktop, verrà pubblicato completo dei dati.  In caso contrario, verrà creato un report vuoto.  È possibile modificare il report in Power BI o crearne uno nuovo in base al set di dati ottenuto.
 
-1. Creare un report basato sui dati disponibili.  Se necessario, fare riferimento alla [documentazione di Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view).  Quando si è pronti per inviare il report a Power BI, fare clic su **Pubblica**.  Quando richiesto, selezionare una destinazione nell'account di Power BI.  A meno che non si abbia in mente una destinazione specifica, usare **Area di lavoro personale**.
+1. Creare un report basato sui dati disponibili.  Se necessario, fare riferimento alla [documentazione di Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view).  
+1. Quando si è pronti per inviare il report a Power BI, fare clic su **Pubblica**.  
+1. Quando richiesto, selezionare una destinazione nell'account di Power BI.  A meno che non si abbia in mente una destinazione specifica, usare **Area di lavoro personale**.
 
     ![Pubblicazione in Power BI Desktop](media/powerbi/desktop-publish.png)
 
@@ -70,7 +72,10 @@ Quando si pubblica in Power BI, vengono creati un set di dati e un report.  Se s
 ### <a name="configure-scheduled-refresh"></a>Configurare l'aggiornamento pianificato
 Il set di dati creato in Power BI avrà gli stessi dati precedentemente visualizzati in Power BI Desktop.  È necessario aggiornare il set di dati periodicamente per eseguire nuovamente la query e popolarlo con i dati più recenti da monitoraggio di Azure.  
 
-1. Fare clic sull'area di lavoro in cui è stato caricato il report e quindi selezionare il menu **Set di dati**. Selezionare il menu di scelta rapida accanto al nuovo set di dati e selezionare **Impostazioni**. In **Credenziali dell'origine dati** viene visualizzato un messaggio per indicare che le credenziali non sono valide.  Questo messaggio viene visualizzato perché non sono ancora state fornite le credenziali per il set di dati da usare quando vengono aggiornati i dati.  Fare clic su **Modifica credenziali** e specificare le credenziali con accesso all'area di lavoro di Log Analitica in Monitoraggio di Azure.
+1. Fare clic sull'area di lavoro in cui è stato caricato il report e quindi selezionare il menu **Set di dati**. 
+1. Selezionare il menu di scelta rapida accanto al nuovo set di dati e selezionare **Impostazioni**. 
+1. In **Credenziali dell'origine dati** viene visualizzato un messaggio per indicare che le credenziali non sono valide.  Questo messaggio viene visualizzato perché non sono ancora state fornite le credenziali per il set di dati da usare quando vengono aggiornati i dati.  
+1. Fare clic su **Modifica credenziali** e specificare le credenziali con accesso all'area di lavoro di Log Analitica in Monitoraggio di Azure. Se è necessaria l'autenticazione a due fattori, selezionare **OAuth2** per il **metodo di autenticazione** perché venga richiesto di eseguire l'accesso con le proprie credenziali.
 
     ![Pianificazione di Power BI](media/powerbi/powerbi-schedule.png)
 

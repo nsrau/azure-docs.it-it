@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925244"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411367"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
 
@@ -44,7 +44,7 @@ Il tipo di risoluzione dei nomi usato dipende dal modo in cui le risorse devono 
 | Risoluzione dei nomi di servizi e computer locali da istanze del ruolo o macchine virtuali in Azure. |Server DNS gestiti dal cliente (ad esempio, controller di dominio locale, controller di dominio di sola lettura locale o server DNS secondario sincronizzati con trasferimenti di zona). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
 | Risoluzione di nomi host di Azure da computer locali. |Inoltra le query a un server proxy DNS gestito dal cliente nella rete virtuale corrispondente. Il server proxy trasferisce le query ad Azure per la risoluzione. Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
 | DNS inversi per indirizzi IP interni. |[Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Non applicabile |
-| Risoluzione dei nomi tra macchine virtuali o istanze del ruolo situate in servizi cloud diversi e non in una rete virtuale. |Non applicabile Connettività tra macchine virtuali e istanze del ruolo in servizi cloud diversi non è supportata esternamente a una rete virtuale. |Non applicabile|
+| Risoluzione dei nomi tra macchine virtuali o istanze del ruolo situate in servizi cloud diversi e non in una rete virtuale. |Non applicabile. Connettività tra macchine virtuali e istanze del ruolo in servizi cloud diversi non è supportata esternamente a una rete virtuale. |Non applicabile|
 
 ## <a name="azure-provided-name-resolution"></a>Risoluzione dei nomi fornita da Azure
 
@@ -169,7 +169,7 @@ Se l'inoltro delle query ad Azure non soddisfa le esigenze specifiche, sarà nec
 * Essere protetta dagli accessi provenienti da Internet per attenuare i rischi rappresentati da agenti esterni.
 
 > [!NOTE]
-> Per ottenere prestazioni ottimali, quando si usano le macchine virtuali di Azure come server DNS è necessario disabilitare IPv6. È consigliabile assegnare un [indirizzo IP pubblico](virtual-network-public-ip-address.md) a ogni macchina virtuale del server DNS. Per altre analisi delle prestazioni e ottimizzazioni quando si usa Windows Server come proprio server DNS, vedere [Name resolution performance of a recursive Windows DNS Server 2012 R2](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) (Prestazioni di risoluzione dei nomi di un server DNS Windows 2012 R2).
+> Per ottenere prestazioni ottimali, quando si usano le macchine virtuali di Azure come server DNS è necessario disabilitare IPv6. È consigliabile assegnare un [indirizzo IP pubblico](virtual-network-public-ip-address.md) a ogni macchina virtuale del server DNS. Per altre analisi delle prestazioni e ottimizzazioni quando si usa Windows Server come proprio server DNS, vedere [Name resolution performance of a recursive Windows DNS Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) (Prestazioni di risoluzione dei nomi di un server DNS Windows 2012 R2).
 > 
 > 
 

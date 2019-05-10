@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0eeae1451e77d9000c87b1aff7ad73323e74f7ee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: be876b370cd476bee2af7d90a9f0433fd80de3b4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154116"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233688"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configurare le chiavi gestite dal cliente per la crittografia di archiviazione di Azure da PowerShell
 
@@ -75,7 +75,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 
 Per impostazione predefinita, la crittografia di archiviazione di Azure Usa chiavi gestite da Microsoft. In questo passaggio, configurare l'account di archiviazione di Azure per usare chiavi gestite dal cliente e specificare la chiave da associare all'account di archiviazione.
 
-Chiamare [Set-AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) per aggiornare le impostazioni di crittografia dell'account di archiviazione. Ricordarsi di sostituire i valori segnaposto racchiusi tra parentesi con i propri valori e di usare le variabili definite negli esempi precedenti.
+Chiamare [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) per aggiornare le impostazioni di crittografia dell'account di archiviazione. Ricordarsi di sostituire i valori segnaposto racchiusi tra parentesi con i propri valori e di usare le variabili definite negli esempi precedenti.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -88,7 +88,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 ## <a name="update-the-key-version"></a>Aggiornare la versione della chiave
 
-Quando si crea una nuova versione di una chiave, è necessario aggiornare l'account di archiviazione per usare la nuova versione. In primo luogo, chiamare [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) per ottenere la versione più recente della chiave. Quindi chiamare [Set-AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) per aggiornare le impostazioni di crittografia dell'account di archiviazione per usare la nuova versione della chiave, come illustrato nella sezione precedente.
+Quando si crea una nuova versione di una chiave, è necessario aggiornare l'account di archiviazione per usare la nuova versione. In primo luogo, chiamare [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) per ottenere la versione più recente della chiave. Quindi chiamare [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) per aggiornare le impostazioni di crittografia dell'account di archiviazione per usare la nuova versione della chiave, come illustrato nella sezione precedente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

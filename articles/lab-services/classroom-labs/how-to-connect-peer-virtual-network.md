@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 465352af52cbc84773e52782233065b3000921e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9b305beae1b385d4714e3a80e6843c7e76a4f60
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60695405"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411024"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>La connessione di rete del lab con una rete virtuale peer in Azure Lab Services 
 Questo articolo fornisce informazioni sul peering della rete lab con un'altra rete. 
@@ -33,7 +33,6 @@ Potrebbe essere necessario per la connessione di rete del lab con una rete virtu
 
 Alcune reti locali sono connesse alla rete virtuale di Azure sia attraverso [ExpressRoute](../../expressroute/expressroute-introduction.md) oppure [Gateway di rete virtuale](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Questi servizi devono essere impostati all'esterno di Azure Lab Services. Per altre informazioni sulla connessione di una rete locale ad Azure tramite ExpressRoute, vedere la [panoramica relativa a ExpressRoute]) (.. /expressroute/expressroute-Introduction.MD). Per la connettività da sito locale tramite un Gateway di rete virtuale, il gateway, rete virtuale specificata e l'account del lab deve essere tutti nella stessa area.
 
-
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurare al momento della creazione dell'account lab
 Durante la creazione di nuovi account lab, è possibile selezionare una rete virtuale esistente che mostra le **rete virtuale Peer** nell'elenco a discesa. Rete virtuale selezionata è connected(peered) per Lab creato con l'account del lab. Tutte le macchine virtuali nel lab che vengono creati dopo la creazione di questa modifica potrebbe avere accesso alle risorse nella rete virtuale con peering. 
 
@@ -44,15 +43,14 @@ Durante la creazione di nuovi account lab, è possibile selezionare una rete vir
 
 
 ## <a name="configure-after-the-lab-is-created"></a>Configurare dopo la creazione di lab
-La stessa proprietà può essere abilitata dal **configurazione Labs** scheda della finestra di **Account del Lab** pagina se è stata impostata una rete peer al momento della creazione dell'account lab. Modifiche apportate a questa impostazione si applica solo ai laboratori di creati dopo la modifica.
+La stessa proprietà può essere abilitata dal **configurazione Labs** scheda della finestra di **Account del Lab** pagina se è stata impostata una rete peer al momento della creazione dell'account lab. Modifiche apportate a questa impostazione si applica solo ai laboratori di creati dopo la modifica. Come si vede nella figura, è possibile abilitare o disabilitare **rete virtuale Peer** per Lab con l'account del lab. 
 
 ![Abilitare o disabilitare la VNet peering dopo aver creato il lab](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png) 
 
-Come si vede nella figura, è possibile abilitare o disabilitare **rete virtuale Peer** per Lab con l'account del lab. 
+Quando si seleziona una rete virtuale per il **rete virtuale Peer** campo, il **Consenti creatore di lab selezionare percorsi lab** opzione è disabilitata. È perché lab con l'account del lab deve essere nella stessa area come account del lab per consentirle di connettersi con le risorse nella rete virtuale peer. 
 
 > [!IMPORTANT]
 > Modifica di questa impostazione si applica solo ai laboratori creati dopo la modifica venga apportata, non per i lab esistenti. 
-
 
 
 ## <a name="next-steps"></a>Passaggi successivi

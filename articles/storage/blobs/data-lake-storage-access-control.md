@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 8fd73b1e0fcde6bcd69c7ce76b888d1adda37de4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939555"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233983"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -37,7 +37,7 @@ Mentre tramite le assegnazioni di ruolo RBAC è un meccanismo potente per contro
 Quando un'entità di sicurezza verrà concesse le autorizzazioni di dati RBAC tramite un [ruolo incorporato](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), o tramite un ruolo personalizzato, queste autorizzazioni vengono valutate per primi dell'autorizzazione di una richiesta. Se l'operazione richiesta è autorizzata da assegnazioni di RBAC dell'entità di sicurezza, quindi l'autorizzazione è risolti immediatamente e non altri vengono eseguiti controlli ACL. In alternativa, se l'entità di sicurezza non ha un'assegnazione di RBAC o operazione della richiesta non corrisponde l'autorizzazione assegnata, quindi ACL vengono eseguiti controlli per determinare se l'entità di sicurezza è autorizzato a eseguire l'operazione richiesta.
 
 > [!NOTE]
-> Se l'entità di sicurezza è stato assegnato il [i dati Blob di archiviazione]() assegnazione di ruolo predefinita proprietario, quindi l'entità di sicurezza viene considerato un *superuser* e viene concesso l'accesso completo a tutti di mutazione operazioni, inclusa l'impostazione del proprietario di una directory o file, nonché gli ACL per le directory e file per cui non sono il proprietario. L'accesso utente con privilegi avanzati è il solo modo autorizzato di cambiare il proprietario di una risorsa.
+> Se l'entità di sicurezza è stato assegnato l'assegnazione di ruolo predefiniti di proprietario dei dati di archiviazione Blob, quindi l'entità di sicurezza è considerata una *superuser* e viene concesso l'accesso completo a tutte le operazioni di mutazione, tra cui l'impostazione di proprietario di una directory o file, nonché gli ACL per le directory e file per cui non sono il proprietario. L'accesso utente con privilegi avanzati è il solo modo autorizzato di cambiare il proprietario di una risorsa.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Autenticazione chiave condivisa e firma di accesso condiviso (SAS)
 

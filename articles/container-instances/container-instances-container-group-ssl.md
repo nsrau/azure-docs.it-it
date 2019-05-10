@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 10c015a9aee4ed8be54805f7adaae5bb4b5c422f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 12de4ef31084d8ac8586c79ffe3d0a8e891727bf
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870388"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411390"
 ---
 # <a name="enable-an-ssl-endpoint-in-a-container-group"></a>Abilitare un endpoint SSL in un gruppo di contenitori
 
@@ -44,7 +44,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 
 Seguire le istruzioni per aggiungere le informazioni di identificazione. Nome comune immettere il nome host associato al certificato. Quando viene richiesta una password, premere INVIO senza digitare, per ignorare l'aggiunta di una password.
 
-Eseguire il comando seguente per creare il certificato autofirmato (file con estensione CRT) dalla richiesta di certificato. Ad esempio: 
+Eseguire il comando seguente per creare il certificato autofirmato (file con estensione CRT) dalla richiesta di certificato. Ad esempio:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
@@ -66,7 +66,7 @@ Nelle `location`, assicurarsi di impostare `proxy_pass` con la porta corretta pe
 
 ```console
 # nginx Configuration File
-# http://wiki.nginx.org/Configuration
+# https://wiki.nginx.org/Configuration
 
 # Run as a less privileged user for security reasons.
 user nginx;
@@ -128,7 +128,7 @@ http {
 
 ### <a name="base64-encode-secrets-and-configuration-file"></a>I segreti con codifica Base64 e file di configurazione
 
-Codifica Base64 del file di configurazione Nginx, il certificato SSL e la chiave SSL. Per configurare il contenitore Nginx è usare il contenuto codificato.
+Codifica Base64 del file di configurazione Nginx, il certificato SSL e la chiave SSL. Nella sezione successiva, immettere il contenuto codificato in un file YAML usato per distribuire il gruppo di contenitori.
 
 ```console
 cat nginx.conf | base64 -w 0 > base64-nginx.conf
@@ -148,7 +148,7 @@ Copiare il codice YAML seguente in un nuovo file denominato `deploy-aci.yaml`. I
 code deploy-aci.yaml
 ```
 
-Immettere il contenuto della codifica base 64 file dove indicato sotto `secret`. Durante la distribuzione, questi file vengono aggiunti a un [volume segreto](container-instances-volume-secret.md) nel gruppo di contenitori. In questo esempio, è montato il volume segreto per il contenitore Nginx.
+Immettere il contenuto della codifica base 64 file dove indicato sotto `secret`. Ad esempio, `cat` ogni file con codifica base64 per visualizzarne il contenuto. Durante la distribuzione, questi file vengono aggiunti a un [volume segreto](container-instances-volume-secret.md) nel gruppo di contenitori. In questo esempio, è montato il volume segreto per il contenitore Nginx.
 
 ```YAML
 api-version: 2018-10-01
@@ -181,9 +181,9 @@ properties:
           memoryInGB: 1.5
   volumes:
   - secret:
-      ssl.crt: <base64-ssl.crt>
-      ssl.key: <base64-ssl.key>
-      nginx.conf: <base64-nginx.conf>
+      ssl.crt: <Enter contents of base64-ssl.crt here>
+      ssl.key: <Enter contents of base64-ssl.key here>
+      nginx.conf: <Enter contents of base64-nginx.conf here>
     name: nginx-config
   ipAddress:
     ports:

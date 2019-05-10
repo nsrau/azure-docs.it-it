@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 1228c770799de37c85b8a48b1dc923ac8294eeca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773559"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233092"
 ---
 # <a name="configure-prerequisites"></a>Configurazione dei prerequisiti
 
@@ -39,8 +39,8 @@ Questa opzione è la più semplice, ma è limitata anche funzionalità di person
 - **Tipo di disco**: vengono usati dischi gestiti.
 - **Rete**: Supporto per rete nuovi o esistenti e l'intervallo CIDR personalizzato.
 - **NOMI COMUNI**: è possibile abilitare i nomi comuni.
-- **Metriche**: è possibile abilitare le metriche.
-- **Registrazione**: è possibile abilitare la registrazione.
+- **Metriche**: È possibile abilitare le metriche hawkular.
+- **Registrazione**: La registrazione EFK può essere abilitata.
 - **Provider di servizi cloud di Azure**: Abilitato per impostazione predefinita, può essere disabilitata.
 
 In alto a sinistra del portale di Azure, fare clic su **crea una risorsa**, immettere 'openshift container platform' nella casella di ricerca e premere INVIO.
@@ -81,7 +81,7 @@ Immettere i valori per i parametri di input e fare clic su **OK**.
 
 | Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
-| Prefisso del nome Cluster OCP | L'utente amministratore deve essere creato in tutte le istanze di macchina virtuale |
+| Prefisso del nome Cluster OCP | Prefisso usato per configurare i nomi host per tutti i nodi del cluster. Tra 1 e 20 caratteri |
 | Dimensioni del nodo master | Accettare la dimensione VM predefinito oppure fare clic su **modificare le dimensioni** per selezionare una dimensione di VM diversa.  Selezionare la dimensione della macchina virtuale appropriata per il carico di lavoro |
 | Dimensioni del nodo dell'infrastruttura | Accettare la dimensione VM predefinito oppure fare clic su **modificare le dimensioni** per selezionare una dimensione di VM diversa.  Selezionare la dimensione della macchina virtuale appropriata per il carico di lavoro |
 | Numero di nodi di applicazione | Accettare la dimensione VM predefinito oppure fare clic su **modificare le dimensioni** per selezionare una dimensione di VM diversa.  Selezionare la dimensione della macchina virtuale appropriata per il carico di lavoro |
@@ -90,7 +90,7 @@ Immettere i valori per i parametri di input e fare clic su **OK**.
 | Rete virtuale nuova o esistente | Creare una nuova rete virtuale (impostazione predefinita) o usare una rete virtuale esistente |
 | Scegli impostazioni CIDR predefinite o personalizzale intervallo IP (CIDR) | Accettare gli intervalli CIDR predefinito o selezionare **intervallo di indirizzi IP personalizzati** e immettere le informazioni personalizzate CIDR.  Le impostazioni predefinite creerà vNet con CIDR di 10.0.0.0/14, subnet master con 10.1.0.0/16, infrastrutture-subnet con 10.2.0.0/16 e una subnet di calcolo e di nomi comuni con 10.3.0.0/16 |
 | Nome gruppo di risorse dell'insieme di credenziali chiave | Il nome del gruppo di risorse che contiene l'insieme di credenziali chiave |
-| Nome dell'insieme di credenziali delle chiavi | Il nome dell'insieme di credenziali chiave che contiene la chiave privata con il ssh chiave privata.  Sono consentiti solo caratteri alfanumerici e trattini ed essere compresa tra 3 e 24 caratteri |
+| Nome insieme di credenziali delle chiavi | Il nome dell'insieme di credenziali chiave che contiene la chiave privata con il ssh chiave privata.  Sono consentiti solo caratteri alfanumerici e trattini ed essere compresa tra 3 e 24 caratteri |
 | Nome del segreto | Il nome del segreto che contiene il ssh chiave privata.  Sono consentiti solo caratteri alfanumerici e trattini |
 
    ![Pannello infrastruttura di offerta](media/openshift-marketplace-self-managed/ocp-inframain.png)  
@@ -173,7 +173,7 @@ Immettere i valori per i parametri di Input e fare clic su **OK**
    ![Offrono ulteriori cns installare](media/openshift-marketplace-self-managed/ocp-additionalcnsall.png)  
 <br>
 
-**Summary**
+**Riepilogo**
 
 La convalida viene eseguita in questa fase per controllare la quota di core è sufficiente distribuire il numero totale di macchine virtuali selezionate per il cluster.  Esaminare tutti i parametri che sono state immesse.  Se gli input sono accettabili, fare clic su **OK** per continuare.
 

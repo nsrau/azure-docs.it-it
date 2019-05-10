@@ -4,6 +4,8 @@
   items:
     - name: Che cos'è Analisi di flusso?
       href: stream-analytics-introduction.md
+    - name: Modelli di soluzioni end-to-end
+      href: stream-analytics-solution-patterns.md
 - name: Guide introduttive
   items:
     - name: Creare un processo - Portale di Azure
@@ -12,6 +14,8 @@
       href: stream-analytics-quick-create-powershell.md
     - name: Creare un processo - Visual Studio
       href: stream-analytics-quick-create-vs.md
+    - name: Creare un processo - Visual Studio Code
+      href: quick-create-vs-code.md
 - name: Esercitazioni
   items:
     - name: 1 - Creare/gestire un processo
@@ -143,7 +147,7 @@
           href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
         - name: Uso dell'API per i processi IoT Edge
           href: stream-analytics-cicd-api.md
-    - name: Strumenti di Visual Studio
+    - name: Visual Studio e VS Code
       items:
         - name: Installare gli strumenti
           href: stream-analytics-tools-for-visual-studio-install.md
@@ -159,6 +163,8 @@
           href: stream-analytics-tools-for-visual-studio-cicd.md
         - name: Scrivere una funzione .NET definita dall'utente per Edge
           href: stream-analytics-edge-csharp-udf-methods.md
+        - name: Esplorare Analisi di flusso in VS Code
+          href: vs-code-how-to.md
     - name: Risolvere problemi
       items:
         - name: Input

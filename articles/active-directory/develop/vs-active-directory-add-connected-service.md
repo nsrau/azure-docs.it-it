@@ -14,25 +14,25 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbef13d2e64a5d1b177d8232c5b6ef1e64a1da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9bea0a870a6ef0685f4f4bce5ad3b0d1ff1f616a
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250935"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414001"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Aggiunta di Azure Active Directory mediante servizi connessi in Visual Studio
 
 Tramite Azure Active Directory (Azure AD), è possibile supportare Single Sign-On (SSO) per le applicazioni Web ASP.NET MVC o l'autenticazione di Active Directory nei servizi Web API. Con l'autenticazione di Azure AD, gli utenti possono usare gli account di Azure Active Directory per connettersi alle applicazioni Web. I vantaggi dell'autenticazione AD Azure con l'API Web comprendono la protezione avanzata dei dati quando si espone un'API da un'applicazione web. Con Azure AD, non è necessario gestire un sistema di autenticazione distinto con la gestione di account e utente.
 
-Questo articolo e gli articoli correlati forniscono i dettagli dell'uso del servizio connesso di Visual Studio per Active Directory. Questa funzionalità è disponibile in Visual Studio 2017 e Visual Studio 2015.
+Questo articolo e gli articoli correlati forniscono i dettagli dell'uso del servizio connesso di Visual Studio per Active Directory. La funzionalità è disponibile in Visual Studio 2015 e versioni successive.
 
 Al momento, il servizio connesso di Active Directory non supporta applicazioni ASP.NET Core.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Account di Azure: se non si ha un account di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i vantaggi della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
-- **Visual Studio 2015** o versione successiva. [Scaricare Visual Studio 2017 ora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2015** o versione successiva. [Scarica subito Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Connettersi ad Azure Active Directory usando la finestra di dialogo dei servizi connessi
 

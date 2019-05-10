@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 2dd3b9f0d1d8d61b2311977774c8b0f7267caa9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331002"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65206644"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventi estesi nel database SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -197,7 +197,7 @@ La destinazione del **file evento** potrebbe subire una latenza di rete o errori
 - [Come usare l'archiviazione BLOB da .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREARE CREDENZIALI (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
 - [CREARE LA SESSIONE DI EVENTI (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
-- [Post del blog di Jonathan Kehayias sugli eventi estesi in Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+- [Post del blog di Jonathan Kehayias sugli eventi estesi in Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
 - La pagina Web *Aggiornamenti di Azure*, con visualizzazione limitata dal parametro ai soli aggiornamenti relativi al database SQL di Azure:

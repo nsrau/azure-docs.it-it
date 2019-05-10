@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615868"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232472"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Scenari di automazione per la fatturazione e la gestione dei costi
 
@@ -52,7 +52,7 @@ In questo articolo vengono elencati gli scenari comuni per la fatturazione e la 
 | Raccomandazioni di prenotazione |                           |                  |           X          |                  |                    |           |
 | Dettagli di prenotazione         |                           |                  |           X          |         X        |                    |           |
 | Riepiloghi di prenotazioni       |                           |                  |           X          |         X        |                    |           |
-| Dettagli sull'utilizzo               |             X             |         X        |           X          |         X        |          X         |     X     |
+| Dettagli utilizzo               |             X             |         X        |           X          |         X        |          X         |     X     |
 | Periodi di fatturazione             |             X             |         X        |           X          |         X        |                    |           |
 | Fatture                    |             X             |         X        |           X          |         X        |                    |           |
 | RateCard                    |             X             |                  |           X          |         X        |          X         |           |
@@ -85,9 +85,9 @@ I clienti con accesso Web diretto ed Enterprise possono usare tutte le API segue
 -   [API per i dati di utilizzo senza classificazione](/previous-versions/azure/reference/mt219003(v=azure.100)): ottenere informazioni non elaborate sull'utilizzo prima che Azure esegua qualsiasi misurazione/addebito.
 
 ### <a name="billing"></a>Fatturazione
--   [API per i periodi di fatturazione](https://docs.microsoft.com/rest/api/billing/billingperiods): determinare un periodo di fatturazione da analizzare, insieme agli ID fattura per il periodo. È possibile usare gli ID fattura con l'API Fatture.
+-   [API per i periodi di fatturazione](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): determinare un periodo di fatturazione da analizzare, insieme agli ID fattura per il periodo. È possibile usare gli ID fattura con l'API Fatture.
 
--   [API Fatture](https://docs.microsoft.com/rest/api/billing/invoices): ottenere l'URL di download di una fattura per un periodo di fatturazione in formato PDF.
+-   [API Fatture](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): ottenere l'URL di download di una fattura per un periodo di fatturazione in formato PDF.
 
 ### <a name="enterprise-consumption"></a>Consumo Enterprise
 Le API seguenti sono disponibili solo per i clienti Enterprise:
@@ -126,7 +126,7 @@ Queste API forniscono essenzialmente dati diversi:
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Qual è la differenza tra l'API di fatturazione e l'API Dettagli di utilizzo?
 Queste API forniscono una visualizzazione diversa degli stessi dati:
 
-- L'[API di fatturazione](https://docs.microsoft.com/rest/api/billing/invoices) è destinata solo ai clienti con accesso Web diretto. Fornisce un rollup mensile della fattura in base agli addebiti aggregati per ogni tipo di contatore. 
+- L'[API di fatturazione](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) è destinata solo ai clienti con accesso Web diretto. Fornisce un rollup mensile della fattura in base agli addebiti aggregati per ogni tipo di contatore. 
 
 - L'[API Dettagli sull'utilizzo](https://docs.microsoft.com/rest/api/consumption/usagedetails) fornisce una visualizzazione dettagliata dei record sull'utilizzo e sui costi per ogni giorno. Può essere usata sia dai clienti Enterprise che da quelli con accesso Web diretto.
 

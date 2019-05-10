@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073364"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232770"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -94,7 +94,7 @@ Le condivisioni file Premium (anteprima) vengono effettuato il provisioning basa
 
 In base ad approssimazioni ottimali, tutte le condivisioni possono essere potenziate fino a tre operazioni di I/O al secondo per ogni GiB di archiviazione di cui viene effettuato il provisioning per 60 minuti o più, a seconda della dimensione della condivisione. Le nuove condivisioni iniziano con il credito di burst totale in base alla capacità sottoposta a provisioning.
 
-È necessario eseguirne il provisioning di condivisioni in incrementi di 1 GiB. Dimensione minima è 100 GiB, dimensione successiva è 101 GIB e così via.
+È necessario eseguirne il provisioning di condivisioni in incrementi di 1 GiB. Dimensione minima è 100 GiB, dimensione successiva è 101 GiB e così via.
 
 > [!TIP]
 > Linea di base di IOPS = 1 * provisioning GiB. (Fino a un massimo di 100.000 IOPS).

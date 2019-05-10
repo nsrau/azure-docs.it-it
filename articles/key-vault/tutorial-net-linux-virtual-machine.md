@@ -2,19 +2,19 @@
 title: 'Esercitazione: Come usare Azure Key Vault con una macchina virtuale Linux di Azure in .NET - Azure Key Vault | Microsoft Docs'
 description: "Esercitazione: Configurare un'applicazione ASP.NET Core per la lettura di un segreto da un insieme di credenziali delle chiavi"
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 969213f4006aa842711459fed7a76d08a9d3ce37
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 88d06518c6cabe1f796dbdef6d954db83bc5ae28
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707062"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234012"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Esercitazione: Come usare Azure Key Vault con una macchina virtuale Linux di Azure in .NET
 

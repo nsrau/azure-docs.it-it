@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5ff1809886198f7f1e4f4b9c36f877ce61d512e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 10364d014431a500e7c38a02d47f432cd464feb6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029431"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411461"
 ---
 # <a name="multiclass-decision-forest-module"></a>Modulo multiclass Decision Forest
 
@@ -36,7 +36,7 @@ Gli alberi delle decisioni offrono molti vantaggi:
 + Eseguono selezione caratteristica integrata e la classificazione.
 + Sono resilienti in caso di funzionalità rumorose.
 
-Il classificatore delle foreste delle decisioni in Azure Machine Learning è costituito da un insieme di alberi delle decisioni. In generale, i modelli di insieme offrono una copertura e accuratezza rispetto a singoli alberi delle decisioni migliori. Per altre informazioni, vedere [algoritmo Microsoft Decision Trees](http://go.microsoft.com/fwlink/?LinkId=403677).
+Il classificatore delle foreste delle decisioni in Azure Machine Learning è costituito da un insieme di alberi delle decisioni. In generale, i modelli di insieme offrono una copertura e accuratezza rispetto a singoli alberi delle decisioni migliori. Per altre informazioni, vedere [algoritmo Microsoft Decision Trees](https://go.microsoft.com/fwlink/?LinkId=403677).
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>Jak nakonfigurovat Multiclass Decision Forest
 

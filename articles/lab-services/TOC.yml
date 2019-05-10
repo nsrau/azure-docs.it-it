@@ -64,26 +64,34 @@
   items:
     - name: Lab per le classi
       items:
-        - name: Gestire gli account Lab
-          href: classroom-labs/how-to-manage-lab-accounts.md
-        - name: Gestire i lab per le classi
-          href: classroom-labs/how-to-manage-classroom-labs.md
-        - name: Configurare e pubblicare modelli
-          href: classroom-labs/how-to-create-manage-template.md
-        - name: Configurare e controllare l'utilizzo
-          href: classroom-labs/how-to-configure-student-usage.md
-        - name: Accedere ai lab per le classi
-          href: classroom-labs/how-to-use-classroom-lab.md
-        - name: Creare e gestire pianificazioni
-          href: classroom-labs/how-to-create-schedules.md
-        - name: Creare un ambiente con più macchine virtuali all'interno di un modello di macchina virtuale
-          href: classroom-labs/how-to-enable-multi-vm-environment.md
-        - name: Connettere i lab a una rete virtuale peer
-          href: classroom-labs/how-to-connect-peer-virtual-network.md
-        - name: Collegare e usare una raccolta immagini condivisa
-          href: classroom-labs/how-to-use-shared-image-gallery.md
-        - name: Abilitare Connessione desktop remoto per Linux
-          href: classroom-labs/how-to-enable-remote-desktop-linux.md
+        - name: Creare e configurare account di lab
+          items:
+            - name: Creare e gestire account di lab
+              href: classroom-labs/how-to-manage-lab-accounts.md
+            - name: Configurare account di lab
+              href: classroom-labs/how-to-configure-lab-accounts.md
+            - name: Connettere i lab a una rete virtuale peer
+              href: classroom-labs/how-to-connect-peer-virtual-network.md
+            - name: Collegare o scollegare una raccolta immagini condivisa
+              href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
+        - name: 'Creare, configurare e usare i lab per le classi'
+          items:
+            - name: Creare e gestire i lab per le classi
+              href: classroom-labs/how-to-manage-classroom-labs.md
+            - name: Configurare e pubblicare modelli
+              href: classroom-labs/how-to-create-manage-template.md
+            - name: Configurare e controllare l'utilizzo
+              href: classroom-labs/how-to-configure-student-usage.md
+            - name: Accedere ai lab per le classi
+              href: classroom-labs/how-to-use-classroom-lab.md
+            - name: Creare e gestire pianificazioni
+              href: classroom-labs/how-to-create-schedules.md
+            - name: Creare un ambiente con più macchine virtuali all'interno di un modello di macchina virtuale
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
+            - name: Usare raccolta immagini condivisa
+              href: classroom-labs/how-to-use-shared-image-gallery.md
+            - name: Abilitare Connessione desktop remoto per Linux
+              href: classroom-labs/how-to-enable-remote-desktop-linux.md
     - name: DevTest Labs
       items:
         - name: Specificare il gruppo di risorse per le macchine virtuali del lab
@@ -166,12 +174,16 @@
               href: connect-environment-lab-virtual-network.md
             - name: Integrare gli ambienti nella pipeline di integrazione di CI/CD di Azure DevOps
               href: integrate-environments-devops-pipeline.md
+            - name: Usare servizi PaaS (Platform-as-a-Service)
+              href: use-paas-services.md
         - name: Proteggere l'accesso ai lab
           items:
             - name: Aggiungere proprietari e utenti del lab
               href: devtest-lab-add-devtest-user.md
             - name: Personalizzare le autorizzazioni con ruoli personalizzati
               href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+            - name: Automatizzare l'aggiunta di utenti del lab
+              href: automate-add-lab-user.md
         - name: Configurare un lab
           items:
             - name: Configurare criteri e pianificazioni

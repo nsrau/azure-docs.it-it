@@ -1,6 +1,6 @@
 ---
 title: Gli errori di creazione di pacchetti e l'origine di Azure Media Services | Microsoft Docs
-description: Questo argomento descrive gli errori che è possibile ricevere dal servizio di creazione di pacchetti di servizi multimediali di Azure.
+description: Questo argomento descrive gli errori che potrebbero ricevere dal servizio di Azure Media Services Endpoint di Streaming (Orgin).
 author: Juliako
 manager: femila
 editor: ''
@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: e30c51ff3526bb5ed193b65b3f36a64c552024ff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ebcda6026f79bc88df91471d8be88316ba57bfc6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204130"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411381"
 ---
-# <a name="media-services-packaging-errors"></a>Errori di creazione di pacchetti di servizi multimediali 
+# <a name="streaming-endpoint-origin-errors"></a>Gli errori dell'Endpoint (origine) di streaming 
 
-In questo argomento descrive gli errori che potrebbero ricevere da servizi multimediali di Azure [servizio di creazione pacchetti](streaming-endpoint-concept.md).
+In questo argomento descrive gli errori che potrebbero ricevere da servizi multimediali di Azure [servizio Endpoint di Streaming](streaming-endpoint-concept.md).
 
 ## <a name="400-bad-request"></a>400 - Richiesta non valida
 
@@ -48,7 +48,7 @@ La richiesta non è consentita per uno dei motivi seguenti:
 |MPE_ENC_ENCRYPTION_REQUIRED |0x8088021E |La crittografia è necessaria per il contenuto, criteri di distribuzione sono obbligatorio per il formato di output. |
 |MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY |0x8088024D |Crittografia non è impostata nelle impostazioni di criteri di recapito. |
 
-## <a name="404-not-found"></a>404 - Non trovato
+## <a name="404-not-found"></a>404 Non trovato
 
 L'operazione sta tentando di eseguire operazioni su una risorsa che non esiste più. Ad esempio, la risorsa potrebbe avere già stata eliminata.
 
@@ -194,7 +194,7 @@ Il server non è attualmente in grado di ricevere richieste. Questo errore può 
 |---|---|---|
 |MPE_STORAGE_SERVER_BUSY|0x808900E8|Errore di operazione di archiviazione, ha ricevuto l'errore sulla disponibilità del server HTTP 503.|
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire commenti e suggerimenti, ottenere gli aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 2ab8f272fc264f153144803be772d381c1780512
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143261"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235747"
 ---
 # <a name="sql-database-serverless-preview"></a>Senza server Database SQL (anteprima)
 
@@ -74,7 +74,7 @@ La tabella seguente confronta il livello di calcolo senza server con il livello 
 
 Il Database SQL senza server è attualmente supportata solo nel livello su hardware di generazione 5 nel modello di acquisto di Vcore per utilizzo generico.
 
-## <a name="autoscaling"></a>Scalabilità automatica
+## <a name="autoscaling"></a>Ridimensionamento automatico
 
 ### <a name="scaling-responsiveness"></a>Ridimensionamento della velocità di risposta
 
@@ -101,8 +101,8 @@ Autoresume viene attivato se una delle condizioni seguenti è vera in qualsiasi 
 
 |Funzionalità|Trigger Autoresume|
 |---|---|
-|Autenticazione e autorizzazione|Login|
-|Introduzione al rilevamento delle minacce|Abilitazione/disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o server<br>Modifica le impostazioni di rilevamento delle minacce a livello di database o server|
+|Autenticazione e autorizzazione|Accedi|
+|Rilevamento delle minacce|Abilitazione/disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o server<br>Modifica le impostazioni di rilevamento delle minacce a livello di database o server|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, l'eliminazione o la visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione di record di controllo.<br>L'aggiornamento o la visualizzazione di criteri di controllo|
 |Maschera dati|Aggiunta, modifica, eliminazione o visualizzando le regole di maschera dati|
@@ -227,7 +227,7 @@ Il pool di risorse utente è interna la maggior parte dei limiti di gestione ris
 
 ### <a name="metrics"></a>Metriche
 
-|Entità|Metrica|DESCRIZIONE|Unità|
+|Entità|Metrica|Descrizione|Unità|
 |---|---|---|---|
 |Pacchetto dell'App|app_cpu_percent|Percentuale del numero di Vcore usata dall'app rispetto al numero massimo di Vcore consentito per l'app.|Percentuale|
 |Pacchetto dell'App|app_cpu_billed|La quantità di calcolo fatturato per l'app durante il periodo di report. L'importo pagato durante questo periodo è il prodotto di questa metrica e il prezzo unitario di vCore.<br>Valori della metrica sono determinati da aggregare nel tempo il numero massimo di CPU usato e memoria utilizzati ogni secondo.<br>Se la quantità utilizzata è inferiore alla quantità minima effettuato il provisioning come set per il numero minimo di Vcore e memoria minima, viene fatturata la quantità minima di provisioning.  Per poter confrontare CPU con la memoria per la fatturazione, memoria verrà normalizzata in unità di Vcore ridimensionando la quantità di memoria in GB da 3 GB per ogni vCore.|vCore secondi|
