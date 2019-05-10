@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411331"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231339"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -59,7 +59,7 @@ Se la richiesta SAML non contiene un elemento per NameIDPolicy, Azure AD rilasce
 
 Dal **formato identificatore nome scegliere** elenco a discesa, è possibile selezionare una delle opzioni seguenti.
 
-| Formato NameID | DESCRIZIONE |
+| Formato NameID | Descrizione |
 |---------------|-------------|
 | **Default** | Azure AD Usa il formato di origine predefinito. |
 | **Persistente** | Azure AD userà persistente come formato di NameID. |
@@ -73,9 +73,9 @@ Per altre informazioni sull'attributo NameIDPolicy, vedere [protocollo SAML per 
 
 Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID). Si può scegliere fra le opzioni seguenti.
 
-| Name | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
-| Email | Indirizzo di posta elettronica dell'utente |
+| Posta | Indirizzo di posta elettronica dell'utente |
 | userprincipalName | Nome dell'entità utente (UPN) dell'utente |
 | onpremisessamaccount | Il nome dell'account SAM che è stato sincronizzato da Azure AD locale |
 | objectId | ObjectID dell'utente in Azure AD |
@@ -89,7 +89,7 @@ Per altre informazioni, vedere [tabella 3: I valori di ID validi per ogni origin
 
 È anche possibile usare le funzioni di trasformazioni di attestazioni.
 
-| Funzione | DESCRIZIONE |
+| Funzione | Descrizione |
 |----------|-------------|
 | **ExtractMailPrefix()** | Rimuove il suffisso del dominio dall'indirizzo di posta elettronica o il nome dell'entità utente. In questo modo viene estratta solo la prima parte del nome utente passata, ad esempio "joe_smith" anziché joe_smith@contoso.com. |
 | **Join()** | Aggiunge un attributo a un dominio verificato. Se il valore dell'ID utente selezionato ha un dominio, estrarrà il nome utente per accodare il dominio verificato selezionato. Ad esempio, se si seleziona l'indirizzo e-mail (joe_smith@contoso.com) come valore dell'ID utente e si seleziona contoso.onmicrosoft.com come dominio verificato, si avrà come risultato joe_smith@contoso.onmicrosoft.com. |
@@ -108,7 +108,7 @@ Per aggiungere attestazioni specifiche dell'applicazione:
 
 È anche possibile usare le funzioni di trasformazioni di attestazioni.
 
-| Funzione | DESCRIZIONE |
+| Funzione | Descrizione |
 |----------|-------------|
 | **ExtractMailPrefix()** | Rimuove il suffisso del dominio dall'indirizzo di posta elettronica o il nome dell'entità utente. In questo modo viene estratta solo la prima parte del nome utente passata, ad esempio "joe_smith" anziché joe_smith@contoso.com. |
 | **Join()** | Crea un nuovo valore unendo in join due attributi. Facoltativamente, è possibile usare un separatore tra i due attributi. |
@@ -116,7 +116,7 @@ Per aggiungere attestazioni specifiche dell'applicazione:
 | **ToUpper()** | Converte i caratteri dell'attributo selezionato in maiuscole. |
 | **Contains()** | Se l'input corrisponde al valore specificato, genera un attributo o una costante. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera generare un'attestazione in cui il valore è l'indirizzo di posta elettronica dell'utente, se contiene il dominio "@contoso.com", in caso contrario, si desidera restituire il nome dell'entità utente. A tale scopo, configurare i valori seguenti:<br/>*Parametro 1(input)*: User. email<br/>*Valore*: "@contoso.com"<br/>Il parametro 2 (output): User. email<br/>Parametro 3 (se non esiste alcuna corrispondenza di output): User. userPrincipalName |
 | **EndWith()** | Se l'input termina con il valore specificato, genera un attributo o una costante. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera generare un'attestazione in cui il valore è employeeid dell'utente se il valore employeeid termina con "000", in caso contrario, si desidera restituire un attributo di estensione. A tale scopo, configurare i valori seguenti:<br/>*Parametro 1(input)*: User. EmployeeID<br/>*Value*: "000"<br/>Il parametro 2 (output): User. EmployeeID<br/>Parametro 3 (se non esiste alcuna corrispondenza di output): user.extensionattribute1 |
-| **StartWith()** | Se l'input inizia con il valore specificato, genera un attributo o una costante. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera generare un'attestazione in cui il valore è employeeid dell'utente se il paese inizia con "US", in caso contrario, si desidera restituire un attributo di estensione. A tale scopo, configurare i valori seguenti:<br/>*Parametro 1(input)*: User. Country<br/>*Value*: "US"<br/>Il parametro 2 (output): User. EmployeeID<br/>Parametro 3 (se non esiste alcuna corrispondenza di output): user.extensionattribute1 |
+| **StartWith()** | Se l'input inizia con il valore specificato, genera un attributo o una costante. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera generare un'attestazione in cui il valore è employeeid dell'utente se il paese/regione inizia con "US", in caso contrario, si desidera restituire un attributo di estensione. A tale scopo, configurare i valori seguenti:<br/>*Parametro 1(input)*: User. Country<br/>*Value*: "US"<br/>Il parametro 2 (output): User. EmployeeID<br/>Parametro 3 (se non esiste alcuna corrispondenza di output): user.extensionattribute1 |
 | **Extract () - dopo la corrispondenza** | Restituisce la sottostringa dopo che corrisponde al valore specificato.<br/>Ad esempio, se il valore dell'input è "Finance_BSimon", il valore corrisponda è "Finance_", quindi l'output dell'attestazione è "BSimon". |
 | **Extract () - prima corrispondenza** | Restituisce la sottostringa fino a quando non corrisponde a quello specificato.<br/>Ad esempio, se il valore dell'input è "BSimon_US", il valore corrisponda è "_US", quindi l'output dell'attestazione è "BSimon". |
 | **Extract () - tra corrispondenza** | Restituisce la sottostringa fino a quando non corrisponde a quello specificato.<br/>Ad esempio, se il valore dell'input è "Finance_BSimon_US", il primo valore corrisponda è "Finance_", il secondo valore corrisponda è "_US", quindi l'output dell'attestazione è "BSimon". |

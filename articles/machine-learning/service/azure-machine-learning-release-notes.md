@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a355d18de875ad980e0c2b6c564d3379c2b90ee7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 186ecf055cdf7b10690fdb4cbc574778a841b85a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154295"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464802"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -42,6 +42,15 @@ Nel portale di Azure, è possibile:
 + Aggiunta della possibilità scaricare il file config. JSON dalla pagina di panoramica dell'area di lavoro del servizio Azure Machine Learning.
 + Supporta la creazione dell'area di lavoro di Machine Learning servizio dall'area di lavoro Azure Databricks 
 
+## <a name="2019-04-26"></a>2019-04-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1033"></a>Azure Machine Learning SDK per Python v1.0.33
++ **Nuove funzionalità**
+  + Il _Workspace.create_ metodo accetta ora le configurazioni cluster predefinite per i cluster CPU e GPU.
+  + Se la creazione dell'area di lavoro non riesce, vengono eliminate le risorse dipendenti.
+  + Basic è stato attivato dello SKU registro contenitori di Azure predefinito.
+  + Registro contenitori di Azure viene creato in modo differito, quando necessario per la creazione di immagine o esecuzione.
+  + Supporto per gli ambienti per le esecuzioni di training.
 
 ### <a name="notebook-virtual-machine"></a>Macchina virtuale di notebook 
 
@@ -299,7 +308,7 @@ Note: SDK Python di preparazione dei dati non sono più installerà `numpy` e `p
     - Istogramma
     - Grafico a barre in pila
     - Box plot
-    - Grafico a dispersione
+    - Tracciato a dispersione
     - Grafico a bolle
 + Il portale a questo punto genera in modo dinamico i report per gli esperimenti. Quando un utente invia un'esecuzione a un esperimento, verrà generato automaticamente un report contenente i grafici e le metriche registrate per consentire il confronto tra diverse esecuzioni. 
 

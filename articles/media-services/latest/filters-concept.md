@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 61b877c322fcd58472990c328beea2e309502bce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3a562f98635d581aa320fdbd59d05a0382f09606
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734576"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465535"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Definire filtri account e filtri asset  
 
@@ -26,7 +26,7 @@ Quando si distribuiscono contenuti ai clienti (eventi di Streaming Live o Video 
 
 I filtri sono regole lato server che consentono ai clienti di eseguire operazioni come: 
 
-- Riprodurre una sola sezione di un video (anziché il video intero). Ad esempio: 
+- Riprodurre una sola sezione di un video (anziché il video intero). Ad esempio:
   - Ridurre il manifesto in modo da mostrare solo una sottoclip di un evento live ("filtro di sottoclip") o
   - Tagliare l'inizio di un video ("trimming di un video").
 - Distribuire solo i rendering specificati e/o le tracce di lingua specificate, se supportate dal dispositivo usato per la riproduzione dei contenuti ("filtro di rendering"). 
@@ -55,7 +55,7 @@ A seconda dello scenario, decidere quale tipo di filtro è più adatto (asset o 
 
 Utilizzare le seguenti proprietà per descrivere i filtri. 
 
-|NOME|DESCRIZIONE|
+|NOME|Descrizione|
 |---|---|
 |firstQuality|La prima velocità in bit di qualità del filtro.|
 |presentationTimeRange|L’intervallo di tempo di presentazione. Questa proprietà viene utilizzata per filtrare i punti di inizio/fine del manifesto, la lunghezza della finestra di presentazione e la posizione iniziale live. <br/>Per altre informazioni, vedere [Intervallo di tempo di presentazione](#presentationtimerange).|
@@ -65,7 +65,7 @@ Utilizzare le seguenti proprietà per descrivere i filtri.
 
 Utilizzare questa proprietà con i **filtri asset**. Non è consigliabile impostare la proprietà per i **filtri account**.
 
-|NOME|DESCRIZIONE|
+|NOME|Descrizione|
 |---|---|
 |**endTimestamp**|È adatto per i video on demand (VoD).<br/>Per la presentazione Live Streaming, vengono automaticamente ignorato e applicato quando le entità finali di presentazione e il flusso diventa VoD.<br/>Si tratta di un valore long che rappresenta un punto finale assoluto della presentazione, arrotondato all'inizio GOP successivo più vicino. L'unità è il valore di scala cronologica, pertanto un endTimestamp di 1800000000 sarebbe per 3 minuti.<br/>Usare startTimestamp ed endTimestamp per tagliare i frammenti che saranno presente nella playlist del (manifesto).<br/>Ad esempio, startTimestamp = 40000000 ed endTimestamp = 100000000 utilizzando la scala cronologica predefinito genera una playlist contenente frammenti compresa tra 4 secondi e 10 secondi della presentazione VoD. Se un frammento attraversa il limite, l'intero frammento verrà incluso nel manifesto.|
 |**forceEndTimestamp**|Si applica allo Streaming Live.<br/>Indica se la proprietà endTimestamp deve essere presente. Se true, è necessario specificare endTimestamp o viene restituito un codice di richiesta non valida.<br/>Valori consentiti: false, true.|
@@ -80,7 +80,7 @@ Si specifica un elenco di track proprietà di condizioni di filtro (FilterTrackP
 
 Le condizioni delle proprietà di filtro indicano i tipi di brano, i valori (descritti nella tabella seguente) e le operazioni (Uguale, DiversoDa). 
 
-|NOME|DESCRIZIONE|
+|NOME|Descrizione|
 |---|---|
 |**Bitrate**|Usare la velocità in bit del brano per il filtro.<br/><br/>Il valore consigliato è un intervallo di velocità in bit, in bit al secondo. Ad esempio, "0-2427000".<br/><br/>Nota: anche se è possibile usare un valore di velocità in bit specifico, ad esempio 250000 (bit al secondo), questo approccio è sconsigliato, perché la velocità in bit esatta può variare da un asset a un altro.|
 |**FourCC**|Usare il valore FourCC del brano come filtro.<br/><br/>Il valore è il primo elemento di formato codec, come specificato in [RFC 6381](https://tools.ietf.org/html/rfc6381). Attualmente sono supportati i seguenti codec: <br/>Per i video: "avc1", "hev1", "hvc1"<br/>Per l’audio: "mp4a", "ec-3"<br/><br/>Per determinare i valori di FourCC per le tracce in un Asset, ottenere ed esaminare il file manifesto.|
@@ -90,7 +90,7 @@ Le condizioni delle proprietà di filtro indicano i tipi di brano, i valori (des
 
 ## <a name="associate-filters-with-streaming-locator"></a>Associare i filtri localizzatore di Streaming
 
-È possibile specificare un elenco di filtri di asset o account, si applica anche per il localizzatore di Streaming. Il [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) si applica questo elenco di filtri insieme a quelli del client specifica l'URL. Questa combinazione genera una [dyanamic manifesto](filters-dynamic-manifest-overview.md), basata su filtri nell'URL + filtri è specificare nel localizzatore di Streaming. È consigliabile usare questa funzionalità se si desidera applicare i filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
+È possibile specificare un elenco di filtri di asset o account, si applica anche per il localizzatore di Streaming. Il [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) si applica questo elenco di filtri insieme a quelli del client specifica l'URL. Questa combinazione genera una [manifesto dinamico](filters-dynamic-manifest-overview.md), basata su filtri nell'URL + filtri è specificare nel localizzatore di Streaming. È consigliabile usare questa funzionalità se si desidera applicare i filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
 
 ## <a name="definition-example"></a>Esempio di definizione
 

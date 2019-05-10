@@ -12,18 +12,18 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/23/2019
+ms.date: 04/24/2019
 ms.author: pepogors
-ms.openlocfilehash: a0174a5442de7a10e45e9dc2a2f43f5f401d1a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051d6b1129724ce4e8a67bde4e56ebe61cd832f3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803179"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231378"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Procedure consigliate per applicazioni e cluster di Azure Service Fabric
 
-Per gestire correttamente le applicazioni e i cluster di Azure Service Fabric, è caldamente consigliata l'esecuzione di alcune operazioni per ottimizzare l'affidabilità dell'ambiente di produzione. Eseguire le operazioni definite in questo documento e selezionare uno dei [modelli di cluster di Service Fabric di esempio di Azure](https://github.com/Azure-Samples/service-fabric-cluster-templates) per iniziare a progettare la soluzione di produzione o modificare il modello esistente in modo da incorporare queste procedure consigliate.
+Per gestire correttamente i cluster e applicazioni di Azure Service Fabric, sono presenti operazioni che è altamente consigliabile che eseguire per ottimizzare l'affidabilità dell'ambiente di produzione; . eseguire le operazioni definite in questo documento e selezionare uno dei nostri [modelli di Cluster di Service Fabric di Azure esempi](https://github.com/Azure-Samples/service-fabric-cluster-templates) per iniziare a progettare la soluzione di produzione o modificare il modello esistente in modo da incorporare queste procedure consigliate.
 
 ## <a name="security"></a>Security 
 
@@ -45,6 +45,10 @@ Per gestire correttamente le applicazioni e i cluster di Azure Service Fabric, �
 ## <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
 
 * [Procedure consigliate per monitoraggio e diagnostica del cluster](service-fabric-best-practices-monitoring.md)
+
+## <a name="application-design"></a>Progettazione di applicazioni
+
+* [Le procedure consigliate per la progettazione di applicazioni](service-fabric-best-practices-applications.md)
 
 ## <a name="checklist"></a>Elenco di controllo
 

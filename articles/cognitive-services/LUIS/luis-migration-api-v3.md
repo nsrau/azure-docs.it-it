@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d0b5537f31edf330b54b91ddf7268338df0c0a6b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6412f0a2e295a19f741c70e7870a4d198ee03b71
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148266"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233542"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Anteprima: Eseguire la migrazione alla versione dell'API 3.x per le app LUIS
 
@@ -43,10 +43,6 @@ Sono le seguenti funzionalità di LUIS **non è supportato** nell'API V3:
 * V7 di controllo ortografico Bing
 
 [Documentazione di riferimento](https://aka.ms/luis-api-v3) è disponibile per V3.
-
-## <a name="prebuilt-domains-with-new-models-and-language-coverage"></a>Domini predefiniti con i nuovi modelli e copertura delle lingue
-
-Rivedere le [elenco API V3 di domini predefiniti](luis-reference-prebuilt-domains.md). I domini non siano più completi, sia nel modello e la copertura delle lingue. 
 
 ## <a name="prebuilt-entities-with-new-json"></a>Entità predefinite con nuovo JSON
 

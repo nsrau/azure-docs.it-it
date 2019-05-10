@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Eseguire operazioni sulle immagini - Java'
+title: Eseguire operazioni sulle immagini - Java
 titlesuffix: Azure Cognitive Services
 description: In questa esercitazione si esamina un'app Swing Java di base che usa l'API Visione artificiale in Servizi cognitivi di Azure. Si effettua il riconoscimento ottico dei caratteri (OCR), si creano anteprime e si usano le caratteristiche visive in un'immagine.
 services: cognitive-services
@@ -7,18 +7,18 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
+ms.topic: conceptual
 ms.author: kefre
 ms.custom: seodec18
-ms.date: 09/21/2017
-ms.openlocfilehash: 4f6af31ba6b04ddbecb7cb42cebe345b6af720ac
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 04/30/2019
+ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868090"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232624"
 ---
-# <a name="tutorial-computer-vision-api-java"></a>Esercitazione: API Visione artificiale in Java
+# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Usare le funzionalità di visione artificiale con l'API REST e Java
 
 Questa esercitazione illustra le funzionalità dell'API REST Visione artificiale di Servizi cognitivi di Azure.
 
@@ -34,7 +34,7 @@ Questa esercitazione illustra come usare Visione artificiale per:
 > * Leggere testo stampato in un'immagine
 > * Leggere testo scritto a mano in un'immagine
 
-L'applicazione Swing Java è già stata scritta, ma non include alcuna funzionalità. In questa esercitazione si aggiunge codice specifico dell'API REST Visione artificiale per completare le funzionalità dell'applicazione.
+L'applicazione di form Swing Java è già stato scritto, ma non presenta alcuna funzionalità. In questa esercitazione si aggiunge codice specifico dell'API REST Visione artificiale per completare le funzionalità dell'applicazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -42,13 +42,13 @@ L'applicazione Swing Java è già stata scritta, ma non include alcuna funzional
 
 Questa esercitazione è stata sviluppata usando l'ambiente di sviluppo integrato NetBeans, nello specifico la versione **Java SE** di NetBeans, che può essere [scaricata qui](https://netbeans.org/downloads/index.html).
 
-### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Effettuare la sottoscrizione dell'API Visione artificiale e ottenere una chiave di sottoscrizione 
+### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Effettuare la sottoscrizione dell'API Visione artificiale e ottenere una chiave di sottoscrizione
 
-Prima di creare l'esempio, è necessario effettuare la sottoscrizione dell'API Visione artificiale, che fa parte di Servizi cognitivi di Azure. Per informazioni dettagliate sulla sottoscrizione e sulla gestione delle chiavi, vedere [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/). In questa esercitazione è possibile usare sia la chiave primaria sia quella secondaria. 
+Prima di creare l'esempio, è necessario sottoscrivere API visione artificiale che fa parte di servizi cognitivi di Azure. Per informazioni dettagliate sulla sottoscrizione e sulla gestione delle chiavi, vedere [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/). In questa esercitazione è possibile usare sia la chiave primaria sia quella secondaria.
 
-## <a name="acquire-the-incomplete-tutorial-project"></a>Acquisire il progetto dell'esercitazione incompleto
+## <a name="acquire-incomplete-tutorial-project"></a>Acquisizione progetto esercitazione incompleto
 
-### <a name="download-the-tutorial-project"></a>Scaricare il progetto dell'esercitazione
+### <a name="download-the-project"></a>Scaricare il progetto
 
 1. Passare al repository [Cognitive Services Java Computer Vision Tutorial](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial) (Esercitazione in Java su Visione artificiale di Servizi cognitivi).
 1. Fare clic sul pulsante **Clone or download** (Clona o scarica).
@@ -78,7 +78,7 @@ Importare il file **cognitive-services-java-computer-vision-tutorial-master.zip*
 
 1. Chiudere l'applicazione dell'esercitazione.
 
-## <a name="add-the-tutorial-code-to-the-project"></a>Aggiungere il codice dell'esercitazione al progetto
+## <a name="add-tutorial-code-to-the-project"></a>Aggiungere codice per l'esercitazione al progetto
 
 L'applicazione Swing Java è configurata con sei schede. Ogni scheda illustra una funzione diversa di Visione artificiale (analisi, OCR e così via). Le sei sezioni dell'esercitazione non sono interdipendenti, quindi è possibile aggiungere un'unica sezione, tutte e sei le sezioni oppure un qualsiasi subset di queste. È possibile aggiungere le sezioni in qualsiasi ordine.
 
@@ -88,7 +88,7 @@ La funzionalità di analisi di Visione artificiale analizza un'immagine cercando
 
 Per completare la funzionalità di analisi dell'applicazione dell'esercitazione, procedere come segue:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Aggiungere il codice del gestore dell'evento per il pulsante del modulo
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Aggiungere il codice del gestore eventi per il pulsante per l'analisi
 
 Il metodo del gestore dell'evento **analyzeImageButtonActionPerformed** cancella il modulo, visualizza l'immagine specificata nell'URL e quindi chiama il metodo **AnalyzeImage** per analizzare l'immagine. Quando viene restituito il risultato di **AnalyzeImage**, il metodo visualizza la risposta in formato JSON nell'area di testo **Response** (Risposta), estrae la prima didascalia da **JSONObject** e visualizza la didascalia e il livello di attendibilità relativo alla correttezza della didascalia.
 
@@ -202,7 +202,7 @@ Copiare e incollare il metodo**AnalyzeImage** subito sotto il metodo **analyzeIm
     }
  ```
 
-#### <a name="run-the-application"></a>Eseguire l'applicazione
+#### <a name="run-the-analyze-function"></a>Eseguire la funzione di analisi
 
 Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Immettere un URL di un'immagine da analizzare, quindi fare clic sul pulsante **Analyze Image** (Analizza immagine) per analizzare un'immagine e visualizzare il risultato.
 
@@ -326,7 +326,7 @@ Copiare e incollare il metodo**LandmarkImage** subito sotto il metodo **landmark
     }
 ```
 
-#### <a name="run-the-application"></a>Eseguire l'applicazione
+#### <a name="run-the-landmark-function"></a>Eseguire la funzione luoghi di interesse
 
 Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Fare clic sulla scheda **Landmark** (Luogo di interesse), immettere l'URL di un'immagine di un luogo di interesse, quindi fare clic sul pulsante **Analyze Image** (Analizza immagine) per analizzare l'immagine e visualizzare il risultato.
 
@@ -336,7 +336,7 @@ La funzionalità relativa alle celebrità di Visione artificiale analizza un'imm
 
 Per completare la funzionalità relativa alle celebrità dell'applicazione dell'esercitazione, procedere come segue:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Aggiungere il codice del gestore dell'evento per il pulsante del modulo
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Aggiungere il codice del gestore eventi per il pulsante celebrità
 
 Il metodo del gestore dell'evento **celebritiesImageButtonActionPerformed** cancella il modulo, visualizza l'immagine specificata nell'URL e quindi chiama il metodo **CelebritiesImage** per analizzare l'immagine. Quando viene restituito il risultato di **CelebritiesImage**, il metodo visualizza la risposta in formato JSON nell'area di testo **Response** (Risposta), quindi estrae il nome della prima celebrità da **JSONObject** e lo visualizza nella finestra insieme al livello di attendibilità relativo alla corretta identificazione della celebrità.
 
@@ -450,7 +450,7 @@ Copiare e incollare il metodo**CelebritiesImage** subito sotto il metodo **celeb
     }
 ```
 
-#### <a name="run-the-application"></a>Eseguire l'applicazione
+#### <a name="run-the-celebrities-function"></a>Eseguire la funzione celebrità
 
 Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Fare clic sulla scheda **Celebrities** (Celebrità), immettere l'URL di un'immagine di una celebrità, quindi fare clic sul pulsante **Analyze Image** (Analizza immagine) per analizzare l'immagine e visualizzare il risultato.
 
@@ -460,7 +460,7 @@ La funzionalità di anteprima di Visione artificiale genera un'anteprima da un'i
 
 Per completare la funzionalità di anteprima dell'applicazione dell'esercitazione, procedere come segue:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Aggiungere il codice del gestore dell'evento per il pulsante del modulo
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Aggiungere il codice del gestore eventi per il pulsante dell'anteprima
 
 Il metodo del gestore dell'evento **thumbnailImageButtonActionPerformed** cancella il modulo, visualizza l'immagine specificata nell'URL e quindi chiama il metodo **getThumbnailImage** per creare l'anteprima. Quando viene restituito il risultato di **getThumbnailImage**, il metodo visualizza l'anteprima generata.
 
@@ -573,7 +573,7 @@ Copiare e incollare il metodo **getThumbnailImage** seguente subito sotto il met
     }
 ```
 
-#### <a name="run-the-application"></a>Eseguire l'applicazione
+#### <a name="run-the-thumbnail-function"></a>Eseguire la funzione di anteprima
 
 Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Fare clic sulla scheda **Thumbnail** (Anteprima), immettere un URL di un'immagine, quindi fare clic sul pulsante **Generate Thumbnails** (Genera anteprime) per analizzare l'immagine e visualizzare il risultato.
 
@@ -583,7 +583,7 @@ La funzionalità di riconoscimento ottico dei caratteri (OCR) di Visione artific
 
 Per completare la funzionalità OCR dell'applicazione dell'esercitazione, procedere come segue:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Aggiungere il codice del gestore dell'evento per il pulsante del modulo
+#### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Aggiungere il codice del gestore eventi per il pulsante OCR
 
 Il metodo del gestore dell'evento **ocrImageButtonActionPerformed** cancella il modulo, visualizza l'immagine specificata nell'URL e quindi chiama il metodo **OcrImage** per analizzare l'immagine. Quando viene restituito il risultato di **OcrImage**, il metodo visualizza il testo rilevato in formato JSON nell'area di testo **Response** (Risposta).
 
@@ -684,7 +684,7 @@ Copiare e incollare il metodo**OcrImage** subito sotto il metodo **ocrImageButto
     }
 ```
 
-#### <a name="run-the-application"></a>Eseguire l'applicazione
+#### <a name="run-the-ocr-function"></a>Eseguire la funzione di OCR
 
 Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Fare clic sulla scheda **OCR**, immettere l'URL di un'immagine di testo stampato, quindi fare clic sul pulsante **Read Image** (Leggi immagine) per analizzare l'immagine e visualizzare il risultato.
 
@@ -694,7 +694,7 @@ La funzionalità di riconoscimento della grafia di Visione artificiale analizza 
 
 Per completare la funzionalità di riconoscimento della grafia dell'applicazione dell'esercitazione, procedere come segue:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Aggiungere il codice del gestore dell'evento per il pulsante del modulo
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Aggiungere il codice del gestore eventi per il pulsante di riconoscimento della grafia
 
 Il metodo del gestore dell'evento **handwritingImageButtonActionPerformed** cancella il modulo, visualizza l'immagine specificata nell'URL e quindi chiama il metodo **HandwritingImage** per analizzare l'immagine. Quando viene restituito il risultato di **HandwritingImage**, il metodo visualizza il testo rilevato in formato JSON nell'area di testo **Response** (Risposta).
 
@@ -842,11 +842,12 @@ Copiare e incollare il metodo**HandwritingImage** subito sotto il metodo **handw
     }
 ```
 
-#### <a name="run-the-application"></a>Eseguire l'applicazione
+#### <a name="run-the-handwriting-function"></a>Eseguire la funzione di riconoscimento della grafia
 
 Per eseguire l'applicazione, premere **F6**. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Fare clic sulla scheda **Read Handwritten Text** (Leggi testo scritto a mano), immettere l'URL di un'immagine di testo scritto a mano, quindi fare clic sul pulsante **Read Image** (Leggi immagine) per analizzare l'immagine e visualizzare il risultato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione in C&#35; dell'API Visione artificiale](CSharpTutorial.md)
-- [Esercitazione per Python dell'API Visione artificiale](PythonTutorial.md)
+In questa Guida, l'API REST di visione artificiale con Java è usato per testare molte delle funzionalità di analisi immagine disponibile. Successivamente, vedere la documentazione di riferimento per altre che informazioni sulle API coinvolti.
+
+- [REST API visione artificiale](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

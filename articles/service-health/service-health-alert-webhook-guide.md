@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 69b142cd46c006e562218c949fb450864589a661
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ccddb1ffd86ce95b1ca5563de2f4b04c41d5737d
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622159"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442432"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurare le notifiche di integrità per i sistemi di gestione dei problemi esistenti usando un webhook
 
@@ -26,6 +26,10 @@ Se si desidera usare una funzionalità di integrazione preconfigurata, vedere la
 * [Configurare avvisi con ServiceNow](service-health-alert-webhook-servicenow.md)
 * [Configurare avvisi con PagerDuty](service-health-alert-webhook-pagerduty.md)
 * [Configurare avvisi con OpsGenie](service-health-alert-webhook-opsgenie.md)
+
+### <a name="watch-an-introductory-video"></a>Guardare un video introduttivo
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUV]
 
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Configurazione di una notifica personalizzata usando il payload di webhook di integrità del servizio
 Se si desidera configurare una propria integrazione di webhook personalizzata, è necessario analizzare il payload JSON che viene inviato durante le notifiche di integrità del servizio.

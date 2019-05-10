@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d80f58215b1a8f1b93db158cd2f47186ba6354a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5b87e452b0c79ae9cdc1d7f9f391a611dceda2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443413"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231509"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerazioni relative alla topologia di rete quando si usa il proxy applicazione di Azure Active Directory
 
@@ -39,7 +39,7 @@ Quando un'applicazione viene pubblicata tramite il proxy applicazione di Azure A
 
 ## <a name="tenant-location-and-application-proxy-service"></a>Località del tenant e servizio proxy applicazione
 
-Al momento dell'iscrizione a un tenant di Azure AD, l'area del tenant è determinata dal paese che si specifica. Quando si abilita il proxy di applicazione, le istanze del servizio proxy di applicazione per il tenant vengono scelte o create nella stessa area del tenant di Azure AD o nell'area più vicina.
+Quando effettua l'iscrizione per un tenant di Azure AD, l'area del tenant è determinata dal paese/area geografica che si specifica. Quando si abilita il proxy di applicazione, le istanze del servizio proxy di applicazione per il tenant vengono scelte o create nella stessa area del tenant di Azure AD o nell'area più vicina.
 
 Ad esempio, se il paese o l'area geografica del tenant di Azure AD è il Regno Unito, tutti i connettori proxy di applicazione usano le istanze del servizio nei data center in Europa. Quando gli utenti accedono alle applicazioni pubblicate, il traffico passa attraverso le istanze del servizio proxy applicazione in questa località.
 
@@ -78,7 +78,7 @@ Se è presente un collegamento VPN o ExpressRoute dedicato tra Azure e la rete a
 
 ## <a name="focus-your-optimization-strategy"></a>Individuare la migliore strategia di ottimizzazione
 
-Non si può fare molto per controllare la connessione tra gli utenti e il servizio proxy di applicazione, poiché gli utenti possono accedere alle applicazioni da una rete domestica, un bar o un paese diverso. È possibile invece ottimizzare le connessioni dal servizio proxy di applicazione ai connettori del proxy di applicazione e alle app. È consigliabile incorporare i modelli seguenti nell'ambiente in uso.
+Non si può fare molto per controllare la connessione tra gli utenti e il servizio proxy di applicazione, Gli utenti possono accedere alle applicazioni da una rete domestica, un bar o da un paese/area geografica diverso. È possibile invece ottimizzare le connessioni dal servizio proxy di applicazione ai connettori del proxy di applicazione e alle app. È consigliabile incorporare i modelli seguenti nell'ambiente in uso.
 
 ### <a name="pattern-1-put-the-connector-close-to-the-application"></a>Modello 1: Inserire il connettore vicino all'applicazione
 

@@ -40,6 +40,9 @@
     - name: Usare procedure di distribuzione sicure
       displayName: adm
       href: deployment-manager-tutorial.md
+    - name: Usare il controllo integrità in Deployment Manager
+      displayName: adm
+      href: deployment-manager-tutorial-health-check.md
     - name: Risoluzione dei problemi relativi alla distribuzione di modelli
       href: resource-manager-tutorial-troubleshoot.md
 - name: Esempi
@@ -62,6 +65,9 @@
     - name: Deployment Manager
       displayName: adm
       href: deployment-manager-overview.md
+    - name: Controllo integrità di Deployment Manager
+      displayName: adm
+      href: deployment-manager-health-check.md
     - name: Modalità di distribuzione
       href: deployment-modes.md
     - name: Eliminazione delle risorse

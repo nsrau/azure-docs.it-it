@@ -14,19 +14,19 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0749e1acba9f13f9e0e95dfc66f9cf818c752cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334778"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230058"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurare l'account per la verifica in due passaggi
 La verifica in due passaggi è un livello di sicurezza aggiuntiva che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti. Se si sta leggendo questo articolo, probabilmente è stato ricevuto un messaggio di posta elettronica su Multi-Factor Authentication inviato dall'amministratore dell'azienda o dell'istituto di istruzione. In alternativa, si è tentato di eseguire l'accesso ed è stato ricevuto un messaggio in cui viene chiesto di configurare una verifica aggiuntiva di sicurezza. In questo caso, **non è possibile accedere fino al completamento del processo di registrazione automatica**.
 
 Questo articolo consente di configurare l'**account aziendale o dell'istituto di istruzione**. Se si vuole abilitare la verifica in due passaggi di un account Microsoft personale, vedere [Informazioni sulla verifica in due passaggi](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
-## <a name="set-up-your-account"></a>Configurare l'account
+## <a name="set-up-your-account"></a>Configura l'account
 
 Quando il supporto tecnico dell'azienda richiede all'utente di iniziare a usare la verifica in due passaggi, verrà visualizzata una schermata con l'indicazione **L'amministratore ha richiesto la configurazione di questo account per un'altra verifica della sicurezza**:
 
@@ -40,7 +40,7 @@ Se all'accesso non viene visualizzata una schermata simile alla seguente, seguir
 
 La prima domanda posta nel processo di registrazione è relativa alla modalità di contatto desiderata. Esaminare le opzioni nella tabella e passare alla procedura di configurazione per ogni metodo tramite i collegamenti.
 
-| Metodo di contatto | DESCRIZIONE |
+| Metodo di contatto | Descrizione |
 | --- | --- |
 | [App per dispositivi mobili](#use-a-mobile-app-as-the-contact-method) |- **Ricevi notifiche per la verifica.** Questa opzione invia una notifica all'app di autenticazione sul tablet o lo smartphone. Visualizzare la notifica e, se del caso, selezionare **Autentica** nell'app. L'azienda o dell'istituto di istruzione potrebbe richiedere di immettere un PIN prima eseguire l'autenticazione.<br>- **Usare il codice di verifica.** In questa modalità, l'app di autenticazione genera un nuovo codice di verifica ogni 30 secondi. Immettere il codice di verifica più recente nell'interfaccia di accesso.<br>L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS](https://go.microsoft.com/fwlink/?linkid=866594).|
 | [Chiamata o SMS sul telefono cellulare](#use-your-mobile-phone-as-the-contact-method) |- **Chiamata telefonica** invia una chiamata vocale automatizzata al numero di telefono fornito. Per l'autenticazione, rispondere alla chiamata e premere # sul tastierino telefonico.<br>- **SMS** invia un SNS contenente un codice di verifica. Seguendo la richiesta indicata nel testo, rispondere all'SMS o immettere il codice di verifica fornito nell'interfaccia di accesso. |
@@ -69,7 +69,7 @@ L'uso di questo metodo richiede l'installazione di un'app di autenticazione sul 
    ![Casella per l'immissione di un PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Al termine dell'immissione del PIN, selezionare **Chiudi**. A questo punto, la verifica avrà esito positivo.
-9. Si consiglia di immettere il proprio numero di telefono cellulare, nel caso in cui si perda l'accesso all'app per dispositivi mobili. Specificare il paese dall'elenco a discesa e immettere il numero di telefono cellulare nella casella accanto al paese. Selezionare **Avanti**.
+9. Si consiglia di immettere il proprio numero di telefono cellulare, nel caso in cui si perda l'accesso all'app per dispositivi mobili. Specificare il paese/regione nell'elenco a discesa e immettere il numero di telefono cellulare nella casella accanto al nome del paese/area geografica. Selezionare **Avanti**.
 10. A questo punto viene chiesto di configurare le password dell'app per le app che non sono browser, come Outlook 2010 o versioni precedenti, o per l'app di posta elettronica nativa nei dispositivi Apple. Alcune app non supportano la verifica in due passaggi. Se non si usano queste app, fare clic su **Fine** e ignorare i passaggi successivi.
 11. Se si usano queste app, copiare la password dell'app fornita e incollare la password nell'applicazione, al posto della password regolare. È possibile usare la stessa password dell'app per più app. Per altre informazioni, vedere [Guida alle password per le app].
 12. Fare clic su **Done**.
@@ -87,7 +87,7 @@ Se si vuole aggiungere manualmente un account all'app per dispositivi mobili, an
 1. Selezionare **Telefono per l'autenticazione** dall'elenco a discesa.  
 
     ![Configurazione](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Scegliere il paese dall'elenco a discesa e immettere il numero di telefono cellulare.
+2. Scegliere il paese/regione nell'elenco a discesa e immettere il numero di telefono cellulare.
 3. Selezionare il metodo preferito da usare con il telefono cellulare: SMS o telefonata.
 4. Selezionare **Contattami** per verificare il numero di telefono. In base alla modalità selezionata si riceverà un SMS o una telefonata. Seguire le istruzioni visualizzate, quindi selezionare **Verifica**.
 5. A questo punto viene chiesto di configurare le password dell'app per le app che non sono browser, come Outlook 2010 o versioni precedenti, o per l'app di posta elettronica nativa nei dispositivi Apple. Alcune app non supportano la verifica in due passaggi. Se non si usano queste app, fare clic su **Fine** e ignorare i passaggi successivi.

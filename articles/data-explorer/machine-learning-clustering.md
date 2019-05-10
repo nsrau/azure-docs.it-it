@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 2358cb2ea411a0077f34798183da30bd32ae067b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: bc72cc21ab525ec82d9ce4b24e80ce82d92a5d21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925135"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233504"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>Machine learning funzionalità in Esplora dati di Azure
 
@@ -96,7 +96,7 @@ demo_clustering1
 | 2016-08-23 15:00:58.2222707 | scus   | su5       | 9dbd1b161d5b4779a73cf19a7836ebd6 | 10007007   | 8215dcf6-2de0-42bd-9c90-181c70486c9c |
 | 2016-08-23 15:00:59.9382620 | scus   | su3       | 90d3d2fc7ecc430c9621ece335651a01 | 10007006   | 451e3c4c-0808-4566-a64d-84d85cf30978 |
 
-### <a name="use-autocluster-for-single-record-set-clustering"></a>Usare `autocluster()` per singolo record, impostare il clustering
+### <a name="use-autocluster-for-single-record-set-clustering"></a>Usare autocluster() per singolo record, impostare il clustering
 
 Anche se sono presenti meno di mille eccezioni, è comunque difficile trovare i segmenti comuni, perché sono presenti più valori in ogni colonna. È possibile usare [ `autocluster()` ](/azure/kusto/query/autoclusterplugin) plug-in per estrarre un breve elenco di segmenti comuni e trovare le interessanti immediatamente cluster entro due minuti del Raccoglitore come illustrato nella query seguente:
 
@@ -120,7 +120,7 @@ demo_clustering1
 
 Autocluster Usa un algoritmo proprietario per più dimensioni di data mining e l'estrazione dei segmenti interessanti. "Interessanti" significa che ogni segmento è assicurata sia il set di record e set di funzionalità. I segmenti anche diverse, vale a dire che ognuno di essi è significativamente diversa dagli altri. Potrebbe essere rilevante per il processo di RCA uno o più di questi segmenti. Per ridurre al minimo la valutazione e revisione del segmento, autocluster estrae solo un elenco di segmenti di piccole dimensioni.
 
-### <a name="use-basket-for-single-record-set-clustering"></a>Usare `basket()` per singolo record, impostare il clustering
+### <a name="use-basket-for-single-record-set-clustering"></a>Usare basket() per singolo record, impostare il clustering
 
 È anche possibile usare la [ `basket()` ](/azure/kusto/query/basketplugin) plug-in come illustrato nella query seguente:
 

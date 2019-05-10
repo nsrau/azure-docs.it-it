@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 028f16b480ceb57598c6499739ab0e5745b4a132
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f9f5b24a52ebfb8b87f1abaa3b60091d7f4690ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870016"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230661"
 ---
 # <a name="azure-maps-routing-coverage"></a>Copertura per gli itinerari in Mappe di Azure
 
@@ -29,7 +29,7 @@ Consultare le informazioni sulla copertura per il [**routing**](render-coverage.
 |--------------------|----------------------------------------|
 | ✓                  | Paese fornito con dati dettagliati.   |
 | Ø                  | Paese fornito con dati semplificati. |
-| Paese mancante | Dati del paese non specificati.          |
+| Paese mancante | I dati di paese/area geografica non sono disponibile.          |
 
 <br>  
 
@@ -70,13 +70,13 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Ruanda                         |        ✓       |                       |             |
 | Senegal                        |        ✓       |                       |             |
 | Seychelles                     |        ✓       |                       |             |
-| Sud Africa                   |        ✓       ||         ✓            |             |
+| Sudafrica                   |        ✓       ||         ✓            |             |
 | Swaziland                      |        ✓       |                       |             |
 | Tanzania                       |        ✓       |                       |             |
 | Togo                           |        ✓       |                       |             |
 | Tunisia                        |        ✓       |                       |             |
 | Uganda                         |        ✓       |                       |             |
-| Sahara occidentale                 |        ✓       |                       |             |
+| Sahara Occidentale                 |        ✓       |                       |             |
 | Zambia                         |        ✓       |                       |             |
 | Zimbabwe                       |        ✓       |                       |             |
 
@@ -136,7 +136,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Cambogia                       |        ✓       |                      |             |
 | Figi                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
-| RAS di Hong Kong                  |        ✓       |         ✓            |             |
+| Hong Kong - R.A.S.                  |        ✓       |         ✓            |             |
 | India                          |        ✓       |         ✓            |             |
 | Indonesia                      |        ✓       |         ✓            |             |
 | Corea del Sud                          |        Ø       |                      |             |
@@ -149,7 +149,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Singapore                      |        ✓       |         ✓            |             |
 | Taiwan                         |        ✓       |         ✓            |             |
 | Thailandia                       |        ✓       |         ✓            |             |
-| Vietnam                        |        ✓       |         ✓            |             |
+| Vietnam                         |        ✓       |         ✓            |             |
 
 
 ## <a name="europe"></a>Europa
@@ -199,14 +199,14 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | +Aruba                         |        ✓       |                      |             | 
 | + Paesi Bassi Caraibi         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| + Maarten Saint                  |        ✓       |                      |             |
+| + Sint Maarten                  |        ✓       |                      |             |
 | Norvegia                         |        ✓       |         ✓            |     ✓      | 
 | Polonia                         |        ✓       |         ✓            |     ✓      | 
 | Portogallo                       |        ✓       |         ✓            |     ✓      |  
 | Romania                        |        ✓       |         ✓            |     ✓      | 
 | Federazione russa             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| + Maarten Saint                  |        ✓       |                      |             |
+| + Sint Maarten                  |        ✓       |                      |             |
 | Serbia                         |        ✓       |                      |     ✓      | 
 | Slovacchia                       |        ✓       |         ✓            |     ✓      | 
 | Slovenia                       |        ✓       |         ✓            |     ✓      |
@@ -220,9 +220,9 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | +Bermuda                       |        ✓       |                      |             |
 | + Le Isole Vergini britanniche        |        ✓       |                      |             |
 | + Isole Cayman                |        ✓       |                      |             |
-| +Gibilterra                      |        ✓       |         ✓            |             | 
+| +Gibilterra                     |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
-| + Isole Turks e Caicos isole        |        ✓       |                      |             |
+| + Isole Turks e Caicos      |        ✓       |                      |             |
 | Città del Vaticano                   |        ✓       |         ✓            |             |
 | Isola di Man                    |        ✓       |                      |             |
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: harijay
-ms.openlocfilehash: c6611c75e61f7e381efd2e437b8281cc70601215
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 31811d3d48f791e11bd6b709f59f5f6aaa18be0e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141065"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442119"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console seriale di Azure per Windows
 
-La Console seriale nel portale di Azure fornisce l'accesso a una console basata su testo per le macchine virtuali di Windows (VM) e istanze (set di scalabilità di macchine virtuali) del set di scalabilità di macchine virtuali. Questa connessione seriale si connette alla porta seriale COM1 della macchina virtuale o istanza di set di scalabilità di macchine virtuali, che fornisce accesso a esso indipendenti dello stato del sistema operativo o di rete. La console seriale è accessibile solo tramite il portale di Azure e viene consentito solo per gli utenti che dispongono di un ruolo di accesso di collaboratore o versione successiva per il set di scalabilità della macchina virtuale o una macchina virtuale.
+La Console seriale nel portale di Azure fornisce l'accesso a una console basata su testo per le macchine virtuali di Windows (VM) e istanze del set di scalabilità di macchine virtuali. Questa connessione seriale si connette alla porta seriale COM1 della macchina virtuale o istanza di set di scalabilità di macchine virtuali, che fornisce accesso a esso indipendenti dello stato del sistema operativo o di rete. La console seriale è accessibile solo tramite il portale di Azure e viene consentito solo per gli utenti che dispongono di un ruolo di accesso di collaboratore o versione successiva per il set di scalabilità della macchina virtuale o una macchina virtuale.
 
 Console seriale funziona allo stesso modo per le macchine virtuali e istanze del set di scalabilità di macchine virtuali. In questo documento, tutti i riferimenti alle macchine virtuali in modo implicito include istanze di set di scalabilità di macchine virtuali se non indicato diversamente.
 
@@ -244,7 +244,7 @@ Interazione con bootloader | Accedere ai dati configurazione di avvio tramite co
 ## <a name="errors"></a>Errors
 Poiché la maggior parte degli errori è temporanea, riprovare la connessione può spesso risolverli. Nella tabella seguente mostra un elenco di errori e soluzioni di prevenzione per entrambe le macchine virtuali e istanze del set di scalabilità di macchine virtuali.
 
-Tipi di errore                            |   Mitigazione
+Tipi di errore                            |   Attenuazione
 :---------------------------------|:--------------------------------------------|
 Impossibile recuperare le impostazione di diagnostica di avvio per *&lt;VMNAME&gt;*. Per usare la console seriale, assicurarsi che la diagnostica di avvio sia abilitata per questa macchina virtuale. | Assicurarsi che la VM abbia la [diagnostica di avvio](boot-diagnostics.md) abilitata.
 La macchina virtuale è in uno stato arrestato deallocato. Avviare la VM e provare a stabilire di nuovo la connessione alla console seriale. | La macchina virtuale deve essere in uno stato avviato per accedere alla console seriale
@@ -257,7 +257,7 @@ Durante la connessione a una macchina virtuale Windows, vengono visualizzate sol
 ## <a name="known-issues"></a>Problemi noti
 La console seriale presenta alcuni problemi. Di seguito è riportato un elenco dei problemi riscontrati e delle procedure necessarie per risolverli. Si applicano questi problemi e soluzioni di prevenzione per entrambe le macchine virtuali e istanze del set di scalabilità di macchine virtuali.
 
-Problema                             |   Mitigazione
+Problema                             |   Attenuazione
 :---------------------------------|:--------------------------------------------|
 Se si preme il tasto **INVIO** dopo il banner della connessione, non viene visualizzato un prompt di accesso. | Per altre informazioni, vedere [Premendo INVIO, non accade nulla](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo errore può verificarsi se è in esecuzione una macchina virtuale personalizzata, un'appliance con protezione avanzata o una configurazione di avvio che non consente a Windows di connettersi correttamente alla porta seriale. Questo errore si verifica anche se si esegue una macchina virtuale client Windows 10, perché solo le macchine virtuali Windows Server sono configurate per l'abilitazione di EMS.
 Non è possibile digitare nel prompt SAC se è abilitato il debug del kernel. | Effettuare una connessione RDP ed eseguire `bcdedit /debug {current} off` da un prompt dei comandi con privilegi elevati. Se non è possibile effettuare una connessione RDP, è invece possibile collegare il disco del sistema operativo a un'altra macchina virtuale di Azure e modificarlo mentre è collegato come disco dati eseguendo `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, quindi effettuando lo swapping del disco.
