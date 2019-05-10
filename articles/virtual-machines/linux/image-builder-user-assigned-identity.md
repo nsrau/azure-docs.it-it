@@ -7,18 +7,18 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: d10ee8c1af85de5eb79cd4a4af6882c7a8f084f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b0a6c016b2be12ac6686b3748b4b16281899323e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159556"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511067"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Creare un'immagine e usare un'identità gestita assegnata dall'utente per accedere ai file in archiviazione di Azure 
 
 Azure supporta di Image Builder usando script o la copia di file da più posizioni, ad esempio GitHub e archiviazione di Azure e così via. Per usare questi modelli, essi devono essere stati accessibile esternamente a Azure Image Builder, ma è possibile proteggere i BLOB di archiviazione di Azure con i token di firma di accesso condiviso.
 
-Questo articolo illustra come creare un'immagine personalizzata usando il generatore di immagine macchina virtuale di Azure, in cui il servizio userà un [identità gestito assegnata dall'utente](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) per accedere ai file in archiviazione di Azure per la personalizzazione di immagine, senza che sia necessario apportare i file accessibili pubblicamente o configurazione di token di firma di accesso condiviso.
+Questo articolo illustra come creare un'immagine personalizzata usando il generatore di immagine macchina virtuale di Azure, in cui il servizio userà un [identità gestito assegnata dall'utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per accedere ai file in archiviazione di Azure per la personalizzazione di immagine, senza che sia necessario apportare i file accessibili pubblicamente o configurazione di token di firma di accesso condiviso.
 
 Nell'esempio seguente, si creerà due gruppi di risorse, uno verrà usato per l'immagine personalizzata e l'altra ospiterà un Account di archiviazione di Azure, che contiene un file di script. Viene simulato uno scenario reale, in cui è possibile includere gli artefatti di compilazione o i file di immagine nell'account di archiviazione diversi, di fuori di Image Builder. Si creerà un'identità assegnata dall'utente, quindi concedere autorizzazioni di lettura per il file di script, ma non si imposterà qualsiasi accesso pubblico a tale file. Si utilizzerà quindi l'addetto personalizzazione della Shell per scaricare ed eseguire lo script dall'account di archiviazione.
 
@@ -130,7 +130,7 @@ az role assignment create \
 
 ## <a name="create-user-assigned-managed-identity"></a>Creare identità gestito assegnata dall'utente
 
-Creare l'identità e assegnare le autorizzazioni per l'account di archiviazione di script. Per altre informazioni, vedere [identità assegnata dall'utente gestito](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Creare l'identità e assegnare le autorizzazioni per l'account di archiviazione di script. Per altre informazioni, vedere [identità assegnata dall'utente gestito](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
 
 ```azurecli-interactive
 # Create the user assigned identity 

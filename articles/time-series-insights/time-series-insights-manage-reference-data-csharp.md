@@ -10,35 +10,40 @@ ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9d0743e30c4ae32c052a9f27c9fa22b1036aead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a8bd4e02b03a20e348feb2d6c9424f5eb6cf5f9e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681719"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510036"
 ---
-# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gestire i dati di riferimento di un ambiente Azure Time Series Insights con C#
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gestire i dati di riferimento disponibile a livello generale per un ambiente Azure Time Series Insights tramiteC#
 
 Questo articolo descrive un progetto C# di esempio che è possibile compilare per gestire i dati di riferimento per un ambiente Azure Time Series Insights.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Prima di compilare ed eseguire lo script di esempio, completare questa procedura:
+
 1. [Creare un set di dati di riferimento](time-series-insights-add-reference-data-set.md).
 
-2. Configurare il token di accesso di autorizzazione per l'applicazione. È necessario acquisire il token di accesso tramite l'API di Azure Active Directory. Passare questo token nell'intestazione `Authorization` di ogni richiesta dell'API Query. 
- 
+1. Configurare il token di accesso di autorizzazione per l'applicazione. È necessario acquisire il token di accesso tramite l'API di Azure Active Directory. Passare questo token nell'intestazione `Authorization` di ogni richiesta dell'API Query.
+
    Per la configurazione di applicazioni non interattive, vedere [Autenticazione e autorizzazione](time-series-insights-authentication-and-authorization.md).
 
-3. Modificare il codice di esempio per sostituire le costanti di esempio, designate a **#DUMMY#**, in prossimità dell'inizio del codice. 
+1. Modificare il codice di esempio per sostituire le costanti di esempio, designate a **#DUMMY#**, in prossimità dell'inizio del codice.
 
-Questo esempio di codice è disponibile anche all'indirizzo [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+> [!NOTE]
+> Visualizzare il codice di esempio disponibile a livello generale nella [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
 
-## <a name="project-references"></a>Riferimenti del progetto
-Per questo esempio aggiungere i pacchetti NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` e `Newtonsoft.Json`. 
+## <a name="project-dependencies"></a>Dipendenze progetto
 
-## <a name="c-sample-code"></a>Codice di esempio C# 
+Per questo esempio aggiungere i pacchetti NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` e `Newtonsoft.Json`.
+
+## <a name="c-sample-code"></a>Codice di esempio C#
+
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -134,7 +139,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
     ""deleteproperties"": [{
         ""key"": {
             ""DeviceId"": ""Fan1""
-        },
+    },
         ""properties"": [""BladeCount""]
     }]
 }";

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809035"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236446"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitoraggio dei carichi di lavoro di Backup di Azure
 
@@ -49,7 +49,7 @@ Gli avvisi sono principalmente a scenari in cui gli utenti vengono informati in 
 Gli scenari seguenti sono definiti dal servizio come alertable scenari.
 
   - Errori di backup/ripristino
-  - Backup completato con avvisi
+  - Backup completato con avvisi per l'agente Backup di Azure (MAB)
   - Arrestare la protezione con Mantieni dati/arrestare la protezione dati con cancellazione dei dati
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Eccezioni quando non viene generato un avviso
@@ -92,7 +92,7 @@ Quando la notifica è configurata, si riceverà un messaggio di benvenuto o intr
 Se la frequenza è impostata su un riepilogo orario e un avviso è stato generato e risolto entro un'ora, non sarà una parte del digest orario imminente.
 
 > [!NOTE]
-> 
+>
 > * Se un'operazione distruttiva, ad esempio **arrestare la protezione dati con cancellazione dei dati** viene eseguita, viene generato un avviso e viene inviata un'e-mail a proprietari di sottoscrizioni, gli amministratori e coamministratori anche se le notifiche non sono configurate per il servizio di ripristino volta.
 > * Per configurare la notifica per usano processi completati [Log Analitica](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 

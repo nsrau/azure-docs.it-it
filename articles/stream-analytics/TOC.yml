@@ -442,6 +442,9 @@
             - name: Finestra a cascata
               href: /stream-analytics-query/tumbling-window-azure-stream-analytics
               maintainContext: true
+            - name: Aggregare funzioni di windowing
+              href: /stream-analytics-query/windows-azure-stream-analytics
+              maintainContext: true
     - name: Tipi di dati
       items:
         - name: Panoramica dei tipi di dati

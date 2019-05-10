@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 83a866b20d2802b7d49363b7c6451356e938eac1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626843"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510728"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>.NET SDK di Azure Cosmos DB per l'API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -47,6 +47,20 @@ ms.locfileid: "60626843"
 * Nuovo modello a oggetti con il modulo CosmosClient di livello superiore e metodi suddivisi tra le relative classi CosmosDatabases, CosmosContainers e CosmosItems. 
 * Supporto dei flussi. 
 * Classe CosmosResponseMessage aggiornata a partire dal server per restituire il codice di stato e generare un'eccezione solo se non viene restituita alcuna risposta. 
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+
+* Versione del SDK System.NET. http corrisponde a quello definito nel pacchetto NuGet
+* Aumento delle dimensioni di precisione decimale per le query LINQ.
+* Aggiuntive nuove classi CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType e PartitionKeyDefinitionVersion
+* Aggiunta TimeToLivePropertyPath a DocumentCollection
+* Aggiunta CompositeIndexes e SpatialIndexes a IndexPolicy
+* Aggiunta la versione a PartitionKeyDefinition
+* Aggiunta di None per PartitionKey
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+
+ * IdleTcpConnectionTimeout aggiunto, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection e MaxTcpConnectionsPerEndpoint a ConnectionPolicy.
 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
@@ -361,6 +375,8 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |05 maggio 2019 |--- |
+| [2.3.0](#2.3.0) |04 aprile 2019 |--- |
 | [2.2.3](#2.2.3) |11 febbraio 2019 |--- |
 | [2.2.2](#2.2.2) |06 febbraio 2019 |--- |
 | [2.2.1](#2.2.1) |24 dicembre 2018 |--- |

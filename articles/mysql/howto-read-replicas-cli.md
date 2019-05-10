@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: e291cb46b5f8cb8722348bd8fcd6031ed29beb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: a9ca34953827c1f94e2696eb4f09163be335d2f4
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61423447"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510692"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Come creare e gestire le repliche in lettura in Database di Azure per MySQL con l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra come creare e gestire le repliche in lettura nella stessa area di Azure del master nel servizio Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure.
+
+> [!NOTE]
+> Comando di Azure non supporta ancora la creazione di repliche in un'area diversa dal server master. Per creare una replica tra aree diverse, usare il [portale di Azure]( howto-read-replicas-portal.md) invece.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,7 +38,7 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 
 Il comando `az mysql server replica create` richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | DESCRIZIONE  |
+| Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
 | name | mydemoreplicaserver | Nome del nuovo server di replica creato. |
@@ -57,7 +60,7 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 
 Il comando `az mysql server replica stop` richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | DESCRIZIONE  |
+| Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Gruppo di risorse in cui si trova il server di replica.  |
 | name | mydemoreplicaserver | Nome del server di replica su cui si vuole arrestare la replica. |
@@ -91,7 +94,7 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 
 Il comando `az mysql server replica list` richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | DESCRIZIONE  |
+| Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
 | server-name | mydemoserver | Nome o ID del server master. |

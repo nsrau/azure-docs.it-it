@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097140"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466501"
 ---
 # <a name="set-up-a-device-template"></a>Configurare un modello di dispositivo
 
@@ -54,7 +54,7 @@ Da questo modello di dispositivo, un operatore può creare e connettere dei disp
 
 Le sezioni seguenti descrivono ogni scheda della pagina **Modello di dispositivo**.
 
-## <a name="measurements"></a>Misure
+## <a name="measurements"></a>Misurazioni
 
 Le misure sono i dati provenienti dal dispositivo. È possibile aggiungere più misure al modello di dispositivo per replicare le funzionalità del dispositivo.
 
@@ -68,8 +68,7 @@ Per aggiungere una nuova misura i dati di telemetria, selezionare **+ nuova misu
 
 > [!NOTE]
 > I nomi dei campi nel modello di dispositivo devono corrispondere ai nomi delle proprietà nel codice dispositivo corrispondente, affinché la misura dei dati di telemetria venga visualizzata nell'applicazione quando un dispositivo reale è collegato. Eseguire la stessa operazione quando si configurano le impostazioni, le proprietà del dispositivo e i comandi mentre si continua a definire il modello di dispositivo nelle sezioni seguenti.
-
-Ad esempio, è possibile aggiungere una nuova misura per i dati di telemetria della temperatura:
+PNG, ad esempio, è possibile aggiungere una nuova misura i dati di telemetria della temperatura:
 
 | Nome visualizzato        | Nome campo    |  Unità    | Min   |Max|
 | --------------------| ------------- |-----------|-------|---|
@@ -214,7 +213,7 @@ Esistono due tipi di proprietà di posizione che è possibile aggiungere:
 
     | Nome visualizzato  | Nome campo | Tipo di dati |
     | --------------| -----------|-----------|
-    | Posizione dispositivo | deviceLocation | location  |
+    | Posizione dispositivo | deviceLocation | percorso  |
 
    > [!NOTE]
    > I nomi dei campi devono corrispondere ai nomi delle proprietà nel codice del dispositivo corrispondente
@@ -239,7 +238,7 @@ Ad esempio, è possibile aggiungere una nuova **Echo** comando selezionando la *
 | --------------| -----------|---------------- | --------- |
 | Echo Command (Comando eco)  | echo (eco)       |  30             | text      |
 
-![Modulo "Configure Command" (Configura comando) con i dettagli per Echo](./media/howto-set-up-template/commandsecho.png)
+![Modulo "Configure Command" (Configura comando) con i dettagli per Echo](./media/howto-set-up-template/commandsecho1.png)
 
 Dopo aver selezionato **Save** (Salva), il comando **Echo** (Eco) viene visualizzato come riquadro ed è pronto per essere usato da **Device Explorer** quando viene collegato il dispositivo reale. I nomi dei campi del comando devono corrispondere ai nomi delle proprietà nel codice dispositivo corrispondente, affinché i comandi vengano eseguiti correttamente.
 
@@ -255,7 +254,7 @@ Il dashboard è dove l'operatore può visualizzare informazioni su un dispositiv
 
 È ad esempio possibile aggiungere un riquadro **Settings and Properties** (Impostazioni e proprietà) per mostrare una selezione dei valori correnti di impostazioni e proprietà selezionando la scheda **Dashboard** e il riquadro dalla raccolta:
 
-![Modulo "Configure Device Details" (Configura dettagli dispositivo) con i dettagli per impostazioni e proprietà](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+![Modulo "Configure Device Details" (Configura dettagli dispositivo) con i dettagli per impostazioni e proprietà](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
 
 Questo un operatore visualizza il dashboard in **Device Explorer**, ora può vedere il riquadro.
 

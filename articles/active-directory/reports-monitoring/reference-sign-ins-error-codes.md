@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/25/2019
+ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdf28418e7e1335dcb1f664964fa6ef03174aa1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0986610007f5c470589eb94d6761b8d31dd79e72
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709205"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463487"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 
@@ -53,7 +53,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 ## <a name="error-codes"></a>Codici di errore
 
 
-|Tipi di errore|DESCRIZIONE|
+|Tipi di errore|Descrizione|
 |---|---|
 |16000|Questo è un dettaglio di implementazione interno e non una condizione di errore. È possibile ignorare questo messaggio di errore.|
 |20001|Si è verificato un problema con il provider di identità federato. Contattare l'IDP per risolvere il problema.|
@@ -177,6 +177,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |90051| Token di delega non è valido. Viene specificato l'ID del Cloud nazionale non valida ({cloudId}).|
 |90072| L'account deve essere prima aggiunto come utente esterno nel tenant. Disconnettersi ed eseguire nuovamente l'accesso con un account Azure AD diverso.|
 |90094| La concessione richiede le autorizzazioni di amministratore. Chiedere all'amministratore del tenant di fornire il consenso per l'applicazione.|
+|500021|Tenant è limitato dal proxy aziendale. Negando l'accesso alle risorse.|
 |500121| Autenticazione non riuscita durante la richiesta di autenticazione avanzata.|
 |500133| L'asserzione non è compresa nell'intervallo di tempo valido. Assicurarsi che il token di accesso non sia scaduto prima di usarlo per l'asserzione utente o richiedere un nuovo token.|
 |530021|Applicazione non soddisfa i requisiti delle app approvata l'accesso condizionale.|

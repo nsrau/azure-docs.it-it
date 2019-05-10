@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8605e614574b7ebd45e9f18c4e5685a9c5450e64
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688351"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409908"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook per gli avvisi del log attività di Azure
 Nella definizione di un gruppo di azione è possibile configurare gli endpoint webhook in modo da ricevere le notifiche per gli avvisi del log attività. Con i webhook è possibile instradare queste notifiche ad altri sistemi per la post-elaborazione o azioni personalizzate. L'articolo illustra anche il modo in cui il payload per il protocollo HTTP POST viene percepito da un webhook.
@@ -156,7 +156,7 @@ Il payload JSON contenuto nell'operazione POST varia a seconda del campo data.co
                 "resourceGroupName": "<resource group>",
                 "resourceProviderName": "Microsoft.Resourcehealth/healthevent/action",
                 "status": "Active",
-                "subscriptionId": "<subscription Id",
+                "subscriptionId": "<subscription Id>",
                 "submissionTimestamp": "2018-09-04T23:11:06.1607287+00:00",
                 "resourceType": "Microsoft.Compute/virtualMachines"
             }
@@ -169,14 +169,14 @@ Per i dettagli su schemi specifici relativi agli avvisi del log attività per le
 
 Per i dettagli su schemi specifici relativi a tutti gli altri avvisi del log attività, vedere [Panoramica del log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md).
 
-| Nome dell'elemento | DESCRIZIONE |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
 | status |Usato per avvisi relativi alle metriche. Sempre impostato su "Activated" per gli avvisi del registro attività. |
 | context |Contesto dell'evento. |
 | resourceProviderName |Provider della risorsa interessata. |
 | conditionType |Sempre "Event". |
 | name |Nome della regola di avviso. |
-| id |ID risorsa dell'avviso. |
+| ID |ID risorsa dell'avviso. |
 | description |Descrizione dell'avviso impostata al momento della creazione dell'avviso. |
 | subscriptionId |ID sottoscrizione di Azure. |
 |  timestamp |Data e ora in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta. |
@@ -186,7 +186,7 @@ Per i dettagli su schemi specifici relativi a tutti gli altri avvisi del log att
 | event |Elemento contenente i metadati relativi all'evento. |
 | authorization |Proprietà di controllo degli accessi in base al ruolo per l'evento. Queste proprietà includono in genere action, role e scope. |
 | category |Categoria dell'evento. I valori supportati includono Administrative, Alert, Security, ServiceHealth e Recommendation. |
-| caller |Indirizzo di posta elettronica dell'utente che ha eseguito l'operazione, attestazione UPN o attestazione SPN, a seconda della disponibilità. Può essere null per alcune chiamate di sistema. |
+| chiamante |Indirizzo di posta elettronica dell'utente che ha eseguito l'operazione, attestazione UPN o attestazione SPN, a seconda della disponibilità. Può essere null per alcune chiamate di sistema. |
 | correlationId |In genere un GUID in formato stringa. Gli eventi con correlationId appartengono alla stessa azione di livello superiore e in genere condividono un elemento correlationId. |
 | eventDescription |Testo statico che descrive l'evento. |
 | eventDataId |Identificatore univoco dell'evento. |

@@ -8,12 +8,12 @@
   items:
     - name: 1. Creare un tenant in Desktop virtuale Windows
       href: tenant-setup-azure-active-directory.md
-    - name: 2. Creare un pool di host con Azure Marketplace
-      href: create-host-pools-azure-marketplace.md
-    - name: 3. Gestire i gruppi di app
-      href: manage-app-groups.md
-    - name: 4. Creare entità servizio e assegnazioni di ruolo con PowerShell
+    - name: 2. Creare entità servizio e assegnazioni di ruolo con PowerShell
       href: create-service-principal-role-powershell.md
+    - name: 3. Creare un pool di host con Azure Marketplace
+      href: create-host-pools-azure-marketplace.md
+    - name: 4. Gestire i gruppi di app
+      href: manage-app-groups.md
 - name: Procedura
   items:
     - name: Connettersi alle risorse di Desktop virtuale Windows

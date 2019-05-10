@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 680e087e80d3e9891e201e7cb474ccfcf7fcc70b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d421fad5f574b0d10b24453aca01adf574f493e8
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072624"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407695"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Connessione con SSH ai nodi del cluster del servizio Azure Kubernetes per la risoluzione dei problemi e le attività di manutenzione
 
@@ -69,7 +69,7 @@ I nodi servizio Azure Kubernetes non sono pubblicamente esposti in Internet. Per
 Visualizzare l'indirizzo IP privato di un nodo del cluster servizio Azure Kubernetes utilizzando il comando [az vm list-ip-addresses][az-vm-list-ip-addresses]. Fornire il nome del gruppo di risorse del cluster servizio Azure Kubernetes ottenuto in un passaggio [az-servizio Azure Kubernetes-show][az-aks-show] precedente:
 
 ```azurecli-interactive
-az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
+az vm list-ip-addresses --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
 ```
 
 Il seguente output di esempio mostra gli indirizzi IP privati dei nodi servizio Azure Kubernetes:

@@ -1,21 +1,24 @@
 ---
-title: Gestire repliche in lettura per Database di Azure per PostgreSQL nel portale di Azure
-description: Informazioni su come gestire le repliche in lettura nel Database di Azure per PostgreSQL dal portale di Azure.
+title: Gestire le repliche di lettura per il Database di Azure per PostgreSQL - Server singolo dal portale di Azure
+description: Informazioni su come gestire le repliche di lettura del Database di Azure per PostgreSQL - Server singolo dal portale di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420813"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510369"
 ---
-# <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Creare e gestire le repliche in lettura dal portale di Azure
+# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Creare e gestire le repliche di lettura nel Database di Azure per PostgreSQL - Server singolo dal portale di Azure
 
 Questo articolo illustra come creare e gestire le repliche in lettura nel Database di Azure per PostgreSQL dal portale di Azure. Per altre informazioni sulle repliche in lettura, vedere la [panoramica](concepts-read-replicas.md).
+
+> [!IMPORTANT]
+> È possibile creare una replica di lettura nella stessa area del server master o in altre aree di Azure di propria scelta. La replica tra aree è attualmente in anteprima pubblica.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -58,9 +61,15 @@ Per creare una replica in lettura, seguire questi passaggi:
 
    ![Aggiungere una replica](./media/howto-read-replicas-portal/add-replica.png)
 
-4. Immettere un nome per la replica in lettura. Fare clic su **OK** per confermare la creazione della replica.
+4. Immettere un nome per la replica in lettura. 
 
-   ![Assegnare un nome alla replica](./media/howto-read-replicas-portal/name-replica.png) 
+    ![Assegnare un nome alla replica](./media/howto-read-replicas-portal/name-replica.png)
+
+5. Selezionare un percorso per la replica. È possibile creare una replica in qualsiasi area di Azure. Il percorso predefinito è quello utilizzato per il server master.
+
+    ![Selezionare una posizione](./media/howto-read-replicas-portal/location-replica.png)
+
+6. Fare clic su **OK** per confermare la creazione della replica.
 
 Una replica viene creata usando la stessa configurazione server del master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
 
@@ -72,7 +81,7 @@ Dopo la creazione, la replica in lettura può essere visualizzata nella finestra
 ![Visualizzare la nuova replica nella finestra Replica](./media/howto-read-replicas-portal/list-replica.png)
  
 
-## <a name="stop-replication"></a>Arrestare la replica
+## <a name="stop-replication"></a>Arresta replica
 È possibile arrestare la replica tra un server master e una replica in lettura.
 
 > [!IMPORTANT]

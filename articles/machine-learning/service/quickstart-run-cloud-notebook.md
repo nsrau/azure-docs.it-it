@@ -10,32 +10,34 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149835"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510623"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Usare un server notebook basato sul cloud per iniziare a usare Azure Machine Learning
 
 Creare un server notebook basato sul cloud, quindi usarlo.  In questa guida di avvio rapido si esegue codice Python che registra i valori nell'[area di lavoro del servizio Azure Machine Learning](concept-azure-machine-learning-architecture.md). L'area di lavoro rappresenta l'elemento fondamentale nel cloud per eseguire esperimenti, training e distribuzione di modelli di Machine Learning con il servizio Machine Learning. 
 
 Questa guida di avvio rapido illustra come creare una risorsa cloud nell'area di lavoro di Azure Machine Learning configurata con l'ambiente Python necessario per l'esecuzione di Azure Machine Learning. Per usare invece il proprio ambiente, vedere [Avvio rapido: Usare il proprio server notebook per iniziare a usare Azure Machine Learning](quickstart-run-local-notebook.md).  
- 
+
 In questo argomento di avvio rapido si eseguono le operazioni seguenti:
 
 * Creare un nuovo server notebook basato sul cloud nell'area di lavoro.
 * Avviare l'interfaccia Web di Jupyter.
 * Aprire un notebook che contiene codice per stimare gli errori di pi greco e registra gli errori a ogni iterazione.
 * Eseguire il notebook.
-* Visualizzare i valori di errore registrati nell'area di lavoro. Questo esempio mostra come l'area di lavoro consente di tenere traccia delle informazioni generate in uno script. 
+* Visualizzare i valori di errore registrati nell'area di lavoro. Questo esempio mostra come l'area di lavoro consente di tenere traccia delle informazioni generate in uno script.
 
-Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Accedere alla [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
-- Un'area di lavoro di Azure Machine Learning.  [Creare l'area di lavoro](setup-create-workspace.md#portal), se non è già disponibile.
+Se è già disponibile un'area di lavoro del servizio Azure Machine Learning, passare alla [sezione successiva](#create-a-cloud-based-notebook-server). Altrimenti crearne una adesso.
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="create-a-cloud-based-notebook-server"></a>Creare un server notebook basato sul cloud
 
@@ -57,7 +59,6 @@ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito pr
     ![Creare una nuova VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Attendere 4-5 minuti circa, fino a quando lo stato cambia in **In esecuzione**.
-
 
 ## <a name="launch-jupyter-web-interface"></a>Avviare l'interfaccia Web di Jupyter
 
@@ -102,10 +103,9 @@ Eseguire un notebook che stima il pi greco e registra l'errore nell'area di lavo
 
     In più punti della cella di codice più estesa viene visualizzato `run.log`. Ogni occorrenza di `run.log` aggiunge il relativo valore all'area di lavoro.
 
-
 ## <a name="view-logged-values"></a>Visualizzare i valori registrati
 
-1. L'output della cella `run` contiene un collegamento al portale di Azure per visualizzare i risultati dell'esperimento nell'area di lavoro. 
+1. L'output della cella `run` contiene un collegamento al portale di Azure per visualizzare i risultati dell'esperimento nell'area di lavoro.
 
     ![Visualizzare gli esperimenti](./media/quickstart-run-cloud-notebook/view-exp.png)
 
@@ -117,7 +117,7 @@ Eseguire un notebook che stima il pi greco e registra l'errore nell'area di lavo
 
 Poiché il codice per approssimare Pi usa valori casuali, i tracciati mostreranno valori diversi.  
 
-## <a name="clean-up-resources"></a>Pulire le risorse 
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 ### <a name="stop-the-notebook-vm"></a>Arrestare la macchina virtuale per notebook
 

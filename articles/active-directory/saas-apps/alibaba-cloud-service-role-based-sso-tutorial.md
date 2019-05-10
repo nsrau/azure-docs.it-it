@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0ab129d7b215f0f10841b13fc2835af59227198
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 8de2f7cb90e004673c59282a8023d55df364220a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565242"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140727"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Alibaba Cloud Service (Role-based SSO)
 
@@ -70,6 +70,10 @@ Per configurare l'integrazione di Alibaba Cloud Service (Role-based SSO) in Azur
 
     ![Alibaba Cloud Service (Role-based SSO) nell'elenco risultati](common/search-new-app.png)
 
+5. Nella pagina **Alibaba Cloud Service (Role-based SSO)** fare clic su **Proprietà** nel riquadro di spostamento a sinistra, copiare l'**ID oggetto** e salvarlo nel computer per usarlo in seguito.
+
+    ![Configurazione delle proprietà](./media/alibaba-cloud-service-role-based-sso-tutorial/Properties.png)
+    
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Alibaba Cloud Service (Role-based SSO) usando un utente di test di nome **Britta Simon**.
@@ -78,10 +82,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Alibaba Cloud Service (Role-based SSO), è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On in base al ruolo in Alibaba Cloud Service](#configure-role-based-single-sign-on-in-alibaba-cloud-service)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Alibaba Cloud Service (Role-based SSO)](#configure-alibaba-cloud-service-role-based-sso-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Alibaba Cloud Service (Role-based SSO)](#create-alibaba-cloud-service-role-based-sso-test-user)**: per avere una controparte di Britta Simon in Alibaba Cloud Service (Role-based SSO) collegata alla relativa rappresentazione in Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Alibaba Cloud Service (Role-based SSO)](#create-alibaba-cloud-service-role-based-sso-test-user)**: per avere una controparte di Britta Simon in Alibaba Cloud Service (Role-based SSO) collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -102,34 +107,36 @@ Per configurare l'accesso Single Sign-On di Azure AD con Alibaba Cloud Service (
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML** eseguire questa procedura:
+4. Nella sezione **Configurazione SAML di base**, se si dispone di un **file di metadati di un provider di servizi**, seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Alibaba Cloud Service (Role-based SSO)](common/idp-intiated.png)
+    >[!NOTE]
+    >Si otterranno i metadati del provider di servizi da questo [URL](https://signin.alibabacloud.com/saml-role/sp-metadata.xml)
 
-    a. Nella casella di testo **Identificatore** digitare qualsiasi parte dell'URL:
-    
-    | |
-    |--|
-    | `urn:alibaba:cloudcomputing` |
-    | `urn:alibaba:cloudcomputing:international` |
+    a. Fare clic su **Carica il file di metadati**.
 
-    b. Nella casella di testo **URL di risposta** digitare qualsiasi parte dell'URL:
+    ![image](common/upload-metadata.png)
 
-    | |
-    |--|
-    | `https://signin.aliyun.com/saml-role/SSO` |
-    | `https://signin.alibabacloud.com/saml-role/SSO` |
+    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload**.
 
-5. L'applicazione Alibaba Cloud Service (Role-based SSO) prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic sull'icona  **Modifica** per aprire la finestra di dialogo **Attributi utente**. 
+    ![image](common/browse-upload-metadata.png)
+
+    c. Al termine del caricamento del file di metadati, i valori di **Identificatore** e **URL di risposta** vengono inseriti automaticamente nella casella di testo della sezione di Alibaba Cloud Service (Role-based SSO):
+
+    ![image](common/idp-intiated.png)
+
+    > [!Note]
+    > Se i valori di **Identificatore** e **URL di risposta** non vengono popolati automaticamente, inserirli manualmente in base alle proprie esigenze.
+
+5. L'applicazione Alibaba Cloud Service (Role-based SSO) prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
     ![image](common/edit-attribute.png)
 
 6. Oltre a quelli elencati in precedenza, l'applicazione Alibaba Cloud Service (Role-based SSO) prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
-    | Nome | Attributo di origine|
-    | ---------------| --------------- |
-    | Ruolo | user.assignedroles |
-    | RoleSessionName | user.mail |
+    | NOME | Spazio dei nomi | Attributo di origine|
+    | ---------------| ------------| --------------- |
+    | Ruolo | https://www.aliyun.com/SAML-Role/Attribute | user.assignedroles |
+    | RoleSessionName | https://www.aliyun.com/SAML-Role/Attribute | user.userprincipalname |
 
     > [!NOTE]
     > Fare clic [qui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) per sapere come configurare **Ruolo** in Azure AD.
@@ -160,17 +167,96 @@ Per configurare l'accesso Single Sign-On di Azure AD con Alibaba Cloud Service (
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
+
+### <a name="configure-role-based-single-sign-on-in-alibaba-cloud-service"></a>Configurare l'accesso Single Sign-On in base al ruolo in Alibaba Cloud Service
+
+1. Accedere alla [console RAM](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A%2F%2Fram.console.aliyun.com%2F%3Fspm%3Da2c63.p38356.879954.8.7d904e167h6Yg9) di Alibaba Cloud usando Account1.
+
+2. Nel pannello di navigazione a sinistra selezionare **SSO**.
+
+3. Nella scheda **Role-based SSO** (SSO in base al ruolo) fare clic su **Create IdP** (Crea IdP).
+
+4. Nella pagina visualizzata immettere `AAD` nel campo IdP Name (Nome IdP), immettere una descrizione nel campo **Note** (Nota), fare clic su **Upload** (Carica) per caricare il file di metadati federativi scaricato in precedenza e fare clic su **OK**.
+
+5. Dopo aver creato il provider di identità, fare clic su **Create RAM Role** (Crea ruolo RAM).
+
+6. Nel campo **RAM Role Name** (Nome del ruolo RAM) immettere `AADrole`, selezionare `AAD` dall'elenco a discesa **Select IdP** (Seleziona IdP) e fare clic su OK.
+
+    >[!NOTE]
+    >È possibile concedere l'autorizzazione al ruolo in base alle esigenze. Dopo aver creato il provider di identità e il ruolo corrispondente, si consiglia di salvare i numeri ARN del provider di identità e del ruolo per un uso successivo. È possibile ottenere i numeri ARN nella pagina delle informazioni sul provider di identità e nella pagina delle informazioni sul ruolo.
+
+7. Associare il ruolo Alibaba Cloud RAM (AADrole) all'utente di Azure AD (u2): Per associare il ruolo RAM all'utente di Azure AD, è necessario creare un ruolo in Azure AD seguendo questa procedura:
+
+    a. Accedere ad [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer?spm=a2c63.p38356.879954.9.7d904e167h6Yg9).
+
+    b. Fare clic su **autorizzazioni di modifica** per ottenere le autorizzazioni necessarie per creare un ruolo.
+
+    ![Configurazione di Graph](./media/alibaba-cloud-service-role-based-sso-tutorial/graph01.png)
+
+    c. Selezionare le autorizzazioni seguenti dall'elenco e fare clic su **Autorizzazioni di modifica**, come illustrato nella figura seguente.
+
+    ![Configurazione di Graph](./media/alibaba-cloud-service-role-based-sso-tutorial/graph02.png)
+
+    >[!NOTE]
+    >Dopo che le autorizzazioni sono state concesse, ripetere l'accesso a Graph Explorer.
+
+    d. Nella pagina di Graph Explorer selezionare **GET** dal primo elenco a discesa e **beta** dal secondo elenco a discesa. Immettere quindi `https://graph.microsoft.com/beta/servicePrincipals` nel campo accanto agli elenchi a discesa e fare clic su **Esegui query**.
+
+    ![Configurazione di Graph](./media/alibaba-cloud-service-role-based-sso-tutorial/graph03.png)
+
+    >[!NOTE]
+    >Se si usano più directory, è possibile immettere `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` nel campo della query.
+
+    e. Nella sezione **Response Preview** (Anteprima della risposta) estrarre la proprietà appRoles dall'entità servizio per un uso successivo.
+
+    ![Configurazione di Graph](./media/alibaba-cloud-service-role-based-sso-tutorial/graph05.png)
+
+    >[!NOTE]
+    >Per individuare la proprietà appRoles, immettere `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` nel campo della query. Si noti che `objectID` è l'ID dell'oggetto copiato dalla pagina **Proprietà** di Azure AD.
+
+    f. Tornare a Graph Explorer, sostituire il metodo **GET** con **PATCH**, incollare il contenuto seguente nella sezione **Corpo della richiesta** e fare clic su **Esegui query**:
+    ```
+    { 
+    "appRoles": [
+        { 
+        "allowedMemberTypes":[
+            "User"
+        ],
+        "description": "msiam_access",
+        "displayName": "msiam_access",
+        "id": "41be2db8-48d9-4277-8e86-f6d22d35****",
+        "isEnabled": true,
+        "origin": "Application",
+        "value": null
+        },
+        { "allowedMemberTypes": [
+            "User"
+        ],
+        "description": "Admin,AzureADProd",
+        "displayName": "Admin,AzureADProd",
+        "id": "68adae10-8b6b-47e6-9142-6476078cdbce",
+        "isEnabled": true,
+        "origin": "ServicePrincipal",
+        "value": "acs:ram::187125022722****:role/aadrole,acs:ram::187125022722****:saml-provider/AAD"
+        }
+    ]
+    }
+    ```
+    > [!NOTE]
+    > `value` rappresenta i numeri ARN del provider di identità e del ruolo creati nella console RAM. È possibile aggiungere più ruoli in base alle esigenze. Azure AD invierà il valore di questi ruoli come valore attestazione nella risposta SAML. È tuttavia possibile aggiungere i nuovi ruoli solo dopo la parte `msiam_access` per l'operazione patch. Per semplificare il processo di creazione, è consigliabile usare un generatore di ID, ad esempio Generatore di GUID, per generare gli ID in tempo reale.
+
+    g. Dopo che all'entità servizio è stata applicata la patch con il ruolo necessario, collegare il ruolo all'utente di Azure AD (u2) seguendo la procedura indicata nella sezione **Assegnare l'utente test di Azure AD** dell'esercitazione.
 
 ### <a name="configure-alibaba-cloud-service-role-based-sso-single-sign-on"></a>Configurare l'accesso Single Sign-On di Alibaba Cloud Service (Role-based SSO)
 
 Per configurare l'accesso Single Sign-On sul lato **Alibaba Cloud Service (Role-based SSO)**, è necessario inviare il file **XML di metadati della federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Alibaba Cloud Service (Role-based SSO)](https://www.aliyun.com/service/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -192,7 +278,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Alibaba Cloud Service (Role-based SSO).
 
@@ -212,21 +298,40 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
+5. Nella scheda **Utenti e gruppi** selezionare u2 dall'elenco di utenti e fare clic su **Seleziona**. Fare quindi clic su **Assegna**.
 
-6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+    ![Configurazione di test](./media/alibaba-cloud-service-role-based-sso-tutorial/test01.png)
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+6. Visualizzare il ruolo assegnato e testare Alibaba Cloud Service (Role-based SSO).
+
+    ![Configurazione di test](./media/alibaba-cloud-service-role-based-sso-tutorial/test02.png)
+
+    >[!NOTE]
+    >Dopo aver assegnato l'utente (u2), il ruolo creato viene collegato automaticamente all'utente. Se sono stati creati più ruoli, è necessario collegare il ruolo appropriato all'utente in base alle esigenze. Per implementare l'accesso SSO in base al ruolo da Azure AD a più account Alibaba Cloud, ripetere i passaggi precedenti.
 
 ### <a name="create-alibaba-cloud-service-role-based-sso-test-user"></a>Creare l'utente di test di Alibaba Cloud Service (Role-based SSO)
 
-In questa sezione viene creato un utente chiamato Britta Simon in Alibaba Cloud Service (Role-based SSO). Collaborare con il  [team di supporto di Alibaba Cloud Service (Role-based SSO)](https://www.aliyun.com/service/) per aggiungere gli utenti nella piattaforma Alibaba Cloud Service (Role-based SSO). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in Alibaba Cloud Service (Role-based SSO). Collaborare con il [team di supporto di Alibaba Cloud Service (Role-based SSO)](https://www.aliyun.com/service/) per aggiungere gli utenti nella piattaforma Alibaba Cloud Service (Role-based SSO). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+Dopo aver completato le configurazioni precedenti, testare Alibaba Cloud Service (Role-based SSO) seguendo questa procedura:
 
-Quando si fa clic sul riquadro Alibaba Cloud Service (Role-based SSO) nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Alibaba Cloud Service (Role-based SSO) per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Nel portale di Azure passare alla pagina **Alibaba Cloud Service (Role-based SSO)**, selezionare **Single Sign-On** e fare clic su **Test**.
+
+    ![Configurazione di test](./media/alibaba-cloud-service-role-based-sso-tutorial/test03.png)
+
+2. Fare clic su **Accedi con l'account utente corrente**.
+
+    ![Configurazione di test](./media/alibaba-cloud-service-role-based-sso-tutorial/test04.png)
+
+3. Nella pagina di selezione dell'account selezionare u2.
+
+    ![Configurazione di test](./media/alibaba-cloud-service-role-based-sso-tutorial/test05.png)
+
+4. Viene visualizzata la pagina seguente, che indica che l'accesso SSO in base al ruolo ha avuto esito positivo.
+
+    ![Configurazione di test](./media/alibaba-cloud-service-role-based-sso-tutorial/test06.png)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

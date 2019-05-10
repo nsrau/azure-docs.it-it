@@ -7,12 +7,12 @@ ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: evanhi
-ms.openlocfilehash: 34dd5efda2c9f6cc9a7b5ddcde06e8f7d27de901
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e4196cf59537be5194ceb510a1b7b066c97de19a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65157339"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410214"
 ---
 # <a name="tutorial-create-custom-provider-and-deploy-custom-resources"></a>Esercitazione: Creare un provider personalizzato e distribuire le risorse personalizzate
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 096f39eeef54f3a4a1e3d8928dd13b7c22847c8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 188c17b4e8ef84f3907b63fd62bf110ee94b4d7f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143202"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511204"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Come gestire un'app per le funzioni nel portale di Azure 
 
@@ -26,15 +26,23 @@ Innanzitutto passare al [portale di Azure](https://portal.azure.com) e accedere 
 
 ![Panoramica dell'app per le funzioni nel portale di Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-## <a name="manage-app-service-settings"></a>Scheda delle impostazioni dell'app per le funzioni
+È possibile passare a tutto il necessario per gestire le app per le funzioni dalla pagina di panoramica, in particolare il **[impostazioni applicazione](#settings)** e **[funzionalitàdellapiattaforma](#platform-features)**.
 
-![Panoramica dell'app per le funzioni nel portale di Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+## <a name="settings"></a>Impostazioni dell'applicazione
 
-Nella scheda **Impostazioni** è possibile aggiornare la versione di runtime di Funzioni usata dall'app per le funzioni. È anche possibile gestire le chiavi host usate per limitare l'accesso HTTP a tutte le funzioni ospitate dall'app per le funzioni.
+Il **le impostazioni dell'applicazione** scheda mantiene le impostazioni usate dall'app per le funzioni.
 
-Funzioni supporta sia i piani di hosting a consumo che i piani di hosting del servizio app. Per altre informazioni vedere [Scegliere il piano di servizio corretto per Funzioni di Azure](functions-scale.md). Per una migliore prevedibilità nel piano di consumo, Funzioni consente di limitare l'uso della piattaforma impostando una quota di uso giornaliera, in secondi di gigabyte. Quando la quota di uso giornaliera viene raggiunta, l'app per le funzioni viene arrestata. In questo caso può essere riattivata dallo stesso contesto dell'impostazione della quota di spesa giornaliera. Vedere la [pagina prezzi di Funzioni di Azure](https://azure.microsoft.com/pricing/details/functions/) per altre informazioni sulla fatturazione.   
+![Impostazioni dell'app funzioni nel portale di Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-## <a name="platform-features-tab"></a>Scheda delle funzionalità della piattaforma
+Queste impostazioni vengono archiviate crittografate, ed è necessario selezionare **Mostra i valori** per visualizzare i valori nel portale.
+
+Per aggiungere un'impostazione, selezionare **nuova impostazione dell'applicazione** e aggiungere la nuova coppia chiave-valore.
+
+[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+
+Quando si sviluppa un'app per le funzioni in locale, questi valori vengono mantenuti nel file di progetto Local.
+
+## <a name="platform-features"></a>Funzionalità della piattaforma
 
 ![Scheda delle funzionalità della piattaforma per l'app per le funzioni.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
@@ -46,7 +54,6 @@ Le app per le funzioni vengono eseguite e gestite dalla piattaforma Servizio app
 La restante parte di questo argomento illustra le seguenti funzionalità di servizio app nel portale di Azure utili per Funzioni:
 
 + [Editor del servizio app](#editor)
-+ [Impostazioni dell'applicazione](#settings) 
 + [Console](#console)
 + [Strumenti avanzati (Kudu)](#kudu)
 + [Opzioni di distribuzione](#deployment)
@@ -63,14 +70,6 @@ Per altre informazioni su come usare le impostazioni del servizio app, vedere [C
 | ![Editor del servizio app per l'app per le funzioni.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | L'editor del servizio app è un editor avanzato, disponibile nel portale, che si può usare per modificare i file di configurazione JSON e i file del codice nello stesso modo. Quando si sceglie questa opzione, viene aperta una scheda separata del browser con un editor di base. Ciò consente di realizzare l'integrazione con l'archivio Git, eseguire il codice e il relativo debug e modificare le impostazioni dell'app per le funzioni. Questo editor offre un ambiente di sviluppo migliorato per le funzioni confrontato con il pannello dell'app per le funzioni predefinito.    |
 
 ![Editor del servizio app](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
-
-### <a name="settings"></a>Impostazioni dell'applicazione
-
-| | |
-|-|-|
-| ![Impostazioni delle applicazioni per l'app per le funzioni.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | Nel pannello **Impostazioni applicazione** del servizio app è possibile configurare e gestire le versioni di framework, il debug remoto, le impostazioni dell'app e le stringhe di connessione. Quando l'app per le funzioni si integra con altri servizi di terze parti e di Azure, qui è possibile modificare tali impostazioni. Per eliminare un'impostazione, scorrere verso destra e quindi selezionare l'icona a forma di **X** all'estremità destra della riga (non visualizzata nella figura seguente).
-
-![Configurare le impostazioni dell'applicazione](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
 ### <a name="console"></a>Console
 

@@ -1,21 +1,24 @@
 ---
-title: Gestire le repliche di lettura per il Database di Azure per PostgreSQL dal comando di Azure
-description: Informazioni su come gestire i Database di Azure per PostgreSQL leggere repliche della riga di comando di Azure.
+title: Gestire le repliche di lettura per il Database di Azure per PostgreSQL - Server singolo dal comando di Azure
+description: Informazioni su come gestire le repliche di lettura nel Database di Azure per PostgreSQL - Server singolo dal comando di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420241"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510247"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Creare e gestire le repliche di lettura della riga di comando di Azure
 
 In questo articolo descrive come creare e gestire le repliche di lettura nel Database di Azure per PostgreSQL dal comando di Azure. Per altre informazioni sulle repliche in lettura, vedere la [panoramica](concepts-read-replicas.md).
+
+> [!NOTE]
+> Comando di Azure non supporta ancora la creazione di repliche in un'area diversa dal server master. Per creare una replica tra aree diverse, usare il [portale di Azure](howto-read-replicas-portal.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Un [server di Database di Azure per PostgreSQL](quickstart-create-server-up-azure-cli.md) che verrà usato come server master.
@@ -46,7 +49,7 @@ Il `azure.replication_support`parametro deve essere impostato su **REPLICA** nel
 
 Il [replica di az postgres server create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) comando richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | DESCRIZIONE  |
+| Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  Il gruppo di risorse in cui verrà creato il server di replica.  |
 | name | mydemoserver-replica | Nome del nuovo server di replica creato. |

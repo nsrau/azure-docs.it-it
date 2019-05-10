@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b3c967cd43745a4ae87fefc578282f5427a5f79
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776909"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405705"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Creare gli avvisi del log attività per le notifiche del servizio
 ## <a name="overview"></a>Panoramica
@@ -36,6 +36,10 @@ Questo articolo descrive come impostare gli avvisi del log attività per le noti
 Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../../azure-monitor/platform/action-groups.md).
 
 Per informazioni su come configurare gli avvisi di notifica sull'integrità del servizio usando i modelli Azure Resource Manager, vedere [Modelli di Resource Manager](alerts-activity-log.md).
+
+### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>Guardare un video su come configurare il primo avviso dell'integrità del servizio di Azure
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
 ## <a name="alert-and-new-action-group-using-azure-portal"></a>Avviso e nuovo gruppo di azioni usando il portale di Azure
 1. Nel [portale](https://portal.azure.com) selezionare **Integrità del servizio**.
@@ -195,6 +199,8 @@ Dopo la creazione, l'avviso sarà visibile nella sezione **Avvisi** di **Monitor
 * Disabilitarlo o abilitarlo per interrompere temporaneamente o riprendere la ricezione delle notifiche relative all'avviso.
 
 ## <a name="next-steps"></a>Passaggi successivi
+- Scopri [procedure consigliate per la configurazione degli avvisi di Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
+- Informazioni su come [configurare le notifiche push per dispositivi mobili per Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Informazioni su come [configurare le notifiche di webhook per i sistemi di gestione dei problemi esistenti](../../service-health/service-health-alert-webhook-guide.md).
 - Informazioni sulle [notifiche per l'integrità del servizio](../../azure-monitor/platform/service-notifications.md).
 - Informazioni sulla [limitazione della frequenza delle notifiche](../../azure-monitor/platform/alerts-rate-limiting.md).

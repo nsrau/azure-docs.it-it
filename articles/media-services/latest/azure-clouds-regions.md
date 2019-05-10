@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8851248c395a1f03c46490c8eb5e71221dd133
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733301"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409292"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Cloud e aree in cui sono presenti i Aervizi multimediali v3 di Azure
 
@@ -35,10 +35,7 @@ I Servizi multimediali v3 di Azure sono disponibili tramite il manifesto di Azur
 
 ## <a name="regionsgeographieslocations"></a>Aree/aree geografiche/località
 
-* [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Prodotti in base all'area](https://azure.microsoft.com/global-infrastructure/services/)
-* [Aree geografiche di Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
-* [Località di Azure](https://azure.microsoft.com/global-infrastructure/locations/)
+[Aree in cui viene distribuito il servizio di servizi multimediali di Azure](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### <a name="region-code-name"></a>Nome del codice dell'area 
 
@@ -98,6 +95,12 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Authentication | `https://login.chinacloudapi.cn/` |
 | Destinatari dei token |  `https://management.core.chinacloudapi.cn/` |
+
+## <a name="see-also"></a>Vedere anche 
+
+* [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Aree geografiche di Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Località di Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

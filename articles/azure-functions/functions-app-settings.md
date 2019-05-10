@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 573e6ea857ef17a6160f7e03f52f9c64f903530a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d78fb546e954c4ae12e5836d9a7bef7ed5003090
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347508"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511083"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -177,7 +177,7 @@ I valori validi sono un URL che si risolve nel percorso di un file di pacchetto 
 
 Per impostazione predefinita, i proxy di funzioni usano un collegamento per inviare chiamate API dai proxy direttamente alle funzioni della stessa app per le funzioni, anziché creare una nuova richiesta HTTP. Questa impostazione consente di disabilitare tale comportamento.
 
-|Chiave|Value|DESCRIZIONE|
+|Chiave|Value|Descrizione|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Le chiamate con un URL di back-end che punta a una funzione nell'app per le funzioni locale non verranno più inviate direttamente a tale funzione, ma verranno indirizzate al front-end HTTP dell'app per le funzioni|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Si tratta del valore predefinito. Le chiamate con un URL di back-end che punta alla funzione nell'app per le funzioni locale verranno inoltrate direttamente a tale funzione|
@@ -187,7 +187,7 @@ Per impostazione predefinita, i proxy di funzioni usano un collegamento per invi
 
 Questa impostazione permette di controllare se %2F viene decodificato come barre nei parametri di route quando vengono inseriti nell'URL di back-end. 
 
-|Chiave|Value|DESCRIZIONE|
+|Chiave|Value|Descrizione|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|I parametri di route con barre codificate saranno decodificati. `example.com/api%2ftest` diventerà `example.com/api/test`|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Questo è il comportamento predefinito. Tutti i parametri di route saranno trasmessi senza modifiche|
@@ -217,7 +217,7 @@ Di seguito un esempio di proxies.json in un'app per le funzioni all'URL myfuncti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Altre informazioni su come aggiornare le impostazioni dell'app](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Altre informazioni su come aggiornare le impostazioni dell'app](functions-how-to-use-azure-function-app-settings.md#settings)
 
 [Vedere le impostazioni globali nel file host.json](functions-host-json.md)
 

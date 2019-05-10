@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 289d50fc9d71ee5ea8960fd077e91ef6f68027cb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 959c1ff8b199320105f650a7eb62a04bedb03b3b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127982"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412793"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Creare un'app Windows con un back-end di Azure
 
@@ -37,9 +37,9 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Windows 10.
-* [Visual Studio Community 2017].
+* [Visual Studio Community].
 * Familiarità con lo sviluppo di app UWP. Vedere la [documentazione di UWP](https://docs.microsoft.com/windows/uwp/) per informazioni su come [avviare la configurazione](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) per creare app UWP.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Creare un nuovo back-end dell'app per dispositivi mobili di Azure
@@ -70,7 +70,7 @@ Dopo aver configurato il back-end dell'app per dispositivi mobili, è possibile 
     Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mobili ospitato in Azure.
 
 > [!TIP]
-> È possibile aggiungere il progetto di app UWP alla stessa soluzione come progetto server se si usa il back-end .NET. Questa operazione semplifica il debug e il test dell'app e del back-end nella stessa soluzione di Visual Studio. Per aggiungere un progetto di app UWP alla soluzione back-end, è necessario usare Visual Studio 2017.
+> È possibile aggiungere il progetto di app UWP alla stessa soluzione come progetto server se si usa il back-end .NET. Questa operazione semplifica il debug e il test dell'app e del back-end nella stessa soluzione di Visual Studio. Per aggiungere un progetto di app UWP alla soluzione di back-end, è necessario usare Visual Studio 2017 o versione successiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -86,4 +86,4 @@ Dopo aver configurato il back-end dell'app per dispositivi mobili, è possibile 
 <!-- URLs. -->
 [Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community]: https://go.microsoft.com/fwLink/p/?LinkID=534203

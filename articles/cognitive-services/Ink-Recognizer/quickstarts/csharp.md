@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: f03593292289cbc093832667505da2738c2b1633
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 9bb9c23cc1f807cae1d0d22f1652e8f4408f1f91
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026287"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518680"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Guida introduttiva: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna eC#
 
@@ -36,9 +36,9 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
         1. Fare clic con il pulsante destro sul **Solution Manager**
         2. Scegliere **Gestisci pacchetti NuGet...**
         3. Cercare `Newtonsoft.Json` e installare il pacchetto
-- Se si usa Linux/MacOS, questa applicazione può essere eseguito usando [Mono](http://www.mono-project.com/).
+- Se si usa Linux/MacOS, questa applicazione può essere eseguito usando [Mono](https://www.mono-project.com/).
 
-- Dati tratti input penna di esempio per questa Guida introduttiva sono disponibili nella [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+- Dati tratti input penna di esempio per questa Guida introduttiva sono disponibili nella [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -158,7 +158,7 @@ public static JObject LoadJson(string fileLocation){
 
 ## <a name="run-the-application-and-view-the-response"></a>Eseguire l'applicazione e visualizzare la risposta
 
-Eseguire l'applicazione. Una risposta con esito positivo viene restituita in formato JSON. È anche possibile trovare la risposta JSON sul [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+Eseguire l'applicazione. Una risposta con esito positivo viene restituita in formato JSON. È anche possibile trovare la risposta JSON sul [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -167,9 +167,9 @@ Eseguire l'applicazione. Una risposta con esito positivo viene restituita in for
 > [Informazioni di riferimento sulle API REST](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-Per visualizzarne il funzionamento dell'API di riconoscimento input penna in un'app di input penna digitale, esaminiamo le seguenti applicazioni di esempio su GitHub:
-* [C#e Windows Universal Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#e Windows Presentation Foundation](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [App basate su browser web JavaScript](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [App per dispositivi mobili Java e Android](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [App per dispositivi mobili iOS e SWIFT](https://go.microsoft.com/fwlink/?linkid=2089805)
+Per vedere come funziona l'API Riconoscimento input penna in un'app di input penna, esaminare le applicazioni di esempio seguenti in GitHub:
+* [C# e piattaforma UWP (Universal Windows Platform)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# e WPF (Windows Presentation Foundation)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [App Javascript per Web browser](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [App Java e per dispositivi mobili Android](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [App Swift e per dispositivi mobili iOS](https://go.microsoft.com/fwlink/?linkid=2089805)

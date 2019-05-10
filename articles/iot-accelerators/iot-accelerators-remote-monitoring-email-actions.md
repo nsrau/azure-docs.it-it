@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb5f92258ff31dd7077bb1ade7fa7e5644c8bac
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61445666"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466896"
 ---
 # <a name="add-an-email-action"></a>Aggiungere un'azione di posta elettronica
 
@@ -102,11 +102,11 @@ La procedura seguente mostra come configurare e verificare le azioni di posta el
 
 1. Fare clic su **office365-connector**:
 
-    ![Connessione API](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector.png)
+    ![Connessione API](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
 
 1. Fare clic sul banner per iniziare il processo di autorizzazione:
 
-    ![Autorizza](./media/iot-accelerators-remote-monitoring-email-actions/connector.png)
+    ![Autorizza](./media/iot-accelerators-remote-monitoring-email-actions/connector1.png)
 
 1. Fare clic su **Autorizza**. Viene richiesto di accedere. L'account usato per l'accesso deve corrispondere all'indirizzo di posta elettronica usato dall'applicazione per inviare notifiche tramite posta elettronica:
 
@@ -116,7 +116,7 @@ La procedura seguente mostra come configurare e verificare le azioni di posta el
 
 1. Per modificare l'indirizzo di posta elettronica da cui vengono inviate le notifiche, fare clic su **Modifica connessione API**.
 
-    ![Modificare l'indirizzo di posta elettronica](./media/iot-accelerators-remote-monitoring-email-actions/editemail.png)
+    ![Modificare l'indirizzo di posta elettronica](./media/iot-accelerators-remote-monitoring-email-actions/editemail1.png)
 
 ### <a name="owner-role-outlook-setup"></a>Configurazione del ruolo di proprietario in Outlook
 
@@ -142,7 +142,7 @@ Seguire questa procedura per accedere e configurare le azioni di posta elettroni
 
 Per impostazione predefinita, l'acceleratore della soluzione di monitoraggio remoto fornisce un modello HTML di base per i messaggi di azione. Il modello di messaggio di posta elettronica usa i valori delle impostazioni dell'azione di posta elettronica. Di seguito è illustrato un messaggio di posta elettronica di esempio:
 
-![messaggio di posta elettronica di esempio](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate.png)
+![messaggio di posta elettronica di esempio](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate1.png)
 
 La procedura seguente mostra come modificare il modello di messaggio di posta elettronica HTML. È possibile, ad esempio, includere altre informazioni o aggiungere immagini personalizzate:
 

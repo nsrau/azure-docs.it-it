@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: f59d349da023f9a1b21477a05750d4f8e9aef500
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187752"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409816"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedure consigliate per la sicurezza del database di Azure
 Questo articolo descrive le procedure consigliate per la sicurezza del database.
@@ -71,7 +71,7 @@ Se si usa l'autenticazione di SQL Server, è necessario:
 
 - Gestire autonomamente le credenziali sicure.
 - Proteggere le credenziali nella stringa di connessione.
-- (Potenzialmente) proteggere le credenziali trasmesse in rete dal server Web al database. Per ulteriori informazioni, consultare [Come Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)) (Procedura: Connettersi a SQL Server usando l'autenticazione SQL in ASP.NET 2.0).
+- (Potenzialmente) proteggere le credenziali trasmesse in rete dal server Web al database. Per altre informazioni, vedere [Procedura: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)) (Procedura: Connettersi a SQL Server usando l'autenticazione SQL in ASP.NET 2.0).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticazione di Azure Active Directory (AD)*
 L'autenticazione di Azure Active Directory è un meccanismo di connessione al database SQL di Azure e a [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tramite l'uso di identità in Azure AD. Con l'autenticazione di Azure AD è possibile gestire centralmente le identità degli utenti del database e di altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti del database da un unico punto e semplifica la gestione delle autorizzazioni.

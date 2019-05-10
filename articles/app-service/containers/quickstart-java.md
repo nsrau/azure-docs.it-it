@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: c97d4a373970514b920581aa258b61c1b1cb978c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7c6d5034335a455d24b1f22919b672e2ead2810d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684005"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510850"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Guida introduttiva: Creare un'app Java nel servizio app in Linux
 
@@ -115,7 +115,7 @@ Per distribuire l'app Java in Azure, usare il comando seguente:
 mvn package azure-webapp:deploy
 ```
 
-Al termine della distribuzione, passare all'applicazione distribuita usando l'URL seguente nel Web browser, ad esempio `http://<webapp>.azurewebsites.net/helloworld`. 
+Al termine della distribuzione, passare all'applicazione distribuita usando l'URL seguente nel Web browser, ad esempio `http://<webapp>.azurewebsites.net`. 
 
 ![App di esempio in esecuzione in Azure](media/quickstart-java/java-hello-world-in-browser-curl.png)
 

@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924781"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410053"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ottimizzazione delle prestazioni per macchine virtuali di Azure
 
@@ -276,7 +276,7 @@ Per usare la funzionalità rete accelerata, è necessario abilitarla in modo esp
 
 Scalabilità (RSS) è una tecnologia di driver di rete che distribuisce la ricezione del traffico di rete in modo più efficiente grazie alla distribuzione ricevere l'elaborazione su più CPU in un sistema multiprocessore lato di ricezione. In altre parole, RSS supporta un sistema di elaborare più traffico ricevuto in quanto utilizza tutte le CPU anziché di uno. Per informazioni più tecniche di RSS, vedere [Introduzione a receive-side scaling](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-Per ottenere prestazioni ottimali quando la rete accelerata è abilitata in una macchina virtuale, è necessario abilitare RSS. RSS può anche fornire vantaggi nelle macchine virtuali che non usano la funzionalità rete accelerata. Per una panoramica di come determinare se RSS è abilitato e sulla relativa abilitazione, vedere [Ottimizza velocità effettiva della rete per macchine virtuali di Azure](http://aka.ms/FastVM).
+Per ottenere prestazioni ottimali quando la rete accelerata è abilitata in una macchina virtuale, è necessario abilitare RSS. RSS può anche fornire vantaggi nelle macchine virtuali che non usano la funzionalità rete accelerata. Per una panoramica di come determinare se RSS è abilitato e sulla relativa abilitazione, vedere [Ottimizza velocità effettiva della rete per macchine virtuali di Azure](https://aka.ms/FastVM).
 
 ### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT e TIME_WAIT assassination
 
@@ -316,7 +316,7 @@ Il limite di velocità effettiva si applica alla macchina virtuale. Velocità ef
 
 - **Protocollo**: Tutto il traffico in uscita su tutti i protocolli conta per il limite.
 
-Per altre informazioni, vedere [larghezza di banda di rete macchina virtuale](http://aka.ms/AzureBandwidth).
+Per altre informazioni, vedere [larghezza di banda di rete macchina virtuale](https://aka.ms/AzureBandwidth).
 
 ### <a name="internet-performance-considerations"></a>Considerazioni sulle prestazioni di Internet
 

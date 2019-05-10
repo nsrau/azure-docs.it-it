@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: c8bc11b8f81fe034ceaa93c7bd8a49771d9407f9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 63dd64e900cf68e708032569ca75ac2e8b221491
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025780"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236997"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Consigli di vocale dispositivi SDK microfono array
 
@@ -29,9 +29,11 @@ Le geometrie di matrice seguenti sono consigliate per l'uso con lo Stack Audio d
 
 |          | Matrice circolare    |       |  Matrice lineare              |                |
 |----------|-------------------|-------------------|----------------|----------------|
-|          |![Matrice di circolare mic 7](media/speech-devices-sdk/7-mic-c.png)|![Matrice di circolare mic 4](media/speech-devices-sdk/4-mic-c.png)|![Matrice di lineare mic 4](media/speech-devices-sdk/4-mic-l.png)|![Matrice di lineare mic 2](media/speech-devices-sdk/2-mic-l.png)|
+|          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# Microfoni  | 7                 | 4                 | 4              | 2              |
 | Geometria | 6 1 outer, centro, raggio = mm 42,5, uniformemente distribuite| 3 1 outer, centro, raggio = mm 42,5, uniformemente distribuite | Lunghezza = 120 mm, spaziatura = 40 mm | Spaziatura = 40 mm |
+
+I canali di microfono devono essere ordinati in base alla numerazione descritto per ciascuno di sopra di matrice, crescenti da 0.  Lo Stack Audio Microsoft richiederà un flusso di riferimento aggiuntivo di riproduzione audio per eseguire l'annullamento echo.
 
 ## <a name="component-selection"></a>Selezione dei componenti
 
@@ -39,7 +41,7 @@ Le geometrie di matrice seguenti sono consigliate per l'uso con lo Stack Audio d
 
 Le proprietà consigliate quando si seleziona microfoni sono:
 
-| Parametro                         | Consigliato                       |
+| Parametro                         | Consigliati                       |
 |-----------------------------------|-----------------------------------|
 | SNR                               | \> 65 dB (1 kHz segnale 94 dBSPL, rumore ponderato)   |
 | Corrispondenza di Amplitude                | + 1 dB @ 1 kHz                     |
@@ -59,7 +61,7 @@ Selezione componenti ottimale deve essere abbinato con una buona integrazione el
 
 Le prestazioni delle matrici quando integrate in un dispositivo e dopo qualsiasi miglioramento fisso o EQ devono soddisfare i requisiti seguenti:
 
-|  Parametro        |    Consigliato |
+|  Parametro        |    Consigliati |
 |--------------------|----------------------------------------------------|
 |  SNR                 | \> 65 dB (1 kHz segnale 94 dBSPL, rumore ponderato) |
 |  Sensibilità di output  | -26 dBFS/Pa @ 1 kHz (scelta consigliata) |
@@ -74,7 +76,7 @@ Le prestazioni delle matrici quando integrate in un dispositivo e dopo qualsiasi
 
 Eco è necessaria per i dispositivi di riconoscimento vocale che contengono gli altoparlanti, vengono forniti consigli aggiuntivi per l'integrazione e la selezione del relatore.
 
-| Parametro                         | Consigliato                       |
+| Parametro                         | Consigliati                       |
 |-----------------------------------|-----------------------------------|
 | Considerazioni di linearità          | Non lineari dopo il riferimento di relatore, in caso contrario, un flusso di riferimento basati su hardware loopback è richiesto un'elaborazione  |
 | Loopback dell'altoparlante                  | Fornito tramite WASAPI, privata API, personalizzato ALSA plug-in (Linux) o fornita tramite un canale del firmware      |
@@ -110,4 +112,4 @@ Ad alta velocità USB 2.0 classe Audio deve essere supportato all'interno di qua
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> Altre informazioni sul [vocale Devices SDK](speech-devices-sdk.md)
+> [Altre informazioni sui dispositivi Speech SDK](speech-devices-sdk.md)

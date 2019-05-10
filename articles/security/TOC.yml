@@ -67,27 +67,29 @@
                 - name: Crittografia del disco con la sequenziazione del set di scalabilità di macchine virtuali
                   href: azure-security-disk-encryption-extension-sequencing.md
                 - name: Appendice per la crittografia del disco
-              href: azure-security-disk-encryption-appendix.md
-            - name: Domande frequenti sulla crittografia del disco
-              href: azure-security-disk-encryption-faq.md
-            - name: risoluzione dei problemi
-              href: azure-security-disk-encryption-tsg.md
-            - name: Crittografia dischi di Azure con un'app Azure AD (versione precedente)
-              displayName: active directory
-              items:
-                - name: Prerequisiti di Crittografia dischi con un'app Azure AD
+                  href: azure-security-disk-encryption-appendix.md
+                - name: Domande frequenti sulla crittografia del disco
+                  href: azure-security-disk-encryption-faq.md
+                - name: risoluzione dei problemi
+                  href: azure-security-disk-encryption-tsg.md
+                - name: Crittografia dischi di Azure con un'app Azure AD (versione precedente)
                   displayName: active directory
-                  href: azure-security-disk-encryption-prerequisites-aad.md
-                - name: Crittografia dischi con un'app Azure AD per VM Windows
-                  displayName: active directory
-                  href: azure-security-disk-encryption-windows-aad.md
-                - name: Crittografia dischi con un'app Azure AD per VM Linux
-                  displayName: active directory
-                  href: azure-security-disk-encryption-linux-aad.md
+                  items:
+                    - name: Prerequisiti di Crittografia dischi con un'app Azure AD
+                      displayName: active directory
+                      href: azure-security-disk-encryption-prerequisites-aad.md
+                    - name: Crittografia dischi con un'app Azure AD per VM Windows
+                      displayName: active directory
+                      href: azure-security-disk-encryption-windows-aad.md
+                    - name: Crittografia dischi con un'app Azure AD per VM Linux
+                      displayName: active directory
+                      href: azure-security-disk-encryption-linux-aad.md
     - name: Sicurezza di Archiviazione di Azure
       href: security-storage-overview.md
     - name: Guida alla sicurezza di Archiviazione
       href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Customer Lockbox
+      href: azure-customer-lockbox-overview.md
 - name: Piattaforma e infrastruttura
   items:
     - name: Sicurezza dell'infrastruttura

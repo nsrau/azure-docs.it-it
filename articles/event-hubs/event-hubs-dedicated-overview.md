@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a5184b9980dd9f83764950445c10e8bdfea6d71a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4f721dc4fda5bef002c794d79dfd2f054f9eaf38
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203939"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511185"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Panoramica di Hub eventi dedicato
 
@@ -54,27 +54,18 @@ L'offerta dedicato di hub eventi viene fatturato a un prezzo mensile fisso, con 
 | --- |:---:|:---:|
 | Larghezza di banda | 20 unità elaborate (fino a 40 unità elaborate) | 20 unità di capacità |
 | Spazi dei nomi |  1 | 50 per ogni unità di capacità |
-| Hub eventi |  10 | Nessun limite |
+| Hub eventi |  10 | Nessun limite per hub eventi e gli argomenti |
 | Eventi in ingresso | Pagamento per ogni milione di eventi | Incluso |
 | Dimensioni del messaggio | 1 milione di byte | 1 milione di byte |
-| Partitions | 40 per ogni spazio dei nomi | 2000 per unità di capacità, 1024 per hub eventi |
+| Partizioni | 40 per ogni spazio dei nomi | 2000 per unità di capacità |
 | Gruppi di consumer | 20 per Hub eventi | Nessun limite per ogni unità di capacità, 1000 per hub eventi |
 | Connessioni negoziate | 1.000 incluse | 100 K incluse |
-| Conservazione dei messaggi | 7 giorni, incluso per ogni unità Elaborata 84 GB | 90 giorni, 10 TB, incluse per ogni unità di capacità |
+| Conservazione messaggi | 7 giorni, incluso per ogni unità Elaborata 84 GB | 90 giorni, 10 TB, incluse per ogni unità di capacità |
 | Acquisizione | Pagamento per ogni ora | Incluso |
 
 ## <a name="how-to-onboard"></a>Modalità di esecuzione dell'onboarding
 
-L'esperienza self-service per l'onboarding a dedicata è disponibile in anteprima, tramite il quale è possibile creare 1 CU cluster nelle aree seguenti:
-  - Canada centrale
-  - Europa occidentale
-  - Stati Uniti centrali
-  - Stati Uniti orientali
-  - Stati Uniti orientali 2
-  - Stati Uniti centro-settentrionali
-  - Stati Uniti occidentali
-
-Si sta attivamente aggiungendo nuove aree geografiche, ma nel frattempo se l'area preferita non è presente nell'elenco, inviare una richiesta di supporto per la [team di hub eventi](https://ms.portal.azure.com/#create/Microsoft.Support) sotto *tecniche > hub eventi > Quota > richiesta per Dedicato SKU*. Il piano Dedicato è unico nel suo genere perché consente di usufruire di più onboarding pratico dal team di produzione di Hub eventi per ottenere la distribuzione flessibile desiderata. 
+Eseguire l'onboarding a hub eventi dedicato, contattare il [team di hub eventi](mailto:askeventhubs@microsoft.com). Il piano Dedicato è unico nel suo genere perché consente di usufruire di più onboarding pratico dal team di produzione di Hub eventi per ottenere la distribuzione flessibile desiderata. 
 
 ## <a name="faqs"></a>Domande frequenti
 
@@ -86,19 +77,15 @@ La tabella seguente mostra i risultati dei benchmark ottenuti durante i test:
 
 | Forma del payload | Destinatari | Larghezza di banda in ingresso| Messaggi in ingresso | Larghezza di banda in uscita | Messaggi in uscita | Unità elaborate totali | Unità elaborate per unità di capacità |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batch di 100 x 1 KB | 2 | 400 MB/sec | 400000 messaggi/sec | 800 MB/sec | 800000 messaggi/sec | 400 unità elaborate | 100 unità elaborate | 
-| Batch di 10 x 10 KB | 2 | 666 MB/sec | 666000 messaggi/sec | 1,33 GB/sec | 133000 messaggi/sec | 666 unità elaborate | 166 unità elaborate |
-| Batch di 6 x 32 KB | 1 | 1,05 GB/sec | 34000 messaggi/sec | 1,05 GB/sec | 34000 messaggi/sec | 1000 unità elaborate | 250 unità elaborate |
+| Batch di 100 x 1 KB | 2 | 400 MB/sec | 400 k messaggi/sec | 800 MB/sec | 800 k messaggi/sec | 400 unità elaborate | 100 unità elaborate | 
+| Batch di 10 x 10 KB | 2 | 666 MB/sec | 66.6 k messaggi/sec | 1,33 GB/sec | 133 k messaggi/sec | 666 unità elaborate | 166 unità elaborate |
+| Batch di 6 x 32 KB | 1 | 1,05 GB/sec | i messaggi di 34 KB / sec | 1,05 GB/sec | 34 k messaggi/sec | 1000 unità elaborate | 250 unità elaborate |
 
 Nei test sono stati usati i criteri seguenti:
 
 - È stato usato un cluster di hub eventi dedicato a livelli con quattro unità di capacità (CUs). 
 - L'hub eventi usato per l'inserimento aveva 200 partizioni. 
 - I dati inseriti da tutte le partizioni vengono ricevuti da due applicazioni riceventi.
-
-#### <a name="how-do-i-create-a-cluster-larger-than-1-cu"></a>Come si crea un cluster di dimensioni superiori a 1 unità di capacità?
-
-Nella versione di anteprima dell'esperienza di Self-Service, è possibile richiedere per aumentare le prestazioni del cluster dopo aver creato il cluster. Dopo aver creato un cluster di aggiornamento Cumulativo 1, contattare il supporto di hub eventi compilando una [richiesta di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) sotto *Technical > Quota > richiesta scalabilità verticale o ridimensionare un Cluster verso il basso dedicato*. Nella versione disponibile a livello generale, sarà possibile ridimensionare un cluster direttamente tramite il portale. 
 
 #### <a name="can-i-scale-down-my-cluster"></a>È possibile ridurre il cluster?
 
@@ -107,7 +94,6 @@ Dopo la creazione del cluster vengono fatturati per un minimo di 4 ore di utiliz
 #### <a name="how-will-geo-dr-work-with-my-cluster"></a>Come si integrano ripristino di emergenza geografico con il cluster?
 
 È possibile associazione geografica uno spazio dei nomi in un cluster dedicato a livelli con un altro spazio dei nomi in un cluster dedicato a livelli. Ti consigliamo di non associazione uno spazio dei nomi di livello dedicato con uno spazio dei nomi nel nostro Standard offerta, poiché il limite di velocità effettiva sarà incompatibile che generano errori. 
-
 
 #### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>È possibile eseguire la migrazione personali Standard degli spazi dei nomi che appartengono a un cluster dedicato a livelli?
 Attualmente Supportiamo un processo automatizzato di migrazione per la migrazione dei dati di hub di eventi da uno spazio dei nomi Standard a un dedicata uno. Per eseguire la migrazione a un cluster dedicato a livelli, è consigliabile svuotamento delle eventuali sinistra dei messaggi di hub di eventi di livello Standard e sostituendo gli endpoint di connessione con quello dello spazio dei nomi dedicato.

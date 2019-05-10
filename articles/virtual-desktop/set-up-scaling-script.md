@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870724"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410577"
 ---
 # <a name="automatically-scale-session-hosts"></a>Ridimensionare automaticamente gli host della sessione
 
@@ -26,9 +26,9 @@ L'ambiente in cui si esegue lo script deve avere le operazioni seguenti:
 
 - Un tenant di Desktop virtuale Windows e account o un'entità servizio con le autorizzazioni per eseguire query sui tenant (ad esempio collaboratore di servizi desktop remoto).
 - Macchine virtuali del pool host sessione configurato e registrato con il servizio di Windows Desktop virtuale.
-- Un scaler aggiuntive della macchina virtuale che esegue l'attività pianificata tramite utilità di pianificazione e che abbia accesso alla rete agli host della sessione.
-- Il modulo PowerShell di Resource Manager di Microsoft Azure installato nella macchina virtuale che esegue l'attività pianificata.
-- Il modulo Windows PowerShell di Desktop virtuale installato nella macchina virtuale che esegue l'attività pianificata.
+- Un'altra macchina virtuale che esegue l'attività pianificata tramite utilità di pianificazione e ha accesso alla rete agli host della sessione. Si sarà tenuti a più avanti nel documento come scaler della macchina virtuale.
+- Il [modulo PowerShell di Resource Manager di Microsoft Azure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) installato nella macchina virtuale che esegue l'attività pianificata.
+- Il [modulo di Windows PowerShell di Desktop virtuale](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) installato nella macchina virtuale che esegue l'attività pianificata.
 
 ## <a name="recommendations-and-limitations"></a>Indicazioni e limitazioni
 
@@ -37,7 +37,7 @@ Quando si esegue lo script scala, tenere presente quanto segue:
 - Questo script di ridimensionamento può gestire solo un pool di host per ogni istanza dell'attività pianificata che esegue lo script di ridimensionamento.
 - Le attività pianificate che eseguono gli script di ridimensionamento devono trovarsi in una macchina virtuale che è sempre attiva.
 - Creare una cartella separata per ogni istanza di ridimensionamento script e la relativa configurazione.
-- Questo script non supporta gli account di multi-factor Authentication. È consigliabile che usare le entità servizio per accedere al servizio di Desktop virtuale Windows e Azure.
+- Questo script non supporta l'accesso come amministratore di desktop virtuale Windows con account utente di Azure AD che richiedono l'autenticazione a più fattori. È consigliabile che usare le entità servizio per accedere al servizio di Desktop virtuale Windows e Azure. Seguire [in questa esercitazione](create-service-principal-role-powershell.md) per creare un'entità servizio e un'assegnazione di ruolo con PowerShell.
 - Garanzia di contratto di servizio di Azure si applica solo alle macchine virtuali nel set di disponibilità. La versione corrente del documento viene descritto un ambiente con una singola macchina virtuale esegue il ridimensionamento, che potrebbe non soddisfare i requisiti di disponibilità.
 
 ## <a name="deploy-the-scaling-script"></a>Distribuire lo script di ridimensionamento
@@ -48,32 +48,40 @@ Le procedure seguenti illustreranno come distribuire lo script di ridimensioname
 
 Prima di tutto, preparare l'ambiente per lo script scala:
 
-1. Accedere alla macchina virtuale (**scalabilità della macchina virtuale**) che verrà eseguito l'attività pianificata con un account amministrativo di dominio.
-2. Creare una cartella nella macchina virtuale per contenere lo script di ridimensionamento e la relativa configurazione della scalabilità (ad esempio, **c:\\HostPool1 ridimensionamento**).
-3. Scaricare il **basicScaler.ps1**, **config. XML**, e **funzioni PSStoredCredentials.ps1** file e il **PowershellModules** cartella dal [ridimensionamento nello script repository](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) e copiarli nella cartella creata nel passaggio 2.
+1. Accedere alla macchina virtuale (VM scaler) che eseguirà l'attività pianificata con un account amministrativo di dominio.
+2. Creare una cartella nella macchina virtuale per contenere lo script di ridimensionamento e la relativa configurazione scaler (ad esempio, **c:\\HostPool1 ridimensionamento**).
+3. Scaricare il **basicScale.ps1**, **config. XML**, e **funzioni PSStoredCredentials.ps1** file e il **PowershellModules** cartella dal [ridimensionamento nello script repository](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) e copiarli nella cartella creata nel passaggio 2. Esistono due modi principali per ottenere i file prima di copiarli per la macchina virtuale di scaler:
+    - Clonare il repository git nel computer locale.
+    - Visualizza i **Raw** versione di ogni file, copiare e incollare il contenuto di ogni file in un editor di testo, quindi salvare i file con il nome del file corrispondente e il tipo di file. 
 
 ### <a name="create-securely-stored-credentials"></a>Creare le credenziali archiviate in modo sicuro
 
 Successivamente, è necessario creare le credenziali archiviate in modo sicuro:
 
 1. Aprire PowerShell ISE come amministratore.
-2. Aprire il riquadro di modifica e caricare il **funzione PSStoredCredentials.ps1** file.
-3. Eseguire il cmdlet seguente:
+2. Importare il modulo PowerShell di servizi desktop remoto eseguendo il cmdlet seguente:
+
+    ```powershell
+    Install-Module Microsoft.RdInfra.RdPowershell
+    ```
+    
+3. Aprire il riquadro di modifica e caricare il **funzione PSStoredCredentials.ps1** file.
+4. Eseguire il cmdlet seguente:
     
     ```powershell
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
     Ad esempio, **Set-Variable - Name KeyPath-ambito globale-valore "c:\\HostPool1 scalabilità"**
-4. Eseguire la **New-StoredCredential - KeyPath \$KeyPath** cmdlet. Quando richiesto, immettere le credenziali di Desktop virtuale Windows con le autorizzazioni per eseguire una query il pool di host (il pool di host è specificato nella **config. XML**).
+5. Eseguire la **New-StoredCredential - KeyPath \$KeyPath** cmdlet. Quando richiesto, immettere le credenziali di Desktop virtuale Windows con le autorizzazioni per eseguire una query il pool di host (il pool di host è specificato nella **config. XML**).
     - Se si usa diverse entità servizio o account standard, eseguire la **New-StoredCredential - KeyPath \$KeyPath** cmdlet una volta per ogni account creare locale le credenziali archiviate.
-5. Eseguire **Get-StoredCredentials-elenco** per confermare le credenziali sono state create correttamente.
+6. Eseguire **Get-StoredCredentials-elenco** per confermare le credenziali sono state create correttamente.
 
 ### <a name="configure-the-configxml-file"></a>Configurare il file config. Xml
 
 Immettere i valori appropriati nei campi seguenti per aggiornare le impostazioni di scalabilità script nel file config. XML:
 
-| Campo                     | DESCRIZIONE                    |
+| Campo                     | Descrizione                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | ID del AD Tenant Azure che consente di associare la sottoscrizione in cui la sessione host macchine virtuali in esecuzione     |
 | AADApplicationId              | ID applicazione dell'entità servizio                                                       |
@@ -87,7 +95,7 @@ Immettere i valori appropriati nei campi seguenti per aggiornare le impostazioni
 | BeginPeakTime                 | Quando inizia la fase di picco dell'utilizzo                                                            |
 | EndPeakTime                   | Quando termina il tempo di utilizzo di picco                                                              |
 | TimeDifferenceInHours         | Differenza tra ora locale e l'ora UTC, in ore                                   |
-| SessionThresholdPerCPU        | Numero massimo di sessioni per ogni valore soglia della CPU utilizzato per determinare quando un nuovo server host sessione Desktop remoto deve essere avviato durante le ore di picco.  |
+| SessionThresholdPerCPU        | Numero massimo di sessioni per ogni valore soglia della CPU utilizzato per determinare quando una macchina virtuale host nuova sessione deve essere avviato durante le ore di picco.  |
 | MinimumNumberOfRDSH           | Numero minimo di pool di host macchine virtuali di rimanere in esecuzione durante la fase di utilizzo non di punta             |
 | LimitSecondsToForceLogOffUser | Numero di secondi di attesa prima di forzare disconnessione degli utenti. Se impostato su 0, gli utenti non è costretti a disconnettersi.  |
 | LogOffMessageTitle            | Titolo del messaggio inviato a un utente prima che si è costretti a disconnettersi                  |
@@ -111,11 +119,11 @@ Dopo aver configurato il file con estensione XML di configurazione, è necessari
 
 Questo script di ridimensionamento legge le impostazioni da un file config. XML, inclusi l'inizio e fine del periodo di utilizzo di picco del giorno.
 
-Durante la fase di utilizzo di picco, lo script controlla il numero corrente di sessioni e la capacità di host sessione Desktop remoto in esecuzione corrente per ogni raccolta. Calcola i server host sessione Desktop remoto in esecuzione la presenza di una capacità sufficiente per supportare le sessioni esistenti in base al parametro SessionThresholdPerCPU definito nel file config. Xml. In caso contrario, lo script avvia ulteriori server host sessione Desktop remoto nella raccolta.
+Durante la fase di utilizzo di picco, lo script controlla il numero corrente di sessioni e la capacità di host sessione Desktop remoto in esecuzione corrente per ogni pool di host. Calcola se l'host di sessione in esecuzione le macchine virtuali hanno una capacità sufficiente per supportare le sessioni esistenti in base al parametro SessionThresholdPerCPU definito nel file config. Xml. In caso contrario, lo script Avvia sessione aggiuntivo host macchine virtuali nel pool di host.
 
-Durante il periodo di periodi di minore attività, lo script determina quali server host sessione Desktop remoto deve essere chiuso basato sul parametro MinimumNumberOfRDSH nel file config. Xml. Lo script verrà impostato il server host sessione Desktop remoto per svuotare la modalità per impedire la connessione agli host nuove sessioni. Se si impostano i **LimitSecondsToForceLogOffUser** parametro nel file config. XML su un valore positivo diverso da zero, lo script notificherà eventuali già effettuato l'accesso agli utenti di risparmiare lavoro, il periodo di tempo di attesa e quindi forzare il disconnessione degli utenti. Dopo che tutte le sessioni utente sono state firmate in un server host sessione Desktop remoto, lo script verrà arrestato il server.
+Durante il periodo di periodi di minore attività, lo script determina quali host sessione macchine virtuali deve essere chiuso in base al parametro MinimumNumberOfRDSH nel file config. Xml. Lo script imposterà la sessione di ospitare le macchine virtuali per svuotare la modalità per impedire la connessione agli host nuove sessioni. Se si impostano i **LimitSecondsToForceLogOffUser** parametro nel file config. XML su un valore positivo diverso da zero, lo script notificherà eventuali già effettuato l'accesso agli utenti di risparmiare lavoro, il periodo di tempo di attesa e quindi forzare il disconnessione degli utenti. Dopo che tutte le sessioni utente sono state firmate in un host sessione macchina virtuale, lo script verrà arrestato il server.
 
-Se si impostano i **LimitSecondsToForceLogOffUser** parametro nel file config. XML su zero, lo script consentirà l'impostazione di configurazione di sessione nelle proprietà della raccolta per gestire l'approvazione delle sessioni utente. Se sono presenti tutte le sessioni in un server host sessione Desktop remoto, rimarrà il server host sessione Desktop remoto in esecuzione. Se non sono presenti tutte le sessioni, lo script si arresta il server host sessione Desktop remoto.
+Se si impostano i **LimitSecondsToForceLogOffUser** parametro nel file config. XML su zero, lo script consentirà l'impostazione di configurazione di sessione nell'host della proprietà del pool gestire l'approvazione delle sessioni utente. Se sono presenti tutte le sessioni in una macchina virtuale host sessione, verrà conservata l'host sessione macchina virtuale in esecuzione. Se non sono tutte le sessioni, lo script verrà arrestata la macchina virtuale host sessione.
 
 Lo script è progettato per eseguire periodicamente nel server di macchine Virtuali di scaler l'utilità di pianificazione. Selezionare l'intervallo di tempo appropriato in base alla dimensione dell'ambiente di Servizi Desktop remoto e ricordare che avviare e arrestare le macchine virtuali può richiedere alcuni minuti. È consigliabile eseguire lo script scala ogni 15 minuti.
 
@@ -125,6 +133,6 @@ Lo script scala crea due file di log, **WVDTenantScale.log** e **WVDTenantUsage.
 
 Il **WVDTenantUsage.log** file registrerà il numero di core attivi e numero di macchine virtuali attivi ogni volta che si esegue lo script di ridimensionamento. È possibile usare queste informazioni per stimare l'utilizzo effettivo di macchine virtuali di Microsoft Azure e il costo. Il file viene formattato come valori delimitati da virgole, con ogni elemento che contiene le informazioni seguenti:
 
->ora, insieme, Core, le macchine virtuali
+>ora, il pool di host, Core, le macchine virtuali
 
 Il nome del file può essere modificato anche per con estensione csv, caricato in Microsoft Excel e analizzati.

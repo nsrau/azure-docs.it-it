@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a7927868a9a4bebc80ec995baefbae4c45d747f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363174"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410467"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Esempio 3: Creare una rete perimetrale per proteggere le reti con un firewall, UDR e Nsg
 
@@ -635,7 +635,7 @@ Modificare le variabili definite dall'utente nei file in base alle esigenze. Ese
 Dopo aver impostato le variabili definite dall'utente, eseguire questo script per:
 
 1. Connettersi a una sottoscrizione di Azure
-1. Creare un nuovo account di archiviazione.
+1. Crea un nuovo account di archiviazione
 1. Creare una nuova rete virtuale e tre subnet, come definito nel file di configurazione di rete
 1. Compilare cinque macchine virtuali: un firewall e quattro macchine virtuali Windows Server
 1. Configurare route definite dall'utente:
@@ -645,7 +645,7 @@ Dopo aver impostato le variabili definite dall'utente, eseguire questo script pe
 1. Abilitare l'inoltro IP sul dispositivo virtuale di rete.
 1. Configurare NSG:
    1. Creare un gruppo di sicurezza
-   1. Aggiungere una regola
+   1. Aggiungi una regola
    1. Associare il NSG a subnet appropriate.
 
 Eseguire questo PowerShell script in locale su un internet connesso PC o server.
@@ -989,7 +989,7 @@ Eseguire questo PowerShell script in locale su un internet connesso PC o server.
 Salvare questo file XML con il percorso aggiornato. Modifica il `$NetworkConfigFile` variabili nello script completo precedente il collegamento al file di configurazione di rete salvata.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 1d874b9c8f14b1489ab5e5b8bbdddaff0669165e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 186e0365ae8aee3b7f92fcc06142e4d0496ffd08
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145185"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415448"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Informazioni di riferimento sul linguaggio SQL per Azure Cosmos DB 
 
@@ -507,7 +507,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
 |**Categoria**|**Dettagli**|  
 |-|-|  
-|**aritmetico**|L'operatore prevede che gli input siano numerici. Anche l'output è un numero. Se uno degli input è **non definito** o di tipo diverso da un numero, il risultato è **non definito**.|  
+|**arithmetic**|L'operatore prevede che gli input siano numerici. Anche l'output è un numero. Se uno degli input è **non definito** o di tipo diverso da un numero, il risultato è **non definito**.|  
 |**bit per bit**|L'operatore prevede che gli input siano numeri interi con segno a 32 bit. Anche l'output è un numero intero con segno a 32 bit.<br /><br /> Gli eventuali valori non interi vengono arrotondati. I valori positivi verranno arrotondati per difetto, i valori negativi per eccesso.<br /><br /> Qualsiasi valore esterno all'intervallo di interi a 32 bit verrà convertito prendendo gli ultimi 32 bit della relativa notazione di complemento a due.<br /><br /> Se uno degli input è **non definito** o di tipo diverso da un numero, il risultato è **non definito**.<br /><br /> **Nota:** il comportamento descritto sopra è compatibile con il comportamento di un operatore bit per bit di JavaScript.|  
 |**logico**|L'operatore prevede che gli input siano valori booleani. Anche l'output è un valore booleano.<br />Se uno degli input è **non definito** o di tipo diverso da un valore booleano, il risultato sarà **non definito**.|  
 |**confronto**|L'operatore prevede che gli input abbiano lo stesso tipo e non siano indefiniti. L'output è un valore booleano.<br /><br /> Se uno degli input è **non definito** o gli input hanno tipi diversi, il risultato è **non definito**.<br /><br /> Vedere la tabella dell'**ordinamento dei valori per il confronto** per informazioni dettagliate sull'ordinamento dei valori.|  
@@ -525,7 +525,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
 |**Nome**|**Operatore**|**Dettagli**|  
 |-|-|-|  
-|**aritmetico**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addizione.<br /><br /> Sottrazione.<br /><br /> Moltiplicazione.<br /><br /> Divisione.<br /><br /> Modulazione.|  
+|**arithmetic**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addizione.<br /><br /> Sottrazione.<br /><br /> Moltiplicazione.<br /><br /> Divisione.<br /><br /> Modulazione.|  
 |**bit per bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|OR bit per bit.<br /><br /> AND bit per bit.<br /><br /> XOR bit per bit.<br /><br /> Spostamento a sinistra.<br /><br /> Spostamento a destra.<br /><br /> Spostamento a destra riempimento zero.|  
 |**logico**|**AND**<br /><br /> **OR**|Congiunzione logica. Restituisce **true** se entrambi gli argomenti sono **true**, altrimenti restituisce **false**.<br /><br /> Disgiunzione logica. Restituisce **true** se almeno un argomento è **true**, altrimenti restituisce **false**.|  
 |**confronto**|**=**<br /><br /> **!=, &lt;&gt;**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Uguale a. Restituisce **true** se gli argomenti sono uguali, altrimenti restituisce **false**.<br /><br /> Diverso da. Restituisce **true** se gli argomenti non sono uguali, altrimenti restituisce **false**.<br /><br /> Maggiore di. Restituisce **true** se il primo argomento è maggiore del secondo, altrimenti restituisce **false**.<br /><br /> Maggiore o uguale a. Restituisce **true** se il primo argomento è maggiore o uguale al secondo, altrimenti restituisce **false**.<br /><br /> Minore di. Restituisce **true** se il primo argomento è minore del secondo, altrimenti restituisce **false**.<br /><br /> Minore o uguale a. Restituisce **true** se il primo argomento è minore o uguale al secondo, altrimenti restituisce **false**.<br /><br /> Unione. Restituisce il secondo argomento se il primo argomento è un valore **non definito**.|  
@@ -710,7 +710,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 ##  <a name="bk_built_in_functions"></a> Funzioni predefinite  
  In Cosmos DB sono disponibili molte funzioni SQL predefinite. Le categorie di funzioni predefinite sono elencate di seguito.  
   
-|Funzione|DESCRIZIONE|  
+|Funzione|Descrizione|  
 |--------------|-----------------|  
 |[Funzioni matematiche](#bk_mathematical_functions)|Le funzioni matematiche eseguono un calcolo basato in genere su valori di input passati come argomenti e restituiscono un valore numerico.|  
 |[Funzioni di controllo del tipo](#bk_type_checking_functions)|Le funzioni di controllo del tipo consentono di controllare il tipo di un'espressione nell'ambito delle query SQL.|  
@@ -1307,7 +1307,7 @@ RADIANS (<numeric_expression>)
 SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  
 ```  
   
- Questo è il set di risultati.  
+  Questo è il set di risultati.  
   
 ```  
 [{  
@@ -1338,6 +1338,17 @@ ROUND(<numeric_expression>)
   
   Restituisce un'espressione numerica.  
   
+  **Osservazioni:**
+  
+  L'operazione di arrotondamento eseguita segue punto medio arrotondamento lontano da zero. Se l'input è un'espressione numerica compresa tra due interi, il risultato sarà il valore integer più vicino lontano da zero.  
+  
+  |<numeric_expression>|Arrotondato|
+  |-|-|
+  |-6.5000|-7|
+  |-0.5|-1|
+  |0,5|1|
+  |6.5000|7||
+  
   **esempi**  
   
   L'esempio seguente arrotonda numeri positivi e negativi al numero intero più prossimo.  
@@ -1346,7 +1357,7 @@ ROUND(<numeric_expression>)
 SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
 ```  
   
- Questo è il set di risultati.  
+  Questo è il set di risultati.  
   
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
@@ -3148,7 +3159,7 @@ GetCurrentDateTime ()
   |AAAA|anno a quattro cifre|
   |MM|mese a due cifre (01 = gennaio, ecc.)|
   |GG|giorno a due cifre del mese (da 01 a 31)|
-  |T|signifier per inizio degli elementi temporali|
+  |M|signifier per inizio degli elementi temporali|
   |hh|ora a 2 cifre (da 00 a 23)|
   |MM|minuti a due cifre (da 00 a 59)|
   |ss|secondi a due cifre (da 00 a 59)|

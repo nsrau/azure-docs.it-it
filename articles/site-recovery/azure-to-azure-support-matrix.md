@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1118d1de72ca7cd44844a0b526efd85eb419bc67
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926582"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412766"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice di supporto per la replica di macchine virtuali di Azure da un'area a altra
 
@@ -47,7 +47,7 @@ Questo articolo vengono riepilogati i prerequisiti e supporto quando si impostan
 **Cluster geografico** | **Aree di Azure**
 -- | --
 America | Canada orientale, Canada centrale, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali
-Europa | Regno Unito occidentale, Regno Unito meridionale, Europa settentrionale,Europa occidentale, Francia centrale, Francia meridionale
+Europa | Regno Unito occidentale, Regno Unito meridionale, Europa settentrionale, Europa occidentale, Francia centrale, Francia meridionale, Sudafrica occidentale, Sudafrica settentrionale
 Asia | India meridionale, India centrale, Asia sud-orientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea del Sud centrale, Corea del Sud meridionale
 Australia   | Australia orientale, Australia sud-orientale, Australia centrale, Australia centrale 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
@@ -156,6 +156,7 @@ Immagini della raccolta di Azure - Pubblicate da terze parti | Supportato | Supp
 Immagini personalizzate - Pubblicate da terze parti | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Macchine virtuali migrate tramite Site Recovery | Supportato | Se una VM VMware o un computer fisico è stato migrato ad Azure tramite Site Recovery, è necessario disinstallare la versione precedente del servizio di mobilità in esecuzione nel computer e riavviare il computer prima di eseguirne la replica in un'altra area di Azure.
 Criteri RBAC | Non supportate | Accesso criteri di controllo degli accessi in macchine virtuali non vengono replicati per il failover della macchina virtuale nell'area di destinazione basato su ruoli.
+Estensioni | Non supportate | Le estensioni non vengono replicate per il failover della macchina virtuale nell'area di destinazione. Deve essere installato manualmente dopo il failover.
 
 ## <a name="replicated-machines---disk-actions"></a>Computer replicati - Azioni del disco
 

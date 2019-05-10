@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92f4616a415c4ddebd0d9b2e466536b2f30c486f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146452"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413708"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Ridimensionare automaticamente i cluster HDInsight di Azure (anteprima)
 
@@ -21,14 +21,17 @@ Funzionalità di scalabilità automatica di cluster di HDInsight di Azure si ada
 
 ## <a name="cluster-compatibility"></a>Compatibilità di cluster
 
+> [!Important]
+> La funzionalità scalabilità automatica funziona solo per i cluster creati dopo la disponibilità della funzionalità pubblica in maggio 2019. Non è possibile usarlo per i cluster esistenti.
+
 Nella tabella seguente descrive i tipi di cluster e le versioni compatibili con la funzionalità di scalabilità automatica.
 
 | Version | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 senza ESP | Sì | Sì | No  | No  | No  | No  | No  |
-| HDInsight 4.0 senza ESP | Sì | Sì | No  | No  | No  | No  | No  |
-| HDInsight 3.6 con ESP | Sì | Sì | No  | No  | No  | No  | No  |
-| HDInsight 3.6 con ESP | Sì | Sì | No  | No  | No  | No  | No  |
+| HDInsight 3.6 senza ESP | Sì | Sì | N. | N. | N. | N. | N. |
+| HDInsight 4.0 senza ESP | Sì | Sì | N. | N. | N. | N. | N. |
+| HDInsight 3.6 con ESP | Sì | Sì | N. | N. | N. | N. | N. |
+| HDInsight 3.6 con ESP | Sì | Sì | N. | N. | N. | N. | N. |
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -189,7 +192,7 @@ Per abilitare la scalabilità automatica in un cluster in esecuzione, selezionar
 
 ## <a name="monitoring"></a>Monitoraggio
 
-### <a name="cluster-status"></a>Stato del cluster
+### <a name="cluster-status"></a>Stato cluster
 
 Lo stato del cluster elencato nel portale di Azure può aiutarti a monitorare le attività di ridimensionamento automatico.
 
@@ -197,7 +200,7 @@ Lo stato del cluster elencato nel portale di Azure può aiutarti a monitorare le
 
 Tutti i messaggi di stato del cluster che è possibile riscontrare sono illustrati nell'elenco seguente.
 
-| Stato del cluster | Spiegazione |
+| Stato cluster | Spiegazione |
 |---|---|
 | In esecuzione | Il cluster stia funzionando normalmente. Tutte le attività di ridimensionamento automatico precedente è stata completata correttamente. |
 | Aggiornamento  | La configurazione di scalabilità automatica del cluster viene aggiornata.  |

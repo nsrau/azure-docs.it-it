@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 057e8d78b531abc4ee6d1b16c25a1a6f3b382977
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.openlocfilehash: 54493efdc0bffcbb4654b65676554f6707716968
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64537474"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235567"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -115,7 +115,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.Migrate | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure Anchor spaziali](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Rete virtuale](../virtual-network/index.yml)<br />[Bilanciamento del carico](../load-balancer/index.yml)<br />[Gateway applicazione](/application-gateway/index.yml)<br />[DNS di Azure](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[Gateway VPN](../vpn-gateway/index.yml)<br />[Gestione traffico](../traffic-manager/index.yml)<br />[Network Watcher](../network-watcher/index.yml)<br />[Firewall di Azure](../firewall/index.yml)<br />[Servizio di Azure di ingresso principale](../frontdoor/index.yml) |
+| Microsoft.Network | [Rete virtuale](../virtual-network/index.yml)<br />[Bilanciamento del carico](../load-balancer/index.yml)<br />[Gateway applicazione](../application-gateway/index.yml)<br />[DNS di Azure](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[Gateway VPN](../vpn-gateway/index.yml)<br />[Gestione traffico](../traffic-manager/index.yml)<br />[Network Watcher](../network-watcher/index.yml)<br />[Firewall di Azure](../firewall/index.yml)<br />[Servizio di Azure di ingresso principale](../frontdoor/index.yml) |
 | Microsoft.NotificationHubs | [Hub di notifica di Azure](../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Monitoraggio di Azure](../azure-monitor/index.yml) |

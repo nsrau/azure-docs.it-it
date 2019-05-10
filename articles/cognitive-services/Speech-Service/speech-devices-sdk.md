@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ca3f537ed52da547f64aa1fb98eb82c4ea73d81d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5f3b0094834b1ca547ba5ddf9726068c9ea36079
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021428"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409094"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Informazioni su Speech Devices SDK
 
@@ -32,7 +32,7 @@ Speech Devices SDK è integrato con [Speech SDK](speech-sdk.md). Usa Speech SDK 
 
 È possibile usare anche il SDK di dispositivi di riconoscimento vocale per creare dispositivi ambiente con il proprio [personalizzare word riattivazione](speech-devices-sdk-create-kws.md) in modo che il segnale che avvia un'interazione utente è univoco per il tuo marchio.
 
-Il riconoscimento vocale Devices SDK facilita un'ampia gamma di scenari di riconoscimento vocale, ad esempio [assistenti virtuali Voice-First personalizzate](https://aka.ms/sdsdk-assistant), unità-through, i sistemi di ordinamento [trascrizione conversazione](conversation-transcription-service.md)e smart relatori. È possibile rispondere agli utenti con testo, parlare con loro con una voce predefinita o [personalizzata](how-to-customize-voice-font.md), fornire risultati di ricerca, [tradurre](speech-translation.md) in altre lingue e altro ancora. Microsoft sarà lieta di ricevere notizie sulle soluzioni vocali realizzate dai propri utenti.
+Il riconoscimento vocale Devices SDK facilita un'ampia gamma di scenari di riconoscimento vocale, ad esempio [assistenti virtuali Voice-First personalizzate](https://aka.ms/bots/speech/va), unità-through, i sistemi di ordinamento [trascrizione conversazione](conversation-transcription-service.md)e smart relatori. È possibile rispondere agli utenti con testo, parlare con loro con una voce predefinita o [personalizzata](how-to-customize-voice-font.md), fornire risultati di ricerca, [tradurre](speech-translation.md) in altre lingue e altro ancora. Microsoft sarà lieta di ricevere notizie sulle soluzioni vocali realizzate dai propri utenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,12 +9,12 @@ ms.date: 4/29/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 560f7eb8a8809cdd6ef410a610be9806f9709754
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148309"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409964"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di archiviazione Blob di Azure
 
@@ -37,7 +37,7 @@ I criteri di gestione del ciclo di vita sono disponibili sia con gli account per
 
 La funzionalità di gestione del ciclo di vita è gratuita. Ai clienti viene addebitato il normale costo dell'operazione per le chiamate API [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) (Elenca BLOB) e [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) (Imposta livello BLOB). Operazione di eliminazione è gratuita. Per altre informazioni sui prezzi, vedere [Prezzi dei BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="regional-availability"></a>Disponibilità internazionale 
+## <a name="regional-availability"></a>Disponibilità a livello di area 
 La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree pubbliche di Azure. 
 
 
@@ -87,7 +87,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -123,7 +123,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 }
 ```
 
-## <a name="policy"></a>Policy
+## <a name="policy"></a>Criteri
 
 I criteri di gestione del ciclo di vita sono una raccolta di regole in un documento JSON:
 
@@ -157,9 +157,9 @@ Ogni regola all'interno del criterio ha diversi parametri:
 | Nome parametro | Tipo di parametro | Note | Obbligatorio |
 |----------------|----------------|-------|----------|
 | name           | String |Nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True  |
-| enabled | Boolean | Un valore booleano facoltativo per consentire una regola affinché sia temporanea è disabilitata. Valore predefinito è true se non è impostata. | False | 
-| type           | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | True  |
-| Definizione     | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True  |
+| enabled | Boolean | Un valore booleano facoltativo per consentire una regola affinché sia temporanea è disabilitata. Valore predefinito è true se non è impostata. | Falso | 
+| tipo           | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | True  |
+| definizione     | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True  |
 
 ## <a name="rules"></a>Regole
 
@@ -208,12 +208,12 @@ I filtri limitano le azioni della regola a un sottoinsieme di BLOB all'interno d
 
 Filtri validi includono:
 
-| Nome filtro | Tipo di filtro | Note | Obbligatorio |
+| Nome filtro | Tipo filtro | Note | Obbligatorio |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione corrente supporta `blockBlob`. | Sì |
-| prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Ogni regola può definire prefissi fino a 10. Una stringa di prefisso deve iniziare con un nome di contenitore. Se ad esempio si vogliono cercare tutti i BLOB sotto "https://myaccount.blob.core.windows.net/container1/foo/..." per una regola, prefixMatch è `container1/foo`. | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB nell'account di archiviazione.  | No  |
+| prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Ogni regola può definire prefissi fino a 10. Una stringa di prefisso deve iniziare con un nome di contenitore. Se ad esempio si vogliono cercare tutti i BLOB sotto "https://myaccount.blob.core.windows.net/container1/foo/..." per una regola, prefixMatch è `container1/foo`. | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB nell'account di archiviazione.  | N. |
 
-### <a name="rule-actions"></a>Azioni della regola
+### <a name="rule-actions"></a>Azioni regola
 
 Le azioni vengono applicate ai BLOB filtrati quando viene soddisfatta la condizione di esecuzione.
 
@@ -230,7 +230,7 @@ Gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazione 
 
 Le condizioni di esecuzione sono basate in base ad age. Per tenere traccia del tempo trascorso, i BLOB di base usano la data/ora dell'ultima modifica, mentre gli snapshot dei BLOB usano la data/ora di creazione dello snapshot.
 
-| Azione Esegui condizione | Valore della condizione | DESCRIZIONE |
+| Azione Esegui condizione | Valore della condizione | Descrizione |
 |----------------------------|-----------------|-------------|
 | daysAfterModificationGreaterThan | Valore intero che indica il tempo trascorso in giorni | Condizione valida per le azioni del BLOB di base |
 | daysAfterCreationGreaterThan     | Valore intero che indica il tempo trascorso in giorni | Condizione valida per le azioni dello snapshot del BLOB | 

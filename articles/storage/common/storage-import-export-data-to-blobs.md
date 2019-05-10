@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479304"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409373"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
 
@@ -64,7 +64,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
     
     I parametri usati vengono descritti nella tabella seguente:
 
-    |Opzione  |DESCRIZIONE  |
+    |Opzione  |Descrizione  |
     |---------|---------|
     |/j:     |Nome del file journal, con estensione jrn. Viene generato un file journal per ogni unità. È consigliabile usare il numero di serie del disco come nome del file journal.         |
     |/id:     |ID sessione. Usare un numero di sessione univoco per ogni istanza del comando.      |
@@ -79,7 +79,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
     > [!IMPORTANT]
     > - Insieme al file journal, viene creato anche un file `<Journal file name>_DriveInfo_<Drive serial ID>.xml` nella stessa cartella in cui si trova lo strumento. Il file XML viene usato al posto del file journal durante la creazione di un processo se il file journal è troppo grande. 
 
-## <a name="step-2-create-an-import-job"></a>Passaggio 2: Creare un processo di importazione
+## <a name="step-2-create-an-import-job"></a>Passaggio 2: Crea processo di importazione
 
 Per creare un processo di importazione nel portale di Azure, eseguire le operazioni seguenti.
 
@@ -114,7 +114,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
 4. In **Informazioni sul mittente della spedizione**:
 
    - Selezionare il vettore nell'elenco a discesa. Se si desidera usare un operatore diverso da FedEx o DHL, scegliere un'opzione esistente dall'elenco a discesa. Finestra operazioni dei dati di contatto Azure team a `adbops@microsoft.com` con le informazioni riguardanti il corriere si intende usare.
-   - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione. In assenza di un numero di account, creare un account di vettore [FedEx](https://www.fedex.com/us/oadr/) o [DHL](http://www.dhl.com/).
+   - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione. In assenza di un numero di account, creare un account di vettore [FedEx](https://www.fedex.com/us/oadr/) o [DHL](https://www.dhl.com/).
    - Specificare un nome di contatto completo e valido, insieme a numero di telefono, indirizzo di posta elettronica, indirizzo, città, CAP, stato/provincia e paese/area. 
         
        > [!TIP] 

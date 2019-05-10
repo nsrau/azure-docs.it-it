@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404695"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510537"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticare e risolvere i problemi quando si usano Trigger di Azure Cosmos DB in funzioni di Azure
 
@@ -27,17 +27,19 @@ I Trigger di Azure Cosmos DB e le associazioni dipendono i pacchetti di estensio
 
 Questo articolo farà sempre riferimento a funzioni di Azure V2 ogni volta che viene indicato il runtime, a meno che non specificato in modo esplicito.
 
-## <a name="consuming-the-cosmos-db-sdk-separately-from-the-trigger-and-bindings"></a>Utilizzo di Cosmos DB SDK separatamente dal Trigger e associazioni
+## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Usare Azure Cosmos DB SDK in modo indipendente
 
 La funzionalità principale del pacchetto di estensione consiste nel fornire supporto per i trigger di Azure Cosmos DB e le associazioni. Include anche il [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), ciò è utile se si vuole interagire con Azure Cosmos DB a livello di codice senza usare i trigger e associazioni.
 
-Se desidera utilizzare il SDK di Azure Cosmos DB, assicurarsi che non si aggiunge al progetto un altro riferimento al pacchetto NuGet. Al contrario, **consentire il riferimento al SDK di risolvere tramite il pacchetto di estensione di funzioni di Azure**.
+Se desidera utilizzare il SDK di Azure Cosmos DB, assicurarsi che non si aggiunge al progetto un altro riferimento al pacchetto NuGet. Al contrario, **consentire il riferimento al SDK di risolvere tramite il pacchetto di estensione di funzioni di Azure**. Usare Azure Cosmos DB SDK separatamente dal trigger e associazioni
 
 Inoltre, se si sta creando manualmente una propria istanza del [client SDK di Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), è consigliabile seguire il modello di avere solo un'istanza del client [usando un approccio di modello Singleton](../azure-functions/manage-connections.md#documentclient-code-example-c) . Questo processo verrà evitare i potenziali problemi di socket nelle operazioni.
 
-## <a name="common-known-scenarios-and-workarounds"></a>Scenari comuni noti e soluzioni alternative
+## <a name="common-scenarios-and-workarounds"></a>Scenari comuni e soluzioni alternative
 
-### <a name="azure-function-fails-with-error-message-either-the-source-collection-collection-name-in-database-database-name-or-the-lease-collection-collection2-name-in-database-database2-name-does-not-exist-both-collections-must-exist-before-the-listener-starts-to-automatically-create-the-lease-collection-set-createleasecollectionifnotexists-to-true"></a>Funzioni di Azure ha esito negativo con messaggio di errore "una raccolta di origine 'raccolta-name' (nel database 'database-name') o la raccolta di lease 'collection2-name' (nel database 'database2-name') non esiste. Entrambe le raccolte devono esistere prima che inizi il listener. Per creare automaticamente la raccolta di lease, impostare 'CreateLeaseCollectionIfNotExists' su 'true' "
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>Azure funzione ha esito negativo con l'insieme di messaggi di errore non esiste
+
+Funzioni di Azure ha esito negativo con messaggio di errore "una raccolta di origine 'raccolta-name' (nel database 'database-name') o la raccolta di lease 'collection2-name' (nel database 'database2-name') non esiste. Entrambe le raccolte devono esistere prima che inizi il listener. Per creare automaticamente la raccolta di lease, impostare 'CreateLeaseCollectionIfNotExists' su 'true' "
 
 Ciò significa che uno o entrambi i contenitori di Azure Cosmos necessari per il trigger funzioni non esistono o non sono raggiungibili alla funzione di Azure. **L'errore stesso indicherà quale database Cosmos Azure e contenitori è il trigger per** in base alla configurazione.
 
@@ -78,7 +80,8 @@ Se non sono presenti alcune modifiche nella destinazione, ciò vuol dire che è 
 
 In questo scenario, la linea di condotta migliore consiste nell'aggiungere `try/catch blocks` nel codice e all'interno di cicli che potrebbero essere elaborando le modifiche, per rilevare eventuali errori per un determinato subset di elementi e gestirli in modo appropriato (inviarli a un'altra risorsa di archiviazione per altri analisi o un nuovo tentativo). 
 
-> **Il Trigger di Azure Cosmos DB, per impostazione predefinita, non sarà ripetere un batch di modifiche se si è verificata un'eccezione non gestita** durante l'esecuzione del codice. Ciò significa che il motivo che le modifiche non sono arrivato nella destinazione è perché che hanno esito negativo per l'elaborazione.
+> [!NOTE]
+> Il Trigger di Azure Cosmos DB, per impostazione predefinita, non sarà ripetere un batch di modifiche se si verifica un'eccezione non gestita durante l'esecuzione del codice. Ciò significa che il motivo che le modifiche non sono arrivato nella destinazione è perché che hanno esito negativo per l'elaborazione.
 
 Se si ritiene che alcune modifiche non sono state ricevute affatto da trigger, lo scenario più comune è che è presente **in esecuzione un'altra funzione di Azure**. Può trattarsi di un'altra funzione di Azure distribuite in Azure o dispone di una funzione di Azure in esecuzione localmente sul computer dello sviluppatore **esattamente la stessa configurazione** (stesso monitorati e i contenitori di lease), e questa funzione di Azure fa per rubare un subset delle modifiche si aspetta la funzione di Azure per l'elaborazione.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648789"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236907"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Elenco di controllo per la pianificazione e la distribuzione di carichi di lavoro SAP in Azure 
 
@@ -140,9 +140,10 @@ La fase pilota può essere eseguita prima della fase di pianificazione e prepara
       2. Per evitare timeout tra le interfacce utente grafiche di SAP distribuite in locale e i livelli applicazione SAP distribuiti in Azure, verificare se in default.pfl o nel profilo dell'istanza sono impostati i parametri seguenti:
          1.   rdisp/keepalive_timeout = 3600
          2.   rdisp/keepalive = 20
-      3. Se si usa una configurazione di cluster di failover Windows, assicurarsi che il tempo necessario per reagire in caso di mancata risposta dei nodi sia impostato correttamente per Azure. L'articolo di Microsoft [Tuning Failover Cluster Network Thresholds](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) (Ottimizzazione delle soglie di rete dei cluster di failover) include l'elenco dei parametri e descrive come questi influiscono sulla sensibilità del failover. Dei parametri elencati, i due seguenti devono essere impostati con questi valori:
-         1.   SameSubNetDelay = 2
+      3. Se si usa una configurazione di cluster di failover Windows, assicurarsi che il tempo necessario per reagire in caso di mancata risposta dei nodi sia impostato correttamente per Azure. L'articolo di Microsoft [Tuning Failover Cluster Network Thresholds](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) (Ottimizzazione delle soglie di rete dei cluster di failover) include l'elenco dei parametri e descrive come questi influiscono sulla sensibilità del failover. Supponendo che i nodi del cluster siano nella stessa subnet, devono essere modificati i parametri seguenti:
+         1.   SameSubNetDelay = 2000
          2.   SameSubNetThreshold = 15
+         3.   RoutingHistorylength = 30
 4. Testare le procedure per la disponibilità elevata e il ripristino di emergenza
    1. Simulare situazioni di failover arrestando le macchine virtuali (sistema operativo guest Windows) o attivando la modalità di errore grave nei sistemi operativi (sistema operativo guest Linux) per determinare se le configurazioni di failover funzionano come previsto. 
    2. Misurare il tempo necessario per eseguire un failover. Se il tempo è troppo lungo, prendere in considerazione quanto segue:

@@ -125,7 +125,7 @@
           href: cluster-autoscaler.md
         - name: Usare più pool di nodi (anteprima)
           href: use-multiple-node-pools.md
-        - name: Distribuire il servizio Azure Kubernetes con Terraform
+        - name: Distribuire servizio Azure Kubernetes con Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
         - name: Usare il dashboard di Kubernetes
@@ -140,6 +140,8 @@
           href: azure-files-dynamic-pv.md
         - name: File di Azure - Configurazione statica
           href: azure-files-volume.md
+        - name: Server NFS - Configurazione statica
+          href: azure-nfs-volume.md
     - name: Configurare le impostazioni di rete
       items:
         - name: Creare o usare una rete virtuale esistente

@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 43dc388c9f24e3975d6efddbeec6e096bf062548
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6237253922544dc47bb11aec4dd58139f99eb0da
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026274"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518621"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Guida introduttiva: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna e Java
 
@@ -30,13 +30,13 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Il [Java&trade; sviluppo Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) o versione successiva.
+- Il [Java&trade; sviluppo Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) o versione successiva.
 
 - Queste librerie di importazione dal Repository Maven
     - [JSON in Java](https://mvnrepository.com/artifact/org.json/json) pacchetto
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) pacchetto
 
-- Dati tratti input penna di esempio per questa Guida introduttiva sono disponibili nella [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+- Dati tratti input penna di esempio per questa Guida introduttiva sono disponibili nella [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -134,7 +134,7 @@ static void recognizeInk(String requestData) {
 
 ## <a name="run-the-application-and-view-the-response"></a>Eseguire l'applicazione e visualizzare la risposta
 
-Eseguire l'applicazione. Una risposta con esito positivo viene restituita in formato JSON. È anche possibile trovare la risposta JSON sul [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+Eseguire l'applicazione. Una risposta con esito positivo viene restituita in formato JSON. È anche possibile trovare la risposta JSON sul [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -142,9 +142,9 @@ Eseguire l'applicazione. Una risposta con esito positivo viene restituita in for
 > [Informazioni di riferimento sulle API REST](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-Per visualizzarne il funzionamento dell'API di riconoscimento input penna in un'app di input penna digitale, esaminiamo le seguenti applicazioni di esempio su GitHub:
-* [C#e Windows Universal Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#e Windows Presentation Foundation](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [App basate su browser web JavaScript](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [App per dispositivi mobili Java e Android](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [App per dispositivi mobili iOS e SWIFT](https://go.microsoft.com/fwlink/?linkid=2089805)
+Per vedere come funziona l'API Riconoscimento input penna in un'app di input penna, esaminare le applicazioni di esempio seguenti in GitHub:
+* [C# e piattaforma UWP (Universal Windows Platform)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# e WPF (Windows Presentation Foundation)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [App Javascript per Web browser](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [App Java e per dispositivi mobili Android](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [App Swift e per dispositivi mobili iOS](https://go.microsoft.com/fwlink/?linkid=2089805)

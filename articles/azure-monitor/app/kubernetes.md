@@ -2,18 +2,18 @@
 title: Monitoraggio di Azure - monitoraggio per Kubernetes App ospitate Zero applicazioni di strumentazione | Microsoft Docs
 description: Monitoraggio per le app di Kubernetes ospitato zero applicazioni di strumentazione sono una soluzione di monitoraggio che consente di raccogliere dati di telemetria di Application Insights relativi a richieste in ingresso e in uscita da e verso i POD in esecuzione nel cluster Kubernetes da utilizzando la tecnologia mesh del servizio chiamato Istio.
 services: application-insights
-author: rishabjolly
+author: tokaplan
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: rijolly
-ms.openlocfilehash: 73f95ab75b49fb8ec5b61f6e30080f8f6d474c16
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.author: alkaplan
+ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149885"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408218"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Zero monitoraggio strumentazione dell'applicazione per Kubernetes ospitato l'App
 
@@ -34,7 +34,7 @@ Monitoraggio di Azure sfrutta ora tech mesh del servizio nel cluster Kubernetes 
 - Un [risorsa di Application Insights](create-new-resource.md)
 - Disporre di una rete mesh di servizi. Se il cluster non dispone di Istio distribuito, sarà possibile apprendere come [installare e usare Istio in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/istio-install).
 
-## <a name="capabilities"></a>Capabilities
+## <a name="capabilities"></a>Funzionalità
 
 Con zero applicazione di strumentazione di monitoraggio per Kubernetes App ospitate, sarà possibile usare:
 
@@ -84,7 +84,7 @@ Le applicazioni in esecuzione all'esterno di rete mesh di servizi non sono inter
    kubectl apply -f .
    ```
 
-### <a name="verify-deployment"></a>Verificare la distribuzione
+### <a name="verify-deployment"></a>Verifica distribuzione
 
 - Assicurarsi che l'adapter di Application Insights è stato distribuito:
 

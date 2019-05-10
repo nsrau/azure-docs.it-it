@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: c6416e36d7d2723577ca0d2009fb7bbad24f3b6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 18c52a47c291181547a9005c273dc1a329b8c207
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154708"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510957"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
@@ -82,7 +82,7 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3,
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* L'esecuzione di Storage Explorer in Linux richiede alcune dipendenze da installare prima di tutto. Verificare di Storage Explorer [Guida alla risoluzione dei](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) per altre informazioni.
+* L'esecuzione di Storage Explorer in Linux richiede alcune dipendenze da installare prima di tutto. Verificare di Storage Explorer [Guida alla risoluzione dei](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) per altre informazioni.
 
 ## <a name="previous-releases"></a>Versioni precedenti
 
@@ -408,7 +408,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * L'interruzione del lease può ora essere eseguita solo su un BLOB alla volta. È inoltre necessario immettere il nome del BLOB di cui si vuole interrompere il lease. Questa modifica è stata apportata per ridurre la probabilità di interruzione accidentale di un lease, soprattutto nelle macchine virtuali. 394
 * Se si verificano problemi di accesso, è ora possibile provare a reimpostare l'autenticazione. Passare al menu "Guida" e fare clic su "Reimposta" per accedere a questa funzionalità. 419
 
-### <a name="fix"></a>Correzione
+### <a name="fix"></a>Correggi
 
 * In seguito ai numerosi commenti e suggerimenti inviati dagli utenti, il nodo dell'emulatore predefinito è stato nuovamente abilitato. È comunque possibile aggiungere altre connessioni all'emulatore tramite la finestra di dialogo Connect (Connetti), ma se l'emulatore è configurato in modo da usare le porte predefinite, è anche possibile usare il nodo "Emulator * Default Ports" (Emulatore * Porte predefinite) in "Local & Attached/Storage Accounts" (Locali e collegati/Account di archiviazione). 669
 * Storage Explorer non consente più di impostare i valori dei metadati del BLOB che contengono spazi iniziali o finali. 760

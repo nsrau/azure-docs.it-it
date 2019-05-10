@@ -2,18 +2,18 @@
 title: Risolvere i problemi di Sincronizzazione file di Azure | Microsoft Docs
 description: Informazioni sulla risoluzione di problemi comuni di Sincronizzazione file di Azure.
 services: storage
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: rogarana
+ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e399566a67161219e1d778ba1c6f874f7cede251
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190078"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510848"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -275,7 +275,7 @@ La tabella seguente contiene tutti i caratteri unicode che Sincronizzazione file
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (decimale)** | -2147023673 | 
 | **Stringa di errore** | ERROR_CANCELLED |
-| **Rimedio necessario** | No  |
+| **Rimedio necessario** | N. |
 
 Le sessioni di sincronizzazione potrebbero non avvenire per vari motivi, tra cui il server che viene riavviato o aggiornato, gli snapshot VSS e così via. Anche se questo errore sembra richiedere un promemoria, è possibile ignorarlo a meno che non venga mantenuto per un periodo di diverse ore.
 
@@ -297,7 +297,7 @@ Le sessioni di sincronizzazione potrebbero non avvenire per vari motivi, tra cui
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (decimale)** | -2134376372 |
 | **Stringa di errore** | ECS_E_USER_REQUEST_THROTTLED |
-| **Rimedio necessario** | No  |
+| **Rimedio necessario** | N. |
 
 Non è necessaria alcuna azione, il server tenterà nuovamente. Se l'errore persiste per più di un paio d'ore, creare una richiesta di supporto.
 
@@ -432,7 +432,7 @@ Rimuovere le regole per risolvere questo problema.
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (decimale)** | -2134375911 |
 | **Stringa di errore** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT |
-| **Rimedio necessario** | No  |
+| **Rimedio necessario** | N. |
 
 Questo errore in genere si risolve automaticamente. Può verificarsi in presenza di:
 
@@ -527,7 +527,7 @@ Questo errore si verifica perché il volume è esaurito. Questo errore si verifi
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (decimale)** | -2134364145 |
 | **Stringa di errore** | ECS_E_REPLICA_NOT_READY |
-| **Rimedio necessario** | No  |
+| **Rimedio necessario** | N. |
 
 Questo errore si verifica perché sono state apportate modifiche nella condivisione di file di Azure direttamente e il rilevamento delle modifiche è in corso. La sincronizzazione verrà avviata al termine del rilevamento delle modifiche.
 
@@ -586,7 +586,7 @@ Questo errore si verifica perché la versione del driver cloud a livelli caricat
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (decimale)** | -2134376373 |
 | **Stringa di errore** | ECS_E_SERVICE_UNAVAILABLE |
-| **Rimedio necessario** | No  |
+| **Rimedio necessario** | N. |
 
 Questo errore si verifica perché il servizio di Sincronizzazione file di Azure è disponibile. Questo errore si risolve automaticamente quando il servizio Sincronizzazione file di Azure torna disponibile.
 
@@ -597,7 +597,7 @@ Questo errore si verifica perché il servizio di Sincronizzazione file di Azure 
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (decimale)** | -2134375922 |
 | **Stringa di errore** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
-| **Rimedio necessario** | No  |
+| **Rimedio necessario** | N. |
 
 Questo errore si verifica a causa di un problema interno con il database di sincronizzazione. Questo errore si risolve automaticamente quando Sincronizzazione file di Azure ripete l'operazione. Se il problema persiste per un periodo di tempo prolungato, creare una richiesta di supporto per ricevere assistenza durante la risoluzione del problema.
 

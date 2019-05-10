@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: ac8babf3a00c73b942ae64ac4cca00c7be7cfcfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed3c5790dcb51d12a38b85aa95e9c9178b6f44cd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60859538"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408852"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API di Azure  
 
@@ -54,7 +54,7 @@ Il livello **Premium** consente di distribuire un'unica istanza di Gestione API 
 È possibile effettuare aggiornamenti e downgrade da e verso qualsiasi livello. L'aggiornamento o il downgrade può rimuovere alcune funzionalità. Se ad esempio si effettua il downgrade dal livello Premium al livello Standard o Basic, possono essere rimosse le reti virtuali o la distribuzione in più aree.
 
 >[!NOTE]
->Il processo di aggiornamento o ridimensionamento può richiedere da 15 a 45 minuti. Al termine viene inviata una notifica.
+>Il processo di aggiornamento o ridimensionamento può richiedere da 15 a 45 minuti. Si riceva una notifica al termine.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Eseguire l'aggiornamento e il ridimensionamento tramite il portale di Azure
 

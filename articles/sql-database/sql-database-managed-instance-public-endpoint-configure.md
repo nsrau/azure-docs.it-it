@@ -10,13 +10,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: ea16efbb846f21ec7c3fa39b2efeac741d8f8ce0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/07/2019
+ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928363"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465213"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurare endpoint pubblici in istanza gestita di Database SQL di Azure
 
@@ -93,7 +93,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Selezionare il **regole di sicurezza in ingresso** scheda, e **Add** una regola con priorità più alta rispetto il **deny_all_inbound** regola con le impostazioni seguenti: </br> </br>
 
-    |Impostazione  |Valore consigliato  |DESCRIZIONE  |
+    |Impostazione  |Valore suggerito  |Descrizione  |
     |---------|---------|---------|
     |**Origine**     |Qualsiasi indirizzo IP o un tag di servizio         |<ul><li>Per i servizi di Azure, come Power BI, selezionare il Tag di servizio Cloud di Azure</li> <li>Per il computer o macchina virtuale di Azure, usare l'indirizzo IP NAT</li></ul> |
     |**Intervalli di porte di origine**     |*         |Lasciare questa opzione per * (qualsiasi) come le porte di origine sono in genere imprevedibili allocata in modo dinamico e come tale, |

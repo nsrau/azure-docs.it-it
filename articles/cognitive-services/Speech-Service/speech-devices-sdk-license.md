@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 43f783617c36d30aa1fd65cce580bb5e666afed1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5973cfc955cfce0ec1b073ac96bd68f07f093087
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021468"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409121"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Contratto di licenza di Speech Devices SDK
 
@@ -32,7 +32,7 @@ Le presenti condizioni di licenza costituiscono il contratto tra il licenziatari
 
     a) Generale. È possibile installare e utilizzare un numero qualsiasi di copie del software per sviluppare e testare le applicazioni, esclusivamente per lo scopo specificato in precedenza e in caso contrario, per motivi di aziendali interne.
 
-    b) Software di terze parti. Il software potrà contenere applicazioni di terze parti concesse in licenza al licenziatario ai sensi del presente contratto o delle loro condizioni. Le condizioni di licenza, gli avvisi e i riconoscimenti, se presenti, per le applicazioni di terze parti possono essere accessibili online all'indirizzo http://aka.ms/thirdpartynotices o in un file di avvisi associato. Anche se tali applicazioni sono disciplinate da altri contratti, la dichiarazione di non responsabilità, le limitazioni e le esclusioni dei danni riportati di seguito si applicano nella misura in cui è consentito dalla legge applicabile.
+    b) Software di terze parti. Il software potrà contenere applicazioni di terze parti concesse in licenza al licenziatario ai sensi del presente contratto o delle loro condizioni. Le condizioni di licenza, gli avvisi e i riconoscimenti, se presenti, per le applicazioni di terze parti possono essere accessibili online all'indirizzo https://aka.ms/thirdpartynotices o in un file di avvisi associato. Anche se tali applicazioni sono disciplinate da altri contratti, la dichiarazione di non responsabilità, le limitazioni e le esclusioni dei danni riportati di seguito si applicano nella misura in cui è consentito dalla legge applicabile.
 
     c) Benchmarking competitivo. Qualora il licenziatario sia un concorrente diretto e acceda o utilizzi il software per scopi di benchmarking competitivo, analisi o raccolta di informazioni riservate, il licenziatario rinuncia nei confronti di Microsoft e delle sue filiali e consociate (anche prospetticamente) a qualsiasi limitazione relativa a all'utilizzo competitivo, all'accesso e al test di benchmarking prevista dalle condizioni che disciplinano il software, nella misura in cui tali condizioni per l'utilizzo siano o asseriscano di essere più restrittive delle condizioni di Microsoft. Qualora il licenziatario non rinunci alle eventuali restrizioni previste dalle condizioni che disciplinano il software, non sarà autorizzato e non gli sarà consentito di accedere o utilizzare tale software.
 
@@ -74,13 +74,13 @@ Le presenti condizioni di licenza costituiscono il contratto tra il licenziatari
 
     e) condividere, pubblicare, distribuire o concedere il software in prestito (ad eccezione di qualsiasi codice distribuibile, in conformità alle condizioni riportate sopra), fornire il software come soluzione autonoma ospitata per consentire ad altri di usarlo o trasferire il software o il presente contratto a terze parti.
 
-1. LIMITAZIONI RELATIVE ALL'ESPORTAZIONE. Il licenziatario dovrà attenersi a tutte le leggi e a tutti i regolamenti nazionali e internazionali in materia di controllo delle esportazioni applicabili al software, che includono limitazioni su destinazioni, utenti finali e utilizzo finale. Per altre informazioni sulle limitazioni relative all'esportazione, vedere http://aka.ms/exporting.
+1. LIMITAZIONI RELATIVE ALL'ESPORTAZIONE. Il licenziatario dovrà attenersi a tutte le leggi e a tutti i regolamenti nazionali e internazionali in materia di controllo delle esportazioni applicabili al software, che includono limitazioni su destinazioni, utenti finali e utilizzo finale. Per altre informazioni sulle limitazioni relative all'esportazione, vedere https://aka.ms/exporting.
 
 1. SERVIZI DI SUPPORTO TECNICO. Ai sensi del presente contratto, Microsoft non è obbligata a fornire servizi di supporto tecnico per il software. Qualsiasi supporto viene fornito "com'è", "con tutti i difetti" e senza alcun tipo di garanzia.
 
 1. AGGIORNAMENTI. Il software potrà verificare periodicamente la disponibilità di aggiornamenti, scaricarli e installarli. Il licenziatario potrà ottenere gli aggiornamenti solo da Microsoft o da fonti autorizzate. Al fine di fornire gli aggiornamenti, Microsoft potrebbe dover aggiornare il sistema del licenziatario. Il licenziatario accetta di ricevere tali aggiornamenti automatici senza ulteriore preavviso. Gli aggiornamenti potrebbero non includere o supportare tutte le funzionalità software, i servizi o i dispositivi hardware.
 
-1. ARBITRATO VINCOLANTE E RINUNCIA ALL'AZIONE DI CLASSE. Il presente Articolo si applica qualora il licenziatario risieda (o la sede principale di attività della sua azienda si trovi) negli Stati Uniti.  In caso di controversia tra il licenziatario e Microsoft, le parti accettano di tentare una risoluzione informale per 60 giorni. Qualora non fosse possibile, il licenziatario e Microsoft accettano un arbitrato individuale vincolante davanti all'American Arbitration Association, ai sensi del Federal Arbitration Act ("FAA"), e di non citare in giudizio di fronte a un giudice o una giuria. Le controversie, invece, saranno risolte davanti a un arbitro neutrale. Non è consentito intraprendere azioni di classe, arbitrati di classe, azioni legali portate davanti all'attorney general e qualsiasi altro procedimento legale in cui una delle parti agisca o si proponga di agire in veste rappresentativa, né è consentito combinare procedimenti legali individuali senza il consenso di tutte le parti. La Convenzione Arbitrale completa include altre condizioni ed è disponibile all'indirizzo http://aka.ms/arb-agreement-1. Il licenziatario e Microsoft accettano le presenti condizioni.
+1. ARBITRATO VINCOLANTE E RINUNCIA ALL'AZIONE DI CLASSE. Il presente Articolo si applica qualora il licenziatario risieda (o la sede principale di attività della sua azienda si trovi) negli Stati Uniti.  In caso di controversia tra il licenziatario e Microsoft, le parti accettano di tentare una risoluzione informale per 60 giorni. Qualora non fosse possibile, il licenziatario e Microsoft accettano un arbitrato individuale vincolante davanti all'American Arbitration Association, ai sensi del Federal Arbitration Act ("FAA"), e di non citare in giudizio di fronte a un giudice o una giuria. Le controversie, invece, saranno risolte davanti a un arbitro neutrale. Non è consentito intraprendere azioni di classe, arbitrati di classe, azioni legali portate davanti all'attorney general e qualsiasi altro procedimento legale in cui una delle parti agisca o si proponga di agire in veste rappresentativa, né è consentito combinare procedimenti legali individuali senza il consenso di tutte le parti. La Convenzione Arbitrale completa include altre condizioni ed è disponibile all'indirizzo https://aka.ms/arb-agreement-1. Il licenziatario e Microsoft accettano le presenti condizioni.
 
 1. RISOLUZIONE. Fatto salvo ogni altro diritto, Microsoft può rescindere il presente contratto qualora il licenziatario non rispetti uno qualsiasi dei suoi termini o condizioni. In tal caso è necessario eliminare tutte le copie del software e tutti i relativi componenti.
 

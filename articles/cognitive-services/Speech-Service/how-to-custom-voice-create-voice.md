@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fad69c4108d747c44eccf37b81adf2c7c615cb58
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6189ea2866d1c16f994179df0179e29353e6c47d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156847"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410704"
 ---
 # <a name="create-a-custom-voice"></a>Creare una voce personalizzata
 
-Nelle [preparano i dati vocali personalizzati](how-to-custom-voice-prepare-data.md), sono descritti i tipi di dati diversi è possibile usare per eseguire il training di una voce personalizzata e i requisiti di formato diverso. Dopo aver preparato i dati, è possibile iniziare a li caricano le [portale vocale personalizzato](http://aka.ms/custom-voice-portal), o tramite l'API training vocale personalizzato. Di seguito vengono descritti i passaggi del training di una voce personalizzata tramite il portale.
+Nelle [preparano i dati vocali personalizzati](how-to-custom-voice-prepare-data.md), sono descritti i tipi di dati diversi è possibile usare per eseguire il training di una voce personalizzata e i requisiti di formato diverso. Dopo aver preparato i dati, è possibile iniziare a li caricano le [portale vocale personalizzato](https://aka.ms/custom-voice-portal), o tramite l'API training vocale personalizzato. Di seguito vengono descritti i passaggi del training di una voce personalizzata tramite il portale.
 
 > [!NOTE]
 > Questa pagina si presuppone di aver letto [Introduzione a Custom vocali](how-to-custom-voice.md) e [preparano i dati vocali personalizzati](how-to-custom-voice-prepare-data.md)e aver creato un progetto vocale personalizzato.
@@ -28,7 +28,7 @@ Selezionare le lingue supportate per le funzionalità vocali personalizzati: [li
 
 ## <a name="upload-your-datasets"></a>Caricare i set di dati
 
-Quando si è pronti per caricare i dati, passare al [portale personalizzato vocale](http://aka.ms/custom-voice-portal). Creare o selezionare un progetto vocale personalizzato. Il progetto deve condividere la destra/impostazioni locali della lingua e le proprietà relativa al sesso come i dati che si intende utilizzare per il training vocali. Ad esempio, selezionare `en-GB` se le registrazioni audio hai avviene in lingua inglese con una distinzione tra caratteri accentati Regno Unito.
+Quando si è pronti per caricare i dati, passare al [portale personalizzato vocale](https://aka.ms/custom-voice-portal). Creare o selezionare un progetto vocale personalizzato. Il progetto deve condividere la destra/impostazioni locali della lingua e le proprietà relativa al sesso come i dati che si intende utilizzare per il training vocali. Ad esempio, selezionare `en-GB` se le registrazioni audio hai avviene in lingua inglese con una distinzione tra caratteri accentati Regno Unito.
 
 Andare alla **Data** scheda e fare clic su **caricare i dati**. Nella procedura guidata, selezionare il tipo di dati corretti che corrisponde a ciò che è stato preparato.
 
@@ -47,7 +47,7 @@ Nella tabella seguente sono indicati gli stati di elaborazione per i set di dati
 | Stato | Significato |
 | ----- | ------- |
 | Elaborazione in corso | Il set di dati è stato ricevuto ed elaborato. |
-| Succeeded | Il set di dati è stato convalidato e può ora essere usato per compilare un modello vocali. |
+| Riuscita | Il set di dati è stato convalidato e può ora essere usato per compilare un modello vocali. |
 | Failed | Il set di dati è stato eseguito durante l'elaborazione a causa di vari motivi, ad esempio gli errori del file, i problemi dei dati o problemi di rete. |
 
 Dopo la convalida è completa, è possibile visualizzare il numero totale di espressioni corrispondenti per ogni set di dati nel **Utterances** colonna. Se il tipo di dati che è stata selezionata richiede prolungata-audio segmentazione, questa colonna si rifletta solo le espressioni che è stata segmentata automaticamente in base le trascrizioni o tramite il servizio di trascrizione vocale. Inoltre, è possibile scaricare il set di dati convalidati per visualizzare i risultati di dettaglio delle espressioni è state importate e le trascrizioni di mapping. Hint: segmentazione prolungata-audio può richiedere più di un'ora per completare l'elaborazione dei dati.
@@ -89,7 +89,7 @@ Lo stato visualizzato riflette il processo di conversione del set di dati a un m
 | Stato | Significato |
 | ----- | ------- |
 | Elaborazione in corso | Viene creato il modello vocali. |
-| Succeeded | Il modello vocale è stato creato e può essere distribuito. |
+| Riuscita | Il modello vocale è stato creato e può essere distribuito. |
 | Failed | Il modello vocale è stato eseguito nel training dovuto a vari motivi, problemi di rete o problemi di dati, ad esempio non visti. |
 
 Il tempo necessario per il training varia a seconda del volume dei dati audio elaborati. In genere, i tempi vanno da 30 minuti per alcune centinaia di espressioni a 40 ore per 20.000 espressioni. Il training del modello è stato completato correttamente, è possibile iniziare a testarla.

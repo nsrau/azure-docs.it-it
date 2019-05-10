@@ -38,4 +38,4 @@ sections:
           - title: REST
             html: <p><a href="/rest/api/openshift">API REST</a></p>
           - title: Documentazione di Red Hat
-            html: '<p><a href="https://access.redhat.com/documentation/openshift_dedicated/3/">Documentazione di Red Hat OpenShift</a></p>'
+            html: '<p><a href="https://docs.openshift.com/aro/welcome/index.html">Documentazione di Red Hat OpenShift</a></p>'

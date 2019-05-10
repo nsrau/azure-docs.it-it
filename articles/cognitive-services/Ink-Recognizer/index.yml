@@ -59,7 +59,7 @@ sections:
       - type: paragraph
         text: 'Usare questi programmi di esempio per informazioni su come integrare le API di Riconoscimento input penna nelle applicazioni:'
       - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089502">C# e piattaforma UWP (Universal Windows Platform)</a>'
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089503">C# e piattaforma UWP (Universal Windows Platform)</a>'
       - type: paragraph
         text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# e WPF (Windows Presentation Foundation)</a>'
       - type: paragraph

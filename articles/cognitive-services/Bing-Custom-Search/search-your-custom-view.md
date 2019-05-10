@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: f00a8a02ac7f9468516506b6e6a376209d24c270
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed34b20073a150e38b5d5992ab4e4b8c80453fb2
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946799"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510271"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chiamare l'istanza di Ricerca personalizzata Bing dal portale
 
@@ -26,12 +26,12 @@ Dopo aver configurato l'esperienza di ricerca personalizzata, è possibile testa
 
 Dopo aver effettuato l'accesso al [portale](https://customsearch.ai) di Ricerca personalizzata Bing, selezionare l'istanza di ricerca e fare clic sulla scheda **Produzione**. Sotto **Endpoint** selezionare un endpoint API, ad esempio API Web. La sottoscrizione determina quali endpoint vengono visualizzati.
 
-Per creare una query di ricerca, immettere i valori dei parametri per l'endpoint. Si noti che i parametri visualizzati nel portale possono cambiare a seconda dell'endpoint scelto. Per altre informazioni, vedere le [informazioni di riferimento sull'API Ricerca personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters). 
+Per creare una query di ricerca, immettere i valori dei parametri per l'endpoint. Si noti che i parametri visualizzati nel portale possono cambiare a seconda dell'endpoint scelto. Per altre informazioni, vedere le [informazioni di riferimento sull'API Ricerca personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters). Per modificare la sottoscrizione che viene utilizzata l'istanza di ricerca, aggiungere la chiave di sottoscrizione appropriata e aggiornare i parametri di immissione sul mercato e/o linguaggio appropriati.
 
 Alcuni parametri importanti sono i seguenti:
 
 
-|Parametro  |DESCRIZIONE  |
+|Parametro  |Descrizione  |
 |---------|---------|
 |Query     | Il termine da cercare. Disponibile solo per gli endpoint Web, Image e Autosuggest |
 |ID di configurazione personalizzato | L'ID di configurazione dell'istanza di Ricerca personalizzata selezionata. Questo campo è di sola lettura. |
@@ -40,7 +40,7 @@ Alcuni parametri importanti sono i seguenti:
 
 Facendo clic su **Parametri aggiuntivi** vengono visualizzati i parametri seguenti:  
 
-|Parametro  |DESCRIZIONE  |
+|Parametro  |Descrizione  |
 |---------|---------|
 |Ricerca sicura     | Un filtro utilizzato per filtrare le pagine Web per il contenuto per adulti. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI.        |
 |Lingua dell'interfaccia utente    | La lingua utilizzata per le stringhe dell'interfaccia utente. Ad esempio, se si abilitano immagini e video nell'Hosted UI, le schede**Image** e **Video** usano la lingua specificata.        |

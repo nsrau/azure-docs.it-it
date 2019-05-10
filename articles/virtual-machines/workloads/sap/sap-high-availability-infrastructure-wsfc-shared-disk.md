@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b729327187a52f36d50f8a754f5521527bb07ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717713"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408766"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e dischi condivisi per SAP ASCS/SCS
 
@@ -33,7 +33,7 @@ ms.locfileid: "60717713"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
-[tuning-failover-cluster-network-thresholds]:https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -526,7 +526,7 @@ Per usare numeri diversi per le istanze di SAP ASCS o SCS, è necessario cambiar
 2. Per tutte le regole di bilanciamento del carico appartenenti all'istanza di SAP ASCS o SCS, modificare questi valori:
 
    * NOME
-   * Porta
+   * Port
    * Porta back-end
 
    Ad esempio, per sostituire il numero di istanza di ASCS predefinito 00 con 31, è necessario apportare le modifiche per tutte le porte elencate nella tabella 1.
@@ -739,8 +739,9 @@ La configurazione di un controllo di condivisione file del cluster prevede quest
 
 Dopo aver installato correttamente il cluster di failover Windows, sarà necessario modificare alcune soglie per adattare il rilevamento del failover alle condizioni in Azure. I parametri da modificare sono documentati nel blog [Tuning Failover Cluster Network Thresholds][tuning-failover-cluster-network-thresholds] (Definire le soglie di rete per il cluster di failover). Supponendo che le due VM che compongono la configurazione del cluster Windows per ASCS/SCS siano nella stessa subnet, modificare i parametri seguenti impostando i valori indicati:
 
-- SameSubNetDelay = 2
+- SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
 
 Queste impostazioni sono state testate con i clienti e rappresentano un buon compromesso. Sono sufficientemente resilienti, ma forniscono anche un failover abbastanza rapido in condizioni di errore reali in un software SAP o in un nodo o un errore di VM.
 

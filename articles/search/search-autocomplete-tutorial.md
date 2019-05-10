@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f3e7cc2ed71dda0eb34328432b26a4016b62be1c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025149"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466425"
 ---
-# <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Esempio: Aggiungere il completamento automatico o suggerimenti all'applicazione di ricerca di Azure
+# <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Aggiungere il completamento automatico o suggerimenti all'applicazione di ricerca di Azure
 
 In questo articolo, informazioni su come usare [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) e [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) per compilare una casella di ricerca avanzata che supporta i comportamenti di ricerca---digitazione.
 
@@ -123,7 +123,7 @@ Fino ad ora, la ricerca di codice dell'esperienza utente è stata centrata sui s
 
 ```javascript
 $(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 http://xdsoft.net/jqplugins/autocomplete/
+    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
     // $.autocomplete -> $.autocompleteInline
     $("#example2").autocompleteInline({
         appendMethod: "replace",

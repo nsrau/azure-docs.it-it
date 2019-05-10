@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 113faffb0ebac50a67c96ce21e0ee2c1564bb4fc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616552"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405649"
 ---
 # <a name="creating-and-using-resource-files"></a>Creazione e utilizzo di file di risorse
 
@@ -38,7 +38,7 @@ Opzioni per la creazione di un file di risorse:
 
 ### <a name="storage-container-url"></a>URL del contenitore di archiviazione
 
-Usando un URL del contenitore di archiviazione, significa che è possibile accedere ai file in qualsiasi contenitore di archiviazione in Azure. Con le autorizzazioni corrette
+Usando un URL del contenitore di archiviazione, significa che è possibile accedere ai file in qualsiasi contenitore di archiviazione in Azure con le autorizzazioni corrette.
 
 In questo C# esempio, i file sono già stati caricati in un contenitore di archiviazione di Azure come risorsa di archiviazione blob. Per accedere a tutti i dati necessari per creare un file di risorse, è necessario innanzitutto ottenere l'accesso al contenitore di archiviazione.
 

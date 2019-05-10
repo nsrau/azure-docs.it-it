@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 04/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7fa46e3a5f0ed6504e4bc927caa0378d75fcc4a7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f7f6fe31afe35d9ccfd6ee33617bd7e4fbe46b7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686991"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409551"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione di Azure per limitare l'accesso ai dati in HDInsight
 
@@ -25,26 +25,32 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
 > [!WARNING]  
 > HDInsight deve avere accesso completo alla risorsa di archiviazione predefinita per il cluster.
 
-## <a name="requirements"></a>Requisiti
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure.
-* C# o Python. Il codice di esempio in C# viene fornito come soluzione di Visual Studio.
 
-  * Visual Studio versione 2013, 2015 o 2017
-  * Python versione 2.7 o successiva.
+* Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Un cluster HDInsight basato su Linux OPPURE [Azure PowerShell][powershell]. Se è disponibile un cluster basato su Linux esistente, è possibile usare Apache Ambari per aggiungere una firma di accesso condiviso al cluster. In caso contrario, è possibile usare Azure PowerShell per creare un cluster e aggiungere una firma di accesso condiviso durante la creazione del cluster.
+* Un oggetto esistente [contenitore di archiviazione](../storage/blobs/storage-quickstart-blobs-portal.md).  
 
-    > [!IMPORTANT]  
-    > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+* Se si usa PowerShell, è necessario il [modulo di Az](https://docs.microsoft.com/powershell/azure/overview).
+
+* Se vogliono usare Azure CLI e non è stato ancora installato, vedere [installare CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+* Se si usa [Python](https://www.python.org/downloads/), versione 2.7 o versioni successiva.
+
+* Se si usa C#, Visual Studio deve essere versione 2013 o versione successiva.
+
+* Il [schema URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) dell'account di archiviazione. Il risultato sarà `wasb://` per archiviazione di Azure `abfs://` per Azure Data Lake Storage Gen2 o `adl://` per Azure Data Lake archiviazione Gen1. Se il trasferimento protetto è abilitato per l'archiviazione di Azure o Data Lake Storage Gen2, l'URI sarà `wasbs://` oppure `abfss://`rispettivamente vedere anche [trasferimento sicuro](../storage/common/storage-require-secure-transfer.md).
+
+* Un cluster HDInsight esistente per aggiungere una firma di accesso condiviso a. In caso contrario, è possibile usare Azure PowerShell per creare un cluster e aggiungere una firma di accesso condiviso durante la creazione del cluster.
 
 * I file di esempio da [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Il repository contiene gli elementi seguenti:
 
   * Un progetto di Visual Studio che può creare un contenitore di archiviazione, i criteri archiviati e la firma di accesso condiviso da usare con HDInsight.
   * Uno script di Python che può creare un contenitore di archiviazione, i criteri archiviati e la firma di accesso condiviso da usare con HDInsight.
-  * Uno script di PowerShell in grado di creare un cluster HDInsight e configurarlo per l'uso della firma di accesso condiviso.
+  * Uno script di PowerShell in grado di creare un cluster HDInsight e configurarlo per l'uso della firma di accesso condiviso. Viene usata una versione aggiornata più avanti.
+  * Un file di esempio: `hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
 
 ## <a name="shared-access-signatures"></a>Firme di accesso condiviso
 
@@ -74,11 +80,136 @@ La differenza tra le due forme è importante un unico scenario chiave, la revoca
 
 Per altre informazioni sulle firme di accesso condiviso, vedere [Informazioni sul modello di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-### <a name="create-a-stored-policy-and-sas-using-c"></a>Creare un criterio archiviato e una firma di accesso condiviso con C\#
+## <a name="create-a-stored-policy-and-sas"></a>Creare un criterio archiviato e una firma di accesso condiviso
+
+Salvare il token di firma di accesso condiviso che viene generato alla fine di ogni metodo. Il token avrà un aspetto simile al seguente:
+
+```output
+?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
+```
+
+### <a name="using-powershell"></a>Tramite PowerShell
+
+Sostituire `RESOURCEGROUP`, `STORAGEACCOUNT`, e `STORAGECONTAINER` con i valori appropriati per il contenitore di archiviazione esistente. Passare alla directory `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` o esaminare i `-File` parametro per contenere il percorso assoluto per `Set-AzStorageblobcontent`. Immettere il comando PowerShell seguente:
+
+```PowerShell
+$resourceGroupName = "RESOURCEGROUP"
+$storageAccountName = "STORAGEACCOUNT"
+$containerName = "STORAGECONTAINER"
+$policy = "myPolicyPS"
+
+# Login to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+
+# Get the access key for the Azure Storage account
+$storageAccountKey = (Get-AzStorageAccountKey `
+                                -ResourceGroupName $resourceGroupName `
+                                -Name $storageAccountName)[0].Value
+
+# Create an Azure Storage context
+$storageContext = New-AzStorageContext `
+                                -StorageAccountName $storageAccountName `
+                                -StorageAccountKey $storageAccountKey
+
+# Create a stored access policy for the Azure storage container
+New-AzStorageContainerStoredAccessPolicy `
+   -Container $containerName `
+   -Policy $policy `
+   -Permission "rl" `
+   -ExpiryTime "12/31/2025 08:00:00" `
+   -Context $storageContext
+
+# Get the stored access policy or policies for the Azure storage container
+Get-AzStorageContainerStoredAccessPolicy `
+    -Container $containerName `
+    -Context $storageContext
+
+# Generates an SAS token for the Azure storage container
+New-AzStorageContainerSASToken `
+    -Name $containerName `
+    -Policy $policy `
+    -Context $storageContext
+
+<# Removes a stored access policy from the Azure storage container
+Remove-AzStorageContainerStoredAccessPolicy `
+    -Container $containerName `
+    -Policy $policy `
+    -Context $storageContext
+#>
+
+# upload a file for a later example
+Set-AzStorageblobcontent `
+    -File "./sampledata/sample.log" `
+    -Container $containerName `
+    -Blob "samplePS.log" `
+    -Context $storageContext
+```
+
+### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
+
+L'uso di variabili in questa sezione si basa su un ambiente di Windows. Saranno necessario leggere variazioni di bash o in altri ambienti.
+
+1. Sostituire `STORAGEACCOUNT`, e `STORAGECONTAINER` con i valori appropriati per il contenitore di archiviazione esistente.
+
+    ```azurecli
+    # set variables
+    set AZURE_STORAGE_ACCOUNT=STORAGEACCOUNT
+    set AZURE_STORAGE_CONTAINER=STORAGECONTAINER
+
+    #Login
+    az login
+
+    # If you have multiple subscriptions, set the one to use
+    # az account set --subscription SUBSCRIPTION
+
+    # Retrieve the primary key for the storage account
+    az storage account keys list --account-name %AZURE_STORAGE_ACCOUNT% --query "[0].{PrimaryKey:value}" --output table
+    ```
+
+2. Impostare la chiave primaria recuperata a una variabile per un uso successivo. Sostituire `PRIMARYKEY` con l'oggetto recuperato valore nel passaggio precedente e quindi immettere il comando seguente:
+
+    ```azurecli
+    #set variable for primary key
+    set AZURE_STORAGE_KEY=PRIMARYKEY
+    ```
+
+3. Passare alla directory `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` o esaminare i `--file` parametro per contenere il percorso assoluto per `az storage blob upload`. Eseguire i comandi rimanenti:
+
+    ```azurecli
+    # Create stored access policy on the containing object
+    az storage container policy create --container-name %AZURE_STORAGE_CONTAINER% --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT% --expiry 2025-12-31 --permissions rl
+
+    # List stored access policies on a containing object
+    az storage container policy list --container-name %AZURE_STORAGE_CONTAINER% --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
+
+    # Generate a shared access signature for the container
+    az storage container generate-sas --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
+
+    # Reversal
+    # az storage container policy delete --container-name %AZURE_STORAGE_CONTAINER% --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
+
+    # upload a file for a later example
+    az storage blob upload --container-name %AZURE_STORAGE_CONTAINER% --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT% --name sampleCLI.log --file "./sampledata/sample.log"
+    ```
+
+### <a name="using-python"></a>Uso di Python
+
+Aprire il `SASToken.py` file e sostituire `storage_account_name`, `storage_account_key`, e `storage_container_name` con i valori appropriati per il contenitore di archiviazione esistente e quindi eseguire lo script.
+
+Potrebbe essere necessario eseguire `pip install --upgrade azure-storage` se si riceve il messaggio di errore `ImportError: No module named azure.storage`.
+
+### <a name="using-c"></a>Uso di C#
 
 1. Aprire la soluzione in Visual Studio.
 
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SASToken** e scegliere **Proprietà**.
+2. In Esplora soluzioni fare clic sui **SASExample** del progetto e selezionare **proprietà**.
 
 3. Selezionare **Impostazioni** e aggiungere i valori per le voci seguenti:
 
@@ -90,109 +221,142 @@ Per altre informazioni sulle firme di accesso condiviso, vedere [Informazioni su
 
    * FileToUpload: percorso di un file caricato nel contenitore.
 
-4. Eseguire il progetto. Dopo la generazione della firma di accesso condiviso, vengono visualizzate informazioni simili al testo seguente:
-
-        Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
-
-    Salvare il token dei criteri di firma di accesso condiviso, il nome dell'account di archiviazione e il nome del contenitore. Questi valori vengono usati quando si associa l'account di archiviazione al cluster HDInsight.
-
-### <a name="create-a-stored-policy-and-sas-using-python"></a>Creare un criterio archiviato e una firma di accesso condiviso con Python
-
-1. Aprire il file SASToken.py e modificare i valori seguenti:
-
-   * policy\_name: nome da usare per i criteri archiviati da creare.
-
-   * storage\_account\_name: nome dell'account di archiviazione.
-
-   * storage\_account\_key: Chiave per l'account di archiviazione.
-
-   * storage\_container\_name: contenitore nell'account di archiviazione a cui si vuole limitare l'accesso.
-
-   * example\_file\_path: percorso di un file caricato nel contenitore.
-
-2. Eseguire lo script. Al termine dello script viene visualizzato un token della firma di accesso condiviso simile al testo seguente:
-
-        sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
-
-    Salvare il token dei criteri di firma di accesso condiviso, il nome dell'account di archiviazione e il nome del contenitore. Questi valori vengono usati quando si associa l'account di archiviazione al cluster HDInsight.
+4. Eseguire il progetto. Salvare il token dei criteri di firma di accesso condiviso, il nome dell'account di archiviazione e il nome del contenitore. Questi valori vengono usati quando si associa l'account di archiviazione al cluster HDInsight.
 
 ## <a name="use-the-sas-with-hdinsight"></a>Usare la firma di accesso condiviso con HDInsight
 
 Quando si crea un cluster HDInsight è necessario specificare un account di archiviazione primario e, facoltativamente, è possibile specificare account di archiviazione aggiuntivi. Entrambi i metodi di aggiunta di risorse di archiviazione richiedono l'accesso completo agli account di archiviazione e ai contenitori usati.
 
-Per usare una firma di accesso condiviso allo scopo di limitare l'accesso a un contenitore, aggiungere una voce personalizzata alla configurazione del **core-site** per il cluster.
-
-* Per i cluster HDInsight **basati su Windows** o **basati su Linux**, è possibile aggiungere la voce durante la creazione del cluster con PowerShell.
-* Per i cluster HDInsight **basati su Linux**, modificare la configurazione dopo la creazione del cluster con Ambari.
+Per usare una firma di accesso condiviso allo scopo di limitare l'accesso a un contenitore, aggiungere una voce personalizzata alla configurazione del **core-site** per il cluster. È possibile aggiungere la voce durante la creazione del cluster usando PowerShell o dopo la creazione del cluster tramite Ambari.
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>Creare un cluster che usa la firma di accesso condiviso
 
-La directory `CreateCluster` del repository include un esempio di creazione di un cluster HDInsight che usa la firma di accesso condiviso. Per usarlo, seguire questa procedura:
+Sostituire `CLUSTERNAME`, `RESOURCEGROUP`, `DEFAULTSTORAGEACCOUNT`, `STORAGECONTAINER`, `STORAGEACCOUNT`, e `TOKEN` con i valori appropriati. Immettere i comandi di PowerShell:
 
-1. Aprire il file `CreateCluster\HDInsightSAS.ps1` in un editor di testo e modificare i valori seguenti all'inizio del documento.
+```powershell
 
-    ```powershell
-    # Replace 'mycluster' with the name of the cluster to be created
-    $clusterName = 'mycluster'
-    # Valid values are 'Linux' and 'Windows'
-    $osType = 'Linux'
-    # Replace 'myresourcegroup' with the name of the group to be created
-    $resourceGroupName = 'myresourcegroup'
-    # Replace with the Azure data center you want to the cluster to live in
-    $location = 'North Europe'
-    # Replace with the name of the default storage account to be created
-    $defaultStorageAccountName = 'mystorageaccount'
-    # Replace with the name of the SAS container created earlier
-    $SASContainerName = 'sascontainer'
-    # Replace with the name of the SAS storage account created earlier
-    $SASStorageAccountName = 'sasaccount'
-    # Replace with the SAS token generated earlier
-    $SASToken = 'sastoken'
-    # Set the number of worker nodes in the cluster
-    $clusterSizeInNodes = 3
-    ```
+$clusterName = 'CLUSTERNAME'
+$resourceGroupName = 'RESOURCEGROUP'
 
-    Ad esempio, sostituire `'mycluster'` con il nome del cluster che si vuole creare. I valori della firma di accesso condiviso devono corrispondere ai valori usati nei passaggi precedenti durante la creazione di un token dell'account di archiviazione e della firma di accesso condiviso.
+# Replace with the Azure data center you want to the cluster to live in
+$location = 'eastus'
 
-    Dopo aver modificato i valori, salvare il file.
+# Replace with the name of the default storage account TO BE CREATED
+$defaultStorageAccountName = 'DEFAULTSTORAGEACCOUNT'
 
-2. Aprire un nuovo prompt dei comandi di Azure PowerShell. Se non si ha familiarità con Azure PowerShell o non è stato installato, vedere [Install and configure Azure PowerShell][powershell] (Installare e configurare Azure PowerShell).
+# Replace with the name of the SAS container CREATED EARLIER
+$SASContainerName = 'STORAGECONTAINER'
 
-1. Dal prompt dei comandi usare il comando seguente per eseguire l'autenticazione alla sottoscrizione di Azure:
+# Replace with the name of the SAS storage account CREATED EARLIER
+$SASStorageAccountName = 'STORAGEACCOUNT'
 
-    ```powershell
+# Replace with the SAS token generated earlier
+$SASToken = 'TOKEN'
+
+# Default cluster size (# of worker nodes), version, and type
+$clusterSizeInNodes = "4"
+$clusterVersion = "3.6"
+$clusterType = "Hadoop"
+
+# Login to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
     Connect-AzAccount
-    ```
+}
 
-    Quando richiesto, accedere con l'account della sottoscrizione di Azure.
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 
-    Se l'account è associato a più sottoscrizioni di Azure, può essere necessario usare `Select-AzSubscription` per selezionare la sottoscrizione da usare.
+# Create an Azure Storage account and container
+New-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $defaultStorageAccountName `
+    -Location $location `
+    -SkuName Standard_LRS `
+    -Kind StorageV2 `
+    -EnableHttpsTrafficOnly 1
 
-4. Dal prompt dei comandi, passare alla directory `CreateCluster` che contiene il file HDInsightSAS.ps1. Usare quindi il comando seguente per eseguire lo script
+$defaultStorageAccountKey = (Get-AzStorageAccountKey `
+                                -ResourceGroupName $resourceGroupName `
+                                -Name $defaultStorageAccountName)[0].Value
 
-    ```powershell
-    .\HDInsightSAS.ps1
-    ```
+$defaultStorageContext = New-AzStorageContext `
+                                -StorageAccountName $defaultStorageAccountName `
+                                -StorageAccountKey $defaultStorageAccountKey
 
-    Durante l'esecuzione dello script, mentre vengono creati il gruppo di risorse e gli account di archiviazione, l'output viene registrato nel prompt di PowerShell. Viene chiesto di immettere l'utente HTTP per il cluster HDInsight. Questo account viene usato per proteggere l'accesso HTTP/s al cluster.
 
-    Se si sta creando un cluster basato su Linux, viene chiesto di specificare anche un nome e una password per l'account utente SSH. Questo account viene usato per accedere in remoto al cluster.
+# Create a blob container. This holds the default data store for the cluster.
+New-AzStorageContainer `
+    -Name $clusterName `
+    -Context $defaultStorageContext 
 
-   > [!IMPORTANT]  
-   > Quando vengono richiesti un nome e una password per HTTP/S o SSH, è necessario fornire una password che soddisfi i criteri seguenti:
-   >
-   > * Deve avere una lunghezza di almeno 10 caratteri.
-   > * Deve contenere almeno una cifra.
-   > * Deve contenere almeno un carattere non alfanumerico.
-   > * Deve contenere almeno una lettera maiuscola o minuscola.
+# Cluster login is used to secure HTTPS services hosted on the cluster
+$httpCredential = Get-Credential `
+    -Message "Enter Cluster login credentials" `
+    -UserName "admin"
+
+# SSH user is used to remotely connect to the cluster using SSH clients
+$sshCredential = Get-Credential `
+    -Message "Enter SSH user credentials" `
+    -UserName "sshuser"
+
+# Create the configuration for the cluster
+$config = New-AzHDInsightClusterConfig 
+
+$config = $config | Add-AzHDInsightConfigValues `
+    -Spark2Defaults @{} `
+    -Core @{"fs.azure.sas.$SASContainerName.$SASStorageAccountName.blob.core.windows.net"=$SASToken}
+
+# Create the HDInsight cluster
+New-AzHDInsightCluster `
+    -Config $config `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $clusterName `
+    -Location $location `
+    -ClusterSizeInNodes $clusterSizeInNodes `
+    -ClusterType $clusterType `
+    -OSType Linux `
+    -Version $clusterVersion `
+    -HttpCredential $httpCredential `
+    -SshCredential $sshCredential `
+    -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultStorageContainer $clusterName
+
+<# REVERSAL
+Remove-AzHDInsightCluster `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $clusterName
+
+Remove-AzStorageContainer `
+    -Name $clusterName `
+    -Context $defaultStorageContext
+
+Remove-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $defaultStorageAccountName
+
+Remove-AzResourceGroup `
+    -Name $resourceGroupName
+#>
+```
+
+> [!IMPORTANT]  
+> Quando vengono richiesti un nome e una password per HTTP/S o SSH, è necessario fornire una password che soddisfi i criteri seguenti:
+>
+> * Deve avere una lunghezza di almeno 10 caratteri.
+> * Deve contenere almeno una cifra.
+> * Deve contenere almeno un carattere non alfanumerico.
+> * Deve contenere almeno una lettera maiuscola o minuscola.
 
 Il completamento dello script richiede in genere circa 15 minuti. Se lo script viene completato senza errori, il cluster è stato creato.
 
 ### <a name="use-the-sas-with-an-existing-cluster"></a>Usare la firma di accesso condiviso con un cluster esistente
 
-Se è disponibile un cluster basato su Linux esistente, è possibile aggiungere la firma di accesso condiviso alla configurazione del **core-site** seguendo questa procedura:
+Se si dispone di un cluster esistente, è possibile aggiungere la firma di accesso condiviso per il **core-site** configurazione usando la procedura seguente:
 
-1. Aprire l'interfaccia utente Web di Ambari per il cluster. L'indirizzo di questa pagina è https://YOURCLUSTERNAME.azurehdinsight.net. Quando richiesto, eseguire l'autenticazione al cluster con il nome amministratore (admin) e la password usati durante la creazione del cluster.
+1. Aprire l'interfaccia utente Web di Ambari per il cluster. L'indirizzo di questa pagina è `https://YOURCLUSTERNAME.azurehdinsight.net`. Quando richiesto, eseguire l'autenticazione al cluster con il nome amministratore (admin) e la password usati durante la creazione del cluster.
 
 2. Nel lato sinistro dell'interfaccia utente Web di Ambari selezionare **HDFS** e quindi selezionare la scheda **Configs** al centro della pagina.
 
@@ -200,10 +364,10 @@ Se è disponibile un cluster basato su Linux esistente, è possibile aggiungere 
 
 4. Espandere la sezione **Custom core-site**, quindi scorrere fino alla fine e selezionare il collegamento **Add property**. Usare i valori seguenti per i campi **Key** e **Value**:
 
-   * **Key**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
-   * **Value**: la firma di accesso condiviso restituita dall'applicazione C# o Python eseguita in precedenza
+   * **Chiave**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+   * **Value**: La firma di accesso condiviso restituiti da uno dei metodi eseguiti in precedenza.
 
-     Sostituire **CONTAINERNAME** con il nome del contenitore usato con l'applicazione C# o della firma di accesso condiviso. Sostituire **STORAGEACCOUNTNAME** con il nome dell'account di archiviazione usato.
+     Sostituire `CONTAINERNAME` con il contenitore nome è stato usato con il C# o un'applicazione di firma di accesso condiviso. Sostituire `STORAGEACCOUNTNAME` con il nome di account di archiviazione usato.
 
 5. Fare clic sul pulsate **Add** per salvare la chiave e il valore, quindi fare clic sul pulsante **Save** per salvare le modifiche alla configurazione. Quando richiesto, aggiungere una descrizione della modifica, ad esempio "aggiunta di accesso alle risorse di archiviazione per le firme di accesso condiviso", e quindi fare clic su **Save** (Salva).
 
@@ -220,40 +384,44 @@ Se è disponibile un cluster basato su Linux esistente, è possibile aggiungere 
 
 ## <a name="test-restricted-access"></a>Testare l'accesso limitato
 
-Per verificare di avere limitato l'accesso, usare SSH per connettersi al cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+Utilizzare la procedura seguente per verificare che è possibile solo di lettura ed elenco di elementi di firma di accesso condiviso dell'account di archiviazione.
 
-Dopo aver stabilito la connessione al cluster, usare la procedura seguente per verificare che nell'account di archiviazione della firma di accesso condiviso sia solo possibile leggere ed elencare gli elementi:
+1. Connettersi al cluster. Sostituire `CLUSTERNAME` con il nome del cluster e immettere il comando seguente:
 
-1. Per elencare il contenuto del contenitore, usare il comando seguente dal prompt: 
-
-    ```bash
-    hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Sostituire **SASCONTAINER** con il nome del contenitore creato per l'account di archiviazione della firma di accesso condiviso. Sostituire **SASACCOUNTNAME** con il nome dell'account di archiviazione usato per la firma di accesso condiviso.
+2. Per elencare il contenuto del contenitore, usare il comando seguente dal prompt:
+
+    ```bash
+    hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```
+
+    Sostituire `SASCONTAINER` con il nome del contenitore creato per l'account di archiviazione della firma di accesso condiviso. Sostituire `SASACCOUNTNAME` con il nome dell'account di archiviazione usato per la firma di accesso condiviso.
 
     L'elenco include il file caricato quando sono stati creati il contenitore e la firma di accesso condiviso.
 
-2. Usare il comando seguente per verificare che sia possibile leggere il contenuto del file. Sostituire **SASCONTAINER** e **SASACCOUNTNAME** come indicato nel passaggio precedente. Sostituire **FILENAME** con il nome del file visualizzato nel comando precedente:
+3. Usare il comando seguente per verificare che sia possibile leggere il contenuto del file. Sostituire il `SASCONTAINER` e `SASACCOUNTNAME` come nel passaggio precedente. Sostituire `sample.log` con il nome del file visualizzato nel comando precedente:
 
     ```bash
-    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
     ```
 
     Verrà visualizzato il contenuto del file.
 
-3. Usare il comando seguente per scaricare il file nel file system locale:
+4. Usare il comando seguente per scaricare il file nel file system locale:
 
     ```bash
-    hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+    hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
     Il file verrà scaricato in un file locale denominato **testfile.txt**.
 
-4. Usare il comando seguente per caricare il file locale in un nuovo file denominato **testupload.txt** nella risorsa di archiviazione della firma di accesso condiviso:
+5. Usare il comando seguente per caricare il file locale in un nuovo file denominato **testupload.txt** nella risorsa di archiviazione della firma di accesso condiviso:
 
     ```bash
-    hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+    hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
     ```
 
     Verrà visualizzato un messaggio simile al testo seguente:
@@ -263,32 +431,10 @@ Dopo aver stabilito la connessione al cluster, usare la procedura seguente per v
     Questo errore si verifica perché il percorso di archiviazione è di sola lettura+elenco. Usare il comando seguente per inserire i dati nella risorsa di archiviazione predefinita per il cluster, accessibile in scrittura:
 
     ```bash
-    hdfs dfs -put testfile.txt wasb:///testupload.txt
+    hdfs dfs -put testfile.txt wasbs:///testupload.txt
     ```
 
     Questa volta l'operazione avrà esito positivo.
-
-## <a name="troubleshooting"></a>risoluzione dei problemi
-
-### <a name="a-task-was-canceled"></a>Un'attività è stata annullata
-
-**Sintomi**: durante la creazione di un cluster con lo script di PowerShell, si potrebbe ricevere il messaggio di errore seguente:
-
-    New-AzHDInsightCluster : A task was canceled.
-    At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
-    +     New-AzHDInsightCluster `
-    +     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        + CategoryInfo          : NotSpecified: (:) [New-AzHDInsightCluster], CloudException
-        + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
-
-**Causa**: questo errore può verificarsi se si usa una password per l'utente admin/HTTP per il cluster oppure, nei cluster basati su Linux, per l'utente SSH.
-
-**Soluzione**: usare una password che soddisfi i criteri seguenti:
-
-* Deve avere una lunghezza di almeno 10 caratteri.
-* Deve contenere almeno una cifra.
-* Deve contenere almeno un carattere non alfanumerico.
-* Deve contenere almeno una lettera maiuscola o minuscola.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -298,4 +444,3 @@ Ora che si è appreso come aggiungere risorse di archiviazione ad accesso limita
 * [Usare Pig con Hadoop in HDInsight](hadoop/hdinsight-use-pig.md)
 * [Usare MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-[powershell]: /powershell/azureps-cmdlets-docs

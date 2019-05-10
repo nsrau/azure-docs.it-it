@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9083227dd81dca219666e07b70f487069413855d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: df37e7aad2420d0bc280121634d49675ae29ee5a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521272"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236416"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Esercitazione: Ottenere dati esattamente corrispondenti al testo da un'espressione
 
@@ -108,11 +108,7 @@ Il nome _canonico_ per ogni elemento è il nome del reparto. Ecco alcuni sinonim
 
 1. Nella pagina relativa all'entità reparto immettere `Accounting` come nuovo valore.
 
-    [![Schermata di immissione valore](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Schermata di immissione valore")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
-
 1. Per i sinonimi, aggiungere i sinonimi dalla tabella precedente.
-
-    [![Schermata di immissione sinonimi](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Schermata di immissione sinonimi")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 1. Continuare ad aggiungere tutti i nomi canonici e i relativi sinonimi. 
 

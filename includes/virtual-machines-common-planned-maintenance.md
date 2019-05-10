@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 747fb9a38cc0c27d162192f4f3ed928e8a968f27
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: adf99b941a775f105d8c65da3ac6c11dc7257120
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993098"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416314"
 ---
 Azure aggiorna periodicamente la piattaforma per migliorare l'affidabilità, le prestazioni e la sicurezza dell'infrastruttura host per le macchine virtuali. Questi aggiornamenti includono l'applicazione di patch ai componenti software nell'ambiente host, l'aggiornamento dei componenti di rete e la rimozione delle autorizzazioni per l'hardware. La maggior parte di questi aggiornamenti non ha alcuna conseguenza sulle macchine virtuali ospitate. È possibile, tuttavia, che gli aggiornamenti abbiano conseguenze sulle macchine virtuali ospitate e, in questo caso, Azure sceglie il metodo di aggiornamento a minor impatto:
 
 - Se è possibile un aggiornamento senza riavvio, durante l'aggiornamento dell'host la macchina virtuale viene sospesa o migrata in tempo reale su un host già aggiornato.
 
-- Se la manutenzione richiede un riavvio, si riceve un avviso che informa per quando è pianificata la manutenzione. Azure indicherà anche una finestra temporale in cui avviare la manutenzione manualmente, in un momento opportuno per l'utente. Finestra di manutenzione automatica ora è in genere quattro settimane, a meno che non è urgente per eseguire la manutenzione. Azure investe anche nelle tecnologie per ridurre i casi, quando le macchine virtuali devono essere riavviati per la manutenzione pianificata della piattaforma. 
+- Se la manutenzione richiede un riavvio, si riceve un avviso che informa per quando è pianificata la manutenzione. Azure indicherà anche una finestra temporale in cui avviare la manutenzione manualmente, in un momento opportuno per l'utente. Finestra di manutenzione automatica ora è in genere 30 giorni, a meno che non è urgente per eseguire la manutenzione. Azure investe anche nelle tecnologie per ridurre i casi, quando le macchine virtuali devono essere riavviati per la manutenzione pianificata della piattaforma. 
 
 Questa pagina descrive come Azure esegue entrambi i tipi di manutenzione. Per altre informazioni sugli eventi non pianificati (interruzioni), vedere Gestire la disponibilità delle macchine virtuali per [Windows](../articles/virtual-machines/windows/manage-availability.md) o [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
@@ -29,13 +29,13 @@ Per informazioni sulle procedure di gestione della manutenzione pianificata, ved
 
 ## <a name="maintenance-not-requiring-a-reboot"></a>Manutenzione non richiedono un riavvio
 
-L'obiettivo per la manutenzione di impatto più diverso da zero che non richiede un riavvio è inferiore a 10 secondi la sospensione per la macchina virtuale. Il meccanismo di aggiornamento che è meno forte impatto per macchine virtuali dei clienti sceglie Azure. In alcuni casi, vengono usati meccanismi di manutenzione con mantenimento della memoria, che consente di sospendere la macchina virtuale fino a 30 secondi e mantiene la memoria nella RAM. La macchina virtuale viene quindi ripresa e l'orologio viene sincronizzato automaticamente. Azure usa sempre più spesso tecnologie di migrazione in tempo reale e meccanismi di manutenzione con mantenimento della memoria per ridurre la durata delle interruzioni.  
+Come indicato in precedenza, la maggior parte degli aggiornamenti della piattaforma vengono eseguiti senza impatto alle macchine virtuali dei clienti. Quando aggiornamento zero impatto non è possibile sceglie Azure il meccanismo di aggiornamento che è il caso minimi per le macchine virtuali dei clienti. Maggioranza dei nodi di questi manutenzione impatto diverso da zero comporta inferiori a 10 secondi la sospensione per la macchina virtuale. In alcuni casi, vengono usati meccanismi di manutenzione con mantenimento della memoria, che consente di sospendere la macchina virtuale fino a 30 secondi e mantiene la memoria nella RAM. La macchina virtuale viene quindi ripresa e l'orologio viene sincronizzato automaticamente. Manutenzione con mantenimento della memoria funziona per più del 90% macchine virtuali di Azure tranne serie G, M, N e H. Azure usa sempre più spesso tecnologie di migrazione in tempo reale e meccanismi di manutenzione con mantenimento della memoria per ridurre la durata delle interruzioni.  
 
 Queste operazioni di manutenzione senza riavvio sono applicate dominio di errore per dominio di errore e l'avanzamento viene arrestato se vengono ricevuti segnali di avviso di integrità. 
 
 Alcune applicazioni potrebbero essere interessate da questi tipi di aggiornamenti. Nel caso in cui la macchina virtuale venga migrata in tempo reale su un host diverso, è possibile che alcuni carichi di lavoro subiscano un lieve peggioramento delle prestazioni nei pochi minuti che precedono la sospensione della macchina virtuale. In questi casi potrebbe essere utile usare Eventi pianificati per [Windows](../articles/virtual-machines/windows/scheduled-events.md) o [Linux](../articles/virtual-machines/linux/scheduled-events.md) per preparare la manutenzione della macchina virtuale e non generare alcun impatto durante la manutenzione di Azure. I team di Azure stanno lavorando anche su funzionalità di controllo della manutenzione per scenari particolarmente sensibili. 
 
-## <a name="live-migration"></a>Migrazione in tempo reale
+### <a name="live-migration"></a>Migrazione in tempo reale
 
 Migrazione in tempo reale è un'operazione non rebootful tale da mantenere la memoria per la macchina virtuale e i risultati in un sospendono o il bloccano, che dura in genere non più di 5 secondi. Oggi tutta l'infrastruttura come macchine virtuali di un servizio (IaaS), oltre alla serie G, M, N e H, è possibile eseguire la migrazione in tempo reale. Ciò equivale a oltre il 90% delle macchine virtuali IaaS distribuiti della flotta di Azure. 
 
