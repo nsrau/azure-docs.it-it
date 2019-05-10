@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205711"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508412"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -67,7 +67,9 @@ Sì. Per altre informazioni sugli intervalli di indirizzi IP pubblici, vedere [C
 Sì. Vedere [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) per informazioni dettagliate. Gli spazi degli indirizzi della subnet non possono sovrapporsi.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Esistono restrizioni sull'uso di indirizzi IP all'interno di tali subnet?
-Sì. Azure riserva 5 indirizzi IP all'interno di ogni subnet. Il primo e l'ultimo indirizzo IP di ciascuna subnet sono riservati per motivi di conformità al protocollo, insieme agli indirizzi x.x.x.1-x.x.x.3 di ogni subnet, che vengono usati per i servizi di Azure.
+Sì. Azure riserva 5 indirizzi IP all'interno di ogni subnet. Si tratta x.x.x.0-x.x.x.3 e l'ultimo indirizzo della subnet.    
+- x.x.x.0 e l'ultimo indirizzo della subnet è riservato per conformità al protocollo.
+- x.x.x.1-x.x.x.3 è riservato in ogni subnet per i servizi di Azure.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Quanto piccole o grandi possono essere le reti virtuali e le subnet?
 La subnet più piccola supportata è /29 e la più grande è /8 (in base alle definizioni di subnet CIDR).
@@ -225,7 +227,7 @@ Sì. Altre informazioni:
 - Uso di PowerShell per gestire reti virtuali distribuite con i modelli di distribuzione [Resource Manager](/powershell/module/az.network) e [classica](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
 - Uso dell'interfaccia della riga di comando di Azure per distribuire e gestire reti virtuali distribuite con i modelli di distribuzione [Resource Manager](/cli/azure/network/vnet) e [classica](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources).  
 
-## <a name="vnet-peering"></a>Peering reti virtuali
+## <a name="vnet-peering"></a>Peering di rete virtuale
 
 ### <a name="what-is-vnet-peering"></a>Che cos'è il peering di reti virtuali?
 Il peering di reti virtuali consente di connettere le reti virtuali. Usando una connessione di peering di reti virtuali è possibile instradare il traffico tra le reti in modo privato tramite indirizzi IPv4. Le macchine virtuali nelle reti virtuali con peering possono comunicare tra loro come se si trovassero nella stessa rete. Queste reti virtuali possono trovarsi in aree geografiche uguali o diverse. In questo secondo caso, si parla di peering di reti virtuali globale. Le connessioni di peering di reti virtuali possono essere create anche tra sottoscrizioni di Azure.
@@ -247,7 +249,7 @@ Le seguenti risorse usano base i bilanciamenti del carico che significa che non 
 - App per la logica
 - HD Insight
 -   Azure Batch
-- servizio Azure Container
+- Servizio Azure Kubernetes
 - Ambiente del servizio app
 
 È possibile connettersi a queste risorse tramite ExpressRoute o della rete virtuale a rete virtuale tramite gateway di rete virtuale.
@@ -281,6 +283,9 @@ No. Il peering transitivo non è supportato. Si dovrà eseguire il peering delle
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Sono presenti limitazioni relative alla larghezza di banda per le connessioni peering?
 No. La rete virtuale di peering, sia locale che globale, non impone restrizioni relative alla larghezza di banda. La larghezza di banda è limitata solo dalla macchina virtuale o dalla risorsa di calcolo.
+
+### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Come è possibile risolvere i problemi di peering reti virtuali?
+Ecco un [Guida alla risoluzione dei problemi] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) è possibile provare.
 
 ## <a name="virtual-network-tap"></a>TAP di rete virtuale
 
@@ -390,7 +395,7 @@ Non ci sono limiti per il numero totale di endpoint di servizio di rete virtuale
 |---|---|
 |Servizio di Azure| Limiti per le regole della rete virtuale|
 |Archiviazione di Azure| 100|
-|SQL di Azure| 128|
+|Azure SQL| 128|
 |Azure SQL Data Warehouse|  128|
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|

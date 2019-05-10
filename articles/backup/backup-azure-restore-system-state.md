@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 031b3096d919eb3faadf907f0d30e15d8d8fb5e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6619611bee96089e465feb6f50d38caeada06dd9
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60246850"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472498"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 
@@ -27,7 +27,7 @@ Questo articolo illustra come ripristinare i backup dello stato del sistema di W
 
 
 ## <a name="recover-system-state-files-to-the-same-server"></a>Ripristinare i file dello stato del sistema nello stesso server
-La procedura seguente illustra come eseguire il rollback della configurazione di Windows Server a uno stato precedente. Il rollback della configurazione del server a uno stato noto e stabile può essere estremamente utile. La procedura seguente consente di ripristinare lo stato del sistema del server da un insieme di credenziali dei Servizi di ripristino. 
+La procedura seguente illustra come eseguire il rollback della configurazione di Windows Server a uno stato precedente. Il rollback della configurazione del server a uno stato noto e stabile può essere estremamente utile. La procedura seguente consente di ripristinare lo stato del sistema del server da un insieme di credenziali dei Servizi di ripristino.
 
 1. Aprire lo snap-in di **Backup di Microsoft Azure** . Se non si sa dove è stato installato lo snap-in, cercare **Backup di Microsoft Azure** nel computer o nel server.
 
@@ -45,7 +45,7 @@ La procedura seguente illustra come eseguire il rollback della configurazione di
 
     ![Ricerca dei file](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-5. Nel calendario del riquadro **Seleziona volume e data** selezionare un punto di ripristino. 
+5. Nel calendario del riquadro **Seleziona volume e data** selezionare un punto di ripristino.
 
     È possibile ripristinare da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo aver selezionato una data, se sono disponibili più punti di ripristino, scegliere quello appropriato dall'elenco a discesa **Ora**.
 
@@ -91,11 +91,11 @@ Include la terminologia utilizzata in questi passaggi:
 5. Specificare il file dell'insieme di credenziali che corrisponde all' *Insieme di credenziali di esempio*. Se il file dell'insieme di credenziali non è valido (o è scaduto), è necessario scaricarne uno nuovo dall'*insieme di credenziali di esempio* nel Portale di Azure. Dopo aver specificato il file dell'insieme di credenziali, viene visualizzato l'insieme di credenziali di Servizi di ripristino associato al file di credenziali dell'insieme di credenziali.
 
 6. Nel riquadro Seleziona server di backup selezionare il *computer di origine* dall'elenco di computer visualizzati.
-7. Nel riquadro Seleziona modalità di ripristino scegliere **Stato del sistema** e quindi fare clic su **Avanti**. 
+7. Nel riquadro Seleziona modalità di ripristino scegliere **Stato del sistema** e quindi fare clic su **Avanti**.
 
     ![Ricerca](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-8. Nel riquadro **Seleziona volume e data** del Calendario selezionare un punto di ripristino. È possibile ripristinare da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo aver selezionato una data, se sono disponibili più punti di ripristino, scegliere quello appropriato dal menu a discesa **Ora**. 
+8. Nel riquadro **Seleziona volume e data** del Calendario selezionare un punto di ripristino. È possibile ripristinare da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo aver selezionato una data, se sono disponibili più punti di ripristino, scegliere quello appropriato dal menu a discesa **Ora**.
 
     ![Ricerca di elementi](./media/backup-azure-restore-system-state/select-date.png)
 
@@ -107,13 +107,13 @@ Include la terminologia utilizzata in questi passaggi:
 
     L'opzione **Crea copie in modo da mantenere entrambe le versioni** crea copie dei singoli file in un archivio di file dello stato del sistema esistente invece di creare la copia dell'intero archivio dello stato del sistema.
 
-11. Verificare i dettagli relativi al ripristino nel riquadro Conferma e fare clic su **Ripristina**. 
+11. Verificare i dettagli relativi al ripristino nel riquadro Conferma e fare clic su **Ripristina**.
 
     ![Fare clic sul pulsante Ripristina per confermare il processo di ripristino](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Copiare la directory *WindowsImageBackup* in un volume non critico del server, ad esempio D:\). Il volume del sistema operativo Windows è in genere il volume critico.
 
-13. Per completare il processo di ripristino, usare la sezione seguente per [applicare i file ripristinati dello stato del sistema a un'istanza di Windows Server](backup-azure-restore-system-state.md#apply-restored-system-state-on-a-windows-server).
+13. Per completare il processo di ripristino, usare la sezione seguente per [applicare i file ripristinati dello stato del sistema a un'istanza di Windows Server](#apply-restored-system-state-on-a-windows-server).
 
 
 
@@ -143,7 +143,7 @@ Dopo avere ripristinato lo stato del sistema sotto forma di file tramite l'agent
 
    ![Scegliere il ripristino in un server diverso](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
 
-6. Quando si specifica il tipo di posizione, selezionare **Cartella condivisa remota** se il backup dello stato del sistema è stato ripristinato in un altro server. Se lo stato del sistema è stato ripristinato localmente, selezionare **Unità locali**. 
+6. Quando si specifica il tipo di posizione, selezionare **Cartella condivisa remota** se il backup dello stato del sistema è stato ripristinato in un altro server. Se lo stato del sistema è stato ripristinato localmente, selezionare **Unità locali**.
 
     ![Specificare se eseguire il ripristino da un server locale o da un altro server](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
 
@@ -171,7 +171,7 @@ Il backup dello stato del sistema include i dati di Active Directory. Seguire qu
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Risolvere i problemi relativi a un ripristino non riuscito dello stato del sistema
 
-Se il processo precedente di applicazione dello stato del sistema non viene completato correttamente, usare Ambiente ripristino Windows per ripristinare l'istanza di Windows Server. La procedura seguente illustra come eseguire il ripristino con Ambiente ripristino Windows. Usare questa opzione solo se Windows Server non viene avviato normalmente dopo un ripristino dello stato del sistema. Il processo seguente cancella i dati non di sistema, quindi occorre eseguirlo con cautela. 
+Se il processo precedente di applicazione dello stato del sistema non viene completato correttamente, usare Ambiente ripristino Windows per ripristinare l'istanza di Windows Server. La procedura seguente illustra come eseguire il ripristino con Ambiente ripristino Windows. Usare questa opzione solo se Windows Server non viene avviato normalmente dopo un ripristino dello stato del sistema. Il processo seguente cancella i dati non di sistema, quindi occorre eseguirlo con cautela.
 
 1. Avviare l'istanza di Windows Server in Ambiente ripristino Windows.
 

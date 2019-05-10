@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 05/08/2019
 ms.author: juliako
-ms.openlocfilehash: 3c3687ceff10baec028435d1e6c513e72ca5da86
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e64e980d42086603c9eb8ce39a96a9766a78afcb
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149075"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472470"
 ---
 # <a name="transforms-and-jobs"></a>Trasformazioni e processi
 
@@ -53,19 +53,21 @@ Una **trasformazione** consente di creare il file recipe una sola volta (passagg
 
 ## <a name="transforms"></a>Trasformazioni
 
+Usare **Trasformazioni** per configurare attività comuni relative alla codifica o all'analisi dei video. Ogni **trasformazione** descrive un recipe o un flusso di lavoro di attività per l'elaborazione dei file video o audio. Una singola trasformazione può applicare più di una regola. Ad esempio, una trasformazione può specificare che ogni video venga codificato in un file MP4 a un dato bitrate e che venga generata un'immagine di anteprima dal primo fotogramma del video. È possibile aggiungere una voce TransformOutput per ogni regola che si prevede di includere nella trasformazione. Utilizzare i set di impostazioni per indicare la trasformazione come file multimediali di input devono essere elaborati.
+
+In servizi multimediali v3, predefiniti sono entità fortemente tipizzate nell'API di se stesso. È possibile trovare la definizione di "schema" per questi oggetti in [specifica Openapi (o Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). È anche possibile visualizzare le definizioni di set di impostazioni (ad esempio **StandardEncoderPreset**) nel [API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (o altra documentazione di riferimento SDK di servizi multimediali v3).
+
+È possibile creare trasformazioni usando REST, interfaccia della riga di comando, o usare uno qualsiasi degli SDK di pubblicazione. L'API di Servizi multimediali v3 è determinata da Azure Resource Manager, quindi è possibile usare modelli di Resource Manager per creare e distribuire trasformazioni nell'account di Servizi multimediali. Si può usare il controllo degli accessi in base al ruolo per bloccare l'accesso alle trasformazioni.
+
+Se è necessario aggiornare il [trasformare](https://docs.microsoft.com/rest/api/media/transforms), utilizzare il **aggiornare** operazione. Si tratta per apportare modifiche per la descrizione o le priorità del TransformOutputs sottostante. È consigliabile eseguire tali aggiornamenti dopo il completamento di tutti i processi in corso. Se si prevede di riscrivere la ricetta, è necessario creare una nuova trasformazione.
+
+### <a name="transform-object-diagram"></a>Diagramma di oggetti Transform
+
 Il diagramma seguente mostra le **trasformare** oggetto e gli oggetti cui fa riferimento incluse le relazioni di derivazione. Le frecce grigie indicano un tipo che i riferimenti al processo e le frecce verdi mostrano le relazioni di derivazione della classe.<br/>Fare clic sull'immagine per visualizzarla a schermo intero.  
 
 <a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a> 
 
-Usare **Trasformazioni** per configurare attività comuni relative alla codifica o all'analisi dei video. Ogni **trasformazione** descrive un recipe o un flusso di lavoro di attività per l'elaborazione dei file video o audio. Una singola trasformazione può applicare più di una regola. Ad esempio, una trasformazione può specificare che ogni video venga codificato in un file MP4 a un dato bitrate e che venga generata un'immagine di anteprima dal primo fotogramma del video. È possibile aggiungere una voce TransformOutput per ogni regola che si prevede di includere nella trasformazione. È possibile creare trasformazioni nell'account di Servizi multimediali usando l'API di Servizi multimediali v3 o uno degli SDK pubblicati. L'API di Servizi multimediali v3 è determinata da Azure Resource Manager, quindi è possibile usare modelli di Resource Manager per creare e distribuire trasformazioni nell'account di Servizi multimediali. Si può usare il controllo degli accessi in base al ruolo per bloccare l'accesso alle trasformazioni.
-
-L'operazione di aggiornamento (Update) per l'entità [Transform](https://docs.microsoft.com/rest/api/media/transforms) ha lo scopo di apportare modifiche alla descrizione o alle priorità di TransformOutputs sottostanti. È consigliabile eseguire tali aggiornamenti dopo il completamento di tutti i processi in corso. Se si intende riscrivere il file recipe, è necessario creare una nuova trasformazione.
-
 ## <a name="jobs"></a>Processi
-
-Il diagramma seguente mostra le **processo** oggetto e gli oggetti cui fa riferimento incluse le relazioni di derivazione.<br/>Fare clic sull'immagine per visualizzarla a schermo intero.  
-
-<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
 
 Un **processo** è la richiesta effettiva inviata a Servizi multimediali per applicare la **trasformazione** a determinati contenuti audio o video di input. Dopo aver creato la trasformazione, è possibile inviare i processi usando le API di Servizi multimediali o uno degli SDK pubblicati. Il **processo** specifica informazioni come la posizione del video di input e quella dell'output. È possibile specificare il percorso del video di input mediante: URL HTTPS, URL di firma di accesso condiviso o [asset](https://docs.microsoft.com/rest/api/media/assets).  
 
@@ -77,13 +79,19 @@ Uso [Asset come input del processo](job-input-from-local-file-how-to.md) se il c
 
 L'operazione di aggiornamento (Update) per l'entità [Job](https://docs.microsoft.com/rest/api/media/jobs) può essere usata per modificare la *descrizione* e le proprietà relative alla *priorità* dopo l'invio del processo. Una modifica alla proprietà relativa alla *priorità* ha effetto solo se il processo è ancora accodato. Se il processo ha iniziato l'elaborazione o è terminato, la modifica della priorità non ha alcun effetto.
 
+### <a name="job-object-diagram"></a>Diagramma di oggetti processo
+
+Il diagramma seguente mostra le **processo** oggetto e gli oggetti cui fa riferimento incluse le relazioni di derivazione.<br/>Fare clic sull'immagine per visualizzarla a schermo intero.  
+
+<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
+
 ## <a name="configure-media-reserved-units"></a>Configurare Media Reserved Units
 
 Per i processi di analisi audio e video generati da Servizi multimediali v3 o Video Indexer, è fortemente consigliato effettuare il provisioning dell'account con 10 Media Reserved Units (MRU) S3. Se sono necessarie più di 10 MRU S3, aprire un ticket di supporto dal [portale di Azure](https://portal.azure.com/).
 
 Per informazioni dettagliate, vedere [Ridimensionamento dell'elaborazione di contenuti multimediali con l'interfaccia della riga di comando](media-reserved-units-cli-how-to.md).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire commenti e suggerimenti, ottenere gli aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
@@ -94,5 +102,8 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Eseguire il caricamento, la codifica e lo streaming di video con .NET](stream-files-tutorial-with-api.md)
-- [Esercitazione: Analizzare i video con Servizi multimediali v3 usando .NET](analyze-videos-tutorial-with-api.md)
+- Prima di iniziare lo sviluppo, esaminare [lo sviluppo con le API di servizi multimediali v3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, le convenzioni di denominazione e così via).
+- Consultare queste esercitazioni:
+
+    - [Esercitazione: Eseguire il caricamento, la codifica e lo streaming di video con .NET](stream-files-tutorial-with-api.md)
+    - [Esercitazione: Analizzare i video con Servizi multimediali v3 usando .NET](analyze-videos-tutorial-with-api.md)

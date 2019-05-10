@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 032bc1b9c4b1b0e3bf8040ed52bf4db65ba7b6c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c97b1da094b759ccf85f310ceec4c7abfd91b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318978"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472301"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Ciclo di riavvio di Windows in una macchina virtuale di Azure
 Questo articolo descrive una situazione di ciclo di riavvio che può verificarsi in una macchina virtuale Windows in Microsoft Azure.
@@ -102,6 +102,8 @@ Per risolvere questo problema, [eseguire il backup del disco del sistema operati
 Ripristinare la macchina virtuale all'ultima configurazione valida e seguire i passaggi descritti in [How to start Azure Windows VM with Last Known Good Configuration](https://support.microsoft.com/help/4016731/) (Come avviare una macchina virtuale di Azure in Windows con l'ultima configurazione valida).
 
 ### <a name="solution-for-cause-3"></a>Soluzione per la causa 3
+>[!NOTE]
+>La procedura seguente deve essere usata solo come ultima risorsa. Se da un lato il ripristino da regback può ripristinare l'accesso al computer, dall'altro lato il sistema operativo non è considerato stabile, poiché si è verificata una perdita di dati nel Registro di sistema tra il timestamp dell'hive e la data corrente. È quindi necessario creare una nuova macchina virtuale e definire un piano per la migrazione dei dati.
 
 1. Dopo aver collegato il disco a una macchina virtuale di risoluzione dei problemi, assicurarsi che il disco sia contrassegnato come **Online** nella console di Gestione disco.
 
@@ -113,5 +115,4 @@ Ripristinare la macchina virtuale all'ultima configurazione valida e seguire i p
 
 5. [Creare una nuova macchina virtuale dal disco del sistema operativo](../windows/create-vm-specialized.md).
 
->[!NOTE]
->La procedura seguente deve essere usata solo come ultima risorsa. Se da un lato il ripristino da regback può ripristinare l'accesso al computer, dall'altro lato il sistema operativo non è considerato stabile, poiché si è verificata una perdita di dati nel Registro di sistema tra il timestamp dell'hive e la data corrente. È quindi necessario creare una nuova macchina virtuale e definire un piano per la migrazione dei dati.
+

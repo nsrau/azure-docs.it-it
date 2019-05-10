@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0275d27a0a27d0279886f6f7fd15b14d312a44ea
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023704"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471997"
 ---
 # <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Scrivere e configurare i dati con il SDK di Azure Machine Learning Data Prep
 
@@ -25,6 +25,7 @@ In questo articolo descrive diversi metodi per scrivere i dati usando il [Python
 
 > [!Important]
 > Se si compila una nuova soluzione, provare a eseguire la [set di dati di Azure Machine Learning](how-to-explore-prepare-data.md) (anteprima) per trasformare i propri dati, i dati dello snapshot e archiviare le definizioni di set di dati con controllo delle versioni. I set di dati è la prossima versione di preparazione dati di SDK, che offre funzionalità avanzate per la gestione dei set di dati in soluzioni di intelligenza artificiale.
+> Se si usa la `azureml-dataprep` pacchetto per creare un flusso di dati con le trasformazioni invece di usare il `azureml-datasets` del pacchetto per creare un set di dati, sarà possibile usare gli snapshot o i set di dati con controllo delle versioni in un secondo momento.
 
 Poiché non esistono limitazioni per il numero di passaggi di scrittura presenti in una pipeline, è molto semplice aggiungere passaggi di scrittura aggiuntivi per ottenere risultati intermedi per la risoluzione dei problemi o per altre pipeline.
 
@@ -38,8 +39,8 @@ Sono supportati i seguenti formati di file
 
 Usa Azure Machine Learning Data Prep Python SDK, è possibile scrivere i dati per:
 + un file system locale
-+ Archiviazione BLOB di Azure
-+ Archiviazione di Azure Data Lake
++ Archivio BLOB di Azure
++ Azure Data Lake Storage
 
 ## <a name="spark-considerations"></a>Considerazioni su Spark
 

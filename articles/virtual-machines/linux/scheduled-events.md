@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: b35a06fc4e100d71e787e183299825b61d342e69
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993156"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507917"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Linux
 
@@ -46,7 +46,7 @@ Grazie agli eventi pianificati, l'applicazione è in grado di sapere quando verr
 
 Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 
-- [Manutenzione avviata dalla piattaforma](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (ad esempio, VM riavvio, migrazione in tempo reale o gli aggiornamenti per host con mantenimento della memoria)
+- [Manutenzione avviata dalla piattaforma](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (ad esempio, VM riavvio, migrazione in tempo reale o gli aggiornamenti per host con mantenimento della memoria)
 - Hardware con funzionalità ridotte
 - Manutenzione avviata dall'utente, ad esempio il riavvio o la ridistribuzione di una macchina virtuale eseguita dall'utente
 - [Rimozione di macchine Virtuali con priorità bassa](https://azure.microsoft.com/blog/low-priority-scale-sets) nella scala imposta
@@ -97,7 +97,7 @@ Se si riavvia una macchina virtuale, viene pianificato un evento di tipo `Reboot
 
 ## <a name="use-the-api"></a>Usare l'API
 
-### <a name="headers"></a>Headers
+### <a name="headers"></a>Intestazioni
 Quando si eseguono query sul servizio metadati, è necessario specificare l'intestazione `Metadata:true` per garantire che la richiesta non sia stata reindirizzata accidentalmente. L'intestazione `Metadata:true` è obbligatoria per tutte le richieste di eventi pianificati. Se non si include l'intestazione nella richiesta, il servizio metadati restituisce una risposta di richiesta non valida.
 
 ### <a name="query-for-events"></a>Query per gli eventi
@@ -139,7 +139,7 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una matr
 ### <a name="event-scheduling"></a>Event Scheduling
 Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento. Questo tempo si riflette in una proprietà `NotBefore` dell'evento. 
 
-|EventType  | Preavviso minimo |
+|Tipo di evento  | Preavviso minimo |
 | - | - |
 | Freeze| 15 minuti |
 | Riavvio | 15 minuti |

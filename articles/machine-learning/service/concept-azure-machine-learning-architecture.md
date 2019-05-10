@@ -1,7 +1,7 @@
 ---
 title: Architettura e concetti chiave
 titleSuffix: Azure Machine Learning service
-description: Informazioni sull'architettura, condizioni, concetti e del flusso di lavoro che costituiscono il servizio di Azure Machine Learning.
+description: Scopri l'architettura, condizioni, concetti e del flusso di lavoro che costituiscono il servizio di Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025231"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65502084"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Come funziona il servizio Azure Machine Learning: Architettura e concetti
 
@@ -32,9 +32,7 @@ Il flusso di lavoro di machine learning in genere segue questa sequenza:
 1. **Inviare gli script** alla destinazione di calcolo configurata per l'esecuzione in tale ambiente. Durante il training, gli script possono leggere o scrivere nell'**archivio dati**. I record di esecuzione inoltre vengono salvati come **esecuzioni** nell'**area di lavoro** e raggruppati negli **esperimenti**.
 1. **Eseguire una query sull'esperimento** per le metriche registrate dalle esecuzioni correnti e precedenti. Se le metriche non indicano un risultato desiderato, tornare al passaggio 1 ed eseguire l'iterazione sugli script.
 1. Una volta trovata un'esecuzione soddisfacente, registrare il modello persistente nel **registro di modello**.
-1. Sviluppare uno script di punteggio.
-1. **Creare un'immagine** e registrarla nel **registro delle immagini**.
-1. **Distribuire l'immagine** come un **servizio Web** in Azure.
+1. Sviluppare uno script di assegnazione dei punteggi che utilizza il modello e **distribuire il modello** come una **servizio web** in Azure o in un **dispositivo IoT Edge**.
 
 
 > [!NOTE]
@@ -46,7 +44,7 @@ L'area di lavoro è la risorsa di primo livello per il servizio Azure Machine Le
 
 L'area di lavoro mantiene un elenco di destinazioni di calcolo che può essere usato per il training del modello. Inoltre, mantiene una cronologia di esecuzioni di training che include i log, le metriche, gli output e uno snapshot degli script. Queste informazioni consentono di determinare il training che produce il modello migliore.
 
-I modelli vengono registrati con l'area di lavoro. Il modello registrato e gli script di punteggio sono usati per creare un'immagine. È possibile quindi distribuire l'immagine nelle Istanze di Azure Container, nel servizio Azure Kubernetes o in una matrice FPGA come un endpoint HTTP basato su REST. È inoltre possibile distribuirla in un dispositivo Azure IoT Edge come modulo.
+I modelli vengono registrati con l'area di lavoro. Utilizzare un modello registrato e gli script di assegnazione dei punteggi per distribuire un modello a istanze di contenitore di Azure, Azure Kubernetes Service o a una matrice di campo-programmable gate (FPGA) come un endpoint HTTP basato su REST. È inoltre possibile distribuirla in un dispositivo Azure IoT Edge come modulo. Internamente, viene creata un'immagine docker per ospitare l'immagine distribuita. Se necessario, è possibile specificare la propria immagine.
 
 È possibile creare più aree di lavoro, ciascuna delle quali può essere condivisa da più utenti. Quando si condivide un'area di lavoro, è possibile controllare l'accesso a esso tramite l'assegnazione di utenti ai ruoli seguenti:
 
@@ -94,7 +92,7 @@ I modelli vengono identificati dal nome e dalla versione. Ogni volta che si regi
 
 Quando si registra il modello, è possibile specificare altri tag di metadati e quindi usarli durante la ricerca di modelli.
 
-Non è possibile eliminare i modelli attualmente in uso da un'immagine.
+Non è possibile eliminare i modelli che sono utilizzati da una distribuzione attiva.
 
 Per un esempio di registrazione di un modello, vedere [Eseguire il training di un modello di classificazione delle immagini con Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -208,11 +206,11 @@ Il registro delle immagini tiene traccia delle immagini create dai modelli. È p
 
 ## <a name="deployment"></a>Distribuzione
 
-La distribuzione è la creazione di un'istanza dell'immagine in un servizio Web che può essere ospitato nel cloud o in un modulo IoT per le distribuzioni integrate nei dispositivi.
+Creazione di un'istanza del modello in un servizio web che può essere ospitato nel cloud o in un modulo di IoT per le distribuzioni di dispositivo integrato è una distribuzione.
 
 ### <a name="web-service"></a>Servizio Web
 
-Un servizio Web distribuito può usare le Istanze di Azure Container, il servizio Azure Kubernetes o le FPGA. Il servizio viene creato da un'immagine che racchiude il modello, lo script e i file associati. L'immagine presenta un endpoint HTTP con bilanciamento del carico che riceve le richieste di punteggio inviate al servizio Web.
+Un servizio Web distribuito può usare le Istanze di Azure Container, il servizio Azure Kubernetes o le FPGA. Si crea il servizio dal modello, script e i file associati. Questi sono incapsulati in un'immagine, che fornisce l'ambiente di runtime per il servizio web. L'immagine presenta un endpoint HTTP con bilanciamento del carico che riceve le richieste di punteggio inviate al servizio Web.
 
 Azure aiuta a monitorare la distribuzione del servizio Web raccogliendo i dati di telemetria di Application Insights o, se questa funzionalità è stata abilitata, i dati di telemetria del modello. I dati di telemetria sono accessibili solo per l'utente e archiviati in Application Insights e nelle istanze dell'account di archiviazione.
 

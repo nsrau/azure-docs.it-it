@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/24/2019
+ms.date: 05/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eaff996f5d0ad9c2eac00c9306ef8808b43e25c2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146033"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501968"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività in Automazione di Azure
 
@@ -75,7 +75,7 @@ Per distribuire avviare/arrestare VM durante la disattivazione soluzione ore a u
 | Microsoft.Resources/subscriptions/resourceGroups/read | Gruppo di risorse |
 | Microsoft.Resources/deployments/* | Gruppo di risorse |
 
-### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nuovo Account di automazione e una nuova area di lavoro di Log Analitica
+#### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nuovo Account di automazione e una nuova area di lavoro di Log Analitica
 
 Per avviare/arrestare VM durante gli orari di minore di distribuire soluzioni per un nuovo Account di automazione e Log Analitica dell'area di lavoro l'utente che distribuisce la soluzione deve disporre di autorizzazioni definiti nella sezione precedente, nonché le autorizzazioni seguenti:
 
@@ -91,6 +91,30 @@ Per avviare/arrestare VM durante gli orari di minore di distribuire soluzioni pe
 | Microsoft.Automation/automationAccounts/write | Gruppo di risorse |
 | Microsoft.OperationalInsights/workspaces/write | Gruppo di risorse |
 
+### <a name="region-mappings"></a>Mapping delle aree
+
+Quando si abilita Avvia/Arresta macchine virtuali durante orari di minore attività, sono supportati solo determinate aree geografiche per il collegamento a un'area di lavoro di Log Analitica e un Account di automazione.
+
+La tabella seguente mostra i mapping supportati:
+
+|**Area dell'area di lavoro di Log Analytics**|**Area di Automazione di Azure**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS<sup>1</sup>|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|Europa occidentale|Europa occidentale|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> mapping EastUS2EUAP e Stati Uniti orientali per aree di lavoro di Log Analitica per gli account di automazione non sono un mapping di un'area a un'altra esatto, ma è il mapping corretto.
+
+<sup>2</sup> a causa di limiti di capacità dell'area non è disponibile durante la creazione di nuove risorse. Sono inclusi gli account di automazione e Log Analitica aree di lavoro. Tuttavia, le risorse collegate preesistente nell'area continueranno a funzionare.
+
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
 Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività all'account di Automazione e quindi configurare le variabili per personalizzarla.
@@ -101,6 +125,7 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
 
    > [!NOTE]
    > È possibile anche crearla da qualsiasi posizione nel portale di Azure, facendo clic su **Crea una risorsa**. Nella pagina del Marketplace digitare una parola chiave, ad esempio **Avvio** o **Avvio/Arresto**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. In alternativa, è possibile digitare una o più parole chiave contenute nel nome completo della soluzione e quindi premere INVIO. Selezionare **Avvio/Arresto di macchine virtuali durante gli orari di minore attività** dai risultati della ricerca.
+
 2. Nella pagina **Avvio/Arresto di macchine virtuali durante gli orari di minore attività** per la soluzione selezionata esaminare le informazioni di riepilogo e quindi fare clic su **Crea**.
 
    ![Portale di Azure](media/automation-solution-vm-management/azure-portal-01.png)

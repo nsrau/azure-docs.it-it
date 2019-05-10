@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7aee10780512e284faccadface0dc928ef8270e
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472273"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501905"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Informazioni sull'iscrizione self-service per Azure Active Directory.
 
@@ -52,7 +52,7 @@ Un amministratore può configurare queste funzionalità usando i parametri segue
 AllowEmailVerifiedUsers e AllowAdHocSubscriptions sono impostazioni a livello di directory che si possono applicare a una directory gestita o non gestita. Ad esempio:
 
 * Si amministra una directory con un dominio verificato, ad esempio contoso.com
-* Si usa Collaborazione B2B da un'altra directory per invitare un utente che non esiste ancora (userdoesnotexist@contoso.com) nella home directory di constoso.com
+* Si usa collaborazione B2B da una directory diversa per invitare un utente che non esiste già (userdoesnotexist@contoso.com) nella home directory di contoso.com
 * Nella home directory è attiva l'impostazione AllowEmailVerifiedUsers
 
 Se le condizioni precedenti sono vere, verrà creato un utente membro nella home directory e un utente guest B2B nella directory di invito.

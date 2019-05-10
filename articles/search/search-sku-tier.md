@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3e813b8a1709675d0d870d64df83428ab82e25b3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5b9e0dfb88c979618ce4cc5ed56e372cb0f65608
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024305"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472711"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Scegliere un piano tariffario per Ricerca di Azure
 
@@ -46,7 +46,7 @@ La tabella seguente elenca i piani disponibili. Includono altre fonti di informa
 |Livello | Capacity |
 |-----|-------------|
 |Gratuito | Condiviso con altri sottoscrittori. Non scalabile, limitato a 3 indici e l'archiviazione a 50 MB. |
-|Basic | Risorse di calcolo dedicate per carichi di lavoro di produzione su scala ridotta. Una partizione di 2 GB e un massimo di tre repliche. |
+|Di base | Risorse di calcolo dedicate per carichi di lavoro di produzione su scala ridotta. Una partizione di 2 GB e un massimo di tre repliche. |
 |Standard 1 (S1) | Da S1 nel backup, computer dedicati con maggiore capacità di elaborazione e archiviazione a ogni livello. Dimensioni della partizione sono 25 GB per partizione (max 300 GB per ogni servizio) per S1. |
 |Standard 2 (S2) | Simile a S1, ma con 100 GB/partizioni (max 1,2 TB per ogni servizio) |
 |Standard 3 (S3) | 200 GB per partizione (max 2,4 TB per ogni servizio) |
@@ -89,7 +89,7 @@ Gli addebiti vengono applicati per i dati in uscita se servizi si trovano in are
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. Intelligenza artificiale-indicizzazione arricchita con servizi cognitivi
 
-Per la [l'indicizzazione per intelligenza artificiale con servizi cognitivi](cognitive-search-concept-intro.md), sarà necessario durante il collegamento di una risorsa servizi cognitivi fatturabile a S0 il piano tariffario per l'elaborazione con pagamento a consumo. Non è previsto alcun "costo fisso" associata al collegamento di servizi cognitivi. Si paga solo per l'elaborazione che è necessario.
+Per la [l'indicizzazione per intelligenza artificiale con servizi cognitivi](cognitive-search-concept-intro.md), sarà necessario durante il collegamento di una risorsa di servizi cognitivi fatturabile, nella stessa area come ricerca di Azure al livello S0 sui prezzi per l'elaborazione con pagamento a consumo. Non è previsto alcun "costo fisso" associata al collegamento di servizi cognitivi. Si paga solo per l'elaborazione che è necessario.
 
 Estrazione di immagini durante decifrazione del documento è un addebito di ricerca di Azure, fatturato in base al numero di immagini estratti dai tuoi documenti. L'estrazione di testo è attualmente gratuita. 
 

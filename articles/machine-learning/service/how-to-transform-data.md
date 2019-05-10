@@ -12,19 +12,19 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023796"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471842"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Trasformare i dati con Azure Machine Learning Data Prep SDK
 
-In questo articolo descrive diversi metodi di trasformazione dei dati usando il SDK di Azure Machine Learning Data Prep. il SDK offre le funzioni che rendono più semplice aggiungere colonne e filtrare le colonne o le righe non desiderate attribuire valori mancanti. Per visualizzare la documentazione di riferimento per il SDK, vedere la [Panoramica](https://aka.ms/data-prep-sdk).
+In questo articolo descrive diversi metodi di trasformazione dei dati usando il `azureml-dataprep` pacchetto. Il pacchetto offre funzioni che rendono più semplice aggiungere colonne e filtrare le colonne o le righe non desiderate attribuire valori mancanti. Vedere la documentazione di riferimento completa per la [pacchetto azureml-dataprep](https://aka.ms/data-prep-sdk).
 
 > [!Important]
-> Se si compila una nuova soluzione, provare a eseguire la [set di dati di Azure Machine Learning](how-to-explore-prepare-data.md) (anteprima) per trasformare i propri dati, i dati dello snapshot e archiviare le definizioni di set di dati con controllo delle versioni. I set di dati è la prossima versione di preparazione dati di SDK, che offre funzionalità avanzate per la gestione dei set di dati in soluzioni di intelligenza artificiale.
+> Se si compila una nuova soluzione, provare a eseguire la [set di dati di Azure Machine Learning](how-to-explore-prepare-data.md) (anteprima) per trasformare i propri dati, i dati dello snapshot e archiviare le definizioni di set di dati con controllo delle versioni. I set di dati è la prossima versione di preparazione dati di SDK, che offre funzionalità avanzate per la gestione dei set di dati in soluzioni di intelligenza artificiale. Se si usa la `azureml-dataprep` pacchetto per creare un flusso di dati con le trasformazioni invece di usare il `azureml-datasets` del pacchetto per creare un set di dati, sarà possibile usare gli snapshot o i set di dati con controllo delle versioni in un secondo momento.
 
 Questo argomento vengono illustrati esempi per le attività seguenti:
 
@@ -270,11 +270,11 @@ dflow = builder.to_dataflow()
 df = dflow.to_pandas_dataframe()
 ```
 
-## <a name="filtering"></a>Filtri
+## <a name="filtering"></a>Filtro
 
 il SDK include i metodi [ `drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) e [ `filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) per consentire di filtrare le colonne o righe.
 
-### <a name="initial-setup"></a>Configurazione iniziale
+### <a name="initial-setup"></a>Installazione iniziale
 
 ```python
 import azureml.dataprep as dprep
@@ -500,5 +500,4 @@ dflow.head(2)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere il SDK [Panoramica](https://aka.ms/data-prep-sdk) per esempi di utilizzo e i modelli di progettazione
 * Vedere il SDK di Azure Machine Learning Data Prep [esercitazione](tutorial-data-prep.md) per un esempio di risoluzione di uno scenario specifico

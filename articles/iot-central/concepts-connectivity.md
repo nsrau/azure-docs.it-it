@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f11d1c6b727799f2cc67c6f5012dc4d117556d2e
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887486"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467822"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connettività dei dispositivi in Azure IoT Central
 
@@ -107,7 +107,7 @@ Uno scenario fondamentale consente a IoT Central è destinata agli OEM per produ
 
 Il diagramma seguente illustra questo flusso:
 
-![Impostazioni di connessione](media/concepts-connectivity/device-connection-flow.png)
+![Impostazioni di connessione](media/concepts-connectivity/device-connection-flow1.png)
 
 I passaggi seguenti descrivono questo processo in modo più dettagliato. I passaggi variano leggermente a seconda del fatto che si usi certificati X.509 o firma di accesso condiviso per l'autenticazione del dispositivo:
 
@@ -173,7 +173,7 @@ Tutte le comunicazioni dei dispositivi con l'hub IoT usano le opzioni di connett
 
 La tabella seguente riepiloga le corrispondenze tra le funzionalità di dispositivo di Azure IoT Central e le funzionalità dell'hub IoT:
 
-| Azure IoT Central | Hub IoT Azure |
+| Azure IoT Central | Hub IoT di Azure |
 | ----------- | ------- |
 | Misura: Telemetria | Messaggistica da dispositivo a cloud |
 | Proprietà dei dispositivi | Proprietà segnalate del dispositivo gemello |
