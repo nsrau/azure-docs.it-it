@@ -67,7 +67,7 @@ I cluster HDInsight Spark non supportano il connettore Spark-Phoenix.
 
 **Soluzione:**
 
-Usare il connettore Spark-HBase. Per istruzioni, vedere [How to use Spark-HBase connector](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/) (Come usare un connettore Spark-HBase).
+Usare il connettore Spark-HBase. Per istruzioni, vedere [How to use Spark-HBase connector](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/) (Come usare un connettore Spark-HBase).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problemi relativi ai notebook Jupyter
 Seguito alcuni problemi noti relativi ai notebook Jupyter.

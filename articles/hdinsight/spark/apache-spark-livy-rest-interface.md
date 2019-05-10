@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c1497589153f1dc5a79cc1d3414966deaf11f21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570493"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228110"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark
 
@@ -153,13 +153,7 @@ Eseguire la procedura seguente:
 
 ## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Aggiornamenti alla configurazione di Livy a partire dalla versione 3.5 di HDInsight
 
-I cluster HDInsight 3.5 e superiori, per impostazione predefinita, disabilitano l'uso di percorsi di file locali per accedere ai file di dati di esempio o a file JAR. Si consiglia di usare invece il percorso `wasb://` per accedere a file JAR o a file di dati di esempio dal cluster. Se si vuole usare un percorso locale, è necessario aggiornare di conseguenza la configurazione di Ambari. A tale scopo, procedere come segue:
-
-1. Passare al portale di Ambari per il cluster. L'interfaccia utente Web di Ambari è disponibile nel cluster HDInsight all'indirizzo https://**NOMECLUSTER**.azurehdidnsight.net, dove NOMECLUSTER è il nome del cluster.
-
-2. Nel riquadro di spostamento sinistro fare clic su **Livy** e quindi su **Configs** (Configurazioni).
-
-3. In **livy-default** aggiungere il nome della proprietà `livy.file.local-dir-whitelist` e impostarne il valore su **"/"**, per consentire l'accesso completo al file system. Se si vuole consentire l'accesso solo a una directory specifica, specificare il percorso di tale directory come valore.
+I cluster HDInsight 3.5 e superiori, per impostazione predefinita, disabilitano l'uso di percorsi di file locali per accedere ai file di dati di esempio o a file JAR. Si consiglia di usare invece il percorso `wasb://` per accedere a file JAR o a file di dati di esempio dal cluster. 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Invio di processi Livy per un cluster all'interno di una rete virtuale di Azure
 

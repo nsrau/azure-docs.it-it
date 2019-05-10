@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a723ca6d69d45613636c7659e6566cec19b31d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4746620f083996bf64e77617ec472c3d3894d91
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364176"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464220"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gestire i dispositivi nell'applicazione Azure IoT Central
 
@@ -66,7 +66,7 @@ Per registrare in blocco i dispositivi nell'applicazione:
 
 1. Selezionare **Importa**.
 
-    ![Azione di importazione](./media/howto-manage-devices/BulkImport1.png)
+    ![Azione di importazione](./media/howto-manage-devices/bulkimport1a.png)
 
 1. Selezionare il file CSV contenente l'elenco di ID dispositivo da importare.
 
@@ -74,7 +74,7 @@ Per registrare in blocco i dispositivi nell'applicazione:
 
 1. Al termine dell'importazione viene visualizzato un messaggio di operazione riuscita nella griglia di dispositivi.
 
-    ![Importazione riuscita](./media/howto-manage-devices/BulkImport3.png)
+    ![Importazione riuscita](./media/howto-manage-devices/bulkimport3a.png)
 
 Se l'importazione di dispositivi ha esito negativo, verrà visualizzato un messaggio di errore nella griglia di dispositivi. Verrà generato un file di log scaricabile in cui vengono acquisiti tutti gli errori.
 
@@ -86,13 +86,13 @@ Se si registrano i dispositivi avviando l'importazione sotto **Dispositivi non a
 
 1. Nel pannello di sinistra scegliere **Dispositivi non associati**:
 
-    ![Dispositivi non associati](./media/howto-manage-devices/UnassociatedDevices1.png)
+    ![Dispositivi non associati](./media/howto-manage-devices/unassociateddevices1a.png)
 
 1. Selezionare i dispositivi da associare a un modello:
 
 1. Selezionare **associare**:
 
-    ![Associare i dispositivi](./media/howto-manage-devices/UnassociatedDevices2.png)
+    ![Associa dispositivi](./media/howto-manage-devices/unassociateddevices2a.png)
 
 1. Scegliere il modello dall'elenco dei modelli disponibili e selezionare **associare**.
 
@@ -113,7 +113,7 @@ Per esportare in blocco i dispositivi dall'applicazione:
 
 1. Selezionare i dispositivi che si desidera esportare e quindi selezionare il **esportare** azione.
 
-    ![Esportazione](./media/howto-manage-devices/Export1.png)
+    ![Esportazione](./media/howto-manage-devices/export1a.png)
 
 1. Verrà avviato il processo di esportazione. È possibile tenere traccia dello stato nella parte superiore della griglia.
 
@@ -121,7 +121,7 @@ Per esportare in blocco i dispositivi dall'applicazione:
 
 1. Selezionare il **messaggio di operazione riuscita** per scaricare il file in una cartella sul disco locale.
 
-    ![Esportazione riuscita](./media/howto-manage-devices/Export2.png)
+    ![Esportazione riuscita](./media/howto-manage-devices/export2a.png)
 
 1. Il file CSV esportato contiene le colonne relative all'ID di dispositivo, al nome di dispositivo, alle chiavi di dispositivo e alle identificazioni personali del certificato X509:
 

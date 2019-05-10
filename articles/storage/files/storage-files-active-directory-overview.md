@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: 7010425ba8acff4ed223e2a402d7a927a91c06b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687149"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209737"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Panoramica dell'autenticazione di Azure Active Directory tramite SMB per File di Azure (anteprima)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -51,7 +51,7 @@ Azure AD tramite SMB per File di Azure offre diversi vantaggi nell'uso dell'aute
     È possibile usare File di Azure per eseguire il backup delle condivisioni di file locali esistenti. File di Azure conserva gli ACL insieme ai dati quando si esegue il backup di un file di condivisione in File di Azure tramite SMB.
 
 ## <a name="how-it-works"></a>Funzionamento
-File di Azure Usa Azure AD Domain Services per supportare l'autenticazione Kerberos con le credenziali di Azure AD da macchine virtuali aggiunte a un dominio. Prima di poter usare Azure AD con File di Azure, è necessario attivare Azure AD Domain Services e aggiungere il dominio dalle macchine virtuali da cui si è programmato di accedere ai dati del file. Le VM aggiunte a un dominio devono trovarsi nella stessa rete virtuale (VNET) di Azure AD Domain Services. 
+File di Azure Usa Azure AD Domain Services per supportare l'autenticazione Kerberos con le credenziali di Azure AD da macchine virtuali aggiunte a un dominio. Prima di poter usare Azure AD con File di Azure, è necessario attivare Azure AD Domain Services e aggiungere il dominio dalle macchine virtuali da cui si è programmato di accedere ai dati del file. Le VM appartenenti a un dominio devono trovarsi nella stessa rete virtuale (VNET) di Azure Active Directory Domain Services. 
 
 Quando un'identità associata a un'applicazione in esecuzione in una macchina virtuale tenta di accedere ai dati di File di Azure, la richiesta viene inviata ad Azure AD Domain Services per l'autenticazione dell'identità. Se l'autenticazione ha esito positivo, Azure AD Domain Services restituisce un token Kerberos. L'applicazione invia una richiesta che include il token Kerberos e File di Azure usa quel token per autorizzare la richiesta. File di Azure riceve solo il token e non rende permanenti le credenziali di Azure AD.
 

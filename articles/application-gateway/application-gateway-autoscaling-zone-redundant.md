@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202905"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510827"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>La scalabilità automatica e il Gateway applicazione ridondanza della zona 
 
@@ -62,7 +62,7 @@ Materiale sussidiario di unità di calcolo:
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-Il [pagina dei prezzi](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) verrà aggiornato per riflettere i prezzi per area 14 maggio 2019. La fatturazione è pianificata per iniziare il 1 giugno 2019.
+Il [pagina dei prezzi](https://azure.microsoft.com/pricing/details/application-gateway/) verrà aggiornato per riflettere i prezzi per area 14 maggio 2019. La fatturazione è pianificata per iniziare il 1 giugno 2019.
 
 **Esempio 1**
 
@@ -93,7 +93,7 @@ Prezzo unitario capacità = 744(hours) * Max (compute unit Max(25/50 for connect
 
 Prezzo totale = $267.84 + $85.71 = $353.55
 
-Il [pagina dei prezzi](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) verrà aggiornato per riflettere i prezzi per area 14 maggio 2019. La fatturazione è pianificata per iniziare il 1 giugno 2019.
+Il [pagina dei prezzi](https://azure.microsoft.com/pricing/details/application-gateway/) verrà aggiornato per riflettere i prezzi per area 14 maggio 2019. La fatturazione è pianificata per iniziare il 1 giugno 2019.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Ridimensionamento WAF e Gateway applicazione v2
 
@@ -108,11 +108,11 @@ La tabella seguente confronta le funzionalità disponibili in ogni SKU.
 
 |                                                   | v1 SKU   | SKU v2   |
 | ------------------------------------------------- | -------- | -------- |
-| Scalabilità automatica                                       |          | &#x2713; |
+| Ridimensionamento automatico                                       |          | &#x2713; |
 | Ridondanza di zona                                   |          | &#x2713; |
 | Indirizzo VIP statico                                        |          | &#x2713; |
 | Azure controller di Ingress di Kubernetes Service (AKS) |          | &#x2713; |
-| Integrazione dell'insieme di credenziali delle chiavi di Azure                       |          | &#x2713; |
+| Integrazione di Azure Key Vault                       |          | &#x2713; |
 | Riscrivere le intestazioni HTTP (S)                           |          | &#x2713; |
 | Routing basato su URL                                 | &#x2713; | &#x2713; |
 | Hosting di più siti                             | &#x2713; | &#x2713; |
@@ -124,7 +124,7 @@ La tabella seguente confronta le funzionalità disponibili in ogni SKU.
 | Pagine di errore personalizzate                                | &#x2713; | &#x2713; |
 | Supporto per WebSocket                                 | &#x2713; | &#x2713; |
 | Supporto HTTP/2                                    | &#x2713; | &#x2713; |
-| Esaurimento delle connessioni                               | &#x2713; | &#x2713; |
+| Svuotamento delle connessioni                               | &#x2713; | &#x2713; |
 
 > [!NOTE]
 > La versione 2 la scalabilità automatica supporta ora la SKU [probe di integrità predefinito](application-gateway-probe-overview.md#default-health-probe) per automaticamente a monitorare l'integrità di tutte le risorse nel pool back-end ed evidenziare i membri di back-end che vengano considerati non integri. Il probe di integrità predefinito viene configurato automaticamente per back-end che non hanno alcuna configurazione di probe personalizzato. Per altre informazioni, vedere [probe di integrità nel gateway applicazione](application-gateway-probe-overview.md).

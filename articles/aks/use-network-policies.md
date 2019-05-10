@@ -5,47 +5,33 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61027973"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230006"
 ---
-# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Anteprima - proteggere il traffico tra i POD usando i criteri di rete in Azure Kubernetes Service (AKS)
+# <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes
 
 Quando si eseguono applicazioni moderne basate su microservizi in Kubernetes, spesso è necessario controllare quali componenti possono comunicare tra loro. Il principio del privilegio minimo deve essere applicato al modo in cui il traffico tra i POD in un cluster Azure Kubernetes Service (AKS). Si supponga che probabile che si desidera bloccare il traffico direttamente alle applicazioni back-end. Il *criteri di rete* funzionalità in Kubernetes ti permette di definire le regole per il traffico in ingresso e in uscita tra i POD in un cluster.
 
-Questo articolo illustra come installare il modulo criteri di rete e creare i criteri di rete Kubernetes per controllare il flusso del traffico tra i POD nel servizio contenitore di AZURE. Questa funzionalità è attualmente in anteprima.
-
-> [!IMPORTANT]
-> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service e fornire il consenso esplicito. Le anteprime sono fornite per raccogliere commenti e suggerimenti e bug dalla community. Tuttavia, non sono supportati dal supporto tecnico di Azure. Se si crea un cluster o aggiungere queste funzionalità in cluster esistenti, tale cluster non è supportato fino a quando la funzionalità non è più disponibile in anteprima e passano a livello generale (GA).
->
-> Se si verificano problemi con funzionalità di anteprima [segnalare un problema nel repository GitHub di AKS] [ aks-github] con il nome della funzionalità Anteprima nel titolo del bug.
+Questo articolo illustra come installare il modulo criteri di rete e creare i criteri di rete Kubernetes per controllare il flusso del traffico tra i POD nel servizio contenitore di AZURE. Criteri di rete devono essere utilizzato solo per i nodi basati su Linux e i POD nel servizio contenitore di AZURE.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 È necessario la CLI di Azure versione 2.0.61 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
-Per creare un cluster AKS che è possibile usare i criteri di rete, è necessario attivare un flag funzionalità per la sottoscrizione. Per registrare il flag funzionalità *EnableNetworkPolicy*, usare il comando [az feature register][az-feature-register] come mostrato nell'esempio seguente:
-
-```azurecli-interactive
-az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
-```
-
-Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato di registrazione usando il [elenco delle funzionalità az] [ az-feature-list] comando:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableNetworkPolicy')].{Name:name,State:properties.state}"
-```
-
-Quando si è pronti, aggiornare la registrazione dei *containerservice* provider di risorse usando la [register di az provider] [ az-provider-register] comando:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+> [!TIP]
+> Se si usa la funzionalità di criteri di rete durante l'anteprima, è consigliabile che si [creare un nuovo cluster](#create-an-aks-cluster-and-enable-network-policy).
+> 
+> Se si desidera continuare a usare i cluster di test esistente che utilizzato Criteri di rete durante l'anteprima, aggiornare il cluster a una nuove versioni di Kubernetes per l'ultima versione disponibile a livello generale e quindi distribuire il manifesto YAML seguente per correggere l'arresto anomalo server delle metriche e Kubernetes cruscotto. Questa correzione è solo necessario per i cluster che utilizzano il motore di criteri di rete Tigrato.
+>
+> Per una protezione ottimale, [esaminare il contenuto di questo manifesto YAML] [ calico-aks-cleanup] per comprendere ciò che viene distribuito nel cluster AKS.
+>
+> `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
 ## <a name="overview-of-network-policy"></a>Panoramica dei criteri di rete
 
@@ -71,13 +57,14 @@ Criteri di rete funzionano solo con l'opzione Azure CNI (avanzate). Implementazi
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Differenze tra i criteri di Azure e Tigrato e le relative funzionalità
 
-| Funzionalità                               | Azure                      | Calico                      |
+| Capacità                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Piattaforme supportate                      | Linux                      | Linux                       |
 | Opzioni di rete supportate             | Azure CNI                  | Azure CNI                   |
 | Conformità con la specifica di Kubernetes | Tutti i tipi di criteri supportati |  Tutti i tipi di criteri supportati |
 | Funzionalità aggiuntive                      | Nessuna                       | Esteso al modello dei criteri costituita da criteri di rete globali, impostare rete globale e Host Endpoint. Per altre informazioni sull'uso di `calicoctl` CLI per gestire tali estese le funzionalità, vedere [riferimenti relativi all'utente calicoctl][calicoctl]. |
 | Supporto                                  | Supportato dal team di progettazione e supporto tecnico di Azure | Supporto della community Tigrato. Per altre informazioni sul supporto a pagamento aggiuntivo, vedere [opzioni di supporto di progetto Tigrato][calico-support]. |
+| Registrazione                                  | Le regole di aggiunta / eliminazione di IPTables vengono registrate in ogni host in */var/log/azure-npm.log* | Per altre informazioni, vedere [log componente Tigrato][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Creare un cluster del servizio Azure Kubernetes e abilitare i criteri di rete
 
@@ -140,7 +127,6 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --kubernetes-version 1.12.6 \
     --generate-ssh-keys \
     --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
@@ -478,12 +464,13 @@ Per altre informazioni sui criteri, vedere [i criteri di rete Kubernetes][kubern
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
 [calico-support]: https://www.projectcalico.org/support
+[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af6d66d2e3eae80477a151323578b930dcd7727a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8d4ab46c598580a3a87f4344202f2700926bf5c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886642"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510332"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo Windows IoT Core all'applicazione Azure IoT Central
 
@@ -74,7 +74,7 @@ Dopo un paio di minuti, è possibile visualizzare i dati di telemetria dal dispo
 Il [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) include strumenti che è possibile usare per risolvere i problemi del dispositivo:
 
 - Il **Apps manager** pagina consente di controllare le App in esecuzione nel dispositivo.
-- Se non si dispone di un monitor connesso al dispositivo, è possibile usare la **le impostazioni del dispositivo** pagina per acquisire schermate da un dispositivo. Ad esempio: 
+- Se non si dispone di un monitor connesso al dispositivo, è possibile usare la **le impostazioni del dispositivo** pagina per acquisire schermate da un dispositivo. Ad esempio:
 
     ![Schermata di App](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 
@@ -98,17 +98,17 @@ Un'applicazione creata dal modello di applicazione **Sample Devkits** include un
 
 Impostazioni numeriche
 
-| Nome visualizzato | Nome campo | Unità | Cifre decimali | Minima | Massima | Initial |
+| `Display name` | Nome campo | Unità | Cifre decimali | Minima | Massima | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Velocità della ventola    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 ### <a name="properties"></a>Properties
 
-| Type            | Nome visualizzato | Nome campo | Tipo di dati |
+| Type            | `Display name` | Nome campo | Tipo di dati |
 | --------------- | ------------ | ---------- | --------- |
-| Proprietà dispositivo | Numero stampo   | dieNumber  | number    |
-| Text            | Località     | location   | N/D       |
+| Proprietà dispositivo | Numero stampo   | dieNumber  | numero    |
+| Text            | Località     | percorso   | N/D       |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come connettere Raspberry Pi all'applicazione Azure IoT Central, il passaggio successivo consigliato sia per informazioni su come [configurare un modello di dispositivo personalizzata](howto-set-up-template.md) per dispositivo IoT.
+Ora che si è appreso come connettere un dispositivo Windows IoT Core per l'applicazione Azure IoT Central, il passaggio successivo consigliato sia per informazioni su come [configurare un modello di dispositivo personalizzata](howto-set-up-template.md) per dispositivo IoT.

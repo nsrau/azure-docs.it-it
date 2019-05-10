@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 614dabe842c7fe99da3ddb486c27003c79382ea1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147934"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231398"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Ritiro della funzionalità del Centro sicurezza (luglio 2019)
 
@@ -81,6 +81,7 @@ Un clic nell'area di lavoro viene aperto il "Identity and access" log analitica 
 ![Pagina di identità - dashboard][8]
 
 In futuro tutte le tre schermate precedenti verrà ritirata. I dati rimarranno disponibili nella soluzione di protezione log analitica e non verrà modificati o rimosso.
+Le query di Log Analitica originale utilizzate per popolare il dashboard identità e accesso sono disponibili nel Centro sicurezza PC [repository GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="classic-identity--access-preview---new-experience"></a>Classico identità e accesso (anteprima) - nuova esperienza
 Mentre il dashboard di Log analitica ha fornito informazioni dettagliate su una determinata area di lavoro, le funzionalità native di Centro sicurezza forniscono visibilità in tutte le sottoscrizioni e tutte le aree di lavoro associati, in un modo facile-utilizzare la visualizzazione che ti permette di concentrarti su ciò che del importante, in base al punteggio di raccomandazioni di identità e accesso sicuro.
@@ -103,6 +104,7 @@ Quando si sceglie un'area di lavoro per visualizzare il rispettivo dashboard int
 ![Mappa di avvisi di sicurezza nel Log Analitica][12]
 
 I dati esistenti rimarranno disponibili nella soluzione di protezione log analitica e verranno non è possibile modificare o rimuovere.
+Le query di Log Analitica originale utilizzate per popolare il dashboard Intelligence per le minacce sono disponibili nel Centro sicurezza PC [repository GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="security-events-map---new-experience"></a>Mappa eventi di sicurezza - nuova esperienza
 E invita i clienti di utilizzare la funzionalità di mappa avvisi incorporata in Centro sicurezza: "avvisi di sicurezza eseguire il mapping (anteprima)". Ciò offre un'esperienza ottimizzata e funziona su tutte le sottoscrizioni e aree di lavoro associati, consentendo una macro Visualizza nel tuo ambiente e non incentrata su una singola area di lavoro.
@@ -165,6 +167,8 @@ Il dashboard di sicurezza in analitica Log fornisce una panoramica per ogni area
 
 ### <a name="security--audit-dashboard---new-experience"></a>Dashboard del Centro sicurezza e controllo: nuova esperienza
 I clienti è consigliabile usare il Centro sicurezza di Azure, che fornisce la stessa Panoramica della sicurezza in più sottoscrizioni e aree di lavoro associati, insieme a un insieme più ricco di funzionalità.
+
+Le query di Log Analitica originale utilizzate per popolare la sicurezza e controllo del dashboard sono disponibili nel Centro sicurezza PC [repository GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/)

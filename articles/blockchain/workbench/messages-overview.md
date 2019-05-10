@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/21/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f63c62cd23fef5565628793379afd8bcc9f447b
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60896422"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510152"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integrazione della messaggistica di Azure Blockchain Workbench
 
@@ -27,7 +27,7 @@ Per avviare transazioni da sistemi esterni per creare utenti, creare contratti e
 
 Le seguenti sono le API di input attualmente disponibili.
 
-### <a name="create-user"></a>Create user
+### <a name="create-user"></a>Crea utente
 
 Crea un nuovo utente.
 
@@ -381,9 +381,9 @@ A seconda le **messageName**, i messaggi di notifica sono uno dei seguenti tipi 
 
 Contiene le informazioni sui singoli blocchi. *BlockMessage* include una sezione con le informazioni sul livello di blocco e una sezione con le informazioni sulla transazione.
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
-| block | Contiene le [informazioni sul blocco](#block-information) |
+| blocca | Contiene le [informazioni sul blocco](#block-information) |
 | transactions | Contiene una raccolta di [informazioni sulla transazione](#transaction-information) per il blocco |
 | connectionId | Identificatore univoco della connessione |
 | messageSchemaVersion | Versione dello schema di messaggistica |
@@ -392,7 +392,7 @@ Contiene le informazioni sui singoli blocchi. *BlockMessage* include una sezione
 
 #### <a name="block-information"></a>Informazioni sul blocco
 
-| NOME              | DESCRIZIONE |
+| NOME              | Descrizione |
 |-------------------|-------------|
 | blockId           | Identificatore univoco del blocco in Azure Blockchain Workbench |
 | blockNumber       | Identificatore univoco di un blocco nel libro mastro |
@@ -402,7 +402,7 @@ Contiene le informazioni sui singoli blocchi. *BlockMessage* include una sezione
 
 #### <a name="transaction-information"></a>Informazioni sulla transazione
 
-| NOME               | DESCRIZIONE |
+| NOME               | Descrizione |
 |--------------------|-------------|
 | transactionId      | Identificatore univoco della transazione in Azure Blockchain Workbench |
 | transactionHash    | Hash della transazione nel libro mastro |
@@ -448,7 +448,7 @@ Esempio di *BlockMessage* da Blockchain Workbench:
 
 Contiene le informazioni su un contratto. Il messaggio include una sezione con le proprietà del contratto e una sezione con le informazioni sulla transazione. Tutte le transazioni che hanno modificato il contratto per il blocco specifico sono incluse nella sezione delle transazioni.
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
 | blockId | Identificatore univoco del blocco in Azure Blockchain Workbench |
 | blockHash | Hash del blocco |
@@ -464,7 +464,7 @@ Contiene le informazioni su un contratto. Il messaggio include una sezione con l
 
 #### <a name="modifying-transaction-information"></a>Modifica delle informazioni sulla transazione
 
-| NOME               | DESCRIZIONE |
+| NOME               | Descrizione |
 |--------------------|-------------|
 | transactionId | Identificatore univoco della transazione in Azure Blockchain Workbench |
 | transactionHash | Hash della transazione nel libro mastro |
@@ -473,7 +473,7 @@ Contiene le informazioni su un contratto. Il messaggio include una sezione con l
 
 #### <a name="contract-properties"></a>Proprietà del contratto
 
-| NOME               | DESCRIZIONE |
+| NOME               | Descrizione |
 |--------------------|-------------|
 | workflowPropertyId | Identificatore univoco della proprietà del flusso di lavoro in Azure Blockchain Workbench |
 | name | Nome della proprietà del flusso di lavoro |
@@ -560,10 +560,10 @@ Esempio di *ContractMessage* da Blockchain Workbench:
 
 Contiene informazioni quando viene richiamata una funzione del contratto, ad esempio il nome della funzione, l'input di parametri e il chiamante della funzione.
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
 | eventName                   | **ContractFunctionInvocation** |
-| caller                      | [Informazioni sul chiamante](#caller-information) |
+| chiamante                      | [Informazioni sul chiamante](#caller-information) |
 | contractId                  | Identificatore univoco del contratto in Azure Blockchain Workbench |
 | contractLedgerIdentifier    | Identificatore univoco del contratto nel libro mastro |
 | functionName                | Nome della funzione |
@@ -577,22 +577,22 @@ Contiene informazioni quando viene richiamata una funzione del contratto, ad ese
 
 #### <a name="caller-information"></a>Informazioni sul chiamante
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
-| type | Tipo del chiamante, ad esempio un utente o un contratto |
-| id | Identificatore univoco del chiamante in Azure Blockchain Workbench |
+| tipo | Tipo del chiamante, ad esempio un utente o un contratto |
+| ID | Identificatore univoco del chiamante in Azure Blockchain Workbench |
 | ledgerIdentifier | Identificatore univoco del chiamante nel libro mastro |
 
 #### <a name="parameter-information"></a>Informazioni sui parametri
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
 | name | Nome parametro |
 | value | Valore del parametro |
 
 #### <a name="event-message-transaction-information"></a>Informazioni sulla transazione del messaggio di evento
 
-| NOME               | DESCRIZIONE |
+| NOME               | Descrizione |
 |--------------------|-------------|
 | transactionId      | Identificatore univoco della transazione in Azure Blockchain Workbench |
 | transactionHash    | Hash della transazione nel libro mastro |
@@ -640,11 +640,11 @@ Esempio di *EventMessage ContractFunctionInvocation* da Blockchain Workbench:
 
 Contiene informazioni quando un'applicazione viene caricata in Workbench, ad esempio il nome e la versione dell'applicazione caricata.
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
 | eventName | **ApplicationIngestion** |
 | applicationId | Identificatore univoco dell'applicazione in Azure Blockchain Workbench |
-| applicationName | Nome dell'applicazione |
+| applicationName | Nome applicazione |
 | applicationDisplayName | Nome visualizzato dell'applicazione |
 | applicationVersion | Versione dell'applicazione |
 | applicationDefinitionLocation | URL in cui si trova il file di configurazione dell'applicazione |
@@ -658,41 +658,41 @@ Contiene informazioni quando un'applicazione viene caricata in Workbench, ad ese
 
 #### <a name="contract-code-information"></a>Informazioni sul codice del contratto
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
-| id | Identificatore univoco del codice del contratto in Azure Blockchain Workbench |
+| ID | Identificatore univoco del codice del contratto in Azure Blockchain Workbench |
 | ledgerId | Identificatore univoco del libro mastro in Azure Blockchain Workbench |
-| location | URL in cui si trova il file di codice del contratto |
+| percorso | URL in cui si trova il file di codice del contratto |
 
 #### <a name="application-role-information"></a>Informazioni sul ruolo applicazione
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
-| id | Identificatore univoco del ruolo applicazione in Azure Blockchain Workbench |
+| ID | Identificatore univoco del ruolo applicazione in Azure Blockchain Workbench |
 | name | Nome del ruolo applicazione |
 
 #### <a name="application-workflow-information"></a>Informazioni sul flusso di lavoro dell'applicazione
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
-| id | Identificatore univoco del flusso di lavoro dell'applicazione in Azure Blockchain Workbench |
+| ID | Identificatore univoco del flusso di lavoro dell'applicazione in Azure Blockchain Workbench |
 | name | Nome del flusso di lavoro dell'applicazione |
 | displayName | Nome visualizzato del flusso di lavoro dell'applicazione |
-| functions | Raccolta di [funzioni per il flusso di lavoro dell'applicazione](#workflow-function-information)|
+| funzioni | Raccolta di [funzioni per il flusso di lavoro dell'applicazione](#workflow-function-information)|
 | stati | Raccolta di [stati per il flusso di lavoro dell'applicazione](#workflow-state-information) |
 | properties | [Informazioni sulle proprietà del flusso di lavoro](#workflow-property-information) dell'applicazione |
 
 ##### <a name="workflow-function-information"></a>Informazioni sulla funzione del flusso di lavoro
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
-| id | Identificatore univoco della funzione del flusso di lavoro dell'applicazione in Azure Blockchain Workbench |
-| name | Nome della funzione |
+| ID | Identificatore univoco della funzione del flusso di lavoro dell'applicazione in Azure Blockchain Workbench |
+| name | Nome funzione |
 | Parametri | Parametri della funzione |
 
 ##### <a name="workflow-state-information"></a>Informazioni sullo stato del flusso di lavoro
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
 | name | Nome dello stato |
 | displayName | Nome visualizzato dello stato |
@@ -700,9 +700,9 @@ Contiene informazioni quando un'applicazione viene caricata in Workbench, ad ese
 
 ##### <a name="workflow-property-information"></a>Informazioni sulla proprietà del flusso di lavoro
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
-| id | Identificatore univoco della proprietà del flusso di lavoro dell'applicazione in Azure Blockchain Workbench |
+| ID | Identificatore univoco della proprietà del flusso di lavoro dell'applicazione in Azure Blockchain Workbench |
 | name | Nome proprietà |
 | type | Tipo di proprietà |
 
@@ -834,11 +834,11 @@ Esempio di *EventMessage ApplicationIngestion* da Blockchain Workbench:
 
 Contiene informazioni quando a un utente viene assegnato un ruolo in Workbench, ad esempio chi ha eseguito l'assegnazione di ruolo e il nome del ruolo e dell'applicazione corrispondente.
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
 | eventName | **RoleAssignment** |
 | applicationId | Identificatore univoco dell'applicazione in Azure Blockchain Workbench |
-| applicationName | Nome dell'applicazione |
+| applicationName | Nome applicazione |
 | applicationDisplayName | Nome visualizzato dell'applicazione |
 | applicationVersion | Versione dell'applicazione |
 | applicationRole        | Informazioni sul [ruolo applicazione](#roleassignment-application-role) |
@@ -851,25 +851,25 @@ Contiene informazioni quando a un utente viene assegnato un ruolo in Workbench, 
 
 #### <a name="roleassignment-application-role"></a>Ruolo applicazione di RoleAssignment
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
-| id | Identificatore univoco del ruolo applicazione in Azure Blockchain Workbench |
+| ID | Identificatore univoco del ruolo applicazione in Azure Blockchain Workbench |
 | name | Nome del ruolo applicazione |
 
 #### <a name="roleassignment-assigner"></a>Assegnatore di RoleAssignment
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
-| id | Identificatore univoco dell'utente in Azure Blockchain Workbench |
-| type | Tipo dell'assegnatore |
+| ID | Identificatore univoco dell'utente in Azure Blockchain Workbench |
+| tipo | Tipo dell'assegnatore |
 | chainIdentifier | Identificatore univoco dell'utente nel libro mastro |
 
 #### <a name="roleassignment-assignee"></a>Assegnatario di RoleAssignment
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
-| id | Identificatore univoco dell'utente in Azure Blockchain Workbench |
-| type | Tipo dell'assegnatario |
+| ID | Identificatore univoco dell'utente in Azure Blockchain Workbench |
+| tipo | Tipo dell'assegnatario |
 | chainIdentifier | Identificatore univoco dell'utente nel libro mastro |
 
 Esempio di *EventMessage RoleAssignment* da Blockchain Workbench:

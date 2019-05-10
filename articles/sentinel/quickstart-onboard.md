@@ -4,7 +4,7 @@ description: Informazioni su come raccogliere i dati in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0061fb7946e4c35f855d1a409cb9bc210c73641a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60804843"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228291"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Anteprima di onboarding Sentinel di Azure
 
@@ -54,7 +54,7 @@ Dopo la connessione alle origini dati, è possibile scegliere da una raccolta di
 1. Fare clic su **+Aggiungi**.
 1. Selezionare l'area di lavoro che si desidera usare o crearne uno nuovo. È possibile eseguire Azure Sentinel in più di un'area di lavoro, ma i dati sono isolati in una singola area di lavoro.
 
-   ![ricerca](./media/quickstart-onboard/choose-workspace.png)
+   ![cerca](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - **Percorso area di lavoro** è importante sapere che tutti i dati di cui si esegue lo streaming da Azure Sentinel sono archiviati nella posizione geografica dell'area di lavoro selezionato.  

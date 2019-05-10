@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: f81ca34931e2ee4bce35fa06195fb64c47ef9a7b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682039"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464632"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Esportare i dati in Archiviazione BLOB di Azure
 
@@ -57,14 +57,14 @@ Ora che si dispone di una destinazione di archiviazione in cui esportare dati, s
     > [!Note]
     > Se questa opzione non è presente nel menu a sinistra, significa che non si è amministratori dell'app. Chiedere a un amministratore di configurare l'esportazione dei dati.
 
-    ![Creare un nuovo hub eventi per l'esportazione continua dei dati](media/howto-export-data/export_menu.PNG)
+    ![Creare un nuovo hub eventi per l'esportazione continua dei dati](media/howto-export-data/export_menu1.png)
 
 3. Selezionare il **+ nuovo** pulsante in alto a destra. Scegli **archiviazione Blob di Azure** come destinazione dell'esportazione. 
 
     > [!NOTE] 
     > Il numero massimo di esportazioni per app è cinque. 
 
-    ![Creare una nuova esportazione continua dei dati](media/howto-export-data/export_new.PNG)
+    ![Creare una nuova esportazione continua dei dati](media/howto-export-data/export_new1.png)
 
 4. Nella casella di riepilogo a discesa, selezionare i **dello spazio dei nomi di Account di archiviazione**. È anche possibile selezionare l'ultima opzione dell'elenco, ossia **Immettere una stringa di connessione**. 
 
@@ -87,7 +87,7 @@ Ora che si dispone di una destinazione di archiviazione in cui esportare dati, s
 
 6. Per attivare l'esportazione continua dei dati, verificare che l'opzione **Esportazione dati** sia **attivata**. Selezionare **Salva**.
 
-  ![Configurare l'esportazione continua dei dati](media/howto-export-data/export-list-blob.png)
+   ![Configurare l'esportazione continua dei dati](media/howto-export-data/export-list-blob.png)
 
 7. Dopo alcuni minuti, i dati vengono visualizzati nella destinazione scelta.
 
@@ -99,7 +99,7 @@ I dati di misurazioni, dispositivi e modelli di dispositivo vengono esportati ne
 - Dispositivi: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 - Modelli di dispositivi: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
-### <a name="measurements"></a>Misure
+### <a name="measurements"></a>Misurazioni
 
 I dati delle misurazioni esportati contengono tutti i nuovi messaggi che IoT Central ha ricevuto da tutti i dispositivi durante tale periodo. I file esportati sono nello stesso formato dei file dei messaggi esportati dal [routing dei messaggi dell'hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) nell'archiviazione BLOB.
 

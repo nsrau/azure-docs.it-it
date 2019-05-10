@@ -7,12 +7,12 @@ ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.openlocfilehash: 8cb1489a0663556f9dd9e6026a036df2468d656d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 854e29b67b6e24c583a98b5851bf17551cfcbf61
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928333"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441344"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Connettore di Esplora dati di Azure per Apache Spark (anteprima)
 
@@ -109,7 +109,7 @@ Connettore Spark di Esplora dati di Azure consente di eseguire l'autenticazione 
 
 La maggior parte dei metodo di autenticazione semplici e comuni. Questo metodo è consigliato per l'utilizzo di connettore Spark di Esplora dati di Azure.
 
-|Properties  |DESCRIZIONE  |
+|Properties  |Descrizione  |
 |---------|---------|
 |**KUSTO_AAD_CLIENT_ID**     |   Identificatore di applicazione (client) di Azure AD.      |
 |**KUSTO_AAD_AUTHORITY_ID**     |  Autorità di autenticazione di Azure AD. ID di Azure Active Directory (tenant).        |
@@ -200,7 +200,7 @@ Per altre informazioni sui ruoli dell'entità di Esplora dati di Azure, vedere [
     display(df)
     ```
 
-1. Quando si leggono quantità elevate di dati, è necessario specificare nell'archivio blob temporanei. Fornire una chiave di firma di accesso condiviso contenitore di archiviazione, o nome account di archiviazione, chiave dell'account e nome del contenitore. 
+1. Quando si leggono quantità elevate di dati, è necessario specificare nell'archivio blob temporanei. Fornire una chiave di firma di accesso condiviso contenitore di archiviazione, o nome account di archiviazione, chiave dell'account e nome del contenitore. Questo passaggio è solo necessario per la versione di anteprima corrente del connettore Spark.
 
     ```scala
     // Use either container/account-key/account name, or container SaS

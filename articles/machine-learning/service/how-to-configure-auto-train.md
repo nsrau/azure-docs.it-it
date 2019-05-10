@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72e43ac295fcb007dd58b2b7792a16c639ee9c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 64ba7096f181371a378708e024f46bce17449e98
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023723"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510577"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare gli esperimenti di Machine Learning automatizzati in Python
 
-In questa guida informazioni su come definire diverse impostazioni di configurazione di automatizzati esperimenti di machine learning con il [Azure Machine Learning SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py). Il processo di Machine Learning automatizzato seleziona un algoritmo e iperparametri per l'utente e genera un modello pronto per la distribuzione. Per configurare esperimenti di Machine Learning automatizzato sono disponibili varie opzioni.
+In questa guida informazioni su come definire diverse impostazioni di configurazione di automatizzati esperimenti di machine learning con il [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Il processo di Machine Learning automatizzato seleziona un algoritmo e iperparametri per l'utente e genera un modello pronto per la distribuzione. Per configurare esperimenti di Machine Learning automatizzato sono disponibili varie opzioni.
 
 Per visualizzare esempi di Machine Learning automatizzato, vedere [Esercitazione: Eseguire il training di un modello di classificazione con Machine Learning automatizzato](tutorial-auto-train-models.md) oppure [Eseguire il training di modelli con Machine Learning automatizzato nel cloud](how-to-auto-train-remote.md).
 
@@ -115,7 +115,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 Lo script `get_data` può restituire:
 
-Chiave | Type | Si escludono a vicenda con    | DESCRIZIONE
+Chiave | Type | Si escludono a vicenda con    | Descrizione
 ---|---|---|---
 X | Dataframe Pandas o matrice Numpy | data_train, etichetta, colonne |  Tutte le funzionalità per eseguire il training con
 y | Dataframe Pandas o matrice Numpy |   label   | Dati per il training con etichetta. Per la classificazione, deve essere una matrice di interi.
@@ -137,7 +137,7 @@ Gli esperimenti di apprendimento automatico supporta il caricamento dei dati e a
 >* Aggiungere una colonna tramite un'espressione
 >* Attribuire i valori mancanti
 >* Derivare le colonne in base a un esempio
->* Filtri
+>* Filtro
 >* Trasformazioni di Python personalizzate
 
 Per informazioni su Data Prep SDK,vedere [Come preparare i dati per la modellazione](how-to-load-data.md).
@@ -299,7 +299,7 @@ Sono riportate alcune opzioni è possibile definire per completare l'esperimento
 ### <a name="classification-metrics"></a>Metriche per la classificazione
 In ogni iterazione per un'attività di classificazione vengono salvate le metriche seguenti.
 
-|Metrica|DESCRIZIONE|Calcolo|Parametri aggiuntivi
+|Metrica|Descrizione|Calcolo|Parametri aggiuntivi
 --|--|--|--|
 AUC_Macro| AUC è l'area sottesa alla curva ROC (Receiver Operating Characteristic). Macro è la media aritmetica dell'area AUC per ogni classe.  | [Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC è l'area sottesa alla curva ROC (Receiver Operating Characteristic). Micro è il valore calcolato globalmente combinando i veri positivi e i falsi positivi da ogni classe| [Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -325,7 +325,7 @@ weighted_accuracy|weighted_accuracy è l'accuratezza dove il valore di ponderazi
 ### <a name="regression-and-time-series-forecasting-metrics"></a>Le metriche di previsione in serie la regressione e ora
 In ogni iterazione per un'attività di regressione o previsione vengono salvate le metriche seguenti.
 
-|Metrica|DESCRIZIONE|Calcolo|Parametri aggiuntivi
+|Metrica|Descrizione|Calcolo|Parametri aggiuntivi
 --|--|--|--|
 explained_variance|explained_variance è la proporzione in base alla quale un modello matematico tiene conto della variazione di un determinato set di dati. Si tratta della riduzione percentuale della varianza dei dati originali rispetto alla varianza degli errori. Quando la media degli errori è 0, la varianza è perfettamente spiegata.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nessuna|
 r2_score|R2 è il coefficiente di determinazione o la riduzione percentuale di errori quadratici rispetto a un modello di base che restituisce la media. Quando la media degli errori è 0, la varianza è perfettamente spiegata.|[Calcolo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nessuna|
