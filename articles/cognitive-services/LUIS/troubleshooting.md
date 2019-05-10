@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 132ba922fa73c73d0e001e84659b5a24996d406b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: fc05f285b286bd0f036c583c154a40cf64e144d4
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235802"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522041"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -46,7 +46,7 @@ Sì, è consigliabile eseguire il training della finalità **None** con più esp
 Vedere l'esercitazione [API Controllo ortografico Bing V7](luis-tutorial-bing-spellcheck.md). LUIS applica limite imposti dall'API Controllo ortografico Bing V7.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Come è possibile modificare a livello di codice l'app LUIS?
-Per modificare l'app LUIS a livello di codice, usare l'[API di creazione](https://aka.ms/luis-authoring-apis). Vedere [Chiamare l'API di creazione LUIS](./luis-quickstart-node-add-utterance.md) e [Compilare un'app LUIS a livello di codice con Node.js](./luis-tutorial-node-import-utterances-csv.md) per esempi su come chiamare l'API di creazione. L'API di creazione richiede l'uso di una [chiave di creazione](luis-concept-keys.md#authoring-key) e non di una chiave di endpoint. La creazione a livello di codice consente fino a 1.000.000 di chiamate al mese e cinque transazioni al secondo. Per altre informazioni sulle chiavi usate con LUIS, vedere [Gestire le chiavi](./luis-concept-keys.md).
+Per modificare l'app LUIS a livello di codice, usare l'[API di creazione](https://go.microsoft.com/fwlink/?linkid=2092087). Vedere [Chiamare l'API di creazione LUIS](./luis-quickstart-node-add-utterance.md) e [Compilare un'app LUIS a livello di codice con Node.js](./luis-tutorial-node-import-utterances-csv.md) per esempi su come chiamare l'API di creazione. L'API di creazione richiede l'uso di una [chiave di creazione](luis-concept-keys.md#authoring-key) e non di una chiave di endpoint. La creazione a livello di codice consente fino a 1.000.000 di chiamate al mese e cinque transazioni al secondo. Per altre informazioni sulle chiavi usate con LUIS, vedere [Gestire le chiavi](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Dove si trova la funzionalità Criterio che offre l'associazione di espressioni regolari?
 La **funzionalità Criterio** precedente è attualmente deprecata ed è sostituita da **[Modelli](luis-concept-patterns.md)**.

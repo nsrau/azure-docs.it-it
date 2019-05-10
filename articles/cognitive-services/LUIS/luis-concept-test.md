@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02c079e9cda88c969e5382b2c70c551cf9a88e14
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710613"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522502"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Test di espressioni di esempio in LUIS
 
@@ -46,7 +46,7 @@ Tutti i test con endpoint vengono conteggiati ai fini della quota di utilizzo.
 Se si esegue il test rispetto a un endpoint e non si desidera registrare l'espressione, ricordarsi di usare la configurazione della stringa di query `logging=false`.
 
 ## <a name="where-to-find-utterances"></a>Dove trovare le espressioni
-LUIS archivia tutte le espressioni registrate nel log di query, disponibile per il download nella pagina dell'elenco di [App](luis-reference-regions.md) del sito Web **LUIS** e le [API di creazione](https://aka.ms/luis-authoring-apis) LUIS. 
+LUIS archivia tutte le espressioni registrate nel log di query, disponibile per il download nella pagina dell'elenco di [App](luis-reference-regions.md) del sito Web **LUIS** e le [API di creazione](https://go.microsoft.com/fwlink/?linkid=2092087) LUIS. 
 
 Tutte le espressioni di cui LUIS non è sicuro sono elencate nella pagina **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** (Esamina espressioni endpoint) del sito Web [LUIS](luis-reference-regions.md). 
 

@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1344de526564ab623a51eb903951b6a2e866048d
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138172"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523482"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Sull'anteprima personalizzato assistenti virtuali voice-first
 
-Assistenti virtuali personalizzati usando servizi di riconoscimento vocale di Azure permettono agli sviluppatori di creare interfacce discorsive naturale, simile a umane per le applicazioni ed esperienze. Canale Direct Line vocale di Bot Framework migliora tali funzionalità, fornendo un punto di ingresso coordinato, orchestrato da un robot compatibile che consente la voce in, voice interazione con bassa latenza e affidabilità elevata. I bot è possibile usare Microsoft LUIS (Language Understanding) per l'interazione del linguaggio naturale. Direct Line vocale è accessibile dai dispositivi usando il Software Development Kit (SDK) di riconoscimento vocale.
+Gli assistenti virtuali personalizzati che usano i servizi Voce di Azure consentono agli sviluppatori di creare interfacce di conversazione naturali e simili a quelle umane per applicazioni ed esperienze. Il canale Direct Line Speech di Bot Framework migliora tali funzionalità offrendo un punto di ingresso coordinato e orchestrato a un bot compatibile che abilita un'interazione vocale in ingresso e in uscita caratterizzata da una bassa latenza e da un'elevata affidabilità. I bot è possibile usare Microsoft LUIS (Language Understanding) per l'interazione del linguaggio naturale. Direct Line vocale è accessibile dai dispositivi usando il Software Development Kit (SDK) di riconoscimento vocale.
 
    ![Diagramma concettuale del flusso di servizio di orchestrazione di riconoscimento vocale linea diretta](media/voice-first-virtual-assistants/overview.png "flusso il canale di riconoscimento vocale")
 
-Direct Line vocale e le relative funzionalità per personalizzato assistenti virtuali voice-first sono un supplemento ideale per la [virtuale soluzione Assistant](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) e [modello Enterprise](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Anche se Direct Line vocale possa funzionare con qualsiasi bot compatibile, queste risorse forniscono una linea di base riutilizzabile per i modelli per iniziare rapidamente, nonché competenze di supporta comuni ed esperienze colloquiale di alta qualità.
+Direct Line vocale e le relative funzionalità per personalizzato assistenti virtuali voice-first sono un supplemento ideale per la [virtuale soluzione Assistant](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) e [modello Enterprise](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction). Anche se Direct Line vocale possa funzionare con qualsiasi bot compatibile, queste risorse forniscono una linea di base riutilizzabile per i modelli per iniziare rapidamente, nonché competenze di supporta comuni ed esperienze colloquiale di alta qualità.
 
 ## <a name="core-features"></a>Funzionalità di base
 

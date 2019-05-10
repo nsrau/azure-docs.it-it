@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196032"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522354"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guida alla migrazione delle API da v1 a v2 per le app LUIS
-La versione 1 delle API dell'[endpoint](https://aka.ms/v1-endpoint-api-docs) e di [creazione](https://aka.ms/v1-authoring-api-docs) è deprecata. Usare questa guida per imparare a migrare le API [endpoint](https://aka.ms/luis-endpoint-apis) e [creazione](https://aka.ms/luis-authoring-apis) alla versione 2. 
+La versione 1 delle API dell'[endpoint](https://aka.ms/v1-endpoint-api-docs) e di [creazione](https://aka.ms/v1-authoring-api-docs) è deprecata. Usare questa guida per imparare a migrare le API [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) e [creazione](https://go.microsoft.com/fwlink/?linkid=2092087) alla versione 2. 
 
 ## <a name="new-azure-regions"></a>Nuove regioni di Azure
 LUIS offre nuove [regioni](https://aka.ms/LUIS-regions) per le API LUIS. LUIS fornisce un portale diverso per gruppi di aree. L'applicazione deve essere creata nella stessa regione in cui si prevede di eseguire le query. Le applicazioni non eseguono automaticamente la migrazione delle regioni. Esportare l'app da una regione, quindi importarla in un'altra affinché sia disponibile in una nuova regione.
@@ -169,6 +169,6 @@ Vedere [Codice risposta API LUIS](luis-reference-response-codes.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare la documentazione API v2 per aggiornare le chiamate REST alle API [endpoint](https://aka.ms/luis-endpoint-apis) e [creazione](https://aka.ms/luis-authoring-apis) a LUIS. 
+Usare la documentazione API v2 per aggiornare le chiamate REST alle API [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) e [creazione](https://go.microsoft.com/fwlink/?linkid=2092087) a LUIS. 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

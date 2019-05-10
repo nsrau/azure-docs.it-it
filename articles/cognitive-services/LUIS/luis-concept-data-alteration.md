@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c43d3738b23037432ecdfe3aa872950f6a7b863e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3395283e6228d7203b2e835961914e2f167fa451
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60812790"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522388"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Modificare i dati delle espressioni prima e durante la stima
 LUIS offre vari modi per manipolare le espressioni prima o durante la previsione. Fra questi figurano la correzione dell'ortografia e la risoluzione dei problemi di fuso orario per la datetimeV2 predefinita. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Correggere gli errori di ortografia nell'espressione
-Per correggere gli errori di ortografia nell'espressione, LUIS usa l'[API Controllo ortografico Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) e ha bisogno della chiava associata a tale servizio. Occorre quindi creare la chiave e aggiungerla come parametro querystring all'[endpoint](https://aka.ms/luis-endpoint-apis). 
+Per correggere gli errori di ortografia nell'espressione, LUIS usa l'[API Controllo ortografico Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) e ha bisogno della chiava associata a tale servizio. Occorre quindi creare la chiave e aggiungerla come parametro querystring all'[endpoint](https://go.microsoft.com/fwlink/?linkid=2092356). 
 
 È possibile correggere gli errori di ortografia anche nel pannello **Test** [immettendo la chiave](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Per il pannello Test, la chiave viene archiviata come una variabile di sessione nel browser. La chiave deve essere aggiunta nel pannello Test in ogni sessione del browser in cui si vogliono correggere gli errori di ortografia. 
 
@@ -56,14 +56,14 @@ L'API Controllo ortografico Bing usata in LUIS non supporta un elenco di parole 
 Quando un'app LUIS usa l'entità datetimeV2 predefinita, può essere restituito un valore datetime nella risposta di previsione. Il fuso orario della richiesta viene utilizzato per determinare il valore datatime corretto da restituire. Se la richiesta proviene da un bot o da un'altra applicazione centralizzata prima di passare a LUIS, occorre correggere il fuso orario usato da LUIS. 
 
 ### <a name="endpoint-querystring-parameter"></a>Parametro queryString dell'endpoint
-Per correggere il fuso orario aggiungere il fuso orario dell'utente all'[endpoint](https://aka.ms/luis-endpoint-apis) mediante il parametro `timezoneOffset`. Il valore di `timezoneOffset` deve essere il numero positivo o negativo che, in minuti, modifica l'ora.  
+Per correggere il fuso orario aggiungere il fuso orario dell'utente all'[endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) mediante il parametro `timezoneOffset`. Il valore di `timezoneOffset` deve essere il numero positivo o negativo che, in minuti, modifica l'ora.  
 
 |Param|Value|
 |--|--|
 |`timezoneOffset`|numero positivo o negativo, in minuti|
 
 ### <a name="daylight-savings-example"></a>Esempio di ora legale
-Se è necessario che l'entità datetimeV2 predefinita restituita sia regolata in base all'ora legale, occorre usare il `timezoneOffset`parametro querystring con un valore +/- in minuti per la query [endpoint](https://aka.ms/luis-endpoint-apis).
+Se è necessario che l'entità datetimeV2 predefinita restituita sia regolata in base all'ora legale, occorre usare il `timezoneOffset`parametro querystring con un valore +/- in minuti per la query [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356).
 
 Aggiungere 60 minuti: 
 

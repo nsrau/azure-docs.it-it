@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: d7d63ad642ab2d3b336e15dcca606077762ceb9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195815"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523510"
 ---
 # <a name="manage-account-and-authoring-key"></a>Gestire l'account e la chiave di creazione
 
@@ -24,7 +24,7 @@ Le informazioni principali di un account LUIS sono l'account utente e la chiave 
 
 ## <a name="authoring-key"></a>Chiave di creazione
 
-Questo singolo, specifico dell'area di creazione chiave, nel **impostazioni** pagina, è possibile creare tutte le app dal [LUIS](luis-reference-regions.md) del portale, nonché il [API di creazione](https://aka.ms/luis-authoring-api). Per praticità, la chiave di creazione è autorizzata a creare un numero [limitato](luis-boundaries.md) di query di endpoint al mese.
+Questo singolo, specifico dell'area di creazione chiave, nel **impostazioni** pagina, è possibile creare tutte le app dal [LUIS](luis-reference-regions.md) del portale, nonché il [API di creazione](https://go.microsoft.com/fwlink/?linkid=2092087). Per praticità, la chiave di creazione è autorizzata a creare un numero [limitato](luis-boundaries.md) di query di endpoint al mese.
 
 [![Pagina delle impostazioni di LUIS](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 
