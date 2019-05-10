@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/19/2019
-ms.openlocfilehash: aa9217251965b35dd90e09c619607c9421a9f6f4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 04/22/2019
+ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572643"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507846"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo
 
@@ -50,7 +50,7 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Target IOPS (64 KB)|500|1000|1500|2000|2500|3000|
-|Registrare i limiti di velocità (MBps)|2.5|5|7.5|10|12.5|15|
+|Registrare i limiti di velocità (MBps)|3,75|7.5|11,25|15|18.75|22,5|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|1|1|1|1|1|1|
@@ -73,7 +73,7 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)
 |Target IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
-|Registrare i limiti di velocità (MBps)|17.5|20|20|20|20|20|
+|Registrare i limiti di velocità (MBps)|26.25|30|30|30|30|30|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1400|1600|1800|2000|3200|4800|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|1|1|1|1|1|1|
@@ -95,8 +95,8 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Dimensioni di TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
-|Target IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Registrare i limiti di velocità (MBps)|2.5|56|7.5|10|12.5|15|17.5|
+|Target IOPS (64 KB)|1000|2000|3000|4000|5000|6000|7000|
+|Registrare i limiti di velocità (MBps)|3,75|7.5|11,25|15|18.75|22,5|26.25|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|1400|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|1|1|1|1|1|1|1|
@@ -118,8 +118,8 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Dimensioni di TempDB (GB)|384|384|384|384|384|384|384|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
-|Target IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
-|Registrare i limiti di velocità (MBps)|20|20|20|20|20|20|20|
+|Target IOPS (64 KB)|7000|7000|7000|7000|7000|7000|7000|
+|Registrare i limiti di velocità (MBps)|30|30|30|30|30|30|30|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1600|1800|2000|2400|3200|4000|8000|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|1|1|1|1|1|1|1|
@@ -127,7 +127,35 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Livello di servizio business critical: dimensioni di archiviazione e di calcolo
+### <a name="serverless-compute-tier"></a>Livello di elaborazione serverless
+
+Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile in anteprima pubblica ed è solo per database singoli con l'acquisto di vCore del modello.
+
+#### <a name="generation-5-compute-platform"></a>Piattaforma di calcolo Generazione 5
+
+|Dimensioni di calcolo|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|
+|:--- | --: |--: |--: |
+|Generazione hardware|5|5|5|
+|Numero di Vcore min-max|0.5-1|0.5-2|0.5-4|
+|Min-max memoria (GB)|2.02-3|2.05-6|2.10-12|
+|Sospensione automatica min ritardo (ore)|6|6|6|
+|Supporto per columnstore|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|
+|Dimensioni massime dei dati (GB)|512|1024|1024|
+|Dimensioni massime del log (GB)|12|24|48|
+|Dimensioni di TempDB (GB)|32|64|128|
+|Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
+|Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
+|Target IOPS (64 KB)|250|500|1000|
+|Registrare i limiti di velocità (MBps)|2.5|5.6|10|
+|Numero massimo di ruoli di lavoro simultanei (richieste)|75|150|300|
+|Numero massimo di sessioni consentite|30000|30000|30000|
+|Numero di repliche|1|1|1|
+|Zone di disponibilità multiple|N/D|N/D|N/D|
+|Scalabilità orizzontale in lettura|N/D|N/D|N/D|
+|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
+
+## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Livello di servizio critici di business per il livello di calcolo sottoposte a provisioning
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Livello di servizio business critical: Piattaforma di calcolo Generazione 4 (parte 1)
 
@@ -144,7 +172,7 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Dimensioni di TempDB (GB)|32|64|96|128|160|192|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
-|Registrare i limiti di velocità (MBps)|6|12|18|24|30|36|
+|Registrare i limiti di velocità (MBps)|8|16|24|32|40|48|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|
 |Numero massimo di accessi simultanei|200|400|600|800|1000|1200|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
@@ -168,7 +196,7 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Dimensioni di TempDB (GB)|224|256|288|320|384|384|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Target IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Registrare i limiti di velocità (MBps)|42|48|54|60|64|64|
+|Registrare i limiti di velocità (MBps)|56|64|64|64|64|64|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1400|1600|1800|2000|3200|4800|
 |Numero massimo di accessi simultanei (richieste)|1400|1600|1800|2000|3200|4800|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
@@ -191,8 +219,8 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Dimensioni di TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
-|Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
-|Registrare i limiti di velocità (MBps)|6|12|18|24|30|36|42|
+|Target IOPS (64 KB)|8000|16000|24000|32000|40000|48000|56000|
+|Registrare i limiti di velocità (MBps)|12|24|36|48|60|72|84|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|1400|
 |Numero massimo di accessi simultanei|200|400|600|800|1000|1200|1400|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
@@ -215,8 +243,8 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Dimensioni di TempDB (GB)|384|384|384|384|384|384|384|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
-|Target IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Registrare i limiti di velocità (MBps)|48|54|60|72|96|96|96|
+|Target IOPS (64 KB)|64000|72000|80000|96000|128000|160000|320000|
+|Registrare i limiti di velocità (MBps)|96|96|96|96|96|96|96|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1600|1800|2000|2400|3200|4000|8000|
 |Numero massimo di accessi simultanei|1600|1800|2000|2400|3200|4000|8000|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
@@ -225,30 +253,7 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-## <a name="hyperscale-service-tier-preview"></a>Livello di servizio Hyperscale (anteprima)
-
-### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Piattaforma di calcolo Generazione 4: dimensioni di archiviazione e di calcolo
-
-|Livello di prestazioni|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
-|:--- | --: |--: |--: |--: |--: |--: |
-|Generazione hardware|4|4|4|4|4|4|
-|vCore|1|2|4|8|16|24|
-|Memoria (GB)|7|14|28|56|112|168|
-|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
-|Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
-|Dimensioni massime dei dati (TB)|100 |100 |100 |100 |100 |100 |
-|Dimensioni massime del log (TB)|1 |1 |1 |1 |1 |1 |
-|Dimensioni di TempDB (GB)|32|64|128|256|384|384|
-|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
-|Target IOPS (64 KB)|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|
-|Latenza di I/O (approssimativa)|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|
-|Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|3200|4800|
-|Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
-|Numero di repliche|2|2|2|2|2|2|
-|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
-|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
-|Archivio di backup incluso|7|7|7|7|7|7|
-|||
+## <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
 ### <a name="generation-5-compute-platform"></a>Piattaforma di calcolo Generazione 5
 
@@ -270,7 +275,7 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 |Numero di repliche|2|2|2|2|2|2|2|2|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
-|Archivio di backup incluso (limite di anteprima)|7|7|7|7|7|7|7|7|
+|Archivio di backup incluso |7|7|7|7|7|7|7|7|
 |||
 
 ## <a name="next-steps"></a>Passaggi successivi

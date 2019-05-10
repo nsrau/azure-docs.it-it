@@ -15,7 +15,7 @@
     - name: Traduzione vocale
       href: speech-translation.md
       displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
-    - name: Anteprima assistenti virtuali voice-first
+    - name: Anteprima assistenti vocali voice-first
       href: voice-first-virtual-assistants.md
       displayName: 'virtual assistants, speech-enabled bots, conversational agents'
 - name: Guide introduttive
@@ -89,7 +89,7 @@
             - name: C++ (Linux)
               href: quickstart-text-to-speech-cpp-linux.md
               displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
-        - name: Assistenti virtuali voice-first (anteprima)
+        - name: Assistenti vocali voice-first (anteprima)
           items:
             - name: 'C# (piattatorma UWP)'
               href: quickstart-virtual-assistant-csharp-uwp.md
@@ -139,8 +139,8 @@
       displayName: 'recognize speech, speech recognition, speech-to-text, stt'
     - name: Utilizzare flussi di input audio (SDK)
       href: how-to-use-audio-input-streams.md
-    - name: Utilizzare flussi di input audio compressi (SDK)
-      href: how-to-use-compressed-audio-input-streams.md
+    - name: Utilizzare flussi di input audio compressi del codec (SDK)
+      href: how-to-use-codec-compressed-audio-input-streams.md
       displayName: 'mp3, opus, ogg, flac'
     - name: Selezionare un dispositivo di input audio (SDK)
       href: how-to-select-audio-input-devices.md
@@ -184,7 +184,7 @@
               href: record-custom-voice-samples.md
             - name: Ottimizzare l'output della sintesi vocale
               href: how-to-voice-tuning.md
-        - name: Creare una parola di attivazione personalizzata (Devices SDK)
+        - name: Creare una parola di attivazione personalizzata (individuazione parole chiave)
           href: speech-devices-sdk-create-kws.md
           displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
     - name: Migrazione
@@ -195,9 +195,9 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: Dall'API Traduzione vocale
           href: how-to-migrate-from-translator-speech-api.md
-    - name: Usare i contenitori
+    - name: Usare contenitori locali
       items:
-        - name: Installare ed eseguire i contenitori
+        - name: Installare ed eseguire contenitori locali
           displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
           href: speech-container-howto.md
         - name: Configurare i contenitori
@@ -220,6 +220,8 @@
         - name: Panoramica
           href: speech-sdk.md
           displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
+        - name: Disponibilità di scenari
+          href: scenario-availability.md
         - name: Note sulla versione
           href: releasenotes.md
         - name: C++
@@ -255,6 +257,9 @@
         - name: Trascrizione e personalizzazione batch
           href: 'https://westus.cris.ai/swagger/ui/index'
           displayName: 'Batch transcription, transcription, custom models, customization, model management'
+        - name: Trascrizione conversazione
+          href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+          displayName: 'Conversation transcription, signature generation'
         - name: Webhook
           href: webhooks.md
           displayName: Webhooks
@@ -283,7 +288,7 @@
         - name: Traduzione vocale
           href: 'https://www.microsoft.com/translator/faq.aspx'
           displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
-        - name: Assistenti virtuali voice-first (anteprima)
+        - name: Assistenti vocali voice-first (anteprima)
           href: faq-voice-first-virtual-assistants.md
     - name: Licenze di Speech SDK
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'

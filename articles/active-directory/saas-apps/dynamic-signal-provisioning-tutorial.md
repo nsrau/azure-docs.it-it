@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: fec6a7e3433eb5d657deac8c1b2ceb327f8d32e4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f79bc083105f997b08f7cfa6f8e08a8f4f455455
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159406"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470599"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Esercitazione: Configurare Dynamic Signal per il provisioning utenti automatico
 
@@ -84,7 +84,7 @@ Questa sezione descrive i passaggi per configurare il provisioning di Azure AD d
 
 ### <a name="to-configure-automatic-user-provisioning-for-dynamic-signal-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Dynamic Signal in Azure AD:
 
-1. Accedi per il [portale di Azure](https://portal.azure.com) e selezionare **applicazioni aziendali**, selezionare **tutte le applicazioni**, quindi selezionare **Dynamic Signal**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali**, quindi selezionare **tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -104,11 +104,11 @@ Questa sezione descrive i passaggi per configurare il provisioning di Azure AD d
 
 6. Nella console di amministrazione di Dynamic Signal, passare a **Admin > Avanzate > API**.
 
-    ![Il Provisioning di Dynamic Signal](./media/dynamicsignal-provisioning-tutorial/secret-token-1.png)
+    ![Il Provisioning di Dynamic Signal](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
 
     Copia il **URL dell'API SCIM** al **URL Tenant**. Fare clic su **Genera nuovo Token** per generare un **Bearer Token** e copiare il valore di **Token segreto**.
 
-    ![Il Provisioning di Dynamic Signal](./media/dynamicsignal-provisioning-tutorial/secret-token-2.png)
+    ![Il Provisioning di Dynamic Signal](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
 
 7. Dopo aver completato i campi indicati nel passaggio 5, fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Dynamic Signal. Se la connessione non riesce, verificare che l'account di Dynamic Signal abbia autorizzazioni di amministratore e riprovare.
 
@@ -122,11 +122,11 @@ Questa sezione descrive i passaggi per configurare il provisioning di Azure AD d
 
 10. Sotto il **mapping** sezione, selezionare **Synchronize Azure Active Directory Users a Dynamic Signal**.
 
-    ![Mapping degli utenti di Dynamic Signal](media/dynamicsignal-provisioning-tutorial/user-mappings.png)
+    ![Mapping degli utenti di Dynamic Signal](media/dynamic-signal-provisioning-tutorial/user-mappings.png)
 
 11. Esaminare gli attributi utente sincronizzati da Azure AD a Dynamic Signal nel **Mapping degli attributi** sezione. Gli attributi selezionati come **corrispondenti** le proprietà utilizzate per soddisfare gli account utente in Dynamic Signal per operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Attributi utente di keeper](media/dynamicsignal-provisioning-tutorial/user-mapping-attributes.png)
+    ![Attributi utente di Dynamic Signal](media/dynamic-signal-provisioning-tutorial/user-mapping-attributes.png)
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -160,7 +160,3 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

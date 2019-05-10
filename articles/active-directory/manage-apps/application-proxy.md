@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 05/09/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac94574ac297da7b3555be8d92ba3c5b62a990c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e490ed9d104fc039a79083a94ddaebdeba766d2a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292598"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506647"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Accesso remoto ad applicazioni locali tramite Azure Active Directory Application Proxy 
 
@@ -44,6 +44,8 @@ Application Proxy supporta:
 
 Application Proxy supporta Single Sign-On. Per altre informazioni sui metodi supportati, vedere [Scelta di un metodo di accesso Single Sign-On](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
+Proxy dell'applicazione è consigliabile per consentire agli utenti remoti esterni l'accesso alle risorse interne. Proxy dell'applicazione sostituisce la necessità di una VPN o un proxy inverso. Non è destinato agli utenti interni nella rete aziendale.  Gli utenti interni che usano inutilmente il Proxy di applicazione possono introdurre problemi di prestazioni impreviste e indesiderate.
+
 ## <a name="how-application-proxy-works"></a>Come funziona Application Proxy
 
 Il diagramma seguente illustra come interagiscono Azure AD e Application Proxy per offrire l'accesso Single Sign-On alle applicazioni locali.
@@ -57,7 +59,7 @@ Il diagramma seguente illustra come interagiscono Azure AD e Application Proxy p
 5. Il connettore invia la richiesta all'applicazione locale.  
 6. La risposta viene inviata all'utente tramite il servizio e il connettore Application Proxy.
 
-| Componente | DESCRIZIONE |
+| Componente | Descrizione |
 | --------- | ----------- |
 | Endpoint  | L'endpoint è un URL o un [portale per gli utenti finali](end-user-experiences.md). Gli utenti possono raggiungere le applicazioni all'esterno della rete accedendo a un URL esterno. Gli utenti all'interno della rete possono accedere all'applicazione tramite un URL o un portale per gli utenti finali. Quando gli utenti proseguono verso uno di questi endpoint, si autenticano in Azure AD e quindi vengono instradati tramite il connettore all'applicazione locale.|
 | Azure AD | Azure AD esegue l'autenticazione usando la directory del tenant archiviata nel cloud. |

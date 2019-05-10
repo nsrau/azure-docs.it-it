@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 30de4da43569abf4d7bd668fd0fa481ecac23f4d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 4271d94f07125a870cc4aa859b01db819d583f40
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080029"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406439"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Guida introduttiva: Creare un database di Azure per PostgreSQL - Hyperscale (Citus) (anteprima) nel portale di Azure
 
@@ -169,7 +169,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Finora le query hanno riguardato esclusivamente github\_events, ma è possibile combinare queste informazioni con github\_users. Dal momento che sia gli utenti che gli eventi sono stati partizionati con lo stesso identificatore (`user_id`), le righe di entrambe le tabelle con ID utente corrispondenti avranno un [percorso condiviso](http://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) negli stessi nodi del database e potranno facilmente essere sottoposte a join.
+Finora le query hanno riguardato esclusivamente github\_events, ma è possibile combinare queste informazioni con github\_users. Dal momento che sia gli utenti che gli eventi sono stati partizionati con lo stesso identificatore (`user_id`), le righe di entrambe le tabelle con ID utente corrispondenti avranno un [percorso condiviso](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) negli stessi nodi del database e potranno facilmente essere sottoposte a join.
 
 Se si crea un join su `user_id`, Hyperscale può eseguire il push dell'esecuzione del join nelle partizioni in modo che l'esecuzione avvenga in parallelo nei nodi di lavoro. È ad esempio possibile trovare gli utenti che hanno creato il maggior numero di repository:
 

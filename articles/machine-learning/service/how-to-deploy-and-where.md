@@ -11,18 +11,18 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 113c894122fe2b0673dfb47f8a9c0cbecf4c6290
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45421a249642abf37c89aa33e2e8a1b4a9e5e497
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205071"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507013"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
 Informazioni su come distribuire il modello di machine learning come servizio web nel cloud di Azure o nei dispositivi IoT Edge. Le informazioni contenute in questo documento spiega in che modo distribuire alle destinazioni di calcolo seguente:
 
-| Destinazione del calcolo | Tipo di distribuzione | DESCRIZIONE |
+| Destinazione del calcolo | Tipo di distribuzione | Descrizione |
 | ----- | ----- | ----- |
 | [Servizio web locale](#local) | Test/debug | Soluzione idonea per limitate di test e risoluzione dei problemi.
 | [Servizio Azure Kubernetes](#aks) | Inferenza in tempo reale | Soluzione ideale per le distribuzioni di produzione su vasta scala. Fornisce la scalabilità automatica e tempi di risposta rapidi. |
@@ -42,7 +42,7 @@ Per altre informazioni sui concetti relativi al flusso di lavoro di distribuzion
 
 ## <a name="prerequisites-for-deployment"></a>Prerequisiti per la distribuzione
 
-- Un modello. Se non è un modello con training, è possibile usare il modello di & file di dipendenza fornita [in questa esercitazione](http://aka.ms/azml-deploy-cloud).
+- Un modello. Se non è un modello con training, è possibile usare il modello di & file di dipendenza fornita [in questa esercitazione](https://aka.ms/azml-deploy-cloud).
 
 - Il [estensione di comando di Azure per il servizio di Machine Learning](reference-azure-machine-learning-cli.md), o il [SDK Python di Azure Machine Learning](https://aka.ms/aml-sdk).
 
@@ -210,7 +210,7 @@ Nella tabella seguente fornisce un esempio di creazione di una configurazione di
 
 | Destinazione del calcolo | Esempio di configurazione di distribuzione |
 | ----- | ----- |
-| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Locale | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Istanza di contenitore di Azure | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Servizio Azure Kubernetes | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -458,7 +458,7 @@ Obiettivi di calcolo di Machine Learning di Azure vengono create e gestite dal s
 Per una procedura dettagliata di inferenza del batch con calcolo di Azure Machine Learning, vedere la [come eseguire stime in Batch](how-to-run-batch-predictions.md) articolo.
 
 ## <a id="iotedge"></a> Inferenza in dispositivi perimetrali IoT
-Supporto per la distribuzione e il bordo è disponibile in anteprima. Per altre informazioni, vedere la [distribuire Azure Machine Learning come modulo di IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning) articolo.
+Supporto per la distribuzione e il bordo è disponibile in anteprima. Per altre informazioni, vedere la [distribuire Azure Machine Learning come modulo di IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) articolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Risoluzione dei problemi di distribuzione](how-to-troubleshoot-deployment.md)

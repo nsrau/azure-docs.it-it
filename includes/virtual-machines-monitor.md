@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473970"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65404960"
 ---
 È possibile sfruttare molte opportunità per il monitoraggio delle macchine virtuali tramite la raccolta, la visualizzazione e l'analisi dei dati di diagnostica e di log. Per eseguire semplici attività di [monitoraggio](../articles/azure-monitor/overview.md) della macchina virtuale, è possibile usare la schermata Panoramica per la macchina virtuale nel portale di Azure. È possibile usare [estensioni](../articles/virtual-machines/windows/extensions-features.md) per configurare la diagnostica nelle macchine virtuali e raccogliere metriche aggiuntive. È anche possibile usare opzioni di monitoraggio più avanzate, come [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) e [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -23,7 +23,7 @@ ms.locfileid: "61473970"
 
     All'avvio delle macchine virtuali, l'agente di diagnostica di avvio acquisisce l'output di avvio e lo archivia in Archiviazione di Azure. Questi dati possono essere usati per risolvere i problemi di avvio della macchina virtuale. La diagnostica di avvio non viene abilitata automaticamente quando si crea una macchina virtuale da strumenti da riga di comando. Prima di abilitare la diagnostica di avvio, è necessario creare un account di archiviazione per l'archiviazione dei log di avvio. Se si abilita la diagnostica di avvio nel portale di Azure, viene automaticamente creato un account di archiviazione.
 
-    Se la diagnostica di avvio non è stata abilitata durante la creazione della macchina virtuale, è sempre possibile abilitarla in seguito usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostics) o un [modello di Azure Resource Manager](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
+    Se la diagnostica di avvio non è stata abilitata durante la creazione della macchina virtuale, è sempre possibile abilitarla in seguito usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostic) o un [modello di Azure Resource Manager](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
 
 - **Abilitare la raccolta dei dati di diagnostica del sistema operativo guest.** Quando si crea una macchina virtuale, nella schermata delle impostazioni è possibile abilitare la diagnostica del sistema operativo guest. Quando si abilita la raccolta dei dati di diagnostica, alla macchina virtuale viene aggiunta l'[estensione IaaSDiagnostics per Linux](../articles/virtual-machines/linux/diagnostic-extension.md) o l'[estensione IaaSDiagnostics per Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md), che permette di raccogliere dati aggiuntivi su disco, CPU e memoria.
 

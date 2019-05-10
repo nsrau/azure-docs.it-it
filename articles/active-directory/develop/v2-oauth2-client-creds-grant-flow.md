@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3073d34a6ffeadd1c1c0022b5c1636f06cc6210a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: df75d692bc61d155b35f5ce4e2bf08da6e4cbcc3
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190826"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507113"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Piattaforma delle identità Microsoft e il flusso di credenziali client OAuth 2.0
 
@@ -111,16 +111,16 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parametro | Condizione | DESCRIZIONE |
+| Parametro | Condizione | Descrizione |
 | --- | --- | --- |
 | `tenant` | Obbligatorio | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere fornito nel formato di nome descrittivo o GUID. Se non si conosce il tenant di appartenenza dell'utente e si desidera consentire l'accesso con qualsiasi tentant, usare `common`. |
 | `client_id` | Obbligatorio | Il **ID applicazione (client)** che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) esperienza assegnato all'app. |
 | `redirect_uri` | Obbligatorio | URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL e disporre di segmenti di percorso aggiuntivi. |
-| `state` | Consigliato | Valore incluso nella richiesta che viene restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
+| `state` | Consigliati | Valore incluso nella richiesta che viene restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
 
 A questo punto, Azure AD applica che solo un amministratore tenant possa accedere in completa la richiesta. L'amministratore dovrà approvare tutte le autorizzazioni dirette dell'applicazione richieste per l'app nel portale di registrazione.
 
-##### <a name="successful-response"></a>Risposta con esito positivo
+##### <a name="successful-response"></a>Risposta riuscita
 
 Se l'amministratore approva le autorizzazioni per l'applicazione, la risposta con esito positivo si presenta come segue:
 
@@ -128,7 +128,7 @@ Se l'amministratore approva le autorizzazioni per l'applicazione, la risposta co
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | `tenant` | Tenant della directory che ha concesso all'applicazione le autorizzazioni richieste, in formato GUID. |
 | `state` | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
@@ -142,7 +142,7 @@ Se l'amministratore non approva le autorizzazioni per l'applicazione, la rispost
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | `error` | Stringa di codice di errore che può essere usata per classificare i tipi di errori e correggerli. |
 | `error_description` | Messaggio di errore specifico che consente di identificare la causa principale di un errore. |
@@ -173,7 +173,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
 ```
 
-| Parametro | Condizione | DESCRIZIONE |
+| Parametro | Condizione | Descrizione |
 | --- | --- | --- |
 | `tenant` | Obbligatorio | Tenant di directory su cui l'applicazione intende agire, in formato di GUID o nome di dominio. |
 | `client_id` | Obbligatorio | ID applicazione assegnato all'app. È possibile trovare queste informazioni nel portale in cui è stata registrata l'app. |
@@ -195,7 +195,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-| Parametro | Condizione | DESCRIZIONE |
+| Parametro | Condizione | Descrizione |
 | --- | --- | --- |
 | `tenant` | Obbligatorio | Tenant di directory su cui l'applicazione intende agire, in formato di GUID o nome di dominio. |
 | `client_id` | Obbligatorio |ID applicazione (client) assegnato all'app. |
@@ -206,7 +206,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 Si noti che i parametri sono quasi uguali a quelli usati nella richiesta tramite segreto condiviso, con l'eccezione del parametro client_secret che viene sostituito da due parametri: client_assertion_type e client_assertion.
 
-### <a name="successful-response"></a>Risposta con esito positivo
+### <a name="successful-response"></a>Risposta riuscita
 
 Una risposta con esito positivo ha un aspetto simile al seguente:
 
@@ -218,7 +218,7 @@ Una risposta con esito positivo ha un aspetto simile al seguente:
 }
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | `access_token` | Token di accesso richiesto. L'app può usare questo token per l'autenticazione alla risorsa protetta, ad esempio un'API Web. |
 | `token_type` | Indica il valore del tipo di token. L'unico tipo da Microsoft identity platform supporta è `bearer`. |
@@ -241,7 +241,7 @@ La risposta di errore è simile alla seguente:
 }
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | `error` | Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | `error_description` | Messaggio di errore specifico che consente di identificare la causa principale di un errore di autenticazione. |
@@ -251,7 +251,7 @@ La risposta di errore è simile alla seguente:
 | `correlation_id` | Identificatore univoco per la richiesta utile per la diagnostica dei componenti. |
 
 > [!NOTE]
-> Affinché l'applicazione sia in grado di ricevere il token v2 è possibile aggiornare il file manifesto dell'applicazione dal portale di azure. È possibile aggiungere l'attributo `accessTokenAcceptedVersion` e impostare il valore su 2 come `"accessTokenAcceptedVersion": 2`. Vedere l'articolo [manifesto dell'applicazione](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-reference) per comprendere meglio lo stesso. Per impostazione predefinita l'applicazione attualmente riceve un token di v1. Se questo non è definito nel manifesto dell'applicazione o un'API Web, è il valore per questo attributo nel manifesto del valore predefinito è 1 e pertanto l'applicazione riceverà il token v1.  
+> Affinché l'applicazione sia in grado di ricevere il token v2 è possibile aggiornare il file manifesto dell'applicazione dal portale di azure. È possibile aggiungere l'attributo `accessTokenAcceptedVersion` e impostare il valore su 2 come `"accessTokenAcceptedVersion": 2`. Vedere l'articolo [manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) per comprendere meglio lo stesso. Per impostazione predefinita l'applicazione attualmente riceve un token di v1. Se questo non è definito nel manifesto dell'applicazione o un'API Web, è il valore per questo attributo nel manifesto del valore predefinito è 1 e pertanto l'applicazione riceverà il token v1.  
 
 
 ## <a name="use-a-token"></a>Usare di un token
@@ -276,7 +276,7 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 Leggere la [documentazione generale sulle credenziali client](https://aka.ms/msal-net-client-credentials) da Microsoft Authentication Library
 
-| Esempio | Piattaforma |DESCRIZIONE |
+| Esempio | Piattaforma |Descrizione |
 |--------|----------|------------|
 |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | Console .NET Core 2.1 | Un'applicazione .NET Core semplice che visualizza gli utenti di un tenant eseguendo una query in Microsoft Graph con la propria identità, anziché per conto di un utente. L'esempio illustra anche la variante in cui vengono usati certificati per l'autenticazione. |
 |[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Un'applicazione Web che sincronizza i dati da Microsoft Graph usando la propria identità, anziché per conto di un utente. |
