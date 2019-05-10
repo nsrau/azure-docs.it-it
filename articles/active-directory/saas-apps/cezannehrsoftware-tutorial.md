@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 949b5b1aaab60e5b1d160963ac3f024dbbfbe552
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc4d96b900090cd217b4b49b1af2f09762c0da84
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834959"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Esercitazione: Integrazione di Azure Active Directory con Cezanne HR Software
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Cezanne HR Software, se
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Cezanne HR Software](common/sp-identifier-reply.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare l'URL: `https://w3.cezanneondemand.com/CezanneOnDemand/`
 
@@ -114,7 +114,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Cezanne HR Software, se
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di accesso e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Cezanne HR Software](https://cezannehr.com/services/support/).
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -156,7 +156,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Cezanne HR Software, se
 
     d. Nella casella di testo **Security Token Service Endpoint** (Endpoint servizio token di sicurezza) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    e. Nella casella di testo User ID Attribute Name (Nome attributo ID utente) inserire `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    e. Nella casella di testo User ID Attribute Name (Nome attributo ID utente) inserire `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     f. Fare clic sull'icona **Upload** (Carica) per caricare il certificato scaricato dal portale di Azure.
 

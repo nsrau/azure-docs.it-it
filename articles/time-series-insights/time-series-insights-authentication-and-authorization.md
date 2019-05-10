@@ -10,76 +10,88 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/27/2017
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 66a3c40bf1e1e1dc6253520a555e19ebf011297c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5fb2802bfe9cc0a4d3297e6fa749e5b94008c616
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698580"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472515"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticazione e autorizzazione per l'API Azure Time Series Insights
 
 Questo articolo descrive come configurare l'autenticazione e l'autorizzazione usata in un'applicazione personalizzata che chiama l'API Azure Time Series Insights.
 
+> [!TIP]
+> Conoscenza [concedere l'accesso ai dati](./time-series-insights-data-access.md) all'ambiente Time Series Insights in Azure Active Directory.
+
 ## <a name="service-principal"></a>Entità servizio
 
-Questa sezione illustra come configurare un'applicazione per accedere all'API Time Series Insights per conto dell'applicazione. L'applicazione può quindi eseguire query sui dati o pubblicare dati di riferimento nell'ambiente Time Series Insights con le credenziali dell'applicazione e non con quelle dell'utente.
+Questa e le sezioni seguenti descrivono come configurare un'applicazione per l'API Time Series Insights di accesso per conto dell'applicazione. L'applicazione può quindi eseguire una query o pubblicare i dati di riferimento nell'ambiente Time Series Insights con le credenziali dell'applicazione anziché con le credenziali dell'utente.
 
-Quando un'applicazione deve accedere a Time Series Insights, è necessario configurare un'applicazione Azure Active Directory e assegnare i criteri di accesso ai dati nell'ambiente Time Series Insights. Questo approccio è preferibile all'esecuzione dell'app con le credenziali dell'utente per i motivi seguenti:
+## <a name="best-practices"></a>Procedure consigliate
 
-* È possibile assegnare all'identità dell'app autorizzazioni diverse rispetto a quelle dell'utente. Tali autorizzazioni sono in genere limitate alle operazioni necessarie per l'app. Ad esempio, è possibile consentire all'app solo di leggere i dati in un particolare ambiente Time Series Insights.
-* Non è necessario modificare le credenziali dell'app in caso di cambiamento delle responsabilità dell'utente.
+Se si ha un'applicazione che deve accedere a Time Series Insights:
+
+1. Configurare un'app di Azure Active Directory.
+1. [Assegnare i criteri di accesso dati](./time-series-insights-data-access.md) nell'ambiente di Time Series Insights.
+
+L'uso di applicazione anziché con le credenziali dell'utente è utile perché:
+
+* È possibile assegnare autorizzazioni all'identità dell'app che sono diverse dalle proprie autorizzazioni. Tali autorizzazioni sono in genere limitate alle operazioni necessarie per l'app. Ad esempio, è possibile consentire all'app solo di leggere i dati in un particolare ambiente Time Series Insights.
+* Si è autorizzati a modificare le credenziali dell'app, se vostre responsabilità dovessero cambiare.
 * È possibile usare un certificato o una chiave dell'applicazione per automatizzare l'autenticazione in caso di esecuzione di uno script automatico.
 
-Questo articolo illustra come eseguire questa procedura tramite il portale di Azure. È incentrato su un'applicazione con un tenant singolo dove si prevede che l'applicazione venga eseguita all'interno di una sola organizzazione. Le applicazioni con un tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione.
+Le sezioni seguenti illustrano come eseguire questa procedura tramite il portale di Azure. L'articolo è incentrato su un'applicazione a tenant singolo in cui l'applicazione deve essere eseguito in una sola organizzazione. Si userà in genere le applicazioni a tenant singolo per le applicazioni line-of-business eseguite all'interno dell'organizzazione.
 
-Il flusso di configurazione è costituito da tre passaggi generali:
+## <a name="set-up-summary"></a>Configurazione di riepilogo
+
+Il flusso di programma di installazione è costituito da tre passaggi:
 
 1. Creare un'applicazione in Azure Active Directory.
-2. Autorizzare questa applicazione ad accedere all'ambiente Time Series Insights.
-3. Usare l'ID e la chiave dell'applicazione per acquisire un token per un destinatario o una risorsa `"https://api.timeseries.azure.com/"`. Il token può quindi essere usato per chiamare l'API Time Series Insights.
+1. Autorizzare questa applicazione ad accedere all'ambiente Time Series Insights.
+1. Usare l'ID applicazione e la chiave per acquisire un token da `https://api.timeseries.azure.com/`. Il token può quindi essere usato per chiamare l'API Time Series Insights.
 
-Ecco di seguito i passaggi dettagliati:
+## <a name="detailed-setup"></a>Programma di installazione dettagliata
 
 1. Nel portale di Azure selezionare **Azure Active Directory** > **Registrazioni per l'app** > **Registrazione nuova applicazione**.
 
-   ![Registrazione di una nuova applicazione in Azure Active Directory](media/authentication-and-authorization/active-directory-new-application-registration.png)  
+   [![Registrazione nuova applicazione in Azure Active Directory](media/authentication-and-authorization/active-directory-new-application-registration.png)](media/authentication-and-authorization/active-directory-new-application-registration.png#lightbox)
 
-2. Assegnare un nome all'applicazione, selezionare il tipo **App Web/API**, selezionare un URI valido in **URL di accesso** e fare clic su **Crea**.
+1. Assegnare un nome all'applicazione, selezionare il tipo **App Web/API**, selezionare un URI valido in **URL di accesso** e fare clic su **Crea**.
 
-   ![Creare l'applicazione in Azure Active Directory](media/authentication-and-authorization/active-directory-create-web-api-application.png)
+   [![Creare l'applicazione in Azure Active Directory](media/authentication-and-authorization/active-directory-create-web-api-application.png)](media/authentication-and-authorization/active-directory-create-web-api-application.png#lightbox)
 
-3. Selezionare l'applicazione appena creata e copiare il relativo ID in un editor di testo.
+1. Selezionare l'applicazione appena creata e copiare il relativo ID in un editor di testo.
 
-   ![Copiare l'ID applicazione](media/authentication-and-authorization/active-directory-copy-application-id.png)
+   [![Copiare l'ID applicazione](media/authentication-and-authorization/active-directory-copy-application-id.png)](media/authentication-and-authorization/active-directory-copy-application-id.png#lightbox)
 
-4. Selezionare **Chiavi**, immettere il nome della chiave, selezionare la scadenza e fare clic su **Salva**.
+1. Selezionare **Chiavi**, immettere il nome della chiave, selezionare la scadenza e fare clic su **Salva**.
 
-   ![Selezionare le chiavi dell'applicazione](media/authentication-and-authorization/active-directory-application-keys.png)
+   [![Selezionare le chiavi dell'applicazione](media/authentication-and-authorization/active-directory-application-keys.png)](media/authentication-and-authorization/active-directory-application-keys.png#lightbox)
 
-   ![Immettere il nome e la scadenza della chiave e fare clic su Salva](media/authentication-and-authorization/active-directory-application-keys-save.png)
+   [![Immettere il nome della chiave e la scadenza e fare clic su Salva](media/authentication-and-authorization/active-directory-application-keys-save.png)](media/authentication-and-authorization/active-directory-application-keys-save.png#lightbox)
 
-5. Copiare la chiave in un editor di testo.
+1. Copiare la chiave in un editor di testo.
 
-   ![Copiare la chiave dell'applicazione](media/authentication-and-authorization/active-directory-copy-application-key.png)
+   [![Copiare la chiave dell'applicazione](media/authentication-and-authorization/active-directory-copy-application-key.png)](media/authentication-and-authorization/active-directory-copy-application-key.png#lightbox)
 
-6. Per l'ambiente Time Series Insights, selezionare **Criteri di accesso ai dati** e fare clic su **Aggiungi**.
+1. Per l'ambiente Time Series Insights, selezionare **Criteri di accesso ai dati** e fare clic su **Aggiungi**.
 
-   ![Aggiungere nuovi criteri di accesso ai dati per l'ambiente Time Series Insights](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)
+   [![Aggiungere nuovi criteri di accesso di dati per l'ambiente Time Series Insights](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
-7. Nella finestra di dialogo **Seleziona utente** incollare il nome dell'applicazione (dal passaggio 2) o l'ID dell'applicazione (dal passaggio 3).
+1. Nel **Seleziona utente** finestra di dialogo incollare il nome dell'applicazione (dal **passaggio 2**) o l'ID applicazione (dal **passaggio 3**).
 
-   ![Trovare un'applicazione nella finestra di dialogo Seleziona utente](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)
+   [![Trovare un'applicazione nella finestra di dialogo Seleziona utente](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
-8. Selezionare il ruolo (**Lettore** per eseguire query sui dati, **Collaboratore** per eseguire query sui dati e modificare i dati di riferimento) e fare clic su **Ok**.
+1. Selezionare il ruolo (**Reader** per eseguire query sui dati, **collaboratore** per eseguire query sui dati e la modifica dei dati di riferimento) e fare clic su **OK**.
 
-   ![Selezionare Lettore o Collaboratore nella finestra di dialogo Selezionare un ruolo](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)
+   [![Selezionare lettore o collaboratore nella finestra di dialogo Seleziona ruolo](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
-9. Salvare il criterio facendo clic su **Ok**.
+1. Salvare il criterio facendo clic **OK**.
 
-10. Usare l'ID dell'applicazione (dal passaggio 3) e la chiave dell'applicazione (dal passaggio 5) per acquisire il token per conto dell'applicazione. Il token può quindi essere passato nell'intestazione `Authorization` quando l'applicazione chiama l'API Time Series Insights.
+1. Usare l'ID applicazione (dal **passaggio 3**) e la chiave applicazione (dal **passaggio 5**) per acquisire il token per conto dell'applicazione. Il token può quindi essere passato nell'intestazione `Authorization` quando l'applicazione chiama l'API Time Series Insights.
 
     Se si usa C#, è possibile usare il codice seguente per acquisire il token per conto dell'applicazione. Per un esempio completo, vedere [Eseguire query sui dati tramite C#](time-series-insights-query-data-csharp.md).
 
@@ -92,17 +104,17 @@ Ecco di seguito i passaggi dettagliati:
 
     AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
         // Set the resource URI to the Azure Time Series Insights API
-        resource: "https://api.timeseries.azure.com/", 
+        resource: "https://api.timeseries.azure.com/",
         clientCredential: new ClientCredential(
             // Application ID of application registered in Azure Active Directory
-            clientId: "1bc3af48-7e2f-4845-880a-c7649a6470b8", 
+            clientId: "YOUR_APPLICATION_ID",
             // Application key of the application that's registered in Azure Active Directory
-            clientSecret: "aBcdEffs4XYxoAXzLB1n3R2meNCYdGpIGBc2YC5D6L2="));
+            clientSecret: "YOUR_CLIENT_APPLICATION_KEY"));
 
     string accessToken = token.AccessToken;
     ```
 
-Usare l'ID e la chiave dell'applicazione per eseguire l'autenticazione con Azure Time Series Insight. 
+Usare la **ID applicazione** e **chiave** nell'applicazione per l'autenticazione con Azure Time Series Insights.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

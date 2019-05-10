@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483648"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236745"
 ---
 # <a name="azure-storage-account-overview"></a>Panoramica dell'account di archiviazione di Azure
 
-Un account di archiviazione di Azure contiene tutti gli oggetti dati di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. I dati nell'account di archiviazione di Azure sono permanenti e a disponibilità elevata, sicuri, altamente scalabili e accessibili da qualsiasi posizione tramite HTTP o HTTPS.
+Un account di archiviazione di Azure contiene tutti gli oggetti dati di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. L'account di archiviazione offre uno spazio dei nomi univoco per i dati di archiviazione di Azure che sono accessibili da ovunque nel mondo tramite HTTP o HTTPS. I dati nell'account di archiviazione di Azure sono durevole e a disponibilità elevata, sicure e altamente scalabile.
 
 Per informazioni su come creare un account di archiviazione di Azure, vedere [Creare un account di archiviazione](storage-quickstart-create-account.md).
 
@@ -32,7 +32,7 @@ Gli account di archiviazione per utilizzo generico v2 supportano le funzionalit�
 - BLOB (tutti i tipi: in blocchi, di accodamento e di pagine)
 - File
 - Dischi
-- Queues
+- Code
 - Tabelle
 
 > [!NOTE]
@@ -49,7 +49,7 @@ Gli account per utilizzo generico v1 consentono di accedere a tutti i servizi di
 - BLOB (tutti i tipi)
 - File
 - Dischi
-- Queues
+- Code
 - Tabelle
 
 Mentre gli account per utilizzo generico v2 rappresentano la scelta consigliata nella maggior parte dei casi, gli account per utilizzo generico v1 sono particolarmente indicati per questi scenari:

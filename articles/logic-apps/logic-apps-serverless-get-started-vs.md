@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/25/2019
-ms.openlocfilehash: 265ed220b023a9d81fc5af48920152d95d9cac08
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136697"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467443"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Compilare la prima app senza server con App per la logica di Azure e Funzioni di Azure - Visual Studio
 
@@ -34,6 +34,7 @@ Per compilare un'app senza server in Visual Studio, sono necessari questi elemen
 
     > [!IMPORTANT]
     > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il carico di lavoro **Sviluppo di Azure**.
+    > Per Visual Studio 2019, Cloud Explorer consente di aprire la finestra di progettazione delle app per la logica nel portale di Azure, ma non ancora di aprire quella incorporata.
 
   * [Microsoft Azure SDK per .NET (2.9.1 o versione successiva)](https://azure.microsoft.com/downloads/). 
   Altre informazioni su [Azure SDK per .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).

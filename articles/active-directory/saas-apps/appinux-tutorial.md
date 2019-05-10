@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e40890459315bacf88fa6a12bc5eed7c0708b1c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c7d3e53224b5de32003cef29433a257ddfc99d88
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835765"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appinux"></a>Esercitazione: Integrazione di Azure Active Directory con Appinux
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Appinux, seguire questa
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Appinux](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<Appinux_SUBDOMAIN>.appinux.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<Appinux_SUBDOMAIN>.appinux.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<Appinux_SUBDOMAIN>.appinux.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
@@ -121,16 +121,16 @@ Per configurare l'accesso Single Sign-On di Azure AD con Appinux, seguire questa
 
     | **Nome** | **Spazio dei nomi** | **Attributo di origine**|
     | ---------|---------------| --------- |
-    | `givenname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.givenname` |
-    | `surname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.surname` |
-    | `emailaddress` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail` |
-    | `name` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
+    | `givenname` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.givenname` |
+    | `surname` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.surname` |
+    | `emailaddress` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail` |
+    | `name` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
     | `UserType` | `http://bcv.appinux.com/claims` | `Provide the value as per your organization` |
     | `Tag` | `http://appinux.com/Tag` | `Provide the value as per your organization` |
     | `Role` | `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` | `user.assignedroles` |
-    | `email` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` | `user.mail` |
+    | `email` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` | `user.mail` |
     | `wanshort` | `http://appinux.com/windowsaccountname2` | `extractmailprefix([userprincipalname])` |
-    | `nameidentifier` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.employeeid` |
+    | `nameidentifier` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.employeeid` |
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
@@ -186,7 +186,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente**, digitare **brittasimon\@dominioaziendale.estensione**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

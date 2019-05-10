@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/09/2019
 ms.author: edjez
-ms.openlocfilehash: 2a62fd288f9118882e5cd9899ab572d4b247fc5a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a197531a7c78823271c0a5fa5413b76746f63a9a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156799"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507022"
 ---
 # <a name="install-and-run-personalizer-containers"></a>Installare ed eseguire i contenitori di Personalizza esperienze
 
@@ -182,7 +182,7 @@ Il contenitore fornisce documentazione completa per gli endpoint, oltre a una fu
 
 I contenitori del servizio Personalizza esperienze inviano le informazioni di fatturazione ad Azure usando una risorsa _Personalizza esperienze_ nell'account di Azure. 
 
-I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano dati dei clienti a Microsoft. 
+I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione.  
 
 Il comando `docker run` usa gli argomenti seguenti a scopo di fatturazione:
 

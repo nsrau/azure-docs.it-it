@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7621b18f32a90b81dc075c534367981cf44f16e0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bb07fa00b9e1d917cb64df18fff6466dd5c0193d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076331"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406972"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Considerazioni su iOS specifiche di Xamarin con MSAL.NET
 In Xamarin iOS, esistono diverse considerazioni di cui è necessario tenere conto quando si usa MSAL.NET
@@ -108,7 +108,7 @@ Si tratta *inoltre* abilitare l'accesso a keychain nel `Entitlements.plist` file
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
   <key>keychain-access-groups</key>
@@ -123,6 +123,6 @@ Si tratta *inoltre* abilitare l'accesso a keychain nel `Entitlements.plist` file
 
 Altri dettagli sono disponibili nel [iOS considerazioni specifiche](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations) paragrafo del file readme.md dell'esempio seguente:
 
-Esempio | Piattaforma | DESCRIZIONE 
+Esempio | Piattaforma | Descrizione 
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, piattaforma UWP | Una semplice app Xamarin. Forms che illustra come usare MSAL per autenticare l'account del servizio gestito e Azure AD tramite endpoint V2.0 di AAD e accedere a Microsoft Graph con il token risultante. <br>![Topologia](media/msal-net-xamarin-ios-considerations/topology.png)

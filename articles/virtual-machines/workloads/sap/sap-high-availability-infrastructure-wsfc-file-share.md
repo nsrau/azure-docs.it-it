@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637755"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409605"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e la condivisione di file per le istanze di SAP ASCS/SCS
 
@@ -36,6 +36,7 @@ ms.locfileid: "60637755"
 [arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
 [arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
 [deploy-cloud-witness]:https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -316,7 +317,7 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 > È necessario specificare il numero di macchine virtuali nell'interfaccia utente del modello di Resource Manager del file server di scalabilità orizzontale.
 >
 
-### <a name="use-managed-disks"></a>Usare i dischi gestiti
+### <a name="use-managed-disks"></a>Usa dischi gestiti
 
 Il modello di Azure Resource Manager per la distribuzione del file server di scalabilità orizzontale con Spazi di archiviazione diretta e Azure Managed Disks è disponibile su [GitHub][arm-sofs-s2d-managed-disks].
 
@@ -341,6 +342,16 @@ Il modello di Azure Resource Manager per la distribuzione del file server di sca
 _**Figura 2**: Schermata dell'interfaccia utente per il modello di Azure Resource Manager di tipo Scale-Out File Server senza dischi gestiti_
 
 Nella casella **Tipo di account di archiviazione** selezionare **Archiviazione Premium**. Le altre impostazioni sono le stesse usate con i dischi gestiti.
+
+## <a name="adjust-cluster-timeout-settings"></a>Modificare le impostazioni del timeout del cluster
+
+Dopo aver installato correttamente il cluster Windows Scale-Out File Server, adattare le soglie di timeout per rilevamento del failover alle condizioni in Azure. I parametri da modificare sono documentati nel blog [Tuning Failover Cluster Network Thresholds][tuning-failover-cluster-network-thresholds] (Definire le soglie di rete per il cluster di failover). Supponendo che le macchine virtuali in cluster sono nella stessa subnet, modificare i parametri seguenti impostando i valori indicati:
+
+- SameSubNetDelay = 2000
+- SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
+
+Queste impostazioni sono state testate con i clienti e rappresentano un buon compromesso. Sono sufficientemente resilienti, ma offrono anche rapidamente un failover sufficientemente condizioni di errore reale o un errore della macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -163,6 +163,8 @@
         - name: Attivare Funzioni di Azure
           displayName: change feed
           href: change-feed-functions.md
+    - name: Analisi con Apache Spark
+      href: spark-api-introduction.md
     - name: Programmazione lato server
       items:
         - name: 'Stored procedure, trigger e UDF'
@@ -462,10 +464,6 @@
           href: etcd-api-introduction.md
         - name: Azure Kubernetes con Azure Cosmos DB
           href: bootstrap-kubernetes-cluster.md
-    - name: API Spark
-      items:
-        - name: Introduzione
-          href: spark-api-introduction.md
 - name: Guide alle procedure
   items:
     - name: Gestire l'account Azure Cosmos DB

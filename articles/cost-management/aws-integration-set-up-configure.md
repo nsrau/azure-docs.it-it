@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e87e95ec9e4e20ee4785c2b1f448a7ca5f442b8a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205708"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409203"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Impostare e configurare l'integrazione di report di utilizzo e costi di AWS
 
@@ -38,7 +38,7 @@ Usare la **report** della console di gestione dei costi e fatturazione in AWS pe
 7. Per la **abilitare il supporto per**, è necessaria alcuna selezione.
 8. Per la **impostazioni di aggiornamento dati**, selezionare **Aggiorna automaticamente i costi &amp; Report di utilizzo quando vengono rilevati gli addebiti per i mesi precedenti chiusi fatture**.
 9. Fare clic su **Avanti**.
-10. Per la **bucket Amazon S3**, digitare il nome del bucket Amazon S3 in cui si desidera consegna dei report e fare clic su **Verify**. Il bucket è necessario disporre delle autorizzazioni appropriate per essere valido. Per altre informazioni sull'aggiunta di autorizzazioni per il bucket, vedere [Bucket di impostazione e le autorizzazioni di accesso oggetto](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
+10. Per la **bucket Amazon S3**, digitare il nome del bucket Amazon S3 in cui si desidera consegna dei report e fare clic su **Verify**. Il bucket è necessario disporre delle autorizzazioni appropriate per essere valido. Per altre informazioni sull'aggiunta di autorizzazioni per il bucket, vedere [Bucket di impostazione e le autorizzazioni di accesso oggetto](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
 11. Per la **prefisso percorso Report**, digitare il prefisso di percorso di report che si desidera aggiungere al nome del report.
 12. Per la **compressione**, selezionare **GZIP**.
 13. Fare clic su **Avanti**.

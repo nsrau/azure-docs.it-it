@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 4416c30f57b469ee125400c696e8b34311a94926
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a200649493354f1264afb0df4cf74acb4a274017
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028186"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406414"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Che cos'è servizio di Azure Blockchain?
 
@@ -65,7 +65,7 @@ Le operazioni di gestione Consortium quali l'aggiunta e rimozione di membri da u
 
 ## <a name="develop-using-familiar-development-tools"></a>Sviluppare usando strumenti di sviluppo familiari
 
-A seconda della contabilità Quorum Ethereum open source, è possibile sviluppare applicazioni per il servizio di Azure Blockchain esattamente come avviene per le applicazioni esistenti Ethereum. Utilizzo di partner leader nel settore, l'estensione Azure Blockchain Development Kit Visual Studio Code consente agli sviluppatori di sfruttare strumenti familiari come la Suite Truffle creare smart Contract. Usa l'estensione Azure Blockchain Development Kit, gli sviluppatori possono creare o connettersi a e consortium esistente in modo che è possibile compilare e distribuire la smart contratti tutti usando un solo IDE. Uso dell'estensione di Visual Studio Code di Azure Blockchain, è possibile creare o connettersi a un consorzio esistente in modo che è possibile compilare e distribuire i tuoi contratti intelligenti tutto da un IDE. Per altre informazioni, vedere [Kit di sviluppo di Blockchain di Azure nel marketplace di Visual Studio Code](http://aka.ms/vscodebcextension) e il [manuale dell'utente Azure Blockchain Development Kit](http://aka.ms/vscodebcextensionwiki ).
+A seconda della contabilità Quorum Ethereum open source, è possibile sviluppare applicazioni per il servizio di Azure Blockchain esattamente come avviene per le applicazioni esistenti Ethereum. Utilizzo di partner leader nel settore, l'estensione Azure Blockchain Development Kit Visual Studio Code consente agli sviluppatori di sfruttare strumenti familiari come la Suite Truffle creare smart Contract. Usa l'estensione Azure Blockchain Development Kit, gli sviluppatori possono creare o connettersi a e consortium esistente in modo che è possibile compilare e distribuire la smart contratti tutti usando un solo IDE. Uso dell'estensione di Visual Studio Code di Azure Blockchain, è possibile creare o connettersi a un consorzio esistente in modo che è possibile compilare e distribuire i tuoi contratti intelligenti tutto da un IDE. Per altre informazioni, vedere [Kit di sviluppo di Blockchain di Azure nel marketplace di Visual Studio Code](https://aka.ms/vscodebcextension) e il [manuale dell'utente Azure Blockchain Development Kit](https://aka.ms/vscodebcextensionwiki ).
 
 ## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 427ba2b386810749810397afed8ef3f62dcf9217
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728046"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506634"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 
@@ -32,11 +32,11 @@ Microsoft invita i clienti a segnalare eventuali problemi e si impegna a risolve
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problemi noti attualmente
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problemi generali di Servizi multimediali
 
-| Problema | DESCRIZIONE |
+| Problema | Descrizione |
 | --- | --- |
 | Nell'API REST non sono disponibili alcune intestazioni HTTP comuni. |Se si sviluppano applicazioni di Servizi multimediali tramite l'API REST, alcuni campi di intestazione HTTP comuni, ad esempio CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID, non sono supportati. Le intestazioni verranno aggiunte in un futuro aggiornamento. |
 | La codifica percentuale non è consentita. |Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la generazione di URL per i contenuti in streaming (ad esempio, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.). |
-| Il metodo ListBlobs di Azure Storage SDK versione 3.x non riesce. |Servizi multimediali genera URL di firma di accesso condiviso basati sulla versione [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) . Se si vuole usare Storage SDK per elencare oggetti BLOB in un contenitore BLOB, usare il metodo [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) disponibile in Storage SDK versione 2.x. |
+| Il metodo ListBlobs di Azure Storage SDK versione 3.x non riesce. |Servizi multimediali genera URL di firma di accesso condiviso basati sulla versione [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) . Se si vuole usare Storage SDK per elencare oggetti BLOB in un contenitore BLOB, usare il metodo [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) disponibile in Storage SDK versione 2.x. |
 | Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP 503 indicante che il servizio non è disponibile. |Per altre informazioni, vedere la descrizione del codice di stato HTTP 503 in [Codici di errore di Servizi multimediali](media-services-encoding-error-codes.md). |
 | Quando si esegue una query di entità, è previsto un limite di 1.000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1.000 risultati. |Usare Skip e Take (.NET)/top (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e in [questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Alcuni client possono riscontrare un problema di tag di ripetizione nel manifesto Smooth Streaming. |Per altre informazioni, vedere [questa sezione](media-services-deliver-content-overview.md#known-issues). |

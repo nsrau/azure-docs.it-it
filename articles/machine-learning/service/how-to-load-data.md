@@ -12,15 +12,15 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7dc07ba7f1d62b49232b1cd892070804099fab8c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e7c330846cd907f35bb23ae5e453383d7c35222e
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024012"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471888"
 ---
 # <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Caricare e leggere i dati con il SDK di Azure Machine Learning Data Prep
-In questo articolo descrive diversi metodi di caricamento dei dati usando il SDK di Azure Machine Learning Data Prep. Per visualizzare la documentazione di riferimento per il SDK, vedere la [Panoramica](https://aka.ms/data-prep-sdk). L'SDK supporta più funzionalità di inserimento dati, tra cui:
+In questo articolo descrive diversi metodi di caricamento dei dati usando il SDK di Azure Machine Learning Data Prep.  L'SDK supporta più funzionalità di inserimento dati, tra cui:
 
 * Caricamento da numerosi tipi di file con inferenza dei parametri di analisi (codifica, separatore, intestazioni)
 * Conversione del tipo mediante l'inferenza durante il caricamento dei file
@@ -28,10 +28,11 @@ In questo articolo descrive diversi metodi di caricamento dei dati usando il SDK
 
 > [!Important]
 > Se si compila una nuova soluzione, provare a eseguire la [set di dati di Azure Machine Learning](how-to-explore-prepare-data.md) (anteprima) per la preparazione ed esplorazione dei dati. I set di dati è la prossima versione di preparazione dati di SDK, che offre funzionalità avanzate per la gestione dei set di dati nelle soluzioni di intelligenza artificiale.
+> Se si usa la `azureml-dataprep` pacchetto per creare un flusso di dati con le trasformazioni invece di usare il `azureml-datasets` del pacchetto per creare un set di dati, sarà possibile usare gli snapshot o i set di dati con controllo delle versioni in un secondo momento.
 
 Nella tabella seguente mostra una selezione delle funzioni utilizzate per il caricamento dei dati da tipi di file comuni.
 
-| Tipo file | Funzione | Collegamento di riferimento |
+| Tipo di file | Funzione | Collegamento di riferimento |
 |-------|-------|-------|
 |Qualsiasi|`auto_read_file()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
 |Text|`read_lines()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-lines-path--filepath--header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-none--0---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
@@ -67,7 +68,7 @@ dflow = dprep.read_lines(path='./data/text_lines.txt')
 dflow.head(5)
 ```
 
-||Grafico a linee|
+||Riga|
 |----|-----|
 |0|Data \| \|  Temperatura minima \| \|  Temperatura massima|
 |1|01-07-2015 \|\|  -4,1 \|\|  10,0|
@@ -170,7 +171,7 @@ L'output mostra che i dati nel secondo foglio contenevano tre righe vuote prima 
 dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
-||RANK|Title|Studio|In tutto il mondo|Nazionale / %|Colonna1|Oltremare / %|Colonna2|Anno^|
+||Classifica|Title|Studio|In tutto il mondo|Nazionale / %|Colonna1|Oltremare / %|Colonna2|Anno^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760,5|0,273|2027,5|0,727|2009^|
 |1|2|Titanic|Par.|2186,8|658,7|0,301|1528,1|0,699|1997^|
@@ -315,5 +316,4 @@ dflow.to_pandas_dataframe().head()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere il SDK [Panoramica](https://aka.ms/data-prep-sdk) per esempi di utilizzo e i modelli di progettazione
 * Vedere il SDK di Azure Machine Learning Data Prep [esercitazione](tutorial-data-prep.md) per un esempio di risoluzione di uno scenario specifico

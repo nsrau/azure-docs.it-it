@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8c0291997c1ce301083f7d5c19b5067a85cfd0f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4d588374c0195e7da373766f93f6829ac2160269
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024966"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471621"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
@@ -344,7 +344,7 @@ Prova pratica:
 * L'SDK di Azure Machine Learning è già installato.
 * Dopo aver creato un'area di lavoro del servizio Azure Machine Learning nel portale di Azure, è possibile fare clic su un pulsante per configurare automaticamente l'ambiente di Azure Notebooks per usare l'area di lavoro.
 
-Usare la [portale di Azure](https://portal.azure.com) per iniziare a usare i notebook di Azure.  Aprire l'area di lavoro e dal **Overview** sezione, selezionare **iniziare a utilizzare Azure Notebooks**.
+Per iniziare a usare Azure Notebooks, usare il [portale di Azure](https://portal.azure.com).  Aprire l'area di lavoro e dal **Overview** sezione, selezionare **iniziare a utilizzare Azure Notebooks**.
 
 Per impostazione predefinita, Azure Notebooks usa un livello di servizio gratuito limitato a 4 GB di memoria e 1 GB di dati. È, tuttavia, possibile rimuovere questi limiti mediante l'aggiunta di un'istanza di Data Science Virtual Machine al progetto Azure Notebooks. Per altre informazioni, vedere [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) (Gestire e configurare i progetti di Azure Notebooks - Livello di calcolo).
 
@@ -368,7 +368,7 @@ Per usare questo file dal codice, usare `ws=Workspace.from_config()`. Questo cod
 
 * **Seguire i passaggi descritti in [creare un'area di lavoro del servizio di Azure Machine Learning](setup-create-workspace.md#sdk)**: nella libreria di Azure Notebooks viene creato un file *config.json* che contiene le informazioni di configurazione per l'area di lavoro. È possibile scaricare o copiare il file *config.json* in altri ambienti di sviluppo.
 
-* **Scaricare il file**: Nel [portale di Azure](https://ms.portal.azure.com), selezionare **scaricare config. JSON** dal **Panoramica** sezione dell'area di lavoro.
+* **Scaricare il file**: Nel portale di Azure selezionare [Scarica config.json](https://ms.portal.azure.com) nella sezione **Panoramica** dell'area di lavoro.
 
      ![Portale di Azure](./media/how-to-configure-environment/configure.png)
 
@@ -396,5 +396,5 @@ Per usare questo file dal codice, usare `ws=Workspace.from_config()`. Questo cod
 
 - [Eseguire il training di un modello](tutorial-train-models-with-aml.md) in Azure Machine Learning con il set di dati MNIST
 - Vedere la documentazione di riferimento di [Azure Machine Learning SDK per Python](https://aka.ms/aml-sdk)
-- Vedere le informazioni su [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
+- Scopri il [pacchetto di preparazione dei dati per Azure Machine Learning](https://aka.ms/data-prep-sdk)
 - 

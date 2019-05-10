@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fc945a00360e4eea4a5cf1e3962da2390d3bfeb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331886"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506858"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transazioni distribuite in database cloud
 
@@ -99,7 +99,7 @@ Le transazioni di database elastico per il database SQL supportano anche il coor
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Installazione di .NET per i servizi cloud di Azure
 
-Azure offre diverse soluzioni per l'hosting di applicazioni .NET. Per un confronto delle diverse soluzioni, vedere [Confronto tra Azure App Service, Servizi cloud e Macchine virtuali di Azure](../app-service/overview-compare.md). Se il sistema operativo guest della soluzione è precedente alla versione 4.6.1 di .NET richiesta per le transazioni elastiche, è necessario aggiornare il sistema operativo guest alla versione 4.6.1. 
+Azure offre diverse soluzioni per l'hosting di applicazioni .NET. Per un confronto delle diverse soluzioni, vedere [Confronto tra Azure App Service, Servizi cloud e Macchine virtuali di Azure](/azure/architecture/guide/technology-choices/compute-decision-tree). Se il sistema operativo guest della soluzione è precedente alla versione 4.6.1 di .NET richiesta per le transazioni elastiche, è necessario aggiornare il sistema operativo guest alla versione 4.6.1. 
 
 Per i servizi app di Azure, gli aggiornamenti del sistema operativo guest non sono attualmente supportati. Per le macchine virtuali di Azure, è sufficiente accedere alla macchina virtuale ed eseguire il programma di installazione del framework .NET più recente. Per i servizi cloud di Azure, è necessario includere l'installazione di una versione più recente di .NET nelle attività di avvio della distribuzione. I concetti e i passaggi sono documentati in [Installare .NET in un ruolo del servizio cloud](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 

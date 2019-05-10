@@ -81,24 +81,28 @@
           href: data-box-edge-technical-specifications-compliance.md
     - name: Procedure
       items:
-        - name: Gestire il calcolo
-          href: data-box-edge-manage-compute.md
         - name: 'Sviluppare un modulo C#'
           href: data-box-edge-create-iot-edge-module.md
-        - name: Gestire le condivisioni
-          href: data-box-edge-manage-shares.md
-        - name: Gestire gli utenti
-          href: data-box-edge-manage-users.md
-        - name: Gestire le pianificazioni della larghezza di banda
-          href: data-box-edge-manage-bandwidth-schedules.md
-        - name: 'Gestire alimentazione, accesso e connettività'
-          href: data-box-edge-manage-access-power-connectivity-mode.md
-        - name: Gestione tramite PowerShell
-          href: data-box-edge-connect-powershell-interface.md
+        - name: Gestisci
+          items:
+            - name: Calcolo Edge
+              href: data-box-edge-manage-compute.md
+            - name: Condivisioni
+              href: data-box-edge-manage-shares.md
+            - name: Utenti
+              href: data-box-edge-manage-users.md
+            - name: Pianificazioni della larghezza di banda
+              href: data-box-edge-manage-bandwidth-schedules.md
+            - name: 'Alimentazione, accesso e connettività'
+              href: data-box-edge-manage-access-power-connectivity-mode.md
+            - name: Tramite PowerShell
+              href: data-box-edge-connect-powershell-interface.md
         - name: Risolvere problemi
           href: data-box-edge-troubleshoot.md
         - name: Monitorare
           href: data-box-edge-monitor.md
+        - name: Restituire il dispositivo
+          href: data-box-edge-return-device.md
     - name: Note sulla versione
       items:
         - name: Disponibilità generale

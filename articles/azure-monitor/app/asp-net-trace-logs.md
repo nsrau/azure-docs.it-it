@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 74cb1b3ec4e0570aa4316e6f45e99719f36815d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d366f363b7bd1d5306d598c9b38258eb78076b7c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150707"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472059"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Esplorare i log di traccia .NET/.NET Core in Application Insights
 
@@ -140,14 +140,14 @@ Per ogni origine è possibile impostare i parametri seguenti:
 ## <a name="use-the-trace-api-directly"></a>Usare direttamente l'API di traccia
 È possibile chiamare direttamente l'API di traccia di Application Insights. Gli adattatori di registrazione usano questa API.
 
-Ad esempio: 
+Ad esempio:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lunghi nel messaggio. Ad esempio è possibile codificare dati POST.
 
-È anche possibile aggiungere un livello di gravità per il messaggio. E, come altri dati di telemetria, è possibile aggiungere i valori delle proprietà per consentire di filtrare o cercare set di tracce diversi. Ad esempio: 
+È anche possibile aggiungere un livello di gravità per il messaggio. E, come altri dati di telemetria, è possibile aggiungere i valori delle proprietà per consentire di filtrare o cercare set di tracce diversi. Ad esempio:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -177,8 +177,8 @@ Ad esempio, è possibile:
 Usare gli [adattatori log Java](../../azure-monitor/app/java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Non è disponibile alcuna opzione di Application Insights nel menu di scelta rapida del progetto
-* Assicurarsi che gli strumenti Application Insights sia installato nel computer di sviluppo. In Visual Studio **degli strumenti** > **estensioni e aggiornamenti**, cercare **strumenti Application Insights**. Se non è nel **Installed** scheda, aprire il **Online** scheda e installarlo.
-* Potrebbe trattarsi di un tipo di progetto che non supporta strumenti Application Insights. Usare l' [installazione manuale](#manual-installation).
+* Assicurarsi che Developer Analytics Tools è installato nel computer di sviluppo. In Visual Studio **degli strumenti** > **estensioni e aggiornamenti**, cercare **Developer Analytics Tools**. Se non è nel **Installed** scheda, aprire il **Online** scheda e installarlo.
+* Potrebbe trattarsi di un tipo di progetto che non supporta gli strumenti di Analitica di sviluppatori. Usare l' [installazione manuale](#manual-installation).
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Vi è alcuna possibilità di adattatori di log nello strumento di configurazione
 * Installare innanzitutto il framework di registrazione.

@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/25/2019
-ms.openlocfilehash: d47c073eb6bfc3012d42d6add8a15029271120f4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/07/2019
+ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136505"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467410"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
 
@@ -36,8 +36,7 @@ Sebbene sia possibile creare, modificare, gestire e distribuire le App per la lo
   Questa guida introduttiva usa Visual Studio Community 2017, disponibile gratuitamente.
 
     > [!IMPORTANT]
-    > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il carico di lavoro **Sviluppo di Azure**.
-    > Per altre informazioni, vedere [gestire le risorse associate agli account di Azure in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il carico di lavoro **Sviluppo di Azure**. Per Visual Studio 2019, Cloud Explorer consente di aprire la finestra di progettazione delle app per la logica nel portale di Azure, ma non ancora di aprire quella incorporata. Per altre informazioni, vedere [gestire le risorse associate agli account di Azure in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
     Per installare Cloud Explorer per Visual Studio 2015 [download di Cloud Explorer da Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
     Per altre informazioni, vedere [gestire le risorse associate agli account di Azure in Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
@@ -70,7 +69,7 @@ In Visual Studio è possibile trovare tutte le app per la logica associate a una
 
 1. Aprire Visual Studio. Dal menu **Visualizza** scegliere **Cloud Explorer**.
 
-1. In Cloud Explorer scegliere **Gestione account**. Selezionare la sottoscrizione di Azure associata alle app per la logica e quindi scegliere **Applica**. Ad esempio: 
+1. In Cloud Explorer scegliere **Gestione account**. Selezionare la sottoscrizione di Azure associata alle app per la logica e quindi scegliere **Applica**. Ad esempio:
 
    ![Scegliere "Gestione account"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -105,6 +104,9 @@ In Visual Studio è possibile aprire le app per la logica precedentemente create
 È possibile scaricare le app per la logica dal [portale di Azure](https://portal.azure.com) e salvarle come modelli di [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). È quindi possibile modificare i modelli in locale con Visual Studio e personalizzare le app per la logica per ambienti di distribuzione differenti. Il download di app per la logica ne *parametrizza* automaticamente le definizioni all'interno dei [modelli di Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), che usano anche JavaScript Object Notation (JSON).
 
 1. In Visual Studio aprire Cloud Explorer e quindi individuare e selezionare l'app per la logica che si vuole scaricare da Azure.
+
+   > [!NOTE]
+   > Per Visual Studio 2019, Cloud Explorer è possibile aprire la finestra di progettazione di App per la logica nel portale di Azure, ma ancora non è possibile aprire la finestra di progettazione di App per la logica incorporata per il download di app per la logica.
 
 2. Dal menu di scelta rapida dell'app selezionare **Open with Logic App Editor** (Apri con Editor app per la logica).
 
@@ -153,14 +155,14 @@ Per controllare lo stato e diagnosticare i problemi relativi alle esecuzioni del
 
    ![Apri cronologia di esecuzione](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
-1. Per visualizzare i dettagli per un'esecuzione specifica, fare doppio clic su di essa. Ad esempio: 
+1. Per visualizzare i dettagli per un'esecuzione specifica, fare doppio clic su di essa. Ad esempio:
 
    ![Cronologia di esecuzione dettagliata](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
    > Per ordinare la tabella in base a una proprietà, scegliere l'intestazione di colonna per tale proprietà. 
 
-1. Espandere i passaggi di cui si vogliono esaminare gli input e gli output. Ad esempio: 
+1. Espandere i passaggi di cui si vogliono esaminare gli input e gli output. Ad esempio:
 
    ![Visualizzare gli input e gli output per ogni passaggio](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
 

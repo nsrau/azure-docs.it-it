@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691605"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472030"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Installare Application Insights per un sito Web ASP.NET
 
@@ -29,7 +29,7 @@ Il programma di installazione richiede pochi clic in Visual Studio. Per evitare 
 Per aggiungere Application Insights al sito Web ASP.NET è necessario:
 
 - Installare [Visual Studio 2017 per Windows](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
-    - Sviluppo Web e ASP.NET
+    - Sviluppo ASP.NET e web (non si deseleziona i componenti facoltativi)
     - Sviluppo di Azure
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
@@ -101,7 +101,7 @@ Per visualizzare altri dettagli nel portale, fare clic su qualsiasi riquadro o g
 
 [Altre informazioni sull'uso di Application Insights nel portale di Azure](../../azure-monitor/app/app-insights-dashboards.md).
 
-## <a name="step-4-publish-your-app"></a>Passaggio 4: Pubblicare l'app
+## <a name="step-4-publish-your-app"></a>Passaggio 4: Pubblica l'app
 Pubblicare l'app nel server IIS o in Azure. Verificare in [Flusso metriche attive](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) che tutto funzioni correttamente.
 
 La telemetria viene creata nel portale di Application Insights, in cui è possibile monitorare le metriche, eseguire ricerche sui dati di telemetria e configurare i [dashboard](../../azure-monitor/app/app-insights-dashboards.md), nonché usare l'avanzato [linguaggio di query Kusto](/azure/kusto/query/) per analizzare l'utilizzo e le prestazioni o trovare eventi specifici.
@@ -115,7 +115,7 @@ La telemetria viene creata nel portale di Application Insights, in cui è possib
 
 ## <a name="land"></a> Le impostazioni sono state completate.
 
-Congratulazioni! Il pacchetto Application Insights è stato installato nell'app e configurato per l'invio di dati di telemetria al servizio Application Insights in Azure.
+Congratulazioni. Il pacchetto Application Insights è stato installato nell'app e configurato per l'invio di dati di telemetria al servizio Application Insights in Azure.
 
 La risorsa di Azure che riceve i dati di telemetria dell'app è identificata da una *chiave di strumentazione*, disponibile nel file ApplicationInsights.config.
 

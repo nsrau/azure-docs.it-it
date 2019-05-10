@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e20a298c34a7b2723963396f8ccaafaa9472e19a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ec8b575157dcf2fe8430f554798af62b966c78d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888332"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Esercitazione: Integrazione di Azure Active Directory con AirWatch
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con AirWatch, seguire quest
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di AirWatch](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare il valore in questo formato: `AirWatch`
 
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con AirWatch, seguire quest
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME |  Source Attribute|
+    | Nome |  Attributo di origine|
     |---------------|----------------|
     | UID | user.userprincipalname |
     | | |
@@ -207,15 +207,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con AirWatch, seguire quest
 
     a. Nella casella di testo **Identificatore oggetto** digitare `http://schemas.microsoft.com/identity/claims/objectidentifier`.
 
-    b. Nella casella di testo **Nome utente** digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    b. Nella casella di testo **Nome utente** digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    c. Nella casella di testo **Nome visualizzato** digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    c. Nella casella di testo **Nome visualizzato** digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    d. Nella casella di testo **Nome** digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. Nella casella di testo **Nome** digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    e. Nella casella di testo **Cognome** digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. Nella casella di testo **Cognome** digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-    f. Nella casella di testo **Email** (Posta elettronica) digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. Nella casella di testo **Email** (Posta elettronica) digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     g. Fare clic su **Save**.
 

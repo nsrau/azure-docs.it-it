@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 216eae383c704125cd32d9ed4cb1309299af7336
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153389"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472446"
 ---
 # <a name="encoding-with-media-services"></a>Codifica con Servizi multimediali
 
@@ -87,11 +87,15 @@ Servizi multimediali supporta in modo completo la personalizzazione di tutti i v
 - [Personalizzare i set di impostazioni con CLI](custom-preset-cli-howto.md)
 - [Personalizzare i set di impostazioni con REST](custom-preset-rest-howto.md)
 
+## <a name="preset-schema"></a>Schema predefinito
+
+In servizi multimediali v3, predefiniti sono entità fortemente tipizzate nell'API di se stesso. È possibile trovare la definizione di "schema" per questi oggetti in [specifica Openapi (o Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). È anche possibile visualizzare le definizioni di set di impostazioni (ad esempio **StandardEncoderPreset**) nel [API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (o altra documentazione di riferimento SDK di servizi multimediali v3).
+
 ## <a name="scaling-encoding-in-v3"></a>Ridimensionamento della codifica nella versione v3
 
 Per ridimensionare l'elaborazione multimediale, vedere [scalabilità con CLI](media-reserved-units-cli-how-to.md).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire commenti e suggerimenti, ottenere gli aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

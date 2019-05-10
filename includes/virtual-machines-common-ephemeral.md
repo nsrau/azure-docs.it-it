@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d7737f73ee4eb9ae9dc8c4845020b7543a5b3495
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159166"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65468381"
 ---
 I dischi del sistema operativo temporanei vengono creati nello spazio di archiviazione macchina virtuale (VM) locali e non persistenti nella risorsa di archiviazione di Azure remoto. I dischi del sistema operativo temporanei funzionano anche per carichi di lavoro senza stati, in cui le applicazioni sono a tolleranza di singoli errori di macchina virtuale, ma sono più interessati a tempo per ricreare l'immagine di singole istanze di VM o il tempo che necessario per le distribuzioni su larga scala. È anche adatto per le applicazioni, distribuite usando il modello di distribuzione classica, spostare il modello di distribuzione Resource Manager. Con un disco del sistema operativo temporaneo, si potrebbe osservare minore latenza di lettura/scrittura per il disco del sistema operativo e più veloci ricreazione dell'immagine della macchina virtuale. Inoltre, il disco del sistema operativo temporaneo è gratuito, si dovranno sostenere alcun costi di archiviazione per il disco del sistema operativo. 
  
@@ -30,12 +30,12 @@ Differenze principali tra i dischi del sistema operativo permanenti e temporanee
 |                             | Disco del sistema operativo persistente                          | Disco del sistema operativo temporaneo                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | Dimensione massima per disco del sistema operativo      | 2 TiB                                                                                        | Memorizzare nella cache di dimensione per la dimensione di VM o 2TiB, qualunque sia il minore - [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), e [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| Dimensioni delle macchine Virtuali supportate          | Tutti                                                                                          | DSv1, DSv2, DSv3, Esv2, ADFS, FsV2, GS, M                                               |
+| Dimensioni delle macchine Virtuali supportate          | Tutti                                                                                          | DSv1, DSv2, DSv3, Esv3, ADFS, FsV2, GS, M                                               |
 | Supporto dei tipi di disco           | Disco del sistema operativo gestito e non gestito                                                                | Solo disco del sistema operativo gestito                                                               |
 | Supporto di area              | Tutte le aree                                                                                  | Tutte le aree                              |
 | Persistenza dei dati            | Dati scritti su disco del sistema operativo del disco del sistema operativo vengono archiviati in archiviazione di Azure                                  | I dati scritti su disco del sistema operativo viene archiviati nella risorsa di archiviazione della macchina virtuale locale e non sono persistenti in archiviazione di Azure. |
 | Stato di arresto-deallocazione      | Le macchine virtuali e istanze del set di scalabilità possono essere arrestata-deallocata e riavviate dallo stato di arresto-deallocazione | Le macchine virtuali e istanze del set di scalabilità non possono essere arrestata-deallocata                                  |
-| Supporto di dischi del sistema operativo specializzato | Sì                                                                                          | No                                                                                  |
+| Supporto di dischi del sistema operativo specializzato | Sì                                                                                          | N.                                                                                 |
 | Ridimensionamento del disco del sistema operativo              | Durante la creazione della macchina virtuale e al termine della macchina virtuale di arresto-deallocazione supportati                                | È supportato durante la creazione di una VM solo                                                  |
 | Ridimensionamento di una nuova dimensione di macchina virtuale   | I dati su disco del sistema operativo viene mantenuti                                                                    | I dati sul disco del sistema operativo sono stati eliminati, sistema operativo è di nuovo effettuato il provisioning                                      |
 
@@ -48,16 +48,16 @@ Eseguire la registrazione automatica per l'anteprima di dischi del sistema opera
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 Per controllare se sono registrati per l'anteprima:
 
 ```azurepowershell-interactive
-Get-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
-### <a name="cli"></a>CLI
+### <a name="cli"></a>Interfaccia della riga di comando
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -67,7 +67,7 @@ az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
 Per controllare se sono registrati per l'anteprima:
  
 ```azurecli-interactive
-az provider show –namespace ‘Microsoft.Compute’
+az provider show --namespace Microsoft.Compute
 ```
 
 
@@ -196,7 +196,7 @@ R: Sì, è possibile creare macchine virtuali con disco del sistema operativo te
 R: Non supportano i dischi temporanei:
 - Acquisizione di immagini di macchina virtuale
 - Snapshot dei dischi 
-- Azure Disk Encryption 
+- Crittografia dischi di Azure 
 - Backup di Azure
 - Azure Site Recovery  
 - Scambio di dischi del sistema operativo 

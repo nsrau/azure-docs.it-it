@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ed6a50ee68d39e6e0d01b405eb02edd6d4c93613
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920421"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407580"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurare un'app PHP di Linux per servizio App di Azure
 
@@ -151,7 +151,7 @@ Se è necessario apportare modifiche all'installazione di PHP, è possibile modi
 
 Per personalizzare le direttive PHP_INI_USER PHP_INI_PERDIR e PHP_INI_ALL (vedere [PHP. ini](https://www.php.net/manual/ini.list.php)), aggiungere un' *. htaccess* file nella directory radice dell'app.
 
-Nel *. htaccess* del file, aggiungere le direttive utilizzando il `php_value <directive-name> <value>` sintassi. Ad esempio: 
+Nel *. htaccess* del file, aggiungere le direttive utilizzando il `php_value <directive-name> <value>` sintassi. Ad esempio:
 
 ```
 php_value upload_max_filesize 1000M
@@ -187,7 +187,7 @@ Creare una directory nel `/home/site` chiamato `ini`, quindi creare un *ini* del
 > Nei contenitori Linux incorporati nel servizio App */Home* viene usato come archiviazione condivisa persistente. 
 >
 
-Ad esempio, per modificare il valore della [expose_php](http://php.net/manual/ini.core.php#ini.expose-php) eseguire i comandi seguenti:
+Ad esempio, per modificare il valore della [expose_php](https://php.net/manual/ini.core.php#ini.expose-php) eseguire i comandi seguenti:
 
 ```bash
 cd /home/site
@@ -233,7 +233,7 @@ Per rendere effettive le modifiche, riavviare l'app.
 Quando un'app PHP in funzione si comporta in modo diverso nel servizio App o presenta errori, procedere come segue:
 
 - [Accedere al flusso di log](#access-diagnostic-logs).
-- Testare l'app in locale in modalità di produzione. Servizio App le app Node. js viene eseguito in modalità di produzione, pertanto è necessario assicurarsi che il progetto funziona come previsto in modalità di produzione in locale. Ad esempio: 
+- Testare l'app in locale in modalità di produzione. Servizio App le app Node. js viene eseguito in modalità di produzione, pertanto è necessario assicurarsi che il progetto funziona come previsto in modalità di produzione in locale. Ad esempio:
     - A seconda del *Composer. JSON*, pacchetti diversi possono essere installati per la modalità di produzione (`require` confronto `require-dev`).
     - Alcuni Framework web possono distribuire file statici in modo diverso in modalità di produzione.
     - Alcuni Framework web può usare gli script di avvio personalizzate durante l'esecuzione in modalità di produzione.

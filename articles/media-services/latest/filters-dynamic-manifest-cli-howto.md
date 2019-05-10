@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ba3de32f4ec3b9f6faf1d5a51da9c1c91e4a2e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e1c031643fc3ce75d99ad619ce46b38c9cba82c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60732434"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472705"
 ---
 # <a name="creating-filters-with-cli"></a>Creazione di filtri con l'interfaccia della riga di comando 
 
@@ -38,7 +38,8 @@ Questo argomento illustra come configurare un filtro per un asset Video on deman
 
 Di seguito è riportato l'esempio che definisce le condizioni di selezione di traccia che vengono aggiunte al manifesto finale. Questo filtro include tracce audio EC-3 e tracce video con velocità in bit nell'intervallo 0-1000000.
 
-I filtri definiti in REST includono l'oggetto JSON wrapper "Properties".  
+> [!TIP]
+> Se si intende definire **filtri** in REST, si noti che è necessario includere l'oggetto JSON wrapper "Properties".  
 
 ```json
 [
@@ -94,6 +95,33 @@ az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-
 ```
 
 Vedere anche [Esempi JSON per i filtri](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter).
+
+
+## <a name="associate-filters-with-streaming-locator"></a>Associare i filtri localizzatore di Streaming
+
+È possibile specificare un elenco di filtri di asset o account, si applica anche per il localizzatore di Streaming. Il [creazione dinamica dei pacchetti (Endpoint di Streaming)](dynamic-packaging-overview.md) si applica questo elenco di filtri insieme a quelli del client specifica l'URL. Questa combinazione genera una [manifesto dinamico](filters-dynamic-manifest-overview.md), basata su filtri nell'URL + filtri è specificare nel localizzatore di Streaming. È consigliabile usare questa funzionalità se si desidera applicare i filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
+
+Il codice dell'interfaccia della riga seguente viene illustrato come creare un localizzatore di Streaming e specificare `filters`. Si tratta di una proprietà facoltativa che accetta un elenco delimitato da spazi dei nomi dei filtri di asset e/o i nomi di account filtro.
+
+```azurecli
+az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocatorName \
+                                --asset-name assetName \                               
+                                --streaming-policy-name policyName \
+                                --filters filterName1 filterName2
+                                
+```
+
+## <a name="stream-using-filters"></a>Utilizzo dei filtri di Stream
+
+Dopo aver definito i filtri, è possibile usarli nell'URL di streaming. È possibile applicare filtri ai protocolli di streaming a bitrate adattivo: Apple HLS (HTTP Live Streaming), MPEG-DASH e Smooth Streaming.
+
+Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
+
+|Protocol|Esempio|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="next-step"></a>Passaggio successivo
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.author: pareshmu
-ms.openlocfilehash: af8927ddaac4295a49d46f57a48225435dd59b29
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ac1d5f43d5711e6a688608e4cfc78e39221b8fac
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191146"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467785"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -52,7 +52,7 @@ La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRo
 | **Corea del Sud** | 2 |Corea del Sud centrale, Corea del Sud meridionale |Busan, Seoul|
 | **EMIRATI ARABI UNITI** | 3 | Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali | Dubai |
 | **Sud Africa** | 3 |Sudafrica occidentale, Sudafrica settentrionale |Città del Capo, Johannesburg |
-| **America del Sud** | 3 |Brasile meridionale |Sao Paulo |
+| **America del Sud** | 3 |Brasile meridionale |San Paolo |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Aree e confini geopolitici per cloud nazionali
 Nella tabella seguente vengono fornite informazioni su aree e confini geopolitici per cloud nazionali.
@@ -88,11 +88,11 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Denver** | CoreSite | CoreSite, Megaport, Zayo |
 | **Dubai** | Emirati Arabi Uniti Etisalat | Emirati Arabi Uniti Etisalat |
 | **Dublino** | Equinix | Colt, eir, Equinix, Interxion, Megaport |
-| **Francoforte** | Interxion | Interxion |
+| **Francoforte** | Interxion | DE-CIX, Interxion |
 | **Hong Kong SAR** | Equinix | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Johannesburg** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | TIME dotCom |
-| **Las Vegas** | Switch | CenturyLink Cloud Connect, Megaport |
+| **Las Vegas** | Passa a | CenturyLink Cloud Connect, Megaport |
 | **Londra** | Equinix | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
 | **London2** | Telehouse | IX Reach, Equinix |
 | **Los Angeles** | CoreSite | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
@@ -105,7 +105,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **New York** | Equinix | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
 | **Newport(Wales)** | Dati di nuova generazione | British Telecom, Level 3 Communications, Next Generation Data |
 | **Osaka** | Equinix | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **Parigi** | Interxion | Colt, Equinix, Intercloud, Interxion, Orange, Zayo |
+| **Parigi** | Interxion | Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **Perth** | NextDC | Megaport, NextDC |
 | **Quebec City** | 4Degrees | Bell Canada, Megaport |
 | **San Antonio** | CyrusOne | CenturyLink Cloud Connect, Megaport |
@@ -119,8 +119,8 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Sydney** | Equinix | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, TPG Telecom, Verizon |
 | **Taipei** | Chief Telecom | Chief Telecom, FarEasTone |
 | **Tokyo** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
-| **Toronto** | Cologix | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, Megaport, Telus, Zayo |
-| **Washington DC** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
+| **Toronto** | Cologix | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Zayo |
+| **Washington DC** | Equinix | Le reti Aryaka, AT & T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, reti Neutrona, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Carrier Telia, Verizon, Zayo |
 | **Washington DC2** | Coresite | Coresite | 
 | **Zurich** | Interxion | Interxion |
 

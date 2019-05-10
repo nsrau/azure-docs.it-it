@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943913"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410447"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale per l'apprendimento avanzato in Azure 
 
@@ -68,7 +68,7 @@ Dopo aver creato la VM, è possibile connettersi tramite desktop remoto con le c
 
 ### <a name="linux-edition"></a>Edizione per Linux
 
-Dopo aver creato la VM, è possibile accedervi tramite SSH. Usare le credenziali dell'account creato nel [ **nozioni di base** ](#basics) sezione del passaggio 3 per l'interfaccia della shell di testo. Per altre informazioni sulle connessioni SSH alle macchine virtuali di Azure, vedere [installare e configurare Desktop remoto per connettersi a una VM Linux in Azure](/azure/virtual-machines/linux/use-remote-desktop). In un client Windows, è possibile scaricare uno strumento client SSH come [Putty](http://www.putty.org). Se si preferisce un desktop con interfaccia grafica (X Windows System), è possibile usare X11 Forwarding su Putty o installare il client X2Go. 
+Dopo aver creato la VM, è possibile accedervi tramite SSH. Usare le credenziali dell'account creato nel [ **nozioni di base** ](#basics) sezione del passaggio 3 per l'interfaccia della shell di testo. Per altre informazioni sulle connessioni SSH alle macchine virtuali di Azure, vedere [installare e configurare Desktop remoto per connettersi a una VM Linux in Azure](/azure/virtual-machines/linux/use-remote-desktop). In un client Windows, è possibile scaricare uno strumento client SSH come [Putty](https://www.putty.org). Se si preferisce un desktop con interfaccia grafica (X Windows System), è possibile usare X11 Forwarding su Putty o installare il client X2Go. 
 
 > [!NOTE]
 > Nei test Microsoft il client X2Go ha fornito prestazioni migliori di X11 Forwarding. È quindi consigliabile usare il client X2Go per un'interfaccia desktop grafica.

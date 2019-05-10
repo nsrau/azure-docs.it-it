@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689408"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409775"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 
@@ -391,17 +391,10 @@ Le limitazioni predefinite generali e le limitazioni massime delle sottoscrizion
 ## <a name="possible-scenarios"></a>Scenari possibili
 SAP è spesso considerata una delle applicazioni più cruciali nelle aziende. L'architettura e le operazioni di queste applicazioni sono in genere complesse ed è quindi importante assicurare il rispetto dei requisiti per la disponibilità e le prestazioni.
 
-Le aziende devono quindi valutare con attenzione le applicazioni da eseguire in un ambiente di tipo cloud pubblico, indipendentemente dal provider di servizi cloud scelto.
+In questo modo le aziende devono valutare con attenzione sulla quale provider di cloud selezionate per l'esecuzione di questo tipo business critici i processi di business in. Azure è la piattaforma cloud pubblica ideale per i processi di business e applicazioni aziendali critiche SAP. Data la grande varietà di infrastruttura di Azure, quasi tutti i sistemi SAP NetWeaver e S/4 Hana esistenti possono essere ospitati in Azure oggi stesso. Azure offre le macchine virtuali con diversi terabyte di memoria e CPU più di 200. Oltre alle offerte da Azure [istanze Large di HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), le distribuzioni di HANA di tipo scale-out di fino a 24 TB e ANA di scalabilità orizzontale che consente le distribuzioni di 120 TB. 
 
-Ecco un elenco dei possibili tipi di sistema per la distribuzione di applicazioni basate su SAP NetWeaver in ambienti cloud pubblico:
 
-1. Sistemi di produzione di medie dimensioni
-2. Sistemi di sviluppo
-3. Sistemi di test
-4. Sistemi prototipo
-5. Sistemi di apprendimento/dimostrativi
-
-Per distribuire correttamente i sistemi SAP in IaaS di Azure o IaaS generica, è importate comprendere le differenze significative tra le offerte di outsourcer o provider di servizi di hosting tradizionali e le offerte IaaS. Mentre il provider di servizi di hosting o l'outsourcer tradizionale adatta l'infrastruttura (rete, risorse di archiviazione e tipo di server) al carico di lavoro che un cliente vuole ospitare, la scelta del carico di lavoro appropriato per le distribuzioni IaaS è responsabilità del cliente.
+Per distribuire correttamente i sistemi SAP in IaaS di Azure o IaaS generica, è importate comprendere le differenze significative tra le offerte di outsourcer o provider di servizi di hosting tradizionali e le offerte IaaS. Mentre il tradizionale hosting o l'outsourcer adatterà l'infrastruttura (rete, archiviazione e tipo di server) a un cliente vuole ospitare il carico di lavoro, è invece responsabilità del cliente o del partner per caratterizzare il carico di lavoro e scegliere di Azure corretto componenti di macchine virtuali, archiviazione e rete per le distribuzioni IaaS.
 
 Il cliente deve prima di tutto verificare gli elementi seguenti:
 
@@ -422,11 +415,13 @@ La maggior parte di quei dati si trova [qui (Linux)][virtual-machines-sizes-linu
 
 Occorre ricordare che i limiti elencati nel collegamento precedente sono i limiti superiori. Questo non significa che i limiti per qualsiasi risorsa, ad esempio IOPS, possono essere forniti in qualsiasi circostanza. Le eccezioni sono tuttavia costituite dalle risorse di CPU e di memoria di un tipo di VM selezionato. Per i tipi di VM supportati da SAP, le risorse di CPU e memoria vengono riservate e risultano quindi disponibili in qualsiasi momento per l'utilizzo nella VM.
 
-La piattaforma Microsoft Azure, analogamente ad altre piattaforme IaaS, è una piattaforma multi-tenant. Di conseguenza, le risorse di archiviazione, di rete e di altro tipo sono condivise tra i tenant. Una logica intelligente di limitazioni e quote viene usata per impedire a un tenant di influire drasticamente sulle prestazioni di un altro tenant. Anche se la logica in Azure prova a limitare le varianze rilevate nella larghezza di banda, le piattaforme con un livello elevato di condivisione tendono a presentare varianze per la disponibilità di risorse/larghezza di banda superiori a quelle usuali nelle distribuzioni locali di molti clienti. È quindi possibile che si rilevino diversi livelli di larghezza di banda rispetto alla rete o alle operazioni di I/O di archiviazione, ovvero volumi e latenza, da un minuto all'altro. Occorre tenere in considerazione la probabilità che un sistema SAP in Azure presenti varianze superiori rispetto a un sistema locale.
+La piattaforma Microsoft Azure è una piattaforma multi-tenant. Di conseguenza, le risorse di archiviazione, di rete e di altro tipo sono condivise tra i tenant. Una logica intelligente di limitazioni e quote viene usata per impedire a un tenant di influire drasticamente sulle prestazioni di un altro tenant. In particolare per la certificazione della piattaforma Azure per SAP HANA, Microsoft deve dimostrare l'isolamento delle risorse per i casi in cui più macchine virtuali possono eseguito nello stesso host con regolarità per SAP. Anche se la logica in Azure prova a limitare le varianze rilevate nella larghezza di banda piattaforme di piccole dimensioni, ampiamente condivise tendono a presentare varianze nella disponibilità di risorse/larghezza di banda rispetto ai clienti potrebbero riscontrare nelle proprie distribuzioni locali. Occorre tenere in considerazione la probabilità che un sistema SAP in Azure presenti varianze superiori rispetto a un sistema locale.
 
-L'ultimo passaggio consiste nel valutare i requisiti di disponibilità. Può accadere che sia necessario aggiornare l'infrastruttura sottostante di Azure e che sia necessario il riavvio degli host che eseguono le macchine virtuali. In questi casi vengono arrestate e riavviate anche le macchine virtuali in esecuzione in questi host. Questi interventi di manutenzione vengono eseguiti al di fuori dei regolari orari di ufficio per una determinata area, ma la potenziale finestra di poche ore durante cui si verifica un riavvio è relativamente ampia. La piattaforma Azure include varie tecnologie che è possibile configurare per alleviare l'impatto di questi aggiornamenti. Sono stati progettati miglioramenti futuri specifici per la piattaforma Azure, DBMS e l'applicazione SAP, in modo da ridurre al minimo l'impatto di questi riavvii.
+L'ultimo passaggio consiste nel valutare i requisiti di disponibilità. Può accadere che sia necessario aggiornare l'infrastruttura sottostante di Azure e che sia necessario il riavvio degli host che eseguono le macchine virtuali. Microsoft documenta i diversi casi [manutenzione per macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). Per attenuare i rari casi in cui le macchine virtuali necessario riavviare il computer, ma ancora più importante per i casi è necessario al sistema operativo guest di patch o ai componenti DBMS, è necessario sviluppare un concetti valido di disponibilità elevata per i sistemi SAP di produzione. Questo requisito non è diverso rispetto ai requisiti che devi affrontare in locale. Microsoft è costantemente miglioramento della piattaforma Azure per ridurre i tempi di inattività causato da modifiche della piattaforma. 
 
 Per distribuire correttamente un sistema SAP in Azure, è necessario che i sistemi operativi dei sistemi SAP locali, il database e le applicazioni SAP siano visualizzati nella matrice di supporto di Azure per SAP, che siano conformi alle risorse che l'infrastruttura di Azure può fornire e che siano compatibili con i Contratti di servizio relativi alla disponibilità offerti da Microsoft Azure. Quando questi sistemi vengono identificati, è necessario scegliere uno dei due scenari di distribuzione seguenti.
+
+
 
 
 
@@ -1358,7 +1353,7 @@ Potrebbe essere necessario configurare il firewall nelle macchine virtuali per c
 >
 
 - - -
-#### <a name="security-recommendations"></a>Suggerimenti per la sicurezza
+#### <a name="security-recommendations"></a>Raccomandazioni sulla sicurezza
 
 L'interfaccia utente grafica SAP non si connette immediatamente alle istanze di SAP (porta 32xx) in esecuzione, ma si connette prima al processo del server dei messaggi SAP (porta 36xx). In passato, la stessa porta era usata dal server dei messaggi per la comunicazione interna verso le istanze dell'applicazione. Per impedire la comunicazione accidentale dei server applicazioni locali con un server dei messaggi in Azure, le porte di comunicazione possono essere modificate. È consigliabile modificare la comunicazione interna tra il server dei messaggi SAP e le relative istanze dell'applicazione e un numero di porta diverso in sistemi clonati da sistemi locali, ad esempio un clone di sviluppo per i test di progetto e così via. Questa operazione può essere eseguita con il parametro di profilo predefinito:
 
@@ -1494,7 +1489,7 @@ $vm = Get-AzVM -ResourceGroupName $rgName -Name SAPERPDemo
 Add-AzVMDataDisk -VM $vm -Name datadisk -DiskSizeInGB 1023 -CreateOption empty -Lun 0 | Update-AzVM
 ```
 
-##### <a name="cli"></a>CLI
+##### <a name="cli"></a>Interfaccia della riga di comando
 
 L'esempio di codice seguente può essere usato in Linux. Per Windows, usare PowerShell come descritto in precedenza oppure adattare l'esempio per usare %rgName% anziché $rgName e impostare la variabile di ambiente con il comando di Windows *set*.
 
@@ -1506,7 +1501,7 @@ rgNameLower=saperpdemo1
 az group create --name $rgName --location "North Europe"
 ```
 
-* Creare un nuovo account di archiviazione.
+* Crea un nuovo account di archiviazione
 
 ```
 az storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku Standard_LRS --name $rgNameLower
@@ -1634,12 +1629,12 @@ Le porte di comunicazione SAP tipiche sono elencate nella tabella seguente. Sost
 
 <!-- sapms is prefix of a SAP service name and not a spelling error -->
 
-| Service | Nome della porta | Esempio `<nn`> = 01 | Intervallo predefinito (min-max) | Comment |
+| Service | Nome porta | Esempio `<nn`> = 01 | Intervallo predefinito (min-max) | Commento |
 | --- | --- | --- | --- | --- |
 | Dispatcher |sapdp`<nn>` vedere * |3201 |3200 - 3299 |Dispatcher di SAP, usato dall'interfaccia utente grafica di SAP per Windows e Java |
 | Server messaggi |sapms`<sid`> vedere ** |3600 |sapms libero`<anySID`> |sid = SAP-System-ID |
 | Gateway |sapgw`<nn`> vedere * |3301 |libero |Gateway SAP, usato per le comunicazioni CPIC e RFC |
-| Router SAP |sapdp99 |3299 |libero |Solo i nomi del servizio CI (istanza centrale) possono essere riassegnati in /etc/services specificando un valore arbitrario dopo l'installazione. |
+| Router SAP |sapdp99 |3299 |Gratuito |Solo i nomi del servizio CI (istanza centrale) possono essere riassegnati in /etc/services specificando un valore arbitrario dopo l'installazione. |
 
 *) nn = numero istanza SAP
 

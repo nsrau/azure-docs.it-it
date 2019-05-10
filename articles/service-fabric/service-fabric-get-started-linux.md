@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 49d06c05af085624a0d495a65e139d3857a13fc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712614"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470238"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -179,8 +179,8 @@ Il runtime di Service Fabric fornito con l'installazione dell'SDK include i pacc
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicito da npm | più recenti |
-RHEL | - | OpenJDK 1.8 | Implicito da npm | più recenti |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicito da npm | più recente |
+RHEL | - | OpenJDK 1.8 | Implicito da npm | più recente |
 
 ## <a name="set-up-a-local-cluster"></a>Configurare un cluster locale
 Dopo aver completato l'installazione, avviare un cluster locale.
@@ -334,7 +334,6 @@ Per rimuovere le istanze di Service Fabric SDK, eseguire i comandi seguenti.
 * [Prepare a Linux development environment on Windows (Preparare un ambiente di sviluppo Linux in Windows)](service-fabric-local-linux-cluster-windows.md)
 * [Gestire le applicazioni usando l'interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 * [Differenze in Service Fabric tra Windows e Linux](service-fabric-linux-windows-differences.md)
-* [Automatizzare l'applicazione di patch al sistema operativo nel cluster Linux](service-fabric-patch-orchestration-application-linux.md)
 * [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 
 <!-- Links -->

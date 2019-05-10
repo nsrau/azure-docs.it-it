@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b979609374afbd11bde0e15ce540e8930315482f
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024592"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472473"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Allegare la risorsa Servizi cognitivi a un set di competenze - Ricerca di Azure 
 
@@ -28,7 +28,7 @@ Se la pipeline è costituita da competenze non correlate alle API Servizi cognit
 > [!NOTE]
 > Se si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti oppure aggiungendo altri algoritmi di intelligenza artificiale, sarà necessario collegare una risorsa fatturabile di Servizi cognitivi. Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di individuazione di documenti in Ricerca di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
 >
-> L'esecuzione delle competenze incorporate verrà addebitato alla esistente [servizi cognitivi pay-capacità di passare prezzo](https://azure.microsoft.com/pricing/details/cognitive-services/). Prezzi di estrazione di immagini è descritta nel [pagina dei prezzi di ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> L'esecuzione delle competenze predefinite viene addebitata secondo gli attuali [prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). I prezzi per l'estrazione delle immagini sono descritti nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="use-free-resources"></a>Usare risorse gratuite
 
@@ -60,7 +60,7 @@ Vengono addebitate solo le competenze che chiamano le API Servizi cognitivi. Le 
 
    ![Crea una risorsa di servizi cognitivi](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "crea una risorsa di servizi cognitivi")
 
-1. Nel percorso, scegliere la stessa area di ricerca di Azure per evitare costi di larghezza di banda in uscita tra aree.
+1. Nel percorso, scegliere la stessa area di ricerca di Azure. Questa operazione è necessaria per motivi di prestazioni, ma void anche i costi della larghezza di banda in uscita tra aree.
 
 1. Nel piano tariffario, scegliere **S0** per ottenere la raccolta all-in-one delle funzionalità di servizi cognitivi, incluse le funzionalità di visione artificiale e linguaggio che supportano le competenze predefinite usate dalla ricerca di Azure. 
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550909"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466548"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Abilitare le procedure di distribuzione sicure con Azure Deployment Manager (anteprima privata)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Abilitare la procedure di distribuzione sicure con distribuzione di gestione di Azure (anteprima pubblica)
 
 Per distribuire il servizio in più aree e verificare che venga eseguito come previsto in ogni area, è possibile usare Azure Deployment Manager per coordinare un'implementazione a fasi del servizio. Proprio come per qualsiasi distribuzione di Azure, si definiscono le risorse per il servizio nei [modelli di Resource Manager](resource-group-authoring-templates.md). Dopo aver creato i modelli, si usa Deployment Manager per descrivere la topologia per il servizio e come deve essere implementato.
 
@@ -200,7 +200,9 @@ Nel modello di implementazione si crea un'origine artefatto per i file binari da
 
 ### <a name="steps"></a>Passaggi
 
-È possibile definire un passaggio da eseguire prima o dopo l'operazione di distribuzione. Attualmente è disponibile solo il passaggio `wait`. Il passaggio wait sospende la distribuzione prima di continuare. Consente di verificare che il servizio sia in esecuzione come previsto prima di distribuire l'unità di servizio successiva. L'esempio seguente illustra il formato generale di un passaggio wait.
+È possibile definire un passaggio da eseguire prima o dopo l'operazione di distribuzione. Attualmente, solo il `wait` passaggio e il passaggio 'healthCheck' sono disponibili. 
+
+Il passaggio wait sospende la distribuzione prima di continuare. Consente di verificare che il servizio sia in esecuzione come previsto prima di distribuire l'unità di servizio successiva. L'esempio seguente illustra il formato generale di un passaggio wait.
 
 ```json
 {
@@ -219,7 +221,7 @@ Nel modello di implementazione si crea un'origine artefatto per i file binari da
 
 La proprietà duration usa lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). L'esempio precedente specifica un'attesa di un minuto.
 
-Per altre informazioni, vedere [steps template reference](/azure/templates/Microsoft.DeploymentManager/steps) (Informazioni di riferimento sul modello steps).
+Per altre informazioni sul passaggio di verifica dell'integrità, vedere [ ]() e [ ]() per altre informazioni, vedere [passaggi riferimento a un modello](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Implementazioni
 

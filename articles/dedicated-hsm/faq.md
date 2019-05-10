@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 5/8/2019
 ms.author: barclayn
-ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118979"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467733"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -233,7 +233,7 @@ Microsoft non ha la possibilità di connettersi ai moduli di protezione hardware
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>D: Cosa accade se è necessario riavviare il modulo di protezione hardware?
 
- Il modulo di protezione hardware è un'opzione di riavvio della riga di comando e si noti che è necessario usare l'opzione "riavvio a freddo". Se l'operazione non riesce per qualsiasi motivo, genera una richiesta di supporto con Microsoft e possiamo avere il dispositivo fisicamente riavviato. 
+Il modulo di protezione hardware è un'opzione di riavvio della riga di comando, tuttavia, si verificano problemi di blocco di riavvio in modo intermittente e per questo motivo, è consigliabile per l'approccio più sicuro il riavvio di generare una richiesta di supporto con Microsoft affinché il dispositivo fisicamente riavviato. 
 
 ## <a name="cryptography-and-standards"></a>Crittografia e standard
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.author: rayne
-ms.openlocfilehash: 926e5b685369f8660daf6221f818734f6f12d2b5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0383226853ed86943b73d2b8740825967f3124c9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928408"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411522"
 ---
 # <a name="troubleshoot-the-process-server"></a>Risolvere i problemi del server di elaborazione
 
@@ -51,14 +51,14 @@ Il server di elaborazione genera un numero di avvisi sull'integrità. Questi avv
 
 **Tipo di avviso** | **Error (Errore) (Error (Errore)e)** | **Risolvere i problemi**
 --- | --- | --- 
-![Healthy][green] | Nessuna  | Server di elaborazione sia connesso e integro.
+![Integra][green] | Nessuna  | Server di elaborazione sia connesso e integro.
 ![Avviso][yellow] | Servizi specificati non sono in esecuzione. | 1. Verificare che i servizi siano in esecuzione.<br/> 2. Se i servizi sono eseguiti come previsto, seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).
 ![Avviso][yellow]  | CPU utilizzo > 80% negli ultimi 15 minuti. | 1. Non aggiungere nuovi computer.<br/>2. Verificare che il numero di macchine virtuali con il server di elaborazione viene allineato al [definiti limiti](site-recovery-plan-capacity-vmware.md#capacity-considerations)e provare a configurare un [server di elaborazione aggiuntivo](vmware-azure-set-up-process-server-scale.md).<br/>3. Seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).
-![Critico][red] |  CPU utilizzo > 95% negli ultimi 15 minuti. | 1. Non aggiungere nuovi computer.<br/>2. Verificare che il numero di macchine virtuali con il server di elaborazione viene allineato al [definiti limiti](site-recovery-plan-capacity-vmware.md#capacity-considerations)e provare a configurare un [server di elaborazione aggiuntivo](vmware-azure-set-up-process-server-scale.md).<br/>3. Seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).<br/> 4. Se il problema persiste, eseguire la [Deployment Planner](http://aka.ms/asr-v2a-deployment-planner) per la replica di server VMware/computer fisici.
+![Critico][red] |  CPU utilizzo > 95% negli ultimi 15 minuti. | 1. Non aggiungere nuovi computer.<br/>2. Verificare che il numero di macchine virtuali con il server di elaborazione viene allineato al [definiti limiti](site-recovery-plan-capacity-vmware.md#capacity-considerations)e provare a configurare un [server di elaborazione aggiuntivo](vmware-azure-set-up-process-server-scale.md).<br/>3. Seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).<br/> 4. Se il problema persiste, eseguire la [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) per la replica di server VMware/computer fisici.
 ![Avviso][yellow] | Memoria utilizzo > 80% negli ultimi 15 minuti. |  1. Non aggiungere nuovi computer.<br/>2. Verificare che il numero di macchine virtuali con il server di elaborazione viene allineato al [definiti limiti](site-recovery-plan-capacity-vmware.md#capacity-considerations)e provare a configurare un [server di elaborazione aggiuntivo](vmware-azure-set-up-process-server-scale.md).<br/>3. Seguire le istruzioni associate all'avviso.<br/> 4. Se il problema persiste, seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).
-![Critico][red] | Memoria utilizzo > 95% per gli ultimi 15 minuti. | 1. Non aggiungere nuovi computer e prendere in considerazione configurazione di un' [server di elaborazione aggiuntivo](vmware-azure-set-up-process-server-scale.md).<br/> 2. Seguire le istruzioni associate all'avviso.<br/> 3. 4. Se il problema persiste, seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).<br/> 4. Se il problema persiste, eseguire la [Deployment Planner](http://aka.ms/asr-v2a-deployment-planner) per problemi di replica di server VMware/computer fisici.
+![Critico][red] | Memoria utilizzo > 95% per gli ultimi 15 minuti. | 1. Non aggiungere nuovi computer e prendere in considerazione configurazione di un' [server di elaborazione aggiuntivo](vmware-azure-set-up-process-server-scale.md).<br/> 2. Seguire le istruzioni associate all'avviso.<br/> 3. 4. Se il problema persiste, seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).<br/> 4. Se il problema persiste, eseguire la [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) per problemi di replica di server VMware/computer fisici.
 ![Avviso][yellow] | Cartella della cache spazio < 30% negli ultimi 15 minuti. | 1. Non aggiungere nuovi computer e provare a configurare un [server di elaborazione aggiuntivo](vmware-azure-set-up-process-server-scale.md).<br/>2. Verificare che il numero di macchine virtuali con il server di elaborazione viene allineato al [linee guida](site-recovery-plan-capacity-vmware.md#capacity-considerations).<br/> 3. Seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).
-![Critico][red] |  Spazio libero < 25% per ultimi 15 minuti | 1. Seguire le istruzioni associate all'avviso per risolvere questo problema.<br/> 2. 3. Seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).<br/> 3. Se il problema persiste, eseguire la [Deployment Planner](http://aka.ms/asr-v2a-deployment-planner) per la replica di server VMware/computer fisici.
+![Critico][red] |  Spazio libero < 25% per ultimi 15 minuti | 1. Seguire le istruzioni associate all'avviso per risolvere questo problema.<br/> 2. 3. Seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).<br/> 3. Se il problema persiste, eseguire la [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) per la replica di server VMware/computer fisici.
 ![Critico][red] | Nessun heartbeat dal server di elaborazione per 15 minuti o più. Il servizio tmansvs non comunica con il server di configurazione. | 1) verificare che il server di elaborazione è in esecuzione.<br/> 2. Verificare che il tmassvc sia in esecuzione nel server di elaborazione.<br/> 3. Seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).
 
 

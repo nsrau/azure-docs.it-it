@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: 0f1b5f424a71aeccd4b1e57129c0f5b22ff158af
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e8414b9737e0ee7f847827a432dd9887931a2532
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159391"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470429"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Esercitazione: Configurare Comeet Recruiting Software per il provisioning utenti automatico
 
@@ -84,7 +84,7 @@ Questa sezione illustra i passaggi per configurare il provisioning di Azure AD d
 
 ### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>Per configurare il provisioning utenti automatico per il Software Recruiting Comeet in Azure AD:
 
-1. Accedi per il [portale di Azure](https://portal.azure.com) e selezionare **applicazioni aziendali**, selezionare **tutte le applicazioni**, quindi selezionare **Comeet Recruiting Software**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali**, quindi selezionare **tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -104,12 +104,11 @@ Questa sezione illustra i passaggi per configurare il provisioning di Azure AD d
 
 6. Nel [console di amministrazione di Software Recruiting Comeet](https://app.comeet.co/), passare alla **Comeet > Impostazioni > autenticazione > Microsoft Azure**e copiare il **Token segreto dell'azienda**valore per il **Token segreto** campo in Azure AD.
 
-    ![Comeet Recruiting il Provisioning del Software](./media/comeetrecruitingsoftware-provisioning-tutorial/secret-token-1.png)
-    
+    ![Comeet Recruiting il Provisioning del Software](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
 7. Dopo aver completato i campi indicati nel passaggio 5, fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Comeet Recruiting Software. Se la connessione non riesce, verificare che l'account Comeet Recruiting Software abbia autorizzazioni di amministratore e riprovare.
 
-    ![token](common/provisioning-testconnection-token.png)
+    ![Token](common/provisioning-testconnection-token.png)
 
 8. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
@@ -119,11 +118,11 @@ Questa sezione illustra i passaggi per configurare il provisioning di Azure AD d
 
 10. Sotto il **mapping** sezione, selezionare **Synchronize Azure Active Directory Users per Comeet**.
 
-    ![Comeet Recruiting il Provisioning del Software](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mappings.png)
+    ![Comeet Recruiting i mapping degli utenti di Software](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
 
 11. Esaminare gli attributi utente sincronizzati da Azure AD con Comeet Recruiting Software nel **Mapping degli attributi** sezione. Gli attributi selezionati come **corrispondenti** le proprietà utilizzate per soddisfare gli account utente in Software Recruiting Comeet per operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Comeet Recruiting il Provisioning del Software](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mapping-attributes.png)
+    ![Comeet selezione attributi di gruppo di Software](media/comeet-recruiting-software-provisioning-tutorial/user-mapping-attributes.png)
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -156,7 +155,3 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

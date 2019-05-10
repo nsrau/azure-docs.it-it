@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 414200462d3575aa576b5ef2268a3ac0b01063ba
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190768"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231086"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Panoramica di Microsoft Identity Platform (v2.0)
 
@@ -56,7 +56,7 @@ L'uso di identità non deve necessariamente essere difficile. È possibile scegl
 
 Il grafico seguente mostra alcuni scenari di app di autenticazione comuni e può essere usato come riferimento quando si integra Microsoft Identity Platform con l'app.
 
-[![Scenari di applicazioni in Microsoft Identity Platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.png#lightbox)
+[![Scenari di applicazioni in Microsoft Identity Platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

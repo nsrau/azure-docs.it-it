@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3ddda89b19a04bdcd45f392f297ee5e930833538
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fa461d8c3a70d4b0d2d9973a840ffc7d1ff6470
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711619"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472776"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Aggiornamento di un cluster di Azure Service Fabric
 
@@ -99,7 +99,7 @@ Se nel cluster è stato impostato l'aggiornamento manuale di Fabric, questi crit
 In un cluster è possibile personalizzare molte impostazioni di configurazione diverse, ad esempio il livello di affidabilità del cluster e le proprietà dei nodi. Per altre informazioni, vedere [Impostazioni di un cluster di Service Fabric](service-fabric-cluster-fabric-settings.md).
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>Patch del sistema operativo nei nodi del cluster
-Patch Orchestration Application (POA) è un'applicazione Service Fabric che automatizza l'applicazione di patch nei sistemi operativi in un cluster di Service Fabric senza tempi di inattività. È possibile eseguire la distribuzione di [Patch Orchestration Application per Windows](service-fabric-patch-orchestration-application.md) o di [Patch Orchestration Application for Linux](service-fabric-patch-orchestration-application-linux.md) nel cluster per installare patch in modo orchestrato, mantenendo i servizi sempre disponibili. 
+Patch Orchestration Application (POA) è un'applicazione Service Fabric che automatizza l'applicazione di patch nei sistemi operativi in un cluster di Service Fabric senza tempi di inattività. È possibile eseguire la distribuzione di [Patch Orchestration Application per Windows](service-fabric-patch-orchestration-application.md) nel cluster per installare patch in modo orchestrato, mantenendo i servizi sempre disponibili.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

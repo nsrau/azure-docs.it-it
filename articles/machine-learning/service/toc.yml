@@ -21,7 +21,7 @@
         - name: Eseguire un esperimento in locale
           displayName: 'workspace, install, sdk'
           href: quickstart-run-local-notebook.md
-    - name: Interfaccia visiva grafica
+    - name: Interfaccia visiva
       items:
         - name: Preparare e visualizzare i dati
           displayName: experiment drag-and-drop
@@ -45,7 +45,7 @@
             - name: 2. Eseguire il training automatico di un modello di Machine Learning
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
-    - name: Interfaccia visiva grafica
+    - name: Interfaccia visiva
       items:
         - name: Eseguire il training del modello di regressione
           displayName: experiment drag-and-drop visual interface Tutorial 1
@@ -58,7 +58,7 @@
     - name: Notebooks
       displayName: 'example, examples, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Esperimenti dell'interfaccia visiva grafica
+    - name: Esperimenti dell'interfaccia visiva
       items:
         - name: Prevedere il prezzo
           displayName: 'Sample 1, training, regression'
@@ -224,7 +224,8 @@
       items:
         - name: Creare una pipeline di Machine Learning
           href: how-to-create-your-first-pipeline.md
-        - name: Eseguire il training e distribuire modelli di ML con Azure Pipelines
+        - name: CI/CD dei flussi di lavoro ML con Azure Pipelines
+          displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
           mainContext: true
     - name: Gestire le quote di risorse
@@ -238,16 +239,13 @@
     - name: Machine Learning SDK
       displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
-    - name: SDK di preparazione dei dati
-      displayName: api core package python data prep
-      href: 'https://aka.ms/data-prep-sdk'
     - name: Monitoring SDK
       displayName: api package python monitor
       href: 'https://aka.ms/aml-monitoring-sdk'
     - name: Interfaccia della riga di comando di Machine Learning
       displayName: 'cli, extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
-    - name: Moduli dell'interfaccia visiva grafica
+    - name: Moduli dell'interfaccia visiva
       displayName: module reference
       items:
         - name: Panoramica sui riferimenti ai moduli

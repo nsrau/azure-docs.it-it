@@ -8,19 +8,19 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693603"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467926"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Creare flussi di lavoro con il connettore IoT Central in Microsoft Flow
 
 *Questo argomento è rivolto ai responsabili della compilazione e agli amministratori.*
 
 Usare Microsoft Flow per automatizzare i flussi di lavoro nelle molte applicazioni e i vari servizi di cui si servono gli utenti aziendali. Grazie al connettore IoT Central in Microsoft Flow è possibile attivare flussi di lavoro quando una regola viene attivata in IoT Central. In un flusso di lavoro attivato da IoT Central o qualsiasi altra applicazione, è possibile usare le azioni nel connettore IoT Central per:
-- Creare un dispositivo
+- Crea un dispositivo
 - Ottenere le informazioni sul dispositivo
 - Aggiornare le proprietà e le impostazioni di un dispositivo
 - Eseguire un comando in un dispositivo
@@ -43,7 +43,7 @@ Questa sezione illustra come attivare una notifica per dispositivi mobili nell'a
 
 1. Verrà visualizzato un elenco di flussi di lavoro che possono accedere a e sono associati a questa regola IoT Central. Fare clic su **Esplora modelli** oppure **nuovo > Crea da modello** ed è possibile scegliere da uno qualsiasi dei modelli disponibili. 
 
-    ![Modelli disponibili di Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates.png)
+    ![Modelli disponibili di Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates1.png)
 
 1. Verrà richiesto di accedere ai connettori nel modello che scelto. Una volta che i connettori si sarà connesso, viene visualizzata nella finestra di progettazione per compilare il flusso di lavoro. Il flusso di lavoro include un trigger di IoT Central in cui l'applicazione e la regola sono già inserite.
 
@@ -52,7 +52,7 @@ Questa sezione illustra come attivare una notifica per dispositivi mobili nell'a
     > [!NOTE]
     > Selezionare il **Vedi altro** testo nella finestra del contenuto dinamico per ottenere valori di misura e proprietà che ha attivato la regola.
 
-    ![Azione di modifica del flusso con il pannello dinamico aperto](./media/howto-add-microsoft-flow/flowdynamicpane.png)
+    ![Azione di modifica del flusso con il pannello dinamico aperto](./media/howto-add-microsoft-flow/flowdynamicpane1.png)
 
 1. Al termine dell'azione di modifica, selezionare **salvare**. Si verrà riportati alla pagina di panoramica del flusso di lavoro. Qui è possibile visualizzare la cronologia delle esecuzioni e condividerla con i colleghi.
 
@@ -79,7 +79,7 @@ Questa sezione illustra come creare un nuovo dispositivo in IoT Central quando s
 
 1. Selezionare il campo Nome dispositivo. Dal panello del contenuto dinamico scegliere **Nome dispositivo**. Questo valore viene passato dall'input l'utente immette tramite l'app per dispositivi mobili ed è il nome del nuovo dispositivo di IoT Central. In questo esempio, l'unico campo obbligatorio è il nome del dispositivo, indicato dall'asterisco rosso. Un modello di dispositivo diverso potrebbe avere più campi obbligatori da compilare per la creazione di un nuovo dispositivo.
 
-    ![Pannello dinamico dell'azione di creazione dispositivo in Microsoft Flow](./media/howto-add-microsoft-flow/flowcreatedevice.png)
+    ![Pannello dinamico dell'azione di creazione dispositivo in Microsoft Flow](./media/howto-add-microsoft-flow/flowcreatedevice1.png)
 
 1. (Facoltativo) Compilare gli altri campi come si è soliti fare per creare nuovi dispositivi.
 
@@ -110,7 +110,7 @@ Questa sezione illustra come aggiornare le impostazioni e proprietà di un dispo
 
 1. È possibile aggiornare il nome del dispositivo. Per aggiornare le proprietà e le impostazioni del dispositivo, è necessario selezionare il modello del dispositivo da aggiornare nell'elenco a discesa **Device Template** (Modello di dispositivo). Il riquadro Azioni si espande per visualizzare tutte le proprietà e le impostazioni che è possibile aggiornare.
 
-    ![Flusso di lavoro di aggiornamento dispositivo di Microsoft Flow](./media/howto-add-microsoft-flow/flowupdatedevice.png)
+    ![Flusso di lavoro di aggiornamento dispositivo di Microsoft Flow](./media/howto-add-microsoft-flow/flowupdatedevice1.png)
 
 1. Selezionare tutte le proprietà e le impostazioni che si desidera aggiornare. Dal riquadro del contenuto dinamico, scegliere l'input corrispondente dal trigger. In questo esempio, il valore Location (Posizione) viene propagato verso il basso per aggiornare la proprietà Location del dispositivo.
 
@@ -126,7 +126,7 @@ Questa sezione illustra come aggiornare le impostazioni e proprietà di un dispo
 
 È possibile ottenere informazioni quali nome del dispositivo, nome del modello di dispositivo, i valori delle proprietà e i valori delle impostazioni da passare all'azione successiva nel flusso di lavoro. Ecco un flusso di lavoro di esempio che passano lungo il valore della proprietà nome del cliente da un dispositivo per Microsoft Teams.
 
-   ![Flusso di lavoro di flusso get dispositivi](./media/howto-add-microsoft-flow/flowgetdevice.png)
+   ![Flusso di lavoro di flusso get dispositivi](./media/howto-add-microsoft-flow/flowgetdevice1.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>Eseguire un comando in un dispositivo in un flusso di lavoro
@@ -137,7 +137,7 @@ Questa sezione illustra come aggiornare le impostazioni e proprietà di un dispo
     
 È possibile scegliere il comando per eseguire e passare i parametri del comando tramite questa azione. Ecco un flusso di lavoro di esempio che esegue un comando di riavvio del dispositivo da un pulsante nell'app per dispositivi mobili Microsoft Flow.
 
-   ![Flusso di lavoro di flusso get dispositivi](./media/howto-add-microsoft-flow/flowrunacommand.png)
+   ![Flusso di lavoro di flusso get dispositivi](./media/howto-add-microsoft-flow/flowrunacommand1.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Eliminare un dispositivo in un flusso di lavoro
 
