@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400018"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146138"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell
 
@@ -111,5 +111,5 @@ Ecco le tre credenziali da annotare e i cmdlet che è necessario eseguire per re
 
 Questa esercitazione ha illustrato come creare un'entità servizio da usare per accedere a Desktop virtuale Windows. Per altre informazioni su come accedere a Desktop virtuale Windows, continuare con le procedure per connettersi a Desktop virtuale Windows.
 
-- [Connettersi al client di Desktop remoto in Windows 7 e Windows 10](connect-windows-7-and-10.md)
-- [Connettersi al client Web dell'anteprima di Desktop virtuale Windows](connect-web.md)
+- [Connettersi da Windows 10 o Windows 7](connect-windows-7-and-10.md)
+- [Connettersi da un Web browser](connect-web.md)

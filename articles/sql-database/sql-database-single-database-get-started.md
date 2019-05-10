@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/11/2019
-ms.openlocfilehash: b8395b5e67660f2b6fb1b671a7be6a20b4fceddd
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 04/23/2019
+ms.openlocfilehash: 18dde6b028365cc04343b6d2f461cdb8c1a2bede
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004976"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074365"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Guida introduttiva: Creare un database singolo del database SQL di Azure usando il portale di Azure
 
@@ -29,67 +29,71 @@ Per tutti i passaggi di questa guida introduttiva, accedere al [portale di Azure
 
 ## <a name="create-a-single-database"></a>Creare un database singolo
 
-Un database singolo include un set definito di risorse di calcolo, memoria, I/O e archiviazione basate su uno dei due [modelli di acquisto](sql-database-purchase-models.md). Quando si crea un database singolo, si definisce anche un [server di database SQL](sql-database-servers.md) per gestirlo e lo si inserisce all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) in un'area geografica specificata.
+Un database singolo può essere creato al livello di elaborazione con provisioning o serverless (anteprima).
+
+- Un database singolo nel livello di elaborazione con provisioning dispone di una quantità definita di risorse di elaborazione preassegnate, oltre a un set di memoria e a risorse di archiviazione che usano uno dei due [modelli di acquisto](sql-database-purchase-models.md).
+- Un database singolo nel livello di elaborazione serverless dispone di una gamma di risorse di elaborazione che vengono ridimensionate automaticamente, oltre a una quantità specifica di memoria per core e a una quantità specifica di risorse di archiviazione, ed è disponibile solo nei [modelli di acquisto basati su vCore](sql-database-service-tiers-vcore.md).
+
+Quando si crea un database singolo, si definisce anche un [server di database SQL](sql-database-servers.md) per gestirlo e lo si inserisce all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) in un'area geografica specificata.
+
+> [!NOTE]
+> Questo argomento di avvio rapido usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) e il livello di elaborazione [serverless](sql-database-serverless.md), ma è disponibile anche il [modello di acquisto basato su DTU](sql-database-service-tiers-DTU.md).
 
 Per creare un database singolo contenente i dati di esempio di AdventureWorksLT:
 
 1. Selezionare **Crea risorsa** nell'angolo superiore sinistro del portale di Azure.
-2. Selezionare **Database** e quindi **Database SQL** per aprire la pagina **Crea database SQL**. 
+2. Selezionare **Database** e quindi **Database SQL** per aprire la pagina **Crea database SQL**.
 
    ![Creare un database singolo](./media/sql-database-get-started-portal/create-database-1.png)
 
-1. Nella sezione **Dettagli del progetto** della scheda **Generale** digitare o selezionare i valori seguenti:
+3. Nella sezione **Dettagli del progetto** della scheda **Generale** digitare o selezionare i valori seguenti:
 
    - **Sottoscrizione** se non è già visualizzata, selezionare la sottoscrizione corretta nell'elenco a discesa.
    - **Gruppo di risorse**: selezionare **Crea nuovo**, digitare `myResourceGroup` e selezionare **OK**.
 
-   ![Nuovo database SQL - scheda Generale](media/sql-database-get-started-portal/new-sql-database-basics.png)
+     ![Nuovo database SQL - scheda Generale](media/sql-database-get-started-portal/new-sql-database-basics.png)
 
-
-1. Nella sezione **Dettagli del database** digitare o selezionare i valori seguenti: 
+4. Nella sezione **Dettagli del database** digitare o selezionare i valori seguenti:
 
    - **Nome database**: Immettere `mySampleDatabase`.
-   - **Server**: selezionare **Crea nuovo** e immettere i valori seguenti, quindi scegliere **Selezionare**. 
-       - **Nome server**: digitare `mysqlserver`, oltre ad alcuni numeri per garantire l'univocità. 
+   - **Server**: selezionare **Crea nuovo** e immettere i valori seguenti, quindi scegliere **Selezionare**.
+       - **Nome server**: digitare `mysqlserver`, oltre ad alcuni numeri per garantire l'univocità.
        - **Account di accesso amministratore server**: Digitare `azureuser`.
-       - **Password**: Digitare una password complessa che soddisfi i corrispondenti requisiti. 
-       - **Località**: scegliere una località dall'elenco a discesa, ad esempio `West US 2`. 
+       - **Password**: Digitare una password complessa che soddisfi i corrispondenti requisiti.
+       - **Località**: scegliere una località dall'elenco a discesa, ad esempio `West US 2`.
 
-       ![Nuovo server](media/sql-database-get-started-portal/new-server.png)
+         ![Nuovo server](media/sql-database-get-started-portal/new-server.png)
 
-        > [!IMPORTANT]
-        > Ricordarsi di prendere nota dell'account di accesso amministratore del server e della password per poter accedere al server e ai database per questa e le altre guide introduttive. Se si dimentica l'account di accesso o la password, è possibile recuperare il nome di accesso o reimpostare la password nella pagina **SQL Server**. Per aprire la pagina **SQL Server**, selezionare il nome del server nella pagina **Panoramica** del database dopo che questo è stato creato.
-
-      ![Dettagli del database SQL](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
-
-   - **Usare il pool elastico SQL?**: selezionare l'opzione **No**. 
-   - **Calcolo e archiviazione**: scegliere **Configura database** e, per questo argomento di avvio rapido, selezionare il livello di servizio **Standard** e quindi usare il dispositivo di scorrimento per selezionare **10 DTU (S0)** e **1** GB di spazio di archiviazione. Selezionare **Applica**. 
-
-    ![Configurare il livello](media/sql-database-get-started-portal/create-database-s1.png) 
-
-
-      > [!NOTE]
-      > Questa guida introduttiva usa il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md), ma è disponibile anche il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
       > [!IMPORTANT]
-      > Nel livello Premium è attualmente disponibile uno spazio di archiviazione superiore a 1 TB in tutte le aree tranne Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, aree US DoD e US Government (area centrale). In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB.  Per altre informazioni, vedere le [limitazioni correnti di P11 e P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+      > Ricordarsi di prendere nota dell'account di accesso amministratore del server e della password per poter accedere al server e ai database per questa e le altre guide introduttive. Se si dimentica l'account di accesso o la password, è possibile recuperare il nome di accesso o reimpostare la password nella pagina **SQL Server**. Per aprire la pagina **SQL Server**, selezionare il nome del server nella pagina **Panoramica** del database dopo che questo è stato creato.
 
-    
+        ![Dettagli del database SQL](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
+   - **Usare il pool elastico SQL?**: selezionare l'opzione **No**.
+   - **Calcolo e archiviazione**: Selezionare **Configura database** e, per questo argomento di avvio rapido, selezionare **Opzioni di acquisto basate su vCore**
 
+     ![Opzioni di acquisto basate su vCore](media/sql-database-get-started-portal/create-database-vcore.png)
 
-1. Selezionare la scheda **Impostazioni aggiuntive**. 
-1. Nella sezione **Origine dati**, in **Usa dati esistenti**, selezionare `Sample`. 
+   - Selezionare **Serverless**.
+
+     ![Livello di elaborazione serverless](media/sql-database-get-started-portal/create-database-serverless.png)
+
+   - Rivedere le impostazioni per **Numero massimo vCore**, **Numero minimo vCore**, **Ritardo di sospensione automatica** e **Dimensioni massime dati**. Modificare tali impostazioni in base alle esigenze.
+   - Accettare le condizioni preliminari e fare clic su **OK**.
+   - Selezionare **Applica**.
+
+5. Selezionare la scheda **Impostazioni aggiuntive**. 
+6. Nella sezione **Origine dati**, in **Usa dati esistenti**, selezionare `Sample`. 
 
    ![Impostazioni aggiuntive del database SQL](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
    > Assicurarsi di selezionare i dati di **Sample (AdventureWorksLT)** per poter seguire questa e le altre guide introduttive per il database SQL di Azure in cui vengono usati tali dati.
 
-1. Lasciare i restanti valori predefiniti e selezionare **Rivedi e crea** in basso nel modulo. 
-1. Rivedere le impostazioni finali e selezionare **Crea**. 
+7. Lasciare i restanti valori predefiniti e selezionare **Rivedi e crea** in basso nel modulo.
+8. Rivedere le impostazioni finali e selezionare **Crea**.
 
-8. Nel modulo **Database SQL** selezionare **Crea** per distribuire il gruppo di risorse, il server e il database ed effettuarne il provisioning.
-
+9. Nel modulo **Database SQL** selezionare **Crea** per distribuire il gruppo di risorse, il server e il database ed effettuarne il provisioning.
 
 ## <a name="query-the-database"></a>Eseguire query sul database
 
@@ -131,5 +135,6 @@ Al termine, sarà possibile eliminare queste risorse come segue:
 - Dopo aver creato una regola del firewall a livello di server, [connettersi al database ed eseguire query](sql-database-connect-query.md) usando diversi strumenti e linguaggi.
   - [Connettersi ed eseguire query usando SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Connettersi ed eseguire query usando Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Per creare un database singolo usando l'interfaccia della riga di comando di Azure, vedere [Esempi di interfaccia della riga di comando di Azure](sql-database-cli-samples.md).
-- Per creare un database singolo usando Azure PowerShell, vedere [Esempi di Azure PowerShell](sql-database-powershell-samples.md).
+- Per creare un database singolo nel livello di elaborazione con provisioning usando l'interfaccia della riga di comando di Azure, vedere [Esempi di interfaccia della riga di comando di Azure](sql-database-cli-samples.md).
+- Per creare un database singolo nel livello di elaborazione con provisioning usando Azure PowerShell, vedere [Esempi di Azure PowerShell](sql-database-powershell-samples.md).
+- Per creare un database singolo nel livello di elaborazione serverless con Azure PowerShell, vedere [Creare database serverless con PowerShell](sql-database-serverless.md#create-new-database-using-powershell)

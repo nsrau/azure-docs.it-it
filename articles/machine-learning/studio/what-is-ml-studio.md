@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
-ms.openlocfilehash: 7a2bd8ebf2e96cf2251d98501bbf42007d43a660
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: dd1eaa95a23deed0bf2098995be43402c605defc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683002"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024207"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Informazioni su Azure Machine Learning Studio
 Microsoft Azure Machine Learning Studio è uno strumento di trascinamento collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva ai dati. Machine Learning Studio pubblica i modelli come servizi Web che possono essere facilmente usati da applicazioni personalizzate o strumenti di Business Intelligence, ad esempio Excel.
@@ -44,7 +44,7 @@ Scaricare il diagramma **Panoramica sulla funzionalità di Microsoft Azure Machi
 ![Panoramica delle funzionalità di Microsoft Azure Machine Learning Studio](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Introduzione a Machine Learning Studio
-Quando si apre [Machine Learning Studio](https://studio.azureml.net) per la prima volta, viene visualizzata la pagina **Home**. Da qui è possibile visualizzare documentazione, video e webinar, nonché trovare altre risorse utili.
+Quando si apre Machine Learning Studio https://studio.azureml.net) per la prima volta, viene visualizzata la pagina **Home**. Da qui è possibile visualizzare documentazione, video e webinar, nonché trovare altre risorse utili.
 
 Fare clic sul menu in alto a sinistra ![Menu](./media/what-is-ml-studio/menu.png) in cui sono disponibili numerose opzioni.
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
@@ -111,14 +111,22 @@ Quando il modello di analisi predittiva è pronto, è possibile distribuirlo com
 <a name="compare"></a>
 ## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>Quali sono le differenze tra Machine Learning Studio e il servizio Azure Machine Learning?
 
-Il [servizio Azure Machine Learning](../service/overview-what-is-azure-ml.md) offre SDK e servizi per preparare i dati, eseguire il training e distribuire rapidamente i modelli di Machine Learning. Con il ridimensionamento automatico delle risorse di calcolo e le pipeline, è possibile migliorare la produttività e ridurre i costi. Usare queste funzionalità con framework Python open source, come PyTorch, TensorFlow e scikit-learn. 
+Il [servizio Azure Machine Learning](../service/overview-what-is-azure-ml.md) offre SDK **e** un'interfaccia visiva grafica (anteprima) per preparare i dati, eseguire il training e distribuire rapidamente i modelli di Machine Learning. Questa interfaccia visiva grafica (anteprima) offre un'esperienza di trascinamento della selezione simile a quella di Studio. Tuttavia, a differenza della piattaforma di calcolo proprietaria di Studio, l'interfaccia visiva grafica usa risorse di calcolo specifiche ed è pienamente integrata nel servizio Azure Machine Learning.
 
-Azure Machine Learning Studio è adatta a sperimentare modelli di apprendimento automatico in modo semplice e rapido quando gli algoritmi di apprendimento automatico predefiniti sono sufficienti per le soluzioni dell'utente.
+Ecco un confronto rapido.
 
-Il servizio Azure Machine Learning è adatto agli ambienti Python, quando è necessario disporre di maggior controllo sugli algoritmi di apprendimento automatico oppure si intende usare le librerie di apprendimento automatico open source.
+|| Machine Learning Studio | Servizio Azure Machine Learning:<br/>Interfaccia visiva grafica|
+|---| --- | --- |
+|| Disponibile a livello generale | In anteprima|
+|Moduli per l'interfaccia| Molti | Set iniziale di moduli più diffusi|
+|Destinazioni di calcolo del training| Destinazione di calcolo proprietaria, solo supporto di CPU| Supporta destinazioni di calcolo di Azure Machine Learning, GPU o CPU.<br/>(Altre destinazioni di calcolo supportate nell'SDK)|
+|Destinazioni di calcolo della distribuzione| Formato di servizio Web proprietario, non personalizzabile | Opzioni di sicurezza aziendale e servizio Azure Kubernetes. <br/>([Altre destinazioni di calcolo](../service/how-to-deploy-and-where.md) supportate nell'SDK) |
+|Training automatizzato dei modelli e ottimizzazione degli iperparametri | No  | Non ancora nell'interfaccia visiva grafica. <br/> (supportati nell'SDK e nel portale di Azure). | 
+
+Provare l'interfaccia visiva grafica (anteprima) con [Avvio rapido: Preparare e visualizzare dati senza scrivere codice](../service/ui-quickstart-run-experiment.md)
 
 > [!NOTE]
-> I modelli creati in Azure Machine Learning Studio non possono essere distribuiti né gestiti tramite il servizio Azure Machine Learning.
+> I modelli creati in Studio non possono essere distribuiti né gestiti tramite il servizio Azure Machine Learning. Tuttavia, i modelli creati e distribuiti nell'interfaccia visiva grafica del servizio possono essere gestiti tramite l'area di lavoro del servizio Azure Machine Learning.
 
 ## <a name="free-trial"></a>Versione di prova gratuita
 

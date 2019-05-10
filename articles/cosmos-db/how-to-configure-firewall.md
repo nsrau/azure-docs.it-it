@@ -1,17 +1,17 @@
 ---
 title: Configurare un firewall IP per l'account Azure Cosmos DB
 description: Informazioni su come configurare i criteri di controllo di accesso agli indirizzi IP per il supporto del firewall negli account del database di Azure Cosmos DB.
-author: kanshiG
+author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: govindk
-ms.openlocfilehash: 26f2131fd62ddc83c2a6d93c4cff557402a88463
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.topic: sample
+ms.date: 05/06/2019
+ms.author: mjbrown
+ms.openlocfilehash: cdf2da745cc418190f6546fffc03e2ac2c330e0e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61060875"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068726"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurare un firewall IP in Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Quando il controllo dell'accesso IP è attivato, il portale di Azure offre la po
 > [!NOTE]
 > Dopo aver abilitato i criteri di controllo dell'accesso a un indirizzo IP per l'account di Azure Cosmos DB, qualsiasi richiesta all'account di Azure Cosmos DB da computer non inclusi nell'elenco degli intervalli di indirizzi IP consentiti viene respinto. Anche l'esplorazione delle risorse di Azure Cosmos DB dal portale viene bloccata per garantire l'integrità del controllo di accesso.
 
-### <a name="allow-requests-from-the-azure-portal"></a>Consentire le richieste dal portale di Azure 
+### <a name="allow-requests-from-the-azure-portal"></a>Consentire le richieste dal portale di Azure
 
 Quando si abilitano i criteri di controllo di accesso IP a livello di codice, è necessario aggiungere l'indirizzo IP per il portale di Azure alla proprietà **ipRangeFilter** per mantenere l'accesso. Gli indirizzi IP del portale sono i seguenti:
 
@@ -80,7 +80,7 @@ Quando si aumenta il numero di istanze del servizio cloud aggiungendo istanze de
 
 ### <a name="requests-from-virtual-machines"></a>Richieste da macchine virtuali
 
-Per ospitare servizi di livello intermedio con Azure Cosmos DB è possibile usare anche [macchine virtuali](https://azure.microsoft.com/services/virtual-machines/) o [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Per configurare l'account Cosmos DB in modo da consentire l'accesso da macchine virtuali, è necessario configurare gli indirizzi IP pubblici della macchina virtuale e/o del set di scalabilità di macchine virtuali come uno degli indirizzi IP consentiti per l'account di Azure Cosmos DB [configurando il criterio di controllo dell'accesso agli indirizzi IP](#configure-ip-policy). 
+Per ospitare servizi di livello intermedio con Azure Cosmos DB è possibile usare anche [macchine virtuali](https://azure.microsoft.com/services/virtual-machines/) o [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Per configurare l'account Cosmos DB in modo che consenta l'accesso da macchine virtuali, è necessario configurare gli indirizzi IP pubblici della macchina virtuale e/o del set di scalabilità di macchine virtuali come uno degli indirizzi IP consentiti per l'account di Azure Cosmos DB [configurando il criterio di controllo dell'accesso agli indirizzi IP](#configure-ip-policy). 
 
 È possibile recuperare gli indirizzi IP per le macchine virtuali nel portale di Azure, come mostrato nello screenshot seguente:
 
@@ -138,6 +138,37 @@ az cosmosdb update \
       --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
+## <a id="configure-ip-firewall-ps"></a>Configurare un criterio di controllo di accesso IP usando PowerShell
+
+Lo script seguente illustra come creare un account Azure Cosmos DB con controllo di accesso IP:
+
+```azurepowershell-interactive
+
+$resourceGroupName = "myResourceGroup"
+$accountName = "myaccountname"
+
+$locations = @(
+    @{ "locationName"="West US"; "failoverPriority"=0 },
+    @{ "locationName"="East US"; "failoverPriority"=1 }
+)
+
+# Add local machine's IP address to firewall, InterfaceAlias is your Network Adapter's name
+$ipRangeFilter = Get-NetIPConfiguration | Where-Object InterfaceAlias -eq "Ethernet 2" | Select-Object IPv4Address
+
+$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy;
+    "ipRangeFilter"=$ipRangeFilter
+}
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+```
+
 ## <a id="troubleshoot-ip-firewall"></a>Risolvere i problemi con un criterio di controllo di accesso IP
 
 È possibile risolvere i problemi con un criterio di controllo accesso IP usando le opzioni seguenti: 
@@ -161,5 +192,4 @@ Per configurare un endpoint servizio di rete virtuale per l'account Azure Cosmos
 
 * [Controllo di accesso di rete virtuale e subnet per l'account Azure Cosmos DB](vnet-service-endpoint.md)
 * [Configurare l'accesso basato su rete virtuale e subnet per l'account di Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md)
-
 

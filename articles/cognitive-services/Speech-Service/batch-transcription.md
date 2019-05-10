@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1a2d24be00b0e1224b5f8d52105e2969d64e5f64
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 2148d1bd79a858bec37e6c574c2a6b6e2009fe46
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922469"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190406"
 ---
 # <a name="why-use-batch-transcription"></a>Perché usare la trascrizione batch?
 
@@ -24,7 +24,7 @@ La trascrizione batch è ideale se si desidera trascrivere una grande quantità 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="subscription-key"></a>Chiave di sottoscrizione
+### <a name="subscription-key"></a>Chiave sottoscrizione
 
 Come per tutte le funzionalità del servizio Voce, si crea una chiave di sottoscrizione dal [portale di Azure](https://portal.azure.com) seguendo la [guida introduttiva](get-started.md). Se si prevede di ottenere trascrizioni dai modelli di base, la creazione di una chiave è l'unica operazione da eseguire.
 
@@ -65,7 +65,7 @@ I parametri di configurazione vengono forniti in formato JSON:
 ```json
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
-  "models": ["<optional acoustic model ID>, <optional language model ID>"],
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
   "locale": "<local to us, for example en-US>",
   "name": "<user define name of the transcription batch>",
   "description": "<optional description of the transcription>",
@@ -83,7 +83,7 @@ I parametri di configurazione vengono forniti in formato JSON:
 
 ### <a name="configuration-properties"></a>Proprietà di configurazione
 
-| Parametro | DESCRIZIONE | Obbligatoria / Facoltativa |
+| Parametro | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | `ProfanityFilterMode` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `none` che disabilita i filtri del contenuto volgare, `masked` che sostituisce il contenuto volgare con gli asterischi, `removed` che rimuove tutto il contenuto volgare dal risultato, o `tags` che aggiunge tag "contenuti volgari". L'impostazione predefinita è `masked`. | Facoltativo |
 | `PunctuationMode` | Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `none` che consente di disattivare la punteggiatura, `dictated` che implica la punteggiatura esplicita, `automatic` che permette al decodificatore di occuparsi della punteggiatura, o `dictatedandautomatic` che implica segni di punteggiatura dettata o automatica. | Facoltativo |
@@ -94,7 +94,7 @@ I parametri di configurazione vengono forniti in formato JSON:
 
 Batch supporta di trascrizione [archiviazione Blob di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) per la lettura di audio e trascrizioni di scrittura in un archivio.
 
-## <a name="webhooks"></a>Webhook 
+## <a name="webhooks"></a>Webhooks 
 
 Polling di uno stato di trascrizione potrebbe non essere il più efficiente o fornire la migliore esperienza utente. Per eseguire il polling dello stato, è possibile registrare i callback, che è possibile informare il client al completamento di attività con esecuzione prolungata trascrizione.
 

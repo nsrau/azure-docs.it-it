@@ -2,10 +2,8 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni su Ricerca di Azure
+    - name: Che cos'è la Ricerca di Azure?
       href: search-what-is-azure-search.md
-    - name: Informazioni sulla ricerca cognitiva
-      href: cognitive-search-concept-intro.md
 - name: Guide introduttive
   expanded: true
   items:
@@ -15,7 +13,7 @@
       items:
         - name: Caricare un indice ed eseguire una query
           href: search-get-started-portal.md
-        - name: Arricchirsi con l'intelligenza artificiale (ricerca cognitiva)
+        - name: Arricchimenti di intelligenza artificiale (Ricerca cognitiva)
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
       items:
@@ -35,8 +33,12 @@
       href: search-indexer-tutorial.md
     - name: Indicizzare BLOB JSON di Azure
       href: search-semi-structured-data.md
-    - name: Indicizzare con l'intelligenza artificiale (Servizi cognitivi)
-      href: cognitive-search-tutorial-blob.md
+    - name: Arricchimenti di intelligenza artificiale (Ricerca cognitiva)
+      items:
+        - name: REST
+          href: cognitive-search-tutorial-blob.md
+        - name: 'C#'
+          href: cognitive-search-tutorial-blob-dotnet.md
 - name: Esempi
   items:
     - name: Esempi di codice per Azure
@@ -53,11 +55,15 @@
   items:
     - name: Ricerca full-text
       href: search-lucene-query-architecture.md
-    - name: Progettare modelli per la multi-tenancy
-      href: search-modeling-multitenant-saas-applications.md
+    - name: Ricerca cognitiva
+      href: cognitive-search-concept-intro.md
+    - name: Knowledge Store
+      href: knowledge-store-concept-intro.md
+    - name: Proiezioni
+      href: knowledge-store-projection-overview.md
 - name: Guide alle procedure
   items:
-    - name: Pianificazione della capacità
+    - name: Pianificazione
       items:
         - name: Scegliere un livello
           href: search-sku-tier.md
@@ -67,6 +73,8 @@
           href: search-capacity-planning.md
         - name: Strategie e procedure consigliate per la distribuzione
           href: search-performance-optimization.md
+        - name: Architettura multitenant
+          href: search-modeling-multitenant-saas-applications.md
     - name: Security
       items:
         - name: Panoramica della sicurezza
@@ -79,6 +87,8 @@
           href: search-security-trimming-for-azure-search.md
         - name: Filtrare in base alle identità AAD
           href: search-security-trimming-for-azure-search-with-aad.md
+        - name: Gestire le chiavi di crittografia (anteprima)
+          href: search-security-manage-encryption-keys.md
     - name: Sviluppo.
       items:
         - name: Versioni dell'API
@@ -169,26 +179,36 @@
           href: search-indexer-field-mappings.md
         - name: Risoluzione dei problemi comuni
           href: search-indexer-troubleshooting.md
-    - name: Indicizzazione basata su intelligenza artificiale (ricerca cognitiva)
+    - name: Arricchimenti di intelligenza artificiale
       items:
         - name: Collegare una risorsa Servizi cognitivi
           href: cognitive-search-attach-cognitive-services.md
-        - name: Definire un insieme di competenze
-          href: cognitive-search-defining-skillset.md
-        - name: Fare riferimento a un'annotazione
-          href: cognitive-search-concept-annotations-syntax.md
-        - name: Eseguire il mapping ai campi dell'indice
-          href: cognitive-search-output-field-mapping.md
-        - name: Elaborare ed estrarre informazioni dalle immagini
-          href: cognitive-search-concept-image-scenarios.md
-        - name: Integrare competenze personalizzate
-          href: cognitive-search-custom-skill-interface.md
-        - name: 'Esempio: competenze personalizzate'
-          href: cognitive-search-create-custom-skill-example.md
+        - name: Set di competenze
+          items:
+            - name: Definire un insieme di competenze
+              href: cognitive-search-defining-skillset.md
+            - name: Fare riferimento a un'annotazione
+              href: cognitive-search-concept-annotations-syntax.md
+            - name: Eseguire il mapping ai campi dell'indice
+              href: cognitive-search-output-field-mapping.md
+            - name: Elaborare ed estrarre informazioni dalle immagini
+              href: cognitive-search-concept-image-scenarios.md
+        - name: Competenze personalizzate
+          items:
+            - name: Integrare competenze personalizzate
+              href: cognitive-search-custom-skill-interface.md
+            - name: Esempio - Funzioni di Azure
+              href: cognitive-search-create-custom-skill-example.md
+            - name: Esempio - Contenitori
+              href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Suggerimenti per la risoluzione dei problemi
           href: cognitive-search-concept-troubleshooting.md
         - name: Collegamenti per la documentazione
           href: cognitive-search-resources-documentation.md
+    - name: Knowledge Store (anteprima)
+      items:
+        - name: Attività iniziali
+          href: knowledge-store-howto.md
     - name: Eseguire query sui dati
       items:
         - name: Creare una query di base
@@ -203,6 +223,8 @@
           href: search-query-simple-examples.md
         - name: Esempi (sintassi completa Lucene)
           href: search-query-lucene-examples.md
+        - name: moreLikeThis (anteprima)
+          href: search-more-like-this.md
     - name: Filtrare e ordinare i dati
       items:
         - name: Panoramica dei filtri
@@ -276,9 +298,11 @@
           href: cognitive-search-skill-ocr.md
         - name: Shaper
           href: cognitive-search-skill-shaper.md
+        - name: Condizionale
+          href: cognitive-search-skill-conditional.md
         - name: Competenze deprecate
           href: cognitive-search-skill-deprecated.md
-    - name: Competenze personalizzate (anteprima)
+    - name: Competenze personalizzate
       items:
         - name: API Web personalizzata
           href: cognitive-search-custom-skill-web-api.md

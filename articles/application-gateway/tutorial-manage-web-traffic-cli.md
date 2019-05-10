@@ -1,44 +1,41 @@
 ---
-title: 'Esercitazione: Gestire il traffico Web - Interfaccia della riga di comando di Azure'
+title: Gestire il traffico Web - Interfaccia della riga di comando di Azure
 description: Informazioni su come creare un gateway applicazione con un set di scalabilità di macchine virtuali per gestire il traffico Web tramite l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.topic: article
+ms.date: 5/1/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 264e1050e74c64c003e08bc6a8ba1c115b83032c
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: d60c756fcf0b527731b8a1f31a8d93f108c91665
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749071"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146220"
 ---
-# <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Esercitazione: Gestire il traffico Web con un gateway applicazione usando l'interfaccia della riga di comando di Azure
+# <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Gestire il traffico Web con un gateway applicazione usando l'interfaccia della riga di comando di Azure
 
-Il gateway applicazione viene usato per gestire e proteggere il traffico Web verso i server gestiti. È possibile usare l'interfaccia della riga di comando di Azure per creare un [gateway applicazione](overview.md) che usa un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per permettere ai server back-end di gestire il traffico Web. In questo esempio il set di scalabilità contiene due istanze di macchine virtuali che vengono aggiunte al pool back-end predefinito del gateway applicazione.
+Il gateway applicazione viene usato per gestire e proteggere il traffico Web verso i server gestiti. È possibile usare l'interfaccia della riga di comando di Azure per creare un [gateway applicazione](overview.md) che usa un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per server back-end. In questo esempio, il set di scalabilità contiene due istanze di macchina virtuale. Il set di scalabilità viene aggiunto al pool back-end predefinito del gateway applicazione.
 
-In questa esercitazione si apprenderà come:
+In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Configurare la rete
 > * Creare un gateway applicazione
 > * Creare un set di scalabilità di macchine virtuali con il pool back-end predefinito
 
-Se si preferisce, è possibile completare questa esercitazione usando [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
+Se si preferisce, è possibile completare questa procedura usando [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo avvio rapido è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse usando [az group create](/cli/azure/group#az-group-create). 
+Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse usando [az group create](/cli/azure/group#az-group-create).
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupAG* nella località *eastus*.
 
@@ -136,7 +133,7 @@ az vmss extension set \
 
 Per ottenere l'indirizzo IP pubblico del gateway applicazione, usare [az network public-ip show](/cli/azure/network/public-ip). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -156,12 +153,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Configurare la rete
-> * Creare un gateway applicazione
-> * Creare un set di scalabilità di macchine virtuali con il pool back-end predefinito
-
-> [!div class="nextstepaction"]
-> [Limitare il traffico Web con un web application firewall](./tutorial-restrict-web-traffic-cli.md)
+[Limitare il traffico Web con un web application firewall](./tutorial-restrict-web-traffic-cli.md)

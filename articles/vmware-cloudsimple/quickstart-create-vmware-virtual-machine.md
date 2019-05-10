@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3940adfaa42de8ac9c3f32a9eadc8f6d643ce3ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c0bb8d7a5a1ea30b704b44c9337cd28043597ff7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149480"
+ms.locfileid: "65209502"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Guida introduttiva - usare le macchine virtuali VMware in Azure
 
@@ -37,7 +37,7 @@ Creare una macchina virtuale nel cloud privato da vCenter dell'interfaccia utent
 
     ![Creare la macchina virtuale di CloudSimple - nozioni di base](media/create-cloudsimple-virtual-machine-basic-info.png)
 
-    | Campo | DESCRIZIONE |
+    | Campo | Descrizione |
     | ------------ | ------------- |
     | Sottoscrizione | Sottoscrizione di Azure associata del Cloud privato.  |
     | Gruppo di risorse | Gruppo di risorse a cui verrà assegnata della macchina virtuale. È possibile selezionare un gruppo esistente o crearne uno nuovo. |
@@ -60,7 +60,7 @@ Creare una macchina virtuale nel cloud privato da vCenter dell'interfaccia utent
 
     Per le interfacce di rete, fare clic su **interfaccia di rete Add** e configurare le impostazioni seguenti.
     
-    | Controllo | DESCRIZIONE |
+    | Controllo | Descrizione |
     | ------------ | ------------- |
     | NOME | Immettere un nome per identificare l'interfaccia.  |
     | Rete | Selezionare dall'elenco del gruppo di porte distribuita configurato in vSphere il Cloud privato.  |
@@ -69,12 +69,12 @@ Creare una macchina virtuale nel cloud privato da vCenter dell'interfaccia utent
 
     Per i dischi, fare clic su **Aggiungi disco** e configurare le impostazioni seguenti.
 
-    | Elemento | DESCRIZIONE | 
+    | Elemento | Descrizione | 
     | ------------ | ------------- | 
     | NOME | Immettere un nome per identificare il disco.  | 
     | Dimensione | Selezionare una delle dimensioni disponibili.  | 
     | Controller SCSI | Selezionare un controller SCSI per il disco.  |
-    | Mode | Determina come il disco fa parte di snapshot. Scegliere una delle opzioni seguenti: <br> -Independent permanente: Tutti i dati scritti sul disco vengono scritti in modo permanente.<br> -Independent non persistente: Le modifiche scritte sul disco vengono rimossi quando si spegne o ripristinare la macchina virtuale.  Modalità indipendente non permanente consente sempre il riavvio della macchina virtuale nello stesso stato. Per altre informazioni, vedere la <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentazione di VMware</a>.
+    | Modalità | Determina come il disco fa parte di snapshot. Scegliere una delle opzioni seguenti: <br> -Independent permanente: Tutti i dati scritti sul disco vengono scritti in modo permanente.<br> -Independent non persistente: Le modifiche scritte sul disco vengono rimossi quando si spegne o ripristinare la macchina virtuale.  Modalità indipendente non permanente consente sempre il riavvio della macchina virtuale nello stesso stato. Per altre informazioni, vedere la <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentazione di VMware</a>.
 
 7. Al termine della convalida, rivedere le impostazioni e fare clic su **Create**. Per apportare modifiche, fare clic sulle schede nella parte superiore oppure fare clic su.
 
@@ -82,5 +82,5 @@ Creare una macchina virtuale nel cloud privato da vCenter dell'interfaccia utent
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Visualizza l'elenco di macchine virtuali CloudSimple](https://docs.azure.cloudsimple.com/azure-manage-vm/)
-* [Gestire la macchina virtuale CloudSimple da Azure](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [Visualizza l'elenco di macchine virtuali CloudSimple](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [Gestire la macchina virtuale CloudSimple da Azure](https://docs.azure.cloudsimple.com/azure-manage-vm/)

@@ -1,0 +1,30 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Open Datasets (anteprima)
+metadata:
+  title: 'Documentazione di Azure Open Datasets (anteprima) - Esercitazioni, informazioni di riferimento sulle API | Microsoft Docs'
+  description: 'Di seguito sono riportate informazioni su come usare Azure Open Datasets, ossia dati curati e puliti che è possibile usare con una preparazione minima. I set di dati aperti sono dati pubblici, relativi ad esempio a meteo, censimento e festività, che possono arricchire i modelli di Machine Learning. Esercitazioni, esempi e informazioni di riferimento sulle API illustrano come fare.'
+  ms.service: open-datasets
+  ms.topic: landing-page
+  author: cjgronlund
+  ms.author: cgronlun
+  ms.date: 05/02/2019
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+abstract:
+  description: 'Di seguito sono riportate informazioni su come usare Azure Open Datasets, ossia dati curati e puliti che è possibile usare con una preparazione minima. I set di dati aperti includono dati pubblici, relativi ad esempio a meteo, censimento e festività, che possono arricchire i modelli di Machine Learning. Esercitazioni, esempi e informazioni di riferimento sulle API illustrano come fare.'
+sections:
+  - title: Esercitazione dettagliata
+    items:
+      - type: paragraph
+        text: <a href="tutorial-opendatasets-automl">Creare un modello di regressione con un modello di Machine Learning automatizzato</a>
+  - title: Esempi
+    items:
+      - type: paragraph
+        text: <a href="samples">Notebook per arricchire i set di dati</a>
+  - title: riferimento
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/open-datasets-api">Informazioni di riferimento sulle API</a>'

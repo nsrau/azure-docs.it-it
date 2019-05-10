@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 892906089ae3538b3427d97165173fd82621f58a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5d8e7bba6d43ba1daa3173ce5d7e043e2310a482
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920024"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65229999"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usare un avviso per attivare un runbook di Automazione di Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "64920024"
 È possibile usare i runbook di automazione con quattro tipi di avviso:
 
 * Avvisi più comuni
-* Avvisi dei log attività
+* Avvisi del log attività
 * Avvisi delle metriche quasi in tempo reale
 
 > [!NOTE]
@@ -33,7 +33,7 @@ ms.locfileid: "64920024"
 
 Quando un avviso chiama un runbook, la chiamata effettiva è una richiesta HTTP POST al webhook. Il corpo della richiesta POST contiene un oggetto in formato JSON con proprietà utili relative all'avviso. La tabella seguente elenca i collegamenti allo schema del payload per ogni tipo di avviso:
 
-|Avviso  |DESCRIZIONE|Schema del payload  |
+|Avviso  |Descrizione|Schema del payload  |
 |---------|---------|---------|
 |[Avviso comune](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Schema comune di avviso che consente di standardizzare l'esperienza di utilizzo per le notifiche di avviso in Azure oggi stesso.|[Schema payload avviso comune](../azure-monitor/platform/alerts-common-schema-definitions.md?toc=%2fazure%2fautomation%2ftoc.json#sample-alert-payload)|
 |[Avviso del log attività](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Invia una notifica quando qualsiasi nuovo evento nel log attività di Azure soddisfa condizioni specifiche. Ad esempio, quando si verifica un'operazione `Delete VM` in **myProductionResourceGroup** o quando viene visualizzato un nuovo evento di integrità dei servizi di Azure con uno stato **Attivo**.| [Schema payload avviso log attività](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
@@ -60,6 +60,14 @@ Usare questo esempio per creare un runbook denominato **Stop AzureVmInResponseto
 5. Copiare l'esempio di PowerShell seguente nel **modifica** pagina.
 
     ```powershell-interactive
+    [OutputType("PSAzureOperationResponse")]
+    param
+    (
+        [Parameter (Mandatory=$false)]
+        [object] $WebhookData
+    )
+    $ErrorActionPreference = "stop"
+
     if ($WebhookData)
     {
         # Get the data object from WebhookData

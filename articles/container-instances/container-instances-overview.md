@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 11/30/2018
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 0ec0280ab2a39674a1b41120f0a8791dfb8b1922
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499557"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073296"
 ---
 # <a name="what-is-azure-container-instances"></a>Informazioni su Istanze di Azure Container
 
@@ -56,7 +56,10 @@ Alcune funzionalità attualmente sono limitate ai contenitori Linux:
 * [Distribuzione in una rete virtuale](container-instances-vnet.md) (anteprima)
 * [Risorse GPU](container-instances-gpu.md) (anteprima)
 
-Attualmente, Istanze di Azure Container supporta le immagini di Windows Server 2016 che si basano sulle versioni Long-Term Servicing Channel (LTSC). Le versioni Canale semestrale di Windows, come ad esempio 1709 e 1803, non sono supportate.
+Per le distribuzioni di contenitori di Windows, usare le immagini basate sulle comuni [immagini di base di Windows](container-instances-faq.md#what-windows-base-os-images-are-supported).
+
+> [!NOTE]
+> L'uso di immagini basate su Windows Server 2019 in istanze di Azure Container è disponibile in anteprima.
 
 ## <a name="co-scheduled-groups"></a>Gruppi con pianificazione condivisa
 

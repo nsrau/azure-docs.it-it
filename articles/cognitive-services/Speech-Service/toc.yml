@@ -15,7 +15,7 @@
     - name: Traduzione vocale
       href: speech-translation.md
       displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
-    - name: Anteprima assistenti vocali voice-first
+    - name: Anteprima assistenti virtuali voice-first
       href: voice-first-virtual-assistants.md
       displayName: 'virtual assistants, speech-enabled bots, conversational agents'
 - name: Guide introduttive
@@ -89,7 +89,7 @@
             - name: C++ (Linux)
               href: quickstart-text-to-speech-cpp-linux.md
               displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
-        - name: Assistenti vocali voice-first (anteprima)
+        - name: Assistenti virtuali voice-first (anteprima)
           items:
             - name: 'C# (piattatorma UWP)'
               href: quickstart-virtual-assistant-csharp-uwp.md
@@ -126,7 +126,7 @@
       href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
 - name: Concetti
   items:
-    - name: Servizio Trascrizione conversazione
+    - name: Trascrizione conversazione
       href: conversation-transcription-service.md
     - name: Trascrizioni di call center
       href: call-center-transcription.md
@@ -174,8 +174,12 @@
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Sintesi vocale
           items:
-            - name: Creare caratteri voce (voce bot)
-              href: how-to-customize-voice-font.md
+            - name: Introduzione a Voce personalizzata
+              href: how-to-custom-voice.md
+            - name: Preparazione dei dati
+              href: how-to-custom-voice-prepare-data.md
+            - name: Creare e usare modelli di Voce personalizzata
+              href: how-to-custom-voice-create-voice.md
             - name: Registrare esempi vocali
               href: record-custom-voice-samples.md
             - name: Ottimizzare l'output della sintesi vocale
@@ -279,7 +283,7 @@
         - name: Traduzione vocale
           href: 'https://www.microsoft.com/translator/faq.aspx'
           displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
-        - name: Assistenti vocali voice-first (anteprima)
+        - name: Assistenti virtuali voice-first (anteprima)
           href: faq-voice-first-virtual-assistants.md
     - name: Licenze di Speech SDK
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'

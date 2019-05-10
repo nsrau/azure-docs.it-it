@@ -237,6 +237,8 @@
               href: msal-js-prompt-behavior.md
             - name: Fornire un client HTTP personalizzato (.NET)
               href: msal-net-provide-httpclient.md
+            - name: Integrazione con Azure AD B2C
+              href: msal-b2c-overview.md
             - name: Considerazioni specifiche della piattaforma (.NET)
               items:
                 - name: Web browser

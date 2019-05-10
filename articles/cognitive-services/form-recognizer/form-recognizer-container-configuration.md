@@ -1,7 +1,7 @@
 ---
 title: Configurare il contenitore - Riconoscimento modulo
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come usare il contenitore Riconoscimento modulo per analizzare i dati di moduli e tabelle.
+description: Informazioni su come configurare il contenitore Riconoscimento modulo per analizzare i dati di moduli e tabelle.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 6066e7856ddf8ef757afc2072218c87420a37c10
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3f6cc32f6fb2a9fb11220ac1a3134fb3ae4d2f84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025550"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147462"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurare i contenitori di Riconoscimento modulo
 
@@ -70,7 +70,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 Usare montaggi di associazione per leggere e scrivere dati da e verso il contenitore. È possibile specificare un montaggio di input o di output specificando l'opzione `--mount` nel comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
-Con i contenitori di Riconoscimento modulo sono richiesti il montaggio di input e il montaggio di output. Il montaggio di input può essere di sola lettura ed è necessario per accedere ai dati che verranno usati per il training e l'assegnazione del punteggio. Il montaggio di output deve essere accessibile in scrittura e verrà usato per archiviare i modelli e i dati temporanei.
+Con il contenitore di Riconoscimento modulo è richiesto un montaggio di input e un montaggio di output. Il montaggio di input può essere di sola lettura ed è necessario per accedere ai dati che verranno usati per il training e l'assegnazione del punteggio. Il montaggio di output deve essere accessibile in scrittura e verrà usato per archiviare i modelli e i dati temporanei.
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](form-recognizer-container-howto.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio Docker e le autorizzazioni del percorso di montaggio dell'host.
 

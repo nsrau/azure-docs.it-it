@@ -1,20 +1,20 @@
 ---
-title: Restituire i dischi di Microsoft Azure Data Box | Microsoft Docs
+title: Esercitazione per restituire Azure Data Box Disk | Microsoft Docs
 description: Usare questa esercitazione per scoprire come restituire i dischi di Azure Data Box a Microsoft
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7c62ec722e5bb909c13b21a7b98d86dd72d9e665
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425951"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150754"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Esercitazione: Restituire Azure Data Box Disk e verificare il caricamento dei dati in Azure
 
@@ -54,7 +54,12 @@ Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Unit
     - Applicare l'etichetta sul dispositivo.
 
 2. Sigillare la scatola e assicurarsi che l'etichetta per la spedizione di ritorno sia visibile.
-3. Pianificare un ritiro con UPS.
+3. Pianificare un ritiro con UPS. Per pianificare un ritiro:
+
+    - Chiamare il servizio UPS locale (numero verde specifico del paese).
+    - Nella chiamata specificare il numero di monitoraggio della spedizione di reso indicato sull'etichetta stampata.
+    - Se non si specifica il numero di monitoraggio, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
+    - Anziché pianificare il ritiro, è anche possibile consegnare Data Box Disk al più vicino punto di consegna.
 
 
 ### <a name="pick-up-in-europe"></a>Ritiro in Europa

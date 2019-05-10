@@ -1,21 +1,21 @@
 ---
-title: Connettersi a Database di Azure per PostgreSQL con PHP
-description: Questa guida introduttiva fornisce un esempio di codice PHP che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per PostgreSQL.
+title: Usare PHP per connettersi a Database di Azure per PostgreSQL - Server singolo
+description: Questa guida introduttiva fornisce un esempio di codice PHP che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per PostgreSQL - Server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: f07dfabf854cf56e1c3cae87bbd0736839be8039
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 2/28/2018
+ms.openlocfilehash: c6320eabd4d5808e8cfe1d39ec4a72bbbce42f77
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608733"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067306"
 ---
-# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: Usare PHP per connettersi ai dati ed eseguire query sui dati
+# <a name="azure-database-for-postgresql---single-server-use-php-to-connect-and-query-data"></a>Database di Azure per PostgreSQL - Server singolo: Usare PHP per connettersi ai dati ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per PostgreSQL usando un'applicazione [PHP](https://secure.php.net/manual/intro-whatis.php). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con PHP, ma non con Database di Azure per PostgreSQL.
 
 ## <a name="prerequisites"></a>Prerequisiti

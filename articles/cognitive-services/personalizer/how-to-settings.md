@@ -10,28 +10,34 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 0cd08e1191c68c57975d3e68648134925155e7f2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025598"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143252"
 ---
 # <a name="personalizer-settings"></a>Impostazioni di Personalizza esperienze
 
 La configurazione del servizio include il modo in cui vengono trattate le ricompense, la frequenza delle esplorazioni, la frequenza di ripetizione del training del modello e la quantità di dati archiviati.
 
+## <a name="create-personalizer-resource"></a>Creare la risorsa di Personalizza esperienze
+
 Creare una risorsa di Personalizza esperienze per ogni ciclo di feedback. 
+
+1. Accedere al [portale di Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Il collegamento precedente consente di accedere alla pagina **Crea** per il servizio Personalizza esperienze. 
+1. Immettere il nome del servizio, selezionare una sottoscrizione, una località, un piano tariffario e un gruppo di risorse.
+1. Selezionare la conferma e fare clic su **Crea**.
 
 ## <a name="configure-service-settings-in-the-azure-portal"></a>Configurare le impostazioni del servizio nel portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
 1. Trovare la risorsa di Personalizza esperienze. 
 1. Nella sezione **Gestione risorse** selezionare **Impostazioni**.
 
-    ![Accedere al portale di Azure. Trovare la risorsa di Personalizza esperienze. Nella sezione Gestione risorse selezionare Impostazioni.](media/settings/how-to-configure.png)
+    Prima di uscire dal portale di Azure, copiare una delle chiavi di risorsa dalla pagina **Chiavi**. Tale chiave sarà necessaria per usare [Personalizer SDK](https://aka.ms/personalizer-dotnet-sdk-docs).
 
-### <a name="reward-settings-for-the-feedback-loop"></a>Impostazioni delle ricompense per il ciclo di feedback
+### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Configurare le impostazioni delle ricompense per il ciclo di feedback in base al caso d'uso
 
 Configurare le impostazioni del servizio per l'uso delle ricompense del ciclo di feedback. Le modifiche apportate alle impostazioni correnti reimpostano il modello corrente di Personalizza esperienze e ne ripetono il training con almeno 2 giorni di dati:
 
@@ -81,4 +87,4 @@ Nella sezione **Model and Policy** (Modello e criteri) di Gestione risorse impor
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Apprendimento per rinforzo](concepts-reinforcement-learning.md) 
+[Come usare il contenitore di Personalizza esperienze](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)

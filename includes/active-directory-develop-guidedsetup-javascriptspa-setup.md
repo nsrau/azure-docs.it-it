@@ -14,20 +14,20 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: da2477b19327273fe922ac81f909233cb4ef8f06
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 805b773795e7c8a96fe1b94abecd860475a4c7a1
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59503237"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993309"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>Impostazione del server Web o del progetto
 
 > Si preferisce scaricare questo progetto di esempio?
-> - [Scaricare i file di progetto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) per un server Web locale, ad esempio Node
+> - [Scaricare i file di progetto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) da eseguire con un server Web locale, ad esempio Node
 >
 > oppure
-> - [Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
+> - (Facoltativo) [Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip) da eseguire con un server IIS
 >
 > E quindi passare direttamente al [passaggio di configurazione](#register-your-application) per configurare l'esempio di codice prima di eseguirlo.
 
@@ -63,8 +63,7 @@ Le istruzioni di questa guida sono basate su Node.js e Visual Studio 2017, ma è
    <head>
        <title>Quickstart for MSAL JS</title>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.4/js/msal.js"></script>
-       <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.js"></script>
    </head>
    <body>
        <h2>Welcome to MSAL.js Quickstart</h2><br/>
@@ -77,3 +76,6 @@ Le istruzioni di questa guida sono basate su Node.js e Visual Studio 2017, ma è
    </body>
    </html>
    ```
+
+   > [!TIP]
+   > È possibile sostituire la versione di MSAL.js nello script qui sopra con l'ultima versione rilasciata disponibile nella pagina delle [versioni di MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).

@@ -2,7 +2,7 @@
   href: ./index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sul servizio Azure Kubernetes
+    - name: Informazioni sul servizio Azure Container
       href: intro-kubernetes.md
 - name: Guide introduttive
   expanded: true
@@ -113,7 +113,7 @@
         - name: Eliminare un cluster del servizio Azure Container
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: Creare nodi virtuali (anteprima)
+        - name: Creare nodi virtuali
           items:
             - name: Interfaccia della riga di comando di Azure
               href: virtual-nodes-cli.md
@@ -123,9 +123,13 @@
           href: virtual-kubelet.md
         - name: Usare il ridimensionamento automatico del cluster (anteprima)
           href: cluster-autoscaler.md
-        - name: Distribuire servizio Azure Kubernetes con Terraform
+        - name: Usare più pool di nodi (anteprima)
+          href: use-multiple-node-pools.md
+        - name: Distribuire il servizio Azure Kubernetes con Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
+        - name: Usare il dashboard di Kubernetes
+          href: kubernetes-dashboard.md
     - name: Configurare i volumi di dati
       items:
         - name: Disco di Azure - Configurazione dinamica
@@ -173,12 +177,16 @@
           href: kubernetes-service-principal.md
         - name: Limitare l'accesso al file di configurazione del cluster
           href: control-kubeconfig-access.md
-        - name: Proteggere il traffico di pod con i criteri di rete (anteprima)
+        - name: Proteggere il traffico di pod con i criteri di rete
           href: use-network-policies.md
         - name: Usare criteri di sicurezza dei pod (anteprima)
           href: use-pod-security-policies.md
+        - name: Definire gli intervalli IP autorizzati per il server API (anteprima)
+          href: api-server-authorized-ip-ranges.md
         - name: Aggiornare le credenziali dell'entità servizio del cluster
           href: update-credentials.md
+        - name: Limitare e controllare il traffico in uscita del cluster
+          href: limit-egress-traffic.md
         - name: Abilitare l'integrazione di Azure Active Directory
           items:
             - name: Utilizzare l’interfaccia della riga di comando di Azure
@@ -285,10 +293,6 @@
         - name: Progetto DevOps di Azure
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-    - name: Nozioni di base di Kubernetes
-      items:
-        - name: Usare il dashboard Kubernetes
-          href: kubernetes-dashboard.md
     - name: Risolvere problemi
       items:
         - name: Problemi comuni

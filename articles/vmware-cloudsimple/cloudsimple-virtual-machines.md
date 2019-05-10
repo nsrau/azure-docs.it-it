@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 59f5438bbedea2ff7793a5df95f1d3df58b9bba6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 77a2901ae2d81f42780110b1576c1f32c7ff397b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576986"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209496"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>Panoramica delle macchine virtuali CloudSimple
 
@@ -37,4 +37,4 @@ Le macchine virtuali CloudSimple dal portale di Azure forniscono un meccanismo s
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su come [utilizzare macchine virtuali VMware in Azure](quickstart-create-vmware-virtual-machine.md)
-* Informazioni su come [eseguire il mapping della sottoscrizione di Azure](https://docs.azure.cloudsimple.com/azuresubscriptionmapping/)
+* Informazioni su come [eseguire il mapping della sottoscrizione di Azure](https://docs.azure.cloudsimple.com/azure-subscription-mapping/)

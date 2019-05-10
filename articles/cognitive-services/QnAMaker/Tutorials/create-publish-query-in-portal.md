@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266954"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149916"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Esercitazione: nel portale di QnA Maker creare una knowledge base
 
@@ -68,7 +68,7 @@ Questa esercitazione richiede un [servizio QnA Maker](../How-To/set-up-qnamaker-
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Il contenuto delle domande frequenti in tale URL viene formattato con una domanda seguita da una risposta. QnA Maker può interpretare questo formato per estrarre le domande e le risposte associate.|
     |File |_Non usato in questa esercitazione_|Consente di caricare i file per le domande e le risposte. |
-    |Personalità Chit-chat|Amico|Dà una personalità amichevole e informale alle domande e risposte comuni. È possibile modificare queste domande e risposte in un secondo momento. |
+    |Personalità Chit-chat|Gentile|Dà una personalità amichevole e informale alle domande e risposte comuni. È possibile modificare queste domande e risposte in un secondo momento. |
 
     ![Passaggio 4 del processo di creazione della knowledge base](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
@@ -84,9 +84,9 @@ Questa esercitazione richiede un [servizio QnA Maker](../How-To/set-up-qnamaker-
 
 1. Selezionare l'ultima pagina di domande e risposte nella parte inferiore della tabella. La pagina mostra le domande e le risposte della personalità Chit-chat. 
 
-1. Sulla barra degli strumenti sopra l'elenco di domande e risposte selezionare l'icona di metadati. Vengono visualizzati i tag dei metadati per ogni domanda e risposta. Per le domande Chit-chat sono già impostati i metadati **editorial: chit-chat**. Questi metadati vengono restituiti all'applicazione client insieme alla risposta selezionata. L'applicazione client, ad esempio un chat bot, può usare questi metadati filtrati per determinare altre elaborazioni o interazioni con l'utente.
+1. Sulla barra degli strumenti sopra l'elenco di domande e risposte, selezionare l'icona **Visualizzare le opzioni**, quindi selezionare **Mostra metadati**. Vengono visualizzati i tag dei metadati per ogni domanda e risposta. Per le domande Chit-chat sono già impostati i metadati **editorial: chit-chat**. Questi metadati vengono restituiti all'applicazione client insieme alla risposta selezionata. L'applicazione client, ad esempio un chat bot, può usare questi metadati filtrati per determinare altre elaborazioni o interazioni con l'utente.
 
-    ![Visualizzare i tag dei metadati](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![![View Metadata tags](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png#lightbox)
 
 1. Selezionare **Save and train** (Salva ed esegui training) nella barra dei menu in alto.
 

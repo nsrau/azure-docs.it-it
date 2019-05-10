@@ -16,16 +16,24 @@
   items:
     - name: Android
       items:
-        - name: Eseguire il push di notifiche con Firebase Cloud Messaging
-          href: notification-hubs-android-push-notification-google-fcm-get-started.md
-        - name: Eseguire il push di notifiche con Google Cloud Messaging
-          href: notification-hubs-android-push-notification-google-gcm-get-started.md
-        - name: Inviare notifiche push a specifici dispositivi
-          href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-        - name: Eseguire il push di notifiche a utenti specifici
-          href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-        - name: Inviare notifiche push ad app Xamarin Android
-          href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Firebase Cloud Messaging
+          items:
+            - name: Inviare notifiche push a tutte le registrazioni
+              href: notification-hubs-android-push-notification-google-fcm-get-started.md
+            - name: Inviare notifiche push a specifici dispositivi
+              href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
+            - name: Inviare notifiche push a specifici utenti
+              href: push-notifications-android-specific-users-firebase-cloud-messaging.md
+            - name: Inviare notifiche push ad app Xamarin Android
+              href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Google Cloud Message (deprecato)
+          items:
+            - name: Inviare notifiche push a tutte le registrazioni
+              href: notification-hubs-android-push-notification-google-gcm-get-started.md
+            - name: Inviare notifiche push a specifici dispositivi
+              href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+            - name: Inviare notifiche push a specifici utenti
+              href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: Baidu
       items:
         - name: Eseguire il push di notifiche usando il push cloud Baidu

@@ -11,10 +11,10 @@ metadata:
   ms.service: search
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2019
+  ms.date: 05/02/2019
   ms.author: heidist
 abstract:
-  description: 'Informazioni su come creare una soluzione di ricerca aziendale per contenuto privato eterogeneo con Ricerca di Azure. Le esercitazioni, le informazioni di riferimento sulle API e gli altri documenti illustrano come consolidare il contenuto ricercabile in un singolo indice veloce in cui possono essere eseguite query con una sintassi da semplice ad avanzata per una vasta gamma di scenari. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Anteprima della nuova ricerca cognitiva.</b></a> Usare un''API REST in versione preliminare per associare algoritmi di intelligenza artificiale alla pipeline di indicizzazione. Estrarre i dati e richiamare l''elaborazione di linguaggio naturale e immagini per trasformare il contenuto non elaborato e non strutturato in contenuto ricercabile in un indice di Ricerca di Azure. <p/>È possibile esplorare la ricerca cognitiva con <a href="/azure/search/cognitive-search-quickstart-blob">risorse e dati di esempio</a> oppure vedere <a href="/azure/search/cognitive-search-concept-intro">Concetti</a> per altre informazioni.'
+  description: 'Informazioni su come creare una soluzione di ricerca aziendale per contenuto privato eterogeneo con Ricerca di Azure. Le esercitazioni, le informazioni di riferimento sulle API e gli altri documenti illustrano come consolidare il contenuto ricercabile in un singolo indice veloce in cui possono essere eseguite query con una sintassi da semplice ad avanzata per una vasta gamma di scenari. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Ricerca cognitiva</b></a> è ora disponibile a livello generale, con arricchimenti di intelligenza artificiale supportati per gli scenari di produzione.<p/><a href="/azure/search/knowledge-store-concept-intro"><b>Knowledge Store (anteprima)</b></a> estende Ricerca cognitiva. Consente di salvare gli arricchimenti di intelligenza artificiale in uno spazio di archiviazione in cui è possibile visualizzarli, ridefinirli e utilizzarli in altre app oltre a Ricerca di Azure. <a href="/azure/search/knowledge-store-howto"><b>Iniziare</b></a> oggi stesso.'
   aside:
     image:
       alt: null
@@ -51,11 +51,11 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/search/cognitive-search-tutorial-blob">Indicizzare con l'intelligenza artificiale (Servizi cognitivi)</a>
-          - html: <a href="/azure/search/search-howto-dotnet-sdk">Come usare Ricerca di Azure con .NET</a>
+          - html: <a href="/azure/search/search-get-started-portal">Usare il portale per l'indicizzazione e il test delle query</a>
+          - html: <a href="/azure/search/search-howto-dotnet-sdk">Usare .NET per scrivere la prima soluzione di ricerca</a>
+          - html: <a href="/azure/search/cognitive-search-tutorial-blob">Arricchimenti di intelligenza artificiale (Servizi cognitivi)</a>
           - html: <a href="/azure/search/search-indexer-tutorial">Indicizzare il contenuto di un database SQL di Azure con .NET</a>
           - html: <a href="/azure/search/search-semi-structured-data">Indicizzare i dati semistrutturati in un archivio BLOB di Azure con REST</a>
-          - html: <a href="/azure/search/search-get-started-portal">Usare il portale per l'indicizzazione e il test delle query</a>
   - title: riferimento
     items:
       - type: list

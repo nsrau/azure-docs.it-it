@@ -10,15 +10,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 173343677d6c44135037978e1c5b60313251ba43
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 05/08/2019
+ms.openlocfilehash: af1e9df2e9afbd3b51736806fcd4bd8101d583df
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003837"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153404"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Esercitazione: Eseguire la migrazione online di MongoDB all'API di Azure Cosmos DB per MongoDB con Servizio Migrazione del database (anteprima)
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Esercitazione: Eseguire la migrazione online di MongoDB all'API di Azure Cosmos DB per MongoDB con Servizio Migrazione del database
 È possibile usare Servizio Migrazione del database di Azure per eseguire una migrazione online di database (con tempi di inattività minimi) da un'istanza locale o cloud di MongoDB all'API di Azure Cosmos DB per MongoDB.
 
 In questa esercitazione si apprenderà come:
@@ -96,9 +96,7 @@ Per completare questa esercitazione, è necessario:
     > [!NOTE]
     > Le migrazioni online sono supportate solo quando viene usato il piano tariffario Premium. Per altre informazioni sui costi e i piani tariffari, vedere la [pagina relativa ai prezzi](https://aka.ms/dms-pricing).
 
-    Per informazioni utili per la scelta del livello appropriato per Servizio Migrazione del database di Azure, vedere i suggerimenti riportati in questo [post di blog](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Configurare le impostazioni dell'istanza del Servizio Migrazione del database di Azure](media/tutorial-mongodb-to-cosmosdb-online/dms-settings3.png)
+    ![Configurare le impostazioni dell'istanza del Servizio Migrazione del database di Azure](media/tutorial-mongodb-to-cosmosdb-online/dms-settings3.png)
 
 7.  Selezionare **Crea** per creare il servizio.
 

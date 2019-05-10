@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: efeadd2e1600e5ee572c4a69dde0ff4c53a13cd7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1fc7809ad94d589483b87c638d027a39098164e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577661"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209547"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guida introduttiva - configurare un ambiente cloud privato
 
@@ -104,7 +104,7 @@ Client VPN è necessaria per la connessione a CloudSimple dal computer.  Scarica
 4. Selezionare **Utenti**.
 5. Fare clic su **scaricare la configurazione VPN**
 
-    ![Scaricare la configurazione della VPN](media/download-p2s-vpn-configuration.png)
+    ![Scarica configurazione VPN](media/download-p2s-vpn-configuration.png)
 
 6. Importare la configurazione del client VPN
 
@@ -135,7 +135,7 @@ Verrà creata la subnet/VLAN.  È ora possibile usare questo ID VLAN per creare 
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Connettere l'ambiente per una rete virtuale di Azure
 
-CloudSimple offre un circuito ExpressRoute per cloud privato. È possibile connettere la rete virtuale in Azure al circuito ExpressRoute. Per informazioni dettagliate sull'impostazione della connessione, seguire i passaggi in [connessione rete virtuale di Azure tramite ExpressRoute](https://docs.azure.cloudsimple.com/azure-er-connection)
+CloudSimple offre un circuito ExpressRoute per cloud privato. È possibile connettere la rete virtuale in Azure al circuito ExpressRoute. Per informazioni dettagliate sull'impostazione della connessione, seguire i passaggi in [connessione rete virtuale di Azure tramite ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)
 
 ## <a name="sign-in-to-vcenter"></a>Accesso a vCenter
 

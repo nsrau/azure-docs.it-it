@@ -370,7 +370,7 @@ L'oggetto (risposta) `context.res` ha le proprietà seguenti:
 | _body_    | Oggetto che contiene il corpo della risposta.         |
 | _headers_ | Oggetto che contiene le intestazioni della risposta.             |
 | _isRaw_   | Indica che la formattazione viene ignorata per la risposta.    |
-| _Stato_  | Codice di stato HTTP della risposta.                     |
+| _status_  | Codice di stato HTTP della risposta.                     |
 
 ### <a name="accessing-the-request-and-response"></a>Accesso a richiesta e risposta 
 

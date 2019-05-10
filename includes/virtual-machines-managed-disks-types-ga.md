@@ -2,25 +2,27 @@
 title: File di inclusione
 description: File di inclusione
 services: virtual-machines
-author: rockboyfor
+author: roygara
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/13/2019
-ms.author: v-yeche
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a4110d68dc8aa921d647f90de654d2ebb4e17d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 885bc1c627626ee7ba4f391be31131b18fa1ab39
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618041"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65211985"
 ---
-## <a name="premium-ssd"></a>SSD Premium
+## <a name="premium-ssd"></a>Unità SSD Premium
 
 I dischi SSD Premium di Azure offrono prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali (VM) con carichi di lavoro con I/O intensivo. È possibile migrare i dischi delle VM esistenti in SSD Premium per trarre vantaggio dalla velocità e dalle prestazioni di questi dischi. I dischi SSD Premium sono idonei per applicazioni di produzione cruciali.
 
 ### <a name="disk-size"></a>Dimensioni disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
+
+Quando si effettua il provisioning di un disco di archiviazione Premium, a differenza di Archiviazione Standard, vengono garantiti livelli di capacità, IOPS e velocità effettiva del disco. Se ad esempio si crea un disco P50, Azure effettua il provisioning di 4.095 GB di capacità di archiviazione, 7.500 IOPS e 250 MB/s di velocità effettiva per tale disco. L'applicazione può usare la totalità o una della capacità e delle prestazioni. I dischi SSD Premium sono progettati per offrire le prestazioni previste il 99,9% del tempo.
 
 ## <a name="standard-ssd"></a>SSD Standard
 
@@ -28,6 +30,8 @@ Le unità SSD Standard di Azure sono un'opzione di archiviazione conveniente, ot
 
 ### <a name="disk-size"></a>Dimensioni disco
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
+
+Unità SSD standard sono progettati per fornire latenze di pochi millisecondi a cifra singola per la maggior parte delle operazioni dei / o e per offrire il numero di IOPS e velocità effettiva fino ai limiti di descritto nella precedente tabella 99% del tempo. IOPS e velocità effettiva effettivi possono variare in alcuni casi a seconda di modelli di traffico. Le unità SSD Standard offrono prestazioni più coerenti rispetto ai dischi HDD con latenza più bassa.
 
 ## <a name="standard-hdd"></a>HDD Standard
 

@@ -1,0 +1,550 @@
+---
+title: Introduzione a Knowledge Store (anteprima) - Ricerca di Azure
+description: Informazioni sulla procedura per inviare documenti arricchiti creati da pipeline di indicizzazione basate sull'intelligenza artificiale in Ricerca di Azure a un knowledge store nell'account di archiviazione di Azure, da cui è possibile visualizzare, trasformare e utilizzare i documenti arricchiti in Ricerca di Azure e in altre applicazioni.
+manager: cgronlun
+author: HeidiSteen
+services: search
+ms.service: search
+ms.topic: quickstart
+ms.date: 05/02/2019
+ms.author: heidist
+ms.openlocfilehash: 2a904cfb049af413887798c8aab449561bc2b73f
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65030049"
+---
+# <a name="how-to-get-started-with-knowledge-store"></a>Introduzione a Knowledge Store
+
+[Knowledge Store](knowledge-store-concept-intro.md) è una nuova funzionalità di anteprima disponibile in Ricerca di Azure che consente di salvare in altre app arricchimenti basati sull'intelligenza artificiale creati in una pipeline di indicizzazione per il knowledge mining. È anche possibile usare gli arricchimenti salvati per comprendere e ottimizzare una pipeline di indicizzazione di Ricerca di Azure.
+
+Un knowledge store è definito da una set di competenze. Nei normali scenari di ricerca full-text di Ricerca di Azure si usa un set di competenze per fornire arricchimenti basati sull'intelligenza artificiale e facilitare ulteriormente la ricerca nel contenuto. Negli scenari di knowledge store si usa invece un set di competenze per creare e popolare più strutture dei dati per il knowledge mining.
+
+In questo esercizio iniziare con dati di esempio, servizi e strumenti per apprendere il flusso di lavoro di base per la creazione e l'uso del primo knowledge store, prestando particolare attenzione alla definizione del set di competenze.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti. 
+
++ [Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione. 
+
++ [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) per l'archiviazione dei dati di esempio. Il knowledge store sarà disponibile nell'archiviazione di Azure.
+
++ [Creare una risorsa di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) al livello S0 con pagamento in base al consumo per un accesso più esteso all'intera gamma di competenze usate negli arricchimenti basati sull'intelligenza artificiale.
+
++ L'[app desktop Postman](https://www.getpostman.com/) per inviare richieste a Ricerca di Azure.
+
++ La [raccolta Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/caselaw) con le richieste preparate per la creazione di un'origine dati, un indice, un set di competenze e un indicizzatore. Diverse definizioni di oggetto sono troppo lunghe per essere incluse in questo articolo. Questa raccolta è necessaria per visualizzare in modo completo le definizioni di indice e set di competenze.
+
++ [Dati di esempio di Caselaw](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) che provengono dalla pagina di download di Public Bulk Data di [Caselaw Access Project](https://case.law/bulk/download/). In particolare, per l'esercizio si usano i primi 10 documenti del primo download (Arkansas). Per questo esercizio è stato caricato un esempio con 10 documenti in GitHub.
+
+## <a name="get-a-key-and-url"></a>Ottenere una chiave e un URL
+
+Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
+
+1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere l'URL nella pagina **Panoramica** del servizio di ricerca. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
+
+1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
+
+    ![Ottenere una chiave di accesso e un endpoint HTTP](media/search-fiddler/get-url-key.png "Ottenere una chiave di accesso e un endpoint HTTP")
+
+Per ogni richiesta inviata al servizio è necessario specificare una chiave API.
+
+## <a name="prepare-sample-data"></a>Preparare i dati di esempio
+
+1. [Accedere al portale di Azure](https://portal.azure.com), passare all'account di archiviazione di Azure, fare clic su **BLOB** e quindi su **+ Contenitore**.
+
+1. [Creare un contenitore BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) per i dati di esempio. È possibile impostare il livello di accesso pubblico su uno qualsiasi dei relativi valori validi.
+
+1. Dopo aver creato il contenitore, aprirlo e selezionare **Carica** nella barra dei comandi.
+
+   ![Carica nella barra dei comandi](media/search-semi-structured-data/upload-command-bar.png "Carica nella barra dei comandi")
+
+1. Passare alla cartella che contiene il file di esempio **caselaw-sample.json**. Selezionare il file e quindi fare clic su **Carica**.
+
+
+## <a name="set-up-postman"></a>Configurare Postman
+
+Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca di Azure con Postman](search-fiddler.md) per altre informazioni.
+
++ Il metodo di richiesta per ogni chiamata in questa procedura dettagliata è **POST**.
++ Le intestazioni delle richieste (2) includono rispettivamente "Content-type" impostato su "application/json" e "api-key" impostato su "admin key". admin key è un segnaposto per la chiave primaria di ricerca. 
++ Il corpo della richiesta è l'area in cui si viene inserito il contenuto effettivo della chiamata. 
+
+  ![Ricerca su dati semistrutturati](media/search-semi-structured-data/postmanoverview.png)
+
+Viene usato Postman per effettuare quattro chiamate API al servizio di ricerca, in modo da creare un'origine dati, un indice, un set di competenze e un indicizzatore. L'origine dati include un puntatore all'account di archiviazione e ai dati JSON. Il servizio di ricerca stabilisce la connessione durante l'importazione dei dati.
+
+Obiettivo principale di questa procedura dettagliata è la [creazione di un set di competenze](#create-skillset). Vengono quindi illustrati i passaggi per l'arricchimento e come salvare in modo permanente i dati in un knowledge store.
+
+L'endpoint dell'URL deve specificare una versione API e ogni chiamata deve restituire **201 Created**. La versione dell'API di anteprima per la creazione di un set di competenze con il supporto per il knowledge store è `2019-05-06-Preview`.
+
+Eseguire le chiamate dell'API seguenti dal client REST.
+
+## <a name="create-a-data-source"></a>Creare un'origine dati
+
+L'[API di creazione dell'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crea un'origine di Ricerca di Azure che specifica quali dati indicizzare.
+
+L'endpoint di questa chiamata è `https://[service name].search.windows.net/datasources?api-version=2019-05-06-Preview`. 
+
+1. Sostituire `[service name]` con il nome del servizio di ricerca. 
+
+2. Per questa chiamata il corpo della richiesta deve includere la stringa di connessione dell'account di archiviazione e il nome del contenitore BLOB. La connessione è reperibile nel portale di Azure tra le **chiavi di accesso** dell'account di archiviazione. 
+
+   Assicurarsi di sostituire la stringa di connessione e il nome del contenitore BLOB nel corpo della richiesta prima di eseguire la chiamata.
+
+    ```json
+    {
+        "name": "caselaw-ds",
+        "description": null,
+        "type": "azureblob",
+        "subtype": null,
+        "credentials": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your storage key>;EndpointSuffix=core.windows.net"
+        },
+        "container": {
+            "name": "<your blob container name>",
+            "query": null
+        },
+        "dataChangeDetectionPolicy": null,
+        "dataDeletionDetectionPolicy": null
+    }
+    ```
+
+3. Inviare la richiesta. La risposta dovrebbe essere **201** e il corpo della risposta dovrebbe essere quasi identico al payload della richiesta specificato.
+
+    ```json
+    {
+        "name": "caselaw-ds",
+        "description": null,
+        "type": "azureblob",
+        "subtype": null,
+        "credentials": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your storage key>;EndpointSuffix=core.windows.net"
+        },
+        "container": {
+            "name": "<your blob container name>",
+            "query": null
+        },
+        "dataChangeDetectionPolicy": null,
+        "dataDeletionDetectionPolicy": null
+    }
+    ```
+
+## <a name="create-an-index"></a>Creare un indice
+    
+La seconda chiamata è l'[API di creazione dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-data-source) che crea un indice di Ricerca di Azure che archivia tutti i dati ricercabili. Un indice specifica tutti i campi, i parametri e gli attributi.
+
+Non è necessario usare un indice per il knowledge mining, ma, se non si specifica alcun indice, l'indicizzatore non verrà eseguito. 
+
+L'URL per questa chiamata è `https://[service name].search.windows.net/indexes?api-version=2019-05-06-Preview`.
+
+1. Sostituire `[service name]` con il nome del servizio di ricerca.
+
+2. Copiare nel corpo della richiesta la definizione di indice dalla richiesta di creazione indice inclusa nella raccolta Postman. La definizione di indice è costituita da diverse centinaia di righe ed è quindi troppo lunga per questo articolo. 
+
+   La shell esterna di un indice è costituita dagli elementi seguenti. 
+
+   ```json
+   {
+      "name": "caselaw",
+      "defaultScoringProfile": null,
+      "fields": [],
+      "scoringProfiles": [],
+      "corsOptions": null,
+      "suggesters": [],
+      "analyzers": [],
+      "tokenizers": [],
+      "tokenFilters": [],
+      "charFilters": [],
+      "encryptionKey": null
+   }
+   ```
+
+3. La raccolta `fields` contiene il blocco della definizione di indice. Include campi semplici, [campi complessi](search-howto-complex-data-types.md) con sottostrutture annidate, nonché raccolte.
+
+   Vedere la definizione di campo per `casebody` alle righe 302-384. Quando sono necessarie le rappresentazioni gerarchiche, un campo complesso può contenere altri campi complessi.
+
+   ```json
+   {
+    "name": "casebody",
+    "type": "Edm.ComplexType",
+    "fields": [
+        {
+            "name": "status",
+            "type": "Edm.String",
+            "searchable": true,
+            "filterable": true,
+            "retrievable": true,
+            "sortable": true,
+            "facetable": true,
+            "key": false,
+            "indexAnalyzer": null,
+            "searchAnalyzer": null,
+            "analyzer": null,
+            "synonymMaps": []
+        },
+        {
+            "name": "data",
+            "type": "Edm.ComplexType",
+            "fields": [
+                {
+                    "name": "head_matter",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": false,
+                    "retrievable": true,
+                    "sortable": false,
+                    "facetable": false,
+                    "key": false,
+                    "indexAnalyzer": null,
+                    "searchAnalyzer": null,
+                    "analyzer": null,
+                    "synonymMaps": []
+                },
+                {
+                    "name": "opinions",
+                    "type": "Collection(Edm.ComplexType)",
+                    "fields": [
+                        {
+                            "name": "author",
+                            "type": "Edm.String",
+                            "searchable": true,
+                            "filterable": true,
+                            "retrievable": true,
+                            "sortable": false,
+                            "facetable": true,
+                            "key": false,
+                            "indexAnalyzer": null,
+                            "searchAnalyzer": null,
+                            "analyzer": null,
+                            "synonymMaps": []
+                        },
+                        {
+                            "name": "text",
+                            "type": "Edm.String",
+                            "searchable": true,
+                            "filterable": false,
+                            "retrievable": true,
+                            "sortable": false,
+                            "facetable": false,
+                            "key": false,
+                            "indexAnalyzer": null,
+                            "searchAnalyzer": null,
+                            "analyzer": null,
+                            "synonymMaps": []
+                        },
+                        {
+                            "name": "type",
+                            "type": "Edm.String",
+                            "searchable": true,
+                            "filterable": true,
+                            "retrievable": true,
+                            "sortable": false,
+                            "facetable": true,
+                            "key": false,
+                            "indexAnalyzer": null,
+                            "searchAnalyzer": null,
+                            "analyzer": null,
+                            "synonymMaps": []
+                        }
+                    ]
+                },
+    . . .
+   ```
+
+4. Inviare la richiesta. 
+
+   La risposta dovrebbe essere **201** ed essere simile all'esempio seguente, in cui sono mostrati i primi campi:
+
+    ```json
+    {
+        "name": "caselaw",
+        "defaultScoringProfile": null,
+        "fields": [
+            {
+                "name": "id",
+                "type": "Edm.String",
+                "searchable": true,
+                "filterable": true,
+                "retrievable": true,
+                "sortable": true,
+                "facetable": true,
+                "key": true,
+                "indexAnalyzer": null,
+                "searchAnalyzer": null,
+                "analyzer": null,
+                "synonymMaps": []
+            },
+            {
+                "name": "name",
+                "type": "Edm.String",
+                "searchable": true,
+                "filterable": true,
+                "retrievable": true,
+                "sortable": true,
+                "facetable": true,
+                "key": false,
+                "indexAnalyzer": null,
+                "searchAnalyzer": null,
+                "analyzer": null,
+                "synonymMaps": []
+            },
+      . . .
+    ```
+
+<a name="create-skillset"></a>
+
+## <a name="create-a-skillset-and-knowledge-store"></a>Creare un set di competenze e un knowledge store
+
+L'[API di creazione set di competenze](https://docs.microsoft.com/rest/api/searchservice/create-skillset) crea un oggetto di Ricerca di Azure che specifica quali sono le competenze cognitive da chiamare, come concatenare le competenze e, ancor più importante per questa procedura dettagliata, come specificare un knowledge store.
+
+L'endpoint di questa chiamata è `https://[service name].search.windows.net/skillsets?api-version=2019-05-06-Preview`.
+
+1. Sostituire `[service name]` con il nome del servizio di ricerca.
+
+2. Copiare nel corpo della richiesta la definizione di set di competenze dalla richiesta di creazione set di competenze inclusa nella raccolta Postman. La definizione di set di competenze è costituita da diverse centinaia di righe ed è troppo lunga per questo articolo, anche se costituisce l'obiettivo di questa procedura dettagliata.
+
+   La shell esterna di un set di competenze è costituita dagli elementi seguenti. La raccolta `skills` definisce gli arricchimenti in memoria, ma la definizione `knowledgeStore` specifica la modalità di archiviazione dell'output. La definizione `cognitiveServices` costituisce la connessione ai motori di arricchimento basato su intelligenza artificiale.
+
+   ```json
+   {
+    "name": "caselaw-ss",
+    "description": null,
+    "skills": [],
+    "cognitiveServices": [],
+    "knowledgeStore": []
+   }
+   ```
+
+3. Impostare prima la stringa di connessione e la chiave di `cognitiveServices` e `knowledgeStore`. Nell'esempio queste stringhe si trovano dopo la definizione di set di competenze, alla fine del corpo della richiesta.
+
+    ```json
+    "cognitiveServices": {
+        "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
+        "description": "<your cognitive services resource name>",
+        "key": "<your cognitive services key>"
+    },
+    "knowledgeStore": {
+        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your storage account key>;EndpointSuffix=core.windows.net",
+    ```
+
+3. Esaminare la raccolta di competenze, in particolare le competenze Shaper rispettivamente alle righe 85 e 170. La competenza Shaper è importante perché consente di assemblare le strutture dei dati desiderate per il knowledge mining. Durante l'esecuzione del set di competenze queste strutture si trovano solo in memoria, ma al passaggio successivo si vedrà come salvare questo output in un knowledge store per un'ulteriore analisi.
+
+   Il frammento di codice seguente proviene dalla riga 207. 
+
+    ```json
+    {
+    "name": "Opinions",
+    "source": null,
+    "sourceContext": "/document/casebody/data/opinions/*",
+    "inputs": [
+        {
+            "name": "Text",
+            "source": "/document/casebody/data/opinions/*/text"
+        },
+        {
+            "name": "Author",
+            "source": "/document/casebody/data/opinions/*/author"
+        },
+        {
+            "name": "Entities",
+            "source": null,
+            "sourceContext": "/document/casebody/data/opinions/*/text/pages/*/entities/*",
+            "inputs": [
+                {
+                    "name": "Entity",
+                    "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/value"
+                },
+                {
+                    "name": "EntityType",
+                    "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/category"
+                }
+             ]
+          }
+     ]
+   }
+   . . .
+   ```
+
+3. Esaminare l'elemento `projections` in `knowledgeStore`, a partire dalla riga 253. Le proiezioni consentono di specificare la composizione del knowledge store. Le proiezioni vengono specificate in coppie tabelle-oggetti, ma al momento solo una alla volta. Come si può notare nella prima proiezione, è specificato `tables`, ma non `objects`. Nella seconda è il contrario.
+
+   Nell'archiviazione di Azure verranno create tabelle nell'archivio tabelle per ogni tabella creata e ogni oggetto ottiene un contenitore nell'archivio BLOB.
+
+   Gli oggetti contengono in genere l'espressione completa di un arricchimento. Le tabelle contengono in genere arricchimenti parziali, in combinazioni definite per scopi specifici. In questo esempio viene mostrata una tabella Cases, ma non altre tabelle come Entities, Judges e Opinions.
+
+    ```json
+    "projections": [
+    {
+        "tables": [
+            {
+              "tableName": "Opinions",
+              "generatedKeyName": "OpinionId",
+              "source": "/document/Case/OpinionsSnippets/*"
+            },
+          . . . 
+        ],
+        "objects": []
+    },
+    {
+        "tables": [],
+        "objects": [
+            {
+                "storageContainer": "enrichedcases",
+                "key": "/document/CaseFull/Id",
+                "source": "/document/CaseFull"
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+5. Inviare la richiesta. La risposta dovrebbe essere **201** ed essere simile all'esempio seguente, in cui è mostrata la prima parte della risposta.
+
+    ```json
+    {
+    "name": "caselaw-ss",
+    "description": null,
+    "skills": [
+        {
+            "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+            "name": "SplitSkill#1",
+            "description": null,
+            "context": "/document/casebody/data/opinions/*/text",
+            "defaultLanguageCode": "en",
+            "textSplitMode": "pages",
+            "maximumPageLength": 5000,
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/casebody/data/opinions/*/text
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "textItems",
+                    "targetName": "pages"
+                }
+            ]
+        },
+        . . .
+    ```
+
+## <a name="create-and-run-an-indexer"></a>Creare ed eseguire un indicizzatore
+
+L'[API di creazione indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer) crea ed esegue immediatamente un indicizzatore. In questo passaggio entrano in gioco tutte le definizioni create fino a questo momento. L'indicizzatore viene eseguito immediatamente perché non esiste nel servizio. Quando sarà presente, una chiamata POST a un indicizzatore esistente costituirà un'operazione di aggiornamento.
+
+L'endpoint di questa chiamata è `https://[service name].search.windows.net/indexers?api-version=2019-05-06-Preview`.
+
+1. Sostituire `[service name]` con il nome del servizio di ricerca. 
+
+2. Per questa chiamata nel corpo della richiesta viene specificato il nome dell'indicizzatore. L'indicizzatore richiede un'origine dati e un indice. Un set di competenze è facoltativo per un indicizzatore, ma obbligatorio per l'arricchimento basato su intelligenza artificiale.
+
+    ```json
+    {
+        "name": "caselaw-idxr",
+        "description": null,
+        "dataSourceName": "caselaw-ds",
+        "skillsetName": "caselaw-ss",
+        "targetIndexName": "caselaw",
+        "disabled": null,
+        "schedule": null,
+        "parameters": {
+            "batchSize": 1,
+            "maxFailedItems": null,
+            "maxFailedItemsPerBatch": null,
+            "base64EncodeKeys": null,
+            "configuration": {
+                "parsingMode": "jsonLines"
+            }
+        },
+        "fieldMappings": [],
+        "outputFieldMappings": [
+            {
+                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/people/*",
+                "targetFieldName": "people",
+                "mappingFunction": null
+            },
+            {
+                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/organizations/*",
+                "targetFieldName": "orginizations",
+                "mappingFunction": null
+            },
+            {
+                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/locations/*",
+                "targetFieldName": "locations",
+                "mappingFunction": null
+            },
+            {
+                "sourceFieldName": "/document/Case/OpinionsSnippets/*/Entities/*",
+                "targetFieldName": "entities",
+                "mappingFunction": null
+            },
+            {
+                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/keyPhrases/*",
+                "targetFieldName": "keyPhrases",
+                "mappingFunction": null
+            }
+        ]
+    }
+    ```
+
+3. Inviare la richiesta. La risposta dovrebbe essere **201** e il corpo della risposta dovrebbe essere quasi identico al payload della richiesta specificato (tagliato per brevità).
+
+    ```json
+    {
+        "name": "caselaw-idxr",
+        "description": null,
+        "dataSourceName": "caselaw-ds",
+        "skillsetName": "caselaw-ss",
+        "targetIndexName": "caselaw",
+        "disabled": null,
+        "schedule": null,
+        "parameters": {
+            "batchSize": 1,
+            "maxFailedItems": null,
+            "maxFailedItemsPerBatch": null,
+            "base64EncodeKeys": null,
+            "configuration": {
+                "parsingMode": "jsonLines"
+            }
+        },
+        "fieldMappings": [],
+        "outputFieldMappings": [
+            {
+                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/people/*",
+                "targetFieldName": "people",
+                "mappingFunction": null
+            }
+        ]
+    }
+    ```
+
+## <a name="explore-knowledge-store"></a>Esplorare il knowledge store
+
+È possibile iniziare a esplorare il knowledge store subito dopo aver importato il primo documento. Per questa attività, usare [**Storage Explorer**](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer) nel portale.
+
+È importante tenere presente che un knowledge store è completamente scollegato da Ricerca di Azure. L'indice e il knowledge store di Ricerca di Azure contengono entrambe la rappresentazione e il contenuto dei dati, ma divergono proprio a partire da quel punto. Usare l'indice per la ricerca full-text, la ricerca filtrata e tutti gli scenari supportati in Ricerca di Azure. In alternativa, procedere il solo knowledge store, collegando altri strumenti per analizzare i contenuti.
+
+## <a name="takeaways"></a>Risultati
+
+È stato creato il primo knowledge store nell'archiviazione di Azure ed è stato usato Storage Explorer per visualizzare gli arricchimenti. Si tratta dell'esperienza fondamentale per l'utilizzo di arricchimenti archiviati. 
+
+## <a name="next-steps"></a>Passaggi successivi
+
+La competenza Shaper svolge buona parte del lavoro di creazione di moduli dati granulari che è possibile combinare in nuove forme. Nel passaggio successivo esaminare la pagina di riferimento per questa competenza per informazioni dettagliate su come usarla.
+
+> [!div class="nextstepaction"]
+> [Informazioni di riferimento sulla competenza Shaper](cognitive-search-skill-shaper.md)
+
+
+<!---
+## Keep This
+
+How to convert unformatted JSON into an indented JSON document structure that allows you to quickly identify nested structures. Useful for creating an index that includes complex types.
+
+1. Use Visual Studio Code.
+2. Open data.jsonl
+--->

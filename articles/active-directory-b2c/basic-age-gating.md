@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 083ed7209efd88d3d221b55cfb53fe3998dd2987
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703277"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227997"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Abilitare il controllo dell'accesso in base all'età in Azure Active Directory B2C
 
@@ -25,14 +25,14 @@ ms.locfileid: "64703277"
 
 Il controllo dell'accesso in base all'età in Azure Active Directory (Azure AD) B2C consente di identificare i minori che vogliono usare l'applicazione. È possibile scegliere di impedire ai minori di accedere all'applicazione. In alternativa, gli utenti possono tornare all'applicazione e identificare la propria fascia di età e il relativo stato di consenso dei genitori. Con Azure AD B2C è possibile bloccare i minori privi del consenso dei genitori. Azure AD B2C può inoltre essere configurato in modo da consentire all'applicazione di decidere come gestire l'accesso dei minori.
 
-Dopo aver abilitato il controllo dell'accesso in base all'età nel [flusso utente](active-directory-b2c-reference-policies.md), agli utenti viene chiesto di specificare la data di nascita e il paese di residenza. Se un utente esegue l'accesso senza avere precedentemente immesso queste informazioni, dovrà farlo al successivo accesso. Le regole vengono applicate ogni volta che un utente esegue l'accesso.
+Dopo aver abilitato nel controllo dell'età del [flusso utente](active-directory-b2c-reference-policies.md), agli utenti viene richiesto quando si è nati e il paese/area geografica si trovano in. Se un utente esegue l'accesso senza avere precedentemente immesso queste informazioni, dovrà farlo al successivo accesso. Le regole vengono applicate ogni volta che un utente esegue l'accesso.
 
 Azure AD B2C usa le informazioni immesse dall'utente per stabilire se si tratta di un minore. Il campo **ageGroup** viene aggiornato di conseguenza nel rispettivo account. Il valore può essere `null`, `Undefined`, `Minor`, `Adult` e `NotAdult`.  I campi **ageGroup** e **consentProvidedForMinor** vengono quindi usati per calcolare il valore di **legalAgeGroupClassification**.
 
 Il controllo dell'accesso in base all'età prevede due valori: l'età in cui un utente non è più considerato un minore e l'età in cui un minore deve avere il consenso dei genitori. La tabella seguente elenca le regole per l'età che vengono usate per identificare un minore e un minore che necessita del consenso.
 
-| Paese | Nome del paese | Minore età per cui richiedere il consenso | Minore età |
-| ------- | ------------ | ----------------- | --------- |
+| Paese/Area geografica | Nome di paese/area geografica | Minore età per cui richiedere il consenso | Minore età |
+| -------------- | ------------------- | ----------------- | --------- |
 | Predefinito | Nessuna | Nessuna | 18 |
 | AE | Emirati Arabi Uniti | Nessuna | 21 |
 | AT | Austria | 14 | 18 |
@@ -41,7 +41,7 @@ Il controllo dell'accesso in base all'età prevede due valori: l'età in cui un 
 | BH | Bahrain | Nessuna | 21 |
 | CM | Camerun | Nessuna | 21 |
 | CY | Cipro | 16 | 18 |
-| CZ | Repubblica ceca | 16 | 18 |
+| CZ | Ceca, Repubblica | 16 | 18 |
 | DE | Germania | 16 | 18 |
 | DK | Danimarca | 16 | 18 |
 | EE | Estonia | 16 | 18 |
@@ -53,13 +53,13 @@ Il controllo dell'accesso in base all'età prevede due valori: l'età in cui un 
 | HR | Croazia | 16 | 18 |
 | HU | Ungheria | 16 | 18 |
 | IE | Irlanda | 13 | 18 |
-| IT | Italia | 16 | 18 |
+| it | Italia | 16 | 18 |
 | KR | Repubblica di Corea | 14 | 18 |
 | LT | Lituania | 16 | 18 |
 | LU | Lussemburgo | 16 | 18 |
 | LV | Lettonia | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| ND | Namibia | Nessuna | 21 |
+| NA | Namibia | Nessuna | 21 |
 | NL | Paesi Bassi | 16 | 18 |
 | PL | Polonia | 13 | 18 |
 | PT | Portogallo | 16 | 18 |
@@ -68,7 +68,7 @@ Il controllo dell'accesso in base all'età prevede due valori: l'età in cui un 
 | SG | Singapore | Nessuna | 21 |
 | SI | Slovenia | 16 | 18 |
 | SK | Slovacchia | 16 | 18 |
-| TD | Chad | Nessuna | 21 |
+| TD | Ciad | Nessuna | 21 |
 | TH | Thailandia | Nessuna | 20 |
 | TW | Taiwan | Nessuna | 20 | 
 | Stati Uniti | Stati Uniti | 13 | 18 |

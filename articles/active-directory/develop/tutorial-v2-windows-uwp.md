@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 448858efeaae4c3e2a41d41181e9ec74b03223f6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522793"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138245"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (XAML)
 
@@ -333,8 +333,10 @@ I token ID acquisiti tramite **OpenID Connect** includono anche un piccolo subse
    - Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**.
    - Selezionare **Registra** per creare l'applicazione.
 1. Nella pagina **Panoramica**  dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota. Tornare a Visual Studio, aprire **MainPage.xaml.cs** e sostituire il valore di ClientId con l'ID applicazione annotato nel passaggio precedente:
-1. Nell'elenco delle pagine per l'app selezionare **Autenticazione**:
-   - Nella sezione **URI di reindirizzamento** | **URI di reindirizzamento suggeriti per client pubblici (dispositivi mobili, desktop)** selezionare **urn:ietf:wg:oauth:2.0:oob**
+1. Nell'elenco delle pagine per l'app selezionare **Autenticazione**.
+   1. Nella sezione **URI di reindirizzamento**, nell'elenco URI di reindirizzamento:
+   1. Nella colonna **TIPO** selezionare **Client pubblico (dispositivi mobili e desktop)**.
+   1. Immettere `urn:ietf:wg:oauth:2.0:oob` nella colonna **URI DI REINDIRIZZAMENTO**.
 1. Selezionare **Salva**.
 1. Nell'elenco delle pagine per l'app selezionare **Autorizzazioni API**
    - Fare clic sul pulsante **Aggiungi un'autorizzazione** e quindi
@@ -384,7 +386,7 @@ Nella casella **Informazioni sul token** vengono visualizzate anche informazioni
 |Proprietà  |Format  |DESCRIZIONE |
 |---------|---------|---------|
 |**Nome utente** |<span>user@domain.com</span> |Il nome utente che identifica l'utente.|
-|**Token Expires** (Scadenza token) |DateTime |Data e ora in cui scade il token. MSAL estende la data di scadenza rinnovando il token in base alla necessità.|
+|**Token Expires** (Scadenza token) |Datetime |Data e ora in cui scade il token. MSAL estende la data di scadenza rinnovando il token in base alla necessità.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Altre informazioni sugli ambiti e sulle autorizzazioni delegate
 

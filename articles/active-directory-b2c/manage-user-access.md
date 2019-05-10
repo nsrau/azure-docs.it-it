@@ -1,6 +1,6 @@
 ---
 title: Gestire l'accesso utente in Azure Active Directory B2C | Microsoft Docs
-description: Informazioni su come identificare i minori, raccogliere dati su paese e data di nascita e ottenere l'accettazione delle condizioni di uso nell'applicazione con Azure AD B2C.
+description: Informazioni su come identificare i minori, raccogliere data di nascita e il paese/area geografica dei dati e ottenere l'accettazione delle condizioni d'uso nell'applicazione usando Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: cddaf59a1202c9c19018427c06639686e905bb64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 88123cc24359daaf1c6fc7e3ceeed8f77f717c9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691094"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228028"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gestire l'accesso utente in Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ Questo articolo spiega come gestire l'accesso utente alle applicazioni usando Az
 
 - Identificazione dei minorenni e controllo dell'accesso utente per l'applicazione.
 - Richiesta del consenso dei genitori per l'uso delle applicazioni da parte dei minorenni.
-- Raccolta dei dati su paese e data di nascita.
+- La raccolta dei dati di nascita e il paese/area geografica degli utenti.
 - Acquisizione del contratto per le condizioni per l'utilizzo e controllo dell'accesso.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -58,11 +58,11 @@ Di seguito è riportato un esempio di un flusso utente per l'acquisizione del co
 
 Per altre informazioni su **legalAgeGroupClassification**, **consentProvidedForMinor** e **ageGroup**, vedere i [tipi di risorsa utente](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Per altre informazioni sugli attributi personalizzati, vedere [Usare attributi personalizzati per raccogliere informazioni sugli utenti](active-directory-b2c-reference-custom-attr.md). Quando si indirizzano attributi estesi con l'API Graph di Azure AD, usare la versione estesa dell'attributo, ad esempio *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
-## <a name="gather-date-of-birth-and-country-data"></a>Raccogliere dati sul paese e la data di nascita
+## <a name="gather-date-of-birth-and-countryregion-data"></a>La raccolta data di nascita e il paese/area geografica dei dati
 
-Le applicazioni può basarsi su Azure AD B2C per raccogliere dati sul paese e sulla data di nascita da tutti gli utenti durante la registrazione. Se tali informazioni non esistono ancora, l'applicazione può richiederle all'utente durante la fase di autenticazione (accesso) successiva. Gli utenti non possono procedere senza indicare le informazioni sul paese e sulla data di nascita. Azure AD B2C usa le informazioni per determinare se l'utente è considerato un minorenne secondo gli standard normativi del paese. 
+Le applicazioni possono basarsi su Azure AD B2C per raccogliere la data di nascita di (tua data di nascita) e le informazioni di paese/area geografica di tutti gli utenti durante la registrazione. Se tali informazioni non esistono ancora, l'applicazione può richiederle all'utente durante la fase di autenticazione (accesso) successiva. Gli utenti non possono continuare senza fornire le informazioni di tua data di nascita e paese/area geografica. Azure AD B2C Usa le informazioni per determinare se l'utente viene considerato un minor secondo gli standard normativi di tale paese/area geografica. 
 
-Un flusso utente personalizzato consente di raccogliere le informazioni sul paese e la data di nascita e di usare le trasformazioni di attestazione di Azure AD B2C per determinare l'elemento **ageGroup** e rendere persistente il risultato, o direttamente le informazioni sul paese e la data di nascita, nella directory.
+Un flusso utente personalizzato consente di raccogliere tua data di nascita e le informazioni sul paese e usare Azure AD B2C richiede la trasformazione per determinare il **ageGroup** e salvare in modo permanente il risultato (o salvare direttamente in modo permanente le informazioni sulla tua data di nascita e paese/area geografica) nel Directory.
 
 I passaggi seguenti mostrano la logica che viene usata per calcolare **ageGroup** a partire dalla data di nascita dell'utente:
 
@@ -78,7 +78,7 @@ I passaggi seguenti mostrano la logica che viene usata per calcolare **ageGroup*
 
 4. Se nessuno dei due calcoli restituisce true, il calcolo restituisce **Adult**.
 
-Se un'applicazione ha raccolto in modo affidabile i dati sul paese e la data di nascita usando altri metodi, l'applicazione può usare l'API Graph per aggiornare il record utente con queste informazioni. Ad esempio: 
+Se un'applicazione ha raccolto informazioni tua data di nascita o paese/area geografica dei dati in modo affidabile tramite altri metodi, l'applicazione può usare l'API Graph per aggiornare il record utente con queste informazioni. Ad esempio:
 
 - Se è noto che l'utente è un adulto, aggiornare l'attributo directory **ageGroup** con il valore **Adult**.
 - Se è noto che l'utente è minorenne, aggiornare l'attributo directory **ageGroup** con il valore **Minor** e impostare **consentProvidedForMinor** in base alle esigenze.

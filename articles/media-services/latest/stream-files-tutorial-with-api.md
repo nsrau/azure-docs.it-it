@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 53f69b6b8eb6cbbb8082ea0777af9dbceb7bdba1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 66ee2c110edfdbd0e33c69d45dee8040654d421a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699699"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149154"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Esercitazione: Eseguire il caricamento, la codifica e lo streaming di video con .NET
 
@@ -198,7 +198,7 @@ az group delete --name amsResourceGroup
 
 Gli SDK di Servizi multimediali di Azure v3 non sono thread-safe. Quando si sviluppa un'applicazione multithreading, è necessario generare e usare un nuovo oggetto AzureMediaServicesClient per ogni thread.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: c01eccb63639a3838c9f726bc48400a76aba8cf0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/01/2019
+ms.openlocfilehash: 131b86fec5fb51c6ff6f29a8e0beed86145a24b7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799041"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136630"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Esercitazione: Eseguire la migrazione online di SQL Server a un database singolo o in pool in Database SQL di Azure con Servizio Migrazione del database
 
@@ -234,9 +234,7 @@ Per eseguire la migrazione dello schema di **AdventureWorks2012** a un database 
 
     Per altre informazioni sui costi e i piani tariffari, vedere la [pagina relativa ai prezzi](https://aka.ms/dms-pricing).
 
-    Per informazioni utili per la scelta del livello appropriato per Servizio Migrazione del database di Azure, vedere i suggerimenti riportati in questo [post](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Configurare le impostazioni dell'istanza del Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
+    ![Configurare le impostazioni dell'istanza del Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7. Selezionare **Crea** per creare il servizio.
 

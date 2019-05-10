@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138034"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227978"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -97,7 +97,7 @@ Se si seleziona **gruppo di azioni** nell'interruttore, aggiungere un gruppo di 
 Infine, configurare i dettagli seguenti per la regola di azione
 * NOME
 * Gruppo di risorse in cui verrà salvato
-* DESCRIZIONE 
+* Descrizione 
 
 ## <a name="example-scenarios"></a>Scenari di esempio
 
@@ -142,11 +142,11 @@ A questo punto, è possibile regole di azione di abilitazione/disabilitazione/el
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-Creato con gli avvisi del log di ['numero di risultati'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) opzione generare **una sola istanza di avviso** utilizzando il risultato della ricerca intero (che può essere ad esempio tra più computer). In questo scenario, se una regola di azione utilizza il filtro 'Contesto avviso (payload)', verrà applicato l'istanza di avviso, purché vi sia una corrispondenza. Nello scenario 2 come descritto in precedenza, se i risultati di ricerca per l'avviso di log generati contengono 'Computer-01' sia 'Computer-02', la notifica intera viene eliminata (ovvero, non vi è alcuna notifica generato per 'Computer-02' affatto).
+Creato con gli avvisi del log di ['numero di risultati'](alerts-unified-log.md) opzione generare **una sola istanza di avviso** utilizzando il risultato della ricerca intero (che può essere ad esempio tra più computer). In questo scenario, se una regola di azione utilizza il filtro 'Contesto avviso (payload)', verrà applicato l'istanza di avviso, purché vi sia una corrispondenza. Nello scenario 2 come descritto in precedenza, se i risultati di ricerca per l'avviso di log generati contengono 'Computer-01' sia 'Computer-02', la notifica intera viene eliminata (ovvero, non vi è alcuna notifica generato per 'Computer-02' affatto).
 
 ![Regole di azione e gli avvisi del log (numero di risultati)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-Avvisi del log sfrutta migliore con le regole di azione, è consigliabile creare gli avvisi del log con il ['di misura della metrica'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) opzione. Con questa opzione, istanze separate di avvisi vengono generate in base al campo gruppo definito. Nello scenario 2, quindi istanze separate di avvisi vengono generate per 'Computer-01' e 'Computer-02'. Con la regola di azione descritta nello scenario, solo la notifica per 'Computer-01' potrebbe essere eliminata durante la notifica per 'Computer-02' continuerebbero a vengono attivati come di consueto.
+Avvisi del log sfrutta migliore con le regole di azione, è consigliabile creare gli avvisi del log con il ['di misura della metrica'](alerts-unified-log.md) opzione. Con questa opzione, istanze separate di avvisi vengono generate in base al campo gruppo definito. Nello scenario 2, quindi istanze separate di avvisi vengono generate per 'Computer-01' e 'Computer-02'. Con la regola di azione descritta nello scenario, solo la notifica per 'Computer-01' potrebbe essere eliminata durante la notifica per 'Computer-02' continuerebbero a vengono attivati come di consueto.
 
 ![Regole di azione e gli avvisi del log (numero di risultati)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 

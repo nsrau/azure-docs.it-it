@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire il training di un modello ed estrarre dati dai moduli con cURL - Riconoscimento modulo'
+title: 'Guida introduttiva: Eseguire il training di un modello ed estrarre dati dai moduli con cURL - Riconoscimento modulo'
 titleSuffix: Azure Cognitive Services
 description: In questa guida di avvio rapido si userà l'API REST di Riconoscimento modulo con cURL per eseguire il training di un modello ed estrarre dati dai moduli.
 author: PatrickFarley
@@ -9,14 +9,14 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: cc6e8cdb7cd1719a8cd14cbfe6e576e07c34b32c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1afe9239dcc3f5a24d2e950ec7b563bf53d1f04c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025646"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143227"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Avvio rapido: Eseguire il training di un modello di Riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con cURL
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Guida introduttiva: Eseguire il training di un modello di Riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con cURL
 
 In questa guida di avvio rapido si userà l'API REST di Riconoscimento modulo con cURL per eseguire il training e assegnare punteggi ai moduli in modo da estrarre coppie chiave-valore e tabelle.
 
@@ -40,7 +40,7 @@ Per eseguire il training di un modello di Riconoscimento modulo usando i documen
 * Sostituire `<subscription key>` con la chiave di sottoscrizione.
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<SAS URL>\"}"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
 ```
 
 Si riceverà una risposta `200 (Success)` con l'output JSON seguente:
@@ -90,14 +90,14 @@ Prendere nota del valore di `"modelId"`, perché sarà necessario nei passaggi s
 
 Analizzare un documento ed estrarre le coppie chiave-valore e le tabelle. Chiamare l'API **Model - Analyze** eseguendo il comando cURL seguente. Prima di eseguire il comando, apportare le modifiche seguenti:
 
-* Sostituire `<Endpoint>` con l'endpoint ottenuto dalla chiave di sottoscrizione di Riconoscimento modulo, disponibile nella scheda di panoramica della risorsa Riconoscimento modulo.
+* Sostituire `<Endpoint>` con l'endpoint ottenuto dalla chiave di sottoscrizione di Riconoscimento modulo, disponibile nella scheda **Overview** (panoramica) della risorsa Riconoscimento modulo.
 * Sostituire `<modelID>` con l'ID modello ricevuto nel precedente passaggio di training del modello.
 * Sostituire `<path to your form>` con il percorso del file del modulo.
 * Sostituire `<subscription key>` con la chiave di sottoscrizione.
 * Sostituire `<file type>` con il tipo di file. I tipi supportati sono pdf, immagine/jpeg, immagine/png.
 
 ```bash
-cURL cmd: curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@<path to your form>;type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>Esaminare i risultati

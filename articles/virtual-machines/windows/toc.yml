@@ -112,6 +112,8 @@
           href: disk-scalability-targets.md
         - name: Backup e ripristino di emergenza per i dischi
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Dischi del sistema operativo temporanei
+          href: ephemeral-os-disks.md
     - name: Rete
       href: network-overview.md
     - name: Ridimensionare automaticamente le applicazioni
@@ -243,18 +245,38 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: Usare immagini
       items:
-        - name: Immagini condivise (anteprima)
+        - name: Immagini condivise
           items:
             - name: Panoramica
               href: shared-image-galleries.md
-            - name: Creare immagini condivise con PowerShell
+            - name: PowerShell
               href: shared-images.md
-            - name: Creare immagini condivise con l'interfaccia della riga di comando
+            - name: Portale
+              href: shared-images-portal.md
+            - name: CLI
               href: ../linux/shared-images.md
             - name: Portale
               href: shared-images-portal.md
+            - name: Condividere immagini tra tenant
+              href: share-images-across-tenants.md
             - name: Risolvere i problemi relativi alle immagini condivise
               href: troubleshooting-shared-images.md
+        - name: Generatore di immagini (anteprima)
+          items:
+            - name: Panoramica
+              href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Usare l'interfaccia della riga di comando
+              href: image-builder.md
+            - name: Uso con le raccolte
+              href: image-builder-gallery.md
+            - name: Aggiornare una versione di immagine
+              href: image-builder-gallery-update-image-version.md
+            - name: Usare script in Archiviazione di Azure
+              href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Informazioni di riferimento sul modello
+              href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Risolvere problemi
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Trovare e usare immagini
           href: cli-ps-findimage.md
         - name: Preparare la macchina virtuale per il caricamento
@@ -326,8 +348,6 @@
           href: detach-disk.md
         - name: Eseguire la distribuzione di dischi con un modello
           href: using-managed-disks-template-deployments.md
-        - name: Caricare un VHD su disco - PowerShell
-          href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: Ridimensionare un disco
           href: expand-os-disk.md
         - name: Snapshot di un disco

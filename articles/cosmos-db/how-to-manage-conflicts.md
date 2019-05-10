@@ -4,14 +4,14 @@ description: Informazioni su come gestire i conflitti in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/16/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: fb9850548f0bfb71b797830eb0d5fdfddbc32306
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a6e57dc5b4bcfa3f02e323253e24d68381c3535d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997020"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068744"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gestire i criteri di risoluzione dei conflitti in Azure Cosmos DB
 
@@ -361,7 +361,7 @@ Apprendere i concetti di Azure Cosmos DB seguenti:
 
 * [Distribuzione globale - Informazioni sul funzionamento](global-dist-under-the-hood.md)
 * [Come configurare funzionalità multimaster nelle applicazioni](how-to-multi-master.md)
-* [Configurare i client per il multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Configurare i client per il multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Aggiungere o rimuovere aree dall'account Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Come configurare funzionalità multimaster nelle applicazioni](how-to-multi-master.md).
 * [Partizionamento e distribuzione dei dati](partition-data.md)
