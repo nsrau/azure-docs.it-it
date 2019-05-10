@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 183c6aea5aaf84c9d0ed635cac55074a5256851e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 93a83545699e3536eb0045d538225d01cd1a96a2
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872534"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235636"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variabili di sistema supportate da Azure Data Factory
 Questo articolo descrive le variabili di sistema supportate da Azure Data Factory. È possibile usare queste variabili nelle espressioni quando si definiscono le entità di Data Factory.
@@ -25,7 +25,7 @@ Questo articolo descrive le variabili di sistema supportate da Azure Data Factor
 ## <a name="pipeline-scope"></a>Ambito della pipeline
 È possibile fare riferimento a queste variabili di sistema in un punto qualsiasi della pipeline JSON.
 
-| Nome variabile | DESCRIZIONE |
+| Nome variabile | Descrizione |
 | --- | --- |
 | @pipeline().DataFactory |Nome della data factory in cui viene eseguita la pipeline |
 | @pipeline().Pipeline |Nome della pipeline |
@@ -38,15 +38,16 @@ Questo articolo descrive le variabili di sistema supportate da Azure Data Factor
 ## <a name="schedule-trigger-scope"></a>Ambito del trigger di pianificazione
 È possibile fare riferimento a queste variabili di sistema in un punto qualsiasi del trigger JSON se il trigger è di tipo "ScheduleTrigger".
 
-| Nome variabile | DESCRIZIONE |
+| Nome variabile | Descrizione |
 | --- | --- |
 | @trigger().scheduledTime |Ora in cui il trigger è stato pianificato per richiamare l'esecuzione della pipeline. Ad esempio, per un trigger che viene generato ogni 5 minuti, questa variabile restituisce rispettivamente `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z`.|
 | @trigger().startTime |Ora in cui il trigger ha richiamato **effettivamente** l'esecuzione della pipeline. Per un trigger che viene attivato ogni 5 minuti, ad esempio, questa variabile potrebbe restituire rispettivamente `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` o un output simile. (Nota: Il timestamp è per impostazione predefinita in formato ISO 8601)|
 
 ## <a name="tumbling-window-trigger-scope"></a>Ambito del trigger della finestra a cascata
 È possibile fare riferimento a queste variabili di sistema in un punto qualsiasi del trigger JSON se il trigger è di tipo "TumblingWindowTrigger".
+(Nota: Il timestamp è per impostazione predefinita in formato ISO 8601)
 
-| Nome variabile | DESCRIZIONE |
+| Nome variabile | Descrizione |
 | --- | --- |
 | @trigger().outputs.windowStartTime |Ora di avvio della finestra in cui il trigger è stato pianificato per richiamare l'esecuzione della pipeline. Se il trigger della finestra a cascata ha una frequenza "oraria", questa indica l'ora di inizio.|
 | @trigger().outputs.windowEndTime |Ora di fine della finestra in cui il trigger è stato pianificato per richiamare l'esecuzione della pipeline. Se il trigger della finestra a cascata ha una frequenza "oraria", questa indica l'ora di fine.|

@@ -6,9 +6,6 @@
     - name: Informazioni sul servizio Azure Machine Learning
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
-    - name: Modifiche apportate al Workbench
-      displayName: desktop ui Workbench upgrade update transfer
-      href: overview-what-happened-to-workbench.md
 - name: Configurazione
   items:
     - name: Creare un'area di lavoro
@@ -24,7 +21,7 @@
         - name: Eseguire un esperimento in locale
           displayName: 'workspace, install, sdk'
           href: quickstart-run-local-notebook.md
-    - name: Interfaccia visiva
+    - name: Interfaccia visiva grafica
       items:
         - name: Preparare e visualizzare i dati
           displayName: experiment drag-and-drop
@@ -48,7 +45,7 @@
             - name: 2. Eseguire il training automatico di un modello di Machine Learning
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
-    - name: Interfaccia visiva
+    - name: Interfaccia visiva grafica
       items:
         - name: Eseguire il training del modello di regressione
           displayName: experiment drag-and-drop visual interface Tutorial 1
@@ -61,7 +58,7 @@
     - name: Notebooks
       displayName: 'example, examples, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Esperimenti dell'interfaccia visiva
+    - name: Esperimenti dell'interfaccia visiva grafica
       items:
         - name: Prevedere il prezzo
           displayName: 'Sample 1, training, regression'
@@ -92,6 +89,8 @@
     - name: Interpretabilità dei modelli
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
+    - name: Accelerazione con GPU
+      href: concept-accelerate-inferencing-with-gpus.md
     - name: Accelerazione con FPGA
       href: concept-accelerate-with-fpgas.md
     - name: Ottimizzare con ONNX e ONNX Runtime
@@ -117,6 +116,7 @@
         - name: Usare il portale per le aree di lavoro
           href: how-to-manage-workspace.md
         - name: Usare il modello di Resource Manager
+          displayName: arm
           href: how-to-create-workspace-template.md
     - name: "Configurare l'ambiente di sviluppo\_"
       items:
@@ -224,6 +224,9 @@
       items:
         - name: Creare una pipeline di Machine Learning
           href: how-to-create-your-first-pipeline.md
+        - name: Eseguire il training e distribuire modelli di ML con Azure Pipelines
+          href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
+          mainContext: true
     - name: Gestire le quote di risorse
       displayName: limits
       href: how-to-manage-quotas.md
@@ -244,7 +247,7 @@
     - name: Interfaccia della riga di comando di Machine Learning
       displayName: 'cli, extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
-    - name: Moduli dell'interfaccia visiva
+    - name: Moduli dell'interfaccia visiva grafica
       displayName: module reference
       items:
         - name: Panoramica sui riferimenti ai moduli
@@ -352,3 +355,6 @@
     - name: Confrontare i prodotti Machine Learning
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
       maintainContext: true
+    - name: Modifiche apportate al Workbench
+      displayName: desktop ui Workbench upgrade update transfer
+      href: overview-what-happened-to-workbench.md

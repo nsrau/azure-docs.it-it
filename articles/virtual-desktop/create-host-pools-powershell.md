@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/05/2019
+ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: e550111e04ea77e35a4554bcc6e3bffaf4d543d2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924950"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236669"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creare un pool di host con PowerShell
 
@@ -100,17 +100,6 @@ Per registrare gli agenti Windows Desktop virtuale, eseguire le operazioni segue
    - Scaricare il [caricatore di avvio di Windows dell'agente di Desktop virtuale](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Fare clic sul programma di installazione scaricato, selezionare **delle proprietà**, selezionare **Unblock**, quindi selezionare **OK**. In questo modo il sistema di considerare attendibile il programma di installazione.
    - Eseguire il programma di installazione.
-4. Installare oppure attivare lo stack side-by-side di Desktop virtuale Windows. I passaggi saranno diversi a seconda di quale versione del sistema operativo Usa la macchina virtuale.
-   - Se il sistema operativo della macchina virtuale è Windows Server 2016:
-     - Scaricare il [stack side-by-side di Desktop virtuale Windows](https://go.microsoft.com/fwlink/?linkid=2084270).
-     - Fare clic sul programma di installazione scaricato, selezionare **delle proprietà**, selezionare **Unblock**, quindi selezionare **OK**. In questo modo il sistema di considerare attendibile il programma di installazione.
-     - Eseguire il programma di installazione.
-   - Se il sistema operativo della macchina virtuale è Windows 10 1809 o versioni successive o Windows Server 2019 o versione successiva:
-     - Scaricare il [script](https://go.microsoft.com/fwlink/?linkid=2084268) per attivare lo stack side-by-side.
-     - Fare clic sullo script scaricato, selezionare **delle proprietà**, selezionare **Unblock**, quindi selezionare **OK**. In questo modo il sistema di considerare attendibile lo script.
-     - Dal **avviare** menu, cercare Windows PowerShell ISE, pulsante destro del mouse, quindi selezionare **Esegui come amministratore**.
-     - Selezionare **File**, quindi **aprire...** e quindi trovare lo script di PowerShell dai file scaricati e aprirlo.
-     - Selezionare il pulsante di riproduzione di colore verde per eseguire lo script.
 
 >[!IMPORTANT]
 >Per proteggere l'ambiente di Desktop virtuale Windows in Azure, è consigliabile non aprire la porta 3389 in ingresso nelle macchine virtuali. Desktop virtuale Windows non richiede una porta in ingresso 3389 per permettere agli utenti di accedere alle macchine virtuali del pool di host. Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare l'[accesso Just-In-Time alla VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

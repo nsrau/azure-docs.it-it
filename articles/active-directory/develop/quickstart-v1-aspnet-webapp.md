@@ -16,18 +16,18 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548552"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191035"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-Questa guida introduttiva illustra come implementare l'accesso con Microsoft usando una soluzione ASP.NET MVC con un'applicazione tradizionale basata su Web browser tramite OpenID Connect. Verrà illustrato come abilitare gli accessi da account aziendali e dell'istituto di istruzione nell'applicazione ASP.NET.
+Questo argomento di avvio rapido descrive come implementare l'accesso con Microsoft tramite una soluzione ASP.NET MVC (Model View Controller) con un'applicazione tradizionale basata su Web browser con OpenID Connect. Verrà illustrato come abilitare gli accessi da account aziendali e dell'istituto di istruzione nell'applicazione ASP.NET.
 
 Al termine di questa guida introduttiva, l'applicazione accetterà gli accessi di account aziendali e dell'istituto di istruzione di organizzazioni integrate con Azure Active Directory (Azure AD).
 
@@ -38,15 +38,15 @@ Al termine di questa guida introduttiva, l'applicazione accetterà gli accessi d
 
 Per iniziare, assicurarsi che siano soddisfatti questi prerequisiti:
 
-* Deve essere installato Visual Studio 2015 Update 3 o Visual Studio 2017. Se non lo si ha, è possibile [scaricare Visual Studio 2017 gratuitamente](https://www.visualstudio.com/downloads/)
+* Deve essere installato Visual Studio 2015 Update 3 o Visual Studio 2019. Se non lo si ha, è possibile [scaricare Visual Studio 2019 gratuitamente](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Scenario: consentire l'accesso di utenti da account aziendali e di istituti di istruzione all'app ASP.NET
 
 ![Come interpretare questa guida](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
-In questo scenario, un browser accede a un sito Web ASP.NET e richiede a un utente di autenticarsi con un pulsante di accesso. In questo scenario, la maggior parte delle operazioni necessarie per il rendering della pagina Web viene eseguita sul lato server.
+In questo scenario un browser accede a un sito Web ASP.NET e richiede a un utente di autenticarsi con un pulsante di accesso. In questo scenario, la maggior parte delle operazioni necessarie per il rendering della pagina Web viene eseguita sul lato server.
 
-La guida introduttiva illustra come consentire l'accesso degli utenti in un'applicazione Web ASP.NET a partire da un modello vuoto e include passaggi come l'aggiunta di un pulsante di accesso e tutti i controller e i metodi, spiegando anche alcuni concetti alla base di queste attività. In alternativa, è anche possibile creare un progetto per consentire l'accesso agli utenti di Azure AD (account aziendali e dell'istituto di istruzione) usando il [modello Web di Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) e selezionando **Account aziendali** e quindi una delle opzioni cloud: questa opzione usa un modello più dettagliato, con altri controller, metodi e visualizzazioni.
+L'argomento di avvio rapido descrive come abilitare l'accesso degli utenti in un'applicazione Web ASP.NET a partire da un modello vuoto. Include anche alcuni passaggi, tra cui l'aggiunta di un pulsante di accesso e tutti i controlli e i metodi, presentando i concetti alla base di queste attività. È anche possibile creare un progetto per abilitare l'accesso degli utenti di Azure AD (account aziendali e dell'istituto di istruzione) usando il [modello Web di Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) e selezionando **Account aziendali** e quindi una delle opzioni cloud: questa opzione usa un modello più avanzato, con controller, visualizzazioni e metodi aggiuntivi.
 
 ## <a name="libraries"></a>Librerie
 
@@ -158,7 +158,7 @@ Questo controller illustra gli usi dell'attributo `[Authorize]` per la protezion
 1. Selezionare **Controller MVC {versione} - Vuoto**.
 1. Selezionare **Aggiungi**.
 1. Denominarlo **ClaimsController**.
-1. Sostituire il codice della classe controller con il codice seguente, che aggiunge l'attributo `[Authorize]` alla classe:
+1. Sostituire il codice della classe controller con il codice seguente. In questo esempio viene aggiunto l'attributo `[Authorize]` alla classe:
 
     [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
@@ -196,16 +196,16 @@ In Visual Studio creare una nuova visualizzazione per mostrare le attestazioni d
 4. Copiare l'URL SSL del progetto negli Appunti:<br/><br/>![Proprietà del progetto](./media/quickstart-v1-aspnet-webapp/visual-studio-project-properties.png)<br />
 5. In <code>web.config</code> sostituire <code>Enter_the_Redirect_URL_here</code> con l'URL SSL del progetto.
 
-### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Registrare l'applicazione nel portale di Azure, quindi aggiungere le relative informazioni in *web. config*
+### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Registrare l'applicazione nel portale di Azure, quindi aggiungere le informazioni associate in *web.config*
 
 1. Passare al [portale di Microsoft Azure - Registrazioni per l'app](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) per registrare un'applicazione.
 2. Selezionare **Registrazione nuova applicazione**.
 3. Immettere un nome per l'applicazione.
-4. Incollare l'*URL SSL* del progetto Visual Studio in **URL di accesso**. Questo URL viene inoltre aggiunto automaticamente all'elenco di URL di risposta per l'applicazione che si sta registrando.
+4. Incollare l'*URL SSL* del progetto Visual Studio in **URL di accesso**. Questo URL viene anche aggiunto automaticamente all'elenco di URL di risposta per l'applicazione che si sta registrando.
 5. Selezionare **Crea** per registrare l'applicazione. Questa azione consente di tornare all'elenco di applicazioni.
 6. A questo punto, eseguire la ricerca e/o selezionare l'applicazione appena creata per aprirne le relative proprietà.
 7. Copiare il GUID in **ID applicazione** negli Appunti.
-8. Tornare a Visual Studio e, in `web.config`, sostituire `Enter_the_Application_Id_here` con l'ID applicazione dell'applicazione appena registrata.
+8. Tornare a Visual Studio e in `web.config` sostituire `Enter_the_Application_Id_here` con l'ID applicazione dell'applicazione registrata.
 
 > [!TIP]
 > Se l'account è configurato per l'accesso a più directory, assicurarsi di avere selezionato la directory corretta per l'organizzazione per cui si intende registrare l'applicazione facendo clic sul nome account in alto a destra nel portale di Azure e quindi verificando la directory selezionata come indicato:<br/>![Selezione della directory corretta](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
@@ -216,9 +216,9 @@ In Visual Studio creare una nuova visualizzazione per mostrare le attestazioni d
 
 ### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>Configurare l'applicazione per consentire gli accessi di account aziendali e dell'istituto di istruzione da qualsiasi azienda o organizzazione (multi-tenant)
 
-Seguire la procedura seguente se si intende accettare gli accessi di account aziendali e dell'istituto di istruzione da qualsiasi organizzazione o azienda integrata con Azure AD. Si tratta di uno scenario comune per *applicazioni SaaS*:
+Seguire la procedura seguente se si intende accettare gli accessi di account aziendali e dell'istituto di istruzione da qualsiasi organizzazione o azienda integrata con Azure AD. Questo è uno scenario comune per le *applicazioni SaaS*:
 
-1. Tornare al [portale di Microsoft Azure - Registrazioni per l'app](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) e individuare l'applicazione appena registrata.
+1. Tornare al [portale di Microsoft Azure - Registrazioni per l'app](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) e individuare l'applicazione registrata.
 2. In **Tutte le impostazioni** selezionare **Proprietà**.
 3. Impostare la proprietà **Multi-tenant** su **Sì** e selezionare **Salva**.
 
@@ -238,7 +238,7 @@ Per consentire gli utenti di uno specifico elenco di organizzazioni, seguire que
 1. Impostare `ValidateIssuer` su true.
 1. Usare il parametro `ValidIssuers` per specificare un elenco di organizzazioni.
 
-Un'altra opzione consiste nell'implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro *IssuerValidator*. Per altre informazioni su `TokenValidationParameters`, vedere [questo](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "Articolo di MSDN su TokenValidationParameters").
+Un'altra opzione consiste nell'implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro *IssuerValidator*. Per altre informazioni su `TokenValidationParameters`, vedere [questo articolo di MSDN](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "Articolo di MSDN su TokenValidationParameters").
 
 <!--end-configure-->
 
@@ -278,7 +278,7 @@ Quando si è pronti per eseguire il test, usare un account aziendale (Azure AD) 
 
 #### <a name="expected-results"></a>Risultati previsti
 
-Dopo l'accesso, l'utente viene reindirizzato alla home page del sito Web, ossia all'URL HTTPS specificato nelle informazioni di registrazione dell'applicazione nel portale di registrazione delle applicazioni Microsoft. Nella pagina vengono ora visualizzati *Hello {utente}*, un collegamento per la disconnessione e uno per visualizzare le attestazioni dell'utente, ossia un collegamento al controller Authorize creato in precedenza.
+Dopo l'accesso, l'utente viene reindirizzato alla home page del sito Web, ovvero all'URL HTTPS specificato nelle informazioni di registrazione dell'applicazione nel portale di registrazione delle applicazioni Microsoft. Nella pagina vengono ora visualizzati *Hello {utente}*, un collegamento per la disconnessione e uno per visualizzare le attestazioni dell'utente, ossia un collegamento al controller Authorize creato in precedenza.
 
 ### <a name="see-users-claims"></a>Visualizzare le attestazioni dell'utente
 

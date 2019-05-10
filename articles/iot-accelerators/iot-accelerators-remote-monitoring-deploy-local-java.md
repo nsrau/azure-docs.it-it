@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 209a91453875531e81ddbcead8c1ed2fb309a0a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 996111fbe23000182dab774ba3bbad0cc6435824
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147455"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412712"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - IntelliJ
 
@@ -27,7 +27,7 @@ Se si intende eseguire l'acceleratore di soluzioni di monitoraggio remoto in Doc
 
 Per distribuire i servizi di Azure usati dall'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Impostazioni del computer
 
@@ -100,9 +100,9 @@ La procedura seguente mostra come eseguire i microservizi di monitoraggio remoto
     * WebService (services\iothub-manager)
     * WebService (services\storage-adapter)
 
-L'immagine seguente mostra un esempio di aggiunta della configurazione per un servizio:
+Ad esempio, la figura seguente viene illustrato come aggiungere la configurazione per un servizio:
 
-[![Add-Configuration](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+[![Add-Configuration](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 
 #### <a name="create-compound-configuration"></a>Creare una configurazione composta
@@ -111,14 +111,11 @@ L'immagine seguente mostra un esempio di aggiunta della configurazione per un se
 1. Immettere un nome in **Name** e **aggiungere le attività sbt**
 1. Fare clic su **Apply > Ok** (Applica > OK) per salvare le modifiche.
 
-L'immagine seguente mostra un esempio di aggiunta di tutte le attività sbt a una singola configurazione:
+Ad esempio, l'immagine seguente mostra l'aggiunta di tutte le attività sbt a singola configurazione:
 
+[![Add-All-Services](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
-[![Add-All-Services](./media/deploy-locally-intelliJ/all-services.png)](./media/deploy-locally-intelliJ/all-services.png#lightbox)
-
-
-
-1. Fare clic su **Run** (Esegui) per compilare ed eseguire i servizi Web nel computer locale.
+Fare clic su **Run** (Esegui) per compilare ed eseguire i servizi Web nel computer locale.
 
 Ogni servizio Web consente di aprire una finestra del Web browser e il prompt dei comandi. Al prompt dei comandi, viene visualizzato un output dal servizio in esecuzione e la finestra del browser consente di monitorare lo stato. Non chiudere il prompt dei comandi o le pagine Web perché questa azione arresta il servizio Web.
 

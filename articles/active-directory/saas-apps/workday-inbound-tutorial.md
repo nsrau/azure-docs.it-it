@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60385675"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407920"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -310,9 +310,9 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
    | ---------- | ---------- |
    | Get e put | Worker Data: Public Worker Reports (Dati ruolo di lavoro: report ruoli di lavoro pubblici) |
    | Get e put | Person Data: Work Contact Information (Dati ruolo personali: Informazioni contatto di lavoro) |
-   | Get | Worker Data: All Positions (Dati ruolo di lavoro: tutte le posizioni) |
-   | Get | Worker Data: Current Staffing Information (Dati ruolo di lavoro: informazioni correnti sul personale) |
-   | Get | Worker Data: Business Title on Worker Profile (Dati ruolo di lavoro: qualifica riportata sul profilo) |
+   | Recupera | Worker Data: All Positions (Dati ruolo di lavoro: tutte le posizioni) |
+   | Recupera | Worker Data: Current Staffing Information (Dati ruolo di lavoro: informazioni correnti sul personale) |
+   | Recupera | Worker Data: Business Title on Worker Profile (Dati ruolo di lavoro: qualifica riportata sul profilo) |
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Configurazione delle autorizzazioni dei criteri di sicurezza dei processi aziendali
 
@@ -368,7 +368,7 @@ Per effettuare il provisioning in Active Directory locale, è necessario install
 
 Dopo aver distribuito .NET 4.7.1 o versioni successive, sarà possibile scaricare l'**[agente di provisioning locale qui](https://go.microsoft.com/fwlink/?linkid=847801)** e seguire i passaggi seguenti per completare la configurazione dell'agente.
 
-1. Accedere all'istanza di Windows Server in cui si intende installare il nuovo agente.
+1. Accedi a Windows Server in cui si desidera installare il nuovo agente.
 2. Avviare il programma di installazione dell'agente di provisioning, accettare le condizioni e fare clic sul pulsante **Install** (Installa).
 
    ![Schermata di installazione](./media/workday-inbound-tutorial/pa_install_screen_1.png "Schermata di installazione")
@@ -472,7 +472,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 
       * Attributo: EmployeeID
 
-      * Operator: IS NOT NULL (NON È NULL)
+      * Operator: NON È NULL
 
 > [!TIP]
 > Quando si configura l'app di provisioning per la prima volta, è necessario testare e verificare i mapping degli attributi e le espressioni per assicurarsi che restituisca il risultato desiderato. Microsoft consiglia di usare i filtri di ambito in **Source Object Scope** (Ambito dell'oggetto di origine) per testare il mapping con alcuni utenti test da Workday. Dopo avere verificato che i mapping funzionino è possibile rimuovere il filtro o espanderlo gradualmente in modo da includere altri utenti.
@@ -532,8 +532,8 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 | **PreferredNameData**  |  displayName |     |   Creazione e aggiornamento |
 | **Company**         | company   |     |  Creazione e aggiornamento |
 | **SupervisoryOrganization**  | department  |     |  Creazione e aggiornamento |
-| **ManagerReference**   | manager  |     |  Creazione e aggiornamento |
-| **BusinessTitle**   |  title     |     |  Creazione e aggiornamento | 
+| **ManagerReference**   | responsabile  |     |  Creazione e aggiornamento |
+| **BusinessTitle**   |  titolo     |     |  Creazione e aggiornamento | 
 | **AddressLineData**    |  streetAddress  |     |   Creazione e aggiornamento |
 | **Municipality**   |   l   |     | Creazione e aggiornamento |
 | **CountryReferenceTwoLetter**      |   co |     |   Creazione e aggiornamento |
@@ -612,7 +612,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Azu
 
       * Attributo: ContingentID
 
-      * Operator: IS NOT NULL (NON È NULL)
+      * Operator: NON È NULL
 
 3. Nel campo **Target Object Actions** (Azioni oggetto di destinazione) è possibile applicare un filtro a livello globale per le azioni che vengono eseguite in Azure AD. **Create** (Crea) e **Update** (Aggiorna) sono le più comuni.
 
@@ -816,8 +816,8 @@ Quando si suggerisce una nuova idea, verificare se altri utenti hanno già sugge
 
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>Come capire la versione dell'agente di provisioning?
 
-* Accedere al server di Windows in cui è installato l'agente di provisioning.
-* Passare al menu **Control Panel** -> (Pannello di controllo)**Uninstall or Change a Program** (Disinstalla o modifica programma)
+* Accedere al server di Windows in cui è installato l'agente di Provisioning.
+* Passare al menu **Pannello di controllo** -> **Disinstalla o modifica programma**
 * Cercare la versione corrispondente alla voce **Microsoft Azure AD Connect Provisioning Agent** (Agente di provisioning Microsoft Azure AD Connect)
 
   ![Portale di Azure](./media/workday-inbound-tutorial/pa_version.png)
@@ -867,8 +867,8 @@ Sì, un agente di provisioning può essere configurato per gestire più domini d
 #### <a name="how-do-i-de-register-the-domain-associated-with-my-provisioning-agent"></a>Come annullare la registrazione del dominio associato all'agente di provisioning?
 
 * Recuperare l'*ID tenant*  del tenant di Azure AD dal portale di Azure.
-* Accedere al server di Windows in cui è installato l'agente di provisioning.
-* Aprire PowerShell come amministratore Windows.
+* Accedere al server di Windows che esegue l'agente di Provisioning.
+* Aprire PowerShell come amministratore di Windows.
 * Passare alla directory contenente gli script di registrazione ed eseguire i comandi seguenti sostituendo il parametro \[ID tenant \] con il valore dell'ID tenant.
 
   ```powershell
@@ -878,7 +878,7 @@ Sì, un agente di provisioning può essere configurato per gestire più domini d
   ```
 
 * Nell'elenco di agenti che vengono visualizzati: copiare il valore del campo "id" dalla risorsa la cui proprietà *resourceName* è uguale al nome di dominio Active Directory.
-* Incollare l'ID in questo comando ed eseguirlo in Powershell.
+* Incollare il valore ID in questo comando ed eseguire il comando di PowerShell.
 
   ```powershell
   Remove-PublishedResource -ResourceId "[resource ID]" -TenantId "[tenant ID]"
@@ -889,7 +889,7 @@ Sì, un agente di provisioning può essere configurato per gestire più domini d
 
 #### <a name="how-do-i-uninstall-the-provisioning-agent"></a>Come si disinstalla l'agente di provisioning?
 
-* Accedere al server di Windows in cui è installato l'agente di provisioning.
+* Accedere al server di Windows in cui è installato l'agente di Provisioning.
 * Passare al menu **Pannello di controllo** -> **Disinstalla o modifica programma**
 * Disinstallare i programmi seguenti:
   * Microsoft Azure AD Connect Provisioning Agent
@@ -946,9 +946,9 @@ La soluzione attualmente non supporta l'impostazione di attributi binari come *t
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Come si formattano i nomi visualizzati in AD in base agli attributi di reparto, paese o città e come si gestiscono le variazioni di area?
 
-È un requisito comune configurare l'attributo *displayName* in AD in modo che fornisca informazioni sul reparto e il paese dell'utente. Ad esempio, se John Smith lavora nel reparto Marketing negli Stati Uniti, è consigliabile che il suo *displayName* compaia come *Smith, John (Marketing-US)*.
+È un requisito comune per configurare il *displayName* attributo in Active Directory in modo che fornisce inoltre informazioni sul reparto e paese/area geografica dell'utente. Ad esempio, se John Smith lavora nel reparto Marketing negli Stati Uniti, è consigliabile che il suo *displayName* compaia come *Smith, John (Marketing-US)*.
 
-Ecco come è possibile gestire tali requisiti per la creazione di *CN* o *displayName* in modo da includere gli attributi, ad esempio società, unità aziendale, città o paese.
+Ecco come è possibile gestire tali requisiti per la costruzione *CN* oppure *displayName* per includere gli attributi, ad esempio società, unità aziendale, città o paese/area geografica.
 
 * Ogni attributo di Workday viene recuperato usando un'espressione XPATH API sottostante che può essere configurata in **Attribute Mapping -> Advanced Section -> Edit attribute list for Workday** (Mapping degli attributi -> sezione Avanzate -> Modifica elenco attributi per Workday). Ecco l'espressione XPATH API predefinita per Workday *PreferredFirstName*, *PreferredLastName*, *Company* (Azienda) e attributi *SupervisoryOrganization*.
 
@@ -957,7 +957,7 @@ Ecco come è possibile gestire tali requisiti per la creazione di *CN* o *displa
      | ----------------- | -------------------- |
      | PreferredFirstName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:First_Name/text() |
      | PreferredLastName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:Last_Name/text() |
-     | Azienda | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Company']/wd:Organization_Reference/@wd:Descriptor |
+     | Società | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Company']/wd:Organization_Reference/@wd:Descriptor |
      | SupervisoryOrganization | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Supervisory']/wd:Organization_Name/text() |
   
    Confermare assieme al proprio team Workday che l'espressione API precedente sia valida per la configurazione del tenant di Workday. Se necessario, è possibile modificarle come descritto nella sezione [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes) (Personalizzazione dell'elenco di attributi utente di Workday).
@@ -976,7 +976,7 @@ Ecco come è possibile gestire tali requisiti per la creazione di *CN* o *displa
 
   Verificare con il proprio team Workday che l'espressione API precedente sia valida per la configurazione del tenant di Workday. Se necessario, è possibile modificarle come descritto nella sezione [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes) (Personalizzazione dell'elenco di attributi utente di Workday).
 
-* Per compilare la corretta espressione di mapping degli attributi, identificare quale attributo di Workday "autorevole" rappresenta il nome proprio, il cognome, il paese e il reparto dell'utente. Si supponga che gli attributi siano rispettivamente *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* e *SupervisoryOrganization*. È possibile usare questo attributo per compilare un'espressione per l'attributo di Active Directory *displayName* come indicato di seguito per ottenere un nome visualizzato, come *Smith, John (Marketing-US)*.
+* Per compilare l'espressione di mapping di attributi a destra, identificare quale attributo di Workday "autorevole" rappresenta il suo nome, cognome, paese/area geografica e department. Si supponga che gli attributi siano rispettivamente *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* e *SupervisoryOrganization*. È possibile usare questo attributo per compilare un'espressione per l'attributo di Active Directory *displayName* come indicato di seguito per ottenere un nome visualizzato, come *Smith, John (Marketing-US)*.
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
@@ -1038,7 +1038,7 @@ Questa sezione contiene gli aspetti della risoluzione problemi seguenti:
 
 ### <a name="setting-up-windows-event-viewer-for-agent-troubleshooting"></a>Configurazione di Visualizzatore eventi di Windows per la risoluzione dei problemi dell'agente
 
-* Accedere al computer server di Windows in cui è installato l'agente di provisioning
+* Accedi al computer di Windows Server in cui viene distribuito l'agente di Provisioning
 * Aprire l'app desktop **Visualizzatore eventi di Windows Server**.
 * Selezionare **Registri di Windows > Applicazione**.
 * Usare l'opzione **Filter Current Log…** (Filtra log corrente...) per visualizzare tutti gli eventi registrati in **AAD. Connect.ProvisioningAgent** ed escludere gli eventi con ID evento "5", specificando il filtro "-5", come illustrato di seguito.
@@ -1087,7 +1087,7 @@ Quando si fa clic su uno dei record relativi a log di controllo, verrà visualiz
 
   Per trovare i record di log dell'agente di provisioning corrispondente a questa operazione di importazione di Active Directory, aprire il log del Visualizzatore eventi di Windows e usare il menu opzioni **Find…** (Trova...) per trovare le voci di log che contengono il valore dell'attributo ID corrispondente o il valore dell'attributo Joining Property (Proprietà di abbinamento) (in questo caso *21023*).
 
-  ![Find](media/workday-inbound-tutorial/wd_event_viewer_02.png)
+  ![Trova](media/workday-inbound-tutorial/wd_event_viewer_02.png)
 
   Cercare la voce con *Event ID = 9*, che fornirà il filtro di ricerca LDAP usato dall'agente per recuperare l'account AD. È possibile verificare se questo è il filtro di ricerca corretto per recuperare le voci univoche dell'utente.
 
@@ -1236,7 +1236,7 @@ A tale scopo, è necessario usare [Workday Studio](https://community.workday.com
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -1349,7 +1349,7 @@ In Microsoft Graph Explorer, eseguire la query GET seguente, sostituendo [servic
 
 Si otterrà una risposta come illustrato di seguito. Copiare l'attributo"id" presente nella risposta. Questo valore è il **ProvisioningJobId** e verrà usato per recuperare i metadati dello schema sottostante.
 
-   [![Id processo di provisioning](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
+   [![ID del processo di provisioning](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
 
 #### <a name="step-4-download-the-provisioning-schema"></a>Passaggio 4: Scaricare lo schema di provisioning
 

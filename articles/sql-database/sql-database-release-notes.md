@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/07/2019
 ms.author: carlrab
-ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 923e475cd690902c61c2f89578c2c62effe4cd86
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717423"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406574"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione di Database SQL
 
@@ -25,7 +25,8 @@ Questo articolo elenca le nuove funzionalità e miglioramenti nel servizio Datab
 
 | Funzionalità | Dettagli |
 | ---| --- |
-| Processi di database elastici | Per informazioni, vedere [creare, configurare e gestire processi elastici](elastic-jobs-overview.md) |
+| Livello di elaborazione serverless | Per informazioni, vedere [Database SQL senza server (anteprima)](sql-database-serverless.md).|
+| Processi di database elastico | Per informazioni, vedere [creare, configurare e gestire processi elastici](elastic-jobs-overview.md) |
 | Transazioni elastiche | [Transazioni distribuite in database cloud](sql-database-elastic-transactions-overview.md) |
 | Query elastiche | Per informazioni, vedere [panoramica delle query elastiche](sql-database-elastic-query-overview.md) |
 | Replica con le istanze gestite |Per informazioni, vedere [configurare la replica in un database di istanza gestita di Database SQL di Azure](replication-with-sql-database-managed-instance.md)|
@@ -45,6 +46,16 @@ Questo articolo elenca le nuove funzionalità e miglioramenti nel servizio Datab
 |Analitica SQL|Per informazioni, vedere [Analitica SQL di Azure](../azure-monitor/insights/azure-sql.md)|
 | Supporto del fuso orario per le istanze gestite|Per altre informazioni, vedere [fuso orario in istanza gestita di Azure SQL Database](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="may-2019"></a>Maggio 2019
+
+### <a name="service-improvements"></a>Miglioramenti al servizio
+
+| Miglioramenti al servizio | Dettagli |
+| --- | --- |
+|Livello di servizio Hyperscale| Per altre informazioni, vedere [livello di servizio con Iperscalabilità per fino a 100 TB](sql-database-service-tier-hyperscale.md).|
+|Livello di elaborazione serverless| Per altre informazioni, vedere [Database SQL senza server (anteprima)](sql-database-serverless.md).|
+
 
 ## <a name="april-2019"></a>Aprile 2019
 

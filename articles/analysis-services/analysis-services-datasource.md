@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327140"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506823"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -25,12 +25,12 @@ Le origini dati e i connettori visualizzati in Get Data (Recupera dati) o Import
 |---------|---------|---------|
 |Database SQL di Azure<sup>[2](#azsqlmanaged)</sup>     |   Sì      |    Sì      |
 |Azure SQL Data Warehouse     |   Sì      |   Sì       |
-|Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   Sì       |    No       |
-|Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   Sì       |    No       |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sì        |  No         |
-|Azure Data Lake Store (Gen 1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sì       |    No       |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sì     |   No        |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sì       |   No        |
+|Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   Sì       |    N.      |
+|Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   Sì       |    N.      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sì        |  N.        |
+|Azure Data Lake Store (Gen 1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sì       |    N.      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sì     |   N.       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sì       |   N.       |
 ||||
 
 <a name="tab1400a">1</a> - Solo modelli tabulari 1400 e superiori.   
@@ -52,7 +52,7 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, provider Microsoft OLE DB per SQL Server, provider di dati .NET Framework per SQL Server | Provider di dati .NET Framework per SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, provider Microsoft OLE DB per SQL Server, provider di dati .NET Framework per SQL Server | Provider di dati .NET Framework per SQL Server |
-| Oracle |Provider Microsoft OLE DB per Oracle, provider di dati Oracle per .NET |Provider di dati Oracle per .NET |
+| Oracle | Provider OLE DB per Oracle, Provider di dati Oracle per .NET |Provider di dati Oracle per .NET |
 | Teradata |Provider OLE DB per Teradata, provider di dati Teradata per .NET |Provider di dati Teradata per .NET |
 | | | |
 
@@ -72,7 +72,7 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
 |Documento JSON<sup>[1](#tab1400b)</sup>     |  
 |Righe da file binario<sup>[1](#tab1400b)</sup>     | 
-|MySQL Database     | 
+|Database MySQL     | 
 |Feed OData<sup>[1](#tab1400b)</sup>     |  
 |Query ODBC     | 
 |OLE DB     |   

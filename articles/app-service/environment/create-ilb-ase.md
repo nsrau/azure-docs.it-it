@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8508dbecceb9984f53a133d9634882603549cdd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573562"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199633"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app #
 
@@ -133,8 +133,8 @@ Dopo la creazione dell'ambiente del servizio app, il nome di dominio indica il d
 
 L'ambiente del servizio app ILB richiede un certificato SSL valido. Usare autorità di certificazione interne, acquistare un certificato da un'autorità di certificazione esterna o usare un certificato autofirmato. Indipendentemente dall'origine del certificato SSL è necessario configurare correttamente gli attributi del certificato seguenti:
 
-* **Soggetto**: questo attributo deve essere impostato su *.your-root-domain-here.
-* **Nome alternativo del soggetto**: questo attributo deve includere sia *.your-root-domain-here* che *.scm.your-root-domain-here*. Le connessioni SSL al sito SCM/Kudu associato a ogni app usano un indirizzo nel formato *your-app-name.scm.your-root-domain-here*.
+* **Soggetto**: questo attributo deve essere impostato su *\.dominio-radice-qui.
+* **Nome alternativo del soggetto**: questo attributo deve includere sia *.dominio-radice-qui* sia *.scm.dominio-radice-qui*. Le connessioni SSL al sito SCM/Kudu associato a ogni app usano un indirizzo nel formato *your-app-name.scm.your-root-domain-here*.
 
 Convertire/salvare il certificato SSL come file con estensione pfx. Il file con estensione pfx deve includere tutti i certificati intermedi e quelli radice. Proteggerlo con una password.
 

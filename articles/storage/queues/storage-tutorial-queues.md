@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 81d7572f800f191791158f2c1f99e1f072980116
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65151061"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233869"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Esercitazione: Usare le code di archiviazione di Azure
 
@@ -206,7 +206,7 @@ Aggiungere la stringa di connessione nell'app in modo che possa accedere all'acc
 
 ## <a name="insert-messages-into-the-queue"></a>Inserire i messaggi nella coda
 
-Creare un nuovo metodo per inviare un messaggio nella coda. Aggiungere il metodo seguente alla classe **Program**. Questo metodo ottiene un riferimento alla coda, quindi crea una nuova coda, se non esiste già, chiamando [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Aggiunge quindi il messaggio alla coda chiamando [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
+Creare un nuovo metodo per inviare un messaggio nella coda. Aggiungere il metodo seguente alla classe **Program**. Questo metodo ottiene un riferimento alla coda, quindi crea una nuova coda, se non esiste già, chiamando [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Aggiunge quindi il messaggio alla coda chiamando [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
 
 1. Aggiungere il metodo **SendMessageAsync** seguente alla classe **Program**.
 
@@ -229,7 +229,7 @@ Creare un nuovo metodo per inviare un messaggio nella coda. Aggiungere il metodo
 
 ## <a name="dequeue-messages"></a>Rimuovere dalla coda i messaggi
 
-Creare un nuovo metodo denominato **ReceiveMessageAsync**. Questo metodo riceve un messaggio dalla coda chiamando [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Dopo che il messaggio è stato ricevuto correttamente, è importante eliminarlo dalla coda in modo che non venga elaborato più volte. Dopo la ricezione del messaggio, eliminarlo dalla coda chiamando [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+Creare un nuovo metodo denominato **ReceiveMessageAsync**. Questo metodo riceve un messaggio dalla coda chiamando [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Dopo che il messaggio è stato ricevuto correttamente, è importante eliminarlo dalla coda in modo che non venga elaborato più volte. Dopo la ricezione del messaggio, eliminarlo dalla coda chiamando [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
 
 1. Aggiungere il metodo **ReceiveMessageAsync** seguente alla classe **Program**.
 

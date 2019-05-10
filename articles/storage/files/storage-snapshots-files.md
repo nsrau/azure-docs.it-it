@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7305c6a5047bd09f6c9bda018748643ff81fe893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708094"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235805"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Panoramica degli snapshot di condivisione per File di Azure 
 File di Azure consente di acquisire snapshot di condivisione delle condivisioni file. Gli snapshot di condivisione acquisiscono lo stato di condivisione in un momento specifico. In questo articolo vengono descritte le funzionalità offerte dagli snapshot di condivisione e come trarne vantaggio in un caso d'uso personalizzato.
@@ -29,7 +29,7 @@ Si supponga di lavorare su un file di testo in una condivisione di file. Quando 
 ### <a name="general-backup-purposes"></a>Scopi generali di backup
 Dopo la creazione di una condivisione file, è possibile creare periodicamente uno snapshot della condivisione file e usarlo per il backup dei dati. Se acquisito periodicamente, lo snapshot di condivisione aiuta a gestire versioni precedenti dei dati che possono essere usate per requisiti di controllo futuri o per il ripristino di emergenza.
 
-## <a name="capabilities"></a>Capabilities
+## <a name="capabilities"></a>Funzionalità
 Uno snapshot di condivisione è una copia di sola lettura temporizzata dei dati. È possibile creare, eliminare e gestire gli snapshot usando l'API REST. Le stesse funzionalità sono anche disponibili nella libreria client, nell'interfaccia della riga di comando di Azure e nel portale di Azure. 
 
 È possibile visualizzare gli snapshot di una condivisione sia con l'API REST sia con SMB. È possibile recuperare l'elenco delle versioni della directory o del file e montare direttamente una versione specifica come unità (disponibile solo per Windows, vedere [Limiti](#limits)). 
@@ -40,7 +40,7 @@ La funzionalità snapshot di condivisione è disponibile a livello di condivisio
 
 Uno snapshot di una condivisione file è identico alla condivisione file di base. L'unica differenza sta nel fatto che all'URI della condivisione viene aggiunto un valore **DateTime** indicante l'ora di creazione dello snapshot di condivisione. Ad esempio, se l'URI di una condivisione file è http://storagesample.core.file.windows.net/myshare, l'URI dello snapshot di condivisione sarà simile al seguente:
 ```
-http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Gli snapshot di condivisione vengono mantenuti finché non vengono eliminati in modo esplicito. Uno snapshot di condivisione non può durare più a lungo della condivisione file di base associata. È possibile enumerare gli snapshot associati alla condivisione file di base per tenere traccia degli snapshot correnti. 

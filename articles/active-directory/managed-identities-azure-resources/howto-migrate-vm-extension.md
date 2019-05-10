@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440825"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406783"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Come interrompere l'uso della macchina virtuale gestiti estensione delle identità e iniziare a usare servizio metadati dell'istanza di Azure
 
@@ -35,7 +35,7 @@ A causa di alcune limitazioni descritte nella sezione successiva, l'estensione d
 
 ### <a name="provision-the-extension"></a>Effettuare il provisioning dell'estensione 
 
-Quando si configura una macchina virtuale o la scalabilità di macchine virtuali in modo che un'identità gestita, potrebbe facoltativo scegliere, facoltativamente, è possibile scegliere di effettuare il provisioning delle identità gestite per estensione di macchina virtuale di risorse di Azure usando il `-Type` parametro la [ Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. È possibile passare `ManagedIdentityExtensionForWindows` oppure `ManagedIdentityExtensionForLinux`, a seconda del tipo di macchina virtuale e denominarla usando il `-Name` parametro. Il parametro `-Settings` specifica la porta usata dall'endpoint del token OAuth per l'acquisizione del token:
+Quando si configura una macchina virtuale o la scalabilità di macchine virtuali in modo che un'identità gestita, è possibile scegliere facoltativamente di eseguire il provisioning delle identità gestite per estensione di macchina virtuale di risorse di Azure usando il `-Type` parametro il [ Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. È possibile passare `ManagedIdentityExtensionForWindows` oppure `ManagedIdentityExtensionForLinux`, a seconda del tipo di macchina virtuale e denominarla usando il `-Name` parametro. Il parametro `-Settings` specifica la porta usata dall'endpoint del token OAuth per l'acquisizione del token:
 
 ```powershell
    $settings = @{ "port" = 50342 }
@@ -119,7 +119,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Elemento | DESCRIZIONE |
+| Elemento | Descrizione |
 | ------- | ----------- |
 | `GET` | Verbo HTTP, che indica che si vuole recuperare i dati dall'endpoint. In questo caso, un token di accesso OAuth. | 
 | `http://localhost:50342/oauth2/token` | L'endpoint delle identità gestite per risorse di Azure, dove 50342 è la porta predefinita ed è configurabile. |
@@ -145,7 +145,7 @@ Content-Type: application/json
 }
 ```
 
-| Elemento | DESCRIZIONE |
+| Elemento | Descrizione |
 | ------- | ----------- |
 | `access_token` | Token di accesso richiesto. Quando si chiama un'API REST protetta, il token è incorporato nel campo di intestazione della richiesta `Authorization` come token di connessione, in modo da consentire all'API di autenticare il chiamante. | 
 | `refresh_token` | Non usata dalle identità gestite per risorse di Azure. |

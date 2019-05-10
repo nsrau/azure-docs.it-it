@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 55b18051f2376a59fa79b11cccc9e71cad5debbc
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.date: 05/06/2019
+ms.openlocfilehash: 4f0691dcc8a0c4b0ebbfe26a49b75b86fa50f597
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067796"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236009"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Domande frequenti sui database SQL di Azure di livello Hyperscale
 
@@ -73,11 +73,7 @@ Il livello di servizio Hyperscale è destinato principalmente ai clienti che han
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Quali aree supportano attualmente il livello Hyperscale
 
-Il livello con Iperscalabilità di Database SQL di Azure è attualmente disponibile nelle aree seguenti:
-
-Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, East Us 2, Francia centrale, Giappone orientale, Giappone occidentale, Nord Stati Uniti centrali, Europa settentrionale, Sud Africa centro-settentrionali, Stati Uniti centrali centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Regno Unito occidentale, West Europe , Stati Uniti occidentali, Stati Uniti occidentali 2
-
-Visualizzare [Panoramica di Azure SQL Database su scala molto vasta](sql-database-service-tier-hyperscale-faq.md) per la procedura da seguire se è necessario l'accesso in un'altra area.
+Il livello con Iperscalabilità di Database SQL di Azure è attualmente disponibile nelle regioni elencate sotto [Panoramica di Azure SQL Database su scala molto vasta](sql-database-service-tier-hyperscale.md#regions).
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>È possibile creare più database Hyperscale per ogni server logico
 
@@ -186,11 +182,11 @@ Con il livello Hyperscale, i file di dati vengono archiviati in Archiviazione St
 
 ### <a name="can-i-manage-or-define-files-or-filegroups-with-hyperscale"></a>È possibile gestire o definire file o filegroup con il livello Hyperscale
 
-No 
+N.
   
 ### <a name="can-i-provision-a-hard-cap-on-the-data-growth-for-my-database"></a>È possibile effettuare il provisioning di un limite rigido per la crescita dei dati per il database
 
-No 
+N.
 
 ### <a name="how-are-data-files-laid-out-with-sql-database-hyperscale"></a>Come vengono organizzati i file di dati con il database SQL Hyperscale
 
@@ -198,7 +194,7 @@ I file di dati vengono controllati dai server di pagina. Man mano che le dimensi
 
 ### <a name="is-database-shrink-supported"></a>È supportata la compattazione del database
 
-No 
+N.
 
 ### <a name="is-database-compression-supported"></a>È supportata la compressione del database
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747e177b0fbbfb9049959c3194ee39c3234bba50
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870490"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234023"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identificare i problemi con la funzionalità di diagnostica
 
@@ -118,7 +118,7 @@ Il **-risultato** parametro può anche essere combinato con altri parametri di f
 
 Scenari di errore sono classificati in interno al servizio ed esterno a Windows Desktop virtuale.
 
-* Errore interno: specifica gli scenari che non possono essere attenuati dall'amministratore tenant e devono essere risolti come richiesta di supporto. Quando la generazione di un ticket di fornire l'ID attività, nome del tenant e l'intervallo di tempo approssimativo il problema si è verificato.
+* Errore interno: specifica gli scenari che non possono essere attenuati dall'amministratore tenant e devono essere risolti come una richiesta di supporto. Quando si forniscono commenti e suggerimenti tramite il [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), includere l'ID attività e approssimare intervallo di tempo di quando si è verificato il problema.
 * Problema esterno: riguardano scenari che possono essere ridotti dall'amministratore di sistema. Questi sono esterni a Windows Desktop virtuale.
 
 Nella tabella seguente elenca gli amministratori potrebbero riscontrare alcuni errori comuni.

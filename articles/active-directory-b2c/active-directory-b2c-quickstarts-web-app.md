@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva - Configurare l'accesso per un'applicazione ASP.NET tramite Azure Active Directory B2C | Microsoft Docs
+title: "Avvio rapido: Configurare l'accesso per un'applicazione ASP.NET tramite Azure Active Directory B2C | Microsoft Docs"
 description: Eseguire un'app Web ASP.NET di esempio che usa Azure Active Directory B2C per fornire l'accesso all'account.
 services: active-directory-b2c
 author: davidmu1
@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0d82a174f9fcfab84b5caf71853242ce68ebb60d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1d2fbe4dbbd7f5549d6c98f8183df58fa3f34e9d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699500"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190464"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Guida introduttiva: Configurare l'accesso per un'applicazione ASP.NET tramite Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**. 
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**. 
 - Un account di social networking di Facebook, Google, Microsoft o Twitter.
 - [Scaricare un file ZIP](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) o clonare l'applicazione Web di esempio da GitHub.
 
@@ -61,7 +61,7 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 
     ![Provider di accesso o di iscrizione](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
-    Per leggere le informazioni dell'account di social networking, eseguire l'autenticazione (accesso) tramite le credenziali di tale account e autorizzare l'applicazione. Dopo la concessione dell'accesso, l'applicazione può recuperare le informazioni sul profilo dall'account, ad esempio il nome e la città dell'utente. 
+    È necessario eseguire l'autenticazione (accesso) tramite le credenziali dell'account di social networking e autorizzare l'applicazione a leggere informazioni da questo account. Dopo la concessione dell'accesso, l'applicazione può recuperare le informazioni sul profilo dall'account, ad esempio il nome e la città dell'utente. 
 
 3. Completare il processo di accesso per il provider di identità.
 
@@ -95,7 +95,12 @@ Azure Active Directory B2C offre funzionalità che consentono agli utenti di agg
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata usata un'applicazione ASP.NET di esempio per accedere con una pagina di accesso personalizzata e con un provider di identità basato su social network, creare un account Azure AD B2C e chiamare un'API Web protetta da Azure AD B2C. 
+In questo argomento di avvio rapido è stata usata un'applicazione ASP.NET di esempio per:
+
+* Accedere con una pagina di accesso personalizzata
+* Accedere con un provider di identità basato su social network
+* Creare un account Azure AD B2C
+* Chiamare un'API Web protetta da Azure AD B2C
 
 Iniziare ora a creare un tenant di Azure AD B2C.
 

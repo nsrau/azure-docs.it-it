@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: fa65b108f3aea79d4417e65d706d42f0bd819f54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: efa10f5beae64105857b00b186683d491edb00f5
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445384"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233774"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Risoluzione degli errori di limitazione delle richieste delle API 
 
@@ -32,7 +32,7 @@ Quando un client API di Azure riceve un errore di limitazione delle richieste, l
 
 ## <a name="call-rate-informational-response-headers"></a>Intestazioni di risposta informativa sulla frequenza delle chiamate 
 
-| Intestazione                            | Formato del valore                           | Esempio                               | DESCRIZIONE                                                                                                                                                                                               |
+| Intestazione                            | Formato del valore                           | Esempio                               | Descrizione                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Numero di chiamate API rimanenti per i criteri di limitazione delle richieste che coprono il contenitore di risorse o il gruppo di operazioni che include la destinazione della richiesta                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | Numero di chiamate "addebitato" per questa richiesta HTTP rispetto al limite dei criteri applicabili. Generalmente è 1. Le richieste batch, ad esempio per il ridimensionamento di un set di scalabilità di macchine virtuali, possono comportare l'addebito di un numero superiore. |
@@ -80,7 +80,7 @@ Come illustrato in precedenza, tutti gli errori di limitazione delle richieste i
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>Analizzatore della frequenza delle chiamate API e degli errori di limitazione
 È disponibile una versione di anteprima di una funzionalità di risoluzione dei problemi per l'API del provider di risorse di calcolo. Questi cmdlet di PowerShell forniscono statistiche sulla frequenza delle richieste API per ogni intervallo di tempo per ogni operazione e sulle violazioni delle limitazioni per ogni gruppo di operazioni (criteri):
 -   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
+-   [Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 Le statistiche sulle chiamate dell'API possono offrire informazioni dettagliate molto utili in merito al comportamento dei client di una sottoscrizione e facilitare l'identificazione dei modelli di chiamata che causano la limitazione.
 

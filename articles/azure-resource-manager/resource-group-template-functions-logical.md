@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782991"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405660"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funzioni logiche nei modelli di Azure Resource Manager
 
@@ -37,11 +37,11 @@ Verifica se tutti i valori dei parametri sono true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
-| argomenti aggiuntivi |No  |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
+| argomenti aggiuntivi |N. |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -77,9 +77,9 @@ L'output dell'esempio precedente è:
 
 | NOME | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True  |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | Falso |
 
 ## <a name="bool"></a>bool
 
@@ -89,7 +89,7 @@ Converte il parametro in un valore booleano.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o numero intero |Valore da convertire in un valore booleano. |
 
@@ -131,9 +131,9 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | NOME | Type | Value |
 | ---- | ---- | ----- |
 | trueString | Bool | True  |
-| falseString | Bool | False |
+| falseString | Bool | Falso |
 | trueInt | Bool | True  |
-| falseInt | Bool | False |
+| falseInt | Bool | Falso |
 
 ## <a name="if"></a>if
 
@@ -143,7 +143,7 @@ Restituisce un valore in base a un condizione true o false.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | condition |Sì |boolean |Valore da controllare se è true o false. |
 | trueValue |Sì | string, int, object o array |Valore da restituire quando la condizione è true. |
@@ -153,7 +153,7 @@ Restituisce un valore in base a un condizione true o false.
 
 Restituisce il secondo parametro, quando il primo parametro è **True**. In caso contrario, restituisce il terzo parametro.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 Quando la condizione è **True**, viene valutato solo il valore true. Quando la condizione è **False**, viene valutato solo il valore false. Con il **se** (funzione), è possibile includere le espressioni in modo condizionale solo validi. Ad esempio, è possibile fare riferimento a una risorsa esistente in una condizione, ma non nell'altra condizione. Nella sezione seguente è illustrato un esempio di in modo condizionale la valutazione delle espressioni.
 
@@ -188,15 +188,15 @@ L'output dell'esempio precedente è:
 
 | NOME | Type | Value |
 | ---- | ---- | ----- |
-| yesOutput | string | Sì |
-| noOutput | string | no |
+| yesOutput | String | sì |
+| noOutput | String | no |
 | objectOutput | Object | { "test": "value1" } |
 
 Quanto segue [modello di esempio](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) viene illustrato come utilizzare questa funzione con le espressioni in modo condizionale solo validi.
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -248,7 +248,7 @@ Converte il valore booleano nel valore opposto.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Valore da convertire. |
 
@@ -286,9 +286,9 @@ L'output dell'esempio precedente è:
 
 | NOME | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True  |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | Falso |
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) seguente usa **not** con [equals](resource-group-template-functions-comparison.md#equals).
 
@@ -312,7 +312,7 @@ L'output dell'esempio precedente è:
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True  |
 
-## <a name="or"></a>oppure
+## <a name="or"></a>o
 
 `or(arg1, arg2, ...)`
 
@@ -320,11 +320,11 @@ Verifica se uno qualsiasi dei valori dei parametri è true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
-| argomenti aggiuntivi |No  |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
+| argomenti aggiuntivi |N. |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -360,9 +360,9 @@ L'output dell'esempio precedente è:
 
 | NOME | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True  |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | Falso |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: fe6848caad7cdac98d6717b7cea4860e7ce2db8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725729"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405707"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights
 
@@ -51,7 +51,7 @@ Parquet è un formato di file di dati orientato alla colonna che assicura:
 
 Per altre informazioni su questo formato di file, vedere la [documentazione su Parquet](https://parquet.apache.org/documentation/latest/).
 
-## <a name="event-structure-in-parquet"></a>Struttura di eventi in Parquet
+### <a name="event-structure-in-parquet"></a>Struttura di eventi in Parquet
 
 Time Series Insights crea e archivia copie di BLOB nei due formati seguenti:
 
@@ -77,20 +77,20 @@ Gli eventi di Time Series Insights vengono mappati al contenuto del file Parquet
 * Tutte le altre proprietà mappate alle colonne terminano con `_string` (stringa), `_bool` (booleano), `_datetime` (datetime) e `_double` (double), a seconda del tipo di proprietà.
 * Si fa riferimento a questo schema di mapping per la prima versione del formato file come **V=1**. Man mano che questa funzionalità cambia, il nome sarà incrementato a **V=2**, **V=3** e così via.
 
-## <a name="partitions"></a>Partitions
+## <a name="partitions"></a>Partizioni
 
-Ogni ambiente della versione di anteprima di Time Series Insights deve avere una proprietà Time Series ID e una proprietà Timestamp che lo identificano in modo univoco. Time Series ID funge da partizione logica per i dati e fornisce all'ambiente di anteprima di Time Series Insights un limite naturale per la distribuzione dei dati tra le partizioni fisiche. La gestione delle partizioni fisiche viene eseguita dalla versione di anteprima di Time Series Insights in un account di archiviazione di Azure.
+Ogni ambiente di versione di anteprima di tempo Series Insights è necessario un **ID serie tempo** proprietà e una **Timestamp** proprietà che identificano in modo. Time Series ID funge da partizione logica per i dati e fornisce all'ambiente di anteprima di Time Series Insights un limite naturale per la distribuzione dei dati tra le partizioni fisiche. La gestione delle partizioni fisiche viene eseguita dalla versione di anteprima di Time Series Insights in un account di archiviazione di Azure.
 
 Time Series Insights usa il partizionamento dinamico per ottimizzare le prestazioni a livello di archiviazione e query eliminando e ricreando le partizioni. L'algoritmo di partizionamento dinamico della versione di anteprima di Azure Time Series Insights tenta di impedire a una singola partizione fisica di disporre di dati per più partizioni logiche distinte. In altre parole, l'algoritmo di partizionamento mantiene tutti i dati specifici di un singolo ID serie temporale presente esclusivamente nei file Parquet, senza interlacciamento con altri ID serie temporale. L'algoritmo di partizionamento dinamico cerca anche di preservare l'ordine originale degli eventi all'interno di un singolo ID serie temporale.
 
 Nella fase iniziale, al momento dell'ingresso, i dati vengono partizionati da Timestamp in modo che una singola partizione logica all'interno di un determinato intervallo temporale possa essere distribuita in più partizioni fisiche. Una singola partizione fisica potrebbe anche contenere numerose o tutte le partizioni logiche. A causa delle limitazioni delle dimensioni dei BLOB, anche con un partizionamento ottimale una singola partizione logica può occupare più partizioni fisiche.
 
 > [!NOTE]
-> Per impostazione predefinita, il valore Timestamp è l'*ora accodamento* del messaggio nell'origine evento configurata. 
+> Per impostazione predefinita, il valore Timestamp è l'*ora accodamento* del messaggio nell'origine evento configurata.
 
 Se si caricano dati cronologici o messaggi in batch, assegnare il valore che si vuole archiviare con i dati nella proprietà Timestamp che esegue il mapping al valore Timestamp appropriato. La proprietà Timestamp fa distinzione fra maiuscole e minuscole. Per altre informazioni, vedere [Modello Time Series](./time-series-insights-update-tsm.md).
 
-## <a name="physical-partitions"></a>Partizioni fisiche
+### <a name="physical-partitions"></a>Partizioni fisiche
 
 Una partizione fisica è un BLOB in blocchi archiviato nell'account di archiviazione. Le dimensioni effettive dei BLOB possono variare poiché dipendono dalla frequenza di push. Tuttavia, in genere la dimensione prevista dovrebbe essere compresa tra 20 MB e 50 MB. Questa previsione ha portato il team di Time Series Insights a scegliere 20 MB come la dimensione per ottimizzare le prestazioni delle query. Questa dimensione può cambiare nel tempo, a seconda delle dimensioni del file e della velocità di ingresso dei dati.
 
@@ -99,7 +99,7 @@ Una partizione fisica è un BLOB in blocchi archiviato nell'account di archiviaz
 > * I BLOB di Azure vengono talvolta ripartizionati per migliorare le prestazioni, eliminandolo e ricreandoli.
 > * Inoltre, gli stessi dati di Time Series Insights possono essere presenti in due o più BLOB.
 
-## <a name="logical-partitions"></a>Partizioni logiche
+### <a name="logical-partitions"></a>Partizioni logiche
 
 Una partizione logica è una partizione all'interno di una partizione fisica in cui sono archiviati tutti i dati associati al valore di una singola chiave di partizione. La versione di anteprima di Time Series Insights partiziona in modo logico ogni BLOB in base a due proprietà:
 
@@ -110,9 +110,9 @@ La versione di anteprima di Time Series Insights fornisce query ad alte prestazi
 
 È importante selezionare un valore Time Series ID appropriato perché questa proprietà non è modificabile. Per altre informazioni, vedere [Scegliere gli ID di serie temporali](./time-series-insights-update-how-to-id.md).
 
-## <a name="your-azure-storage-account"></a>L'account di archiviazione di Azure
+## <a name="azure-storage"></a>Archiviazione di Azure
 
-### <a name="storage"></a>Archiviazione
+### <a name="your-storage-account"></a>L'account di archiviazione
 
 Quando si crea un ambiente Time Series Insights con pagamento in base al consumo, si creano due risorse: un ambiente Time Series Insights e un account V1 per utilizzo generico di Archiviazione Azure in cui verranno archiviati i dati. La scelta è stata quella di rendere come predefinita la risorsa v1 per utilizzo generico di Archiviazione di Azure per la sua interoperabilità, il prezzo e le prestazioni. 
 
@@ -132,43 +132,31 @@ Per garantire le prestazioni delle query e la disponibilità dei dati, non modif
 
 È possibile accedere ai dati in tre modi:
 
-* Dallo strumento di esplorazione dell'anteprima di Time Series Insights
-* Dalle API dell'anteprima di Time Series Insights
-* Direttamente da un account di archiviazione di Azure
-
-#### <a name="from-the-time-series-insights-preview-explorer"></a>Dallo strumento di esplorazione dell'anteprima di Time Series Insights
-
-È possibile esportare i dati come file CSV dallo strumento di esplorazione dell'anteprima di Time Series Insights. Per altre informazioni, vedere [Strumento di esplorazione dell'anteprima di Time Series Insights](./time-series-insights-update-explorer.md).
-
-#### <a name="from-the-time-series-insights-preview-apis"></a>Dalle API dell'anteprima di Time Series Insights
-
-L'endpoint dell'API è raggiungibile in `/getRecorded`. Per altre informazioni su questa API, vedere [Query Time Series](./time-series-insights-update-tsq.md).
+* Da Esplora Series Insights un'anteprima: è possibile esportare i dati come file CSV da Esplora Series Insights un'anteprima. Per altre informazioni, vedere [Strumento di esplorazione dell'anteprima di Time Series Insights](./time-series-insights-update-explorer.md).
+* Da Time Series Insights le API di anteprima: l'endpoint dell'API, è possibile contattarlo al `/getRecorded`. Per altre informazioni su questa API, vedere [Query Time Series](./time-series-insights-update-tsq.md).
+* Direttamente da un account di archiviazione di Azure (sotto).
 
 #### <a name="from-an-azure-storage-account"></a>Da un account di archiviazione di Azure
 
 * È necessario l'accesso in lettura a qualsiasi account usato per accedere ai dati di Time Series Insights. Per altre informazioni, vedere [Gestire l'accesso alle risorse degli account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
-
 * Per altre informazioni sui metodi diretti per leggere i dati dall'archiviazione BLOB di Azure, vedere [Spostamento dei dati da e verso Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
 * Per esportare i dati da un account di archiviazione di Azure:
-
     * Prima di tutto assicurarsi che l'account soddisfi i requisiti necessari per l'esportazione di dati. Per altre informazioni, vedere [Requisiti di sistema di importazione/esportazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
-
     * Per altre informazioni su altri modi per esportare i dati dall'account di archiviazione di Azure, vedere [Importare ed esportare dati dai BLOB](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs).
 
 ### <a name="data-deletion"></a>Eliminazione di dati
 
 Non eliminare i BLOB perché l'anteprima di Time Series Insights conserva nei BLOB i relativi metadati.
 
-## <a name="ingress"></a>Dati in ingresso
+## <a name="time-series-insights-data-ingress"></a>Inserimento dei dati di ora Series Insights
 
-### <a name="time-series-insights-ingress-policies"></a>Criteri per l'ingresso dei dati in Time Series Insights
+### <a name="ingress-policies"></a>Criteri in ingresso
 
 La versione di anteprima di Time Series Insights supporta le stesse origini evento e tipi di file attualmente supportati da Time Series Insights.
 
 Alcune origini evento supportate sono:
 
-- Hub IoT Azure
+- Hub IoT di Azure
 - Hub eventi di Azure
   
   > [!NOTE]
@@ -184,7 +172,7 @@ La versione di anteprima di Time Series Insights indicizza i dati usando una str
 
 > [!IMPORTANT]
 > * La versione di disponibilità generale di Time Series Insights renderà disponibili i dati entro 60 secondi dal riscontro di un'origine evento. 
-> * Durante l'anteprima calcolare un tempo più lungo prima che i dati vengano resi disponibili. 
+> * Durante l'anteprima calcolare un tempo più lungo prima che i dati vengano resi disponibili.
 > * Se la latenza è significativa, contattare il supporto tecnico.
 
 ### <a name="scale"></a>Scalabilità

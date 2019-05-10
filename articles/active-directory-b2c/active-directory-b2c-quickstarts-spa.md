@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 51e0f6b7162c9bfa6c34f091bdce2b896bd5e284
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e5f16fa42e86442f6600e375df343f3b6369986
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688953"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190395"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Guida introduttiva: Configurare l'accesso per un'app a singola pagina tramite Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
 - Installare [Node.js](https://nodejs.org/en/download/)
 - Un account di social networking di Facebook, Google, Microsoft o Twitter.
 - [Scaricare un file ZIP](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clonare l'app Web di esempio da GitHub.
@@ -64,7 +64,7 @@ Azure Active Directory (Azure AD) B2C consente la gestione delle identità del c
 
     ![Provider di accesso o di iscrizione](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    Per leggere le informazioni dell'account di social networking, eseguire l'autenticazione (accesso) tramite le credenziali di tale account e autorizzare l'applicazione. Dopo la concessione dell'accesso, l'applicazione può recuperare le informazioni sul profilo dall'account, ad esempio il nome e la città dell'utente. 
+    È necessario eseguire l'autenticazione (accesso) tramite le credenziali dell'account di social networking e autorizzare l'applicazione a leggere informazioni da questo account. Dopo la concessione dell'accesso, l'applicazione può recuperare le informazioni sul profilo dall'account, ad esempio il nome e la città dell'utente. 
 
 3. Completare il processo di accesso per il provider di identità.
 
@@ -82,7 +82,12 @@ L'applicazione a pagina singola include un token di accesso nella richiesta alla
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata usata un'applicazione a pagina singola di esempio per accedere con una pagina di accesso personalizzata e con un provider di identità basato su social network, creare un account Azure AD B2C e chiamare un'API Web protetta da Azure AD B2C. 
+In questo argomento di avvio rapido è stata usata un'applicazione a pagina singola di esempio per:
+
+* Accedere con una pagina di accesso personalizzata
+* Accedere con un provider di identità basato su social network
+* Creare un account Azure AD B2C
+* Chiamare un'API Web protetta da Azure AD B2C
 
 Iniziare ora a creare un tenant di Azure AD B2C.
 

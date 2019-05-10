@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587878"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236757"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -59,12 +59,12 @@ Poiché le password vengono individuate, sottoposte a phishing, sottratte con ma
 
 Molte organizzazioni usano le regole tradizionali di complessità (che richiedono caratteri speciali, numeri, lettere maiuscole e lettere minuscole) e di scadenza delle password. Le [ricerche di Microsoft](https://aka.ms/passwordguidance) hanno dimostrato che questi criteri portano gli utenti a scegliere password più facili da indovinare.
 
-La funzionalità di [divieto dinamico delle password](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) di Azure AD usa il comportamento degli utenti malintenzionati per impedire l'impostazione di password facilmente individuabili. Questa funzionalità è sempre attiva per gli utenti del cloud, ma è ora disponibile anche per le organizzazioni ibride che distribuiscono la [protezione tramite password di Azure AD per Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). La protezione tramite password di Azure AD impedisce agli utenti di scegliere queste password comuni e può essere estesa per bloccare password che contengono parole chiave personalizzate specificate. Ad esempio, è possibile impedire agli utenti di scegliere password che contengono nomi di prodotti della società o di una squadra sportiva locale.
+La funzionalità di [divieto dinamico delle password](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) di Azure AD usa il comportamento degli utenti malintenzionati per impedire l'impostazione di password facilmente individuabili. Questa funzionalità è sempre attiva per gli utenti del cloud, ma è ora disponibile anche per le organizzazioni ibride che distribuiscono la [protezione tramite password di Azure AD per Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). La protezione tramite password di Azure AD impedisce agli utenti di scegliere queste password comuni e può essere estesa per bloccare password che contengono parole chiave personalizzate specificate. Ad esempio, è possibile impedire agli utenti di scegliere password che contengono nomi di prodotti della società o di una squadra sportiva locale.
 
 Microsoft consiglia di adottare i criteri moderni di impostazione delle password seguenti, basati sulle [linee guida di NIST](https://pages.nist.gov/800-63-3/sp800-63b.html):
 
 1. Richiedere password di almeno 8 caratteri. Password più lunghe non sono necessariamente migliori, in quanto gli utenti si trovano a scegliere password prevedibili, a salvarle in file o a prenderne nota.
-2. Disabilitare le regole di scadenza, che spingono gli utenti a scegliere password facilmente identificabili, ad esempio **Esate2018!**.
+2. Disabilitare le regole di scadenza, che richiedere agli utenti le password facilmente identificabili, ad esempio **Spring2019!**
 3. Disabilitare i requisiti di composizione di caratteri e impedire agli utenti di scegliere password comunemente sottoposte ad attacchi, in quanto potrebbero scegliere sostituzioni di caratteri prevedibili.
 
 È possibile usare [PowerShell per impedire la scadenza delle password](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) per gli utenti, se si creano direttamente identità in Azure AD. Le organizzazioni ibride devono implementare questi criteri usando le [impostazioni dei criteri del gruppo di dominio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) o [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
@@ -166,7 +166,7 @@ Azure AD Identity Protection offre due importanti report da monitorare quotidian
 
 ### <a name="audit-apps-and-consented-permissions"></a>App di controllo e autorizzazioni per il consenso
 
-Gli utenti possono essere indotti a passare a siti Web o app compromesse che riusciranno ad accedere ai dati dell'utente e alle informazioni del profilo, ad esempio la posta elettronica. Un attore malintenzionato può usare le autorizzazioni per il consenso ricevute per crittografare il contenuto della cassetta postale e richiedere un riscatto per riottenere i dati della cassetta postale. Gli [amministratori dovrebbero analizzare e controllare](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) le autorizzazioni concesse dagli utenti.
+Gli utenti possono essere indotti a passare a siti Web o app compromesse che riusciranno ad accedere ai dati dell'utente e alle informazioni del profilo, ad esempio la posta elettronica. Un attore malintenzionato può usare le autorizzazioni per il consenso ricevute per crittografare il contenuto della cassetta postale e richiedere un riscatto per riottenere i dati della cassetta postale. Gli [amministratori dovrebbero analizzare e controllare](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) le autorizzazioni concesse dagli utenti.
 
 ## <a name="step-5---enable-end-user-self-help"></a>Passaggio 5 - Abilitare il self-help degli utenti finali
 

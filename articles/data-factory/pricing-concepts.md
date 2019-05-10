@@ -9,16 +9,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935741"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233942"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Determinazione dei prezzi di Data Factory ed esempi
 
 Questo articolo spiega e illustra il modello di determinazione dei prezzi di Azure Data Factory con esempi dettagliati.
+
+> [!NOTE]
+> I prezzi usati negli esempi seguenti sono ipotetici e non sono destinati a implica il prezzo effettivo.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Copiare i dati da AWS S3 in Archiviazione BLOB di Azure ogni ora
 
@@ -122,13 +125,13 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
   - Attività di pipeline = $ 0,00003 (in quote per 1 minuto di tempo di esecuzione; $ 0,002/ora in Azure Integration Runtime)
   - Attività di pipeline esterna = $ 0,000041 (in quote per 10 minuti di tempo di esecuzione; $ 0,00025/ora in Azure Integration Runtime)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Con debug del flusso dei dati di mapping per un giorno lavorativo normale
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Con debug del flusso dei dati di mapping per un giorno lavorativo normale (prezzo anteprima)
 
 Data Engineer, si è responsabile della progettazione, compilazione e test di flussi di dati di Mapping di ogni giorno. Si accede al mattino di UI ADF e abilita la modalità di Debug per i dati vengono trasmessi. Il valore TTL predefinito per le sessioni di Debug è 60 minuti. Si lavora nel corso della giornata per 10 ore, in modo che la sessione di Debug non scade mai. Pertanto, l'addebito per il giorno sarà:
 
 **10 (ore) x 8 (Core) x $0.112 = $8.96**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Trasformare i dati nell'archivio blob con i flussi di dati di mapping
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Trasformare i dati nell'archivio blob con il mapping dei flussi di dati (prezzo anteprima)
 
 In questo scenario, si desidera trasformare i dati in Blob Store visivamente in Azure Data factory il Mapping di flusso dei dati in una pianificazione oraria.
 

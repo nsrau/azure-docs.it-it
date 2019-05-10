@@ -1,90 +1,155 @@
 ---
-title: Informazioni sull'utilizzo di prenotazioni di Azure per Enterprise | Microsoft Docs
+title: Comprendere l'utilizzo di prenotazioni di Azure per i contratti Enterprise
 description: Informazioni su come leggere l'utilizzo per comprendere come viene applicata la prenotazione di Azure per l'iscrizione Enterprise.
-services: billing
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+author: bandersmsft
+manager: yashar
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d85dd1c21f952261e838c01843e15dafcc0e931
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370701"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415764"
 ---
-# <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Informazioni sull'utilizzo della prenotazione di Azure per l'iscrizione Enterprise
+# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere informazioni sull'utilizzo e costi di prenotazione contratto Enterprise Agreement
 
-Usare **ReservationId** della [pagina Prenotazioni](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e il file relativo all'utilizzo del [portale EA](https://ea.azure.com) per valutare l'utilizzo della prenotazione. È anche possibile visualizzare l'utilizzo della prenotazione nella sezione di riepilogo dell'utilizzo del [portale EA](https://ea.azure.com).
+I costi di prenotazione e i dati di utilizzo sono disponibili per i clienti con contratto Enterprise nel portale di Azure e le API REST. Questo articolo consente di:
 
-Se la prenotazione è stata acquistata in un contesto di fatturazione con pagamento in base al consumo, vedere [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md).
+- Ottenere i dati di acquisto di prenotazioni
+- Ottenere i dati di utilizzo in difetto di prenotazione
+- Ammortizzare i costi di prenotazione
+- Chargeback per l'utilizzo della prenotazione
+- Calcolare i risparmi di prenotazione
 
-## <a name="usage-for-reserved-virtual-machines-instances"></a>Utilizzo delle istanze di macchine virtuali riservate
+Gli addebiti di Marketplace sono consolidati in dati di utilizzo. Visualizzare gli addebiti per primo utilizzo di terze parti, marketplace e acquisti da una singola origine dati.
 
-Per le sezioni seguenti si presuppone di eseguire una macchina virtuale Windows Standard_D1_v2 nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
+## <a name="reservation-charges-in-azure-usage-data"></a>Costi di prenotazione nei dati di utilizzo di Azure
 
-| Campo | Value |
-|---| --- |
-|ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
-|Quantità |1|
-|SKU | Standard_D1|
-|Region | eastus |
+I dati sono suddivisa in due set di dati separati: _Costo effettivo_ e _Amortized Cost_. Differenze tra questi due set di dati:
 
-La parte hardware della VM è coperta perché la VM distribuita corrisponde agli attributi della prenotazione. Per informazioni sul software Windows non coperto dalla prenotazione, vedere [Costi del software Windows delle istanze di macchina virtuale riservate di Azure](billing-reserved-instance-windows-software-costs.md).
+**Costo effettivo** -fornisce i dati per risolvere le differenze con la fattura mensile. Questi dati sono prenotazione i costi di acquisto. Ha zero EffectivePrice per l'utilizzo che ha ricevuto lo sconto di prenotazione.
 
-### <a name="usage-in-csv-file-for-reserved-vm-instances"></a>Utilizzo nel file CSV per le istanze di macchina virtuale riservate
+**Costo ammortizzato** -EffectiveCost che ottiene lo sconto di prenotazione della risorsa è il costo ripartito dell'istanza riservata. Il set di dati include anche i costi di prenotazione inutilizzati. La somma dei costi di prenotazione e prenotazioni inutilizzate fornisce il costo giornaliero ammortizzato della prenotazione.
 
-È possibile scaricare il file CSV relativo all'utilizzo per la registrazione Enterprise da Enterprise Portal. Nel file CSV applicare un filtro in **Informazioni aggiuntive** e digitare il valore di **ReservationId**. Lo screenshot seguente illustra i campi correlati alla prenotazione:
+Confronto tra due set di dati:
 
-![File CSV per il contratto Enterprise Agreement (EA) per la prenotazione di Azure](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
+| Dati | Set di dati di costo effettivo | Set di dati di costo ammortizzato |
+| --- | --- | --- |
+| Acquisto di istanze riservate | Disponibili in questa vista.<br>  Per ottenere questo filtro dei dati su ChargeType = &quot;acquisto&quot;. <br> Fare riferimento a ReservationID o ReservationName sapere quali prenotazione l'addebito è relativo.  | Non applicabile a questa visualizzazione. <br> I costi di acquisto non sono incluse nei dati ammortizzati. |
+| EffectivePrice | Il valore è zero per l'utilizzo che consente di ottenere lo sconto della prenotazione. | Il valore è applicata la ripartizione proporzionale per ogni ora costo della prenotazione per l'utilizzo con lo sconto di prenotazione. |
+| Prenotazioni inutilizzate (indica il numero di ore che della prenotazione non è stata utilizzata in un giorno e il valore monetario dei rifiuti) | Non applicabile in questa visualizzazione. | Disponibili in questa vista.<br> Per ottenere questi dati, filtrare ChargeType = &quot;UnusedReservation&quot;.<br>  Fare riferimento a ReservationID o ReservationName sapere quali prenotazione è stata utilizzata in modo inadeguata. Si tratta di quantità della prenotazione è stato sprecato nella relativa al giorno.  |
+| Prezzo unitario (prezzo della risorsa dall'elenco prezzi) | Disponibile | Disponibile |
 
-1. **ReservationId** nel campo **Informazioni aggiuntive** rappresenta la prenotazione applicata alla macchina virtuale.
-2. **ConsumptionMeter** è l'ID contatore per la macchina virtuale.
-3. **ID contatore** è il contatore della prenotazione con costo pari a $ 0. Il costo dell'esecuzione della macchina virtuale è coperto dall'istanza di macchina virtuale riservata.
-4. Standard_D1 è una macchina virtuale vCPU e la macchina virtuale viene distribuita senza il Vantaggio Azure Hybrid. Questo contatore copre quindi il costo aggiuntivo del software Windows. Per trovare il contatore corrispondente alla macchina virtuale serie D con 1 core, vedere [Costi del software Windows delle istanze di macchina virtuale riservate di Azure](billing-reserved-instance-windows-software-costs.md).  Se si ha il Vantaggio Azure Hybrid, questo costo aggiuntivo non viene applicato.
+Altre informazioni disponibili nei dati di utilizzo di Azure sono stata modificata:
 
-## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Utilizzo delle prenotazioni di capacità riservata del database SQL e Cosmos DB
+- Informazioni su prodotti e contatore - Azure non sostituito il contatore utilizzato originariamente ReservationId e ReservationName, come accadeva in precedenza.
+- ReservationId e ReservationName - si tratta di propri campi nei dati. Usato in precedenza, a essere disponibili solo con informazioni aggiuntive.
+- ProductOrderId - l'ID dell'ordine di prenotazione, aggiunto come il proprio campo.
+- ProductOrderName - nome del prodotto la prenotazione acquistata.
+- Termine - 36 mesi o 12 mesi.
+- RINormalizationRatio - disponibile con informazioni aggiuntive. Questo è il rapporto in cui viene applicata la prenotazione per il record di utilizzo. Se flessibilità le dimensioni dell'istanza è attivata per la prenotazione, è possibile applicare a altre dimensioni. Il valore Mostra il rapporto che la prenotazione è stata applicata a per il record di utilizzo.
 
-Le sezioni seguenti usano il database SQL di Azure come esempio per descrivere il report di utilizzo. È possibile seguire questi stessi passaggi anche per l'utilizzo in Azure Cosmos DB.
+## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Ottengano dati di utilizzo di prenotazione e consumo di Azure usando l'API
 
-Si presuppone che sia eseguito un database SQL di quarta generazione nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
+È possibile ottenere i dati usando l'API o scaricarlo dal portale di Azure.
 
-| Campo | Value |
-|---| --- |
-|ReservationId |8244e673-83e9-45ad-b54b-3f5295d37cae|
-|Quantità |2|
-|Prodotto| Database SQL Gen4 (2 core)|
-|Region | eastus |
+Si chiama il [API per dettagli sull'uso](/rest/api/consumption/usagedetails/list) con la versione API &quot;2019-04-01-preview&quot; per ottenere i nuovi dati. Per informazioni dettagliate sulla terminologia, vedere [condizioni di utilizzo](billing-understand-your-usage.md). Il chiamante deve essere un amministratore dell'organizzazione per il contratto enterprise tramite il [portale EA](https://ea.azure.com). Gli amministratori dell'organizzazione di sola lettura è anche possibile ottenere i dati.
 
-### <a name="usage-in-csv-file"></a>Utilizzo in un file con estensione csv
+I dati non sono disponibili nel [API di creazione di report per clienti Enterprise - dettagli di utilizzo](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Applicare un filtro in **Informazioni aggiuntive**, digitare un valore in **ID prenotazione** e scegliere la **categoria del contatore** necessaria: database SQL di Azure o Azure Cosmos DB. Lo screenshot seguente illustra i campi correlati alla prenotazione.
+Ecco un esempio di chiamata all'API:
 
-![File CSV per il contratto Enterprise Agreement (EA) per la capacità riservata del database SQL](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
+```
+https://consumption.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+```
 
-1. **ReservationId** nel campo **Informazioni aggiuntive** rappresenta la prenotazione applicata alla risorsa database SQL.
-2. **ConsumptionMeter** è l'ID contatore per la risorsa database SQL.
-3. **ID contatore** è il contatore della prenotazione con costo pari a $ 0. Questo ID contatore è presente nel file CSV per qualsiasi risorsa database SQL idonea per la prenotazione.
+Per altre informazioni su {enrollmentId} e {billingPeriodId}, vedere la [dettagli di utilizzo – elenco](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) articolo API.
 
-## <a name="usage-summary-page-in-enterprise-portal"></a>Pagina di riepilogo dell'utilizzo in Enterprise Portal
+Le informazioni sulle metriche e filtro nella tabella seguente consentono di risolvere i problemi comuni di prenotazione.
 
-L'utilizzo della prenotazione di Azure viene visualizzato anche nella sezione di riepilogo dell'utilizzo in Enterprise Portal: ![Riepilogo dell'utilizzo per il contratto Enterprise Agreement (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+| **Tipo di dati dell'API** | Azione chiamata API |
+| --- | --- |
+| **Tutti gli addebiti (utilizzo e gli acquisti)** | Sostituire {metric} con ActualCost |
+| **Utilizzo è stata ricevuta lo sconto della prenotazione** | Sostituire {metric} con ActualCost<br>Sostituire {filtro} con: properties/reservationId%20ne%20 |
+| **Utilizzo che non ha ottenuto lo sconto della prenotazione** | Sostituire {metric} con ActualCost<br>Sostituire {filtro} con: properties/reservationId%20eq%20 |
+| **Costi ammortizzati (utilizzo e gli acquisti)** | Sostituire {metric} con AmortizedCost |
+| **Report di prenotazioni inutilizzate** | Sostituire {metric} con AmortizedCost<br>Sostituire {filtro} con: properties/ChargeType%20eq%20'UnusedReservation' |
+| **Acquisto di istanze riservate** | Sostituire {metric} con {filter} ActualCostReplace con: properties/ChargeType%20eq%20'Purchase'  |
+| **Rimborsi** | Sostituire {metric} con ActualCost<br>Sostituire {filtro} con: properties/ChargeType%20eq%20'Refund' |
 
-1. Non vengono addebitati costi per il componente hardware della macchina virtuale, perché è coperto dalla prenotazione. Per una prenotazione del database SQL, viene visualizzata una riga con **Nome servizio** per l'utilizzo della capacità riservata del database SQL di Azure.
-2. In questo esempio non si ha il Vantaggio Azure Hybrid, quindi il software Windows usato con la macchina virtuale viene addebitato.
+## <a name="download-the-usage-csv-file-with-new-data"></a>Scaricare il file CSV di utilizzo con i nuovi dati
+
+Se sei un amministratore con contratto Enterprise Agreement, è possibile scaricare il file CSV che contiene i nuovi dati di utilizzo dal portale di Azure. Questi dati non sono disponibili presso il [portale EA](https://ea.azure.com).
+
+Nel portale di Azure, passare a [gestione costi + fatturazione](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
+
+1. Selezionare l'account di fatturazione.
+2. Fare clic su **utilizzo e costi**.
+3. Fare clic su **Download**.  
+![Esempio che illustra come scaricare il file di dati CSV sull'utilizzo nel portale di Azure](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
+4. Nelle **Scarica utilizzo e costi** , in **versione 2 per i dettagli dell'utilizzo** , selezionare **tutti gli addebiti (utilizzo e gli acquisti)** e quindi fare clic su Scarica. Ripetere la procedura per **ammortizzato addebiti (utilizzo e gli acquisti)**.
+
+I file CSV scaricato contengono i costi effettivi e i costi ammortizzati.
+
+## <a name="common-cost-and-usage-tasks"></a>Attività comuni di utilizzo e costi
+
+Le sezioni seguenti sono indicate operazioni comuni che usano la maggior parte delle persone per visualizzare i dati di utilizzo e costi di prenotazione.
+
+### <a name="get-reservation-purchase-costs"></a>Ottenere una prenotazione dei costi di acquisto
+
+I costi di acquisto di prenotazioni sono disponibili nei dati di costo effettivo. Filtrare _ChargeType = acquisto_. Fare riferimento a ProductOrderID per determinare quale ordine di prenotazione l'acquisto è relativo.
+
+### <a name="get-underutilized-reservation-quantity-and-costs"></a>Ottenere una quantità di prenotazione sottoutilizzati e i costi
+
+Ottenere i dati di costo ammortizzato e filtrare _ChargeType_ _= UnusedReservation_. Si ottiene la quantità di prenotazione inutilizzati giornaliero e il costo. È possibile filtrare i dati per una prenotazione o ordine di prenotazione mediante _ReservationId_ e _ProductOrderId_ campi, rispettivamente. Se una prenotazione è stata usata di 100%, il record contiene una quantità pari a 0.
+
+### <a name="amortize-reservation-costs"></a>Ammortizzare i costi di prenotazione
+
+Ottenere i dati di costo ammortizzato e filtro per un ordine di prenotazione mediante _ProductOrderID_ per ottenere i costi ammortizzati giornalieri di una prenotazione.
+
+### <a name="chargeback-for-a-reservation"></a>Chargeback per una prenotazione
+
+È possibile usare la prenotazione chargeback ad altre organizzazioni dalla sottoscrizione, gruppi di risorse o i tag. I dati di costo ammortizzato offre valore monetario di utilizzo della prenotazione a tipi di dati seguenti:
+
+- Risorse (ad esempio una macchina virtuale)
+- Gruppo di risorse
+- `Tags`
+- Sottoscrizione
+
+### <a name="get-the-blended-rate-for-chargeback"></a>Ottenere la frequenza combinata per il chargeback
+
+Per determinare la frequenza combinata, ottenere i dati dei costi ammortizzati e il costo totale di aggregazione. Per le macchine virtuali, è possibile usare le informazioni di nome del contatore o ServiceType dai dati AdditionalInfo JSON. Divide il totale dei costi in base alla quantità utilizzata per ottenere la frequenza combinata.
+
+### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>Prenotazione ottimale di controllo, ad esempio Usa la flessibilità di dimensioni
+
+Più la quantità con le _RINormalizationRatio_, da informazioni aggiuntive. I risultati indicano il numero di ore di utilizzo di prenotazione è stata applicata al record di utilizzo.
+
+### <a name="determine-reservation-savings"></a>Determinare il risparmio di prenotazione
+
+Ottenere i dati dei costi Amortized e filtrare i dati per un'istanza riservata. Quindi:
+
+1. Ottieni costi stimati con pagamento a consumo. Moltiplicare il _UnitPrice_ valore con _Quantity_ per ottenere i valori stimati i costi con pagamento a consumo, se non è stato applicato lo sconto di prenotazione per l'utilizzo.
+2. Ottenere i costi di prenotazione. Somma i _costo_ valori da ottenere il valore monetario di ciò che hai pagato per l'istanza riservata. Include i costi utilizzati e inutilizzati della prenotazione.
+3. Esegue la sottrazione dei costi di prenotazione dai costi stimati con pagamento a consumo per ottenere i risparmi stimati.
+
+## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>Gli acquisti di prenotazioni e ripartirli in analisi dei costi di Azure
+
+Costo delle istanze riservate sono disponibile nel [modalità di anteprima di analisi dei costi Azure](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). Per impostazione predefinita, la visualizzazione di dati di costo è per il costo effettivo. È possibile passare a costo ammortizzato. Di seguito è riportato un esempio.
+
+![Esempio che illustra la selezione di costo ammortizzato nell'analisi dei costi](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
+
+Applicare filtri per visualizzare gli addebiti per un tipo di prenotazione o costi. Raggruppa in base a nome prenotazione per visualizzare i costi per le prenotazioni.
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -97,4 +162,3 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 - [Informazioni su come viene applicato lo sconto sulla prenotazione](billing-understand-vm-reservation-charges.md)
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
 - [Costi del software Windows non inclusi nelle prenotazioni](billing-reserved-instance-windows-software-costs.md)
-

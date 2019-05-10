@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478759"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413913"
 ---
 # <a name="what-is-azure-importexport-service"></a>Che cos'è il servizio Importazione/Esportazione di Azure?
 
@@ -112,7 +112,7 @@ In generale, un processo di esortazione prevede i passaggi seguenti:
 
 Per istruzioni dettagliate sull'esportazione dei dati, vedere [Export data from Azure Blobs](storage-import-export-data-from-blobs.md) (Esportare dati da BLOB di Azure).
 
-## <a name="region-availability"></a>Aree di disponibilità 
+## <a name="region-availability"></a>Disponibilità a livello di area 
 
 Il servizio Importazione/Esportazione di Azure supporta la copia dei dati da e verso tutti gli account di archiviazione di Azure. È possibile spedire le unità disco a una delle località seguenti. Se l'account di archiviazione è in una località di Azure non specificata di seguito, quando si crea il processo viene proposta una località di spedizione alternativa.
 
@@ -121,9 +121,9 @@ Il servizio Importazione/Esportazione di Azure supporta la copia dei dati da e v
 
 |Paese  |Paese  |Paese  |Paese  |
 |---------|---------|---------|---------|
-|Stati Uniti orientali    | Europa settentrionale        | India centrale        |Governo degli Stati Uniti - Iowa         |
-|Stati Uniti occidentali     |Europa occidentale         | India meridionale        | US DoD (area orientale)        |
-|Stati Uniti orientali 2    | Asia orientale        |  India occidentale        | US DoD (area centrale)        |
+|Stati Uniti orientali    | Europa settentrionale        | India centrale        |US Gov Iowa         |
+|Stati Uniti occidentali     |Europa occidentale         | India meridionale        | US DoD East        |
+|Stati Uniti orientali 2    | Asia orientale        |  India occidentale        | US DoD Central        |
 |Stati Uniti occidentali 2     | Asia sud-orientale        | Canada centrale        | Cina orientale         |
 |Stati Uniti centrali     | Australia orientale        | Canada orientale        | Cina settentrionale        |
 |Stati Uniti centro-settentrionali     |  Australia sud-orientale       | Brasile meridionale        | Regno Unito meridionale        |
@@ -160,7 +160,7 @@ Quando si spediscono unità ad Azure, si paga il costo di spedizione al vettore.
 
 **Costi di transazione**
 
-Non vi sono costi per le transazioni oltre a quelli della transazione di archiviazione standard quando si importano dati in archiviazione di Azure. Sono applicabili spese di uscita standard quando si esportano dati dall'archiviazione BLOB. Per altre informazioni sui costi della transazione, vedere [Dettagli prezzi dei trasferimenti di dati.](https://azure.microsoft.com/pricing/details/data-transfers/)
+[Costi delle transazioni di archiviazione standard](https://azure.microsoft.com/pricing/details/storage/) applicare durante l'importazione e l'esportazione dei dati. I costi di uscita standard sono inoltre applicabili insieme ai costi delle transazioni di archiviazione quando si esportano dati da archiviazione di Azure. Per altre informazioni sui costi in uscita, vedere [prezzi dei trasferimenti di dati.](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 
 

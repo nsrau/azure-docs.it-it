@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 132ba922fa73c73d0e001e84659b5a24996d406b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072785"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235802"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -206,7 +206,7 @@ La registrazione è l'unico spazio di archiviazione delle espressioni.
 ### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>Perché un utente potrebbe non desiderare la registrazione di tutte le espressioni degli endpoint?
 Se si usa il log per l'analisi delle stime, non acquisire le espressioni di test nel log.
 
-## <a name="data-management"></a>Gestione dei dati
+## <a name="data-management"></a>Gestione dati
 
 ### <a name="can-i-delete-data-from-luis"></a>È possibile eliminare dati da LUIS?
 
@@ -294,7 +294,7 @@ Le funzionalità seguenti sono state rilasciate in occasione della conferenza Bu
 
 * [Anteprima della Guida alla migrazione di API V3](luis-migration-api-v3.md)
 * [Dashboard di analitica migliorata](luis-how-to-use-dashboard.md)
-* [Migliorati i domini predefiniti](luis-reference-prebuilt-domains.md) funzionano con API V3 e V2
+* [Migliorati i domini predefiniti](luis-reference-prebuilt-domains.md) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

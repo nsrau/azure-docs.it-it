@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 91e1780462021430913a1354b4add7c5f047ec15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76db7381985853a81843df812dffcd8ab2bd8f9a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263180"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407472"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Esercitazione: Integrazione di Azure Active Directory con InsideView
 
@@ -142,13 +142,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con InsideView, seguire que
 
     c. Aprire il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **STS Certificate** (Certificato servizio token di sicurezza).
 
-    d. Nella casella di testo **Crm User Id Mapping** digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. Nella casella di testo **Crm User Id Mapping** digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    e. Nella casella di testo **Crm Email Mapping** digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. Nella casella di testo **Crm Email Mapping** digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    f. Nella casella di testo **Crm First Name Mapping** digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    f. Nella casella di testo **Crm First Name Mapping** digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    g. Nella casella di testo **Crm lastName Mapping** digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
+    g. Nella casella di testo **Crm lastName Mapping** digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
 
     h. Fare clic su **Save**.
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 5eaee4f932c4e42f6fed3d839314346b3a93f360
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c4dc3d422e18d9ee41bf16ac3e6f22c3d7e466d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799545"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199176"
 ---
 ## <a name="register-your-application"></a>Registrare l'applicazione
 
@@ -43,7 +43,9 @@ Per registrare l'applicazione e aggiungere le relative informazioni di registraz
    - Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**.
    - Selezionare **Registra** per creare l'applicazione.
 1. Nell'elenco delle pagine per l'app selezionare **Autenticazione**.
-1. Nella sezione **URI di reindirizzamento** individuare la sezione **URI di reindirizzamento suggeriti per client pubblici (dispositivi mobili, desktop)** e selezionare **urn:ietf:wg:oauth:2.0:oob**.
+   1. Nella sezione **URI di reindirizzamento**, nell'elenco URI di reindirizzamento:
+   1. Nella colonna **TIPO** selezionare **Client pubblico (per dispositivi mobili e desktop)**.
+   1. Immettere `urn:ietf:wg:oauth:2.0:oob` nella colonna **URI DI REINDIRIZZAMENTO**.
 1. Selezionare **Salva**.
 1. Passare a Visual Studio, aprire il file *App.xaml.cs* e quindi sostituire `Enter_the_Application_Id_here` con l'ID applicazione appena registrato e copiato.
 

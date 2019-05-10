@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519997"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415888"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introduzione alle query di log in Monitoraggio di Azure
 
@@ -108,7 +108,7 @@ SecurityEvent
 
 Quando si scrivono le condizioni di filtro, è possibile usare le espressioni seguenti:
 
-| Expression | DESCRIZIONE | Esempio |
+| Espressione | Descrizione | Esempio |
 |:---|:---|:---|
 | == | Controllo dell'uguaglianza<br>(fa distinzione tra maiuscole e minuscole) | `Level == 8` |
 | =~ | Controllo dell'uguaglianza<br>(non fa distinzione tra maiuscole e minuscole) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -184,7 +184,7 @@ Il comando **extend** mantiene tutte le colonne originali nel set di risultati e
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend localtime = TimeGenerated -8h
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Summarize: aggregare gruppi di righe
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Riepilogare in base a una colonna temporale
 Il raggruppamento dei risultati può anche essere basato su una colonna temporale o un altro valore continuo. Un semplice riepilogo di tipo `by TimeGenerated`, tuttavia, creerebbe gruppi per ogni singolo millisecondo nell'intervallo di tempo, poiché si tratta di valori univoci. 
 
-Per creare gruppi basati su valori continui, è consigliabile suddividere l'intervallo in unità gestibili tramite **bin**. La query seguente analizza i record *Perf* che misurano la memoria libera (*Available MBytes*) in un computer specifico. Calcola il valore medio per ogni periodo di 1 ora, negli ultimi 7 giorni:
+Per creare gruppi basati su valori continui, è consigliabile suddividere l'intervallo in unità gestibili tramite **bin**. La query seguente analizza i record *Perf* che misurano la memoria libera (*Available MBytes*) in un computer specifico. Calcola il valore medio di ogni periodo di 1 ora negli ultimi 7 giorni:
 
 ```Kusto
 Perf 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716760"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506702"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -46,7 +46,7 @@ Ad esempio, la notazione JSON seguente illustra un criterio che limita i punti i
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -70,7 +70,7 @@ Tutti gli esempi di criteri di Azure sono alla [esempi di criteri di Azure](../s
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>Modalità
 
 Il parametro **mode** (modalità) determina quali tipi di risorse verranno valutate per l'assegnazione dei criteri. Le modalità supportate sono:
 
@@ -114,7 +114,7 @@ Ad esempio, è possibile definire una definizione di criteri per limitare i perc
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
@@ -153,7 +153,7 @@ Nella proprietà `metadata` è possibile usare **strongType** per fornire un ele
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
-## <a name="definition-location"></a>Posizione della definizione
+## <a name="definition-location"></a>Località della definizione
 
 Durante la creazione di iniziative o criteri è importante specificare la posizione della definizione. La posizione della definizione deve essere specificata come un gruppo di gestione o una sottoscrizione. Tale posizione determina l'ambito al quale la definizione delle iniziative o dei criteri può essere assegnata. Le risorse devono essere membri diretti o elementi figli all'interno della gerarchia della posizione della definizione da destinare all'assegnazione.
 
@@ -229,6 +229,10 @@ Una condizione valuta se una funzione di accesso **field** o **value** soddisfa 
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly `*` nel valore.
@@ -416,15 +420,25 @@ Per informazioni dettagliate su ogni effetto, ordine di valutazione, proprietà 
 
 ### <a name="policy-functions"></a>Funzioni dei criteri
 
-Tutte le [funzioni del modello di Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) sono disponibili per l'utilizzo all'interno di una regola dei criteri, ad eccezione delle seguenti:
+Tutti i [funzioni del modello di Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) possono essere utilizzati all'interno di una regola dei criteri, ad eccezione dei seguenti funzioni e funzioni definite dall'utente:
 
 - copyIndex()
 - deployment()
 - list*
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
+
+Le funzioni seguenti sono disponibili per utilizzare una regola dei criteri, ma differiscono da usare in un modello di Azure Resource Manager:
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **Data/ora**: [obbligatorio] stringa - stringa nel formato universale ISO 8601 DateTime ' aaaa-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: integer [obbligatorio] - il numero di giorni da aggiungere
+- UtcNow () - modello, a differenza di Resource Manager può essere usato all'esterno di defaultValue.
+  - Restituisce una stringa che è stata impostata la data e ora correnti nel formato universale ISO 8601 DateTime ' aaaa-MM-ddTHH:mm:ss.fffffffZ'
 
 Inoltre, la funzione `field` è disponibile per le regole dei criteri. `field` viene principalmente usata con **AuditIfNotExists** e **DeployIfNotExists** per fare riferimento ai campi sulla risorsa che viene valutata. Altre informazioni sono disponibili nell'esempio [DeployIfNotExists](effects.md#deployifnotexists-example).
 
@@ -484,7 +498,7 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
 ### <a name="understanding-the--alias"></a>Informazioni sull'alias [*]
 
-Molti degli alias disponibili hanno una versione che viene visualizzata come un nome "normale" e un'altra a cui viene aggiunto **[\*]**. Ad esempio: 
+Molti degli alias disponibili hanno una versione che viene visualizzata come un nome "normale" e un'altra a cui viene aggiunto **[\*]**. Ad esempio:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

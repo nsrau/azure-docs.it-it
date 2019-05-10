@@ -24,18 +24,13 @@
     - name: Streaming live - .NET
       href: stream-live-tutorial-with-api.md
     - name: Analizzare i video - .NET
-      displayName: 'job, transform'
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
       href: analyze-videos-tutorial-with-api.md
     - name: Crittografare in modo dinamico con AES-128 - .NET
       href: protect-with-aes128.md
     - name: Crittografare in modo dinamico con DRM - .NET
+      displayName: 'PlayReady, Widevine'
       href: protect-with-drm.md
-- name: Esempi
-  items:
-    - name: Esempi di codice per Azure
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
-    - name: Interfaccia della riga di comando di Azure
-      href: cli-samples.md
 - name: Concetti
   href: concepts-overview.md
   items:
@@ -52,6 +47,7 @@
           displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: Trasformazioni e processi
           href: transforms-jobs-concept.md
+          displayName: 'preset, schema'
         - name: Formati di Media Encoder Standard
           displayName: 'containers, codecs'
           href: media-encoder-standard-formats.md
@@ -75,7 +71,7 @@
         - name: Packaging
           items:
             - name: creazione dinamica dei pacchetti
-              displayName: packager
+              displayName: 'origin, packager'
               href: dynamic-packaging-overview.md
             - name: Manifesti dinamici
               href: filters-dynamic-manifest-overview.md
@@ -84,7 +80,7 @@
         - name: Protezione del contenuto
           items:
             - name: Protocolli di streaming e tipi di crittografia
-              displayName: Dynamic encryption
+              displayName: 'dynamic, encryption'
               href: content-protection-overview.md
             - name: Sistema con più tecnologie DRM e controllo di accesso
               href: design-multi-drm-system-with-access-control.md
@@ -97,7 +93,7 @@
                 - name: Requisiti relativi alle licenze FairPlay
                   href: fairplay-license-overview.md
         - name: Endpoint/origine di streaming
-          displayName: 'origins, cdn'
+          displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
         - name: Localizzatori di streaming
           displayName: URLs
@@ -106,8 +102,8 @@
           href: streaming-policy-concept.md
         - name: Criteri di chiave simmetrica
           href: content-key-policy-concept.md
-        - name: Codici di errore dell'origine
-          href: origin-error-codes.md
+        - name: Codici di errore degli endpoint di streaming
+          href: streaming-endpoint-error-codes.md
     - name: Streaming live
       items:
         - name: Panoramica
@@ -141,6 +137,7 @@
           href: use-azure-media-player.md
     - name: Sviluppo con API versione 3
       href: media-services-apis-overview.md
+      displayName: 'access, naming, long-running'
       items:
         - name: 'Organizzare in pagine, filtrare e ordinare entità'
           href: entities-overview.md
@@ -148,8 +145,8 @@
           href: rbac-overview.md
         - name: Codici di errore
           items:
-            - name: Codici di errore dell'origine
-              href: origin-error-codes.md
+            - name: Codici di errore degli endpoint di streaming
+              href: streaming-endpoint-error-codes.md
             - name: Codici di errore dei processi
               href: job-error-codes.md
     - name: Indicazioni sulla migrazione dalla versione 2 alla versione 3
@@ -160,10 +157,14 @@
       items:
         - name: Creare un account - Interfaccia della riga di comando
           href: create-account-cli-how-to.md
+        - name: Reimpostare le credenziali dell'account - Interfaccia della riga di comando
+          href: cli-reset-account-credentials.md
         - name: Accedere alle API - Interfaccia della riga di comando
           href: access-api-cli-how-to.md
         - name: Ridimensionare le Media Reserved Unit - Interfaccia della riga di comando
           href: media-reserved-units-cli-how-to.md
+        - name: Creare un asset - Interfaccia della riga di comando
+          href: cli-create-asset.md
         - name: Sviluppare con REST
           items:
             - name: Connettersi con Postman
@@ -190,6 +191,14 @@
         - name: Da un file locale - REST
           displayName: upload
           href: upload-files-rest-how-to.md
+        - name: Da un file locale - Interfaccia della riga di comando
+          href: cli-upload-file-asset.md
+    - name: Creare trasformazioni e processi
+      items:
+        - name: Creare trasformazioni - Interfaccia della riga di comando
+          href: cli-create-transform.md
+        - name: Creare processi - Interfaccia della riga di comando
+          href: cli-create-jobs.md
     - name: Codificare contenuti
       items:
         - name: HTTPS come input del processo - .NET
@@ -230,10 +239,15 @@
           href: filters-dynamic-manifest-rest-howto.md
         - name: Con l'interfaccia della riga di comando
           href: filters-dynamic-manifest-cli-howto.md
+    - name: Distribuire contenuti
+      items:
+        - name: Pubblicare un asset - Interfaccia della riga di comando
+          href: cli-publish-asset.md
 - name: riferimento
   items:
     - name: Specifica OpenAPI (Swagger)
       href: 'https://aka.ms/ams-v3-rest-sdk'
+      displayName: schema
     - name: REST
       href: 'https://aka.ms/ams-v3-rest-ref'
     - name: Interfaccia della riga di comando di Azure
@@ -254,8 +268,8 @@
       href: /azure/templates/microsoft.media/allversions
     - name: Codici di errore
       items:
-        - name: Codici di errore dell'origine
-          href: origin-error-codes.md
+        - name: Codici di errore degli endpoint di streaming
+          href: streaming-endpoint-error-codes.md
         - name: Codici di errore dei processi
           href: job-error-codes.md
 - name: Risorse
@@ -285,7 +299,7 @@
           href: 'https://aka.ms/ams-v3-nodejs-sdk'
         - name: Ruby
           href: 'https://aka.ms/ams-v3-ruby-sdk'
-    - name: AMSE
+    - name: Explorer di Servizi multimediali di Azure
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
     - name: Note sulla versione
       href: release-notes.md

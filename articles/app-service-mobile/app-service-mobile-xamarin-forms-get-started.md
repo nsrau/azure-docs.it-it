@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 2e0a4b51e9140b9b3c0032980b7c6cd5a4d55638
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b99513cad34bba1b050a24795ecb21d0357d19c1
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128941"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416085"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Creare un'app Xamarin.Forms con Azure
 
@@ -34,9 +34,9 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per altre informazioni, vedere [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Strumenti di Visual Studio per Xamarin, in Visual Studio 2017 o Visual Studio per Mac. Vedere la [pagina di installazione di Xamarin][Install Xamarin] per le istruzioni.
+* Visual Studio Tools per Xamarin, in Visual Studio 2017 o versione successiva o Visual Studio per Mac. Vedere la [pagina di installazione di Xamarin][Install Xamarin] per le istruzioni.
 
-* (facoltativo) Per compilare un'app iOS, è necessario un Mac con Xcode 9.0 o versione successiva. Per sviluppare app iOS è possibile usare Visual Studio per Mac oppure Visual Studio 2017 (purché il Mac sia disponibile nella rete).
+* (facoltativo) Per compilare un'app iOS, è necessario un Mac con Xcode 9.0 o versione successiva. Visual Studio per Mac può essere utilizzato per sviluppare le app iOS o Visual Studio 2017 o versione successiva è utilizzabile (purché il Mac sia disponibile in rete).
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>Creare un nuovo back-end di App per dispositivi mobili
 
@@ -64,7 +64,7 @@ Per aprire la soluzione sono necessari gli Strumenti di Visual Studio per Xamari
 
    Questa azione scarica un progetto che contiene un'applicazione client connessa all'app per dispositivi mobili. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
-3. Estrarre il progetto scaricato e aprirlo in Visual Studio 2017.
+3. Estrarre il progetto scaricato e aprirlo in Visual Studio.
 
    ![Progetto estratto in Visual Studio][8]
 

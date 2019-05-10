@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2019
+ms.date: 5/02/2019
 ms.author: monhaber
-ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e334af353e1d9556641914056ab0a3071ca361e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703575"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233605"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Funzionalità e piattaforme supportate dal Centro sicurezza di Azure
 
@@ -72,15 +72,15 @@ Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. V
 
 |Server|Windows||Linux||
 |----|----|----|----|----|
-|Environment|Azure|Non Azure|Azure|Non Azure|
+|Ambiente|Azure|Non Azure|Azure|Non Azure|
 |Avvisi di rilevamento minacce VMBA|✔|✔|✔ (nelle versioni supportate)|✔|
 |Avvisi di rilevamento delle minacce di rete|✔|X|✔|X|
 |Integrazione con Windows Defender ATP|✔ (nelle versioni supportate)|✔|X|X|
 |Patch mancanti|✔|✔|✔|✔|
-|Configurazioni di sicurezza|✔|✔|✔|✔|
+|Configurazioni della sicurezza|✔|✔|✔|✔|
 |Endpoint Protection|✔|✔|X|X|
 |Accesso JIT alle VM|✔|X|✔|X|
-|Controlli delle applicazioni adattivi|✔|X|X|X|
+|Controlli applicazione adattivi|✔|✔|✔|✔|
 |FIM|✔|✔|✔|✔|
 |Crittografia del disco|✔|X|✔|X|
 |Distribuzione di terze parti|✔|X|✔|X|
@@ -100,11 +100,11 @@ La tabella seguente contiene una matrice che indica:
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, predefinito nel sistema operativo| Sì |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (vedere la nota seguente) | Tramite estensione | Sì |
-| Trend Micro – Tutte le versioni | Famiglia Windows Server  | No  | Sì |
-| Symantec v12.1.1100+| Famiglia Windows Server  | No  | Sì |
-| McAfee v10+ | Famiglia Windows Server  | No  | Sì |
-| Kaspersky| Famiglia Windows Server  | No  | No   |
-| Sophos| Famiglia Windows Server  | No  | No   |
+| Trend Micro – Tutte le versioni | Famiglia Windows Server  | N. | Sì |
+| Symantec v12.1.1100+| Famiglia Windows Server  | N. | Sì |
+| McAfee v10+ | Famiglia Windows Server  | N. | Sì |
+| Kaspersky| Famiglia Windows Server  | N. | N.  |
+| Sophos| Famiglia Windows Server  | N. | N.  |
 
 > [!NOTE]
 > - Per poter rilevare System Center Endpoint Protection (SCEP) in una macchina virtuale Windows Server 2008 R2, SCEP deve essere installato dopo PowerShell 3.0 (o versione successiva).
@@ -114,7 +114,7 @@ La tabella seguente contiene una matrice che indica:
 ## <a name="supported-paas-features"></a>Funzionalità PaaS supportate 
 
 
-|Service|Consigli|Introduzione al rilevamento delle minacce|
+|Service|Consigli|Rilevamento delle minacce|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
@@ -122,10 +122,10 @@ La tabella seguente contiene una matrice che indica:
 |Account di archiviazione BLOB di Azure*|✔| ✔|
 |Servizi app|✔| ✔|
 |Servizi cloud|✔| X|
-|Reti virtuali|✔| ND|
-|Subnet|✔| ND|
+|Reti virtuali|✔| NA|
+|Subnet|✔| NA|
 |Schede di interfaccia di rete|✔| ✔|
-|Gruppi di sicurezza di rete|✔| ND|
+|Gruppi di sicurezza di rete|✔| NA|
 |Sottoscrizione|✔| ✔|
 
 \* Queste funzionalità sono attualmente supportate in anteprima pubblica. 

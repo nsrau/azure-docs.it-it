@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b9b2461d888f37b7ae72a3e097d77856255d7e2e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160006"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416313"
 ---
 Le immagini standardizzate macchina virtuale (VM) consentono alle organizzazioni di eseguire la migrazione al cloud e garantire la coerenza nelle distribuzioni. Le immagini includono in genere le impostazioni predefinite di sicurezza e la configurazione e software necessari. La configurazione di pipeline di propria creazione dell'immagine richiede tempo, l'infrastruttura e il programma di installazione, ma con Generatore di immagini di macchina virtuale di Azure, è sufficiente fornire una semplice configurazione che descrivono l'immagine, inviarlo al servizio e l'immagine viene compilata e distribuita.
  
@@ -20,7 +20,7 @@ Nel generatore di immagini di macchina virtuale di Azure (Azure Image Builder) c
 > Azure Image Builder è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="preview-features"></a>Anteprima funzionalità
+## <a name="preview-features"></a>Funzionalità di anteprima
 
 Per l'anteprima, queste funzionalità sono supportate:
 
@@ -33,7 +33,7 @@ Per l'anteprima, queste funzionalità sono supportate:
 - Creazione di immagini in formato VHD.
  
 
-## <a name="regions"></a>Regioni
+## <a name="regions"></a>Aree
 Il servizio di generatore di immagini di Azure sarà disponibile in anteprima nelle aree seguenti. Le immagini possono essere distribuite di fuori di queste aree.
 - Stati Uniti orientali
 - Stati Uniti orientali 2
@@ -95,7 +95,7 @@ Durante il processo di creazione di immagini, i file vengono scaricati e archivi
  
 Image Builder crea una macchina virtuale usando una dimensione di VM D1v2 e lo spazio di archiviazione e rete necessari per la macchina virtuale. Queste risorse saranno validi per la durata del processo di compilazione e verranno eliminate al termine della creazione dell'immagine di Image Builder. 
  
-Azure Image Builder distribuirà l'immagine per le aree scelte, quali che possono venire addebitati i costi di uscita di rete.
+Azure Image Builder distribuirà l'immagine per le aree scelte, che possono venire addebitati i costi di uscita di rete.
  
 ## <a name="next-steps"></a>Passaggi successivi 
  

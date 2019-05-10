@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 15eded28e38279ea01bf019566d4fda5e7ac6c3e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4e8bdc63daa7450a88c2fcf4b7e878e18cea260d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57588136"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199153"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Creare un'istanza del servizio Azure SignalR
 
@@ -39,6 +39,4 @@ L'applicazione si connette a un'istanza del servizio SignalR in Azure.
 
 1. Selezionare **Crea** per iniziare la distribuzione dell'istanza del servizio SignalR.
 
-1. Una volta distribuita l’istanza, aprirla nel portale e individuare la relativa pagina Impostazioni. Modificare l'impostazione della modalità Servizio su *Serverless*.
-
-    ![Modalità del servizio SignalR](../media/signalr-concept-azure-functions/signalr-service-mode.png)
+1. Dopo che l'istanza è stata distribuita, aprirla nel portale e individuare la relativa pagina delle impostazioni. Modificare l'impostazione della modalità di servizio in *Serverless* solo se si usa il servizio Azure SignalR tramite l'associazione di Funzioni di Azure o l'API REST. In caso contrario, mantenere il valore *Classica* o *Predefinita*.

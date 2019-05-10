@@ -13,9 +13,6 @@
           href: storage-blobs-introduction.md
     - name: Guide introduttive
       items:
-        - name: Creare un account di archiviazione
-          displayName: 'resource manager, resource manager template, template, ARM'
-          href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Gestire i BLOB senza codice
           items:
             - name: Portale di Azure
@@ -280,8 +277,11 @@
           href: storage-blob-pageblob-overview.md
     - name: Procedure
       items:
-        - name: Gestire gli account di archiviazione
+        - name: Creare e gestire account di archiviazione
           items:
+            - name: Creare un account di archiviazione per utilizzo generico
+              displayName: 'resource manager, resource manager template, template, ARM'
+              href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Creare un account di archiviazione BLOB in blocchi
               href: storage-blob-create-account-block-blob.md
             - name: Gestire un account di archiviazione
@@ -413,7 +413,7 @@
             - name: 'BLOB, code, tabelle e file'
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
             - name: Spostamento dati
-              href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
             - name: Gestione risorse
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
         - name: Java
@@ -488,7 +488,7 @@
                 - name: 'BLOB, code, tabelle e file'
                   href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
                 - name: Spostamento dati
-                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
                 - name: Gestione risorse
                   href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
             - name: Java
@@ -563,6 +563,8 @@
               href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Controllo di accesso
               href: data-lake-storage-access-control.md
+        - name: Gestione degli eventi
+          href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Procedure
       items:
         - name: Inserire dati

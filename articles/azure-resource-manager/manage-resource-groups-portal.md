@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551281"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507220"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gestire i gruppi di risorse di Azure Resource Manager usando il portale di Azure
 
@@ -31,7 +31,7 @@ Altri articoli sulla gestione dei gruppi di risorse:
 
 ## <a name="what-is-a-resource-group"></a>Che cos'è un gruppo di risorse
 
-Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Il gruppo di risorse può includere tutte le risorse della soluzione o solo le risorse da gestire come gruppo. L'utente decide come allocare le risorse ai gruppi di risorse nel modo più appropriato per l'organizzazione. È in genere consigliabile aggiungere risorse che condividono lo stesso ciclo di vita allo stesso gruppo di risorse per poterle distribuire, aggiornare ed eliminare facilmente come gruppo.
+Un gruppo di risorse è un contenitore che include le risorse correlate per una soluzione di Azure. Il gruppo di risorse può includere tutte le risorse della soluzione o solo le risorse da gestire come gruppo. L'utente decide come allocare le risorse ai gruppi di risorse nel modo più appropriato per l'organizzazione. È in genere consigliabile aggiungere risorse che condividono lo stesso ciclo di vita allo stesso gruppo di risorse per poterle distribuire, aggiornare ed eliminare facilmente come gruppo.
 
 Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un percorso per il gruppo di risorse, si specifica il percorso di archiviazione dei metadati. Per motivi di conformità potrebbe essere necessario assicurarsi che i dati siano archiviati in una determinata area.
 
@@ -57,7 +57,7 @@ Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un p
 
     ![passare al gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
 
-## <a name="list-resource-groups"></a>Elencare i gruppi di risorse
+## <a name="list-resource-groups"></a>Elenca gruppi di risorse
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Per elencare i gruppi di risorse, selezionare **gruppi di risorse**
@@ -108,64 +108,7 @@ Per altre informazioni, vedere [bloccare le risorse per impedire modifiche impre
 
 ## <a name="export-resource-groups-to-templates"></a>Esportare i gruppi di risorse in modelli
 
-Dopo aver impostato correttamente il gruppo di risorse, è possibile visualizzare il modello di Resource Manager per il gruppo di risorse. L'esportazione del modello offre due vantaggi:
-
-- Automatizzare le distribuzioni future della soluzione perché il modello contiene l'infrastruttura completa.
-- Informazioni su sintassi del modello esaminando in oggetto notazione JSON (JavaScript) che rappresenta la soluzione.
-
-Per esportare un modello sono disponibili due modi:
-
-- È possibile esportare il modello effettivo usato per la distribuzione. Il modello esportato include tutti i parametri e le variabili uguali a quelli visualizzati nel modello originale. Questo approccio è utile quando si sono distribuite risorse tramite il portale e si vuole visualizzare il modello con cui sono state create. Il modello è immediatamente utilizzabile. 
-- È possibile esportare un modello generato che rappresenta lo stato corrente del gruppo di risorse. Il modello esportato non si basa su un modello qualsiasi usato per la distribuzione, ma crea un modello che è uno "snapshot" o un "backup" del gruppo di risorse. Il modello esportato ha diversi valori hardcoded e probabilmente meno parametri di quelli che si definiscono in genere. Usare questa opzione per ridistribuire le risorse nello stesso gruppo di risorse. Per usare questo modello per un altro gruppo di risorse, è necessario apportare alcune importanti modifiche.
-
-### <a name="export-templates-from-deployment-history"></a>Esportare i modelli dalla cronologia di distribuzione
-
-Questo metodo consente di esportare i modelli per alcune distribuzioni. Se è stata modificata le risorse dal portale o risorse aggiunte/rimosse in distribuzioni multiple, vedere [esportare modelli da gruppi di risorse](#export-templates-from-resource-groups).
-
-1. Aprire il gruppo di risorse da esportare.  Visualizzare [aprire gruppi di risorse](#open-resource-groups).
-2. Nel riquadro sinistro selezionare **Distribuzioni** o selezionare il collegamento sotto **Distribuzioni**.  Nella schermata seguente viene illustrato **Succeeded 4** perché si sono verificati quattro distribuzioni separate con quattro i nomi di distribuzione diversi. Si noterà **1 riuscito**.
-
-    ![modelli di esportazione di gruppo di risorse di Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
-
-3. Selezionare una delle distribuzioni dall'elenco.
-4. Nel riquadro sinistro, selezionare **modello**. Resource Manager recupera i sei file seguenti:
-
-   - **Modello** : modello che definisce l'infrastruttura per la soluzione. Quando è stato creato l'account di archiviazione tramite il portale, Resource Manager ha usato un modello per distribuirlo e ha salvato tale modello come riferimento futuro.
-   - **Parametri** : file dei parametri che può essere usato per passare i valori durante la distribuzione. Contiene i valori specificati durante la prima distribuzione. Quando si ridistribuisce il modello è possibile modificare qualsiasi valore.
-   - **Interfaccia della riga di comando**: file di script dell'interfaccia della riga di comando di Azure che può essere usato per distribuire il modello.
-   - **PowerShell** : file di script di Azure PowerShell che può essere usato per distribuire il modello.
-   - **.NET** : classe .NET che può essere usata per distribuire il modello.
-   - **Ruby** : classe Ruby che può essere usata per distribuire il modello.
-
-     Per impostazione predefinita, il portale visualizza il modello.
-
-5. Selezionare **scaricare** per esportare un modello nel computer locale.
-
-    ![modelli di esportazione di gruppo di risorse di Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history-download.png)
-
-<a name="export-templates-from-resource-groups"></a>
-### <a name="export-templates-from-resource-groups"></a>Esportare modelli da gruppi di risorse
-
-Se si aver modificato le risorse dal portale o aggiungere o rimuovere le risorse in più distribuzioni, il modello recuperato dalla cronologia delle distribuzioni non riflette lo stato corrente del gruppo di risorse. Questa sezione illustra come esportare un modello che rispecchia tale stato. Si tratta di uno snapshot del gruppo di risorse, che è possibile usare per la ridistribuzione nello stesso gruppo di risorse. Per usare il modello esportato per altre soluzioni, è necessario apportare alcune importanti modifiche.
-
-1. Aprire il gruppo di risorse da esportare.  Visualizzare [aprire gruppi di risorse](#open-resource-groups).
-2. Nel riquadro sinistro, selezionare **Esporta modello**. Resource Manager recupera i sei file seguenti:
-
-   - **Modello** : modello che definisce l'infrastruttura per la soluzione. Quando è stato creato l'account di archiviazione tramite il portale, Resource Manager ha usato un modello per distribuirlo e ha salvato tale modello come riferimento futuro.
-   - **Parametri** : file dei parametri che può essere usato per passare i valori durante la distribuzione. Contiene i valori specificati durante la prima distribuzione. Quando si ridistribuisce il modello è possibile modificare qualsiasi valore.
-   - **Interfaccia della riga di comando**: file di script dell'interfaccia della riga di comando di Azure che può essere usato per distribuire il modello.
-   - **PowerShell** : file di script di Azure PowerShell che può essere usato per distribuire il modello.
-   - **.NET** : classe .NET che può essere usata per distribuire il modello.
-   - **Ruby** : classe Ruby che può essere usata per distribuire il modello.
-
-     Per impostazione predefinita, il portale visualizza il modello.
-3. Selezionare **scaricare** per esportare un modello nel computer locale.
-
-Alcuni modelli esportati necessarie alcune modifiche prima di poter essere usati. Per informazioni su come sviluppare modelli, vedere la [esercitazioni dettagliate](/azure/azure-resource-manager/).
-
-### <a name="export-template-before-deploying"></a>Esporta modello prima della distribuzione
-
-È possibile usare il portale per definire una risorsa.  Prima di distribuire la risorsa, è possibile visualizzare ed esportare un modello. Per le istruzioni, vedere [Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).
+Per informazioni sull'esportazione di modelli, vedere [esportazione singola e a più risorse al modello - portale](export-template-portal.md).
 
 ### <a name="fix-export-issues"></a>Risolvere i problemi di esportazione
 

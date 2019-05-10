@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2018
+ms.date: 05/07/2019
 ms.author: kumud
-ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884759"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415716"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -30,7 +30,7 @@ I probe di integrità supportano più protocolli. La disponibilità di un tipo s
 | | SKU Standard | SKU Basic |
 | --- | --- | --- |
 | [Tipi di probe](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Comportamento in caso di inattività dei probe](#probedown) | Tutti i probe sono inattivi, tutti i flussi TCP continuano. | Tutti i probe sono inattivi, tutti i flussi TCP terminano. | 
+| [Comportamento in caso di inattività dei probe](#probedown) | Tutti i probe sono inattivi, tutti i flussi TCP continuano. | Tutti i probe verso il basso, tutti i flussi TCP scadono. | 
 
 > [!IMPORTANT]
 > I probe di integrità di Load Balancer sono originati dall'indirizzo IP 168.63.129.16 e non devono essere bloccati perché possano contrassegnare l'istanza come attiva.  Per informazioni dettagliate, vedere [Indirizzo IP di origine dei probe](#probesource).
@@ -178,7 +178,7 @@ Load Balancer usa un servizio distribuito probe per il suo modello di integrità
 
 Il tag del servizio AzureLoadBalancer identifica questo indirizzo IP di origine nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md) e consente il traffico dei probe di integrità per impostazione predefinita.
 
-Oltre ai probe di integrità di Load Balancer, le operazioni seguenti usano questo indirizzo IP:
+Oltre ai probe di integrità di bilanciamento del carico, il [operazioni seguenti usano questo indirizzo IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - Abilitazione dell'agente di macchine virtuali per la comunicazione con la piattaforma per segnalare che si trova in uno stato "Pronto"
 - Abilitazione della comunicazione con il server virtuale DNS per fornire la risoluzione dei nomi filtrati per i clienti che non definiscono i server DNS personalizzati.  Questo filtro garantisce che i clienti possano risolvere solo i nomi host della loro distribuzione.

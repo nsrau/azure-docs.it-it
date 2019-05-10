@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: cc598afbbdf7f3a1b12089b50ba747c5220ba1fa
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ce7eb546c342ffd20557a95d5293d83b39ec3afb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922939"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507189"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -66,7 +66,7 @@ FunctionsProject
 
  Le funzioni di Azure vengono richiamate da un trigger, ad esempio una richiesta HTTP, un timer o un aggiornamento dati. La funzione deve elaborare tale trigger e qualsiasi altro input per generare uno o più output.
 
-Usare le annotazioni Java incluse nel pacchetto [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) per associare input e output ai metodi dell'utente. Per altre informazioni, vedere [Documentazione di riferimento per Java](/java/api/com.microsoft.azure.functions.annotation).
+Usare le annotazioni Java incluse nel pacchetto [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) per associare input e output ai metodi dell'utente. Per altre informazioni, vedere [documentazione di riferimento Java](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
 > È necessario configurare un account di Archiviazione di Azure nel file [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) per eseguire i trigger di BLOB del servizio di archiviazione di Azure o di code e tabelle di Azure.
@@ -112,6 +112,37 @@ e il file `function.json` corrispondente generato da [azure-functions-maven-plug
 Eseguire il download e usare i pacchetti Java 8 JDK [Azul Zulu Enterprise per Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) di [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) per lo sviluppo locale di app per le funzioni Java. Funzioni di Azure usa il runtime di Java 8 JDK di Azul quando l'app per le funzioni viene distribuita nel cloud.
 
 [Supporto tecnico di Azure](https://azure.microsoft.com/support/) per i problemi con i JDK e le app per le funzioni è disponibile con un [piano di supporto completo](https://azure.microsoft.com/support/plans/).
+
+## <a name="customize-jvm"></a>Personalizzare JVM
+
+Funzioni consente di personalizzare la macchina virtuale Java (JVM) usata per eseguire le funzioni Java. Il [le opzioni di JVM seguenti](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7) vengono utilizzati per impostazione predefinita:
+
+* `-XX:+TieredCompilation`
+* `-XX:TieredStopAtLevel=1`
+* `-noverify` 
+* `-Djava.net.preferIPv4Stack=true`
+* `-jar`
+
+È possibile fornire argomenti aggiuntivi in un'impostazione dell'app denominata `JAVA_OPTS`. È possibile aggiungere le impostazioni dell'app per le app per le funzioni distribuite in Azure con uno dei modi seguenti:
+
+### <a name="azure-portal"></a>Portale di Azure
+
+Nel [portale di Azure](https://portal.azure.com), utilizzare il [scheda delle impostazioni dell'applicazione](functions-how-to-use-azure-function-app-settings.md#settings) per aggiungere il `JAVA_OPTS` impostazione.
+
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+Il [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) comando può essere utilizzato per impostare `JAVA_OPTS`, come illustrato nell'esempio seguente:
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --settings "JAVA_OPTS=-Djava.awt.headless=true"
+    ```
+Questo esempio abilita modalità headless. Sostituire `<APP_NAME>` con il nome dell'app per le funzioni e `<RESOURCE_GROUP> ` con il gruppo di risorse.
+
+> [!WARNING]  
+> Durante l'esecuzione in un [piano a consumo](functions-scale.md#consumption-plan), è necessario aggiungere il `WEBSITE_USE_PLACEHOLDER` impostazione con un valore di `0`.  
+Questa impostazione di aumentare i tempi di avvio a freddo per funzioni Java.
 
 ## <a name="third-party-libraries"></a>Librerie di terze parti 
 
@@ -189,7 +220,7 @@ Questa funzione viene richiamata con una richiesta HTTP.
 - Il payload della richiesta HTTP viene passato come `String` per l'argomento `inputReq`
 - Viene recuperata una voce da Archiviazione tabelle di Azure e passata come `TestInputData` all'argomento `inputData`.
 
-Per ricevere un batch di input, è possibile stabilire un'associazione a `String[]`, `POJO[]`, `List<String>` o `List<POJO>`.
+Per ricevere un batch di input, è possibile associare a `String[]`, `POJO[]`, `List<String>`, o `List<POJO>`.
 
 ```java
 @FunctionName("ProcessIotMessages")
@@ -263,7 +294,7 @@ Per inviare più valori di output, usare il tipo `OutputBinding<T>` definito nel
     }
 ```
 
-La funzione precedente viene richiamata su una HttpRequest e scrive più valori nella coda di Azure
+Questa funzione viene richiamata su una HttpRequest e scrive più valori per le code di Azure.
 
 ## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage e HttpResponseMessage
 
@@ -363,7 +394,7 @@ Per scaricare i file di log come un singolo file ZIP usando l'interfaccia della 
 az webapp log download --resource-group resourcegroupname --name functionappname
 ```
 
-Prima di eseguire questo comando, è necessario aver abilitato la registrazione del file system nel portale di Azure o l'interfaccia della riga di comando di Azure.
+È necessario aver abilitato la registrazione nel portale di Azure o Azure CLI prima di eseguire questo comando del sistema di file.
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 

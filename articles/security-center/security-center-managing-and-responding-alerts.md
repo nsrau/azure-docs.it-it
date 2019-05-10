@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111390"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235755"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure
 Questo documento illustra come usare il Centro sicurezza di Azure per gestire e rispondere agli avvisi di sicurezza.
@@ -65,18 +65,18 @@ Nella parte inferiore della pagina sono riportati i dettagli relativi a ogni avv
 >
 
 
-### <a name="alert-severity"></a>Gravità degli avvisi
-
-> [!NOTE]
-> La gravità degli avvisi viene visualizzata in modo diverso nel portale e nell'API REST. Le differenze sono indicate nell'elenco seguente.
+### <a name="alert-severity"></a>Gravità dell'avviso
 
 -   **Alta**: esiste una forte probabilità che la risorsa sia compromessa. È consigliabile controllarla immediatamente. Il Centro sicurezza ha una certezza elevata sia delle finalità dannose che delle conclusioni usate per inviare l'avviso, ad esempio un avviso che rileva l'esecuzione di uno strumento dannoso noto, come Mimikatz, uno strumento comune usato per il furto di credenziali. 
--   **Media (Bassa nell'API REST)**: si tratta di una probabile attività sospetta che potrebbe indicare che una risorsa è compromessa.
+-   **Medium**: si tratta di una probabile attività sospetta che potrebbe indicare che una risorsa è compromessa.
 La fiducia del Centro sicurezza nell'analisi o nella conclusione è media e la certezza delle finalità dannose è da media a elevata. Si tratta in genere di rilevamenti basati su anomalie o sull'apprendimento automatico, ad esempio un tentativo di accesso da una posizione anomala.
--   **Bassa (Informazioni nell'API REST)**: potrebbe trattarsi di un falso positivo o di un attacco bloccato. 
+-   **Bassa**: potrebbe trattarsi di un falso positivo o di un attacco bloccato. 
     - Il Centro sicurezza non è del tutto certo che l'intento sia dannoso e che l'attività possa essere inoffensiva. La cancellazione di un log, ad esempio, è un'azione che può verificarsi quando un utente malintenzionato cerca di nascondere le proprie tracce, ma in molti casi è un'operazione di routine eseguita dagli amministratori.
     - Il Centro sicurezza non segnala in genere quando sono stati bloccati attacchi, a meno che non si tratti di un caso interessante che si consiglia di esaminare. 
--   **Informativo (invisibile nell'API REST)**: gli avvisi informativi verranno visualizzati solo quando si esegue il drill-down di un evento imprevisto relativo alla sicurezza oppure se si usa l'API REST con un ID avviso specifico. Un evento imprevisto è in genere costituito da più avvisi, alcuni dei quali sono di per sé semplicemente informativi, ma nel contesto degli altri avvisi potrebbero richiedere un'analisi più approfondita. 
+-   **Informativo**: gli avvisi informativi verranno visualizzati solo quando si esegue il drill-down di un evento imprevisto relativo alla sicurezza oppure se si usa l'API REST con un ID avviso specifico. Un evento imprevisto è in genere costituito da più avvisi, alcuni dei quali sono di per sé semplicemente informativi, ma nel contesto degli altri avvisi potrebbero richiedere un'analisi più approfondita.  
+
+> [!NOTE]
+> Se si usa la **2015-06-01-preview** versione dell'API, quindi ci sono differenze in cui l'allarme gravità vengono applicate per quali scenari, rispetto a quello riportato sopra.  
 
 ### <a name="filtering-alerts"></a>Filtro degli avvisi
 È possibile filtrare gli avvisi in base a data, stato e gravità. Il filtro degli avvisi può risultare utile per scenari in cui è necessario limitare l'ambito degli avvisi di sicurezza da visualizzare. Ad esempio, potrebbe essere necessario gestire gli avvisi di sicurezza che si sono verificati nelle ultime 24 ore, perché si sta esaminando una potenziale violazione del sistema.

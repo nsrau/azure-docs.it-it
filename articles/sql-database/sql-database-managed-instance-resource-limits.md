@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
-ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2068283414ef2fabb44e9876f6727cc0fe3530b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487547"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233511"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse del database SQL di Azure per le istanze gestite
 
@@ -37,11 +37,11 @@ Istanza gestita di database SQL di Azure può essere distribuita in due generazi
 |   | **Quarta generazione** | **Quinta generazione** |
 | --- | --- | --- |
 | Hardware | Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico) | Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz, unità SSD NVMe veloce, vCore = 1 LP (hyperthread) |
-| Calcolo | 8, 16, 24 vCore | 8, 16, 24, 32, 40, 64, 80 vCore |
+| vCore | 8, 16, 24 vCore | 8, 16, 24, 32, 40, 64, 80 vCore |
 | Memoria | 7 GB per vCore | 5,1 GB per vCore |
-| Memoria OLTP in memoria | 3 GB per vCore | 2,6 GB per vCore |
-| Spazio di archiviazione massimo (utilizzo generico) |  8 TB | 8 TB |
-| Spazio di archiviazione massimo (Business critical) | 1 TB | 1 TB, 2 TB o 4 TB in base al numero di core |
+| Memoria di OLTP In memoria max | 3 GB per vCore | 2,6 GB per vCore |
+| Archiviazione istanza massimo (generico) |  8 TB | 8 TB |
+| Istanza spazio di archiviazione massimo (Business Critical) | 1 TB | 1 TB, 2 TB o 4 TB in base al numero di core |
 
 ### <a name="service-tier-characteristics"></a>Caratteristiche del livello di servizio
 
@@ -50,12 +50,12 @@ Istanza gestita ha due livelli di servizio: per utilizzo generico e business cri
 | **Funzionalità** | **Utilizzo generico** | **Business Critical** |
 | --- | --- | --- |
 | Numero di vCore\* | Quarta generazione: 8, 16, 24<br/>Quinta generazione: 8, 16, 24, 32, 40, 64, 80 | Quarta generazione: 8, 16, 24, 32 <br/> Quinta generazione: 8, 16, 24, 32, 40, 64, 80 |
-| Memoria | Quarta generazione: 56 GB - 168 GB<br/>Quinta generazione: 40,8 GB - 408 GB<br/>\*Proporzionale al numero di vCore | Quarta generazione: 56 GB - 168 GB <br/> Quinta generazione: 40,8 GB - 408 GB<br/>\*Proporzionale al numero di vCore |
-| Dimensione massima archiviazione | 8 TB | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>- 1 TB per 8, 16 vCore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
+| Memoria | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore) | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore) |
+| Spazio di archiviazione massimo istanza | 8 TB | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>- 1 TB per 8, 16 vCore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
 | Quantità massima di risorse di archiviazione per database | Determinata dalla dimensione massima di archiviazione per ogni istanza | Determinata dalla dimensione massima di archiviazione per ogni istanza |
 | Numero massimo di database per istanza | 100 | 100 |
 | Numero massimo di file di database per istanza | Fino a 280 | 32.767 file per ogni database |
-| Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes).| 11 K - 110 K (1.375 per vCore) |
+| Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes).| 11 K - 110 K (1375/vCore) |
 | Velocità effettiva di log | 22 MB/s per ogni istanza | 3 MB/s per ogni vCore<br/>Numero massimo 48 MB/s per ogni istanza|
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes). | 24 - 48 MB/s per ogni vCore |
 | Latenza di I/O (approssimativa) | 5-10 ms | 1-2 ms |
@@ -137,7 +137,7 @@ Per avviare il processo di acquisizione di una quota maggiore:
 
 1. Aprire **Guida e supporto** e fare clic su **Nuova richiesta di supporto**.
 
-   ![Guida e supporto](media/sql-database-managed-instance-resource-limits/help-and-support.png)
+   ![Guida e supporto tecnico](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. Nella scheda Generale per la nuova richiesta di supporto:
    - Per **Tipo di problema** selezionare **Limiti del servizio e della sottoscrizione (quote)**.
    - In **Sottoscrizione** selezionare la propria sottoscrizione.

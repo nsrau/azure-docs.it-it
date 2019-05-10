@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: 7324ab1d7aa6e42100c9c6760c17b0ea6445f21d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f3473d83678ffea888dad736a9620006b2961f7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079456"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406398"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Esercitazione: Progettare un dashboard di analisi in tempo reale usando Database di Azure per PostgreSQL - Hyperscale (Citus) (anteprima)
 
@@ -59,7 +59,7 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurare una regola del firewall a livello di server
 
-Il servizio Database di Azure per PostgreSQL usa un firewall a livello di server. Per impostazione predefinita, il firewall impedisce a tutte le applicazioni e strumenti esterni di connettersi al server e ai database sul server. È necessario aggiungere una regola per aprire il firewall per un intervallo specifico di indirizzi IP.
+Il servizio Database di Azure per PostgreSQL usa un firewall a livello di server. Per impostazione predefinita, il firewall impedisce a tutte le applicazioni e a tutti gli strumenti esterni di connettersi al server e ai database sul server. È necessario aggiungere una regola per aprire il firewall per un intervallo specifico di indirizzi IP.
 
 1. Dalla sezione **Output** dove prima si è copiato il nome host del nodo coordinatore, fare clic per tornare alla voce di menu **Panoramica**.
 
@@ -67,7 +67,7 @@ Il servizio Database di Azure per PostgreSQL usa un firewall a livello di server
 
 3. Fare clic su **Firewall** in **Sicurezza** nel menu a sinistra.
 
-4. Fare client sul collegamento **+ Aggiungi regola del firewall per l'indirizzo IP del client corrente**. Fare infine clic sul pulsante **Salva**.
+4. Fare clic sul collegamento **+ Aggiungi regola del firewall per l'indirizzo IP del client corrente**. Fare infine clic sul pulsante **Salva**.
 
 5. Fare clic su **Save**.
 
@@ -91,7 +91,7 @@ Si usi ora l'utilità della riga di comando [psql](https://www.postgresql.org/do
    psql --host=<myserver> --username=myadmin --dbname=citus
    ```
 
-   Il comando seguente, ad esempio, connette al database predefinito denominato **citus** nel server PostgreSQL **mydemoserver.postgres.database.azure.com** usando le credenziali di accesso. Quando richiesto, immettere la password di amministratore del server.
+   Il comando seguente, ad esempio, consente di connettersi al database predefinito denominato **citus** nel server PostgreSQL **mydemoserver.postgres.database.azure.com** usando le credenziali di accesso. Quando richiesto, immettere la password di amministratore del server.
 
    ```bash
    psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
@@ -170,7 +170,7 @@ DO $$
       ip_address, status_code, response_time_msec
     ) VALUES (
       trunc(random()*32), clock_timestamp(),
-      concat('http://example.com/', md5(random()::text)),
+      concat('https://example.com/', md5(random()::text)),
       ('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
       concat(
         trunc(random()*250 + 2), '.',

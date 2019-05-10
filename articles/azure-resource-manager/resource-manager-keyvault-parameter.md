@@ -1,33 +1,68 @@
 ---
 title: Segreto di Key Vault con il modello di Azure Resource Manager | Microsoft Docs
 description: Viene illustrato come passare una chiave privata da un insieme di credenziali chiave come parametro durante la distribuzione.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: tysonn
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2019
+ms.date: 05/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 93b92a8a3b8aacd1f665725643314858fe92ad3c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: e47a087e27b6a8ade947e36ded762ce2e518ca25
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233769"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507973"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione
 
-Invece di inserire un valore protetto (ad esempio una password) direttamente nel file dei parametri, è possibile recuperare il valore da [Azure Key Vault](../key-vault/key-vault-whatis.md) durante una distribuzione. Il valore viene recuperato facendo riferimento all'insieme di credenziali delle chiavi e alla chiave privata nel file dei parametri. Il valore non viene mai esposto, in quanto si fa riferimento solo all'ID dell'insieme di credenziali chiave. L'insieme di credenziali delle chiavi può essere presente in una sottoscrizione diversa rispetto al gruppo di risorse in cui si sta eseguendo la distribuzione.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Anziché inserire un valore protetto (ad esempio una password) direttamente nel file di modello o dei parametri, è possibile recuperare il valore da un [Azure Key Vault](../key-vault/key-vault-whatis.md) durante una distribuzione. Il valore viene recuperato facendo riferimento all'insieme di credenziali delle chiavi e alla chiave privata nel file dei parametri. Il valore non viene mai esposto, in quanto si fa riferimento solo all'ID dell'insieme di credenziali chiave. L'insieme di credenziali delle chiavi può essere presente in una sottoscrizione diversa da quella del gruppo di risorse che si esegue la distribuzione.
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Distribuire insiemi di credenziali delle chiavi e segreti
 
-Per creare Key Vault e aggiungere i segreti, vedere:
+Per accedere a un insieme di credenziali delle chiavi durante la distribuzione del modello, impostare `enabledForTemplateDeployment` nell'insieme di credenziali chiave per `true`.
+
+Gli esempi di comando di Azure e Azure PowerShell seguenti mostrano come creare l'insieme di credenziali delle chiavi e aggiungere un segreto.
+
+```azurecli
+az group create --name $resourceGroupName --location $location
+az keyvault create \
+  --name $keyVaultName \
+  --resource-group $resourceGroupName \
+  --location $location \
+  --enabled-for-template-deployment true
+az keyvault secret set --vault-name $keyVaultName --name "ExamplePassword" --value "hVFkk965BuUv"
+```
+
+```azurepowershell
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzKeyVault `
+  -VaultName $keyVaultName `
+  -resourceGroupName $resourceGroupName `
+  -Location $location `
+  -EnabledForTemplateDeployment
+$secretvalue = ConvertTo-SecureString 'hVFkk965BuUv' -AsPlainText -Force
+$secret = Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'ExamplePassword' -SecretValue $secretvalue
+```
+
+Come proprietario dell'insieme di credenziali chiave, si ha automaticamente accesso a creare i segreti. Se l'utente di uso dei segreti non è il proprietario dell'insieme di credenziali chiave, concedere l'accesso con:
+
+```azurecli
+az keyvault set-policy \
+  --upn $userPrincipalName \
+  --name $keyVaultName \
+  --secret-permissions set delete get list
+```
+
+```azurepowershell
+$userPrincipalName = "<Email Address of the deployment operator>"
+
+Set-AzKeyVaultAccessPolicy `
+  -VaultName $keyVaultName `
+  -UserPrincipalName $userPrincipalName `
+  -PermissionsToSecrets set,delete,get,list
+```
+
+Per altre informazioni sulla creazione di insiemi di credenziali chiave e l'aggiunta dei segreti, vedere:
 
 - [Impostare e recuperare un segreto usando l'interfaccia della riga di comando](../key-vault/quick-create-cli.md)
 - [Impostare e recuperare un segreto usando Powershell](../key-vault/quick-create-powershell.md)
@@ -35,35 +70,9 @@ Per creare Key Vault e aggiungere i segreti, vedere:
 - [Impostare e recuperare un segreto usando .NET](../key-vault/quick-create-net.md)
 - [Impostare e recuperare un segreto usando Node.js](../key-vault/quick-create-node.md)
 
-Esistono altri requisiti e considerazioni quando si esegue l'integrazione di Key Vault con la distribuzione dei modelli di Resource Manager:
-
-- `enabledForTemplateDeployment` è una proprietà dell'insieme di credenziali delle chiavi. Per accedere ai segreti all'interno di Key Vault dalla distribuzione di Resource Manager, `enabledForTemplateDeployment` deve essere `true`. 
-- Se l'utente non è il proprietario dell'insieme di credenziali delle chiavi, il proprietario deve aggiornare le impostazioni dei criteri di sicurezza dell'insieme di credenziali delle chiavi perché sia possibile aggiungere i segreti.
-
-Gli esempi dell'interfaccia della riga di comando di Azure e di Azure PowerShell seguenti mostrano come farlo:
-
-```azurecli
-# Create a Key Vault
-az keyvault create \
-  --name $keyVaultName \
-  --resource-group $resourceGroupName \
-  --location $location \
-  --enabled-for-template-deployment true
-az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
-```
-
-```azurepowershell
-New-AzKeyVault `
-  -VaultName $keyVaultName `
-  -resourceGroupName $resourceGroupName `
-  -Location $location `
-  -EnabledForTemplateDeployment
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
-```
-
 ## <a name="grant-access-to-the-secrets"></a>Concedere l'accesso ai segreti
 
-L'utente che distribuisce il modello deve avere l'autorizzazione `Microsoft.KeyVault/vaults/deploy/action` per l'ambito che contiene Key Vault inclusi il gruppo di risorse e Key Vault. Entrambi i ruoli [Proprietario](../role-based-access-control/built-in-roles.md#owner) e [Collaboratore](../role-based-access-control/built-in-roles.md#contributor) possono concedere l'accesso. Se si crea Key Vault si è i proprietari e pertanto si dispone dell'autorizzazione. Se Key Vault è in un'altra sottoscrizione, il proprietario dell'insieme di Key Vault deve fornire l'accesso.
+L'utente che distribuisce il modello deve disporre di `Microsoft.KeyVault/vaults/deploy/action` dell'autorizzazione per l'ambito del gruppo di risorse e insieme di credenziali delle chiavi. Entrambi i ruoli [Proprietario](../role-based-access-control/built-in-roles.md#owner) e [Collaboratore](../role-based-access-control/built-in-roles.md#contributor) possono concedere l'accesso. Se è stato creato l'insieme di credenziali delle chiavi, si è il proprietario in modo che si dispone dell'autorizzazione.
 
 La procedura seguente illustra come creare un ruolo con le autorizzazioni minime e come assegnarlo all'utente
 
@@ -89,14 +98,23 @@ La procedura seguente illustra come creare un ruolo con le autorizzazioni minime
 
 2. Creare il nuovo ruolo usando il file JSON:
 
-    ```azurepowershell
-    $resourceGroupName= "<Resource Group Name>" # the resource group which contains the Key Vault
-    $userPrincipalName = "<Email Address of the deployment operator>"
-    New-AzRoleDefinition -InputFile "<PathToTheJSONFile>" 
-    New-AzRoleAssignment -ResourceGroupName $resourceGroupName -RoleDefinitionName "Key Vault resource manager template deployment operator" -SignInName $userPrincipalName
+    ```azurecli
+    az role definition create --role-definition "<PathToRoleFile>"
+    az role assignment create \
+      --role "Key Vault resource manager template deployment operator" \
+      --assignee $userPrincipalName \
+      --resource-group $resourceGroupName
     ```
 
-    L'esempio `New-AzRoleAssignment` assegna il ruolo personalizzato all'utente a livello di gruppo di risorse.  
+    ```azurepowershell
+    New-AzRoleDefinition -InputFile "<PathToRoleFile>" 
+    New-AzRoleAssignment `
+      -ResourceGroupName $resourceGroupName `
+      -RoleDefinitionName "Key Vault resource manager template deployment operator" `
+      -SignInName $userPrincipalName
+    ```
+
+    Gli esempi di assegnare il ruolo personalizzato per l'utente a livello di gruppo di risorse.  
 
 Quando si usa un insieme di credenziali chiave con il modello per una [Applicazione gestita](../managed-applications/overview.md), è necessario concedere l'accesso all'entità servizio **Provider di risorse di Appliance**. Per altre informazioni, vedere [Segreto di accesso di Key Vault quando si distribuiscono Applicazioni gestite di Azure](../managed-applications/key-vault-access.md).
 
@@ -106,18 +124,75 @@ Con questo approccio, si fa riferimento all'insieme di credenziali delle chiavi 
 
 ![Diagramma di un ID statico per l'integrazione dell'insieme di credenziali delle chiavi di Resource Manager](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
-[Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Resource Manager](./resource-manager-tutorial-use-key-vault.md) usando questo metodo. L'esercitazione distribuisce una macchina virtuale che include una password dell'amministratore. Il parametro della password è impostato su una stringa sicura:
+[Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Resource Manager](./resource-manager-tutorial-use-key-vault.md) usando questo metodo.
 
-![File modello di un ID statico per l'integrazione dell'insieme di credenziali delle chiavi di Resource Manager](./media/resource-manager-keyvault-parameter/resource-manager-key-vault-static-id-template-file.png)
+Il modello seguente distribuisce un server SQL che include una password di amministratore. Il parametro della password è impostato su una stringa sicura, Tuttavia, il modello non specifica la provenienza di tale valore.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminLogin": {
+      "type": "string"
+    },
+    "adminPassword": {
+      "type": "securestring"
+    },
+    "sqlServerName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "name": "[parameters('sqlServerName')]",
+      "type": "Microsoft.Sql/servers",
+      "apiVersion": "2015-05-01-preview",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "administratorLogin": "[parameters('adminLogin')]",
+        "administratorLoginPassword": "[parameters('adminPassword')]",
+        "version": "12.0"
+      }
+    }
+  ],
+  "outputs": {
+  }
+}
+```
 
 Creare ora un file dei parametri per il modello precedente. Nel file dei parametri specificare un parametro corrispondente al nome del parametro nel modello. Per il valore del parametro, fare riferimento al segreto dall'insieme di credenziali delle chiavi. Si fa riferimento al segreto passando l'identificatore della risorsa dell'insieme di credenziali delle chiavi e il nome del segreto:
 
-![File dei parametri di un ID statico per l'integrazione dell'insieme di credenziali delle chiavi di Resource Manager](./media/resource-manager-keyvault-parameter/resource-manager-key-vault-static-id-parameter-file.png)
+Nel file dei parametri seguenti, il segreto dell'insieme di credenziali delle chiavi deve esistere già e si fornisce un valore statico per il relativo ID di risorsa.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminLogin": {
+            "value": "exampleadmin"
+        },
+        "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+              },
+              "secretName": "ExamplePassword"
+            }
+        },
+        "sqlServerName": {
+            "value": "<your-server-name>"
+        }
+    }
+}
+```
 
 Se è necessario usare una versione del segreto diversa da quella corrente, usare la proprietà `secretVersion`.
 
 ```json
-"secretName": "examplesecret",
+"secretName": "ExamplePassword",
 "secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
 ```
 

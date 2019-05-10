@@ -7,16 +7,16 @@ ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: e9a8a30d9f5f170073c0ad671a248703b1078864
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d29fa8700cb1f530cfe85f0bdf6852d75ec1613e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159496"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508161"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: Creare un'immagine Linux e distribuirlo a una raccolta di immagini condivise 
 
-Questo articolo illustra come è possibile usare il generatore di immagini di Azure per creare una versione di immagine in un [raccolta di immagini condivise](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries), quindi distribuire l'immagine a livello globale.
+Questo articolo illustra come è possibile usare il generatore di immagini di Azure per creare una versione di immagine in un [raccolta di immagini condivise](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), quindi distribuire l'immagine a livello globale.
 
 
 Si userà un modello JSON di esempio per configurare l'immagine. Il file con estensione JSON si sta usando è qui: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 

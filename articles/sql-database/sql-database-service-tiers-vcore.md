@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c85ee31a54cdbbb09686a2d20200f65fdcd8994a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148975"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235898"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Scegliere tra i livelli di servizio vCore ed eseguire la migrazione dai livelli di servizio DTU
 
@@ -44,7 +44,7 @@ La tabella seguente consente di comprendere le differenze tra questi tre livelli
 |Calcolo|**Il provisioning di calcolo**:<br/>Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: 2 e 80 vCore<br/>**Calcolo senza server**<br/>Quinta generazione: 0,5 - 4 vCore|**Il provisioning di calcolo**:<br/>Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: 2 e 80 vCore|**Il provisioning di calcolo**:<br/>Quarta generazione: da 1 a 24 vCore<br/>Quinta generazione: 2 e 80 vCore|
 |Memoria|**Il provisioning di calcolo**:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore<br/>**Calcolo senza server**<br/>Quinta generazione: 3 GB per vCore|**Il provisioning di calcolo**:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore |**Il provisioning di calcolo**:<br/>Quarta generazione: 7 GB per vCore<br/>Quinta generazione: 5,1 GB per vCore|
 |Archiviazione|Usa l'archiviazione remota:<br/>**Il provisioning di database singolo calcolo**:<br/>5 GB - 4 TB<br/>**Calcolo senza server di database singolo**:<br/>5 GB - 1 TB<br/>**Istanza gestita**: 32 GB - 8 TB |Usa l'archiviazione SSD locale:<br/>**Il provisioning di database singolo calcolo**:<br/>5 GB - 4 TB<br/>**Istanza gestita**:<br/>32 GB - 4 TB |Aumento automatico e flessibile dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di archiviazione e oltre. Archiviazione SSD locale per la cache del pool di buffer locale e l'archiviazione locale dei dati. Archiviazione remota di Azure come archivio dati a lungo termine finale. |
-|Memoria|Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core | Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core |Quinta generazione: 5,1 GB per core|
+|Memoria|Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core | Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core |Quarta generazione: 7 GB per core<br>Quinta generazione: 5,1 GB per core|
 |Archiviazione|Usa l'archiviazione remota:<br/>Database singolo: 5 GB - 4 TB<br/>Istanza gestita: 32 GB - 8 TB |Usa l'archiviazione SSD locale:<br/>Database singolo: 5 GB - 4 TB<br/>Istanza gestita: 32 GB - 4 TB |Aumento automatico e flessibile dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di archiviazione e oltre. Archiviazione SSD locale per la cache del pool di buffer locale e l'archiviazione locale dei dati. Archiviazione remota di Azure come archivio dati a lungo termine finale. |
 |Velocità effettiva di I/O (approssimativa)|Database singolo: 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000</br>Istanza gestita: dipende dalle [dimensioni del file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 operazioni di I/O al secondo per core fino a un massimo di 200.000|Da definire|
 |Disponibilità|1 replica, senza scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](sql-database-read-scale-out.md),<br/>DISPONIBILITÀ ELEVATA con ridondanza|replica di lettura/1 scrittura plus 0-4 [repliche con scalabilità in lettura](sql-database-read-scale-out.md)|

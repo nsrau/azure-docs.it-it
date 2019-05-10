@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9cbd924f87ff2f5b38f67a1bf7db34c36e9c264b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020447"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237064"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST di sintesi vocale
 
@@ -44,33 +44,33 @@ Il `voices/list` endpoint consente di ottenere un elenco completo delle voci per
 
 | Region | Endpoint |
 |--------|----------|
-| Australia orientale | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Brasile meridionale | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Canada centrale | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Stati Uniti centrali | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Asia orientale | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Stati Uniti orientali | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Stati Uniti orientali 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Francia centrale | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| India centrale | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Giappone orientale | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Corea del Sud centrale | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Stati Uniti centro-settentrionali | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Europa settentrionale | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Stati Uniti centro-meridionali | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Asia sud-orientale | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Regno Unito meridionale | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Europa occidentale | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Stati Uniti occidentali | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Stati Uniti occidentali 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Australia orientale | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Brasile meridionale | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Canada centrale | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Stati Uniti centrali | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Asia orientale | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Stati Uniti orientali | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Stati Uniti orientali 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Francia centrale | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| India centrale | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Giappone orientale | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Corea del Sud centrale | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Stati Uniti centro-settentrionali | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europa settentrionale | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Stati Uniti centro-meridionali | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Asia sud-orientale | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Regno Unito meridionale | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europa occidentale | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Stati Uniti occidentali | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Stati Uniti occidentali 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 ### <a name="request-headers"></a>Intestazioni della richiesta
 
 Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di sintesi vocale.
 
-| Intestazione | DESCRIZIONE | Obbligatoria / Facoltativa |
+| Intestazione | Descrizione | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
-| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
+| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatorio |
 
 ### <a name="request-body"></a>Corpo della richiesta
 
@@ -136,11 +136,11 @@ Questa risposta è stata troncata per illustrare la struttura di una risposta.
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | DESCRIZIONE | Possibile motivo |
+| Stato codice HTTP | Descrizione | Possibile motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | La richiesta viene eseguita correttamente. |
-| 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
-| 401 | Non autorizzata | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
+| 400 | Richiesta errata | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
+| 401 | Non autorizzato | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
 | 429 | Troppe richieste | È stata superata la quota o la frequenza di richieste consentite per la sottoscrizione. |
 | 502 | Gateway non valido | Problema di rete o lato server. Può anche indicare intestazioni non valide. |
 
@@ -159,12 +159,12 @@ Queste aree sono supportate per la trascrizione vocale usando l'API REST. Assicu
 
 Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di sintesi vocale.
 
-| Intestazione | DESCRIZIONE | Obbligatoria / Facoltativa |
+| Intestazione | Descrizione | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
-| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
-| `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Obbligatoria |
+| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatorio |
+| `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Obbligatorio |
 | `X-Microsoft-OutputFormat` | Specifica il formato di output audio. Per un elenco completo dei valori accettati, vedere [output audio](#audio-outputs). | Obbligatorio |
-| `User-Agent` | Il nome applicazione. Il valore fornito deve essere minore di 255 caratteri. | Obbligatoria |
+| `User-Agent` | Il nome applicazione. Il valore fornito deve essere minore di 255 caratteri. | Obbligatorio |
 
 ### <a name="audio-outputs"></a>Output audio
 
@@ -219,11 +219,11 @@ Vedere le guide introduttive per esempi specifici del linguaggio:
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | DESCRIZIONE | Possibile motivo |
+| Stato codice HTTP | Descrizione | Possibile motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un file audio. |
-| 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
-| 401 | Non autorizzata | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
+| 400 | Richiesta errata | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
+| 401 | Non autorizzato | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
 | 413 | Entità della richiesta troppo grande | La lunghezza dell'input SSML è maggiore di 1024 caratteri. |
 | 429 | Troppe richieste | È stata superata la quota o la frequenza di richieste consentite per la sottoscrizione. |
 | 502 | Gateway non valido | Problema di rete o lato server. Può anche indicare intestazioni non valide. |
