@@ -168,7 +168,7 @@
         - name: 'BLOB, code, tabelle e file'
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: Spostamento dati
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
         - name: Gestione risorse
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java

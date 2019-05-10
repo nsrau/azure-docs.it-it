@@ -40,6 +40,16 @@
           href: time-series-insights-explorer.md
         - name: Informazioni sulla conservazione dei dati
           href: time-series-insights-concepts-retention.md
+        - name: Sviluppo
+          items:
+            - name: Autenticare e autorizzare
+              href: time-series-insights-authentication-and-authorization.md
+            - name: 'Eseguire query sui dati con C#'
+              href: time-series-insights-query-data-csharp.md
+            - name: 'Gestire i dati di riferimento in C#'
+              href: time-series-insights-manage-reference-data-csharp.md
+            - name: Condividere una visualizzazione personalizzata
+              href: time-series-insights-parameterized-urls.md
     - name: Anteprima di Time Series Insights
       items:
         - name: Pianificare l'ambiente
@@ -54,16 +64,12 @@
           href: time-series-insights-update-tsq.md
         - name: Visualizzare i dati nella versione di anteprima dello strumento di esplorazione
           href: time-series-insights-update-explorer.md
-    - name: Sviluppo
-      items:
-        - name: Autenticare e autorizzare
-          href: time-series-insights-authentication-and-authorization.md
-        - name: 'Eseguire query sui dati con C#'
-          href: time-series-insights-query-data-csharp.md
-        - name: 'Gestire i dati di riferimento in C#'
-          href: time-series-insights-manage-reference-data-csharp.md
-        - name: Condividere una visualizzazione personalizzata
-          href: time-series-insights-parameterized-urls.md
+        - name: Sviluppo
+          items:
+            - name: Autenticare e autorizzare
+              href: time-series-insights-authentication-and-authorization.md
+            - name: 'Eseguire query sui dati con C#'
+              href: time-series-insights-update-query-data-csharp.md
 - name: Guide alle procedure
   items:
     - name: Concedere l'accesso ai dati

@@ -67,7 +67,7 @@
     - name: Fatturazione e sottoscrizioni
       href: 'https://docs.microsoft.com/azure/billing/billing-getting-started'
     - name: Confronti di hosting
-      href: 'https://docs.microsoft.com/azure/app-service/overview-compare'
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
     - name: Informazioni sul servizio app
       href: 'https://docs.microsoft.com/azure/app-service/overview'
     - name: Macchine virtuali
