@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: f2441d5660ed84a8680c1861e2e20a1a17ee4762
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025832"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511131"
 ---
 # <a name="what-is-custom-speech"></a>Che cos'è riconoscimento vocale personalizzato?
 
@@ -43,7 +43,7 @@ Il diagramma evidenzia le parti che compongono il portale di riconoscimento voca
 
 ## <a name="set-up-your-azure-account"></a>Configurare l'account di Azure
 
-Prima di poter usare il portale di riconoscimento vocale personalizzato per creare un modello personalizzato, è necessaria una sottoscrizione di servizi di riconoscimento vocale. Seguire queste istruzioni per creare una sottoscrizione standard di servizi di riconoscimento vocale: [Creare una sottoscrizione di riconoscimento vocale](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#new-azure-account).
+Prima di poter usare il portale di riconoscimento vocale personalizzato per creare un modello personalizzato, è necessaria una sottoscrizione di servizi di riconoscimento vocale. Seguire queste istruzioni per creare una sottoscrizione standard di servizi di riconoscimento vocale: [Creare una sottoscrizione di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
 
 > [!NOTE]
 > Assicurarsi di creare le sottoscrizioni standard (S0), le sottoscrizioni di valutazione gratuita (F0) non sono supportate.

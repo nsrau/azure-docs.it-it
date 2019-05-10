@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a527b928edacc202301f53dbf7852f8446b3aa7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff1d9089f3fb2f3ebf3022b54c442e8338ab983b
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834983"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Esercitazione: Integrazione di Azure Active Directory con Edcor
 
@@ -124,7 +124,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Edcor, seguire questa p
 
 ### <a name="configure-edcor-single-sign-on"></a>Configurare l'accesso Single Sign-On per Edcor
 
-Per configurare l'accesso Single Sign-On sul lato **Edcor**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Edcor](http://www.edcor.com/contact-us-2/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Edcor**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Edcor](https://www.edcor.com/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
@@ -179,7 +179,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-edcor-test-user"></a>Creare l'utente di test di Edcor
 
-In questa sezione viene creato un utente di nome Britta Simon in Edcor. Collaborare con il  [team di supporto di Edcor](http://www.edcor.com/contact-us-2/) per aggiungere gli utenti alla piattaforma Edcor. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Edcor. Collaborare con il  [team di supporto di Edcor](https://www.edcor.com/contact-us/) per aggiungere gli utenti alla piattaforma Edcor. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

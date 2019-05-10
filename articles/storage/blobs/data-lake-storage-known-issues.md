@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 61d168a5f501923812db5945fa6df439ae7e70f9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 27adc0eeeabed2b1f2e86f301a60604a3d358b82
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145096"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464714"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -57,6 +57,7 @@ La tabella seguente elenca tutte le altre funzionalità e strumenti che non anco
 | **AzCopy** | Supporto specifico della versione <br><br>Usare solo la versione più recente di AzCopy ([v10 AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Le versioni precedenti di AzCopy, ad esempio AzCopy v8.1, non sono supportati.|
 | **Criteri di gestione del ciclo di vita di archiviazione di Azure Blob** | Non è ancora supportata |
 | **Rete CDN di Azure (CDN)** | Non è ancora supportata|
+| **Griglia di eventi di Azure** | Non è ancora supportata |
 | **Ricerca di Azure** |Non è ancora supportata|
 | **Azure Storage Explorer** | Supporto specifico della versione <br><br>Usare la versione sola `1.6.0` o versione successiva. <br>Versione `1.6.0` è disponibile come un [download gratuito](https://azure.microsoft.com/features/storage-explorer/).|
 | **Elenchi ACL del contenitore BLOB** |Non è ancora supportata|
@@ -65,7 +66,7 @@ La tabella seguente elenca tutte le altre funzionalità e strumenti che non anco
 | **Log di diagnostica** |Non è ancora supportata|
 | **Esplorazione del file System** | Supporto limitato |
 | **Archiviazione non modificabile** |Non è ancora supportata <br><br>L'archiviazione non modificabile ti offre la possibilità di archiviare i dati in un [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) dello stato.|
-| **Livelli a livello di oggetto** |Non è ancora supportata <br><br>Ad esempio:  Premium, i livelli di accesso frequente ad accesso sporadico e archivio.|
+| **Livelli a livello di oggetto** |Non è ancora supportata <br><br>Ad esempio: Premium, i livelli di accesso frequente ad accesso sporadico e archivio.|
 | **Supporto della riga di comando e PowerShell** | Funzionalità limitate <br><br>È possibile creare un account con Powershell o l'interfaccia della riga di comando. Non è possibile eseguire operazioni o impostare elenchi di controllo di accesso nel file System, directory e file.|
 | **Siti Web statici** |Non è ancora supportata <br><br>In particolare, la possibilità di rendere disponibili i file per [siti Web statici](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
 | **Applicazioni di terze parti** | Supporto limitato <br><br>Le applicazioni di terze parti che consentono di utilizzare le API REST continueranno a funzionare se vengono utilizzati con Data Lake Storage Gen2. <br>Se si dispone di un'applicazione che usa le API di Blob, tale applicazione avrà probabilmente i problemi se si usa quell'applicazione con Data Lake Storage Gen2. Per altre informazioni, vedere la [archivio API sono disabilitate per gli account di archiviazione Gen2 di Data Lake Storage Blob](#blob-apis-disabled) sezione di questo articolo.|

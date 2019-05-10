@@ -3,17 +3,17 @@ title: Stili delle mappe supportati in Mappe di Azure | Microsoft Docs
 description: Stili delle mappe supportati da Mappe di Azure
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 76ab49c7f28260249483bf3bc4387e8cbaca13b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db396ad06bf46cbbaf486696b68393a6a4214c2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60767213"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230834"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Stili delle mappe supportati da Mappe di Azure
 Mappe di Azure supporta vari stili di mappa predefiniti, come descritto di seguito.
@@ -56,6 +56,17 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 **API idonee:**
 * Controllo mappa JS 
 * Controllo mappa di Android
+
+
+## <a name="grayscalelight"></a>grayscale_light
+**gradazioni di grigio chiaro** è una versione ridotta dello stile di Guida di orientamento.
+
+![gradazioni di grigio chiaro](./media/supported-map-styles/grayscale_light.png)
+
+**API idonee:**
+* Controllo mappa JS
+* Controllo mappa di Android
+
 
 ## <a name="night"></a>notte
 **notte** è una versione scura dello stile della mappa stradale con strade colorate e simboli.

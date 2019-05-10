@@ -205,6 +205,8 @@
           href: restore-sql-database-azure-vm.md
         - name: Gestire database SQL Server di cui è stato eseguito il backup
           href: manage-monitor-sql-database-backup.md
+    - name: Eseguire il backup di database SAP HANA in macchine virtuali di Azure
+      href: backup-azure-sap-hana-database.md
     - name: Windows Server
       items:
         - name: Eseguire un backup dei file e delle cartelle di Windows Server

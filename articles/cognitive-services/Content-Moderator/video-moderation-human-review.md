@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 04/30/2019
 ms.author: sajagtap
-ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098202"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228119"
 ---
 # <a name="video-moderation-with-human-review"></a>Moderazione video con revisione umana
 
-Usare la [moderazione video](video-moderation-api.md) con supporto di computer e lo [strumento di revisione umana](Review-Tool-User-Guide/human-in-the-loop.md) di Content Moderator per moderare video e trascrizioni di contenuti spinti (con riferimenti sessuali) e per adulti (espliciti) in modo da ottenere risultati ottimali per l'azienda.
+Assistito da computer usare Content Moderator [moderazione video](video-moderation-api.md) e [strumento di revisione umana](Review-Tool-User-Guide/human-in-the-loop.md) per moderare i video e le trascrizioni per contenuto per adulti (esplicita) e per adulti contenuto (suggerito) per ottenere i migliori risultati per l'azienda.
 
 ## <a name="video-trained-classifier-preview"></a>Classificatore con riconoscimento di video (anteprima)
 
@@ -28,52 +28,53 @@ La classificazione video con supporto di computer può essere eseguita con model
 ## <a name="shot-detection"></a>Rilevamento inquadratura
 
 Quando si producono i dettagli di classificazione, ulteriori funzionalità di video intelligence assicurano una maggiore flessibilità per l'analisi dei video. Invece di produrre solo i fotogrammi, il servizio di moderazione video di Microsoft fornisce anche informazioni a livello di inquadratura. È pertanto possibile analizzare i video a livello di inquadratura e di fotogramma.
- 
+
 ## <a name="key-frame-detection"></a>Rilevamento di fotogrammi chiave
 
 Invece di produrre fotogrammi a intervalli regolari, il servizio di moderazione video identifica e restituisce solo i fotogrammi potenzialmente completi (validi). Questa funzionalità assicura una maggiore efficienza nella generazione dei fotogrammi per l'analisi dei contenuti spinti e per adulti a livello di fotogramma.
 
 L'estratto seguente mostra una risposta parziale con potenziali inquadrature, fotogrammi chiave e punteggi di contenuti spinti e per adulti:
 
-    "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
+```json
+"fragments":[  
+  {  
+    "start":0,
+    "duration":18000
+  },
+  {  
+    "start":18000,
+    "duration":3600,
+    "interval":3600,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":false,
+          "adultScore":0.00001,
+          "racyScore":0.03077,
+          "index":5,
+          "timestamp":18000,
+          "shotIndex":0
+        }
       ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
+    ]
+  },
+  {  
+    "start":18386372,
+    "duration":119149,
+    "interval":119149,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":true,
+          "adultScore":0.00000,
+          "racyScore":0.91902,
+          "index":5085,
+          "timestamp":18386372,
+          "shotIndex":62
+        }
       ]
-
+    ]
+```
 
 ## <a name="visualization-for-human-reviews"></a>Visualizzazione per le revisioni umane
 
@@ -101,10 +102,7 @@ In genere, i video contengono anche una voce fuori campo che necessita di modera
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Apprendere le nozioni fondamentali con la [guida introduttiva alla moderazione video](video-moderation-api.md). 
-
-Imparare a generare [revisioni di video](video-reviews-quickstart-dotnet.md) dall'output moderato per i revisori umani.
-
-Aggiungere [revisioni di trascrizioni video](video-transcript-reviews-quickstart-dotnet.md) alle revisioni di video.
-
-Fare riferimento all'esercitazione dettagliata su come sviluppare una [soluzione completa di moderazione video](video-transcript-moderation-review-tutorial-dotnet.md). 
+- Apprendere le nozioni fondamentali con la [guida introduttiva alla moderazione video](video-moderation-api.md).
+- Imparare a generare [revisioni di video](video-reviews-quickstart-dotnet.md) dall'output moderato per i revisori umani.
+- Aggiungere [revisioni di trascrizioni video](video-transcript-reviews-quickstart-dotnet.md) alle revisioni di video.
+- Fare riferimento all'esercitazione dettagliata su come sviluppare una [soluzione completa di moderazione video](video-transcript-moderation-review-tutorial-dotnet.md).

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 618453ec9857254fe14608df8091bb79bd3815b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60693186"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509982"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: Valutazione delle applicazioni distribuite
 
@@ -50,7 +50,7 @@ Fare clic su qualsiasi componente per visualizzare le informazioni dettagliate c
 
 ![Riquadro a comparsa](media/app-map/application-map-002.png)
 
-### <a name="investigate-failures"></a>Esaminare gli errori
+### <a name="investigate-failures"></a>Esamina errori
 
 Selezionare **Esamina errori** per aprire il riquadro Errori.
 
@@ -58,7 +58,7 @@ Selezionare **Esamina errori** per aprire il riquadro Errori.
 
 ![Screenshot dell'esperienza Errori](media/app-map/failures.png)
 
-### <a name="investigate-performance"></a>Esaminare le prestazioni
+### <a name="investigate-performance"></a>Esamina prestazioni
 
 Per risolvere i problemi relativi alle prestazioni, selezionare **Esamina prestazioni**.
 
@@ -68,7 +68,7 @@ Per risolvere i problemi relativi alle prestazioni, selezionare **Esamina presta
 
 ### <a name="go-to-details"></a>Vai ai dettagli
 
-Selezionare **Vai ai dettagli** per esplorare l'esperienza Transazione end-to-end che può offrire le visualizzazioni create a livello di stack di chiamate.
+Selezionare **passare a dettagli** per esplorare l'esperienza end-to-end delle transazioni, che può offrire viste fino al livello dello stack di chiamate.
 
 ![Screenshot del pulsante Vai ai dettagli](media/app-map/go-to-details.png)
 

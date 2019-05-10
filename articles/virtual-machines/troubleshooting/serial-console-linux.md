@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: harijay
-ms.openlocfilehash: 7019d80c05a1953f4e57f0f42d46588310911791
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9577a81af3da98c6e8802c586ec468a6e44e46cf
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141104"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442035"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure Console seriale per Linux
 
-La Console seriale nel portale di Azure fornisce l'accesso a una console basata su testo per macchine virtuali (VM) Linux e istanze (set di scalabilità di macchine virtuali) del set di scalabilità di macchine virtuali. Questa connessione seriale si connette alla porta seriale COM1 della macchina virtuale o istanza di set di scalabilità di macchine virtuali, che fornisce accesso a esso indipendenti dello stato del sistema operativo o di rete. La console seriale è accessibile solo tramite il portale di Azure e viene consentito solo per gli utenti che dispongono di un ruolo di accesso di collaboratore o versione successiva per il set di scalabilità della macchina virtuale o una macchina virtuale.
+La Console seriale nel portale di Azure fornisce l'accesso a una console basata su testo per macchine virtuali (VM) Linux e istanze del set di scalabilità di macchine virtuali. Questa connessione seriale si connette alla porta seriale COM1 della macchina virtuale o istanza di set di scalabilità di macchine virtuali, che fornisce accesso a esso indipendenti dello stato del sistema operativo o di rete. La console seriale è accessibile solo tramite il portale di Azure e viene consentito solo per gli utenti che dispongono di un ruolo di accesso di collaboratore o versione successiva per il set di scalabilità della macchina virtuale o una macchina virtuale.
 
 Console seriale funziona allo stesso modo per le macchine virtuali e istanze del set di scalabilità di macchine virtuali. In questo documento, tutti i riferimenti alle macchine virtuali in modo implicito include istanze di set di scalabilità di macchine virtuali se non indicato diversamente.
 
@@ -180,7 +180,7 @@ La console seriale viene fornita con il supporto dell'utilità per la lettura de
 ## <a name="errors"></a>Errors
 Poiché la maggior parte degli errori è temporanea, riprovare la connessione può spesso risolverli. La tabella seguente contiene un elenco di errori e il modo per risolverli. Si applicano questi errori e soluzioni di prevenzione per entrambe le macchine virtuali e istanze del set di scalabilità di macchine virtuali.
 
-Tipi di errore                            |   Mitigazione
+Tipi di errore                            |   Attenuazione
 :---------------------------------|:--------------------------------------------|
 Impossibile recuperare le impostazione di diagnostica di avvio per *&lt;VMNAME&gt;*. Per usare la console seriale, assicurarsi che la diagnostica di avvio sia abilitata per questa macchina virtuale. | Assicurarsi che la VM abbia la [diagnostica di avvio](boot-diagnostics.md) abilitata.
 La macchina virtuale è in uno stato arrestato deallocato. Avviare la VM e provare a stabilire di nuovo la connessione alla console seriale. | La macchina virtuale deve essere in uno stato avviato per accedere alla console seriale.
@@ -192,7 +192,7 @@ Il Web socket è chiuso o non può essere aperto. | Potrebbe essere necessario u
 ## <a name="known-issues"></a>Problemi noti
 La console seriale presenta alcuni problemi. Di seguito è riportato un elenco dei problemi riscontrati e delle procedure necessarie per risolverli. Si applicano questi problemi e soluzioni di prevenzione per entrambe le macchine virtuali e istanze del set di scalabilità di macchine virtuali.
 
-Problema                           |   Mitigazione
+Problema                           |   Attenuazione
 :---------------------------------|:--------------------------------------------|
 Se si preme il tasto **INVIO** dopo il banner della connessione, non viene visualizzato un prompt di accesso. | Per altre informazioni, vedere [Premendo INVIO, non accade nulla](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo problema può verificarsi se si esegue una macchina virtuale personalizzata, con protezione avanzata di appliance o configurazione GRUB che causa Linux a non riuscire a connettersi alla porta seriale.
 Il testo della console seriale occupa solo una parte delle dimensioni dello schermo (spesso dopo l'uso di un editor di testo). | Le console seriali non supportano la negoziazione sulle dimensioni della finestra ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)): questo significa che non sarà presente alcun segnale SIGWINCH inviato per aggiornare le dimensioni dello schermo e la macchina virtuale non avrà alcuna conoscenza delle dimensioni del terminale. Installare xterm o un'utilità analoga per fornire il comando `resize` e quindi eseguire `resize`.

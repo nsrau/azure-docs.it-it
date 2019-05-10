@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2019
 ms.author: jehollan
-ms.openlocfilehash: 1ef688dff65dc11f875f76e2f9127bf89af2f2b9
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2044718d2ec7a7acc58e1e7ba9ba04ec5caf16b3
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074591"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408456"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento delle dipendenze in funzioni di Azure .NET
 
@@ -65,7 +65,7 @@ In un'app per le funzioni, una durata del servizio con ambito corrisponde alla d
 
 Servizi di durata singleton sono consigliati per le connessioni e i client, ad esempio un `SqlConnection`, `CloudBlobClient`, o `HttpClient`.
 
-Visualizzare o scaricare una [esempio della durata dei servizi differenti](http://aka.ms/functions/di-sample).
+Visualizzare o scaricare una [esempio della durata dei servizi differenti](https://aka.ms/functions/di-sample).
 
 ## <a name="logging-services"></a>Servizi di registrazione
 
@@ -78,7 +78,7 @@ Se è necessario il proprio provider di registrazione, il metodo consigliato con
 
 L'host di funzioni verranno registrati molti servizi di se stesso.  Di seguito sono servizi che sono sicuri accettare una dipendenza.  Altri servizi host non sono supportati per la registrazione o dipendono.  Se sono presenti altri servizi si desidera accettare una dipendenza, controllare [creare un problema e una discussione su GitHub](https://github.com/azure/azure-functions-host).
 
-|Tipo di servizio|Durata|DESCRIZIONE|
+|Tipo di servizio|Durata|Descrizione|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|singleton|Configurazione di runtime|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|singleton|Responsabile di fornire l'ID dell'istanza dell'host|

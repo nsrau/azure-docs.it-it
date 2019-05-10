@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d4127226037bf28ba677a49f6444ca987118cb9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023902"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149835"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Usare un server notebook basato sul cloud per iniziare a usare Azure Machine Learning
 
@@ -25,11 +25,11 @@ Questa guida di avvio rapido illustra come creare una risorsa cloud nell'area di
  
 In questo argomento di avvio rapido si eseguono le operazioni seguenti:
 
-* Creare un nuovo server notebook basato sul cloud nell'area di lavoro
-* Avviare l'interfaccia Web di Jupyter
+* Creare un nuovo server notebook basato sul cloud nell'area di lavoro.
+* Avviare l'interfaccia Web di Jupyter.
 * Aprire un notebook che contiene codice per stimare gli errori di pi greco e registra gli errori a ogni iterazione.
 * Eseguire il notebook.
-* Visualizzare i valori di errore registrati nell'area di lavoro.  Questo esempio mostra come l'area di lavoro consente di tenere traccia delle informazioni generate in uno script. 
+* Visualizzare i valori di errore registrati nell'area di lavoro. Questo esempio mostra come l'area di lavoro consente di tenere traccia delle informazioni generate in uno script. 
 
 Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -49,13 +49,15 @@ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito pr
 
      ![Selezionare Nuova macchina virtuale](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-1. Specificare un nome per la macchina virtuale. Selezionare quindi **Crea**. 
+1. Specificare un nome per la macchina virtuale. Selezionare quindi **Crea**.
+
+    > [!NOTE]
+    > La lunghezza del nome della macchina virtuale per notebook deve essere compresa tra 2 e 16 caratteri. I caratteri validi sono lettere, cifre e il carattere -.  Il nome della deve inoltre essere univoco nell'intera sottoscrizione di Azure.
 
     ![Creare una nuova VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-1. Attendere circa 4-5 minuti e quindi selezionare **Aggiorna**.  Provare ad aggiornare all'incirca ogni 30 secondi oppure finché lo stato non diventa **In esecuzione**.
+1. Attendere 4-5 minuti circa, fino a quando lo stato cambia in **In esecuzione**.
 
-    ![Aggiorna](media/quickstart-run-cloud-notebook/refresh.png)
 
 ## <a name="launch-jupyter-web-interface"></a>Avviare l'interfaccia Web di Jupyter
 
@@ -67,7 +69,11 @@ Dopo che la macchina virtuale è in esecuzione, usare la sezione **Macchine virt
 
     Il collegamento consente di avviare il server del notebook e di aprire la pagina Web del notebook Jupyter in una nuova scheda del browser.  Questo collegamento funziona solo per l'utente che crea la macchina virtuale.
 
-1. Nella pagina Web del notebook Jupyter selezionare la cartella **samples/quickstart** per visualizzare il notebook di avvio rapido.
+1. Nella pagina Web del notebook di Jupyter, il nomecartella nella parte superiore è il nome utente.  Selezionare questa cartella.
+
+1. Gli esempi nomecartella includono un numero di versione, ad esempio **esempi-1.0.33.1**.  Selezionare la cartella degli esempi.
+
+1. Selezionare l'**avvio rapido**del notebook.
 
 ## <a name="run-the-notebook"></a>Eseguire il notebook
 
@@ -75,15 +81,7 @@ Eseguire un notebook che stima il pi greco e registra l'errore nell'area di lavo
 
 1. Selezionare **01.run experiment.ipynb** per aprire il notebook.
 
-1. Potrebbe essere visualizzato un messaggio per informare che il kernel non è stato impostato.  Selezionare **Python 3.6 - AzureML** e quindi **Set Kernel** (Imposta kernel).
-
-   ![Impostare il kernel](./media/quickstart-run-cloud-notebook/set-kernel.png)
-
-1. L'area di notifica indica di attendere fino a quando il kernel non viene avviato. Il messaggio scomparirà non appena il kernel è pronto.
-
-    ![Attendere l'avvio del kernel](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
-
-1.  Fare clic sulla prima cella del codice e selezionare **Run** (Esegui).
+1. Fare clic sulla prima cella del codice e selezionare **Run** (Esegui).
 
     > [!NOTE]
     > Le celle del codice sono precedute da parentesi quadre. Se le parentesi quadre sono vuote (__[  ]__), il codice non è stato eseguito. Durante l'esecuzione del codice, viene visualizzato un asterisco (__[*]__). Al termine dell'esecuzione del codice, viene visualizzato un numero **[1]**,  che indica l'ordine di esecuzione delle celle.
@@ -94,16 +92,15 @@ Eseguire un notebook che stima il pi greco e registra l'errore nell'area di lavo
 
 1. Eseguire la seconda cella di codice. Se vengono visualizzate istruzioni per l'autenticazione, copiare il codice e fare clic sul collegamento per eseguire l'accesso. Dopo l'accesso, il browser memorizzerà questa impostazione.  
 
-    > [!TIP]
-    > Assicurarsi di non copiare lo spazio dopo il codice.  
-
     ![Autentica](media/quickstart-run-cloud-notebook/authenticate.png)
 
 1. Al termine, viene visualizzato il numero di cella __[2]__.  Se è stato necessario eseguire l'accesso, verrà visualizzato un messaggio di stato di autenticazione riuscita.   Se non è stato necessario eseguire l'accesso, non verrà visualizzato alcun output per questa cella, eccetto il numero che indica che la cella è stata eseguita correttamente.
 
     ![Messaggio di operazione riuscita](media/quickstart-run-cloud-notebook/success.png)
 
-1. Eseguire le celle di codice rimanenti.  Al termine dell'esecuzione di ogni singola cella, verrà visualizzato il relativo numero di cella. Solo con l'ultima cella viene visualizzato l'eventuale altro output.  In più punti della cella di codice più estesa viene visualizzato `run.log`. Ogni occorrenza di `run.log` aggiunge il relativo valore all'area di lavoro.
+1. Eseguire le celle di codice rimanenti.  Al termine dell'esecuzione di ogni singola cella, verrà visualizzato il relativo numero di cella. Solo con l'ultima cella viene visualizzato l'eventuale altro output.  
+
+    In più punti della cella di codice più estesa viene visualizzato `run.log`. Ogni occorrenza di `run.log` aggiunge il relativo valore all'area di lavoro.
 
 
 ## <a name="view-logged-values"></a>Visualizzare i valori registrati
@@ -146,11 +143,13 @@ Arrestare la macchina virtuale per notebook quando non viene usata per ridurre i
 
 In questa guida di avvio rapido sono state completate le attività seguenti:
 
-* Creare una macchina virtuale per notebook
-* Avviare un server Jupyter Notebook nella macchina virtuale per notebook
+* Creare una macchina virtuale per notebook.
+* Avviare l'interfaccia Web di Jupyter.
 * Aprire un notebook che contiene codice per stimare gli errori di pi greco e registra gli errori a ogni iterazione.
 * Eseguire il notebook.
 * Visualizzare i valori di errore registrati nell'area di lavoro.  Questo esempio mostra come l'area di lavoro consente di tenere traccia delle informazioni generate in uno script. 
+
+Nella pagina Web di Jupyter Notebook, esplorare altri notebook nella cartella degli esempi per altre informazioni sul servizio Azure Machine Learning.
 
 Per un'esperienza approfondita del flusso di lavoro, seguire le esercitazioni di Machine Learning riguardanti il training e la distribuzione di un modello:  
 

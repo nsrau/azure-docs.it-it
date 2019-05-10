@@ -37,13 +37,21 @@
           displayName: 'learning policy, Counterfactual, features'
 - name: Guide alle procedure
   items:
-    - name: Configurare Personalizza esperienze
+    - name: Creare e configurare Personalizza esperienze
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy'
     - name: Analizzare
       items:
         - name: Valutazione offline
           href: how-to-offline-evaluation.md
+    - name: Usare i contenitori
+      items:
+        - name: Installare ed eseguire i contenitori
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, run, apikey'
+          href: personalizer-container-howto.md
+        - name: Configurare i contenitori
+          href: personalizer-container-configuration.md
+          displayName: 'docker, run, apikey'
 - name: riferimento
   items:
     - name: Esempi

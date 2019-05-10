@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/29/2019
-ms.openlocfilehash: 96ee3f5e1b3cfe67cb75e50c6247e41f0d901393
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: d83410efd26f8c2078d3abdb01d061db0b83d33d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867910"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233724"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>Eseguire la migrazione di SQL Server locale a un'istanza gestita di Database SQL di Azure usando Azure PowerShell
 In questo articolo, si esegue la migrazione di **Adventureworks2016** database ripristinato a un'istanza locale di SQL Server 2005 o versioni successive a un Database SQL di Azure istanza gestita con Microsoft Azure PowerShell. È possibile migrare i database da un'istanza di SQL Server locale a un'istanza gestita di Database SQL di Azure usando il `Az.DataMigration` modulo in Microsoft Azure PowerShell.
@@ -25,7 +25,7 @@ In questo articolo viene spiegato come:
 > [!div class="checklist"]
 >
 > * Creare un gruppo di risorse.
-> * Creare un'istanza del servizio migrazione del Database.
+> * Creare un'istanza del Servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione in un'istanza del servizio migrazione del Database.
 > * Eseguire la migrazione.
 
@@ -69,7 +69,7 @@ L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nel *S
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-## <a name="create-an-instance-of-azure-database-migration-service"></a>Creare un'istanza del servizio migrazione del Database di Azure
+## <a name="create-an-instance-of-azure-database-migration-service"></a>Creare un'istanza del Servizio Migrazione del database di Azure
 
 È possibile creare una nuova istanza del Servizio Migrazione del database di Azure tramite il cmdlet `New-AzDataMigrationService`.
 Questo cmdlet si aspetta i parametri obbligatori seguenti:
@@ -86,7 +86,7 @@ L'esempio seguente crea un servizio denominato *MyDMS* nel gruppo di risorse *My
 > Il frammento di codice riportato di seguito è per una migrazione offline, che non richiede un'istanza del servizio migrazione del Database di Azure in base uno SKU Premium. Per una migrazione online, il valore del parametro - Sku deve includere uno SKU Premium.
 
 ```powershell
- $vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+$vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
 
 $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 

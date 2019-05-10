@@ -2,18 +2,18 @@
 title: Usare PowerShell per creare e configurare un'area di lavoro Log Analytics | Documentazione Microsoft
 description: Le aree di lavoro di log Analitica in Monitoraggio di Azure archiviano i dati dai server in locale o cloud dell'infrastruttura. È possibile raccogliere i dati del computer dall'archiviazione di Azure quando vengono generati dalla diagnostica di Azure.
 services: log-analytics
-author: richrundmsft
+author: bwren
 ms.service: log-analytics
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: richrund
-ms.openlocfilehash: 5c348adea0847929b37d1b61f024859b1d634fe7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: bwren
+ms.openlocfilehash: 2d3f1ab6704a0f5ecd15190fd08b10485cdf1ee9
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452739"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510104"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gestire aree di lavoro di Log Analitica in Monitoraggio di Azure con PowerShell
 

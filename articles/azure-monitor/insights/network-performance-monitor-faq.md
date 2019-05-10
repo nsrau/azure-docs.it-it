@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti - Soluzione Monitoraggio prestazioni rete in Azure | Microsoft Docs
-description: Questo articolo presenta le domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure. Monitoraggio prestazioni rete consente di monitorare le prestazioni delle reti quasi in tempo reale per rilevare i colli di bottiglia delle prestazioni di rete.
+description: Questo articolo consente di acquisire le domande frequenti sul monitoraggio delle prestazioni di rete in Azure. Consente di Performance Monitor (NPM) di rete monitorare le prestazioni delle reti quasi in tempo reale e rilevare e trovare i colli di bottiglia delle prestazioni di rete.
 services: log-analytics
 documentationcenter: ''
 author: vinynigam
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: d216a26dc01ae3a6946c57138bb124b41f50a151
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d573b7ad9edac6b1502744b61e85cba3402a6f68
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401452"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232666"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -36,24 +36,24 @@ Ulteriori informazioni sulle diverse funzionalità supportate da [Monitoraggio p
 ### <a name="what-are-the-platform-requirements-for-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quali sono i requisiti di piattaforma per i nodi da usare per il monitoraggio tramite Monitoraggio prestazioni rete?
 Di seguito sono riportati i requisiti di piattaforma per le varie funzionalità di Monitoraggio prestazioni rete:
 
-- Le funzionalità Performance Monitor e Monitoraggio connettività servizio di Monitoraggio prestazioni rete supportano sia Windows Server (2008 SP1 o versione successiva) sia i sistemi operativi desktop/client Windows (Windows 10, Windows 8.1, Windows 8 e Windows 7). 
+- Performance Monitor e le funzionalità di monitoraggio della connettività del servizio di monitoraggio prestazioni rete supportano sia Windows server e sistemi operativi desktop/client Windows. Le versioni di sistema operativo server Windows supportate sono 2008 SP1 o versione successiva. Le versioni desktop/client Windows supportate sono Windows 10, Windows 8.1, Windows 8 e Windows 7. 
 - La funzionalità Monitoraggio di ExpressRoute di Monitoraggio prestazioni rete supporta solo il sistema operativo Windows Server (2008 SP1 o versione successiva).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>È possibile usare computer Linux come nodi di monitoraggio in Monitoraggio prestazioni rete?
-La possibilità di monitorare le reti che usano nodi basati su Linux è attualmente in anteprima. Per altre informazioni, contattare il proprio account manager. Dopo che l'utente ha specificato l'ID dell'area di lavoro, Microsoft procederà ad abilitare la funzionalità. Gli agenti Linux offrono il monitoraggio solo per la funzionalità Performance Monitor di Monitoraggio prestazioni rete e non sono disponibili per le funzionalità Monitoraggio connettività servizio e Monitoraggio di ExpressRoute.
+La possibilità di monitorare le reti che usano nodi basati su Linux è attualmente in anteprima. Per altre informazioni, contattare il proprio account manager. Gli agenti Linux offrono il monitoraggio solo per la funzionalità Performance Monitor di Monitoraggio prestazioni rete e non sono disponibili per le funzionalità Monitoraggio connettività servizio e Monitoraggio di ExpressRoute.
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quali sono i requisiti di dimensione per i nodi da usare per il monitoraggio tramite Monitoraggio prestazioni rete?
-Per eseguire la soluzione Monitoraggio prestazioni rete su VM nodo per monitorare le reti, i nodi devono avere almeno 500 MB di memoria e un core. Non è necessario usare nodi separati per eseguire Monitoraggio prestazioni rete. La soluzione può essere eseguita su nodi sui quali sono in esecuzione altri carichi di lavoro. La soluzione ha la possibilità di arrestare il processo di monitoraggio nel caso in cui venga utilizzato più del 5% di CPU.
+Per eseguire la soluzione Monitoraggio prestazioni rete su VM nodo per monitorare le reti, i nodi devono avere almeno 500 MB di memoria e un core. Non è necessario usare nodi distinti per l'esecuzione di NPM. La soluzione può essere eseguita su nodi sui quali sono in esecuzione altri carichi di lavoro. La soluzione ha la possibilità di arrestare il processo di monitoraggio, se si usa più di 5% della CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Per usare Monitoraggio prestazioni rete è necessario connettersi ai nodi come agente diretto o tramite System Center Operations Manager?
-Entrambe le funzionalità Performance Monitor e Monitoraggio connettività servizio supportano i nodi [connessi come agenti diretti](../../azure-monitor/platform/agent-windows.md) e i nodi [connessi tramite Operations Manager](../../azure-monitor/platform/om-agents.md).
+Il monitoraggio delle prestazioni e le funzionalità di monitoraggio della connettività del servizio supportano entrambi i nodi [connessi come gli agenti diretti](../../azure-monitor/platform/agent-windows.md) e [connessi tramite Operations Manager](../../azure-monitor/platform/om-agents.md).
 
-Per la funzionalità Monitoraggio di ExpressRoute, i nodi di Azure devono essere connessi solo come agenti diretti. Quelli connessi tramite Operations Manager non sono supportati. Al contrario, i nodi locali possono essere connessi sia come agenti diretti sia tramite Operations Manager per il monitoraggio di un circuito ExpressRoute.
+Per la funzionalità Monitoraggio di ExpressRoute, i nodi di Azure devono essere connessi solo come agenti diretti. Quelli connessi tramite Operations Manager non sono supportati. Per i nodi locali, i nodi connessi come gli agenti diretti e tramite Operations Manager sono supportati per il monitoraggio di un circuito ExpressRoute.
 
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Quale protocollo, tra TCP e ICMP, deve essere selezionato per il monitoraggio?
-Se si esegue il monitoraggio della rete usando nodi basati su Windows Server, è consigliabile usare TCP come protocollo di monitoraggio poiché offre un maggiore livello di accuratezza. 
+Se si sta monitorando la rete usando i nodi basati su server Windows, è consigliabile che usare TCP come protocollo di monitoraggio in quanto fornisce maggiore accuratezza. 
 
-Il protocollo ICMP è consigliato per i nodi basati su sistema operativo desktop/client Windows. Questa piattaforma non supporta l'invio di dati TCP su socket di tipo raw, che Monitoraggio prestazioni rete usa per individuare la topologia di rete.
+Il protocollo ICMP è consigliato per i nodi basati su sistema operativo desktop/client Windows. Does'nt questa piattaforma consente dati TCP per l'invio in raw socket che utilizza il monitoraggio prestazioni rete per individuare la topologia della rete.
 
 È possibile ottenere [qui](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol) altre informazioni sui vantaggi dei vari protocolli.
 
@@ -71,8 +71,8 @@ Lo script configura Windows Firewall solo in locale. Se sono definite regole del
 ### <a name="how-many-agents-should-i-use"></a>Quanti agenti è consigliabile usare?
 È consigliabile usare almeno un agente per ogni subnet che si vuole monitorare.
 
-### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>Qual è il numero massimo di agenti che è possibile usare prima che venga visualizzato l'errore "... limite di configurazione raggiunto"?
-NPM limita il numero di indirizzi IP a 5000 IP per ogni area di lavoro. Se un nodo dispone sia di indirizzi IPv4 che IPv6, questo vale come 2 indirizzi IP per tale nodo. Di conseguenza, il limite di 5000 IP stabilisce il limite massimo del numero di agenti. È possibile eliminare gli agenti inattivi dalla scheda Nodi in NPM >> Configura. Monitoraggio prestazioni rete (NPM) gestisce anche la cronologia di tutti gli indirizzi IP assegnati alla macchina virtuale che ospita l'agente, questi ultimi conteggiati altrettanto come IP distinti che contribuiscono al limite massimo di 5000 IP. Per liberare gli indirizzi IP per l'area di lavoro, è possibile usare la pagina Nodi per eliminare gli indirizzi IP non in uso.
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Che cos'è il numero massimo di agenti che è possibile usare o viene visualizzato errore "... è stato raggiunto il limite di configurazione"?
+NPM limita il numero di indirizzi IP a 5000 IP per ogni area di lavoro. Se un nodo dispone sia di indirizzi IPv4 che IPv6, questo vale come 2 indirizzi IP per tale nodo. Di conseguenza, il limite di 5000 IP stabilisce il limite massimo del numero di agenti. È possibile eliminare gli agenti inattivi dalla scheda Nodi in NPM >> Configura. Monitoraggio prestazioni rete gestisce anche della cronologia di tutti gli indirizzi IP assegnati alla macchina virtuale che ospita l'agente e ciascuno viene conteggiato come IP separato che contribuiscono a tale limite massimo di 5000 gli indirizzi IP. Per liberare gli indirizzi IP per l'area di lavoro, è possibile utilizzare la pagina di nodi per eliminare gli indirizzi IP che non sono in uso.
 
 ## <a name="monitoring"></a>Monitoraggio
 
@@ -139,13 +139,23 @@ Monitoraggio prestazioni rete può monitorare i circuiti ExpressRoute presenti i
 ## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Per quale motivo alcuni hop sono contrassegnati come non identificati nella visualizzazione della topologia di rete?
-Monitoraggio prestazioni rete usa una versione modificata di traceroute per individuare la topologia dall'agente di origine alla destinazione. Un hop non identificato indica che l'hop di rete non ha risposto alla richiesta traceroute dell'agente di origine. Se tre hop di rete consecutivi non rispondono alla richiesta traceroute dell'agente, la soluzione contrassegna gli hop che non rispondono come non identificati e non prova a individuare altri hop.
+Monitoraggio prestazioni rete usa una versione modificata di traceroute per individuare la topologia dall'agente di origine alla destinazione. Un hop non identificato indica che l'hop di rete non ha risposto alla richiesta traceroute dell'agente di origine. Se tre hop di rete consecutivi non rispondono alle traceroute dell'agente, la soluzione contrassegna gli hop non risponde come non identificati e non tenta di individuare più hop.
 
 Un hop può non rispondere a una richiesta traceroute in almeno uno degli scenari seguenti:
 
 * I router sono stati configurati in modo da non rivelare la propria identità.
 * I dispositivi di rete non consentano il traffico ICMP_TTL_EXCEEDED.
 * Un firewall sta bloccando la risposta ICMP_TTL_EXCEEDED dal dispositivo di rete.
+
+### <a name="why-does-my-link-show-unhealthy-but-the-topology-does-not"></a>Il motivo per cui Mostra il collegamento non integro, ma la topologia non esiste 
+NPM esegue il monitoraggio end-to-end perdita, latenza e della topologia a intervalli diversi. Perdita e latenza vengono misurati una volta ogni 5 secondi e aggregate ogni tre minuti (per il monitoraggio delle prestazioni e monitoraggio Route Express) mentre topologia viene calcolata utilizzando traceroute una volta ogni 10 minuti. Ad esempio, tra 44:3 e 4:04, topologia può essere aggiornata per tre volte (3:44, 54:3, 4:04), ma la perdita e latenza vengono aggiornati circa sette volte (3:44, 47:3, 3:50, 3:53, 3:56, 59:3, 4:02). La topologia generata a 3:54 verrà visualizzata per la perdita e latenza che ottiene calcolata in 3:56, 02:4 e 3:59. Si supponga che viene generato un avviso che si trovava il circuito Expressroute non integro in 3:59. Accedere a Monitoraggio prestazioni rete e provare a impostare l'ora di topologia a 3:59. Monitoraggio prestazioni rete verrà eseguito il rendering della topologia generata a 3:54. Per comprendere la topologia ultimo nota della rete, confrontare i campi TimeProcessed (tempo in cui è stata calcolata quali perdita e latenza) e TracerouteCompletedTime (tempo in cui è stata calcolata la topologia). 
+
+### <a name="what-is-the-difference-between-the-fields-e2emedianlatency-and-avghoplatencylist-in-the-networkmonitoring-table"></a>Che cos'è la differenza tra i campi E2EMedianLatency e AvgHopLatencyList nella tabella NetworkMonitoring
+E2EMedianLatency è la latenza aggiornata ogni tre minuti dopo l'aggiornamento di aggregare i risultati dei test di ping tcp, mentre AvgHopLatencyList è ogni 10 minuti base traceroute. Per comprendere l'ora esatta in cui è stata calcolata E2EMedianLatency, usare il campo TimeProcessed. Per comprendere l'ora esatta in cui traceroute completato e AvgHopLatencyList aggiornato, usare il campo TracerouteCompletedTime
+
+### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Perché è la differenza tra i numeri di latenza dell'hop-by-hop e HopLatencyValues 
+HopLatencyValues sono fonte all'endpoint.
+ad esempio: Hop - A, B, C. AvgHopLatency - 10,15,20. Ciò significa che l'origine per una latenza = 10, origine alla latenza B = 15 e origine alla latenza di C è 20. Interfaccia utente calcolerà latenza dell'hop a-B come nella topologia 5
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>Per quale motivo la soluzione mostra una perdita del 100%, ma è presente connettività tra l'origine e la destinazione?
 Questa situazione può verificarsi se il firewall dell'host o il firewall intermedio (firewall di rete o gruppo di sicurezza di rete di Azure) blocca le comunicazioni tra l'agente di origine e la destinazione attraverso la porta usata da Monitoraggio prestazioni rete per il monitoraggio. Per impostazione predefinita, viene usata la porta 8084, a meno che il cliente non abbia modificato l'impostazione.

@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: b0a34cd8eebdd816cb780b34de936a6cc56d0994
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78edeb0c418f5c426771d241464d389f8a632e96
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730223"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463943"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Esportare i dati in Azure IoT Central
 
@@ -64,14 +64,14 @@ Ora che si dispone di una destinazione di Bus di servizio/hub eventi per esporta
     > [!Note]
     > Se questa opzione non è presente nel menu a sinistra, significa che non si è amministratori dell'app. Chiedere a un amministratore di configurare l'esportazione dei dati.
 
-    ![Creare un nuovo hub eventi per l'esportazione continua dei dati](media/howto-export-data/export_menu.PNG)
+    ![Creare un nuovo hub eventi per l'esportazione continua dei dati](media/howto-export-data/export_menu1.png)
 
 3. Selezionare il **+ nuovo** pulsante in alto a destra. Scegliere uno dei **hub eventi di Azure** oppure **Bus di servizio di Azure** come destinazione dell'esportazione. 
 
     > [!NOTE] 
     > Il numero massimo di esportazioni per app è cinque. 
 
-    ![Creare una nuova esportazione continua dei dati](media/howto-export-data/export_new.PNG)
+    ![Creare una nuova esportazione continua dei dati](media/howto-export-data/export_new1.png)
 
 4. Nella casella di riepilogo a discesa, selezionare i **dello spazio dei nomi di hub eventi/servizio spazio dei nomi del Bus**. È anche possibile selezionare l'ultima opzione dell'elenco, ossia **Immettere una stringa di connessione**. 
 
@@ -81,7 +81,7 @@ Ora che si dispone di una destinazione di Bus di servizio/hub eventi per esporta
     > [!NOTE] 
     > Per le app in versione di valutazione per 7 giorni l'unico modo per configurare l'esportazione continua dei dati è tramite una stringa di connessione. A queste app non è infatti associata una sottoscrizione di Azure.
 
-    ![Creare un nuovo hub eventi per l'esportazione continua dei dati](media/howto-export-data/export_create.PNG)
+    ![Creare un nuovo hub eventi per l'esportazione continua dei dati](media/howto-export-data/export_create1.png)
 
 5. (Facoltativo) Se si è selezionata l'opzione **Immettere una stringa di connessione**, viene visualizzata una nuova casella in cui incollare la stringa di connessione. Per ottenere la stringa di connessione per:
     - Hub eventi o Bus di servizio, passare allo spazio dei nomi nel portale di Azure.
@@ -95,7 +95,7 @@ Ora che si dispone di una destinazione di Bus di servizio/hub eventi per esporta
 
 6. Per attivare l'esportazione continua dei dati, verificare che l'opzione **Esportazione dati** sia **attivata**. Selezionare **Salva**.
 
-  ![Configurare l'esportazione continua dei dati](media/howto-export-data/export_list.PNG)
+    ![Configurare l'esportazione continua dei dati](media/howto-export-data/export_list1.png)
 
 7. Dopo alcuni minuti, i dati vengono visualizzati nella destinazione scelta.
 
@@ -107,7 +107,7 @@ I dati di misurazioni, dispositivi e modelli di dispositivo vengono esportati ne
 > [!NOTE]
 > Quando si sceglie un bus di servizio come destinazione dell'esportazione, per le code e gli argomenti **non devono essere abilitati le sessioni e il rilevamento dei duplicati**. Se una di queste due opzioni è abilitata, alcuni messaggi non verranno recapitati alla coda o all'argomento.
 
-### <a name="measurements"></a>Misure
+### <a name="measurements"></a>Misurazioni
 
 Un nuovo messaggio viene esportato poco dopo che IoT Central lo ha ricevuto da un dispositivo. Ogni messaggio esportato in Hub eventi e nel bus di servizio contiene il messaggio completo inviato dal dispositivo nella proprietà "body" in formato JSON. 
 

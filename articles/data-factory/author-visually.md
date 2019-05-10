@@ -12,12 +12,12 @@ author: sharonlo101
 ms.author: shlo
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: d2e51551643e154714b9d2368e63d7af9ebfa204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32e4abebdfb93312c60a25ca8b483f071e5e73c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60593100"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507810"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Creazione di oggetti visivi in Azure Data Factory
 L'interfaccia utente di Azure Data Factory consente di creare e distribuire con strumenti visivi le risorse della data factory senza dover scrivere il codice. È possibile trascinare le attività in un'area di disegno della pipeline, eseguire test, eseguire il debug in modo iterativo, nonché distribuire e monitorare le esecuzioni della pipeline. Sono disponibili due approcci per usare l'esperienza utente per la creazione di oggetti visivi:
@@ -58,9 +58,9 @@ Viene visualizzato il riquadro di configurazione **Impostazioni repository**:
 
 Il riquadro visualizza le impostazioni del repository di codice Azure Repos seguenti:
 
-| Impostazione | DESCRIZIONE | Value |
+| Impostazione | Descrizione | Value |
 |:--- |:--- |:--- |
-| **Tipo di repository** | Tipo del repository di codice Azure Repos.<br/>**Nota**: GitHub non è attualmente supportato. | GIT Azure Repos |
+| **Tipo di repository** | Tipo del repository di codice Azure Repos.<br/> | GIT Azure Repos |
 | **Azure Active Directory** | Nome del tenant di Azure AD. | `<your tenant name>` |
 | **Organizzazione Azure Repos** | Il nome dell'organizzazione di Azure Repos. È possibile individuare il nome dell'organizzazione Azure Repos all'indirizzo `https://{organization name}.visualstudio.com`. È possibile [accedere all'organizzazione Azure Repos](https://www.visualstudio.com/team-services/git/) e quindi accedere al proprio profilo di Visual Studio e visualizzare i repository e i progetti. | `<your organization name>` |
 | **Nome progetto** | Il nome del progetto Azure Repos. È possibile trovare il nome del progetto Azure Repos all'indirizzo `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
@@ -115,7 +115,7 @@ Quando si è pronti con lo sviluppo di funzionalità nel ramo funzionalità, è 
 
 ### <a name="configure-publishing-settings"></a>Configurare le impostazioni di pubblicazione
 
-Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono salvati i modelli di Resource Manager, aggiungere un file `publish_config.json` nella cartella radice nel ramo di collaborazione. Data Factory legge questo file, cerca il campo `publishBranch` e crea un nuovo ramo (se non esiste già) con il valore specificato. Quindi salva tutti i modelli di Resource Manager nel percorso specificato. Ad esempio: 
+Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono salvati i modelli di Resource Manager, aggiungere un file `publish_config.json` nella cartella radice nel ramo di collaborazione. Data Factory legge questo file, cerca il campo `publishBranch` e crea un nuovo ramo (se non esiste già) con il valore specificato. Quindi salva tutti i modelli di Resource Manager nel percorso specificato. Ad esempio:
 
 ```json
 {
@@ -209,7 +209,7 @@ Il riquadro visualizza le impostazioni del repository di codice Azure Repos segu
 | **Ramo di collaborazione**                                 | Ramo di collaborazione di GitHub usato per la pubblicazione. Per impostazione predefinita, si tratta del ramo master. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo.                                                                                                                                                                                                                                                               |                    |
 | **Cartella radice**                                          | Cartella radice nel ramo di collaborazione di GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
 | **Import existing Data Factory resources to repository** (Importa risorse Data Factory esistenti nel repository) | Specifica se importare le risorse di Data Factory esistenti dall' **area di disegno di creazione**  dell'esperienza utente in un repository GitHub. Selezionare la casella per importare le risorse di Data Factory nel repository GIT associato in formato JSON. Questa azione esporta ogni risorsa singolarmente, vale a dire che i servizi collegati e i set di dati vengono esportati in file JSON separati. Quando questa casella non è selezionata, le risorse esistenti non vengono importate. | Selezionata (impostazione predefinita) |
-| **Branch to import resource into** (Ramo in cui importare risorse)                       | Specifica il ramo in cui vengono importate le risorse di Data Factory (pipeline, set di dati, servizi collegati e così via). È possibile importare le risorse in uno dei rami seguenti: a. Collaborazione b. Crea nuovo c. Usa esistente                                                                                                                                                                                                     |                    |
+| **Branch to import resource into** (Ramo in cui importare risorse)                       | Specifica il ramo in cui vengono importate le risorse di Data Factory (pipeline, set di dati, servizi collegati e così via). È possibile importare le risorse in uno dei rami seguenti: a. Collaborazione b. Crea nuovo c. Utilizza esistente                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Metodo di configurazione 2 (repository pubblico): Area di disegno di creazione dell'esperienza utente
 
@@ -243,7 +243,7 @@ Il riquadro visualizza le impostazioni del repository di codice Azure Repos segu
 | **Ramo di collaborazione**                                 | Ramo di collaborazione di GitHub usato per la pubblicazione. Per impostazione predefinita, si tratta del ramo master. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo.                                                                                                                                                                                                                                                               |                    |
 | **Cartella radice**                                          | Cartella radice nel ramo di collaborazione di GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
 | **Import existing Data Factory resources to repository** (Importa risorse Data Factory esistenti nel repository) | Specifica se importare le risorse di Data Factory esistenti dall' **area di disegno di creazione**  dell'esperienza utente in un repository GitHub. Selezionare la casella per importare le risorse di Data Factory nel repository GIT associato in formato JSON. Questa azione esporta ogni risorsa singolarmente, vale a dire che i servizi collegati e i set di dati vengono esportati in file JSON separati. Quando questa casella non è selezionata, le risorse esistenti non vengono importate. | Selezionata (impostazione predefinita) |
-| **Branch to import resource into** (Ramo in cui importare risorse)                       | Specifica il ramo in cui vengono importate le risorse di Data Factory (pipeline, set di dati, servizi collegati e così via). È possibile importare le risorse in uno dei rami seguenti: a. Collaborazione b. Crea nuovo c. Usa esistente                                                                                                                                                                                                     |                    |
+| **Branch to import resource into** (Ramo in cui importare risorse)                       | Specifica il ramo in cui vengono importate le risorse di Data Factory (pipeline, set di dati, servizi collegati e così via). È possibile importare le risorse in uno dei rami seguenti: a. Collaborazione b. Crea nuovo c. Utilizza esistente                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Metodo di configurazione 2 (repository Enterprise): Area di disegno di creazione dell'esperienza utente
 

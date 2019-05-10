@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 71856865eb7a0445cdcf39def9c0fc89c1f8dcec
-ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
+ms.openlocfilehash: a04f6fab26a47b87bf55f1714522cad648dc5fad
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951438"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205913"
 ---
 # <a name="customize-your-text-translations"></a>Personalizzare le traduzioni di testo
 
@@ -51,9 +51,9 @@ Altre informazioni sui vari livelli di personalizzazione in base ai dati disponi
 |:-----|:----:|:----:|
 |Stato delle funzionalità di personalizzazione   | Disponibilità generale  | Disponibilità generale |
 | Versione API per testo  | Solo V2   | Solo V3 |
-| Personalizzazione SMT | Sì   | No  |
-| Personalizzazione NMT | No     | Sì |
-| Personalizzazione dei nuovi servizi voce unificati | No     | Sì |
+| Personalizzazione SMT | Sì   | N. |
+| Personalizzazione NMT | N.    | Sì |
+| Personalizzazione dei nuovi servizi voce unificati | N.    | Sì |
 | [Nessuna traccia](https://www.aka.ms/notrace) | Sì  | Sì |
 
 ## <a name="collaborative-translations-framework"></a>Framework di Collaborative Translations

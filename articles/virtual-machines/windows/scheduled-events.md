@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 1a82b9256405e2cac12f4c5611ee3bdad459162b
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992930"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508190"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Windows
 
@@ -45,7 +45,7 @@ Per molte applicazioni è un vantaggio avere tempo per prepararsi alla manutenzi
 Tramite gli eventi pianificati l'applicazione è in grado di sapere quando verrà eseguita la manutenzione e di attivare attività specifiche per limitarne l'impatto. L'attivazione degli eventi pianificati offre alla macchina virtuale una quantità minima di tempo prima che l'attività di manutenzione venga eseguita. Per informazioni dettagliate, vedere più avanti la sezione Pianificazione di eventi.
 
 Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
-- [Manutenzione avviata dalla piattaforma](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates) (ad esempio, VM riavvio, migrazione in tempo reale o gli aggiornamenti per host con mantenimento della memoria)
+- [Manutenzione avviata dalla piattaforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (ad esempio, VM riavvio, migrazione in tempo reale o gli aggiornamenti per host con mantenimento della memoria)
 - Hardware con funzionalità ridotte
 - Manutenzione avviata dall'utente (ad esempio il riavvio o la ridistribuzione di una macchina virtuale eseguita dall'utente)
 - [Rimozione di macchine Virtuali con priorità bassa](https://azure.microsoft.com/blog/low-priority-scale-sets) nella scala imposta

@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190191"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227914"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual è la condizione della posizione nell'accesso condizionale di Azure Active Directory? 
 
@@ -32,7 +32,7 @@ Azure AD Abilita single sign-on ai dispositivi, App e servizi da qualsiasi posiz
 - Necessità dell'autenticazione a più fattori per gli utenti che accedono a un servizio quando non sono connessi alla rete aziendale.
 - Blocco dell'accesso per gli utenti che accedono a un servizio da specifici paesi o aree geografiche.
 
-Una posizione è un'etichetta per un percorso di rete che rappresenta una posizione specifica o gli indirizzi IP attendibili per l'autenticazione a più fattori.
+Un percorso è un'etichetta per un percorso di rete che rappresenta una posizione specifica o multi-factor authentication, gli indirizzi IP attendibili.
 
 ## <a name="named-locations"></a>Posizioni specifiche
 
@@ -54,7 +54,7 @@ Una posizione specifica ha le caratteristiche seguenti:
 
 - **Contrassegna come posizione attendibile**: flag che è possibile impostare per una posizione specifica per indicare un percorso attendibile. In genere, i percorsi attendibili sono aree della rete controllate dal reparto IT. Oltre che per l'accesso condizionale, le posizioni specifiche attendibili vengono usate anche da Azure AD Identity Protection e dai report di sicurezza di Azure AD per ridurre il numero di [falsi positivi](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Paesi/aree geografiche**: questa opzione consente di selezionare uno o più paesi o aree geografiche per definire una posizione specifica.
-- **Includi aree sconosciute**: alcuni indirizzi IP non sono associati a un paese specifico. Questa opzione consente di scegliere se questi indirizzi IP devono essere inclusi nella posizione specifica. Usare questa impostazione quando i criteri che usano la posizione specifica devono essere applicati a posizioni sconosciute.
+- **Includi aree sconosciute** -alcuni indirizzi IP non sono mappati a un paese specifico. Questa opzione consente di scegliere se questi indirizzi IP devono essere inclusi nella posizione specifica. Usare questa impostazione quando i criteri che usano la posizione specifica devono essere applicati a posizioni sconosciute.
 
 Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. Le organizzazioni possono configurare fino a 90 posizioni specifiche, ciascuna configurata con intervalli di indirizzi IP di 12000.
 
@@ -67,9 +67,9 @@ Se un criterio è configurato per applicare in "Qualsiasi percorso", verrà appl
 
 ## <a name="trusted-ips"></a>Indirizzi IP attendibili
 
-È inoltre possibile configurare gli intervalli di indirizzi IP che rappresentano la Intranet locale dell'organizzazione nelle [impostazioni del servizio di autenticazione a più fattori](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Questa funzionalità consente di configurare fino a 50 intervalli di indirizzi IP. Gli intervalli di indirizzi IP sono in formato CIDR. Per altre informazioni, vedere [IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
+È inoltre possibile configurare gli intervalli di indirizzi IP che rappresentano la Intranet locale dell'organizzazione nelle [impostazioni del servizio di autenticazione a più fattori](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Questa funzionalità consente di configurare fino a 50 intervalli di indirizzi IP. Gli intervalli di indirizzi IP sono in formato CIDR. Per altre informazioni, vedere [gli indirizzi IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-Se si dispone di indirizzi IP attendibili configurati, vengono visualizzati come **Indirizzi IP attendibili MFA** nell'elenco dei percorsi per la condizione della posizione.
+Se si dispone di indirizzi IP attendibili configurati, vengono visualizzati come **indirizzi IP attendibili MFA** nell'elenco di percorsi per la condizione della posizione.
 
 ### <a name="skipping-multi-factor-authentication"></a>Ignorare l'autenticazione a più fattori
 
@@ -88,24 +88,24 @@ Se entrambi i passaggi danno esito negativo, l'utente non viene più considerato
 
 Quando si configura la condizione per la posizione, è possibile distinguere tra:
 
-- Qualsiasi località
+- Tutte le località
 - Tutte le località attendibili
-- Le località selezionate
+- Località selezionate
 
 ![Configurazione della condizione della posizione](./media/location-condition/01.png)
 
-### <a name="any-location"></a>Qualsiasi località
+### <a name="any-location"></a>Tutte le località
 
 Per impostazione predefinita, la selezione di **Tutte le località** fa in modo che i criteri vengano applicati a tutti gli indirizzi IP, cioè qualsiasi indirizzo su Internet. Questa impostazione non è limitata agli indirizzi IP configurati come posizione specifica. Quando si seleziona **Tutte le località**, è comunque possibile escludere percorsi specifici dai criteri. Ad esempio, è possibile applicare dei criteri a tutte le posizioni tranne che ai percorsi attendibili per impostare l'ambito per tutte le posizioni ad eccezione della rete aziendale.
 
-### <a name="all-trusted-locations"></a>Tutte le località attendibili
+### <a name="all-trusted-locations"></a>Tutte le posizioni attendibili
 
 Questa opzione si applica a:
 
 - Tutte le posizioni che sono state contrassegnate come attendibili
 - Gli **indirizzi IP attendibili MFA** (se configurati)
 
-### <a name="selected-locations"></a>Le località selezionate
+### <a name="selected-locations"></a>Località selezionate
 
 Con questa opzione è possibile selezionare una o più posizioni specifiche. Per applicare criteri con questa impostazione, un utente deve connettersi da una delle posizioni selezionate. Quando si fa clic su **Seleziona**, si apre il controllo di selezione delle reti denominate che mostra l'elenco delle reti denominate. L'elenco indica anche se il percorso di rete è stato contrassegnato come attendibile. La posizione specifica denominata **Indirizzi IP attendibili MFA** viene usata per includere le impostazioni IP che possono essere configurate nella pagina di impostazione del servizio di autenticazione a più fattori.
 

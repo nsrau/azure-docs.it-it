@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786ace2ef88fc4b94372041cbdd5bc16586b5193
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: d63ff648f89a231f0077363c88709a17d157ae8c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682560"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190891"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
@@ -68,13 +68,14 @@ Selezionare il menu **Autenticazione**, impostare **Token ID** in **Concessione 
 
 #### <a name="step-2-download-your-project"></a>Passaggio 2: Scaricare il progetto
 
-[Scaricare la soluzione di Visual Studio 2017](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip).
+[Scaricare la soluzione di Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
 
 1. Estrarre il file con estensione zip in una cartella locale vicina alla cartella radice, ad esempio **C:\Azure-Samples**
 1. Aprire la soluzione in Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
 1. A seconda della versione di Visual Studio, potrebbe essere necessario fare clic con il pulsante destro del mouse sul progetto `AppModelv2-WebApp-OpenIDConnect-DotNet` e su **Ripristina pacchetti NuGet**
+1. Aprire la console di Gestione pacchetti (Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti) ed eseguire il comando `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. Modificare **Web.config** e sostituire i parametri `ClientId` e `Tenant` con le righe seguenti:
 
     ```xml
@@ -95,7 +96,7 @@ Selezionare il menu **Autenticazione**, impostare **Token ID** in **Concessione 
 
 ## <a name="more-information"></a>Altre informazioni
 
-Questa sezione include una panoramica del codice necessario per consentire l'accesso degli utenti. La panoramica aiuta a capire il funzionamento del codice, gli argomenti principali e anche se si desidera aggiungere l'accesso a un'applicazione ASP.NET esistente.
+Questa sezione include una panoramica del codice necessario per consentire l'accesso degli utenti. Questa panoramica è utile per comprendere il funzionamento del codice, conoscere gli argomenti principali e anche se si intende aggiungere l'accesso a un'applicazione ASP.NET esistente.
 
 ### <a name="owin-middleware-nuget-packages"></a>Pacchetti NuGet middleware OWIN
 
@@ -109,7 +110,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>Classe di avvio OWIN
 
-Il middleware OWIN usa una *classe di avvio* che viene eseguita in seguito all'inizializzazione del processo di hosting (nel caso di questa guida introduttiva il file *startup.cs* che si trova nella cartella radice). Il codice seguente mostra il parametro usato da questa guida introduttiva:
+Il middleware OWIN usa una *classe di avvio* che viene eseguita quando si inizializza il processo di hosting. In questa guida di avvio rapido il file *startup.cs* si trova nella cartella radice. Il codice seguente mostra il parametro usato da questa guida introduttiva:
 
 ```csharp
 public void Configuration(IAppBuilder app)

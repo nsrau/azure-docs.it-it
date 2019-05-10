@@ -1,6 +1,6 @@
 ---
-title: Protezione delle distribuzioni PaaS | Microsoft Docs
-description: " Comprendere i vantaggi di sicurezza del modello PaaS rispetto ad altri modelli di servizio cloud e conoscere le procedure consigliate per proteggere una distribuzione PaaS di Azure. "
+title: Procedure consigliate per le distribuzioni PaaS sicure - Microsoft Azure
+description: Informazioni sulle procedure consigliate per la progettazione, creazione e la gestione sicura di applicazioni in Azure cloud e comprendere i vantaggi di sicurezza del modello PaaS rispetto altri modelli di servizio cloud.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107445"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231129"
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
 
@@ -29,6 +29,8 @@ In questo articolo vengono fornite informazioni che consentono di:
 - Valutare i vantaggi di sicurezza del modello di piattaforma distribuita come servizio (PaaS, Platform as a Service) rispetto ad altri modelli di servizio cloud
 - Modificare l'attenzione verso la sicurezza, da un approccio di sicurezza del perimetro incentrato sulla rete a uno incentrato sulle identità
 - Implementare le procedure consigliate per la sicurezza del modello PaaS
+
+[Sviluppo di applicazioni sicure in Azure](abstract-develop-secure-apps.md) è una Guida generale per le domande di sicurezza e i controlli quando lo sviluppo di applicazioni per il cloud è necessario considerare in ogni fase del ciclo di vita di sviluppo software.
 
 ## <a name="cloud-security-advantages"></a>Vantaggi della sicurezza cloud
 Il cloud offre notevoli vantaggi legati alla sicurezza. In un ambiente locale, le organizzazioni si ritrovano probabilmente con responsabilità non ancora gestite e con risorse limitate disponibili da investire nella sicurezza. Tutto questo porta a un ambiente in cui i malintenzionati sono in grado di sfruttare vulnerabilità a più livelli.
@@ -155,6 +157,10 @@ Usare [Azure Application Insights](https://azure.microsoft.com/documentation/ser
 
 Application Insights include strumenti estensivi per l'interazione con i dati raccolti dal servizio stesso. Application Insights archivia questi dati in un repository comune. È possibile sfruttare le funzionalità condivise, ad esempio avvisi, dashboard e analisi approfondite con il linguaggio di query Kusto.
 
+## <a name="perform-security-penetration-testing"></a>Eseguire test di penetrazione di sicurezza
+La convalida delle difese di sicurezza è importante come testare qualsiasi altra funzionalità. Rendere [test di penetrazione](azure-security-pen-testing.md) una parte standard del processo di compilazione e distribuzione. Pianificare test periodici di sicurezza e analisi delle vulnerabilità sulle applicazioni distribuite e il monitoraggio per le porte aperte, endpoint e attacchi.
+
+Test con dati casuali è un metodo per la ricerca degli errori dei programmi (errori di codice), fornendo i dati di input in formato non valido per le interfacce di programma (punti di ingresso) che analizzano e usano questi dati. [Rilevamento dei rischi di sicurezza Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) è uno strumento basato sul cloud che è possibile usare per cercare bug e altre vulnerabilità di sicurezza nel software prima di distribuirla in Azure. Lo strumento è progettato per rilevare le vulnerabilità prima di distribuire software in modo che non è necessario applicare patch di un bug, gestire gli arresti anomali o rispondere a un attacco dopo il rilascio di software.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -166,6 +172,8 @@ In questo articolo sono stati illustrati i vantaggi di sicurezza di una distribu
 - Cache Redis di Azure
 - Bus di servizio di Azure
 - Web application firewall
+
+Visualizzare [lo sviluppo di applicazioni sicure in Azure](abstract-develop-secure-apps.md) per domande di sicurezza e controlli, è necessario considerare in ogni fase del ciclo di vita di sviluppo software durante lo sviluppo di applicazioni per il cloud.
 
 Per altre procedure consigliate per la sicurezza da usare nella progettazione, la distribuzione e la gestione di soluzioni cloud tramite Azure, vedere [Procedure consigliate e modelli per la sicurezza di Azure](security-best-practices-and-patterns.md).
 

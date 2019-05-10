@@ -7,12 +7,12 @@ ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 0de3e0add804290cdfe27e2e97d8b1a0f240e0a6
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63769302"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209420"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funzioni per l'utilizzo con progetti di architetture di Azure
 
@@ -35,17 +35,17 @@ Restituisce che un oggetto di proprietà popolata con tale elementi del progetto
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | artifactName |Sì |string |Il nome di un elemento di progetto. |
 
 ### <a name="return-value"></a>Valore restituito
 
-Un oggetto di proprietà di output. Le proprietà di output sono dipende dal tipo di elemento di progetto a cui fa riferimento. Tutti i tipi di seguono il formato:
+Un oggetto di proprietà di output. Il **output** proprietà dipendono dal tipo di elemento di progetto a cui fa riferimento. Tutti i tipi di seguono il formato:
 
 ```json
 {
-  "output": {collectionOfOutputProperties}
+  "outputs": {collectionOfOutputProperties}
 }
 ```
 
@@ -53,7 +53,7 @@ Un oggetto di proprietà di output. Le proprietà di output sono dipende dal tip
 
 ```json
 {
-    "output": {
+    "outputs": {
         "policyAssignmentId": "{resourceId-of-policy-assignment}",
         "policyAssignmentName": "{name-of-policy-assignment}",
         "policyDefinitionId": "{resourceId-of-policy-definition}",
@@ -69,7 +69,7 @@ Il **output** proprietà dell'oggetto restituito sono definite nel modello di Re
 
 ```json
 {
-    "output": {
+    "outputs": {
         "roleAssignmentId": "{resourceId-of-role-assignment}",
         "roleDefinitionId": "{resourceId-of-role-definition}",
         "principalId": "{principalId-role-is-being-assigned-to}",
@@ -107,14 +107,14 @@ Un elemento del modello di Resource Manager con l'ID _myTemplateArtifact_ propri
 
 Alcuni esempi di recupero di dati dal _myTemplateArtifact_ esempio sono:
 
-| Expression | Type | Value |
+| Espressione | Type | Value |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").output.myArray]` | Array | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").output.myArray[0]]` | string | "first" |
-|`[artifacts("myTemplateArtifact").output.myString]` | string | "il valore di stringa" |
-|`[artifacts("myTemplateArtifact").output.myObject]` | Object | {"myproperty": "il valore", "anotherProperty": true} |
-|`[artifacts("myTemplateArtifact").output.myObject.myProperty]` | string | "il valore" |
-|`[artifacts("myTemplateArtifact").output.myObject.anotherProperty]` | Bool | True  |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "il valore di stringa" |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {"myproperty": "il valore", "anotherProperty": true} |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "il valore" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True  |
 
 ## <a name="concat"></a>concat
 
@@ -124,16 +124,16 @@ Combina più valori stringa e restituisce la stringa concatenata.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | string1 |Sì |string |Il primo valore per la concatenazione. |
-| Argomenti aggiuntivi |No  |string |Altri valori in ordine sequenziale per la concatenazione |
+| Argomenti aggiuntivi |N. |string |Altri valori in ordine sequenziale per la concatenazione |
 
 ### <a name="return-value"></a>Valore restituito
 
 Una stringa di valori concatenati.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 La funzione di Azure Blueprint è diversa dalla funzione di modello di Azure Resource Manager in quanto funziona solo con le stringhe.
 
@@ -149,7 +149,7 @@ Restituisce un valore di parametro di progetto. Il nome del parametro specificat
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sì |string |Nome del parametro da restituire. |
 
@@ -157,7 +157,7 @@ Restituisce un valore di parametro di progetto. Il nome del parametro specificat
 
 Il valore del parametro dell'elemento del progetto o progetto specificato.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 La funzione di Azure Blueprint è diversa dalla funzione di modello di Azure Resource Manager in quanto funziona solo con i parametri del progetto.
 
@@ -217,7 +217,7 @@ L'oggetto restituito è nel formato seguente:
 }
 ```
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 La funzione di Azure Blueprint è diversa dalla funzione di modello di Azure Resource Manager. Il `resourceGroup()` funzione non può essere usata in un elemento a livello di sottoscrizione o la definizione di progetto. Può essere utilizzato solo in elementi del progetto che fanno parte di un elemento del gruppo di risorse.
 
@@ -270,7 +270,7 @@ Restituisce un oggetto che rappresenta l'elemento di gruppo di risorse specifica
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | placeholderName |Sì |string |Il nome segnaposto dell'elemento di gruppo di risorse da restituire. |
 
