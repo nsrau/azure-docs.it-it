@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78c445e70fcf972be81ef6dfd5d675f8e4843621
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61379211"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541515"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 Il [ciclo di vita di sviluppo della knowledge base](../Concepts/development-lifecycle-knowledge-base.md) fornisce informazioni sulla gestione della KB dall'inizio alla fine. Usare queste procedure consigliate per migliorare la knowledge base e fornire risultati migliori per gli utenti finali dell'applicazione/chat bot.
@@ -39,29 +39,31 @@ Le domande migliori sono quelle semplici. Considerare la parola chiave o la fras
 Le migliori risposte sono semplici, purché non si limitino a Sì o No. Se la risposta deve contenere un collegamento ad altre fonti o fornire un'esperienza avanzata con elementi multimediali e collegamenti, usare i [tag](../how-to/metadata-generateanswer-usage.md) per distinguere il tipo di risposta che ci si aspetta e quindi inviare il tag con la query per ottenere la versione della risposta corretta.
 
 ## <a name="chit-chat"></a>Chit Chat
-Aggiungere una chit-chat al bot, per renderlo più colloquiale e accattivante con uno sforzo minimo. È possibile aggiungere facilmente un set di dati chit-chat per 3 personalità predefinite quando si crea la KB, con possibilità di apportare modifiche in qualsiasi momento. Come [aggiungere chit-chat alla KB](../How-To/chit-chat-knowledge-base.md). 
+Aggiungere una chit-chat al bot, per renderlo più colloquiale e accattivante con uno sforzo minimo. È possibile facilmente aggiungere set di dati di una chat chit dalla personalità predefiniti quando si crea la KB e modificarle in qualsiasi momento. Come [aggiungere chit-chat alla KB](../How-To/chit-chat-knowledge-base.md). 
 
 ### <a name="choosing-a-personality"></a>Scelta della personalità
-Chit chat è supportata per 3 personalità predefinite: 
+Chit chat è supportata per diversi personalità predefiniti: 
 
-|Personalità|
-|--|
-|Il professionista|
-|L'amico|
-|Lo spiritoso|
+|Personalità |File di set di dati di QnA Maker |
+|---------|-----|
+|Professionale |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|Gentile |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
+|Dinamica, in gamba |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
+|Necessario |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
+|Fornendo informazioni |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-Le risposte possono andare da quelle formali a quelle informali e irriverenti. È consigliabile selezionare la personalità più allineata al tono desiderato per il bot. È possibile visualizzare i set di dati, sceglierne una che serva come base per il bot e quindi personalizzare le risposte. 
+Le risposte possono andare da quelle formali a quelle informali e irriverenti. È consigliabile selezionare la personalità più allineata al tono desiderato per il bot. È possibile visualizzare il [set di dati](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets), sceglierne una che serve come base per il bot e quindi personalizzare le risposte. 
 
 ### <a name="edit-bot-specific-questions"></a>Modifica delle domande specifiche per i bot
 Esistono alcune domande specifiche per i bot che fanno parte del set di dati chit-chat e a cui sono state associate risposte generiche. Modificare queste risposte per riflettere al meglio i dettagli del bot. 
 
 È consigliabile rendere le seguenti QnA di chit-chat più specifiche:
 
-* Chi si sta autenticando?
+* Identificarsi
 * Cosa fare
 * Quanti anni hai?
 * Chi ti ha creato?
-* Ciao
+* Salve
    
 
 ## <a name="rankingscoring"></a>Classificazione e assegnazione dei punteggi
@@ -73,7 +75,7 @@ Il punteggio di attendibilità predefinito che viene usato come soglia è 50, ma
 ### <a name="add-alternate-questions"></a>Aggiungere domande alternative
 Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabilità di una corrispondenza con una query utente. Le domande alternative sono utili quando ci sono più modi per porre la stessa domanda. Ciò può includere modifiche alla struttura della frase e allo stile delle parole.
 
-|Query originale|Query alternative|Modifica| 
+|Query originale|Query alternative|Cambia| 
 |--|--|--|
 |È disponibile il parcheggio?|Si dispone di parcheggio?|struttura della frase|
  |Ciao|Ehi<br>Salve!|stile delle parole o gergo|

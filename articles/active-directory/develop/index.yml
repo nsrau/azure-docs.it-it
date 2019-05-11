@@ -6,7 +6,7 @@ metadata:
   description: 'Informazioni su come è possibile usare Microsoft Identity Platform per creare app che supportano l''accesso sicuro degli utenti per tutte le identità Microsoft e il recupero di token per chiamare Microsoft Graph, altre API Microsoft o API create dagli sviluppatori.'
   services: active-directory
   author: CelesteDG
-  manager: mtillman
+  manager: CelesteDG
   ms.service: active-directory
   ms.subservice: develop
   ms.tgt_pltfrm: na
@@ -62,7 +62,7 @@ sections:
           - html: <a href="/azure/active-directory/develop/scenario-desktop-overview">App desktop che chiama le API Web</a>
           - html: <a href="/azure/active-directory/develop/scenario-daemon-overview">Applicazione daemon</a>
           - html: <a href="/azure/active-directory/develop/scenario-mobile-overview">Applicazione per dispositivi mobili</a>
-  - title: Guide di avvio rapido
+  - title: Guide introduttive
     items:
       - type: paragraph
         text: 'Seguire queste guide di avvio rapido per informazioni su come usare un esempio di codice che dimostra come accedere tramite un''app, come ottenere un token di accesso per chiamare l''API Microsoft Graph o qualsiasi altra API Web e altro ancora.'

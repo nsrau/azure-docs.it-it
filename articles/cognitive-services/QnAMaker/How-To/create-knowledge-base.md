@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b64315d8639cf8a7204ee809598567ec76fd188
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61373529"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541774"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Guida introduttiva: Creare una knowledge base tramite il portale di servizi API QnA Maker
 
@@ -50,7 +50,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     - Aggiornare i file per i dati desiderati estratti. Per informazioni sul numero di documenti che è possibile aggiungere, vedere le [informazioni sui prezzi](https://aka.ms/qnamaker-pricing).
     - Se si desidera aggiungere manualmente domande e risposte, è possibile ignorare il **passaggio 4** illustrato nell'immagine precedente.
 
-1. Aggiungere **chit-chat** alla KB. Scegliere di aggiungere il supporto per chit chat nel proprio bot selezionando una delle tre personalità. 
+1. Aggiungere **chit-chat** alla KB. Scegliere di aggiungere il supporto chit chat per il bot, scegliendo uno della personalità. 
 
     ![Aggiungere chit chat alla knowledge base](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 

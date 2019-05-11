@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9add80b7494ae2a8e671967a96dc5d3c7307f51
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61374576"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541598"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Modificare una knowledge base in QnA Maker
 
@@ -38,7 +38,7 @@ QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'espe
   
     |Obiettivo|Azione|
     |--|--|
-    |Aggiungere URL|È possibile aggiungere nuovi URL per aggiungere nuovi contenuti delle domande frequenti alla knowledge base facendo clic sul collegamento **Gestisci Knowledge base -> "+ Aggiungi URL"**.|
+    |Aggiungi un URL|È possibile aggiungere nuovi URL per aggiungere nuovi contenuti delle domande frequenti alla knowledge base facendo clic sul collegamento **Gestisci Knowledge base -> "+ Aggiungi URL"**.|
     |Eliminare URL|È possibile eliminare gli URL esistenti selezionando l'icona di eliminazione (cestino).|
     |Aggiornare il contenuto degli URL|Se si vuole che la knowledge base esegua una ricerca per indicizzazione del contenuto più recente degli URL esistenti, selezionare la casella di controllo **Aggiorna**. La knowledge base verrà aggiornata con il contenuto più recente degli URL.|
     |Aggiungere file|È possibile aggiungere un documento supportato come parte di una knowledge base selezionando **Gestisci Knowledge base** e quindi **+ Aggiungi file**.|
@@ -72,8 +72,7 @@ Aggiungere domande alternative a una coppia domanda/risposta esistente per aumen
 
 ## <a name="add-metadata"></a>Aggiungere metadati
 
-
-Selezionando l'icona di metadati, aggiungere coppie di metadati. Una coppia di metadati è costituito da una chiave e un valore.
+Aggiungere coppie di metadati selezionando prima di tutto **visualizzare le opzioni**, quindi selezionando **mostrano metadati**. Ciò consente di visualizzare la colonna di metadati. Selezionare quindi il **+** accedere per aggiungere una coppia di metadati. Questa coppia è costituita da una chiave e un valore.
 
 ![Aggiungere metadati](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
