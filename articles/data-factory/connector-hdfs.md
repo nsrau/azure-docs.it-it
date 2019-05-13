@@ -122,7 +122,7 @@ Per copiare dati da HDFS in **Parquet o formato di testo delimitato**, fare rife
 
 | Proprietà   | Descrizione                                                  | Obbligatoria |
 | ---------- | ------------------------------------------------------------ | -------- |
-| tipo       | La proprietà del tipo sotto `location` nel set di dati deve essere impostata su **HdfsLocation**. | Sì      |
+| type       | La proprietà del tipo sotto `location` nel set di dati deve essere impostata su **HdfsLocation**. | Sì      |
 | folderPath | Il percorso di cartella. Se si desidera utilizzare con caratteri jolly alla cartella di filtro, ignorare questa impostazione e specificare nelle impostazioni di origine di attività. | No        |
 | fileName   | Il nome del file in folderPath specificato. Se si desidera utilizzare con caratteri jolly per filtrare i file, ignorare questa impostazione e specificare nelle impostazioni di origine di attività. | N.       |
 
@@ -217,7 +217,7 @@ Per copiare dati da HDFS in **Parquet o formato di testo delimitato**, fare rife
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| tipo                     | La proprietà del tipo sotto `storeSettings` deve essere impostata su **HdfsReadSetting**. | Sì                                           |
+| type                     | La proprietà del tipo sotto `storeSettings` deve essere impostata su **HdfsReadSetting**. | Sì                                           |
 | recursive                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No                                             |
 | wildcardFolderPath       | Il percorso della cartella con caratteri jolly per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                             |
 | wildcardFileName         | Il nome di file con caratteri jolly in folderPath/wildcardFolderPath specificata per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se `fileName` non è specificato nel set di dati |
