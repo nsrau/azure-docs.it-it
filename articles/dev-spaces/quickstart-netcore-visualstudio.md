@@ -20,7 +20,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361250"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Guida introduttiva: Sviluppare con .NET Core in Kubernetes con Azure Dev Spaces (Visual Studio 2017)
+# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Avvio rapido: Sviluppare con .NET Core in Kubernetes con Azure Dev Spaces (Visual Studio 2017)
 
 In questa guida si apprenderà come:
 

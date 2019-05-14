@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Ruby"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Ruby"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API Viso con Ruby per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/15/2019
 ms.locfileid: "56312396"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Ruby
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Ruby
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con Ruby per rilevare i visi umani in un'immagine.
 

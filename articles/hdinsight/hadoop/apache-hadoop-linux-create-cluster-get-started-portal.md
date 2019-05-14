@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Iniziare a usare Apache Hadoop e Apache Hive con il portale di Azure - Azure HDInsight'
+title: 'Avvio rapido: Iniziare a usare Apache Hadoop e Apache Hive con il portale di Azure - Azure HDInsight'
 description: Informazioni su come creare cluster HDInsight mediante il portale di Azure ed eseguire query sui dati con Hive.
 keywords: introduzione a Hadoop, Hadoop basato su Linux, guida introduttiva a Hadoop, introduzione a Hive, guida introduttiva a Hive
 author: hrasheed-msft
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64697810"
 ---
-# <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Guida introduttiva: Iniziare a usare Apache Hadoop e Apache Hive in Azure HDInsight con il portale di Azure
+# <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Avvio rapido: Iniziare a usare Apache Hadoop e Apache Hive in Azure HDInsight con il portale di Azure
 
 Questo articolo illustra come creare cluster [Apache Hadoop](https://hadoop.apache.org/) in HDInsight con il portale di Azure e quindi eseguire processi Apache Hive in HDInsight. La maggior parte dei processi Hadoop è costituita da processi batch. Viene creato un cluster, si eseguono alcuni processi e quindi si elimina il cluster. In questo articolo vengono eseguite tutte e tre le attività.
 

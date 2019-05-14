@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Project Answer Search, Node'
+title: 'Avvio rapido: Project Answer Search, Node'
 description: Guida introduttiva a Project Answer Search con Node.
 services: cognitive-services
 author: mikedodaro
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58294043"
 ---
-# <a name="quickstart-project-answer-search-with-node"></a>Guida introduttiva: Project Answer Search con Node
+# <a name="quickstart-project-answer-search-with-node"></a>Avvio rapido: Project Answer Search con Node
 
 L'esempio seguente di Node crea una query per ottenere informazioni su Yosemite National Park.
 

@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264948"
 ---
-# <a name="quickstart-3---query-an-azure-search-index-in-c"></a>Guida introduttiva: 3 - Eseguire query in un indice di Ricerca di Azure in C#
+# <a name="quickstart-3---query-an-azure-search-index-in-c"></a>Avvio rapido: 3 - Eseguire query in un indice di Ricerca di Azure in C#
 
 Questo articolo illustra come eseguire query in un [indice di Ricerca di Azure](search-what-is-an-index.md) usando C# e [.NET SDK](https://aka.ms/search-sdk). Per eseguire ricerche di documenti nell'indice, eseguire le attività seguenti:
 

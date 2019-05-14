@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65020973"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscere i contenuti vocali in Java su Android con Speech SDK
+# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in Java su Android con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

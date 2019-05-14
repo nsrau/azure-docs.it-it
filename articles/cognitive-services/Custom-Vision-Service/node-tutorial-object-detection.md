@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Node.js'
+title: 'Avvio rapido: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Node.js'
 titlesuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto e rilevare oggetti tramite l'SDK per Node.js.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58487261"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Node.js
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Avvio rapido: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Node.js
 
 Questo articolo fornisce informazioni e il codice di esempio utili per iniziare a usare Custom Vision SDK con Node.js per compilare un modello di rilevamento degli oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la compilazione dell'applicazione Node.js.
 

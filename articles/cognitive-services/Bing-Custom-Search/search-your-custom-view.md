@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: ed34b20073a150e38b5d5992ab4e4b8c80453fb2
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7a60ea934c6bb9008889992726ddca5dad21a640
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510271"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595623"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chiamare l'istanza di Ricerca personalizzata Bing dal portale
 
@@ -26,7 +26,7 @@ Dopo aver configurato l'esperienza di ricerca personalizzata, è possibile testa
 
 Dopo aver effettuato l'accesso al [portale](https://customsearch.ai) di Ricerca personalizzata Bing, selezionare l'istanza di ricerca e fare clic sulla scheda **Produzione**. Sotto **Endpoint** selezionare un endpoint API, ad esempio API Web. La sottoscrizione determina quali endpoint vengono visualizzati.
 
-Per creare una query di ricerca, immettere i valori dei parametri per l'endpoint. Si noti che i parametri visualizzati nel portale possono cambiare a seconda dell'endpoint scelto. Per altre informazioni, vedere le [informazioni di riferimento sull'API Ricerca personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters). Per modificare la sottoscrizione che viene utilizzata l'istanza di ricerca, aggiungere la chiave di sottoscrizione appropriata e aggiornare i parametri di immissione sul mercato e/o linguaggio appropriati.
+Per creare una query di ricerca, immettere i valori dei parametri per l'endpoint. Si noti che i parametri visualizzati nel portale possono cambiare a seconda dell'endpoint scelto. Vedere le [riferimento all'API ricerca personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) per altre informazioni. Per modificare la sottoscrizione che viene utilizzata l'istanza di ricerca, aggiungere la chiave di sottoscrizione appropriata e aggiornare i parametri di immissione sul mercato e/o linguaggio appropriati.
 
 Alcuni parametri importanti sono i seguenti:
 
@@ -48,6 +48,10 @@ Facendo clic su **Parametri aggiuntivi** vengono visualizzati i parametri seguen
 |Offset    | Il numero di risultati della ricerca da ignorare prima di restituire i risultati. Disponibile solo per gli endpoint Web, Image e Video.        |
     
 Dopo aver specificato tutte le opzioni necessarie, fare clic su **Call** per visualizzare la risposta JSON nel riquadro di destra. Se si seleziona l'endpoint Hosted UI, è possibile provare l'esperienza di ricerca nel riquadro inferiore.
+
+## <a name="change-your-bing-custom-search-subscription"></a>Modificare la sottoscrizione di ricerca personalizzata Bing
+
+È possibile modificare la sottoscrizione associata all'istanza di ricerca personalizzata Bing senza creare una nuova istanza. Per le chiamate API inviato e addebitati a una nuova sottoscrizione, creare una nuova risorsa di ricerca personalizzata Bing nel portale di Azure. Usare la nuova chiave di sottoscrizione nelle richieste API, con ID di configurazione personalizzata. dell'istanza
 
 ## <a name="next-steps"></a>Passaggi successivi
 

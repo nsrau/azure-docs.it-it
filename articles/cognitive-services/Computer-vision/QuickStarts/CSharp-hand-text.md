@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Estrarre testo scritto a mano - REST, C#'
+title: 'Avvio rapido: Estrarre testo scritto a mano - REST, C#'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API Visione artificiale con C#.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "60009617"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c-in-computer-vision"></a>Guida introduttiva: Estrarre testo scritto a mano usando l'API REST e C# in Visione artificiale
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c-in-computer-vision"></a>Avvio rapido: Estrarre testo scritto a mano usando l'API REST e C# in Visione artificiale
 
 In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API REST di Visione artificiale. Con i metodi [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) dell'API è possibile rilevare il testo scritto a mano in un'immagine ed estrarre i caratteri riconosciuti in un flusso leggibile da computer.
 

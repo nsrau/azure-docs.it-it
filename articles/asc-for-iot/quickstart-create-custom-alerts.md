@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65192478"
 ---
-# <a name="quickstart-create-custom-alerts"></a>Guida introduttiva: Creare avvisi personalizzati
+# <a name="quickstart-create-custom-alerts"></a>Avvio rapido: Creare avvisi personalizzati
 
 > [!IMPORTANT]
 > Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.

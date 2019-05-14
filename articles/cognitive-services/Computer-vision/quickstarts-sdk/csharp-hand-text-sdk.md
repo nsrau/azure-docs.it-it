@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Estrarre testo scritto a mano - SDK, C#'
+title: 'Avvio rapido: Estrarre testo scritto a mano - SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrae testo da un'immagine usando la libreria client Windows C# di Visione artificiale.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59997445"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Guida introduttiva: Estrarre testo scritto a mano usando l'SDK di Visione artificiale per C#
+# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Avvio rapido: Estrarre testo scritto a mano usando l'SDK di Visione artificiale per C#
 
 In questa guida introduttiva si estrarrà testo scritto a mano o stampato da un'immagine usando l'SDK di Visione artificiale per C#. Se si vuole, è possibile scaricare il codice contenuto in questa guida come app di esempio completa dal repository per [Visione artificiale di Servizi cognitivi e C#](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) in GitHub.
 

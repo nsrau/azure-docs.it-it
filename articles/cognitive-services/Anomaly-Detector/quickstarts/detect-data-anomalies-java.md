@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST di rilevatore di anomalie e Java | Microsoft Docs"
+title: "Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST di rilevatore di anomalie e Java | Microsoft Docs"
 description: Usare l'API rilevatore di anomalie per rilevare le anomalie nella serie di dati come un batch o nel flusso di dati.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/30/2019
 ms.locfileid: "64922417"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST di rilevatore di anomalie e Java
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST di rilevatore di anomalie e Java
 
 Usare questa Guida introduttiva per iniziare a usare due modalità di rilevamento dell'API di rilevamento delle anomalie per rilevare le anomalie nei dati delle serie temporali. L'applicazione Java invia due richieste di API che contiene dati delle serie temporali in formato JSON e ottiene le risposte.
 

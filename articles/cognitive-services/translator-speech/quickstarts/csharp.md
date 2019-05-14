@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/22/2019
 ms.locfileid: "56673888"
 ---
-# <a name="quickstart-translator-speech-api-with-c"></a>Guida introduttiva: API Traduzione vocale con C#
+# <a name="quickstart-translator-speech-api-with-c"></a>Avvio rapido: API Traduzione vocale con C#
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]

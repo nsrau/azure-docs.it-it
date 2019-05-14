@@ -160,6 +160,8 @@
           href: service-bus-end-to-end-tracing.md
         - name: Compilare un'applicazione bus di servizio multilivello
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+        - name: Eseguire la migrazione dell'applicazione Java Enterprise Edition ad Azure
+          href: migrate-java-apps-wild-fly.md
     - name: Gestisci
       items:
         - name: Usare Azure PowerShell per il provisioning delle entità

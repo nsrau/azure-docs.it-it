@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65207524"
 ---
-# <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Guida introduttiva: Introduzione all'anteprima di Azure Sentinel
+# <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Avvio rapido: Introduzione all'anteprima di Azure Sentinel
 
 > [!IMPORTANT]
 > Azure Sentinel è attualmente in anteprima pubblica.

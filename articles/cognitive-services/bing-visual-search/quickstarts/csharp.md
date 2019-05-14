@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e C#"
+title: "Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e C#"
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come caricare un'immagine nell'API Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880407"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e C#
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e C#
 
 Questo argomento di avvio rapido illustra come caricare un'immagine nell'API Ricerca visiva Bing e visualizzare le informazioni dettagliate che vengono restituite.
 

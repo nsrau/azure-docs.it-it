@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Analizzare i dati in Azure Data Lake Storage Gen2 con Azure Databricks | Microsoft Docs'
+title: 'Avvio rapido: Analizzare i dati in Azure Data Lake Storage Gen2 con Azure Databricks | Microsoft Docs'
 description: Informazioni su come eseguire un processo Spark in Azure Databricks usando il portale di Azure e un account di archiviazione di Azure Data Lake Storage Gen2.
 services: storage
 author: normesta
@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58226794"
 ---
-# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Guida introduttiva: Analizzare i dati in Azure Data Lake Storage Gen2 con Azure Databricks
+# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Avvio rapido: Analizzare i dati in Azure Data Lake Storage Gen2 con Azure Databricks
 
 Questa guida introduttiva illustra come eseguire un processo Apache Spark con Azure Databricks per effettuare analisi sui dati archiviati in un account di archiviazione per cui è abilitato Azure Data Lake Storage Gen2.
 

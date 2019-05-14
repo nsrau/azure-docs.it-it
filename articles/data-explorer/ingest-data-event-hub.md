@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure"
+title: "Avvio rapido: Inserire dati dall'hub eventi in Esplora dati di Azure"
 description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure dall'hub eventi.
 author: orspod
 ms.author: orspodek
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048388"
 ---
-# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure
+# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Avvio rapido: Inserire dati dall'hub eventi in Esplora dati di Azure
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure consente l'inserimento (caricamento dei dati) da Hub eventi, una piattaforma di Big Data streaming e un servizio di inserimento di eventi. [Hub eventi](/azure/event-hubs/event-hubs-about) riesce a elaborare milioni di eventi al secondo quasi in tempo reale. In questa guida introduttiva verrà creato un hub eventi, a cui ci si connetterà da Esplora dati di Azure per visualizzare il flusso di dati attraverso il sistema.
 

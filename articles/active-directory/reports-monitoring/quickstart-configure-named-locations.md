@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58434790"
 ---
-# <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Guida introduttiva: Configurare località denominate in Azure Active Directory
+# <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Avvio rapido: Configurare località denominate in Azure Active Directory
 
 Con le località denominate è possibile etichettare gli intervalli di indirizzi IP attendibili all'interno dell'organizzazione. Azure AD usa le località denominate per:
 - Rilevare i falsi positivi negli [eventi di rischio](concept-risk-events.md). L'accesso da una posizione attendibile riduce il rischio di accesso dell'utente.   

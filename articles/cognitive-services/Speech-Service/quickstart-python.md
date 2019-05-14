@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale, Python: servizi Voce'
+title: 'Avvio rapido: Riconoscimento vocale, Python: servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione console di riconoscimento vocale che usa Speech SDK per Python. Al termine, sarà possibile usare il microfono nel computer per trascrivere contenuti vocali in tempo reale.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65020707"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Python
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

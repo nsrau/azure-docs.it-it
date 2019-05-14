@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2019
 ms.locfileid: "58517114"
 ---
-# <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Guida introduttiva: Compilare un'app ToDo con Xamarin usando un account API SQ di Azure Cosmos DB
+# <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Compilare un'app ToDo con Xamarin usando un account API SQ di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)

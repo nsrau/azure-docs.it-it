@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58008150"
 ---
-# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Guida introduttiva: Distribuire un'applicazione Reliable Services Java su Service Fabric
+# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Avvio rapido: Distribuire un'applicazione Reliable Services Java su Service Fabric
 
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori.
 

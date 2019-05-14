@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire la sintesi vocale, Node.js - Servizi di riconoscimento vocale'
+title: 'Avvio rapido: Eseguire la sintesi vocale, Node.js - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come eseguire la sintesi vocale di testo usando Node.js e l'API REST Sintesi vocale. Il testo di esempio incluso in questo articolo è strutturato come SSML (Speech Synthesis Markup Language). Questo formato consente di scegliere la voce e la lingua della risposta di sintesi vocale.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60621948"
 ---
-# <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Guida introduttiva: Eseguire la sintesi vocale con Node.js
+# <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Avvio rapido: Eseguire la sintesi vocale con Node.js
 
 In questa guida introduttiva si apprenderà come eseguire la sintesi vocale di testo usando Node.js e l'API REST Sintesi vocale. In questo articolo il corpo della richiesta è strutturato nel formato [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md), che consente di scegliere la voce e la lingua della risposta.
 

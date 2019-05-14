@@ -19,7 +19,7 @@ ms.locfileid: "58122030"
 
 Esistono vari scenari in cui può essere opportuno spostare le macchine virtuali (VM) IaaS di Azure esistenti da un'area a un'altra, ad esempio per aumentare l'affidabilità e la disponibilità delle VM esistenti, per migliorare la gestibilità oppure per motivi di governance. Per altre informazioni, vedere la [panoramica dello spostamento di VM di Azure](azure-to-azure-move-overview.md). 
 
-È possibile usare il servizio [Azure Site Recovery](site-recovery-overview.md) per gestire e orchestrare il ripristino di emergenza di computer locali e VM di Azure ai fini della continuità aziendale e del ripristino di emergenza (BCDR), nonché per gestire lo spostamento di VM di Azure in un'area secondaria.
+È possibile usare il servizio [Azure Site Recovery](site-recovery-overview.md) per gestire e orchestrare il ripristino di emergenza di computer locali e VM di Azure ai fini della continuità aziendale e del ripristino di emergenza, nonché per gestire lo spostamento di VM di Azure in un'area secondaria.
 
 In questa esercitazione si apprenderà come:
 

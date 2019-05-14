@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55982931"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-ruby"></a>Guida introduttiva: Traslitterare un testo con l'API REST Traduzione testuale (Ruby)
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-ruby"></a>Avvio rapido: Traslitterare un testo con l'API REST Traduzione testuale (Ruby)
 
 In questa guida introduttiva si converte il testo in una lingua da un sistema di scrittura a un altro usando l'API Traduzione testuale.
 

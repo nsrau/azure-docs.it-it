@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005838"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Python)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Avvio rapido: Controllare un dispositivo connesso a un hub IoT (Python)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 

@@ -20,7 +20,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58481366"
 ---
-# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Guida introduttiva: Creare una data factory di Azure e una pipeline usando l'API REST
+# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Avvio rapido: Creare una data factory di Azure e una pipeline usando l'API REST
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

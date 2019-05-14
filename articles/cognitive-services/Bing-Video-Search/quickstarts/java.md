@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Java"
+title: "Avvio rapido: Cercare video con l'API REST Ricerca video Bing e Java"
 titlesuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca di video all'API REST Ricerca video Bing usando Java.
 services: cognitive-services

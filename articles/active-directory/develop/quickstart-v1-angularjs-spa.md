@@ -25,7 +25,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59544941"
 ---
-# <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Guida introduttiva: Compilazione di un'app a singola pagina AngularJS per l'accesso e la disconnessione con Azure Active Directory
+# <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Avvio rapido: Compilazione di un'app a singola pagina AngularJS per l'accesso e la disconnessione con Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 

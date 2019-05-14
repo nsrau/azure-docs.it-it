@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'istanza di Load Balancer Basic - Azure PowerShell"
+title: "Avvio rapido: Creare un'istanza di Load Balancer Basic - Azure PowerShell"
 titlesuffix: Azure Load Balancer
 description: In questa guida introduttiva si apprende come creare un'istanza di Load Balancer Basic usando PowerShell
 services: load-balancer

@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/12/2019
 ms.locfileid: "57779446"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Guida introduttiva: Usare Cache Redis di Azure con Python
+# <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Avvio rapido: Usare Cache Redis di Azure con Python
 
 
 ## <a name="introduction"></a>Introduzione

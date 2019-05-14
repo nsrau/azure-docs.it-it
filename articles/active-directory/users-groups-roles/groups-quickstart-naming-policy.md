@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58651287"
 ---
-# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Guida introduttiva: Criteri di denominazione per i gruppi in Azure Active Directory
+# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Avvio rapido: Criteri di denominazione per i gruppi in Azure Active Directory
 
 In questa guida introduttiva si configurano criteri di denominazione nel tenant di Azure Active Directory (Azure AD) per i gruppi di Office 365 creati dall'utente, con lo scopo di ordinare i gruppi del tenant ed eseguire ricerche al loro interno. È possibile, ad esempio, usare i criteri di denominazione per:
 

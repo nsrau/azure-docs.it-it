@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Inserire dati usando la libreria di Esplora dati di Azure per Python'
+title: 'Avvio rapido: Inserire dati usando la libreria di Esplora dati di Azure per Python'
 description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure usando Python.
 author: orspod
 ms.author: orspodek
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046462"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Guida introduttiva: Inserire dati usando la libreria di Esplora dati di Azure per Python
+# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Avvio rapido: Inserire dati usando la libreria di Esplora dati di Azure per Python
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per Python: una [libreria di inserimento](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) e [una libreria di dati](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questa guida introduttiva, è innanzitutto necessario creare una tabella e il mapping dei dati in un cluster. Quindi viene accodato l'inserimento nel cluster e vengono convalidati i risultati.
 

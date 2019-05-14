@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e PHP"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST e PHP"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API Viso con PHP per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/11/2019
 ms.locfileid: "59490447"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e PHP
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e PHP
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con PHP per rilevare i visi umani in un'immagine.
 

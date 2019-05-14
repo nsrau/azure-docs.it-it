@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare video con l'SDK di Ricerca video Bing per Java"
+title: "Avvio rapido: Cercare video con l'SDK di Ricerca video Bing per Java"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca di video con l'SDK di Ricerca video Bing per Java.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58105710"
 ---
-# <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Guida introduttiva: Eseguire una ricerca di video con l'SDK di Ricerca video Bing per Java
+# <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Avvio rapido: Eseguire una ricerca di video con l'SDK di Ricerca video Bing per Java
 
 Usare questa guida introduttiva per iniziare a cercare notizie con l'SDK di Ricerca video Bing per Java. Mentre Ricerca video Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK offre un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio si trova in [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), che contiene altre annotazioni e funzionalità di Ricerca video Bing.
 

@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55975297"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Guida introduttiva: Creare una macchina virtuale Linux in Azure con PowerShell
+# <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Avvio rapido: Creare una macchina virtuale Linux in Azure con PowerShell
 
 Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script. Questa guida introduttiva illustra come usare il modulo Azure PowerShell per distribuire una macchina virtuale (VM) Linux in Azure. In questa guida introduttiva si usa l'immagine di Ubuntu 16.04 LTS di Canonical disponibile nel Marketplace. Per vedere in azione la macchina virtuale, viene stabilita anche una connessione SSH alla macchina virtuale e viene installato il server Web NGINX.
 

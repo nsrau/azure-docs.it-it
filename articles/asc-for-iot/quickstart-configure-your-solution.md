@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65200786"
 ---
-# <a name="quickstart-configure-your-iot-solution"></a>Guida introduttiva: Configurare la soluzione IoT
+# <a name="quickstart-configure-your-iot-solution"></a>Avvio rapido: Configurare la soluzione IoT
 
 > [!IMPORTANT]
 > Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.

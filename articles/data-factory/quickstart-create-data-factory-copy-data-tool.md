@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256261"
 ---
-# <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Guida introduttiva: Usare lo strumento Copia dati per copiare i dati
+# <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Avvio rapido: Usare lo strumento Copia dati per copiare i dati
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

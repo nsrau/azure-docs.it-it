@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 90e7abf229e0ee1ca396150fee0c1f0970d257aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 239633950e4672693e3684345749f9c46f01c037
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61372243"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605679"
 ---
 # <a name="create-a-qna-maker-service"></a>Creare un servizio QnA Maker
 
@@ -26,11 +26,7 @@ Prima di poter creare una Knowledge Base di QnA Maker, è necessario configurare
 
 Questa procedura consente di distribuire alcune risorse di Azure. Insieme, queste risorse gestiscono il contenuto della Knowledge Base e forniscono capacità di risposta alle domande attraverso un endpoint.
 
-1. Accedere al [portale di Azure](<https://portal.azure.com>).
-
-1. Selezionare **Aggiungi nuova risorsa**, digitare "qna maker" nella ricerca e selezionare la risorsa di QnA Maker
-
-    ![Creare un nuovo servizio QnA Maker - Aggiungere una nuova risorsa](../media/qnamaker-how-to-setup-service/create-new-resource.png)
+1. Accedere al portale di Azure e [creare un QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) risorsa.
 
 1. Selezionare **Create** dopo aver letto i termini e condizioni.
 
@@ -42,8 +38,9 @@ Questa procedura consente di distribuire alcune risorse di Azure. Insieme, quest
 
     * Specificare un **nome** univoco per identificare il servizio QnA Maker. Questo nome identifica anche l'endpoint QnA Maker a cui saranno associate le Knowledge Base.
     * Scegliere la **sottoscrizione** in cui verrà distribuita la risorsa QnA Maker.
-    * Selezionare il **piano tariffario** per i servizi di gestione di QnA Maker (portale e API di gestione). Vedere [qui](https://aka.ms/qnamaker-pricing) per informazioni dettagliate sui prezzi degli SKU.
+    * Selezionare il **tariffario** per i servizi di gestione di QnA Maker (portale e API di gestione). Vedere [qui](https://aka.ms/qnamaker-pricing) per informazioni dettagliate sui prezzi degli SKU.
     * Creare un nuovo **gruppo di risorse** (scelta consigliata) o usare un gruppo di risorse esistente in cui distribuire questa risorsa QnA Maker. QnA Maker crea diverse risorse di Azure; Quando si crea un gruppo di risorse per contenere queste risorse, è possibile trovare facilmente, gestire ed eliminare queste risorse per il nome del gruppo di risorse.
+    * Selezionare una **località del gruppo di risorse**.
     * Scegliere il **piano tariffario** per il servizio Ricerca di Azure. Se l'opzione Livello gratuito è disabilitata, nella sottoscrizione è già stato distribuito un livello gratuito per Ricerca di Azure. In tal caso è necessario iniziare con il livello Basic di Ricerca di Azure. Vedere [qui](https://azure.microsoft.com/pricing/details/search/) i dettagli dei prezzi di Ricerca di Azure.
     * Scegliere il **percorso di ricerca** per la distribuzione dei dati di Ricerca di Azure. Le limitazioni relative ai percorsi in cui devono essere archiviati i dati dei clienti determinano il percorso scelto per Ricerca di Azure.
     * Assegnare un nome al servizio app in **Nome app**.

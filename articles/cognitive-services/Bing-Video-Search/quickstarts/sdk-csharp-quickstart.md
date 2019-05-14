@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare video con l'SDK di Ricerca video Bing per C#"
+title: "Avvio rapido: Cercare video con l'SDK di Ricerca video Bing per C#"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca video con l'SDK di Ricerca video Bing per C#.
 services: cognitive-services

@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65152867"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Java Storage SDK V10
+# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con Java Storage SDK V10
 
 In questa guida introduttiva viene illustrato come usare il nuovo Java Storage SDK per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. Il nuovo Java SDK usa il modello di programmazione reattiva con RxJava, che offre operazioni asincrone. Altre informazioni sulle [estensioni reattive di RxJava per la macchina virtuale Java](https://github.com/ReactiveX/RxJava). 
 

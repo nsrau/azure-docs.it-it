@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/11/2019
 ms.locfileid: "59500210"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche
+# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Avvio rapido: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche
 
 In questa guida introduttiva si apprenderà come creare ed eseguire un simulatore di dispositivo in un computer di sviluppo Windows. Si configurerà il dispositivo simulato per usare una chiave simmetrica da autenticare con un'istanza del servizio Device Provisioning e da assegnare a un hub IoT. Si userà un codice di esempio da [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) per simulare una sequenza di avvio per il dispositivo che avvia il processo di provisioning. Il dispositivo verrà riconosciuto in base alla registrazione singola nell'istanza del servizio di provisioning e assegnato all'hub IoT.
 

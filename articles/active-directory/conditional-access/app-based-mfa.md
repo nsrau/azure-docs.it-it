@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895986"
 ---
-# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Guida introduttiva: Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory
+# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Avvio rapido: Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory
 
 Per semplificare l'esperienza di accesso degli utenti, è possibile consentire di accedere alle app cloud usando un nome utente e una password. Molti ambienti hanno tuttavia almeno alcune applicazioni per cui è consigliabile richiedere una forma più affidabile di verifica dell'account, ad esempio Multi-Factor Authentication (MFA), come nel caso dell'accesso al sistema di posta elettronica dell'organizzazione o alle app per la gestione delle risorse umane. In Azure Active Directory (Azure AD) è possibile raggiungere questo obiettivo con i criteri di accesso condizionale.
 

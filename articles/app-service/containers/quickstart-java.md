@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/09/2019
 ms.locfileid: "65510850"
 ---
-# <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Guida introduttiva: Creare un'app Java nel servizio app in Linux
+# <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Avvio rapido: Creare un'app Java nel servizio app in Linux
 
 Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questo Avvio rapido illustra come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con il [plug-in Maven per il Servizio app di Azure (anteprima)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) per distribuire un file di archivio Web Java (WAR).
 > [!NOTE]

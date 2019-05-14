@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST di Azure e cURL"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST di Azure e cURL"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API REST Viso di Azure con cURL per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/15/2019
 ms.locfileid: "56308929"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST Viso e cURL
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST Viso e cURL
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con cURL per rilevare i visi umani in un'immagine.
 

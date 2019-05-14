@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65149412"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Azure PowerShell
+# <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con Azure PowerShell
 
 Usare il modulo di Azure PowerShell per creare e gestire le risorse di Azure. Le risorse di Azure possono essere create e gestite tramite la riga di comando di PowerShell o mediante script. Questa guida descrive l'uso di PowerShell per trasferire file tra un disco locale e l'archivio BLOB di Azure.
 

@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58444711"
 ---
-# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Node.js per eseguire query su un database SQL di Azure
+# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Avvio rapido: Usare Node.js per eseguire query su un database SQL di Azure
 
 Questo articolo illustra come usare [Node.js](https://nodejs.org) per connettersi a un database SQL di Azure. È quindi possibile usare istruzioni T-SQL per eseguire query sui dati.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Cercare immagini - API REST Ricerca immagini Bing e Java'
+title: 'Avvio rapido: Cercare immagini - API REST Ricerca immagini Bing e Java'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste di ricerca di immagini all'API REST Ricerca immagini Bing usando Java e ricevere risposte JSON.
 services: cognitive-services
@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56238301"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>Guida introduttiva: Cercare immagini con l'API REST Ricerca immagini Bing e Java
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e Java
 
 Usare questa guida introduttiva per iniziare a inviare richieste di ricerca all'API Ricerca immagini Bing. Questa applicazione Java invia una query di ricerca all'API e visualizza l'URL della prima immagine inclusa nei risultati. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 

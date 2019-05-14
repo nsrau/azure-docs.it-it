@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Generare un'anteprima - REST, PHP"
+title: "Avvio rapido: Generare un'anteprima - REST, PHP"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva verrà generata l'anteprima di un'immagine usando l'API Visione artificiale con PHP.
 services: cognitive-services

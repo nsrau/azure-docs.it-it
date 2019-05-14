@@ -2,23 +2,24 @@
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/22/2019
 ms.author: sngun
-ms.openlocfilehash: e07a59ba0484910d87329be94f0fcc58b1011b95
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b940d7308648a3a55ed031d7d57542f3b31e9f27
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572302"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546673"
 ---
-La velocità effettiva, lo spazio di archiviazione, la disponibilità, la latenza e la coerenza delle risorse nell'account vengono monitorati nel portale di Azure. Di seguito vengono illustrate brevemente queste metriche. 
+Il portale di Azure consente di monitorare la velocità effettiva, lo spazio di archiviazione, la disponibilità, la latenza e la coerenza dell'account Cosmos DB. I grafici per le metriche associate a un [contratto di servizio di Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) indicano il valore previsto dal contratto di servizio rispetto alle prestazioni effettive. Questo gruppo di metriche garantisce la trasparenza nel monitoraggio dei contratti di servizio.
 
-1. Fare clic su **Metriche** nel menu di spostamento.
+Per esaminare le metriche e i contratti di servizio: 
 
-   ![Metriche nel portale di Azure](./media/cosmos-db-tutorial-review-slas/metrics.png)
-
-2. Fare clic su ogni scheda per conoscere le metriche offerte da Azure Cosmos DB. 
-
-    Ogni grafico associato ai [contratti di servizio per Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) contiene una linea che indica le eventuali violazioni dei contratti di servizio. Con questo gruppo di metriche, Azure Cosmos DB garantisce trasparenza nel monitoraggio dei contratti di servizio. 
-
+1. Selezionare **Metriche** nel menu di spostamento dell'account Cosmos DB.
+   
+2. Selezionare una scheda, ad esempio **Latenza**, e quindi un intervallo di tempo sulla destra. Confrontare le righe relative ai valori **effettivi** e ai valori del **contratto di servizio** nei grafici.
+   
    ![Gruppo di metriche di Azure Cosmos DB](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)
+   
+3. Esaminare le metriche nelle altre schede. 
+

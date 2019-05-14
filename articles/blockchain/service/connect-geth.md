@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65029979"
 ---
-# <a name="quickstart-use-geth-to-connect-to-a-transaction-node"></a>Guida introduttiva: Usare Geth per connettersi a un nodo della transazione
+# <a name="quickstart-use-geth-to-connect-to-a-transaction-node"></a>Avvio rapido: Usare Geth per connettersi a un nodo della transazione
 
 Geth è un client Go Ethereum che è possibile usare per connettersi a un'istanza di Geth in un nodo della transazione del servizio Azure Blockchain.
 

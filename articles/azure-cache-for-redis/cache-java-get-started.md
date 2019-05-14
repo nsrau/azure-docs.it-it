@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56237767"
 ---
-# <a name="quickstart-how-to-use-azure-cache-for-redis-with-java"></a>Guida introduttiva: Come usare Cache Redis di Azure con Java
+# <a name="quickstart-how-to-use-azure-cache-for-redis-with-java"></a>Avvio rapido: Come usare Cache Redis di Azure con Java
 
 
 Cache Redis di Azure consente di accedere a un'istanza di Cache Redis di Azure dedicata, gestita da Microsoft. È possibile accedere alla cache da qualsiasi applicazione in Microsoft Azure.

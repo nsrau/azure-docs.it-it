@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051547"
 ---
-# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Guida introduttiva: Distribuire contenitori Windows in Service Fabric
+# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Avvio rapido: Distribuire contenitori Windows in Service Fabric
 
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili.
 

@@ -59,6 +59,8 @@
     - name: Tipi e dimensioni di VM
       href: sizes.md
       items:
+        - name: Macchine virtuali di seconda generazione
+          href: generation-2.md
         - name: Scopo generico
           href: sizes-general.md
           displayName: Dsv3 Dv3 DSv2 Dv2 Av2

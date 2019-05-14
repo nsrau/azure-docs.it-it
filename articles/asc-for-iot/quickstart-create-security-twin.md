@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65200726"
 ---
-# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Guida introduttiva: Creare un modulo gemello azureiotsecurity
+# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Avvio rapido: Creare un modulo gemello azureiotsecurity
 
 > [!IMPORTANT]
 > Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

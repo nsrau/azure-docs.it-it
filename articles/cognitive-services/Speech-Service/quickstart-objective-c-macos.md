@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65020748"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in Objective-C in macOS con Speech SDK
+# <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Objective-C in macOS con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

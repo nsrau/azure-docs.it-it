@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'istanza di server singolo Database di Azure per PostgreSQL con un comando dell'interfaccia della riga di comando di Azure az postgres up"
+title: "Avvio rapido: Creare un'istanza di server singolo Database di Azure per PostgreSQL con un comando dell'interfaccia della riga di comando di Azure az postgres up"
 description: Guida di avvio rapido per creare un server singolo Database di Azure per PostgreSQL con un comando dell'interfaccia della riga di comando di Azure.
 author: rachel-msft
 ms.author: raagyema
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65069083"
 ---
-# <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Guida introduttiva: Usare un comando dell'interfaccia della riga di comando di Azure, az postgres up (anteprima), per creare un'istanza di server singolo Database di Azure per PostgreSQL
+# <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare un comando dell'interfaccia della riga di comando di Azure, az postgres up (anteprima), per creare un'istanza di server singolo Database di Azure per PostgreSQL
 
 > [!IMPORTANT]
 > Il comando [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) dell'interfaccia della riga di comando di Azure è disponibile in anteprima.

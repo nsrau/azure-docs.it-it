@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database senza server (anteprima) | Microsoft Docs
-description: Questo articolo descrive il nuovo livello di calcolo senza server e lo confronta con il livello di calcolo sottoposte a provisioning esistenti
+title: Database SQL di Azure serverless (anteprima) | Microsoft Docs
+description: Questo articolo descrive il nuovo livello di calcolo serverless e lo confronta con il livello di calcolo con provisioning esistente
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -11,157 +11,156 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/07/2019
-ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.date: 05/11/2019
+ms.openlocfilehash: ba79e2b9552f0c27ac11501b2b125a126e40eb1d
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235747"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551631"
 ---
-# <a name="sql-database-serverless-preview"></a>Senza server Database SQL (anteprima)
+# <a name="sql-database-serverless-preview"></a>Database SQL serverless (anteprima)
 
-## <a name="what-is-the-serverless-compute-tier"></a>Che cos'è il livello di calcolo senza server
+## <a name="what-is-the-serverless-compute-tier"></a>Informazioni sul livello di calcolo serverless
 
-Database SQL senza server (anteprima) è un livello di calcolo che distinte per la quantità di calcolo usata da un database singolo in base al secondo. Un'infrastruttura senza server è ottimizzata per database singoli con i modelli di utilizzo bursty in grado di affrontare un ritardo nella fase di riscaldamento di calcolo dopo i periodi di inattività utilizzo prezzo-prestazioni.
-Al contrario, le offerte disponibili pubblicamente nella fattura di oggi, Database SQL per la quantità di calcolano sottoposte a provisioning su base oraria. Questo livello di calcolo sottoposte a provisioning è ottimizzata per i database singoli o elastici prezzo-prestazioni pool con un utilizzo medio più elevato che non può permettersi eventuali ritardi nella fase di riscaldamento di calcolo.
+Database SQL serverless (anteprima) è un livello di calcolo che addebita le risorse di calcolo usate da un database singolo in base al numero di secondi. Il modello serverless è caratterizzato da un rapporto qualità-prezzo ottimizzato per database singoli con modelli di utilizzo intermittenti e imprevedibili che possono permettersi qualche ritardo all'avvio del calcolo dopo periodi di inattività.
 
-Un database nel livello di computer senza server con i parametri di un ritardo autopause e l'intervallo di calcolo che può usare.
+Per definire i parametri di un database nel livello di calcolo serverless, si considerano l'intervallo di calcolo utilizzabile e un ritardo di sospensione automatica.
 
-![fatturazione senza server](./media/sql-database-serverless/serverless-billing.png)
+![Fatturazione serverless](./media/sql-database-serverless/serverless-billing.png)
 
 ### <a name="performance"></a>Prestazioni
 
-- `MinVcore` e `MaxVcore` configurabile di parametri che definiscono l'intervallo di capacità di calcolo disponibili per il database. Limiti di memoria e IO sono proporzionali all'intervallo vCore specificato.  
-- Il ritardo autopause è un parametro configurabile che definisce il periodo di tempo che il database deve essere inattivo prima che verrà automaticamente messo in pausa. Il database viene ripresa automaticamente quando si verifica all'accesso successivo.
+- `MinVcore` e `MaxVcore` sono i parametri configurabili che definiscono l'intervallo della capacità di calcolo disponibile per il database. I limiti di memoria e I/O sono proporzionali all'intervallo vCore specificato.  
+- Il ritardo di sospensione automatica è un parametro configurabile che definisce il periodo di tempo in cui il database deve rimanere inattivo prima che venga messo in pausa automaticamente. Il database viene ripristinato automaticamente in seguito all'accesso successivo.
 
 ### <a name="pricing"></a>Prezzi
 
-- Il costo totale addebitato per un database senza server è la somma della fattura per l'archiviazione e calcolo distinta.
-La fatturazione per il calcolo è basata sulla quantità di Vcore usata e memoria utilizzate al secondo.
-- Le risorse di calcolo minimo fatturata dipende dal numero minimo di Vcore e memoria minima.
-- Mentre il database è sospeso, viene fatturato solo l'archiviazione.
+- Il totale della fattura relativa a un database serverless corrisponde alla somma della fattura per le risorse di calcolo e della fattura per le risorse di archiviazione.
+La fatturazione per le risorse di calcolo si basa sulla quantità di vCore usati e sulla memoria usata al secondo.
+- Il numero minimo di risorse di calcolo fatturate si basa sul numero minimo di vCore e sulla quantità minima di memoria.
+- Durante la sospensione del database vengono addebitate solo le risorse di archiviazione.
 
 ## <a name="scenarios"></a>Scenari
 
-Un'infrastruttura senza server è rapporto prezzo-prestazioni ottimizzata per database singoli con i modelli di utilizzo bursty in grado di affrontare un ritardo nella fase di riscaldamento di calcolo dopo i periodi di inattività di utilizzo. Il livello di calcolo sottoposte a provisioning è rapporto prezzo-prestazioni ottimizzata per un database singolo o in pool con un utilizzo medio più elevato che non può permettersi eventuali ritardi nella fase di riscaldamento di calcolo.
+Il modello serverless è caratterizzato da un rapporto qualità-prezzo ottimizzato per database singoli con modelli di utilizzo intermittenti e imprevedibili che possono permettersi qualche ritardo all'avvio del calcolo dopo periodi di inattività. Al contrario, il livello di calcolo con provisioning è caratterizzato da un rapporto prezzo-prestazioni ottimizzato per database singoli o in pool con un utilizzo medio più elevato che non possono permettersi eventuali ritardi nella fase di avvio del calcolo.
 
-La tabella seguente confronta il livello di calcolo senza server con il livello di calcolo sottoposte a provisioning:
+### <a name="scenarios-well-suited-for-serverless-compute"></a>Scenari particolarmente adatti per il calcolo serverless
 
-||Elaborazione serverless|Calcolo con provisioning|
-|---|---|---|
-|**Scenario di utilizzo tipico**|I database con utilizzo imprevedibile, bursty frammisto con periodi di inattività|Database o pool elastici con utilizzo più regolare|
-|**Impegno di gestione delle prestazioni**|inferiore|Superiore|
-|**Scala di calcolo**|Automatico|Manuale|
-|**Calcolare la velocità di risposta**|Dopo periodi di inattività inferiore|Immediato|
-|**Granularità di fatturazione**|al secondo|All'ora|
-|
+- Database singoli con modelli di utilizzo intermittente e imprevedibile, intervallati da periodi di inattività, che possono trarre vantaggio dalla fatturazione al secondo e basata sulla quantità di risorse di calcolo usate.
+- Database singoli in cui la richiesta di risorse è difficile da prevedere e clienti che preferiscono delegare al servizio il ridimensionamento delle risorse di calcolo.
+- Database singoli nel livello di elaborazione con provisioning che cambiano spesso livello di prestazioni.
 
-### <a name="scenarios-well-suited-for-serverless-compute"></a>Scenari particolarmente adatti per il calcolo senza server
+### <a name="scenarios-well-suited-for-provisioned-compute"></a>Scenari particolarmente adatti per il calcolo con provisioning
 
-- I database singoli con modelli di utilizzo bursty intercalati periodi di inattività possono trarre vantaggio da risparmi prezzo basati sulla fatturazione al secondo per la quantità di calcolo usato.
-- Database singoli con richiesta di risorse che è difficile da prevedere e i clienti che preferiscono per delegare il ridimensionamento di calcolo per il servizio.
-- Singoli database nel livello di calcolo sottoposte a provisioning che sono di frequente modificano i livelli di prestazioni.
+- Database singoli con un utilizzo delle risorse di calcolo più regolare e costante nel tempo.
+- Database che non possono tollerare compromessi delle prestazioni dovuti a blocchi di memoria più frequenti o ritardi nella ripresa automatica da uno stato di sospensione.
+- Più database con modelli di utilizzo intermittenti e imprevedibili che possono essere consolidati in un unico server e usano pool elastici per una migliore ottimizzazione dei prezzi.
 
-### <a name="scenarios-well-suited-for-provisioned-compute"></a>Scenari particolarmente adatti per il calcolo sottoposte a provisioning
+## <a name="comparison-with-provisioned-compute-tier"></a>Confronto con il livello di calcolo con provisioning
 
-- I database singoli con altre regolari e più sostanziali utilizzo nel corso del tempo di calcolo.
-- I database che non possono tollerare prestazioni svantaggi derivanti da più frequenti memoria trimming o ritardo in autoresuming dallo stato di sospensione.
-- Più database con modelli di utilizzo bursty che possono essere consolidati in un singolo server e usano i pool elastici per una migliore ottimizzazione dei prezzi.
+La tabella seguente riepiloga le differenze tra il livello di calcolo serverless e il livello di calcolo con provisioning:
 
+| | **Calcolo serverless** | **Calcolo con provisioning** |
+|:---|:---|:---|
+|**Scenario di utilizzo tipico**| Database con utilizzo intermittente e imprevedibile, intervallato da periodo di inattività. | Database o pool elastici caratterizzati da un utilizzo più regolare.|
+| **Impegno per la gestione delle prestazioni** |Minore|Maggiore|
+|**Ridimensionamento delle risorse di calcolo**|Automatico|Manuale|
+|**Tempo di risposta per le risorse di calcolo**|Inferiore dopo periodi di inattività|Immediato|
+|**Granularità della fatturazione**|Al secondo|All'ora|
 
-## <a name="purchasing-model-and-service-tier"></a>Livello di servizio e di modello di acquisto
+## <a name="purchasing-model-and-service-tier"></a>Modello di acquisto e livello di servizio
 
-Il Database SQL senza server è attualmente supportata solo nel livello su hardware di generazione 5 nel modello di acquisto di Vcore per utilizzo generico.
+Il database SQL serverless è attualmente supportato solo nel livello per utilizzo generico su hardware di quinta generazione nel modello di acquisto vCore.
 
-## <a name="autoscaling"></a>Ridimensionamento automatico
+## <a name="autoscaling"></a>Scalabilità automatica
 
-### <a name="scaling-responsiveness"></a>Ridimensionamento della velocità di risposta
+### <a name="scaling-responsiveness"></a>Tempo di risposta per il ridimensionamento
 
-In generale, i database vengono eseguiti in un computer con una capacità sufficiente per soddisfare la domanda di risorse senza interruzioni di qualsiasi quantità di calcolo richiesta entro i limiti impostati il `maxVcores` valore. In alcuni casi, il bilanciamento del carico automaticamente si verifica se la macchina non riesce a soddisfare la richiesta di risorse in pochi minuti. Il database rimane online durante il caricamento del bilanciamento del carico, ad eccezione di un breve periodo alla fine dell'operazione quando le connessioni vengono rimosse.
+In generale, i database vengono eseguiti in un computer con capacità sufficiente a soddisfare la richiesta di risorse senza interruzioni per qualsiasi quantità di risorse di calcolo richiesta entro i limiti fissati dal valore `maxVcores`. Di tanto in tanto, viene eseguito automaticamente il bilanciamento del carico se il computer non è in grado di soddisfare la richiesta di risorse entro pochi minuti. Durante il bilanciamento del carico il database rimane online ad eccezione di un breve periodo al termine dell'operazione, quando vengono rilasciate le connessioni.
 
 ### <a name="memory-management"></a>Gestione della memoria
 
-Memoria per i database senza server viene recuperata più spesso rispetto ad un database con provisioning. Questo comportamento è importante per controllare i costi in senza server. A differenza delle risorse di calcolo sottoposte a provisioning, della memoria dalla cache del SQL viene recuperata da un database senza server quando l'utilizzo della CPU o della cache è bassa.
+La memoria per i database serverless viene recuperata con maggiore frequenza rispetto ai database con provisioning. Questo comportamento è importante per controllare i costi nei database serverless. A differenza delle risorse di calcolo con provisioning, la memoria della cache SQL viene recuperata da un database serverless quando l'utilizzo della CPU o della cache è basso.
 
-## <a name="autopause-and-autoresume"></a>Autopause e autoresume
+## <a name="autopause-and-autoresume"></a>Sospensione automatica e ripresa automatica
 
-### <a name="autopause"></a>Autopause
+### <a name="autopause"></a>Sospensione automatica
 
-Autopause viene attivato se tutte le condizioni seguenti sono true per la durata del ritardo autopause:
+La sospensione automatica viene attivata in presenza di tutte le condizioni seguenti per la durata del ritardo di sospensione automatica:
 
-- Numero sessioni = 0
-- CPU = 0 (per utente del carico di lavoro in esecuzione nel pool di utenti)
+- Numero di sessioni = 0
+- CPU = 0 (per il carico di lavoro utente in esecuzione nel pool di utenti)
 
-È disponibile un'opzione per disabilitare autopause se lo si desidera.
+Se si desidera, è disponibile un'opzione per disabilitare la sospensione automatica.
 
-### <a name="autoresume"></a>Autoresume
+### <a name="autoresume"></a>Ripresa automatica
 
-Autoresume viene attivato se una delle condizioni seguenti è vera in qualsiasi momento:
+La ripresa automatica viene attivata in presenza di una qualsiasi delle condizioni seguenti in un qualsiasi momento:
 
-|Funzionalità|Trigger Autoresume|
+|Funzionalità|Trigger di ripresa automatica|
 |---|---|
-|Autenticazione e autorizzazione|Accedi|
-|Rilevamento delle minacce|Abilitazione/disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o server<br>Modifica le impostazioni di rilevamento delle minacce a livello di database o server|
-|Individuazione e classificazione dei dati|Aggiunta, modifica, l'eliminazione o la visualizzazione delle etichette di riservatezza|
-|Controllo|Visualizzazione di record di controllo.<br>L'aggiornamento o la visualizzazione di criteri di controllo|
-|Maschera dati|Aggiunta, modifica, eliminazione o visualizzando le regole di maschera dati|
-|Transparent Data Encryption|Vista stato o stato di transparent data encryption|
-|Archivio dati query (prestazioni)|Modifica o la visualizzazione di impostazioni di archivio query. l'ottimizzazione automatica|
-|AutoTuning|Verifica delle raccomandazioni autotuning, ad esempio l'indicizzazione automatica e applicazione|
-|Copia del database|Creare database come copia<br>Esportare in un file BACPAC|
-|Sincronizzazione dati SQL|Sincronizzazione tra database hub e member eseguiti su una pianificazione configurabile o vengono eseguiti manualmente|
-|Modifica di alcuni metadati del database|Aggiunta di nuovi tag di database<br>Modifica numero massimo di Vcore, numero minimo di Vcore, ritardo autopause|
-|SQL Server Management Studio (SSMS)|Usando SSMS versione 18 e aprendo una nuova finestra di query per tutti i database nel server verranno ripresi qualsiasi database sospesa automaticamente nello stesso server. Questo comportamento non viene eseguito se tramite SSMS versione 17.9.1 con IntelliSense disattivate.|
+|Autenticazione e autorizzazione|Accesso|
+|Rilevamento delle minacce|Abilitazione/disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o server<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o server|
+|Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
+|Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione di criteri di controllo|
+|Maschera dati|Aggiunta, modifica, eliminazione o visualizzazione delle regole di maschera dati|
+|Transparent Data Encryption|Visualizzazione dello stato di Transparent Data Encryption|
+|Esecuzione di query sulle prestazioni dell'archivio dati|Modifica o visualizzazione delle impostazioni dell'archivio dati; ottimizzazione automatica|
+|Ottimizzazione automatica|Applicazione e verifica delle indicazioni di ottimizzazione automatica, ad esempio l'indicizzazione automatica|
+|Copia del database|Creazione del database come copia<br>Esportazione in un file BACPAC|
+|Sincronizzazione dati SQL|Sincronizzazione tra database hub e membro che viene eseguita secondo un calendario configurabile o manualmente|
+|Modifica di alcuni metadati del database|Aggiunta di nuovi tag del database<br>Modifica del numero massimo e minimo di vCore e del ritardo di sospensione automatica|
+|SQL Server Management Studio (SSMS)|Se si usa SSMS versione 18 e si apre una nuova finestra di query per un qualsiasi database nel server verranno ripresi tutti i database sospesi automaticamente nello stesso server. Questo comportamento non si verifica se si usa SSMS versione 17.9.1 con la funzionalità IntelliSense disattivata.|
 
 ### <a name="connectivity"></a>Connettività
 
-Se un database senza server è in pausa, il primo accesso riprendere il database e restituire un errore indicante che il database non è disponibile. Una volta che viene ripreso il database, l'account di accesso deve essere riprovata per stabilire la connettività. I client del database con la logica di ripetizione dei tentativi di connessione non è necessario essere modificato.
+Se un database serverless è in pausa, verrà ripreso al primo accesso. Verrà inoltre restituito un errore con codice 40613 che indica che il database non è disponibile. Dopo la ripresa del database è necessario ripetere l'accesso per stabilire la connettività. I client del database con la logica di ripetizione dei tentativi di connessione non devono essere modificati.
 
 ### <a name="latency"></a>Latenza
 
-La latenza autopause o autoresume un database senza server è in genere nell'ordine 1 minuto.
+La latenza per la sospensione o la ripresa automatica di un database serverless è in genere nell'ordine di 1 minuto.
 
 ### <a name="feature-support"></a>Supporto delle funzionalità
 
-Le funzionalità seguenti non supportano autopausing e autoresuming. Vale a dire, se si usano le funzionalità seguenti, il database rimane online indipendentemente dal periodo di inattività del database:
+Le funzionalità seguenti non supportano la sospensione e la ripresa automatica. Se quindi si usa una delle funzionalità seguenti, il database rimane online indipendentemente dall'intervallo di inattività:
 
-- Replica geografica (attiva la replica geografica e automaticamente gruppi di failover)
-- Conservazione backup a lungo termine (conservazione a lungo termine)
-- Il database di sincronizzazione usato nella sincronizzazione dati SQL.
+- Replica geografica (replica geografica attiva e gruppi di failover automatico)
+- Conservazione a lungo termine del backup
+- Database di sincronizzazione usato nella sincronizzazione dati SQL.
 
 
-## <a name="on-boarding-into-the-serverless-compute-tier"></a>Onboarding nel livello di calcolo senza server
+## <a name="on-boarding-into-the-serverless-compute-tier"></a>Onboarding nel livello di calcolo serverless
 
-Crea un nuovo database o lo spostamento di che un database esistente a un livello di calcolo senza server segue lo stesso modello come creare un nuovo database in stato effettuato il provisioning a livello di calcolo e prevede i due passaggi seguenti:
+La procedura di creazione di un nuovo database o di spostamento di un database esistente in un livello di calcolo serverless è analoga a quella di creazione di un nuovo database nel livello di calcolo con provisioning e prevede i due passaggi seguenti:
 
-1. Specificare il nome obiettivo del servizio. Nella tabella seguente mostra il livello di servizio disponibile e le dimensioni di calcolo attualmente disponibili in anteprima pubblica.
+1. Specificare il nome dell'obiettivo di servizio. L'obiettivo di servizio descrive il livello di servizio, la generazione dell'hardware e il numero massimo di vCore. La tabella seguente mostra le opzioni relative all'obiettivo di servizio:
 
-   |Livello di servizio|Dimensioni di calcolo|
-   |---|---|
-   |Utilizzo generico|GP_S_Gen5_1|
-   |Utilizzo generico|GP_S_Gen5_2|
-   |Utilizzo generico|GP_S_Gen5_4|
-
-2. Facoltativamente, specificare il ritardo minimo di Vcore e autopause per modificare i valori predefiniti. Nella tabella seguente mostra i valori disponibili per questi parametri.
-
-   |Parametro|Scelte di valore|Valore predefinito|
+   |Nome dell'obiettivo di servizio|Livello di servizio|Generazione dell'hardware|Numero massimo di vCore|
    |---|---|---|---|
-   |Numero minimo di vCore|Uno qualsiasi dei {0.5, 1, 2, 4} che non superano numero massimo di Vcore|0,5 Vcore|
-   |Autopause ritardo|Min: 360 minuti (6 ore)<br>Max: 10080 minuti (7 giorni)<br>Incrementi: 60 minuti<br>Disabilitare autopause: -1|360 minuti|
+   |GP_S_Gen5_1|Utilizzo generico|Quinta generazione|1|
+   |GP_S_Gen5_2|Utilizzo generico|Quinta generazione|2|
+   |GP_S_Gen5_4|Utilizzo generico|Quinta generazione|4|
+
+2. Facoltativamente, specificare il numero minimo di vCore e il ritardo di sospensione automatica per modificarne i valori predefiniti. La tabella seguente illustra i valori disponibili per questi parametri.
+
+   |Parametro|Valori disponibili|Valore predefinito|
+   |---|---|---|---|
+   |Numero minimo di vCore|Uno qualsiasi tra {0,5, 1, 2, 4} purché non superi il numero massimo di vCore|0,5 vCore|
+   |Ritardo di sospensione automatica|Min: 360 minuti (6 ore)<br>Max: 10080 minuti (7 giorni)<br>Incrementi: 60 minuti<br>Disabilita la sospensione automatica: -1|360 minuti|
 
 > [!NOTE]
-> Usando T-SQL per spostare un database esistente in senza server o modificarne le dimensioni di calcolo non è attualmente supportata, ma può essere eseguita tramite il portale di Azure o PowerShell.
+> L'uso di T-SQL per spostare un database esistente in un database serverless o modificarne le dimensioni di calcolo non è attualmente supportato, ma è possibile effettuare queste operazioni tramite il portale di Azure o PowerShell.
 
-### <a name="create-new-database-using-the-azure-portal"></a>Crea nuovo database usando il portale di Azure
+### <a name="create-new-database-using-the-azure-portal"></a>Creare il nuovo database con il portale di Azure
 
-Vedere [Avvio rapido: Creare un singolo database nel Database SQL di Azure usando il portale di Azure](sql-database-single-database-get-started.md).
+Vedere [Avvio rapido: Creare un database singolo nel database SQL di Azure usando il portale di Azure](sql-database-single-database-get-started.md).
 
-### <a name="create-new-database-using-powershell"></a>Crea nuovo database con PowerShell
+### <a name="create-new-database-using-powershell"></a>Creare il nuovo database con PowerShell
 
-L'esempio seguente crea un nuovo database nel livello di calcolo senza server definito dall'obiettivo di servizio denominato GP_S_Gen5_4 con i valori predefiniti per l'intervallo minimo di Vcore e autopause.
+Nell'esempio seguente viene creato un nuovo database nel livello di calcolo serverless definito dall'obiettivo di servizio denominato GP_S_Gen5_4 con i valori predefiniti per il numero minimo di vCore e il ritardo di sospensione automatica.
 
-Un'infrastruttura senza server richiede una versione più recente di PowerShell che è attualmente nella raccolta, quindi eseguire `Update-Module Az.Sql` per ottenere i cmdlet più recenti senza server abilitata.
+Con il livello serverless è richiesta una versione di PowerShell più recente rispetto a quella attualmente presente nella raccolta, di conseguenza eseguire `Update-Module Az.Sql` per ottenere i cmdlet più recenti abilitati per il livello serverless.
 
 ```powershell
 New-AzSqlDatabase `
@@ -176,9 +175,9 @@ New-AzSqlDatabase `
   -AutoPauseDelay 720
 ```
 
-### <a name="move-existing-database-into-the-serverless-compute-tier"></a>Spostare database esistente al livello di calcolo senza server
+### <a name="move-existing-database-into-the-serverless-compute-tier"></a>Spostare il database esistente nel livello di calcolo serverless
 
-L'esempio seguente sposta un database singolo esistente dal livello di calcolo sottoposte a provisioning nel livello di calcolo senza server. Questo esempio Usa i valori predefiniti per il numero minimo di Vcore, numero massimo di Vcore e autopause ritardo.
+Nell'esempio seguente un database singolo esistente viene spostato dal livello di calcolo con provisioning al livello di calcolo serverless. In questo esempio vengono specificati in modo esplicito il numero minimo e massimo di vCore e il ritardo di sospensione automatica.
 
 ```powershell
 Set-AzSqlDatabase
@@ -193,60 +192,60 @@ Set-AzSqlDatabase
   -AutoPauseDelay 1440
 ```
 
-### <a name="move-a-database-out-of-the-serverless-compute-tier"></a>Spostare un database all'esterno del livello di calcolo senza server
+### <a name="move-a-database-out-of-the-serverless-compute-tier"></a>Spostare un database dal livello di calcolo serverless
 
-Un database senza server può essere spostato in un livello di calcolo sottoposte a provisioning nello stesso modo lo spostamento di un database di calcolo sottoposte a provisioning a un livello di calcolo senza server.
+La procedura per spostare un database serverless in un livello di calcolo con provisioning è analoga a quella per spostare un database di calcolo con provisioning in un livello di calcolo serverless.
 
-## <a name="modify-serverless-configuration-parameters"></a>Modificare i parametri di configurazione senza server
+## <a name="modify-serverless-configuration-parameters"></a>Modificare i parametri di configurazione serverless
 
 ### <a name="maximum-vcores"></a>Numero massimo di vCore
 
-Modifica il numero massimo di Vcore viene eseguita usando il [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando in PowerShell usando il `MaxVcore` argomento.
+Per modificare il numero massimo di vCore, si usa il comando [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) in PowerShell con l'argomento `MaxVcore`.
 
 ### <a name="minimum-vcores"></a>Numero minimo di vCore
 
-Modifica il numero massimo di Vcore viene eseguita usando il [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando in PowerShell usando il `MinVcore` argomento.
+Per modificare il numero massimo di vCore, si usa il comando [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) in PowerShell con l'argomento `MinVcore`.
 
-### <a name="autopause-delay"></a>Autopause ritardo
+### <a name="autopause-delay"></a>Ritardo di sospensione automatica
 
-Modifica il numero massimo di Vcore viene eseguita usando il [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando in PowerShell usando il `AutoPauseDelay` argomento.
+Per modificare il numero massimo di vCore, si usa il comando [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) in PowerShell con l'argomento `AutoPauseDelay`.
 
-## <a name="monitor-serverless-database"></a>Database senza server di monitoraggio
+## <a name="monitor-serverless-database"></a>Monitorare il database serverless
 
-### <a name="resources-used-and-billed"></a>Risorse utilizzate e fatturato
+### <a name="resources-used-and-billed"></a>Risorse usate e fatturate
 
-Le risorse di un database senza server sono incapsulate dalle entità seguenti:
+Le risorse di un database serverless sono incapsulate dalle entità seguenti:
 
-#### <a name="app-package"></a>Pacchetto dell'App
+#### <a name="app-package"></a>Pacchetto dell'app
 
-Il pacchetto dell'app è il limite di gestione risorse la maggior parte delle esterno per un database, indipendentemente dal fatto che il database è in un livello di calcolo senza server o con provisioning. Il pacchetto dell'app contiene l'istanza SQL e servizi esterni quell'ambito insieme tutte le risorse di sistema e utente usate da un database nel Database SQL. R e ricerca full-text sono esempi di servizi esterni. L'istanza di SQL in genere domina l'utilizzo delle risorse complessiva tra il pacchetto dell'app.
+Il pacchetto app è il limite più esterno di gestione delle risorse per un database, indipendentemente dal fatto che il database si trovi in un livello di calcolo serverless o con provisioning. Il pacchetto dell'app contiene i servizi esterni e l'istanza di SQL che definiscono congiuntamente l'ambito di tutte le risorse utente e di sistema usate da un database nel database SQL. R e la ricerca full-text sono esempi di servizi esterni. L'istanza di SQL è in genere la voce più onerosa nell'utilizzo complessivo delle risorse nel pacchetto dell'app.
 
 #### <a name="user-resource-pool"></a>Pool di risorse utente
 
-Il pool di risorse utente è interna la maggior parte dei limiti di gestione risorse per un database, indipendentemente dal fatto che il database è in un livello di calcolo senza server o con provisioning. Il pool di risorse utente definisce l'ambito della CPU e IO per carico di lavoro utente generato dalle query DDL (ad esempio, CREATE, ALTER, e così via) e le query DML (ad esempio, SELECT, INSERT, UPDATE, DELETE, ecc.). Queste query rappresentano in genere l'elemento più sostanziale dell'utilizzo all'interno del pacchetto dell'app.
+Il pool di risorse utente è il limite più interno di gestione delle risorse per un database, indipendentemente dal fatto che il database si trovi in un livello di calcolo serverless o con provisioning. Il pool di risorse utente definisce l'ambito della CPU e dell'I/O per il carico di lavoro utente generato da query DDL (ad esempio CREATE, ALTER e così via) e query DML (ad esempio SELECT, INSERT, UPDATE, DELETE e così via). Queste domande rappresentano in genere la percentuale più consistente di utilizzo all'interno del pacchetto dell'app.
 
 ### <a name="metrics"></a>Metriche
 
 |Entità|Metrica|Descrizione|Unità|
 |---|---|---|---|
-|Pacchetto dell'App|app_cpu_percent|Percentuale del numero di Vcore usata dall'app rispetto al numero massimo di Vcore consentito per l'app.|Percentuale|
-|Pacchetto dell'App|app_cpu_billed|La quantità di calcolo fatturato per l'app durante il periodo di report. L'importo pagato durante questo periodo è il prodotto di questa metrica e il prezzo unitario di vCore.<br>Valori della metrica sono determinati da aggregare nel tempo il numero massimo di CPU usato e memoria utilizzati ogni secondo.<br>Se la quantità utilizzata è inferiore alla quantità minima effettuato il provisioning come set per il numero minimo di Vcore e memoria minima, viene fatturata la quantità minima di provisioning.  Per poter confrontare CPU con la memoria per la fatturazione, memoria verrà normalizzata in unità di Vcore ridimensionando la quantità di memoria in GB da 3 GB per ogni vCore.|vCore secondi|
-|Pacchetto dell'App|app_memory_percent|Percentuale di memoria usata dall'app rispetto alla quantità massima di memoria consentita per l'app.|Percentuale|
-|Pool di utenti|cpu_percent|Percentuale di Vcore utilizzato dal carico di lavoro utente rispetto al numero massimo di Vcore consentito per il carico di lavoro utente.|Percentuale|
-|Pool di utenti|data_IO_percent|Percentuale di dati utilizzato dal carico di lavoro utente rispetto ai dati max operazioni IOPS di IOPS consentito per il carico di lavoro utente.|Percentuale|
-|Pool di utenti|log_IO_percent|Percentuale di log usati dal carico di lavoro utente rispetto al log massima MB/s MB/s consentiti per carico di lavoro utente.|Percentuale|
-|Pool di utenti|workers_percent|Percentuale di lavori utilizzati dal carico di lavoro utente rispetto al thread di lavoro massimo consentito per il carico di lavoro utente.|Percentuale|
-|Pool di utenti|sessions_percent|Percentuale di sessioni utilizzato dal carico di lavoro utente rispetto al numero massimo di sessioni consentite per carico di lavoro utente.|Percentuale|
+|Pacchetto dell'app|app_cpu_percent|Percentuale del numero di vCore usati dall'app rispetto al numero massimo di vCore consentito per l'app.|Percentuale|
+|Pacchetto dell'app|app_cpu_billed|Quantità di risorse di calcolo fatturata per l'app durante il periodo di riferimento. L'importo pagato durante questo periodo è dato dal prodotto di questa metrica per il prezzo unitario dei vCore. <br><br>I valori di questa metrica sono determinati dall'aggregazione nel tempo del numero massimo di CPU usate e dalla memoria usata al secondo. Se la quantità usata è inferiore a quella minima di cui è stato effettuato il provisioning in base al valore impostato per il numero minimo di vCore e la quantità minima di memoria, viene fatturata la quantità minima di cui è stato effettuato il provisioning. Per confrontare la quantità di CPU e di memoria ai fini della fatturazione, la memoria viene normalizzata in unità di vCore ridimensionando la quantità di memoria in GB in base a 3 GB per vCore.|Secondi per vCore|
+|Pacchetto dell'app|app_memory_percent|Percentuale di memoria usata dall'app rispetto alla memoria massima consentita per l'app.|Percentuale|
+|Pool di utenti|cpu_percent|Percentuale di vCore usati dal carico di lavoro utente rispetto al numero massimo di vCore consentiti per il carico di lavoro utente.|Percentuale|
+|Pool di utenti|data_IO_percent|Percentuale di operazioni di I/O al secondo sui dati usate dal carico di lavoro utente rispetto al numero massimo di operazioni di I/O al secondo sui dati consentite per il carico di lavoro utente.|Percentuale|
+|Pool di utenti|log_IO_percent|Percentuale di MB/s di log usati dal carico di lavoro utente rispetto al numero massimo di MB/s di log consentiti per il carico di lavoro utente.|Percentuale|
+|Pool di utenti|workers_percent|Percentuale di ruoli di lavoro usati dal carico di lavoro utente rispetto al numero massimo di ruoli di lavoro consentiti per il carico di lavoro utente.|Percentuale|
+|Pool di utenti|sessions_percent|Percentuale di sessioni usate dal carico di lavoro utente rispetto al numero massimo di sessioni consentite per il carico di lavoro utente.|Percentuale|
 ____
 
 > [!NOTE]
-> Le metriche nel portale di Azure sono disponibili nel riquadro di database per un database singolo sotto **Monitoring**.
+> Nel portale di Azure le metriche relative a un database singolo sono disponibili nel riquadro del database in **Monitoraggio**.
 
 ### <a name="pause-and-resume-status"></a>Stato di sospensione e ripresa
 
-Nel portale di Azure, lo stato del database viene visualizzato nel riquadro della panoramica del server in cui sono elencati i database in esso contenuti. Lo stato del database viene anche visualizzato nel riquadro della panoramica per il database.
+Nel portale di Azure lo stato del database è visualizzato nel riquadro della panoramica del server in cui sono elencati i database in esso contenuti. Lo stato del database è anche visualizzato nel riquadro della panoramica relativo al database.
 
-Usando il comando PowerShell seguente per eseguire una query la pausa e riprendere lo stato di un database:
+Usare usa il comando PowerShell seguente per eseguire una query sullo stato di sospensione e ripresa di un database:
 
 ```powershell
 Get-AzSqlDatabase `
@@ -258,28 +257,29 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>Limiti delle risorse
 
-Per i limiti delle risorse, vedere [livello di calcolo senza server](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)
+Per i limiti delle risorse, vedere [Livello di calcolo serverless](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
 
 ## <a name="billing"></a>Fatturazione
 
-La quantità di calcolo fatturato ogni secondo è il numero massimo di CPU usata e memoria usata ogni secondo. Se la quantità di CPU usata e memoria utilizzata è inferiore rispetto alla quantità minima di provisioning per ognuno, viene fatturata la quantità sottoposte a provisioning. Per poter confrontare CPU con la memoria per la fatturazione, memoria verrà normalizzata in unità di Vcore ridimensionando la quantità di memoria in GB da 3 GB per ogni vCore.
+La quantità di risorse di calcolo fatturata corrisponde alla quantità massima di CPU e di memoria usata ogni secondo. Se la quantità di CPU e di memoria usata è inferiore alla quantità minima del provisioning per ognuna, viene fatturata la quantità del provisioning. Per confrontare la quantità di CPU e di memoria ai fini della fatturazione, la memoria viene normalizzata in unità di vCore ridimensionando la quantità di memoria in GB in base a 3 GB per vCore.
 
-- **Risorse fatturate**: CPU e memoria
-- **Importo fatturato ($)**: prezzo unitario vCore * max (numero minimo di Vcore, Vcore usato, la memoria minima GB * memoria 1/3 GB usato * 1 o 3) 
-- **Frequenza di fatturazione**: al secondo
+- **Risorsa fatturata**: CPU e memoria
+- **Importo fatturato ($)**: prezzo unitario vCore * massimo (numero minimo di vCore, numero di vCore usati, quantità minima di memoria in GB * 1/3, quantità di memoria in GB usata * 1/3) 
+- **Frequenza di fatturazione**: Al secondo
 
-La quantità di calcolo fatturato verrà esposti dalle metriche seguenti:
+Prezzo unitario del vCore nel costo per vCore al secondo. Per i prezzi unitari in una determinata area, vedere la [pagina dei prezzi del database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-- **Metrica**: app_cpu_billed (vCore secondi)
-- **Definizione**: max (numero minimo di Vcore, Vcore usato, la memoria minima GB * memoria 1/3 GB usato * 1 o 3) *
-- **Report frequenza**: Al minuto
+La quantità di risorse di calcolo fatturata è esposta dalla metrica seguente:
 
-> [!NOTE]
-> \* Questa quantità viene calcolata ogni secondo e aggregata più di 1 minuto.
+- **Metrica**: app_cpu_billed (secondi per vCore)
+- **Definizione**: massimo (numero minimo di vCore, numero di vCore usati, quantità minima di memoria in GB * 1/3, quantità di memoria in GB usata * 1/3)
+- **Frequenza di creazione dei report**: Al minuto
 
-**Esempio**: Si consideri un database usando GP_S_Gen5_4 con la sintassi seguente in un periodo di un'ora:
+Questa quantità viene calcolata ogni secondo e aggregata in un minuto.
 
-|Tempo (ore: minuti)|app_cpu_billed (vCore secondi)|
+**Esempio**: Si consideri un database che usa GP_S_Gen5_4 con l'utilizzo seguente in un periodo di un'ora:
+
+|Ora (ore:minuti)|app_cpu_billed (secondi per vCore)|
 |---|---|
 |0:01|63|
 |0:02|123|
@@ -289,12 +289,13 @@ La quantità di calcolo fatturato verrà esposti dalle metriche seguenti:
 |0:06 - 1:00|1255|
 ||Totale: 1631|
 
-Si supponga che il prezzo unitario calcolo 0.2609/vCore/hour $. Quindi le risorse di calcolo addebitate questo periodo di un'ora viene determinato usando la formula seguente: **$0.2609/vCore/hour * 1631 vCore secondi * 1 ora/3600 secondi = $0.1232**
+Si supponga che il prezzo delle unità di calcolo sia $0,000073/vCore/secondo. Le risorse di calcolo fatturate per questa ora vengono determinate con la formula seguente: **$0,000073/vCore/secondo * 1631 secondi per vCore = $0,1191**
 
 ## <a name="available-regions"></a>Aree disponibili
 
-Il livello di calcolo senza server è disponibile in tutte le aree ad eccezione delle aree geografiche seguenti: Australia centrale, Cina orientale, Cina settentrionale, Francia meridionale, Germania centrale, Germania nord-orientale, India occidentale, Corea meridionale, Sudafrica occidentale, Regno Unito settentrionale, Regno Unito meridionale, Regno Unito occidentale e Stati Uniti centro occidentali
+Il livello di calcolo serverless è disponibile in tutte le aree ad eccezione delle seguenti: Australia centrale, Cina orientale, Cina settentrionale, Francia meridionale, Germania centrale, Germania nord-orientale, India occidentale, Corea meridionale, Sudafrica occidentale, Regno Unito settentrionale, Regno Unito meridionale, Regno Unito occidentale e Stati Uniti centro-occidentali
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per i limiti delle risorse, vedere [limiti delle risorse del livello di calcolo senza server](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
+- Per iniziare, vedere [Avvio rapido: Creare un database singolo nel database SQL di Azure usando il portale di Azure](sql-database-single-database-get-started.md).
+- Per i limiti delle risorse, vedere [Limiti delle risorse del livello di calcolo serverless](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).

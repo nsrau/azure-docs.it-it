@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2019
 ms.locfileid: "65236651"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node 
 
 Questa guida di avvio rapido illustra come archiviare un segreto in Azure Key Vault e come recuperarlo usando un'app Web. L'uso di Key Vault consente di mantere protette le informazioni. Per visualizzare il valore del segreto, è necessario eseguire la guida di avvio rapido in Azure. La guida introduttiva usa Node.js e le identità gestite per le risorse di Azure. Si apprenderà come:
 

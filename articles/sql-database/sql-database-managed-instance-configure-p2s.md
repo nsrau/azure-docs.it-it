@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60702074"
 ---
-# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Guida introduttiva: Configurare una connessione da punto a sito a un'istanza gestita di database SQL di Azure da un computer locale
+# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Avvio rapido: Configurare una connessione da punto a sito a un'istanza gestita di database SQL di Azure da un computer locale
 
 Questa guida introduttiva illustra come connettersi a un'istanza gestita di database SQL di Azure con [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) da un computer client locale tramite una connessione da punto a sito. Per informazioni sulle connessioni da punto a sito, vedere [Informazioni sulla VPN da punto a sito](../vpn-gateway/point-to-site-about.md)
 

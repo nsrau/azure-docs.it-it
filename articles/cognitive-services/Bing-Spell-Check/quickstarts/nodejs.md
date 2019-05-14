@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Node.js"
+title: "Avvio rapido: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Node.js"
 titlesuffix: Azure Cognitive Services
 description: Introduzione all'uso dell'API REST Controllo ortografico Bing per controllare l'ortografia e la grammatica.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59547765"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Node.js
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Avvio rapido: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Node.js
 
 Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione Node invia una richiesta all'API e restituisce un elenco di parole non riconosciute, seguite dalle correzioni suggerite. L'applicazione è scritta in Node.js, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 

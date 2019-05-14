@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python SDK | Microsoft Docs"
+title: "Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python SDK | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
 description: Usare l'SDK Ricerca personalizzata Bing per Python per ottenere i risultati della ricerca personalizzati.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57571814"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python SDK 
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python SDK 
 
 Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing con Python SDK. Benché Ricerca personalizzata Bing includa un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK offre un semplice strumento per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py) con annotazioni aggiuntive e altre informazioni sulla gestione degli errori.
 

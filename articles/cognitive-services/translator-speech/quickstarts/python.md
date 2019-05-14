@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API Traduzione vocale Python'
+title: 'Avvio rapido: API Traduzione vocale Python'
 titlesuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare rapidamente l'API Traduzione vocale.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/22/2019
 ms.locfileid: "56673276"
 ---
-# <a name="quickstart-translator-speech-api-with-python"></a>Guida introduttiva: API Traduzione vocale con Python
+# <a name="quickstart-translator-speech-api-with-python"></a>Avvio rapido: API Traduzione vocale con Python
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]

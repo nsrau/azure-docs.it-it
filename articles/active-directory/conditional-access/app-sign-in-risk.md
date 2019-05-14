@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891566"
 ---
-# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Guida introduttiva: Bloccare l'accesso quando viene rilevato un rischio per la sessione con l'accesso condizionale di Azure Active Directory  
+# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Avvio rapido: Bloccare l'accesso quando viene rilevato un rischio per la sessione con l'accesso condizionale di Azure Active Directory  
 
 Per mantenere l'ambiente protetto, è possibile bloccare l'accesso per gli utenti sospetti. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analizza ciascun accesso e calcola la probabilità che un tentativo di accesso non venga eseguito dal proprietario legittimo di un account utente. La probabilità (bassa, media, elevata) è indicata in forma di valore calcolato denominato [livelli di rischio di accesso](conditions.md#sign-in-risk). Impostando la condizione di rischio di accesso, è possibile configurare i criteri di accesso condizionale per rispondere ai livelli di rischio di accesso specifico.
 

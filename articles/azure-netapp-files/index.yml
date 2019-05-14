@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/10/2019
 abstract:
-  description: 'Informazioni su come usare Azure NetApp Files per creare e gestire account, pool di capacità e volumi NetApp, configurare criteri di esportazione, montare un volume per una macchina virtuale e gestire gli snapshot. <p>Per usare Azure NetApp Files, è necessario partecipare al programma di anteprima pubblica, nonché essere inclusi nell''elenco elementi consentiti per l''accesso al provider di risorse Microsoft.NetApp di Azure. Per richiedere di partecipare al programma di anteprima pubblica, vedere <a href="azure-netapp-files-register">Effettuare la registrazione per Azure NetApp Files</a>.</p>'
+  description: 'Informazioni su come usare Azure NetApp Files per creare e gestire account, pool di capacità e volumi NetApp, configurare criteri di esportazione, montare un volume per una macchina virtuale e gestire gli snapshot. <p>Per usare Azure NetApp Files, è necessario l''accesso al servizio Azure NetApp Files. Per richiedere l''accesso, vedere <a href="azure-netapp-files-register#waitlist">Inviare una richiesta di inserimento nella lista di attesa</a>.</p>'
 sections:
   - title: Guide introduttive di 5 minuti
     items:

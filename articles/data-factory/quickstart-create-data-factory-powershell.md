@@ -20,7 +20,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60313210"
 ---
-# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Guida introduttiva: Creare una data factory di Azure con PowerShell
+# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Avvio rapido: Creare una data factory di Azure con PowerShell
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

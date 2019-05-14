@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60427692"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Guida introduttiva: Inviare eventi dal registro contenitori privato a Griglia di eventi
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Avvio rapido: Inviare eventi dal registro contenitori privato a Griglia di eventi
 
 Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che consente un uso degli eventi uniforme tramite un modello di pubblicazione-sottoscrizione. In questa guida introduttiva si usa l'interfaccia della riga di comando di Azure per creare un registro contenitori, sottoscrivere gli eventi del registro e quindi distribuire un'applicazione Web di esempio per ricevere gli eventi. Infine, si attivano gli eventi `push` e `delete` di un'immagine di contenitore e si visualizza il payload degli eventi nell'applicazione di esempio.
 

@@ -58,7 +58,7 @@ Per connettere il DevKit al computer, seguire questa procedura:
 
    ![Connessioni hardware](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connect.jpg)
 
-## <a name="quickstart-send-telemetry-from-devkit-to-an-iot-hub"></a>Guida introduttiva: Inviare dati di telemetria a un IoT Hub DevKit
+## <a name="quickstart-send-telemetry-from-devkit-to-an-iot-hub"></a>Avvio rapido: Inviare dati di telemetria a un IoT Hub DevKit
 
 Uso della pre-compilate del firmware DevKit per inviare i dati di telemetria all'IoT Hub. Prima dell'esecuzione, si crea un hub IoT e registrare un dispositivo con l'hub.
 

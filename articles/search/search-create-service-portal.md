@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264030"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471610"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creare un servizio di Ricerca di Azure nel portale
 
@@ -67,11 +67,13 @@ Se si combinano le risorse in un singolo gruppo o se i gruppi di risorse esisten
 > [!TIP]
 > L'eliminazione di un gruppo di risorse elimina anche i servizi in esso contenuti. Per i progetti prototipo che usano più servizi, l'inserimento di tutti gli elementi nello stesso gruppo di risorse ne semplifica l'eliminazione al termine del progetto.
 
-## <a name="select-a-hosting-location"></a>Selezionare un percorso di hosting
+## <a name="select-a-location"></a>Selezionare una località
 
 Ricerca di Azure, in qualità di servizio di Azure, può essere ospitato nei data center di tutto il mondo. I [prezzi possono variare](https://azure.microsoft.com/pricing/details/search/) in base all'area geografica.
 
-Se si esegue l'indicizzazione del contenuto presente in un servizio di Azure (Archiviazione di Azure, Azure Cosmos DB, database SQL di Azure), creare il servizio Ricerca di Azure nella stessa area dei dati per evitare costi per la larghezza di banda. Non sono previsti addebiti per i dati in uscita quando i servizi si trovano nella stessa area.
+Se si esegue l'indicizzazione dei dati forniti da un altro servizio di Azure (Archiviazione di Azure, Azure Cosmos DB, database SQL di Azure), creare il servizio Ricerca di Azure nella stessa area per evitare i costi relativi alla larghezza di banda. Non sono previsti addebiti per i dati in uscita quando i servizi si trovano nella stessa area.
+
+Se si usano arricchimenti con intelligenza artificiale per la ricerca cognitiva, creare il servizio nella stessa area della risorsa di Servizi cognitivi. La condivisione del percorso dei servizi è un requisito degli arricchimenti con intelligenza artificiale.
 
 ## <a name="select-a-pricing-tier-sku"></a>Selezionare un piano tariffario (SKU)
 

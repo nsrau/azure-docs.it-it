@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e JavaScript"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST e JavaScript"
 titleSuffix: Azure Cognitive Services
 description: In questa introduttiva si rileveranno i visi in un'immagine usando l'API Viso con JavaScript in Servizi cognitivi.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57538732"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e JavaScript
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e JavaScript
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con JavaScript per rilevare i visi umani in un'immagine.
 

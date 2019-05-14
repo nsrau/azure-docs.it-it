@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Esplorare le API REST in Postman - Ricerca di Azure'
+title: 'Avvio rapido: Esplorare le API REST in Postman - Ricerca di Azure'
 description: Informazioni su come usare Postman per inviare richieste HTTP e chiamate API REST a Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65024801"
 ---
-# <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Guida introduttiva: esplorare le API REST di Ricerca di Azure con Postman
+# <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Avvio rapido: esplorare le API REST di Ricerca di Azure con Postman
 > [!div class="op_single_selector"]
 > * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)

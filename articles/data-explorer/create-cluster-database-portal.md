@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure'
+title: 'Avvio rapido: Creare un database e un cluster di Esplora dati di Azure'
 description: Questa guida introduttiva descrive come creare un database e un cluster di Esplora dati di Azure e inserire (caricare) i dati.
 author: orspod
 ms.author: orspodek
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046037"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Avvio rapido: Creare un database e un cluster di Esplora dati di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale](create-cluster-database-portal.md)

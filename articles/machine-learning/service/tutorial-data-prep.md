@@ -11,16 +11,16 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a717fa4191c57c21705d24884397ebb485726492
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6e7aa231cabea9fbd76cd028f9fdc698a4dac5d6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025108"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470275"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Esercitazione: preparare i dati per la modellazione basata sulla regressione
 
-In questa esercitazione si apprenderà come preparare i dati per la modellazione basata sulla regressione usando [Azure Machine Learning Data Prep SDK per Python](https://aka.ms/data-prep-sdk). Si eseguiranno varie trasformazioni per filtrare e combinare due diversi set di dati relativi ai taxi di New York.
+In questa esercitazione si apprenderà come preparare i dati per la modellazione basata sulla regressione usando il [pacchetto di preparazione dei dati per Azure Machine Learning](https://aka.ms/data-prep-sdk). Si eseguiranno varie trasformazioni per filtrare e combinare due diversi set di dati relativi ai taxi di New York.
 
 Questa esercitazione è la **prima di una serie in due parti**. Dopo aver completato la serie di esercitazioni, sarà possibile prevedere il costo di una corsa in taxi eseguendo il training di un modello sulle funzionalità dei dati. Queste funzionalità includono il giorno e l'ora di inizio corsa, il numero di passeggeri e la località del prelievo.
 
@@ -44,9 +44,9 @@ Passare a [Configurazione dell'ambiente di sviluppo](#start) per leggere la proc
 * Usare un [server notebook basato sul cloud nell'area di lavoro](#azure) 
 * Usare il [server notebook personale](#server)
 
-### <a name="azure"></a>Usare un server notebook basato sul cloud nell'area di lavoro
+### <a name="azure"></a>Usare un server notebook cloud nell'area di lavoro
 
-È facile iniziare a usare un server notebook basato sul cloud. [Azure Machine Learning SDK per Python](https://aka.ms/aml-sdk) è già installato e configurato dopo aver creato questa risorsa cloud.
+Iniziare a usare un server notebook basato sul cloud è semplice. [Azure Machine Learning SDK per Python](https://aka.ms/aml-sdk) è già installato e configurato dopo aver creato questa risorsa cloud.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 

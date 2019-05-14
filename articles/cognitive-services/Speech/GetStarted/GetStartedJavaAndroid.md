@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60515189"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Guida introduttiva: Usare l'API Riconoscimento vocale Bing in Java per dispositivi Android
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Avvio rapido: Usare l'API Riconoscimento vocale Bing in Java per dispositivi Android
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 

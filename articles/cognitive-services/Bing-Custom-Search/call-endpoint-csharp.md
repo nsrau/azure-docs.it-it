@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57849398"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando C# 
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando C# 
 
 Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing. L'applicazione è scritta in C#, ma l'API Ricerca personalizzata Bing è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs).
 

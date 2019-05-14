@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/19/2019
 ms.locfileid: "56416769"
 ---
-# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Guida introduttiva: Proteggere l'API Web Node.js con Azure Active Directory
+# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Avvio rapido: Proteggere l'API Web Node.js con Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 

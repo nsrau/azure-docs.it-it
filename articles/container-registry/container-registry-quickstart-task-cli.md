@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64701561"
 ---
-# <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Guida introduttiva: Compilare ed eseguire un'immagine del contenitore con Attività del Registro Azure Container
+# <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Avvio rapido: Compilare ed eseguire un'immagine del contenitore con Attività del Registro Azure Container
 
 In questa guida di avvio rapido si usano i comandi di Attività del Registro Azure Container per compilare, eseguire il push ed eseguire rapidamente un'immagine del contenitore Docker in modalità nativa all'interno di Azure, che illustra come eseguire l'offload del ciclo di sviluppo di tipo "ciclo interno" nel cloud. [Attività del Registro Azure Container][container-registry-tasks-overview] è un gruppo di funzionalità incluse in Registro Azure Container che consente di gestire e modificare le immagini del contenitore per tutto il ciclo di vita del contenitore. 
 

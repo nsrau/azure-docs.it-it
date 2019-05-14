@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna eC#"
+title: "Avvio rapido: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna eC#"
 description: Usare l'API di riconoscimento input penna per avviare tratti input penna.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/10/2019
 ms.locfileid: "65518680"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Guida introduttiva: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna eC#
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Avvio rapido: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna eC#
 
 Usare questa Guida introduttiva per iniziare a inviare i tratti input penna per l'API di riconoscimento input penna. In questo C# applicazione invia una richiesta di API che contiene i dati tratti input penna in formato JSON e ottiene la risposta.
 

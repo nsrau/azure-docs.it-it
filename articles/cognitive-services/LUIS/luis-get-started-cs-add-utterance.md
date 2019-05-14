@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273465"
 ---
-# <a name="quickstart-change-model-using-c"></a>Guida introduttiva: Modificare il modello tramite C#
+# <a name="quickstart-change-model-using-c"></a>Avvio rapido: Modificare il modello tramite C#
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 

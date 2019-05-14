@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Inserire BLOB di Azure in Esplora dati di Azure'
+title: 'Avvio rapido: Inserire BLOB di Azure in Esplora dati di Azure'
 description: In questo argomento di avvio rapido verrà illustrato come inviare dati dell'account di archiviazione a Esplora dati di Azure usando una sottoscrizione di Griglia di eventi.
 author: radennis
 ms.author: radennis
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051853"
 ---
-# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Guida introduttiva: Inserire BLOB in Esplora dati di Azure tramite la sottoscrizione delle notifiche di Griglia di eventi
+# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Avvio rapido: Inserire BLOB in Esplora dati di Azure tramite la sottoscrizione delle notifiche di Griglia di eventi
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e scalabile per dati di log e di telemetria. Consente l'inserimento continuo (caricamento di dati) dai BLOB scritti nei contenitori di BLOB. 
 

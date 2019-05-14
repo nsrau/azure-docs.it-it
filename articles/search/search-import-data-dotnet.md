@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58286908"
 ---
-# <a name="quickstart-2---load-data-to-an-azure-search-index-using-c"></a>Guida introduttiva: 2 - Caricare dati in un indice di Ricerca di Azure con C#
+# <a name="quickstart-2---load-data-to-an-azure-search-index-using-c"></a>Avvio rapido: 2 - Caricare dati in un indice di Ricerca di Azure con C#
 
 Questo articolo illustra come importare dati in un [indice di Ricerca di Azure](search-what-is-an-index.md) usando C# e [.NET SDK](https://aka.ms/search-sdk). Per effettuare il push di documenti nell'indice, eseguire le attività seguenti:
 

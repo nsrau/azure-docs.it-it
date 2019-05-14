@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK di Visione personalizzata per Go"
+title: "Avvio rapido: Creare un progetto di rilevamento degli oggetti con l'SDK di Visione personalizzata per Go"
 titlesuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto e rilevare oggetti usando Go SDK.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58479207"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK di Visione personalizzata per Go
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Avvio rapido: Creare un progetto di rilevamento degli oggetti con l'SDK di Visione personalizzata per Go
 
 Questo articolo fornisce informazioni e codice di esempio utili per iniziare a usare l'SDK di Visione personalizzata con Go per compilare un modello di rilevamento degli oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Go personalizzata.
 

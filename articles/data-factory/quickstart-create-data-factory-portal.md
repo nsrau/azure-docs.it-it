@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "55989390"
 ---
-# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Guida introduttiva: Creare una data factory usando l'interfaccia utente di Azure Data Factory
+# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Avvio rapido: Creare una data factory usando l'interfaccia utente di Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 1344de526564ab623a51eb903951b6a2e866048d
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 1c5712fa8bbdb158992127f8f48d810a0a9b6f79
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523482"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603470"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Sull'anteprima personalizzato assistenti virtuali voice-first
 
@@ -24,7 +24,9 @@ Gli assistenti virtuali personalizzati che usano i servizi Voce di Azure consent
 
    ![Diagramma concettuale del flusso di servizio di orchestrazione di riconoscimento vocale linea diretta](media/voice-first-virtual-assistants/overview.png "flusso il canale di riconoscimento vocale")
 
-Direct Line vocale e le relative funzionalità per personalizzato assistenti virtuali voice-first sono un supplemento ideale per la [virtuale soluzione Assistant](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) e [modello Enterprise](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction). Anche se Direct Line vocale possa funzionare con qualsiasi bot compatibile, queste risorse forniscono una linea di base riutilizzabile per i modelli per iniziare rapidamente, nonché competenze di supporta comuni ed esperienze colloquiale di alta qualità.
+
+Direct Line vocale e le relative funzionalità per personalizzato assistenti virtuali voice-first sono un supplemento ideale per la [soluzione Assistant virtuale e modello Enterprise](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Anche se Direct Line vocale possa funzionare con qualsiasi bot compatibile, queste risorse forniscono una linea di base riutilizzabile per i modelli per iniziare rapidamente, nonché competenze di supporta comuni ed esperienze colloquiale di alta qualità.
+
 
 ## <a name="core-features"></a>Funzionalità di base
 

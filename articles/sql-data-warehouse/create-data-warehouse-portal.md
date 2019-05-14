@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguire query - Portale di Azure | Microsoft Docs"
+title: "Avvio rapido: Creare un'istanza di Azure SQL Data Warehouse ed eseguire query - Portale di Azure | Microsoft Docs"
 description: Creare un data warehouse ed eseguirvi una query con Azure SQL Data Warehouse nel portale di Azure.
 services: sql-data-warehouse
 author: kevinvngo

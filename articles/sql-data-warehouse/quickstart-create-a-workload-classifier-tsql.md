@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un classificatore di carico di lavoro - T-SQL | Microsoft Docs'
+title: 'Avvio rapido: Creare un classificatore di carico di lavoro - T-SQL | Microsoft Docs'
 description: Usare T-SQL per creare un classificatore di carico di lavoro con priorità alta
 services: sql-data-warehouse
 author: ronortloff
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65150391"
 ---
-# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Guida introduttiva: Creare un classificatore di carico di lavoro con T-SQL
+# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Avvio rapido: Creare un classificatore di carico di lavoro con T-SQL
 
 In questa Guida introduttiva si creerà rapidamente un classificatore di carico di lavoro con priorità alta per il direttore generale dell'organizzazione. Il classificatore di carico di lavoro consentirà alle query del direttore generale di avere la precedenza su quelle con priorità inferiore nella coda.
 

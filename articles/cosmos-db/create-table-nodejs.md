@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API Tabella con Node.js - Azure Cosmos DB'
+title: 'Avvio rapido: API Tabella con Node.js - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e Node.js
 author: SnehaGunda
 ms.service: cosmos-db
@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54044655"
 ---
-# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app di API Tabella con Node.js e Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app di API Tabella con Node.js e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare una pipeline CI/CD per PHP con Azure DevOps Projects'
+title: 'Avvio rapido: Creare una pipeline CI/CD per PHP con Azure DevOps Projects'
 description: DevOps Projects consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd

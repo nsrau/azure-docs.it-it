@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/06/2019
 ms.locfileid: "55752348"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Guida introduttiva: Eseguire il primo processo batch con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Avvio rapido: Eseguire il primo processo batch con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per creare un account Batch, un *pool* di nodi di calcolo (macchine virtuali) e un *processo* che esegue *attività* nel pool. Ogni attività di esempio esegue un comando di base in uno dei nodi del pool. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
 

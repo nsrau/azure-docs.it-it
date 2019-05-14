@@ -24,7 +24,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64702909"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale con il portale di Azure
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Avvio rapido: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale con il portale di Azure
 
 In questa guida introduttiva si distribuisce una macchina virtuale e quindi si controllano le comunicazioni verso un indirizzo IP e un URL e da un indirizzo IP. Viene determinata la causa di un errore di comunicazione e si apprende come è possibile risolverlo.
 

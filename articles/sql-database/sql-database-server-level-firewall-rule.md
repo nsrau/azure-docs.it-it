@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56108960"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Guida introduttiva: Creare una regola del firewall a livello di server per database singoli e in pool con il portale di Azure
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Avvio rapido: Creare una regola del firewall a livello di server per database singoli e in pool con il portale di Azure
 
 Questa guida introduttiva illustra come creare una [regola del firewall a livello di server](sql-database-firewall-configure.md) per database singoli e in pool in Database SQL di Azure usando il portale di Azure, per consentire la connessione ai server di database, ai database singoli e ai pool elastici e i relativi database. Una regola del firewall è necessaria per la connessione da altre risorse di Azure e da risorse locali.
 

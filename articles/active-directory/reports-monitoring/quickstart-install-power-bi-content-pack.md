@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58437425"
 ---
-# <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Guida introduttiva: Installare il pacchetto di contenuto Power BI di Azure Active Directory
+# <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Avvio rapido: Installare il pacchetto di contenuto Power BI di Azure Active Directory
 
 |  |
 |--|

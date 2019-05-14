@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale, C++ (macOS) - Servizi Voce'
+title: 'Avvio rapido: Riconoscimento vocale, C++ (macOS) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in C++ in macOS con Speech SDK
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2019
 ms.locfileid: "65236879"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in C++ su macOS con Speech SDK
+# <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C++ su macOS con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

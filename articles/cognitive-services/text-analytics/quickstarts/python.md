@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Uso di Python per chiamare l'API Analisi del testo"
+title: "Avvio rapido: Uso di Python per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare l'API Analisi del testo in Servizi cognitivi di Azure.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "60001389"
 ---
-# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di Python per chiamare il servizio cognitivo Analisi del testo 
+# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso di Python per chiamare il servizio cognitivo Analisi del testo 
 <a name="HOLTop"></a>
 
 Questa procedura dettagliata illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis) e [estrarre le frasi chiave](#KeyPhraseExtraction) usando l'[API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)con Python.

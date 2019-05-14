@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Progetto Anteprima URL, C#'
+title: 'Avvio rapido: Progetto Anteprima URL, C#'
 titlesuffix: Azure Cognitive Services
 description: Introduzione all'uso di Progetto Anteprima URL con C#.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55877270"
 ---
-# <a name="quickstart-url-preview-query-in-c"></a>Guida introduttiva: Query di URL Preview in C#
+# <a name="quickstart-url-preview-query-in-c"></a>Avvio rapido: Query di URL Preview in C#
 
 L'esempio in C# seguente crea un'anteprima URL per il sito Web SwiftKey: https://swiftkey.com/en.
 

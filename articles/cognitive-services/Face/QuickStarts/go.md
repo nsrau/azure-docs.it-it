@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Go"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Go"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API Viso con Go per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/15/2019
 ms.locfileid: "56312600"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Go
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Go
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con Go per rilevare i visi umani in un'immagine.
 

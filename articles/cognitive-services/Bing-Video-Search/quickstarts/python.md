@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Python"
+title: "Avvio rapido: Cercare video con l'API REST Ricerca video Bing e Python"
 titlesuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca video all'API REST Ricerca video Bing con Python.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55876863"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Python
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Avvio rapido: Cercare video con l'API REST Ricerca video Bing e Python
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca video Bing e visualizzare un risultato della ricerca dalla risposta JSON. Questa semplice applicazione Python invia una query di ricerca video HTTP all'API e visualizza la risposta. L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) con altre annotazioni di codice e informazioni sulla gestione degli errori.
 

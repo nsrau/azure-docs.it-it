@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Analizzare un'immagine locale - REST, Python"
+title: "Avvio rapido: Analizzare un'immagine locale - REST, Python"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizzerà un'immagine locale usando l'API Visione artificiale con Python.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "60003225"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine locale usando l'API REST e Python in Visione artificiale
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Avvio rapido: Analizzare un'immagine locale usando l'API REST e Python in Visione artificiale
 
 In questa guida introduttiva si analizza un'immagine archiviata in locale per estrarre le caratteristiche visive usando l'API REST di Visione artificiale. Con il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) è possibile estrarre caratteristiche visive in base al contenuto di un'immagine.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Progetto Anteprima URL, Node.js'
+title: 'Avvio rapido: Progetto Anteprima URL, Node.js'
 titlesuffix: Azure Cognitive Services
 description: Introduzione all'uso di URL Preview in Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55884291"
 ---
-# <a name="quickstart-url-preview-with-nodejs"></a>Guida introduttiva: Anteprima URL con Node.js 
+# <a name="quickstart-url-preview-with-nodejs"></a>Avvio rapido: Anteprima URL con Node.js 
 
 L'esempio in Node seguente crea un'anteprima URL per il sito Web SwiftKey: https://swiftkey.com/en.
 

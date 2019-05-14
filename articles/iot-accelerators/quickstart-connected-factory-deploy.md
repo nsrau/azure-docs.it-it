@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/08/2019
 ms.locfileid: "62127464"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Guida introduttiva: Provare una soluzione basata sul cloud per gestire dispositivi IoT industriali
+# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Avvio rapido: Provare una soluzione basata sul cloud per gestire dispositivi IoT industriali
 
 Questa guida introduttiva illustra come distribuire l'acceleratore di soluzione Connected Factory di Azure IoT per l'esecuzione di una simulazione del monitoraggio e della gestione basati sul cloud per dispositivi IoT industriali. Nel momento in cui viene distribuito, l'acceleratore di soluzione Connected Factory viene prepopolato con risorse simulate che consentono di esaminare uno scenario IoT industriale comune. Diversi stabilimenti simulati connessi alla soluzione generano report con i valori dei dati necessari per calcolare l'efficienza complessiva delle attrezzature e gli indicatori di prestazioni chiave (KPI). Questa guida introduttiva illustra come usare il dashboard della soluzione per:
 

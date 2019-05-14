@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/08/2019
 ms.locfileid: "61249946"
 ---
-# <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato X.509 tramite Azure IoT C SDK
+# <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Avvio rapido: Effettuare il provisioning di un dispositivo simulato X.509 tramite Azure IoT C SDK
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 

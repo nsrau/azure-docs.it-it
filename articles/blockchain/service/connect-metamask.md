@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65029949"
 ---
-# <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Guida introduttiva: Usare MetaMask per connettersi e distribuire un contratto intelligente
+# <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Avvio rapido: Usare MetaMask per connettersi e distribuire un contratto intelligente
 
 In questo argomento di avvio rapido si userà MetaMask per connettersi a una rete del servizio Azure Blockchain e usare Remix per distribuire un contratto intelligente. Metamask è un'estensione del browser per gestire un portafoglio Ether ed eseguire azioni di contratto intelligente.
 

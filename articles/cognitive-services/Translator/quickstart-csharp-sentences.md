@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ottenere la lunghezza delle frasi, C# - API Traduzione testuale'
+title: 'Avvio rapido: Ottenere la lunghezza delle frasi, C# - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come determinare la lunghezza delle frasi con .NET Core e l'API Traduzione testuale.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/23/2019
 ms.locfileid: "56732002"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>Guida introduttiva: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con C#
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con C#
 
 In questa guida introduttiva si apprenderà come determinare la lunghezza delle frasi con .NET Core e l'API Traduzione testuale.
 

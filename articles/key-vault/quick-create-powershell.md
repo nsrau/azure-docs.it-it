@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64712760"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando PowerShell
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

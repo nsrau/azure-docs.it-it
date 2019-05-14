@@ -25,7 +25,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56207586"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 

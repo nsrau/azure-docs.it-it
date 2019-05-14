@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un cluster di Apache Hadoop con Azure Resource Manager ed eseguire query sui dati con Apache Hive - Azure HDInsight'
+title: 'Avvio rapido: Creare un cluster di Apache Hadoop con Azure Resource Manager ed eseguire query sui dati con Apache Hive - Azure HDInsight'
 description: Informazioni su come creare cluster HDInsight ed eseguire query sui dati con Hive.
 keywords: introduzione a Hadoop, Hadoop basato su Linux, guida introduttiva a Hadoop, introduzione a Hive, guida introduttiva a Hive
 ms.service: hdinsight
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64729408"
 ---
-# <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Azure Resource Manager
+# <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Avvio rapido: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Azure Resource Manager
 
 Questo articolo illustra come creare cluster [Apache Hadoop](https://hadoop.apache.org/) in HDInsight usando un modello di Resource Manager e quindi eseguire i processi Hive in HDInsight. La maggior parte dei processi Hadoop è costituita da processi batch. Viene creato un cluster, si eseguono alcuni processi e quindi si elimina il cluster. In questo articolo vengono eseguite tutte e tre le attività.
 

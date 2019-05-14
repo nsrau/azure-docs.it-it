@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/15/2019
 ms.locfileid: "59563795"
 ---
-# <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Guida introduttiva:  Onboarding delle macchine virtuali di Azure Stack nel Centro sicurezza
+# <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Avvio rapido:  Onboarding delle macchine virtuali di Azure Stack nel Centro sicurezza
 Dopo l'onboarding della sottoscrizione di Azure, è possibile abilitare il Centro sicurezza per proteggere le macchine virtuali in esecuzione in Azure Stack aggiungendo l'estensione macchina virtuale **Monitoraggio di Azure, Gestione aggiornamenti e configurazione** dal Marketplace di Azure Stack.
 
 Questa guida di avvio rapido mostra come aggiungere l'estensione macchina virtuale **Monitoraggio di Azure, Gestione aggiornamenti e configurazione** in una macchina virtuale (sono supportati sia Linux che Windows) in esecuzione su Azure Stack.

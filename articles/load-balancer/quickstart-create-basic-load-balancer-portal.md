@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un servizio di bilanciamento del carico Basic pubblico usando il portale di Azure'
+title: 'Avvio rapido: Creare un servizio di bilanciamento del carico Basic pubblico usando il portale di Azure'
 titlesuffix: Azure Load Balancer
 description: In questo avvio rapido si apprende come creare un servizio di bilanciamento del carico Basic pubblico tramite il portale di Azure.
 services: load-balancer
@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64727588"
 ---
-# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Guida introduttiva: Creare un servizio Load Balancer Basic usando il portale di Azure
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Avvio rapido: Creare un servizio Load Balancer Basic usando il portale di Azure
 
 Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra le macchine virtuali. È possibile usare il portale di Azure per creare un servizio di bilanciamento del carico e bilanciare il traffico tra le macchine virtuali. Questo argomento di avvio rapido illustra come creare e configurare un servizio di bilanciamento del carico, i server back-end e le risorse di rete con il piano tariffario Basic.
 

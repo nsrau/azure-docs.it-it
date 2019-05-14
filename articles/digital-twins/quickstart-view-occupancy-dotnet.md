@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58089701"
 ---
-# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Guida introduttiva: Trovare le stanze disponibili usando Gemelli digitali di Azure
+# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Avvio rapido: Trovare le stanze disponibili usando Gemelli digitali di Azure
 
 Il servizio Gemelli digitali di Azure consente di ricreare un'immagine digitale dell'ambiente fisico. È quindi possibile ricevere notifiche in base agli eventi che si verificano nell'ambiente e personalizzare le risposte agli eventi.
 

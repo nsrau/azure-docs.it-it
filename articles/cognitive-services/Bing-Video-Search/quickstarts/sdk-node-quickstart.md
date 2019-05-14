@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare video con l'SDK di Ricerca video Bing per Node.js"
+title: "Avvio rapido: Cercare video con l'SDK di Ricerca video Bing per Node.js"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca video con l'SDK di Ricerca video Bing per Node.js
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55863756"
 ---
-# <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-nodejs"></a>Guida introduttiva: Eseguire una ricerca di video con l'SDK di Ricerca video Bing per Node.js
+# <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-nodejs"></a>Avvio rapido: Eseguire una ricerca di video con l'SDK di Ricerca video Bing per Node.js
 
 Usare questa guida introduttiva per iniziare a cercare notizie con l'SDK di Ricerca video Bing per Node.js. Mentre Ricerca video Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK offre un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js). Contiene altre annotazioni e funzionalità.
 

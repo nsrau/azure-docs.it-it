@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59684124"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes usando il portale di Azure
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes usando il portale di Azure
 
 Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di distribuire e gestire rapidamente i cluster. In questa guida introduttiva viene distribuito un cluster del servizio Azure Container usando il portale di Azure. Nel cluster verrà eseguita un'applicazione multi-contenitore che include un front-end Web e un'istanza di Redis. Verrà quindi descritto come monitorare l'integrità del cluster e dei pod che eseguono l'applicazione.
 

@@ -175,6 +175,8 @@
           href: stream-analytics-troubleshoot-query.md
         - name: Log attività e di diagnostica
           href: stream-analytics-job-diagnostic-logs.md
+        - name: Errori nei dati
+          href: data-errors.md
     - name: Integrazione con Machine Learning
       items:
         - name: Analisi del sentiment con modelli di Machine Learning

@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57862370"
 ---
-# <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Guida introduttiva: Crittografare una macchina virtuale IaaS Windows con Azure PowerShell
+# <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Avvio rapido: Crittografare una macchina virtuale IaaS Windows con Azure PowerShell
 
 Crittografia dischi di Azure consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. La soluzione è integrata con Azure Key Vault per consentire il controllo e la gestione dei segreti e delle chiavi di crittografia dei dischi. Con Crittografia dischi di Azure è possibile garantire che le macchine virtuali inattive siano protette usando la tecnologia di crittografia standard del settore. In questa guida introduttiva verrà creata una macchina virtuale Windows Server 2016 e verrà crittografato il disco del sistema operativo.
 

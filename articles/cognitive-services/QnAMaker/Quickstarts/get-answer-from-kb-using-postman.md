@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Usare Postman per ottenere una risposta dalla knowledge base - QnA Maker'
+title: 'Avvio rapido: Usare Postman per ottenere una risposta dalla knowledge base - QnA Maker'
 titlesuffix: Azure Cognitive Services
 description: Questa guida introduttiva assiste nell'ottenimento di una risposta da una knowledge base usando Postman.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59683444"
 ---
-# <a name="quickstart-get-an-answer-from-knowledge-base-using-postman"></a>Guida introduttiva: Ottenere una risposta dalla knowledge base usando Postman
+# <a name="quickstart-get-an-answer-from-knowledge-base-using-postman"></a>Avvio rapido: Ottenere una risposta dalla knowledge base usando Postman
 
 Questa guida introduttiva basata su Postman assiste nell'ottenimento di una risposta da una knowledge base.
 

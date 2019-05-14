@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/08/2019
 ms.author: edjez
-ms.openlocfilehash: f0aca3e387d675064cf798b4efdeb66cfe906520
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 85252680fcc4d2592d242762d01040c3859b14a2
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153539"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442078"
 ---
-# <a name="quickstart-personalize-content-using-c"></a>Guida introduttiva: Personalizzare il contenuto con C# 
+# <a name="quickstart-personalize-content-using-c"></a>Avvio rapido: Personalizzare il contenuto con C# 
 
 Visualizzare il contenuto personalizzato in questa guida di avvio rapido di C# con il servizio Personalizza esperienze.
 
-Questo esempio illustra come usare la libreria client di Personalizzazione per C# per eseguire le azioni seguenti: 
+Questo esempio illustra come usare la libreria client di Personalizza esperienze per C# per eseguire le azioni seguenti: 
 
  * Classificare un elenco di azioni per la personalizzazione.
  * Segnalare la ricompensa da assegnare all'azione nella posizione più alta in classifica in base alla selezione dell'utente per l'evento specificato.
 
-L'introduzione a Personalizzazione include i passaggi seguenti:
+L'introduzione a Personalizza esperienze include i passaggi seguenti:
 
 1. Aggiunta del riferimento all'SDK. 
 1. Scrittura del codice per classificare le azioni che si vogliono mostrare agli utenti.
@@ -34,9 +34,15 @@ L'introduzione a Personalizzazione include i passaggi seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Per ottenere la chiave di sottoscrizione e l'URL del servizio di emissione token, è necessario un [servizio Personalizza esperienze](how-to-settings.md). 
+* Per ottenere la chiave di sottoscrizione e l'URL del servizio endpoint, è necessario un [servizio Personalizza esperienze](how-to-settings.md). 
 * [Visual Studio 2015 o 2017](https://visualstudio.microsoft.com/downloads/).
-* Pacchetto NuGet Microsoft.Azure.CognitiveServices.Personalization dell'SDK. Le istruzioni di installazione sono disponibili più avanti.
+* Pacchetto NuGet Microsoft.Azure.CognitiveServices.Personalizer dell'SDK. Le istruzioni di installazione sono disponibili più avanti.
+
+## <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
+
+Nella risorsa Personalizza esperienze del portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e consentirà di visualizzare le modifiche principali delle azioni per ogni iterazione.
+
+![Modificare la frequenza di aggiornamento del modello](./media/settings/configure-model-update-frequency-settings.png)
 
 ## <a name="creating-a-new-console-app-and-referencing-the-personalizer-sdk"></a>Creazione di una nuova app console e aggiunta del riferimento a Personalizer SDK 
 
@@ -45,9 +51,9 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 -->
 
 1. Creare una nuova app console Visual C# in Visual Studio.
-1. Installare il pacchetto NuGet della libreria client di Personalizzazione. Nel menu selezionare **Strumenti**, **Gestione pacchetti NuGet** e quindi **Gestisci pacchetti NuGet per la soluzione**.
-1. Selezionare la scheda **Sfoglia** e nella casella di **ricerca** digitare `Microsoft.Azure.CognitiveServices.Personalization`.
-1. Selezionare la voce **Microsoft.Azure.CognitiveServices.Personalization** quando viene visualizzata.
+1. Installare il pacchetto NuGet della libreria client di Personalizza esperienze. Nel menu selezionare **Strumenti**, **Gestione pacchetti NuGet** e quindi **Gestisci pacchetti NuGet per la soluzione**.
+1. Selezionare la scheda **Sfoglia** e nella casella di **ricerca** digitare `Microsoft.Azure.CognitiveServices.Personalizer`.
+1. Selezionare la voce **Microsoft.Azure.CognitiveServices.Personalizer** quando viene visualizzata.
 1. Selezionare la casella di controllo accanto al nome del progetto e scegliere **Installa**.
 
 ## <a name="add-the-code-and-put-in-your-personalizer-and-azure-keys"></a>Aggiungere il codice e inserire le chiavi di Personalizza esperienze e Azure

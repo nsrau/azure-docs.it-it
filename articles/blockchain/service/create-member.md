@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65029939"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Guida introduttiva: Creare un servizio Azure Blockchain con il portale di Azure
+# <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Avvio rapido: Creare un servizio Azure Blockchain con il portale di Azure
 
 Il servizio Azure Blockchain è una piattaforma per blockchain che consente di eseguire la logica di business in un contratto intelligente. Questa guida di avvio rapido illustra come iniziare a creare un libro mastro gestito con il portale di Azure.
 

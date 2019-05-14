@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65152789"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Go
+# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con Go
 
 Questa guida rapida mostra come usare il linguaggio di programmazione di Go per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
 

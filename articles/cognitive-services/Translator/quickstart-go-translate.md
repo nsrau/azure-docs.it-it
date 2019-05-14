@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Tradurre un testo, Go - API Traduzione testuale'
+title: 'Avvio rapido: Tradurre un testo, Go - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva verrà tradotto un testo da una lingua a un'altra usando l'API Traduzione testuale con Go in meno di 10 minuti.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57863730"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>Guida introduttiva: Usare l'API Traduzione testuale per tradurre una stringa con Go
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>Avvio rapido: Usare l'API Traduzione testuale per tradurre una stringa con Go
 
 In questo argomento di avvio rapido si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con Go e l'API REST Traduzione testuale.
 

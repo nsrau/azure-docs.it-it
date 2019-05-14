@@ -25,7 +25,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881886"
 ---
-# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Guida introduttiva: Creare un'app Xamarin che si integra con il sistema di accesso Microsoft
+# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Avvio rapido: Creare un'app Xamarin che si integra con il sistema di accesso Microsoft
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 

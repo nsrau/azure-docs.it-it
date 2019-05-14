@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire una ricerca di notizie con Node.js - API REST Ricerca notizie Bing'
+title: 'Avvio rapido: Eseguire una ricerca di notizie con Node.js - API REST Ricerca notizie Bing'
 titlesuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare una richiesta all'API REST Ricerca notizie Bing usando Node.js e ricevere una risposta JSON.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58099968"
 ---
-# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Guida introduttiva: Eseguire una ricerca di notizie usando Node.js e l'API REST Ricerca notizie Bing
+# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Avvio rapido: Eseguire una ricerca di notizie usando Node.js e l'API REST Ricerca notizie Bing
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca immagini Bing e ricevere una risposta JSON. Questa semplice applicazione JavaScript invia una query di ricerca all'API e visualizza i risultati non elaborati.
 

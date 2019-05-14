@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API Traduzione vocale Java'
+title: 'Avvio rapido: API Traduzione vocale Java'
 titlesuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare rapidamente l'API Traduzione vocale.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57551042"
 ---
-# <a name="quickstart-translator-speech-api-with-java"></a>Guida introduttiva: API Traduzione vocale con Java
+# <a name="quickstart-translator-speech-api-with-java"></a>Avvio rapido: API Traduzione vocale con Java
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]

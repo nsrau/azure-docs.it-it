@@ -24,7 +24,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58436669"
 ---
-# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Guida introduttiva: Scaricare il report di controllo con il portale di Azure
+# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Avvio rapido: Scaricare il report di controllo con il portale di Azure
 
 In questa guida introduttiva si apprenderà come scaricare un file CSV dei log di controllo per il tenant per le ultime 24 ore. Dal portale di Azure è possibile scaricare fino a 250,000 record. Per impostazione predefinita, vengono scaricati gli ultimi 250.000 record, ordinati partendo dai record più recenti. 
 
@@ -35,7 +35,7 @@ In questa guida introduttiva si apprenderà come scaricare un file CSV dei log d
 * Un tenant di Azure Active Directory. 
 * Un utente con ruolo di **Amministratore della sicurezza**, **Ruolo con autorizzazioni di lettura per la sicurezza** o **Amministratore globale** per il tenant. Inoltre, tutti gli utenti nel tenant possono accedere ai propri log di controllo.
 
-## <a name="quickstart-download-an-audit-report"></a>Guida introduttiva: Scaricare un report di controllo
+## <a name="quickstart-download-an-audit-report"></a>Avvio rapido: Scaricare un report di controllo
 
 1. Passare al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory** nel riquadro di spostamento sinistro e usare il pulsante **Cambia directory** per selezionare la directory attiva.

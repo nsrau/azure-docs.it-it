@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare una nuova app nel portale LUIS'
+title: 'Avvio rapido: Creare una nuova app nel portale LUIS'
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Questa guida introduttiva spiega come creare una nuova app nel portale LUIS. Creare le parti fondamentali di un'app, le finalità e le entità. Testare l'app specificando un'espressione utente di esempio nel pannello di test interattivo per ottenere la finalità stimata. La creazione di un'app è gratuita e non richiede una sottoscrizione di Azure.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65146576"
 ---
-# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Guida introduttiva: Creare una nuova app nel portale LUIS
+# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Avvio rapido: Creare una nuova app nel portale LUIS
 
 Questo argomento di avvio rapido illustra come creare una nuova app nel [portale LUIS](https://www.luis.ai). Creare prima le parti fondamentali di un'app, le **finalità** e le **entità**. Testare quindi l'app specificando un'espressione utente di esempio nel pannello di test interattivo per ottenere la finalità stimata.
 

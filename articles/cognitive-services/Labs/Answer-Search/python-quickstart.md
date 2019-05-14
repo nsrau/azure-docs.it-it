@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Project Answer Search, Python'
+title: 'Avvio rapido: Project Answer Search, Python'
 titlesuffix: Azure Cognitive Services
 description: Esempio di Python per iniziare a usare Project Answer Search.
 services: cognitive-services

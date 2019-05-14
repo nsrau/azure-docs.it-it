@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Generare un'anteprima - REST, cURL"
+title: "Avvio rapido: Generare un'anteprima - REST, cURL"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva, si genererà l'anteprima di un'immagine usando l'API Visione artificiale con cURL.
 services: cognitive-services

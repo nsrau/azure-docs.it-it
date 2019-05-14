@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Analizzare un'immagine - SDK, C#"
+title: "Avvio rapido: Analizzare un'immagine - SDK, C#"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizza un'immagine usando la libreria client Windows C# di Visione artificiale.
 services: cognitive-services

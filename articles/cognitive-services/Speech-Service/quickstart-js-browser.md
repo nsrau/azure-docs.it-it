@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale, JavaScript (Browser) - servizi Voce'
+title: 'Avvio rapido: Riconoscimento vocale, JavaScript (Browser) - servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in JavaScript in un browser con Speech SDK
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65020720"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in JavaScript in un browser con Speech SDK
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in JavaScript in un browser con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

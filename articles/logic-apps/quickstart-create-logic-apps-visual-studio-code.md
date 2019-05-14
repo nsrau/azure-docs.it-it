@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60512243"
 ---
-# <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Guida introduttiva: Creare e gestire flussi di lavoro automatizzati delle app per la logica - Visual Studio Code
+# <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Avvio rapido: Creare e gestire flussi di lavoro automatizzati delle app per la logica - Visual Studio Code
 
 Con [App per la logica di Azure](../logic-apps/logic-apps-overview.md) e Visual Studio Code, è possibile creare e gestire app per la logica che consentono di automatizzare attività, flussi di lavoro e processi per l'integrazione di app, dati, sistemi e servizi tra aziende e organizzazioni. Questa Guida introduttiva illustra come è possibile creare e modificare definizioni del flusso di lavoro delle app per la logica usando lo schema di definizione del flusso di lavoro in JavaScript Object Notation (JSON) tramite un'esperienza basata su codice. È anche possibile usare le app per la logica esistenti già distribuite in <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> nel cloud. 
 

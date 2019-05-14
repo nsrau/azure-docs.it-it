@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare entità con l'SDK di Ricerca entità Bing per Java"
+title: "Avvio rapido: Cercare entità con l'SDK di Ricerca entità Bing per Java"
 titlesuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per cercare entità con l'SDK di Ricerca entità Bing per Java
 services: cognitive-services

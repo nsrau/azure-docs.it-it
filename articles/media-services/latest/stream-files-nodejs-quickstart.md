@@ -20,7 +20,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2019
 ms.locfileid: "58522756"
 ---
-# <a name="quickstart-stream-video-files---nodejs"></a>Guida introduttiva: Eseguire lo streaming di file video - Node.js
+# <a name="quickstart-stream-video-files---nodejs"></a>Avvio rapido: Eseguire lo streaming di file video - Node.js
 
 Questa guida introduttiva illustra quanto sia facile codificare e iniziare a eseguire lo streaming di video su un'ampia gamma di browser e dispositivi tramite Servizi multimediali di Azure. È possibile specificare il contenuto di input usando URL HTTPS, URL di firma di accesso condiviso o percorsi ai file che si trovano nell'archivio BLOB di Azure.
 L'esempio in questo argomento codifica contenuti resi accessibili tramite un URL HTTPS. Attualmente AMS v3 non supporta la codifica di trasferimenti in blocchi su URL HTTPS.

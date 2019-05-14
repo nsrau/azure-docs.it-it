@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65148137"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Guida introduttiva: Creare un cluster Apache Kafka in HDInsight
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Avvio rapido: Creare un cluster Apache Kafka in HDInsight
 
 [Apache Kafka](https://kafka.apache.org/) è una piattaforma di streaming open source distribuita. Viene spesso usata come broker di messaggi perché offre funzionalità simili a una coda messaggi di pubblicazione/sottoscrizione. 
 

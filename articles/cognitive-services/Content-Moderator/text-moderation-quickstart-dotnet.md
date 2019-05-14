@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Analizzare il contenuto di testo in C# - Content Moderator'
+title: 'Avvio rapido: Analizzare il contenuto di testo in C# - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Come analizzare il contenuto del testo di vario materiale discutibile usando Content Moderator SDK per .NET
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/01/2019
 ms.locfileid: "58756542"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Guida introduttiva: Analizzare il contenuto del testo per individuare materiale inappropriato in C#
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Avvio rapido: Analizzare il contenuto del testo per individuare materiale inappropriato in C#
 
 Questo articolo contiene informazioni ed esempi di codice utili per iniziare a usare [Content Moderator SDK per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Si imparerà a filtrare e classificare il contenuto di testo in base a determinati termini allo scopo di sottoporre a moderazione materiale potenzialmente sgradevole.
 

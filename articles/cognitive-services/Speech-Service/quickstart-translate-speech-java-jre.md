@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Traduzione vocale, Java (Windows, Linux)- Servizi di riconoscimento vocale'
+title: 'Avvio rapido: Traduzione vocale, Java (Windows, Linux)- Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si creerà una semplice applicazione Java per acquisire i contenuti vocali dell'utente, convertirli in un'altra lingua e restituire il testo nella riga di comando. Questa guida è destinata agli utenti di Windows e Linux.
 services: cognitive-services
@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 5dc1852a57970c2994d9f36cbd7242a18b580a61
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 69cb48df4e765250247605fb5c4e1f421554fd20
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021004"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467008"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Guida introduttiva: Traduzione vocale con Speech SDK per Java
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Avvio rapido: Traduzione vocale con Speech SDK per Java
+
+Sono disponibili guide di avvio rapido anche per la [sintesi vocale](quickstart-java-jre.md) e l'[assistente virtuale voice-first](quickstart-virtual-assistant-java-jre.md).
 
 In questa guida introduttiva si creerà una semplice applicazione Java per acquisire i contenuti vocali dell'utente dal microfono del computer, tradurli e trascrivere il testo tradotto nella riga di comando in tempo reale. Questa applicazione è progettata per l'esecuzione in Windows a 64 bit o Linux a 64 bit (Ubuntu 16.04, Ubuntu 18.04, Debian 9) oppure in macOS 10.13 o versioni successive. Viene creata con il pacchetto Maven per Speech SDK e l'IDE Eclipse Java.
 

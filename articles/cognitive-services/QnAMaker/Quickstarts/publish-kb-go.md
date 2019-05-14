@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57213501"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Guida introduttiva: Pubblicare una knowledge base in QnA Maker con Go
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Avvio rapido: Pubblicare una knowledge base in QnA Maker con Go
 
 Questa guida introduttiva basata su REST illustra la procedura di pubblicazione della knowledge base (KB) a livello di codice. Con la pubblicazione viene eseguito il push dell'ultima versione della knowledge base in un indice dedicato di Ricerca di Azure e viene creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
 

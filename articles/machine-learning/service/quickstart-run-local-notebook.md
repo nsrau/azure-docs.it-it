@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59549136"
 ---
-# <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Usare il proprio server notebook per iniziare a usare Azure Machine Learning
+# <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Avvio rapido: Usare il proprio server notebook per iniziare a usare Azure Machine Learning
 
 Usare il proprio server notebook per eseguire il codice che registra i valori nell'[area di lavoro del servizio Machine Learning](concept-azure-machine-learning-architecture.md). L'area di lavoro rappresenta l'elemento fondamentale nel cloud per eseguire esperimenti, training e distribuzione di modelli di Machine Learning con il servizio Machine Learning.
 

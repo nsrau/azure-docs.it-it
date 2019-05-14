@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali utilizzando l'API REST di rilevatore di anomalie e C# | Microsoft Docs"
+title: "Avvio rapido: Rilevare le anomalie nei dati delle serie temporali utilizzando l'API REST di rilevatore di anomalie e C# | Microsoft Docs"
 description: Usare l'API rilevatore di anomalie per rilevare le anomalie nella serie di dati come un batch o nel flusso di dati.
 services: cognitive-services
 author: aahill
@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: ffa42eb2247d163dd6a146ffb26c1f8cc5cf6d82
 ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/30/2019
 ms.locfileid: "64922529"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali utilizzando l'API REST di rilevatore di anomalie eC# 
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Avvio rapido: Rilevare le anomalie nei dati delle serie temporali utilizzando l'API REST di rilevatore di anomalie eC# 
 
 Usare questa Guida introduttiva per iniziare a usare due modalità di rilevamento dell'API di rilevamento delle anomalie per rilevare le anomalie nei dati delle serie temporali. In questo C# applicazione invia due richieste di API che contiene dati delle serie temporali in formato JSON e ottiene le risposte.
 

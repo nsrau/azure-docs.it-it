@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Java"
+title: "Avvio rapido: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Java"
 titlesuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare una richiesta all'API REST Ricerca entità Bing con Java e ricevere una risposta JSON.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59681931"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Java
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Avvio rapido: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Java
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione Java invia una query di ricerca notizie all'API e visualizza la risposta.
 

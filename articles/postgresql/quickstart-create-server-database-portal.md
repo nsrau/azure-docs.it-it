@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65073225"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Guida introduttiva: Creare un database di Azure per il server PostgreSQL nel portale di Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Avvio rapido: Creare un database di Azure per il server PostgreSQL nel portale di Azure
 
 Il database di Azure per PostgreSQL è un servizio gestito usato per eseguire, gestire e ridimensionare database PostgreSQL a disponibilità elevata nel cloud. Questa guida introduttiva illustra come creare un server Database di Azure per PostgreSQL in circa cinque minuti con il portale di Azure.
 

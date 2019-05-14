@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58092532"
 ---
-# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Guida introduttiva: Creare un database a grafo in Azure Cosmos DB usando Python e il portale di Azure
+# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Avvio rapido: Creare un database a grafo in Azure Cosmos DB usando Python e il portale di Azure
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)

@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58442959"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Guida introduttiva: Creare un processo di Analisi di flusso usando Azure PowerShell
+# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Avvio rapido: Creare un processo di Analisi di flusso usando Azure PowerShell
 
 Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure usando cmdlet o script di PowerShell. Questa guida introduttiva illustra in dettaglio l'uso del modulo Azure PowerShell per distribuire ed eseguire un processo di Analisi di flusso di Azure.
 

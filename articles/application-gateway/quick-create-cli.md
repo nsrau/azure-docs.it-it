@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59528294"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Interfaccia della riga di comando di Azure
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Interfaccia della riga di comando di Azure
 
 Questa guida di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per creare un gateway applicazione.  Al termine della creazione, si testa il gateway applicazione per verificare che funzioni correttamente. Con il gateway applicazione di Azure si indirizza il traffico Web dell'applicazione a risorse specifiche assegnando listener alle porte, creando regole e aggiungendo risorse a un pool back-end. Per semplicità, questo articolo usa una configurazione semplice con un indirizzo IP pubblico front-end, un listener di base per ospitare un singolo sito nel gateway applicazione, due macchine virtuali usate per il pool back-end e una regola di routing delle richieste di base.
 

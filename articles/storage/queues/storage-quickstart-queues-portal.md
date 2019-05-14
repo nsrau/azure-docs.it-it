@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65138263"
 ---
-# <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Guida introduttiva: Creare una coda e aggiungere un messaggio con il portale di Azure
+# <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Avvio rapido: Creare una coda e aggiungere un messaggio con il portale di Azure
 
 Questa guida introduttiva illustra come usare il [portale di Azure](https://portal.azure.com/) per creare una coda in Archiviazione di Azure, aggiungere messaggi e rimuoverli dalla coda.
 

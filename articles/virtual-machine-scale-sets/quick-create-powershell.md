@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/22/2019
 ms.locfileid: "56668804"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>Guida introduttiva: Creare un set di scalabilità di macchine virtuali con Azure PowerShell
+# <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali con Azure PowerShell
 
 
 

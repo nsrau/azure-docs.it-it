@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ottenere un elenco delle lingue supportate, Java - API Traduzione testuale'
+title: 'Avvio rapido: Ottenere un elenco delle lingue supportate, Java - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari usando l'API Traduzione testuale.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/30/2019
 ms.locfileid: "64916737"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Guida introduttiva: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate usando Java
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate usando Java
 
 In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari usando l'API Traduzione testuale.
 

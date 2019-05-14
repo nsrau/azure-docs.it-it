@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58183697"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando Python
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando Python
 
 In questa Guida introduttiva verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Python e l'API REST Traduzione testuale.
 

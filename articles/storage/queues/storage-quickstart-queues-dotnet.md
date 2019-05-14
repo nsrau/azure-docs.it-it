@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Usare .NET per creare una coda in Archiviazione di Azure'
+title: 'Avvio rapido: Usare .NET per creare una coda in Archiviazione di Azure'
 description: Questa guida introduttiva illustra come usare la libreria client di Archiviazione di Azure per .NET per creare una coda e aggiungervi messaggi. Si apprenderà quindi come leggere ed elaborare i messaggi dalla coda.
 services: storage
 author: mhopkins-msft
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2019
 ms.locfileid: "65232590"
 ---
-# <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Guida introduttiva: Usare .NET per creare una coda in Archiviazione di Azure
+# <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Avvio rapido: Usare .NET per creare una coda in Archiviazione di Azure
 
 Questa guida introduttiva illustra come usare la libreria client di Archiviazione di Azure per .NET per creare una coda e aggiungervi messaggi. Si apprenderà quindi come leggere ed elaborare i messaggi dalla coda. 
 

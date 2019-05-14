@@ -314,8 +314,9 @@
                 - name: Monitoraggio stato
                   href: app/monitor-performance-live-website-now.md
                 - name: Status Monitor v2
-                  href: app/status-monitor-v2-overview.md
                   items:
+                    - name: Panoramica
+                      href: app/status-monitor-v2-overview.md
                     - name: Introduzione
                       href: app/status-monitor-v2-get-started.md
                     - name: Istruzioni dettagliate
@@ -557,7 +558,7 @@
                   href: app/usage-workbooks.md
             - name: Soluzione di analisi per app Web
               href: insights/azure-web-apps-analytics.md
-            - name: App ospitate in Kubernetes
+            - name: Monitorare le applicazioni Kubernetes
               href: app/kubernetes.md
         - name: Monitorare i contenitori
           items:
@@ -631,8 +632,18 @@
                   href: insights/vminsights-known-issues.md
                 - name: Domande frequenti
                   href: insights/vminsights-faq.md
-                - name: Onboarding
-                  href: insights/vminsights-onboard.md
+                - name: Abilitare il monitoraggio
+                  items:
+                    - name: Abilitare il monitoraggio - Panoramica
+                      href: insights/vminsights-enable-overview.md
+                    - name: Eseguire l'abilitazione per una singola macchina virtuale di Azure
+                      href: insights/vminsights-enable-single-vm.md
+                    - name: Eseguire l'abilitazione con Criteri di Azure
+                      href: insights/vminsights-enable-at-scale-policy.md
+                    - name: Abilitare con Azure PowerShell
+                      href: insights/vminsights-enable-at-scale-powershell.md
+                    - name: Eseguire l'abilitazione per l'ambiente ibrido
+                      href: insights/vminsights-enable-hybrid-cloud.md
                 - name: Monitorare l'integrità
                   href: insights/vminsights-health.md
                 - name: Eseguire il mapping delle dipendenze

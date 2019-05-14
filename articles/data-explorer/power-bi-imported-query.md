@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Visualizzare i dati da Esplora dati di Azure con una query importata in Power BI '
+title: 'Avvio rapido: Visualizzare i dati da Esplora dati di Azure con una query importata in Power BI '
 description: 'In questa guida introduttiva viene descritto come usare una delle tre opzioni per la visualizzazione dei dati in Power BI: importazione di una query da Esplora dati di Azure.'
 author: orspod
 ms.author: orspodek
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050587"
 ---
-# <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Guida introduttiva: Visualizzare i dati tramite una query importata in Power BI
+# <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Avvio rapido: Visualizzare i dati tramite una query importata in Power BI
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Power BI è una soluzione di analisi aziendale che consente di visualizzare i dati e condividere i risultati all'interno dell'organizzazione.
 

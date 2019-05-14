@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: Preparare e personalizzare un'immagine master di disco rigido virtuale
       href: set-up-customize-master-image.md
+    - name: Installare Office in un'immagine master di disco rigido virtuale
+      href: install-office-on-wvd-master-image.md
     - name: Configurare la GPU per Desktop virtuale Windows
       href: configure-vm-gpu.md
     - name: Ridimensionare automaticamente gli host della sessione

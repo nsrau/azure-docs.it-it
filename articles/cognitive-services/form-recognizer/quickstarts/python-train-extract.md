@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Eseguire il training di un modello ed estrarre dati dai moduli usando l'API REST con Python - Riconoscimento modulo"
+title: "Avvio rapido: Eseguire il training di un modello ed estrarre dati dai moduli usando l'API REST con Python - Riconoscimento modulo"
 titleSuffix: Azure Cognitive Services
 description: In questa guida di avvio rapido si userà l'API REST di Riconoscimento modulo con Python per eseguire il training di un modello ed estrarre dati dai moduli.
 author: PatrickFarley
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65025558"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-python"></a>Guida introduttiva: Eseguire il training di un modello di Riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con Python
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-python"></a>Avvio rapido: Eseguire il training di un modello di Riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con Python
 
 In questa guida di avvio rapido si userà l'API REST di Riconoscimento modulo con Python per eseguire il training e assegnare punteggi ai moduli in modo da estrarre coppie chiave-valore e tabelle.
 

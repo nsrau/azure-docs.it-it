@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "60149683"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Guida introduttiva: controllare un dispositivo connesso a un hub IoT (Android)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Avvio rapido: controllare un dispositivo connesso a un hub IoT (Android)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 

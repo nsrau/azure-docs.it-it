@@ -20,7 +20,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357132"
 ---
-# <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare Visual Studio Code per connettersi a un database SQL di Azure ed eseguire query
+# <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Avvio rapido: Usare Visual Studio Code per connettersi a un database SQL di Azure ed eseguire query
 
 [Visual Studio Code](https://code.visualstudio.com/docs) è un editor grafico di codice per Linux, macOS e Windows. Supporta estensioni, tra cui l'[estensione mssql](https://aka.ms/mssql-marketplace) per l'esecuzione di query su Microsoft SQL Server, database SQL di Azure e SQL Data Warehouse. In questa guida introduttiva si usa Visual Studio Code per connettersi a un database SQL di Azure e quindi eseguire query e inserire, aggiornare ed eliminare dati con istruzioni Transact-SQL.
 

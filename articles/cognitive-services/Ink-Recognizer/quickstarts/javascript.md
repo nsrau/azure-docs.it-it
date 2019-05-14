@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna e Node. js"
+title: "Avvio rapido: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna e Node. js"
 description: Usare l'API di riconoscimento input penna per avviare tratti input penna.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/10/2019
 ms.locfileid: "65519668"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Guida introduttiva: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna e JavaScript
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Avvio rapido: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna e JavaScript
 
 Usare questa Guida introduttiva per iniziare a usare l'API di riconoscimento input penna su tratti input penna digitale. Questa applicazione JavaScript invia una richiesta di API che contiene i dati tratti input penna in formato JSON e Visualizza la risposta.
 

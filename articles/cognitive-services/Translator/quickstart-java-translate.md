@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Tradurre un testo, Java - API Traduzione testuale'
+title: 'Avvio rapido: Tradurre un testo, Java - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con Java e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/23/2019
 ms.locfileid: "56736482"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Guida introduttiva: Usare l'API Traduzione testuale per tradurre una stringa con Java
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Avvio rapido: Usare l'API Traduzione testuale per tradurre una stringa con Java
 
 In questo argomento di avvio rapido si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con Java e l'API REST Traduzione testuale.
 

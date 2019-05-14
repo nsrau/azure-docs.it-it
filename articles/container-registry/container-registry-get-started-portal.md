@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59682985"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Guida introduttiva: Creare un registro contenitori privato usando il portale di Azure
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Avvio rapido: Creare un registro contenitori privato usando il portale di Azure
 
 Un registro contenitori di Azure è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato. In questa guida introduttiva viene creato un registro contenitori di Azure con il portale di Azure. Usare quindi i comandi di Docker per eseguire il push di un'immagine del contenitore nel registro e infine eseguire il pull ed eseguire l'immagine dal registro.
 

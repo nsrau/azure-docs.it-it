@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Rilevare la lingua del testo, C# - API Traduzione testuale'
+title: 'Avvio rapido: Rilevare la lingua del testo, C# - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come rilevare la lingua del testo fornito con .NET Core e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/30/2019
 ms.locfileid: "64916796"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Guida introduttiva: Usare l'API Traduzione testuale per rilevare la lingua del testo con C#
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con C#
 
 In questa guida introduttiva si apprenderà come rilevare la lingua del testo fornito con .NET Core e l'API REST Traduzione testuale.
 

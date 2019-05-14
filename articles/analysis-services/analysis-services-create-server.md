@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58803006"
 ---
-# <a name="quickstart-create-a-server---portal"></a>Guida introduttiva: Creare un server - Portale
+# <a name="quickstart-create-a-server---portal"></a>Avvio rapido: Creare un server - Portale
 
 Questa guida introduttiva descrive come creare una risorsa server Analysis Services nella sottoscrizione di Azure usando il portale.
 

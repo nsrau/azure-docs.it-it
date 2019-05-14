@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57193365"
 ---
-# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Guida introduttiva: Integrare un account di archiviazione di Azure con la rete CDN di Azure
+# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Avvio rapido: Integrare un account di archiviazione di Azure con la rete CDN di Azure
 In questa guida introduttiva, la [rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md) viene abilitata per memorizzare nella cache i contenuti dall'archiviazione di Azure. La rete CDN di Azure offre agli sviluppatori una soluzione globale per distribuire contenuti con esigenze di larghezza di banda elevata. Consente di memorizzare nella cache oggetti BLOB e contenuti statici di istanze di calcolo in nodi fisici negli Stati Uniti, in Europa, Asia, Australia e Sud America.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

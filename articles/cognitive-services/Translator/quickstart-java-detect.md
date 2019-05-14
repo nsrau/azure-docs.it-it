@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Rilevare la lingua del testo, Java - API Traduzione testuale'
+title: 'Avvio rapido: Rilevare la lingua del testo, Java - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si apprenderà come rilevare la lingua del testo fornito con Java e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/30/2019
 ms.locfileid: "64916733"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Guida introduttiva: Usare l'API Traduzione testuale per rilevare la lingua del testo con Java
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con Java
 
 In questo argomento di avvio rapido si apprenderà come rilevare la lingua del testo fornito con Java e l'API REST Traduzione testuale.
 

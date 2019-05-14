@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire una ricerca Web con C# - API REST Ricerca Web Bing'
+title: 'Avvio rapido: Eseguire una ricerca Web con C# - API REST Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste all'API REST Ricerca Web Bing usando C# e ricevere una risposta JSON.
 services: cognitive-services

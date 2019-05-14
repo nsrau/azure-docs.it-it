@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure'
+title: 'Avvio rapido: Eseguire query sui dati in Esplora dati di Azure'
 description: In questo avvio rapido si apprenderà a eseguire una query sui dati e a condividere i dati in Esplora dati di Azure.
 author: orspod
 ms.author: orspodek
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050561"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure
+# <a name="quickstart-query-data-in-azure-data-explorer"></a>Avvio rapido: Eseguire query sui dati in Esplora dati di Azure
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Offre un'applicazione Web che consente di eseguire e condividere le query. L'applicazione è disponibile nel portale di Azure e come applicazione Web autonoma. In questo articolo viene usata la versione autonoma, che consente di connettersi a più cluster e di condividere collegamenti diretti alle query.
 

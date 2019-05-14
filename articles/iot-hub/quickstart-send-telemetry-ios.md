@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006889"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT (iOS)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT (iOS)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 

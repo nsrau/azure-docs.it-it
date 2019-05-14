@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Traduzione vocale, C# (.NET Core - Windows)'
+title: 'Avvio rapido: Traduzione vocale, C# (.NET Core - Windows)'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si creerà una semplice applicazione .NET Core per acquisire i contenuti vocali dell'utente, convertirli in un'altra lingua e restituire il testo nella riga di comando. Questa guida è destinata agli utenti di Windows.
 services: cognitive-services
@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: b0b0c256db3cc93e515b38bf7daad72b082d2d3d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa516c5050bfd53add761bea56c74a58057263c7
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850259"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465694"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-core"></a>Guida introduttiva: Traduzione vocale con Speech SDK per .NET Core
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-core"></a>Avvio rapido: Traduzione vocale con Speech SDK per .NET Core
+
+Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-csharp-dotnet-windows.md) e la [sintesi vocale](quickstart-text-to-speech-dotnet-windows.md).
 
 In questa guida introduttiva si creerà una semplice applicazione .NET Core per acquisire i contenuti vocali dell'utente dal microfono del computer, tradurli e trascrivere il testo tradotto nella riga di comando in tempo reale. L'applicazione è progettata per l'esecuzione in Windows a 64 bit e si basa sul pacchetto [NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017.
 

@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/25/2019
 ms.locfileid: "58401650"
 ---
-# <a name="quickstart-get-intent-using-java"></a>Guida introduttiva: Ottenere la finalità con Java
+# <a name="quickstart-get-intent-using-java"></a>Avvio rapido: Ottenere la finalità con Java
 
 In questa guida introduttiva si passano le espressioni a un endpoint LUIS per ottenere la restituzione di finalità ed entità.
 

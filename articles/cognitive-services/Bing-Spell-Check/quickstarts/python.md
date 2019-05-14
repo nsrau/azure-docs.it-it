@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Python"
+title: "Avvio rapido: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Python"
 titlesuffix: Azure Cognitive Services
 description: Introduzione all'uso dell'API REST Controllo ortografico Bing per controllare l'ortografia e la grammatica.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59547680"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Python
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Avvio rapido: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Python
 
 Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione Python invia una richiesta all'API e restituisce un elenco di correzioni suggerite. L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
 

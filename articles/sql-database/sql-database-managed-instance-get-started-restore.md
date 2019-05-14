@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59356830"
 ---
-# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Guida introduttiva: Ripristinare un database in un'istanza gestita
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Avvio rapido: Ripristinare un database in un'istanza gestita
 
 In questa guida introduttiva si userà SQL Server Management Studio (SSMS) per ripristinare un database (file di backup standard di Wide World Importers) dall'archivio BLOB di Azure a [Istanza gestita](sql-database-managed-instance.md) di database SQL di Azure.
 

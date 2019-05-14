@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare le anomalie in batch usando l'API REST di rilevatore di anomalie e Python | Microsoft Docs"
+title: "Avvio rapido: Rilevare le anomalie in batch usando l'API REST di rilevatore di anomalie e Python | Microsoft Docs"
 description: Usare l'API rilevatore di anomalie per rilevare le anomalie nella serie di dati come un batch o nel flusso di dati.
 services: cognitive-services
 author: aahill
@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 6b4ddcadfe63f74d115c155354a276e45c6b53f9
 ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59544501"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST di rilevatore di anomalie e Python
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST di rilevatore di anomalie e Python
 
 Usare questa Guida introduttiva per iniziare a usare due modalità di rilevamento dell'API di rilevamento delle anomalie per rilevare le anomalie nei dati delle serie temporali. Questa applicazione Python invia due richieste di API che contiene dati delle serie temporali in formato JSON e ottiene le risposte.
 

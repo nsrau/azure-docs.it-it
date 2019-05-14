@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65154491"
 ---
-# <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Guida introduttiva: Creare una chat room con ASP.NET e il Servizio SignalR
+# <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Avvio rapido: Creare una chat room con ASP.NET e il Servizio SignalR
 
 Il Servizio Azure SignalR si basa su [SignalR per ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction), che **non** è compatibile al 100% con ASP.NET SignalR. Il Servizio Azure SignalR ha reimplementato il protocollo dati ASP.NET SignalR sulla base delle tecnologie ASP.NET Core più recenti. Quando si usa il Servizio Azure SignalR per ASP.NET SignalR, alcune funzionalità di ASP.NET SignalR non sono più supportate. Ad esempio, Azure SignalR non esegue la riproduzione dei messaggi quando si riconnette il client. Inoltre, il trasporto Forever Frame e JSONP non sono supportati. Per il funzionamento dell'applicazione ASP.NET SignalR con il Servizio SignalR sono necessarie alcune modifiche del codice e la versione corretta delle librerie dipendenti. 
 

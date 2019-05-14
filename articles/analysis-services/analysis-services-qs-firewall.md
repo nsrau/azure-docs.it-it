@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/10/2019
 ms.locfileid: "54187284"
 ---
-# <a name="quickstart-configure-server-firewall---portal"></a>Guida introduttiva: Configurare il firewall del server - Portale
+# <a name="quickstart-configure-server-firewall---portal"></a>Avvio rapido: Configurare il firewall del server - Portale
 
 Questa guida introduttiva consente di configurare un firewall per il server di Azure Analysis Services. L'abilitazione di un firewall e la configurazione di intervalli di indirizzi IP solo per i computer che accedono al server sono una parte importante della protezione dei dati e del server.
 

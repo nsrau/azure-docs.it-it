@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64698756"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure con il portale di Azure 
+# <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Avvio rapido: Creare e gestire condivisioni file di Azure con il portale di Azure 
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows, Linux e macOS. Questa guida contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con il [portale di Azure](https://portal.azure.com/).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.

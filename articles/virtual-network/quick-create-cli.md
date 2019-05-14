@@ -20,7 +20,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64692637"
 ---
-# <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Guida introduttiva: Creare una rete virtuale usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Avvio rapido: Creare una rete virtuale usando l'interfaccia della riga di comando di Azure
 
 Una rete virtuale consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente tra loro e con Internet. Questa guida introduttiva illustra come creare una rete virtuale. Dopo avere creato una rete virtuale, si distribuiscono due VM nella rete virtuale. Si effettua quindi la connessione alle VM da Internet e si stabilisce una comunicazione privata tramite la nuova rete virtuale.
 

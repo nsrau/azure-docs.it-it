@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60515143"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Guida introduttiva: Usare l'API REST Riconoscimento vocale Bing
+# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Avvio rapido: Usare l'API REST Riconoscimento vocale Bing
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 

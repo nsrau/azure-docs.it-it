@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58449021"
 ---
-# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Ruby per eseguire query su un database SQL di Azure
+# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Avvio rapido: Usare Ruby per eseguire query su un database SQL di Azure
 
 Questa guida introduttiva illustra come usare [Ruby](https://www.ruby-lang.org) per connettersi a un database SQL di Azure ed eseguire query sui dati tramite istruzioni Transact-SQL.
 

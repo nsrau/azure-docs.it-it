@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un server Database di Azure per MySQL - Portale di Azure'
+title: 'Avvio rapido: Creare un server Database di Azure per MySQL - Portale di Azure'
 description: Questo articolo contiene informazioni dettagliate su come usare il portale di Azure per creare rapidamente un database di Azure di esempio per il server MySQL in circa cinque minuti.
 author: ajlam
 ms.author: andrela

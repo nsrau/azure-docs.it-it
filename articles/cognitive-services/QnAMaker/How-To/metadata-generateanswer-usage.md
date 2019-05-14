@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/10/2019
 ms.author: tulasim
-ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 278040cb487df6731df1ad3e18435f6e12ca9d50
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727323"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594036"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta della Knowledge base con l'API di GenerateAnswer e metadati
 
@@ -71,21 +71,21 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 |--|--|--|--|
 |Parametro di route di URL|ID Knowledge base|string|L'identificatore univoco globale della Knowledge Base.|
 |Parametro di route di URL|Host endpoint QnAMaker|string|nome host dell'endpoint distribuito nella sottoscrizione di Azure. È disponibile nella pagina impostazioni dopo la pubblicazione della knowledge base. |
-|Intestazione|Content-Type|string|tipo di supporto del corpo inviato all'API. Valore predefinito è: '|
+|Intestazione|Tipo contenuto|string|tipo di supporto del corpo inviato all'API. Valore predefinito è: '|
 |Intestazione|Authorization|string|la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo della richiesta POST|Oggetto JSON|JSON|La domanda con le impostazioni|
 
 
 Il corpo JSON presenta diverse impostazioni:
 
-|Proprietà del corpo JSON|Obbligatoria|Type|Scopo|
+|Proprietà del corpo JSON|Obbligatorio|Type|Scopo|
 |--|--|--|--|
-|`question`|Obbligatoria|string|Una domanda utente da inviare alla knowledge base.|
-|`top`|Facoltativo|numero intero|numero di risultati classificati da includere nell'output. Il valore predefinito è 1.|
-|`userId`|Facoltativo|string|ID univoco per l'identificazione dell'utente. Questo ID verrà registrato nei log di chat.|
-|`scoreThreshold`|Facoltativo|numero intero|Verranno restituite solo le risposte con punteggio di confidenza di sopra di questa soglia. Il valore predefinito è 0.|
-|`isTest`|Facoltativo|boolean|Se impostato su true, restituisce risultati da `testkb` indice di ricerca anziché indice pubblicato.|
-|`strictFilters`|Facoltativo|string|se specificato, indica a QnA Maker di restituire solo le risposte contenenti i metadati specificati. Usare `none` per indicare risposta non dovrebbe avere alcun filtro di metadati. |
+|`question`|obbligatorio|string|Una domanda utente da inviare alla knowledge base.|
+|`top`|facoltativo|integer|numero di risultati classificati da includere nell'output. Il valore predefinito è 1.|
+|`userId`|facoltativo|string|ID univoco per l'identificazione dell'utente. Questo ID verrà registrato nei log di chat.|
+|`scoreThreshold`|facoltativo|integer|Verranno restituite solo le risposte con punteggio di confidenza di sopra di questa soglia. Il valore predefinito è 0.|
+|`isTest`|facoltativo|boolean|Se impostato su true, restituisce risultati da `testkb` indice di ricerca anziché indice pubblicato.|
+|`strictFilters`|facoltativo|string|se specificato, indica a QnA Maker di restituire solo le risposte contenenti i metadati specificati. Usare `none` per indicare risposta non dovrebbe avere alcun filtro di metadati. |
 
 Un esempio del corpo JSON sarà simile a:
 
@@ -117,7 +117,7 @@ Una risposta con esito positivo restituisce uno stato 200 e una risposta JSON.
 |Domande|domande fornite dall'utente.|
 |answer|la risposta alla domanda.|
 |una sezione source|nome dell'origine da cui la risposta è stata estratta o salvata nella Knowledge Base.|
-|metadata|metadati associati alla risposta.|
+|Metadati|metadati associati alla risposta.|
 |Metadata.Name|nome dei metadati. (stringa, lunghezza massima: 100, obbligatorio)|
 |Metadata.Value: valore dei metadati. (stringa, lunghezza massima: 100, obbligatorio)|
 
@@ -148,7 +148,7 @@ Una risposta con esito positivo restituisce uno stato 200 e una risposta JSON.
 
 ## <a name="using-metadata-allows-you-to-filter-answers-by-custom-metadata-tags"></a>Uso di metadati consente di filtrare le risposte in base al tag di metadati personalizzati
 
-Aggiunta di metadati consente di filtrare le risposte da tali tag dei metadati. Prendere in considerazione i dati sulle domande frequenti seguenti. Aggiungere i metadati alla knowledge base facendo clic sull'icona dei metadati.
+Aggiunta di metadati consente di filtrare le risposte da tali tag dei metadati. La colonna di metadati da aggiungere il **opzioni di visualizzazione** menu. Aggiungere i metadati alla knowledge base facendo clic sui metadati **+** icona per l'aggiunta di una coppia di metadati. Questa coppia è costituita da una chiave e un valore.
 
 ![Aggiungere metadati](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 

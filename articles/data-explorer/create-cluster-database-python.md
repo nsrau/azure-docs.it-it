@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure tramite Python'
+title: 'Avvio rapido: Creare un database e un cluster di Esplora dati di Azure tramite Python'
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure usando Python.
 author: oflipman
 ms.author: oflipman

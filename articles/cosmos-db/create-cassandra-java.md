@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API Cassandra con Java - Azure Cosmos DB'
+title: 'Avvio rapido: API Cassandra con Java - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e Java
 ms.service: cosmos-db
 author: SnehaGunda
@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2019
 ms.locfileid: "56587601"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app Cassandra con Java SDK e Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con Java SDK e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)

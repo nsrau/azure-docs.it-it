@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65149393"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Python
+# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con Python
 
 In questa guida rapida viene illustrato come usare Python per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. I BLOB sono semplicemente oggetti che possono contenere qualsiasi quantità di dati di testo o binari (ad esempio immagini, documenti, flussi multimediali, dati di archivio e così via) e in Archiviazione di Azure sono diversi dalle condivisioni file, dalle tabelle senza schema e dalle code di messaggi. Per altre informazioni, vedere [Introduzione ad Archiviazione di Azure](/azure/storage/common/storage-introduction).
 

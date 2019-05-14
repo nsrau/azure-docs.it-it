@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'SDK di Ricerca visiva Bing per C#"
+title: "Avvio rapido: Ottenere informazioni dettagliate sulle immagini usando l'SDK di Ricerca visiva Bing per C#"
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come caricare un'immagine usando l'SDK di Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
 services: cognitive-services

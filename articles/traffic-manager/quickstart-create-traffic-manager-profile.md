@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/12/2019
 ms.locfileid: "57760665"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Guida introduttiva: Creare un profilo di Gestione traffico usando il portale di Azure
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Avvio rapido: Creare un profilo di Gestione traffico usando il portale di Azure
 
 Questo argomento di avvio rapido descrive come creare un profilo di Gestione traffico che fornisce disponibilità elevata per l'applicazione Web.
 

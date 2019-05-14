@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55874839"
 ---
-# <a name="quickstart-change-model-using-nodejs"></a>Guida introduttiva: Modificare il modello con Node.js
+# <a name="quickstart-change-model-using-nodejs"></a>Avvio rapido: Modificare il modello con Node.js
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 

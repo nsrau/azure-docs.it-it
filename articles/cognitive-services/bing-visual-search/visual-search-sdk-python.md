@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: SDK di Ricerca visiva Bing, Python'
+title: 'Avvio rapido: SDK di Ricerca visiva Bing, Python'
 titleSuffix: Azure Cognitive Services
 description: Configurare l'applicazione console SDK di Ricerca visiva per Python.
 services: cognitive-services

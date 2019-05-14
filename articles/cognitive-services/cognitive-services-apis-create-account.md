@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/11/2019
 ms.locfileid: "65546379"
 ---
-# <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Guida introduttiva: Creare un account di Servizi cognitivi nel portale di Azure
+# <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Avvio rapido: Creare un account di Servizi cognitivi nel portale di Azure
 
 In questa guida di avvio rapido viene illustrato come effettuare l'iscrizione per Servizi cognitivi di Azure e creare una sottoscrizione di un singolo servizio o multiservizio. Questi servizi sono rappresentati da [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) di Azure che consentono di connettersi a una o più API Servizi cognitivi di Azure.
 

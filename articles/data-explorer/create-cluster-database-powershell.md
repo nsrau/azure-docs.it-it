@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure tramite PowerShell'
+title: 'Avvio rapido: Creare un database e un cluster di Esplora dati di Azure tramite PowerShell'
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure tramite PowerShell
 author: oflipman
 ms.author: oflipman

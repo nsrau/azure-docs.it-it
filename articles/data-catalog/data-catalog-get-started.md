@@ -13,7 +13,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59997734"
 ---
-# <a name="quickstart-create-an-azure-data-catalog"></a>Guida introduttiva: Creare un'istanza di Azure Data Catalog
+# <a name="quickstart-create-an-azure-data-catalog"></a>Avvio rapido: Creare un'istanza di Azure Data Catalog
 
 Azure Data Catalog è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per asset di dati aziendali. Per una panoramica dettagliata, vedere [Definizione di Azure Data Catalog](overview.md).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Convertire uno script di testo, C# - Traduzione testuale'
+title: 'Avvio rapido: Convertire uno script di testo, C# - Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con .NET Core e l'API REST Traduzione testuale. In questo esempio il giapponese è traslitterato per usare l'alfabeto latino.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57864695"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Guida introduttiva: Usare l'API Traduzione testuale per traslitterare un testo con C#
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con C#
 
 In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con .NET Core (C#) e l'API REST Traduzione testuale. Nell'esempio fornito il giapponese è traslitterato per usare l'alfabeto latino.
 

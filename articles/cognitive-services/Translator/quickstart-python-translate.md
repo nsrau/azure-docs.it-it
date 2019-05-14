@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Tradurre testo, Python - API Traduzione testuale'
+title: 'Avvio rapido: Tradurre testo, Python - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva verrà tradotto un testo da una lingua a un'altra usando l'API Traduzione testuale con Python in meno di 10 minuti.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57899401"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Guida introduttiva: Usare l'API Traduzione testuale per tradurre una stringa con Python
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Avvio rapido: Usare l'API Traduzione testuale per tradurre una stringa con Python
 
 In questa guida introduttiva si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con Python e l'API REST Traduzione testuale.
 

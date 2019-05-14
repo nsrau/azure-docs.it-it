@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un indice in un'applicazione console C# - Ricerca di Azure"
+title: "Avvio rapido: Creare un indice in un'applicazione console C# - Ricerca di Azure"
 description: Informazioni su come creare un indice di ricerca full-text in C# usando l'SDK .NET della Ricerca di Azure.
 author: heidisteen
 manager: cgronlun
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269045"
 ---
-# <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Guida introduttiva: 1 - Creare un indice di Ricerca di Azure in C#
+# <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Avvio rapido: 1 - Creare un indice di Ricerca di Azure in C#
 > [!div class="op_single_selector"]
 > * [C#](search-create-index-dotnet.md)
 > * [Portale](search-get-started-portal.md)

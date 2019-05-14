@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un server di Database di Azure per MariaDB - Interfaccia della riga di comando di Azure'
+title: 'Avvio rapido: Creare un server di Database di Azure per MariaDB - Interfaccia della riga di comando di Azure'
 description: Questa guida introduttiva descrive come usare l'interfaccia della riga di comando di Azure per creare un server di Database di Azure per MariaDB in un gruppo di risorse di Azure.
 author: ajlam
 ms.author: andrela

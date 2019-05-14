@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57217955"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Guida introduttiva: pubblicare una knowledge base in QnA Maker usando Node.js
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Avvio rapido: pubblicare una knowledge base in QnA Maker usando Node.js
 
 Questa guida introduttiva basata su REST illustra la procedura di pubblicazione della knowledge base (KB) a livello di codice. Con la pubblicazione viene eseguito il push dell'ultima versione della knowledge base in un indice dedicato di Ricerca di Azure e viene creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
 

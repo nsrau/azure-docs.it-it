@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59521921"
 ---
-# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Guida introduttiva: Caricare i computer Linux nel Centro sicurezza di Azure
+# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Avvio rapido: Caricare i computer Linux nel Centro sicurezza di Azure
 Dopo aver caricato le sottoscrizioni di Azure è possibile abilitare il Centro sicurezza per le risorse di Linux in esecuzione all'esterno di Azure, per esempio in locale o in altri cloud, effettuando il provisioning dell'agente Linux.
 
 Questa guida introduttiva mostra come installare l'agente Linux in un computer Linux.

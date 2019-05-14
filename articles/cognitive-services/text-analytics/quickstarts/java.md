@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Uso di Java per chiamare l'API Analisi del testo"
+title: "Avvio rapido: Uso di Java per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare l'API Analisi del testo in Servizi cognitivi di Azure.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "60008580"
 ---
-# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di Java per chiamare il servizio cognitivo Analisi del testo
+# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso di Java per chiamare il servizio cognitivo Analisi del testo
 <a name="HOLTop"></a>
 
 Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities) usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con Java.

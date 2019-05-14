@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API Cassandra con .NET - Azure Cosmos DB'
+title: 'Avvio rapido: API Cassandra con .NET - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e .NET
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra

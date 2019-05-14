@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'app Web ASP.NET con Azure Cosmos DB usando l'API SQL e il portale di Azure"
+title: "Avvio rapido: Creare un'app Web ASP.NET con Azure Cosmos DB usando l'API SQL e il portale di Azure"
 description: In questo avvio rapido si useranno l'API SQL di Azure Cosmos DB e il portale di Azure per creare un'app Web ASP.NET
 author: deborahc
 ms.service: cosmos-db
@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57455769"
 ---
-# <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Guida introduttiva: Compilare un'app Web ASP.NET usando un account API SQL di Azure Cosmos DB
+# <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Compilare un'app Web ASP.NET usando un account API SQL di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET (Preview)](create-sql-api-dotnet-preview.md)

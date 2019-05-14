@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale, C++ - Servizi di riconoscimento vocale'
+title: 'Avvio rapido: Riconoscimento vocale, C++ - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in C++ in Windows Desktop con Speech SDK
 services: cognitive-services
@@ -10,15 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 956dfe54cec910a09ed16d7387bc3d32babd0876
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 672a691cdad5c83583ea840907fa7dd193c7ae3a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692402"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466957"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in C++ su Windows Desktop con Speech SDK
+# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C++ su Windows Desktop con Speech SDK
 
+Sono disponibili guide di avvio rapido anche per la [sintesi vocale](quickstart-text-to-speech-cpp-windows.md) e la [traduzione vocale](quickstart-translate-speech-cpp-windows.md).
+
+Se si vuole, è possibile scegliere un linguaggio di programmazione e/o un ambiente diverso:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In questo articolo, viene creata un'applicazione console C++ per Windows. Utilizzare i Servizi cognitivi [Speech SDK](speech-sdk.md) per trascrivere il riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 (qualsiasi edizione).

@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure usando l'interfaccia della riga di comando di Azure"
+title: "Avvio rapido: Creare un database e un cluster di Esplora dati di Azure usando l'interfaccia della riga di comando di Azure"
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure tramite l'interfaccia della riga di comando di Azure
 author: radennis
 ms.author: radennis

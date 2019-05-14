@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57834721"
 ---
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Guida introduttiva: Distribuire Azure Data Box usando il portale di Azure
+# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Avvio rapido: Distribuire Azure Data Box usando il portale di Azure
 
 Questa guida introduttiva descrive come distribuire Azure Data Box tramite il portale di Azure. I passaggi includono come cablare, configurare e copiare i dati in Data Box per il caricamento in Azure. La guida introduttiva viene eseguita nel portale di Azure e nell'interfaccia utente Web locale del dispositivo.
 

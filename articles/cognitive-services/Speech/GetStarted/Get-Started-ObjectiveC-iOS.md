@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60515298"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Guida introduttiva: Usare l'API Riconoscimento vocale Bing in Objective-C per dispositivi iOS
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Avvio rapido: Usare l'API Riconoscimento vocale Bing in Objective-C per dispositivi iOS
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 

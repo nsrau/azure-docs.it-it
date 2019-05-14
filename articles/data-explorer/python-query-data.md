@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python'
+title: 'Avvio rapido: Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python'
 description: Questa guida introduttiva descrive come eseguire query sui dati da Esplora dati di Azure tramite Python.
 author: orspod
 ms.author: orspodek
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048742"
 ---
-# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Guida introduttiva: Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python
+# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Avvio rapido: Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora i dati di Azure mette a disposizione una [libreria client per i dati per Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Questa libreria consente di eseguire query sui dati dal codice. In questa guida introduttiva, per facilitare l'apprendimento ci si connetterà a una tabella nel *cluster della guida* configurato in precedenza. Si eseguirà quindi una query in tale cluster e si riceveranno i risultati.
 

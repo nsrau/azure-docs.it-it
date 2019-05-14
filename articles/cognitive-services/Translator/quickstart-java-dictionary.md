@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58181895"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando Java
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando Java
 
 In questo argomento di avvio rapido verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando Java e l'API Traduzione testuale.
 

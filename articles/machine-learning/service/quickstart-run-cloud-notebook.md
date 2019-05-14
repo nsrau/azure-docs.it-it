@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire un notebook nel cloud'
+title: 'Avvio rapido: Eseguire un notebook nel cloud'
 titleSuffix: Azure Machine Learning service
 description: Introduzione al servizio Azure Machine Learning. Usare un server notebook gestito nel cloud per provare l'area di lavoro.  L'area di lavoro rappresenta l'elemento fondamentale nel cloud per eseguire esperimenti, training e distribuzione di modelli di Machine Learning.
 services: machine-learning
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/09/2019
 ms.locfileid: "65510623"
 ---
-# <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Usare un server notebook basato sul cloud per iniziare a usare Azure Machine Learning
+# <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Avvio rapido: Usare un server notebook basato sul cloud per iniziare a usare Azure Machine Learning
 
 Creare un server notebook basato sul cloud, quindi usarlo.  In questa guida di avvio rapido si esegue codice Python che registra i valori nell'[area di lavoro del servizio Azure Machine Learning](concept-azure-machine-learning-architecture.md). L'area di lavoro rappresenta l'elemento fondamentale nel cloud per eseguire esperimenti, training e distribuzione di modelli di Machine Learning con il servizio Machine Learning. 
 

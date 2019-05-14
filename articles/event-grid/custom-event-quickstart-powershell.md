@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58175586"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Guida introduttiva: Instradare eventi personalizzati all'endpoint Web con PowerShell e Griglia di eventi
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Avvio rapido: Instradare eventi personalizzati all'endpoint Web con PowerShell e Griglia di eventi
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. In questo articolo viene usato Azure PowerShell per creare un argomento personalizzato, sottoscrivere l'argomento e attivare l'evento per visualizzare il risultato. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
 

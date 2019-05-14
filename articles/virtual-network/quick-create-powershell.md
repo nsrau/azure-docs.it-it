@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64721860"
 ---
-# <a name="quickstart-create-a-virtual-network-using-powershell"></a>Guida introduttiva: Creare una rete virtuale usando PowerShell
+# <a name="quickstart-create-a-virtual-network-using-powershell"></a>Avvio rapido: Creare una rete virtuale usando PowerShell
 
 Una rete virtuale consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente tra loro e con Internet. Questa guida introduttiva illustra come creare una rete virtuale. Dopo avere creato una rete virtuale, si distribuiscono due VM nella rete virtuale. Si effettua quindi la connessione alle VM da Internet e si stabilisce una comunicazione privata tramite la rete virtuale.
 

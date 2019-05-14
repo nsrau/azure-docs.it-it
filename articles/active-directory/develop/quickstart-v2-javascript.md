@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65190852"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Guida introduttiva: Concedere l'accesso agli utenti e acquisire un token di accesso da un'applicazione JavaScript a pagina singola
+# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Avvio rapido: Concedere l'accesso agli utenti e acquisire un token di accesso da un'applicazione JavaScript a pagina singola
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 

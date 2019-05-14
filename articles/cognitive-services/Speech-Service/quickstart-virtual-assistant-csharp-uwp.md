@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Assistente virtuale voice-first personalizzato (anteprima), C# (piattaforma UWP) - Servizi Voce'
+title: 'Avvio rapido: Assistente virtuale voice-first personalizzato (anteprima), C# (piattaforma UWP) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: In questo articolo viene creata un'applicazione della piattaforma UWP (Universal Windows Platform) C# usando Speech SDK (Speech Software Development Kit) di Servizi cognitivi. L'applicazione client viene connessa a un bot di Bot Framework creato in precedenza e configurato per l'uso del canale Direct Line Speech. L'applicazione si basa sul pacchetto NuGet Speech SDK e su Microsoft Visual Studio 2017.
 services: cognitive-services
@@ -11,14 +11,16 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: ee7649dccf1ca50933e29cec9d40e4f5e16bd721
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e2b25875a0dff12bba32b033bca0c35394d407aa
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074115"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465635"
 ---
-# <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Guida introduttiva: Creare un assistente virtuale voice-first con Speech SDK, piattaforma UWP
+# <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Avvio rapido: Creare un assistente virtuale voice-first con Speech SDK, piattaforma UWP
+
+Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-csharp-uwp.md) e la [traduzione vocale](quickstart-translate-speech-uwp.md).
 
 In questo articolo viene sviluppata un'applicazione della piattaforma UWP (Universal Windows Platform) C# usando [Speech SDK](speech-sdk.md). Il programma si connetterà a un bot creato e configurato in precedenza per abilitare un'esperienza di assistente virtuale voice-first dall'applicazione client. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 (qualsiasi edizione).
 
@@ -80,16 +82,16 @@ Questa guida di avvio rapido descrive in dettaglio come creare una semplice appl
             <MediaElement x:Name="mediaElement"/>
         </Grid>
     </Page>
-        ```
+    ```
 
-1. Open the code-behind source file `MainPage.xaml.cs`. You'll find it grouped under `MainPage.xaml`. Replace the contents with the code below. Here's what this sample covers: 
+1. Aprire il file di origine code-behind `MainPage.xaml.cs`, raggruppato in `MainPage.xaml`. Sostituire il contenuto con il codice seguente. Ecco su cosa interviene questo esempio: 
 
-    * Using statements for the Speech and Speech.Dialog namespaces
-    * A simple implementation to ensure microphone access, wired to a button handler
-    * Basic UI helpers to present messages and errors in the application
-    * A landing point for the initialization code path that will be populated later
-    * A helper to play back text-to-speech (without streaming support)
-    * An empty button handler to start listening that will be populated later
+    * Istruzioni using per gli spazi dei nomi Speech e Speech.Dialog
+    * Un'implementazione semplice per garantire l'accesso al microfono, collegato a un gestore del pulsante
+    * Helper di base dell'interfaccia utente per presentare i messaggi e gli errori nell'applicazione
+    * Un punto di destinazione per il percorso del codice di inizializzazione che verrà popolato più avanti
+    * Un helper per riprodurre la sintesi vocale (senza supporto per lo streaming)
+    * Un gestore del pulsante vuoto per iniziare ad ascoltare che verrà popolato più avanti
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -239,7 +241,7 @@ Questa guida di avvio rapido descrive in dettaglio come creare una semplice appl
             }
         }
     }
-     ```
+    ```
 
 1. In seguito verrà creato l'elemento `SpeechBotConnector` con le informazioni della sottoscrizione. Aggiungere il codice seguente al corpo del metodo di `InitializeBotConnector`, sostituendo le stringhe `YourChannelSecret`, `YourSpeechSubscriptionKey` e `YourServiceRegion` con i valori personalizzati relativi al bot, alla sottoscrizione dei servizi Voce e all'[area](regions.md).
 

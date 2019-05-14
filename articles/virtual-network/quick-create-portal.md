@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64717002"
 ---
-# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Guida introduttiva: Creare una rete virtuale usando il portale di Azure
+# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Avvio rapido: Creare una rete virtuale usando il portale di Azure
 
 Una rete virtuale consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente tra loro e con Internet. Questa guida introduttiva illustra come creare una rete virtuale. Dopo avere creato una rete virtuale, si distribuiscono due VM nella rete virtuale. Quindi si effettua la connessione alle macchine virtuali da Internet e si stabilisce una comunicazione privata tra le due.
 

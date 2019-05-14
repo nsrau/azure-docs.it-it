@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65071880"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Guida introduttiva: Creare un processo cloud di Analisi di flusso di Azure in Visual Studio Code (Anteprima)
+# <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Avvio rapido: Creare un processo cloud di Analisi di flusso di Azure in Visual Studio Code (Anteprima)
 
 Questo argomento di avvio rapido descrive come creare ed eseguire un processo di analisi di flusso usando l'estensione di Analisi di flusso di Azure per Visual Studio Code. Il processo di esempio legge i dati in streaming da un dispositivo hub IoT. Viene definito un processo che calcola la temperatura media quando supera i 27° e scrive gli eventi di output risultanti in un nuovo file nell'archiviazione BLOB.
 

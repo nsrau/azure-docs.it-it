@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59678701"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Guida introduttiva: Creare un registro contenitori privato usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Avvio rapido: Creare un registro contenitori privato usando l'interfaccia della riga di comando di Azure
 
 Registro Azure Container è un servizio gestito di registri contenitori Docker usato per l'archiviazione di immagini di un contenitore Docker privato. Questa guida descrive la creazione di un'istanza di Registro Azure Container con l'interfaccia della riga di comando di Azure. Usare quindi i comandi di Docker per eseguire il push di un'immagine del contenitore nel registro e infine eseguire il pull ed eseguire l'immagine dal registro.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Convertire uno script di testo, PHP - API Traduzione testuale'
+title: 'Avvio rapido: Convertire uno script di testo, PHP - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si converte il testo in una lingua da un sistema di scrittura a un altro usando l'API Traduzione testuale con PHP.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57534294"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-php"></a>Guida introduttiva: Traslitterare un testo con l'API REST Traduzione testuale (PHP)
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-php"></a>Avvio rapido: Traslitterare un testo con l'API REST Traduzione testuale (PHP)
 
 In questa guida introduttiva si converte il testo in una lingua da un sistema di scrittura a un altro usando l'API Traduzione testuale.
 

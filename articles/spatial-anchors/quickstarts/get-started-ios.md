@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59996646"
 ---
-# <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Guida introduttiva: Creare un'app iOS con Ancoraggi nello spazio di Azure, in Swift o Objective-C
+# <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Avvio rapido: Creare un'app iOS con Ancoraggi nello spazio di Azure, in Swift o Objective-C
 
 Questa guida introduttiva illustra come creare un'app iOS usando [Ancoraggi nello spazio di Azure](../overview.md) in Swift o Objective-C. Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine, si avrà un'app iOS ARKit in grado di salvare e richiamare un ancoraggio nello spazio.
 

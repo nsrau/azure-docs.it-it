@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f80e6a765cc165033a548ba6a5ee7bead0de872e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144989"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594067"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Usare apprendimento attivo per migliorare la tua knowledge base
 
@@ -60,9 +60,9 @@ L'algoritmo usato per determinare la prossimità non è un calcolo semplice. Gli
 
 L'apprendimento attivo è disattivato per impostazione predefinita. Attivarlo per visualizzare le domande suggerite. 
 
-1. Selezionare **pubblica** per pubblicare la knowledge base. Apprendimento attivo query vengono raccolti da solo l'endpoint API GenerateAnswer stima. Le query nel riquadro di Test nel portale di Qna Maker non influiscono sull'apprendimento attivo.
+1. Selezionare **pubblica** per pubblicare la knowledge base. Apprendimento attivo query vengono raccolti da solo l'endpoint API GenerateAnswer stima. Le query nel riquadro di Test nel portale di QnA Maker non influiscono sull'apprendimento attivo.
 
-1. Per attivare l'apprendimento attivo, fare clic sul proprio **Nome**, passare a [**Service Settings**](https://www.qnamaker.ai/UserSettings) (Impostazioni del servizio) nel portale di QnA Maker, nell'angolo in alto a destra.  
+1. Per abilitare active learning in, fare clic sui **Name**, passare a [ **le impostazioni del servizio** ](https://www.qnamaker.ai/UserSettings) nel portale di QnA Maker, nell'angolo superiore destro.  
 
     ![Attivare le alternative suggerite domanda dell'apprendimento attivo dalla pagina Impostazioni servizio. Selezionare il nome utente nel menu in alto a destra, quindi selezionare le impostazioni del servizio.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
@@ -173,7 +173,7 @@ Content-Type: application/json
 |--|--|--|--|
 |Parametro di route di URL|ID Knowledge base|string|L'identificatore univoco globale della Knowledge Base.|
 |Host sottodominio|Nome della risorsa QnAMaker|string|Il nome host per il QnA Maker nella sottoscrizione di Azure. È disponibile nella pagina impostazioni dopo la pubblicazione della knowledge base. |
-|Intestazione|Content-Type|string|tipo di supporto del corpo inviato all'API. Valore predefinito è: `application/json`|
+|Intestazione|Tipo contenuto|string|tipo di supporto del corpo inviato all'API. Valore predefinito è: `application/json`|
 |Intestazione|Authorization|string|la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo della richiesta POST|Oggetto JSON|JSON|I commenti e suggerimenti di training|
 
@@ -181,10 +181,10 @@ Il corpo JSON presenta diverse impostazioni:
 
 |Proprietà del corpo JSON|Type|Scopo|
 |--|--|--|--|
-|`feedbackRecords`|array|Elenco di commenti e suggerimenti.|
+|`feedbackRecords`|matrice|Elenco di commenti e suggerimenti.|
 |`userId`|string|L'ID utente della persona accettando le domande suggerite. Il formato dell'ID utente è responsabilità dell'utente. Ad esempio, un indirizzo di posta elettronica può essere un ID utente valido nell'architettura. facoltativo.|
 |`userQuestion`|string|Testo esatto della domanda. Richiesto.|
-|`qnaID`|number|ID della domanda, disponibili nel [GenerateAnswer risposta](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+|`qnaID`|numero|ID della domanda, disponibili nel [GenerateAnswer risposta](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Un esempio del corpo JSON sarà simile a:
 
@@ -208,7 +208,7 @@ Una risposta con esito positivo restituisce uno stato 204 e alcun corpo della ri
 
 Quando l'app ha apprendimento attivo abilitato e si esporta l'app, il `SuggestedQuestions` della colonna nel file tsv mantiene i dati di apprendimento attivo. 
 
-Il `SuggestedQuestions` colonna è un oggetto JSON delle informazioni di implicita (`autosuggested`) ed esplicite (`usersuggested`) commenti e suggerimenti. Un esempio di questo oggetto JSON per una singola domanda inviato dall'utente di `help` è:
+Il `SuggestedQuestions` colonna è un oggetto JSON delle informazioni di impliciti `autosuggested`ed esplicite, `usersuggested` commenti e suggerimenti. Un esempio di questo oggetto JSON per una singola domanda inviato dall'utente di `help` è:
 
 ```JSON
 [

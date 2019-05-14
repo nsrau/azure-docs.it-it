@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60336032"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Guida introduttiva: Inviare una query all'API di ricerca di attività locali Bing mediante Java
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Avvio rapido: Inviare una query all'API di ricerca di attività locali Bing mediante Java
 
 Seguire questa guida introduttiva per inviare richieste all'API Bing Local Business Search, un servizio cognitivo di Azure. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare dati JSON.
 

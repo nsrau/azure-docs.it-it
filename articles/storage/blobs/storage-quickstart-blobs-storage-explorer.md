@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti"
+title: "Avvio rapido: usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti"
 description: In questa guida introduttiva verrà illustrato come usare Azure Storage Explorer per creare un contenitore e un BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come visualizzare tutti i BLOB in un contenitore. Si vedrà anche come creare uno snapshot di un BLOB, gestire i criteri di accesso al contenitore e creare una firma di accesso condiviso.
 services: storage
 author: tamram
@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59994470"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Guida introduttiva: usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Avvio rapido: usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti
 
 In questa guida introduttiva verrà illustrato come usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per creare un contenitore e un BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come visualizzare tutti i BLOB in un contenitore. Si vedrà anche come creare uno snapshot di un BLOB, gestire i criteri di accesso al contenitore e creare una firma di accesso condiviso.
 

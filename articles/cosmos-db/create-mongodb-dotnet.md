@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57852286"
 ---
-# <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Guida introduttiva: Creare un'app Web .NET usando l'API Azure Cosmos DB per MongoDB 
+# <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Avvio rapido: Creare un'app Web .NET usando l'API Azure Cosmos DB per MongoDB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

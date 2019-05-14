@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ottenere una risposta dalla knowledge base in REST, Java - QnA Maker'
+title: 'Avvio rapido: Ottenere una risposta dalla knowledge base in REST, Java - QnA Maker'
 titlesuffix: Azure Cognitive Services
 description: Questa Guida introduttiva Java basata su REST assiste nell'ottenimento di una risposta da una knowledge base a livello di codice.
 services: cognitive-services

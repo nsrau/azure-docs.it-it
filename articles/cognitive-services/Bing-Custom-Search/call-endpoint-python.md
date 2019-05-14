@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python | Microsoft Docs"
+title: "Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python | Microsoft Docs"
 titlesuffix: Azure Cognitive Services
 description: Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing con Python
 services: cognitive-services

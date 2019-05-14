@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57896246"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Guida introduttiva: Usare Cache Redis di Azure con un'app .NET Core
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Avvio rapido: Usare Cache Redis di Azure con un'app .NET Core
 
 
 

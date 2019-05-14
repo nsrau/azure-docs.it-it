@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 241bda5c684197a43cc5564e950e924fed668b89
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 87599817ba7b50b941612c13c07842644f979fb7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147574"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619701"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
 
@@ -50,7 +50,7 @@ Risorse di servizi cognitivi sono disponibili nel [Microsoft Azure](https://azur
 
 I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenitori Docker, ognuno dei quali contiene un subset di funzionalità dei servizi disponibili in Servizi cognitivi di Azure:
 
-| Service | Piano tariffario è supportato | Contenitore | DESCRIZIONE |
+| Service | Piano tariffario è supportato | Contenitore | Descrizione |
 |---------|----------|----------|-------------|
 |[Rilevatore di anomalie](https://go.microsoft.com/fwlink/?linkid=2083925&clcid=0x409) |F0, S0|**Rilevatore di anomalie** |L'API rilevatore di anomalie consente di monitorare e rilevare le anomalie nei dati delle serie temporali con machine learning.<br>[Richiedere l'accesso](https://aka.ms/adcontainer)|
 |[Visione artificiale](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**Riconoscimento del testo** |Estre testo stampato dalle immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster e biglietti da visita.<br/><br/>**Importante:** Il contenitore di riconoscimento del testo attualmente funziona solo con la lingua inglese.<br>[Richiedere l'accesso](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
@@ -69,14 +69,19 @@ Inoltre, alcuni contenitori sono supportati in servizi cognitivi [ **offerta All
 * Visione artificiale
 * Viso
 * LUIS
-* Text Analytics
+* Analisi del testo
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilità dei contenitori in Servizi cognitivi di Azure
 
 I contenitori di Servizi cognitivi di Azure sono disponibili pubblicamente attraverso la sottoscrizione di Azure e le immagini dei contenitori Docker possono essere estratte da Registro contenitori di Microsoft o dall'hub Docker. È possibile usare il comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal registro appropriato.
 
 > [!IMPORTANT]
-> Attualmente, per accedere ai contenitori [Viso](Face/face-how-to-install-containers.md) e [Riconoscimento del testo](Computer-vision/computer-vision-how-to-install-containers.md), è necessario completare un processo di iscrizione che prevede la compilazione e l'invio di un questionario contenente domande sull'utente, sull'azienda e sul caso d'uso per il quale si vogliono implementare i contenitori. Dopo che è stato concesso l'accesso e sono state fornite le credenziali, è possibile estrarre le immagini dei contenitori Viso e Riconoscimento del testo da un registro contenitori privato ospitato da Registro Azure Container.
+> Attualmente, è necessario completare un processo di iscrizione per accedere ai contenitori seguenti, in cui si compilano e invia un questionario con domande sull'utente, l'azienda e il caso d'uso per il quale si desidera implementare i contenitori. Dopo che è stato concesso l'accesso e sono state fornite le credenziali, è possibile estrarre le immagini dei contenitori Viso e Riconoscimento del testo da un registro contenitori privato ospitato da Registro Azure Container.
+> * [Anomalie dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
+> * [Viso](Face/face-how-to-install-containers.md)
+> * [Riconoscimento di form](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
+> * [Riconoscimento del testo](Computer-vision/computer-vision-how-to-install-containers.md)
+> * [Per il riconoscimento vocale e sintesi vocale](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
 
 ## <a name="prerequisites"></a>Prerequisiti
 

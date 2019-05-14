@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire i dispositivi di Speech SDK in Android - servizi di riconoscimento vocale'
+title: 'Avvio rapido: Eseguire i dispositivi di Speech SDK in Android - servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: Prerequisiti e istruzioni per iniziare con un SDK di dispositivi Android di riconoscimento vocale.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65026196"
 ---
-# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Guida introduttiva: Eseguire l'app di esempio Speech SDK di dispositivi in Android
+# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Avvio rapido: Eseguire l'app di esempio Speech SDK di dispositivi in Android
 
 In questa Guida introduttiva si apprenderà come usare il riconoscimento vocale Devices SDK per Android per compilare un prodotto abilitate al riconoscimento vocale.
 

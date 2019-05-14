@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886370"
 ---
-# <a name="quickstart-create-an-aspnet-web-app"></a>Guida introduttiva: Creare un'app Web ASP.NET 
+# <a name="quickstart-create-an-aspnet-web-app"></a>Avvio rapido: Creare un'app Web ASP.NET 
 
 ## <a name="introduction"></a>Introduzione
 

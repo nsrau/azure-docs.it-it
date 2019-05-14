@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Preparare e visualizzare dati senza scrivere codice'
+title: 'Avvio rapido: Preparare e visualizzare dati senza scrivere codice'
 titleSuffix: Azure Machine Learning service
 description: Creare un esperimento di apprendimento automatico per preparare e visualizzare i dati con un'interfaccia utente di trascinamento della selezione.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 985ad59a1ffa5bd68f97824f7f50af604174b543
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030059"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65440943"
 ---
-# <a name="quickstart-prepare-and-visualize-data-without-writing-code"></a>Guida introduttiva: Preparare e visualizzare dati senza scrivere codice
+# <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Avvio rapido: Preparare e visualizzare dati senza scrivere codice in Azure Machine Learning
 
-Preparare e visualizzare i dati con un'interfaccia utente di trascinamento della selezione. Il set di dati usato include le voci relative a diverse automobili, nonché informazioni su marca, modello, specifiche tecniche e prezzo.  
+Preparare e visualizzare i dati nell'interfaccia visiva grafica con trascinamento della selezione (anteprima) per Azure Machine Learning. Il set di dati usato include le voci relative a diverse automobili, nonché informazioni su marca, modello, specifiche tecniche e prezzo.  
 
 In questa guida di avvio rapido si esploreranno e si prepareranno i dati:
 

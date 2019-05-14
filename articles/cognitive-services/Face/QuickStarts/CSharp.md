@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST di Azure e C#"
+title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST di Azure e C#"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API REST Viso di Azure con C# per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58629926"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST Viso e C#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST Viso e C#
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con C# per rilevare i visi umani in un'immagine.
 

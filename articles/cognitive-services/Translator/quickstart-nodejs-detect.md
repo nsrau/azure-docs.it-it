@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Rilevare la lingua del testo, Node.js - API Traduzione testuale'
+title: 'Avvio rapido: Rilevare la lingua del testo, Node.js - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa Guida introduttiva si apprenderà come identificare la lingua del testo fornito con Node.js e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/30/2019
 ms.locfileid: "64922208"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Guida introduttiva: Usare l'API Traduzione testuale per rilevare la lingua del testo con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con Node.js
 
 In questa Guida introduttiva si apprenderà come rilevare la lingua del testo fornito con Node.js e l'API REST Traduzione testuale.
 

@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55979293"
 ---
-# <a name="quickstart-translate-text-with-the-translator-text-rest-api-ruby"></a>Guida introduttiva: Tradurre un testo con l'API REST Traduzione testuale (Ruby)
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-ruby"></a>Avvio rapido: Tradurre un testo con l'API REST Traduzione testuale (Ruby)
 
 In questa guida introduttiva si traduce testo da una lingua a un'altra usando l'API Traduzione testuale.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: eseguire una ricerca con Python - API Ricerca Web Bing'
+title: 'Avvio rapido: eseguire una ricerca con Python - API Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste all'API REST Ricerca Web Bing usando Python e ricevere una risposta JSON
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57862880"
 ---
-# <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Guida introduttiva: usare Python per chiamare l'API Ricerca Web Bing  
+# <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Avvio rapido: usare Python per chiamare l'API Ricerca Web Bing  
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Python invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 

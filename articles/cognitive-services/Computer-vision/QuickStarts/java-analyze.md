@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Analizzare un'immagine remota - REST, Java"
+title: "Avvio rapido: Analizzare un'immagine remota - REST, Java"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizzerà un'immagine usando l'API Visione artificiale con Java.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "60009294"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST di Visione artificiale e Java
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Avvio rapido: Analizzare un'immagine remota usando l'API REST di Visione artificiale e Java
 
 In questa guida introduttiva si analizza un'immagine archiviata in remoto per estrarre le caratteristiche visive usando l'API REST di Visione artificiale. Con il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) è possibile estrarre caratteristiche visive in base al contenuto di un'immagine.
 

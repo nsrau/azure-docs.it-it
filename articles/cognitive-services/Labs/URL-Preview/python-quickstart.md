@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Progetto Anteprima URL, Python'
+title: 'Avvio rapido: Progetto Anteprima URL, Python'
 titlesuffix: Azure Cognitive Services
 description: Esempio di script per iniziare a usare rapidamente Progetto Anteprima URL con Python.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55873275"
 ---
-# <a name="quickstart-url-preview-with-python"></a>Guida introduttiva: Anteprima URL con Python
+# <a name="quickstart-url-preview-with-python"></a>Avvio rapido: Anteprima URL con Python
 
 L'esempio in Python seguente crea un'anteprima URL per il sito Web SwiftKey: https://swiftkey.com/en.
 

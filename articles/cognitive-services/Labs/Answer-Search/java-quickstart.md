@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Project Answer Search, Java'
+title: 'Avvio rapido: Project Answer Search, Java'
 titlesuffix: Azure Cognitive Services
 description: Iniziare a usare Project Answer Search in Java.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55883526"
 ---
-# <a name="quickstart-project-answer-search-query-in-java"></a>Guida introduttiva: Query di Project Answer Search in Java
+# <a name="quickstart-project-answer-search-query-in-java"></a>Avvio rapido: Query di Project Answer Search in Java
 Questo articolo usa Java per illustrare l'API Bing Answer Search, parte di Servizi cognitivi Microsoft in Azure. L'API è un servizio Web REST compatibile con qualsiasi linguaggio di programmazione che sia in grado di effettuare richieste HTTP e analizzare i dati JSON.
  
 L'esempio di codice usa Java con dipendenze esterne minime.  È anche possibile eseguirlo in Linux o Mac OS X con Mono.

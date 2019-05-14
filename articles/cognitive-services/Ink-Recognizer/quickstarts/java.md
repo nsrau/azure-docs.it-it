@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna e Java"
+title: "Avvio rapido: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna e Java"
 description: Usare l'API di riconoscimento input penna per avviare tratti input penna.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/10/2019
 ms.locfileid: "65518621"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Guida introduttiva: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna e Java
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Avvio rapido: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna e Java
 
 Usare questa Guida introduttiva per iniziare a usare l'API di riconoscimento input penna su tratti input penna digitale. L'applicazione Java invia una richiesta di API che contiene i dati tratti input penna in formato JSON e ottiene la risposta.
 

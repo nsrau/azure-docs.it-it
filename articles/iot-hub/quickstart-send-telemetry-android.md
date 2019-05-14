@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005381"
 ---
-# <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Guida introduttiva: inviare dati di telemetria IoT da un dispositivo Android
+# <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Avvio rapido: inviare dati di telemetria IoT da un dispositivo Android
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 

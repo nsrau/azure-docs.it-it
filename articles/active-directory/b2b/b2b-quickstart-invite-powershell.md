@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57854450"
 ---
-# <a name="quickstart-add-a-guest-user-with-powershell"></a>Guida introduttiva: Aggiungere un utente guest con PowerShell
+# <a name="quickstart-add-a-guest-user-with-powershell"></a>Avvio rapido: Aggiungere un utente guest con PowerShell
 
 Esistono diversi modi per invitare partner esterni ad accedere alle app e ai servizi della propria organizzazione con Collaborazione B2B di Azure Active Directory. Nella precedente guida introduttiva si è appreso come aggiungere utenti guest direttamente nel portale di amministrazione di Azure Active Directory. È anche possibile usare PowerShell per aggiungere utenti guest, uno alla volta o in blocco. In questa guida introduttiva si userà il comando New-AzureADMSInvitation per aggiungere un utente guest al tenant di Azure.
 

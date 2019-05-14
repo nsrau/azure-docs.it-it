@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2019
 ms.locfileid: "58368511"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Guida introduttiva: Distribuire un'istanza di contenitore in Azure con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Avvio rapido: Distribuire un'istanza di contenitore in Azure con l'interfaccia della riga di comando di Azure
 
 Il servizio Istanze di Azure Container consente di eseguire contenitori Docker serverless in Azure in modo semplice e rapido. Distribuire un'applicazione in un'istanza di contenitore su richiesta quando non è necessaria una piattaforma di orchestrazione di contenitori completa come il servizio Azure Kubernetes.
 

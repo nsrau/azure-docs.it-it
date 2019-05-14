@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55871218"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Node.js
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per Node.js
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64710808"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure tramite l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Avvio rapido: Creare e gestire condivisioni file di Azure tramite l'interfaccia della riga di comando di Azure
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con l'interfaccia della riga di comando di Azure. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.

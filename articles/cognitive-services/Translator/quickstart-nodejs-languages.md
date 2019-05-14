@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ottenere un elenco delle lingue supportate, Node.js - API Traduzione testuale'
+title: 'Avvio rapido: Ottenere un elenco delle lingue supportate, Node.js - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale con Node.js.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/30/2019
 ms.locfileid: "64922178"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Guida introduttiva: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate con Node.js
 
 In questa Guida introduttiva si apprenderà come effettuare una richiesta GET che restituisce un elenco delle lingue supportate usando Node.js e l'API REST Traduzione testuale.
 

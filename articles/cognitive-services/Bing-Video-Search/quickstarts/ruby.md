@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Ruby"
+title: "Avvio rapido: Cercare video con l'API REST Ricerca video Bing e Ruby"
 titlesuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca video all'API REST Ricerca video Bing con Ruby.
 services: cognitive-services

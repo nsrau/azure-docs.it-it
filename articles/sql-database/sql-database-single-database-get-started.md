@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65074365"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Guida introduttiva: Creare un database singolo del database SQL di Azure usando il portale di Azure
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Avvio rapido: Creare un database singolo del database SQL di Azure usando il portale di Azure
 
 La creazione di un [database singolo](sql-database-single-database.md) è l'opzione di distribuzione più semplice e rapida per la creazione di database nel database SQL di Azure. Questa guida introduttiva mostra come creare un database singolo e quindi eseguire query usando il portale di Azure.
 

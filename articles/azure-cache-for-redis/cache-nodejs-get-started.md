@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56238097"
 ---
-# <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>Guida introduttiva: Come usare Cache Redis di Azure con Node.js
+# <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>Avvio rapido: Come usare Cache Redis di Azure con Node.js
 
 
 

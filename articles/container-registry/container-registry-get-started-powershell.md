@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2019
 ms.locfileid: "57408931"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Guida introduttiva: creare un registro contenitori privato usando Azure PowerShell
+# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Avvio rapido: creare un registro contenitori privato usando Azure PowerShell
 
 Registro Azure Container è un servizio gestito e privato di registri contenitori Docker usato per compilare, archiviare e servire immagini del contenitore Docker. In questa guida introduttiva si apprenderà come creare un registro contenitori di Azure usando PowerShell. Usare quindi i comandi di Docker per eseguire il push di un'immagine del contenitore nel registro e infine eseguire il pull ed eseguire l'immagine dal registro.
 

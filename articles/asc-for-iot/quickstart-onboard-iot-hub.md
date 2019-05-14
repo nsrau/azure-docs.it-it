@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65192480"
 ---
-# <a name="quickstart-enable-service-in-iot-hub"></a>Guida introduttiva: Abilitare il servizio nell'hub IoT
+# <a name="quickstart-enable-service-in-iot-hub"></a>Avvio rapido: Abilitare il servizio nell'hub IoT
 
 > [!IMPORTANT]
 > Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.

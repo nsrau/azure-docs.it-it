@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65148073"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>Guida introduttiva: Distribuire il primo modulo di IoT Edge dal portale di Azure in un dispositivo Windows
+# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>Avvio rapido: Distribuire il primo modulo di IoT Edge dal portale di Azure in un dispositivo Windows
 
 In questa guida introduttiva viene usata l'interfaccia cloud di Azure IoT Edge per distribuire in modalità remota codice predefinito in un dispositivo IoT Edge. Per eseguire questa attività, prima di tutto creare e configurare una macchina virtuale Windows da usare come dispositivo IoT Edge, quindi è possibile distribuirvi un modulo.
 

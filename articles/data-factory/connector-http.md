@@ -336,7 +336,7 @@ Per copiare dati da HTTP nel **formato ORC/Avro/JSON/binario**, nell'attività d
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| tipo | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **HttpSource**. | Sì |
+| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **HttpSource**. | Sì |
 | httpRequestTimeout | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. Il valore predefinito è **00:01:40**.  | N. |
 
 **Esempio**

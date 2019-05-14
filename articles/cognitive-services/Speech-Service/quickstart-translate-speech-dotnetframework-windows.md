@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 34161989bf98f2605cbc2e238cb832523b2f23cb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0bb5fa25301fa86564c7f7aadb3285bdd5898a08
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843324"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511170"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Guida introduttiva: Traduzione vocale con Speech SDK per .NET Framework
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Avvio rapido: Traduzione vocale con Speech SDK per .NET Framework
+
+Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-csharp-dotnet-windows.md) e la [sintesi vocale](quickstart-text-to-speech-dotnet-windows.md).
 
 In questa guida introduttiva si creerà una semplice applicazione .NET Framework per acquisire i contenuti vocali dell'utente dal microfono del computer, tradurli e trascrivere il testo tradotto nella riga di comando in tempo reale. L'applicazione è progettata per l'esecuzione in Windows a 64 bit e si basa sul pacchetto [NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017.
 

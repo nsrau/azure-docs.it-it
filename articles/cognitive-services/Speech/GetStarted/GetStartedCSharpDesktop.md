@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60515379"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Guida introduttiva: Usare l'API Riconoscimento vocale Bing in C&#35; per .NET per dispositivi Windows
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Avvio rapido: Usare l'API Riconoscimento vocale Bing in C&#35; per .NET per dispositivi Windows
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 

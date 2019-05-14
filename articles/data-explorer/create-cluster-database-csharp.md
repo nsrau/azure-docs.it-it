@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure tramite C#'
+title: 'Avvio rapido: Creare un database e un cluster di Esplora dati di Azure tramite C#'
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure tramite C#
 author: oflipman
 ms.author: oflipman

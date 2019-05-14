@@ -25,7 +25,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58108662"
 ---
-# <a name="quickstart-set-up-a-dev-environment"></a>Guida introduttiva: Configurare un ambiente di sviluppo
+# <a name="quickstart-set-up-a-dev-environment"></a>Avvio rapido: Configurare un ambiente di sviluppo
 
 Microsoft Identity Platform consente agli sviluppatori di creare app che si rivolgono a un'ampia gamma di identità e ambienti Microsoft 365 personalizzati. Per iniziare a usare Microsoft Identity Platform occorre accedere a un ambiente, detto anche tenant di Azure AD, in grado di registrare e gestire le app, accedere ai dati di Microsoft 365 e distribuire le restrizioni di accesso condizionale e tenant personalizzate.
 

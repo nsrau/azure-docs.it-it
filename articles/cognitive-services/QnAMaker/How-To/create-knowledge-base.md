@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/11/2019
 ms.locfileid: "65541774"
 ---
-# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Guida introduttiva: Creare una knowledge base tramite il portale di servizi API QnA Maker
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Avvio rapido: Creare una knowledge base tramite il portale di servizi API QnA Maker
 
 Il portale dei servizi API QnA Maker rende più semplice per aggiungere origini dati esistenti durante la creazione di una knowledge base. È possibile creare una nuova knowledge base di QnA Maker dai tipi di documento seguenti:
 

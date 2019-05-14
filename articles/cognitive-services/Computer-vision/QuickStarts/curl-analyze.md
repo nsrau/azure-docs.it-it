@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Analizzare un'immagine remota - REST, cURL"
+title: "Avvio rapido: Analizzare un'immagine remota - REST, cURL"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizzerà un'immagine remota usando l'API Visione artificiale con cURL.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "60010263"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-curl-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST e cURL in Visione artificiale
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-curl-in-computer-vision"></a>Avvio rapido: Analizzare un'immagine remota usando l'API REST e cURL in Visione artificiale
 
 L'avvio rapido consente di analizzare un'immagine archiviata in modalità remota per estrarre le caratteristiche visive usando l'API REST di Visione artificiale. Con il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) è possibile estrarre caratteristiche visive in base al contenuto di un'immagine.
 

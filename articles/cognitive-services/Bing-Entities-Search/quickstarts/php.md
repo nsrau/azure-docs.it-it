@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57538528"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con PHP
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Avvio rapido: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con PHP
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione PHP invia una query di ricerca notizie all'API e visualizza la risposta. 
 

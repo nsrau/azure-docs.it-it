@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/25/2019
 ms.locfileid: "56804918"
 ---
-# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Guida introduttiva: Creare e distribuire un'app Web in mesh Azure Service Fabric
+# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Avvio rapido: Creare e distribuire un'app Web in mesh Azure Service Fabric
 
 Azure Service Fabric Mesh è un servizio completamente gestito che consente agli sviluppatori di distribuire applicazioni di microservizi senza dover gestire macchine virtuali, archiviazione o connettività di rete.
 

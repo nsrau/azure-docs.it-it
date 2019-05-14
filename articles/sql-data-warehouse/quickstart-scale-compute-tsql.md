@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Aumentare il numero delle risorse di calcolo in Azure SQL Data Warehouse - T-SQL | Microsoft Docs'
+title: 'Avvio rapido: Aumentare il numero delle risorse di calcolo in Azure SQL Data Warehouse - T-SQL | Microsoft Docs'
 description: È possibile ridimensionare le risorse di calcolo in Azure SQL Data Warehouse tramite T-SQL e SQL Server Management Studio (SSMS), aumentandone il numero per ottenere prestazioni migliori o riducendolo per diminuire i costi.
 services: sql-data-warehouse
 author: kevinvngo
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55460346"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Guida introduttiva: Ridimensionare le risorse di calcolo in Azure SQL Data Warehouse tramite T-SQL
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Avvio rapido: Ridimensionare le risorse di calcolo in Azure SQL Data Warehouse tramite T-SQL
 
 È possibile ridimensionare le risorse di calcolo in Azure SQL Data Warehouse tramite T-SQL e SQL Server Management Studio (SSMS), [aumentandone il numero](sql-data-warehouse-manage-compute-overview.md) per ottenere prestazioni migliori o riducendolo per diminuire i costi. 
 

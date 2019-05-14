@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK Viso di Azure"
+title: "Avvio rapido: Rilevare i visi in un'immagine usando .NET SDK Viso di Azure"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'SDK Viso di Azure per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58630711"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK Viso
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Avvio rapido: Rilevare i visi in un'immagine usando .NET SDK Viso
 
 In questa guida introduttiva si userà l'SDK del servizio Viso per rilevare i visi umani in un'immagine. Per un esempio pratico del codice in questa guida introduttiva, vedere il progetto Viso nell'archivio di [soluzioni di avvio rapido csharp Vision di Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) in GitHub.
 

@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2019
 ms.locfileid: "58368110"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale di Windows nel portale di Azure
+# <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Avvio rapido: Creare una macchina virtuale di Windows nel portale di Azure
 
 È possibile creare macchine virtuali di Azure tramite il portale di Azure. Questo metodo fornisce un'interfaccia utente basata su browser per creare le macchine virtuali e le risorse associate. Questa guida introduttiva illustra come usare il portale di Azure per distribuire una macchina virtuale in Azure che esegue Windows Server 2016. Per vedere la macchina virtuale in azione, eseguire RDP nella macchina virtuale e installare il server Web IIS.
 

@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361725"
 ---
-# <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Guida introduttiva: Sviluppare con Node.js in Kubernetes usando Azure Dev Spaces
+# <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Avvio rapido: Sviluppare con Node.js in Kubernetes usando Azure Dev Spaces
 
 In questa guida si apprenderà come:
 

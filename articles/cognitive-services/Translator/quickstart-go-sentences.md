@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ottenere la lunghezza delle frasi, Go - API Traduzione testuale'
+title: 'Avvio rapido: Ottenere la lunghezza delle frasi, Go - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si identifica la lunghezza delle frasi nel testo usando l'API Traduzione testuale con Go.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58175829"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Guida introduttiva: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con Go
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Avvio rapido: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con Go
 
 In questa Guida introduttiva si apprenderà come determinare la lunghezza delle frasi (in caratteri) usando Go e l'API REST Traduzione testuale.
 

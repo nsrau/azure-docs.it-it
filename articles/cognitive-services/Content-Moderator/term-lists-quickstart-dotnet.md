@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55858400"
 ---
-# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>Guida introduttiva: Controllare testo in base a un elenco personalizzato di termini in C#
+# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>Avvio rapido: Controllare testo in base a un elenco personalizzato di termini in C#
 
 L'elenco globale di termini predefinito in Azure Content Moderator è sufficiente per quasi tutte le esigenze di moderazione del contenuto. Può tuttavia essere necessario filtrare termini specifici per la propria organizzazione. Può ad esempio essere opportuno contrassegnare con tag i nomi delle società concorrenti per una successiva analisi. 
 

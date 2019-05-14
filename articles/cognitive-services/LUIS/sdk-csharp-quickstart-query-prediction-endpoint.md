@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2019
 ms.locfileid: "57404094"
 ---
-# <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Guida introduttiva: Eseguire query sull'endpoint di previsione con .NET SDK per C#
+# <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Avvio rapido: Eseguire query sull'endpoint di previsione con .NET SDK per C#
 
 Usare .NET SDK, disponibile in [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), per inviare un'espressione dell'utente a Language Understanding (LUIS) e ricevere una previsione dell'intenzione dell'utente. 
 

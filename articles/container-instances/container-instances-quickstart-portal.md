@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59995915"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Guida introduttiva: Distribuzione dell'istanza di contenitore in Azure con il portale di Azure
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Avvio rapido: Distribuzione dell'istanza di contenitore in Azure con il portale di Azure
 
 Istanze di Azure Container consente di eseguire i contenitori Docker serverless in Azure in modo semplice e rapido. Distribuire un'applicazione in un'istanza di contenitore su richiesta quando non è necessaria una piattaforma di orchestrazione di contenitori completa come il servizio Azure Kubernetes.
 

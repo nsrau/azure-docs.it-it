@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire un processo Spark in Azure Databricks con il modello di Resource Manager '
+title: 'Avvio rapido: Eseguire un processo Spark in Azure Databricks con il modello di Resource Manager '
 description: Questa guida introduttiva illustra come usare il modello di Azure Resource Manager per creare un'area di lavoro di Azure Databricks e un cluster Apache Spark e per eseguire un processo Spark.
 services: azure-databricks
 ms.service: azure-databricks
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "60008953"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Guida introduttiva: Eseguire un processo Spark in Azure Databricks con il modello di Azure Resource Manager
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Avvio rapido: Eseguire un processo Spark in Azure Databricks con il modello di Azure Resource Manager
 
 Questa guida introduttiva descrive come usare il modello di Azure Resource Manager per creare un'area di lavoro di Azure Databricks. L'area di lavoro verrà quindi usata per creare un cluster Apache Spark ed eseguire un processo Spark nel cluster Databricks. Per altre informazioni su Azure Databricks, vedere [Informazioni su Azure Databricks](what-is-azure-databricks.md).
 

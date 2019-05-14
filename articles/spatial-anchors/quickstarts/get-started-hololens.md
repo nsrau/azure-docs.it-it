@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59996289"
 ---
-# <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Guida introduttiva: Creare un'app HoloLens con Ancoraggi nello spazio di Azure, in C + +/WinRT e DirectX
+# <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Avvio rapido: Creare un'app HoloLens con Ancoraggi nello spazio di Azure, in C + +/WinRT e DirectX
 
 Questa guida introduttiva illustra come creare un'app HoloLens usando [Ancoraggi nello spazio di Azure](../overview.md) in C++/WinRT e DirectX. Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine, si avrà un'app HoloLens in grado di salvare e richiamare un ancoraggio nello spazio.
 

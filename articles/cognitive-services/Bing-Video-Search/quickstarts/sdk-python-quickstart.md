@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare video con l'SDK di Ricerca video Bing per Python"
+title: "Avvio rapido: Cercare video con l'SDK di Ricerca video Bing per Python"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca video con l'SDK di Ricerca video Bing per Python
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55867801"
 ---
-#  <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>Guida introduttiva: Eseguire una ricerca di video con l'SDK di Ricerca video Bing per Python
+#  <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>Avvio rapido: Eseguire una ricerca di video con l'SDK di Ricerca video Bing per Python
 
 Usare questa guida introduttiva per iniziare a cercare notizie con l'SDK di Ricerca video Bing per Python. Mentre Ricerca video Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK offre un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py). Contiene altre annotazioni e funzionalità.
 

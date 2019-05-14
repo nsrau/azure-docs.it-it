@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Cercare immagini - API REST Ricerca immagini Bing e Node.js'
+title: 'Avvio rapido: Cercare immagini - API REST Ricerca immagini Bing e Node.js'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste di ricerca di immagini all'API REST Ricerca immagini Bing usando JavaScript e ricevere risposte JSON.
 services: cognitive-services
@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58118477"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Guida introduttiva: Cercare immagini con l'API REST Ricerca immagini Bing e Node.js
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e Node.js
 
 Usare questa guida introduttiva per iniziare a inviare richieste di ricerca all'API Ricerca immagini Bing. Questa applicazione JavaScript invia una query di ricerca all'API e visualizza l'URL della prima immagine inclusa nei risultati. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 

@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/11/2019
 ms.locfileid: "59499802"
 ---
-# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Guida introduttiva: Usare Azure PowerShell per creare una coda del bus di servizio
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Avvio rapido: Usare Azure PowerShell per creare una coda del bus di servizio
 Questa guida introduttiva illustra come inviare e ricevere messaggi verso e da una coda del bus di servizio, usando PowerShell per creare uno spazio dei nomi di messaggistica e una coda in tale spazio dei nomi e come ottenere le credenziali di autorizzazione per tale spazio dei nomi. La procedura illustra quindi come inviare e ricevere messaggi da questa coda usando la [libreria .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

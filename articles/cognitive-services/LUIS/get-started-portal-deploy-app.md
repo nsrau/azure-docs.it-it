@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Distribuire un'app con il portale LUIS"
+title: "Avvio rapido: Distribuire un'app con il portale LUIS"
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Informazioni su come distribuire un'app LUIS nell'endpoint di stima quando l'app è pronta a restituire stime di espressioni a un'applicazione client, ad esempio un chatbot. Questo argomento di avvio rapido illustra come distribuire un'applicazione creando una risorsa endpoint di stima, assegnandola all'app e quindi eseguendo il training e la pubblicazione dell'app.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65154516"
 ---
-# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Guida introduttiva: Distribuire un'app nel portale LUIS
+# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Avvio rapido: Distribuire un'app nel portale LUIS
 
 Quando l'app LUIS è pronta a restituire stime di espressioni a un'applicazione client, ad esempio un chatbot, è necessario distribuirla nell'endpoint di stima.
 

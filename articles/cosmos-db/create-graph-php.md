@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API Gremlin con PHP - Azure Cosmos DB'
+title: 'Avvio rapido: API Gremlin con PHP - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Gremlin di Azure Cosmos DB per creare un'applicazione console con il portale di Azure e PHP
 author: luisbosquez
 ms.service: cosmos-db

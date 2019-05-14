@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale, Unity - Servizi Voce'
+title: 'Avvio rapido: Riconoscimento vocale, Unity - Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione di riconoscimento vocale con Unity e Speech SDK per Unity (beta). Al termine, sarà possibile usare il microfono nel computer per trascrivere contenuti vocali in tempo reale.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65020946"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Unity (beta)
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per Unity (beta)
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un cluster Spark in HDInsight usando Azure PowerShell'
+title: 'Avvio rapido: Creare un cluster Spark in HDInsight usando Azure PowerShell'
 description: Questa guida di avvio rapido illustra come usare Azure PowerShell per creare un cluster Apache Spark in HDInsight di Azure ed eseguire una query Spark SQL semplice.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65142890"
 ---
-# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>Guida introduttiva: Creare un cluster Apache Spark in HDInsight usando PowerShell
+# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>Avvio rapido: Creare un cluster Apache Spark in HDInsight usando PowerShell
 Informazioni su come creare un cluster [Apache Spark](https://spark.apache.org/) in Azure HDInsight ed eseguire query Spark SQL sulle tabelle [Apache Hive](https://hive.apache.org/). Apache Spark consente cluster computing e analisi dei dati veloci grazie all'elaborazione in memoria. Per informazioni su Spark in HDInsight, vedere [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md).
 
 In questa guida di avvio rapido si userà Azure PowerShell per creare un cluster Spark in HDInsight. Il cluster usa i BLOB del servizio di archiviazione di Azure come archiviazione cluster. Per altre informazioni sull'uso di Data Lake Storage Gen2, vedi [Avvio rapido: Impostazione dei cluster in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)

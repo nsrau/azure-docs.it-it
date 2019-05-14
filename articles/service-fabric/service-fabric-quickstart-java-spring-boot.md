@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57886688"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Guida introduttiva: Distribuire un'applicazione Java Spring Boot in Service Fabric
+# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Avvio rapido: Distribuire un'applicazione Java Spring Boot in Service Fabric
 
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori.
 

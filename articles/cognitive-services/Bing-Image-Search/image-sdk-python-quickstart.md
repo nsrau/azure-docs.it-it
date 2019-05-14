@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Cercare immagini - SDK di Ricerca immagini Bing per Python'
+title: 'Avvio rapido: Cercare immagini - SDK di Ricerca immagini Bing per Python'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Python invia una query di ricerca immagine, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58095637"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Guida introduttiva: Cercare immagini con l’SDK di Ricerca immagini Bing per Python
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Avvio rapido: Cercare immagini con l’SDK di Ricerca immagini Bing per Python
 
 Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Python invia una query di ricerca immagine, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 

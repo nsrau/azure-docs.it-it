@@ -200,8 +200,8 @@ Per creare un'area di lavoro con l'interfaccia della riga di comando, vedere [us
 
 * Provare l'area di lavoro con queste guide introduttive ed esercitazioni.
 
-    * Guida introduttiva: [Eseguire i notebook di Jupyter nel cloud](quickstart-run-cloud-notebook.md).
-    * Guida introduttiva: [Eseguire i notebook di Jupyter nel proprio server](quickstart-run-local-notebook.md).
+    * Avvio rapido: [Eseguire i notebook di Jupyter nel cloud](quickstart-run-cloud-notebook.md).
+    * Avvio rapido: [Eseguire i notebook di Jupyter nel proprio server](quickstart-run-local-notebook.md).
     * Esercitazione in due parti: [Train](tutorial-train-models-with-aml.md) e [distribuire](tutorial-deploy-models-with-aml.md) una modalità di classificazione di immagini.
     * Esercitazione in due parti: [Preparazione dei dati](tutorial-data-prep.md) e [usare automatizzati di machine learning](tutorial-auto-train-models.md) per compilare un modello di regressione.
 

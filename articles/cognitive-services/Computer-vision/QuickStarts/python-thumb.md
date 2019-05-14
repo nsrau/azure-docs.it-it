@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Generare un'anteprima - REST, Python"
+title: "Avvio rapido: Generare un'anteprima - REST, Python"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva verrà generata l'anteprima di un'immagine usando l'API Visione artificiale con Python.
 services: cognitive-services

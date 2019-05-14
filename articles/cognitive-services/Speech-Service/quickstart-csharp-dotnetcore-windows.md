@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale, C# (.NET Core) - Servizi Voce'
+title: 'Avvio rapido: Riconoscimento vocale, C# (.NET Core) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in C# per .NET Core in Windows o macOS con Speech SDK
 services: cognitive-services
@@ -10,15 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f3dd4d20c6455e97b566ed435b14437d614e25b4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009428"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466439"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per .NET Core
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per .NET Core
 
+Sono disponibili guide di avvio rapido anche per la [traduzione vocale](quickstart-translate-speech-dotnetcore-windows.md).
+
+Se si vuole, è possibile scegliere un linguaggio di programmazione e/o un ambiente diverso:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In questo articolo, si crea un'applicazione console C# per .NET Core su Windows o macOS usando [Speech SDK](speech-sdk.md) di Servizi cognitivi. Avviene la trascrizione del riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 (qualsiasi edizione).

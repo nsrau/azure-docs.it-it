@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Analizzare le immagini per il contenuto inappropriato in C# - Content Moderator'
+title: 'Avvio rapido: Analizzare le immagini per il contenuto inappropriato in C# - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Come analizzare il contenuto delle immagini per individuare materiale inappropriato di diverso tipo usando Content Moderator SDK per .NET
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/01/2019
 ms.locfileid: "58757239"
 ---
-# <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Guida introduttiva: Analizzare le immagini per il contenuto inappropriato in C#
+# <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Avvio rapido: Analizzare le immagini per il contenuto inappropriato in C#
 
 Questo articolo contiene informazioni ed esempi di codice utili per iniziare a usare [Content Moderator SDK per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Si imparerà a rilevare contenuti spinti o per adulti, testo estraibile e visi umani allo scopo di moderare materiale potenzialmente inappropriato.
 

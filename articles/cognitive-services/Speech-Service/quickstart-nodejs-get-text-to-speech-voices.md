@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Elenco voci sintesi vocale, Node. js - servizi di riconoscimento vocale'
+title: 'Avvio rapido: Elenco voci sintesi vocale, Node. js - servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: In questa Guida introduttiva si apprenderà come ottenere l'elenco completo delle voci neurale e standard per un'area/endpoint usando Node. js. Viene restituito l'elenco in formato JSON e disponibilità vocale varia in base all'area.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60620261"
 ---
-# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Guida introduttiva: Ottiene l'elenco di voci di sintesi vocale con Node. js
+# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Avvio rapido: Ottiene l'elenco di voci di sintesi vocale con Node. js
 
 In questa Guida introduttiva si apprenderà come ottenere l'elenco completo delle voci neurale e standard per un'area/endpoint usando Node. js. Viene restituito l'elenco in formato JSON e disponibilità vocale varia in base all'area. Per un elenco delle aree supportate, vedere [aree](regions.md).
 

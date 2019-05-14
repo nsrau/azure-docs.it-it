@@ -20,7 +20,7 @@ ms.locfileid: "65149571"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Guida introduttiva: Caricare, elencare ed eliminare BLOB usando JavaScript/HTML nel browser
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Avvio rapido: Caricare, elencare ed eliminare BLOB usando JavaScript/HTML nel browser
 
 Questa guida introduttiva illustra come gestire i BLOB da codice eseguito interamente nel browser. L'approccio qui adottato mostra come usare le misure di sicurezza necessarie per garantire l'accesso protetto all'account di archiviazione BLOB. Per completare questa guida introduttiva è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

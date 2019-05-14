@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58447398"
 ---
-# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare .NET Core (C#) per eseguire query su un database SQL di Azure
+# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Avvio rapido: Usare .NET Core (C#) per eseguire query su un database SQL di Azure
 
 In questa guida introduttiva si userà [.NET Core](https://www.microsoft.com/net/) e il codice C# per la connessione a un database SQL di Azure. Si eseguirà quindi un'istruzione Transact-SQL per eseguire query sui dati.
 

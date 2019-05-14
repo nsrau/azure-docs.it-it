@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire una ricerca Web con C# - API REST Ricerca Web Bing'
+title: 'Avvio rapido: Eseguire una ricerca Web con C# - API REST Ricerca Web Bing'
 titlesuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare una richiesta all'API REST Ricerca notizie Bing usando Java e ricevere una risposta JSON.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55861970"
 ---
-# <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Guida introduttiva: Eseguire una ricerca di notizie usando Java e l'API REST Ricerca notizie Bing
+# <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Avvio rapido: Eseguire una ricerca di notizie usando Java e l'API REST Ricerca notizie Bing
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca notizie Bing e visualizzare la risposta JSON. Questa semplice applicazione Java invia una query di ricerca notizie all'API e visualizza la risposta.
 

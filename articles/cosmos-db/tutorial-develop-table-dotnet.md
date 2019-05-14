@@ -45,7 +45,7 @@ In Visual Studio creare una nuova applicazione console .NET. La procedura seguen
 
 1. Selezionare **File** > **Nuovo** > **Progetto**.
 
-1. Selezionare **Installato** > **Visual C#** > **App console App (.NET Core)**.
+1. Selezionare **Installato** > **Visual C#** > **App console (.NET Core)**.
 
 1. Nel campo **Nome** immettere un nome per l'applicazione, ad esempio **CosmosTableSamples**. È anche possibile specificare un nome diverso, se necessario.
 

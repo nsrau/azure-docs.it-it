@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55981486"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Guida introduttiva: Creare una macchina virtuale Windows in Azure con PowerShell
+# <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Avvio rapido: Creare una macchina virtuale Windows in Azure con PowerShell
 
 Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script. Questa guida introduttiva illustra come usare il modulo Azure PowerShell per distribuire una macchina virtuale in Azure che esegue Windows Server 2016. Si eseguirà anche la connessione tramite RDP alla VM e si installerà il server Web IIS, per verificare il funzionamento della VM.
 

@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/21/2019
 ms.locfileid: "58336984"
 ---
-# <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Guida introduttiva: Distribuire Hello World in mesh Service Fabric
+# <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Avvio rapido: Distribuire Hello World in mesh Service Fabric
 
 [Service Fabric Mesh](service-fabric-mesh-overview.md) semplifica la creazione e la gestione di applicazioni di microservizi in Azure senza dover eseguire il provisioning di macchine virtuali. In questa guida introduttiva si creerà un'applicazione Hello World in Azure che verrà esposta a Internet. Per completare questa operazione, è sufficiente un solo comando. Dopo un paio di secondi nel browser verrà visualizzato quanto segue:
 

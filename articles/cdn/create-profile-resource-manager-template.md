@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/30/2019
 ms.locfileid: "64922384"
 ---
-# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure usando un modello di Resource Manager
+# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Avvio rapido: Creare un profilo e un endpoint della rete CDN di Azure usando un modello di Resource Manager
 
 In questo argomento di avvio rapido verrà distribuito un modello di Azure Resource Manager usando l'interfaccia della riga di comando. Il modello creato consentirà di distribuire un profilo e un endpoint della rete CDN per un'applicazione Web.
 La procedura richiede circa dieci minuti.

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare e caricare un indice ed eseguirvi query nel portale di Azure - Ricerca di Azure'
+title: 'Avvio rapido: Creare e caricare un indice ed eseguirvi query nel portale di Azure - Ricerca di Azure'
 description: Creare il primo indice ed eseguirvi query in Ricerca di Azure usando i dati di esempio integrati e la procedura guidata Importa dati nel portale di Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65024754"
 ---
-# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Guida introduttiva: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure
+# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Avvio rapido: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure
 > [!div class="op_single_selector"]
 > * [Portale](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)

@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Generare un'anteprima - REST, Java"
+title: "Avvio rapido: Generare un'anteprima - REST, Java"
 titleSuffix: Azure Cognitive Services
 description: Grazie a questa guida introduttiva, si può generare l'anteprima di un'immagine usando API Visione artificiale con Java.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "60010620"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>Guida introduttiva: generare un'anteprima mediante API REST e Java in Visione artificiale
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>Avvio rapido: generare un'anteprima mediante API REST e Java in Visione artificiale
 
 In questa guida introduttiva si genererà l'anteprima di un'immagine usando l'API REST di Visione artificiale. Si specificano l'altezza e la larghezza, che possono essere diverse rispetto alle proporzioni dell'immagine di input. Visione artificiale ricorre al ritaglio intelligente per identificare l'area di interesse in modo intelligente e generare le coordinate di ritaglio in base a tale area.
 

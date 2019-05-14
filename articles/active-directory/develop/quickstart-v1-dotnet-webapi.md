@@ -25,7 +25,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56200599"
 ---
-# <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Guida introduttiva: Compilare un'API Web .NET che si integra con Azure AD per l'autenticazione e l'autorizzazione
+# <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Avvio rapido: Compilare un'API Web .NET che si integra con Azure AD per l'autenticazione e l'autorizzazione
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 

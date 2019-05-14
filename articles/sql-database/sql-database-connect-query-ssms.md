@@ -20,7 +20,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359991"
 ---
-# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare SQL Server Management Studio per connettersi a un database SQL di Azure ed eseguire query
+# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Avvio rapido: Usare SQL Server Management Studio per connettersi a un database SQL di Azure ed eseguire query
 
 In questa Guida introduttiva, si userà [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) per connettersi a un database SQL di Azure. Si eseguiranno quindi istruzioni Transact-SQL per eseguire query e per inserire, aggiornare ed eliminare dati. È possibile usare SSMS per gestire qualsiasi infrastruttura SQL, da SQL Server al database SQL per Microsoft Windows.  
 

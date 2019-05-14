@@ -21,9 +21,9 @@
       href: functions-create-first-function-python.md
     - name: Creare una funzione - PowerShell
       href: functions-create-first-function-powershell.md
-    - name: Creare una funzione - Interfaccia della riga di comando di Azure
+    - name: 'Creare una funzione: interfaccia della riga di comando di Azure'
       href: functions-create-first-azure-function-azure-cli.md
-    - name: Creare una funzione - Portale
+    - name: 'Creare una funzione: portale'
       href: functions-create-first-azure-function.md
     - name: 'Creare una funzione: Linux'
       href: functions-create-first-azure-function-azure-cli-linux.md
@@ -118,8 +118,8 @@
       href: functions-networking-options.md
     - name: Indirizzi IP
       href: ip-addresses.md
-    - name: Funzioni locali
-      href: functions-runtime-overview.md
+    - name: Funzioni in Kubernetes
+      href: functions-kubernetes-keda.md
 - name: Guide alle procedure
   items:
     - name: Sviluppo
@@ -142,6 +142,8 @@
           href: create-function-app-linux-app-service-plan.md
         - name: Eseguire il debug delle funzioni locali di PowerShell
           href: functions-debug-powershell-local.md
+        - name: Inserimento delle dipendenze
+          href: functions-dotnet-dependency-injection.md
         - name: Gestire le connessioni
           href: manage-connections.md
         - name: Gestione degli errori
@@ -173,6 +175,7 @@
       items:
         - name: Gestire un'app per le funzioni
           href: functions-how-to-use-azure-function-app-settings.md
+          displayName: 'app setting, application setting'
         - name: Configurare la versione di runtime
           href: set-runtime-version.md
         - name: Registrare manualmente un'estensione

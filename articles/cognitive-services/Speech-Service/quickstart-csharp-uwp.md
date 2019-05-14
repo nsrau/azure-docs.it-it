@@ -11,15 +11,18 @@ ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 26d6e5e53968a88eaccff863b4affee6057f5952
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 674bb3f22f7b8c7c7ea3b52c2f27d862a9961fcb
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903301"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466258"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in un'app UWP con Speech SDK
 
+Sono disponibili guide di avvio rapido anche per la [traduzione vocale](quickstart-translate-speech-uwp.md) e l'[assistente virtuale voice-first](quickstart-virtual-assistant-csharp-uwp.md).
+
+Se si vuole, è possibile scegliere un linguaggio di programmazione e/o un ambiente diverso:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In questo articolo viene sviluppata un'applicazione della piattaforma UWP (Universal Windows Platform; Windows versione 1709 o successiva) C# usando [Speech SDK](speech-sdk.md) di Servizi cognitivi. Il programma trascriverà in tempo reale i contenuti vocali dal microfono del dispositivo. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 (qualsiasi edizione).

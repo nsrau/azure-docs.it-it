@@ -1,23 +1,23 @@
 ---
 title: 'Esercitazione sulla classificazione di immagini: Eseguire il training dei modelli'
 titleSuffix: Azure Machine Learning service
-description: Questa esercitazione mostra come usare il servizio Azure Machine Learning per eseguire il training di un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python. Questa esercitazione è la prima di una serie in due parti.
+description: Informazioni su come eseguire il training di un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python con il servizio Azure Machine Learning. Questa esercitazione è la prima di una serie in due parti.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 04/25/2019
+ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 712b5a003d3542908698d7b69c636780f6cf1007
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 097fb3422ce3868d9ef499ad6c92c8b7fa12e852
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021748"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442055"
 ---
-# <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Esercitazione: Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning
+# <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Esercitazione: Eseguire il training di modelli di classificazione delle immagini con dati MNIST e scikit-learn usando Azure Machine Learning
 
 In questa esercitazione si eseguirà il training di un modello di Machine Learning su risorse di calcolo remote. Si userà il flusso di lavoro di training e distribuzione per il servizio Azure Machine Learning (anteprima) in un notebook Jupyter per Python.  È quindi possibile usare il notebook come modello per eseguire il training di un modello di Machine Learning con i propri dati di training. Questa esercitazione è la **prima di una serie in due parti**.  
 

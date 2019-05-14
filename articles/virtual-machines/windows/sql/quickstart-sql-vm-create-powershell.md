@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64715475"
 ---
-# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Guida introduttiva: Creare una macchina virtuale Windows di SQL Server con Azure PowerShell
+# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Avvio rapido: Creare una macchina virtuale Windows di SQL Server con Azure PowerShell
 
 Questa guida introduttiva illustra la creazione di una macchina virtuale di SQL Server con Azure PowerShell.
 

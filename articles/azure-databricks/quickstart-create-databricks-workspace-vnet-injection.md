@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60770607"
 ---
-# <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Guida introduttiva: Creare un'area di lavoro Azure Databricks in una rete virtuale
+# <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Avvio rapido: Creare un'area di lavoro Azure Databricks in una rete virtuale
 
 Questa Guida introduttiva illustra come creare un'area di lavoro Azure Databricks in una rete virtuale. Inoltre, si creerà un cluster Apache Spark all'interno di tale area di lavoro.
 

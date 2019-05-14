@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85087ce5a4fa3dd733f47a35bc18d76f1f4bc652
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60642821"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606697"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipi e struttura delle risposte dell'API Ricerca Web Bing  
 
@@ -288,7 +288,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 Un'espressione matematica può contenere i simboli seguenti:
 
-|Simbolo|DESCRIZIONE|
+|Simbolo|Descrizione|
 |------------|-----------------|
 |+|Aggiunta|
 |-|Sottrazione|
@@ -330,7 +330,7 @@ Se si immette una query di ora o data, la risposta può contenere una risposta [
 
 La risposta `timeZone` include il nome della posizione, la data e l'ora UTC corrente nella posizione specificata e la differenza dall'ora UTC. Se all'interno dei confini della posizione sono presenti più fusi orari, la risposta contiene la data e l'ora UTC corrente di tutti i fusi orari presenti. Lo Stato della Florida rientra ad esempio in due fusi orari, pertanto la risposta contiene la data e l'ora locali di entrambi i fusi orari.  
 
-Se la query richiede l'ora di uno stato o di un paese, Bing determina la città primaria all'interno dei confini geografici della posizione e lo restituisce nel campo `primaryCityTime`. Se il confine contiene più fusi orari, i fusi orari rimanenti vengono restituiti nel campo `otherCityTimes`.
+Se la query richiede il tempo di uno stato o paese/area geografica, Bing determina la città primaria all'interno di confine geografico del percorso e lo restituisce nel `primaryCityTime` campo. Se il confine contiene più fusi orari, i fusi orari rimanenti vengono restituiti nel campo `otherCityTimes`.
 
 Di seguito sono riportate query di esempio che restituiscono la risposta `timeZone`.
 

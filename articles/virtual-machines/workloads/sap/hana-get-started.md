@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure | Microsoft Docs'
+title: 'Avvio rapido: Installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure | Microsoft Docs'
 description: Guida introduttiva per l'installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60204819"
 ---
-# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Guida introduttiva: Installazione manuale di istanza singola SAP HANA in macchine virtuali di Azure
+# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Avvio rapido: Installazione manuale di istanza singola SAP HANA in macchine virtuali di Azure
 ## <a name="introduction"></a>Introduzione
 Questa Guida consente di configurare un'istanza singola SAP HANA in macchine virtuali di Azure quando si installano manualmente SAP NetWeaver 7.5 e SAP HANA 1.0 SP12. L'obiettivo di questa guida è su come distribuire SAP HANA in Azure. Non sostituisce la documentazione SAP. 
 

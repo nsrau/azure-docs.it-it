@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262891"
 ---
-# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Guida introduttiva: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per C#
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Avvio rapido: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per C#
 
 Usare questa guida introduttiva per iniziare a cercare notizie con l'SDK di Ricerca notizie Bing per C#. Mentre Ricerca notizie Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK fornisce un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch).
 

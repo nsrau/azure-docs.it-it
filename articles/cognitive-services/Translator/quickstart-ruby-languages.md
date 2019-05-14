@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55975467"
 ---
-# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-ruby"></a>Guida introduttiva: Ottenere le lingue supportate con l'API REST Traduzione testuale (Ruby)
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-ruby"></a>Avvio rapido: Ottenere le lingue supportate con l'API REST Traduzione testuale (Ruby)
 
 In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale.
 

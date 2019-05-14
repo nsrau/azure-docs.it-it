@@ -6,20 +6,20 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: 2a904cfb049af413887798c8aab449561bc2b73f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030049"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471748"
 ---
 # <a name="how-to-get-started-with-knowledge-store"></a>Introduzione a Knowledge Store
 
 [Knowledge Store](knowledge-store-concept-intro.md) è una nuova funzionalità di anteprima disponibile in Ricerca di Azure che consente di salvare in altre app arricchimenti basati sull'intelligenza artificiale creati in una pipeline di indicizzazione per il knowledge mining. È anche possibile usare gli arricchimenti salvati per comprendere e ottimizzare una pipeline di indicizzazione di Ricerca di Azure.
 
-Un knowledge store è definito da una set di competenze. Nei normali scenari di ricerca full-text di Ricerca di Azure si usa un set di competenze per fornire arricchimenti basati sull'intelligenza artificiale e facilitare ulteriormente la ricerca nel contenuto. Negli scenari di knowledge store si usa invece un set di competenze per creare e popolare più strutture dei dati per il knowledge mining.
+Un knowledge store è definito da una set di competenze. Nei normali scenari di ricerca full-text di Ricerca di Azure si usa un set di competenze per fornire arricchimenti basati sull'intelligenza artificiale e facilitare ulteriormente la ricerca nel contenuto. Negli scenari di knowledge mining si usa invece un set di competenze per creare, popolare e archiviare più strutture dei dati per l'analisi o la modellazione in altre app o altri processi.
 
 In questo esercizio iniziare con dati di esempio, servizi e strumenti per apprendere il flusso di lavoro di base per la creazione e l'uso del primo knowledge store, prestando particolare attenzione alla definizione del set di competenze.
 
@@ -29,13 +29,13 @@ In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati 
 
 + [Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione. 
 
-+ [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) per l'archiviazione dei dati di esempio. Il knowledge store sarà disponibile nell'archiviazione di Azure.
++ [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) per l'archiviazione dei dati di esempio. Il knowledge store sarà disponibile nell'archiviazione di Azure. 
 
-+ [Creare una risorsa di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) al livello S0 con pagamento in base al consumo per un accesso più esteso all'intera gamma di competenze usate negli arricchimenti basati sull'intelligenza artificiale.
++ [Creare una risorsa di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) al livello S0 con pagamento in base al consumo per un accesso più esteso all'intera gamma di competenze usate negli arricchimenti basati sull'intelligenza artificiale. Questa risorsa e il servizio Ricerca di Azure devono trovarsi nella stessa area.
 
 + L'[app desktop Postman](https://www.getpostman.com/) per inviare richieste a Ricerca di Azure.
 
-+ La [raccolta Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/caselaw) con le richieste preparate per la creazione di un'origine dati, un indice, un set di competenze e un indicizzatore. Diverse definizioni di oggetto sono troppo lunghe per essere incluse in questo articolo. Questa raccolta è necessaria per visualizzare in modo completo le definizioni di indice e set di competenze.
++ La [raccolta Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Caselaw) con le richieste preparate per la creazione di un'origine dati, un indice, un set di competenze e un indicizzatore. Diverse definizioni di oggetto sono troppo lunghe per essere incluse in questo articolo. Questa raccolta è necessaria per visualizzare in modo completo le definizioni di indice e set di competenze.
 
 + [Dati di esempio di Caselaw](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) che provengono dalla pagina di download di Public Bulk Data di [Caselaw Access Project](https://case.law/bulk/download/). In particolare, per l'esercizio si usano i primi 10 documenti del primo download (Arkansas). Per questo esercizio è stato caricato un esempio con 10 documenti in GitHub.
 
@@ -55,7 +55,7 @@ Per ogni richiesta inviata al servizio è necessario specificare una chiave API.
 
 1. [Accedere al portale di Azure](https://portal.azure.com), passare all'account di archiviazione di Azure, fare clic su **BLOB** e quindi su **+ Contenitore**.
 
-1. [Creare un contenitore BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) per i dati di esempio. È possibile impostare il livello di accesso pubblico su uno qualsiasi dei relativi valori validi.
+1. [Creare un contenitore BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) per i dati di esempio. Usare il nome di contenitore "caselaw-test". È possibile impostare il livello di accesso pubblico su uno qualsiasi dei relativi valori validi.
 
 1. Dopo aver creato il contenitore, aprirlo e selezionare **Carica** nella barra dei comandi.
 
@@ -66,19 +66,19 @@ Per ogni richiesta inviata al servizio è necessario specificare una chiave API.
 
 ## <a name="set-up-postman"></a>Configurare Postman
 
-Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca di Azure con Postman](search-fiddler.md) per altre informazioni.
+Avviare Postman e importare la raccolta Caselaw di Postman. In alternativa, configurare una serie di richieste HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca di Azure con Postman](search-fiddler.md) per altre informazioni.
 
-+ Il metodo di richiesta per ogni chiamata in questa procedura dettagliata è **POST**.
++ Il metodo di richiesta per ogni chiamata in questa procedura dettagliata è **PUT** o **POST**.
 + Le intestazioni delle richieste (2) includono rispettivamente "Content-type" impostato su "application/json" e "api-key" impostato su "admin key". admin key è un segnaposto per la chiave primaria di ricerca. 
 + Il corpo della richiesta è l'area in cui si viene inserito il contenuto effettivo della chiamata. 
 
   ![Ricerca su dati semistrutturati](media/search-semi-structured-data/postmanoverview.png)
 
-Viene usato Postman per effettuare quattro chiamate API al servizio di ricerca, in modo da creare un'origine dati, un indice, un set di competenze e un indicizzatore. L'origine dati include un puntatore all'account di archiviazione e ai dati JSON. Il servizio di ricerca stabilisce la connessione durante l'importazione dei dati.
+Viene usato Postman per effettuare quattro chiamate API al servizio di ricerca, in modo da creare nell'ordine un'origine dati, un indice, un set di competenze e un indicizzatore. L'origine dati include un puntatore all'account di archiviazione di Azure e ai dati JSON. Il servizio di ricerca stabilisce la connessione durante l'importazione dei dati.
 
 Obiettivo principale di questa procedura dettagliata è la [creazione di un set di competenze](#create-skillset). Vengono quindi illustrati i passaggi per l'arricchimento e come salvare in modo permanente i dati in un knowledge store.
 
-L'endpoint dell'URL deve specificare una versione API e ogni chiamata deve restituire **201 Created**. La versione dell'API di anteprima per la creazione di un set di competenze con il supporto per il knowledge store è `2019-05-06-Preview`.
+L'endpoint dell'URL deve specificare una versione API e ogni chiamata deve restituire **201 Created**. La versione API di anteprima per la creazione di un set di competenze con il supporto per il knowledge store è `2019-05-06-Preview` (con distinzione tra maiuscole/minuscole).
 
 Eseguire le chiamate dell'API seguenti dal client REST.
 
@@ -101,10 +101,10 @@ L'endpoint di questa chiamata è `https://[service name].search.windows.net/data
         "type": "azureblob",
         "subtype": null,
         "credentials": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your storage key>;EndpointSuffix=core.windows.net"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
         },
         "container": {
-            "name": "<your blob container name>",
+            "name": "<YOUR-BLOB-CONTAINER-NAME>",
             "query": null
         },
         "dataChangeDetectionPolicy": null,
@@ -318,24 +318,23 @@ L'endpoint di questa chiamata è `https://[service name].search.windows.net/skil
    }
    ```
 
-3. Impostare prima la stringa di connessione e la chiave di `cognitiveServices` e `knowledgeStore`. Nell'esempio queste stringhe si trovano dopo la definizione di set di competenze, alla fine del corpo della richiesta.
+3. Impostare prima la stringa di connessione e la chiave di `cognitiveServices` e `knowledgeStore`. Nell'esempio queste stringhe si trovano dopo la definizione di set di competenze, alla fine del corpo della richiesta. Usare una risorsa di Servizi cognitivi, di cui è stato effettuato il provisioning al livello S0 e che si trova nella stessa area di Ricerca di Azure.
 
     ```json
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "<your cognitive services resource name>",
-        "key": "<your cognitive services key>"
+        "description": "YOUR-SAME-REGION-S0-COGNITIVE-SERVICES-RESOURCE",
+        "key": "YOUR-COGNITIVE-SERVICES-KEY"
     },
     "knowledgeStore": {
-        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your storage account key>;EndpointSuffix=core.windows.net",
+        "storageConnectionString": "YOUR-STORAGE-ACCOUNT-CONNECTION-STRING",
     ```
 
 3. Esaminare la raccolta di competenze, in particolare le competenze Shaper rispettivamente alle righe 85 e 170. La competenza Shaper è importante perché consente di assemblare le strutture dei dati desiderate per il knowledge mining. Durante l'esecuzione del set di competenze queste strutture si trovano solo in memoria, ma al passaggio successivo si vedrà come salvare questo output in un knowledge store per un'ulteriore analisi.
 
-   Il frammento di codice seguente proviene dalla riga 207. 
+   Il frammento di codice seguente proviene dalla riga 217. 
 
     ```json
-    {
     "name": "Opinions",
     "source": null,
     "sourceContext": "/document/casebody/data/opinions/*",
@@ -361,44 +360,46 @@ L'endpoint di questa chiamata è `https://[service name].search.windows.net/skil
                     "name": "EntityType",
                     "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/category"
                 }
-             ]
-          }
-     ]
-   }
+            ]
+        }
+    ]
    . . .
    ```
 
-3. Esaminare l'elemento `projections` in `knowledgeStore`, a partire dalla riga 253. Le proiezioni consentono di specificare la composizione del knowledge store. Le proiezioni vengono specificate in coppie tabelle-oggetti, ma al momento solo una alla volta. Come si può notare nella prima proiezione, è specificato `tables`, ma non `objects`. Nella seconda è il contrario.
+3. Esaminare l'elemento `projections` in `knowledgeStore`, a partire dalla riga 262. Le proiezioni consentono di specificare la composizione del knowledge store. Le proiezioni vengono specificate in coppie tabelle-oggetti, ma al momento solo una alla volta. Come si può notare nella prima proiezione, è specificato `tables`, ma non `objects`. Nella seconda è il contrario.
 
    Nell'archiviazione di Azure verranno create tabelle nell'archivio tabelle per ogni tabella creata e ogni oggetto ottiene un contenitore nell'archivio BLOB.
 
-   Gli oggetti contengono in genere l'espressione completa di un arricchimento. Le tabelle contengono in genere arricchimenti parziali, in combinazioni definite per scopi specifici. In questo esempio viene mostrata una tabella Cases, ma non altre tabelle come Entities, Judges e Opinions.
+   Gli oggetti BLOB contengono in genere l'espressione completa di un arricchimento. Le tabelle contengono in genere arricchimenti parziali, in combinazioni definite per scopi specifici. In questo esempio viene mostrata una tabella Cases e una tabella Opinions, ma non altre tabelle come Entities, Attorneys, Judges e Parties.
 
     ```json
     "projections": [
-    {
-        "tables": [
-            {
-              "tableName": "Opinions",
-              "generatedKeyName": "OpinionId",
-              "source": "/document/Case/OpinionsSnippets/*"
-            },
-          . . . 
-        ],
-        "objects": []
-    },
-    {
-        "tables": [],
-        "objects": [
-            {
-                "storageContainer": "enrichedcases",
-                "key": "/document/CaseFull/Id",
-                "source": "/document/CaseFull"
-            }
-          ]
+        {
+            "tables": [
+                {
+                    "tableName": "Cases",
+                    "generatedKeyName": "CaseId",
+                    "source": "/document/Case"
+                },
+                {
+                    "tableName": "Opinions",
+                    "generatedKeyName": "OpinionId",
+                    "source": "/document/Case/OpinionsSnippets/*"
+                }
+            ],
+            "objects": []
+        },
+        {
+            "tables": [],
+            "objects": [
+                {
+                    "storageContainer": "enrichedcases",
+                    
+                    "source": "/document/CaseFull"
+                }
+            ]
         }
-      ]
-    }
+    ]
     ```
 
 5. Inviare la richiesta. La risposta dovrebbe essere **201** ed essere simile all'esempio seguente, in cui è mostrata la prima parte della risposta.

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Inserire dati usando la libreria Node di Esplora dati di Azure'
+title: 'Avvio rapido: Inserire dati usando la libreria Node di Esplora dati di Azure'
 description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure usando Node.js.
 author: orspod
 ms.author: orspodek
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047654"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Guida introduttiva: Inserire dati usando la libreria Node di Esplora dati di Azure
+# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Avvio rapido: Inserire dati usando la libreria Node di Esplora dati di Azure
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per Node: una [libreria di inserimento](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) e [una libreria di dati](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questa guida introduttiva, è innanzitutto necessario creare una tabella e il mapping dei dati in un cluster di prova. Quindi viene accodato l'inserimento nel cluster e vengono convalidati i risultati.
 

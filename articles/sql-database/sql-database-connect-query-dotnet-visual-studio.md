@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58443674"
 ---
-# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare .NET (C#) e C# in Visual Studio per connettersi a un database SQL di Azure ed eseguire query
+# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Avvio rapido: Usare .NET (C#) e C# in Visual Studio per connettersi a un database SQL di Azure ed eseguire query
 
 Questa guida introduttiva illustra come usare il [framework .NET](https://www.microsoft.com/net/) e il codice C# in Visual Studio per eseguire query nel database SQL di Azure usando istruzioni Transact-SQL.
 

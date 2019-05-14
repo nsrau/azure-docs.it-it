@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/11/2019
 ms.locfileid: "59500635"
 ---
-# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Guida introduttiva: Usare l'interfaccia della riga di comando di Azure per creare una coda del bus di servizio
+# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Avvio rapido: Usare l'interfaccia della riga di comando di Azure per creare una coda del bus di servizio
 Questa guida introduttiva descrive come inviare e ricevere messaggi con il bus di servizio, usando l'interfaccia della riga di comando di Azure e la libreria Java del bus di servizio. Per dettagli più tecnici, è [vedere la spiegazione](#understand-the-sample-code) degli elementi chiave del codice di esempio.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]

@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: c1b86199f13454f4785a6737b25e489d45dd53f8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b62a2690e5879e45a14d0b06a38e8c5171dda14e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027547"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442325"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>I Jupyter Notebook di esempio illustrano come arricchire i dati con i set di dati aperti 
 I Jupyter Notebook di esempio per Azure Open Datasets illustrano come caricare set di dati aperti e usarli per arricchire i dati demo. Le tecniche includono l'uso di Apache Spark e Pandas per elaborare i dati.
@@ -29,7 +29,7 @@ I Jupyter Notebook di esempio per Azure Open Datasets illustrano come caricare s
 ## <a name="join-demo-data-with-noaa-isd-data"></a>Unire dati demo con dati ISD NOAA 
 |Blocco appunti        | DESCRIZIONE                                    |
 |----------------|------------------------------------------------|
-|[Unire dati demo con dati meteo - Pandas ](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Unire un mese di dati demo di un set di dati di posizioni di sensori con le letture meteo di un dataframe Pandas.  |
+|[Unire dati demo con dati meteo - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Unire un mese di dati demo di un set di dati di posizioni di sensori con le letture meteo di un dataframe Pandas.  |
 |[Unire dati demo con dati meteo - Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Unire un set di dati di posizioni di sensori con le letture meteo di un dataframe Spark. |
 
 ## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>Unire dati sui taxi di New York con dati ISD NOAA 

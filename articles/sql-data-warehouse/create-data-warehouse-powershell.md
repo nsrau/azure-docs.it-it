@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse - Azure PowerShell | Microsoft Docs"
+title: "Avvio rapido: Creare un'istanza di Azure SQL Data Warehouse - Azure PowerShell | Microsoft Docs"
 description: Creare rapidamente un server logico di database SQL, una regola del firewall a livello di server e un data warehouse con Azure PowerShell.
 services: sql-data-warehouse
 author: kevinvngo
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59545129"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguirvi una query con Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Avvio rapido: Creare un'istanza di Azure SQL Data Warehouse ed eseguirvi una query con Azure PowerShell
 
 Creare rapidamente un'istanza di Azure SQL Data Warehouse con Azure PowerShell.
 

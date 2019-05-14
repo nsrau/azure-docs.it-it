@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare, caricare ed eseguire query su un indice usando PowerShell e l'API REST - ricerca di Azure"
+title: "Avvio rapido: Creare, caricare ed eseguire query su un indice usando PowerShell e l'API REST - ricerca di Azure"
 description: Creare, caricare ed eseguire query su un indice usando PowerShell Invoke-RestMethod e l'API REST di ricerca di Azure.
 ms.date: 05/02/2019
 author: heidisteen
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65024149"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Guida introduttiva: Creare un indice di ricerca di Azure con PowerShell e l'API REST
+# <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Avvio rapido: Creare un indice di ricerca di Azure con PowerShell e l'API REST
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
