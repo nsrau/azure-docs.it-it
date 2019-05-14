@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Project Answer Search, C#'
+title: 'Avvio rapido: Project Answer Search, C#'
 titlesuffix: Azure Cognitive Services
 description: Esempio di codice per iniziare a usare Project Answer Search con C#.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55871269"
 ---
-# <a name="quickstart-project-answer-search-query-in-c"></a>Guida introduttiva: Query in C# di Project Answer Search
+# <a name="quickstart-project-answer-search-query-in-c"></a>Avvio rapido: Query in C# di Project Answer Search
 
 L'esempio in C# seguente crea e invia una query per ottenere informazioni su "third law of calculus".
 

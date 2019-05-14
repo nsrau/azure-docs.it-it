@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare una knowledge base in REST, Go - QnA Maker'
+title: 'Avvio rapido: Creare una knowledge base in REST, Go - QnA Maker'
 titlesuffix: Azure Cognitive Services
 description: Questa guida introduttiva per Go basata su REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55874992"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Guida introduttiva: Creare una knowledge base in QnA Maker con Go
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Avvio rapido: Creare una knowledge base in QnA Maker con Go
 
 Questa guida introduttiva illustra come creare a livello di codice una knowledge base QnA Maker di esempio. QnA Maker estrae automaticamente domande e risposte da contenuto semistrutturato, come le domande frequenti, delle [origini dati](../Concepts/data-sources-supported.md). Il modello per la knowledge base è definito nel codice JSON inviato nel corpo della richiesta API. 
 

@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65150438"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Ruby
+# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con Ruby
 
 Questa guida rapida mostra come usare Ruby per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
 

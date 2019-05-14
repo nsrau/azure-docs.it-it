@@ -17,7 +17,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65030029"
 ---
-# <a name="quickstart-use-truffle-to-connect-to-a-an-azure-blockchain-service-network"></a>Guida introduttiva: Usare Truffle per connettersi a una rete del servizio Azure Blockchain
+# <a name="quickstart-use-truffle-to-connect-to-a-an-azure-blockchain-service-network"></a>Avvio rapido: Usare Truffle per connettersi a una rete del servizio Azure Blockchain
 
 Truffle è un ambiente di sviluppo di blockchain che è possibile usare per connettersi a un nodo del servizio Azure Blockchain.
 

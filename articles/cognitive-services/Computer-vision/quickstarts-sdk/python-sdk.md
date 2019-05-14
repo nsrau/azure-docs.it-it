@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Python SDK'
+title: 'Avvio rapido: Python SDK'
 titleSuffix: Azure Cognitive Services
 description: In questo avvio rapido si apprenderà come usare Python SDK per attività comuni, ad esempio analizzare un'immagine, ottenere una descrizione, riconoscere un testo e generare un'anteprima.
 services: cognitive-services

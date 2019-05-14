@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64713883"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure con Azure Storage Explorer
+# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Avvio rapido: Creare e gestire condivisioni file di Azure con Azure Storage Explorer
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con Azure Storage Explorer. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 
 
 Azure Storage Explorer è un popolare strumento client disponibile per Windows, macOS e Linux. È possibile usare Storage Explorer per gestire condivisioni file di Azure e altre risorse di archiviazione.
