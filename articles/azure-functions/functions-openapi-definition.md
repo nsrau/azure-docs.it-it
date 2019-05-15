@@ -5,19 +5,18 @@ services: functions
 keywords: OpenAPI, Swagger, app cloud, servizi cloud
 author: ggailey777
 manager: jeconnoc
-ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3ad304bc8f038d4009352dae72d70079828c26ba
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fc724e241849f4519a0e353cb6789d3f83eaf4b9
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141523"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510476"
 ---
 # <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Creare una definizione OpenAPI per una funzione con Gestione API di Azure
 
@@ -31,6 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Creare una funzione in Azure
 > * Generare una definizione OpenAPI usando Gestione API di Azure
 > * Testare la definizione chiamando la funzione
+> * Scaricare la definizione OpenAPI
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
@@ -133,13 +133,9 @@ A questo punto si ha una funzione che determina la convenienza delle riparazioni
 
 A questo punto si è pronti per generare la definizione OpenAPI.
 
-1. Selezionare l'app per le funzioni e quindi selezionare **Funzionalità della piattaforma**, **Tutte le impostazioni**.
+1. Selezionare l'app per le funzioni, quindi in **Funzionalità della piattaforma** scegliere **Gestione API** e selezionare **Crea nuovo** in **Gestione API**.
 
-    ![Testare la funzione nel portale di Azure](media/functions-openapi-definition/select-all-settings-openapi.png)
-
-1. Scorrere verso il basso e quindi scegliere **Gestione API** > **Crea nuova** per creare una nuova istanza di Gestione API.
-
-    ![Collegare la funzione](media/functions-openapi-definition/link-apim-openapi.png)
+    ![Scegliere Gestione API in Funzionalità della piattaforma](media/functions-openapi-definition/select-all-settings-openapi.png)
 
 1. Usare le impostazioni di Gestione API specificate nella tabella sotto l'immagine.
 
@@ -150,11 +146,10 @@ A questo punto si è pronti per generare la definizione OpenAPI.
     | **Nome** | Nome globalmente univoco | Viene generato un nome basato sul nome dell'app per le funzioni. |
     | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui viene creata questa nuova risorsa. |  
     | **[Gruppo di risorse](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Stessa risorsa dell'app per le funzioni, che dovrebbe essere impostata automaticamente. |
-    | **Posizione** | Stati Uniti occidentali | Scegliere gli Stati Uniti occidentali. |
+    | **Posizione** | Stati Uniti occidentali | Scegliere l'area Stati Uniti occidentali. |
     | **Nome organizzazione** | Contoso | Nome dell'organizzazione usato nel portale per sviluppatori e per le notifiche di posta elettronica. |
     | **Indirizzo di posta elettronica dell'amministratore** | Indirizzo di posta elettronica in uso | Indirizzo di posta elettronica che ha ricevuto le notifiche di sistema da Gestione API. |
-    | **Piano tariffario** | Consumo (anteprima) | Per informazioni dettagliate sui prezzi, vedere la [pagina Prezzi di Gestione API](https://azure.microsoft.com/pricing/details/api-management/). |
-    | **Application Insights** | Istanza in uso | Usare la stessa istanza di Application Insights usata dall'app per le funzioni. |
+    | **Piano tariffario** | Consumo (anteprima) | Il piano Consumo è in anteprima e non è disponibile in tutte le aree. Per informazioni dettagliate sui prezzi, vedere la [pagina Prezzi di Gestione API](https://azure.microsoft.com/pricing/details/api-management/). |
 
 1. Scegliere **Crea** per creare l'istanza di Gestione API. Questa operazione potrebbe richiedere alcuni minuti.
 
@@ -170,35 +165,40 @@ A questo punto si è pronti per generare la definizione OpenAPI.
 
 L'API è stata così creata per la funzione.
 
-## <a name="test-the-openapi-definition"></a>Testare la definizione OpenAPI
+## <a name="test-the-api"></a>Testare l'API
 
-Prima di usare la definizione dell'API, è necessario verificarne il funzionamento.
+Prima di usare la definizione OpenAPI, è necessario verificare il funzionamento dell'API.
 
 1. Nella scheda **Test** della funzione selezionare l'operazione **POST**.
 
 1. Immettere i valori per le ore (**hours**) e la capacità (**capacity**).
 
-```json
-{
-"hours": "6",
-"capacity": "2500"
-}
-```
+    ```json
+    {
+    "hours": "6",
+    "capacity": "2500"
+    }
+    ```
 
 1. Fare clic su **Invia**e quindi visualizzare la risposta HTTP.
 
     ![Testare l'API della funzione](media/functions-openapi-definition/test-function-api-openapi.png)
 
+## <a name="download-the-openapi-definition"></a>Scaricare la definizione OpenAPI
+
+Se l'API funziona come previsto, è possibile scaricare la definizione OpenAPI.
+
+1. Selezionare **Scarica definizione OpenAPI** nella parte superiore della pagina.
+   
+   ![Scaricare la definizione OpenAPI](media/functions-openapi-definition/download-definition.png)
+
+2. Aprire il file JSON scaricato ed esaminare la definizione.
+
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Creare una funzione in Azure
-> * Generare una definizione OpenAPI usando Gestione API di Azure
-> * Testare la definizione chiamando la funzione
-
-Passare all'argomento successivo per avere informazioni su Gestione API.
+Per generare una definizione OpenAPI delle funzioni, è stata usata l'integrazione di Gestione API. È ora possibile modificare la definizione in Gestione API nel portale. Sono anche disponibili [altre informazioni su Gestione API](../api-management/api-management-key-concepts.md).
 
 > [!div class="nextstepaction"]
-> [Gestione API](../api-management/api-management-key-concepts.md)
+> [Modificare la definizione OpenAPI in Gestione API](../api-management/edit-api.md)
