@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: ffa42eb2247d163dd6a146ffb26c1f8cc5cf6d82
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: HT
+ms.openlocfilehash: 04b331f3b63ad6400b4bb8efcd053d04ac88989b
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922529"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595836"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Avvio rapido: Rilevare le anomalie nei dati delle serie temporali utilizzando l'API REST di rilevatore di anomalie eC# 
 
@@ -29,13 +29,15 @@ Usare questa Guida introduttiva per iniziare a usare due modalità di rilevament
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Qualsiasi edizione di [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
-- [Newtonsoft.Json](https://www.newtonsoft.com/json)
-    - Per installare newtonsoft. JSON come pacchetto NuGet in Visual studio:
-        1. Fare clic con il pulsante destro sul **Solution Manager**
-        2. Scegliere **Gestisci pacchetti NuGet...**
-        3. Cercare `Newtonsoft.Json` e installare il pacchetto
-- Se si usa Linux/MacOS, questa applicazione può essere eseguito usando [Mono](https://www.mono-project.com/).
+- Qualsiasi edizione di [Visual Studio 2017 o versione successiva](https://visualstudio.microsoft.com/downloads/),
+
+- Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet. Per installare newtonsoft. JSON come pacchetto NuGet in Visual Studio:
+    
+    1. Fare clic con il pulsante destro sul progetto in **Esplora soluzioni**.
+    2. Selezionare **Gestisci pacchetti NuGet**.
+    3. Cercare *newtonsoft. JSON* e installare il pacchetto.
+
+- Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 
 - Fa riferimento un JSON file contenitore serie temporale. I dati di esempio per questa Guida introduttiva sono disponibili nella [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 

@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/14/2018
+ms.date: 05/14/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: cbd86571cbdcd600ef3acdea3833568a34657931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be8c3d3be4410d15ba132a24a417e7a7b0418352
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337945"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620244"
 ---
-**Ultimo aggiornamento del documento**: 14 agosto 2018 10 12:00 AM PST.
+**Ultimo aggiornamento del documento**: 14 maggio 2019 10 12:00 AM PST.
 
 La divulgazione di una [nuova classe di vulnerabilità della CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), definita attacchi del canale laterale per l'esecuzione speculativa, ha suscitato molte domande e richieste di chiarimenti da parte dei clienti.  
 
@@ -28,22 +28,28 @@ Altre informazioni sul modo in cui la sicurezza è integrata in ogni aspetto di 
 > [!NOTE] 
 > Poiché questo documento è stato pubblicato prima di tutto, sono state comunicate più varianti di questa classe di vulnerabilità. Microsoft continua a investire in modo consistente nella protezione dei clienti e a fornire informazioni aggiuntive. Questa pagina verrà aggiornata per rilasciare altre correzioni. 
 > 
-> Il 14 agosto 2018, il settore ha divulgato una nuova vulnerabilità di canale sul lato dell'esecuzione speculativa, nota come [L1 Terminal Fault](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018) (L1TF), a cui sono stati assegnati più CVE ([CVE-2018-3615, CVE-2018-3620 e CVE-2018-3646](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html)). Questa vulnerabilità interessa i processori Intel® Core® e Intel® Xeon®. Attraverso i propri servizi cloud, Microsoft ha distribuito soluzioni di mitigazione che rafforzano l'isolamento tra i clienti. Leggere di seguito per altro materiale sussidiario per la protezione da L1TF e da vulnerabilità precedenti ([Spectre Variant 2 CVE-2017-5715 e Meltdown Variant 3 CVE-2017-5754](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution)).
->  
+> Il 14 maggio 2019 [Intel divulgate](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) un nuovo set di una vulnerabilità del canale sul lato dell'esecuzione speculativa noto come campionamento dei dati della microarchitettura (MDS vedere la Guida alla sicurezza Microsoft [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), ovvero è stato assegnato CVE segnalati in più: 
+> - CVE-2018-11091 - i dati della microarchitettura il campionamento di memoria Uncacheable (MDSUM)
+> - CVE-2018-12126 - i dati nel Buffer della microarchitettura Store campionamento (MSBDS) 
+> - CVE-2018-12127 - porta di carico della microarchitettura dati di campionamento (MLPDS)
+> - CVE-2018-12130 - i dati nel Buffer della microarchitettura riempimento campionamento (MFBDS)
+>
+> Questa vulnerabilità interessa i processori Intel® Core® e Intel® Xeon®.  Microsoft Azure ha rilasciato gli aggiornamenti del sistema operativo ed è la distribuzione di abilitare il microcodice nuovo, come viene reso disponibile da Intel, tutta la flotta per proteggere i clienti su queste nuove vulnerabilità.   Azure collabora strettamente con Intel per testare e convalidare di nuovo abilitare il microcodice prima del rilascio ufficiale della piattaforma. 
+>
+> **I clienti che eseguono non attendibili di codice all'interno la macchina virtuale** per intraprendere azioni per la protezione da queste vulnerabilità per la lettura di seguito per informazioni aggiuntive su tutte le vulnerabilità del canale laterale dell'esecuzione speculativa (ADV di avvisi di Microsoft [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), e [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
+>
+> Altri clienti devono valutare le vulnerabilità da una difesa nella prospettiva di profondità e considerare le implicazioni di sicurezza e le prestazioni della relativa configurazione scelta.
 
 
 
+## <a name="keeping-your-operating-systems-up-to-date"></a>Mantenere aggiornati i sistemi operativi
 
-
-
-## <a name="keeping-your-operating-systems-up-to-date"></a>Mantenere aggiornato il sistema operativo
-
-Benché non sia necessario un aggiornamento del sistema operativo per isolare le applicazioni in esecuzione su Azure da altri clienti Azure, è sempre consigliabile mantenere aggiornate le versioni del software. I più recenti rollup di sicurezza per Windows contengono soluzioni di mitigazione per diverse vulnerabilità di canale sul lato dell'esecuzione speculativa. Analogamente, le distribuzioni Linux hanno rilasciato più aggiornamenti per risolvere tali vulnerabilità. Di seguito sono illustrate le azioni consigliate per aggiornare il sistema operativo:
+Benché non sia necessario un aggiornamento del sistema operativo per isolare le applicazioni in esecuzione su Azure da altri clienti Azure, è sempre consigliabile mantenere aggiornate le versioni del software. I più recenti rollup di sicurezza per Windows contengono soluzioni di mitigazione per diverse vulnerabilità di canale sul lato dell'esecuzione speculativa. Analogamente, le distribuzioni Linux hanno rilasciato più aggiornamenti per risolvere tali vulnerabilità. Di seguito sono illustrate le azioni consigliate per l'aggiornamento del sistema operativo:
 
 | Offerta | Azione consigliata  |
 |----------|---------------------|
 | Servizi cloud di Azure  | Abilitare l'[aggiornamento automatico](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) o assicurarsi che sia in esecuzione il sistema operativo Guest più recente. |
-| Macchine virtuali Linux in Azure | Installare aggiornamenti dal provider del sistema operativo. Per altre informazioni, vedere [Linux](#linux) più avanti in questo documento. |
+| Macchine virtuali Linux di Azure | Installare aggiornamenti dal provider del sistema operativo. Per altre informazioni, vedere [Linux](#linux) più avanti in questo documento. |
 | Macchine virtuali Windows in Azure  | Installare il rollup della sicurezza più recente.
 | Altri servizi PaaS di Azure | Non sono necessarie azioni da parte dei clienti che usano questi servizi. Azure aggiorna automaticamente le versioni del sistema operativo. |
 
@@ -64,56 +70,115 @@ I clienti che non implementano uno scenario che include un codice non attendibil
 
 ## <a name="enabling-additional-security"></a>Abilitazione della sicurezza aggiuntiva 
 
-È possibile abilitare funzionalità di sicurezza aggiuntive all'interno nella macchina virtuale o in un servizio Cloud.
+Se si esegue codice non attendibile, è possibile abilitare funzionalità di sicurezza aggiuntive all'interno nella macchina virtuale o un servizio Cloud. In parallelo, verificare che il sistema operativo sia aggiornato per abilitare le funzionalità di sicurezza all'interno nella macchina virtuale o un servizio Cloud
 
 ### <a name="windows"></a>Windows 
 
 Per abilitare queste funzionalità di sicurezza aggiuntive, il sistema operativo di destinazione deve essere aggiornato. Sebbene numerose mitigazioni di canale sul lato dell'esecuzione speculativa siano abilitate per impostazione predefinita, le funzionalità aggiuntive descritte di seguito devono essere abilitate manualmente e possono causare una riduzione delle prestazioni. 
 
-**Passaggio 1**: [Contattare il supporto tecnico di Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) espongono aggiornato del firmware (abilitare il microcodice) in macchine virtuali. 
 
-**Passaggio 2**: Abilitare il supporto del Kernel virtuale indirizzo Shadowing (KVAS) e inserimento destinazione diramazione (BTI) del sistema operativo. Seguire le istruzioni riportate in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) per abilitare le funzionalità di protezione tramite le chiavi del Registro di sistema `Session Manager`. È necessario riavviare. 
+**Passaggio 1: Disabilitare l'hyperthreading nella macchina virtuale** : i clienti che eseguono codice non attendibile in una macchina virtuale sarà necessario disabilitare l'hyperthreading o spostare in una dimensione di macchina virtuale non Hyper-Threading di Threading. Per verificare se la macchina virtuale con hyperthreading abilitato, consultare il seguito script utilizzando la riga di comando di Windows dall'interno della macchina virtuale.
 
-**Passaggio 3**: Per le distribuzioni che usano [virtualizzazione nidificata](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 ed E3 solo): Queste istruzioni si applicano all'interno della VM si usa come host Hyper-V. 
+Tipo `wmic` per accedere all'interfaccia interattiva. Quindi digitare il seguente per visualizzare la quantità di fisica e logica processori nella macchina virtuale.
 
-1. Seguire le istruzioni riportate in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) per abilitare le funzionalità di protezione tramite le chiavi del Registro di sistema `MinVmVersionForCpuBasedMitigations`.  
- 
-1. Impostare il tipo di utilità di pianificazione dell'hypervisor **Core** seguendo le istruzioni riportate [qui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types). 
+```console
+CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
+```
 
-**Passaggio 4**: Seguire le istruzioni in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) per verificare le protezioni sono abilitate tramite il [SpeculationControl](https://aka.ms/SpeculationControlPS) modulo di PowerShell. 
+Se il numero di processori logici è maggiore di processori fisici (Core), viene abilitato l'hyperthreading.  Se si esegue una macchina virtuale Hyper-Threading, please [contattare il supporto tecnico di Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) per ottenere l'Hyper-Threading disabilitato.  Dopo aver disabilitato, l'Hyper-Threading **il supporto richiederà un riavvio della macchina virtuale completo**. 
+
+
+**Passaggio 2**: In parallelo al passaggio 1, seguire le istruzioni in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) per verificare le protezioni sono abilitate tramite il [SpeculationControl](https://aka.ms/SpeculationControlPS) modulo di PowerShell.
 
 > [!NOTE]
 > Se il modulo è stato scaricato in precedenza, sarà necessario installare la versione più recente.
 >
 
-Tutte le macchine virtuali devono mostrare:
+
+Deve avere l'output dello script PowerShell di seguito i valori da convalidare abilitate misure di protezione contro le vulnerabilità:
 
 ```
-branch target injection mitigation is enabled: True
-
-kernel VA shadow is enabled: True  
-
-L1TFWindowsSupportEnabled: True
+Windows OS support for branch target injection mitigation is enabled: True
+Windows OS support for kernel VA shadow is enabled: True
+Windows OS support for speculative store bypass disable is enabled system-wide: False
+Windows OS support for L1 terminal fault mitigation is enabled: True
+Windows OS support for MDS mitigation is enabled: True
 ```
+
+Se l'output mostra `MDS mitigation is enabled: False`, verificare [contattare il supporto tecnico di Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) per le opzioni di attenuazione disponibili.
+
+
+
+**Passaggio 3**: Per abilitare il Kernel virtuale indirizzo Shadowing (KVAS) e il supporto di inserimento destinazione diramazione (BTI) del sistema operativo, seguire le istruzioni in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) per abilitare la funzionalità di protezione usando il `Session Manager` le chiavi del Registro di sistema. È necessario riavviare.
+
+
+**Passaggio 4**: Per le distribuzioni che usano [virtualizzazione nidificata](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 ed E3 solo): Queste istruzioni si applicano all'interno della VM si usa come host Hyper-V.
+
+1.  Seguire le istruzioni in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) per abilitare la funzionalità di protezione usando il `MinVmVersionForCpuBasedMitigations` le chiavi del Registro di sistema.
+2.  Impostare il tipo di hypervisor dell'utilità di pianificazione `Core` seguendo le istruzioni [qui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
 
 <a name="linux"></a>Per abilitare il set di funzionalità di sicurezza aggiuntive all'interno è necessario che il sistema operativo di destinazione sia completamente aggiornato. Alcune soluzioni di mitigazione verranno abilitate per impostazione predefinita. La sezione seguente descrive le funzionalità che sono disattivate per impostazione predefinita e/o fanno affidamento su supporto hardware (microcodice). L'abilitazione di queste funzionalità può causare un impatto sulle prestazioni. Fare riferimento alla documentazione del provider del sistema operativo per altre istruzioni
- 
-**Passaggio 1**: [Contattare il supporto tecnico di Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) espongono aggiornato del firmware (abilitare il microcodice) in macchine virtuali.
- 
-**Passaggio 2**: Abilitare il supporto di inserimento destinazione diramazione (BTI) del sistema operativo mitigare CVE-2017-5715 (di Spectre variante 2), seguire la documentazione del provider di sistema operativo. 
- 
-**Passaggio 3**: Abilitare Kernel pagina tabella isolamento si esegue per mitigare CVE-2017-5754 (Meltdown Variant 3), seguire la documentazione del provider di sistema operativo. 
- 
-Altre informazioni sono disponibili presso il provider del sistema operativo:  
- 
-- [RedHat e CentOS](https://access.redhat.com/security/vulnerabilities/speculativeexecution) 
-- [Suse](https://www.suse.com/support/kb/doc/?id=7022512) 
-- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown) 
 
+
+**Passaggio 1: Disabilitare l'hyperthreading nella macchina virtuale** : i clienti che eseguono codice non attendibile in una macchina virtuale sarà necessario disabilitare l'hyperthreading o spostare una macchina virtuale non Hyper-Threading di Threading.  Per controllare se si esegue una macchina virtuale Hyper-Threading, eseguire il `lspcu` comando nella VM Linux. 
+
+Se `Thread(s) per core = 2`, quindi è stato abilitato l'hyperthreading. 
+
+Se `Thread(s) per core = 1`, quindi l'hyperthreading è stata disabilitata. 
+
+ 
+Esempio di output per una macchina virtuale con Hyper-Threading abilitato: 
+
+```console
+CPU Architecture:      x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                8
+On-line CPU(s) list:   0,2,4,6
+Off-line CPU(s) list:  1,3,5,7
+Thread(s) per core:    2
+Core(s) per socket:    4
+Socket(s):             1
+NUMA node(s):          1
+
+```
+
+Se si esegue una macchina virtuale Hyper-Threading, please [contattare il supporto tecnico di Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) per ottenere l'Hyper-Threading disabilitato.  Note: Dopo aver disabilitato, l'Hyper-Threading **il supporto richiederà un riavvio della macchina virtuale completo**.
+
+
+**Passaggio 2**: Per ridurre i rischi uno qualsiasi del seguito vulnerabilità del canale laterale dell'esecuzione speculativa, fare riferimento alla documentazione del provider di sistema operativo:   
+ 
+- [RedHat e CentOS](https://access.redhat.com/security/vulnerabilities) 
+- [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
+- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) (Protezione dei clienti di Azure dalla vulnerabilità della CPU).
+Questo articolo fornisce indicazioni per la sotto attacchi al canale laterale dell'esecuzione speculativa che influiscono sul numero di processori moderni:
+
+[Spectre Meltdown](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+- CVE-2017-5715 - inserimento destinazione diramazione (BTI)  
+- CVE-2017-5754 - isolamento tramite Kernel pagina tabella (si esegue)
+- CVE-2018-3639 – Store speculativa Bypass (si esegue) 
+ 
+[L1 Errore Terminal (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+- CVE-2018-3615 - Intel Software Guard Extensions (Intel SGX)
+- CVE-2018-3620 - sistemi operativi (OS) e modalità di gestione del sistema (SMM)
+- CVE-2018-3646: impatto di Virtual Machine Manager (VMM)
+
+[Campionamento dei dati della microarchitettura](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
+- CVE-2018-11091 - i dati della microarchitettura il campionamento di memoria Uncacheable (MDSUM)
+- CVE-2018-12126 - i dati nel Buffer della microarchitettura Store campionamento (MSBDS)
+- CVE-2018-12127 - porta di carico della microarchitettura dati di campionamento (MLPDS)
+- CVE-2018-12130 - i dati nel Buffer della microarchitettura riempimento campionamento (MFBDS)
+
+
+
+
+
+
+
+
