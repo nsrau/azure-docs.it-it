@@ -27,9 +27,14 @@
         - name: 'Caratteristiche: Azione e contesto'
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: Ricompense
+          href: concept-rewards.md
+          displayName: 'reward, wait time, default reward'
         - name: Apprendimento per rinforzo
           href: concepts-reinforcement-learning.md
           displayName: 'RL, contextual bandits, Vowpal Wabbit'
+        - name: Esplorazione
+          href: concepts-exploration.md
     - name: Analisi
       items:
         - name: Valutazione offline

@@ -165,7 +165,7 @@
           href: grant-access-to-create-subscription.md
         - name: Eseguire l'autenticazione su più tenant
           href: authenticate-multi-tenant.md
-    - name: Controllare le distribuzioni
+    - name: Controllare le modifiche
       items:
         - name: Visualizzare log di attività
           href: resource-group-audit.md

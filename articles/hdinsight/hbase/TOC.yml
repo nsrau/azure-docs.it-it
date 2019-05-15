@@ -12,6 +12,8 @@
       maintainContext: true
 - name: Guide introduttive
   items:
+    - name: Eseguire query su Apache HBase - Apache Phoenix
+      href: apache-hbase-phoenix-squirrel-linux.md
     - name: Eseguire query su Apache HBase - Shell HBase
       href: ./query-hbase-with-hbase-shell.md
 - name: Attività iniziali
@@ -52,8 +54,6 @@
         - name: Apache Phoenix in HDInsight
           href: ../hdinsight-phoenix-in-hdinsight.md
           maintainContext: true
-        - name: Usare Apache Phoenix e SQLLine
-          href: apache-hbase-phoenix-squirrel-linux.md
         - name: Usare Apache Phoenix Query Server REST SDK
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
     - name: Analizzare Big Data
@@ -115,7 +115,7 @@
             - name: Usare cURL e l'API REST di Azure
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Usare l'interfaccia della riga di comando classica di Azure
+            - name: Utilizzare l’interfaccia della riga di comando di Azure
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: Creare cluster su richiesta
