@@ -1,7 +1,7 @@
 ---
 title: 'Avvio rapido: Creare una nuova app nel portale LUIS'
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Questa guida introduttiva spiega come creare una nuova app nel portale LUIS. Creare le parti fondamentali di un'app, le finalità e le entità. Testare l'app specificando un'espressione utente di esempio nel pannello di test interattivo per ottenere la finalità stimata. La creazione di un'app è gratuita e non richiede una sottoscrizione di Azure.
+description: Questo argomento di avvio rapido spiega come creare una nuova app nel portale LUIS. Creare le parti fondamentali di un'app, le finalità e le entità. Testare l'app specificando un'espressione utente di esempio nel pannello di test interattivo per ottenere la finalità stimata. La creazione di un'app è gratuita e non richiede una sottoscrizione di Azure.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -35,9 +35,9 @@ La creazione di un'app è gratuita e non richiede una sottoscrizione di Azure. Q
 
    |Nome impostazione| Valore | Scopo|
    |--|--|--|
-   |NOME|`myEnglishApp`|Nome univoco dell'app LUIS<br>Obbligatoria|
-   |Impostazioni cultura|**English**|Lingua delle espressioni degli utenti, **en-us**<br>Obbligatoria|
-   |DESCRIZIONE|`App made with LUIS Portal`|Descrizione dell'app<br>Facoltativo|
+   |NOME|`myEnglishApp`|Nome univoco dell'app LUIS;<br>Obbligatoria|
+   |Impostazioni cultura|**English**|Lingua delle espressioni degli utenti, **en-us**;<br>Obbligatoria|
+   |DESCRIZIONE|`App made with LUIS Portal`|Descrizione dell'app;<br>Facoltativo|
    | | | |
 
    ![Immettere nuove impostazioni app](./media/get-started-portal-build-app/create-new-app-settings.png)
@@ -99,7 +99,7 @@ Queste espressioni di esempio variano secondo la progettazione nei modi seguenti
 * lunghezza dell'espressione
 * punteggiatura
 * scelta delle parole
-* tempi verbali verbo (è, è stato, sarà)
+* tempi verbali verbo (is, was, will be)
 * ordine delle parole
 
 
@@ -134,7 +134,7 @@ Le espressioni di esempio della finalità **None** (Nessuna) devono essere al di
    |Order a pizza for me|
    |Penguins in the ocean|
 
-   Per questa app di gestione delle risorse umane, queste espressioni di esempio sono di fuori del dominio. Se il dominio delle risorse umane include animali, cibo o l'oceano, sarà necessario usare espressioni di esempio diverse per la finalità **None** (Nessuna).
+   Per questa app di gestione delle risorse umane, queste espressioni di esempio sono al di fuori del dominio. Se il dominio delle risorse umane include animali, cibo o l'oceano, sarà necessario usare espressioni di esempio diverse per la finalità **None** (Nessuna).
 
 ## <a name="train-the-app"></a>Eseguire il training dell'app
 
@@ -166,7 +166,7 @@ Usare il pannello **Test** interattivo nel portale di LUIS per verificare che l'
 
 Se al termine di questo argomento di avvio rapido non si prosegue con quello successivo, scegliere **My apps** (Le mie app) dal menu di spostamento superiore. Selezionare quindi dall'elenco la casella di controllo di sinistra dell'app e selezionare **Delete** (Elimina) sulla barra degli strumenti contestuale sopra l'elenco.
 
-[![Eliminare l'app dall'elenco My apps](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
+[![Eliminare l'app dall'elenco My apps (App personali)](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
