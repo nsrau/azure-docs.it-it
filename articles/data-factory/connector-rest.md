@@ -288,8 +288,8 @@ Le **regole di paginazione** sono definite come un dizionario nel set di dati ch
 | Chiave | DESCRIZIONE |
 |:--- |:--- |
 | AbsoluteUrl | Indica l'URL per l'invio della richiesta successiva. Può essere **URL assoluto o relativo URL**. |
-| QueryParameters.*parametro_query_richiesta* o QueryParameters['parametro_query_richiesta'] | Il valore di "parametro_query_richiesta" è definito dall'utente e fa riferimento al nome di un parametro di query nell'URL della richiesta HTTP successiva. |
-| Headers.*intestazione_richiesta* o Headers['intestazione_richiesta'] | Il valore di "intestazione_richiesta" è definito dall'utente e fa riferimento a un nome di intestazione nella richiesta HTTP successiva. |
+| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | Il valore di "parametro_query_richiesta" è definito dall'utente e fa riferimento al nome di un parametro di query nell'URL della richiesta HTTP successiva. |
+| Headers.*request_header* OR Headers['request_header'] | Il valore di "intestazione_richiesta" è definito dall'utente e fa riferimento a un nome di intestazione nella richiesta HTTP successiva. |
 
 **Valori supportati** nelle regole di paginazione:
 
