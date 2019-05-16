@@ -78,7 +78,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con AnswerHub, è
 
 1. [Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on) per consentire agli utenti di usare questa funzionalità.
 2. [Configurare l'accesso Single Sign-On per AnswerHub](#configure-answerhub-single-sign-on) per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user) denominata Britta Simon.
+3. [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user) denominato Britta Simon.
 4. [Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user) per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. [Creare un utente di test di AnswerHub](#create-answerhub-test-user) che corrisponde ed è collegato all'utente di test di Azure AD.
 6. [Testare l'accesso Single Sign-On](#test-single-sign-on) per verificare se la configurazione funziona.

@@ -12,30 +12,38 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7db796b33bab941f038afab1b80127aded50b54a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 26bd49af7245d6e6dde3162a2e1d95c54f13e35b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000018"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415923"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrare una pipeline CI/CD
 
-È possibile migliorare la resilienza dell'applicazione rispetto alla remota possibilità di non essere in grado di raggiungere la Configurazione app di Azure. A tale scopo, comprimere i dati di configurazione correnti in un file che viene distribuito con l'applicazione e caricato localmente all'avvio. Questo approccio garantisce che l'applicazione abbia almeno i valori predefiniti delle impostazioni. Questi valori vengono sovrascritti da tutte le modifiche più recenti in un archivio di configurazione app quando è disponibile.
+Questo articolo descrive vari modi d'uso dei dati di Configurazione app di Azure in un sistema di integrazione continua e distribuzione continua.
+
+## <a name="use-app-configuration-in-your-azure-devops-pipeline"></a>Usare Configurazione app nella pipeline di Azure DevOps
+
+Se è presente una pipeline di Azure DevOps, è possibile recuperare le coppie chiave-valore da Configurazione app e impostarle come variabili di attività. L'[estensione Configurazione app di DevOps](https://go.microsoft.com/fwlink/?linkid=2091063) è un modulo aggiuntivo che fornisce questa funzionalità. È sufficiente seguire le istruzioni per usare l'estensione in una compilazione o sequenza di attività di rilascio.
+
+## <a name="deploy-app-configuration-data-with-your-application"></a>Distribuire i dati di Configurazione app con l'applicazione
+
+L'applicazione potrebbe non essere eseguita se dipende da Configurazione app di Azure e non riesce ad accedervi. È possibile migliorare la resilienza dell'applicazione per gestire un evento di questo tipo, anche se è improbabile che si verifichi. A tale scopo, comprimere i dati di configurazione correnti in un file che viene distribuito con l'applicazione e caricato localmente all'avvio. Questo approccio garantisce che l'applicazione abbia almeno i valori predefiniti delle impostazioni. Questi valori vengono sovrascritti da tutte le modifiche più recenti in un archivio di configurazione app quando è disponibile.
 
 Usando la funzione [Esporta](./howto-import-export-data.md#export-data) di Configurazione app di Azure è possibile automatizzare il processo di recupero dei dati della configurazione corrente come un singolo file. Incorporare quindi questo file in un passaggio di compilazione o di distribuzione nella pipeline di integrazione e di distribuzione continua (CI/CD).
 
 L'esempio seguente illustra come includere i dati della Configurazione app di Azure come un passaggio di compilazione per l'app Web introdotta nei modelli di avvio rapido. Prima di continuare, completare le procedure descritte in [Creare un'app ASP.NET Core con Configurazione app](./quickstart-aspnet-core-app.md).
 
-Per completare i passaggi riportati in questa guida di avvio rapido, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
+Per completare i passaggi riportati in questa esercitazione, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
 
-## <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Se la compilazione avviene in locale, scaricare e installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se non lo si è già fatto.
 
 Per eseguire una compilazione cloud, ad esempio con Azure DevOps, assicurarsi che nel sistema di compilazione sia installata l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="export-an-app-configuration-store"></a>Esportare un archivio di configurazione app
+### <a name="export-an-app-configuration-store"></a>Esportare un archivio di configurazione app
 
 1. Aprire il file *.csproj* e aggiungere il seguente script:
 
@@ -48,7 +56,7 @@ Per eseguire una compilazione cloud, ad esempio con Azure DevOps, assicurarsi ch
 
     Aggiungere *ConnectionString* associata all'archivio di configurazione app come una variabile di ambiente.
 
-2. Aprire il file Program.cs e aggiornare il metodo `CreateWebHostBuilder` per usare il file JSON esportato effettuando una chiamata al metodo `config.AddJsonFile()`.
+2. Aprire il file *Program.cs* e aggiornare il metodo `CreateWebHostBuilder` per usare il file JSON esportato effettuando una chiamata al metodo `config.AddJsonFile()`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -64,7 +72,7 @@ Per eseguire una compilazione cloud, ad esempio con Azure DevOps, assicurarsi ch
             .UseStartup<Startup>();
     ```
 
-## <a name="build-and-run-the-app-locally"></a>Compilare ed eseguire l'app in locale
+### <a name="build-and-run-the-app-locally"></a>Compilare ed eseguire l'app in locale
 
 1. Impostare una variabile di ambiente denominata **ConnectionString** sulla chiave di accesso all'archivio di configurazione app. Se si usa il prompt dei comandi di Windows, eseguire il comando seguente e riavviare il prompt per rendere effettiva la modifica:
 

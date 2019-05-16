@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/30/2019
 ms.locfileid: "64939065"
 ---
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Usare DistCp per copiare dati tra i BLOB del servizio di Archiviazione di Microsoft Azure e i Data Lake Storage Gen2 di Azure
+# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Usare DistCp per copiare dati tra i BLOB del servizio di Archiviazione di Azure e Azure Data Lake Storage Gen2
 
 È possibile usare [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) per copiare i dati tra un account di archiviazione per utilizzo generico V2 e un account di archiviazione per utilizzo generico V2 con lo spazio dei nomi gerarchico abilitato. Questo articolo include istruzioni sull'uso dello strumento DistCp.
 

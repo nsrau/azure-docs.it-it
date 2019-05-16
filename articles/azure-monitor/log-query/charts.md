@@ -1,5 +1,5 @@
 ---
-title: Creazione di grafici e diagrammi da query di Monitoraggio di Azure | Microsoft Docs
+title: Creazione di grafici e diagrammi da query di log di Monitoraggio di Azure | Microsoft Docs
 description: Descrive le diverse modalità di visualizzazione dei dati dei log in Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''

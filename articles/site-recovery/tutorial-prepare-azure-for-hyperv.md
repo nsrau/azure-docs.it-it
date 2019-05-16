@@ -1,6 +1,6 @@
 ---
-title: Preparare Azure per il ripristino di emergenza di VM Hyper-V locali con Azure Site Recovery | Microsoft Docs
-description: Informazioni su come preparare Azure per il ripristino di emergenza di VM Hyper-V locali con Azure Site Recovery.
+title: Preparare le risorse di Azure per il ripristino di emergenza di computer locali
+description: Informazioni su come preparare Azure per il ripristino di emergenza di VM Hyper-V locali con Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
@@ -8,39 +8,39 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 48101e49429225018381ed2a3b1e8e4e351c15a6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 29189a5919a01fcb897758fb64ca9e84b9381fb6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362777"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410894"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparare le risorse di Azure per il ripristino di emergenza di computer locali
 
- [Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo operative le app aziendali durante le interruzioni pianificate e non pianificate. Site Recovery gestisce e coordina il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e failback.
+ [Azure Site Recovery](site-recovery-overview.md) contribuisce alla continuità aziendale e al ripristino di emergenza (BCDR) mantenendo operative le app aziendali durante le interruzioni pianificate e non pianificate. Site Recovery gestisce e coordina il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e failback.
 
-Questo articolo è la prima esercitazione di una serie che illustra come configurare il ripristino di emergenza per macchine virtuali locali. È importante per la protezione delle VM Hyper-V.
+Questa esercitazione è la prima di una serie che descrive come configurare il ripristino di emergenza per macchine virtuali Hyper-V locali.
 
 > [!NOTE]
-> Le esercitazioni sono progettate per illustrare il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, consultare la sezione **Procedure** per lo scenario corrispondente.
+> Le esercitazioni sono progettate per illustrare il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per altre informazioni, vedere la sezione "Procedura" per ogni scenario corrispondente.
 
-Questo articolo descrive come preparare i componenti di Azure per replicare le macchine virtuali (Hyper-V) in Azure. In questa esercitazione si apprenderà come:
+Questa esercitazione descrive come preparare i componenti di Azure per replicare le macchine virtuali (Hyper-V) in Azure. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Verificare che l'account Azure abbia le autorizzazioni di replica.
-> * Creare un account di archiviazione di Azure Le immagini delle macchine replicate sono archiviate al suo interno.
-> * Creare un insieme di credenziali dei servizi di ripristino. Un insieme di credenziali contiene i metadati e le informazioni di configurazione per le macchine virtuali e altri componenti di replica.
-> * Configurare una rete di Azure. Le macchine virtuali di Azure create dopo il failover vengono aggiunte a questa rete di Azure.
+> * Creare un account di archiviazione di Azure in cui archiviare le immagini dei computer replicati.
+> * Creare un insieme di credenziali di Servizi di ripristino in cui archiviare i metadati e le informazioni di configurazione per le macchine virtuali e altri componenti di replica.
+> * Configurare una rete di Azure. Quando le VM di Azure vengono create dopo il failover, vengono aggiunte a questa rete.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in"></a>Accesso
 
-Accedere al [portale di Azure](http://portal.azure.com).
+Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="verify-account-permissions"></a>Verificare le autorizzazioni dell'account
 
-Se è appena stato creato l'account Azure gratuito, si è amministratori della propria sottoscrizione. Se non si è l'amministratore della propria sottoscrizione, rivolgersi all'amministratore per l'assegnazione delle autorizzazioni necessarie. Per abilitare la replica per una nuova macchina virtuale, è necessario avere le autorizzazioni per:
+Se è appena stato creato un account Azure gratuito, si è amministratori di tale sottoscrizione. Se non si è l'amministratore, rivolgersi all'amministratore per l'assegnazione delle autorizzazioni necessarie. Per abilitare la replica per una nuova macchina virtuale, è necessario avere le autorizzazioni per:
 
 - Creare una macchina virtuale nel gruppo di risorse selezionato.
 - Creare una macchina virtuale nella rete virtuale selezionata.
@@ -50,57 +50,56 @@ Per completare queste attività, è necessario che all'account sia assegnato il 
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure. Le macchine virtuali di Azure vengono create dall'archiviazione quando si esegue il failover da locale ad Azure. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino. In questa esercitazione si usa l'area Europa occidentale.
+Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure. Le macchine virtuali di Azure vengono create dall'archiviazione quando si esegue il failover da locale ad Azure. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino.
 
 1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Archiviazione**  > **Account di archiviazione: BLOB, File, Tabelle, Code**.
-2. In **Crea account di archiviazione** immettere un nome per l'account. Per queste esercitazioni viene usato **contosovmsacct1910171607**. Il nome selezionato deve essere univoco in Azure, avere una lunghezza compresa tra 3 e 24 caratteri e contenere solo numeri e lettere minuscole.
+2. In **Crea account di archiviazione** immettere un nome per l'account.  Il nome scelto deve essere univoco in Azure, avere una lunghezza compresa tra 3 e 24 caratteri e contenere solo numeri e lettere minuscole. Per questa esercitazione usare **contosovmsacct1910171607**.
 3. In **Modello di distribuzione** selezionare **Resource Manager**.
-4. In **Tipologia account** selezionare **Archiviazione (Utilizzo generico v1)**. Non selezionare l'archivio BLOB.
-5. In **Replica** selezionare l'opzione predefinita **Archiviazione con ridondanza geografica e accesso in lettura** per la ridondanza dell'archiviazione. È in corso lasciando **trasferimento necessario protetto** come **disabilitato**.
-6. In **Prestazioni** selezionare **Standard** e in **Livello di accesso** scegliere l'opzione predefinita di **Accesso frequente**.
-7. In **Sottoscrizione** selezionare la sottoscrizione in cui creare il nuovo account di archiviazione.
-8. In **Gruppo di risorse** immettere un nuovo gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Per queste esercitazioni viene usato **ContosoRG**.
-9. In **Località** selezionare la posizione geografica dell'account di archiviazione. 
+4. In **Tipologia account** selezionare **Archiviazione (utilizzo generico v1)**. Non selezionare l'archivio BLOB.
+5. In **Replica** selezionare l'opzione predefinita **Archiviazione con ridondanza geografica e accesso in lettura** per la ridondanza dell'archiviazione. Lasciare disabilitata l'impostazione "Trasferimento sicuro obbligatorio".
+6. In **Prestazioni** selezionare **Standard**. Successivamente, in **Livello di accesso**, selezionare l'opzione predefinita **Accesso frequente**.
+7. In **Sottoscrizione** scegliere la sottoscrizione in cui creare il nuovo account di archiviazione.
+8. In **Gruppo di risorse** immettere un nuovo gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Per questa esercitazione usare **ContosoRG**.
+9. In **Località** scegliere la posizione geografica dell'account di archiviazione. Per questa esercitazione usare **Europa occidentale**.
+10. Selezionare **Crea** per creare l'account di archiviazione.
 
    ![Creare un account di archiviazione](media/tutorial-prepare-azure/create-storageacct.png)
 
-9. Selezionare **Crea** per creare l'account di archiviazione.
+## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali dei servizi di ripristino
 
-## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
-
-1. Nel portale di Azure fare clic su **+Crea una risorsa** e quindi cercare **Servizi di ripristino** nel Marketplace.
-2. Fare clic su **Backup e Site Recovery (OMS)**, quindi nella pagina Backup e Site Recovery fare clic su **Crea**. 
-1. Nell'**insieme di credenziali di Servizi di ripristino** > **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Per questo set di esercitazioni viene usato **ContosoVMVault**.
-2. In **Gruppo di risorse** selezionare un gruppo di risorse esistente o crearne uno nuovo. Per questa esercitazione, selezionare **contosoRG**.
-3. In **Località** selezionare l'area geografica in cui dovrà essere collocato l'insieme di credenziali. Viene usato **Europa occidentale**.
+1. Nel portale di Azure selezionare **+Crea una risorsa** e quindi cercare Servizi di ripristino in Azure Marketplace.
+2. Selezionare **Backup e Site Recovery (OMS)**. Quindi, nella pagina **Backup e Site Recovery**, selezionare **Crea**.
+1. Nell'**insieme di credenziali di Servizi di ripristino > Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Per questa esercitazione usare **ContosoVMVault**.
+2. In **Gruppo di risorse** selezionare un gruppo di risorse esistente o crearne uno nuovo. Per questa esercitazione usare **contosoRG**.
+3. In **Località** selezionare l'area geografica in cui dovrà essere collocato l'insieme di credenziali. Per questa esercitazione usare **Europa occidentale**.
 4. Per accedere rapidamente all'insieme di credenziali dal dashboard, selezionare **Aggiungi al dashboard** > **Crea**.
 
-   ![Creare un nuovo insieme di credenziali](./media/tutorial-prepare-azure/new-vault-settings.png)
+![Creare un nuovo insieme di credenziali](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   Il nuovo insieme di credenziali viene visualizzato in **Dashboard** > **Tutte le risorse** e nella pagina principale **Insiemi di credenziali dei servizi di ripristino**.
+Il nuovo insieme di credenziali viene visualizzato in **Dashboard** > **Tutte le risorse** e nella pagina principale **Insiemi di credenziali dei servizi di ripristino**.
 
 ## <a name="set-up-an-azure-network"></a>Configurare una rete di Azure
 
 Le macchine virtuali di Azure create dall'archiviazione dopo il failover vengono aggiunte a questa rete.
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** >  **Rete** > **Rete virtuale**.
-2. Lasciare selezionato **Resource Manager** come modello di distribuzione.
-3. In **Nome** immettere un nome di rete. Il nome deve essere univoco all'interno del gruppo di risorse di Azure. In questa esercitazione viene usato **ContosoASRnet**.
-4. Specificare il gruppo di risorse in cui verrà creata la rete. Usare il gruppo di risorse esistente **contosoRG**.
-5. In **Intervallo di indirizzi** specificare l'intervallo **10.0.0.0/24**. In questa rete non viene usata una subnet.
-6. In **Sottoscrizione** selezionare la sottoscrizione in cui creare la rete.
-7. In **Posizione** selezionare **Europa occidentale**. La rete deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
-8. Lasciare le opzioni predefinite per la protezione di base DDoS, senza endpoint di servizio nella rete.
-9. Fare clic su **Create**(Crea).
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** >  **Rete** > **Rete virtuale**. Lasciare selezionato Resource Manager come modello di distribuzione.
+2. In **Nome** immettere un nome di rete. Il nome deve essere univoco all'interno del gruppo di risorse di Azure. Per questa esercitazione usare **ContosoASRnet**.
+3. Specificare il gruppo di risorse in cui creare la rete. Per questa esercitazione, usare il gruppo di risorse esistente **contosoRG**.
+4. In **Intervallo di indirizzi** immettere **10.0.0.0/24** come intervallo per la rete. Non è presente alcuna subnet per questa rete.
+5. In **Sottoscrizione** selezionare la sottoscrizione in cui creare la rete.
+6. In **Posizione** scegliere **Europa occidentale**. La rete deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
+7. Lasciare le opzioni predefinite per la protezione di base DDoS, senza endpoint di servizio nella rete.
+8. Selezionare **Create**.
 
-   ![Crea rete virtuale](media/tutorial-prepare-azure/create-network.png)
+![Crea rete virtuale](media/tutorial-prepare-azure/create-network.png)
 
-   La creazione della rete virtuale richiede qualche secondo. La rete creata viene visualizzata nel dashboard del portale di Azure.
+La creazione della rete virtuale richiede qualche secondo. La rete creata verrà visualizzata nel dashboard del portale di Azure.
 
 ## <a name="useful-links"></a>Collegamenti utili
 
-- [Informazioni](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) sulle reti di Azure.
-- [Informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) sui dischi gestiti.
+Vengono fornite informazioni su:
+- [Reti di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+- [Dischi gestiti](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)
 
 
 

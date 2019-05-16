@@ -1,6 +1,6 @@
 ---
-title: Eseguire il push di notifiche a dispositivi Android specifici con Hub di notifica di Azure e Google Cloud Messaging | Microsoft Docs
-description: In questa esercitazione si apprenderà come usare Hub di notifica di Azure e Google Cloud Messaging per effettuare il push di notifiche a dispositivi Android.
+title: Eseguire il push di notifiche a dispositivi Android specifici con Hub di notifica di Azure e Google Firebase Cloud Messaging | Microsoft Docs
+description: In questa esercitazione si apprenderà come usare Hub di notifica di Azure e Google Firebase Cloud Messaging per effettuare il push di notifiche a dispositivi Android (FCM).
 services: notification-hubs
 documentationcenter: android
 author: jwargo
@@ -13,19 +13,16 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: af08d3ca6eaa95663b0bb669f6dc82a13df5ab39
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f4a0da5d3ef0dd2d5ae04a2cc1b07ddb0a649bef
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233101"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205401"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Esercitazione: Effettuare il push di notifiche a dispositivi Android specifici con Hub di notifica di Azure e Google Cloud Messaging (deprecato)
-
-> [!WARNING]
-> A partire dal 10 aprile 2018, Google ha deprecato Google Cloud Messaging (GCM). Il server GCM e le API client sono deprecati e verranno rimossi entro il 29 maggio 2019. Per altre informazioni, vedere le [domande frequenti su GCM ed FCM](https://developers.google.com/cloud-messaging/faq).
+# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-firebase-cloud-messaging-fcm"></a>Esercitazione: Eseguire il push di notifiche a dispositivi Android specifici con Hub di notifica di Azure e Google Firebase Cloud Messaging (FCM)
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -45,7 +42,7 @@ In questa esercitazione vengono completate le azioni seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa esercitazione si basa sull'app creata nell'[Esercitazione: Effettuare il push di notifiche ai dispositivi Android con Hub di notifica di Azure e Google Cloud Messaging][get-started]. Prima di iniziare questa esercitazione, completare l'[Esercitazione: Effettuare il push di notifiche ai dispositivi Android con Hub di notifica di Azure e Google Cloud Messaging][get-started].
+Questa esercitazione si basa sull'app creata nell'[Esercitazione: Inviare notifiche push a dispositivi Android usando gli Hub di notifica di Azure e Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md). Prima di iniziare questa esercitazione, completare l'[Esercitazione: Inviare notifiche push a dispositivi Android usando gli Hub di notifica di Azure e Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 ## <a name="add-category-selection-to-the-app"></a>Aggiungere la selezione delle categorie all'app
 
@@ -124,63 +121,74 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
     ```java
     import java.util.HashSet;
     import java.util.Set;
-
+    import java.util.concurrent.TimeUnit;
+    
     import android.content.Context;
     import android.content.SharedPreferences;
     import android.os.AsyncTask;
     import android.util.Log;
     import android.widget.Toast;
-    import android.view.View;
-
-    import com.google.android.gms.gcm.GoogleCloudMessaging;
+    
+    import com.google.android.gms.tasks.OnSuccessListener;
+    import com.google.firebase.iid.FirebaseInstanceId;
+    import com.google.firebase.iid.InstanceIdResult;
     import com.microsoft.windowsazure.messaging.NotificationHub;
-
+    
     public class Notifications {
         private static final String PREFS_NAME = "BreakingNewsCategories";
-        private GoogleCloudMessaging gcm;
+        private FirebaseInstanceId fcm;
         private NotificationHub hub;
         private Context context;
         private String senderId;
-
-        public Notifications(Context context, String senderId, String hubName,
-                                String listenConnectionString) {
+        public static String FCM_token = "";
+        private static final String TAG = "Notifications";
+    
+        public Notifications(Context context, String hubName, String listenConnectionString) {
             this.context = context;
             this.senderId = senderId;
-
-            gcm = GoogleCloudMessaging.getInstance(context);
+    
+            fcm = FirebaseInstanceId.getInstance();
             hub = new NotificationHub(hubName, listenConnectionString, context);
         }
-
+    
         public void storeCategoriesAndSubscribe(Set<String> categories)
         {
             SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
             settings.edit().putStringSet("categories", categories).commit();
             subscribeToCategories(categories);
         }
-
+    
         public Set<String> retrieveCategories() {
             SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
             return settings.getStringSet("categories", new HashSet<String>());
         }
-
+    
         public void subscribeToCategories(final Set<String> categories) {
             new AsyncTask<Object, Object, Object>() {
                 @Override
                 protected Object doInBackground(Object... params) {
                     try {
-                        String regid = gcm.register(senderId);
-
-                        String templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
-
-                        hub.registerTemplate(regid,"simpleGCMTemplate", templateBodyGCM,
-                            categories.toArray(new String[categories.size()]));
+                        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
+                            @Override
+                            public void onSuccess(InstanceIdResult instanceIdResult) {
+                                FCM_token = instanceIdResult.getToken();
+                                Log.d(TAG, "FCM Registration Token: " + FCM_token);
+                            }
+                        });
+    
+                        TimeUnit.SECONDS.sleep(1);
+    
+                        String templateBodyFCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+    
+                        hub.registerTemplate(FCM_token,"simpleFCMTemplate", templateBodyFCM,
+                                categories.toArray(new String[categories.size()]));
                     } catch (Exception e) {
                         Log.e("MainActivity", "Failed to register - " + e.getMessage());
                         return e;
                     }
                     return null;
                 }
-
+    
                 protected void onPostExecute(Object result) {
                     String message = "Subscribed for categories: "
                             + categories.toString();
@@ -189,31 +197,28 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
                 }
             }.execute(null, null, null);
         }
-
+    
     }
     ```
 
     Questa classe utilizza l'archiviazione locale per archiviare le categorie di notizie che il dispositivo deve ricevere. Contiene inoltre i metodi per effettuare la registrazione per queste categorie.
-4. Nella classe `MainActivity` rimuovere i campi privati per `NotificationHub` e `GoogleCloudMessaging`, quindi aggiungere un campo per `Notifications`:
+4. Nella classe `MainActivity`, aggiungere un campo per `Notifications`:
 
     ```java
-    // private GoogleCloudMessaging gcm;
-    // private NotificationHub hub;
     private Notifications notifications;
     ```
-5. Quindi, nel metodo `onCreate`, rimuovere l'inizializzazione del campo `hub` e il metodo `registerWithNotificationHubs`. Aggiungere poi le righe seguenti, che inizializzano un'istanza della classe `Notifications`.
+5. Quindi, aggiornare il metodo `onCreate` come illustrato nel codice seguente. Registrare con Hub di notifica nel metodo **subscribeToCategories** della classe **Notifiche**. 
 
     ```java
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mainActivity = this;
 
-        NotificationsManager.handleNotifications(this, NotificationSettings.SenderId,
-                MyHandler.class);
-
-        notifications = new Notifications(this, NotificationSettings.SenderId, NotificationSettings.HubName, NotificationSettings.HubListenConnectionString);
-
+        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
+        notifications = new Notifications(this, NotificationSettings.HubName, NotificationSettings.HubListenConnectionString);
         notifications.subscribeToCategories(notifications.retrieveCategories());
     }
     ```
@@ -229,6 +234,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
     import android.widget.CheckBox;
     import java.util.HashSet;
     import java.util.Set;
+    import android.view.View;
     ```
 7. Aggiungere il metodo `subscribe` seguente per gestire l'evento clic del pulsante sottoscrivi:
 
@@ -267,10 +273,7 @@ L'app può quindi archiviare un set di categorie nell'archiviazione locale del d
 
 Questa procedura consente di effettuare la registrazione con l'hub di notifica all'avvio usando le categorie archiviate nella risorsa di archiviazione locale.
 
-> [!NOTE]
-> Poiché il valore di registrationId assegnato da Google Cloud Messaging (GCM) può cambiare in qualsiasi momento, è necessario ripetere la registrazione per le notifiche di frequente per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite con una frequenza maggiore di una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
-
-1. Aggiungere il codice seguente alla fine del metodo `onCreate` nella classe `MainActivity`:
+1. Verificare che il codice seguente sia alla fine del metodo `onCreate` nella classe `MainActivity`:
 
     ```java
     notifications.subscribeToCategories(notifications.retrieveCategories());
@@ -332,7 +335,6 @@ In questa esercitazione verranno inviate notifiche di trasmissione ai dispositiv
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
 
 <!-- URLs.-->
-[get-started]: notification-hubs-android-push-notification-google-gcm-get-started.md
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started/

@@ -9,27 +9,27 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cf872766a18c5691f6c094d71a0c29f6bcf736da
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: cae29fe045d1bdc17f414ff016642635b74320df
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579037"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408822"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Esercitazione: Usare la configurazione dinamica in un'app ASP.NET Core
 
-ASP.NET Core ha un sistema di configurazione modulare che può leggere dati di configurazione da diverse origini, nonché gestire immediatamente le modifiche senza causare il riavvio di un'applicazione. ASP.NET Core supporta l'associazione delle impostazioni di configurazione a classi .NET fortemente tipizzate. Vengono inserite nel codice usando i vari modelli `IOptions<T>`. Uno di questi modelli, `IOptionsSnapshot<T>`, ricarica automaticamente la configurazione dell'applicazione in caso di modifica dei dati sottostanti. 
+ASP.NET Core ha un sistema di configurazione modulare che può leggere dati di configurazione da diverse origini, nonché gestire immediatamente le modifiche senza causare il riavvio di un'applicazione. ASP.NET Core supporta l'associazione delle impostazioni di configurazione a classi .NET fortemente tipizzate. Vengono inserite nel codice usando i vari modelli `IOptions<T>`. Uno di questi modelli, `IOptionsSnapshot<T>`, ricarica automaticamente la configurazione dell'applicazione in caso di modifica dei dati sottostanti.
 
 È possibile inserire `IOptionsSnapshot<T>` nei controller dell'applicazione per accedere alla configurazione più recente archiviata in Configurazione app di Azure. È anche possibile configurare la libreria client ASP.NET Core di Configurazione app per monitorare e recuperare continuamente qualsiasi modifica in un archivio di configurazione app, definendo l'intervallo periodico di polling.
 
 Questa esercitazione mostra come è possibile implementare aggiornamenti dinamici della configurazione nel codice. Si basa sull'app Web presentata nelle guide introduttive. Prima di continuare, completare le procedure descritte in [Creare un'app ASP.NET Core con Configurazione app](./quickstart-aspnet-core-app.md).
 
-Per completare i passaggi riportati in questa guida di avvio rapido è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima opzione ed è disponibile per le piattaforme Windows, macOS e Linux.
+Per completare i passaggi riportati in questa esercitazione, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima opzione ed è disponibile per le piattaforme Windows, macOS e Linux.
 
 In questa esercitazione si apprenderà come:
 
@@ -39,13 +39,13 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida di avvio rapido, installare [.NET Core SDK](https://dotnet.microsoft.com/download).
+Per completare questa esercitazione, installare [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="reload-data-from-app-configuration"></a>Ricaricare i dati di Configurazione app
 
-1. Aprire Program.cs e aggiornare il metodo `CreateWebHostBuilder` aggiungendo il metodo `config.AddAzureAppConfiguration()`.
+1. Aprire *Program.cs* e aggiornare il metodo `CreateWebHostBuilder` aggiungendo il metodo `config.AddAzureAppConfiguration()`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -64,7 +64,7 @@ Per completare questa guida di avvio rapido, installare [.NET Core SDK](https://
 
     Il secondo parametro del metodo `.Watch` è l'intervallo di polling con cui la libreria client ASP.NET esegue query su un archivio di configurazione app. La libreria client controlla la specifica impostazione di configurazione per verificare se sono state apportate modifiche.
 
-2. Aggiungere un file Settings.cs che definisce e implementa una nuova classe `Settings`.
+2. Aggiungere un file *Settings.cs* che definisce e implementa una nuova classe `Settings`.
 
     ```csharp
     namespace TestAppConfig
@@ -79,7 +79,7 @@ Per completare questa guida di avvio rapido, installare [.NET Core SDK](https://
     }
     ```
 
-3. Aprire Startup.cs e aggiornare il metodo `ConfigureServices` per associare i dati di configurazione alla classe `Settings`.
+3. Aprire *Startup.cs* e aggiornare il metodo `ConfigureServices` per associare i dati di configurazione alla classe `Settings`.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -98,7 +98,13 @@ Per completare questa guida di avvio rapido, installare [.NET Core SDK](https://
 
 ## <a name="use-the-latest-configuration-data"></a>Usare i dati di configurazione più recenti
 
-1. Apri HomeController.cs nella directory Controllers. Aggiornare la classe `HomeController` per ricevere `Settings` tramite l'inserimento delle dipendenze e usare i relativi valori.
+1. Aprire *HomeController.cs* nella directory Controllers e aggiungere un riferimento al pacchetto `Microsoft.Extensions.Options`.
+
+    ```csharp
+    using Microsoft.Extensions.Options;
+    ```
+
+2. Aggiornare la classe `HomeController` per ricevere `Settings` tramite l'inserimento delle dipendenze e usare i relativi valori.
 
     ```csharp
     public class HomeController : Controller
@@ -121,7 +127,7 @@ Per completare questa guida di avvio rapido, installare [.NET Core SDK](https://
     }
     ```
 
-2. Aprire Index.cshtml nella directory Views > Home e sostituirne il contenuto con lo script seguente:
+3. Aprire *Index.cshtml* nella directory Views > Home e sostituirne il contenuto con lo script seguente:
 
     ```html
     <!DOCTYPE html>
@@ -160,11 +166,11 @@ Per completare questa guida di avvio rapido, installare [.NET Core SDK](https://
 
 4. Accedere al [portale di Azure](https://aka.ms/azconfig/portal). Selezionare **Tutte le risorse** e quindi l'istanza di archivio di configurazione app creata nella guida di avvio rapido.
 
-5. Selezionare **Esplora chiave-valore** e aggiornare i valori delle chiavi seguenti:
+5. Selezionare **Configuration Explorer** e aggiornare i valori delle chiavi seguenti:
 
     | Chiave | Valore |
     |---|---|
-    | TestAppSettings:BackgroundColor | blue |
+    | TestAppSettings:BackgroundColor | green |
     | TestAppSettings:FontColor | lightGray |
     | TestAppSettings:Message | Dati di Configurazione app di Azure - ora con aggiornamenti dinamici |
 
