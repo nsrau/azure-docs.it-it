@@ -6,15 +6,15 @@ metadata:
   title: 'Documentazione dell''API Ricerca notizie Bing - Esercitazioni, guide introduttive, informazioni di riferimento sulle API | Microsoft Docs'
   description: Informazioni su come usare l'API Ricerca notizie Bing per cercare notizie nel Web.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/16/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: 'L''API Ricerca notizie Bing consente di integrare le funzionalità di ricerca di notizie di Bing nelle proprie applicazioni. Inviando le query di ricerca con l''API, è possibile ottenere articoli di notizie pertinenti provenienti da più categorie e fonti, in modo analogo a bing.com/news.'
 sections:

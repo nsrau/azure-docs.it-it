@@ -6,7 +6,7 @@ metadata:
   title: 'Documentazione sul database SQL di Azure: esercitazioni e informazioni di riferimento sulle API'
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: CarlRabeler
+  author: stevestein
   manager: craigg
   ms.service: sql-database
   ms.subservice: service
@@ -14,7 +14,7 @@ metadata:
   ms.devlang: null
   ms.topic: overview
   ms.date: 03/04/2019
-  ms.author: carlrab
+  ms.author: sstein
 abstract:
   description: 'Il database SQL di Azure è un database relazionale distribuito come servizio (DBaaS) generico basato sull''ultima versione stabile del motore di database di Microsoft SQL Server. Il database SQL è un database cloud sicuro, affidabile, a prestazioni elevate, che consente di creare applicazioni e siti Web basati sui dati nel linguaggio di programmazione preferito, senza dovere gestire l''infrastruttura. Informazioni su come usare il database SQL con le guide rapide, le esercitazioni e gli esempi.'
   aside:
