@@ -4,7 +4,7 @@ description: Informazioni su come aggiungere l'accesso con Microsoft in una solu
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191035"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231161"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
@@ -38,7 +38,7 @@ Al termine di questa guida introduttiva, l'applicazione accetterà gli accessi d
 
 Per iniziare, assicurarsi che siano soddisfatti questi prerequisiti:
 
-* Deve essere installato Visual Studio 2015 Update 3 o Visual Studio 2019. Se non lo si ha, è possibile [scaricare Visual Studio 2019 gratuitamente](https://www.visualstudio.com/downloads/)
+* Installazione d Visual Studio 2015 Update 3 o versione successiva. Se non lo si ha, è possibile [scaricare Visual Studio 2019 gratuitamente](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Scenario: consentire l'accesso di utenti da account aziendali e di istituti di istruzione all'app ASP.NET
 
@@ -70,9 +70,10 @@ Se invece si preferisce scaricare questo progetto Visual Studio di esempio, atte
 ## <a name="step-2-create-your-aspnet-project"></a>Passaggio 2: Creare un progetto ASP.NET
 
 1. In Visual Studio passare a **File > Nuovo > Progetto**.
-2. In **Visual C#\Web** selezionare **Applicazione Web ASP.NET (.NET Framework)**.
-3. Assegnare un nome all'applicazione e selezionare **OK**.
-4. Selezionare **Vuoto** e la casella di controllo per aggiungere riferimenti **MVC**.
+2. Per **Tipo di progetto** selezionare **Web** e quindi selezionare **Applicazione Web ASP.NET (.NET Framework)**.
+3. Assegnare un nome all'applicazione e selezionare **Crea**.
+4. Selezionare **Vuoto** e quindi selezionare **MVC** in **Aggiungi cartelle e riferimenti principali** per aggiungere i riferimenti MVC.
+5. Selezionare **Create**.
 
 ## <a name="step-3-add-authentication-components"></a>Passaggio 3: Aggiungere i componenti per l'autenticazione
 
@@ -125,7 +126,7 @@ Per creare una *classe di avvio* del middleware OWIN:
 Creare un nuovo controller per esporre i metodi di accesso e disconnessione.
 
 1.  Fare clic con il pulsante destro del mouse sulla cartella **Controller** e scegliere **Aggiungi > Controller**
-2.  Selezionare **Controller MVC (versione .NET) - Vuoto**.
+2.  Selezionare **Controller MVC {versione} - Vuoto**.
 3.  Selezionare **Aggiungi**.
 4.  Denominarlo `HomeController` e selezionare **Aggiungi**.
 5.  Aggiungere gli spazi dei nomi **OWIN** alla classe:

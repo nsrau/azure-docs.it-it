@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/06/2019
-ms.openlocfilehash: 5bc71a2d0f29fed163fb5c93ebd27df7f66a1325
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/08/2019
+ms.openlocfilehash: baada8a5238725456ca4a2ec7e8257c229066115
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079476"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466188"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Esercitazione: Creare un cluster Azure Red Hat OpenShift
 
@@ -35,7 +35,7 @@ In questa serie di esercitazioni si apprenderà come:
 Prima di iniziare questa esercitazione:
 
 Verificare di aver [configurato l'ambiente di sviluppo](howto-setup-environment.md), incluse:
-- Installazione dell'interfaccia della riga di comando più recente
+- Installare l'interfaccia della riga di comando più recente (versione 2.0.64 o successiva)
 - Creazione di un tenant
 - Creazione di un oggetto applicazione di Azure
 - Creazione di un utente di Active Directory usato per accedere alle app in esecuzione nel cluster.
@@ -101,7 +101,7 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 ### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>Facoltativo: connettere la rete virtuale del cluster a una rete virtuale esistente
 
-Se non è necessario connettere la rete virtuale del cluster creato a una rete virtuale esistente, ignorare questo passaggio.
+Se non è necessario connettere la rete virtuale del cluster creato a una rete virtuale esistente tramite peering, ignorare questo passaggio.
 
 Prima di tutto ottenere l'identificatore della rete virtuale esistente. L'identificatore avrà il formato: `/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}`.
 
@@ -132,7 +132,7 @@ Dopo alcuni minuti, `az openshift create` verrà completato correttamente e rest
 
 ## <a name="step-3-sign-in-to-the-openshift-console"></a>Passaggio 3: Accedere alla console OpenShift
 
-È ora possibile accedere alla console OpenShift per il nuovo cluster. La [console Web OpenShift](https://docs.openshift.com/dedicated/architecture/infrastructure_components/web_console.html) consente di visualizzare, esplorare e gestire i contenuti dei progetti OpenShift.
+È ora possibile accedere alla console OpenShift per il nuovo cluster. La [console Web OpenShift](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) consente di visualizzare, esplorare e gestire i contenuti dei progetti OpenShift.
 
 Accedere usando il [nuovo utente di Azure AD](howto-aad-app-configuration.md#create-a-new-active-directory-user) creato per il test. A tale scopo, sarà necessaria una nuova istanza del browser, che non abbia memorizzato nella cache l'identità usata normalmente per accedere al portale di Azure.
 
@@ -147,13 +147,13 @@ Accedere con l'utente e la password creati in [Creare un nuovo utente di Active 
 
 A questo punto si è connessi alla console del cluster.
 
-[Screenshot della console del cluster OpenShift](./media/aro-console.png)
+![Screenshot della console del cluster OpenShift](./media/aro-console.png)
 
- Per altre informazioni sull'[uso della console OpenShift](https://docs.openshift.com/dedicated/getting_started/developers_console.html) per creare e compilare immagini, vedere la documentazione di [Red Hat OpenShift](https://docs.openshift.com/dedicated/welcome/index.html).
+ Per altre informazioni sull'[uso della console OpenShift](https://docs.openshift.com/aro/getting_started/developers_console.html) per creare e compilare immagini, vedere la documentazione di [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html).
 
 ## <a name="step-4-install-the-openshift-cli"></a>Passaggio 4: Installare l'interfaccia della riga di comando di OpenShift
 
-L'[interfaccia della riga di comando di OpenShift](https://docs.openshift.com/dedicated/cli_reference/get_started_cli.html) (o *strumenti OC*) fornisce i comandi per gestire le applicazioni e le utilità di livello inferiore che consentono di interagire con i vari componenti del cluster OpenShift.
+L'[interfaccia della riga di comando di OpenShift](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (o *strumenti OC*) fornisce i comandi per gestire le applicazioni e le utilità di livello inferiore che consentono di interagire con i vari componenti del cluster OpenShift.
 
 Nella console OpenShift fare clic sul punto interrogativo nell'angolo in alto a destra accanto al nome di accesso e selezionare **Command Line Tools** (Strumenti da riga di comando).  Seguire il collegamento **Latest Release** (Versione più recente) per scaricare e installare l'interfaccia della riga di comando oc supportata per Linux, MacOS o Windows.
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678650"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233455"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Presentazione dell'interfaccia utente di Azure IoT Central
 
@@ -33,7 +33,6 @@ Gli _operatori_ usano l'interfaccia utente di Azure IoT Central per gestire la s
 - Risolvere e correggere i problemi relativi ai dispositivi.
 - Eseguire il provisioning di nuovi dispositivi.
 
-
 ## <a name="use-the-left-navigation-menu"></a>Usare il menu di spostamento a sinistra
 
 Usare il menu di spostamento a sinistra per accedere alle diverse aree dell'applicazione. È possibile espandere o comprimere la barra di spostamento selezionando **<** o **>**:
@@ -51,11 +50,14 @@ Il menu superiore viene visualizzato in ogni pagina:
 - Per cercare modelli di dispositivo e dispositivi, immettere un valore in **Search** (Cerca).
 - Per cambiare la lingua o il tema dell'interfaccia utente, scegliere l'icona **Settings** (Impostazioni).
 - Per disconnettersi dall'applicazione, scegliere l'icona **Account**.
-- Per accedere alla guida e al supporto tecnico, fare clic sul menu a discesa **Help** (Guida) per visualizzare un elenco di risorse.
+- Per accedere alla guida e al supporto tecnico, fare clic sul menu a discesa **Help** (Guida) per visualizzare un elenco di risorse. In una versione di valutazione dell'applicazione le risorse di supporto includono l'accesso alla [live chat](howto-show-hide-chat.md).
 
 È possibile scegliere tra un tema scuro o un tema chiaro per l'interfaccia utente:
 
 ![Scegliere un tema per l'interfaccia utente](media/overview-iot-central-tour/themes.png)
+
+> [!NOTE]
+> L'opzione per scegliere il tema chiaro o scuro non è disponibile se l'amministratore ha configurato un tema personalizzato per l'applicazione.
 
 ## <a name="dashboard"></a>dashboard
 

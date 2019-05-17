@@ -1,30 +1,40 @@
 ---
-title: Usare Ansible per gestire gli inventari dinamici di Azure
+title: Esercitazione - Configurare gli inventari dinamici delle risorse di Azure tramite Ansible | Microsoft Docs
 description: Informazioni su come usare Ansible per gestire gli inventari dinamici di Azure
-ms.service: azure
 keywords: ansible, azure, devops, bash, cloud shell, inventario dinamico
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 08/09/2018
-ms.topic: tutorial
-ms.openlocfilehash: 0ef754b792654281f2a12b8eee613434896d5476
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/30/2019
+ms.openlocfilehash: 46b13fae437a555edf0bdd0b0d4c1496d7596e0f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092209"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230683"
 ---
-# <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Usare Ansible per gestire gli inventari dinamici di Azure
-Ansible può essere usato per eseguire il pull delle informazioni degli inventari da diverse origini (incluse origini cloud, ad esempio Azure) in un *inventario dinamico*. In questo articolo si userà [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) per configurare un inventario dinamico di Azure per Ansible in cui si creeranno due macchine virtuali, si contrassegnerà una delle due macchine virtuali e si installerà Nginx nella macchina virtuale contrassegnata.
+# <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Esercitazione: Configurare gli inventari dinamici delle risorse di Azure tramite Ansible
+
+Ansible può essere usato per eseguire il pull delle informazioni degli inventari da diverse origini (incluse origini cloud, ad esempio Azure) in un *inventario dinamico*. 
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Configurare due macchine virtuali di test. 
+> * Contrassegnare una delle macchine virtuali
+> * Installare Nginx nelle macchine virtuali contrassegnate
+> * Configurare un inventario dinamico che include le risorse di Azure configurate
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **Sottoscrizione di Azure** - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-- **Credenziali di Azure** - [Creare le credenziali di Azure e configurare Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
-
-## <a name="create-the-test-virtual-machines"></a>Creare le macchine virtuali di test
+## <a name="create-the-test-vms"></a>Creare le macchine virtuali di test
 
 1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -57,7 +67,8 @@ Ansible può essere usato per eseguire il pull delle informazioni degli inventar
                      --image UbuntuLTS --generate-ssh-keys
         ```
 
-## <a name="tag-a-virtual-machine"></a>Contrassegnare una macchina virtuale
+## <a name="tag-a-vm"></a>Assegnare un tag a una VM
+
 È possibile [usare i tag per organizzare le risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) in base a categorie definite dall'utente. 
 
 Immettere il comando [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) seguente per contrassegnare la macchina virtuale `ansible-inventory-test-vm1` con la chiave `nginx`:
@@ -65,9 +76,13 @@ Immettere il comando [az resource tag](/cli/azure/resource?view=azure-cli-latest
 ```azurecli-interactive
 az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
-
 ## <a name="generate-a-dynamic-inventory"></a>Generare un inventario dinamico
-Dopo avere definito (e contrassegnato) le macchine virtuali, è necessario generare l'inventario dinamico. Ansible fornisce uno script di Python denominato [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) che genera un inventario dinamico delle risorse di Azure eseguendo richieste API per Azure Resource Manager. La procedura seguente descrive l'uso dello script `azure_rm.py` per connettersi alle due macchine virtuali di Azure di test:
+
+Dopo avere definito (e contrassegnato) le macchine virtuali, è necessario generare l'inventario dinamico.
+
+### <a name="using-ansible-version--28"></a>Uso di Ansible versione < 2.8
+
+Ansible fornisce uno script Python denominato [azure_rm. py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) che consente di generare un inventario dinamico delle risorse di Azure. La procedura seguente descrive l'uso dello script `azure_rm.py` per connettersi alle due macchine virtuali di Azure di test:
 
 1. Usare il comando `wget` GNU per recuperare lo script `azure_rm.py`:
 
@@ -102,20 +117,64 @@ Dopo avere definito (e contrassegnato) le macchine virtuali, è necessario gener
     }
     ```
 
-## <a name="enable-the-virtual-machine-tag"></a>Abilitare il tag della macchina virtuale
-Dopo avere impostato il tag desiderato, è necessario "abilitarlo". Un modo per abilitare un tag consiste nell'esportarlo in una variabile di ambiente denominata `AZURE_TAGS` tramite il comando **export**:
+### <a name="ansible-version--28"></a>Ansible versione > = 2.8
+
+A partire da Ansible 2.8, Ansible include un [plug-in per inventari dinamici di Azure](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/inventory/azure_rm.py). La procedura seguente illustra come usare il plug-in:
+
+1. Il plug-in per l'inventario richiede un file di configurazione. Il file di configurazione deve terminare con `azure_rm` e avere l'estensione `yml` o `yaml`. Per l'esempio in questa esercitazione, salvare il playbook seguente come `myazure_rm.yml`:
+
+    ```yml
+    plugin: azure_rm
+    include_vm_resource_groups:
+    - ansible-inventory-test-rg
+    auth_source: auto
+    ```
+
+1. Eseguire il comando seguente per eseguire il ping delle macchine virtuali nel gruppo di risorse:
+
+    ```bash
+    ansible all -m ping -i ./myazure_rm.yml
+    ```
+
+1. Quando si esegue il comando precedente, si potrebbe ricevere l'errore seguente:
+
+    ```Output
+    Failed to connect to the host via ssh: Host key verification failed.
+    ```
+    
+    Se viene visualizzato l'errore di verifica della chiave dell'host, aggiungere la riga seguente al file di configurazione di Ansible. Il file di configurazione di Ansible si trova in `/etc/ansible/ansible.cfg`.
+
+    ```bash
+    host_key_checking = False
+    ```
+
+1. Quando si esegue il playbook viene visualizzato un output simile al seguente:
+  
+    ```Output
+    ansible-inventory-test-vm1_0324 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    ansible-inventory-test-vm2_8971 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    ```
+
+## <a name="enable-the-vm-tag"></a>Abilitare il tag della macchina virtuale
+Dopo avere impostato il tag desiderato, è necessario "abilitarlo". Un modo per abilitare un tag consiste nell'esportarlo in una variabile di ambiente `AZURE_TAGS` tramite il comando `export`:
 
 ```azurecli-interactive
 export AZURE_TAGS=nginx
 ```
 
-Dopo avere esportato il tag, è possibile provare di nuovo il comando `ansible`:
+- Se si usa Ansible < 2.8, eseguire il comando seguente:
 
-```azurecli-interactive
-ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
-```
+    ```bash
+    ansible -i azure_rm.py ansible-inventory-test-rg -m ping
+    ```
 
-Viene ora visualizzata una sola macchina virtuale (quella con il tag corrispondente al valore esportato nella variabile di ambiente **AZURE_TAGS**):
+- Se si usa Ansible > = 2.8, eseguire il comando seguente:
+  
+    ```bash
+    ansible all -m ping -i ./myazure_rm.yml
+    ```
+
+Viene ora visualizzata una sola macchina virtuale (quella con il tag corrispondente al valore esportato nella variabile di ambiente `AZURE_TAGS`):
 
 ```Output
 ansible-inventory-test-vm1 | SUCCESS => {
@@ -126,57 +185,69 @@ ansible-inventory-test-vm1 | SUCCESS => {
 ```
 
 ## <a name="set-up-nginx-on-the-tagged-vm"></a>Configurare Nginx nella VM contrassegnata
+
 Lo scopo dei tag è consentire un uso facile e rapido dei sottogruppi delle macchine virtuali. Si supponga, ad esempio, che sia necessario installare Nginx solo nelle macchine virtuali a cui è stato assegnato il tag `nginx`. La procedura seguente illustrata come questa operazione sia semplice:
 
-1. Creare un file (che conterrà il playbook) denominato `nginx.yml`, come segue:
+1. Creare un file denominato `nginx.yml`:
 
    ```azurecli-interactive
-   vi nginx.yml
+   code nginx.yml
    ```
 
-1. Inserire il codice seguente nel nuovo file `nginx.yml` creato:
+1. Incollare il codice di esempio seguente nell'editor:
 
     ```yml
     ---
     - name: Install and start Nginx on an Azure virtual machine
-    hosts: azure
-    become: yes
-    tasks:
-    - name: install nginx
-      apt: pkg=nginx state=installed
-      notify:
-      - start nginx
+      hosts: all
+      become: yes
+      tasks:
+      - name: install nginx
+        apt: pkg=nginx state=installed
+        notify:
+        - start nginx
 
-    handlers:
-    - name: start nginx
-      service: name=nginx state=started
+      handlers:
+        - name: start nginx
+          service: name=nginx state=started
     ```
 
-1. Eseguire il playbook `nginx.yml`:
+1. Salvare il file e uscire dall'editor.
 
-    ```azurecli-interactive
+1. Eseguire il playbook usando il comando `ansible-playbook`:
+
+   - Ansible < 2.8:
+
+    ```bash
     ansible-playbook -i azure_rm.py nginx.yml
     ```
 
-1. Dopo avere eseguito il playbook, viene visualizzato un output simile al seguente:
+   - Ansible >= 2.8:
+
+    ```bash
+     ansible-playbook  -i ./myazure_rm.yml  nginx.yml
+    ```
+
+1. Dopo avere eseguito il playbook, viene visualizzato un output simile ai risultati seguenti:
 
     ```Output
-    PLAY [Install and start Nginx on an Azure virtual machine] **********
+    PLAY [Install and start Nginx on an Azure virtual machine] 
 
-    TASK [Gathering Facts] **********
+    TASK [Gathering Facts] 
     ok: [ansible-inventory-test-vm1]
 
-    TASK [install nginx] **********
+    TASK [install nginx] 
     changed: [ansible-inventory-test-vm1]
 
-    RUNNING HANDLER [start nginx] **********
+    RUNNING HANDLER [start nginx] 
     ok: [ansible-inventory-test-vm1]
 
-    PLAY RECAP **********
+    PLAY RECAP 
     ansible-inventory-test-vm1 : ok=3    changed=1    unreachable=0    failed=0
     ```
 
 ## <a name="test-nginx-installation"></a>Testare l'installazione di Nginx
+
 Questa sezione illustra una tecnica per testare l'installazione di Nginx nella macchina virtuale.
 
 1. Usare il comando [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) per recuperare l'indirizzo IP della macchina virtuale `ansible-inventory-test-vm1`. Il valore restituito (l'indirizzo IP della macchina virtuale) viene quindi usato come parametro per il comando SSH per la connessione alla macchina virtuale.
@@ -199,13 +270,13 @@ Questa sezione illustra una tecnica per testare l'installazione di Nginx nella m
     tom@ansible-inventory-test-vm1:~$ nginx -v
 
     nginx version: nginx/1.10.3 (Ubuntu)
-    
+
     tom@ansible-inventory-test-vm1:~$
     ```
 
-1. Premere la combinazione di tasti **&lt;Ctrl+D** per disconnettere la sessione SSH.
+1. Premere la combinazione di tasti `<Ctrl>D` per disconnettere la sessione SSH.
 
-1. Eseguendo i passaggi precedenti per la macchina virtuale `ansible-inventory-test-vm2`, viene visualizzato un messaggio informativo indicante dove è possibile ottenere Nginx (il che implica che non è ancora installato):
+1. Eseguendo i passaggi precedenti per la macchina virtuale `ansible-inventory-test-vm2`, viene visualizzato un messaggio informativo che indica dove è possibile ottenere Nginx (il che implica che non è ancora installato):
 
     ```Output
     tom@ansible-inventory-test-vm2:~$ nginx -v
@@ -218,5 +289,6 @@ Questa sezione illustra una tecnica per testare l'installazione di Nginx nella m
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 > [!div class="nextstepaction"] 
-> [Creare una macchina virtuale di base in Azure con Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Guida introduttiva: Configurare macchine virtuali Linux in Azure tramite Ansible](/azure/virtual-machines/linux/ansible-create-vm)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: d023c6ec9c3d24400fd2b7b9fcce9568aa851214
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 9137262ffc7c172e6a99920a7abb31459a8703fe
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000026"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408568"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Guida introduttiva: Creare un'app Java Spring con Configurazione app
 
@@ -37,7 +37,7 @@ Per completare questa guida di avvio rapido, installare [Java Development Kit (J
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selezionare **Esplora chiave-valore** > **+ Crea** per aggiungere le coppie chiave-valore seguenti:
+6. Selezionare **Configuration Explorer** > **+ Crea** per aggiungere le coppie chiave-valore seguenti:
 
     | Chiave | Valore |
     |---|---|

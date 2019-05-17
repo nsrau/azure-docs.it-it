@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 91297a02966000899ab79dfb86446890e9c4439a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4fb42014e2c5389cf2a849ddf5114ab1f59c9e28
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148706"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414033"
 ---
 # <a name="azure-media-services-v3-overview"></a>Panoramica di Servizi multimediali di Azure v3
 
@@ -48,7 +48,8 @@ Servizi multimediali consente di creare vari flussi di lavoro multimediali nel c
 
 Informazioni su come codificare e creare pacchetti del contenuto, trasmettere video on demand in streaming, trasmettere live e analizzare video con Servizi multimediali v3. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti.
 
-Prima di iniziare lo sviluppo, esaminare i [Concetti fondamentali](concepts-overview.md)<br/>
+> [!TIP]
+> Prima di iniziare lo sviluppo, esaminare:<br/>* [Concetti fondamentali](concepts-overview.md) (include concetti importanti: creazione di pacchetti, codifica, protezione e così via)<br/>* [Sviluppo con le API Servizi multimediali v3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, sulle convenzioni di denominazione e così via)
 
 ### <a name="quickstarts"></a>Guide introduttive  
 
@@ -86,9 +87,5 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Come si procede per iniziare a usare v3? 
-
-> [!div class="nextstepaction"]
-> [Informazioni sui concetti fondamentali](concepts-overview.md)<br/>
-> [Sviluppare con l'API Servizi multimediali v3 usando gli SDK](developers-guide.md) 
+[Informazioni sui concetti fondamentali](concepts-overview.md)
 

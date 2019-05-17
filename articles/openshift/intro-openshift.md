@@ -7,14 +7,14 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 6121c0f654a61a147e84f0697f3ddb06b7c5db92
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bfa3e63a433a6948f05ece7ec3c3a6180933510b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079949"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466158"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -38,9 +38,9 @@ I nodi Azure Red Hat OpenShift vengono eseguiti in macchine virtuali di Azure. �
 
 ## <a name="virtual-networks-and-ingress"></a>Reti virtuali e ingresso
 
-È possibile distribuire un cluster Azure Red Hat OpenShift in una rete virtuale esistente. In questa configurazione ogni pod del cluster ottiene un indirizzo IP nella rete virtuale e può comunicare direttamente con altri pod nel cluster e con altri nodi della rete virtuale. I pod possono inoltre connettersi ad altri servizi in una rete virtuale con peering e a reti locali tramite [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) o connessioni VPN da sito a sito (S2S).
+È possibile connettere un cluster Azure Red Hat OpenShift a una rete virtuale esistente tramite peering. In questa configurazione i pod possono connettersi ad altri servizi in una rete virtuale con peering e a reti locali tramite [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) o connessioni VPN da sito a sito (S2S).
 
-Per altre informazioni, vedere [Creare un cluster Microsoft Red Hat OpenShift in Azure](tutorial-create-cluster.md).
+Per informazioni dettagliate, vedere [Connettere la rete virtuale di un cluster a una rete virtuale esistente](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network).
 
 ## <a name="kubernetes-certification"></a>Certificazione Kubernetes
 

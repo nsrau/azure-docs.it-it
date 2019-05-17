@@ -1,34 +1,52 @@
 ---
-title: Ridimensionare le app Web del servizio app di Azure con Ansible
-description: Informazioni su come usare Ansible per creare un'app Web con il runtime di Java 8 e del contenitore Tomcat nel servizio app in Linux
-ms.service: azure
+title: Esercitazione - Ridimensionare app nel servizio app di Azure tramite Ansible | Microsoft Docs
+description: Informazioni su come ridimensionare un'app nel servizio app di Azure
 keywords: ansible, azure, devops, bash, playbook, servizio app di Azure, app Web, ridimensionare, Java
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/08/2018
-ms.openlocfilehash: 2bafb73afa35c7670ac45f7027545277c70075ef
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: d63708cd87afa426f2712da6d0fcb11c84590798
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792277"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230954"
 ---
-# <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Ridimensionare le app Web del servizio app di Azure con Ansible
-Le [app Web del servizio app di Azure ](https://docs.microsoft.com/azure/app-service/overview), o semplicemente app Web, consentono l'hosting di applicazioni Web, API REST e back-end mobili. È possibile usare il linguaggio di sviluppo preferito &mdash; .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
+# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Esercitazione: Ridimensionare app nel servizio app di Azure tramite Ansible
 
-Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. Questo articolo illustra come usare Ansible per ridimensionare l'app nel servizio app di Azure.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-app-service.md](../../includes/open-source-devops-intro-app-service.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Trovare informazioni su un piano di servizio app esistente
+> * Ampliare il piano di servizio app al livello S2 con tre ruoli di lavoro
 
 ## <a name="prerequisites"></a>Prerequisiti
-- **Sottoscrizione di Azure** - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- **App Web del servizio app di Azure** - Se non si dispone ancora di un'app Web del servizio app di Azure, è possibile [creare app Web di Azure con Ansible](ansible-create-configure-azure-web-apps.md).
 
-## <a name="scale-up-an-app-in-app-service"></a>Aumentare le prestazioni di un'app nel servizio app
-È possibile aumentare le prestazioni cambiando il piano tariffario del piano del servizio app a cui appartiene l'app. In questa sezione viene presentato un playbook Ansible di esempio che definisce l'operazione seguente:
-- Trovare informazioni su un piano di servizio app esistente
-- Aggiornare il piano di servizio app al livello S2 con tre ruoli di lavoro
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+- **App di servizio app di Azure** - Se non è disponibile un'app del servizio app di Azure, [configurare un'app nel servizio app di Azure tramite Ansible](ansible-create-configure-azure-web-apps.md).
+
+## <a name="scale-up-an-app"></a>Aumentare le prestazioni di un'app
+
+Sono disponibili due flussi di lavoro per la scalabilità, l'*aumento delle prestazioni* e l'*aumento del numero di istanze*.
+
+**Aumentare le prestazioni:** aumentare le prestazioni significa acquisire più risorse. Queste risorse includono CPU, memoria, spazio su disco, macchine virtuali e altro ancora. È possibile aumentare le prestazioni di un'app cambiando il piano tariffario del piano di servizio app a cui appartiene l'app. 
+**Aumentare il numero di istanze:** è possibile incrementare il numero di istanze di macchine virtuali che eseguono l'app. A seconda del piano tariffario del piano di servizio app, è possibile specificare al massimo 20 istanze. La [scalabilità automatica](/azure/azure-monitor/platform/autoscale-get-started) consente di aumentare automaticamente il numero di istanze in base a pianificazioni e regole predefinite.
+
+Il codice del playbook in questa sezione definisce l'operazione seguente:
+
+* Trovare informazioni su un piano di servizio app esistente
+* Aggiornare il piano di servizio app al livello S2 con tre ruoli di lavoro
+
+Salvare il playbook seguente come `webapp_scaleup.yml`:
 
 ```yml
 - hosts: localhost
@@ -66,26 +84,26 @@ Ansible consente di automatizzare la distribuzione e la configurazione delle ris
       var: facts.appserviceplans[0].sku
 ```
 
-Salvare il playbook come *webapp_scaleup.yml*.
+Eseguire il playbook usando il comando `ansible-playbook`:
 
-Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```
 
-Dopo aver eseguito il playbook, un output simile all'esempio seguente indica che il piano del servizio app è stato successivamente aggiornato al livello S2 con tre ruoli di lavoro:
-```Output
-PLAY [localhost] **************************************************************
+Dopo avere eseguito il playbook, viene visualizzato un output simile ai risultati seguenti:
 
-TASK [Gathering Facts] ********************************************************
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Get facts of existing App service plan] **********************************************************
+TASK [Get facts of existing App service plan] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]
 
-TASK [debug] ******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 1,
@@ -96,13 +114,13 @@ ok: [localhost] => {
     }
 }
 
-TASK [Scale up the App service plan] *******************************************
+TASK [Scale up the App service plan] 
 changed: [localhost]
 
-TASK [Get facts] ***************************************************************
+TASK [Get facts] 
 ok: [localhost]
 
-TASK [debug] *******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 3,
@@ -113,10 +131,11 @@ ok: [localhost] => {
     }
 }
 
-PLAY RECAP **********************************************************************
+PLAY RECAP 
 localhost                  : ok=6    changed=1    unreachable=0    failed=0 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 > [!div class="nextstepaction"] 
-> [Ansible in Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible in Azure](/azure/ansible/)

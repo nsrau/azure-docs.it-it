@@ -4,22 +4,22 @@ description: Panoramica sulla modalità di archiviazione dei dati di configurazi
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
-manager: balans
+manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 24216d1bf82789d2d0fc312d9af4c06fa3c8cf4e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011283"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408732"
 ---
-# <a name="key-value-store"></a>Archivio chiave-valore
+# <a name="keys-and-values"></a>Chiavi e valori
 
 Configurazione app di Azure archivia i dati di configurazione sotto forma di coppie chiave-valore. Le coppie chiave-valore costituiscono un modo semplice e flessibile per rappresentare vari tipi di impostazioni delle applicazioni già noti agli sviluppatori.
 
@@ -45,29 +45,27 @@ Per assegnare i nomi alle chiavi usate per i dati di configurazione sono disponi
 
 Ecco diversi esempi di come strutturare i nomi delle chiavi in una gerarchia:
 
-* In base agli ambienti
-
-        AppName:Test:DB:Endpoint
-        AppName:Staging:DB:Endpoint
-        AppName:Production:DB:Endpoint
-
 * In base ai servizi dei componenti
 
-        AppName:Service1:Test:DB:Endpoint
-        AppName:Service1:Staging:DB:Endpoint
-        AppName:Service1:Production:DB:Endpoint
-        AppName:Service2:Test:DB:Endpoint
-        AppName:Service2:Staging:DB:Endpoint
-        AppName:Service2:Production:DB:Endpoint
+        AppName:Service1:ApiEndpoint
+        AppName:Service2:ApiEndpoint
 
 * In base alle aree di distribuzione
 
-        AppName:Production:Region1:DB:Endpoint
-        AppName:Production:Region2:DB:Endpoint
+        AppName:Region1:DbEndpoint
+        AppName:Region2:DbEndpoint
+
+### <a name="label-keys"></a>Chiavi di etichetta
+
+Le coppie chiave-valore di Configurazione app possono facoltativamente avere un attributo etichetta. Le etichette vengono usate per distinguere le coppie chiave-valore con la stessa chiave. Una chiave *app1* con le etichette *A* e *B* corrisponde a due chiavi distinte in un archivio di configurazione app. Per impostazione predefinita, l'etichetta di una coppia chiave-valore è vuota o `null`.
+
+L'etichetta fornisce un modo pratico per creare varianti di una chiave. Un uso comune delle etichette consiste nello specificare più ambienti per la stessa chiave:
+
+    Key = AppName:DbEndpoint & Label = Test
+    Key = AppName:DbEndpoint & Label = Staging
+    Key = AppName:DbEndpoint & Label = Production
 
 ### <a name="version-key-values"></a>Creare versioni di coppie chiave-valore
-
-Le coppie chiave-valore di Configurazione app possono facoltativamente avere un attributo etichetta. Le etichette vengono usate per distinguere le coppie chiave-valore con la stessa chiave. Una chiave *app1* con le etichette *v1* e *v2* corrisponde a due coppie chiave-valore distinte in un archivio di configurazione app. Per impostazione predefinita, l'etichetta di una coppia chiave-valore è vuota o `null`.
 
 Configurazione app non crea automaticamente nuove versioni delle coppie chiave-valore quando vengono modificate. Usare quindi le etichette per creare più versioni di una coppia chiave-valore. È ad esempio possibile immettere un numero di versione dell'applicazione o un ID commit di Git nelle etichette per identificare le coppie chiave-valore associate a una particolare build software.
 
@@ -106,5 +104,5 @@ I dati di configurazione archiviati in un archivio di configurazione app, che in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Snapshot temporizzato](./concept-point-time-snapshot.md)  
+* [Snapshot temporizzato](./concept-point-time-snapshot.md)  
+* [Gestione delle funzionalità](./concept-feature-management.md)  
