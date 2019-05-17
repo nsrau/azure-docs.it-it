@@ -34,6 +34,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: Concetti
   items:
+    - name: Scegliere una tecnologia di analisi del flusso
+      href: streaming-technologies.md
     - name: Tipi di input per un processo
       items:
         - name: Panoramica degli input

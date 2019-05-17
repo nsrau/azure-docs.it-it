@@ -1,4 +1,5 @@
 - name: Documentazione di Durable Functions
+  href: durable-functions-overview.md
 - name: Panoramica
   items:
     - name: Informazioni su Funzioni di Azure
@@ -7,6 +8,8 @@
       href: durable-functions-overview.md
     - name: Confronto senza server
       href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+    - name: Funzionalità di anteprima
+      href: durable-functions-preview.md
 - name: Guide introduttive
   expanded: true
   items:

@@ -167,6 +167,8 @@
           href: application-provisioning-config-problem.md
         - name: Problema di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti nell'app della raccolta
           href: application-provisioning-config-problem-storage-limit.md
+        - name: Sincronizzare un attributo per il mapping - App della raccolta
+          href: user-provisioning-sync-attributes-for-mapping.md
         - name: Utenti senza provisioning - App della raccolta
           href: application-provisioning-config-problem-no-users-provisioned.md
         - name: Provisioning di utenti errati - App della raccolta

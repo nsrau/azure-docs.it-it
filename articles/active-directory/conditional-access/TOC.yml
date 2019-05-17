@@ -50,6 +50,8 @@
       href: app-protection-based-conditional-access.md
     - name: Richiedere dispositivi gestiti
       href: require-managed-devices.md
+    - name: Richiedere reti attendibili per la registrazione a MFA
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Richiedere MFA per tentativi di accesso da reti non attendibili
       href: untrusted-networks.md
     - name: Richiedere Condizioni per l'utilizzo

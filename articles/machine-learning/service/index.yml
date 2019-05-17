@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 05/06/2019
+  ms.date: 05/14/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -36,6 +36,7 @@ sections:
         items:
           - html: <a href="quickstart-run-cloud-notebook">Eseguire un esperimento nel cloud</a> (nessuna installazione necessaria).
           - html: <a href="quickstart-run-local-notebook">Eseguire un esperimento usando un server di notebook locale</a> (installazione dell'SDK locale).
+          - html: <a href="ui-quickstart-run-experiment">Preparare e visualizzare dati senza scrivere codice</a> nell'interfaccia visiva grafica.
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph
@@ -45,6 +46,7 @@ sections:
         items:
           - html: <a href="tutorial-train-models-with-aml">Eseguire il training</a> e <a href="tutorial-deploy-models-with-aml">distribuire</a> modelli di classificazione delle immagini (<b>serie in due parti</b>).
           - html: <a href="tutorial-data-prep">Preparare i dati</a> e <a href="tutorial-auto-train-models">usare tecniche automatizzate di Machine Learning</a> per eseguire il training e ottimizzare i modelli di regressione (<b>serie in due parti</b>).
+          - html: <a href="ui-tutorial-automobile-price-train-score">Stimare il prezzo di un'automobile</a> con l'interfaccia visiva grafica e <a href="ui-tutorial-automobile-price-deploy">distribuire</a> il modello di regressione.
   - title: Esempi
     items:
       - type: paragraph
@@ -56,7 +58,7 @@ sections:
         items:
           - html: '<a href="https://aka.ms/aml-sdk">SDK principale per Python</a>: funzionalità essenziali, Machine Learning automatizzato, pipeline e altro ancora'
           - html: '<a href="https://aka.ms/aml-monitoring-sdk">Monitoraggio</a> SDK Python: raccolta di dati nei servizi Web distribuiti'
-          - html: <a href="../algorithm-module-reference/module-reference.md">Informazioni di riferimento su algoritmi e moduli</a> per l'interfaccia visiva grafica
+          - html: <a href="../algorithm-module-reference/module-reference.md">Informazioni di riferimento su algoritmi e moduli</a> per l'interfaccia visiva
           - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Interfaccia della riga di comando di Azure ML</a>: un''estensione dell''interfaccia della riga di comando per Machine Learning'
   - title: Altre tecnologie di Azure Machine Learning
     items:

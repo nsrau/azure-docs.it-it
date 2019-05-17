@@ -1,62 +1,51 @@
 - name: Documentazione di Azure HDInsight
   href: /azure/hdinsight
-- name: Sicurezza aziendale
+- name: Panoramica
   items:
-    - name: Panoramica
+    - name: Informazioni su Enterprise Security Package in HDInsight
       href: apache-domain-joined-introduction.md
+- name: Concetti
+  items:
     - name: Pianificare cluster ESP
       href: apache-domain-joined-architecture.md
     - name: Configurare cluster ESP con Azure Active Directory Domain Services
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Sincronizzare gli utenti di Azure AD con un cluster HDInsight
       href: ../hdinsight-sync-aad-users-to-cluster.md
-      maintainContext: true
     - name: Configurare i criteri di Apache Hive
       href: apache-domain-joined-run-hive.md
     - name: Controllo degli accessi in base al ruolo per Apache HBase con Apache Ranger
       href: apache-domain-joined-run-hbase.md
     - name: Controllo degli accessi in base al ruolo per Apache Kafka con Apache Ranger
       href: apache-domain-joined-run-kafka.md
-      maintainContext: true
     - name: Usare VS Code per il collegamento a un cluster ESP
       href: ../hdinsight-for-vscode.md
-      maintainContext: true
     - name: Usare IntelliJ per il collegamento a un cluster ESP
       href: ../spark/apache-spark-intellij-tool-plugin.md
-      maintainContext: true
     - name: Usare Eclipse per il collegamento a un cluster ESP
       href: ../spark/apache-spark-eclipse-tool-plugin.md
-      maintainContext: true
     - name: Usare Apache Oozie nei cluster ESP
       href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Protezione dei dati
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-  maintainContext: true
 - name: Accesso alla rete
   items:
     - name: HDInsight nella rete virtuale di Azure
       href: ../hdinsight-extend-hadoop-virtual-network.md
-      maintainContext: true
     - name: Connettere HDInsight alla rete locale
       href: ../connect-on-premises-network.md
-      maintainContext: true
     - name: Creare cluster Apache HBase nella rete virtuale di Azure
       href: ../hbase/apache-hbase-provision-vnet.md
-      maintainContext: true
     - name: Replica di cluster Apache HBase nella rete virtuale di Azure
       href: ../hbase/apache-hbase-replication.md
-      maintainContext: true
 - name: Monitoraggio con i log di Monitoraggio di Azure
   items:
     - name: Usare i log di Monitoraggio di Azure
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
     - name: Usare le query con i log di Monitoraggio di Azure
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-      maintainContext: true
     - name: Monitorare le prestazioni di un cluster
       href: ../hdinsight-key-scenarios-to-monitor.md
-      maintainContext: true
 - name: riferimento
   items:
     - name: Esempi di codice
@@ -86,10 +75,8 @@
       items:
         - name: Note sulla versione correnti
           href: ../hdinsight-release-notes.md
-          maintainContext: true
         - name: Note sulla versione archiviate
           href: ../hdinsight-release-notes-archive.md
-          maintainContext: true
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Ottenere informazioni sui forum
@@ -102,4 +89,3 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Strumenti Windows per HDInsight
       href: ../hdinsight-hadoop-windows-tools.md
-      maintainContext: true

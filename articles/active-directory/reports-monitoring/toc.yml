@@ -31,6 +31,8 @@
       href: concept-audit-logs.md
     - name: Log di accesso
       href: concept-sign-ins.md
+    - name: Report su utilizzo e informazioni dettagliate
+      href: concept-usage-insights-report.md
     - name: Accessi a rischio
       href: concept-risky-sign-ins.md
     - name: Eventi di rischio

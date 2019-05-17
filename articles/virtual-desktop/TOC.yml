@@ -14,6 +14,8 @@
       href: create-host-pools-azure-marketplace.md
     - name: 4. Gestire i gruppi di app
       href: manage-app-groups.md
+    - name: 5. Creare un pool di host per convalidare gli aggiornamenti dei servizi
+      href: create-validation-host-pool.md
 - name: Procedura
   items:
     - name: Connettersi alle risorse di Desktop virtuale Windows

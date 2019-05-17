@@ -187,6 +187,8 @@
               href: delete-vault.md
     - name: Ripristino di emergenza da VMware ad Azure
       items:
+        - name: Configurare il ripristino di emergenza su vasta scala
+          href: vmware-physical-large-deployment.md
         - name: Configurare la rete
           items:
             - name: Gestire le interfacce di rete per la replica da locale ad Azure
@@ -269,6 +271,8 @@
               href: delete-vault.md
     - name: Ripristino di emergenza da computer fisico ad Azure
       items:
+        - name: Configurare il ripristino di emergenza su vasta scala
+          href: vmware-physical-large-deployment.md
         - name: Configurare la rete
           items:
             - name: Gestire le interfacce di rete per la replica da locale ad Azure

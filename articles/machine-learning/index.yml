@@ -7,7 +7,7 @@ metadata:
   description: 'Informazioni su come creare algoritmi intelligenti nelle app, nei siti Web e nei bot per vedere, ascoltare, parlare e comprendere le esigenze degli utenti tramite i metodi di comunicazione naturali. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.'
   ms.author: jmartens
   ms.subservice: core
-  ms.date: 12/04/2018
+  ms.date: 5/14/2019
   ms.devlang: na
   ms.service: machine-learning
   ms.tgt_pltfrm: na
@@ -34,20 +34,28 @@ sections:
       - items:
           - html: <a href="service/quickstart-run-cloud-notebook">Eseguire un esperimento nel cloud</a> (nessuna installazione necessaria)
           - html: <a href="service/quickstart-run-local-notebook">Eseguire un esperimento usando un server di notebook locale</a> (installazione dell'SDK locale)
+          - html: <a href="service/ui-quickstart-run-experiment">Eseguire un esperimento nell'interfaccia visiva grafica</a> (senza codice)
         style: unordered
         type: list
-      - text: '<b>Esercitazione sulla classificazione di immagini con i dati MNIST:</b>'
+      - text: '<b>Esercitazione: </b>Classificazione delle immagini dei dati di MNIST con SDK:'
         type: paragraph
       - items:
           - html: 'Parte 1: <a href="service/tutorial-train-models-with-aml">Eseguire il training del modello</a>'
           - html: 'Parte 2: <a href="service/tutorial-deploy-models-with-aml">Distribuire il modello</a>'
         style: unordered
         type: list
-      - text: '<b>Esercitazione sulla modellazione basata sulla regressione con il set di dati NYC Taxi:</b>'
+      - text: '<b>Esercitazione: Stimare la tariffa della corsa del taxi con SDK:</b>'
         type: paragraph
       - items:
           - html: 'Parte 1: <a href="service/tutorial-data-prep">Preparare i dati per la modellazione</a>'
           - html: 'Parte 2: <a href="service/tutorial-auto-train-models">Consentire al servizio Machine Learning automatizzato di eseguire automaticamente il training dei modelli</a>'
+        style: unordered
+        type: list
+      - text: '<b>Esercitazione: Stimare il prezzo di un''automobile con l''interfaccia visiva grafica:</b>'
+        type: paragraph
+      - items:
+          - html: 'Parte 1: <a href="service/ui-tutorial-automobile-price-train-score">Stimare il prezzo di un automobile</a>'
+          - html: 'Parte 2: <a href="service/ui-tutorial-automobile-price-deploy">Distribuire il modello di regressione</a>'
         style: unordered
         type: list
       - text: '<b>Utilizzare i modelli:</b>'

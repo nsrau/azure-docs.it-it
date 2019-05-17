@@ -67,8 +67,10 @@
           href: data-box-edge-deploy-connect-setup-activate.md
         - name: '4 - Aggiungere, connettersi alla condivisione'
           href: data-box-edge-deploy-add-shares.md
-        - name: 5 - Configurare le risorse di calcolo
+        - name: 5 - Configurare il calcolo (semplice)
           href: data-box-edge-deploy-configure-compute.md
+        - name: 5 - Configurare il calcolo (avanzato)
+          href: data-box-edge-deploy-configure-compute-advanced.md
     - name: Concetti
       items:
         - name: Esaminare i requisiti

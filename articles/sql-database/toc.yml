@@ -368,7 +368,7 @@
   items:
     - name: Panoramica
       href: sql-database-howto.md
-    - name: Database singolo
+    - name: Database singoli e pool elastici
       items:
         - name: Panoramica
           href: sql-database-howto-single-database.md
@@ -448,7 +448,7 @@
               href: elastic-jobs-tsql.md
             - name: Eseguire la migrazione (da processi elastici precedenti)
               href: elastic-jobs-migrate.md
-    - name: Istanza gestita
+    - name: Istanze gestite
       items:
         - name: Panoramica
           href: sql-database-howto-managed-instance.md
@@ -720,6 +720,10 @@
       href: sql-database-glossary-terms.md
     - name: Sviluppare le proprie competenze con Microsoft Learn
       href: /learn/browse/?products=azure-sql-database
+    - name: Blog di SQL Server
+      href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
+    - name: Blog di Microsoft Azure
+      href: 'https://azure.microsoft.com/blog/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Set di dati pubblici

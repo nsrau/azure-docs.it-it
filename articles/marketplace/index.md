@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: landing-page
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: dd95863d4e9286576bbb31e6df2de7816c6c17b0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8f42fd627a5d5ae0d18cf75d0c2758e8e09b5bf6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937862"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800313"
 ---
 # <a name="azure-marketplace-documentation"></a>Documentazione su Azure Marketplace
 
@@ -55,5 +55,23 @@ Informazioni su Azure Marketplace, un marketplace online per applicazioni e serv
             </div>
         </div>
         </a>
-    </li>    
+    </li>
+    <li>
+        <a href="/azure/marketplace/partner-center-portal/commercial-marketplace-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/i_dashboard.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Portale di Commercial Marketplace nel Centro per i partner</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>

@@ -187,7 +187,7 @@
           href: api-server-authorized-ip-ranges.md
         - name: Aggiornare le credenziali dell'entità servizio del cluster
           href: update-credentials.md
-        - name: Limitare e controllare il traffico in uscita del cluster
+        - name: Limitare e controllare il traffico in uscita del cluster (anteprima)
           href: limit-egress-traffic.md
         - name: Abilitare l'integrazione di Azure Active Directory
           items:

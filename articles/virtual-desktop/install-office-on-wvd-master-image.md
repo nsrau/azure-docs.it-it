@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 55fb08be6570271d5a4ad76d47bedf3e2917fc2e
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: HT
+ms.openlocfilehash: 92a0ba8c0f43e26b7a1bbe82cc52f61d390fc04d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65552032"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827328"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installare Office in un'immagine master di disco rigido virtuale
 
@@ -153,7 +153,7 @@ Di seguito viene illustrato come installare OneDrive in modalità per computer:
 6. Eseguire questo comando per configurare OneDrive iniziare in corrispondenza di accesso per tutti gli utenti:
 
     ```batch
-    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
+    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
 7. Abilitare **invisibile all'utente configurare account utente** eseguendo il comando seguente.
