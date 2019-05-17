@@ -103,7 +103,7 @@ Per il servizio collegato di SAP Business Warehouse Open Hub sono supportate le 
 | server | Nome del server in cui si trova l'istanza di SAP BW. | Sì |
 | systemNumber | Numero del sistema SAP BW.<br/>Valore consentito: numero decimale a due cifre rappresentato come stringa. | Sì |
 | clientId | ID del client nel sistema SAP BW.<br/>Valore consentito: numero decimale a tre cifre rappresentato come stringa. | Sì |
-| Linguaggio | Lingua usata dal sistema SAP. | No (valore predefinito: **EN**)|
+| language | Lingua usata dal sistema SAP. | No (valore predefinito: **EN**)|
 | userName | Nome dell'utente che ha accesso al server SAP. | Sì |
 | password | Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
