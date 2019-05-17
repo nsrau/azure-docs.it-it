@@ -32,8 +32,6 @@
       href: create-host-pools-user-profile.md
     - name: Configurare il metodo di bilanciamento del carico di Desktop virtuale Windows
       href: configure-host-pool-load-balancing.md
-    - name: Identificare i problemi con la funzionalità di diagnostica
-      href: diagnostics-role-service.md
     - name: Preparare e personalizzare un'immagine master di disco rigido virtuale
       href: set-up-customize-master-image.md
     - name: Installare Office in un'immagine master di disco rigido virtuale
@@ -54,6 +52,8 @@
   items:
     - name: 'Panoramica della risoluzione dei problemi, feedback e supporto'
       href: troubleshoot-set-up-overview.md
+    - name: Identificare i problemi con la funzionalità di diagnostica
+      href: diagnostics-role-service.md
     - name: Creazione di pool di host e tenant
       href: troubleshoot-set-up-issues.md
     - name: Configurazione di macchine virtuali nell'host sessione
