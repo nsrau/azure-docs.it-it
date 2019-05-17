@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/01/2016
+ms.date: 05/16/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 5a7fbeafe74926c7d89ac76dc2964756b3582d61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a0dbe736b9727491f77b392c199400003abf8be
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254503"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779879"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Developer Analytics: linguaggi, piattaforme e integrazioni
 Di seguito sono riportate implementazioni di [Application Insights](../../azure-monitor/app/app-insights-overview.md) già illustrate, incluse alcune di terze parti.
@@ -45,7 +45,7 @@ Di seguito sono riportate implementazioni di [Application Insights](../../azure-
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Servizio app di Azure](../../azure-monitor/app/azure-web-apps.md)
 * [Servizi cloud di Azure](../../azure-monitor/app/cloudservices.md)&amp;#151;che includono sia i ruoli Web che i ruoli di lavoro
-* [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
+* [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 * [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
@@ -62,6 +62,7 @@ Di seguito sono riportate implementazioni di [Application Insights](../../azure-
 * [Altro](#projects)
 
 ## <a name="logging-frameworks"></a>Framework di registrazione
+* [ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)
 * [Log4Net, NLog o System.Diagnostics.Trace](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Java, Log4J o Logback](../../azure-monitor/app/java-trace-logs.md)
 * [Registrazione semantica (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - si integra con il [blocco applicazione per la registrazione semantica](https://msdn.microsoft.com/library/dn440729.aspx)

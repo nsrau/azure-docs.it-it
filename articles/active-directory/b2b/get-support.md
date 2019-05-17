@@ -8,23 +8,23 @@ ms.topic: reference
 ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae5ae6d742bc6b4420b886c9ea2bd4e023075f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a7b9ebefb9762b663adcd17fb1fdd656cb4f2ec2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413714"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768438"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Ottenere assistenza per Collaborazione B2B
 
 La documentazione è stata letta attentamente, sono state eseguite le operazioni giuste, ma qualcosa non funziona? Aprire un ticket di supporto (richiede un piano di supporto):
 
 1. Nel [ portale di Azure](https://portal.azure.com) passare al pannello Guida e supporto e selezionare Nuova richiesta di supporto:
-   - Tipo di problema: Tecnici
+   - Tipo di problema: Tecnico
    - Sottoscrizione: scegliere la sottoscrizione interessata
      - Servizio: Active Directory
      - Piano di supporto: scegliere il piano di supporto pertinente

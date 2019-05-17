@@ -10,36 +10,47 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605225"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796900"
 ---
 # <a name="request-limits-for-translator-text"></a>Limiti delle richieste per Traduzione testuale
 
 Questo articolo elenca i limiti delle richieste per l'API Traduzione testuale. I servizi includono la traduzione, la traslitterazione, il rilevamento della lunghezza delle frasi, il rilevamento della lingua e le traduzioni alternative.
 
-## <a name="character-limits-per-request"></a>Limiti di caratteri per richiesta
+## <a name="character-and-array-limits-per-request"></a>Limiti di carattere e la matrice per ogni richiesta
 
-Ogni richiesta non può superare i 5000 caratteri. Sono previsti addebiti in base ai caratteri e non al numero di richieste. È consigliabile inviare richieste più brevi e lasciare in attesa alcune richieste in un dato momento.
+Ogni richiesta di traslazione è limitato a 5.000 caratteri. Sono previsti addebiti in base ai caratteri e non al numero di richieste. È consigliabile inviare le richieste più breve.
 
-Non è previsto alcun limite per il numero di richieste in attesa all'API Traduzione testuale.
+La seguente tabella elenchi matrice elemento e il carattere i limiti per ogni operazione dell'API traduzione testuale.
+
+| Operazione | Dimensione massima dell'elemento di matrice |   Numero massimo di elementi della matrice |  Dimensioni massime di richiesta (caratteri) |
+|:----|:----|:----|:----|
+| Trasla | 5.000 | 100   | 5.000 |
+| Transliterate | 5.000 | 10    | 5.000 |
+| Rileva | 10,000 | 100 |   50,000 |
+| BreakSentence | 10,000    | 100 | 5,0000 |
+| Ricerca nel dizionario| 100 |  10  | 1.000 |
+| Esempi di dizionari | 100 per il testo e 100 per la conversione (200 totale)| 10|   2.000 |
 
 ## <a name="character-limits-per-hour"></a>Limiti di caratteri all'ora
 
-Il limite di caratteri all'ora si basa sul livello della sottoscrizione di Traduzione testuale. Se si raggiungono o superano questi limiti, probabilmente verrà restituita una risposta per segnalare che la quota è stata superata:
+Il limite di caratteri all'ora si basa sul livello della sottoscrizione di Traduzione testuale. La quota oraria deve essere utilizzata in modo uniforme in tutta l'ora. Se si raggiungono o superano questi limiti o troppo grande di una parte della quota di trasmissione in un breve periodo di tempo, probabilmente si riceverà un timeout della risposta di quota. 
 
 | Livello | Limite di caratteri |
 |------|-----------------|
 | F0 | 2 milioni di caratteri all'ora |
 | S1 | 40 milioni di caratteri all'ora |
-| S2 | 40 milioni di caratteri all'ora |
-| S3 | 120 milioni di caratteri all'ora |
-| S4 | 200 milioni di caratteri all'ora |
+| S2 / C2 | 40 milioni di caratteri all'ora |
+| S3 / C3 | 120 milioni di caratteri all'ora |
+| S4 / C4 | 200 milioni di caratteri all'ora |
 
-Questi limiti riguardano esclusivamente i sistemi generici di Microsoft. I sistemi di traduzione personalizzati che usano Microsoft Translator Hub hanno un limite di 1800 caratteri al secondo.
+Limiti della [multiservizio sottoscrizioni](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) corrispondono a livello S1.
+
+Questi limiti sono limitati ai modelli di conversione standard di Microsoft. I modelli di conversione personalizzata che utilizzano Microsoft Translator personalizzati sono limitati ai caratteri 1.800 al secondo.
 
 ## <a name="latency"></a>Latenza
 
@@ -49,7 +60,7 @@ L'API traduzione testuale ha una latenza massima di 15 secondi usando i modelli 
 
 Quando si usa la funzione [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence), lunghezza delle frasi è limitata a 275 caratteri. Sono previste eccezioni per queste lingue:
 
-| Lingua | Codice | Limite di caratteri |
+| Linguaggio | Codice | Limite di caratteri |
 |----------|------|-----------------|
 | Cinese | zh | 132 |
 | Tedesco | de | 290 |

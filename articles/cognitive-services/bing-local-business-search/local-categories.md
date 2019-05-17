@@ -3,18 +3,18 @@ title: Categorie di ricerca per l'API di ricerca di attività locali Bing | Micr
 titleSuffix: Azure Cognitive Services
 description: Usare questo articolo per informazioni su come specificare categorie di ricerca per l'endpoint API di ricerca di attività locali Bing.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: b96c4e0ebfb12f48917febcc8ad623de18758935
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61bd230ffdb79b31390e96179e5beb3646902142
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60583401"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796735"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Categorie di ricerca per l'API di ricerca di attività locali Bing
 

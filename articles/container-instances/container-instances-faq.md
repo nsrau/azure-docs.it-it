@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: dekapur
-ms.openlocfilehash: 5657ac9f10c42c2201641c9af447b7ad2e6a3507
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 99882bd23d7b94afc550247172e5b70deb23bec9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079016"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791388"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Domande frequenti su istanze di contenitore di Azure
 
@@ -77,7 +77,7 @@ Per il momento no. Attualmente, questi sono i valori massimi per un gruppo di co
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>Quando potranno essere ACI in un'area specifica?
 
-Aree di disponibilità corrente viene pubblicata [qui](container-instances-region-availability.md#availability---general), e informazioni aggiornate sono disponibile tramite il [funzionalità dell'elenco](/rest/api/container-instances/listcapabilities) API. Se si dispone di un requisito per un'area specifica, contattare il supporto di Azure.
+Aree di disponibilità corrente viene pubblicata [qui](container-instances-region-availability.md#availability---general). Se si dispone di un requisito per un'area specifica, contattare il supporto di Azure.
 
 ## <a name="features-and-scenarios"></a>Scenari e funzionalità
 

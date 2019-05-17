@@ -7,12 +7,12 @@ ms.date: 03/28/2019
 ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
-ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880859"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541725"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usare le pipeline di Azure per compilare e distribuire soluzioni HPC
 
@@ -363,7 +363,7 @@ In questo esempio, esamineremo le **applicazione hpc** cartella. Il **applicazio
 
 ## <a name="continuous-deployment"></a>Distribuzione continua
 
-Le pipeline di Azure può essere usata anche per distribuire l'applicazione e l'infrastruttura sottostante. [Pipeline di versione](https://docs.microsoft.com/azure/devops/pipelines/release/what-is-release-management?view=azure-devops) è il componente che abilita la distribuzione continua e automatizza il processo di rilascio.
+Le pipeline di Azure può essere usata anche per distribuire l'applicazione e l'infrastruttura sottostante. [Pipeline di versione](https://docs.microsoft.com/azure/devops/pipelines/release) è il componente che abilita la distribuzione continua e automatizza il processo di rilascio.
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Distribuzione dell'applicazione e l'infrastruttura sottostante
 
@@ -427,7 +427,7 @@ Esistono una serie di passaggi necessari per distribuire l'infrastruttura. Come 
     * **Source:** $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/
     * **Tipo di connessione Azure**: Azure Resource Manager
     * **Sottoscrizione di Azure:** Selezionare la sottoscrizione Azure appropriata
-    * **Tipo di destinazione**: BLOB Azure
+    * **Tipo di destinazione**: BLOB di Azure
     * **Account di archiviazione di Resource Manager**: $(storageAccountName)
     * **Nome del contenitore**: i modelli
     * **URI contenitore di archiviazione**: templateContainerUri

@@ -3,8 +3,8 @@ title: Modificare il nome o il logo di un'applicazione aziendale in Azure Active
 description: Come modificare il nome o il logo per un'applicazione aziendale personalizzata in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbebc528227ebb06bd66e31b802dd4fd618d6a99
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 30da8d6843c27c42d4d99adef50b9ad98a131c95
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718748"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780914"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-application-in-azure-active-directory"></a>Modificare il nome o il logo di un'applicazione aziendale in Azure Active Directory
 
@@ -47,7 +47,7 @@ Modificare il nome o il logo per un'applicazione aziendale personalizzata in Azu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: Visualizzare i gruppi e membri dell'organizzazione in Azure Active Directory](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Avvio rapido: Visualizzare i gruppi e membri dell'organizzazione in Azure Active Directory](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Assegnare un utente o gruppo a un'app aziendale](assign-user-or-group-access-portal.md)
 * [Rimuovere l'assegnazione di un utente o un gruppo da un'app aziendale](remove-user-or-group-access-portal.md)
 * [Disabilitare l'accesso degli utenti per un'app aziendale](disable-user-sign-in-portal.md)

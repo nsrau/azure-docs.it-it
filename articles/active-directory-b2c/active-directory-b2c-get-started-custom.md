@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e9ad91967b5423539f28089bbf2da22edcf8f9a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6a66d45028b9fbf9c421b10ffb7863fcb9be5bec
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714955"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779856"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introduzione ai criteri personalizzati in Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ I [criteri personalizzati](active-directory-b2c-overview-custom.md) sono file di
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
 2. Assicurarsi che si usa la directory che contiene il tenant di Azure AD B2C. Fare clic sui **Directory e sottoscrizione filtro** nel menu in alto e scegliendo la directory che contiene il tenant. 
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
-4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità - ANTEPRIMA**.
+4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
 
 ### <a name="create-the-signing-key"></a>Creazione della chiave di firma
 

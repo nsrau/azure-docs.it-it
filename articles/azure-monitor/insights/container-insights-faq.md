@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 70712b68cc26a461f702850dbf6064b65b4ff130
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494671"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779999"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure per i contenitori
 
@@ -76,6 +76,12 @@ Può essere visualizzato l'errore seguente: **Risposta url specificato nella ric
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Il motivo per cui non è possibile eseguire l'aggiornamento del cluster dopo l'onboarding?
 
 Se dopo aver abilitato il monitoraggio di Azure per contenitori per un cluster AKS, si elimina l'area di lavoro di Log Analitica il cluster è stato l'invio dei dati, quando si tenta di aggiornare il cluster avrà esito negativo. Per risolvere questo problema, si dovrà disabilitare il monitoraggio e quindi riabilitarla una che fanno riferimento a un'altra area di lavoro valido nella sottoscrizione. Quando si prova a eseguire di nuovo l'aggiornamento del cluster, deve elaborare e completata correttamente.  
+
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Quali porte e domini devo open/elenco elementi consentiti per l'agente?
+- *.ods.opinsights.azure.com   443
+- *.oms.opinsights.azure.com   443
+- *.blob.core.windows.net      443
+- dc.services.visualstudio.com 443
 
 ## <a name="next-steps"></a>Passaggi successivi
 

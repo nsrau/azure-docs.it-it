@@ -1,23 +1,17 @@
 ---
 title: Distribuire risorse con PowerShell e i modelli | Microsoft Docs
 description: Usare Azure PowerShell e Azure Resource Manager per distribuire risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: 55903f35-6c16-4c6d-bf52-dbf365605c3f
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/28/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ef5cc702bd5035c958a8feb9b6f5051781cd3cc
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 5203519b1553de54d4e3cd1fafe6fb3d1c18ebd6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649795"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779948"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell
 
@@ -103,11 +97,11 @@ Per incollare il codice nella shell, fare clic con il pulsante destro del mouse 
 
 ## <a name="redeploy-when-deployment-fails"></a>Eseguire nuovamente la distribuzione se non è riuscita
 
-Questa funzionalità è detta anche *Rollback in caso di errore*. Quando una distribuzione non riesce, è possibile ridistribuire automaticamente una distribuzione precedente con esito positivo dalla cronologia della distribuzione. Per specificare la ridistribuzione, usare il parametro `-RollbackToLastDeployment` o `-RollBackDeploymentName` nel comando di distribuzione. Questa funzionalità è utile se si dispone di uno stato noto soddisfacente per la distribuzione dell'infrastruttura e si vuole che questo è possibile ripristinare. Esistono una serie di avvertenze e limitazioni:
+Questa funzionalità è detta anche *Rollback in caso di errore*. Quando una distribuzione non riesce, è possibile ridistribuire automaticamente una distribuzione precedente con esito positivo dalla cronologia della distribuzione. Per specificare la ridistribuzione, usare il parametro `-RollbackToLastDeployment` o `-RollBackDeploymentName` nel comando di distribuzione. Questa funzionalità è utile se si ha uno stato noto soddisfacente per la distribuzione dell'infrastruttura e vuole ripristinare questo stato. Esistono una serie di avvertenze e limitazioni:
 
-- La ridistribuzione viene eseguita esattamente come è stato eseguito in precedenza con gli stessi parametri. Non è possibile modificare i parametri.
+- La ridistribuzione viene eseguita esattamente come è stato eseguito in precedenza con gli stessi parametri. È possibile modificare i parametri.
 - Viene eseguita la distribuzione precedente usando il [modalità completa](./deployment-modes.md#complete-mode). Vengono eliminate tutte le risorse non incluse nella distribuzione precedente e qualsiasi risorsa di configurazioni è impostata allo stato precedente. Assicurarsi di aver compreso le [modalità di distribuzione](./deployment-modes.md).
-- La ridistribuzione interessa solo le risorse, le modifiche ai dati non sono state interessate.
+- La ridistribuzione interessa solo le risorse, le modifiche ai dati non sono interessate.
 - Questa funzionalità è supportata solo in distribuzioni con configurazione gruppo di risorse, non distribuzioni a livello di sottoscrizione. Per altre informazioni sulla distribuzione a livello di sottoscrizione, vedere [creare i gruppi di risorse e le risorse a livello di sottoscrizione](./deploy-to-subscription.md).
 
 Per usare questa opzione, le distribuzioni devono avere nomi univoci in modo che sia possibile identificarle nella cronologia. Se non si dispone di nomi univoci, la distribuzione non riuscita corrente potrebbe sovrascrivere quella eseguita in modo corretto nella cronologia. È possibile usare questa opzione solo con le distribuzioni a livello di radice. Le distribuzioni di un modello annidato non sono disponibili per la ridistribuzione.
@@ -159,6 +153,18 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
 ```
 
 Ottenere un valore di parametro da un file è utile quando è necessario fornire i valori di configurazione. Ad esempio, è possibile fornire i valori [cloud-init per una macchina virtuale Linux](../virtual-machines/linux/using-cloud-init.md).
+
+Se è necessario passare una matrice di oggetti, creare tabelle hash in PowerShell e aggiungerli a una matrice. Passare la matrice come parametro durante la distribuzione.
+
+```powershell
+$hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
+$hash2 = @{ Name = "secondSubnet"; AddressPrefix = "10.0.1.0/24"}
+$subnetArray = $hash1, $hash2
+New-AzResourceGroupDeployment -ResourceGroupName testgroup `
+  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -exampleArray $subnetArray
+```
+
 
 ### <a name="parameter-files"></a>File dei parametri
 

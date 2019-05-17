@@ -16,18 +16,22 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 95acda60935e82b226a1a0e860b5fa8effb8e47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e5a7bfc243fc8c797ffc66b2130756567ddc0fb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325699"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795785"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Eseguire la migrazione di un database di SQL Server a SQL Server in una macchina virtuale di Azure
 
 Esistono diversi metodi per eseguire la migrazione di un database utente di SQL Server locale a SQL Server in una macchina virtuale di Azure. Questo articolo illustra brevemente vari metodi e consiglia quello più adatto ai diversi scenari.
 
+
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+
+  > [!NOTE]
+  > SQL Server 2008 e SQL Server 2008 R2 si stanno avvicinando il [fine del loro ciclo di vita del supporto](https://www.microsoft.com/sql-server/sql-server-2008) per le istanze locali. Per estendere il supporto, è possibile eseguire la migrazione di istanza di SQL Server in una VM di Azure, o acquistare aggiornamenti della protezione estesa per mantenerli in locale. Per altre informazioni, vedere [estendere il supporto per SQL Server 2008 e 2008 R2 con Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
 
 ## <a name="what-are-the-primary-migration-methods"></a>Quali sono i metodi di migrazione principali?
 I metodi di migrazione principali sono:
@@ -96,7 +100,7 @@ Utilizzare questo metodo per eseguire la migrazione di tutti i database di siste
 ## <a name="ship-hard-drive"></a>Spedizione del disco rigido
 Usare il [metodo del servizio di importazione/esportazione di Windows](../../../storage/common/storage-import-export-service.md) per trasferire grandi quantità di dati di file sull'archivio BLOB di Azure in situazioni in cui il caricamento in rete è eccessivamente costoso o non è possibile. Con questo servizio, è possibile inviare uno o più dischi rigidi contenenti tali dati a un datacenter di Azure, dove i dati verranno caricati sull'account di archiviazione.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'esecuzione di SQL Server in Macchine virtuali di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
 > [!TIP]

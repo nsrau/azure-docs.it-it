@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61316830"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795806"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analizzatori per elaborazione del testo in Ricerca di Azure
 
@@ -40,7 +40,7 @@ Viene usato automaticamente in ogni campo ricercabile. È possibile eseguire l'o
 
 Nell'elenco seguente sono descritti gli analizzatori disponibili in Ricerca di Azure.
 
-| Categoria | DESCRIZIONE |
+| Category | Descrizione |
 |----------|-------------|
 | [Analizzatore Lucene standard](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. Non è necessaria alcun specifica o configurazione. Questo uso generale funziona correttamente per la maggior parte dei linguaggi e degli scenari.|
 | Analizzatori predefiniti | Offerto come prodotto finito, da usare così com'è. <br/>Ne esistono due tipi: specializzato e del linguaggio. Ciò che li rende "predefiniti" è il fatto di farvi riferimento in base al nome, senza alcuna configurazione né personalizzazione. <br/><br/>Gli [analizzatori specializzati (indipendenti dal linguaggio)](index-add-custom-analyzers.md#AnalyzerTable) vengono usati quando gli input di testo richiedono un'elaborazione minima o specializzata. Gli analizzatori predefiniti indipendenti dal linguaggio includono **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop** e **Whitespace**.<br/><br/>Gli [analizzatori del linguaggio](index-add-language-analyzers.md) vengono usati quando è necessario un supporto linguistico avanzato per i singoli linguaggi. Ricerca di Azure supporta 35 analizzatori di linguaggi Lucene e 50 analizzatori di elaborazione del linguaggio naturale Microsoft. |
@@ -92,10 +92,6 @@ L'override dell'analizzatore standard richiede una ricompilazione dell'indice. S
 ### <a name="inspect-tokenized-terms"></a>Controllare i termini in formato token
 
 Se la ricerca non restituisce i risultati previsti, è molto probabile che esistano discrepanze a livello di token tra i termini di input nella query e i termini in formato token nell'indice. Se il token non corrispondono, non vengono individuate corrispondenze. Per esaminare l'output del tokenizer, è consigliabile usare l'[API di analisi](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) come strumento di indagine. La risposta è costituita da token, generati da un analizzatore specifico.
-
-### <a name="compare-english-analyzers"></a>Confrontare gli analizzatori per la lingua inglese
-
-[Search Analyzer Demo](https://alice.unearth.ai/) è un'app dimostrativa di terze parti che illustra un confronto tra l'analizzatore Lucene standard, l'analizzatore di lingua inglese Lucene e il processore di lingua inglese di Microsoft. L'indice è fisso e contiene testo da una storia comune. Per ogni input di ricerca fornito vengono visualizzati i risultati di ogni analizzatore in riquadri adiacenti, in modo da poter verificare come ogni analizzatore elabora la stessa stringa. 
 
 <a name="examples"></a>
 
@@ -348,8 +344,6 @@ Creare un [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure
 + Informazioni su come applicare [analizzatori lessicali specifici della lingua](index-add-language-analyzers.md).
 
 + [Configurare gli analizzatori personalizzati](index-add-custom-analyzers.md) per un'elaborazione minima o specializzata per settori specifici.
-
-+ [Fare un confronto degli analizzatori standard e in lingua inglese](https://alice.unearth.ai/) su riquadri adiacenti in questo sito Web demo. 
 
 ## <a name="see-also"></a>Vedere anche 
 

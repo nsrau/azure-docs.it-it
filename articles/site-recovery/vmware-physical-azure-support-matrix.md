@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 8be028d11d0778c2b67788029aa400ffd3b98cb4
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872907"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540596"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -64,7 +64,7 @@ Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in
 --- | ---
 Impostazioni del computer | I computer che eseguono la replica in Azure devono soddisfare i [requisiti di Azure](#azure-vm-requirements).
 Carico di lavoro del computer | Site Recovery supporta la replica di qualsiasi carico di lavoro (ad esempio Active Directory Domain Services, SQL server, ecc.) in esecuzione in un computer supportato. [Altre informazioni](https://aka.ms/asr_workload)
-Sistema operativo Windows | Windows Server 2016 a 64 bit (Server Core, server con Esperienza desktop), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con almeno SP1. </br></br>  [Windows Server 2008 con almeno SP2 - a 32 e a 64 bit](migrate-tutorial-windows-server-2008.md) (solo per la migrazione). </br></br> Windows 2016 Nano Server non è supportato.
+Sistema operativo Windows | Windows Server 2019 (da [9.22 versioni](service-updates-how-to.md#links-to-currently-supported-update-rollups)) a 64 bit, Windows Server 2016 (Server Core, Server con esperienza Desktop), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con almeno SP1. </br> Distanza dal [9.24 versioni](https://support.microsoft.com/en-in/help/4503156)a 64 bit, Windows 10, Windows 8.1 a 64 bit, 64-bit Windows 8, Windows 7 a 64 bit (Windows 7 RTM non è supportato)</br>  [Windows Server 2008 con almeno SP2 - a 32 e a 64 bit](migrate-tutorial-windows-server-2008.md) (solo per la migrazione). </br></br> Windows 2016 Nano Server non è supportato.
 Architettura del sistema operativo Linux | Sistema solo a 64 bit è supportato. sistema a 32 bit non è supportato
 Sistema operativo Linux | Red Hat Enterprise Linux: da 5.2 a 5.11<b>\*\*</b>, da 6.1 a 6.10<b>\*\*</b>, da 7.0 a 7.6 <br/><br/>CentOS: da 5.2 a 5.11<b>\*\*</b>, da 6.1 a 6.10<b>\*\*</b>, da 7.0 a 7.6 <br/><br/>Server Ubuntu 14.04 LTS [(versioni del kernel supportate)](#ubuntu-kernel-versions)<br/><br/>Server Ubuntu 16.04 LTS [(versioni del kernel supportate)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8 [(versioni del kernel supportate)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(versioni del kernel supportate)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel Release 3, 4 e 5 (UEK5 UEK3, UEK4) <br/><br/></br>- L'aggiornamento dei computer replicati da SUSE Linux Enterprise Server 11 da SP3 a SP4 non è supportato. Per eseguire l'aggiornamento, disabilitare la replica e abilitarla nuovamente dopo l'aggiornamento.</br></br> - [Altre informazioni](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) su Linux e sulla tecnologia open source in Azure. Site Recovery orchestra il failover per l'esecuzione di server Linux in Azure. Tuttavia i fornitori di Linux potrebbero limitare il supporto solo alle versioni di distribuzione che non hanno raggiunto la fine del ciclo di vita.<br/><br/> - Nelle distribuzioni di Linux sono supportati solo i kernel di scorta che fanno parte di un aggiornamento/versione secondaria della distribuzione.<br/><br/> - L'aggiornamento di computer protetti tra versioni di distribuzione principali di Linux non è supportato. Per eseguire l'aggiornamento, disabilitare la replica, aggiornare il sistema operativo e quindi abilitare nuovamente la replica.<br/><br/> - Sui server in cui è in esecuzione Red Hat Enterprise Linux 5.2-5.11 o CentOS 5.2-5.11 devono essere installati i [componenti di Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) per consentire l'avvio dei computer in Azure.
 
@@ -157,41 +157,42 @@ Indirizzo IP riservato | Sì
 IPv4 | Sì
 Conservazione indirizzo IP di origine | Sì
 Endpoint servizio di rete virtuale di Azure<br/> | Sì
-Rete accelerata | No 
+Rete accelerata | N.
 
 ## <a name="storage"></a>Archiviazione
 **Componente** | **Supportato**
 --- | ---
 Disco dinamico | Il disco del sistema operativo deve essere un disco di base <br/><br/>I dischi dati possono essere dinamici
-Configurazione dei dischi Docker | No 
+Configurazione dei dischi Docker | N.
 NFS host | Sì per VMware<br/><br/> No per server fisici
 Host SAN (iSCSI/FC) | Sì
 Host vSAN | Sì per VMware<br/><br/> N/D per server fisici
 Percorsi multipli (MPIO) | Sì, testato con DSM Microsoft, EMC PowerPath 5.7 SP4, DSM EMC PowerPath per CLARiiON
 Volumi virtuali host | Sì per VMware<br/><br/> N/D per server fisici
 VMDK guest/server | Sì
-Disco cluster condiviso guest/server | No 
-Disco crittografato guest/server | No 
-NFS guest/server | No 
-SMB 3.0 guest/server | No 
+Disco cluster condiviso guest/server | N.
+Disco crittografato guest/server | N.
+NFS guest/server | N.
+Guest/server iSCSI | N.
+SMB 3.0 guest/server | N.
 RDM guest/server | Sì<br/><br/> N/D per server fisici
 Disco guest/server > 1 TB | Sì<br/><br/>Fino a 4.095 GB<br/><br/> Le dimensioni del disco non devono superare i 1024 MB.
 Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | Sì
 Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 KB | Sì
 Volume con disco con striping > 4 TB guest/server <br/><br/>Gestione volumi logici (LVM)| Sì
-Guest/server - Spazi di archiviazione | No 
-Disco di aggiunta/rimozione a caldo guest/server | No 
+Guest/server - Spazi di archiviazione | N.
+Disco di aggiunta/rimozione a caldo guest/server | N.
 Guest/server - esclusione disco | Sì
-Percorsi multipli (MPIO) guest/server | No 
+Percorsi multipli (MPIO) guest/server | N.
 Avvio EFI/UEFI guest/server | Durante la migrazione di macchine virtuali VMware o server fisici che eseguono Windows Server 2012 o versioni successive per Azure è supportato.<br/><br/> È possibile replicare le macchine virtuali solo per la migrazione. Non è supportato il failback in locale.<br/><br/> Il server non deve avere più di quattro partizioni nel disco del sistema operativo.<br/><br/> Richiede il servizio Mobility versione 9.13 o successiva.<br/><br/> È supportato solo NTFS.
 
 ## <a name="replication-channels"></a>Canali di replica
 
 |**Tipo di replica**   |**Supportato**  |
 |---------|---------|
-|Trasferimenti ODX (ODX)    |       No   |
-|Seeding offline        |   No       |
-| Azure Data Box | No 
+|Trasferimenti ODX (ODX)    |       N.  |
+|Seeding offline        |   N.      |
+| Azure Data Box | N.
 
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
@@ -201,21 +202,21 @@ Avvio EFI/UEFI guest/server | Durante la migrazione di macchine virtuali VMware 
 Archiviazione con ridondanza locale | Sì
 Archiviazione con ridondanza geografica | Sì
 Archiviazione con ridondanza geografica e accesso in lettura | Sì
-Archiviazione ad accesso sporadico | No 
-Archiviazione ad accesso frequente| No 
-BLOB in blocchi | No 
+Archiviazione ad accesso sporadico | N.
+Archiviazione ad accesso frequente| N.
+BLOB in blocchi | N.
 Crittografia per dati inattivi (servizio di archiviazione di Azure)| Sì
 Archiviazione Premium | Sì
-Servizio di importazione/esportazione | No 
+Servizio di importazione/esportazione | N.
 Firewall di Archiviazione di Azure per reti virtuali configurate in un account di archiviazione di destinazione/archiviazione della cache (usato per l'archiviazione dei dati di replica) | Sì
-Account di archiviazione v2 generico (livelli di accesso frequente e sporadico) | No 
+Account di archiviazione v2 generico (livelli di accesso frequente e sporadico) | N.
 
 ## <a name="azure-compute"></a>Calcolo di Azure
 
 **Funzionalità** | **Supportato**
 --- | ---
 Set di disponibilità | Sì
-Zone di disponibilità | No 
+Zone di disponibilità | N.
 HUB | Sì
 Dischi gestiti | Sì
 
@@ -262,8 +263,8 @@ Si tratta di numeri medi presupponendo una sovrapposizione I/O del 30%. Site Rec
 
 **Azione** | **Supportato**
 --- | ---
-Spostamento insieme di credenziali tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No 
-Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No 
+Spostamento insieme di credenziali tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | N.
+Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | N.
 
 
 ## <a name="download-latest-azure-site-recovery-components"></a>Scaricare i componenti più recenti di Azure Site Recovery

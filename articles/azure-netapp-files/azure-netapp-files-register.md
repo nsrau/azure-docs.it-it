@@ -1,6 +1,6 @@
 ---
 title: Effettuare la registrazione per Azure NetApp Files | Microsoft Docs
-description: Viene descritto come inviare una richiesta di registrazione nel servizio Azure NetApp Files.
+description: Descrive come registrarsi per l'uso di file di Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,25 +12,39 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/04/2018
+ms.date: 05/06/2019
 ms.author: b-juche
-ms.openlocfilehash: 86c016a5dbcc0d78378e59bc6b3606ddf2c54f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbe0b82008d7b15332c4e2cd62c49c611f20fe89
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452774"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794707"
 ---
 # <a name="register-for-azure-netapp-files"></a>Effettuare la registrazione per Azure NetApp Files
-Prima di usare Azure NetApp Files, è necessario inviare una richiesta di registrazione nel servizio Azure NetApp Files.  Dopo la registrazione, ci si registra per usare il servizio.
 
-## <a name="request-to-enroll-in-the-service"></a>Richiesta di registrazione nel servizio
-È necessario far parte del programma di anteprima pubblica ed essere nell'elenco degli elementi consentiti per l'accesso al provider di risorse Microsoft.NetApp di Azure. Per informazioni dettagliate sulla partecipazione al programma di anteprima pubblica, vedere la [pagina di iscrizione all'anteprima pubblica di Azure NetApp Files](https://aka.ms/nfspublicpreview). 
+> [!IMPORTANT] 
+> Prima di registrare il provider di risorse di Azure i file di NetApp, deve aver ricevuto un messaggio di posta elettronica dal team di file di Azure NetApp per confermare che è stato concesso l'accesso al servizio. 
 
+In questo articolo, informazioni su come registrarsi per file di Azure NetApp, in modo da poter iniziare a usare il servizio.
 
-## <a name="register-the-netapp-resource-provider"></a>Effettuare la registrazione del provider di risorse NetApp
+## <a name="waitlist"></a>Inviare una richiesta di una lista d'attesa per l'accesso al servizio
 
-Per usare il servizio, è necessario registrare il provider di risorse di Azure per Azure NetApp Files. 
+1. Inviare una richiesta di una lista d'attesa per l'accesso al servizio Azure NetApp file tramite il [pagina di invio di file di Azure NetApp una lista d'attesa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
+
+    L'iscrizione a una lista d'attesa non garantisce l'accesso al servizio di controllo immediato. 
+
+2. Attendere un messaggio di conferma ufficiale del team di file di Azure NetApp prima di continuare con altre attività. 
+
+## <a name="resource-provider"></a>Registrare il Provider di risorse di NetApp
+
+Per usare il servizio, è necessario registrare il provider di risorse di Azure per Azure NetApp Files.
+
+> [!NOTE] 
+> Sarà in grado di registrare correttamente il Provider di risorse NetApp anche senza viene concesso l'accesso per il servizio. Tuttavia, senza l'autorizzazione di accesso, qualsiasi richiesta di API per creare un account di NetApp o qualsiasi altra risorsa Azure NetApp file o il portale di Azure verrà rifiutato con l'errore seguente:  
+>
+> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
+
 
 1. Dal portale di Azure, fare clic sull'icona di Azure Cloud Shell nell'angolo superiore destro:
 
@@ -50,6 +64,8 @@ Per usare il servizio, è necessario registrare il provider di risorse di Azure 
        "name": "Microsoft.NetApp/publicPreviewADC" 
        
    `<SubID>` è l'ID di sottoscrizione personale.
+
+    Se non è possibile visualizzare il nome della funzionalità `Microsoft.NetApp/publicPreviewADC`, non si ha accesso al servizio. Arrestare in questo passaggio. Seguire le istruzioni [inviare una richiesta di una lista d'attesa per l'accesso al servizio](#waitlist) richiesta di accesso al servizio prima di continuare. 
 
 4. Nella console di Azure Cloud Shell, immettere il comando seguente per registrare il provider di risorse di Azure: 
     
@@ -78,6 +94,6 @@ Per usare il servizio, è necessario registrare il provider di risorse di Azure 
       ![Microsoft.NetApp registrato](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 
 
-## <a name="next-steps"></a>Passaggi successivi  
+## <a name="next-steps"></a>Passaggi successivi
 
 [Creare un account di NetApp](azure-netapp-files-create-netapp-account.md)

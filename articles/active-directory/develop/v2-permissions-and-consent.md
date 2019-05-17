@@ -3,8 +3,8 @@ title: Microsoft identity piattaforma ambiti, autorizzazioni e consenso | Micros
 description: Descrizione dell'autorizzazione nell'endpoint di piattaforma di identità Microsoft, inclusi gli ambiti, autorizzazioni e consenso dell'utente.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87103b1052b5d9168928193eacc78a935e68067f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112078"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544876"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Le autorizzazioni e consenso nell'endpoint di Microsoft identity platform
 
@@ -49,7 +49,7 @@ Lo stesso vale per le risorse di terze parti integrate con Microsoft Identity Pl
 
 * Lettura del calendario dell'utente
 * Scrittura nel calendario dell'utente
-* Invio di messaggi di posta elettronica come utente
+* Invia messaggi come un utente
 
 Con la definizione di questi tipi di autorizzazioni, la risorsa può avere un controllo accurato dei dati e dell'esposizione delle funzionalità API. Un'app di terze parti può richiedere queste autorizzazioni da utenti e amministratori, che devono approvare la richiesta prima che l'app possa accedere ai dati o agire per conto di un utente. Suddividendo le funzionalità della risorsa in set di autorizzazioni più piccoli, è possibile creare le app di terze parti affinché richiedano solo le autorizzazioni specifiche necessarie per il relativo funzionamento. Utenti e amministratori possono sapere esattamente quali dati dell'app può accedere a, e possono essere più sicuri che non agisca per fini dannosi. Gli sviluppatori devono sempre rispettare il concetto di privilegio minimo, richiedendo solo le autorizzazioni necessarie per il funzionamento delle loro applicazioni.
 
@@ -85,11 +85,11 @@ L'implementazione di piattaforma Microsoft identity di OpenID Connect presenta a
 
 Se un'app esegue l'accesso usando [OpenID Connect](active-directory-v2-protocols.md), deve richiedere l'ambito `openid`. L'ambito `openid` viene visualizzato nella pagina di consenso dell'account aziendale come autorizzazione di accesso e nella pagina di consenso dell'account personale Microsoft come autorizzazione per la visualizzazione del profilo e la connessione ad app e servizi tramite l'account Microsoft. Questa autorizzazione consente a un'app di ricevere un identificatore univoco per l'utente sotto forma di attestazione `sub` e concede all'app l'accesso all'endpoint delle informazioni utente. Il `openid` ambito è utilizzabile in corrispondenza dell'endpoint di token di Microsoft identity platform per acquisire token ID, che può essere usato dall'app per l'autenticazione.
 
-### <a name="email"></a>email
+### <a name="email"></a>posta elettronica
 
 L'ambito `email` può essere usato con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere all'indirizzo di posta elettronica primario dell'utente sotto forma di attestazione `email`. Il `email` attestazione è inclusa nei token solo se un indirizzo di posta elettronica è associato l'account utente, che non sempre avveniva. Se si usa l'ambito `email`, l'applicazione deve essere pronta per gestire il caso in cui l'attestazione `email` non esiste nel token.
 
-### <a name="profile"></a>Profilo
+### <a name="profile"></a>profilo
 
 L'ambito `profile` può essere usato con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere a numerose informazioni sull'utente, Includono le informazioni che può accedere, ma non sono limitate al nome specificato dell'utente, cognome, nome utente preferito e ID di oggetto. Per un elenco completo delle attestazioni profilo disponibili nel parametro id_tokens per un determinato utente, vedere le [informazioni di riferimento su `id_tokens`](id-tokens.md).
 
@@ -197,7 +197,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parametro | Condizione | DESCRIZIONE |
+| Parametro | Condizione | Descrizione |
 | --- | --- | --- |
 | `tenant` | Obbligatorio | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato di GUID o nome descrittivo OPPURE con il riferimento generico `common` come illustrato nell'esempio. |
 | `client_id` | Obbligatorio | Il **ID applicazione (client)** che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) esperienza assegnato all'app. |
@@ -206,7 +206,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 A questo punto, Azure AD richiede che solo un amministratore tenant possa accedere per completare la richiesta. L'amministratore deve approvare tutte le autorizzazioni richieste per l'app nel portale di registrazione delle applicazioni.
 
-#### <a name="successful-response"></a>Risposta con esito positivo
+#### <a name="successful-response"></a>Risposta riuscita
 
 Se l'amministratore approva le autorizzazioni per l'app, la risposta con esito positivo si presenta come segue:
 
@@ -214,7 +214,7 @@ Se l'amministratore approva le autorizzazioni per l'app, la risposta con esito p
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | `tenant` | Tenant della directory che ha concesso all'applicazione le autorizzazioni richieste, in formato GUID. |
 | `state` | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
@@ -228,7 +228,7 @@ Se l'amministratore non approva le autorizzazioni per l'app, la risposta di erro
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | `error` | Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | `error_description` | Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore. |

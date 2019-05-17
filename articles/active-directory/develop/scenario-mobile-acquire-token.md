@@ -1,6 +1,6 @@
 ---
-title: App per dispositivi mobili che chiama l'API - acquisire un token per l'app web | Piattaforma delle identità Microsoft
-description: Informazioni su come compilare un'app per dispositivi mobili che chiama web API (acquisire un token per l'app)
+title: App per dispositivi mobili che chiama l'API - ottenere un token per l'app web | Piattaforma delle identità Microsoft
+description: Informazioni su come compilare un'app per dispositivi mobili che chiama web API (ottenere un token per l'app)
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -15,43 +15,43 @@ ms.date: 05/07/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6933bfbbff574495655ef9065a786fa313b02bd6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 88c9215ed221e24099eeb219a4db599a1955920a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075176"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550334"
 ---
-# <a name="mobile-app-that-calls-web-apis---acquire-a-token"></a>App per dispositivi mobili che chiama le API - web acquisire un token
+# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>App per dispositivi mobili che chiama le API - web ottenere un token
 
-Prima di iniziare la chiamata protetta API, l'app web sarà necessario un token di accesso. In questa sezione illustra il processo per ottenere un token tramite Microsoft Authentication Library (MSAL).
+Prima di iniziare la chiamata protetta API, l'app web sarà necessario un token di accesso. Questo articolo illustra il processo per ottenere un token con Microsoft Authentication Library (MSAL).
 
 ## <a name="scopes-to-request"></a>Ambiti per richiedere
 
-Quando si richiede i token, è sempre richiesto un ambito. L'ambito determina i dati che l'app possa accedere.  
+Quando si richiede un token, è necessario definire un ambito. L'ambito determina i dati che l'app possa accedere.  
 
-L'approccio più semplice consiste nel combinare dell'API web desiderata `App ID URI` con l'ambito `.default`. In questo modo che l'app richiede tutti gli ambiti impostati nel portale di gestione delle identità Microsoft.
+L'approccio più semplice consiste nel combinare dell'API web desiderata `App ID URI` con l'ambito `.default`. In questo modo, indica a piattaforma delle identità Microsoft che l'app richiede che tutti gli ambiti impostato nel portale.
 
-Android
+#### <a name="android"></a>Android
 ```Java
 String[] SCOPES = {"https://graph.microsoft.com/.default"};
 ```
 
-iOS
+#### <a name="ios"></a>iOS
 ```swift
 let scopes: [String] = ["https://graph.microsoft.com/.default"]
 ```
 
-Xamarin
+#### <a name="xamarin"></a>Xamarin
 ```CSharp 
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
-## <a name="acquiring-tokens"></a>L'acquisizione dei token
+## <a name="get-tokens"></a>Ottenere i token
 
-### <a name="via-msal"></a>via MSAL
+### <a name="via-msal"></a>Via MSAL
 
-MSAL consente alle app di acquisire i token in modo invisibile all'utente e in modo interattivo. Semplicemente chiamare questi metodi e MSAL restituisce un token di accesso per gli ambiti richiesti. Il modello corretto prevede di eseguire una richiesta invisibile all'utente e il fallback per una richiesta interattiva.
+MSAL consente alle app di acquisire i token in modo invisibile all'utente e in modo interattivo. Semplicemente chiamare questi metodi e MSAL restituisce un token di accesso per gli ambiti richiesti. Il modello corretto prevede di eseguire una richiesta invisibile all'utente e di eseguire il fallback per una richiesta interattiva.
 
 #### <a name="android"></a>Android
 
@@ -61,32 +61,32 @@ PublicClientApplication sampleApp = new PublicClientApplication(
                     this.getApplicationContext(),
                     R.raw.auth_config);
 
-// Check if there are any accounts we can sign in silently
-// Result is in our silent callback (success or error)
+// Check if there are any accounts we can sign in silently.
+// Result is in the silent callback (success or error).
 sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
     @Override
     public void onAccountsLoaded(final List<IAccount> accounts) {
 
         if (accounts.isEmpty() && accounts.size() == 1) {
-            // TODO: Create a silent callback to catch successful or failed request
+            // TODO: Create a silent callback to catch successful or failed request.
             sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
         } else {
-            /* No accounts or >1 account */
+            /* No accounts or > 1 account. */
         }
     }
 });    
 
 [...]
 
-// No accounts found, interactively request a token 
-// TODO: Create an interactive callback to catch successful or failed request
+// No accounts found. Interactively request a token.
+// TODO: Create an interactive callback to catch successful or failed request.
 sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());        
 ```
 
 #### <a name="ios"></a>iOS
 
 ```swift
-// Initialize our app 
+// Initialize the app.
 guard let authorityURL = URL(string: kAuthority) else {
     self.loggingText.text = "Unable to create authority URL"
     return
@@ -95,14 +95,14 @@ let authority = try MSALAADAuthority(url: authorityURL)
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 
-// Get tokens
+// Get tokens.
 let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
 applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
     if let error = error {
         let nsError = error as NSError
 
-        // interactionRequired means we need to ask the user to sign-in. This usually happens
-        // when the user's Refresh Token is expired or if the user has changed their password
+        // interactionRequired means you need to ask the user to sign in. This usually happens
+        // when the user's refresh token is expired or when the user has changed the password,
         // among other possible reasons.
         if (nsError.domain == MSALErrorDomain) {
             if (nsError.code == MSALError.interactionRequired.rawValue) {    
@@ -136,7 +136,7 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
         return
     }
 
-    // Token is ready via silent acquisition 
+    // Token is ready via silent acquisition.
     self.accessToken = result.accessToken
 }
 ```
@@ -160,13 +160,13 @@ catch(MsalUiRequiredException e)
 }
 ```
 
-### <a name="via-protocol"></a>Protocollo via
+### <a name="via-the-protocol"></a>Tramite il protocollo SMB
 
-Si consiglia di non passare direttamente a fronte del protocollo. L'app non sarà in grado di molti scenari single sign-on (SSO) e non sarà in grado di supportare tutte le gestione dei dispositivi e scenari di accesso condizionale.
+Non è consigliabile l'uso diretto del protocollo. Se esegue l'operazione, l'app non supporterà alcuni single sign-on (SSO), la gestione dei dispositivi e scenari di accesso condizionale.
 
-Quando si recupera i token per le App per dispositivi mobili usando il protocollo, è necessario effettuare 2 richieste: ottenere un codice di autorizzazione e scambiarlo con un token. 
+Quando si usa il protocollo per ottenere i token per le App per dispositivi mobili, è necessario effettuare due richieste: ottenere un codice di autorizzazione e scambiarlo con un token.
 
-#### <a name="getting-authorization-code"></a>Ottenere codice di autorizzazione
+#### <a name="get-authorization-code"></a>Ottieni codice di autorizzazione
 
 ```Text
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -178,7 +178,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### <a name="getting-access-and-refresh-token"></a>Ottenere token di accesso e l'aggiornamento
+#### <a name="get-access-and-refresh-token"></a>Ottenere il token di accesso e aggiornamento
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1

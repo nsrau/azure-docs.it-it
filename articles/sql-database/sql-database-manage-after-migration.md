@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703315"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791492"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione dei database singoli e in pool nel database SQL di Azure
 
@@ -47,7 +47,7 @@ Non vengono creati backup nel database SQL di Azure, semplicemente perché non s
 
 |Livello di servizio|Periodo di conservazione in giorni|
 |---|:---:|
-|Basic|7|
+|Di base|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -127,7 +127,7 @@ Un'altra opzione consiste nell'effettuare il provisioning degli [indirizzi IP ri
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>Con quale porta è possibile connettersi al database SQL
 
-La porta 1433. Il database SQL comunica attraverso questa porta. Per connettersi da una rete aziendale, è necessario aggiungere una regola in uscita nelle impostazioni del firewall dell'organizzazione. Come indicazione generale, evitare di esporre la porta 1433 all'esterno dei limiti di Azure. È possibile eseguire SSMS in Azure con [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps). Non è necessario aprire le connessioni in uscita alla porta 1433, l'indirizzo IP è statico e pertanto il database può essere aperto solo per RemoteApp e supporta l'autenticazione a più fattori.
+La porta 1433. Il database SQL comunica attraverso questa porta. Per connettersi da una rete aziendale, è necessario aggiungere una regola in uscita nelle impostazioni del firewall dell'organizzazione. Come indicazione generale, evitare di esporre la porta 1433 all'esterno dei limiti di Azure.
 
 ### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>Come è possibile monitorare e regolare l'attività nel server e nel database SQL
 
@@ -135,7 +135,7 @@ La porta 1433. Il database SQL comunica attraverso questa porta. Per connettersi
 
 Con il database SQL è possibile attivare il controllo per rilevare gli eventi di database. Il servizio di [controllo del database SQL](sql-database-auditing.md) registra gli eventi che si verificano nel database e li registra in un file di log di controllo nell'account di Archiviazione di Azure dell'utente. Il controllo è particolarmente utile se si intende ottenere informazioni su potenziali violazioni in termini di sicurezza e criteri, mantenere la conformità ai requisiti normativi e così via. Consente di definire e configurare determinate categorie di eventi che si ritiene necessitino di controllo e, sulla base di ciò, è possibile ottenere report preconfigurati e un dashboard per avere una panoramica degli eventi che si verificano nel database. È possibile applicare questi criteri di controllo a livello di database o server. Per una guida su come attivare il controllo per il server/database, vedere: [Abilitare il controllo del database SQL](sql-database-security-tutorial.md#enable-security-features).
 
-#### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce
+#### <a name="threat-detection"></a>Rilevamento delle minacce
 
 Con il [rilevamento delle minacce](sql-database-threat-detection.md) è possibile intervenire in modo molto semplice sulle violazioni in termini di sicurezza o criteri individuate con il controllo. Non è necessario essere esperti di sicurezza per risolvere potenziali minacce o violazioni nel sistema. Il rilevamento delle minacce include anche alcune funzionalità incorporate come il rilevamento di attacchi SQL injection. Un attacco SQL injection è un tentativo di modificare o compromettere i dati e un modo molto comune per attaccare in genere un'applicazione di database. Il rilevamento delle minacce esegue vari set di algoritmi che rilevano potenziali vulnerabilità e attacchi SQL injection, nonché modelli anomali di accesso al database (ad esempio, accesso da una posizione insolita o da un'entità di sicurezza sconosciuta). I responsabili della sicurezza o altri amministratori designati ricevono una notifica e-mail se viene rilevata una minaccia nel database. Ogni notifica contiene dettagli sull'attività sospetta e consigli su come eseguire altre indagini e mitigare la minaccia. Per informazioni su come attivare il rilevamento delle minacce, vedere: [Enable threat detection](sql-database-security-tutorial.md#enable-security-features) (Abilitare il rilevamento delle minacce).
 
@@ -152,7 +152,7 @@ Per proteggere i dati sensibili in elaborazione e inattivi, il database SQL incl
 |**Caratteristiche**|**Always Encrypted**|**Transparent Data Encryption**|
 |---|---|---|
 |**Intervallo di crittografia**|End-to-end|Dati inattivi|
-|**Il server di database può accedere ai dati sensibili**|No |Sì, poiché la crittografia è per i dati inattivi|
+|**Il server di database può accedere ai dati sensibili**|N.|Sì, poiché la crittografia è per i dati inattivi|
 |**Operazioni T-SQL consentite**|Confronto delle uguaglianze|L'intera superficie di attacco T-SQL è disponibile|
 |**Modifiche all'app richieste per usare la funzionalità**|Minime|Estremamente minime|
 |**Granularità di crittografia**|A livello di colonna|A livello di database|

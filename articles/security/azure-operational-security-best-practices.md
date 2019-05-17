@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4a4677b5db730001df75d201d8e6d3149cb928e6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 0418d325f3b3719549181a48fc0432a677f695d5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409837"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795896"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedure consigliate per la sicurezza operativa di Azure
 Questo articolo fornisce un set di procedure operative ottimali per la protezione dei dati, applicazioni e gli altri asset di Azure.
@@ -153,7 +153,7 @@ Usare le seguenti procedure consigliate di DevOps per assicurarsi che i team e l
 **Dettagli**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) è una soluzione per automatizzare la distribuzione in più fasi e la gestione del processo di rilascio. È possibile creare pipeline gestite di distribuzione continua per rilasciare versioni in modo rapido, semplice e frequente. Con Azure Pipelines è possibile automatizzare il processo di rilascio e definire flussi di lavoro predefiniti per l'approvazione. Sono supportate la distribuzione locale e nel cloud, l'estensione e la personalizzazione in base alle specifiche esigenze.
 
 **Procedura consigliata**: verificare le prestazioni dell'app prima di avviarla o distribuire aggiornamenti nell'ambiente di produzione.  
-**Dettagli**: Esecuzione basata sul cloud [test di carico](https://docs.microsoft.com/azure/devops/test/load-test/overview.md?view=azure-devops#alternatives) per:
+**Dettagli**: Esecuzione basata sul cloud [test di carico](/azure/devops/test/load-test/overview#alternatives) per:
 
 - Individuare problemi di prestazioni nell'app.
 - Migliorare la qualità della distribuzione.

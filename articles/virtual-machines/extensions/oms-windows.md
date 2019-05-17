@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 270b3ae49a815c9e12fce9377c8298192237f28a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142870"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790379"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Estensione della macchina virtuale di Azure Monitor per Windows
 
@@ -36,6 +36,19 @@ L'estensione agente di Log Analitica per Windows supporta seguenti versioni del 
 
 - Windows Server 2019
 - Windows Server 2008 R2, 2012, 2012 R2, 2016, versione 1709 e 1803
+
+### <a name="agent-and-vm-extension-version"></a>Versione dell'estensione della macchina virtuale e dell'agente
+Nella tabella seguente fornisce un mapping della versione dell'estensione macchina virtuale di monitoraggio di Azure e bundle di agente di Log Analitica per ogni versione. 
+
+| Versione dell'estensione macchina virtuale Linux di monitoraggio Azure | Versione bundle agenti Log Analytics | Data di rilascio | Note sulla versione |
+|--------------------------------|--------------------------|--------------------------|--------------------------|
+| 8.0.11049.0 | 1.0.11049.1 | Febbraio 2017 | |
+| 8.0.11072.0 | 1.0.11072.1 | Settembre 2017 | |
+| 8.0.11081.0 | 1.0.11081.5 | Nov 2017 | | 
+| 8.0.11103.0 | n/d |  Aprile 2018 | |
+| 8.0.11136.0 | n/d | Settembre 2018 |  <ul><li> Aggiunta del supporto per il rilevamento di modifica dell'ID di risorsa su Sposta macchina virtuale </li><li> Aggiunta del supporto per installare ID quando si usa l'estensione di risorsa di creazione report </li></ul>| 
+| 10.19.10006.0 | n/d | Dicembre 2018 | <ul><li> Correzioni minori della stabilizzazione </li></ul> | 
+| 10.19.13515.0 | 1.0.13515.1 | Marzo 2019 | <ul><li>Correzioni minori della stabilizzazione </li></ul> |
 
 ### <a name="azure-security-center"></a>Centro sicurezza di Azure
 

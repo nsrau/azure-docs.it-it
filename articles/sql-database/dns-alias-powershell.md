@@ -11,21 +11,19 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi,amagarwa,maboja, jrasnick
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 17b712afff293dba8c353767fc326761bcb53ba3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 05/14/2019
+ms.openlocfilehash: 4318e6557dc72dff7200beb8783575131659b77f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860738"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797695"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell per l'alias DNS per il database SQL di Azure
 
 Questo articolo fornisce uno script di PowerShell che illustra come gestire un alias DNS per il database SQL di Azure. Lo script esegue i cmdlet seguenti che svolgono le operazioni indicate:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
 
 I cmdlet usati nell'esempio di codice sono i seguenti:
 

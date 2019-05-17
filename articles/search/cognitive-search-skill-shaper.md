@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5267f81c9886e2d1d8d62c134156aedb3b2b8763
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023699"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540837"
 ---
 #   <a name="shaper-cognitive-skill"></a>Competenza cognitiva Shaper
 
@@ -29,7 +29,7 @@ La versione dell'API determina la profondità di data shaping è possibile otten
 | Versione 2019-05-06-preview dell'API REST (.NET SDK non è supportato) | Gli oggetti complessi, più livelli di profondità, in uno **Shaper** definizione competenze. |
 | 2019-05-06 * * (disponibile a livello generale), 2017-11-11-Preview| Oggetti complessi, un livello di profondità. Una forma a più livelli richiede diversi passaggi shaper il concatenamento.|
 
-L'anteprima **Shaper** competenza, illustrato [scenario 3](#nested-complex-types), aggiunge un nuovo facoltativo *sourceContext* proprietà all'input. Il *origine* e *sourceContext* proprietà si escludono a vicenda. Se l'input è in corrispondenza del contesto della competenza, usare semplicemente *origine*. Se l'input è in un *differente* contesto rispetto al contesto di competenza, utilizzare il *sourceContext*. Il *sourceContext* è necessario definire un input annidato con l'elemento specifico indirizzata come origine. 
+Così come fornito da `api-version=2019-05-06-Preview`, il **Shaper** competenza illustrato [scenario 3](#nested-complex-types) aggiunge un nuovo facoltativo *sourceContext* proprietà all'input. Il *origine* e *sourceContext* proprietà si escludono a vicenda. Se l'input è in corrispondenza del contesto della competenza, usare semplicemente *origine*. Se l'input è in un *differente* contesto rispetto al contesto di competenza, utilizzare il *sourceContext*. Il *sourceContext* è necessario definire un input annidato con l'elemento specifico indirizzata come origine. 
 
 Nella risposta, per tutte le versioni API, il nome di output è sempre "output". Internamente, la pipeline può eseguire il mapping di un nome diverso, ad esempio "analyzedText" come illustrato negli esempi seguenti, ma il **Shaper** competenza stesso restituisce "output" nella risposta. Questo potrebbe essere importante se si esegue il debug di documenti approfonditi e si nota la discrepanza nella denominazione oppure se si compila una competenza personalizzata e si esegue la struttura della risposta manualmente.
 
@@ -196,7 +196,7 @@ In questo caso, il **Shaper** rende flat tutti i titoli capitolo per creare una 
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scenario 3: il consolidamento di input da contesti annidati
 
 > [!NOTE]
-> Annidati strutture supportate nella versione api-version = 2019-05-06-Preview può essere usato in un [store knowledge](knowledge-store-concept-intro.md) o in un indice di ricerca di Azure.
+> Annidata è supportate in strutture di [API REST versione 2019-05-06-Preview](search-api-preview.md) può essere usato in un [store knowledge](knowledge-store-concept-intro.md) o in un indice di ricerca di Azure.
 
 Si supponga hanno il titolo, capitoli e contenuto di un libro e sono state eseguite le frasi chiave e riconoscimento di entità sul contenuto, è possibile per aggregare i risultati di competenze diverse in una singola forma con il nome capitolo, entità e le frasi chiave.
 
@@ -265,4 +265,4 @@ In questo caso, il **Shaper** crea un tipo complesso. Questa struttura è presen
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Come usare i tipi complessi](search-howto-complex-data-types.md)
 + [Panoramica di archivio della Knowledge Base](knowledge-store-concept-intro.md)
-+ [Come iniziare a usare Store della Knowledge Base](knowledge-store-howto.md)
++ [Come iniziare a usare archivio della Knowledge Base](knowledge-store-howto.md)

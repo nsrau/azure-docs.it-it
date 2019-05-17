@@ -11,18 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 87620cb0c7aafb78b2c8fe610f42ad092313d305
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c025a4c6e2a5a06e12e25ce226a327b099b95306
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153473"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550971"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventi live e output live
 
-Servizi multimediali di Azure consente di offrire eventi live per i clienti nel cloud di Azure. Per configurare gli eventi di streaming live in servizi multimediali v3, è necessario comprendere i concetti illustrati in questo articolo. <br/>L'elenco delle sezioni è disponibile a destra della pagina.
+Servizi multimediali di Azure consente di offrire eventi live per i clienti nel cloud di Azure. Per configurare gli eventi di streaming live in servizi multimediali v3, è necessario comprendere i concetti illustrati in questo articolo.
+
+> [!TIP]
+> Per i clienti di eseguire la migrazione dalle API di servizi multimediali v2, il **evento Live** entità sostituisce **canale** v2 e **Output Live** sostituisce **programma**.
+
 
 ## <a name="live-events"></a>Eventi live
 
@@ -144,7 +148,7 @@ Se l'**asset** dell'**output live** è stato pubblicato usando un **localizzator
 
 Per altre informazioni, vedere [Uso di un DVR cloud](live-event-cloud-dvr.md).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire commenti e suggerimenti, ottenere gli aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

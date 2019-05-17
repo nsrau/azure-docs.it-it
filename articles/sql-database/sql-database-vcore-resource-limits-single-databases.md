@@ -7,19 +7,19 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507846"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790393"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo
+# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limiti delle risorse per database singoli con il modello di acquisto basato su vCore
 
 Questo articolo illustra in modo dettagliato i limiti delle risorse per i database singoli del database SQL di Azure usando il modello di acquisto basato su vCore.
 
@@ -129,7 +129,7 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 
 ### <a name="serverless-compute-tier"></a>Livello di elaborazione serverless
 
-Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile in anteprima pubblica ed è solo per database singoli con l'acquisto di vCore del modello.
+Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile in anteprima ed è solo per database singoli con l'acquisto di vCore del modello.
 
 #### <a name="generation-5-compute-platform"></a>Piattaforma di calcolo Generazione 5
 

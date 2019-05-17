@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
-ms.openlocfilehash: 1006cc902cf4b6f763d86165a039a1fec5dc97a1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467075"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796265"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introdurre implementazione di integrazione dell'integrità a Azure Deployment Manager (anteprima pubblica)
 
@@ -24,7 +24,7 @@ ms.locfileid: "65467075"
 
 ## <a name="health-monitoring-providers"></a>I provider di monitoraggio dell'integrità
 
-Per rendere più semplice possibile l'integrazione dell'integrità, Microsoft ha lavorato con alcune delle aziende per fornire una soluzione semplice copia/incolla per integrare controlli di integrità delle distribuzioni di monitoraggio dell'integrità di servizio superiore. Se un monitoraggio di integrità non è già in uso, questi rappresentano un'ottima soluzione per iniziare:
+Per rendere il più semplice possibile l'integrazione dell'integrità, Microsoft collabora con alcune delle principali società di monitoraggio dell'integrità dei servizi per fornire una semplice soluzione copia/incolla per integrare i controlli integrità con le distribuzioni. Se un monitoraggio di integrità non è già in uso, questi rappresentano un'ottima soluzione per iniziare:
 
 | ![distribuzione di Azure manager health monitor provider datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![distribuzione di Azure manager health monitor provider site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![distribuzione di Azure manager health monitor provider wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
 |-----|------|------|
@@ -32,7 +32,7 @@ Per rendere più semplice possibile l'integrazione dell'integrità, Microsoft ha
 
 ## <a name="how-service-health-is-determined"></a>La modalità di determinazione dell'integrità del servizio
 
-[I provider di monitoraggio dell'integrità](#health-monitoring-providers) offre diversi meccanismi per servizi di monitoraggio e avviso eventuali problemi di integrità del servizio. [Monitoraggio di Azure](/services/monitor/) è riportato un esempio di un'offerta di questo tipo. Monitoraggio di Azure è utilizzabile per creare avvisi quando vengono superate determinate soglie. Ad esempio, l'utilizzo di CPU e memoria picchi oltre ai livelli previsto quando si distribuisce un nuovo aggiornamento del servizio. Quando si riceve una notifica, si possono intraprendere azioni correttive.
+[I provider di monitoraggio dell'integrità](#health-monitoring-providers) offre diversi meccanismi per servizi di monitoraggio e avviso eventuali problemi di integrità del servizio. [Monitoraggio di Azure](../azure-monitor/overview.md) è riportato un esempio di un'offerta di questo tipo. Monitoraggio di Azure è utilizzabile per creare avvisi quando vengono superate determinate soglie. Ad esempio, l'utilizzo di CPU e memoria picchi oltre ai livelli previsto quando si distribuisce un nuovo aggiornamento del servizio. Quando si riceve una notifica, si possono intraprendere azioni correttive.
 
 Questi provider di integrità offrono in genere le API REST in modo che lo stato dei monitoraggi del servizio può essere esaminato a livello di codice. Le API REST possono provenire nuovamente con un semplice segnale integri o non integri (determinata dal codice di risposta HTTP) e/o le informazioni dettagliate sui segnali di ricezione.
 

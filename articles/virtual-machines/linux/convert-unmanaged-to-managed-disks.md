@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d1783890ba1b304ab658e827bfd24091e208fda4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7c1167a6170cdc0b897c57a51c417a9312b6f41a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699260"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794145"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertire una macchina virtuale Linux da dischi non gestiti a dischi gestiti
 
@@ -98,5 +98,18 @@ Tutte le macchine virtuali nel set di disponibilità devono essere deallocate pr
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
+## <a name="convert-using-the-azure-portal"></a>Eseguire la conversione usando il portale di Azure
+
+È anche possibile convertire i dischi non gestiti in dischi gestiti usando il portale di Azure.
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Selezionare la macchina virtuale dall'elenco di macchine virtuali nel portale.
+3. Nel pannello della macchina virtuale selezionare **Dischi** dal menu.
+4. Nella parte superiore del pannello **Dischi** selezionare **Eseguire la migrazione a Managed Disks**.
+5. Se la macchina virtuale è in un set di disponibilità, nel pannello **Eseguire la migrazione a Managed Disks** apparirà un avviso che indica che è necessario prima convertire il set di disponibilità. L'avviso deve avere un collegamento su cui si può fare clic per convertire il set di disponibilità. Dopo avere convertito il set di disponibilità o se la macchina virtuale non è in un set di disponibilità, fare clic su **Esegui la migrazione** per avviare il processo di migrazione dei dischi ai dischi gestiti.
+
+La macchina virtuale verrà arrestata e riavviata al termine della migrazione.
+
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni sulle opzioni di archiviazione, vedere [Panoramica di Azure Managed Disks](../windows/managed-disks-overview.md).

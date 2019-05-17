@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 3a424335a1e7d7775f6be0980e7009669e354ea7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d17d5c2c0eaebc694abe820318f6ac0c70b0be8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717898"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544599"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Eseguire il backup e ripristino di database SQL in macchine virtuali di Azure con PowerShell
 
@@ -110,7 +110,7 @@ L'insieme di credenziali di Servizi di ripristino è una risorsa di Resource Man
 3. Specificare il tipo di ridondanza da utilizzare per l'archiviazione dell'insieme di credenziali.
 
     * È possibile usare l'[archiviazione con ridondanza locale](../storage/common/storage-redundancy-lrs.md) o l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy-grs.md).
-    * L'esempio seguente imposta la **- BackupStorageRedundancy** opzione per il[Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) cmd per **testvault** impostato su  **Con ridondanza geografica**.
+    * L'esempio seguente imposta la **- BackupStorageRedundancy** opzione per il[Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd per **testvault** impostato su  **Con ridondanza geografica**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -530,7 +530,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 È importante tenere presente che Backup di Azure rileva solo processi utente attivato in backup di SQL. I backup pianificati (inclusi i backup del log) non sono visibili nel portale o powershell. Tuttavia, eventuali pianificati processi esito negativo, un [avviso backup](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) generato e visualizzato nel portale. [Usare monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md) per tenere traccia di tutti i processi pianificati e altre informazioni rilevanti.
 
-Gli utenti possono tenere traccia delle operazioni ad hoc/utente attivato con l'ID processo restituito nel [output](#on-demand-backup) di processi asincroni, ad esempio backup. Uso [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetails?view=azps-1.5.0) cmdlet di PS per tenere traccia del processo e i dettagli.
+Gli utenti possono tenere traccia delle operazioni ad hoc/utente attivato con l'ID processo restituito nel [output](#on-demand-backup) di processi asincroni, ad esempio backup. Uso [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) cmdlet di PS per tenere traccia del processo e i dettagli.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID

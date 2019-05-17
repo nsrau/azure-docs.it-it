@@ -4,7 +4,7 @@ description: Informazioni sulle considerazioni specifiche quando si usa Xamarin.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4b4c4cd4dbab10a9d4796a8393cc7f479b90cc4
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 4f7f91e6ab1fb12132068b839e66fafd3ab1bc73
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406776"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65543950"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Uso di web browser in MSAL.NET
 Web browser sono necessari per l'autenticazione interattiva. Per impostazione predefinita, MSAL.NET supporta il [browser web del sistema](#system-web-browser-on-xamarinios-and-xamarinandroid) in xamarin. IOS e [xamarin. Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser). Ma [è anche possibile abilitare il browser Web incorporato](#enable-embedded-webviews) a seconda dei requisiti (esperienza utente, è necessario per single sign-on (SSO), sicurezza) in [xamarin. IOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) e [xamarin. Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) app. E può persino [scegliere in modo dinamico](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) il browser web da utilizzare in base alla presenza di Chrome o un browser che supportano le schede personalizzate di Chrome in Android.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d1ef650a3f12d8b97cbad3e9aecf31c8b81a038
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148942"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796154"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Esempi di query SQL per Azure Cosmos DB
 
@@ -139,7 +139,7 @@ I risultati della query sono:
     }]
 ```
 
-La query seguente restituisce tutti i nomi specificati dei figli della famiglia di prodotti il cui `id` corrisponde a `WakefieldFamily`, ordinato per città di residenza.
+La query seguente restituisce tutti i nomi specificati dei figli della famiglia di prodotti il cui `id` corrisponde a `WakefieldFamily`, ordinato per città.
 
 ```sql
     SELECT c.givenName
@@ -550,13 +550,13 @@ La tabella seguente illustra il risultato dei confronti di uguaglianza nell'API 
 
 | **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
-| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
-| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
-| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
-| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
+| **Undefined** | Non definita | Non definita | Non definita | Non definita | Non definita | Non definita | Non definita |
+| **Null** | Non definita | **Ok** | Non definita | Non definita | Non definita | Non definita | Non definita |
+| **Boolean** | Non definita | Non definita | **Ok** | Non definita | Non definita | Non definita | Non definita |
+| **Number** | Non definita | Non definita | Non definita | **Ok** | Non definita | Non definita | Non definita |
+| **String** | Non definita | Non definita | Non definita | Non definita | **Ok** | Non definita | Non definita |
+| **Object** | Non definita | Non definita | Non definita | Non definita | Non definita | **Ok** | Non definita |
+| **Array** | Non definita | Non definita | Non definita | Non definita | Non definita | Non definita | **Ok** |
 
 Per gli operatori di confronto, ad esempio `>`, `>=`, `!=`, `<`, e `<=`, il confronto tra i tipi o tra due oggetti o matrici produce `Undefined`.  
 
@@ -568,27 +568,27 @@ Gli operatori logici funzionano con valori booleani. Le tabelle seguenti illustr
 
 **Operator OR**
 
-| Oppure | True  | False | Undefined |
+| Oppure | True  | Falso | Non definita |
 | --- | --- | --- | --- |
 | True  |True  |True  |True  |
-| False |True  |False |Undefined |
-| Undefined |True  |Undefined |Undefined |
+| Falso |True  |Falso |Non definita |
+| Non definita |True  |Non definita |Non definita |
 
 **Operatore AND**
 
-| AND | True  | False | Undefined |
+| AND | True  | Falso | Non definita |
 | --- | --- | --- | --- |
-| True  |True  |False |Undefined |
-| False |False |False |False |
-| Undefined |Undefined |False |Undefined |
+| True  |True  |Falso |Non definita |
+| Falso |Falso |Falso |Falso |
+| Non definita |Non definita |Falso |Non definita |
 
 **Operatore NOT**
 
 | NOT |  |
 | --- | --- |
-| True  |False |
-| False |True  |
-| Undefined |Undefined |
+| True  |Falso |
+| Falso |True  |
+| Non definita |Non definita |
 
 ## <a name="between-keyword"></a>Parola chiave BETWEEN
 
@@ -867,6 +867,13 @@ I risultati sono:
         ]
       }
     ]
+```
+
+La query SQL seguente è un altro esempio di utilizzo di matrice all'interno di nelle sottoquery. Questa query recupera tutti i nomi specificati distinti di elementi figlio in una matrice.
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
 ```
 
 
@@ -1285,13 +1292,13 @@ I risultati sono:
 
 L'API SQL supporta le seguenti funzioni di aggregazione. SUM e AVG SQRT a valori numerici, e COUNT, MIN e MAX funzionano in numeri, stringhe, valori booleani e valori null.
 
-| Funzione | DESCRIZIONE |
+| Funzione | Descrizione |
 |-------|-------------|
-| COUNT | Restituisce il numero di elementi nell'espressione. |
+| NUMERO | Restituisce il numero di elementi nell'espressione. |
 | SUM   | Restituisce la somma dei valori nell'espressione. |
 | MIN   | Restituisce il valore minimo nell'espressione. |
 | MAX   | Restituisce il valore massimo nell'espressione. |
-| MEDIA   | Restituisce la media dei valori nell'espressione. |
+| MEDIO   | Restituisce la media dei valori nell'espressione. |
 
 È anche possibile aggregare i risultati di un'iterazione della matrice. Per altre informazioni, vedere la [iterazione](#Iteration) sezione.
 
@@ -1319,7 +1326,7 @@ La differenza principale tra le funzioni di Cosmos DB e funzioni ANSI SQL è che
 
 Le funzioni matematiche eseguono un calcolo basato su valori di input passati come argomenti e restituiscono un valore numerico. Di seguito è riportata una tabella delle funzioni matematiche predefinite supportate.
 
-| Uso | DESCRIZIONE |
+| Uso | Descrizione |
 |----------|--------|
 | ABS (num_expr) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
 | CEILING (num_expr) | Restituisce il più piccolo valore integer maggiore di o uguale all'espressione numerica specificata. |
@@ -1388,7 +1395,7 @@ Il risultato è:
 
 Le funzioni scalari seguenti eseguono un'operazione su un valore di input stringa e restituiscono un valore stringa, numerici o booleani. Ecco una tabella di funzioni per stringhe:
 
-| Uso | DESCRIZIONE |
+| Uso | Descrizione |
 | --- | --- |
 | [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Restituisce il numero di caratteri dell'espressione stringa specificata. |
 | [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa. |
@@ -1464,7 +1471,7 @@ I risultati sono:
 
 Le funzioni scalari seguenti eseguono un'operazione su un valore di input di matrice e restituiscono un valore numerico, booleano o valore di matrice. La tabella seguente include funzioni di matrice predefinite:
 
-| Uso | DESCRIZIONE |
+| Uso | Descrizione |
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |Restituisce il numero di elementi dell'espressione di matrice specificato. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |Restituisce una matrice che rappresenta il risultato della concatenazione di due o più valori della matrice. |
@@ -1527,7 +1534,7 @@ I risultati sono:
 
 COSMOS DB supporta le seguenti funzioni predefinite di Open Geospatial Consortium (OGC) per l'esecuzione di query geospaziali: 
 
-| Uso | DESCRIZIONE |
+| Uso | Descrizione |
 | --- | --- |
 | ST_DISTANCE (point_expr, point_expr) | Restituisce la distanza tra i due GeoJSON `Point`, `Polygon`, o `LineString` espressioni. |
 | T_WITHIN (point_expr, polygon_expr) | Restituisce un'espressione booleana che indica se il primo oggetto GeoJSON (`Point`, `Polygon`, o `LineString`) si trova all'interno del secondo oggetto GeoJSON (`Point`, `Polygon`, o `LineString`). |
@@ -1979,7 +1986,7 @@ Il provider di query supporta le seguenti espressioni scalari:
 
 - Valori costanti, inclusi i valori costanti dei tipo di dati primitivi al momento della valutazione di query.
   
-- Espressioni di indice di matrice/di proprietà che fanno riferimento alla proprietà di un oggetto o un elemento della matrice. Ad esempio: 
+- Espressioni di indice di matrice/di proprietà che fanno riferimento alla proprietà di un oggetto o un elemento della matrice. Ad esempio:
   
   ```
     family.Id;

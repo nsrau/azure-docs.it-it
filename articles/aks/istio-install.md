@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: fc95ce4aad4e8597b02b9c862be33bfcf6185541
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 12565d2b8004a5119add25473e5b088c9162035f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073793"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780489"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installare e utilizzare Istio nel servizio Azure Kubernetes
 
@@ -40,7 +40,7 @@ In questo articolo viene spiegato come:
 
 La procedura descritta in questo articolo si presuppone di aver creato un cluster del servizio contenitore di AZURE (Kubernetes `1.11` e versioni successive, con RBAC abilitato) e aver stabilito un `kubectl` connessione con il cluster. Se occorre assistenza con uno di questi elementi, vedere la [Guida introduttiva al servizio Azure Kubernetes][aks-quickstart].
 
-È necessario [Helm] [ helm] seguire queste istruzioni e installare Istio. Si consiglia di avere la versione `2.12.2` o in un secondo momento correttamente installato e configurato nel cluster. Se occorre assistenza con l'installazione di Helm, vedere la [informazioni aggiuntive sull'installazione di Helm AKS][helm-install]. Tutti i POD Istio devono essere pianificati anche per l'esecuzione nei nodi Linux.
+È necessario [Helm] [ helm] seguire queste istruzioni e installare Istio. Si consiglia di avere la versione `2.12.2` o in un secondo momento correttamente installato e configurato nel cluster. Se occorre assistenza con l'installazione di Helm, vedere la [informazioni aggiuntive sull'installazione di Helm AKS][helm-install].
 
 Questo articolo suddivide il materiale sussidiario per l'installazione di Istio in diversi passaggi. Il risultato finale presenta una struttura identica al [materiale sussidiario][istio-install-helm] ufficiale per l'installazione di Istio.
 
@@ -337,9 +337,6 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 
 Il `istio` grafico Helm consente di distribuire un numero elevato di oggetti. È possibile visualizzare l'elenco dall'output del `helm install` comando precedente. La distribuzione dei componenti Istio può richiedere da 4 a 5 minuti, a seconda dell'ambiente cluster.
 
-> [!NOTE]
-> Tutti i POD Istio devono essere pianificati per l'esecuzione nei nodi Linux. Se si dispone di pool di nodi di Windows Server oltre a pool di nodi di Linux nel cluster, verificare che tutti i POD Istio sono stati pianificati per l'esecuzione nei nodi Linux.
-
 A questo punto, è stata distribuita Istio nel cluster AKS. Per garantire che abbiamo una corretta distribuzione di Istio, è possibile passare alla sezione successiva per [convalidare l'installazione di Istio](#validate-the-istio-installation).
 
 ## <a name="validate-the-istio-installation"></a>Convalidare l'installazione di Istio
@@ -536,6 +533,9 @@ Per esplorare altre opzioni di installazione e configurazione per Istio, vedere 
 
 Inoltre è possibile esplorare altri scenari usando l'[esempio di applicazione Bookinfo di Istio][istio-bookinfo-example].
 
+Per informazioni su come monitorare l'applicazione del servizio contenitore di AZURE con Application Insights e Istio, vedere la documentazione di monitoraggio di Azure seguente:
+- [Zero monitoraggio strumentazione dell'applicazione per Kubernetes ospitato applicazioni][app-insights]
+
 <!-- LINKS - external -->
 [istio]: https://istio.io
 [helm]: https://helm.sh
@@ -561,6 +561,8 @@ Inoltre è possibile esplorare altri scenari usando l'[esempio di applicazione B
 [prometheus]: https://prometheus.io/
 [jaeger]: https://www.jaegertracing.io/
 [kiali]: https://www.kiali.io/
+
+[app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/kubernetes
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

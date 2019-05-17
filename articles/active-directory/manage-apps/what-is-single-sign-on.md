@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/15/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75aa0f4755fe3d124094ace3c3e6b8e6ea3b65e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12c68a268b901f3525c2af9cd381dc277d6d8167
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441497"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65770900"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Accesso Single Sign-On alle applicazioni in Azure Active Directory
 
@@ -45,7 +45,7 @@ La tabella seguente include un riepilogo dei metodi di accesso Single Sign-On e 
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | Solo cloud | Usare OAuth e OpenID Connect quando si sviluppa una nuova applicazione. Questo protocollo semplifica la configurazione dell'applicazione, ha SDK facili da usare e consente all'applicazione di usare MS Graph.
 | [SAML](#saml-sso) | Cloud e locale | Scegliere SAML laddove possibile per le applicazioni esistenti che non usano OAuth o OpenID Connect. SAML funziona per le applicazioni che eseguono l'autenticazione usando uno dei protocolli SAML.|
 | [Basato su password](#password-based-sso) | Cloud e locale | Scegliere il metodo basato su password quando l'applicazione esegue l'autenticazione con nome utente e password. L'accesso Single Sign-On basato su password consente l'archiviazione e la riproduzione delle password delle applicazioni protette usando un'estensione del Web browser o un'app per dispositivi mobili. Questo metodo usa il processo di accesso esistente fornito dall'applicazione, ma consente all'amministratore di gestire le password. |
-| [Collegato](#linked-sso) | Cloud e locale | Scegliere l'accesso Single Sign-On collegato quando l'applicazione è configurata per Single Sign-On in un altro servizio di provider di identità. Questa opzione non aggiunge l'accesso Single Sign-On all'applicazione. L'applicazione potrebbe comunque avere già implementato l'accesso Single Sign-On usando un altro servizio, ad esempio Active Directory Federation Services.|
+| [Collegato](#linked-sign-on) | Cloud e locale | Scegliere sign-on collegato quando l'applicazione è configurata per single sign-on in un altro servizio di provider di identità. Questa opzione non aggiunge l'accesso Single Sign-On all'applicazione. L'applicazione potrebbe comunque avere già implementato l'accesso Single Sign-On usando un altro servizio, ad esempio Active Directory Federation Services.|
 | [Disabilitato](#disabled-sso) | Cloud e locale | Scegliere l'accesso Single Sign-On disabilitato se l'app non è pronta per essere configurata per Single Sign-On. Gli utenti devono immettere il nome utente e la password ogni volta che avviano l'applicazione.|
 | [Autenticazione integrata di Windows](#integrated-windows-authentication-iwa-sso) | Solo in locale | Scegliere l'accesso Single Sign-On dell'autenticazione integrata di Windows per le applicazioni che usano l'[autenticazione integrata di Windows](/aspnet/web-api/overview/security/integrated-windows-authentication) o le applicazioni che riescono a riconoscere le attestazioni. Per l'autenticazione integrata di Windows, i connettori Application Proxy usano la delega vincolata Kerberos per autenticare gli utenti con l'applicazione. | 
 | [Basato su intestazione](#header-based-sso) | Solo in locale | Usare l'accesso Single Sign-On basato su intestazione quando l'applicazione usa le intestazioni per l'autenticazione. L'accesso Single Sign-On basato su intestazione richiede PingAccess per Azure AD. Application Proxy usa Azure AD per autenticare l'utente e quindi passa il traffico attraverso il servizio del connettore.  | 
@@ -122,12 +122,12 @@ Quando l'utente finale gestisce le credenziali:
 - Gli amministratori sono comunque in grado di impostare nuove credenziali per l'applicazione.
 
 
-## <a name="linked-sso"></a>SSO collegato
+## <a name="linked-sign-on"></a>Linked sign-on (Accesso collegato)
 L'accesso Single Sign-On collegato consente ad Azure AD di fornire l'accesso Single Sign-On a un'applicazione già configurata per l'SSO in un altro servizio. L'applicazione collegata può essere visualizzata dagli utenti finali nel portale di Office 365 o nel portale MyApps di Azure AD. Un utente può ad esempio avviare un'applicazione configurata per l'accesso Single Sign-On in Active Directory Federation Services 2.0 (AD FS) dal portale di Office 365. Sono anche disponibili report aggiuntivi per le applicazioni collegate che vengono avviate dal portale di Office 365 o dal portale MyApps di Azure AD. 
 
-### <a name="linked-sso-for-application-migration"></a>Accesso SSO collegato per la migrazione dell'applicazione
+### <a name="linked-sign-on-for-application-migration"></a>Sign-on collegato per la migrazione delle applicazioni
 
-L'accesso SSO collegato può garantire un'esperienza utente coerente mentre si esegue la migrazione delle applicazioni in un periodo di tempo. Se si esegue la migrazione di applicazioni ad Azure Active Directory, è possibile usare l'accesso Single Sign-On collegato per pubblicare rapidamente i collegamenti a tutte le applicazioni da migrare.  Gli utenti possono trovare tutti i collegamenti nel [portale MyApps](../user-help/active-directory-saas-access-panel-introduction.md) o nell'[applicazione di avvio di Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Gli utenti non si accorgeranno di accedere a un'applicazione collegata o sottoposta migrazione.  
+Sign-on collegato può fornire un'esperienza utente coerente mentre si esegue la migrazione delle applicazioni in un periodo di tempo. Se si esegue la migrazione di applicazioni ad Azure Active Directory, è possibile utilizzare sign-on collegato consente di pubblicare rapidamente i collegamenti a tutte le applicazioni che si intende eseguire la migrazione.  Gli utenti possono trovare tutti i collegamenti nel [portale MyApps](../user-help/active-directory-saas-access-panel-introduction.md) o nell'[applicazione di avvio di Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Gli utenti non si accorgeranno di accedere a un'applicazione collegata o sottoposta migrazione.  
 
 Dopo che un utente ha eseguito l'autenticazione con un'applicazione collegata, dovrà essere creato un record di account prima che all'utente finale venga concesso l'accesso Single Sign-On. Il provisioning di questo record di account può verificarsi automaticamente o può essere effettuato manualmente da un amministratore.
 
@@ -175,7 +175,7 @@ Scegliere l'accesso Single Sign-On basato su intestazione quando:
 
 Per configurare l'autenticazione basata su intestazione, vedere [Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione](application-proxy-configure-single-sign-on-with-ping-access.md). 
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>Che cos'è PingAccess per Azure AD?
+### <a name="what-is-pingaccess-for-azure-ad"></a>Informazioni su PingAccess per Azure AD
 
 Grazie a PingAccess per Azure AD, gli utenti possono eseguire l'accesso e l'accesso Single Sign-On alle applicazioni che usano intestazioni per l'autenticazione. Application Proxy tratta queste applicazioni come qualsiasi altra, usando Azure AD per autenticare l'accesso e quindi passando il traffico attraverso il servizio del connettore. Dopo l'autenticazione, il servizio PingAccess convertirà il token di accesso di Azure AD in un formato di intestazione inviato all'applicazione.
 

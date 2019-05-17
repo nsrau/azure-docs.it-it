@@ -4,7 +4,7 @@ description: Informazioni su come cancellare la cache dei token usando Microsoft
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,18 +17,18 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1604d2833387b105fc7897a89f96ebcf9486d6a8
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: c6763c6b2b1f9b4de7d8669a50a4979a7aac00c7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468470"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544109"
 ---
 # <a name="clear-the-token-cache-using-msalnet"></a>Cancellare la cache dei token tramite MSAL.NET
 
 Quando si [acquisire un token di accesso](msal-acquire-cache-tokens.md) usando Microsoft Authentication Library per .NET (MSAL.NET), il token viene memorizzato nella cache. Quando l'applicazione necessita di un token, opportuno chiamare dapprima il `AcquireTokenSilent` metodo per verificare se un token accettabile è presente nella cache. 
 
-La cancellazione della cache viene realizzata mediante gli account di rimozione dalla cache. Questa operazione non rimuove il cookie di sessione che si trova il browser, tuttavia.  Nell'esempio seguente crea un'istanza di un'applicazione client pubblica, ottiene gli account per l'applicazione e rimuove gli account.
+La cancellazione della cache viene realizzata mediante gli account di rimozione dalla cache. Questa operazione, tuttavia, non rimuove il cookie di sessione, che si trova nel browser.  Nell'esempio seguente crea un'istanza di un'applicazione client pubblica, ottiene gli account per l'applicazione e rimuove gli account.
 
 ```csharp
 private readonly IPublicClientApplication _app;

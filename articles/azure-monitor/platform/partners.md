@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: cf06645ddcb825ca866d88a1f7724fd3b3e7987b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fae8e80c6fa94c3581de3038399ef031506b2f55
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338309"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65774237"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -96,7 +96,7 @@ Dynatrace OneAgent si integra con Servizi app e con le VM di Azure per mezzo dei
 
 [Vai alla documentazione.][dynatrace-doc]
 
-## <a name="elastic"></a>Elastic
+## <a name="elastic"></a>Elastico
 
 ![Logo elastico](./media/partners/elastic.png)
 
@@ -242,7 +242,7 @@ Turbonomic offre l'automazione dei carichi di lavoro per cloud ibridi, ottimizza
 
 
 <!--Partner Documentation-->
-[alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Documentazione di AlertLogic."
+[alertlogic-doc]: https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Documentazione di AlertLogic."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "Documentazione di AppDynamics."
 [arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentazione di ArcSight."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/

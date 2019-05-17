@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e0342d876db424454526637322d67d55c0432a8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605110"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797287"
 ---
 # <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Lingue
 
@@ -230,7 +230,7 @@ L'elenco delle lingue supportate non subirà spesso modifiche. Per risparmiare l
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
     <td>ETag</td>
     <td>Valore corrente del tag di entità per i gruppi di lingue supportate richiesti. Per rendere più efficienti le richieste successive, il client può inviare il valore di `ETag` in un campo dell'intestazione `If-None-Match`.
@@ -263,7 +263,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>429</td>
-    <td>Il chiamante sta inviando un numero eccessivo di richieste.</td>
+    <td>Il server ha rifiutato la richiesta perché il client ha superato i limiti di richiesta.</td>
   </tr>
   <tr>
     <td>500</td>

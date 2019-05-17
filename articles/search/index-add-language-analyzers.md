@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 39fbe30ccf4429003dc0c9f11165c5dd057a89cd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121793"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790910"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Aggiungere analizzatori del linguaggio a un indice di Ricerca di Azure
 
@@ -46,9 +46,6 @@ L'analizzatore predefinito è Lucene standard, che funziona bene per la lingua i
 
 + L'analizzatore per la lingua inglese Microsoft esegue la lemmatizzazione anziché lo stemming. Significa che è possibile gestire le forme lessicali flesse e irregolari in modo decisamente migliore, producendo risultati di ricerca più rilevanti 
 
-  > [!Tip]
-  > La [Search Analyzer Demo](https://alice.unearth.ai/) fornisce un confronto side-by-side dei risultati prodotti dall'analizzatore Lucene standard, dall'analizzatore di lingua inglese Lucene e dal processore di lingua inglese di Microsoft. Per ogni input di ricerca fornito, i risultati di ogni analizzatore vengono visualizzati nei riquadri adiacenti.
-
 ## <a name="configuring-analyzers"></a>Configurazione degli analizzatori
 
 Gli analizzatori di lingua vengono usati così come sono. Per ogni campo nella definizione dell'indice, è possibile impostare la proprietà **analyzer** su un nome di analizzatore che specifica la lingua e lo stack linguistico (Microsoft o Lucene). Lo stesso analizzatore verrà applicato per l'indicizzazione e la ricerca di tale campo. Ad esempio, nello stesso indice possono essere presenti campi separati per le descrizioni di hotel in lingua inglese, francese e spagnola. In alternativa, al posto di **analyzer**, è possibile usare **indexAnalyzer** e **searchAnalyzer** per disporre di regole di analisi diverse in fase di indicizzazione e di query. 
@@ -66,7 +63,7 @@ Per altre informazioni sulle proprietà di indice, vedere [Create Index &#40;Azu
 |--------------|-----------------------------|--------------------------|  
 |Arabo|ar.microsoft|ar.lucene|  
 |Armeno||hy.lucene|  
-|Bengalese|bn.microsoft||  
+|Bengali|bn.microsoft||  
 |Basco||eu.lucene|  
 |Bulgaro|bg.microsoft|bg.lucene|  
 |Catalano|ca.microsoft|ca.lucene|  

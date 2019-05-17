@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e95adbd1a564fb34d3f0506ac1cc25bc5a63c62
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153079"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790061"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia di archiviazione di Azure per dati inattivi
 
@@ -51,6 +51,9 @@ Per informazioni su come usare chiavi gestite dal cliente con archiviazione di A
 - [Configurare le chiavi gestite dal cliente per la crittografia di archiviazione di Azure dal portale di Azure](storage-encryption-keys-portal.md)
 - [Configurare le chiavi gestite dal cliente per la crittografia di archiviazione di Azure da PowerShell](storage-encryption-keys-powershell.md)
 - [Usare chiavi gestite dal cliente con crittografia di archiviazione di Azure della riga di comando di Azure](storage-encryption-keys-cli.md)
+
+> [!IMPORTANT]
+> Le chiavi gestite dal cliente si basano sulle identità gestita per le risorse di Azure, una funzionalità di Azure Active Directory (Azure AD). Quando si trasferisce una sottoscrizione da una directory di Azure AD per le identità di un altra, gestite non vengono aggiornati e le chiavi gestite dal cliente potrebbero non funzionare più. Per altre informazioni, vedere **trasferimento di una sottoscrizione tra directory di Azure AD** nelle [domande frequenti e problemi noti relativi a gestite le identità per le risorse di Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 > [!NOTE]  
 > Le chiavi gestite dal cliente non sono supportate per [Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md).

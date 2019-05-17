@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec62639988dca4b216087e8235be6053140644ee
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406363"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790421"
 ---
-# <a name="understand-data-retention-in-time-series-insights"></a>Comprendere la conservazione dati in Time Series Insights
+# <a name="understand-data-retention-in-azure-time-series-insights"></a>Comprendere la conservazione dei dati in Azure Time Series Insights
 
-Questo articolo descrive due impostazioni che influenzano la conservazione dati nell'ambiente Time Series Insights.
+Questo articolo descrive due impostazioni che influenzano la conservazione dati nell'ambiente Azure Time Series Insights.
 
 ## <a name="video"></a>Video
 
@@ -36,16 +36,16 @@ Inoltre, nell'ambiente Azure Time Series è un **comportamento limite di archivi
 - **Sospendere il traffico in ingresso**
 
 > [!NOTE]
-> Per impostazione predefinita, quando si crea un nuovo ambiente l'assorbimento è configurato per **eliminare i dati meno recenti**. Questa impostazione può essere attivata o disattivata in base alle esigenze in seguito a un periodo di creazione tramite il portale di Azure, nella pagina **Configura** dell'ambiente Time Series Insights.
+> Per impostazione predefinita, quando si crea un nuovo ambiente l'assorbimento è configurato per **eliminare i dati meno recenti**. Questa impostazione può essere attivata/disattivata in base alle esigenze dopo l'ora di creazione nel portale di Azure, nelle **configura** pagina dell'ambiente Time Series Insights.
 
 Per informazioni su come modificare i comportamenti di assorbimento, vedere [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md) (Configurazione dell'assorbimento in Time Series Insights).
 
 Confrontare il comportamento di conservazione dati:
 
-## <a name="purge-old-data"></a>Eliminare i dati meno recenti
+## <a name="purge-old-data"></a>Elimina dati meno recenti
 
-- Questo è il comportamento predefinito per gli ambienti Time Series Insights e mostra lo stesso comportamento riscontrato negli ambienti Time Series Insights dal momento in cui sono stati avviati in anteprima pubblica.  
-- Questo comportamento viene preferito quando gli utenti vogliono visualizzare sempre i *dati più recenti* nel proprio ambiente Time Series Insights. 
+- Questo comportamento è quello predefinito per gli ambienti Time Series Insights.  
+- Questo comportamento viene preferito quando gli utenti vogliono visualizzare sempre loro *dati più recenti* nel proprio ambiente Time Series Insights.
 - Consente di *eliminare* i dati quando si raggiungono i limiti dell'ambiente (periodo di conservazione, dimensioni o numero di elementi, a seconda del limite che viene raggiunto prima). L'assorbimento è impostato a 30 giorni per impostazione predefinita.
 - I dati acquisiti meno recenti vengono eliminati prima (approccio FIFO).
 
@@ -75,7 +75,7 @@ Se la velocità in ingresso giornaliera di questo ambiente supera 0,166 GB al gi
 
 ### <a name="example-three"></a>Esempio 3
 
-Si consideri un ambiente con un comportamento di assorbimento configurato per **sospendere il traffico in ingresso**. In questo esempio il **periodo di conservazione dei dati** è configurato per 60 giorni. La **capacità** è impostata a 3 unità di S1. Si supponga che questo ambiente abbia ogni giorno un traffico di 2 GB di dati in ingresso. In questo ambiente il traffico in ingresso viene sospeso quando viene raggiunta la capacità massima.
+Si consideri un ambiente con un comportamento di assorbimento configurato per **sospendere il traffico in ingresso**. In questo esempio il **periodo di conservazione dei dati** è configurato per 60 giorni. **Capacità** è impostata su tre (3) l'unità di S1. Si supponga che questo ambiente abbia ogni giorno un traffico di 2 GB di dati in ingresso. In questo ambiente il traffico in ingresso viene sospeso quando viene raggiunta la capacità massima.
 
 A quel punto, l'ambiente Mostra stesso set di dati fino al traffico in ingresso riprende o fino alla **traffico in ingresso continuo** è abilitato (che potrebbe eliminare i dati meno recenti per liberare spazio per nuovi dati).
 
@@ -91,7 +91,7 @@ Negli hub eventi interessati provare a regolare la proprietà **Conservazione me
 
 [![Conservazione messaggi dell'hub eventi.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Se nessuna proprietà è configurata nell'origine evento (`timeStampPropertyName`), Time Series Insights il valore predefinito è il timestamp dell'arrivo all'hub eventi come asse x. Se `timeStampPropertyName` è configurato per un'altra, la ricerca di ambiente dell'applicazione configurata `timeStampPropertyName` nel pacchetto dati quando vengono analizzati gli eventi.
+Se nessuna proprietà è configurata nell'origine evento (`timeStampPropertyName`), Time Series Insights imposta il timestamp dell'arrivo all'hub eventi come asse x. Se `timeStampPropertyName` è configurato per un'altra, la ricerca di ambiente dell'applicazione configurata `timeStampPropertyName` nel pacchetto dati quando vengono analizzati gli eventi.
 
 Se è necessario potenziare l'ambiente per aumentarne la capacità o il periodo di conservazione, vedere [Come scalare l'ambiente Time Series Insights](time-series-insights-how-to-scale-your-environment.md) per altre informazioni.  
 

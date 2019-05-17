@@ -3,8 +3,8 @@ title: Glossario per gli sviluppatori di Microsoft identity platform | Azure
 description: Elenco di condizioni per le funzionalità e concetti per sviluppatori di Microsoft identity platform comunemente utilizzati.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ea1dba09173b20d11a5022e6666e6c865ead62
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410385"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540085"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossario per gli sviluppatori di Microsoft identity platform
 
@@ -64,7 +64,7 @@ Per consentire a un'applicazione l'integrazione con le funzioni di gestione dell
 
 Per altri dettagli, vedere [Integrazione di applicazioni con Azure Active Directory][AAD-Integrating-Apps].
 
-## <a name="authentication"></a>authentication
+## <a name="authentication"></a>autenticazione
 
 Richiesta di credenziali legittime a una parte, che costituisce la base per la creazione di un'entità di sicurezza da usare per il controllo delle identità e di accesso. Durante una [concessione di autorizzazione OAuth2](#authorization-grant), ad esempio, la parte che esegue l'autenticazione svolge il ruolo di [proprietario delle risorse](#resource-owner) o di [applicazione client](#client-application) a seconda della concessione usata.
 
@@ -156,7 +156,7 @@ Un server di risorse espone le API e consente l'accesso alle proprie risorse pro
 
 Così come per un'applicazione client, la configurazione di identità dell'applicazione della risorsa viene definita tramite la [registrazione](#application-registration) in un tenant di Azure AD, con cui vengono specificati sia l'oggetto applicazione che l'oggetto entità servizio. Alcune API fornite da Microsoft, come l'API Graph di Azure AD, includono entità servizio preregistrate che vengono rese disponibili in tutti i tenant durante il provisioning.
 
-## <a name="roles"></a>roles
+## <a name="roles"></a>ruoli
 
 Così come gli [ambiti](#scopes), i ruoli consentono a un [server di risorse](#resource-server) di controllare l'accesso alle proprie risorse protette. Ne esistono due tipi: il ruolo "utente" implementa il controllo degli accessi in base al ruolo per gli utenti e i gruppi che devono accedere alla risorsa, mentre il ruolo "applicazione" esegue la stessa implementazione per le [applicazioni client](#client-application) che devono accedere.
 
@@ -182,7 +182,7 @@ Quando si registra/aggiorna un'applicazione nel [portale di Azure][AZURE-portal]
 
 Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory][AAD-App-SP-Objects].
 
-## <a name="sign-in"></a>accesso
+## <a name="sign-in"></a>Accesso
 
 Processo con cui un'[applicazione client](#client-application) avvia l'autenticazione dell'utente finale e acquisisce il relativo stato, allo scopo di acquisire un [token di sicurezza](#security-token) e definire l'ambito della sessione dell'applicazione in base a tale stato. Lo stato può includere elementi come informazioni del profilo utente e informazioni derivate dalle attestazioni del token.
 

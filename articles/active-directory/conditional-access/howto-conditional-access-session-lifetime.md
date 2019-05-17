@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190212"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65766863"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurare la gestione della sessione di autenticazione con l'accesso condizionale
 
@@ -80,7 +80,7 @@ Se è stata configurata la frequenza di accesso diversi per le app web diversi i
 1. Scegliere tutte le condizioni necessarie.
 
    > [!NOTE]
-   > Si noti che questo controllo è necessario scegliere "Tutte le app Cloud" come condizione
+   > Si noti che questo controllo è necessario scegliere "Tutte le app Cloud" come condizione. Persistenza della sessione del browser è controllata dal token di autenticazione della sessione. Tutte le schede in una sessione del browser condividono un token di sessione single e di conseguenza tutti devono condividere lo stato di persistenza.
 
 1. Passare a **controlli di accesso** > **sessione** e fare clic su **sessione del browser permanente**
 1. Selezionare un valore dall'elenco a discesa

@@ -3,8 +3,8 @@ title: Piattaforma delle identità Microsoft Usa per consentire agli utenti con 
 description: Come supportare i flussi di autenticazione senza browser tramite la concessione di credenziali password del proprietario della risorsa.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 04d2be76072866da2b21718f60fd0c9a5923b15b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112290"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545118"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Piattaforma delle identità Microsoft e le credenziali di password proprietario risorsa OAuth 2.0
 
@@ -41,7 +41,7 @@ Il diagramma seguente mostra il flusso ROPC.
 
 ![Flusso ROPC](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
-## <a name="authorization-request"></a>Authorization request (Richiesta di autorizzazione)
+## <a name="authorization-request"></a>Richiesta di autorizzazione
 
 Il flusso ROPC è una richiesta singola: invia l'identificazione del client e le credenziali dell'utente all'IDP, quindi riceve i token in cambio. Il client deve richiedere l'indirizzo di posta elettronica (UPN) e la password dell'utente prima di procedere. Subito dopo una richiesta con esito positivo, il client dovrebbe rilasciare le credenziali dell'utente dalla memoria in modo sicuro. Non deve mai salvarle.
 
@@ -64,7 +64,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| Parametro | Condizione | DESCRIZIONE |
+| Parametro | Condizione | Descrizione |
 | --- | --- | --- |
 | `tenant` | Obbligatorio | Il tenant della directory in cui si desidera registrare l'utente. Può essere fornito nel formato di nome descrittivo o GUID. Questo parametro non può essere impostato su `common` oppure `consumers`, ma può essere impostato su `organizations`. |
 | `grant_type` | Obbligatorio | Il valore deve essere impostato su `password`. |
@@ -87,13 +87,13 @@ Nell'esempio seguente mostra una risposta token con esito positivo:
 }
 ```
 
-| Parametro | Format | DESCRIZIONE |
+| Parametro | Format | Descrizione |
 | --------- | ------ | ----------- |
-| `token_type` | string | Sempre impostato su `Bearer`. |
+| `token_type` | String | Sempre impostato su `Bearer`. |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per cui è valido. |
 | `expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 | `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti. |
-| `id_token` | Token JSON Web | Emessa nel parametro `scope` originale incluso nell'ambito `openid`. |
+| `id_token` | JWT | Emessa nel parametro `scope` originale incluso nell'ambito `openid`. |
 | `refresh_token` | Stringa opaca | Emessa nel parametro `scope` originale incluso `offline_access`. |
 
 È possibile usare il token di aggiornamento per acquisire nuovi token di accesso e token di aggiornamento usando lo stesso flusso descritto nella [documentazione del flusso del codice OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
@@ -102,7 +102,7 @@ Nell'esempio seguente mostra una risposta token con esito positivo:
 
 Se l'utente non ha fornito il nome utente o la password corretti, o il client non ha ricevuto il consenso richiesto, l'autenticazione avrà esito negativo.
 
-| Tipi di errore | DESCRIZIONE | Azione client |
+| Tipi di errore | Descrizione | Azione client |
 |------ | ----------- | -------------|
 | `invalid_grant` | L'autenticazione non è riuscita | Le credenziali non sono corrette o il client non ha il consenso per gli ambiti richiesti. Se gli ambiti non sono concesse, un `consent_required` viene restituito l'errore. In questo caso, il client deve reindirizzare l'utente a un prompt interattivo con una webview o un browser. |
 | `invalid_request` | La richiesta è stata costruita in modo non corretto | Il tipo di concessione non è supportato il `/common` o `/consumers` contesti di autenticazione.  Usare invece `/organizations`. |

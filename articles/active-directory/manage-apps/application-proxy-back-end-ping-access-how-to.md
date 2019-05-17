@@ -3,8 +3,8 @@ title: Come configurare un'applicazione proxy dell'applicazione per l'uso di Pin
 description: Informazioni su come usare PingAccess per estendere i vantaggi del proxy dell'applicazione alle applicazioni che usano l'autenticazione basata su intestazione
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a80d2fbf42cad333ba8779973be3a9710210646
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d555aaf99470588bb3ed2b328adb3e99f6c4a50e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293563"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783988"
 ---
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Come configurare un'applicazione proxy dell'applicazione per l'uso di PingAccess
 

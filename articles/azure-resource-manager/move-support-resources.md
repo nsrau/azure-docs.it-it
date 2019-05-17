@@ -4,14 +4,14 @@ description: Elenca i tipi di risorse di Azure che possono essere spostati in un
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 03/22/2019
+ms.date: 5/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: d44b1bf778c7ec9551e2fd30f67083f8dded22d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d662607eaaabb8ccfad89f625165c542af81b0fa
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729291"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794525"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 Questo articolo indica se un tipo di risorsa di Azure supporta l'operazione di spostamento. Anche se un tipo di risorsa supporta l'operazione di spostamento, potrebbero esservi condizioni che impediscano alla risorsa di essere spostata. Per informazioni dettagliate sulle condizioni che influiscono sulle operazioni di spostamento, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
@@ -21,34 +21,44 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| domainservices | No  | No  |
+| domainservices | N. | N. |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| tenants | No  | No  |
+| tenants | N. | N. |
+
+## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
+| Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+| ------------- | ----------- | ---------- |
+| actionrules | Sì | Sì |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| servers | Sì | Sì |
+| server | Sì | Sì |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| service | Sì | Sì |
+| servizio | Sì | Sì |
+
+## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
+| Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+| ------------- | ----------- | ---------- |
+| configurationstores | Sì | Sì |
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| apiapps | No  | No  |
-| appidentities | No  | No  |
-| gateways | No  | No  |
+| apiapps | N. | N. |
+| appidentities | N. | N. |
+| gateways | N. | N. |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| policyassignments | No  | No  |
+| policyassignments | N. | N. |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -70,7 +80,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftbackup"></a>Microsoft.Backup
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| backupvault | No  | No  |
+| backupvault | N. | N. |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -80,15 +90,15 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| clusters | No  | No  |
-| fileservers | No  | No  |
-| jobs | No  | No  |
-| aree di lavoro | No  | No  |
+| clusters | N. | N. |
+| fileservers | N. | N. |
+| processi | N. | N. |
+| aree di lavoro | N. | N. |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| mapapis | No  | No  |
+| mapapis | N. | N. |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -98,12 +108,12 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| blockchainmembers | No  | No  |
+| blockchainmembers | Sì | Sì |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| blueprintassignments | No  | No  |
+| blueprintassignments | N. | N. |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -129,20 +139,20 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| domainnames | Sì | No  |
-| virtualmachines | Sì | No  |
+| domainnames | Sì | N. |
+| virtualmachines | Sì | N. |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| networksecuritygroups | No  | No  |
-| reservedips | No  | No  |
-| virtualnetworks | No  | No  |
+| networksecuritygroups | N. | N. |
+| reservedips | N. | N. |
+| virtualnetworks | N. | N. |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| storageaccounts | Sì | No  |
+| storageaccounts | Sì | N. |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -153,16 +163,18 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | availabilitysets | Sì | Sì |
-| disks | Sì | Sì |
-| galleries | No  | No  |
-| galleries/images | No  | No  |
-| galleries/images/versions | No  | No  |
-| images | Sì | Sì |
-| proximityplacementgroups | No  | No  |
-| restorepointcollections | No  | No  |
-| sharedvmimages | No  | No  |
-| sharedvmimages/versions | No  | No  |
-| snapshots | Sì | Sì |
+| dischi | Sì | Sì |
+| galleries | N. | N. |
+| galleries/images | N. | N. |
+| galleries/images/versions | N. | N. |
+| hostgroups | N. | N. |
+| hostgroups/hosts | N. | N. |
+| immagini | Sì | Sì |
+| proximityplacementgroups | N. | N. |
+| restorepointcollections | N. | N. |
+| sharedvmimages | N. | N. |
+| sharedvmimages/versions | N. | N. |
+| snapshot | Sì | Sì |
 | virtualmachines | Sì | Sì |
 | virtualmachines/extensions | Sì | Sì |
 | virtualmachinescalesets | Sì | Sì |
@@ -170,43 +182,43 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| containergroups | No  | No  |
+| containergroups | N. | N. |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| containergroups | No  | No  |
+| containergroups | N. | N. |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | registries | Sì | Sì |
 | registries/buildtasks | Sì | Sì |
-| registries/replications | No  | No  |
+| registries/replications | Sì | Sì |
 | registries/tasks | Sì | Sì |
 | registries/webhooks | Sì | Sì |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| containerservices | No  | No  |
-| managedclusters | No  | No  |
-| openshiftmanagedclusters | No  | No  |
+| containerservices | N. | N. |
+| managedclusters | N. | N. |
+| openshiftmanagedclusters | N. | N. |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| scala Web | Sì | Sì |
+| applicazioni | Sì | Sì |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| account | No  | No  |
+| account | N. | N. |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| dell'account di integrazione | Sì | Sì |
+| connettori | Sì | Sì |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -216,33 +228,34 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| jobs | No  | No  |
+| processi | N. | N. |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| databoxedgedevices | No  | No  |
+| databoxedgedevices | N. | N. |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| aree di lavoro | No  | No  |
+| aree di lavoro | N. | N. |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | catalogs | Sì | Sì |
+| datacatalogs | N. | N. |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| connectionmanagers | No  | No  |
+| connectionmanagers | N. | N. |
 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| packages | No  | No  |
-| plans | No  | No  |
+| packages | N. | N. |
+| plans | N. | N. |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -253,7 +266,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| datalakeaccounts | No  | No  |
+| datalakeaccounts | N. | N. |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -268,70 +281,72 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| services | No  | No  |
-| services/projects | No  | No  |
-| slot | No  | No  |
+| services | N. | N. |
+| services/projects | N. | N. |
+| slot | N. | N. |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| servers | Sì | Sì |
+| server | Sì | Sì |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| servers | Sì | Sì |
+| server | Sì | Sì |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| servergroups | No  | No  |
-| servers | Sì | Sì |
+| servergroups | N. | N. |
+| server | Sì | Sì |
+| serversv2 | Sì | Sì |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| artifactsources | No  | No  |
-| rollouts | No  | No  |
-| servicetopologies | No  | No  |
-| servicetopologies/services | No  | No  |
-| servicetopologies/services/serviceunits | No  | No  |
-| steps | No  | No  |
+| artifactsources | Sì | Sì |
+| rollouts | Sì | Sì |
+| servicetopologies | Sì | Sì |
+| servicetopologies/services | Sì | Sì |
+| servicetopologies/services/serviceunits | Sì | Sì |
+| steps | Sì | Sì |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| elasticpools | No  | No  |
-| elasticpools/iothubtenants | No  | No  |
+| elasticpools | N. | N. |
+| elasticpools/iothubtenants | N. | N. |
 | iothubs | Sì | Sì |
 | provisioningservices | Sì | Sì |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| controllers | No  | No  |
+| controllers | N. | N. |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| labcenters | No  | No  |
-| labs | Sì | No  |
+| labcenters | N. | N. |
+| labs | Sì | N. |
+| / ambienti lab | Sì | Sì |
 | labs/servicerunners | Sì | Sì |
-| labs/virtualmachines | Sì | No  |
-| schedules | No  | No  |
+| labs/virtualmachines | Sì | N. |
+| schedules | Sì | Sì |
 
 ## <a name="microsoftdns"></a>microsoft.dns
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| dnszones | No  | No  |
-| dnszones/a | No  | No  |
-| dnszones/aaaa | No  | No  |
-| dnszones/cname | No  | No  |
-| dnszones/mx | No  | No  |
-| dnszones/ptr | No  | No  |
-| dnszones/srv | No  | No  |
-| dnszones/txt | No  | No  |
-| trafficmanagerprofiles | No  | No  |
+| dnszones | N. | N. |
+| dnszones/a | N. | N. |
+| dnszones/aaaa | N. | N. |
+| dnszones/cname | N. | N. |
+| dnszones/mx | N. | N. |
+| dnszones/ptr | N. | N. |
+| dnszones/srv | N. | N. |
+| dnszones/txt | N. | N. |
+| trafficmanagerprofiles | N. | N. |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -342,6 +357,11 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | domains | Sì | Sì |
+
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+| Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+| ------------- | ----------- | ---------- |
+| services | Sì | Sì |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -358,7 +378,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| account | No  | No  |
+| account | N. | N. |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -370,6 +390,16 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | ------------- | ----------- | ---------- |
 | clusters | Sì | Sì |
 
+## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
+| Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+| ------------- | ----------- | ---------- |
+| services | Sì | Sì |
+
+## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
+| Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+| ------------- | ----------- | ---------- |
+| computer | N. | N. |
+
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
@@ -378,24 +408,24 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| jobs | Sì | Sì |
+| processi | Sì | Sì |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| account | No  | No  |
+| account | N. | N. |
 | actiongroups | Sì | Sì |
-| activitylogalerts | No  | No  |
+| activitylogalerts | N. | N. |
 | alertrules | Sì | Sì |
 | autoscalesettings | Sì | Sì |
 | components | Sì | Sì |
-| guestdiagnosticsettings | No  | No  |
-| metricalerts | No  | No  |
-| notificationgroups | No  | No  |
-| notificationrules | No  | No  |
-| scheduledqueryrules | No  | No  |
+| guestdiagnosticsettings | N. | N. |
+| metricalerts | N. | N. |
+| notificationgroups | N. | N. |
+| notificationrules | N. | N. |
+| scheduledqueryrules | N. | N. |
 | webtests | Sì | Sì |
-| workbooks | Sì | Sì |
+| cartelle di lavoro | Sì | Sì |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -406,12 +436,12 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | checknameavailability | Sì | Sì |
-| graph | Sì | Sì |
+| grafo | Sì | Sì |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| hsmpools | No  | No  |
+| hsmpools | N. | N. |
 | insiemi di credenziali | Sì | Sì |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
@@ -422,7 +452,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| labaccounts | No  | No  |
+| labaccounts | Sì | Sì |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -432,22 +462,22 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| account | Sì | Sì |
+| account | N. | N. |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| hostingenvironments | No  | No  |
+| hostingenvironments | N. | N. |
 | integrationaccounts | Sì | Sì |
-| integrationserviceenvironments | No  | No  |
-| isolatedenvironments | No  | No  |
+| integrationserviceenvironments | N. | N. |
+| isolatedenvironments | N. | N. |
 | flussi di lavoro | Sì | Sì |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | commitmentplans | Sì | Sì |
-| webservices | Sì | No  |
+| webservices | Sì | N. |
 | aree di lavoro | Sì | Sì |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
@@ -458,12 +488,12 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| account | Sì | Sì |
-| accounts/workspaces | Sì | Sì |
-| accounts/workspaces/projects | Sì | Sì |
-| teamaccounts | Sì | Sì |
-| teamaccounts/workspaces | Sì | Sì |
-| teamaccounts/workspaces/projects | Sì | Sì |
+| account | N. | N. |
+| accounts/workspaces | N. | N. |
+| accounts/workspaces/projects | N. | N. |
+| teamaccounts | N. | N. |
+| teamaccounts/workspaces | N. | N. |
+| teamaccounts/workspaces/projects | N. | N. |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -473,17 +503,17 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftmachinelearningoperationalization"></a>Microsoft.MachineLearningOperationalization
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| hostingaccounts | No  | No  |
+| hostingaccounts | N. | N. |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| aree di lavoro | No  | No  |
+| aree di lavoro | N. | N. |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| userassignedidentities | Sì | Sì |
+| userassignedidentities | N. | N. |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -493,7 +523,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| classicdevservices | No  | No  |
+| classicdevservices | N. | N. |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -505,64 +535,67 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| assessmentprojects | No  | No  |
-| migrateprojects | No  | No  |
-| projects | No  | No  |
+| assessmentprojects | N. | N. |
+| migrateprojects | N. | N. |
+| projects | N. | N. |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| netappaccounts | No  | No  |
-| netappaccounts/capacitypools | No  | No  |
-| netappaccounts/capacitypools/volumes | No  | No  |
-| netappaccounts/capacitypools/volumes/mounttargets | No  | No  |
-| netappaccounts/capacitypools/volumes/snapshots | No  | No  |
+| netappaccounts | N. | N. |
+| netappaccounts/capacitypools | N. | N. |
+| netappaccounts/capacitypools/volumes | N. | N. |
+| netappaccounts/capacitypools/volumes/mounttargets | N. | N. |
+| netappaccounts/capacitypools/volumes/snapshots | N. | N. |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| applicationgateways | No  | No  |
+| applicationgateways | N. | N. |
+| applicationgatewaywebapplicationfirewallpolicies | N. | N. |
 | applicationsecuritygroups | Sì | Sì |
 | azurefirewalls | Sì | Sì |
-| bastionhosts | No  | No  |
-| connections | Sì | Sì |
+| bastionhosts | N. | N. |
+| connessioni | Sì | Sì |
 | ddoscustompolicies | Sì | Sì |
-| ddosprotectionplans | No  | No  |
+| ddosprotectionplans | N. | N. |
 | dnszones | Sì | Sì |
-| expressroutecircuits | No  | No  |
-| expressroutecrossconnections | No  | No  |
-| expressroutegateways | No  | No  |
-| expressrouteports | No  | No  |
-| frontdoors | Sì | Sì |
+| expressroutecircuits | N. | N. |
+| expressroutecrossconnections | N. | N. |
+| expressroutegateways | N. | N. |
+| expressrouteports | N. | N. |
+| frontdoor | Sì | Sì |
 | frontdoorwebapplicationfirewallpolicies | Sì | Sì |
-| interfaceendpoints | No  | No  |
 | loadbalancers | Sì | Sì |
 | localnetworkgateways | Sì | Sì |
 | natgateways | Sì | Sì |
 | networkintentpolicies | Sì | Sì |
 | networkinterfaces | Sì | Sì |
-| networkprofiles | No  | No  |
+| networkprofiles | N. | N. |
 | networksecuritygroups | Sì | Sì |
 | networkwatchers | Sì | Sì |
 | networkwatchers/connectionmonitors | Sì | Sì |
 | networkwatchers/lenses | Sì | Sì |
 | networkwatchers/pingmeshes | Sì | Sì |
-| p2svpngateways | No  | No  |
-| privatelinkservices | No  | No  |
+| p2svpngateways | N. | N. |
+| privatednszones | Sì | Sì |
+| privatednszones/virtualnetworklinks | Sì | Sì |
+| privateendpoints | N. | N. |
+| privatelinkservices | N. | N. |
 | publicipaddresses | Sì | Sì |
 | publicipprefixes | Sì | Sì |
-| routefilters | No  | No  |
+| routefilters | N. | N. |
 | routetables | Sì | Sì |
-| securegateways | No  | No  |
+| securegateways | Sì | Sì |
 | serviceendpointpolicies | Sì | Sì |
 | trafficmanagerprofiles | Sì | Sì |
-| virtualhubs | No  | No  |
+| virtualhubs | N. | N. |
 | virtualnetworkgateways | Sì | Sì |
 | virtualnetworks | Sì | Sì |
-| virtualnetworktaps | No  | No  |
-| virtualwans | No  | No  |
-| vpngateways | No  | No  |
-| vpnsites | Sì | Sì |
+| virtualnetworktaps | N. | N. |
+| virtualwans | N. | N. |
+| vpngateways | N. | N. |
+| vpnsites | N. | N. |
 | webapplicationfirewallpolicies | Sì | Sì |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
@@ -581,7 +614,12 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | ------------- | ----------- | ---------- |
 | managementconfigurations | Sì | Sì |
 | solutions | Sì | Sì |
-| Viste | Sì | Sì |
+| visualizzazioni | Sì | Sì |
+
+## <a name="microsoftpeering"></a>Microsoft.Peering
+| Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+| ------------- | ----------- | ---------- |
+| peering | N. | N. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -591,7 +629,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| rootresources | No  | No  |
+| rootresources | N. | N. |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -606,7 +644,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| account | No  | No  |
+| account | N. | N. |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -621,12 +659,12 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| scala Web | Sì | No  |
+| applicazioni | Sì | N. |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| flows | Sì | Sì |
+| flussi | Sì | Sì |
 | jobcollections | Sì | Sì |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -634,11 +672,16 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | ------------- | ----------- | ---------- |
 | searchservices | Sì | Sì |
 
+## <a name="microsoftsecurity"></a>Microsoft.Security
+| Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+| ------------- | ----------- | ---------- |
+| iotsecuritysolutions | Sì | Sì |
+
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| gateways | No  | No  |
-| nodes | No  | No  |
+| gateways | N. | N. |
+| nodes | N. | N. |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -648,24 +691,24 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| scala Web | No  | No  |
+| applicazioni | N. | N. |
 | clusters | Sì | Sì |
-| containergroups | No  | No  |
-| containergroupsets | No  | No  |
-| edgeclusters | No  | No  |
-| networks | No  | No  |
-| secretstores | No  | No  |
-| volumes | No  | No  |
+| containergroups | N. | N. |
+| containergroupsets | N. | N. |
+| edgeclusters | N. | N. |
+| Reti | N. | N. |
+| secretstores | N. | N. |
+| volumi | N. | N. |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| scala Web | Sì | Sì |
-| containergroups | No  | No  |
+| applicazioni | Sì | Sì |
+| containergroups | N. | N. |
 | gateways | Sì | Sì |
-| networks | Sì | Sì |
-| chiavi private | Sì | Sì |
-| volumes | Sì | Sì |
+| Reti | Sì | Sì |
+| segreti | Sì | Sì |
+| volumi | Sì | Sì |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -675,27 +718,26 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| siterecoveryvault | No  | No  |
+| siterecoveryvault | N. | N. |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| appliancedefinitions | No  | No  |
-| appliances | No  | No  |
-| applicationdefinitions | No  | No  |
-| scala Web | No  | No  |
-| jitrequests | No  | No  |
+| appliancedefinitions | N. | N. |
+| appliances | N. | N. |
+| applicationdefinitions | N. | N. |
+| applicazioni | N. | N. |
+| jitrequests | N. | N. |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
+| instancepools | Sì | Sì |
 | managedinstances | Sì | Sì |
 | managedinstances/databases | Sì | Sì |
-| servers | Sì | Sì |
+| server | Sì | Sì |
 | servers/databases | Sì | Sì |
 | servers/elasticpools | Sì | Sì |
-| servers/jobaccounts | No  | No  |
-| servers/jobagents | No  | No  |
 | virtualclusters | Sì | Sì |
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
@@ -707,12 +749,17 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftsqlvm"></a>Microsoft.SqlVM
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| dwvm | No  | No  |
+| dwvm | N. | N. |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | storageaccounts | Sì | Sì |
+
+## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+| Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+| ------------- | ----------- | ---------- |
+| Cache | N. | N. |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -722,17 +769,17 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| storagesyncservices | No  | No  |
+| storagesyncservices | N. | N. |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| storagesyncservices | No  | No  |
+| storagesyncservices | N. | N. |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| managers | No  | No  |
+| managers | N. | N. |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -742,17 +789,17 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| environments | No  | No  |
-| environments/eventsources | No  | No  |
-| instances | No  | No  |
-| instances/environments | No  | No  |
-| instances/environments/eventsources | No  | No  |
+| environments | N. | N. |
+| environments/eventsources | N. | N. |
+| istanze | N. | N. |
+| instances/environments | N. | N. |
+| instances/environments/eventsources | N. | N. |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| providerregistrations | No  | No  |
-| resources | No  | No  |
+| providerregistrations | N. | N. |
+| risorse | N. | N. |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -761,10 +808,15 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | environments/eventsources | Sì | Sì |
 | environments/referencedatasets | Sì | Sì |
 
+## <a name="microsofttoken"></a>Microsoft.Token
+| Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+| ------------- | ----------- | ---------- |
+| Archivia | N. | N. |
+
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| imagetemplates | No  | No  |
+| imagetemplates | N. | N. |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -773,14 +825,21 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | account/extension | Sì | Sì |
 | account/project | Sì | Sì |
 
+## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
+| Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+| ------------- | ----------- | ---------- |
+| dedicatedcloudnodes | Sì | Sì |
+| dedicatedcloudservices | Sì | Sì |
+| virtualmachines | Sì | Sì |
+
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| certificates | No  | Sì |
+| certificati | N. | Sì |
 | connectiongateways | Sì | Sì |
-| connections | Sì | Sì |
+| connessioni | Sì | Sì |
 | customapis | Sì | Sì |
-| hostingenvironments | No  | No  |
+| hostingenvironments | N. | N. |
 | serverfarms | Sì | Sì |
 | siti | Sì | Sì |
 | sites/premieraddons | Sì | Sì |
@@ -790,6 +849,13 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | deviceservices | Sì | Sì |
+
+## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft.WindowsVirtualDesktop
+| Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
+| ------------- | ----------- | ---------- |
+| applicationgroups | N. | N. |
+| hostpools | N. | N. |
+| aree di lavoro | N. | N. |
 
 ## <a name="third-party-services"></a>Servizi di terze parti
 

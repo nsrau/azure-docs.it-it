@@ -3,8 +3,8 @@ title: Riferimento token ID di Microsoft identity platform | Microsoft Docs
 description: Informazioni su come usare i token ID emessi dalla versione 1.0 di Azure AD e gli endpoint di Microsoft identity platform (v2.0).
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5c296f14fd9fdc3a7555412555ea1a851f9a7b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2c99caa46522f9b1e5d6334da8f10a0f4039899
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410043"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540299"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Token ID di Microsoft identity platform
 
@@ -55,7 +55,7 @@ Questo token v2.0 di esempio viene visualizzato in [jwt.ms](https://jwt.ms/#id_t
 
 ### <a name="header-claims"></a>Attestazioni di intestazione
 
-|Attestazione | Format | DESCRIZIONE |
+|Attestazione | Format | Descrizione |
 |-----|--------|-------------|
 |`typ` | Stringa, sempre "JWT" | Indica che il token è un token JWT.|
 |`alg` | String | Indica che l'algoritmo è stato usato per firmare il token. Esempio: "RS256" |
@@ -66,7 +66,7 @@ Questo token v2.0 di esempio viene visualizzato in [jwt.ms](https://jwt.ms/#id_t
 
 Questo elenco Mostra le attestazioni che sono nella maggior parte dei token ID per impostazione predefinita (se diversamente specificato).  Tuttavia, l'app può usare [attestazioni facoltative](active-directory-optional-claims.md) per richiedere ulteriori attestazioni nel token ID.  Questi possono variare dal `groups` attestazione per informazioni sul nome dell'utente.
 
-|Attestazione | Format | DESCRIZIONE |
+|Attestazione | Format | Descrizione |
 |-----|--------|-------------|
 |`aud` |  Stringa, un URI ID app | Identifica il destinatario del token. Negli `id_tokens` il destinatario è l'ID applicazione assegnato all'app nel portale di Azure. L'app deve convalidare questo valore e rifiutare il token, se il valore non corrisponde. |
 |`iss` |  Stringa, un URI del servizio token di sicurezza | Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e il tenant di Azure AD in cui l'utente è stato autenticato. Se il token è stato rilasciato dall'endpoint v2.0, l'URI termina con `/v2.0`.  Il GUID che indica che l'utente è un utente consumer di un account Microsoft è `9188040d-6c67-4c5b-b112-36a304b66dad`. L'app deve usare la parte relativa al GUID dell'attestazione per limitare il set di tenant che possono accedere all'app, se applicabile. |

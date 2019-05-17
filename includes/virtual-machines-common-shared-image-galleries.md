@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192379"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546738"
 ---
 Raccolta di immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini di macchine virtuali gestite e personalizzate. Raccolte di immagini condivise fornite:
 
@@ -30,7 +30,7 @@ Se si dispone di un numero elevato di immagini gestite che è necessario mantene
 
 La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
-| Resource | DESCRIZIONE|
+| Resource | Descrizione|
 |----------|------------|
 | **Immagine gestita** | Un'immagine di base che può essere usata da solo o utilizzata per creare un **versione dell'immagine** in una raccolta di immagini. Le immagini gestite vengono create da macchine virtuali generalizzate. Un'immagine gestita è un tipo speciale di disco rigido virtuale che può essere usato per creare più macchine virtuali e può ora essere sfruttato per creare versioni di immagini condivise. |
 | **Raccolta di immagini** | Come in Azure Marketplace, una **raccolta di immagini** è un repository per la gestione e la condivisione delle immagini, ma è possibile controllare chi ha accesso. |
@@ -49,7 +49,7 @@ Le definizioni di immagine sono un raggruppamento logico per le versioni di un'i
 
 Esistono tre parametri per ogni definizione di immagini che vengono usati in combinazione - **server di pubblicazione**, **offrono** e **SKU**. Questi vengono usati per trovare una definizione di immagine specifico. È possibile avere versioni delle immagini che condividono uno o due, ma non tutti e tre i valori.  Di seguito, un esempio di tre definizioni di immagini con i relativi valori:
 
-|Definizione delle immagini|Editore|Offerta|Sku|
+|Definizione delle immagini|Pubblicato da|Offerta|Sku|
 |---|---|---|---|
 |myImage1|Contoso|Finanza|Back-end|
 |myImage2|Contoso|Finanza|Front-end|
@@ -117,11 +117,11 @@ Le aree in cui la versione di immagini condivise viene replicata possono essere 
 
 Poiché la raccolta di immagini condivise, l'immagine condivisa e la versione dell'immagine condivisa sono tutte risorse, possono essere condivise usando i controlli degli accessi in base al ruolo nativi di Azure. Uso di RBAC è possibile condividere queste risorse ad altri utenti, le entità servizio e gruppi. È anche possibile condividere l'accesso a persone all'esterno del tenant che sono stati creati all'interno. Una volta che un utente ha accesso alla versione di immagine condivisi, è possibile distribuire una macchina virtuale o un Set di scalabilità di macchine virtuali.  Di seguito è riportata la matrice di condivisione che consente all'utente di riconoscere a cosa ha accesso:
 
-| Condivisi con l'utente     | Raccolta di immagini condivise | Immagine condivisa | Versione di immagini condivise |
+| Condivisi con l'utente     | Raccolta immagini condivisa | Immagine condivisa | Versione di immagini condivise |
 |----------------------|----------------------|--------------|----------------------|
-| Raccolta di immagini condivise | Sì                  | Sì          | Sì                  |
-| Immagine condivisa         | No                    | Sì          | Sì                  |
-| Versione di immagini condivise | No                    | No            | Sì                  |
+| Raccolta immagini condivisa | Sì                  | Sì          | Sì                  |
+| Immagine condivisa         | N.                   | Sì          | Sì                  |
+| Versione di immagini condivise | N.                   | N.           | Sì                  |
 
 È consigliabile la condivisione a livello di raccolta per ottenere risultati ottimali. Per altre informazioni su RBAC, vedere [gestire l'accesso alle risorse di Azure tramite RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -137,12 +137,12 @@ Non sono previsti addebiti aggiuntivi per l'uso del servizio Raccolta di immagin
 Una volta creato, è possibile apportare alcune modifiche per le risorse della raccolta immagini. Questi sono limitati a:
  
 Raccolta di immagini condivise:
-- DESCRIZIONE
+- Descrizione
 
 Definizione delle immagini:
 - VCPU consigliati
 - Memoria consigliata
-- DESCRIZIONE
+- Descrizione
 - Data di scadenza
 
 Versione immagine:
@@ -266,4 +266,4 @@ Per specificare il numero comune di repliche nella riga di comando, usare l'argo
 
 **D.** Quale versione API è necessario usare per creare Raccolta di immagini condivise, Definizione immagine, Versione immagine e VM/VMSS della Versione immagine?
 
- R. Per le distribuzioni di macchine virtuali e set di scalabilità di macchine virtuali eseguite usando una versione di immagine, si consiglia di usare la versione API 2018-04-01 o una successiva. Per lavorare con le raccolte di immagini condivise, le definizioni di immagini e le versioni dell'immagine, si consiglia di usare la versione API 2018-06-01. 
+ R. Per le distribuzioni di macchine virtuali e set di scalabilità di macchine virtuali eseguite usando una versione di immagine, si consiglia di usare la versione API 2018-04-01 o una successiva. Per lavorare con le raccolte di immagini condivise, le definizioni di immagini e le versioni dell'immagine, si consiglia di usare la versione API 2018-06-01. Archiviazione con ridondanza della zona (ZRS) richiede la versione 2019-03-01 o versione successiva.

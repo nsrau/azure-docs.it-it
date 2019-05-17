@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9eedf0be6089764c8111ae81d558f7e65af0a66d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021778"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540868"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Come creare un set di competenze in una pipeline di arricchimento
 
@@ -173,7 +173,7 @@ Esaminiamo la competenza prima, ovvero l'oggetto incorporato [competenza di rico
 
 * La competenza genera un output denominato ```"organizations"```. Gli output esistono solo durante l'elaborazione. Per concatenare questo output all'input della competenza a valle, fare riferimento all'output come ```"/document/organizations"```.
 
-* Per un particolare documento, il valore di ```"/document/organizations"``` è una matrice di organizzazioni estratte dal testo. Ad esempio: 
+* Per un particolare documento, il valore di ```"/document/organizations"``` è una matrice di organizzazioni estratte dal testo. Ad esempio:
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -249,7 +249,7 @@ Fino ad ora, questa struttura è stato solo interno, solo memoria e viene utiliz
 
 ## <a name="add-a-knowledge-store"></a>Aggiungere un archivio della Knowledge Base
 
-[Store Knowledge](knowledge-store-concept-intro.md) è una funzionalità di anteprima di ricerca di Azure per il salvataggio del documento arricchito. Un archivio della Knowledge base creati dall'utente, supportata da un account di archiviazione di Azure, è il repository in cui i dati arricchiti apre. 
+[Archivio della Knowledge Base](knowledge-store-concept-intro.md) è una funzionalità di anteprima di ricerca di Azure per il salvataggio del documento arricchito. Un archivio della Knowledge base creati dall'utente, supportata da un account di archiviazione di Azure, è il repository in cui i dati arricchiti apre. 
 
 Una definizione di archivio della Knowledge base viene aggiunto a un insieme di competenze. Per una procedura dettagliata dell'intero processo, vedere [come iniziare a usare archivio knowledge](knowledge-store-howto.md).
 

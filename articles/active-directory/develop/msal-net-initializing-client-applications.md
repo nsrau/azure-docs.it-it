@@ -4,7 +4,7 @@ description: Informazioni sull'inizializzazione client pubblico e le applicazion
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6197d472bdfaf03c9f99baa7691354e735cc91e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2f22ff41e380a16af2aa45df9a61eefbf293ff83
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075806"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544329"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inizializzare le applicazioni client tramite MSAL.NET
 Questo articolo descrive l'inizializzazione client pubblico e le applicazioni client riservato usando Microsoft Authentication Library per .NET (MSAL.NET).  Per altre informazioni sui tipi di applicazioni client e le opzioni di configurazione dell'applicazione, vedere la [Panoramica](msal-client-applications.md).
@@ -100,7 +100,7 @@ Nei frammenti di codice usando i generatori di applicazione, numerosi `.With` po
 
 I modificatori che è possibile impostare per un client pubblico o un compilatore di applicazioni client riservati sono:
 
-|Parametro | DESCRIZIONE|
+|Parametro | Descrizione|
 |--------- | --------- |
 |`.WithAuthority()` 7 sostituzioni | Imposta l'autorità predefinito dell'applicazione da un'autorità di Azure AD, con la possibilità di scelta del Cloud di Azure, i destinatari, il tenant (tenant ID o il dominio nome), o che forniscono direttamente l'URI dell'autorità.|
 |`.WithAdfsAuthority(string)` | Imposta l'autorità predefinito dell'applicazione da un'autorità di ad FS.|
@@ -119,7 +119,7 @@ I modificatori che è possibile impostare per un client pubblico o un compilator
 
 I modificatori che è possibile impostare per un compilatore di applicazioni client pubblico in xamarin. IOS sono:
 
-|Parametro | DESCRIZIONE|
+|Parametro | Descrizione|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Xamarin. IOS solo**: Imposta il gruppo di sicurezza di iOS Keychain (per il salvataggio permanente della cache).|
 
@@ -127,7 +127,7 @@ I modificatori che è possibile impostare per un compilatore di applicazioni cli
 
 I modificatori che è possibile impostare per un compilatore di applicazioni client riservati sono:
 
-|Parametro | DESCRIZIONE|
+|Parametro | Descrizione|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Imposta il certificato che identifica l'applicazione con Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Imposta il segreto client (password dell'app) che identifica l'applicazione con Azure AD.|

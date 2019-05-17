@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510848"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555953"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -300,6 +300,17 @@ Le sessioni di sincronizzazione potrebbero non avvenire per vari motivi, tra cui
 | **Rimedio necessario** | N. |
 
 Non è necessaria alcuna azione, il server tenterà nuovamente. Se l'errore persiste per più di un paio d'ore, creare una richiesta di supporto.
+
+<a id="-2134364043"></a>**Sincronizzazione bloccata fino a quando il rilevamento delle modifiche viene completata dopo il ripristino**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83075 |
+| **HRESULT (decimale)** | -2134364043 |
+| **Stringa di errore** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
+| **Rimedio necessario** | N. |
+
+Non è necessaria alcuna azione. Quando un file o condivisione file (endpoint cloud) viene ripristinato utilizzando Backup di Azure, sincronizzazione bloccata finché non viene completato il rilevamento delle modifiche nella condivisione di file di Azure. Rilevamento delle modifiche viene eseguito immediatamente dopo il ripristino è stato completato e la durata è basata sul numero di file nella condivisione file.
 
 <a id="-2134364065"></a>**La sincronizzazione non può accedere alla condivisione file di Azure specificata nell'endpoint cloud.**  
 

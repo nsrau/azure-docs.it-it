@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 02d50b81cb91a74e2cdb039c56195e2a15858ca1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142853"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797615"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
 
@@ -368,7 +368,7 @@ Per impostazione predefinita, IoT Edge avvia i moduli nella propria rete conteni
 
 **Opzione 1: Impostare i server DNS nel contenitore impostazioni del motore**
 
-Specificare il server DNS per l'ambiente nelle impostazioni del motore contenitore che verranno applicati a tutti i moduli del contenitore avviati dal motore. Creare un file denominato `daemon.json` specificando il server DNS da usare. Ad esempio: 
+Specificare il server DNS per l'ambiente nelle impostazioni del motore contenitore che verranno applicati a tutti i moduli del contenitore avviati dal motore. Creare un file denominato `daemon.json` specificando il server DNS da usare. Ad esempio:
 
 ```
 {
@@ -383,7 +383,7 @@ Posizione `daemon.json` nella posizione appropriata per la tua piattaforma:
 | Piattaforma | Località |
 | --------- | -------- |
 | Linux | `/etc/docker` |
-| Host di Windows con i contenitori Windows | `C:\ProgramData\iotedge-moby-data\config` |
+| Host di Windows con i contenitori Windows | `C:\ProgramData\iotedge-moby\config` |
 
 Se il percorso contiene già `daemon.json` , aggiungere i **dns** chiave ad esso e salvare il file.
 
@@ -396,7 +396,7 @@ Se il percorso contiene già `daemon.json` , aggiungere i **dns** chiave ad esso
 
 **Opzione 2: Impostare il server DNS nella distribuzione di IoT Edge per ogni modulo**
 
-È possibile impostare il server DNS per ogni modulo *createOptions* nella distribuzione di IoT Edge. Ad esempio: 
+È possibile impostare il server DNS per ogni modulo *createOptions* nella distribuzione di IoT Edge. Ad esempio:
 
 ```
 "createOptions": {

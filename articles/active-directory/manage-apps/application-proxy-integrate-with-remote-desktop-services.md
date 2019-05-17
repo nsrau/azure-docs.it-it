@@ -3,8 +3,8 @@ title: Pubblicare Desktop remoto con il proxy applicazione di Azure AD | Microso
 description: Tratta i fondamenti dei connettori del proxy applicazione di Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: celested
+ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ecd55cbb3a8eefc150db731901458561d90f033
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440698"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783413"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Pubblicare Desktop remoto con il proxy applicazione di Azure AD
 
@@ -68,7 +68,7 @@ Dopo avere configurato Servizi Desktop remoto e il proxy applicazione di Azure A
    - URL interno: `https://\<rdhost\>.com/`, dove `\<rdhost\>` è la radice comune condivisa da Web Desktop Remoto e Gateway Desktop remoto.
    - URL esterno: questo campo viene completato automaticamente in base al nome dell'applicazione, ma è possibile modificarlo. Gli utenti passeranno a questo URL quando accedono a Servizi Desktop remoto.
    - Metodo di autenticazione preliminare: Azure Active Directory
-   - Convertire l'URL nelle intestazioni: No 
+   - Convertire l'URL nelle intestazioni: N.
 2. Assegnare utenti all'applicazione di Desktop remoto pubblicata. Assicurarsi che tutti gli utenti abbiano accesso anche a Servizi Desktop remoto.
 3. Lasciare il metodo Single Sign-On per l'applicazione come **Single Sign-On di Azure AD disabilitato**. Agli utenti viene richiesto di eseguire l'autenticazione una volta in Azure AD e una volta in Web Desktop remoto, ma dispongono dell'accesso Single Sign-On a Gateway Desktop remoto.
 4. Andare a **Azure Active Directory** > **Registrazioni per l'app** > *Applicazione* > **Impostazioni**.

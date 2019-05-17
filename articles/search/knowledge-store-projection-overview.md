@@ -1,5 +1,5 @@
 ---
-title: Utilizzo di proiezioni in un archivio della Knowledge Base - ricerca di Azure
+title: 'Utilizzo di proiezioni in un archivio knowledge (anteprima): ricerca di Azure'
 description: Salvare e modellare i dati arricchiti dalla pipeline di indicizzazione di intelligenza artificiale per l'uso in scenari diversi da ricerca
 manager: eladz
 author: vkurpad
@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
-ms.openlocfilehash: 3ab5ffafd1b20eb0e3e453d3e730840baf9233e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028366"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540815"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Utilizzo di proiezioni in un archivio della Knowledge base in ricerca di Azure
 
+> [!Note]
+> L'archivio della Knowledge Base è in anteprima e non è destinata all'uso in produzione. Il [API REST versione 2019-05-06-Preview](search-api-preview.md) fornisce questa funzionalità. Non sarà disponibile alcun supporto di .NET SDK in questo momento.
+>
+
 Ricerca di Azure consente di abilitare l'arricchimento dei contenuti tramite competenze cognitive per intelligenza artificiale e competenze personalizzate come parte dell'indicizzazione. Miglioramenti aggiungono struttura per i documenti ed eseguire una ricerca più efficaci. In molti casi, i documenti arricchiti sono utili per scenari differenti dalle ricerca, ad esempio per data mining della Knowledge Base.
 
-Le proiezioni, un componente del [store knowledge (anteprima)](knowledge-store-concept-intro.md), sono viste di arricchiti documenti che possono essere salvati in un archivio fisico per scopi di data mining della Knowledge Base. Una proiezione consente di "progetto" i dati in una forma che viene allineato alle esigenze e mantenere relazioni in modo che gli strumenti come Power BI possono leggere i dati senza interventi aggiuntivi. 
+Le proiezioni, un componente del [store knowledge](knowledge-store-concept-intro.md), sono viste di arricchiti documenti che possono essere salvati in un archivio fisico per scopi di data mining della Knowledge Base. Una proiezione consente di "progetto" i dati in una forma che viene allineato alle esigenze e mantenere relazioni in modo che gli strumenti come Power BI possono leggere i dati senza interventi aggiuntivi. 
 
 Le proiezioni possono essere in formato tabulare, con i dati archiviati in righe e colonne in archiviazione tabelle di Azure o gli oggetti JSON archiviati in archiviazione Blob di Azure. È possibile definire più proiezioni dei dati arricchire. Ciò è utile quando si desidera che gli stessi dati di una forma diversa per i casi di uso individuale. 
 

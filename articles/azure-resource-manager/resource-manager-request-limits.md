@@ -1,24 +1,18 @@
 ---
 title: Limitazione delle richieste di Azure Resource Manager | Microsoft Docs
 description: Viene descritto come usare la limitazione con le richieste di Azure Resource Manager quando sono stati raggiunti i limiti di sottoscrizioni.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389730"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791367"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitazione delle richieste di Resource Manager
 
@@ -32,12 +26,12 @@ Se l'applicazione o script raggiunge questi limiti, è necessario restringere le
 
 Quando si raggiunge il limite, viene visualizzato il codice di stato HTTP **429 Too many requests** (429 Troppe richieste).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Graph di risorse di Azure limita il numero di richieste per le operazioni. I passaggi descritti in questo articolo per determinare il numero di richieste rimanenti e la modalità di risposta quando viene raggiunto il limite si applicano anche al grafico di risorse. Tuttavia, risorsa Graph imposta la propria frequenza di limite e reimpostare. Per altre informazioni, vedere [limitare le richieste in Graph di Azure Resource](../governance/resource-graph/overview.md#throttling).
 
 ## <a name="remaining-requests"></a>Richieste rimanenti
 È possibile determinare il numero di richieste rimanenti esaminando le intestazioni di risposta. Le richieste di lettura restituiscono il valore dell'intestazione per il numero di richieste di lettura rimanenti. Scrivere le richieste includono un valore per il numero di richieste di scrittura rimanenti. Nella tabella seguente vengono descritte le intestazioni di risposta che è possibile esaminare per tali valori:
 
-| Intestazione risposta | DESCRIZIONE |
+| Intestazione risposta | Descrizione |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |Richieste di lettura rimanenti nell'ambito della sottoscrizione. Questo valore viene restituito nelle operazioni di lettura. |
 | x-ms-ratelimit-remaining-subscription-writes |Richieste di scrittura rimanenti nell'ambito della sottoscrizione. Questo valore viene restituito nelle operazioni di scrittura. |

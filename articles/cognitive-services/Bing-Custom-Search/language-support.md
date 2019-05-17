@@ -3,19 +3,19 @@ title: Supporto per la lingua - API Ricerca personalizzata Bing
 titleSuffix: Azure Cognitive Services
 description: Elenco delle lingue e delle regioni supportate dall'API Ricerca personalizzata Bing.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1f53dc60a74f0b558525897bef97bf2500442b54
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.author: aahi
+ms.openlocfilehash: 56870a63f42c10b48cc2d8f0ae2995862be46d8f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867838"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790235"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Lingua e regioni supportate dall'API Ricerca personalizzata Bing
 
@@ -29,7 +29,7 @@ L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a
 
 ## <a name="countriesregions"></a>Paesi/aree geografiche
 
-|Paese/Area geografica|Codice|
+|Paese/area geografica|Codice|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -42,13 +42,13 @@ L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a
 |Finlandia|FI|
 |Francia|VF|
 |Germania|DE|
-|RAS di Hong Kong|HK|
+|Hong Kong - R.A.S.|HK|
 |India|IN|
 |Indonesia|ID|
-|Italia|IT|
+|Italia|it|
 |Giappone|JP|
 |Corea del Sud|KR|
-|Malaysia|MY|
+|Malesia|MY|
 |Messico|MX|
 |Paesi Bassi|NL|
 |Nuova Zelanda|NZ|
@@ -59,7 +59,7 @@ L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a
 |Filippine|PH|
 |Russia|RU|
 |Arabia Saudita|SA|
-|Sud Africa|ZA|
+|Sudafrica|ZA|
 |Spagna|ES|
 |Svezia|SE|
 |Svizzera|CH|
@@ -71,7 +71,7 @@ L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a
 
 ## <a name="markets"></a>Mercati
 
-|Paese/Area geografica|Linguaggio|Codice di mercato|
+|Paese/area geografica|Linguaggio|Codice di mercato|
 |-------|--------|-----------|
 |Argentina|Spagnolo|es-AR|
 |Australia|Inglese|en-AU|
@@ -92,7 +92,7 @@ L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a
 |Italia|Italiano|it-IT|
 |Giappone|Giapponese|ja-JP|
 |Corea del Sud|Coreano|ko-KR|
-|Malaysia|Inglese|en-MY|
+|Malesia|Inglese|en-MY|
 |Messico|Spagnolo|es-MX|
 |Paesi Bassi|Olandese|nl-NL|
 |Nuova Zelanda|Inglese|en-NZ|
@@ -103,7 +103,7 @@ L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a
 |Filippine|Inglese|en-PH|
 |Russia|Russo|ru-RU|
 |Arabia Saudita|Arabo|ar-SA|
-|Sud Africa|Inglese|en-ZA|
+|Sudafrica|Inglese|en-ZA|
 |Spagna|Spagnolo|es-ES|
 |Svezia|Svedese|sv-SE|
 |Svizzera|Francese|fr-CH|

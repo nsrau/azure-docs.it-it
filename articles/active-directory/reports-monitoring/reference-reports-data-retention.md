@@ -1,6 +1,6 @@
 ---
-title: Criteri di conservazione dei report di Azure Active Directory | Documentazione Microsoft
-description: Criteri di conservazione dei dati di report in Azure Active Directory
+title: Quanto tempo vengono archiviati i dati dei report in Azure AD? | Microsoft Docs
+description: Informazioni su quanto tempo Azure archivia i vari tipi di dati dei report.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,14 +17,14 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41fa12c9d79d14a6602d995ed93b5d1a23be8a4d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437057"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781051"
 ---
-# <a name="azure-active-directory-report-retention-policies"></a>Criteri di conservazione dei report di Azure Active Directory
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Quanto tempo vengono archiviati i dati dei report in Azure AD?
 
 In questo articolo vengono illustrati i criteri di conservazione dei dati per i diversi report attività in Azure Active Directory. 
 
@@ -32,8 +32,8 @@ In questo articolo vengono illustrati i criteri di conservazione dei dati per i 
 
 | Edizione di Azure AD | Avvio della raccolta |
 | :--              | :--   |
-| Azure AD Premium P1 <br /> Azure AD P2 Premium | Al momento dell'accesso a una sottoscrizione |
-| Azure AD Free <br /> Azure AD Basic | La prima volta che si apre il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o si usano le [API di creazione report](https://aka.ms/aadreports)  |
+| Azure AD P1 Premium <br /> Azure AD P2 Premium | Al momento dell'accesso a una sottoscrizione |
+| Azure AD Gratuito <br /> Azure AD Basic | La prima volta che si apre il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o si usano le [API di creazione report](https://aka.ms/aadreports)  |
 
 ---
 
@@ -66,7 +66,7 @@ Per i segnali di sicurezza, il processo di raccolta viene avviato quando si acco
 
 **Report attività**    
 
-| Report                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD P2 Premium |
+| Report                 | Azure AD Gratuito | Azure AD Basic | Azure AD P1 Premium | Azure AD P2 Premium |
 | :--                    | :--           | :--            | :--                 | :--                 |
 | Log di controllo             | 7 giorni        |  7 giorni        | 30 giorni             | 30 giorni             |
 | Accessi               | N/D           |  N/D           | 30 giorni             | 30 giorni             |
@@ -76,9 +76,9 @@ Per i segnali di sicurezza, il processo di raccolta viene avviato quando si acco
 
 **Segnali di sicurezza**
 
-| Report         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD P2 Premium |
+| Report         | Azure AD Gratuito | Azure AD Basic | Azure AD P1 Premium | Azure AD P2 Premium |
 | :--            | :--           | :--            | :--                 | :--                 |
-| Utenti a rischio.  | 7 giorni        | 7 giorni         | 30 giorni             | 90 giorni             |
+| Utenti a rischio  | 7 giorni        | 7 giorni         | 30 giorni             | 90 giorni             |
 | Accessi a rischio | 7 giorni        | 7 giorni         |  30 giorni            | 90 giorni             |
 
 ---

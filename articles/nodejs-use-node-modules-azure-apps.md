@@ -3,8 +3,8 @@ title: Uso di moduli Node.js
 description: Informazioni su come usare i moduli Node.js con Servizio app di Azure e Servizi cloud.
 services: ''
 documentationcenter: nodejs
-author: TomArcher
-manager: routlaw
+author: rloutlaw
+manager: rloutlaw
 editor: ''
 ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
 ms.service: multiple
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
-ms.author: tarcher
-ms.openlocfilehash: 08f3a2dcf9d36eb76b2f657232a426b078066273
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: rloutlaw
+ms.openlocfilehash: 67ae9eec4e6cd4fc7697e54dfd74c5e0c8f1f59c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60634922"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540942"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Utilizzo di moduli Node.js con le applicazioni Azure
 In questo documento vengono fornite le linee guida per l'utilizzo dei moduli Node.js con le applicazioni ospitate in Azure. Queste indicazioni consentono di garantire che l'applicazione usi una versione specifica di moduli, nonché di usare i moduli nativi con Azure.

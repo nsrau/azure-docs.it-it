@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/22/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 558b67b5b0e1ce4f452ce2ca2e97dd7e785c80b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728694"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541677"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrizioni di accesso di servizio App di Azure #
 
@@ -32,7 +32,7 @@ Quando viene effettuata una richiesta all'App, l'indirizzo del mittente viene va
 
 La funzionalità di restrizioni di accesso viene implementata nei ruoli front-end del servizio App, ovvero upstream degli host di lavoro in cui viene eseguito il codice. Di conseguenza, le restrizioni di accesso sono effettivamente gli ACL di rete.
 
-La possibilità di limitare l'accesso all'App web da una rete virtuale di Azure (VNet) viene chiamata [endpoint di servizio][serviceendpoints]. Gli endpoint di servizio consentono di limitare l'accesso a un servizio multi-tenant dalla subnet selezionata. Deve essere abilitata sul lato di rete oltre a servizio che viene viene abilitata con. 
+La possibilità di limitare l'accesso all'App web da una rete virtuale di Azure (VNet) viene chiamata [endpoint di servizio][serviceendpoints]. Gli endpoint di servizio consentono di limitare l'accesso a un servizio multi-tenant dalla subnet selezionata. Deve essere abilitata sul lato di rete oltre a servizio che viene viene abilitata con. Non funziona per limitare il traffico verso le app ospitate in un ambiente del servizio App.  Se trovano in un ambiente del servizio App, è possibile controllare l'accesso all'App con regole degli indirizzi IP.
 
 ![flusso di restrizioni di accesso](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -59,6 +59,8 @@ Per impostare un indirizzo IP basata su regole, selezionare un tipo di IPv4 o IP
 ![aggiungere una regola di restrizione di accesso di rete virtuale](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 Per limitare l'accesso alla subnet selezionata, selezionare un tipo di rete virtuale. Di seguito sarà possibile selezionare la sottoscrizione della rete virtuale e subnet che si desidera consentire o negare l'accesso con. Se gli endpoint di servizio non sono abilitati già con Microsoft. Web per la subnet selezionata, si saranno abilitato automaticamente per l'utente a meno che non si seleziona la casella in cui viene chiesto di non eseguire questa operazione. La situazione in cui si desidera abilitare la funzionalità in app, ma non la subnet è correlata in gran parte se si dispone delle autorizzazioni per abilitare gli endpoint di servizio nella subnet o No. Se è necessario ottenere qualcun altro per abilitare gli endpoint di servizio nella subnet, è possibile selezionare la casella di controllo e delle App configurati per gli endpoint di servizio in attesa di essere abilitato in un secondo momento nella subnet. 
+
+Gli endpoint di servizio non sono utilizzabile per limitare l'accesso alle App che vengono eseguiti in un ambiente del servizio App. Quando l'app è in un ambiente del servizio App, è possibile controllare l'accesso all'App con le regole di accesso IP. 
 
 È possibile fare clic su qualsiasi riga per modificare una regola di restrizione di accesso esistente. Le modifiche diventano effettive immediatamente, incluse le modifiche nell'ordine di priorità.
 

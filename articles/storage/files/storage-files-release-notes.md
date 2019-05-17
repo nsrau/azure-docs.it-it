@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 4/22/2019
+ms.date: 5/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 9a8fe1c083ab4e241cf236fd6f731fba1aa67f87
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 421f255353a3cf0b6cc000677c91d0f8c84cbc73
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724227"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540600"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -25,7 +25,8 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 
 | Attività cardine | Numero di versione dell'agente | Data di rilascio | Stato |
 |----|----------------------|--------------|------------------|
-| V6 Rilascio - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 aprile 2019 | Supportato (versione consigliata) |
+| Maggio 2019 aggiornamento cumulativo - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 maggio 2019 | Supportato (versione consigliata) |
+| V6 Rilascio - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 aprile 2019 | Supportato |
 | Aprile 2019 aggiornamento cumulativo - [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 aprile 2019 | Supportato |
 | Aggiornamento di marzo 2019 cumulativo - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 marzo 2019 | Supportato |
 | Versione v5 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 febbraio 2019 | Supportato |
@@ -40,6 +41,12 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-6100"></a>Versione dell'agente versione 6.1.0.0
+Le note seguenti si riferiscono alla versione versione 6.1.0.0 dell'agente sincronizzazione File di Azure il 6 maggio 2019. Queste note si aggiungono le note sulla versione elencate per la versione 6.0.0.0.
+
+Elenco dei problemi risolti in questa versione:  
+- Windows Admin Center non riesce a visualizzare la configurazione dell'endpoint server e versione dell'agente nei server con versione dell'agente sincronizzazione File di Azure installato 6.0.
 
 ## <a name="agent-version-6000"></a>Versione dell'agente 6.0.0.0
 Le note seguenti si riferiscono alla versione 6.0.0.0 dell'agente sincronizzazione File di Azure (22 aprile 2019).

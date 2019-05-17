@@ -1,23 +1,17 @@
 ---
 title: Spostare le risorse di Azure in una nuova sottoscrizione o in un gruppo di risorse | Microsoft Docs
 description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo di risorse o a una nuova sottoscrizione.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 076d120d9c02b15837e92b71bc2a015377f54594
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698484"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792691"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -70,16 +64,16 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Azure Stack - registrazioni
 * Batch
 * Servizi BizTalk
-* Servizio bot
+* Servizio Bot
 * RETE CDN
 * Servizi cloud: vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Servizi cognitivi
 * Registro Container
 * Content Moderator
-* Gestione costi
+* Gestione dei costi
 * Customer Insights
 * Data Catalog
-* Data Factory
+* Data factory
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -104,7 +98,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Power BI - sia Power BI Embedded che Raccolta di aree di lavoro di Power BI
 * IP pubblico: è possibile spostare l'IP pubblico con SKU Basic. L'indirizzo IP pubblico dello SKU Standard non può essere spostato.
 * Insieme di credenziali di Servizi di ripristino: registrarsi in un'[anteprima](#recovery-services-limitations).
-* SAP HANA in Azure
+* SAP HANA su Azure
 * Utilità di pianificazione
 * Ricerca: non è possibile spostare più risorse di Ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
 * Bus di servizio
@@ -113,6 +107,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Servizio SignalR
 * Storage: gli account di archiviazione in aree diverse non possono essere spostati nella stessa operazione. Usare invece operazioni separate per ogni area.
 * Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
+* Servizio di sincronizzazione archiviazione
 * Analisi di flusso: i processi di analisi di flusso non possono essere spostati durante l'esecuzione.
 * Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database. Questo comportamento si applica al database SQL di Azure e ai database di Azure SQL Data Warehouse.
 * Time Series Insights
@@ -216,7 +211,7 @@ Quando si sposta un'app Web _tra sottoscrizioni_, si applicano le limitazioni se
 
 - Il gruppo di risorse di destinazione non deve contenere risorse del servizio app esistenti. Le risorse del servizio app includono:
     - App Web
-    - Piani di servizio app
+    - Piani di Servizio app
     - Certificati SSL importati o caricati
     - Ambienti del servizio app
 - Tutte le risorse del servizio app nel gruppo di risorse devono essere spostate insieme.
@@ -472,7 +467,7 @@ Mentre l'operazione è ancora in esecuzione, si continua a ricevere il codice di
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
 ```
 
-## <a name="move-resources"></a>Spostare le risorse
+## <a name="move-resources"></a>Sposta risorse
 
 ### <a name="a-nameuse-portal-by-using-azure-portal"></a><a name="use-portal" />Uso del portale di Azure
 

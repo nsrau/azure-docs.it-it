@@ -9,12 +9,12 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 515081ca14d1c477f20d86e84ce302b5358bfaae
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150068"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789987"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -36,9 +36,9 @@ La tabella seguente presenta una rapida panoramica dell'ambito di durabilità e 
 | Scenario                                                                                                 | Archiviazione con ridondanza locale                             | ZRS                              | Archiviazione con ridondanza geografica                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Mancata disponibilità di un nodo in un data center                                                                 | Sì                             | Sì                              | Sì                                  | Sì                                  |
-| Mancata disponibilità di un intero data center (di zona o non di zona)                                           | No                               | Sì                              | Sì                                  | Sì                                  |
-| Interruzione a livello di area                                                                                     | No                               | No                                | Sì                                  | Sì                                  |
-| Accesso in lettura ai dati (in un'area remota con replica geografica) in caso di mancata disponibilità a livello di area | No                               | No                                | No                                    | Sì                                  |
+| Mancata disponibilità di un intero data center (di zona o non di zona)                                           | N.                              | Sì                              | Sì                                  | Sì                                  |
+| Interruzione a livello di area                                                                                     | N.                              | N.                               | Sì                                  | Sì                                  |
+| Accesso in lettura ai dati (in un'area remota con replica geografica) in caso di mancata disponibilità a livello di area | N.                              | N.                               | N.                                   | Sì                                  |
 | Replica progettata per fornire una durabilità di \_\_ per gli oggetti nel corso di un determinato anno                                          | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
 | Tipi di account di archiviazione supportati                                                                   | GPv2, GPv1, BLOB                | GPv2                             | GPv2, GPv1, BLOB                     | GPv2, GPv1, BLOB                     |
 | Contratto di servizio relativo alla disponibilità per le richieste di lettura | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,99% (99,9% per livello di accesso sporadico) |
@@ -52,7 +52,7 @@ Per informazioni sulla garanzia di durabilità e disponibilità di Archiviazione
 > Archiviazione Premium supporta solo l'archiviazione con ridondanza locale.
 
 ## <a name="changing-replication-strategy"></a>Modifica della strategia di replica
-È possibile modificare la strategia di replica dell'account di archiviazione usando il [portale di Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), o uno del [client di Azure librerie](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). La modifica del tipo di replica dell'account di archiviazione non comporta un tempo di inattività.
+È possibile modificare la strategia di replica dell'account di archiviazione usando il [portale di Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), o uno del [client di Azure librerie](https://docs.microsoft.com/azure/index#pivot=sdkstools). La modifica del tipo di replica dell'account di archiviazione non comporta un tempo di inattività.
 
    > [!NOTE]
    > Attualmente non è possibile usare il portale o l'API per convertire l'account in archiviazione ZRS. Per convertire la replica dell'account in ZRS, vedere [Archiviazione con ridondanza della zona (ZRS).](storage-redundancy-zrs.md) per maggiori dettagli.

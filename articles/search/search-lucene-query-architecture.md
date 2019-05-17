@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: cb8e42400847ba9fb13568d05dffac86d9cec85f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024628"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797476"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Funzionamento della ricerca full-text in Ricerca di Azure
 
@@ -253,7 +253,7 @@ Per produrre i termini in un indice inverso, il motore di ricerca esegue l'anali
 
 Ritornando all'esempio precedente, per il campo **titolo**, l'indice invertito è simile al seguente:
 
-| Termine | Elenco di documenti |
+| Periodo | Elenco di documenti |
 |------|---------------|
 | atman | 1 |
 | spiaggia | 2 |
@@ -267,7 +267,7 @@ Nel campo del titolo, solo *hotel* viene visualizzato in due documenti: 1 e 3.
 
 Per il campo **descrizione**, l'indice è il seguente:
 
-| Termine | Elenco di documenti |
+| Periodo | Elenco di documenti |
 |------|---------------|
 | aria | 3
 | e | 4
@@ -281,7 +281,7 @@ Per il campo **descrizione**, l'indice è il seguente:
 | nord | 2
 | oceano | 1, 2, 3
 | di | 2
-| in |2
+| sì |2
 | tranquillo | 4
 | camere  | 1, 3
 | appartato | 4
@@ -392,8 +392,6 @@ In questo articolo è stata illustrata la ricerca full-text nel contesto di Rice
 + Informazioni su come applicare [analizzatori lessicali specifici della lingua](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configurare gli analizzatori personalizzati](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) per un'elaborazione minima o specializzati per settori specifici.
-
-+ [Fare un confronto affiancato degli analizzatori standard e in lingua inglese](https://alice.unearth.ai/) in questo sito Web demo. 
 
 ## <a name="see-also"></a>Vedere anche 
 

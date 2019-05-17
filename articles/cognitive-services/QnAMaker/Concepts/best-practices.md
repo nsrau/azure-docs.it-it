@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 78c445e70fcf972be81ef6dfd5d675f8e4843621
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2677c993b759988b0a9906b357bcd352b243b5a7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541515"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792685"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 Il [ciclo di vita di sviluppo della knowledge base](../Concepts/development-lifecycle-knowledge-base.md) fornisce informazioni sulla gestione della KB dall'inizio alla fine. Usare queste procedure consigliate per migliorare la knowledge base e fornire risultati migliori per gli utenti finali dell'applicazione/chat bot.
@@ -87,7 +87,7 @@ Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabil
 I [metadati](../How-To/edit-knowledge-base.md) aiutano a restringere i risultati di una query utente in base ai tag dei metadati. La risposta della knowledge base può essere diversa in base al tag di metadati, anche se la query è la stessa. Ad esempio, la domanda *"Dove si trova il parcheggio?"* può avere risposte diverse se l'attributo Location del ramo relativo al ristorante è diverso, ovvero se i metadati sono *Location: Seattle* piuttosto che *Location: Redmond*.
 
 ### <a name="use-synonyms"></a>Usare sinonimi
-Sebbene, in parte, sia disponibile il supporto per i sinonimi in lingua inglese, usare [variazioni delle parole](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) con distinzione maiuscole/minuscole per aggiungere sinonimi alle parole chiave che accettano una forma diversa. I sinonimi devono essere aggiunti a livello di servizio in QnA Maker e condivisi da tutte le knowledge base nel servizio.
+Sebbene, in parte, sia disponibile il supporto per i sinonimi in lingua inglese, usare [variazioni delle parole](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) con distinzione maiuscole/minuscole per aggiungere sinonimi alle parole chiave che accettano una forma diversa. I sinonimi devono essere aggiunti a livello di servizio in QnA Maker e condivisi da tutte le knowledge base nel servizio.
 
 |Parola originale|Sinonimi|
 |--|--|
