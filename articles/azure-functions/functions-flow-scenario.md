@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106971"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787684"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Chiamare una funzione da Microsoft Flow
 
@@ -36,6 +36,8 @@ In questo argomento si apprenderà come:
 > * Creare un flusso per inviare un messaggio di posta elettronica se la riparazione è conveniente.
 > * Eseguire il flusso.
 
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 + Un [account di Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) attivo con le stesse credenziali di accesso dell'account di Azure. 
@@ -48,7 +50,7 @@ Iniziare creando un elenco da usare come origine dati per il flusso. L'elenco è
 | Colonna dell'elenco     | Tipo di dati           | Note                                    |
 |-----------------|---------------------|------------------------------------------|
 | **Titolo**           | Riga di testo singola | Nome della turbina                      |
-| **LastServiceDate** | Data                |                                          |
+| **LastServiceDate** | Date                |                                          |
 | **MaxOutput**       | Number              | Output della turbina, in kWh            |
 | **ServiceRequired** | Sì/No              |                                          |
 | **EstimatedEffort** | Number              | Tempo stimato per la riparazione, espresso in ore |
@@ -130,7 +132,7 @@ Prima di tutto creare un flusso da zero, senza un modello, e aggiungere un *trig
 
 4. Fare clic su **Nuovo passaggio**, quindi su **Aggiungi una condizione**.
 
-    ![Aggiungere una condizione](media/functions-flow-scenario/add-condition.png)
+    ![Aggiungi una condizione](media/functions-flow-scenario/add-condition.png)
 
     Microsoft Flow aggiunge due rami al flusso: **In caso affermativo** e **se nessun**. Aggiungere passaggi a uno o a entrambi i rami dopo aver definito la condizione per cui si desidera trovare una corrispondenza.
 
@@ -156,7 +158,7 @@ Aggiungere ora il connettore personalizzato che chiama la funzione in Azure. Agg
 
 1. Nel ramo **If yes** (Se sì) fare clic su **Aggiungi un'azione**.
 
-    ![Aggiungere un'azione](media/functions-flow-scenario/condition1-yes-add-action.png)
+    ![Aggiungi un'azione](media/functions-flow-scenario/condition1-yes-add-action.png)
 
 2. Nella finestra di dialogo **Scegli un'azione** cercare `Turbine Repair`, quindi selezionare l'azione **Turbine Repair - Calculates costs** (Riparazione turbina - Calcola costi).
 
@@ -176,7 +178,7 @@ Aggiungere ora il connettore personalizzato che chiama la funzione in Azure. Agg
 
 4. Nella parte inferiore del ramo **If yes** (Se sì) fare clic su **Altro**, quindi **Aggiungi una condizione**.
 
-    ![Aggiungere una condizione](media/functions-flow-scenario/condition2-add.png)
+    ![Aggiungi una condizione](media/functions-flow-scenario/condition2-add.png)
 
 5. Nella scheda **Condition 2** (Condizione 2) fare clic nella prima casella, quindi selezionare **Messaggio** dalla finestra di dialogo **Contenuto dinamico**.
 
@@ -196,7 +198,7 @@ A questo punto nel flusso la funzione ha restituito un valore per **Messaggio**,
 
 1. Nel ramo **If yes** (Se sì) della seconda condizione, fare clic su **Aggiungi un'azione**.
 
-    ![Aggiungere un'azione](media/functions-flow-scenario/condition2-yes-add-action.png)
+    ![Aggiungi un'azione](media/functions-flow-scenario/condition2-yes-add-action.png)
 
 2. Nella finestra di dialogo **Scegli un'azione** cercare `email`, quindi selezionare un'azione per inviare un messaggio di posta elettronica in base al sistema di posta elettronica usato, in questo caso Outlook.
 
@@ -244,7 +246,7 @@ Dopo aver completato il flusso, aggiungere una riga all'elenco di SharePoint e v
 
 5. In **Cronologia di esecuzione** fare clic sull'esecuzione del flusso.
 
-    ![Cronologia di esecuzione](media/functions-flow-scenario/run-history.png)
+    ![Cronologia](media/functions-flow-scenario/run-history.png)
 
     Se l'esecuzione ha avuto esito positivo, è possibile esaminare le operazioni di flusso nella pagina successiva. Se l'esecuzione per qualche motivo non è riuscita, la pagina successiva conterrà informazioni sulla risoluzione dei problemi.
 

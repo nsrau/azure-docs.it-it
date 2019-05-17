@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 03f330f429be583d3a400eb1ee00875f7c305e74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0617dc617309d49cdc7c8cddd4e91619b873b914
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64923024"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785692"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorare il database SQL di Azure usando Analisi SQL di Azure (anteprima)
 
@@ -193,7 +193,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Il prerequisito di configurazione di questo avviso è che i database monitorati trasmettano le metriche di diagnostica (opzione "Tutte le metriche") alla soluzione.
+> - Pre-requisiti di configurazione di questo avviso sono tale flusso database monitorati le metriche di base per la soluzione.
 > - Sostituire il valore cpu_percent di MetricName con dtu_consumption_percent per ottenere risultati di DTU elevati.
 
 #### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Elevato utilizzo della CPU nei pool elastici del database SQL di Azure
@@ -208,7 +208,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Il prerequisito di configurazione di questo avviso è che i database monitorati trasmettano le metriche di diagnostica (opzione "Tutte le metriche") alla soluzione.
+> - Pre-requisiti di configurazione di questo avviso sono tale flusso database monitorati le metriche di base per la soluzione.
 > - Sostituire il valore cpu_percent di MetricName con dtu_consumption_percent per ottenere risultati di DTU elevati.
 
 #### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>Archiviazione di database SQL di Azure in media superiore al 95% nell'ultima ora
@@ -225,7 +225,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Il prerequisito di configurazione di questo avviso è che i database monitorati trasmettano le metriche di diagnostica (opzione "Tutte le metriche") alla soluzione.
+> - Pre-requisiti di configurazione di questo avviso sono tale flusso database monitorati le metriche di base per la soluzione.
 > - Questa query richiede una regola di avviso da impostare in modo da attivare un avviso quando vengono restituiti risultati (> 0 risultati) dalla query, a indicare che la condizione è presente in alcuni database. L'output è un elenco di risorse del database superiore alla soglia di archiviazione all'interno dell'intervallo di tempo definito.
 > - L'output è un elenco di risorse del database superiore alla soglia di archiviazione all'interno dell'intervallo di tempo definito.
 

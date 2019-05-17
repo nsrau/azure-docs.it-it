@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe86c758dbf05f91d53cb918b7794c12ab3f39bc
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596756"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518764"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
 
@@ -52,15 +52,15 @@ In base al numero di macchine virtuali di cui si intende eseguire l'individuazio
 In caso di individuazione una tantum (ora deprecata), per l'individuazione si usa un modello fire-and-forget. Dopo il completamento di un'individuazione, è possibile usare lo stesso agente di raccolta per raccogliere dati di un server vCenter diverso o inviarli a un progetto di migrazione diverso.
 
 > [!NOTE]
-> L'appliance per l'individuazione una tantum è ora deprecata poiché questo metodo si basava sulle impostazioni delle statistiche del server vCenter relative alla disponibilità dei punti dati delle prestazioni e raccoglieva i contatori delle prestazioni medie, determinando così un sottodimensionamento delle macchine virtuali per la migrazione ad Azure. È consigliabile passare all'appliance di individuazione una tantum.
+> L'appliance per l'individuazione una tantum è ora deprecata poiché questo metodo si basava sulle impostazioni delle statistiche del server vCenter relative alla disponibilità dei punti dati delle prestazioni e raccoglieva i contatori delle prestazioni medie, determinando così un sottodimensionamento delle macchine virtuali per la migrazione ad Azure. È consigliabile spostare all'appliance di individuazione continua.
 
 Pianificare le individuazioni e le valutazioni in base ai limiti seguenti:
 
 | **Entità** | **Limite di computer** |
 | ---------- | ----------------- |
-| Project    | 1.500             |
-| Individuazione  | 1.500             |
-| Valutazione | 1.500             |
+| Progetto    | 1,500             |
+| Individuazione  | 1,500             |
+| Valutazione | 1,500             |
 
 Tenere presente le considerazioni seguenti sulla pianificazione:
 

@@ -10,14 +10,20 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024731"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522844"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indicizzazione di Cosmos DB usando un indicizzatore di ricerca di Azure
+
+
+> [!Note]
+> Supporto dell'API MongoDB è in anteprima e non è destinata all'uso in produzione. Il [API REST versione 2019-05-06-Preview](search-api-preview.md) fornisce questa funzionalità. Non vi è alcun supporto per .NET SDK in questo momento o il portale.
+>
+> API SQL è disponibile a livello generale.
 
 Questo articolo illustra come configurare un database Azure Cosmos DB [indicizzatore](search-indexer-overview.md) per estrarre il contenuto e renderli disponibili per la ricerca in ricerca di Azure. Questo flusso di lavoro viene creato un indice di ricerca di Azure e lo carica con il testo esistente estratto da Azure Cosmos DB. 
 
@@ -26,7 +32,7 @@ Poiché la terminologia può generare confusione, vale la pena notare che [indic
 È possibile usare la [portale](#cosmos-indexer-portal), le API REST o .NET SDK per indicizzarne il contenuto Cosmos. L'indicizzatore di Cosmos DB in ricerca di Azure possa eseguire ricerche per indicizzazione [elementi Cosmos Azure](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) accessibili tramite questi protocolli:
 
 * [API SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
-* [L'API MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (supporto per la ricerca di Azure per questa API è disponibile in anteprima pubblica)  
+* [API di MongoDB (anteprima)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
 > Suggerimenti degli utenti dispone gli elementi esistenti per il supporto di API aggiuntivo. È possibile eseguire il cast di un voto per le API di Cosmos si desidera vedere supportati in ricerca di Azure: [API tabelle](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [API Graph](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), [API Apache Cassandra](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
@@ -118,7 +124,7 @@ Al termine dell'indicizzazione, è possibile usare [Esplora ricerche](search-exp
 
 È possibile usare l'API REST per indicizzare i dati di Azure Cosmos DB, seguendo un flusso di lavoro in tre parti comune a tutti gli indicizzatori in ricerca di Azure: creare un'origine dati, creare un indice, creare un indicizzatore. Estrazione dei dati dall'archivio Cosmos si verifica quando si invia la richiesta di creare un indicizzatore. Dopo aver completata questa richiesta, si avrà un indice sottoponibili a query. 
 
-Se si sta valutando MongoDB, è necessario utilizzare l'API REST per creare l'origine dati.
+Se si sta valutando MongoDB, è necessario usare il resto `api-version=2019-05-06-Preview` per creare l'origine dati.
 
 Nell'account Cosmos DB è possibile specificare se la raccolta deve indicizzare automaticamente tutti i documenti. Per impostazione predefinita, tutti i documenti vengono indicizzati automaticamente, ma è possibile disattivare l'indicizzazione automatica. Quando l'indicizzazione è disattivata, i documenti sono accessibili solo tramite i rispettivi collegamenti automatici o tramite query usando l'ID documento. Il servizio Ricerca di Azure richiede l'attivazione dell'indicizzazione automatica di Cosmos DB nella raccolta che verrà indicizzata da Ricerca di Azure. 
 
@@ -168,7 +174,7 @@ Per creare un'origine dati, formulare una richiesta POST:
 
 Il corpo della richiesta contiene la definizione dell'origine dati, che deve includere i campi seguenti:
 
-| Campo   | DESCRIZIONE |
+| Campo   | Descrizione |
 |---------|-------------|
 | **name** | Richiesto. Scegliere qualsiasi nome per rappresentare l'oggetto origine dati. |
 |**type**| Richiesto. Deve essere `cosmosdb`. |
@@ -279,7 +285,7 @@ Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare
 
 ## <a name="use-net"></a>Usare .NET
 
-.NET SDK è del tutto equivalente all'API REST. È consigliabile rivedere la sezione relativa dall'API REST per apprenderne i concetti, il flusso di lavoro e i requisiti. Consultare quindi la seguente documentazione di riferimento sull'API .NET per implementare un indicizzatore JSON nel codice gestito.
+Disponibile a livello generale di .NET SDK ha le stesse completo con l'API REST disponibili a livello generale. È consigliabile rivedere la sezione relativa dall'API REST per apprenderne i concetti, il flusso di lavoro e i requisiti. Consultare quindi la seguente documentazione di riferimento sull'API .NET per implementare un indicizzatore JSON nel codice gestito.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -354,12 +360,6 @@ L'esempio seguente crea un'origine dati con criteri di eliminazione temporanea:
             "softDeleteMarkerValue": "true"
         }
     }
-
-## <a name="watch-this-video"></a>Guardare questo video
-
-In questo video di 7 minuti meno recente, Azure Cosmos DB Program Manager Andrew Liu illustra come aggiungere un indice di ricerca di Azure a un contenitore di Azure Cosmos DB. Le pagine del portale illustrate nel video non sono aggiornate, ma le informazioni sono ancora rilevanti.
-
->[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
 
 ## <a name="NextSteps"></a>Passaggi successivi
 

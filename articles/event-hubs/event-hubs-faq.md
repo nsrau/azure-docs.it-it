@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: acc756ac04e5127d07760746bd0178f0f6cb1d6f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690279"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789252"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -23,6 +23,15 @@ ms.locfileid: "64690279"
 
 ### <a name="what-is-an-event-hubs-namespace"></a>Che cos'è uno spazio dei nomi di Hub eventi?
 Uno spazio dei nomi è un contenitore di ambito per gli argomenti di Hub eventi/Kafka. Specifica un nome [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) univoco. Uno spazio dei nomi viene usato come contenitore di applicazioni che può ospitare più argomenti di Hub eventi/Kafka. 
+
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Quando si crea un nuovo spazio dei nomi e usa uno spazio dei nomi esistente?
+Le allocazioni della capacità ([unità di velocità effettiva (tu predeterminate)](#throughput-units)) vengono fatturati a livello di spazio dei nomi. Uno spazio dei nomi è anche associato a un'area.
+
+È possibile creare un nuovo spazio dei nomi anziché usare un'uno esistente in uno dei seguenti scenari: 
+
+- È necessario un Hub di eventi associato a una nuova area.
+- È necessario un Hub di eventi associato a una sottoscrizione diversa.
+- È necessario un Hub eventi con un'allocazione capacità di distinct (vale a dire, la capacità necessaria per lo spazio dei nomi con l'hub eventi di aggiunta comporterebbe il superamento della soglia di unità Elaborate 40 e non si vuole passare per il cluster dedicato)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Qual è la differenza tra i livelli Standard e Base di Hub eventi?
 

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686299"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522323"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura della connettività per un'istanza gestita di Database SQL di Azure
 
@@ -86,7 +86,7 @@ Quando avviare le connessioni all'interno dell'istanza gestita (come con i backu
 
 Distribuire un'istanza gestita in una subnet dedicata all'interno della rete virtuale. La subnet deve avere le seguenti caratteristiche:
 
-- **Subnet dedicata:** Subnet dell'istanza gestita non può contenere qualsiasi altro servizio cloud che è associato, e non può essere una subnet del gateway. La subnet non può contenere qualsiasi risorsa, ma l'istanza gestita e non è possibile aggiungere in un secondo momento le risorse nella subnet.
+- **Subnet dedicata:** Subnet dell'istanza gestita non può contenere qualsiasi altro servizio cloud che è associato, e non può essere una subnet del gateway. La subnet non può contenere qualsiasi risorsa, ma l'istanza gestita e versioni successive non è possibile aggiungere altri tipi di risorse nella subnet.
 - **Gruppo di sicurezza di rete**: È necessario definire un gruppo di sicurezza che è associati con la rete virtuale [regole di sicurezza in ingresso](#mandatory-inbound-security-rules) e [regole di sicurezza in uscita](#mandatory-outbound-security-rules) prima di qualsiasi altra regola. È possibile usare un NSG per controllare l'accesso all'endpoint di dati dell'istanza gestita filtrando il traffico sulla porta 1433 e le porte 11000-11999 quando l'istanza gestita è configurata per reindirizzare le connessioni.
 - **Tabella di route definita (UDR) utente:** Una tabella di route definita dall'utente che ha associato con la rete virtuale deve includere specifiche [voci](#user-defined-routes).
 - **Nessun endpoint di servizio:** Nessun endpoint di servizio deve essere associato a subnet dell'istanza gestita. Assicurarsi che l'opzione endpoint di servizio viene disabilitato quando si crea la rete virtuale.
@@ -97,17 +97,17 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="mandatory-inbound-security-rules"></a>Regole di sicurezza in ingresso obbligatorie
 
-| NOME       |Porta                        |Protocol|`Source`           |Destination|Azione|
+| NOME       |Port                        |Protocol|`Source`           |Destination|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |MI SUBNET  |CONSENTI |
+|gestione  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |MI SUBNET  |CONSENTI |
 |mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |MI SUBNET  |CONSENTI |
 |health_probe|Qualsiasi                         |Qualsiasi     |AzureLoadBalancer|MI SUBNET  |CONSENTI |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regole di sicurezza in uscita obbligatorie
 
-| NOME       |Porta          |Protocol|`Source`           |Destination|Azione|
+| NOME       |Port          |Protocol|`Source`           |Destination|Azione|
 |------------|--------------|--------|-----------------|-----------|------|
-|management  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |CONSENTI |
+|gestione  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |CONSENTI |
 |mi_subnet   |Qualsiasi           |Qualsiasi     |MI SUBNET        |MI SUBNET  |CONSENTI |
 
 > [!IMPORTANT]

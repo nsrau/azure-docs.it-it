@@ -18,12 +18,12 @@ ms.date: 12/07/2017
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 482b69752cc889ff99c3d9082d3bc20a7caa6d76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0065ec03695ee977133ae2ec43aafba7d5bfff78
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294540"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784349"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notifiche di Azure Active Directory Identity Protection
 
@@ -39,6 +39,8 @@ Questo articolo offre una panoramica di entrambi i messaggi di posta elettronica
 
 In risposta al rilevamento di un account a rischio, Azure AD Identity Protection genera un avviso di posta elettronica con oggetto **Users at risk detected** (Rilevati utenti a rischio). Il messaggio include un collegamento al report **[Utenti contrassegnati per il rischio](../reports-monitoring/concept-user-at-risk.md)**. È consigliabile controllare immediatamente gli utenti a rischio.
 
+La configurazione per questo avviso consente di specificare il livello di rischio utente per l'avviso da generare. Verrà generato il messaggio di posta elettronica quando raggiunge il livello di rischio dell'utente specificato; Tuttavia, non riceverai i nuovi utenti in avvisi di posta elettronica rilevato rischio per questo utente dopo lo spostamento in questo livello di rischio utente. Ad esempio, se si imposta il criterio di avviso nel rischio utente medio e l'utente che sposta per rischio medio, si riceveranno gli utenti alla posta elettronica di rischio rilevato per John. Tuttavia, non riceverai un secondo per gli utenti a avviso rilevato rischio se John quindi passa a rischio elevato o dispone di eventi di rischio aggiuntivo.
+
 ![Messaggio di posta elettronica relativo al rilevamento di utenti a rischio](./media/notifications/01.png)
 
 
@@ -46,7 +48,7 @@ In risposta al rilevamento di un account a rischio, Azure AD Identity Protection
 
 Gli amministratori possono impostare:
 
-- **Il livello di rischio che attiva la generazione di questo messaggio di posta elettronica**: per impostazione predefinita, il livello di rischio è impostato come elevato.
+- **Il livello di rischio utente che attiva la generazione di questo messaggio di posta elettronica** -per impostazione predefinita, il livello di rischio è impostato su "Alta" rischio.
 - **I destinatari di questo messaggio di posta elettronica**: per impostazione predefinita, i destinatari includono tutti gli amministratori globali. Gli amministratori globali possono anche aggiungere come destinatari altri amministratori globali, amministratori della sicurezza e ruoli con autorizzazioni di lettura per la sicurezza.  
 
 
@@ -60,7 +62,7 @@ Per aprire la finestra di dialogo correlata, fare clic su **Avvisi** nella sezio
 Il messaggio di riepilogo settimanale contiene un riepilogo dei nuovi eventi di rischio.  
  Sono inclusi:
 
-- Utenti a rischio.
+- Utenti a rischio
 
 - Attività sospette
 

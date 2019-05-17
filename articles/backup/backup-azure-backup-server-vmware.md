@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6fb95d43bff79ca91988549114daa91e5d41f358
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f034f31f2c8c49bbdfb88e2ba0a009ff5b795fa2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60650157"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789612"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali VMware con il server di Backup di Azure
 
@@ -39,7 +39,7 @@ Per impostazione predefinita, il server di Backup di Azure comunica con i server
 
 ### <a name="before-you-start"></a>Prima di iniziare
 
-- Se non si vuole usare il protocollo HTTPS è possibile [disabilitare l'impostazione predefinita](backup-azure-backup-server-vmware.md).
+- Se non si desidera utilizzare il protocollo HTTPS è possibile [disabilitare la convalida del certificato HTTPS per tutti i server VMware](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - Di solito, per connettersi al server vCenter/ESXi tramite il client Web vSphere si usa un browser nel computer server di Backup di Azure. La prima volta che si esegue questa operazione la connessione non è sicura e mostrerà quanto segue.
 - È importante comprendere il modo in cui il server di Backup di Azure gestisce i backup.
     - Come primo passaggio il server di Backup di Azure esegue il backup dei dati nell'archiviazione su disco locale. Il server di Backup di Azure usa un pool di archiviazione, un set di dischi e volumi in cui archivia i punti di ripristino del disco per i dati protetti. Il pool di archiviazione può essere un sistema di archiviazione diretta (DAS), una SAN Fibre Channel oppure una SAN o dispositivo di archiviazione iSCSI. È importante assicurarsi di avere spazio di archiviazione sufficiente per il backup locale dei dati della macchina virtuale VMware.
@@ -101,7 +101,7 @@ Configurare un canale sicuro come indicato di seguito:
 
 
 
-### <a name="disable-default-https"></a>Disabilitare il protocollo HTTPS predefinito
+### <a name="disable-https-certificate-validation"></a>Disabilitare la convalida del certificato HTTPS
 
 Se si sono previsti limiti di sicurezza all'interno dell'organizzazione e non si vuole usare il protocollo HTTPS tra i server VMware e il computer del server di Backup di Azure, disabilitare il protocollo HTTPS come indicato di seguito:
 1. Copiare e incollare il seguente testo in un file .txt.
@@ -124,7 +124,7 @@ Il server di Backup di Azure richiede un account utente con autorizzazioni di ac
 1. Accedere al server vCenter (o all'host ESXi se non si usa il server vCenter).
 2. Nel pannello **Navigator** (Strumento di navigazione) fare clic su **Administration** (Amministrazione).
 
-    ![Administration](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
+    ![Amministrazione](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
 3. In **Administration** > **Roles** (Amministrazione > Ruoli) fare clic sull'icona di aggiunta ruolo (il simbolo +).
 

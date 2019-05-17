@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: 87599817ba7b50b941612c13c07842644f979fb7
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: ea74dbd6cffa34e4462433cdfc51e7d5abac9a41
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619701"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796661"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
 
@@ -100,6 +100,13 @@ Singoli contenitori possono prevedere anche requisiti specifici, tra cui quelli 
 ## <a name="developer-samples"></a>Esempi per gli sviluppatori
 
 Gli esempi per gli sviluppatori sono disponibili nel [repository GitHub](https://github.com/Azure-Samples/cognitive-services-containers-samples).
+
+## <a name="view-webinar"></a>Visualizza il webinar 
+
+Aggiungere il [webinar](https://info.microsoft.com/AP-AZUREPLAT-WBNR-FY19-03Mar-20-Seamlesslyintegrateapplicationsdataandprocesses-MCW0012283_02OnDemandRegistration-ForminBody.html) conoscere:
+
+* Come distribuire servizi cognitivi in qualsiasi computer tramite Docker
+* Come distribuire servizi cognitivi in AKS
 
 ## <a name="next-steps"></a>Passaggi successivi
 

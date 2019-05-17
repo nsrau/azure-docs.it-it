@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412835"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768358"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
 
@@ -31,10 +31,10 @@ Per sfruttare al meglio le potenzialità del messaggio di posta elettronica, di 
 ### <a name="subject"></a>Subject
 L'oggetto del messaggio di posta elettronica segue il modello seguente: Ti invitiamo all'organizzazione &lt;nometenant&gt;
 
-### <a name="from-address"></a>Indirizzo del mittente.
+### <a name="from-address"></a>Indirizzo mittente
 Per l'indirizzo del mittente si userà un modello simile a quello LinkedIn.  È consigliabile chiarire chi è il mittente dell'invito e a quale azienda appartiene, oltre a mettere in evidenza che il messaggio proviene da un indirizzo di posta elettronica Microsoft. Il formato è: Microsoft Invitations <invites@microsoft.com> oppure &lt;il nome visualizzato del mittente dell'invito&gt; dalla &lt;nometenant&gt; (tramite Microsoft) <invites@microsoft.com>.
 
-### <a name="reply-to"></a>Rispondi a
+### <a name="reply-to"></a>Risposta
 Se disponibile, viene impostato l'indirizzo di posta elettronica del mittente dell'invito. Un'eventuale risposta all'invito viene quindi inviata al mittente.
 
 ### <a name="branding"></a>Personalizzazione

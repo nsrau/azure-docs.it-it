@@ -10,12 +10,12 @@ ms.date: 06/13/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 8ae34f830f0d1373d97063e93a561cd38c7093ab
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 81bf178a97944d4110cf99a442163229a283bd25
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152232"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797746"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introduzione all'archiviazione code di Azure con .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -48,8 +48,8 @@ Aggiungere le direttive `using` seguenti all'inizio del file `Program.cs`:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
-using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
+using Microsoft.Azure.Storage; // Namespace for CloudStorageAccount
+using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
 ```
 
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Copiare le credenziali dal portale di Azure
@@ -75,7 +75,7 @@ CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     
 A questo punto si è pronti a scrivere codice che legge e scrive i dati nell'archivio code.
 
-## <a name="create-a-queue"></a>Creare una coda
+## <a name="create-a-queue"></a>Crea una coda
 Questo esempio illustra come creare una coda, se non esiste già:
 
 ```csharp

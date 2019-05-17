@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605224"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796872"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -41,7 +41,7 @@ Nella maggior parte dei casi le richieste per l'API Traduzione testuale Microsof
 
 Per fare in modo che la richiesta venga gestita da un data center specifico, cambiare l'endpoint Globale nella richiesta API nell'endpoint desiderato a livello di area:
 
-|DESCRIZIONE|Region|URL di base|
+|Descrizione|Region|URL di base|
 |:--|:--|:--|
 |Azure|Globale|  api.cognitive.microsofttranslator.com|
 |Azure|America del Nord|   api-nam.cognitive.microsofttranslator.com|
@@ -126,7 +126,7 @@ Ad esempio, un cliente con una sottoscrizione della versione di valutazione grat
 ```
 Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. Codici errore comuni sono:
 
-| Codice | DESCRIZIONE |
+| Codice | Descrizione |
 |:----|:-----|
 | 400000| Uno degli input della richiesta non è valido.|
 | 400001| Il parametro "scope" non è valido.|
@@ -161,7 +161,7 @@ Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 
 | 405000| Il metodo della richiesta non è supportato per la risorsa richiesta.|
 | 408001| Il sistema di traduzione personalizzato richiesto non è ancora disponibile. Riprovare tra qualche minuto.|
 | 415000| L'intestazione Content-Type manca o non è valida.|
-| 429000, 429001, 429002| Il server ha rifiutato la richiesta perché il client invia un numero eccessivo di richieste. Ridurre la frequenza per evitare la limitazione delle richieste.|
+| 429000, 429001, 429002| Il server ha rifiutato la richiesta perché il client ha superato i limiti di richiesta.|
 | 500000| Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|
 | 503000| Il servizio è temporaneamente non disponibile. Riprovare. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|
 

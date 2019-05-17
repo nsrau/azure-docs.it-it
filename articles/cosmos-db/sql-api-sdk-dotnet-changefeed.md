@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56ec4d867abd5f2767c64b0800eeb017c0fb9923
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627047"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792996"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -40,6 +40,11 @@ ms.locfileid: "60627047"
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="v2-builds"></a>Build della seconda versione
+
+### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
+* Migliorato il bilanciamento del carico strategia per lo scenario durante il recupero di tutti i lease richiede più tempo rispetto a intervallo di scadenza del lease, ad esempio a causa di problemi di rete:
+  * In questo scenario bilanciamento algoritmo utilizzato per negando quindi tenere in considerazione per i lease scaduti, causando l'acquisizione del lease dai proprietari active. Ciò potrebbe attivare inutili nuovo bilanciamento del carico di una grande quantità di lease.
+  * Questo problema viene risolto in questa versione, evitando di ripetizione dei tentativi in caso di conflitto durante l'acquisizione del lease scaduto non è stato modificato il proprietario e l'acquisizione posponing scaduta del lease successivo caricamento del bilanciamento del carico di iterazione.
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Gestione delle eccezioni di Observer migliorata.
@@ -163,6 +168,7 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.2.7](#2.2.7) |14 maggio 2019 |--- |
 | [2.2.6](#2.2.6) |29 gennaio 2019 |--- |
 | [2.2.5](#2.2.5) |13 dicembre 2018 |--- |
 | [2.2.4](#2.2.4) |29 novembre 2018 |--- |

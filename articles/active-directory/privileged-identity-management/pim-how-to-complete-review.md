@@ -14,12 +14,12 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: decba8f46432891a44a2b231890da4214bd5b1bb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0a7fa3bfe159620130bc0962b470cea8e7422646
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65140983"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602145"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Completare una verifica di accesso dei ruoli di Azure AD in PIM
 Gli amministratori dei ruoli con privilegi possono esaminare l'accesso con privilegi dopo che è stata [avviata una verifica di accesso](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) invia automaticamente un messaggio di posta elettronica che richiede agli utenti di controllare l'accesso. Agli utenti che non hanno ricevuto il messaggio di posta elettronica è possibile inviare le istruzioni descritte in [Come eseguire una verifica di accesso](pim-how-to-perform-security-review.md).
@@ -33,7 +33,7 @@ Trascorso il periodo della verifica di accesso o al termine della verifica autom
 
 Nel pannello dei dettagli della verifica di accesso sono disponibili alcune opzioni per la gestione della verifica.
 
-![Schermata dei pulsanti di verifica dell'accesso PIM](./media/pim-how-to-complete-review/PIM_review_buttons.png)
+![Schermata dei pulsanti di verifica dell'accesso PIM](./media/pim-how-to-complete-review/review-buttons.png)
 
 ### <a name="remind"></a>Promemoria
 Se una verifica di accesso è stata impostata in modo che gli utenti verifichino se stessi, il pulsante **Promemoria** invia una notifica. 

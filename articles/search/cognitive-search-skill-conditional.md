@@ -1,6 +1,6 @@
 ---
 title: Esperienza di ricerca cognitiva condizionale (ricerca di Azure) | Microsoft Docs
-description: Competenze condizionale che consente il filtraggio, la creazione di impostazioni predefinite e unione di valori.
+description: La competenza condizionale consente il filtraggio, la creazione di impostazioni predefinite e unione di valori.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,16 +10,16 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: 6a203a38437ccb6a9c325e6594289744e0148c84
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 149b701d4a1700787656448e2bdd0d92d2a93844
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028426"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791509"
 ---
 #   <a name="conditional-skill"></a>Competenze condizionale
 
-Il **competenza condizionale** consente un'ampia gamma di scenari che richiedono un'operazione booleana per stabilire i dati che devono essere assegnati a un output. Questi scenari includono: applicazione di filtri, assegnare il valore predefinito e unione dei dati basato su una condizione.
+Il *competenza condizionale* rende possibili scenari di ricerca di Azure che richiedono un'operazione booleana per determinare i dati da assegnare a un output. Questi scenari includono filtro, assegnando un valore predefinito e unione dei dati basati su una condizione.
 
 Lo pseudocodice seguente viene illustrato ciò che consente di realizzare la competenza condizionale:
 
@@ -31,7 +31,7 @@ else
 ```
 
 > [!NOTE]
-> Questa competenza non è associata a un'API Servizi cognitivi e non vengono addebitati costi in caso di utilizzo. È tuttavia necessario [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) per eseguire l'override dell'opzione di risorsa **Gratuito**, che consente solo un numero ridotto di arricchimenti al giorno.
+> Questa esperienza non è associato a un'API di servizi cognitivi di Azure e non vengono effettuati addebiti per il relativo utilizzo. Tuttavia, è necessario comunque [collegare una risorsa di servizi cognitivi](cognitive-search-attach-cognitive-services.md) per eseguire l'override dell'opzione resource "Gratuito" è limitato a un numero ridotto di miglioramenti al giorno.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ConditionalSkill
@@ -41,9 +41,10 @@ Microsoft.Skills.Util.ConditionalSkill
 
 Questa esperienza è speciale perché gli input vengono valutati i campi.
 
-Di seguito sono i valori validi di un'espressione:
+Gli elementi seguenti sono i valori validi di un'espressione:
 
--   I percorsi di annotazione (percorsi nelle espressioni devono essere delimitati da "$(" and ")") <br/>
+-   I percorsi di annotazione (percorsi nelle espressioni devono essere delimitati da "$(" and ")")
+ <br/>
     Esempi:
     ```
         "= $(/document)"
@@ -53,13 +54,13 @@ Di seguito sono i valori validi di un'espressione:
 -  Valori letterali (stringhe, numeri, true, false, null) <br/>
     Esempi:
     ```
-       "= 'this is a string'"   // string, note the single quotes
+       "= 'this is a string'"   // string (note the single quotation marks)
        "= 34"                   // number
-       "= true"                 // boolean
+       "= true"                 // Boolean
        "= null"                 // null value
     ```
 
--  Le espressioni che usano un operatore di confronto (= =,! =, > =, >, < =, <) <br/>
+-  Le espressioni che utilizzano operatori di confronto (= =,! =, > =, >, < =, <) <br/>
     Esempi:
     ```
         "= $(/document/language) == 'en'"
@@ -73,7 +74,7 @@ Di seguito sono i valori validi di un'espressione:
         "= !true"
     ```
 
--   Le espressioni che usano un operatore numerico (+, -, \*, /, %) <br/>
+-   Le espressioni che utilizzano operatori numerici (+, -, \*, /, %) <br/>
     Esempi: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -81,25 +82,25 @@ Di seguito sono i valori validi di un'espressione:
         "= $(/document/lengthInMeters) / 0.3049" // division
     ```
 
-A causa della valutazione supportata, la competenza condizionale è utilizzabile per gli scenari di trasformazione secondaria. Vedere l'esempio [definizioni delle competenze 4](#transformation-examples) per un esempio.
+Poiché la competenza condizionale supporta la valutazione, è possibile utilizzarlo in scenari di minor-trasformazione. Ad esempio, vedere [definizioni delle competenze 4](#transformation-example).
 
 ## <a name="skill-inputs"></a>Input competenze
 Gli input fanno distinzione tra maiuscole e minuscole.
 
-| Input      | DESCRIZIONE |
+| Input   | Descrizione |
 |-------------|-------------|
-| condition   | Questo input è un [valutata campo](#evaluated-fields) che rappresenta la condizione da valutare. Questa condizione deve restituire un valore booleano (true o false).   <br/>  Esempi: <br/> "= true" <br/> "= $(/document/language) = = 'fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
-| whenTrue    | Questo input è un [valutata campo](#evaluated-fields). Il valore da restituire se la condizione viene valutata True. Le stringhe costanti devono essere restituite ' ' le virgolette. <br/>Valori di esempio: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(odocumento/entità/\*)" <br/> |
-| whenFalse   | Questo input è un [valutata campo](#evaluated-fields). Il valore da restituire se la condizione viene valutata false.  <br/>Valori di esempio: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(odocumento/entità/\*)" <br/>
+| condition   | Questo input è un [valutata campo](#evaluated-fields) che rappresenta la condizione da valutare. Questa condizione deve restituire un valore booleano (*true* oppure *false*).   <br/>  Esempi: <br/> "= true" <br/> "= $(/document/language) = = 'fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
+| whenTrue    | Questo input è un [campo valutato](#evaluated-fields) che rappresenta il valore da restituire se la condizione viene valutata *true*. Le stringhe costanti devono essere restituite tra virgolette singole ('e'). <br/>Valori di esempio: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(odocumento/entità/\*)" <br/> |
+| whenFalse   | Questo input è un [campo valutato](#evaluated-fields) che rappresenta il valore da restituire se la condizione viene valutata *false*. <br/>Valori di esempio: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(odocumento/entità/\*)" <br/>
 
 ## <a name="skill-outputs"></a>Output competenze
-Non ci sia un output singolo chiamato 'output'. Verrà restituito il valore di whenFalse se la condizione è false o whenTrue se la condizione è true.
+Non ci sia un output singolo che viene semplicemente chiamato "output". Restituisce il valore *whenFalse* se la condizione è false oppure *whenTrue* se la condizione è true.
 
 ## <a name="examples"></a>Esempi
 
-### <a name="sample-skill-definition-1-filtering-documents-to-return-only-french-documents"></a>Definizione di competenza di esempio 1: Filtrare i documenti da restituire solo i documenti "Francesi"
+### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Definizione di competenza di esempio 1: Filtrare i documenti in modo che restituisca solo i documenti in francese
 
-L'output seguente restituirà una matrice di frasi ("documenti/frenchSentences") se la lingua del documento è in francese. Se la lingua non è in francese, tale valore verrà impostato su null.
+L'output seguente restituisce una matrice di frasi ("documenti/frenchSentences") se la lingua del documento è il francese. Se non è la lingua francese, il valore è impostato su *null*.
 
 ```json
 {
@@ -113,12 +114,12 @@ L'output seguente restituirà una matrice di frasi ("documenti/frenchSentences")
     "outputs": [ { "name": "output", "targetName": "frenchSentences" } ]
 }
 ```
-Se "documenti/frenchSentences" viene usato come le *contesto* di competenze di un altro, tale competenze verranno eseguito solo se "documenti/frenchSentences" non è impostato su null
+Se "documenti/frenchSentences" viene usato come le *contesto* di un altro competenze, tale competenze viene eseguita solo se "documenti/frenchSentences" non è impostato su *null*.
 
 
-### <a name="sample-skill-definition-2-setting-a-default-value-when-it-does-not-exist"></a>Definizione di competenza di esempio 2: Impostazione di un valore predefinito quando non esiste.
+### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Definizione di competenza di esempio 2: Impostare un valore predefinito per un valore che non esiste
 
-L'output seguente creerà un'annotazione ("documenti/languageWithDefault") che viene impostata per il linguaggio del documento, o "es" se la lingua non è impostata.
+L'output seguente viene creata un'annotazione ("documenti/languageWithDefault") che viene impostata per la lingua del documento o "es" se la lingua non è impostata.
 
 ```json
 {
@@ -133,9 +134,9 @@ L'output seguente creerà un'annotazione ("documenti/languageWithDefault") che v
 }
 ```
 
-### <a name="sample-skill-definition-3-merging-values-from-two-different-fields-into-a-single-field"></a>Definizione di competenza di esempio 3: Unione di valori di due campi diversi in un singolo campo
+### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Definizione di competenza di esempio 3: Unire i valori da due campi in un unico
 
-In questo esempio, alcuni frasi è necessario un *frenchSentiment* proprietà. Ogni volta che il *frenchSentiment* proprietà è null, si desidera utilizzare il *englishSentiment* valore. L'output viene assegnato a un membro denominato semplicemente *sentiment* ("/ documentare/sentiment / * / sentiment").
+In questo esempio, alcuni frasi è necessario un *frenchSentiment* proprietà. Ogni volta che il *frenchSentiment* proprietà è null, è possibile usare i *englishSentiment* valore. L'output viene assegnato a un membro che viene chiamato *sentiment* ("/ documentare/sentiment / * / sentiment").
 
 ```json
 {
@@ -150,12 +151,12 @@ In questo esempio, alcuni frasi è necessario un *frenchSentiment* proprietà. O
 }
 ```
 
-## <a name="transformation-examples"></a>Esempi di trasformazione
-### <a name="sample-skill-definition-4-performing-data-transformations-on-a-single-field"></a>Definizione di competenza di esempio 4: Eseguire trasformazioni di dati in un singolo campo
+## <a name="transformation-example"></a>Esempio di trasformazione
+### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Definizione di competenza di esempio 4: Trasformazione dei dati in un singolo campo
 
-In questo esempio, riceviamo un sentiment compreso tra 0 e 1, e si desidera trasformarlo in modo che sia compreso tra -1 e 1. Si tratta di una trasformazione matematica di piccole dimensioni che è possibile eseguire usando le competenze condizionale.
+In questo esempio, viene restituito un *sentiment* che è compreso tra 0 e 1. Si vuole trasformare in modo che sia compreso tra -1 e 1. È possibile usare le competenze condizionali per eseguire questa trasformazione secondaria.
 
-In questo esempio specifico, utilizzeremo mai l'aspetto della competenza condizionale poiché la condizione è sempre true. 
+In questo esempio, non utilizziamo l'aspetto della competenza condizionale poiché la condizione è sempre *true*.
 
 ```json
 {
@@ -170,9 +171,8 @@ In questo esempio specifico, utilizzeremo mai l'aspetto della competenza condizi
 }
 ```
 
-
 ## <a name="special-considerations"></a>Considerazioni speciali
-Si noti che alcuni dei parametri vengono valutati, pertanto è necessario prestare particolare attenzione seguendo il modello documentato. Le espressioni devono iniziare con un segno di uguale a "=" e i percorsi devono essere delimitati da "$(" and ")". Assicurarsi di inserire le stringhe virgolette' ', quanto sarà utile l'analizzatore di distinguere tra stringhe e i percorsi effettivi e operatori. Inoltre, assicurarsi di inserire uno spazio vuoto intorno agli operatori (ad esempio un * in un percorso ha un significato diverso rispetto all'operatore di moltiplicazione).
+Alcuni parametri vengono valutati, pertanto è necessario prestare particolare attenzione a seguire il modello documentato. Le espressioni devono iniziare con un segno di uguale. Un percorso deve essere delimitato da "$(" and ")". Assicurarsi di inserire le stringhe tra virgolette singole. Che consente l'analizzatore di distinguere tra stringhe e i percorsi effettivi e operatori. Inoltre, assicurarsi di inserire spazi intorno agli operatori (ad esempio, un "*" in un percorso significa che qualcosa di diverso da multiply).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

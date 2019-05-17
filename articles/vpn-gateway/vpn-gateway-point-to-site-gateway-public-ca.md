@@ -2,18 +2,17 @@
 title: Transizione ai certificati della CA pubblici per i gateway P2S | Gateway VPN di Azure | Microsoft Docs
 description: Questo articolo illustra come eseguire correttamente la transizione ai nuovi certificati della CA pubblici per i gateway P2S.
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 03/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/15/2019
+ms.author: cherylmc
+ms.openlocfilehash: ea3ee00e60ae5eaff5c7220e9502da11358c8793
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60859648"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786735"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Passaggio a un certificato del gateway CA pubblico per la connessione da punto a sito
 
@@ -30,6 +29,8 @@ In passato un certificato autofirmato per il gateway emesso in background da Azu
 Questa modifica interessa solo i gateway meno recenti. Se è necessario eseguire la transizione del certificato del gateway in uso, si riceverà una comunicazione o un avviso popup nel portale di Azure. È possibile controllare se il gateway in uso è interessato dalla transizione seguendo la procedura descritta in questo articolo.
 
 > [!IMPORTANT]
+> **Questa transizione è stata completata il 12 maggio 2019.**
+>
 > La transizione è pianificata per il 12 marzo 2019 a partire dalle 18:00 UTC. Se si preferisce una finestra temporale diversa, è possibile creare un caso di supporto. Creare e finalizzare la richiesta con almeno 24 ore di anticipo.  È possibile richiedere una delle finestre seguenti:
 >
 > * 06:00 UTC del 25 febbraio
@@ -37,7 +38,7 @@ Questa modifica interessa solo i gateway meno recenti. Se è necessario eseguire
 > * 06:00 UTC del 1° marzo
 > * 18:00 UTC del 1° marzo
 >
-> **La transizione di tutti i gateway rimanenti verrà eseguita il 12 marzo 2019 a partire dalle 18:00 UTC**.
+> Tutti i gateway rimanenti passeranno marzo 12 2019 partire dall'ora UTC 18.00.
 >
 > Una volta completato il processo di transizione de gateway, i clienti riceveranno un messaggio di posta elettronica.
 > 
@@ -55,7 +56,7 @@ Questa modifica interessa solo i gateway meno recenti. Se è necessario eseguire
    * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Se il valore di *ServerCertRotCn* e *ServerCertIssuerCn* è "DigiCert Global Root CA", non si è interessati da questo aggiornamento e non è necessario eseguire la procedura illustrata in questo articolo. Se invece il valore è diverso, il certificato del gateway in uso è interessato dall'aggiornamento, quindi ne verrà eseguita la transizione.
 
-### <a name="classic"></a>Classico
+### <a name="classic"></a>Classica
 
 1. In un computer client, passare al percorso `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. Nella cartella dell'ID del gateway è possibile visualizzare il certificato.
 2. Nella scheda Generale per il certificato, verificare che l'autorità emittente sia "DigiCert Global Root CA". Se il valore dell'autorità emittente è diverso, il certificato del gateway in uso è interessato dall'aggiornamento, quindi ne verrà eseguita la transizione.

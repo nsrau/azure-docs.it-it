@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: e12b89d0469587d7d7326bbee30f6467ada06bd5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f184178343f69f522148777752c51afc5c5dcb6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574074"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790416"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Ritiro del livello di servizio Premium RS (anteprima) del database SQL di Azure - Opzioni per la migrazione
 
@@ -27,7 +27,7 @@ Di seguito sono riportate le destinazioni di migrazione e le opzioni di prezzo p
 
 - Livelli di servizio vCore
 
-  Livelli di servizio **Utilizzo generico** e **Business critical** nel [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). Questi due livelli di servizio sono in disponibilità generale. Il modello di acquisto basato su vCore offre anche il livello di servizio **Hyperscale** (in anteprima pubblica) che si adatta on demand alle esigenze del carico di lavoro con scalabilità automatica fino a 100 TB per ogni database. Il livello di servizio Hyperscale garantisce prestazioni I/O paragonabili a quelle del livello di servizio Premium nel [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) a un prezzo più vicino a quello del livello di servizio Premium RS.
+  Livelli di servizio **Utilizzo generico** e **Business critical** nel [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). Questi due livelli di servizio sono in disponibilità generale. Il modello di acquisto basato su vCore offre anche il **Iperscalabile** livello di servizio che si adatta on demand in base alle esigenze del carico di lavoro con scalabilità automatica fino a 100 TB per ogni database. Il livello di servizio Hyperscale garantisce prestazioni I/O paragonabili a quelle del livello di servizio Premium nel [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) a un prezzo più vicino a quello del livello di servizio Premium RS.
 - Prezzi di sviluppo/test
 
   I [prezzi di sviluppo/test](https://azure.microsoft.com/pricing/dev-test/) consentono un risparmio fino al 55% rispetto ai prezzi con licenza inclusa per la sottoscrizione di Visual Studio.
@@ -70,10 +70,10 @@ Per ottenere una combinazione ideale di prestazioni e costi, è consigliabile es
 
 |**Se attualmente si usa…**|**Eseguire la migrazione a livelli basati su vCore comparabili…**|**Eseguire la migrazione a livelli basati su DTU comparabili…**|
 |---|---|---|
-|Premium RS 1|(Anteprima) Con iperscalabilità 1 vCore (Gen 4) o Business critical 1 vCore (Gen 4)|Premium 1|
-|Premium RS 2|(Anteprima) Con iperscalabilità 2 vCore (Gen 4) o Business critical 2 vCore (Gen 4)|Premium 2|
-|Premium RS 4|(Anteprima) Con iperscalabilità 4 vCore (Gen 4) o Business critical 4 vCore (Gen 4)|Premium 4
-|Premium RS 6|(Anteprima) Con iperscalabilità 6 vCore (Gen 4) o Business critical 6 vCore (Gen 4)|Premium 6|
+|Premium RS 1| Con Iperscalabilità 1 vCore (Gen4) o aziendali critici 1 vCore (Gen4)|Premium 1|
+|Premium RS 2| Numero di Vcore con Iperscalabilità 2 (Gen4) o Vcore 2 critici di Business (Gen4|Premium 2|
+|Premium RS 4| Con Iperscalabilità 4 Vcore (Gen4) o aziendali critici 4 Vcore (Gen4)|Premium 4
+|Premium RS 6| Numero di Vcore con Iperscalabilità 6 (Gen4) o Vcore 6 critici di Business (Gen4)|Premium 6|
 
 |**Se attualmente si usa…**|**Eseguire la migrazione a livelli basati su vCore comparabili…**|**Eseguire la migrazione a livelli basati su DTU comparabili…**|
 |---|---|---|

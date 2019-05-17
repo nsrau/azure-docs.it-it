@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: a1fe8929b5ae39c82850aa08899c7b3e6bb98c7e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: eeb9f5fa91252bbc3c3038ab88bd2d7e802f263f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725299"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786403"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con il servizio Azure Kubernetes
 
@@ -23,6 +23,8 @@ Questo articolo illustra come creare e usare un'entità servizio per i cluster s
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Per creare un'entità servizio di Azure AD, sono necessarie le autorizzazioni per registrare un'applicazione con il tenant di Azure AD e per assegnare l'applicazione a un ruolo nella sottoscrizione. In mancanza di queste autorizzazioni, potrebbe essere necessario chiedere all'amministratore di Azure AD o della sottoscrizione di assegnarle oppure creare in anticipo un'entità servizio da usare con il cluster servizio Azure Kubernetes.
+
+Se si usa un'entità servizio da un Azure AD diversi tenant, sono disponibili considerazioni aggiuntive per le autorizzazioni quando si distribuisce il cluster. Non si abbia le autorizzazioni appropriate per leggere e scrivere informazioni di directory. Per altre informazioni, vedere [quali sono le autorizzazioni utente predefinite in Azure Active Directory?][azure-ad-permissions]
 
 Anche necessario la CLI di Azure versione 2.0.59 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
@@ -89,7 +91,7 @@ L'oggetto `--scope` per una risorsa deve essere un ID risorsa completo, ad esemp
 
 Le sezioni seguenti illustrano le deleghe comuni che potrebbe essere necessario creare.
 
-### <a name="azure-container-registry"></a>Registro Azure Container
+### <a name="azure-container-registry"></a>Registro contenitori di Azure
 
 Se si usa Registro Azure Container come archivio di immagini del contenitore, è necessario concedere le autorizzazioni per il cluster servizio Azure Kubernetes per leggere ed eseguire il pull di immagini. All'entità servizio del cluster servizio Azure Kubernetes deve essere delegato il ruolo *Lettore* nel Registro di sistema. Per informazioni dettagliate, vedere [Concedere al servizio Azure Container l'accesso a Registro Azure Container][aks-to-acr].
 
@@ -158,3 +160,4 @@ Per informazioni su come aggiornare le credenziali, vedere [aggiornare o ruotare
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
 [update-credentials]: update-credentials.md
+[azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 1e689d7ce65fda43e5657383ed44890c90c095cd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: af801600eebed7c0d4ff01dd1edf01fa595840eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025884"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785781"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per il riconoscimento vocale personalizzato
 
@@ -27,9 +27,9 @@ Questa tabella elenca i tipi di dati accettati, quando usare ogni tipo di dati e
 
 | Tipo di dati | Utilizzato di test | Quantità | Utilizzato per il training | Quantità |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Sì<br>Utilizzato per l'esame visivo | file audio 5 + | No  | n/d |
+| [Audio](#audio-data-for-testing) | Sì<br>Utilizzato per l'esame visivo | file audio 5 + | N. | n/d |
 | [Trascrizioni audio + con etichetta umane](#audio--human-labeled-transcript-data-for-testingtraining) | Sì<br>Utilizzato per valutare l'accuratezza | 0,5 - 5 ore dell'audio | Sì | 1 - 1.000 ore di audio |
-| [Testo correlato](##related-text-data-for-training) | No  | n/d | Sì | 1-200 MB di testo correlato |
+| [Testo correlato](##related-text-data-for-training) | N. | n/d | Sì | 1-200 MB di testo correlato |
 
 I file devono essere raggruppati per tipo in un set di dati e caricati come file zip. Ogni set di dati può contenere solo un singolo tipo di dati.
 
@@ -64,7 +64,7 @@ Usare questa tabella per assicurarsi che i file audio siano formattati correttam
 
 Se l'audio non soddisfa queste proprietà o si desidera verificare se questa operazione, è consigliabile scaricare [sox](http://sox.sourceforge.net) per controllare o convertire l'audio. Di seguito sono riportati alcuni esempi del modo in cui ognuna di queste attività può essere eseguita tramite la riga di comando:
 
-| Attività | DESCRIZIONE | Comando SOX |
+| Attività | Descrizione | Comando SOX |
 |----------|-------------|-------------|
 | Controllare il formato audio | Usare questo comando per controllare il formato di file audio. | `soxi <filename>.wav` |
 | Convertire il formato audio | Usare questo comando per convertire il file audio a singolo canale, 16 bit, 48 KHz. | `sox <filename>.wav -b 16 -3 signed-integer -c l -r 48k -t wav <filename>.wav` |
@@ -85,7 +85,7 @@ Per misurare l'accuratezza di accuratezza per il riconoscimento vocale di Micros
 
 Per risolvere i problemi, ad esempio l'eliminazione di word o la sostituzione, una quantità significativa di dati è necessarie per migliorare il riconoscimento. In generale, è consigliabile fornire parola per parola trascrizioni per circa 10 a 1.000 ore di audio. Le trascrizioni di tutti i file WAV devono essere contenute in un unico file di testo normale. Ogni riga del file delle trascrizioni deve contenere il nome di uno dei file audio ed essere seguita dalla trascrizione corrispondente. Il nome del file deve essere separato dalla trascrizione mediante un carattere di tabulazione (\t).
 
-  Ad esempio: 
+  Ad esempio:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -142,7 +142,7 @@ Ciò include esempi di un utterance parlato e una pronuncia personalizzata per o
 |--------------|--------------------------|
 | tre c p o | 3CPO |  
 | k c n t | CNTK |
-| i pari al triplo e | IEE |
+| i pari al triplo e | IEEE |
 
 La forma parlata è la sequenza fonetica venga specificata. Si può essere composto lettera, parole, sillabe o una combinazione di tutti e tre.
 

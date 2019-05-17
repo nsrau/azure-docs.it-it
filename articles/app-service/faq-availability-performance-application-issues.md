@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: ae59f54de9c02bfc4e538dd10c809ba398d599ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dd61ae9298a03ce0cbb9e9a5b143229c15ea9bb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61222229"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786383"
 ---
+# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
+
 > [!NOTE]
 > Alcune delle seguenti linee guida potrebbero funzionare solo su Windows o Linux App Services. Ad esempio Linux App Services eseguiti in modalità a 64 bit per impostazione predefinita.
 >
-
-# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
 
 Questo articolo offre risposte alle domande frequenti sui problemi di prestazioni delle applicazioni per la [funzionalità App Web del servizio app di Azure](https://azure.microsoft.com/services/app-service/web/).
 

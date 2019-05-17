@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2019
+ms.date: 05/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e783a7c34216624126946eef84f56977d4c049
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 60453c320a66a8eebd7460b3930241f9e81b8a1b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572404"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784336"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -42,6 +42,17 @@ Download| [Scaricare Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=6
 >Rilasciare una nuova versione di Azure AD Connect è un processo che richiede diversi passaggio del controllo qualità per garantire la funzionalità di operazione del servizio, e mentre ci addentriamo questo processo verrà aggiornato il numero di versione di una nuova versione, nonché lo stato di rilascio in modo da riflettere lo stato più recente.
 Mentre ci addentriamo questo processo, il numero di versione della versione verrà visualizzato con una "X" nella posizione numero versione secondaria, come in "1.3.X.0 -" indica che le note sulla versione di questo documento sono valide per tutte le versioni che iniziano con "1.3". Non appena è stato completato il processo di rilascio il numero di versione verrà aggiornato alla versione rilasciata più di recente e lo stato di rilascio verrà aggiornato in "Rilasciato per il download e l'aggiornamento automatico".
 Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornamento automatico. Lo stato della versione indicherà se una versione sarà disponibile per l'aggiornamento automatico o solo per il download. Se l'aggiornamento automatico è stato abilitato nel server di Azure AD Connect, tale server eseguirà automaticamente l'aggiornamento per la versione più recente di Azure AD Connect, rilasciata per l'aggiornamento automatico. Si noti che non tutte le configurazioni di Azure AD Connect sono idonee per l'aggiornamento automatico. Seguire questo collegamento per altre informazioni sull'[aggiornamento automatico](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+
+## <a name="13210"></a>1.3.21.0
+
+### <a name="release-status"></a>Stato della versione 
+
+05/14/2019: Da definire
+
+
+### <a name="fixed-issues"></a>Problemi risolti 
+
+- Correzione di un'elevazione di privilegi che esiste nella compilazione di Microsoft Azure Active Directory Connect 1.3.20.0.  Questa vulnerabilità, in determinate condizioni, potrebbe consentire un attacco di eseguire due cmdlet di powershell nel contesto di un account con privilegi ed effettuare azioni con privilegi.  Aggiornamento della sicurezza risolve il problema, disabilitare questi cmdlet. Per altre informazioni, vedere [aggiornamento della sicurezza](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000).
 
 ## <a name="13200"></a>1.3.20.0 
 

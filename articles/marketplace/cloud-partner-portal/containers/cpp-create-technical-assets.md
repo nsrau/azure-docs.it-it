@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: 32002f8b88a2fbeba29f15b3b9289ecf3d7560d0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942723"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794333"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Preparare gli asset tecnici del contenitore
 
@@ -45,7 +45,7 @@ Per la gestione dell'immagine del contenitore scegliere uno o entrambi gli ambie
 
 -   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Estensione: [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   Interno: [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   Estensione: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     *   Estensione: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
@@ -53,9 +53,10 @@ Per la gestione dell'immagine del contenitore scegliere uno o entrambi gli ambie
 
 ## <a name="create-the-container-image"></a>Creare l'immagine del contenitore
 
-- Creare e configurare il disco rigido virtuale (VHD) per la macchina virtuale contenitore. Questo disco rigido virtuale contiene il sistema operativo per il contenitore che può essere Windows, Linux o Ubuntu. Potrebbero essere necessari altri dischi dati.
-- Configurare il sistema operativo della macchina virtuale, la dimensione di questa, le porte da aprire e i dischi dati collegati.
-- Installare l'applicazione e l'altro software necessario per l'offerta. Ad esempio software di database, software di terze parti o un'applicazione personalizzata.
+Per altre informazioni, vedere quanto segue:
+
+* [Esercitazione: Creare un'immagine del contenitore per la distribuzione in istanze di contenitore di Azure](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Esercitazione: Compilare e distribuire immagini del contenitore nel cloud con le attività del Registro di sistema di contenitore di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

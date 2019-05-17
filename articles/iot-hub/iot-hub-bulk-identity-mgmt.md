@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/03/2017
+ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322790"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796351"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importare ed esportare le identità dei dispositivi dell'IoT Hub in blocco
 
@@ -84,6 +84,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+## <a name="device-importexport-job-limits"></a>Limiti di processo di importazione/esportazione di dispositivo
+
+Importare solo 1 dispositivi attivi o processo di esportazione è consentito in un momento per tutti i livelli di IoT Hub. L'IoT Hub ha anche i limiti di frequenza delle operazioni dei processi. Per altre informazioni, vedere [informazioni di riferimento - quote dell'IoT Hub e la limitazione delle richieste](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="export-devices"></a>Esportare dispositivi
 
@@ -253,7 +257,7 @@ Se il file di importazione include metadati gemelli, questi metadati sovrascrivo
 
 Usare la proprietà facoltativa **importMode** nei dati di serializzazione dell'importazione per ogni dispositivo per controllare il processo di importazione per dispositivo. La proprietà **importMode** include le opzioni seguenti:
 
-| importMode | DESCRIZIONE |
+| importMode | Descrizione |
 | --- | --- |
 | **createOrUpdate** |Se non esiste un dispositivo con l'oggetto specificato **ID**, viene registrato di nuovo. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati senza tener conto del valore **ETag** . <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
 | **create** |Se non esiste un dispositivo con l'oggetto specificato **ID**, viene registrato di nuovo. <br/>Se il dispositivo esiste già, viene scritto un errore nel file di log. <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
@@ -390,7 +394,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Recuperare l'URI di firma di accesso condiviso del contenitore
 
-Il codice di esempio seguente illustra come generare un [URI di firma di accesso condiviso](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) con autorizzazioni di lettura, scrittura ed eliminazione per un contenitore BLOB:
+Il codice di esempio seguente illustra come generare un [URI di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) con autorizzazioni di lettura, scrittura ed eliminazione per un contenitore BLOB:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -420,7 +424,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 In questo articolo si è appreso come eseguire operazioni in blocco sul registro delle identità in un hub IoT. Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
 * [Metriche di hub IoT](iot-hub-metrics.md)
-* [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)
+* [Log dell'IoT Hub](iot-hub-monitor-resource-health.md)
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 

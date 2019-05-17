@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 6757a038a945bf153cb62662bee8c715c87baf19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829821"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786072"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introduzione al livello Premium di Cache Redis di Azure
 Cache Redis di Azure è una cache distribuita e gestita che consente di creare applicazioni estremamente scalabili e reattive fornendo un accesso molto veloce ai dati. 
@@ -59,13 +59,13 @@ L'esportazione consente di esportare i dati archiviati in Cache Redis in file RD
 
 Per altre informazioni, vedere [How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md)(Come importare ed esportare i dati da Cache Redis di Azure).
 
-## <a name="reboot"></a>Riavvio
+## <a name="reboot"></a>Riavvia
 Il piano Premium consente di riavviare uno o più nodi della cache su richiesta. Ciò consente di verificare la resilienza dell'applicazione in caso di errore. È possibile riavviare i nodi seguenti.
 
 * Nodo principale della cache
-* Nodo slave della cache
-* Nodi principali e slave della cache
-* Quando si usa una cache Premium con il clustering, è possibile riavviare il nodo principale, il secondario o entrambi i nodi per singole partizioni nella cache
+* Nodo secondario della cache
+* Nodi primari e secondari della cache
+* Quando si usa una cache premium con clustering, è possibile riavviare il database primario, secondario o entrambi i nodi per singole partizioni nella cache
 
 Per altre informazioni, vedere [Riavvia](cache-administration.md#reboot) e [Domande frequenti sulla funzionalità di riavvio](cache-administration.md#reboot-faq).
 
@@ -74,7 +74,7 @@ Per altre informazioni, vedere [Riavvia](cache-administration.md#reboot) e [Doma
 >
 >
 
-## <a name="schedule-updates"></a>Pianificare gli aggiornamenti
+## <a name="schedule-updates"></a>Pianifica aggiornamenti
 La funzionalità di pianificazione degli aggiornamenti consente di progettare un intervallo di manutenzione per la cache. Quando viene specificato l'intervallo di manutenzione, tutti gli aggiornamenti del server Redis vengono eseguiti durante questo intervallo. Per pianificare un intervallo di manutenzione, selezionare i giorni desiderati e specificare l'ora di inizio dell'intervallo per ogni giorno. Si noti che l'orario dell'intervallo di manutenzione è in formato UTC. 
 
 Per altre informazioni, vedere [Pianificare gli aggiornamenti](cache-administration.md#schedule-updates) e [Domande frequenti sulla pianificazione degli aggiornamenti](cache-administration.md#schedule-updates-faq).

@@ -8,12 +8,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: 882a071731837b0f7d03ac374a7c831a20a3927e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d7d6bf45a8cdf22fbff0d3fda8175e8007a612d9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714485"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789288"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurare l'ambiente PySpark Interactive per Visual Studio Code
 
@@ -25,7 +25,7 @@ La procedura usa il comando **python/pip** per creare un ambiente virtuale nel p
    
    + Installare Python da [https://www.python.org/downloads/](https://www.python.org/downloads/).
    + Installare pip da [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) (se non viene installato dall'installazione di Python).
-   + Verificare che Python e pip siano stati installati correttamente usando i comandi seguenti. Facoltativa
+   + Verificare che Python e pip siano stati installati correttamente usando i comandi seguenti. (Facoltativo)
  
         ![Versione Python pip](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
@@ -70,4 +70,4 @@ La procedura usa il comando **python/pip** per creare un ambiente virtuale nel p
 * [Usare pacchetti esterni con i notebook Jupyter](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Visualizzare i dati Apache Hive con Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Usare Apache Zeppelin per eseguire query Apache Hive in HDInsight di Azure](hdinsight-connect-hive-zeppelin.md)
+* [Usare Apache Zeppelin per eseguire query Apache Hive in HDInsight di Azure](./interactive-query/hdinsight-connect-hive-zeppelin.md)

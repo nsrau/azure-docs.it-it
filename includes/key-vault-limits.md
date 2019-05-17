@@ -4,16 +4,16 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 0e55c372c6f5dc3484bd64cf4f328479d2d0b245
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461323"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65211991"
 ---
-## <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transazioni chiave (numero massimo di transazioni consentito entro 10 secondi, per ogni insieme di credenziali per ogni area geografica<sup>1</sup>):
+#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transazioni chiave (numero massimo di transazioni consentito entro 10 secondi, per ogni insieme di credenziali per ogni area geografica<sup>1</sup>):
 
-|Tipo di chiave|Chiave protetta tramite HSM<br>CREARE la chiave|Chiave protetta tramite HSM<br>Tutte le altre transazioni|Chiave software<br>CREARE la chiave|Chiave software<br>Tutte le altre transazioni|
+|Tipo di chiave|Chiave protetta tramite HSM<br>CREARE la chiave|Chiave protetta tramite HSM<br>Tutte le altre transazioni|Chiave del software<br>CREARE la chiave|Chiave del software<br>Tutte le altre transazioni|
 |:---|---:|---:|---:|---:|
 |RSA a 2048 bit|5|1.000|10|2.000|
 |RSA 3.072 bit|5|250|10|500|
@@ -34,7 +34,7 @@ ms.locfileid: "60461323"
 > - Transazioni di 125 GET chiave protetta tramite HSM RSA 4096 bit
 > - Le transazioni di GET chiave di HSM RSA 4096 bit 124 e GET chiave protetta tramite HSM RSA di 2.048 bit 8
 
-## <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>I segreti, chiavi dell'account di archiviazione gestito e le transazioni dell'insieme di credenziali:
+#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>I segreti, chiavi dell'account di archiviazione gestito e le transazioni dell'insieme di credenziali:
 | Tipo di transazioni | Numero massimo di transazioni consentito entro 10 secondi, per ogni insieme di credenziali per ogni area<sup>1</sup> |
 | --- | --- |
 | Tutte le transazioni |2.000 |

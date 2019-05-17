@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: f5e75b30a7c196bb238c7bcb9c4704c1aec5e771
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e657c4678c76e8ff667c1a3f30409fc157f52d16
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61430920"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798251"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Lingua e regioni supportate dall'API Ricerca Web Bing
 
@@ -27,7 +27,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 
 ## <a name="countriesregions"></a>Paesi/aree geografiche
 
-|Paese/Area geografica|Codice|
+|Paese/area geografica|Codice|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -40,13 +40,13 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Finlandia|FI|
 |Francia|VF|
 |Germania|DE|
-|RAS di Hong Kong|HK|
+|Hong Kong - R.A.S.|HK|
 |India|IN|
 |Indonesia|ID|
-|Italia|IT|
+|Italia|it|
 |Giappone|JP|
 |Corea del Sud|KR|
-|Malaysia|MY|
+|Malesia|MY|
 |Messico|MX|
 |Paesi Bassi|NL|
 |Nuova Zelanda|NZ|
@@ -57,7 +57,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Filippine|PH|
 |Russia|RU|
 |Arabia Saudita|SA|
-|Sud Africa|ZA|
+|Sudafrica|ZA|
 |Spagna|ES|
 |Svezia|SE|
 |Svizzera|CH|
@@ -68,7 +68,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 
 ## <a name="markets"></a>Mercati
 
-|Paese/Area geografica|Linguaggio|Codice di mercato|
+|Paese/area geografica|Linguaggio|Codice di mercato|
 |-------|--------|-----------|
 |Argentina|Spagnolo|es-AR|
 |Australia|Inglese|en-AU|
@@ -83,13 +83,13 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Finlandia|Finlandese|fi-FI|
 |Francia|Francese|fr-FR|
 |Germania|Tedesco|de-DE|
-|RAS di Hong Kong|Cinese tradizionale|zh-HK|
+|Hong Kong - R.A.S.|Cinese tradizionale|zh-HK|
 |India|Inglese|en-IN|
 |Indonesia|Inglese|en-ID|
 |Italia|Italiano|it-IT|
 |Giappone|Giapponese|ja-JP|
 |Corea del Sud|Coreano|ko-KR|
-|Malaysia|Inglese|en-MY|
+|Malesia|Inglese|en-MY|
 |Messico|Spagnolo|es-MX|
 |Paesi Bassi|Olandese|nl-NL|
 |Nuova Zelanda|Inglese|en-NZ|
@@ -100,7 +100,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Filippine|Inglese|en-PH|
 |Russia|Russo|ru-RU|
 |Arabia Saudita|Arabo|ar-SA|
-|Sud Africa|Inglese|en-ZA|
+|Sudafrica|Inglese|en-ZA|
 |Spagna|Spagnolo|es-ES|
 |Svezia|Svedese|sv-SE|
 |Svizzera|Francese|fr-CH|
@@ -110,3 +110,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Regno Unito|Inglese|en-GB|
 |Stati Uniti|Inglese|en-US|
 |Stati Uniti|Spagnolo|es-US|
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Informazioni di riferimento per l'API Ricerca immagini Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

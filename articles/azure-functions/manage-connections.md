@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 4e9bd4e9ea467446c2814cdb8956a40b1503b027
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e15d6ad445c3fdde0632c3ad468eee7da836a394
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020486"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785955"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gestire le connessioni in funzioni di Azure
 
@@ -21,7 +21,7 @@ Le funzioni in un'app per le funzioni condividono le risorse. Tra le risorse con
 
 ## <a name="connection-limit"></a>Limite connessione
 
-Il numero di connessioni disponibili è limitato in parte perché un'app per le funzioni in esecuzione in un [ambiente sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Una delle restrizioni della sandbox impone nel codice dell'oggetto è un [limite sul numero di connessioni (attualmente di 600 connessioni attive e connessioni totali 1.200)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) per ogni istanza. Quando si raggiunge questo limite, il runtime di Funzioni crea un log con il messaggio seguente: `Host thresholds exceeded: Connections`.
+Il numero di connessioni disponibili è limitato in parte perché un'app per le funzioni in esecuzione in un [ambiente sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Una delle restrizioni della sandbox impone nel codice dell'oggetto è un limite al numero di connessioni (attualmente di 600 attive e connessioni 1.200 totale) per ogni istanza. Quando si raggiunge questo limite, il runtime di Funzioni crea un log con il messaggio seguente: `Host thresholds exceeded: Connections`.
 
 Questo limite è per ogni istanza.  Quando la [controller di scalabilità aggiunge le istanze delle app di funzione](functions-scale.md#how-the-consumption-and-premium-plans-work) per gestire più richieste, ogni istanza ha un limite di connessione indipendente. Pertanto, non esiste un limite di connessione globali e si possono avere molto più di 600 connessioni attive tra tutte le istanze attive.
 

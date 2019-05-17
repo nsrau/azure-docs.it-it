@@ -12,18 +12,18 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 95d1681c9ff9981990d873a58a2d01833d690e0f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411987"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791382"
 ---
 # <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>Eliminare la subnet dopo l'eliminazione di Database SQL di Azure di istanza gestita
 
 Questo articolo vengono fornite istruzioni su come eliminare manualmente la subnet dopo l'eliminazione di Database SQL di Azure ultima istanza che si trovano in esso gestita.
 
-Il [cluster virtuale](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) che dispone di contenuto eliminato istanza gestita verrà conservata per 12 ore dall'eliminazione dell'istanza. Il cluster virtuale viene mantenuto attivo per impostazione predefinita per consentire la creazione più rapida di istanze gestite nella stessa subnet. Durante questo periodo, non è possibile eliminare la subnet associata al cluster virtuale.
+Il [cluster virtuale](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) che dispone di contenuto eliminato istanza gestita verrà conservata per 12 ore dall'eliminazione dell'istanza. Il cluster virtuale viene mantenuto attivo per impostazione predefinita per consentire la creazione più rapida di istanze gestite nella stessa subnet. Mantenendo un cluster virtuale vuoto è gratuito. Durante questo periodo, non è possibile eliminare la subnet associata al cluster virtuale.
 
 Rilascio immediato della subnet usata da un cluster virtuale vuoto viene possibile tramite l'eliminazione manuale del cluster virtuale. L'eliminazione del cluster virtuale può essere ottenuta tramite il portale di Azure o API di cluster virtuali.
 

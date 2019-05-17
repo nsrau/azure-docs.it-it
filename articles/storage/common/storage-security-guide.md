@@ -9,18 +9,18 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 48ebbabca8d38db3a7c1344981f79991de29df80
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154402"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789950"
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
 
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure:
 
-- Tutti i dati scritti in Archiviazione di Azure vengono crittografati automaticamente con la [crittografia del servizio di archiviazione](storage-service-encryption.md). Per altre informazioni, vedere [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) (Annuncio della crittografia predefinita per BLOB, file, tabelle e archiviazione code di Azure).
+- Tutti i dati scritti in archiviazione di Azure (inclusi i metadati) vengono crittografati automaticamente usando [Strumentazione gestione Windows (SSE, Storage Service Encryption)](storage-service-encryption.md). Per altre informazioni, vedere [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) (Annuncio della crittografia predefinita per BLOB, file, tabelle e archiviazione code di Azure).
 - Azure Active Directory (Azure AD) e il controllo degli accessi in base al ruolo sono supportati per Archiviazione di Azure sia per le operazioni di gestione delle risorse che per le operazioni sui dati, come illustrato di seguito:   
     - È possibile assegnare ruoli Controllo degli accessi in base al ruolo con ambito impostato sull'account di archiviazione alle entità di sicurezza e usare Azure AD per autorizzare le operazioni di gestione delle risorse, ad esempio la gestione delle chiavi.
     - Integrazione di Azure AD è supportata per le operazioni di dati blob e coda. È possibile assegnare ruoli Controllo degli accessi in base al ruolo con ambito impostato su una sottoscrizione, un gruppo di risorse, un account di archiviazione o un singolo contenitore o coda a un'entità di sicurezza o un'identità gestita per le risorse di Azure. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory](storage-auth-aad.md).   
@@ -238,10 +238,9 @@ Per informazioni più dettagliate sull'uso di firme di accesso condiviso e crite
     Questo articolo fornisce esempi dell'uso di una firma di accesso condiviso a livello di servizio con BLOB, messaggi della coda, intervalli di tabelle e file.
   * [Creazione di una firma di accesso condiviso del servizio](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Creazione di una firma di accesso condiviso dell'account](https://msdn.microsoft.com/library/mt584140.aspx)
-* Si tratta di esercitazioni per l'uso della libreria client .NET per creare firme di accesso condiviso e criteri di accesso archiviati.
 
+* Si tratta di un'esercitazione per l'uso della libreria client .NET per creare firme di accesso condiviso e criteri di accesso archiviati.
   * [Uso delle firme di accesso condiviso](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Firme di accesso condiviso, parte 2: Creare e usare una firma di accesso condiviso con il servizio BLOB](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Questo articolo contiene una spiegazione del modello di firma di accesso condiviso, esempi di firme di accesso condiviso e suggerimenti per la procedura consigliata da usare per le firme di accesso condiviso. È descritta anche la revoca dell'autorizzazione concessa.
 

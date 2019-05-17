@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/11/2019
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef0a4e4a05427b1ed83b017b7a49862596aaf50a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66b3e68ff2199c6a8bf4da9e02caaf93ee69342b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414560"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812820"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure
 
@@ -27,11 +27,15 @@ In seguito all'aggiunta di un utente guest alla directory, è possibile inviare 
 > [!IMPORTANT]
 > È necessario seguire le procedure illustrate in [Procedura: Aggiungere le informazioni sulla privacy dell'organizzazione in Azure Active Directory](https://aka.ms/adprivacystatement) per aggiungere l'URL dell'informativa sulla privacy dell'organizzazione. Come parte del primo processo riscatto per il primo invito, un utente invitato deve accettare le condizioni sulla privacy per continuare. 
 
+## <a name="before-you-begin"></a>Prima di iniziare
+
+Assicurarsi che le impostazioni di collaborazione esterna dell'organizzazione vengono configurate in modo che si è autorizzati a invitare utenti guest. Per impostazione predefinita, tutti gli utenti e gli amministratori possono invitare utenti guest. Ma i criteri dell'organizzazione collaborazione esterna potrebbero essere configurati per impedire che determinati tipi di utenti o amministratori di invitare gli utenti guest. Per informazioni su come visualizzare e impostare questi criteri, vedere [ambiente di collaborazione B2B esterni e la gestione di utenti autorizzati a invitare utenti guest](delegate-invitations.md).
+
 ## <a name="add-guest-users-to-the-directory"></a>Aggiungere utenti guest alla directory
 
 Per aggiungere utenti di Collaborazione B2B alla directory, seguire questa procedura:
 
-1. Accedi per il [portale di Azure](https://portal.azure.com) come un utente che è assegnato uno qualsiasi dell'amministratore con limitazioni ruoli della directory.
+1. Accedi per il [portale di Azure](https://portal.azure.com) con un account utente viene assegnato un ruolo della directory amministratore con limitazioni o il ruolo mittente dell'invito Guest.
 2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
 3. In **Gestisci** selezionare **Utenti**.
 4. Selezionare **Nuovo utente guest**.
@@ -41,7 +45,7 @@ Per aggiungere utenti di Collaborazione B2B alla directory, seguire questa proce
    > [!NOTE]
    > L'opzione **Nuovo utente guest** è disponibile anche nella pagina **Relazioni aziendali**. In **Azure Active Directory**, nell'area **Gestisci**, selezionare **Relazioni aziendali**.
 
-5. In **Nome utente** immettere l'indirizzo di posta elettronica dell'utente esterno. Se si vuole, includere un messaggio di benvenuto. Ad esempio: 
+5. In **Nome utente** immettere l'indirizzo di posta elettronica dell'utente esterno. Se si vuole, includere un messaggio di benvenuto. Ad esempio:
 
    ![Mostra la posizione dell'opzione Nuovo utente guest nell'interfaccia utente](./media/add-users-administrator/InviteGuest.png) 
 
@@ -56,7 +60,7 @@ Dopo aver inviato l'invito, l'account utente viene automaticamente aggiunto alla
 ![Mostra l'utente B2B con Guest come tipo di utente](./media/add-users-administrator/GuestUserType.png)  
 
 ## <a name="add-guest-users-to-a-group"></a>Aggiungere utenti guest a un gruppo
-Se è necessario aggiungere manualmente utenti di Collaborazione B2B a un gruppo come amministratore di AD Azure, seguire questa procedura:
+Se è necessario aggiungere manualmente gli utenti di collaborazione B2B a un gruppo, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore di Azure AD.
 2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
@@ -73,7 +77,7 @@ Se è necessario aggiungere manualmente utenti di Collaborazione B2B a un gruppo
 
 ## <a name="add-guest-users-to-an-application"></a>Aggiungere utenti guest a un'applicazione
 
-Per aggiungere utenti di Collaborazione B2B a un'applicazione come amministratore di Azure AD, seguire questa procedura:
+Per aggiungere gli utenti di collaborazione B2B a un'applicazione, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore di Azure AD.
 2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
