@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545332"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518897"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster Azure HDInsight tramite azioni script
 
@@ -45,23 +45,21 @@ Ottenere altre informazioni sull'uso della gestione degli accessi:
 Un'azione di script è uno script Bash eseguito sui nodi di un cluster HDInsight. Di seguito sono riportate le caratteristiche e funzionalità delle azioni script:
 
 * Devono essere archiviate in un URI accessibile dal cluster HDInsight. Di seguito vengono indicate alcune tra le posizioni di archiviazione possibili:
+    
+    * Per i cluster regolari:
+    
+      * ADLS Gen1: L'entità servizio usata da HDInsight per accedere a Data Lake Storage deve avere accesso in lettura allo script. Il formato dell'URI per gli script archiviati in Data Lake Storage Gen1 è `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+      
+      * Un BLOB in un account di archiviazione di Azure che rappresenta l'account di archiviazione primario o aggiuntivo per il cluster HDInsight. HDInsight può accedere a entrambi i tipi di account di archiviazione durante la creazione del cluster.
 
-    * Account di Azure Data Lake Storage accessibile dal cluster HDInsight. Per informazioni sull'uso di Azure Data Lake Storage con HDInsight, vedere [Guida introduttiva: Impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-
-        Il formato dell'URI per gli script archiviati in Data Lake Storage Gen1 è `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
-
-        > [!NOTE]  
-        > L'entità servizio usata da HDInsight per accedere a Data Lake Storage deve avere accesso in lettura allo script.
-
-    * Un BLOB in un account di archiviazione di Azure che rappresenta l'account di archiviazione primario o aggiuntivo per il cluster HDInsight. HDInsight può accedere a entrambi i tipi di account di archiviazione durante la creazione del cluster.
-
-    * Un servizio di condivisione file pubblico. Ad esempio: BLOB di Azure, GitHub, OneDrive e Dropbox.
+      * Un condivisione file servizio pubblico accessibile attraverso percorsi http://. Esempi sono Blob di Azure, GitHub, OneDrive.
 
         Per gli URI di esempio, vedere [Script di esempio di azione script](#example-script-action-scripts).
 
-        > [!WARNING]  
-        > HDInsight supporta i BLOB solo negli account di archiviazione di Azure con livello di prestazioni standard. 
-
+     * Per i cluster con ESP:
+         
+         * Wasb [s] :// o http [s] :// gli URI sono supportati.
+            
 * Può essere limitato per l'esecuzione solo in determinati tipi di nodo, ad esempio i nodi head o i nodi di lavoro.
 
 * Possono essere persistenti o ad hoc.

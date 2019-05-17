@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 22484885663a4f9a908ae988882b87612129251a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9a6a63748ef36bbbceb00bc815616f2cb12692a7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693229"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799801"
 ---
 # <a name="monitor-cluster-performance"></a>Monitorare le prestazioni di un cluster
 
@@ -27,10 +27,10 @@ I cluster Hadoop offrono prestazioni ottimali quando il carico nel cluster viene
 
 Per una panoramica sui nodi del cluster e sul rispettivo caricamento, accedere all'[interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md) e selezionare la scheda **Host**. Gli host sono elencati in base ai relativi nomi di dominio completi. Lo stato operativo di ogni host viene visualizzato tramite un indicatore di integrità colorato:
 
-| Colore | DESCRIZIONE |
+| Colore | Descrizione |
 | --- | --- |
 | Rosso | Almeno un componente master dell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
-| Arancione | Almeno un componente slave dell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
+| Arancione | Almeno un componente secondario dell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
 | Giallo | Il server Ambari non riceve un heartbeat dall'host da più di 3 minuti. |
 | Verde | Stato di esecuzione normale. |
 

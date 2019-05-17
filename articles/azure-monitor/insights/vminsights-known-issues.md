@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: ab5cbf6e24d6e7b5530addcee655e1cc4621d042
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 86a56e71b89e7408d1bc8ca0ee1dc8112bea368f
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875978"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522135"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemi noti relativi a Monitoraggio di Azure per le macchine virtuali (anteprima)
 
@@ -35,4 +35,4 @@ Di seguito sono descritti i problemi noti relativi alla versione corrente della 
 - Dopo aver rimosso i componenti della soluzione dall'area di lavoro, è possibile continuare a visualizzare lo stato di integrità dalle macchine virtuali di Azure, in particolare dati sulle prestazioni e mappa, quando si passa a qualsiasi altra visualizzazione nel portale. Dopo qualche istante, i dati non verranno più visualizzati nella visualizzazione delle prestazioni e della mappa; la visualizzazione dell'integrità continua a mostrare lo stato di integrità delle macchine virtuali. L'opzione**Prova adesso** sarà disponibile per eseguire nuovamente l'onboarding solo dalle viste Prestazioni e Mappa.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni sui requisiti e i metodi per abilitare il monitoraggio delle macchine virtuali, vedere [Come eseguire l'onboarding di Monitoraggio di Azure per le macchine virtuali](vminsights-onboard.md).
+Per comprendere i requisiti e i metodi per l'abilitazione del monitoraggio delle macchine virtuali, esaminare [abilitare il monitoraggio di Azure per le macchine virtuali](vminsights-enable-overview.md).

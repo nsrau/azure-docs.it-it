@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5db5eb9c0e0493d906345892fcc5f2872a3e0e14
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357138"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812449"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Aggiungere utenti guest di collaborazione B2B senza un collegamento di invito o un messaggio di posta elettronica
 
 È adesso possibile invitare un utente guest inviando un collegamento diretto a un'app condivisa. Tramite questo metodo, gli utenti guest non necessitano più del messaggio di posta elettronica di invito, se non in alcuni casi speciali. Un utente guest fa clic sul collegamento app, esamina e accetta le condizioni sulla privacy e quindi accede con facilità all'app. Per altre informazioni, vedere [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md).   
 
-Prima che questo nuovo metodo fosse disponibile, era possibile invitare gli utenti guest senza messaggio di posta elettronica di invito tramite l'aggiunta di un mittente dell'invito (dall'organizzazione o da un'organizzazione partner) al ruolo della directory **Mittente dell'invito guest**, quindi facendo aggiungere al mittente dell'invito gli utenti guest alla directory, ai gruppi o alle applicazioni tramite l'interfaccia utente o PowerShell (in caso di uso di PowerShell, è possibile eliminare completamente il messaggio di posta elettronica di invito). Ad esempio: 
+Prima che questo nuovo metodo fosse disponibile, era possibile invitare gli utenti guest senza messaggio di posta elettronica di invito tramite l'aggiunta di un mittente dell'invito (dall'organizzazione o da un'organizzazione partner) al ruolo della directory **Mittente dell'invito guest**, quindi facendo aggiungere al mittente dell'invito gli utenti guest alla directory, ai gruppi o alle applicazioni tramite l'interfaccia utente o PowerShell (in caso di uso di PowerShell, è possibile eliminare completamente il messaggio di posta elettronica di invito). Ad esempio:
 
 1. Un utente dell'organizzazione host (ad esempio WoodGrove) invita un utente dell'organizzazione partner (ad esempio Sam@litware.com) come guest.
 2. L'amministratore dell'organizzazione host [configura criteri](delegate-invitations.md) che consentono a Sam di identificare e aggiungere altri utenti dall'organizzazione partner (Litware) (Sam deve essere aggiunto per il ruolo di **mittente dell'invito guest**).

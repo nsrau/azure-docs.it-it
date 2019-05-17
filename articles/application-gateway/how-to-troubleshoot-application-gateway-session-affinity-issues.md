@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 90a57483fc7a530f214d34bf619a718b4c196e79
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 07165a497e75934a65719e48a9af7d8d6906ee7b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683150"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538323"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Risolvere i problemi di affinità sessione Gateway applicazione di Azure
 
@@ -53,7 +53,7 @@ In alcuni casi potrebbero verificarsi i problemi di affinità di sessione quando
 
 È anche possibile controllare il valore della "**CookieBasedAffinity**" è impostata su *Enabled*sotto "**backendHttpSettingsCollection**" usando uno dei metodi seguenti:
 
-- Eseguire [Get-AzApplicationGatewayBackendHttpSettings](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsettings) in PowerShell
+- Run [Get-AzApplicationGatewayBackendHttpSetting](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) in PowerShell
 - Esaminare il file JSON usando il modello di Azure Resource Manager
 
 ```
@@ -82,7 +82,7 @@ Per identificare questo problema, seguire le istruzioni:
     **Suggerimento** se non si sa come usare il Fiddler, selezionare l'opzione "**si vuole raccogliere il traffico di rete e analizzarli usando il debugger web**" nella parte inferiore.
 
 2. Controllare e analizzare i log di sessione, per determinare se i cookie forniti dal client hanno i dettagli ARRAffinity. Se non si trova i dettagli di ARRAffinity, ad esempio "**ARRAffinity =** *ARRAffinityValue*" all'interno del set di cookie, che significa che il client non sta rispondendo con il cookie ARRA, che avviene tramite il Gateway applicazione.
-    Ad esempio: 
+    Ad esempio:
 
     ![troubleshoot-session-affinity-issues-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
@@ -144,7 +144,7 @@ Abilitare la registrazione tramite il portale di Azure
 - **ClientPort** -questa è la porta di origine dal client che si connette per la richiesta.
 - **RequestQuery** – indica il server di destinazione che viene ricevuta la richiesta.
 - **Server-Routed**: Istanza del pool back-end che viene ricevuta la richiesta.
-- **X-AzureApplicationGateway-LOG-ID**: ID correlazione usato per la richiesta. Può essere usato per risolvere i problemi di traffico nei server back-end. Ad esempio:  X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
+- **X-AzureApplicationGateway-LOG-ID**: ID correlazione usato per la richiesta. Può essere usato per risolvere i problemi di traffico nei server back-end. Ad esempio: X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
 
   - **SERVER-STATUS**: codice di risposta HTTP che il gateway applicazione ha ricevuto dal back-end.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6b144f126e097a8db9fbbf29e47162fd6a1c2fbe
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7596670e794c090b04f81cf6b235a4bc54c1f3c4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916829"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800092"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è riconoscimento vocale?
 
@@ -24,7 +24,7 @@ Per il riconoscimento vocale da servizi di riconoscimento vocale di Azure, noto 
 
 Per impostazione predefinita, il servizio riconoscimento vocale Usa il modello di linguaggio universale. Questo modello è stato eseguito il training usando i dati di proprietà di Microsoft ed è distribuito nel cloud. È ottimale per la conversazione e gli scenari di dettatura. Se si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, linguistici e di pronuncia personalizzati destinati a un ambiente rumoroso o una terminologica specifica del settore. 
 
-È facilmente possibile acquisire audio dal microfono, leggere da un flusso o accedere ai file audio da un archivio con Speech SDK e API REST. Speech SDK supporta WAV/PCM 16 bit, kHz 16, singolo canale audio per il riconoscimento vocale. Formati audio aggiuntivi sono supportati tramite il [endpoint REST per il riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) o nella [trascrizione servizio batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+È facilmente possibile acquisire audio dal microfono, leggere da un flusso o accedere ai file audio da un archivio con Speech SDK e API REST. Speech SDK supporta WAV/PCM 16 bit, kHz 16/8 kHz, di singolo canale audio per il riconoscimento vocale. Formati audio aggiuntivi sono supportati tramite il [endpoint REST per il riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) o nella [trascrizione servizio batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
 ## <a name="core-features"></a>Funzionalità di base
 
@@ -33,13 +33,13 @@ Ecco le funzionalità disponibili attraverso il sistema Speech SDK e API REST:
 | Caso d'uso | SDK | REST |
 |----------|-----|------|
 | Trascrivi utterances breve (< 15 secondi). Supporta solo il risultato finale di trascrizione. | Sì | Sì |
-| Trascrizione continua di espressioni lungo e streaming audio (> 15 secondi). Supporta i risultati di trascrizione intermedie e finali. | Sì | No  |
+| Trascrizione continua di espressioni lungo e streaming audio (> 15 secondi). Supporta i risultati di trascrizione intermedie e finali. | Sì | N. |
 | Derivare i risultati di riconoscimento con finalità [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Sì | No\* |
-| Batch in modo asincrono la trascrizione di file audio. | No  | Sì\** |
-| Creare e gestire modelli di riconoscimento vocale. | No  | Sì\** |
-| Creare e gestire le distribuzioni di modelli personalizzato. | No  | Sì\** |
-| Creare test di accuratezza per misurare l'accuratezza del modello di previsione e i modelli personalizzati. | No  | Sì\** |
-| Gestire le sottoscrizioni. | No  | Sì\** |
+| Batch in modo asincrono la trascrizione di file audio. | N. | Sì\** |
+| Creare e gestire modelli di riconoscimento vocale. | N. | Sì\** |
+| Creare e gestire le distribuzioni di modelli personalizzato. | N. | Sì\** |
+| Creare test di accuratezza per misurare l'accuratezza del modello di previsione e i modelli personalizzati. | N. | Sì\** |
+| Gestire le sottoscrizioni. | N. | Sì\** |
 
 \* *Le finalità e le entità LUIS possono essere derivate con una sottoscrizione di LUIS separata. Con questa sottoscrizione, il SDK può chiamare LUIS per l'utente e fornire entità e finalità dei risultati. Con l'API REST, è possibile chiamare LUIS manualmente per derivare finalità ed entità con la sottoscrizione di LUIS.*
 
@@ -49,7 +49,7 @@ Ecco le funzionalità disponibili attraverso il sistema Speech SDK e API REST:
 
 Sono disponibili modelli di avvio rapido nei linguaggi di programmazione più diffusi, ognuno progettato per consentire all'utente di disporre dell'esecuzione di codice in meno di 10 minuti. Questa tabella include un elenco completo delle guide introduttive di Speech SDK organizzati per linguaggio.
 
-| Guida introduttiva | Piattaforma | Informazioni di riferimento sulle API |
+| Avvio rapido | Piattaforma | Informazioni di riferimento per l'API |
 |------------|----------|---------------|
 | [C#, .NET core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C#, .NET framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
@@ -80,10 +80,10 @@ Codice di esempio per Speech SDK è disponibile in GitHub. Questi esempi esamina
 
 Oltre al modello Universal utilizzato dai servizi di riconoscimento vocale, è possibile creare modelli acustici, lingua e pronuncia personalizzati specifici alla tua esperienza. Ecco un elenco di opzioni di personalizzazione:
 
-| Modello | DESCRIZIONE |
+| Modello | Descrizione |
 |-------|-------------|
 | [Modello acustico](how-to-customize-acoustic-models.md) | Creazione di un modello acustico personalizzato è utile se le applicazioni, dispositivi o gli strumenti vengono usati in un ambiente specifico, ad esempio in un'automobile o una factory con le condizioni di registrazione specifiche. Sono esempi di queste situazioni un eloquio con un forte accento, particolari rumori di sottofondo o l'uso di uno speciale microfono per la registrazione. |
-| [Modello linguistico](how-to-customize-language-model.md) | Creare un modello di lingua personalizzati per migliorare la trascrizione di vocabolario specifici del settore e grammatica, ad esempio la terminologia mediche o gergo IT. |
+| [Modello linguistico](how-to-customize-language-model.md) | Creazione di un modello linguistico personalizzato per migliorare la trascrizione di grammatica e terminologia specifica di settore, ad esempio terminologia medica o IT. |
 | [Modello di pronuncia](how-to-customize-pronunciation.md) | Con un modello di pronuncia personalizzato è possibile definire la forma fonetica e visualizzare una parola o un termine. È utile per gestire i termini personalizzati, come i nomi di prodotto o gli acronimi. Tutto ciò che serve è un file di pronunce, un semplice file con estensione TXT. |
 
 > [!NOTE]

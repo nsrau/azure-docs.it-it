@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: e70eb7ae73e88b37e649d519d0d0428554dd4ab3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3ddde600c2ac15c56b59051fbcd6bb0e8fbae1f6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467488"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787535"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Condividere una visualizzazione personalizzata usando un URL con parametri
 
@@ -86,7 +86,7 @@ Il `timeSeriesDefinitions=<collection of term objects>` parametro specifica le c
 | `multiChartStack=false` | `true` è abilitato per impostazione predefinita passano pertanto `false` uno stack. |
 | `multiChartStack=false&multiChartSameScale=true` | È necessario abilitare l'impilamento per usare la stessa scala dell'asse Y in tutti i termini.  Ha `false` per impostazione predefinita, pertanto, passando 'true' Abilita questa funzionalità. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unità = giorni, ore, minuti, secondi, millisecondi.  Scrivere sempre in lettere maiuscole l'unità. </br> Definire il numero di unità, passando l'intero desiderato per timeBucketSize.  Si noti che l'arco temporale è di 7 giorni.  |
-| `timezoneOffset=-<integer>` | L'intero viene sempre espresso in millisecondi. </br> Si noti che questa funzionalità è leggermente diversa da quella abilitata nell'ambiente di esplorazione TSI, nel quale è possibile scegliere l'ora locale (ora del browser) o l'ora UTC. |
+| `timezoneOffset=-<integer>` | L'intero viene sempre espresso in millisecondi. </br> Si noti che questa funzionalità sono leggermente diverso da quella abilitata in Time Series Insights explorer, in cui è permetterti di scegliere l'ora UTC o locale (ora del browser). |
 
 ### <a name="examples"></a>Esempi
 
@@ -112,7 +112,7 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 > [!TIP]
 > Visualizzare l'Explorer di live [usando l'URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]).
 
-L'URL precedente descrive e compila la vista di esplorazione di Time Series Insights:
+L'URL precedente descrive e genera la visualizzazione di Time Series Insights Explorer:
 
 [![Termini di tempo Series Insights explorer](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 

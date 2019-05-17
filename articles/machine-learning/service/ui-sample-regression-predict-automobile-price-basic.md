@@ -1,7 +1,7 @@
 ---
-title: 'Regressione: Stimare il prezzo'
+title: 'Regressione: Prevedere il prezzo'
 titleSuffix: Azure Machine Learning service
-description: Questo esperimento di esempio di interfaccia visiva di seguito viene illustrato come compilare un modello di regressione per prevedere il prezzo di un'automobile. Il processo include corsi di formazione, test e la valutazione del modello su set di dati di Automobile price data (Raw).
+description: Informazioni su come creare un modello di machine learning per stimare il prezzo di un'automobile senza scrivere una singola riga di codice.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,30 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: fa9b9179cda767d69d08dcd357a03123bde901cb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: 9dfa4b62f5cb79a5716f6f29651e85d0f8a3a409
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028891"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787851"
 ---
-# <a name="sample-1---regression-predict-price"></a>Esempio 1: regressione: Stimare il prezzo
+# <a name="sample-1---regression-predict-price"></a>Esempio 1: regressione: Prevedere il prezzo
 
-Questo esperimento di esempio di interfaccia visiva di seguito viene illustrato come compilare un modello di regressione per prevedere il prezzo di un'automobile. Il processo include set di training, testing e valutare il modello usando il **dati sui prezzi di Automobile (Raw)** set di dati.
+Informazioni su come creare un modello di regressione di apprendimento automatico senza dover scrivere una singola riga di codice usando l'interfaccia visiva.
+
+In questo esperimento treni una **Decision Trees regressore delle foreste** prevedere un'automobile del prezzo basato sulle funzionalità tecniche, come marca, modello, potenza e le dimensioni. Poiché stiamo tentando di rispondere alla domanda "Quanto di?" si tratta di un problema di regressione. Tuttavia, è possibile applicare gli stessi passaggi fondamentali in questo esperimento di affrontare qualsiasi tipo di apprendimento automatico che si tratti di regressione, classificazione, clustering e così via.
+
+I passaggi fondamentali per un training modello di machine learning sono:
+
+1. Ottenere i dati
+1. Pre-elaborare i dati
+1. Eseguire il training del modello
+1. Valutare il modello
+
+Ecco il grafico finale, completato dell'esperimento che si lavorerà nella. Verranno fornite le basi per tutti i moduli in modo che è possibile prendere simili decisioni per conto proprio.
+
+![Grafico dell'esperimento](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,23 +41,6 @@ Questo esperimento di esempio di interfaccia visiva di seguito viene illustrato 
 4. Selezionare il **aperto** pulsante per l'esperimento di esempio 1:
 
     ![Aprire l'esperimento](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
-
-## <a name="related-sample"></a>Esempio correlato
-
-[Esempio 2: regressione: Stima del prezzo dell'automobile (confrontare algoritmi)](ui-sample-regression-predict-automobile-price-compare-algorithms.md) fornisce un esperimento di esempio più complesso che lo stesso problema di questo esperimento è stato risolto con due modelli di regressione differenti. Viene illustrato come confrontare rapidamente gli algoritmi diversi. Eseguire l'estrazione se si sta cercando un esempio più avanzato.
-
-## <a name="experiment-summary"></a>Riepilogo di esperimento
-
-Utilizziamo questa procedura per creare l'esperimento:
-
-1. Ottenere i dati.
-1. Pre-elaborare i dati.
-1. Il training del modello.
-1. Test, valutare e confrontare i modelli.
-
-Ecco l'intero grafico dell'esperimento:
-
-![Grafico dell'esperimento](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="get-the-data"></a>Ottenere i dati
 
@@ -59,6 +55,7 @@ Usiamo il **Select Columns in Dataset** modulo Escludi normalized-losses con num
 ![Pre-elaborazione dei dati](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## <a name="train-the-model"></a>Eseguire il training del modello
+
 Problemi di Machine learning variano. Attività comuni di machine learning include la classificazione, clustering, la regressione e sistemi di raccomandazione, ognuno dei quali potrebbe richiedere un algoritmo diverso. La scelta dell'algoritmo spesso dipende dai requisiti del caso di utilizzo. Quando si seleziona un algoritmo, è necessario ottimizzare i parametri per il training di un modello più accurato. È quindi necessario valutare tutti i modelli basati sulla metrica, ad esempio precisione, la comprensione e l'efficienza.
 
 Poiché l'obiettivo di questo esperimento consiste nello stimare i prezzi delle automobili e perché la colonna di etichetta (prezzo) contiene i numeri reali, un modello di regressione è una buona scelta. Si considera che il numero di funzionalità è relativamente piccolo (minore di 100) e queste funzionalità non sono sparse, il limite di decisione è probabilmente non lineare. Quindi utilizziamo **Decision Forest Regression** per questo esperimento.

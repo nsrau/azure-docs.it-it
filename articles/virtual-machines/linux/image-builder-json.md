@@ -3,16 +3,16 @@ title: Creare un modello di generatore di immagini di Azure (anteprima)
 description: Informazioni su come creare un modello da usare con il generatore di immagini di Azure.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b4646879eb7eeecf41852baab7ab64e4053b05e1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159601"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538286"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: Creare un modello di generatore di immagini di Azure 
 
@@ -32,7 +32,7 @@ Si tratta del formato di modello di base:
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
-        "<build timeout in minutes>": {}, 
+        "buildTimeoutInMinutes": <minutes>, 
         "build": {}, 
         "customize": {}, 
         "distribute": {} 
@@ -447,7 +447,7 @@ Distribuire le proprietà per raccolte di immagini condivise:
 > [!NOTE]
 > È possibile usare generatore di immagini di Azure in un'area diversa per la raccolta, ma è necessario il servizio di generazione di immagini di Azure trasferire l'immagine tra i Data Center e l'operazione richiederà più tempo. Image Builder è eseguirà automaticamente la versione dell'immagine, in un numero intero monotonico base, è possibile specificarlo attualmente. 
 
-### <a name="distribute-vhd"></a>Distribuire: VHD   
+### <a name="distribute-vhd"></a>Distribuire: VHD  
 È possibile l'output in un disco rigido virtuale. È quindi possibile copiare il disco rigido virtuale e usarlo per pubblicare in Azure MarketPlace o usare con Azure Stack.  
 
 ```json

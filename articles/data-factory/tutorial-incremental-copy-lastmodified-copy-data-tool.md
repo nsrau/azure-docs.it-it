@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 8308190e0e68365343fb50ca33f9bea75c3e4e66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61098738"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519139"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>La copia incrementale di file nuovi e modificati basati LastModifiedDate & lt; tramite lo strumento Copia dati
 
 In questa esercitazione si userà il portale di Azure per creare una data factory. Quindi, si userà lo strumento Copia dati per creare una pipeline che copia in modo incrementale, solo i file nuovi e modificati in base loro **LastModifiedDate & lt;** dall'archivio Blob di Azure per archiviazione Blob di Azure.
+
+In questo modo, Azure Data factory verrà analizza tutti i file dall'archivio di origine, applicare il filtro file da loro LastModifiedDate & lt; e copiare il file nuovo e aggiornato solo dall'ultima volta in archivio di destinazione.  Si noti che se si consentono numerosissimi analisi Azure Data factory di file, ma solo copiare alcuni file di destinazione, è ancora previsto che il lungo periodo di tempo a causa di analisi dei file è anche molto tempo.   
 
 > [!NOTE]
 > Se non si ha familiarità con Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).

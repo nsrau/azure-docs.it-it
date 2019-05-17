@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618040"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538375"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
 
@@ -23,13 +23,13 @@ I dischi gestiti di Azure offrono attualmente quattro tipi di dischi, tre dei qu
 
 La tabella seguente mette a confronto unità Ultra SSD (anteprima), SSD Premium, SSD Standard e HDD Standard per dischi gestiti in modo da aiutare a scegliere quali usare.
 
-|   | Ultra SSD (anteprima)   | SSD Premium   | SSD Standard   | HDD Standard   |
+|   | Ultra SSD (anteprima)   | Unità SSD Premium   | SSD Standard   | HDD Standard   |
 |---------|---------|---------|---------|---------|
 |Tipo di disco   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |Carichi di lavoro con I/O elevato come SAP HANA, database di alto livello (ad esempio SQL, Oracle) e altri carichi di lavoro con numerose transazioni.   |Carichi di lavoro di produzione su cui influiscono le prestazioni   |Server Web, applicazioni aziendali con un utilizzo non intensivo e sviluppo/test   |Backup, carichi di lavoro non critici, accesso poco frequente   |
 |Dimensioni disco   |65.536 gibibyte (GiB) (Anteprima)   |32.767 GiB    |32.767 GiB   |32.767 GiB   |
 |Velocità effettiva massima   |2.000 MiB/s (Anteprima)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|Operazioni di I/O al secondo max   |160.000 (Anteprima)   |20.000   |6000   |2.000   |
+|Numero massimo di operazioni di I/O al secondo   |160.000 (Anteprima)   |20.000   |6000   |2.000   |
 
 ## <a name="ultra-ssd-preview"></a>Ultra SSD (anteprima)
 
@@ -44,6 +44,7 @@ Ecco alcune delle caratteristiche principali delle unità SSD Ultra:
 - Capacità disco: la capacità delle unità Ultra SSD è compresa tra 4 GiB e 64 TiB.
 - Operazioni di I/O al secondo (IOPS) del disco: le unità Ultra SSD supportano limiti di operazioni di I/O al secondo pari a 300 IOPS/GiB, fino a un massimo di 160.000 IOPS per disco. Per ottenere la quantità di operazioni di I/O al secondo di cui è stato effettuato il provisioning, assicurarsi che il numero di operazioni di I/O al secondo del disco selezionato sia inferiore al numero di operazioni di I/O al secondo della macchina virtuale. Il numero minimo di operazioni di I/O al secondo del disco è 100.
 - Velocità effettiva del disco: con le unità Ultra SSD, il limite di velocità effettiva di un singolo disco è di 256 KiB/s per ogni operazione di I/O al secondo di cui è stato effettuato il provisioning, fino a un massimo di 2000 MBps per disco (dove MBps = 10^6 byte al secondo). La velocità effettiva minima del disco è di 1 MiB.
+- Unità SSD extra supportano modificando gli attributi delle prestazioni disco (IOPS e velocità effettiva) in fase di esecuzione senza scollegare il disco dalla macchina virtuale. Dopo l'esecuzione di un'operazione di ridimensionamento delle prestazioni in un disco, può essere necessario attendere fino a un'ora prima che la modifica abbia effetto.
 
 ### <a name="disk-size"></a>Dimensioni disco
 
@@ -58,6 +59,10 @@ Ecco alcune delle caratteristiche principali delle unità SSD Ultra:
 |256     |76.800         |2.000         |
 |512     |80.000         |2.000         |
 |1.024-65.536 (dimensioni in questo intervallo con aumento con incrementi di 1 TiB)     |160.000         |2.000         |
+
+### <a name="transactions"></a>Transazioni
+
+Per le unità SSD extra, ogni operazione dei / o minore o uguale a 256 KiB della velocità effettiva viene considerato una singola operazione dei / o. Operazioni dei / o superiore a 256 KB di velocità effettiva sono considerate diversi i/o di dimensione 256 KB.
 
 ### <a name="preview-scope-and-limitations"></a>Limitazioni e ambito della versione di anteprima
 

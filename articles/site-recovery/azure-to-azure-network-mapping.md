@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: d08715b1b3e0db4dfcf31bb4c020ab44ed3916e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b25806044dd74092a5404ad7ef24ddd386dffbc3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791108"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521746"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurare il mapping di rete e gli indirizzi IP per reti virtuali
 
@@ -58,7 +58,7 @@ La subnet della macchina virtuale di destinazione viene selezionata in base al n
 
 - Se nella rete di destinazione è presente una subnet con nome corrispondente a quello della subnet della macchina virtuale di origine, tale subnet verrà impostata per la macchina virtuale di destinazione.
 - Se nella rete di destinazione non è presente alcuna subnet con lo stesso nome, verrà scelta come subnet di destinazione la prima subnet in ordine alfabetico.
-- La subnet può essere modificata nelle impostazioni **Calcolo e rete** per la macchina virtuale.
+- È possibile modificare la subnet di destinazione il **calcolo e rete** le impostazioni per la macchina virtuale.
 
     ![Finestra Calcolo e rete delle proprietà di calcolo](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
@@ -85,8 +85,8 @@ Spazio di indirizzi diverso<br/><br/> Il successivo indirizzo IP disponibile nel
 
 **Rete di destinazione** | **Dettagli**
 --- | ---
-Rete di destinazione è la rete virtuale di failover | - L'indirizzo IP di destinazione è statico, ma non lo stesso indirizzo IP di quello riservato al failover.<br/><br/>  - L'indirizzo assegnato è l’indirizzo successivo disponibile dalla fine dell'intervallo di subnet.<br/><br/> Ad esempio:  Se l'indirizzo IP di origine è 10.0.0.19 e la rete di failover usa l’intervallo 10.0.0.0/24, allora il successivo indirizzo IP assegnato alla macchina virtuale di destinazione è 10.0.0.254.
-La rete di destinazione è la rete virtuale di failover | - L'indirizzo IP di destinazione sarà statico con lo stesso indirizzo IP riservato al failover.<br/><br/>  -Se è già assegnato lo stesso indirizzo IP, l'indirizzo IP è quello successivo disponibile alla fine dell'intervallo di subnet.<br/><br/> Ad esempio:  Se l'indirizzo IP statico di origine è 10.0.0.19 e il failover è in una rete che non sia la rete di failover, con l’intervallo 10.0.0.0/24, allora l'indirizzo IP statico di destinazione sarà 10.0.0.0.19 se disponibile e in caso contrario sarà 10.0.0.254.
+Rete di destinazione è la rete virtuale di failover | - L'indirizzo IP di destinazione è statico, ma non lo stesso indirizzo IP di quello riservato al failover.<br/><br/>  - L'indirizzo assegnato è l’indirizzo successivo disponibile dalla fine dell'intervallo di subnet.<br/><br/> Ad esempio: Se l'indirizzo IP di origine è 10.0.0.19 e la rete di failover usa l’intervallo 10.0.0.0/24, allora il successivo indirizzo IP assegnato alla macchina virtuale di destinazione è 10.0.0.254.
+La rete di destinazione è la rete virtuale di failover | - L'indirizzo IP di destinazione sarà statico con lo stesso indirizzo IP riservato al failover.<br/><br/>  -Se è già assegnato lo stesso indirizzo IP, l'indirizzo IP è quello successivo disponibile alla fine dell'intervallo di subnet.<br/><br/> Ad esempio: Se l'indirizzo IP statico di origine è 10.0.0.19 e il failover è in una rete che non sia la rete di failover, con l’intervallo 10.0.0.0/24, allora l'indirizzo IP statico di destinazione sarà 10.0.0.0.19 se disponibile e in caso contrario sarà 10.0.0.254.
 
 - Il failover della rete virtuale è la rete di destinazione che si seleziona quando si configura il ripristino di emergenza.
 - È consigliabile usare sempre una rete non di produzione per il failover di test.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 9b779021eca11638e8ee52ec11d082e5b0e89cd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0d2c080be727d2ae13d6d9e5274f17cadffbe640
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506691"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786469"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Criteri di supporto per Azure Kubernetes Service
 
@@ -146,7 +146,7 @@ Funzionalità di anteprima o di flag di funzionalità non sono pensate per ambie
 
 Funzionalità in anteprima pubblica sono autunno 'best effort' previsto il supporto perché queste funzionalità sono disponibili in anteprima e non destinato all'ambiente di produzione e sono supportate dai team di supporto tecnico di AKS durante le ore lavorative solo. Per altre informazioni, vedere:
 
-* [Domande frequenti relative al supporto tecnico Azure](https://azure.microsoft.com/en-us/support/faq/)
+* [Domande frequenti relative al supporto tecnico Azure](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
 > Le funzionalità di anteprima diventeranno effettive di Azure *sottoscrizione* livello. Non installare le funzionalità di anteprima in una sottoscrizione di produzione. Su una sottoscrizione di produzione, le funzionalità di anteprima per modificare il comportamento delle API predefinita e influire sulle normali operazioni.

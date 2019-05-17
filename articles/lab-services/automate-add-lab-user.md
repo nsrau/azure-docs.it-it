@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 0eed874d405fcf99241a702292f8ceadae6c5a07
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502037"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522953"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatizzare l'aggiunta di un utente del lab in un lab in Azure DevTest Labs
 Azure DevTest Labs consente di creare rapidamente ambienti di sviluppo e test self-service tramite il portale di Azure. Tuttavia, se si dispone di diversi team e diverse istanze di DevTest Labs, automatizzare il processo di creazione può risparmiare tempo. [I modelli di Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) consentono di creare Lab, macchine virtuali del lab, le immagini personalizzate, formule e aggiungere gli utenti in modo automatico. Questo articolo è incentrato in particolare su come aggiungere utenti a un'istanza di DevTest Labs.
@@ -85,7 +85,7 @@ Il modello di Resource Manager di esempio seguente specifica un utente da aggiun
 
 ```
 
-Se si assegna il ruolo nello stesso modello che crea il lab, ricordarsi di aggiungere una dipendenza tra la risorsa di assegnazione di ruolo e lab. Per altre informazioni, vedere [definizione delle dipendenze nei modelli di Azure Resource Manager](/azure-resource-manager/resource-group-define-dependencies.md) articolo.
+Se si assegna il ruolo nello stesso modello che crea il lab, ricordarsi di aggiungere una dipendenza tra la risorsa di assegnazione di ruolo e lab. Per altre informazioni, vedere [definizione delle dipendenze nei modelli di Azure Resource Manager](../azure-resource-manager/resource-group-define-dependencies.md) articolo.
 
 ### <a name="role-assignment-resource-information"></a>Informazioni sulle risorse di assegnazione di ruolo
 La risorsa di assegnazione di ruolo deve specificare il nome e tipo.

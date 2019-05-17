@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 89903d3f65c74da6903e53284f168d2d6a12168a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719652"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799196"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -59,17 +60,17 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 - Modifica stato indicizzazione: 
     - Proprietà:    
     
-        |NOME|DESCRIZIONE|
+        |NOME|Descrizione|
         |---|---|
-        |id|L'ID del video|
-        |state|Lo stato del video|  
+        |ID|L'ID del video|
+        |stato|Lo stato del video|  
     - Esempio: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Persona identificata nel video:
   - Properties
     
-      |NOME|DESCRIZIONE|
+      |NOME|Descrizione|
       |---|---|
-      |id| L'ID del video|
+      |ID| L'ID del video|
       |faceId|L'ID viso che appare nell'indice video|
       |knownPersonId|L'ID utente univoco all'interno di un modello di viso|
       |personName|Il nome della persona|
@@ -91,7 +92,7 @@ Usare questo parametro se registrazioni non elaborate o esterne contengono rumor
 
 Il prezzo dipende dall'opzione di indicizzazione selezionata.  
 
-### <a name="priority"></a>priority
+### <a name="priority"></a>priorità
 
 I video vengono indicizzati da Video Indexer in base alle rispettive priorità. Usare il parametro **priority** per specificare la priorità dell'indice. I valori seguenti sono validi: **Bassa**, **Normale** (impostazione predefinita), e **Elevata**.
 
@@ -283,7 +284,7 @@ public class AccountContractSlim
 
 L'operazione di caricamento può restituire i codici di stato elencati nella tabella seguente.
 
-|Codice di stato|ErrorType (nel corpo della risposta)|DESCRIZIONE|
+|Codice stato|ErrorType (nel corpo della risposta)|Descrizione|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|Lo stesso video è già in fase di elaborazione nell'account specificato.|
 |400|VIDEO_ALREADY_FAILED|Lo stesso video ha restituito un errore di elaborazione nell'account specificato meno di 2 ore prima. I client API devono attendere almeno 2 ore prima di caricare nuovamente un video.|

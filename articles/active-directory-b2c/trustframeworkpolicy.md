@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 30cb6e49782b97d28b0d999f585d630477e8572f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1a3382e560287502ae8afccae556bc5f56245904
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684138"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812953"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,15 +38,15 @@ Un criterio personalizzato è rappresentato come uno o più file in formato XML 
 
 L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sì | La versione dello schema che deve essere usata per eseguire il criterio. Il valore deve essere `0.3.0.0`. |
-| TenantObjectId | No  | L'identificatore di oggetto univoco del tenant di Azure Active Directory (Azure AD) B2C. |
+| TenantObjectId | N. | L'identificatore di oggetto univoco del tenant di Azure Active Directory (Azure AD) B2C. |
 | TenantId | Sì | L'identificatore univoco del tenant a cui appartiene questo criterio. |
 | `PolicyId` | Sì | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
 | PublicPolicyUri | Sì | L'URI per il criterio, ovvero la combinazione dell'ID del tenant e l'ID del criterio. |
-| DeploymentMode | No  | I valori possibili sono: `Production`, `Debugging` o `Development`. `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
-| UserJourneyRecorderEndpoint | No  | L'endpoint che viene usata quando **DeploymentMode** è impostato su `Development`. Il valore deve essere `urn:journeyrecorder:applicationinsights`. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
+| DeploymentMode | N. | I valori possibili sono: `Production`, `Debugging` o `Development`. `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
+| UserJourneyRecorderEndpoint | N. | L'endpoint che viene usata quando **DeploymentMode** è impostato su `Development`. Il valore deve essere `urn:journeyrecorder:applicationinsights`. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
 
 
 Nell'esempio seguente viene illustrato come specificare l'elemento **TrustFrameworkPolicy**:
@@ -88,7 +88,7 @@ Per ereditare un criterio da un altro criterio, un elemento **BasePolicy** deve 
 
 L'elemento **BasePolicy** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Identificatore del tenant di Azure AD B2C. |
 | `PolicyId` | 1:1 | Identificatore del criterio padre. |
@@ -116,7 +116,7 @@ L'esempio seguente mostra come specificare un criterio di base. Questo criterio 
 
 ## <a name="policy-execution"></a>Esecuzione criteri
 
-Un'applicazione relying party, ad esempio un'applicazione Web, mobile o desktop, chiama i [criteri relying party (RP)](relyingparty.md). Il file di criteri RP esegue un'attività specifica, ad esempio l'accesso, la reimpostazione di una password o la modifica di un profilo. Il criterio di relying party configura l'elenco di attestazioni che l'applicazione relying party riceve come parte del token emesso. Più applicazioni possono usare gli stessi criteri. Tutte le applicazioni ricevono lo stesso token con attestazioni e l'utente segue lo stesso percorso. Una singola applicazione può usare più criteri.
+Un'applicazione relying party, ad esempio un'applicazione Web, mobile o desktop, chiama i [criteri relying party (RP)](relyingparty.md). Il file di criteri RP esegue un'attività specifica, ad esempio l'accesso, la reimpostazione di una password o la modifica di un profilo. Il criterio di relying party configura l'elenco di attestazioni che l'applicazione relying party riceve come parte del token emesso. Più applicazioni possono usare gli stessi criteri. Tutte le applicazioni ricevono lo stesso token con attestazioni e l'utente passa attraverso il percorso utente stesso. Una singola applicazione può usare più criteri.
 
 All'interno del file di criteri di relying party, si specifica l'elemento **DefaultUserJourney**, che fa riferimento a [UserJourney](userjourneys.md). Il percorso utente viene in genere definito nei criteri di base o nelle estensioni.
 
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase o B2C_1A_TrustFrameworkExtensionPolicy:
 
 Un percorso utente definisce la logica di business di ciò che un utente effettua. Ogni percorso utente è un set di passaggi di orchestrazione che esegue una serie di azioni, in sequenza in termini di autenticazione e raccolta di informazioni. 
 
-Il file di criteri **SocialAndLocalAccounts** nel [pacchetto starter](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contiene i percorsi utente SignUpOrSignIn, ProfileEdit, PasswordReset. È possibile aggiungere più percorsi utente per altri scenari, ad esempio la modifica di un indirizzo di posta elettronica, collegamento e scollegamento di un account di social networking o reimpostazione della password. 
+Il file di criteri **SocialAndLocalAccounts** nel [pacchetto starter](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contiene i percorsi utente SignUpOrSignIn, ProfileEdit, PasswordReset. È possibile aggiungere più percorsi utente per altri scenari, ad esempio modifica di un indirizzo di posta elettronica o il collegamento e scollegamento di un account di social networking. 
 
 I passaggi di orchestrazione possono chiamare un [profilo tecnico](technicalprofiles.md). Un profilo tecnico offre un framework con un meccanismo incorporato per comunicare con diversi tipi di entità. Ad esempio, un profilo tecnico può eseguire queste azioni tra le altre:
 
@@ -157,4 +157,3 @@ I passaggi di orchestrazione possono chiamare un [profilo tecnico](technicalprof
 - [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
 - [RelyingParty](relyingparty.md)
-

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: asirveda
-ms.openlocfilehash: a103526ef63c02913862510c01e9fde6570d89c0
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2392d0ef9d6257b93b76f13a5354eeba57d78ddd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515445"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800290"
 ---
 # <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>Eseguire la migrazione di App di Java enterprise edition (EE) in Azure
 Questo articolo illustra il processo di migrazione dei carichi di lavoro Java EE esistenti in Azure:
@@ -67,7 +67,7 @@ Si sarà eseguire la migrazione di App di esempio JBoss/WildFly in Azure. Queste
 Dopo la migrazione, si eseguirà l'App Usa il Bus di servizio di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per distribuire un'app web Java in Azure, necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account Azure gratuito]((https://azure.microsoft.com/pricing/free-trial/)).
+Per distribuire un'app web Java in Azure, necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account Azure gratuito](https://azure.microsoft.com/en-us/free/).
 
 Inoltre, è necessario che i prerequisiti seguenti:
 
@@ -936,7 +936,7 @@ Picked up _JAVA_OPTIONS: -Djava.net.preferIPv4Stack=true
 
 Per altre informazioni, vedere: 
  
- - [Distribuzione dell'Adapter e accesso in lettura generica JMS in JBoss/WildFly](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
+ - [Distribuzione dell'Adapter e accesso in lettura generica JMS in JBoss/WildFly](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
  - [Guida dell'interfaccia della riga JBoss/WildFly](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
  - [Aprire una sessione SSH dal computer di sviluppo a servizio App Linux](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)
 
@@ -1063,7 +1063,7 @@ open https://websocket-hello-app.azurewebsites.net
 ![Immagine WebSocket Hello ](./media/migrate-java-apps-wild-fly/websocket-hello.png)
 
 
-Congratulazioni. È eseguita la migrazione di carichi di lavoro aziendali con Java esistente in Azure: app di servizio App Linux e app di messaggistica del sistema del Bus di servizio di Azure.
+Congratulazioni! È eseguita la migrazione di carichi di lavoro aziendali con Java esistente in Azure: app di servizio App Linux e app di messaggistica del sistema del Bus di servizio di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti: 

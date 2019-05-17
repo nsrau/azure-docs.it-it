@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93376059dac2a8336e581269d8289d893779b291
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560356"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799101"
 ---
 # <a name="find-exact-moments-within-videos"></a>Trovare momenti esatti nei video
 
@@ -49,7 +50,7 @@ Questo argomento illustra le opzioni di ricerca disponibili per trovare momenti 
 
 Dopo aver individuato il video che si vuole usare, è possibile continuare a elaborarlo come descritto in uno degli argomenti seguenti: 
 
-- [Creare informazioni dettagliate video da video esistenti](video-indexer-create-new.md)
+- [Usare informazioni molto dettagliate dei video](use-editor-create-project.md)
 - [Elaborare contenuti con l'API REST Video Indexer](video-indexer-use-apis.md)
 - [Embed visual widgets in your application](video-indexer-embed-widgets.md) (Incorporare i widget visivi nell'applicazione)
 

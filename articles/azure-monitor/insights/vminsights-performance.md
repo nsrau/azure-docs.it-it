@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2019
+ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 4fa2553622d5ef2d08ec148b6a70aab6de257407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c83a862a37dbf28c6933877bf4a0aecc4364e6c5
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61385919"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522097"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Come creare un grafico delle prestazioni con Monitoraggio di Azure per le macchine virtuali (anteprima)
 Monitoraggio di Azure per le macchine virtuali include un set di grafici delle prestazioni che rappresentano diversi indicatori di prestazioni chiave (KPI) per stabilire l'efficacia delle prestazioni di una macchina virtuale. I grafici mostrano l'utilizzo delle risorse in un periodo di tempo per consentire di identificare colli di bottiglia e anomalie o passare a una prospettiva che elenchi ogni macchina per visualizzare l'utilizzo delle risorse in base alla metrica selezionata. Sebbene esistano numerosi elementi da considerare quando si lavora con le prestazioni, monitoraggio di Azure per gli indicatori di prestazioni chiave del sistema operativo di macchine virtuali monitoraggi correlati al processore, memoria, scheda di rete e utilizzo del disco. Prestazioni si integra alla funzionalità di monitoraggio dell'integrità e consente di esporre i problemi che indicano un possibile errore dei componenti di sistema, agevolare l'ottimizzazione per aumentare l'efficienza o supportare la pianificazione della capacità.  
@@ -105,6 +105,21 @@ Vengono forniti i grafici di utilizzo della capacità seguenti:
 Facendo clic sull'icona della puntina nell'angolo in alto a destra di uno qualsiasi dei perni grafici il grafico selezionato per l'ultimo dashboard di Azure è visualizzato. Dal dashboard, è possibile ridimensionare e riposizionare il grafico. Selezionando il grafico nel dashboard, si viene reindirizzati a monitoraggio di Azure per le macchine virtuali e carica la visualizzazione Dettagli prestazioni per la macchina virtuale.  
 
 ![Vista di Prestazioni di Informazioni dettagliate macchina virtuale direttamente dalla macchina virtuale](./media/vminsights-performance/vminsights-performance-directvm-01.png)
+
+## <a name="view-performance-directly-from-an-azure-virtual-machine-scale-set"></a>Visualizzare le prestazioni direttamente da un set di scalabilità di macchine virtuali di Azure
+Per accedere direttamente da un set di scalabilità di macchine virtuali di Azure, eseguire la procedura seguente.
+
+1. Nel portale di Azure, selezionare **set di scalabilità di macchine virtuali**.
+2. Nell'elenco, scegliere una macchina virtuale e nel **Monitoring** sezione scegliere **Insights (anteprima)** per visualizzare il **prestazioni** scheda.
+
+Questa pagina viene caricata la visualizzazione prestazioni di monitoraggio di Azure, nell'ambito di set di scalabilità selezionato. In questo modo è possibile visualizzare le prime N istanze nel set di scalabilità tra il set di metriche monitorati, visualizzare le prestazioni aggregate nel set di scalabilità e visualizzare le tendenze per le metriche selezionate tra la n singole istanze di scalabilità impostata. Selezione di un'istanza dalla vista elenco consente di caricare la mappa o spostarsi in una vista prestazioni dettagliati per quell'istanza.
+
+Facendo clic sull'icona della puntina nell'angolo in alto a destra di uno qualsiasi dei perni grafici il grafico selezionato per l'ultimo dashboard di Azure è visualizzato. Dal dashboard, è possibile ridimensionare e riposizionare il grafico. Selezionando il grafico nel dashboard, si viene reindirizzati a monitoraggio di Azure per le macchine virtuali e carica la visualizzazione Dettagli prestazioni per la macchina virtuale.  
+
+![Visualizzazione del set di insights VM prestazioni direttamente dalla scalabilità di macchine virtuali](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
+
+>[!NOTE]
+>È anche possibile accedere una vista prestazioni dettagliati per un'istanza specifica dalla visualizzazione di istanze per il set di scalabilità. Passare a **istanze** sotto il **impostazioni** sezione e quindi scegliere **Insights (anteprima)**.
 
 ## <a name="alerts"></a>Avvisi  
 Le metriche delle prestazioni abilitate nell'ambito di Monitoraggio di Azure per macchine virtuali non includono regole di avviso preconfigurate. Esistono [gli avvisi sull'integrità](vminsights-health.md#alerts) corrispondente a problemi di prestazioni rilevati nella VM di Azure, ad esempio un utilizzo elevato della CPU, spazio su disco insufficiente, disponibili di memoria insufficiente, e così via.  Tuttavia, questi avvisi di integrità si applicano solo a tutte le macchine virtuali abilitate per monitoraggio di Azure per le macchine virtuali. 

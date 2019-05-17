@@ -18,12 +18,12 @@ ms.date: 12/14/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f95fd85b5a0fd9e905b93b9b90f18f963dbf1690
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355734"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785387"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quali sono le condizioni dell'accesso condizionale di Azure Active Directory? 
 
@@ -57,29 +57,23 @@ Selezionando**Tutti gli utenti**, i criteri vengono applicati a tutti gli utenti
 
 * **Utenti e gruppi** consente di definire come destinazione insiemi specifici di utenti. Ad esempio, è possibile selezionare un gruppo contenente tutti i membri del reparto Risorse umane, quando è selezionata un'app per le risorse umane come app cloud. Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati.
 
-È anche possibile escludere utenti o gruppi specifici da un criterio. Un caso d'uso comune è rappresentato dagli account del servizio nel caso in cui il criterio applichi l'autenticazione a più fattori (MFA). 
+È anche possibile escludere utenti o gruppi specifici da un criterio. Un caso d'uso comune è rappresentato dagli account del servizio nel caso in cui il criterio applichi l'autenticazione a più fattori (MFA).
 
-La definizione di insiemi di utenti specifici come destinazione è utile per la distribuzione di un nuovo criterio. In un nuovo criterio è necessario definire come destinazione solo l'insieme iniziale di utenti per convalidare il comportamento del criterio. 
+La definizione di insiemi di utenti specifici come destinazione è utile per la distribuzione di un nuovo criterio. In un nuovo criterio è necessario definire come destinazione solo l'insieme iniziale di utenti per convalidare il comportamento del criterio.
 
+## <a name="cloud-apps-and-actions"></a>Le app cloud e le azioni
 
+Un'app cloud è un sito Web, servizio o endpoint protetti da Azure AD Application Proxy. Per una descrizione dettagliata delle app cloud supportate, vedere [Assegnazioni di app cloud](technical-reference.md#cloud-apps-assignments). Il **Cloud apps o azioni** condizione è obbligatoria in un criterio di accesso condizionale. Nei criteri, è possibile selezionare **tutte le app cloud** oppure specificare le app con **selezionare le app**.
 
-## <a name="cloud-apps"></a>App cloud 
+Le organizzazioni possono scegliere tra le opzioni seguenti:
 
-Un'app cloud è un servizio o un sito Web. Anche siti Web protetti da Azure AD Application Proxy sono app cloud. Per una descrizione dettagliata delle app cloud supportate, vedere [Assegnazioni di app cloud](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+* **Tutte le app cloud** quando si applicano i criteri di base si applicano all'intera organizzazione. Utilizzare questa selezione per i criteri che richiedono l'autenticazione a più fattori quando viene rilevato rischio di accesso per qualsiasi app cloud. Applicata un criterio a tutte le app cloud si applica per l'accesso a tutti i siti Web e servizi. Questa impostazione non è limitata alle App cloud che vengono visualizzati nell'elenco di App selezionare.
+* **Seleziona app** per definire i servizi specifici in base ai propri criteri. Ad esempio, è possibile richiedere agli utenti di avere un dispositivo conforme per accedere a SharePoint Online. Questo criterio viene applicato anche ad altri servizi quando accedono a contenuto di SharePoint. Un esempio è Microsoft Teams.
 
-La condizione delle **app cloud** è obbligatoria in un criterio di accesso condizionale. Nei criteri è possibile selezionare **Tutte le app cloud** o selezionare app specifiche.
+> [!NOTE]
+> È possibile escludere App specifiche da un criterio. Tuttavia, queste app sono comunque soggette ai criteri applicati ai servizi a cui accedono.
 
-![Includere le app cloud](./media/conditions/03.png)
-
-Selezionare:
-
-- **Tutte le app cloud** per applicare i criteri di base all'intera organizzazione. Usare questa selezione per un criterio che richiede l'autenticazione a più fattori quando viene rilevato il rischio di accesso per qualsiasi app cloud. I criteri applicati a **Tutte le app cloud** riguardano l'accesso a tutti i servizi e siti Web. Questa impostazione non è limitata alle app cloud presenti nell'elenco **Seleziona app**. 
-
-- **Seleziona app** per definire i servizi specifici in base ai propri criteri. Ad esempio, è possibile richiedere agli utenti di avere un [dispositivo conforme](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) per accedere a SharePoint Online. Questo criterio viene applicato anche ad altri servizi quando accedono a contenuto di SharePoint. Un esempio è Microsoft Teams. 
-
-È possibile escludere App specifiche da un criterio. Tuttavia, queste app sono comunque soggette ai criteri applicati ai servizi a cui accedono. 
-
-
+**Le azioni utente** sono attività che possono essere eseguite da un utente. L'unica azione attualmente supportata è **registrare le informazioni di sicurezza (anteprima)**, che consente di criteri di accesso condizionale imporrà quando un utente registra le informazioni di sicurezza.
 
 ## <a name="sign-in-risk"></a>Rischio di accesso
 
@@ -174,7 +168,7 @@ Casi d'uso comuni per questa condizione sono criteri che hanno i seguenti requis
 
 - Non si dispone di altre condizioni configurate in un criterio. Tuttavia, è possibile limitare l'ambito di questa condizione in modo da applicarla solo alle [piattaforme supportate](technical-reference.md#device-platform-condition).
  
-    ![Applicazione dei criteri solo alle piattaforme supportate](./media/conditions/33.png)
+    ![Applica i criteri solo alle piattaforme supportate](./media/conditions/33.png)
 
 
 Quando l'accesso è bloccato perché viene richiesto un [dispositivo gestito](require-managed-devices.md), gli utenti interessati ottengono un singolo messaggio di posta elettronica che li guida all'uso di Intune. 

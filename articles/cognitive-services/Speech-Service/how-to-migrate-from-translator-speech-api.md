@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 35f970e81d27511bd35610bc2988a5ea4832906b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ed494cea1ccf8845a25a3ab49d3194cc6a55509
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60995718"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785674"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Eseguire la migrazione dall'API Traduzione vocale al Servizio di riconoscimento vocale
 
@@ -62,7 +62,7 @@ Se l'organizzazione dispone di applicazioni in fase di sviluppo o in produzione 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Prova gratuitamente i servizi di riconoscimento vocale](get-started.md)
-* [Guida introduttiva: Riconoscere i contenuti vocali in un'app UWP con Speech SDK](quickstart-csharp-uwp.md)
+* [Avvio rapido: Riconoscere i contenuti vocali in un'app UWP con Speech SDK](quickstart-csharp-uwp.md)
 
 ## <a name="see-also"></a>Vedere anche 
 

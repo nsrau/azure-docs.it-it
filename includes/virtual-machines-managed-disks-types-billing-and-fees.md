@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 42ab8be45d4086589f0793531003700e7552a440
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 268467796e67caf2d20fedb44d83fd455a09b83e
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744265"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538373"
 ---
 **Trasferimenti di dati in uscita**: [trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/bandwidth/) (dati in uscita dai datacenter di Azure) vengono fatturati in base all'utilizzo di larghezza di banda.
 
-**Transazioni**: Viene addebitato il numero di transazioni eseguite in un disco gestito Standard. Per le unità SSD standard, le dimensioni dell'unità i/o di 256 KB viene utilizzata per la contabilità il numero di transazioni. Le dimensioni di I/O superiori vengono calcolate come più unità di I/O da 256 KiB. Per unità disco rigido Standard, ogni operazione dei / o viene considerato come una singola transazione, indipendentemente dalle dimensioni i/o.
+**Transazioni**: Viene addebitato il numero di transazioni eseguite in un disco gestito Standard. Per le unità SSD standard, ogni operazione dei / o minore o uguale a 256 KB di velocità effettiva viene considerato una singola operazione dei / o. Operazioni dei / o superiore a 256 KB di velocità effettiva sono considerate diversi i/o di dimensione 256 KB. Per unità disco rigido Standard, ogni operazione dei / o viene considerato come una singola transazione, indipendentemente dalle dimensioni i/o.
 
 Per informazioni dettagliate sui prezzi per Managed Disks, inclusi i costi delle transazioni, vedere [prezzi di Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
 

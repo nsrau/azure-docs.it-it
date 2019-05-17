@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: bb43a75b6a221c15c8724302797d04c22e04c8d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25cae58663f6fa7ef27995c10509eb33e49dd4c7
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61086128"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522822"
 ---
 # <a name="create-a-netapp-account"></a>Creare un account di NetApp
 La creazione di un account di NetApp consente di configurare un pool di capacità e successivamente di creare un volume. Usare il pannello di Azure NetApp Files per creare un nuovo account di NetApp.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-È necessario aver registrato la sottoscrizione per l'uso del provider di risorse NetApp e della funzionalità di anteprima pubblica.
+Deve aver ricevuto un messaggio di posta elettronica dal team di file di Azure NetApp per confermare che è stato concesso l'accesso al servizio. Visualizzare [inviare una richiesta di una lista d'attesa per l'accesso al servizio](azure-netapp-files-register.md#waitlist).
 
-[Effettuare la registrazione ad Azure NetApp Files](azure-netapp-files-register.md)
+È anche necessario registrare la sottoscrizione per l'uso del Provider di risorse NetApp. Visualizzare [registrare il Provider di risorse di NetApp](azure-netapp-files-register.md#resource-provider).
 
 ## <a name="steps"></a>Passaggi 
 
@@ -56,6 +56,11 @@ La creazione di un account di NetApp consente di configurare un pool di capacit�
 
 5. Fare clic su **Create**(Crea).     
    L'account di NetApp creato verrà ora visualizzato nel pannello di Azure NetApp Files. 
+
+> [!NOTE] 
+> Se è non stato concesso l'accesso al servizio file di Azure NetApp, si riceverà l'errore seguente quando si prova a creare il primo account NetApp:  
+>
+> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

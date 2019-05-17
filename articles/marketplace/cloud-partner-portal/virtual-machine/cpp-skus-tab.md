@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: e8148e3a26a236039736dede5a7fbc79075731ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e1a110abf8e057034043da34455bf678277c6cb4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938137"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799953"
 ---
 # <a name="virtual-machine-skus-tab"></a>Scheda SKU della macchina virtuale
 
@@ -55,7 +55,7 @@ La tabella seguente descrive lo scopo, il contenuto e la formattazione di questi
 | **Famiglia del sistema operativo\*** | Indica se la macchina virtuale della soluzione è basata su Windows o Linux. |
 | **Select Operating System Type** (Selezionare il tipo di sistema operativo) | Fornitore specifico o versione del sistema operativo specificato. |
 | **Nome descrittivo del sistema operativo\*** | Nome del sistema operativo da visualizzare ai clienti.  |
-| **Dimensioni VM consigliate\*** | Consente di selezionare fino a sei dimensioni di macchina virtuale consigliate da un elenco standard.  Sebbene questi consigli vengano evidenziati per i clienti potenziali, sono in grado di specificare qualsiasi dimensione di macchina virtuale compatibile con l'immagine della soluzione. | 
+| **Dimensioni VM consigliate\*** | Consente di selezionare fino a sei dimensioni di macchina virtuale consigliate da un elenco standard.  Questo elenco viene passato al portale di Azure e Marketplace Microsoft.  La prima dimensione di macchina virtuale in questo elenco valido (per tale sottoscrizione del cliente, area, zona e così via) è impostata come predefinito per quel cliente potenziale.  L'utente può modificare questa dimensione in qualsiasi compatibile con l'immagine di soluzione. | 
 | **Open Ports** (Porte aperte)| Porte da aprire e protocollo per supportare lo SKU.  Queste configurazioni devono corrispondere alla rete virtuale configurata per la rete della macchina virtuale della soluzione e diventano valide durante la distribuzione della macchina virtuale. Dopo la pubblicazione di uno SKU, tuttavia, le impostazioni della porta possono essere modificate. Per altre informazioni, vedere [Come aprire le porte per una macchina virtuale con il portale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>I mapping di rete predefiniti seguenti vengono aggiunti a tutte le macchine virtuali. &emsp; Windows: 3389 -> TCP 3389, 5986 -> TCP 5986; &emsp; Linux: 22 -> 22, TCP (SSH). |
 | **Disk Version** (Versione disco)  | Macchina virtuale della soluzione associata, specificata dal numero di versione e dall'URL del disco. La versione del disco deve essere nel formato [versione semantica](https://semver.org/) `<major>.<minor>.<patch>`.  L'URL è l'URI di firma di accesso condiviso creato per il disco rigido virtuale del sistema operativo.  È possibile aggiungere fino a otto versioni del disco per ogni SKU, ma solo il numero di versione del disco più alto per uno SKU viene visualizzato in Azure Marketplace. Le altre versioni sono visibili solo tramite API.  <!--TD: Add more specific link to API --> <br/> Il menu a discesa **New data disk** (Nuovo disco dati) consente di associare fino a 15 dischi dati alla macchina virtuale.  Dopo aver pubblicato uno SKU con una determinata versione di macchina virtuale e i dischi dati associati, questa configurazione non può essere modificata.  Eventuali versioni della macchina virtuale aggiunte allo SKU devono supportare lo stesso numero di dischi dati. <br/> Se non è stata creata alcuna immagine di macchina virtuale basata su Azure, è possibile aggiungere aggiornamenti al campo in un secondo momento.  Per informazioni sulla creazione della risorsa di macchina virtuale associata, vedere la sezione [Create VM technical assets](./cpp-create-technical-assets.md) (Creare risorse tecniche di macchina virtuale).  
 |  |  |

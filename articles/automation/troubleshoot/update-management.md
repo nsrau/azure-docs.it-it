@@ -4,16 +4,16 @@ description: Informazioni su come risolvere i problemi con Gestione aggiornament
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f286877c6a9e787c06a8a846efaf94668c04fc4e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597629"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787700"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -160,6 +160,38 @@ Il ruolo di lavoro ibrido per runbook non è stato in grado di generare un certi
 
 Verificare che l'account di sistema abbia accesso in lettura alla cartella **C:\ProgramData\Microsoft\Crypto\RSA** e riprovare.
 
+### <a name="failed-to-start"></a>Scenario: Una macchina Mostra non è stato possibile avviare in una distribuzione degli aggiornamenti
+
+#### <a name="issue"></a>Problema
+
+Un computer con lo stato **non è stato possibile avviare** per una macchina. Quando si visualizzano i dettagli specifici per il computer viene visualizzato l'errore seguente:
+
+```error
+Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+```
+
+#### <a name="cause"></a>Causa
+
+Questo errore può verificarsi a causa di uno dei motivi seguenti:
+
+* La macchina non esiste più.
+* La macchina è disattivata disattivato e non raggiungibile.
+* Il computer disponga di un problema di connettività di rete e il ruolo di lavoro ibrido nel computer non raggiungibile.
+* Si è verificato un aggiornamento a Microsoft Monitoring Agent che è stato modificato il SourceComputerId
+* Operazione di aggiornamento potrebbe avere limitato se si raggiunge il limite di 2.000 processi simultanei in un Account di automazione. Ogni distribuzione è considerata un processo e ogni computer in un numero di distribuzioni di aggiornamento come processo. Qualsiasi altra automazione processi o aggiornamento distribuzione attualmente in esecuzione il numero di Account di automazione ai fini del limite di processi simultanei.
+
+#### <a name="resolution"></a>Risoluzione
+
+Quando si usa applicabile [i gruppi dinamici](../automation-update-management.md#using-dynamic-groups) per le distribuzioni di aggiornamento.
+
+* Verificare la macchina esista e sia raggiungibile. Se non esiste, modificare la distribuzione e rimuove il computer.
+* Vedere la sezione sulla [pianificazione di rete](../automation-update-management.md#ports) per un elenco di porte e indirizzi che sono necessari per la gestione degli aggiornamenti e verificare che il computer soddisfi questi requisiti.
+* Eseguire la query seguente nel Log Analitica per individuare dei computer nell'ambiente in uso la cui proprietà `SourceComputerId` modificato. Cercare i computer che hanno gli stessi `Computer` valore, ma con una diversa `SourceComputerId` valore. Dopo aver trovato i computer interessati, è necessario modificare le distribuzioni di aggiornamento che tali macchine, di destinazione e rimuovere e aggiungere nuovamente le macchine in modo che il `SourceComputerId` riflette il valore corretto.
+
+   ```loganalytics
+   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
+   ```
+
 ### <a name="hresult"></a>Scenario: il computer viene indicato come non valutato e genera a un'eccezione HResult
 
 #### <a name="issue"></a>Problema
@@ -177,7 +209,9 @@ Fare doppio clic sull'eccezione in rosso per visualizzare il messaggio completo.
 |Eccezione  |Risoluzione o azione  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Per maggiori dettagli sulla causa dell'eccezione, cercare il codice di errore pertinente nell'[elenco codici di errore relativi a Windows Update](https://support.microsoft.com/help/938205/windows-update-error-code-list).        |
-|`0x8024402C` oppure `0x8024401C`     | Sono problemi di connettività di rete. Assicurarsi che il computer disponga della connettività di rete appropriata per Gestione aggiornamenti. Per un elenco di porte e indirizzi necessari, vedere la sezione sulla [pianificazione della rete](../automation-update-management.md#ports).        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Sono problemi di connettività di rete. Assicurarsi che il computer disponga della connettività di rete appropriata per Gestione aggiornamenti. Per un elenco di porte e indirizzi necessari, vedere la sezione sulla [pianificazione della rete](../automation-update-management.md#ports).        |
+|`0x8024001E`| L'operazione di aggiornamento non è stata completata perché il servizio o il sistema è stato arrestato.|
+|`0x8024002E`| Servizio Windows Update è disabilitato.|
 |`0x8024402C`     | Se si usa un server WSUS, assicurarsi che i valori del Registro di sistema per `WUServer` e `WUStatusServer` nella chiave del Registro di sistema `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` contengano il server WSUS corretto.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Assicurarsi che il servizio Windows Update (wuauserv) sia in esecuzione e non sia disattivato.        |
 |Qualsiasi altra eccezione generica     | Ricercare possibili soluzioni in Internet e collaborare con il supporto tecnico IT locale.         |

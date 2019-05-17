@@ -1,7 +1,7 @@
 ---
 title: 'Classificazione: Prevedere il rischio di credito (costo sensibile)'
 titleSuffix: Azure Machine Learning service
-description: Questo esperimento di esempio di interfaccia visiva di seguito viene illustrato come utilizzare uno script Python personalizzato per eseguire la classificazione binaria a costi ridotti. Consente di prevedere il rischio di credito basata sulle informazioni fornite in un'applicazione di carta di credito.
+description: Questo articolo illustra come compilare un complesso esperimento di machine learning usando l'interfaccia visiva. Verrà illustrato come implementare gli script Python personalizzati e confrontare più modelli per scegliere l'opzione migliore.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,26 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 433c258f86705f66e0163100407be7996d68bc6b
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440964"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787824"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Esempio 4: classificazione: Prevedere il rischio di credito (costo sensibile)
 
-Questo esperimento di esempio di interfaccia visiva di seguito viene illustrato come utilizzare uno script Python personalizzato per eseguire la classificazione binaria a costi ridotti. Il costo di un'errata classificazione gli esempi positivi è cinque volte il costo di un'errata classificazione gli esempi negativi.
+Questo articolo illustra come compilare un complesso esperimento di machine learning usando l'interfaccia visiva. Verrà illustrato come implementare la logica personalizzata usando script Python e confrontare più modelli per scegliere l'opzione migliore.
 
-In questo esempio consente di prevedere il rischio di credito in base alle informazioni fornite in un'applicazione di carta di credito, prendendo in considerazione i costi di errata classificazione.
+In questo esempio esegue il training di un classificatore per prevedere il rischio di credito utilizzando le informazioni di carta di credito dell'applicazione come cronologia crediti, età e numero di carta di credito. Tuttavia, è possibile applicare i concetti presentati in questo articolo per affrontare i propri problemi di apprendimento.
 
-In questo esperimento è confrontare due diversi approcci per la generazione di modelli per risolvere questo problema:
+Se si sta appena iniziando a usare machine Learning, è possibile esaminare i [esempio di classificazione base](ui-sample-classification-predict-credit-risk-basic.md) prima.
 
-- Corsi di formazione con il set di dati originale.
-- Training di un set di dati replicati.
+Ecco il grafico completato per questo esperimento:
 
-Con entrambi gli approcci, Valutiamo i modelli usando il set di dati di test con la replica per garantire che i risultati siano allineati con la funzione di costo. Si verifica due classificatori con entrambi gli approcci: **Two-Class Support Vector Machine** e **albero delle decisioni con Boosting a due classi**.
+[![Grafico dell'esperimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,15 +37,18 @@ Con entrambi gli approcci, Valutiamo i modelli usando il set di dati di test con
 
     ![Aprire l'esperimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="related-sample"></a>Esempio correlato
-
-Vedere [3 - classificazione di esempio: Previsione del rischio (Basic) di credito](ui-sample-classification-predict-churn.md) per un esperimento semplice in grado di risolvere lo stesso problema di questo esperimento, senza regolazione per i costi di errata classificazione.
-
 ## <a name="data"></a>Dati
 
 Viene usato il set di dati German Credit Card dal repository UC Irvine. Questo set di dati contiene 1000 campioni con 1 etichetta e 20 funzionalità. Ogni esempio rappresenta una persona. Le funzionalità di 20 includono funzionalità numeriche e di categoria. Vedere le [sito Web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) per altre informazioni sul set di dati. L'ultima colonna è l'etichetta, che indica il rischio di credito e dispone di due soli valori possibili: rischio di credito elevato = 2 e a basso rischio di credito = 1.
 
 ## <a name="experiment-summary"></a>Riepilogo di esperimento
+
+In questo esperimento è confrontare due diversi approcci per la generazione di modelli per risolvere questo problema:
+
+- Corsi di formazione con il set di dati originale.
+- Training di un set di dati replicati.
+
+Con entrambi gli approcci, Valutiamo i modelli usando il set di dati di test con la replica per garantire che i risultati siano allineati con la funzione di costo. Si verifica due classificatori con entrambi gli approcci: **Two-Class Support Vector Machine** e **albero delle decisioni con Boosting a due classi**.
 
 Il costo di un'errata classificazione di un basso rischio esempio al livello più alto è 1 e il costo di un'errata classificazione di un esempio ad alto rischio come basso è 5. Si usa un' **Execute Python Script** modulo a prendere in considerazione questo errata dei costi.
 
@@ -71,7 +73,7 @@ Per riflettere questa funzione di costo, si genera un nuovo set di dati. Nel nuo
 
 Per replicare i dati ad alto rischio, inseriamo il codice Python in un' **Execute Python Script** modulo:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -104,12 +106,11 @@ Utilizziamo il flusso di lavoro sperimentale standard per creare, eseguire il tr
 
 1. Inizializzare gli algoritmi di apprendimento, utilizzando **Two-Class Support Vector Machine** e **Two-Class Boosted Decision Tree**.
 1. Uso **Train Model** per applicare l'algoritmo ai dati e creare il modello effettivo.
-3. Uso **Score Model** per generare punteggi usando gli esempi di test.
+1. Uso **Score Model** per generare punteggi usando gli esempi di test.
 
 Il diagramma seguente illustra una parte di questo esperimento, in cui vengono utilizzati i set di training originale e replicato per il training di due diversi modelli SVM. **Eseguire il training del modello** è connesso al set di training, e **Score Model** è connesso al set di test.
 
 ![Grafico esperimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
-
 
 Nella fase di valutazione dell'esperimento, è l'accuratezza della ognuno dei quattro modelli di calcolo. Per questo esperimento, usiamo **Evaluate Model** per confrontare gli esempi che hanno la stessa errata classificazione di costo.
 
@@ -121,7 +122,7 @@ Si noti che il set di dati di test replicata viene utilizzato come input per **S
 
 Il **Evaluate Model** il modulo genera una tabella con una sola riga che contiene diverse metriche. Per creare un singolo set di risultati di accuratezza, utilizziamo innanzitutto **Add Rows** per combinare i risultati in un'unica tabella. Usiamo quindi il seguente script di Python nella **Execute Python Script** modulo per aggiungere il nome del modello e l'approccio di training per ogni riga nella tabella dei risultati:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -138,7 +139,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     result = pd.concat([new_cols, dataframe1], axis=1)
     return result,
 ```
-
 
 ## <a name="results"></a>Risultati
 

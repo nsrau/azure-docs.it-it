@@ -4,16 +4,15 @@ description: Questo articolo fornisce informazioni su limiti di dimensioni di ri
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.workload: infrastructure-services
-ms.date: 1/29/2019
+ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: a814fc6e9a72ba92d915821bd1e1694366844555
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791761"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620286"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limiti delle dimensioni di richiesta di Web application firewall ed elenchi di esclusione
 
@@ -25,10 +24,10 @@ Il Web application firewall del gateway applicazione di Azure (WAF) fornisce la 
 
 Web application firewall consente agli utenti di configurare i limiti di dimensioni di richiesta entro i limiti inferiori e superiori. Sono disponibili le seguenti due configurazioni di limiti di dimensioni:
 
-- Il campo della dimensione massima del corpo di richiesta è specificato in KB e controlla il limite di dimensioni di richiesta complessivo, escluso qualsiasi caricamento di file. Questo campo può variare da un minimo di 1 kB a un valore massimo di 128 kB. Il valore predefinito per le dimensioni del corpo della richiesta è 128 kB.
+- Il campo di dimensioni del corpo massimo per la richiesta è specificato nel kilobyte e controlli carica limite di dimensioni richiesta complessivo esclusi tutti i file. Questo campo può variare da un minimo di 1 kB a un valore massimo di 128 kB. Il valore predefinito per le dimensioni del corpo della richiesta è 128 kB.
 - Il campo limite di caricamento file è specificato in MB e determina le dimensioni massime consentite per il caricamento file. Questo campo può avere un valore minimo di 1 MB e uno massimo di 500 MB per le istanze SKU di grandi dimensioni, mentre lo SKU medio non può superare i 100 MB. Il valore predefinito per il limite di caricamento file è 100 MB.
 
-Web application firewall offre anche una funzione configurabile per attivare o disattivare l'ispezione del corpo della richiesta. Per impostazione predefinita, viene abilitata l'ispezione del corpo della richiesta. Se l'ispezione del corpo della richiesta è stata disattivata, Web application firewall non valuta il contenuto del corpo del messaggio HTTP. In questi casi, WAF continua applicare le regole WAF su intestazioni, cookie e URI. Se l'ispezione del corpo della richiesta è stata disattivata, il campo dimensioni massime del corpo di richiesta non è applicabile e non può essere impostato. La disattivazione dell'ispezione del corpo della richiesta consente l'invio a WAF di messaggi superiori a 128 KB, ma non vengono analizzate eventuali vulnerabilità nel corpo del messaggio.
+Web application firewall offre anche una funzione configurabile per attivare o disattivare l'ispezione del corpo della richiesta. Per impostazione predefinita, viene abilitata l'ispezione del corpo della richiesta. Se l'ispezione del corpo della richiesta è stata disattivata, Web Application firewall non valuta il contenuto del corpo del messaggio HTTP. In questi casi, WAF continua applicare le regole WAF su intestazioni, cookie e URI. Se l'ispezione del corpo della richiesta è stata disattivata, il campo dimensioni massime del corpo di richiesta non è applicabile e non può essere impostato. La disattivazione dell'ispezione del corpo della richiesta consente l'invio a WAF di messaggi superiori a 128 KB, ma non vengono analizzate eventuali vulnerabilità nel corpo del messaggio.
 
 ## <a name="waf-exclusion-lists"></a>Elenchi di esclusione di WAF
 
@@ -40,11 +39,12 @@ Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione:
 
 * Intestazioni richiesta
 * Cookie della richiesta
-* Request Body
+* Richiedere il nome dell'attributo (argumenty)
 
    * Dati multiparte del modulo
    * XML
    * JSON
+   * Argomenti di query dell'URL
 
 È possibile specificare un'esatta intestazione di richiesta, un corpo, un cookie o una corrispondenza dell'attributo stringa della query.  In alternativa, è possibile specificare facoltativamente corrispondenze parziali. L'esclusione è sempre in un campo di intestazione, mai sul relativo valore. Le regole di esclusione hanno ambito globale e si applicano a tutte le pagine e regole.
 
@@ -62,37 +62,36 @@ In tutti i casi, la corrispondenza non distingue le maiuscole e le minuscole e l
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Il frammento di codice di Azure PowerShell seguente illustra l'uso delle esclusioni:
+Negli esempi seguenti illustrano l'utilizzo di esclusioni.
+
+### <a name="example-1"></a>Esempio 1
+
+In questo esempio si desidera escludere l'intestazione agente utente. L'intestazione della richiesta dell'agente utente contiene una stringa di caratteristiche che consente ai peer di protocollo di rete identificare il tipo di applicazione, sistema operativo, fornitore di software o versione del software dell'agente utente richiedente software. Per altre informazioni, vedere [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
+
+Possono esserci diversi motivi per disattivare la valutazione di questa intestazione. Potrebbero esserci una stringa che il firewall WAF vede e presupporre che lo sia dannoso. Ad esempio, l'attacco SQL classico "x = x" in una stringa. In alcuni casi, può trattarsi di traffico legittimo. Pertanto, potrebbe essere necessario escludere questa intestazione dalla versione di valutazione di Web Application firewall.
+
+Il cmdlet di Azure PowerShell seguente esclude l'intestazione agente utente dalla versione di valutazione:
 
 ```azurepowershell
-// exclusion 1: exclude request head start with xyz
-// exclusion 2: exclude request args equals a
-
-$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
-
-$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
-
-// add exclusion lists to the firewall config
-
-$firewallConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
+   -MatchVariable "RequestHeaderNames" `
+   -SelectorMatchOperator "Equals" `
+   -Selector "User-Agent"
 ```
 
-Il frammento di codice JSON seguente illustra come usare le esclusioni:
+### <a name="example-2"></a>Esempio 2
 
-```json
-"webApplicationFirewallConfiguration": {
-          "enabled": "[parameters('wafEnabled')]",
-          "firewallMode": "[parameters('wafMode')]",
-          "ruleSetType": "[parameters('wafRuleSetType')]",
-          "ruleSetVersion": "[parameters('wafRuleSetVersion')]",
-          "disabledRuleGroups": [],
-          "exclusions": [
-            {
-                "matchVariable": "RequestArgNames",
-                "selectorMatchOperator": "StartsWith",
-                "selector": "a^bc"
-            }
+In questo esempio esclude il valore di *utente* parametro passato nella richiesta tramite l'URL. Pronunciare, ad esempio, che è comune nell'ambiente in uso per il campo utente deve contenere una stringa che il firewall WAF consente di visualizzare come contenuti dannosi, lo blocca.  È possibile escludere in questo caso il parametro user in modo che il firewall WAF non restituisce un valore nel campo.
+
+Il seguente cmdlet Azure PowerShell consente di escludere il parametro user dalla versione di valutazione:
+
+```azurepowershell
+$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
+   -MatchVariable "RequestArgNames" `
+   -SelectorMatchOperator "Equals" `
+   -Selector "user"
 ```
+Pertanto, se l'URL **http://www.contoso.com/?user=fdafdasfda** viene passato per il Web Application firewall, non valuta, la stringa **fdafdasfda**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

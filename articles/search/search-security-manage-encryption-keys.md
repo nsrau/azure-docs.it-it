@@ -1,5 +1,5 @@
 ---
-title: Crittografia dati inattivi con chiavi gestite dal cliente in Azure Key Vault - ricerca di Azure
+title: 'Crittografia dati inattivi con chiavi gestite dal cliente in Azure Key Vault (anteprima): ricerca di Azure'
 description: Crittografia lato server supplemento su indici e le mappe sinonimiche in ricerca di Azure tramite le chiavi che vengono creati e gestiti in Azure Key Vault.
 author: NatiNimni
 manager: jlembicz
@@ -9,14 +9,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 987b56a9571fd50f605dbe6fb4112ef857021530
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029176"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523085"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia di ricerca di Azure con chiavi gestite dal cliente in Azure Key Vault
+
+> [!Note]
+> La crittografia con chiavi gestite dal cliente è in anteprima e non è destinata all'uso in produzione. Il [API REST versione 2019-05-06-Preview](search-api-preview.md) fornisce questa funzionalità. È anche possibile usare la versione di .NET SDK 8.0-preview.
+>
+> Questa funzionalità non è disponibile per i servizi gratuiti. È necessario usare un servizio di ricerca fatturabili creato a decorrere 2019-01-01. Non vi è alcun supporto per il portale in questo momento.
 
 Per impostazione predefinita, ricerca di Azure crittografa i contenuti di utenti inattivi con la [chiavi gestite dal servizio](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). È possibile integrare la crittografia predefinita con un livello aggiuntivo di crittografia usando le chiavi che vengono creati e gestiti in Azure Key Vault. Questo articolo illustra i passaggi.
 
@@ -26,20 +31,17 @@ La crittografia con chiavi gestite dal cliente è configurata a livello di indic
 
 È possibile usare chiavi diverse da diversi insiemi di credenziali chiave. Ciò significa che un servizio di ricerca singola può ospitare più mappe indexes\synonym crittografato, ciascuno crittografato utilizzando potenzialmente una diversa chiave gestita dal cliente, insieme alle mappe indexes\synonym che non vengono crittografati con chiavi gestite dal cliente. 
 
->[!Note]
-> **Disponibilità delle funzionalità**: La crittografia con chiavi gestite dal cliente è una funzionalità in anteprima che non è disponibile per i servizi gratuiti. Per i servizi a pagamento, è disponibile solo per i servizi di ricerca creati a decorrere 2019-01-01, usando l'api-versione di anteprima più recente (versione api-version = 2019-05-06-Preview). Non è attualmente alcun supporto del portale per questa funzionalità.
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 In questo esempio vengono usati i servizi seguenti. 
 
-[Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
++ [Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
 
-[Creare una risorsa di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) o trovare un insieme di credenziali esistente nella sottoscrizione.
++ [Creare una risorsa di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) o trovare un insieme di credenziali esistente nella sottoscrizione.
 
-[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) oppure [CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) viene usato per attività di configurazione.
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) oppure [CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) viene usato per attività di configurazione.
 
-[Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) e [Azure Search SDK](https://aka.ms/search-sdk-preview) può essere utilizzato per chiamare l'API REST in anteprima. Non vi è alcun supporto per .NET SDK per la crittografia gestite dal cliente al momento o il portale.
++ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) e [Azure Search SDK](https://aka.ms/search-sdk-preview) può essere utilizzato per chiamare l'API REST in anteprima. Non vi è alcun supporto per .NET SDK per la crittografia gestite dal cliente al momento o il portale.
 
 ## <a name="1---enable-key-recovery"></a>1 - abilitare recupero chiavi
 

@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18a80af8422e30ce3e87395449fca7b5f6a73762
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d02318db4deae6f0a6acdae9382ce47116c95110
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025035"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800861"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Gestire e distribuire modelli con il servizio Azure Machine Learning
 
@@ -34,11 +34,14 @@ Ogni passaggio può essere eseguita in modo indipendente o come parte di un sing
 
 [!['Azure Machine Learning/integrazione continua (CI/CD) ciclo di distribuzione'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-> [!VIDEO https://www.youtube.com/embed/0MaHb070H_8]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
 ## <a name="step-1-register-model"></a>Passaggio 1: Registrare il modello
 
 Con la registrazione dei modelli è possibile archiviare i modelli e creare le relative versioni nel cloud di Azure, all'interno della propria area di lavoro. Il registro dei modelli consente di organizzare i modelli sottoposti a training e tenerne traccia con facilità.
+
+> [!TIP]
+> È anche possibile registrare i modelli sottoposti a training all'esterno del servizio di Azure Machine Learning.
  
 I modelli registrati sono identificati dal nome e dalla versione. Ogni volta che si registra un modello con lo stesso nome di uno esistente, il registro incrementa la versione. È possibile fornire tag di metadati aggiuntivi durante la registrazione che può essere usata quando si cercano i modelli. Il servizio di Azure Machine Learning supporta qualsiasi modello che può essere caricate usando Python 3.5.2 o versione successiva.
 
@@ -73,7 +76,7 @@ Per altre informazioni, vedere [distribuire modelli](how-to-deploy-and-where.md)
 
 Per altre informazioni, vedere [distribuire modelli](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analisi
 
 Microsoft Power BI supporta l'utilizzo di modelli di machine learning per analitica dei dati. Per altre informazioni, vedere [integrazione di Azure Machine Learning in Power BI (anteprima)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
@@ -92,5 +95,7 @@ Le distribuzioni devono essere aggiornate in modo esplicito. Per altre informazi
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sulle [come e dove è possibile distribuire modelli](how-to-deploy-and-where.md) con il servizio di Azure Machine Learning. Per un esempio di distribuzione, vedere [esercitazione: Distribuire un modello di classificazione di immagini in istanze di contenitore di Azure](tutorial-deploy-models-with-aml.md).
+
+Informazioni su come creare [integrazione continua e distribuzione di modelli di Machine Learning con le pipeline di Azure](/azure/devops/pipelines/targets/azure-machine-learning). 
 
 Informazioni su come creare servizi e applicazioni client che [utilizzano un modello distribuito come servizio Web](how-to-consume-web-service.md).

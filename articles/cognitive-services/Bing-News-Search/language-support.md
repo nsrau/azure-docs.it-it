@@ -3,19 +3,19 @@ title: Supporto per la lingua - API Ricerca notizie Bing
 titleSuffix: Azure Cognitive Services
 description: Un elenco dei linguaggi naturali, paesi e aree geografiche supportate dall'API Ricerca notizie Bing.
 services: cognitive-services
-author: MikeDodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
-ms.author: v-gedod
-ms.openlocfilehash: f94ebb9b46ade0c03f65fdeb78bc7be96794a3d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: e8a7f6d20ed36c4b3e900602fb52e31dceefae88
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201415"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799339"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Lingua e regioni supportate dall'API Ricerca notizie Bing
 
@@ -31,7 +31,7 @@ Per l'endpoint `/news/search`, la tabella seguente elenca i valori dei codici di
 
 Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
 
-|Paese/Area geografica|Linguaggio|Codice di mercato|  
+|Paese/area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------|
 |Danimarca|Danese|da-DK|
 |Austria|Tedesco|de-AT|
@@ -43,14 +43,14 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 |Indonesia|Inglese|en-ID|
 |Irlanda|Inglese|en-IE|
 |India|Inglese|en-IN|
-|Malaysia|Inglese|en-MY|
+|Malesia|Inglese|en-MY|
 |Nuova Zelanda|Inglese|en-NZ|
 |Filippine|Inglese|en-PH|
 |Singapore|Inglese|en-SG|
 |Stati Uniti|Inglese|en-US|
 |Inglese|generale|en-WW|
 |Inglese|generale|en-XA|
-|Sud Africa|Inglese|en-ZA|
+|Sudafrica|Inglese|en-ZA|
 |Argentina|Spagnolo|es-AR|
 |Cile|Spagnolo|es-CL|
 |Spagna|Spagnolo|es-ES|
@@ -64,7 +64,7 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 |Svizzera|Francese|fr-CH|
 |Francia|Francese|fr-FR|  
 |Italia|Italiano|it-IT|
-|RAS di Hong Kong|Cinese tradizionale|zh-HK|  
+|Hong Kong - R.A.S.|Cinese tradizionale|zh-HK|  
 |Taiwan|Cinese tradizionale|zh-TW|
 |Giappone|Giapponese|ja-JP|  
 |Corea del Sud|Coreano|ko-KR|  
@@ -80,7 +80,7 @@ Per l'endpoint `/news`, la tabella seguente elenca i valori dei codici di mercat
 
 Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
 
-|Paese/Area geografica|Linguaggio|Codice di mercato|  
+|Paese/area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------|
 |Danimarca|Danese|da-DK|
 |Germania|Tedesco|de-DE|
@@ -103,7 +103,7 @@ Per l'endpoint `/news/trendingtopics`, la tabella seguente elenca i valori dei c
 
 Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
 
-|Paese/Area geografica|Linguaggio|Codice di mercato|  
+|Paese/area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------|
 |Germania|Tedesco|de-DE|
 |Australia|Inglese|en-AU|
@@ -122,7 +122,7 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 
 I seguenti sono i codici di paese/area che è possibile specificare nel parametro di query `cc`. L'elenco è soggetto a variazioni.  
 
-|Paese/Area geografica|Codice paese|  
+|Paese/Area geografica|Indicativo paese|  
 |---------------------|------------------|  
 |Argentina|AR|  
 |Australia|AU|  
@@ -135,13 +135,13 @@ I seguenti sono i codici di paese/area che è possibile specificare nel parametr
 |Finlandia|FI|  
 |Francia|VF|  
 |Germania|DE|  
-|RAS di Hong Kong|HK|  
+|Hong Kong - R.A.S.|HK|  
 |India|IN|  
 |Indonesia|ID|  
-|Italia|IT|  
+|Italia|it|  
 |Giappone|JP|  
 |Corea del Sud|KR|  
-|Malaysia|MY|  
+|Malesia|MY|  
 |Messico|MX|  
 |Paesi Bassi|NL|  
 |Nuova Zelanda|NZ|  
@@ -152,7 +152,7 @@ I seguenti sono i codici di paese/area che è possibile specificare nel parametr
 |Filippine|PH|  
 |Russia|RU|  
 |Arabia Saudita|SA|  
-|Sud Africa|ZA|  
+|Sudafrica|ZA|  
 |Spagna|ES|  
 |Svezia|SE|  
 |Svizzera|CH|  

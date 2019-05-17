@@ -1,6 +1,6 @@
 ---
-title: Come eseguire l'onboarding di Monitoraggio di Azure per contenitori | Microsoft Docs
-description: Questo articolo illustra come eseguire l'onboarding e la configurazione di Monitoraggio di Azure per contenitori per conoscere le prestazioni di un contenitore e quali sono i problemi correlati alle prestazioni che sono stati identificati.
+title: Come abilitare il monitoraggio di Azure per contenitori | Microsoft Docs
+description: Questo articolo descrive come abilitare e configurare monitoraggio di Azure per contenitori in modo che è possibile comprendere le prestazioni del contenitore e sono stati identificati i problemi relativi alle prestazioni.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
-ms.openlocfilehash: 10b80a9749c5698195ac5d3493ac3b07fd6e24e1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5e149fa96e0a62656804906b52adf10273321d17
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073301"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521908"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers"></a>Come eseguire l'onboarding di Monitoraggio di Azure per contenitori  
+# <a name="how-to-enable-azure-monitor-for-containers"></a>Come abilitare il monitoraggio di Azure per contenitori  
 
 Questo articolo offre una panoramica delle opzioni disponibili per configurare il monitoraggio di Azure per contenitori per monitorare le prestazioni dei carichi di lavoro che vengono distribuiti per gli ambienti Kubernetes e ospitato in [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
@@ -55,7 +55,7 @@ Quando viene rilasciata una nuova versione dell'agente, questo viene aggiornato 
 
 Si abilita monitoraggio di Azure per contenitori usando uno dei seguenti metodi descritti nella tabella seguente.
 
-| Stato di distribuzione | Metodo | DESCRIZIONE | 
+| Stato di distribuzione | Metodo | Descrizione | 
 |------------------|--------|-------------| 
 | Nuovo cluster servizio contenitore di AZURE | [Creare cluster usando Azure CLI](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| È possibile abilitare il monitoraggio di un nuovo cluster servizio contenitore di AZURE create con CLI di Azure. | 
 | | [Creare cluster usando Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| È possibile abilitare il monitoraggio di un nuovo cluster servizio contenitore di AZURE che si creano utilizzando lo strumento open source Terraform. | 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8e6783bb56f55949824e4ce94c85145f53dd9f4b
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236669"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523963"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creare un pool di host con PowerShell
 
@@ -26,12 +26,6 @@ Eseguire il cmdlet seguente per accedere all'ambiente di Desktop virtuale Window
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
-```
-
-Successivamente, eseguire il cmdlet seguente per impostare il contesto per il gruppo di tenant. Se non si ha il nome del gruppo di tenant, il tenant è più probabile "Default Tenant gruppo" in modo che è possibile ignorare questo cmdlet.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 Successivamente, eseguire questo cmdlet per creare un nuovo pool di host nel proprio tenant di Desktop virtuale Windows:

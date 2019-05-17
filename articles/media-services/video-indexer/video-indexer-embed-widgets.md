@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5acd9b68368f56000a0a32d1ade310cf30143950
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560424"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799392"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporare i widget di Video Indexer nelle applicazioni
 
@@ -28,7 +29,7 @@ A partire dalla versione 2, l'URL di base del widget include l'area dell'account
 
 Un widget **Cognitive Insights** include tutte le informazioni dettagliate visive estratte dal processo di indicizzazione del video. Il widget delle informazioni dettagliate supporta i parametri URL facoltativi seguenti:
 
-|NOME|Definizione|DESCRIZIONE|
+|NOME|Definizione|Descrizione|
 |---|---|---|
 |widgets|Stringhe separate da virgola|Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering. <br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` esegue il rendering solo delle informazioni dettagliate su persone e marchi<br/>Le opzioni disponibili sono: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Non supportato tramite URL con version=2<br/><br/>**Nota:** Il parametro URL widget non è supportato nella versione 2. |
 
@@ -36,12 +37,12 @@ Un widget **Cognitive Insights** include tutte le informazioni dettagliate visiv
 
 Un widget **Player** consente di eseguire lo streaming del video a bitrate adattivo. Il widget del lettore supporta i parametri URL facoltativi seguenti:
 
-|NOME|Definizione|DESCRIZIONE|
+|NOME|Definizione|Descrizione|
 |---|---|---|
 |t|Secondi dall'inizio|Fa partire il lettore dal tempo specificato.<br/>Esempio: t=60|
 |captions|Codice lingua|Recupera i sottotitoli nella lingua specificata durante il caricamento del widget in modo che siano disponibili nel menu dei sottotitoli.<br/>Esempio: captions=it-IT|
 |showCaptions|Valore booleano|Carica il lettore con i sottotitoli già abilitati.<br/>Esempio: showCaptions=true|
-|type||Attiva un'interfaccia del lettore audio (la parte video viene rimossa).<br/>Esempio: type=audio|
+|tipo||Attiva un'interfaccia del lettore audio (la parte video viene rimossa).<br/>Esempio: type=audio|
 |autoplay|Valore booleano|Indica se il lettore deve iniziare la riproduzione del video al caricamento (il valore predefinito è true).<br/>Esempio: autoplay=false|
 |Linguaggio|Codice lingua|Controlla la lingua del lettore (il valore predefinito è en-US)<br/>Esempio: language=de-DE|
 
@@ -172,7 +173,7 @@ Se si usa il proprio lettore, è necessario modificarlo personalmente per ottene
         </video>    
 
 2. Incorporare il widget Cognitive Insights.
-3. Implementare la comunicazione per il lettore facendo in modo che resti in ascolto dell'evento "message". Ad esempio: 
+3. Implementare la comunicazione per il lettore facendo in modo che resti in ascolto dell'evento "message". Ad esempio:
 
         <script>
     
@@ -233,7 +234,7 @@ Si noti che questa opzione è pertinente solo nei casi in cui è necessario apri
 
 Se si incorpora il lettore Video Indexer, è possibile sceglierne le dimensioni specificando le dimensioni dell'iframe.
 
-Ad esempio: 
+Ad esempio:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 

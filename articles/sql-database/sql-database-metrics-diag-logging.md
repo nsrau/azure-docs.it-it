@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
+ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548639"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791950"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
 
@@ -64,7 +64,7 @@ Abilitare le metriche e la registrazione diagnostica nei database SQL, visto che
 
 | Dati di telemetria di monitoraggio per database | Supporto dei database singoli e in pool | Supporto dell'istanza del database |
 | :------------------- | ----- | ----- |
-| [Tutte le metriche](#all-metrics): Contiene la percentuale DTU/CPU, il limite DTU/CPU, la percentuale di lettura dati fisici, la percentuale di scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, la percentuale delle sessioni, la percentuale dei ruoli di lavoro, la risorsa di archiviazione, la percentuale di archiviazione, la percentuale di archiviazione XTP. | Sì | No  |
+| [Le metriche di base](#basic-metrics): Contiene la percentuale DTU/CPU, il limite DTU/CPU, la percentuale di lettura dati fisici, la percentuale di scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, la percentuale delle sessioni, la percentuale dei ruoli di lavoro, la risorsa di archiviazione, la percentuale di archiviazione, la percentuale di archiviazione XTP. | Sì | No  |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contiene le informazioni sulle statistiche di runtime delle query, ad esempio l'uso della CPU e le statistiche sulla durata delle query. | Sì | Sì |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Contiene informazioni sulle statistiche di attesa delle query (cosa hanno atteso le query) quelle della CPU, di LOG e il blocco. | Sì | Sì |
 | [Errori](#errors-dataset): Contiene informazioni sugli errori di SQL in un database. | Sì | Sì |
@@ -93,7 +93,7 @@ Abilitare le metriche e la registrazione diagnostica nei database SQL, visto che
 
 | Risorsa | Dati di telemetria di monitoraggio |
 | :------------------- | ------------------- |
-| **Pool elastico** | [Tutte le metriche](sql-database-metrics-diag-logging.md#all-metrics) contiene percentuale eDTU/CPU, limite eDTU/CPU, limite eDTU, percentuale lettura dati fisici, percentuale scrittura log, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, limite di archiviazione, percentuale di archiviazione XTP. |
+| **Pool elastico** | [Le metriche di base](sql-database-metrics-diag-logging.md#basic-metrics) contiene percentuale eDTU/CPU, il limite di eDTU/CPU fisica percentuale lettura dati, scrittura log percentuale, percentuale sessioni, percentuale ruoli di lavoro, archiviazione, percentuale di archiviazione, limite di archiviazione e percentuale di archiviazione XTP. |
 
 Per configurare il flusso di dati di telemetria di diagnostica per i pool elastici e database in pool elastici, è necessario configurarle separatamente **entrambi** delle operazioni seguenti:
 
@@ -113,7 +113,7 @@ Per abilitare il flusso di dati di telemetria della diagnostica per una risorsa 
 1. Immettere un nome di impostazione per il proprio riferimento.
 1. Selezionare una risorsa di destinazione per i dati di diagnostica di streaming: **Archivia in un account di archiviazione**, **Trasmetti ad un hub eventi** oppure **Invia a Log Analytics**.
 1. Per analitica di log, selezionare **Configure** e creare una nuova area di lavoro selezionando **+ Crea nuova area di lavoro**, oppure selezionare un'area di lavoro.
-1. Selezionare la casella di controllo per la telemetria di diagnostica del pool elastico: **AllMetrics**.
+1. Selezionare la casella di controllo per la telemetria di diagnostica del pool elastico: **Base** metriche.
    ![Configurare la diagnostica per i pool elastici](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. Selezionare **Salva**.
 1. Inoltre, configurare il flusso di dati di telemetria di diagnostica per ogni database all'interno del pool elastico che si desidera monitorare, seguendo i passaggi descritti nella sezione successiva.
@@ -137,7 +137,7 @@ Per abilitare il flusso di dati di telemetria di diagnostica per i database sing
 1. Immettere un nome di impostazione per il proprio riferimento.
 1. Selezionare una risorsa di destinazione per i dati di diagnostica di streaming: **Archivia in un account di archiviazione**, **Trasmetti ad un hub eventi** oppure **Invia a Log Analytics**.
 1. Per l'esperienza di monitoraggio standard, basato su eventi, selezionare le caselle di controllo seguenti per la telemetria dei log di diagnostica del database: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errori**, **DatabaseWaitStatistics**, **Timeout**, **Blocchi** e **Deadlock**.
-1. Per un'esperienza di monitoraggio avanzata, basata su 1 minuto, selezionare la casella di controllo **AllMetrics**.
+1. Per un'esperienza di monitoraggio avanzata, in base 1 minuto, selezionare la casella di controllo **base** metriche.
    ![Configurare la diagnostica per un singolo, in pool o i database dell'istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Selezionare **Salva**.
 1. Ripetere questi passaggi per ogni database che si desidera monitorare.
@@ -385,7 +385,7 @@ O, più semplicemente:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Ad esempio, un nome del BLOB per l'opzione Tutte le metriche potrebbe essere:
+Ad esempio, potrebbe essere un nome di blob per le metriche di base:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -411,23 +411,26 @@ Se si usa Analisi SQL di Azure, è possibile monitorare il consumo di inseriment
 
 Monitoraggio dati di telemetria disponibili per il Database SQL di Azure, i pool elastici e istanza gestita è documentato di seguito. Monitoraggio dati di telemetria raccolti all'interno di SQL Analitica può essere utilizzato per il proprio analisi personalizzate e lo sviluppo di applicazioni tramite [query di log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) language.
 
-## <a name="all-metrics"></a>Tutte le metriche
+## <a name="basic-metrics"></a>Metriche di base
 
-Fare riferimento alle tabelle seguenti per informazioni dettagliate su tutte le metriche dalle risorse.
+Fare riferimento alle tabelle seguenti per informazioni dettagliate sulle metriche di base dalla risorsa.
 
-### <a name="all-metrics-for-elastic-pools"></a>Tutte le metriche per i pool elastici
+> [!NOTE]
+> Opzione di metriche di base era precedentemente nota come tutte le metriche. È stata la modifica apportata alla denominazione solo ed è non stata apportata alcuna modifica alle metriche monitorate. Questa modifica è stata avviata per consentire l'introduzione di altre categorie di metriche in futuro.
+
+### <a name="basic-metrics-for-elastic-pools"></a>Metriche di base per i pool elastici
 
 |**Risorsa**|**Metriche**|
 |---|---|
 |Pool elastico|Percentuale eDTU, eDTU usata, limite eDTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, limite di archiviazione, percentuale di archiviazione XTP |
 
-### <a name="all-metrics-for-azure-sql-databases"></a>Tutti le metriche per i database SQL di Azure
+### <a name="basic-metrics-for-azure-sql-databases"></a>Metriche di base per i database SQL di Azure
 
 |**Risorsa**|**Metriche**|
 |---|---|
 |Database SQL di Azure|Percentuale DTU, DTU usata, limite DTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, percentuale di archiviazione XTP, deadlock |
 
-## <a name="all-logs"></a>Tutti i log
+## <a name="basic-logs"></a>Log di base
 
 I dettagli dei dati di telemetria disponibile per tutti i log sono documentati nelle tabelle seguenti. Vedi [supportata la registrazione diagnostica](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) per comprendere quali log sono supportati per una versione specifica del database - SQL di Azure singolo e pool, o istanza del database.
 

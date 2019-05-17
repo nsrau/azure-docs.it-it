@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c1d8104f94d3f215108000b904848f3b968492ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 458d587c7ac73f7c8dacdceae3c9f923263533b3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61372840"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792539"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Come gestire le chiavi in QnA Maker
 
@@ -24,7 +24,7 @@ Il servizio QnA Maker gestisce due tipi di chiavi, le **chiavi di sottoscrizione
 
 ![gestione delle chiavi](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **Chiavi di sottoscrizione**: queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Queste API consentono di apportare modificare alla knowledge base.  
+1. **Chiavi di sottoscrizione**: queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Queste API consentono di apportare modificare alla knowledge base.  
 
 2. **Chiavi endpoint**: queste chiavi vengono usate per accedere all'endpoint della Knowledge Base e ottenere una risposta a una domanda dell'utente. Solitamente si usa questo endpoint nel codice del chat bot o dell'applicazione client che usa il servizio QnA Maker.
  

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 1ea645ee53f91a62bd49fb1da0d44e2962708b88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdfd7794961b0254526b124525c6e978d13b0114
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402769"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800269"
 ---
 # <a name="message-expiration-time-to-live"></a>Scadenza dei messaggi (durata)
 
@@ -35,6 +35,11 @@ Quando il messaggio è bloccato, l'applicazione potrebbe essere in possesso di u
 ## <a name="entity-level-expiration"></a>Scadenza a livello di entità
 
 Tutti i messaggi inviati a una coda o un argomento sono soggetti a una scadenza predefinita che viene impostata a livello di entità con la proprietà [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) e che può essere impostata anche nel portale durante la creazione e modificata in un secondo momento. La scadenza predefinita viene usata per tutti i messaggi inviati all'entità in cui il valore di [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) non è impostato in modo esplicito. La scadenza predefinita funge anche da limite massimo per il valore **TimeToLive**. I messaggi con un valore della scadenza **TimeToLive** superiore rispetto al valore predefinito vengono modificati automaticamente impostando il valore **defaultMessageTimeToLive** prima di essere accodati.
+
+> [!NOTE]
+> Il valore predefinito [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) valore per è un messaggio negoziato [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) se non diversamente specificato.
+>
+> Per un'entità di messaggistica (code e argomenti), l'ora di scadenza predefinito è anche [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) per i livelli standard e premium del Bus di servizio.  Per il livello basic, l'ora di scadenza predefinito è 14 giorni.
 
 Facoltativamente, i messaggi scaduti possono essere spostati in una [coda di messaggi non recapitabili](service-bus-dead-letter-queues.md) impostando la proprietà [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) oppure selezionando la casella corrispondente nel portale. Se l'opzione viene lasciata disabilitata, i messaggi scaduti vengono eliminati. I messaggi scaduti spostati nella coda di messaggi non recapitabili possono essere distinti dagli altri messaggi della coda di messaggi non recapitabili valutando la proprietà [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) che il broker archivia nella sezione delle proprietà utente. In questo caso, il valore è [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq).
 
@@ -59,7 +64,7 @@ La proprietà **autoDeleteOnIdle** deve essere impostata tramite un'operazione d
 
 Ecco cosa identifica le entità (code, argomenti e sottoscrizioni) come inattive:
 
-- Queues
+- Code
     - Nessun invio  
     - Nessuna ricezione  
     - Nessun aggiornamento alla coda  
@@ -69,7 +74,7 @@ Ecco cosa identifica le entità (code, argomenti e sottoscrizioni) come inattive
     - Nessun invio  
     - Nessun aggiornamento all'argomento  
     - Nessun messaggio pianificato 
-- Sottoscrizioni
+- Abbonamenti
     - Nessuna ricezione  
     - Nessun aggiornamento alla sottoscrizione  
     - Nessuna nuova regola aggiunta alla sottoscrizione  

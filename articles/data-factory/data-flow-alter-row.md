@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: d842898ca700490ae99b46140be6609622a144df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0ac5bb36079983b10e4d86cc776bd4e5ee6817d
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627096"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520154"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Azure Data Factory riga modifica trasformazione
 
@@ -24,7 +24,7 @@ Utilizzare la trasformazione di riga Alter per impostare i criteri di upsert, de
 > [!NOTE]
 > Trasformazioni di righe ALTER avrà effetto solo sui database sink nel flusso di dati. Le azioni che si assegna a righe (insert, update, delete, upsert) non verranno eseguita durante le sessioni di debug. È necessario aggiungere un'attività di esecuzione del flusso di dati a una pipeline e usare il debug di pipeline o i trigger per applicare i criteri di riga alter su tabelle di database.
 
-## <a name="view-policies"></a>Visualizzare i criteri
+## <a name="view-policies"></a>Visualizza i criteri
 
 Passare alla modalità di flusso di eseguire il Debug dei dati su Sì e quindi visualizzare i risultati dei criteri alter riga nel riquadro di anteprima dei dati. L'esecuzione di una riga di modifica in modalità dati flusso di Debug non produrrà azioni DDL o DML rispetto alla destinazione. Per avere tali azioni si verificano, eseguire il flusso di dati all'interno di un'attività di esecuzione del flusso di dati all'interno di una pipeline.
 

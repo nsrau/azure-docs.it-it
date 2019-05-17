@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 68ca35590aaadba431d5f1dc06e0405162ebc69f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154478"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799117"
 ---
 # <a name="public-ip-address-prefix"></a>Prefisso dell'indirizzo IP pubblico
 
@@ -55,7 +55,7 @@ Quando si creano risorse di indirizzi IP pubblici, Azure assegna un indirizzo IP
 ## <a name="constraints"></a>Vincoli
 
 - Non è possibile specificare gli indirizzi IP per il prefisso. Azure alloca gli indirizzi IP per il prefisso, in base alla dimensione specificata.
-- La dimensione predefinita di un prefisso/28 o 16 indirizzi IP pubblici.
+- È possibile creare un prefisso di un massimo di 16 indirizzi IP o/28. Per altre informazioni, consultare [limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Una volta creato il prefisso,non è possibile modificare l'intervallo.
 - L'intervallo è solo per gli indirizzi IPv4. L'intervallo non contiene indirizzi IPv6.
 - Solo gli indirizzi IP pubblici statici creati con lo SKU Standard possono essere assegnati dall'intervallo del prefisso. Per altre informazioni sugli indirizzi IP pubblici di SKU, consultare [Indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).

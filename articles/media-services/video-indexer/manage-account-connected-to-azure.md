@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 1515a026ae297a960f220a97449d2258c0b75e58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553606"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799526"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gestire un account di Video Indexer connesso ad Azure
 
@@ -61,7 +62,7 @@ La scalabilità automatica non effettua ridimensionamenti al di sotto di una UR 
 
 Se l'account richiede delle rettifiche, vengono visualizzati gli errori e gli avvisi relativi alla configurazione dell'account nella pagina **Impostazioni**. I messaggi contengono collegamenti a posizioni esatte nel portale di Azure in cui è necessario apportare modifiche. Questa sezione fornisce altri dettagli relativi ai messaggi di errore e di avviso.
 
-* Griglia di eventi
+* Griglia eventi
 
     È necessario registrare il provider di risorse EventGrid usando il portale di Azure. Nel [portale di Azure](https://portal.azure.com/) passare a **Sottoscrizioni** > [sottoscrizione] > **ResourceProviders** > **Microsoft.EventGrid**. Se lo stato non è **Registrato**, fare clic su **Registra**. La registrazione richiede alcuni minuti. 
 

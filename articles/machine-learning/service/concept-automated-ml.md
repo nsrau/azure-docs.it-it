@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 136141f5b598fd080edf3254fd01200f2742c763
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9736cc3ab20d43cc3731bc237bed9eb9b5370cb4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235826"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800776"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -52,7 +52,7 @@ Durante il training, il servizio Azure Machine Learning crea numerose pipeline c
 
 Durante la compilazione del modello è automatizzata, è anche possibile [informazioni su come importanti o utili funzionalità sono](how-to-configure-auto-train.md#explain) ai modelli generati. 
 
-> [!VIDEO https://www.youtube.com/embed/l8c-4iDPE0M]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 <a name="preprocess"></a>
 

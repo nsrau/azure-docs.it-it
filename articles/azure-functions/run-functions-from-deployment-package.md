@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88e5f1ac7834caa32302a3817e1779d0d733a7b3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325629"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787551"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Eseguire Funzioni di Azure da un file di pacchetto
 
@@ -42,7 +42,7 @@ Per altre informazioni, vedere [questo annuncio](https://github.com/Azure/app-se
 
 Per abilitare l'esecuzione dell'app per le funzioni da un pacchetto, è sufficiente aggiungere un'impostazione `WEBSITE_RUN_FROM_PACKAGE` alle impostazioni dell'app per le funzioni. L'impostazione `WEBSITE_RUN_FROM_PACKAGE` deve avere almeno uno dei valori seguenti:
 
-| Value  | DESCRIZIONE  |
+| Value  | Descrizione  |
 |---------|---------|
 | **`1`**  | Consigliato per App per le funzioni in esecuzione su Windows. Esecuzione da un file di pacchetto nella cartella `d:\home\data\SitePackages` dell'app per le funzioni. In caso contrario [distribuzione con file zip distribuire](#integration-with-zip-deployment), questa opzione richiede la cartella deve avere anche un file denominato `packagename.txt`. Questo file contiene solo il nome del file di pacchetto nella cartella, senza spazi vuoti. |
 |**`<url>`**  | Percorso di un file di pacchetto specifico da eseguire. Quando si usa l'archiviazione BLOB, è consigliabile usare un contenitore privato con una [firma di accesso condiviso (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) per abilitare il runtime di Funzioni per l'accesso al pacchetto. È possibile usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per caricare i file di pacchetto nell'account di archiviazione BLOB.         |
@@ -64,6 +64,13 @@ Di seguito viene illustrata un'app per le funzioni configurata per l'esecuzione 
 ## <a name="adding-the-websiterunfrompackage-setting"></a>Aggiungere l'impostazione WEBSITE_RUN_FROM_PACKAGE
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+## <a name="troubleshooting"></a>risoluzione dei problemi
+
+- Consente di eseguire il pacchetto `wwwroot` sola lettura, quindi si riceverà un errore durante la scrittura di file in questa directory.
+- Non sono supportati i formati gzip e tar.
+- Questa funzionalità non esegue la composizione con la cache locale.
+- Per migliorare le prestazioni di avvio a freddo, usare l'opzione di file Zip locale (`WEBSITE_RUN_FROM_PACKAGE`= 1).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

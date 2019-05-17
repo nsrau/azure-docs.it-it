@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 05/02/2019
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 91c58507d8758a65772110afba71354deecd3b12
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5374ff896613dd8f8563a2054be8a92103e63fbb
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024277"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523911"
 ---
 # <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Azure Search Service REST api-version 2019-05-06-Preview
 Questo articolo descrive la versione `api-version=2019-05-06-Preview` dell'API REST per il servizio Ricerca di Azure, che fornisce funzionalità sperimentali non ancora disponibili a livello generale.
@@ -37,6 +37,8 @@ Questo articolo descrive la versione `api-version=2019-05-06-Preview` dell'API R
 Le funzionalità annunciate nelle anteprime precedenti sono ancora in anteprima pubblica. Se si chiama un'API con una versione di anteprima precedente, è possibile continuare a usare tale versione o passare a `2019-05-06-Preview` senza modifiche al comportamento previsto.
 
 + Il [parametro di query moreLikeThis](search-more-like-this.md) trova i documenti pertinenti a un documento specifico. Questa funzionalità è stata presente nelle anteprime precedenti. 
+* [L'indicizzazione di blob CSV](search-howto-index-csv-blobs.md) crea un documento per ogni riga, a differenza di un documento per ogni blob di testo.
+* [Supporto dell'API MongoDB per gli indicizzatori di Cosmos DB](search-howto-index-cosmosdb.md) è disponibile in anteprima.
 
 
 ## <a name="how-to-call-a-preview-api"></a>Come chiamare un'API di anteprima

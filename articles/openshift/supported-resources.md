@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 22cc195b7808ad4a9111aafcf883a68c51f3709f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/15/2019
+ms.openlocfilehash: 5182a5e325bd7883af1a7d102d3e02b277a5089e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076106"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788708"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Risorse di Azure Red Hat OpenShift
 
@@ -21,17 +21,7 @@ In questo argomento elenca le aree di Azure e le dimensioni di macchina virtuale
 
 ## <a name="azure-regions"></a>Aree di Azure
 
-È possibile distribuire i cluster Azure Red Hat OpenShift in aree di Azure in tutto il mondo:
-
-|Region|Codice dell'interfaccia della riga|
-|-|-|
-|🇦🇺 Australia orientale|`australiaeast`|
-|🇨🇦 Canada centrale|`canadacentral`|
-|🇨🇦 Canada orientale|`canadaeast`|
-|Stati Uniti orientali 🇺🇸|`eastus`|
-|Stati Uniti occidentali 🇺🇸|`westus`|
-|Europa occidentale 🇪🇺|`westeurope`|
-|Europa settentrionale 🇪🇺|`northeurope`|
+Visualizzare [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) per un elenco aggiornato delle aree in cui è possibile distribuire Azure Red Hat OpenShift i cluster.
 
 ## <a name="virtual-machine-sizes"></a>Dimensioni delle macchine virtuali
 
@@ -46,7 +36,7 @@ Di seguito sono le dimensioni di macchina virtuale supportato che è possibile s
 
 Le dimensioni dei nodi di calcolo seguenti sono supportate dall'API REST Azure Red Hat OpenShift:
 
-|Dimensione|vCPU|RAM|
+|Dimensione|CPU virtuale|RAM|
 |-|-|-|
 |D4s Standard v3|4|16 GB|
 |D8s Standard v3|8|32 GB|
@@ -66,7 +56,7 @@ Le dimensioni dei nodi di calcolo seguenti sono supportate dall'API REST Azure R
 
 Lo schema seguente / le dimensioni dei nodi di infrastruttura sono supportati dall'API REST Azure Red Hat OpenShift:
 
-|Dimensione|vCPU|RAM|
+|Dimensione|CPU virtuale|RAM|
 |-|-|-|
 |D4s Standard v3|4|16 GB|
 |D8s Standard v3|8|32 GB|

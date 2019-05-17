@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d915058e13f3c5287bdb037a1600e7f0a09da436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce04e19022a9902c228079e866c192985694134c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560561"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799252"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Esercitazione: Usare l'API Video Indexer
 
@@ -71,7 +72,7 @@ I token di accesso scadono dopo un'ora. Assicurarsi che il token di accesso sia 
  
 A questo punto, si è pronti per avviare l'integrazione con l'API. Leggere la [descrizione dettagliata di ogni API REST di Video Indexer](https://api-portal.videoindexer.ai/).
 
-## <a name="account-id"></a>Account ID 
+## <a name="account-id"></a>ID account 
 
 Il parametro Account ID è obbligatorio in tutte le chiamate alle API delle operazioni. L'ID account è un GUID che può essere ottenuto in uno dei modi seguenti:
 
@@ -81,7 +82,7 @@ Il parametro Account ID è obbligatorio in tutte le chiamate alle API delle oper
     2. Passare alla pagina **Impostazioni**.
     3. Copiare l'ID account.
 
-        ![Account ID](./media/video-indexer-use-apis/account-id.png)
+        ![ID account](./media/video-indexer-use-apis/account-id.png)
 
 * Usare il **portale per sviluppatori di Video Indexer** per ottenere l'ID account a livello di codice.
 

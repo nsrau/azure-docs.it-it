@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: cfe9b469cfac848c9e57f1fc10193208722be109
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935711"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800963"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -247,7 +247,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Report
 
-È possibile trovare il report per l'attribuzione di utilizzo dei clienti nel dashboard di analisi di Partner Center. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+È possibile trovare il report per l'attribuzione di utilizzo dei clienti nel dashboard di analisi di Partner Center. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Per visualizzare il report, è necessario usare le credenziali del centro per i Partner per l'accesso. Se verificano problemi con report o accedere, creare una richiesta di supporto seguendo le istruzioni nella sezione Get.
 
 Scegliere modello rilevate dall'elenco a discesa del tipo di associazione di Partner per visualizzare il report.
 
@@ -267,6 +267,10 @@ Durante la distribuzione del software \<PARTNER>, Microsoft è in grado di ident
 
 ## <a name="get-support"></a>Supporto
 
+Se si verificano problemi con i report o accedere al centro per i Partner, creare una richiesta di supporto con il team di supporto di Centro per i Partner: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+
+![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+
 Se occorre assistenza per Marketplace Onboarding e/o l'attribuzione di utilizzo dei clienti, seguire questa procedura.
 
 1. Andare alla [pagina del supporto](https://go.microsoft.com/fwlink/?linkid=844975).
@@ -282,7 +286,7 @@ Se occorre assistenza per Marketplace Onboarding e/o l'attribuzione di utilizzo 
 
 1. Fare clic su **Avvia richiesta**.
 
-1. Nella pagina successiva, immettere i valori richiesti. Selezionare **Continua**.
+1. Nella pagina successiva, immettere i valori richiesti. Selezionare **continuare**.
 
 1. Nella pagina successiva, immettere i valori richiesti.
 

@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: 78aed4fceab83d942927486cd7ae46a32dd6ca09
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6f501e251f0b006bbbb4f64090cac5c3d61b7bf2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927553"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523554"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Informazioni sui componenti di Site Recovery (processo di configurazione, server di destinazione master)
 
@@ -22,19 +22,19 @@ Questo articolo descrive la configurazione, processo e i server di destinazione 
 
 Per il ripristino di emergenza di macchine virtuali VMware locali e server fisici, è necessario un ripristino del sito del server di configurazione distribuito in locale.
 
-**Impostazione** | **Dettagli** | **Collegamenti**
+**Impostazione** | **Dettagli** | **Links**
 --- | --- | ---
 **Componenti**  | Il server di configurazione esegue tutti i componenti di Site Recovery in locale, che includono il server di configurazione, server di elaborazione e server di destinazione master.<br/><br/> Quando si configura il server di configurazione, tutti i componenti vengono installati automaticamente. | [Lettura](vmware-azure-common-questions.md#configuration-server) il server di configurazione domande frequenti.
 **Ruolo** | Il server di configurazione coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati. | Altre informazioni sull'architettura per [VMware](vmware-azure-architecture.md) e [server fisici](physical-azure-architecture.md) ripristino di emergenza in Azure.
 **Requisiti di VMware** | Per il ripristino di emergenza di macchine virtuali VMware in locale, è necessario installare ed eseguire il server di configurazione come una locali, VM VMware a disponibilità elevata. | [Informazioni su](vmware-azure-deploy-configuration-server.md#prerequisites) i prerequisiti.
 **Distribuzione di VMware** | È consigliabile distribuire il server di configurazione usando un modello OVA scaricato. Questo metodo offre un semplice modo per configurare un server di configurazione che è conforme a tutti i requisiti e prerequisiti.<br/><br/> Se per qualche motivo è possibile distribuire una VM VMware usando un modello con estensione OVA, è possibile impostare le macchine di server di configurazione manualmente, come illustrato di seguito per il ripristino di emergenza di computer fisico. | [Distribuire](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) con un modello con estensione OVA.
-**Requisiti per i server fisici** | Per il ripristino di emergenza in server fisici in locale, distribuire il server di configurazione manualmente. | [Informazioni su](/physical-azure-set-up-source.md#prerequisites) i prerequisiti.
+**Requisiti per i server fisici** | Per il ripristino di emergenza in server fisici in locale, distribuire il server di configurazione manualmente. | [Informazioni su](physical-azure-set-up-source.md#prerequisites) i prerequisiti.
 **Distribuzione di server fisici** | Se non può essere installato come VM VMware, è possibile installarlo in un server fisico. | [Distribuire](physical-azure-set-up-source.md#set-up-the-source-environment) il server di configurazione manualmente.
 
 
 ## <a name="process-server"></a>Server di elaborazione
 
-**Impostazione** | **Dettagli** | **Collegamenti**
+**Impostazione** | **Dettagli** | **Links**
 --- | --- | ---
 **Distribuzione**  | Per la replica di macchine virtuali VMware locali e server fisici e il ripristino di emergenza, è necessario un server di elaborazione locale. Per impostazione predefinita, il server di elaborazione viene installato nel server di configurazione quando viene distribuito. | [Altre informazioni](vmware-azure-architecture.md?#architectural-components)
 **Ruolo (in locale** | -Riceve i dati di replica da computer abilitato per la replica.<br/> -Consente di ottimizzare i dati di replica attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia ad archiviazione di Azure.<br/> -Esegue un'installazione push del servizio Mobility di Site Recovery in macchine virtuali VMware locali e server fisici che si vuole replicare.<br/> -Esegue l'individuazione automatica delle macchine virtuali locali. | [Altre informazioni](vmware-physical-azure-config-process-server-overview.md#process-server) 
@@ -51,5 +51,5 @@ Il server di destinazione master gestisce i dati di replica durante il failback 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Rivedere le [architettura](/vmware-azure-architecture.md) per il ripristino di emergenza di macchine virtuali VMware e server fisici.
+- Rivedere le [architettura](vmware-azure-architecture.md) per il ripristino di emergenza di macchine virtuali VMware e server fisici.
 - Rivedere le [i requisiti e prerequisiti](vmware-physical-azure-support-matrix.md) per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure. 

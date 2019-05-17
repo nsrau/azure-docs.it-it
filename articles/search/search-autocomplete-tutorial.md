@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: f3e7cc2ed71dda0eb34328432b26a4016b62be1c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 9385ed5127b8cc1aaf84c887b652fd8970883ba6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466425"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65524035"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Aggiungere il completamento automatico o suggerimenti all'applicazione di ricerca di Azure
 
@@ -164,7 +164,7 @@ Aprire il **HomeController.cs** file nella directory del controller.
 
 La prima cosa si può notare è un metodo nella parte superiore della classe chiamata `InitSearch`. Questo genererà un client di indice HTTP autenticato nel servizio Ricerca di Azure. Per altre informazioni, vedere [come usare ricerca di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
-Nella riga 41, si noti che la funzione Suggest. Si basa il [DocumentsOperationsExtensions.Suggest metodo](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
+Nella riga 41, si noti che la funzione Suggest. Si basa il [DocumentsOperationsExtensions.Suggest metodo](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -198,7 +198,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 
 La funzione Suggest include due parametri che determinano se vengono restituiti i risultati evidenziati o se la corrispondenza fuzzy è utilizzata in completamento all'inserimento del termine di ricerca. Il metodo crea un' [SuggestParameters oggetto](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), che viene quindi passata all'API di suggerire. Il risultato viene quindi convertito in formato JSON in modo da essere visualizzato nel client.
 
-Nella riga 69, si noti che la funzione di completamento automatico. Si basa il [DocumentsOperationsExtensions.Autocomplete metodo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet-preview).
+Nella riga 69, si noti che la funzione di completamento automatico. Si basa il [DocumentsOperationsExtensions.Autocomplete metodo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet).
 
 ```csharp
 public ActionResult AutoComplete(string term)

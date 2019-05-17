@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 595d1b84aab55a77f21a9840c5bae9ee996424be
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415950"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522846"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -42,7 +42,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 - **Gruppo di failover (nebbia)**
 
-  Un gruppo di failover è un gruppo di database gestiti da un singolo server di database SQL o all'interno di una singola istanza gestita che può eseguire il failover come unità in un'altra area nel caso in cui alcuni o tutti i database primari diventino non disponibili a causa di un'interruzione nell'area primaria. Quando create per le istanze gestite, un gruppo di failover contiene tutti i database utente nell'istanza e pertanto i gruppi di failover solo uno possono essere configurati in un'istanza.
+  Un gruppo di failover è un gruppo di database gestiti da un singolo server di database SQL o all'interno di una singola istanza gestita che può eseguire il failover come unità in un'altra area nel caso in cui alcuni o tutti i database primari diventino non disponibili a causa di un'interruzione nell'area primaria. Quando creato per le istanze gestite, un gruppo di failover contiene tutti i database utente nell'istanza e pertanto può essere configurato un solo gruppo di failover in un'istanza.
 
 - **Server di database SQL**
 

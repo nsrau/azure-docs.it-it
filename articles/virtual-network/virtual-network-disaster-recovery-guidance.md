@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-ms.openlocfilehash: f8068524a33c6d29056af456a26b8bd87fc3e3d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68a9523dcc9c4dd84399c68fc7e31a692c011487
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60742708"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523266"
 ---
 # <a name="virtual-network--business-continuity"></a>Rete virtuale - Continuità aziendale
 
 ## <a name="overview"></a>Panoramica
 Una rete virtuale è una rappresentazione logica della propria rete personalizzata nel cloud. Consente di definire il proprio spazio di indirizzi IP privato e segmentare la rete in subnet. Le reti virtuali vengono usate come limite di attendibilità per ospitare le risorse di calcolo quali macchine virtuali di Azure e servizi cloud (ruoli Web/di lavoro). Una rete virtuale consente la comunicazione IP privata diretta tra le risorse ospitate al suo interno. È possibile collegare una rete virtuale a una rete locale tramite Gateway VPN o ExpressRoute.
 
-Una rete virtuale viene creata nell'ambito di un'area. È possibile creare reti virtuali con lo stesso spazio degli indirizzi in due aree diverse, ad esempio Stati Uniti orientali e Stati Uniti occidentali, ma non connetterle. 
+Una rete virtuale viene creata nell'ambito di un'area. È possibile *creare* le reti virtuali con stesso spazio indirizzi in due aree diverse (ad esempio, Stati Uniti orientali e Stati Uniti occidentali), ma perché hanno lo stesso spazio degli indirizzi, è non connetterle tra loro. 
 
 ## <a name="business-continuity"></a>Continuità aziendale
 

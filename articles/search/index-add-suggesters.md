@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021886"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521877"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Aggiungere suggester a un indice per typeahead in ricerca di Azure
 
@@ -95,13 +95,13 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 }
 ```
 
-## <a name="property-reference"></a>Informazioni di riferimento sulle proprietà
+## <a name="property-reference"></a>Riferimento alla proprietà
 
 I punti principali da notare sui componenti per il suggerimento è che ci sia un nome (suggesters viene fatto riferimento in base al nome in una richiesta), un searchMode (attualmente solo una, "analyzingInfixMatching") e l'elenco dei campi per cui è abilitato typeahead. 
 
 Un componente per il suggerimento è definito dalle proprietà seguenti:
 
-|Proprietà      |DESCRIZIONE      |
+|Proprietà      |Descrizione      |
 |--------------|-----------------|
 |`name`        |Il nome del componente. Utilizza il nome del componente quando si chiama il [API REST per i suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) oppure [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
 |`searchMode`  |La strategia usata per la ricerca di espressioni candidate. L'unica modalità attualmente supportata è `analyzingInfixMatching`, che ricerca una corrispondenza flessibile di espressioni all'inizio o all'interno di frasi.|
@@ -119,7 +119,7 @@ Come indicato in precedenza, è possibile usare un componente di suggerimento pe
 
 Un componente di suggerimento fa riferimento alla richiesta con l'operazione. Ad esempio, in una chiamata GET REST, specificare `suggest` o `autocomplete` nella raccolta di documenti. Per REST, dopo la creazione di un componente di suggerimento, usare il [API per i suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) o il [Autocomplete API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) nella logica di query.
 
-Per .NET, usare [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) oppure [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
+Per .NET, usare [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet) oppure [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet).
 
 Per un esempio che illustra entrambe le richieste, vedere [esempio per l'aggiunta di completamento automatico e i suggerimenti in ricerca di Azure](search-autocomplete-tutorial.md).
 

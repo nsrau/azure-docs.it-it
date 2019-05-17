@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5b04cabe734b97436421595dbb0ab7584efd4911
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024950"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523080"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Come indicizzare i BLOB JSON con l'indicizzatore di Blob di ricerca di Azure
 Questo articolo illustra come configurare un blob di ricerca di Azure [indicizzatore](search-indexer-overview.md) per estrarre contenuto strutturato dai documenti JSON in archiviazione Blob di Azure e rendere disponibili per la ricerca in ricerca di Azure. Questo flusso di lavoro viene creato un indice di ricerca di Azure e lo carica con il testo esistente estratto dai BLOB JSON. 
@@ -128,7 +128,7 @@ Ordine delle operazioni è necessario creare e chiamare gli oggetti nell'ordine 
 
 I BLOB JSON in archiviazione Blob di Azure sono in genere un singolo documento JSON o un file JSON "matrice". L'indicizzatore di BLOB di Ricerca di Azure è in grado di analizzare entrambi i tipi di costruzione, a seconda dell'impostazione del parametro **parsingMode** nella richiesta.
 
-| Documento JSON | parsingMode | DESCRIZIONE | Disponibilità |
+| Documento JSON | parsingMode | Descrizione | Disponibilità |
 |--------------|-------------|--------------|--------------|
 | Un solo documento per BLOB | `json` | Analizza i BLOB JSON come un singolo blocco di testo. Ogni BLOB JSON diventa un singolo documento di Ricerca di Azure. | Disponibile a livello generale in entrambe [resto](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 | Più documenti per BLOB | `jsonArray` | Analizza una matrice JSON nel BLOB, dove ogni elemento della matrice diventa un documento separato di Ricerca di Azure.  | Disponibile a livello generale in entrambe [resto](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
@@ -279,7 +279,7 @@ Creare l'indicizzatore in ricerca di Azure attiva l'importazione dei dati. Viene
 
 ## <a name="use-net-sdk"></a>Usare .NET SDK
 
-.NET SDK è del tutto equivalente all'API REST. È consigliabile rivedere la sezione relativa dall'API REST per apprenderne i concetti, il flusso di lavoro e i requisiti. Consultare quindi la seguente documentazione di riferimento sull'API .NET per implementare un indicizzatore JSON nel codice gestito.
+.NET SDK ha le stesse completo con l'API REST. È consigliabile rivedere la sezione relativa dall'API REST per apprenderne i concetti, il flusso di lavoro e i requisiti. Consultare quindi la seguente documentazione di riferimento sull'API .NET per implementare un indicizzatore JSON nel codice gestito.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -292,7 +292,7 @@ Creare l'indicizzatore in ricerca di Azure attiva l'importazione dei dati. Viene
 
 I BLOB JSON possono presupporre che più moduli. Il **parsingMode** parametro nell'indicizzatore JSON determina come il contenuto di blob JSON è analizzare e strutturare un indice di ricerca di Azure:
 
-| parsingMode | DESCRIZIONE |
+| parsingMode | Descrizione |
 |-------------|-------------|
 | `json`  | Indicizzare ogni blob come singolo documento. Questa è la modalità predefinita. |
 | `jsonArray` | Scegliere questa modalità se i BLOB sono costituiti da matrici JSON ed è necessario ogni elemento della matrice diventi un documento separato in ricerca di Azure. |
