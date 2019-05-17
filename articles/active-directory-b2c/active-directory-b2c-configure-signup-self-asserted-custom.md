@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6eaace7589488a9466e78597e0091c84dabb5155
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685281"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768004"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere attestazioni e input di personalizzazione dell'esperienza utente tramite criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo illustra come aggiungere una nuova voce specificata dall'utente, un'attestazione, al percorso utente di registrazione in Azure Active Directory (Azure AD) B2C.  La voce viene configurata come elenco a discesa e si precisa se è obbligatoria.
+Questo articolo illustra come aggiungere una nuova voce specificata dall'utente, un'attestazione, al percorso utente di registrazione in Azure Active Directory (Azure AD) B2C.  Configurare la voce come un elenco a discesa e definire se è obbligatorio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,12 +29,12 @@ Completare la procedura descritta nell'articolo [Introduzione ai criteri persona
 
 ## <a name="add-claims"></a>Aggiungere le attestazioni
 
-La raccolta dei dati iniziali da parte degli utenti si ottiene usando il percorso utente di iscrizione o accesso. In un secondo momento è possibile raccogliere attestazioni aggiuntive usando il percorso utente di modifica del profilo. Ogni volta che Azure AD B2C raccoglie informazioni direttamente dall'utente in modo interattivo, l'Identity Experience Framework usa il provider di fiducia.
+La raccolta dei dati iniziali da parte degli utenti si ottiene usando il percorso utente di iscrizione o accesso. In un secondo momento è possibile raccogliere attestazioni aggiuntive usando il percorso utente di modifica del profilo. Ogni volta che Azure AD B2C raccoglie informazioni direttamente dall'utente in modo interattivo, il Framework dell'esperienza di identità usa il provider autocertificato.
 
 
 ### <a name="define-the-claim"></a>Definire l'attestazione
 
-Per chiedere all'utente di indicare la propria città, Aggiungere l'elemento seguente all'elemento **ClaimsSchema** nel file dei criteri TrustFrameworkBase:
+È possibile chiedere all'utente per la propria città. Aggiungere l'elemento seguente all'elemento **ClaimsSchema** nel file dei criteri TrustFrameworkBase:
 
 ```xml
 <ClaimType Id="city">
@@ -51,7 +51,7 @@ Vengono usati gli elementi seguenti per definire l'attestazione:
 - **UserHelpText**: consente all'utente di identificare i requisiti.
 - **UserInputType**: può essere una casella di testo, una selezione radio, un elenco a discesa o una selezione multipla.
 
-#### <a name="textbox"></a>TextBox
+#### <a name="textbox"></a>Casella di testo
 
 ```xml
 <ClaimType Id="city">

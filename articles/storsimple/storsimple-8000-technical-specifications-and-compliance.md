@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631890"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606931"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specifiche e conformità tecniche per il dispositivo StorSimple
 
@@ -173,7 +173,7 @@ Il dispositivo è conforme allo standard EN55024.
 
 ## <a name="ac-power-cord-compliance"></a>Conformità del cavo di alimentazione CA
 
-La spina e l'assembly completo del cavo di alimentazione devono soddisfare gli standard appropriati per il paese in cui viene utilizzato il dispositivo e devono disporre delle certificazioni di sicurezza ritenute accettabili in tale paese. Nelle tabelle seguenti vengono elencati gli standard per gli Stati Uniti e l'Europa.
+La spina e l'assembly di cavo completa dell'alimentazione devono soddisfare gli standard appropriati per il paese/area geografica in cui viene utilizzato il dispositivo e devono avere certificazioni di sicurezza considerate accettabili in tale paese/area geografica. Nelle tabelle seguenti vengono elencati gli standard per gli Stati Uniti e l'Europa.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cavi di alimentazione CA - Stati Uniti (devono essere elencati NRTL)
 
@@ -188,7 +188,7 @@ La spina e l'assembly completo del cavo di alimentazione devono soddisfare gli s
 | Componente | Specifiche |
 | --- | --- |
 | Tipo di cavo |Armonizzate, H05-VVF-3G1.0 |
-| Presa elettrica |IEC 320 C-13, 250 V, 10 A |
+| Socket |IEC 320 C-13, 250 V, 10 A |
 
 ## <a name="supported-network-cables"></a>Cavi di rete supportati
 

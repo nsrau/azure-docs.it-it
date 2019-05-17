@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3b10a91499dbe7e627025be8487efa15890861b9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301267"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764732"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory
 
@@ -33,7 +33,7 @@ Se queste informazioni non soddisfano le aspettative, lasciare un commento alla 
 
 ## <a name="cloud-apps-assignments"></a>Assegnazioni di app cloud
 
-Grazie ai criteri di accesso condizionale è possibile controllare la modalità di accesso degli utenti alle [app cloud](conditions.md#cloud-apps). Quando si configura un criterio di accesso condizionale, è necessario selezionare almeno un'app cloud. 
+Grazie ai criteri di accesso condizionale è possibile controllare la modalità di accesso degli utenti alle [app cloud](conditions.md#cloud-apps-and-actions). Quando si configura un criterio di accesso condizionale, è necessario selezionare almeno un'app cloud. 
 
 ![Selezionare le app cloud per il criterio](./media/technical-reference/09.png)
 
@@ -141,8 +141,8 @@ Per distribuire automaticamente questa estensione ai browser Chrome, creare la c
 
 |    |    |
 | --- | --- |
-| path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
+| `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| NOME | 1 |
 | Type | REG_SZ (String) |
 | Dati | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
@@ -150,8 +150,8 @@ Per il supporto di Chrome in **Windows 8.1 e 7**, creare la chiave del Registro 
 
 |    |    |
 | --- | --- |
-| path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
+| `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| NOME | 1 |
 | Type | REG_SZ (String) |
 | Dati | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
@@ -203,6 +203,7 @@ Nel criterio di accesso condizionale è possibile impostare l'esecuzione dei ten
 Questa impostazione è valida solo per le app client seguenti:
 
 - Microsoft Azure Information Protection
+- Microsoft Bookings
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow

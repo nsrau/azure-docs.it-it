@@ -3,25 +3,25 @@ title: Creare un'identità per un'app Azure nel portale | Documentazione Microso
 description: Descrive come creare una nuova applicazione ed entità servizio di Azure Active Directory da usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l'accesso alle risorse.
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: celested
+ms.date: 05/14/2019
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9affec9ccc1b87f36d6f30aff4795d85532be8c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300856"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764937"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedura: usare il portale per creare un'applicazione Azure AD e un'entità servizio che possano accedere alle risorse
 
@@ -42,7 +42,7 @@ Si passerà direttamente alla creazione dell'identità. Se si verifica un proble
 
 1. Selezionare **Registrazione nuova applicazione**.
 
-   ![Aggiungere l'app](./media/howto-create-service-principal-portal/select-add-app.png)
+   ![Aggiungi app](./media/howto-create-service-principal-portal/select-add-app.png)
 
 1. Specificare un nome e un URL per l'applicazione. Selezionare **App Web/API** come tipo di applicazione da creare. Non è possibile creare credenziali per un'[applicazione nativa](../manage-apps/application-proxy-configure-native-client-application.md) e non è possibile usare questo tipo per creare un'applicazione automatica. Dopo aver impostato i valori selezionare **Crea**.
 
@@ -106,18 +106,18 @@ Sono necessari anche l'ID dell'applicazione e una chiave di autenticazione. Per 
 
    ![ID client](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-1. Selezionare **Impostazioni**.
+1. Selezionare **certificati e i segreti**.
 
-   ![Selezionare Impostazioni](./media/howto-create-service-principal-portal/select-settings.png)
+   ![Selezionare Impostazioni](./media/howto-create-service-principal-portal/select-certs-secrets.png)
 
-1. Selezionare **Chiavi**.
-1. Specificare una descrizione e una durata per la chiave. Al termine scegliere **Salva**.
+1. Selezionare **i segreti Client -> nuovo segreto client**.
+1. Fornire una descrizione del segreto e una durata. Al termine, selezionare **Add**.
 
-   ![Salvare le chiavi](./media/howto-create-service-principal-portal/save-key.png)
+   ![Salvare il segreto](./media/howto-create-service-principal-portal/save-secret.png)
 
-   Dopo aver salvato la chiave viene visualizzato il valore della chiave. Copiare il valore in quanto non sarà possibile recuperare la chiave in seguito. Il valore della chiave sarà fornito insieme all'ID applicazione per eseguire l'accesso come applicazione. Salvare il valore della chiave in una posizione in cui l'applicazione possa recuperarlo.
+   Dopo aver salvato il segreto client, viene visualizzato il valore del segreto client. Copiare il valore in quanto non sarà possibile recuperare la chiave in seguito. Il valore della chiave sarà fornito insieme all'ID applicazione per eseguire l'accesso come applicazione. Salvare il valore della chiave in una posizione in cui l'applicazione possa recuperarlo.
 
-   ![Chiave salvata](./media/howto-create-service-principal-portal/copy-key.png)
+   ![Copiare la chiave privata](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 
@@ -146,7 +146,7 @@ Nella sottoscrizione di Azure è necessario che l'account disponga dell'accesso 
 
 Per controllare le proprie autorizzazioni di sottoscrizione:
 
-1. Selezionare il proprio account nell'angolo superiore destro e quindi **Autorizzazioni personali**.
+1. Selezionare l'account in alto a destra e selezionare **... -> autorizzazioni personali**.
 
    ![Selezionare le autorizzazioni utente](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
@@ -154,7 +154,7 @@ Per controllare le proprie autorizzazioni di sottoscrizione:
 
    ![Trovare un utente](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Visualizzare i propri ruoli assegnati e determinare se si dispone delle autorizzazioni adeguate per assegnare un'app di Active Directory a un ruolo. In caso contrario chiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore accessi utente. Nella figura seguente l'utente è assegnato al ruolo Proprietario, perciò dispone delle autorizzazioni adeguate.
+1. Selezionare **assegnazioni di ruolo** per visualizzare i ruoli assegnati e determinare se si dispone delle autorizzazioni adeguate per assegnare un'app AD a un ruolo. In caso contrario chiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore accessi utente. Nella figura seguente l'utente è assegnato al ruolo Proprietario, perciò dispone delle autorizzazioni adeguate.
 
    ![Visualizzare le autorizzazioni](./media/howto-create-service-principal-portal/view-user-role.png)
 

@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462385"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604452"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Aprire un ticket di supporto per Azure Data Box 
 
@@ -38,7 +38,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
     4. Specificare il **Piano di supporto**.
     5. Fare clic su **Avanti**.
 
-        ![Nozioni di base](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
+        ![Generale](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. In **Nuova richiesta di supporto** selezionare **Passaggio 2 - Problema**. In **Problema** seguire questa procedura:
     
@@ -56,7 +56,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 4. In **Nuova richiesta di supporto** fare clic su **Passaggio 3 - Informazioni contatto**. In **Informazioni contatto** seguire la procedura seguente:
 
    1. In **Opzioni contatti**, fornire il metodo di contatto preferito (telefono o posta elettronica) e la lingua. Il tempo di risposta viene selezionato automaticamente in base al piano di sottoscrizione.
-   2. In **Informazioni di contatto** specificare nome, posta elettronica, contatto facoltativo, paese. Selezionare **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
+   2. Nel **le informazioni di contatto**, fornire il nome, indirizzo di posta elettronica, contatto facoltativo, paese/area geografica. Selezionare **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
    3. Fare clic su **Create**(Crea).
    
        ![Informazioni contatto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
@@ -72,11 +72,11 @@ Dopo la creazione del ticket di supporto, sarà possibile gestire il ciclo di vi
 
 1. Per visualizzare la pagina Guida e supporto, passare a **Sfoglia -> Guida e supporto**.
 
-    ![Gestire le richieste di supporto](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket1.png)   
+    ![Gestisci richieste di supporto](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket1.png)   
 
 2. Verrà visualizzato l'elenco tabulare **Richieste di supporto recenti** in **Guida e supporto**.
 
-    ![Gestire le richieste di supporto](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png) 
+    ![Gestisci richieste di supporto](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png) 
 
 3. Selezionare e fare clic su una richiesta di supporto. È possibile visualizzare lo stato e i dettagli della richiesta. Fare clic su **+ Nuovo messaggio** se si vuole seguire la richiesta.
 

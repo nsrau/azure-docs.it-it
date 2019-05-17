@@ -9,17 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 1cb533348236905b7c4e9b58968041745af0e71b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: 42724f5fcb3101015cef0d218a3d548f349646be
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028441"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785829"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Esempio 5 - classificazione: Prevedere la varianza, stime sui desideri e up-selling 
 
-Questo esperimento di esempio di interfaccia visiva Mostra stima classificatore binario della varianza, stime sui desideri e up-selling, un'attività molto comune per la gestione delle relazioni dei clienti (CRM).
+Informazioni su come creare un esperimento di apprendimento automatico complessi senza scrivere una singola riga di codice usando l'interfaccia visiva.
+
+Questo esperimento esegue il training, tre **albero delle decisioni con Boosting a due classi** classificatori per stimare le attività comuni per sistemi customer relationship management (CRM): varianza, stime sui desideri e up-selling. I valori dei dati e le etichette vengono suddivise tra più origini dati e li assemblò per anonimizza le informazioni dei clienti, tuttavia, è possibile usare ancora l'interfaccia visiva per combinare set di dati e il training di un modello usando i valori codificati.
+
+Poiché stiamo tentando di rispondere alla domanda "Quale uno?" si tratta di un problema di classificazione. Tuttavia, è possibile applicare la stessa procedura descritta in questo esperimento di affrontare qualsiasi tipo di apprendimento automatico che si tratti di regressione, classificazione, clustering e così via.
+
+Ecco il grafico completato per questo esperimento:
+
+![Grafico esperimento](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,13 +39,11 @@ Questo esperimento di esempio di interfaccia visiva Mostra stima classificatore 
 
 ## <a name="data"></a>Dati
 
-I dati che si userà per questo esperimento sono dalla competizione KDD Cup 2009. Il set di dati contiene 50.000 righe e colonne di funzioni 230. L'attività consiste nel prevedere la varianza, stime sui desideri e up-selling per i clienti che usano queste funzionalità. Vedere le [sito Web KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009) per altri dettagli sui dati e l'attività.
+I dati che si userà per questo esperimento sono dalla competizione KDD Cup 2009. Il set di dati contiene 50.000 righe e colonne di funzioni 230. L'attività consiste nel prevedere la varianza, stime sui desideri e up-selling per i clienti che usano queste funzionalità. Per altre informazioni sui dati e l'attività, vedere la [sito Web KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
 ## <a name="experiment-summary"></a>Riepilogo di esperimento
 
-Ecco il grafico completo esperimento:
-
-![Grafico esperimento](./media/ui-sample-classification-predict-churn/experiment-graph.png)
+Questo esperimento di esempio di interfaccia visiva Mostra stima classificatore binario di varianza, stime sui desideri e up-selling, un'attività molto comune per la gestione delle relazioni dei clienti (CRM).
 
 Prima di tutto, facciamo alcune semplici operazioni di elaborazione di dati.
 
@@ -46,11 +52,10 @@ Prima di tutto, facciamo alcune semplici operazioni di elaborazione di dati.
     ![Pulire il set di dati](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
 
 - Le funzionalità e le corrispondenti della varianza, stime sui desideri, e per proporre le etichette sono nel set di dati diversi. Usiamo il **Add Columns** modulo per aggiungere le colonne di etichetta per le colonne di funzioni. La prima colonna, **Col1**, la colonna di etichetta. Il resto delle colonne, **Var1**, **Var2**e così via, sono le colonne di funzioni.
- 
+
     ![Aggiungere il set di dati colonna](./media/ui-sample-classification-predict-churn/added-column1.png)
 
 - Usiamo il **Split Data** modulo suddividere il set di dati in training e set di test.
-
 
     Utilizziamo la classificazione binaria Boosted Decision Tree con i parametri predefiniti per creare i modelli di stima. Abbiamo creato un modello per ogni attività, vale a dire, un modello per stimare up-selling, stime sui desideri e la varianza.
 

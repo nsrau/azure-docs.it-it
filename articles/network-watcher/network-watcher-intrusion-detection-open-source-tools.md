@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: e1b0e49dcc69a7458c22b859df1a4721342f0728
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730153"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605713"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Eseguire il rilevamento di intrusioni di rete con Network Watcher e strumenti open source
 
@@ -255,7 +255,7 @@ Per questo articolo, è stato fornito un dashboard di esempio per visualizzare t
 
 Il dashboard di esempio offre diverse visualizzazioni dei log di avvisi di Suricata:
 
-1. Alerts by GeoIP (Avvisi per IP geografico): mappa che illustra la distribuzione degli avvisi per paese di origine in base alla località geografica (determinata dall'IP)
+1. Avvisi da GeoIP: una mappa che illustra la distribuzione di avvisi per i relativi paesi di origine basato su posizione geografica (determinata dall'IP)
 
     ![IP geografico][3]
 

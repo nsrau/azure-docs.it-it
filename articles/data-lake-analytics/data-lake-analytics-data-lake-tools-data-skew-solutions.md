@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61399897"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606704"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Risolvere i problemi di asimmetria dei dati tramite Strumenti Azure Data Lake per Visual Studio
 
@@ -36,7 +36,7 @@ Se ciò non influisce sulla logica di business, è possibile filtrare in anticip
 
 ### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opzione 2: Scegliere una chiave di partizione o distribuzione differente
 
-Nell'esempio precedente, se si desidera solo verificare il carico di lavoro della verifica fiscale in tutto il paese, è possibile migliorare la distribuzione dei dati selezionando il numero ID come chiave. La scelta di una chiave di partizione o distribuzione differente consente talvolta di distribuire i dati in modo più uniforme, ma è necessario verificare che la scelta non abbia impatto sulla logica di business. Ad esempio, per calcolare l'importo dell'imposta per ogni stato, è consigliabile specificare _Stato_ come chiave di partizione. Se il problema persiste, provare con l'opzione 3.
+Nell'esempio precedente, se si vuole solo verificare il carico di lavoro fiscale in tutto il paese/area geografica, è possibile migliorare la distribuzione dei dati selezionando il numero ID come chiave. La scelta di una chiave di partizione o distribuzione differente consente talvolta di distribuire i dati in modo più uniforme, ma è necessario verificare che la scelta non abbia impatto sulla logica di business. Ad esempio, per calcolare l'importo dell'imposta per ogni stato, è consigliabile specificare _Stato_ come chiave di partizione. Se il problema persiste, provare con l'opzione 3.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>Opzione 3: Aggiungere altre chiavi di partizione o distribuzione
 

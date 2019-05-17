@@ -1,5 +1,5 @@
 ---
-title: Applicare criteri di denominazione gruppo - gruppi di Office 365 - Azure Active Directory | Microsoft Docs
+title: Applicare criteri di denominazione gruppo sui gruppi di Office 365 - Azure Active Directory | Microsoft Docs
 description: Applicare criteri di denominazione per i gruppi di Office 365 in Azure Active Directory (anteprima)
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 846eb3a43955fe05531f619869878b3978ad5b9d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9d21616938978e501cc112fde105be4db4499b2a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690246"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605559"
 ---
-# <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory"></a>Applicare un criterio di denominazione per i gruppi di Office 365 in Azure Active Directory
+# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Applicare un criterio di denominazione dei gruppi di Office 365 in Azure Active Directory
 
 Per applicare convenzioni di denominazione coerenti per i gruppi di Office 365 creati o modificati dagli utenti, configurare criteri di denominazione dei gruppi per i tenant in Azure Active Directory (Azure AD). Ad esempio, è possibile usare i criteri di denominazione per comunicare la funzione, l'appartenenza, l'area geografica o il creatore di un gruppo. È anche possibile utilizzare i criteri di denominazione per agevolare la categorizzazione dei gruppi nella Rubrica. È possibile utilizzare i criteri per bloccare l'uso di parole specifiche nei nomi dei gruppi e negli alias.
 
@@ -74,9 +74,9 @@ Alcuni amministratori possono essere esentati da questi criteri, in tutti i cari
 - Supporto di livello 1 partner
 - Supporto di livello 2 partner
 - Amministratore utenti
-- Writer di directory
+- Ruolo con autorizzazioni di scrittura nella directory
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Configurare il gruppo di criteri di denominazione per un tenant usando il portale di Azure (anteprima)
+## <a name="configure-naming-policy-in-azure-portal-preview"></a>Configurare criteri di denominazione nel portale di Azure (anteprima)
 
 1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account Amministratore utenti.
 1. Selezionare **gruppi**, quindi selezionare **criteri di denominazione** per aprire la pagina dei criteri di denominazione.
@@ -90,7 +90,7 @@ Alcuni amministratori possono essere esentati da questi criteri, in tutti i cari
 1. Per rimuovere un prefisso o suffisso nell'elenco, selezionare il prefisso o suffisso, quindi selezionare **Elimina**. È possibile eliminare più elementi contemporaneamente.
 1. Salvare le modifiche per i nuovi criteri per renderla effettiva selezionando **salvare**.
 
-### <a name="view-or-edit-the-custom-blocked-words"></a>Visualizzare o modificare le parole bloccate personalizzate
+### <a name="edit-custom-blocked-words"></a>Modificare parole bloccate personalizzate
 
 1. Nel **criteri di denominazione** pagina, selezionare **parole bloccate**.
 
@@ -100,35 +100,36 @@ Alcuni amministratori possono essere esentati da questi criteri, in tutti i cari
 1. Caricare il nuovo elenco di parole bloccate personalizzate selezionando l'icona di file.
 1. Salvare le modifiche per i nuovi criteri per renderla effettiva selezionando **salvare**.
 
-## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Installare i cmdlet di PowerShell per configurare criteri di denominazione
+## <a name="install-powershell-cmdlets"></a>Installare i cmdlet di PowerShell
 
 Assicurarsi di disinstallare qualsiasi versione precedente di Azure Active Directory PowerShell per Graph Module per Windows PowerShell e installare [Azure Active Directory PowerShell Graph, versione di anteprima pubblica 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137), prima di eseguire i comandi di PowerShell.
 
 1. Aprire l'app Windows PowerShell come amministratore.
 2. Disinstallare qualsiasi versione precedente di AzureADPreview.
   
-   ```powershell
+   ``` PowerShell
    Uninstall-Module AzureADPreview
    ```
 
 3. Installare la versione più recente di AzureADPreview.
   
-   ```powershell
+   ``` PowerShell
    Install-Module AzureADPreview
    ```
 
    Se sono richieste sull'accesso a un repository non attendibile, immettere **Y**. L'installazione del nuovo modulo potrebbe richiedere alcuni minuti.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Configurare i criteri di denominazione dei gruppi per un tenant con Azure AD PowerShell
+## <a name="configure-naming-policy-in-powershell"></a>Configurare criteri di denominazione in PowerShell
 
 1. Aprire una finestra di Windows PowerShell nel computer in uso. È possibile aprirla senza privilegi elevati.
 
 1. Eseguire i comandi seguenti per preparare l'esecuzione dei cmdlet.
   
-   ```powershell
+   ``` PowerShell
    Import-Module AzureADPreview
    Connect-AzureAD
    ```
+
    Nella schermata **Accedi all'account** che viene aperta, immettere account e password amministratore per connettersi al servizio e selezionare **Accedi**.
 
 1. Seguire i passaggi in [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](groups-settings-cmdlets.md) per creare impostazioni di gruppo per questo tenant.
@@ -137,13 +138,13 @@ Assicurarsi di disinstallare qualsiasi versione precedente di Azure Active Direc
 
 1. Recuperare i criteri di denominazione correnti per visualizzare le impostazioni correnti.
   
-   ```powershell
+   ``` PowerShell
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
    ```
   
 1. Visualizzare le impostazioni del gruppo corrente.
   
-   ```powershell
+   ``` PowerShell
    $Setting.Values
    ```
   
@@ -151,38 +152,38 @@ Assicurarsi di disinstallare qualsiasi versione precedente di Azure Active Direc
 
 1. Impostare prefissi e suffissi dei nomi di gruppo in Azure AD PowerShell. Per un corretto funzionamento [GroupName] deve essere incluso nell'impostazione.
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
    ```
   
 1. Impostare le parole bloccate personalizzate da limitare. Nell'esempio seguente viene illustrato come aggiungere le parole personalizzate.
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
 1. Salvare le impostazioni per i nuovi criteri per renderla effettiva, come nell'esempio seguente.
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
 È tutto. Sono stati impostati criteri di denominazione e sono state aggiunte le parole bloccate.
 
-## <a name="export-or-import-the-list-of-custom-blocked-words-using-azure-ad-powershell"></a>Esportare o importare l'elenco di parole bloccate personalizzate con Azure AD PowerShell
+## <a name="export-or-import-custom-blocked-words"></a>Esportare o importare parole bloccate personalizzate
 
 Per altre informazioni, vedere l'articolo [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](groups-settings-cmdlets.md).
 
 Di seguito è riportato un esempio di script di PowerShell per esportare più parole bloccate:
 
-```powershell
+``` PowerShell
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
 ```
 
 Di seguito è riportato un esempio di script di PowerShell per importare più parole bloccate:
 
-```powershell
+``` PowerShell
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -192,7 +193,6 @@ if ($Settings.Count -eq 0)
     New-AzureADDirectorySetting -DirectorySetting $Settings
     $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}}
 $Settings["CustomBlockedWordsList"] = $BadWords
-$Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ```
 
@@ -203,27 +203,27 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 1. Nel **criteri di denominazione** pagina, selezionare **eliminare criteri**.
 1. Dopo la conferma dell'eliminazione, i criteri di denominazione viene rimosso, inclusi tutti i prefisso-suffisso di denominazione dei criteri e le parole bloccate personalizzate.
 
-### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Rimuovere i criteri di denominazione con Azure AD Powershell
+### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Rimuovere i criteri di denominazione con Azure AD PowerShell
 
 1. Rimuovere prefissi e suffissi dei nomi di gruppo in Azure AD PowerShell.
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =""
    ```
   
 1. Rimuovere le parole bloccate personalizzate.
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=""
    ```
   
 1. Salvare le impostazioni.
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="naming-policy-experiences-across-office-365-apps"></a>Esperienze di criteri di denominazione nelle app di Office 365
+## <a name="experience-across-office-365-apps"></a>Esperienza tra le app di Office 365
 
 Dopo aver impostato criteri di denominazione dei gruppi in Azure AD, quando un utente crea un gruppo in un'app di Office 365, viene visualizzato quanto segue:
 

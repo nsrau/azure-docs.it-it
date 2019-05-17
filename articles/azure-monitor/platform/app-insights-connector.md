@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346809"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606734"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Soluzione di gestione Connettore di Application Insights (deprecata)
 
@@ -49,12 +49,12 @@ Quando si usa la soluzione, è possibile:
 
 A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per Connettore di Application Insights non vengono raccolti dagli agenti. Tutti i dati usati dalla soluzione provengono direttamente da Azure.
 
-| Origine connessa | Supportato | DESCRIZIONE |
+| Origine connessa | Supportato | Descrizione |
 | --- | --- | --- |
-| [Agenti di Windows](../../azure-monitor/platform/agent-windows.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
-| [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
-| [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
-| [Account di archiviazione di Azure](collect-azure-metrics-logs.md) | No  | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
+| [Agenti di Windows](../../azure-monitor/platform/agent-windows.md) | N. | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
+| [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | N. | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
+| [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | N. | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
+| [Account di archiviazione di Azure](collect-azure-metrics-logs.md) | N. | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -181,7 +181,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="generic-fields"></a>Campi generici
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | ClientIP |   |
@@ -192,7 +192,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 | DeviceType | Dispositivo client |
 | ScreenResolution |   |
 | Continent | Continente in cui ha origine la richiesta |
-| Paese | Paese in cui ha origine la richiesta |
+| Paese | Paese/area geografica in cui viene originata la richiesta |
 | Province | Provincia, stato o impostazioni locali in cui ha origine la richiesta |
 | city | Città o paese in cui ha origine la richiesta |
 | isSynthetic | Indica se la richiesta è stata creata da un utente o dal metodo automatizzato. True = generata dall'utente o false = metodo automatizzato |
@@ -249,7 +249,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="request-specific-fields"></a>Campi specifici di richiesta
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | TelemetryType | Richiesta |

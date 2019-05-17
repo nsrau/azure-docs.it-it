@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199150"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65607044"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -201,7 +201,7 @@ No, i dischi SSD Standard sono disponibili solo come dischi gestiti.
 **I dischi SSD Standard supportano "contratti di servizio per macchine virtuali a istanza singola"?**
 No, i dischi SSD Standard non supportano contratti di servizio per macchine virtuali a istanza singola. Per i contratti di servizio per macchine virtuali a istanza singola, usare dischi SSD Premium.
 
-## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione a Managed Disks
+## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione al servizio Managed Disks
 
 **La migrazione può avere un impatto sulle prestazioni di Managed Disks?**
 
@@ -365,7 +365,7 @@ Possibile arrestare e avviare la macchina virtuale che è collegato il disco o, 
 
 **Quali aree sono le dimensioni dei dischi gestiti di 8 TiB TiB 16 e 32 TiB supportati in?**
 
-Il TiB 8 TiB 16, 32 TiB disco gli SKU e sono supportati in tutte le aree in Azure globale. Supporto per Microsoft Azure per enti pubblici e Azure Cina 21Vianet non è ancora disponibile.
+Il TiB 8 TiB 16, 32 TiB disco gli SKU e sono supportati in tutte le aree in 21Vianet globale di Azure, Microsoft Azure Government e Cina di Azure.
 
 **Abilitare la memorizzazione nella cache Host in tutte le dimensioni del disco sono supportati?**
 

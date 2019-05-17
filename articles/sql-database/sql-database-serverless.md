@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/11/2019
-ms.openlocfilehash: ba79e2b9552f0c27ac11501b2b125a126e40eb1d
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551631"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620159"
 ---
 # <a name="sql-database-serverless-preview"></a>Database SQL serverless (anteprima)
 
@@ -73,7 +73,7 @@ La tabella seguente riepiloga le differenze tra il livello di calcolo serverless
 
 Il database SQL serverless è attualmente supportato solo nel livello per utilizzo generico su hardware di quinta generazione nel modello di acquisto vCore.
 
-## <a name="autoscaling"></a>Scalabilità automatica
+## <a name="autoscaling"></a>Ridimensionamento automatico
 
 ### <a name="scaling-responsiveness"></a>Tempo di risposta per il ridimensionamento
 
@@ -100,7 +100,7 @@ La ripresa automatica viene attivata in presenza di una qualsiasi delle condizio
 
 |Funzionalità|Trigger di ripresa automatica|
 |---|---|
-|Autenticazione e autorizzazione|Accesso|
+|Autenticazione e autorizzazione|Accedi|
 |Rilevamento delle minacce|Abilitazione/disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o server<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o server|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione di criteri di controllo|
@@ -204,11 +204,11 @@ Per modificare il numero massimo di vCore, si usa il comando [Set-AzSqlDatabase]
 
 ### <a name="minimum-vcores"></a>Numero minimo di vCore
 
-Per modificare il numero massimo di vCore, si usa il comando [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) in PowerShell con l'argomento `MinVcore`.
+Modifica il numero minimo di Vcore viene eseguita usando il [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando in PowerShell usando il `MinVcore` argomento.
 
 ### <a name="autopause-delay"></a>Ritardo di sospensione automatica
 
-Per modificare il numero massimo di vCore, si usa il comando [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) in PowerShell con l'argomento `AutoPauseDelay`.
+Modifica del ritardo autopause viene eseguita usando il [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando in PowerShell usando il `AutoPauseDelay` argomento.
 
 ## <a name="monitor-serverless-database"></a>Monitorare il database serverless
 

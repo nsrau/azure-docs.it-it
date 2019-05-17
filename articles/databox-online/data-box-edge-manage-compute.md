@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 58c4f42859f735a81a3e3edc801daff5d26194a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60757981"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785803"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gestione del calcolo in Azure Data Box Edge
 
 Questo articolo descrive come gestire il calcolo in Azure Data Box Edge. È possibile gestire il calcolo tramite il portale di Azure o l'interfaccia utente Web locale. Usare il portale di Azure per gestire moduli, trigger e la configurazione di calcolo, e l'interfaccia utente Web locale per gestire le impostazioni di calcolo.
-
-> [!IMPORTANT]
-> Data Box Edge è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
-
 
 In questo articolo viene spiegato come:
 
@@ -72,7 +68,7 @@ Eseguire i passaggi seguenti nel portale di Azure per eliminare un trigger.
 
 1. Nell'elenco dei trigger selezionare il trigger che si desidera eliminare.
 
-    ![Selezionare il trigger](media/data-box-edge-manage-compute/add-trigger-1.png)
+    ![Seleziona trigger](media/data-box-edge-manage-compute/add-trigger-1.png)
 
 2. Fare clic con il pulsante destro del mouse e quindi scegliere **Elimina**.
 
@@ -80,7 +76,7 @@ Eseguire i passaggi seguenti nel portale di Azure per eliminare un trigger.
 
 3. Alla richiesta di conferma fare clic su **Sì**.
 
-    ![Conferma dell'eliminazione](media/data-box-edge-manage-compute/add-trigger-1.png)
+    ![Conferma eliminazione](media/data-box-edge-manage-compute/add-trigger-1.png)
 
 Viene inoltre aggiornato l'elenco dei trigger per riflettere l'eliminazione.
 

@@ -9,31 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 25b3209bed98ea217db9e414caa6f08cee6d8c89
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472446"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761900"
 ---
 # <a name="encoding-with-media-services"></a>Codifica con Servizi multimediali
 
-Servizi multimediali di Azure consente di codificare i file multimediali digitali di alta qualità in file MP4 a bitrate adattivo in modo che i contenuti possono essere riprodotti su un'ampia gamma di browser e dispositivi. Un processo di codifica di servizi multimediali ha esito positivo viene creato un output Asset con un set di velocità in bit adattiva MP4s e streaming i file di configurazione. I file di configurazione includono ISM, con estensione ismc, .mpi e altri file che non deve essere modificato. Al termine il processo di codifica, è possibile sfruttare [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) e avviare lo streaming.
+La codifica di termini in servizi multimediali si applica al processo di conversione di file contenenti video digitali e/o audio da un formato standard a un altro, con lo scopo di (a) di riduzione delle dimensioni dei file e/o (b) che produce un formato compatibile con un ampia gamma di dispositivi e applicazioni. Questo processo viene anche definito come la compressione video o la transcodifica. Vedere le [compressione dei dati](https://en.wikipedia.org/wiki/Data_compression) e il [What ' s codifica e transcodifica?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) per ulteriori informazioni sui concetti.
 
-Per rendere i video nell'output di Asset disponibili per i client per la riproduzione, è necessario creare un **localizzatore di Streaming** e creare URL di streaming. Quindi, in base al formato specificato nel manifesto, il client ricevano il flusso nel protocollo prescelto.
+I video sono tipicamente fruibili per i dispositivi e per le applicazioni vengono [download progressivo](https://en.wikipedia.org/wiki/Progressive_download) o tramite [streaming a bitrate adattivo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming). 
 
-Il diagramma seguente illustra lo streaming on demand con flusso di lavoro di creazione dinamica dei pacchetti.
+* Per il recapito tramite download progressivo, è possibile usare servizi multimediali di Azure per convertire un il file multimediale digitale (in formato intermedio) in un' [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) file che contiene i video in cui è stato codificato con la [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) codec, e audio che è stato codificato con la [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codec. Questo file MP4 viene scritto in un Asset nell'account di archiviazione. È possibile usare gli SDK o l'API di archiviazione di Azure (ad esempio, [API REST di archiviazione](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), o [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) per scaricare direttamente il file. Se è stato creato l'output Asset con un nome di contenitore specifico nell'archiviazione, usare quel percorso. In caso contrario, è possibile usare servizi multimediali [elencare gli URL di contenitore di asset](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* Per preparare il contenuto per il recapito mediante streaming a bitrate adattivo, i file in formato intermedio deve essere con codifica a bitrate multipli (alto al basso). Per assicurarsi che la transizione normale di qualità, come si riducono la velocità in bit, pertanto è la risoluzione del video. Ciò comporta un cosiddetto ladder codifica: una tabella di risoluzioni e velocità in bit (vedere [ladder velocità in bit adattiva autogenerato](autogen-bitrate-ladder.md)). È possibile usare servizi multimediali per codificare i file in formato intermedio in bitrate multipli: in questo modo, si otterrà un set di file MP4 e streaming configuration file associati, scritti in un Asset nell'account di archiviazione. È quindi possibile usare la [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) funzionalità in servizi multimediali per distribuire il video tramite protocolli, ad esempio di streaming [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) e [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Ciò richiede la creazione di un [localizzatore di Streaming](streaming-locators-concept.md) e creare URL corrispondente al protocollo supportato, che può essere passato a dispositivi o applicazioni in base alle loro capacità di streaming.
 
-![Creazione dinamica dei pacchetti](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+Il diagramma seguente illustra il flusso di lavoro per la codifica su richiesta con creazione dinamica dei pacchetti.
+
+![Creazione dinamica dei pacchetti](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 Questo argomento contiene indicazioni su come codificare il contenuto con Servizi multimediali v3.
 
 ## <a name="transforms-and-jobs"></a>Trasformazioni e processi
 
-Per eseguire la codifica con Servizi multimediali v3, è necessario creare una [trasformazione](https://docs.microsoft.com/rest/api/media/transforms) e un [processo](https://docs.microsoft.com/rest/api/media/jobs). Una trasformazione definisce la serie di istruzioni per le impostazioni di codifica e gli output e il processo è un'istanza della serie di istruzioni. Per altre informazioni, vedere [Trasformazioni e processi](transforms-jobs-concept.md)
+Per eseguire la codifica con Servizi multimediali v3, è necessario creare una [trasformazione](https://docs.microsoft.com/rest/api/media/transforms) e un [processo](https://docs.microsoft.com/rest/api/media/jobs). La trasformazione definisce una ricetta per le impostazioni di codifica e l'output; il processo è un'istanza del file recipe. Per altre informazioni, vedere [Trasformazioni e processi](transforms-jobs-concept.md)
 
 Durante la codifica con Servizi multimediali si usano set di impostazioni per indicare al codificatore come elaborare i file multimediali di input. Ad esempio, è possibile specificare la risoluzione video e/o il numero di canali audio desiderati nel contenuto codificato. 
 

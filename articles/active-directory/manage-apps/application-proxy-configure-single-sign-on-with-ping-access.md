@@ -3,8 +3,8 @@ title: Autenticazione basata su intestazione con PingAccess per il proxy dell'ap
 description: Pubblicare le applicazioni con PingAccess e il proxy dell'applicazione per supportare l'autenticazione basata su intestazione.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eef15098eed8959655ae2904bf41a8c3dffc9f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecba35a54c530e97a3f96bd8cfb5fa217d300f83
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293924"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783584"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione e PingAccess
 
 Il proxy dell'applicazione Azure Active Directory e PingAccess hanno collaborato per fornire ai clienti di Azure Active Directory l'accesso a un numero ancora maggiore di applicazioni. PingAccess espande le [offerte esistenti del proxy di applicazione](application-proxy.md) in modo da includere l'accesso Single Sign-On alle applicazioni che usano intestazioni per l'autenticazione.
 
-## <a name="what-is-pingaccess-for-azure-ad"></a>Che cos'è PingAccess per Azure AD?
+## <a name="what-is-pingaccess-for-azure-ad"></a>Informazioni su PingAccess per Azure AD
 
 PingAccess per Azure Active Directory è un'offerta di PingAccess che consente di mettere a disposizione degli utenti l'accesso e l'accesso Single Sign-On alle applicazioni che usano intestazioni per l'autenticazione. Il proxy dell'applicazione tratta queste app come qualsiasi altra, usando Azure AD per autenticare l'accesso e quindi passando il traffico attraverso il servizio del connettore. PingAccess sta davanti alle app e converte il token di accesso da Azure AD in un'intestazione, in modo che l'applicazione riceva l'autenticazione nel formato che è in grado di leggere.
 
@@ -80,7 +80,7 @@ Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettaglia
      > Per questo tipo di SSO, l'URL interno deve usare https e non può usare http.
 
    - **Metodo di autenticazione preliminare**: Azure Active Directory
-   - **Convertire l'URL nelle intestazioni**: No 
+   - **Convertire l'URL nelle intestazioni**: N.
 
    >[!NOTE]
    >Se si tratta della prima applicazione, usare inizialmente la porta 3000 e aggiornare questa impostazione se viene modificata la configurazione di PingAccess. Se si tratta almeno di una seconda app, è necessaria una corrispondenza con il listener configurato in PingAccess. Altre informazioni sui [listener in PingAccess](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html).
@@ -112,7 +112,7 @@ Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettaglia
 
 16. Selezionare **Aggiungi**. Per l'API scegliere **Windows Azure Active Directory** e quindi **Seleziona**. Per le autorizzazioni scegliere **Read and write all applications** (Leggi e scrivi in tutte le applicazioni) e **Accedi e leggi il profilo di un altro utente** e quindi **Seleziona** e **Fine**.  
 
-    ![Autorizzazioni SELECT](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
+    ![Selezionare le autorizzazioni](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
 
 17. Concedere le autorizzazioni prima di chiudere la schermata delle autorizzazioni. 
     ![Concedere le autorizzazioni](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)

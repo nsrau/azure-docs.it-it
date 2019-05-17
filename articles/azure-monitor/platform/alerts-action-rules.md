@@ -8,25 +8,28 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227978"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620009"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
-Questo articolo descrive che cosa sono le regole di azione e come configurare e gestirli.
-
-## <a name="what-are-action-rules"></a>Quali sono le regole di azione?
-
 Regole di azione consentono di definire le azioni (o l'eliminazione delle azioni) in qualsiasi ambito di gestione risorse (sottoscrizione, gruppo di risorse o risorsa). Hanno un'ampia gamma di filtri che consentono di limitare a un sottoinsieme di istanze di avviso che si desidera agire su specifici. 
 
-Con regole di azione è possibile:
+## <a name="why-and-when-should-you-use-action-rules"></a>Perché e quando è opportuno utilizzare regole di azione?
 
-* Eliminare le azioni e le notifiche se si dispongano di finestre di manutenzione pianificato o per i fine settimana/vacanze, anziché dover disabilitare ogni regola di avviso singolarmente.
-* Definire le azioni e le notifiche su larga scala: Anziché dover definire un gruppo di azioni singolarmente per ogni regola di avviso, è ora possibile definire un gruppo di azione da attivare per gli avvisi generati in qualsiasi ambito. Ad esempio, scelgo di trigger 'ContosoActionGroup' gruppo di azione per tutti gli avvisi generati all'interno della sottoscrizione.
+### <a name="suppression-of-alerts"></a>Eliminazione degli avvisi
+
+Spesso esistono molti scenari in cui sarebbe utile eliminare le notifiche generate da avvisi, che potrebbero variare da eliminazione durante una finestra di manutenzione pianificata a eliminazione durante non lavorative. Ad esempio, il team responsabile 'ContosoVM' vuole eliminare le notifiche di avviso per i fine settimana prossimo poiché 'ContosoVM' è in fase di una manutenzione pianificata. Anche se è possibile disabilitare ogni avviso regola configurata manualmente in 'ContosoVM' (e abilitare di nuovo registra la manutenzione), non è un'esperienza semplice. Regole di azione consentono di definire l'eliminazione avvisi su larga scala con la possibilità di configurare in modo flessibile il periodo di eliminazione. Tornando all'esempio precedente, il team può ora definire una regola di azione nel 'ContosoVM' che eliminerà tutte le notifiche di avviso per i fine settimana.
+
+
+### <a name="actions-at-scale"></a>Operazioni su larga scala
+
+Anche se le regole di avviso consentono di definire il gruppo di azione che viene attivata quando l'avviso viene generato, i clienti spesso tendono a disporre di un gruppo di azioni comuni nel proprio ambito di operazioni. Ad esempio, un team responsabile del gruppo di risorse 'ContosoRG' definirà probabilmente lo stesso gruppo di azione per tutte le regole di avviso definite all'interno di 'ContosoRG'. Regole di azione consentono di semplificare il processo, consentendo di definire le azioni su larga scala, in modo che un gruppo di azioni può essere attivato per qualsiasi avviso generato sull'ambito configurato. Tornando all'esempio precedente, il team può ora definire una regola di azione nel 'ContosoRG' che attiverà lo stesso gruppo di azione per tutti gli avvisi generati in esso contenuti.
+
 
 ## <a name="configuring-an-action-rule"></a>Configurare una regola di azione
 

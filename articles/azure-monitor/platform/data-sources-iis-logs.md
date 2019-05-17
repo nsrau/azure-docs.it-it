@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614493"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604370"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Raccogliere i log di IIS in Monitoraggio di Azure
 Internet Information Services (IIS) archivia le attività utente in file di log che possono essere raccolti da Monitoraggio di Azure e archiviati come [dati di log](data-platform.md).
@@ -51,7 +51,7 @@ I record dei log di IIS sono di tipo **W3CIISLog**; la tabella seguente descrive
 | csUriStem |Destinazione della richiesta, ad esempio una pagina Web. |
 | csUriQuery |Eventuale query che il client ha tentato di eseguire. |
 | ManagementGroupName |Nome del gruppo di gestione per gli agenti di Operations Manager.  Per gli altri agenti, corrisponde ad AOI-\<ID area di lavoro\> |
-| RemoteIPCountry |Paese dell'indirizzo IP del client. |
+| RemoteIPCountry |Paese/regione dell'indirizzo IP del client. |
 | RemoteIPLatitude |Latitudine dell'indirizzo IP del client. |
 | RemoteIPLongitude |Longitudine dell'indirizzo IP del client. |
 | scStatus |Codice stato HTTP. |
@@ -67,7 +67,7 @@ I record dei log di IIS sono di tipo **W3CIISLog**; la tabella seguente descrive
 ## <a name="log-queries-with-iis-logs"></a>Query di log con i log di IIS
 La tabella seguente mostra alcuni esempi di query nei log che recuperano i record dei log di IIS.
 
-| Query | DESCRIZIONE |
+| Query | Descrizione |
 |:--- |:--- |
 | W3CIISLog |Tutti i record del log di IIS. |
 | W3CIISLog &#124; where scStatus==500 |Tutti i record del log IIS con stato restituito pari a 500. |

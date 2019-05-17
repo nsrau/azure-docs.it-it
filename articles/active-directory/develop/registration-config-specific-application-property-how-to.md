@@ -3,8 +3,8 @@ title: Come compilare campi specifici per un'applicazione personalizzata | Micro
 description: Materiale sussidiario su come compilare campi specifici quando si registra un'applicazione personalizzata con Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e4362e45ff8eee13b9203b9103266c60b4833a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8b93f26080229e980b680c157f59db4edf33e7a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299057"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545490"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Come compilare campi specifici per un'applicazione personalizzata
 
@@ -39,16 +39,16 @@ Questo articolo include una breve descrizione di tutti i campi disponibili nel m
 ## <a name="fields-in-the-application-registration-form"></a>Campi nel modulo di registrazione dell'applicazione
 
 
-| Campo            | DESCRIZIONE                                                                              |
+| Campo            | Descrizione                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Name             | Il nome dell'applicazione. Deve essere minimo di quattro caratteri.                |
+| NOME             | Il nome dell'applicazione. Deve essere minimo di quattro caratteri.                |
 | Tipo di applicazione | **App Web/API Web**: un'applicazione Web, un'API Web o entrambe 
 | |**Nativa**: un'applicazione che può essere installata in un computer o dispositivo utente           |
 | URL di accesso      | L'URL a cui possono accedere gli utenti per usare l'applicazione                                  |
 
 Dopo aver compilato i campi sopra elencati, registrare l'applicazione nel Portale di Azure. Verrà visualizzata la pagina dell'applicazione. Il pulsante **Impostazioni** del riquadro dell'applicazione apre la pagina Impostazioni, che include più campi per personalizzare l'applicazione. La tabella seguente illustra tutti i campi nella pagina Impostazioni. Si noti che viene visualizzato solo un sottoinsieme di questi campi, a seconda se è stata creata un'applicazione Web o un'applicazione nativa.
 
-| Campo           | DESCRIZIONE                                                                                                                                                                                                                                                                                                     |
+| Campo           | Descrizione                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID applicazione  | Quando si registra un'applicazione, Azure AD assegna un ID all'applicazione. L'ID dell'applicazione può essere usato per identificare in modo univoco l'applicazione nelle richieste di autenticazione ad Azure AD, nonché per accedere a risorse, ad esempio l'API Graph.                                                          |
 | URI dell'ID dell'app      | Deve essere un URI univoco, in genere nel formato **https://&lt;nome\_tenant&gt;/&lt;nome\_applicazione&gt;.** L'URI viene usato durante il flusso di concessione delle autorizzazioni, come identificatore univoco per specificare la risorsa per cui deve essere emesso il token. Diventa anche l'attestazione "aud" nel token di accesso emesso. |

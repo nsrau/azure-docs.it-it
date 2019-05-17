@@ -7,35 +7,35 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/08/2017
-ms.openlocfilehash: ef302ecaa6defc6ac0dc1dd58d4f8acc0f2fd263
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/16/2019
+ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711442"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761961"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Esempi di query per modelli di uso comune di Analisi di flusso
 
-## <a name="introduction"></a>Introduzione
-Le query in Analisi di flusso di Azure sono espresse in un linguaggio di query di tipo SQL. Questi costrutti di linguaggio sono documentati nella guida [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+Le query in Analisi di flusso di Azure sono espresse in un linguaggio di query di tipo SQL. Questi costrutti di linguaggio sono documentati nella guida [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](/stream-analytics-query/stream-analytics-query-language-reference). 
 
-La progettazione delle query può definire una logica pass-through semplice per spostare i dati degli eventi da un flusso di input in un altro archivio dati di output. In alternativa, è possibile eseguire criteri di ricerca e analisi temporali avanzate per calcolare le aggregazioni attraverso diverse finestre temporali, come nel TollApp di esempio. È possibile aggiungere dati da più input per combinare flussi di eventi ed eseguire ricerche sui dati di riferimento statici per arricchire i valori degli eventi. È anche possibile scrivere dati per più output.
+La progettazione delle query può esprimere la logica di pass-through semplice per spostare i dati dell'evento da un flusso di input in un archivio dati di output o l'attività possa eseguire analisi dei modelli avanzati corrispondente e temporali per calcolare le aggregazioni su diversi intervalli di tempo come nel [compilare IoT soluzione tramite Stream Analitica](stream-analytics-build-an-iot-solution-using-stream-analytics.md) Guida. È possibile unire dati da più input per combinare gli eventi di streaming ed è possibile eseguire ricerche di dati di riferimento statici per arricchire i valori di evento. È anche possibile scrivere i dati per più output.
 
-Questo articolo illustra le soluzioni per diversi modelli di query comuni basati su scenari reali. È un lavoro in corso che continua a essere periodicamente aggiornato con nuovi modelli.
+Questo articolo illustra le soluzioni per diversi modelli di query comuni basati su scenari reali.
 
-## <a name="work-with-complex-data-types-in-json-and-avro"></a>Usare tipi di dati complessi in JSON e AVRO 
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>Usare tipi di dati complessi in JSON e AVRO
+
 Analisi di flusso di Azure supporta l'elaborazione di eventi nei formati di dati CSV, JSON e Avro.
-Entrambi i formati JSON e Avro possono contenere tipi complessi come le matrici o gli oggetti nidificati (record). Per usare questi tipi di dati complessi, vedere l'articolo [Analisi di dati JSON e AVRO](stream-analytics-parsing-json.md).
 
+Entrambi i formati JSON e Avro possono contenere tipi complessi come le matrici o gli oggetti nidificati (record). Per altre informazioni sull'uso di questi tipi di dati complessi, vedere la [i dati di analisi JSON e AVRO](stream-analytics-parsing-json.md) articolo.
 
 ## <a name="query-example-convert-data-types"></a>Esempio di query: Convertire tipi di dati
-**Descrizione**: definire i tipi di proprietà nel flusso di input.
-Il peso dell'auto, ad esempio, viene immesso nel flusso di input come stringa e deve essere convertito in **INT** per eseguire l'operazione **SUM** dei valori.
+
+**Descrizione**: definire i tipi di proprietà nel flusso di input. Ad esempio, il peso dell'auto è immesso nel flusso di input come stringhe e deve essere convertito **INT** eseguire **somma**.
 
 **Input**:
 
-| Assicurarsi | Tempo | Peso |
+| Assicurarsi | Time | Peso |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
@@ -59,15 +59,16 @@ Il peso dell'auto, ad esempio, viene immesso nel flusso di input come stringa e 
         TumblingWindow(second, 10)
 ```
 
-**Spiegazione**: usare un'istruzione **CAST** nel campo **Peso** per specificarne il tipo di dati. Visualizzare l'elenco dei tipi di dati supportati in [Tipi di dati (Analisi di flusso di Azure)](https://msdn.microsoft.com/library/azure/dn835065.aspx).
+**Spiegazione**: usare un'istruzione **CAST** nel campo **Peso** per specificarne il tipo di dati. Visualizzare l'elenco dei tipi di dati supportati in [Tipi di dati (Analisi di flusso di Azure)](/stream-analytics-query/data-types-azure-stream-analytics).
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Esempio di query: usare Like/Not like per la corrispondenza dei modelli
+## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Esempio di query: Usare LIKE/NOT LIKE e la corrispondenza dei modelli
+
 **Descrizione**: verificare che un valore del campo dell'evento corrisponda a un determinato modello.
 Verificare, ad esempio, che il risultato restituisca le targhe che iniziano per A e terminano con 9.
 
 **Input**:
 
-| Assicurarsi | Targa | Tempo |
+| Assicurarsi | Targa | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -75,7 +76,7 @@ Verificare, ad esempio, che il risultato restituisca le targhe che iniziano per 
 
 **Output**:
 
-| Assicurarsi | Targa | Tempo |
+| Assicurarsi | Targa | Time |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
@@ -91,15 +92,15 @@ Verificare, ad esempio, che il risultato restituisca le targhe che iniziano per 
         LicensePlate LIKE 'A%9'
 ```
 
-**Spiegazione**: usare l'istruzione **LIKE** per verificare che il valore del campo **LicensePlate**. inizi con la lettera A, contenga una stringa di zeri o altri caratteri e termini con 9. 
+**Spiegazione**: usare l'istruzione **LIKE** per verificare che il valore del campo **LicensePlate**. Deve iniziare con la lettera A, quindi contenga una stringa di zero o più caratteri e quindi terminare con il numero di 9. 
 
 ## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Esempio di query: specificare la logica per i diversi casi/valori (istruzioni CASE)
-**Descrizione**: fornire un calcolo diverso per un campo in base un determinato criterio.
-Fornire ad esempio una stringa descrittiva relativa al numero di automobili della stessa casa automobilistica che sono passate, con un caso speciale impostato su 1.
+
+**Descrizione**: fornire un calcolo diverso per un campo in base un determinato criterio. Fornire ad esempio una stringa descrittiva relativa al numero di automobili della stessa casa automobilistica che sono passate, con un caso speciale impostato su 1.
 
 **Input**:
 
-| Assicurarsi | Tempo |
+| Assicurarsi | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -120,7 +121,7 @@ Fornire ad esempio una stringa descrittiva relativa al numero di automobili dell
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
             ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
         END AS CarsPassed,
-        System.TimeStamp AS Time
+        System.TimeStamp() AS Time
     FROM
         Input TIMESTAMP BY Time
     GROUP BY
@@ -128,15 +129,15 @@ Fornire ad esempio una stringa descrittiva relativa al numero di automobili dell
         TumblingWindow(second, 10)
 ```
 
-**Spiegazione**: l'espressione **CASE** confronta un'espressione con un set di espressioni semplici per determinare il risultato. In questo esempio, le marche di veicolo con un conteggio pari a 1 hanno restituito una stringa descrittiva diversa da quella delle marche di veicolo con un numero diverso da 1. 
+**Spiegazione**: l'espressione **CASE** confronta un'espressione con un set di espressioni semplici per determinare il risultato. In questo esempio, le marche di veicolo con un conteggio pari a 1 hanno restituito una stringa descrittiva diversa da quella delle marche di veicolo con un numero diverso da 1.
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>Esempio di query: inviare dati a più output
-**Descrizione**: inviare dati a più destinazioni di output da un singolo processo.
-Analizzare, ad esempio, i dati per un avviso basato su soglie e archiviare tutti gli eventi nell'archiviazione BLOB.
+
+**Descrizione**: inviare dati a più destinazioni di output da un singolo processo. Analizzare, ad esempio, i dati per un avviso basato su soglie e archiviare tutti gli eventi nell'archiviazione BLOB.
 
 **Input**:
 
-| Assicurarsi | Tempo |
+| Assicurarsi | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -146,7 +147,7 @@ Analizzare, ad esempio, i dati per un avviso basato su soglie e archiviare tutti
 
 **Output1**:
 
-| Assicurarsi | Tempo |
+| Assicurarsi | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -156,7 +157,7 @@ Analizzare, ad esempio, i dati per un avviso basato su soglie e archiviare tutti
 
 **Output2**:
 
-| Assicurarsi | Tempo | Conteggio |
+| Assicurarsi | Time | Conteggio |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -172,7 +173,7 @@ Analizzare, ad esempio, i dati per un avviso basato su soglie e archiviare tutti
 
     SELECT
         Make,
-        System.TimeStamp AS Time,
+        System.TimeStamp() AS Time,
         COUNT(*) AS [Count]
     INTO
         AlertOutput
@@ -185,12 +186,11 @@ Analizzare, ad esempio, i dati per un avviso basato su soglie e archiviare tutti
         [Count] >= 3
 ```
 
-**Spiegazione**: la clausola **INTO** indica all'Analisi di flusso in quali output scrivere i dati ottenuti con questa istruzione.
-La prima è una query pass-through dei dati ricevuti per un output denominato **ArchiveOutput**.
-La seconda query effettua una semplice aggregazione, filtra e invia i risultati a un sistema di avviso downstream.
+**Spiegazione**: la clausola **INTO** indica all'Analisi di flusso in quali output scrivere i dati ottenuti con questa istruzione. La prima query è un pass-through dei dati ricevuti da un output denominato **ArchiveOutput**. La seconda query effettua una semplice aggregazione, Filtra e lo invia i risultati a un sistema di avviso downstream **AlertOutput**.
 
 È anche possibile riusare i risultati delle espressioni di tabella comune (CTE), ovvero le istruzioni **WITH**, in più istruzioni di output. Questa opzione offre il vantaggio aggiuntivo di aprire un numero inferiore di lettori nell'origine di input.
-Ad esempio:  
+
+Ad esempio: 
 
 ```SQL
     WITH AllRedCars AS (
@@ -206,12 +206,12 @@ Ad esempio:
 ```
 
 ## <a name="query-example-count-unique-values"></a>Esempio di query: contare valori univoci
-**Descrizione**: contare il numero di valori di campo univoci presenti nel flusso in un intervallo di tempo.
-Ad esempio, quante automobili appartenenti alla stessa casa automobilistica sono passate da un casello autostradale in una finestra di due secondi?
+
+**Descrizione**: contare il numero di valori di campo univoci presenti nel flusso in un intervallo di tempo. Ad esempio, quante automobili appartenenti alla stessa casa automobilistica sono passate da un casello autostradale in una finestra di due secondi?
 
 **Input**:
 
-| Assicurarsi | Tempo |
+| Assicurarsi | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -221,7 +221,7 @@ Ad esempio, quante automobili appartenenti alla stessa casa automobilistica sono
 
 **Output:**
 
-| CountMake | Tempo |
+| CountMake | Time |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -231,7 +231,7 @@ Ad esempio, quante automobili appartenenti alla stessa casa automobilistica sono
 ```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
-     System.TIMESTAMP AS TIME
+     System.TIMESTAMP() AS TIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
@@ -242,19 +242,19 @@ GROUP BY
 **COUNT(DISTINCT Make)** restituisce il numero di valori distinct della colonna **Casa automobilistica** all'interno di una finestra temporale.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Esempio di query: determinare la potenziale variazione di un valore
-**Descrizione**: esaminare un valore precedente per determinare se è diverso rispetto al valore corrente.
-L'auto precedente passata dal casello autostradale, ad esempio, è della stessa casa automobilistica dell'auto corrente?
+
+**Descrizione**: esaminare un valore precedente per determinare se è diverso rispetto al valore corrente. L'auto precedente passata dal casello autostradale, ad esempio, è della stessa casa automobilistica dell'auto corrente?
 
 **Input**:
 
-| Assicurarsi | Tempo |
+| Assicurarsi | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Output**:
 
-| Assicurarsi | Tempo |
+| Assicurarsi | Time |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -273,11 +273,12 @@ L'auto precedente passata dal casello autostradale, ad esempio, è della stessa 
 **Spiegazione**: usare **LAG** per esaminare il flusso di input di un evento precedente e ottenere il valore **Casa automobilistica**. Confrontarlo quindi con il valore **Casa automobilistica** dell'evento corrente per restituire l'evento di variazione.
 
 ## <a name="query-example-find-the-first-event-in-a-window"></a>Esempio di query: trovare il primo evento in una finestra
+
 **Descrizione**: trovare la prima auto in ogni intervallo di 10 minuti.
 
 **Input**:
 
-| Targa | Assicurarsi | Tempo |
+| Targa | Assicurarsi | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
 | YZK 5704 |Ford |27-07-2015T00:02:17.0000000Z |
@@ -289,7 +290,7 @@ L'auto precedente passata dal casello autostradale, ad esempio, è della stessa 
 
 **Output**:
 
-| Targa | Assicurarsi | Tempo |
+| Targa | Assicurarsi | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
 | QYF 9358 |Honda |27-07-2015T00:12:02.0000000Z |
@@ -307,9 +308,9 @@ L'auto precedente passata dal casello autostradale, ad esempio, è della stessa 
         IsFirst(minute, 10) = 1
 ```
 
-Si ridefinirà ora il problema per trovare la prima auto di una particolare casa automobilistica a intervalli di 10 minuti.
+A questo punto è possibile modificare il problema e trovare la prima Auto di una particolare marca in ogni intervallo di 10 minuti.
 
-| Targa | Assicurarsi | Tempo |
+| Targa | Assicurarsi | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
 | YZK 5704 |Ford |27-07-2015T00:02:17.0000000Z |
@@ -331,11 +332,12 @@ Si ridefinirà ora il problema per trovare la prima auto di una particolare casa
 ```
 
 ## <a name="query-example-find-the-last-event-in-a-window"></a>Esempio di query: trovare l'ultimo evento in una finestra
+
 **Descrizione**: trovare l'ultima auto in ogni intervallo di 10 minuti.
 
 **Input**:
 
-| Targa | Assicurarsi | Tempo |
+| Targa | Assicurarsi | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
 | YZK 5704 |Ford |27-07-2015T00:02:17.0000000Z |
@@ -347,7 +349,7 @@ Si ridefinirà ora il problema per trovare la prima auto di una particolare casa
 
 **Output**:
 
-| Targa | Assicurarsi | Tempo |
+| Targa | Assicurarsi | Time |
 | --- | --- | --- |
 | VFE 1616 |Toyota |27-07-2015T00:09:31.0000000Z |
 | MDR 6128 |BMW |27-07-2015T00:13:45.0000000Z |
@@ -378,12 +380,13 @@ Si ridefinirà ora il problema per trovare la prima auto di una particolare casa
 **Spiegazione**: la query si articola in due passaggi. Il primo rileva il timestamp più recente in finestre di 10 minuti, il secondo unisce i risultati della prima query con il flusso originale per trovare gli eventi corrispondenti ai timestamp più recenti in ogni finestra. 
 
 ## <a name="query-example-detect-the-absence-of-events"></a>Esempio di query: rilevare l'assenza di eventi
+
 **Descrizione**: verificare che un flusso non abbia un valore corrispondente a determinati criteri.
 Ad esempio, 2 automobili consecutive della stessa casa automobilistica hanno attraversato il casello negli ultimi 90 secondi?
 
 **Input**:
 
-| Assicurarsi | Targa | Tempo |
+| Assicurarsi | Targa | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -392,7 +395,7 @@ Ad esempio, 2 automobili consecutive della stessa casa automobilistica hanno att
 
 **Output**:
 
-| Assicurarsi | Tempo | Targa auto corrente | Targa prima auto | Tempo prima auto |
+| Assicurarsi | Time | Targa auto corrente | Targa prima auto | Tempo prima auto |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
@@ -414,18 +417,19 @@ Ad esempio, 2 automobili consecutive della stessa casa automobilistica hanno att
 **Spiegazione**: usare **LAG** per esaminare il flusso di input di un evento precedente e ottenere il valore **Casa automobilistica**. Confrontarlo quindi con il valore **Casa automobilistica** dell'evento corrente e, se corrispondono, restituire l'evento. È possibile anche usare **LAG** per ottenere i dati relativi all'auto precedente.
 
 ## <a name="query-example-detect-the-duration-between-events"></a>Esempio di query: rilevare la durata tra gli eventi
+
 **Descrizione**: trovare la durata di un determinato evento. Dato un clickstream Web, determinare ad esempio i tempi di una funzionalità.
 
 **Input**:  
 
-| Utente | Funzionalità | Event | Tempo |
+| Utente | Funzionalità | Event | Time |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Inizia |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |Inizio |2015-01-01T00:00:01.0000000Z |
+| user@location.com |RightMenu |Termina |2015-01-01T00:00:08.0000000Z |
 
 **Output**:  
 
-| Utente | Funzionalità | Duration |
+| Utente | Funzionalità | Durata |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -447,7 +451,7 @@ Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le au
 
 **Input**:
 
-| Assicurarsi | Tempo | Peso |
+| Assicurarsi | Time | Peso |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -488,8 +492,8 @@ Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le au
 **Spiegazione**: usare **LAG** per visualizzare il flusso di input per 24 ore e cercare le istanze in cui **StartFault** e **StopFault** vengono intervallati in base al peso (< 20000).
 
 ## <a name="query-example-fill-missing-values"></a>Esempio di query: immettere i valori mancanti
-**Descrizione**: per il flusso di eventi con i valori mancanti, generare un flusso di eventi con intervalli regolari.
-Generare, ad esempio, un evento ogni 5 secondi che segnali il punto di dati più recente individuato.
+
+**Descrizione**: per il flusso di eventi con i valori mancanti, generare un flusso di eventi con intervalli regolari. Generare, ad esempio, un evento ogni 5 secondi che segnali il punto di dati più recente individuato.
 
 **Input**:
 
@@ -521,19 +525,19 @@ Generare, ad esempio, un evento ogni 5 secondi che segnali il punto di dati più
 
 ```SQL
     SELECT
-        System.Timestamp AS windowEnd,
+        System.Timestamp() AS windowEnd,
         TopOne() OVER (ORDER BY t DESC) AS lastEvent
     FROM
         input TIMESTAMP BY t
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 ```
 
-**Spiegazione**: questa query genera eventi ogni cinque secondi e restituisce l'ultimo evento ricevuto in precedenza. La durata della [finestra di salto](https://msdn.microsoft.com/library/dn835041.aspx "Finestra di salto - Analisi di flusso di Azure") determina fino a quando risale la query per cercare l'evento più recente. In questo esempio, 300 secondi.
+**Spiegazione**: questa query genera eventi ogni cinque secondi e restituisce l'ultimo evento ricevuto in precedenza. Il [finestra di salto](/stream-analytics-query/hopping-window-azure-stream-analytics) durata determina fino a quando risale la query per trovare l'evento più recente (300 secondi in questo esempio).
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Esempio di query: correlare due tipi di evento all'interno dello stesso flusso
-**Descrizione**: a volte è necessario generare gli avvisi in base a più tipi di evento che si sono verificati in un determinato intervallo di tempo.
-Nello scenario IoT per forni domestici, ad esempio, deve essere generato un avviso quando la temperatura della ventola è inferiore a 40 e la potenza massima negli ultimi tre minuti è minore di 10.
+
+**Descrizione**: a volte è necessario generare gli avvisi in base a più tipi di evento che si sono verificati in un determinato intervallo di tempo. Nello scenario IoT per forni domestici, ad esempio, deve essere generato un avviso quando la temperatura della ventola è inferiore a 40 e la potenza massima negli ultimi tre minuti è minore di 10.
 
 **Input**:
 
@@ -569,7 +573,7 @@ Nello scenario IoT per forni domestici, ad esempio, deve essere generato un avvi
 ```SQL
 WITH max_power_during_last_3_mins AS (
     SELECT 
-        System.TimeStamp AS windowTime,
+        System.TimeStamp() AS windowTime,
         deviceId,
         max(value) as maxPower
     FROM
@@ -602,15 +606,15 @@ WHERE
     AND t2.maxPower > 10
 ```
 
-**Spiegazione**: la prima query `max_power_during_last_3_mins` usa la [finestra scorrevole](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) per trovare il valore massimo del sensore di alimentazione per ogni dispositivo, durante gli ultimi 3 minuti. La seconda query viene unita alla prima query per trovare il valore di potenza nella finestra più recente rilevante per l'evento corrente. A condizione che le condizioni siano soddisfatte, viene quindi generato un avviso per il dispositivo.
+**Spiegazione**: la prima query `max_power_during_last_3_mins` usa la [finestra scorrevole](/stream-analytics-query/sliding-window-azure-stream-analytics) per trovare il valore massimo del sensore di alimentazione per ogni dispositivo, durante gli ultimi 3 minuti. La seconda query viene unita alla prima query per trovare il valore di potenza nella finestra più recente rilevante per l'evento corrente. A condizione che le condizioni siano soddisfatte, viene quindi generato un avviso per il dispositivo.
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Esempio di query: elaborare eventi indipendenti dallo sfasamento di orario dei dispositivi (substream)
-**Descrizione**: gli eventi possono arrivare in ritardo o non in ordine a causa di sfasamenti di orario tra producer di eventi, sfasamenti di orario tra partizioni o latenza di rete. Nell'esempio seguente, l'orologio di dispositivo per 2 TollID è cinque secondi dietro TollID 1 e il clock di dispositivo per 3 TollID è dieci secondi dietro TollID 1. 
 
+**Descrizione**: gli eventi possono arrivare in ritardo o non in ordine a causa di sfasamenti di orario tra producer di eventi, sfasamenti di orario tra partizioni o latenza di rete. Nell'esempio seguente, l'orologio di dispositivo per 2 TollID è cinque secondi dietro TollID 1 e il clock di dispositivo per 3 TollID è dieci secondi dietro TollID 1. 
 
 **Input**:
 
-| Targa | Assicurarsi | Tempo | ID casello |
+| Targa | Assicurarsi | Time | ID casello |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
 | YHN 6970 |Toyota |27-07-2015T00:00:05.0000000Z | 1 |
@@ -643,14 +647,15 @@ FROM input
 GROUP BY TUMBLINGWINDOW(second, 5), TollId
 ```
 
-**Spiegazione**: la clausola [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) esamina la sequenza temporale di ogni dispositivo separatamente tramite substream. Gli eventi di output per ogni TollID vengono generati man mano che vengono elaborati, vale a dire che gli eventi sono in ordine rispetto a ogni TollID anziché venire riordinati come se tutti i dispositivi fossero nello stesso clock.
+**Spiegazione**: la clausola [TIMESTAMP BY OVER](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) esamina la sequenza temporale di ogni dispositivo separatamente tramite substream. Gli eventi di output per ogni TollID vengono generati man mano che vengono elaborati, vale a dire che gli eventi sono in ordine rispetto a ogni TollID anziché venire riordinati come se tutti i dispositivi fossero nello stesso clock.
 
 ## <a name="query-example-remove-duplicate-events-in-a-window"></a>Esempio di query: rimuovere gli eventi duplicati in una finestra
-**Descrizione**: quando si esegue un'operazione come il calcolo delle medie sugli eventi di un determinato intervallo di tempo, gli eventi duplicati devono essere filtrati.
+
+**Descrizione**: quando si esegue un'operazione come il calcolo delle medie sugli eventi di un determinato intervallo di tempo, gli eventi duplicati devono essere filtrati. Nell'esempio seguente, il secondo evento è un duplicato del primo.
 
 **Input**:  
 
-| deviceId | Tempo | Attributo | Value |
+| DeviceId | Time | Attributo | Value |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
@@ -661,7 +666,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Output**:  
 
-| AverageValue | deviceId |
+| AverageValue | DeviceId |
 | --- | --- |
 | 70 | 1 |
 |45 | 2 |
@@ -679,7 +684,7 @@ With Temp AS (
     GROUP BY
         Value,
         DeviceId,
-        SYSTEM.TIMESTAMP
+        SYSTEM.TIMESTAMP()
 )
 
 SELECT
@@ -689,9 +694,10 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**Spiegazione**: [COUNT(DISTINCT Time)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) restituisce il numero di valori distinct della colonna Tempo all'interno di una finestra temporale. È quindi possibile usare l'output di questo passaggio per calcolare la media di ogni dispositivo eliminando i duplicati.
+**Spiegazione**: [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics) restituisce il numero di valori distinct della colonna Tempo all'interno di una finestra temporale. È quindi possibile usare l'output di questo passaggio per calcolare la media di ogni dispositivo eliminando i duplicati.
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Guida
+
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi

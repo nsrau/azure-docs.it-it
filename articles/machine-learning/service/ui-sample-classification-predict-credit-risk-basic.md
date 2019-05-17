@@ -1,7 +1,7 @@
 ---
 title: 'Classificazione: Prevedere il rischio di credito'
 titleSuffix: Azure Machine Learning service
-description: Questo esperimento di esempio di interfaccia visiva di seguito viene illustrato come eseguire la classificazione binaria per prevedere il rischio di credito basata sulle informazioni fornite in un'applicazione di carta di credito.
+description: Informazioni su come creare un classificatore di apprendimento automatico senza dover scrivere una singola riga di codice usando l'interfaccia visiva.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 3d4ec3c71aaed6bddb012fb17ee5bb96da00cd76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028531"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789407"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>Esempio 3: classificazione: Prevedere il rischio di credito
 
-Questo esperimento di esempio di interfaccia visiva di seguito viene illustrato come eseguire la classificazione binaria per prevedere il rischio di credito basata sulle informazioni fornite in un'applicazione di carta di credito. Mostra come è possibile eseguire la classificazione di base, incluse le operazioni di elaborazione dei dati, dividere il set di dati in training set e test, il training del modello, assegnare un punteggio al set di dati di test e valutare le stime.
+Informazioni su come creare un classificatore di apprendimento automatico senza dover scrivere una singola riga di codice usando l'interfaccia visiva. In questo esempio esegue il training di un **albero delle decisioni con Boosting a due classi** stimare credito basato sui rischi (alto o basso) sulle informazioni di carta di credito dell'applicazione come cronologia crediti, età e numero di carta di credito.
+
+Poiché stiamo tentando di rispondere alla domanda "Quale uno?" si tratta di un problema di classificazione. Tuttavia, è possibile applicare lo stesso processo fondamentale per affrontare qualsiasi tipo di apprendimento automatico che si tratti di regressione, classificazione, clustering e così via.
+
+Ecco il grafico completato per questo esperimento:
+
+![Grafico dell'esperimento](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +46,6 @@ Il set di dati contiene 1000 campioni con 1 etichetta e 20 funzionalità. Ogni e
 
 ## <a name="experiment-summary"></a>Riepilogo di esperimento
 
-
 È seguire questi passaggi per creare l'esperimento:
 
 1. Trascinare il modulo di German Credit Card UCI Data set di dati nell'area di disegno dell'esperimento.
@@ -50,11 +55,10 @@ Il set di dati contiene 1000 campioni con 1 etichetta e 20 funzionalità. Ogni e
 1. Aggiungere un **Train Model** modulo. Connettere la funzione di classificazione nel passaggio precedente per la porta di input sinistra del **Train Model**. Aggiungere il set di training (porta di output sinistra di **Split Data**) alla porta di input destra del **Train Model**. Il **Train Model** eseguirà il training del classificatore.
 1. Aggiungere un **Score Model** modulo e connettere il **Train Model** modulo ad esso. Aggiungere quindi il set di test (porta di destra del **Split Data**) per il **Score Model**. Il **Score Model** apporterà le stime. È possibile selezionare la porta di output per visualizzare le stime e probabilità la classe positiva.
 1. Aggiungere un **Evaluate Model** modulo e connettere il set di dati con punteggio per la porta di input a sinistra. Per visualizzare i risultati della valutazione, selezionare la porta di output del **Evaluate Model** modulo e selezionare **Visualize**.
-    
+
 Ecco il grafico completo esperimento:
 
 ![Grafico dell'esperimento](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
-
 
 ## <a name="results"></a>Risultati
 

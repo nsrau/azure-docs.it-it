@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e23297d8cd6cab5abeedc1a12fa1a37c93e94283
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8b3447b8094eb95bd2f61baed7371bf718fdf730
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943609"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606918"
 ---
 <a name="seller-insights-definitions"></a>Definizioni di Seller Insights
 =======================
@@ -37,7 +37,7 @@ La tabella seguente fornisce le definizioni per molti dei termini usati in Selle
 | **Città cliente**  | Il nome della città fornito dal cliente. Ciò potrebbe essere diverso da quello della città nella sottoscrizione di Azure del cliente.  |
 | **Linguaggio di comunicazione dei clienti**        | Lingua di comunicazione preferita dal cliente.                                  |
 | **Nome della società dei clienti**                  | Il nome della società fornito dal cliente. Ciò potrebbe essere diverso da quello della città nella sottoscrizione di Azure del cliente.                                  |
-| **Paese del cliente**                       | Il nome di paese specificato dal cliente.  Ciò potrebbe essere diverso da quello del paese nella sottoscrizione di Azure del cliente.                               |
+| **Paese del cliente**                       | Il nome di paese/area geografica fornito dal cliente.  Ciò potrebbe essere diverso da quello il paese/regione nella sottoscrizione di Azure del cliente.                               |
 | **Valuta cliente (CC)**                 | Valuta preferita dal cliente per i prezzi e la fatturazione.                            |
 | **Messaggio di posta elettronica dei clienti**                         | L'indirizzo di posta elettronica fornito per il cliente finale.  Ciò potrebbe essere diverso dall'indirizzo di posta elettronica di sottoscrizione di Azure del cliente.                   |
 | **Nome cliente**                              | Il nome fornito dal cliente.  Ciò potrebbe essere diverso dal nome fornito nella sottoscrizione di Azure del cliente.                    |

@@ -11,19 +11,19 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409832"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603149"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Esplorare e preparare i dati con la classe di set di dati (anteprima)
 
 Informazioni su come esplorare e preparare i dati con il [SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Il [set di dati](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) classe (anteprima) consente di esplorare e preparare i dati, fornendo funzioni, ad esempio: campionamento, le statistiche di riepilogo e le trasformazioni intelligente. Passaggi di trasformazione vengono salvati nella [le definizioni di set di dati](how-to-manage-dataset-definitions.md) grazie alla possibilità di gestire più file di grandi dimensioni di schemi diversi in un modo altamente scalabile.
 
 > [!Important]
-> Alcune classi di set di dati (anteprima) hanno dipendenze sul SDK di preparazione dei dati (GA). Mentre le funzioni di trasformazione possono essere eseguite direttamente con il GA'ed [funzioni di Data Prep SDK](how-to-transform-data.md), è consigliabile i wrapper di pacchetto di set di dati descritti in questo articolo se si sta creando una nuova soluzione. Azure Machine Learning i set di dati (anteprima) consentono non solo di trasformare i dati, ma anche [dei dati dello snapshot](how-to-create-dataset-snapshots.md) e archiviare [definizioni di set di dati con controllo delle versioni](how-to-manage-dataset-definitions.md). I set di dati è la prossima versione di SDK di preparazione dei dati, che offre funzionalità avanzate per la gestione dei set di dati in soluzioni di intelligenza artificiale.
+> Alcune classi di set di dati (anteprima) hanno dipendenze le [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) pacchetto (GA). Mentre le funzioni di trasformazione possono essere eseguite direttamente con il GA'ed [funzioni di preparazione dei dati](how-to-transform-data.md), è consigliabile i wrapper di pacchetto di set di dati descritti in questo articolo se si sta creando una nuova soluzione. Azure Machine Learning i set di dati (anteprima) consentono non solo di trasformare i dati, ma anche [dei dati dello snapshot](how-to-create-dataset-snapshots.md) e archiviare [definizioni di set di dati con controllo delle versioni](how-to-manage-dataset-definitions.md). I set di dati è la prossima versione di SDK di preparazione dei dati, che offre funzionalità avanzate per la gestione dei set di dati in soluzioni di intelligenza artificiale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -121,7 +121,7 @@ dataset.get_profile()
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e+07|1.05351e + 07|10,0|0.0|10,0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e + 07|1.05259e+07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
 Case Number|FieldType.STRING|HZ239907|HZ278872|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
-Data|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 Blocca|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10,0|0.0|10,0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 Tipo principale|FieldType.STRING|PROCEDURE CONSIGLIATE INGANNEVOLI|FURTO|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
@@ -310,7 +310,7 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
 
 Nella tabella seguente, si noti che una nuova colonna, Date_Time_Range contiene i record nel formato specificato.
 
-||ID|Data|Date_Time_Range
+||ID|Date|Date_Time_Range
 -|--------|-----|----
 0|10498554|2016-04-04 23:56:00|2016-04-04 10PM-12AM
 1|10516598|2016-04-15 17:00:00|2016-04-15 4PM-6PM
