@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 05/13/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466548"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595791"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Abilitare la procedure di distribuzione sicure con distribuzione di gestione di Azure (anteprima pubblica)
 
@@ -38,15 +38,11 @@ Si distribuisce il modello di topologia prima di distribuire il modello di imple
 
 Le informazioni di riferimento sull'API REST di Azure Deployment Manager sono disponibili [qui](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
-## <a name="supported-locations"></a>Località supportate
-
-Per l'anteprima, le risorse di Deployment Manager sono supportate negli Stati Uniti centrali e negli Stati Uniti orientali 2. Quando si definiscono le risorse nei modelli di implementazione e topologia, ad esempio le unità di servizio, le origini degli artefatti e le implementazioni descritte in questo articolo, è necessario specificare una di tali aree come località. Le risorse distribuite per creare il servizio, ad esempio le macchine virtuali, gli account di archiviazione e le app Web, sono tuttavia supportate in tutte le [località standard](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
-
 ## <a name="identity-and-access"></a>Identità e accesso
 
 Con Deployment Manager, un'[identità gestita assegnata dall'utente](../active-directory/managed-identities-azure-resources/overview.md) esegue le azioni di distribuzione. Si crea questa identità prima di avviare la distribuzione. Deve avere accesso alla sottoscrizione in cui si distribuisce il servizio e autorizzazioni sufficienti per completare la distribuzione. Per informazioni sulle azioni concesse tramite i ruoli, vedere [Ruoli predefiniti per le risorse di Azure](../role-based-access-control/built-in-roles.md).
 
-L'identità deve trovarsi in una delle località supportate per Deployment Manager e deve trovarsi nella stessa località dell'implementazione.
+L'identità deve risiedere nella stessa posizione come l'implementazione.
 
 ## <a name="topology-template"></a>Modello di topologia
 
@@ -221,7 +217,9 @@ Il passaggio wait sospende la distribuzione prima di continuare. Consente di ver
 
 La proprietà duration usa lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). L'esempio precedente specifica un'attesa di un minuto.
 
-Per altre informazioni sul passaggio di verifica dell'integrità, vedere [ ]() e [ ]() per altre informazioni, vedere [passaggi riferimento a un modello](/azure/templates/Microsoft.DeploymentManager/steps).
+Per altre informazioni sul passaggio di verifica dell'integrità, vedere [introducono implementazione di integrazione dell'integrità di gestione di distribuzione di Azure](./deployment-manager-health-check.md) e [esercitazione: Usare controllo di integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+
+Per altre informazioni, vedere [steps template reference](/azure/templates/Microsoft.DeploymentManager/steps) (Informazioni di riferimento sul modello steps).
 
 ### <a name="rollouts"></a>Implementazioni
 

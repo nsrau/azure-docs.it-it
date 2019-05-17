@@ -1,7 +1,7 @@
 ---
 title: 'Regressione: Stimare il prezzo e confrontare gli algoritmi'
 titleSuffix: Azure Machine Learning service
-description: Questo esperimento di esempio di interfaccia visiva di seguito viene illustrato come confrontare le prestazioni dei due modelli di regressione che stima il prezzo di un'automobile. Il processo include corsi di formazione, test e la valutazione del modello su set di dati di Automobile price data (Raw).
+description: Questo articolo illustra come creare un esperimento di apprendimento automatico complessi senza scrivere una singola riga di codice usando l'interfaccia visiva. Informazioni su come eseguire il training e confrontare più modelli di regressione per prevedere il prezzo dell'automobile in base alle funzionalità tecniche
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 2a4a9e74fa7f56b67f0f4a64f6619db1c5c69a2c
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: c8c813a2304797e71499a916e29c18f8bec2b389
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442139"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787804"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Esempio 2: regressione: Stimare il prezzo e confrontare gli algoritmi
 
-Questo esperimento di esempio di interfaccia visiva di seguito viene illustrato come confrontare le prestazioni dei due modelli di regressione che stima il prezzo di un'automobile. Il processo include set di training, testing e valutare il modello usando il **dati sui prezzi di Automobile (Raw)** set di dati.
+Informazioni su come creare un esperimento di apprendimento automatico complessi senza scrivere una singola riga di codice usando l'interfaccia visiva. In questo esempio esegue il training e confronta più modelli di regressione per prevedere il prezzo dell'automobile in base alle relative funzionalità tecniche. Forniremo la base logica per le scelte effettuate in questo esperimento, pertanto è possibile affrontare propri problemi di apprendimento.
+
+Se si sta appena iniziando a usare machine Learning, è possibile esaminare i [versione di base](ui-sample-regression-predict-automobile-price-basic.md) di questo esperimento per vedere una regressione base esperimento.
+
+Ecco il grafico completato per questo esperimento:
+
+[![Grafico dell'esperimento](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,10 +35,6 @@ Questo esperimento di esempio di interfaccia visiva di seguito viene illustrato 
 
     ![Aprire l'esperimento](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="related-sample"></a>Esempio correlato
-
-[Esempio 1: regressione: Stima del prezzo dell'automobile (Basic)](ui-sample-regression-predict-automobile-price-basic.md) fornisce un semplice esperimento che consente di risolvere lo stesso problema di questo esperimento ma che usa un solo modello di regressione. Se si sta cercando un esempio di base della regressione, fare riferimento a esso.
-
 ## <a name="experiment-summary"></a>Riepilogo di esperimento
 
 Utilizziamo questa procedura per creare l'esperimento:
@@ -41,11 +43,6 @@ Utilizziamo questa procedura per creare l'esperimento:
 1. Pre-elaborare i dati.
 1. Il training del modello.
 1. Test, valutare e confrontare i modelli.
-
-Ecco l'intero grafico dell'esperimento:
-
-[![Grafico dell'esperimento](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
-
 
 ## <a name="get-the-data"></a>Ottenere i dati
 

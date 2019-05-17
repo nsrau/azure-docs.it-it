@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: cb5e41feb9be978592a1c1708ade0188ba20d504
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 7415e13a445a73af197362c6cfbd3a865a2fea02
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873158"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604059"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analisi di serie temporali in Esplora dati di Azure
 
@@ -34,7 +34,7 @@ La tabella risultante contiene una colonna di timestamp e tre colonne di dimensi
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | TimeStamp | BrowserVer | OsVer | Paese |
+|   | TimeStamp | BrowserVer | OsVer | Paese/Area geografica |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Regno Unito |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Regno Unito |
@@ -72,7 +72,7 @@ Nella tabella precedente sono presenti tre partizioni. È possibile creare una s
 In questa sezione si eseguiranno tipiche funzioni di elaborazione delle serie temporali.
 Dopo la creazione di un set di serie temporali, in Esplora dati di Azure è disponibile un numero crescente di funzioni di elaborazione e analisi di tali serie, che è possibile trovare nella [documentazione relativa alle serie temporali](/azure/kusto/query/machine-learning-and-tsa). Di seguito sono descritte alcune funzioni rappresentative per l'elaborazione e l'analisi di serie temporali.
 
-### <a name="filtering"></a>Filtri
+### <a name="filtering"></a>Filtro
 
 L'applicazione di filtri è una pratica comune nell'elaborazione dei segnali ed è utile per le attività di elaborazione delle serie temporali, ad esempio lo smorzamento di un segnale di disturbo o il rilevamento di modifiche.
 - Sono presenti due funzioni di filtro generiche:

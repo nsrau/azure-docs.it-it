@@ -3,15 +3,15 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 04/13/2019
-ms.openlocfilehash: d9b9aae8bea323e5aac74a2e317b82d4cb43568f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/14/2019
+ms.openlocfilehash: c7ff7ab0800449c2a3aa9d58bd036981caccaa1c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406887"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815589"
 ---
-# <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure
+# <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Pagare in anticipo le macchine virtuali con istanze di macchina virtuale riservate di Azure (RI)
 
 Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istanze di macchina virtuale riservate di Azure. Per altre informazioni, vedere [Istanze di macchina virtuale riservate di Azure](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
@@ -70,7 +70,7 @@ Istanze di VM riservate sono disponibili per la maggior parte delle dimensioni d
 3. Selezionare **Aggiungi** per acquistare una nuova prenotazione.
 4. Compilare i campi obbligatori. Lo sconto relativo alla prenotazione viene applicato alle istanze di macchine virtuali in esecuzione che corrispondono agli attributi. Il numero di istanze di macchine virtuali a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
 
-    | Campo      | DESCRIZIONE|
+    | Campo      | Descrizione|
     |------------|--------------|
     |NOME        |Il nome della prenotazione.|
     |Sottoscrizione|La sottoscrizione usata per pagare la prenotazione. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (numeri offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.|    
@@ -78,7 +78,7 @@ Istanze di VM riservate sono disponibili per la maggior parte delle dimensioni d
     |Region    |L'area di Azure coperta dalla prenotazione.|    
     |Dimensioni macchina virtuale     |Le dimensioni delle istanze della macchina virtuale.|
     |Ottimizza per     |La flessibilità dell'istanza di macchina virtuale applicherà lo sconto di prenotazione ad altre macchine virtuali dello stesso [gruppo di macchine virtuali](https://aka.ms/RIVMGroups). La priorità di capacità assegna la capacità del data center dando priorità alle distribuzioni. Aumenta così la certezza di avere la possibilità di avviare le istanze di macchina virtuale quando servono. La priorità di capacità è disponibile solo quando l'ambito della prenotazione è sottoscrizione singola. |
-    |Termine        |Un anno o tre anni.|
+    |Periodo        |Un anno o tre anni.|
     |Quantità    |Il numero di istanze acquistate all'interno della prenotazione. La quantità è il numero di istanze di macchina virtuale in esecuzione che possono ottenere lo sconto sulla fatturazione. Ad esempio, se si eseguono 10 macchine virtuali Standard_D2 negli Stati Uniti orientali, si specificherà 10 come quantità per ottimizzare lo sconto per tutte le macchine in esecuzione. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
@@ -98,7 +98,7 @@ Dopo l'acquisto direttamente, è possibile apportare le seguenti modifiche:
 - Area della prenotazione esistente
 - SKU
 - Quantità
-- Duration
+- Durata
 
 Tuttavia, è possibile *exchange* una prenotazione se si desidera apportare modifiche.
 

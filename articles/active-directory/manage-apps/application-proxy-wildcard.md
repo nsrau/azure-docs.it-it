@@ -3,8 +3,8 @@ title: Applicazioni con carattere jolly in Azure Active Directory Application Pr
 description: Informazioni su come usare le applicazioni con carattere jolly in Azure Active Directory Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fb57052cc550a659dcd8a514fbb71ad0f7d8df5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc82f69c8dee4cc8c45e9fcf7fbf6fa184ad72b6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442399"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783061"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applicazioni con carattere jolly in Azure Active Directory Application Proxy 
 
@@ -169,7 +169,7 @@ La configurazione implementa la struttura seguente:
 
 ![AppId](./media/application-proxy-wildcard/05.png)
 
-| Colore | DESCRIZIONE |
+| Colore | Descrizione |
 | ---   | ---         |
 | Blu  | Applicazioni pubblicate in modo esplicito e visibili nel portale di Azure. |
 | Grigio  | Applicazioni accessibili tramite l'applicazione padre. |

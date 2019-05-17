@@ -8,12 +8,12 @@ ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
 ms.date: 04/29/2019
-ms.openlocfilehash: cf07d19966c08a63b9aa50475622aa0a1e5e1600
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e87a82e985ed1d1794f9da00546f167ef01e1779
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236524"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815522"
 ---
 ## <a name="business-disaster-recovery"></a>BCDR (Business disaster recovery)
 
@@ -48,7 +48,7 @@ L'integrazione di Time Series Insights con questi altri servizi fornisce le oppo
 
 Esistono diversi modi per mantenere i dati di Time Series Insights, App e servizi in esecuzione anche se queste si compromesse. Si potrebbe anche determinare che una copia completa, duplicata e backup dell'ambiente Azure Time Series è necessaria:
 
-1. Come un oggetto specifico di Time Series Insights **istanza di failover** per reindirizzare i dati e il traffico verso.
+1. Come un oggetto specifico Time Series Insights **istanza di failover** per reindirizzare i dati e il traffico verso.
 1. Per scopi di mantenimento dati e il controllo.
 
 In generale, il modo migliore per duplicare un ambiente Time Series Insights consiste nel creare un secondo ambiente Time Series Insights in un'area di Azure backup. Gli eventi vengono inviati anche in questo ambiente secondario dall'origine evento primario. Assicurarsi di utilizzare un gruppo di consumer dedicato, secondo e di seguire istruzioni per il ripristino di emergenza business dell'origine (fornite in precedenza).
@@ -63,7 +63,7 @@ In particolare, per creare un ambiente duplicato:
 Infine:
 
 * Se l'area primaria viene compromessa durante un evento imprevisto di emergenza, reindirizzare le operazioni verso l'ambiente di backup di Time Series Insights.
-* Eseguire il backup e ripristinare tutti i dati di telemetria e query Time Series Insights, usare la seconda area.
+* Utilizzare la seconda area per eseguire il backup e ripristinare tutti i dati di telemetria e query Time Series Insights.
 
 > [!IMPORTANT]
 > * Si noti che, in caso di failover, è possibile che si verifichi un ritardo.

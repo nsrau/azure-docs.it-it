@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: e0271c9212b093bd803518ebeaa4b7d9682cc773
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1c64945aaa0bc4cd83cc769dab1c2a755896c01
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60868349"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603434"
 ---
 # <a name="example-2-build-a-perimeter-network-to-protect-applications-with-a-firewall-and-nsgs"></a>Esempio 2 Creare una rete perimetrale per proteggere le applicazioni con un firewall e Nsg
 [Tornare alla pagina di sicurezza di rete e servizi cloud Microsoft][HOME]
@@ -28,7 +28,7 @@ In questo esempio viene illustrato come creare una rete perimetrale (detta anche
 
 ![Rete perimetrale con Appliance virtuale di rete e gli Nsg in ingresso][1]
 
-## <a name="environment"></a>Environment 
+## <a name="environment"></a>Ambiente 
 Questo esempio è basato su uno scenario con una sottoscrizione di Azure che contiene questi elementi:
 
 * Due servizi cloud: FrontEnd001 e BackEnd001.
@@ -550,7 +550,7 @@ Eseguire questo script di PowerShell in locale in un server o computer connesso 
 Salvare questo file XML con percorsi aggiornati e quindi aggiungere un collegamento a questo file nella variabile $NetworkConfigFile nello script precedente.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

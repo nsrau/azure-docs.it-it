@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/6/2018
-ms.openlocfilehash: 55106f855d1f2cab82b751b306a3a289bd740e9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9088e9ad98633b46dc3a7f0ee9002a0dd9fc5a55
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525406"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551887"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
@@ -21,8 +21,8 @@ Di seguito è indicato il numero massimo di connessioni per ogni piano tariffari
 
 |**Piano tariffario**|**vCore**| **Numero massimo di connessioni**|
 |---|---|---|
-|Basic| 1| 50|
-|Basic| 2| 100|
+|Di base| 1| 50|
+|Di base| 2| 100|
 |Utilizzo generico| 2| 300|
 |Utilizzo generico| 4| 625|
 |Utilizzo generico| 8| 1250|
@@ -80,6 +80,9 @@ Quando le connessioni superano il limite, è possibile che venga visualizzato l'
 
 ### <a name="vnet-service-endpoints"></a>Endpoint del servizio di rete virtuale
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
+
+### <a name="storage-size"></a>Dimensioni archiviazione
+- Consultare [sui piani tariffari](concepts-pricing-tiers.md) per i limiti delle dimensioni di archiviazione per ogni piano tariffario.
 
 ## <a name="current-known-issues"></a>Problemi attualmente noti
 - Quando viene stabilita la connessione, l'istanza del server MySQL visualizza una versione di server errata. Per ottenere la versione corretta del motore dell'istanza del server, usare il comando `select version();`.

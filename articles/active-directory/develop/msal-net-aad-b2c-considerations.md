@@ -4,7 +4,7 @@ description: Informazioni sulle considerazioni specifiche quando si usa Azure AD
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c608518a9eb80d807297f010778ae452c0f61f5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6c26a5007c2dcaa5d41be46f685f0f259866ca2c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075776"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544066"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per consentire agli utenti con identità di social networking
 
@@ -78,7 +78,7 @@ AuthenticationResult ar = await application .AcquireToken(scopes, parentWindow)
 con:
 
 - `policy` in una delle stringhe precedenti (ad esempio `PolicySignUpSignIn`).
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` è un metodo che consente di trovare un account per i criteri specificati. Ad esempio: 
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` è un metodo che consente di trovare un account per i criteri specificati. Ad esempio:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -183,6 +183,6 @@ Una possibilità consiste nell'usare l'attestazione "name" come nome utente pref
 
 Nell'esempio seguente vengono forniti ulteriori dettagli sull'acquisizione dei token in modo interattivo con MSAL.NET per le applicazioni di Azure AD B2C.
 
-| Esempio | Piattaforma | DESCRIZIONE|
+| Esempio | Piattaforma | Descrizione|
 |------ | -------- | -----------|
 |[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin. Android, UWP | Una semplice app Xamarin. Forms che illustra come usare MSAL.NET per autenticare gli utenti tramite Azure AD B2C e accedere a un'API Web con i token risultanti.|

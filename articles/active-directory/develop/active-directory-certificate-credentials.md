@@ -3,8 +3,8 @@ title: Credenziali del certificato in Azure AD | Microsoft Docs
 description: Questo articolo illustra la registrazione e l'uso delle credenziali del certificato per l'autenticazione dell'applicazione
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c4ee1ce56723e4a2c9ab80c12456bbc1b66f6d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34a499ac12bcf6f4aee671eb209b709390ca6139
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411414"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545132"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenziali del certificato per l'autenticazione dell'applicazione
 
@@ -44,7 +44,7 @@ Per calcolare l'asserzione, è possibile usare una delle numerose librerie di [t
 
 ### <a name="claims-payload"></a>Attestazioni (payload)
 
-| Parametro |  Osservazioni |
+| Parametro |  Note |
 | --- | --- |
 | `aud` | Audience: Deve essere **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Data di scadenza: la data di scadenza del token. L'ora è rappresentata come numero di secondi dal 1° gennaio 1970 (1970-01-01T0:0:0Z) UTC fino all'ora in cui scade la validità del token.|

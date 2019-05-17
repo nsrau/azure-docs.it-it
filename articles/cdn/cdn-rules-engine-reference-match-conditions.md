@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f87667516d6c76bc1c21ba5e175b3b2a7ebc3f39
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869521"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556320"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole della rete CDN di Azure 
 Questo articolo fornisce descrizioni dettagliate delle condizioni di corrispondenza disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (rete CDN) di Azure.
@@ -101,8 +101,11 @@ NOME | Scopo
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Riferimento per le condizioni di corrispondenza del motore regole
+
 <a name="main"></a>
+
 ---
+
 ### <a name="always"></a>Sempre
 
 La condizione di corrispondenza Sempre applica un set predefinito di funzionalità a tutte le richieste.
@@ -158,10 +161,10 @@ L'opzione **Matches** (Corrisponde)/ **Does Not Match** (Non corrisponde) determ
 
 Informazioni chiave:
 - Usare la notazione CIDR.
-- Per specificare più indirizzi IP e/o blocchi di indirizzi IP, delimitarli con uno spazio singolo. Ad esempio: 
+- Per specificare più indirizzi IP e/o blocchi di indirizzi IP, delimitarli con uno spazio singolo. Ad esempio:
   - **Esempio di indirizzo IPv4**: 1.2.3.4 10.20.30.40 corrisponde alle richieste provenienti dall'indirizzo 1.2.3.4 o 10.20.30.40.
   - **Esempio di indirizzo IPv6**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 corrisponde alle richieste provenienti dall'indirizzo 1:2:3:4:5:6:7:8 o 10:20:30:40:50:60:70:80.
-- La sintassi per un blocco di indirizzi IP è l'indirizzo IP di base seguito da una barra e dalle dimensioni del prefisso. Ad esempio: 
+- La sintassi per un blocco di indirizzi IP è l'indirizzo IP di base seguito da una barra e dalle dimensioni del prefisso. Ad esempio:
   - **Esempio di indirizzo IPv4**: 5.5.5.64/26 corrisponde alle richieste provenienti dagli indirizzi compresi tra 5.5.5.64 e 5.5.5.127.
   - **Esempio di indirizzo IPv6**: 1:2:3:/48 corrisponde alle richieste provenienti dagli indirizzi compresi tra 1:2:3:0:0:0:0:0 e 1:2:3:ffff:ffff:ffff:ffff:ffff.
 - In base al modo in cui vengono monitorate le impostazioni della cache, è possibile che questa condizione di corrispondenza sia incompatibile con le funzionalità seguenti:
@@ -306,9 +309,9 @@ Informazioni chiave:
 #### <a name="string-type"></a>Tipo di stringa
 Una funzionalità WURFL accetta in genere qualsiasi combinazione di numeri, lettere e simboli. A causa della natura flessibile di questa funzionalità, è necessario scegliere il modo in cui interpretare il valore associato alla condizione di corrispondenza. La tabella seguente descrive il set di opzioni disponibile:
 
-Type     | DESCRIZIONE
+Type     | Descrizione
 ---------|------------
-Literal (Valore letterale)  | Selezionare questa opzione per impedire alla maggior parte dei caratteri di assumere un significato speciale usando il rispettivo [valore letterale](cdn-rules-engine-reference.md#literal-values).
+Valore letterale  | Selezionare questa opzione per impedire alla maggior parte dei caratteri di assumere un significato speciale usando il rispettivo [valore letterale](cdn-rules-engine-reference.md#literal-values).
 Wildcard (Carattere jolly) | Selezionare questa opzione per trarre vantaggio da tutti i [caratteri jolly]([caratteri jolly](cdn-rules-engine-reference.md#wildcard-values).
 Regex (Espressione regolare)    | Selezionare questa opzione per usare [espressioni regolari](cdn-rules-engine-reference.md#regular-expressions). Le espressioni regolari sono utili per definire un modello di caratteri.
 
@@ -320,9 +323,9 @@ La tabella seguente elenca le funzionalità WURFL e le rispettive variabili per 
 > [!NOTE] 
 > Le variabili seguenti sono supportate nelle funzionalità **Modify Client Request Header** (Modifica intestazione richiesta client) e **Modify Client Response Header** (Modifica intestazione risposta client).
 
-Funzionalità | Variabile | DESCRIZIONE | Valori di esempio
+Capacità | Variabile | Descrizione | Valori di esempio
 -----------|----------|-------------|----------------
-Brand Name (Nome marchio) | %{wurfl_cap_brand_name} | Stringa che indica il nome del marchio del dispositivo. | Samsung
+Nome marchio | %{wurfl_cap_brand_name} | Stringa che indica il nome del marchio del dispositivo. | Samsung
 Device OS (Sistema operativo dispositivo) | %{wurfl_cap_device_os} | Stringa che indica il sistema operativo installato nel dispositivo. | IOS
 Device OS Version (Versione sistema operativo dispositivo) | %{wurfl_cap_device_os_version} | Stringa che indica il numero di versione del sistema operativo installato nel dispositivo. | 1.0.1
 Dual Orientation (Orientamento doppio) | %{wurfl_cap_dual_orientation} | Valore booleano che indica se il dispositivo supporta l'orientamento doppio. | true
@@ -592,7 +595,7 @@ Valori specificati: asp aspx php html
 
 Questa condizione di corrispondenza verrà soddisfatta quando vengono trovati URL che terminano con le estensioni seguenti:
 - .asp
-- aspx
+- .aspx
 - .php
 - .html
 
@@ -872,7 +875,7 @@ NOME  | Value |  Risultato
 ------|-------|--------
 Utente  | Joe   | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto è "?user=joe".
 Utente  | *     | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto contiene un parametro User.
-Email | Joe\* | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto contiene un parametro Email che inizia con "Joe".
+Posta | Joe\* | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto contiene un parametro Email che inizia con "Joe".
 
 [Torna all'inizio](#main)
 
@@ -904,7 +907,7 @@ Informazioni chiave:
 
 - I caratteri speciali nelle espressioni regolari devono essere preceduti da un doppio carattere di escape, ad esempio \^$.+, per includere una barra rovesciata nell'espressione regolare.
 
-   Ad esempio: 
+   Ad esempio:
 
    Value | Interpretato come 
    ------|---------------
@@ -944,7 +947,7 @@ Informazioni chiave:
 
 - È possibile specificare più valori delimitandoli con uno spazio singolo.
 
-   Ad esempio:  *Parametro1=ValoreA* *ValoreB* *Parametro1=ValoreC&Parametro2=ValoreD*
+   Ad esempio: *Parametro1=ValoreA* *ValoreB* *Parametro1=ValoreC&Parametro2=ValoreD*
 
 - Questa condizione verrà soddisfatta solo da corrispondenze esatte ad almeno uno dei modelli di stringa di query specificati.
     
@@ -960,7 +963,7 @@ Informazioni chiave:
 #### <a name="sample-scenarios"></a>Scenari di esempio
 L'esempio seguente mostra il funzionamento di questa opzione in situazioni specifiche:
 
- NOME                 | DESCRIZIONE
+ NOME                 | Descrizione
  ---------------------|------------
 user=joe              | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto è "?user=joe".
 \*user=\* \*optout=\* | La corrispondenza a questo modello viene soddisfatta quando la query URL della rete CDN contiene il parametro user o optout.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 864e9586082ed95bf17135414ec4b879e3034ace
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589615"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602723"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Aggregazioni nelle query dei log di Monitoraggio di Azure
 
@@ -31,7 +31,7 @@ Questo articolo descrive le funzioni di aggregazione disponibili per le query de
 
 ## <a name="counts"></a>Conteggi
 
-### <a name="count"></a>count
+### <a name="count"></a>Conteggio
 Questa funzione conta il numero di righe nel set di risultati dopo l'applicazione di eventuali filtri. L'esempio seguente restituisce il numero totale di righe della tabella _Perf_ negli ultimi 30 minuti. Il risultato viene restituito in una colonna denominata *count_* a meno che non si definisca un nome specifico:
 
 
@@ -79,7 +79,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>Valutazione di sottogruppi
-Per eseguire un conteggio o altre aggregazioni in sottogruppi dei dati, usare la parola chiave `by`. Ad esempio, per contare il numero di computer Linux distinti che hanno inviato heartbeat in ogni paese:
+Per eseguire un conteggio o altre aggregazioni in sottogruppi dei dati, usare la parola chiave `by`. Ad esempio, per contare il numero di computer Linux distinti che hanno inviato heartbeat in ogni paese/area geografica:
 
 ```Kusto
 Heartbeat 
@@ -96,7 +96,7 @@ Heartbeat
 |Paesi Bassi      | 2                   |
 
 
-Per analizzare sottogruppi ancora più piccoli dei dati, aggiungere altri nomi di colonna nella sezione `by`. Può ad esempio essere necessario contare i computer distinti di ogni paese in base al tipo di sistema operativo:
+Per analizzare sottogruppi ancora più piccoli dei dati, aggiungere altri nomi di colonna nella sezione `by`. Ad esempio, si potrebbe voler contare i computer da ogni paese/area geografica per OSType distinti:
 
 ```Kusto
 Heartbeat 

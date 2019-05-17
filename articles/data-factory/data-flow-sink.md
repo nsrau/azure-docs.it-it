@@ -1,87 +1,92 @@
 ---
-title: Trasformazione sink del Flusso di dati di mapping di Azure Data Factory
-description: Trasformazione sink del Flusso di dati di mapping di Azure Data Factory
+title: Configurare una trasformazione sink nella funzionalità di Mapping del flusso di dati di Azure Data Factory
+description: Informazioni su come configurare una trasformazione sink nel Mapping di flusso di dati.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: a39fa0949276b7e86c7fdd0d0861492a9a0b723e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4341cbb0e24330d535f5211c088f0068eab33af7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438633"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596273"
 ---
-# <a name="mapping-data-flow-sink-transformation"></a>Trasformazione sink del Flusso di dati di mapping
+# <a name="sink-transformation-for-a-data-flow"></a>Trasformazione per un flusso di dati di sink
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Opzioni di sink](media/data-flow/sink1.png "sink 1")
+Dopo aver trasformato il flusso di dati, è possibile includere i dati in un set di dati di destinazione. Nella trasformazione sink, scegliere una definizione di set di dati per i dati di output di destinazione. Può avere molti sink trasformazioni come flusso di dati richiesto.
 
-Dopo aver completato la trasformazione del flusso di dati, è possibile effettuare il sink dei propri dati trasformati, in un set di dati di destinazione. Nella Trasformazione sink, è possibile scegliere la definizione del set di dati che si vuole usare per i dati di output di destinazione. Si possono eseguire tante Trasformazioni sink quante richieste dal flusso di dati.
+All'account per la deviazione schema e le modifiche nei dati in ingresso, elaborare i dati di output in una cartella senza uno schema definito nel set di dati di output. È possibile inoltre in considerazione per la modifica delle colonne delle origini selezionando **consentire deviazione schema** nell'origine. Quindi Esegui mapping automatico di tutti i campi nel sink.
 
-Una pratica comune, per tenere conto della modifica dei dati in ingresso e della deviazione schema, è quella di eseguire il sink dei dati di output in una cartella senza uno schema definito nel set di dati di output. È inoltre possibile giustificare le modifiche di tutte le colonne nelle proprie origini, selezionando "Consenti deviazione schema" nell'Origine e successivamente eseguire il mapping automatico di tutti i campi nel Sink.
+![Le opzioni della scheda Sink, tra cui l'opzione Auto Map](media/data-flow/sink1.png "sink 1")
 
-Si può scegliere di sovrascrivere, accodare o interrompere il flusso di dati durante il sink di un set di dati.
+Per elaborare tutti i campi in ingresso, attivare **mapping automatico**. Per scegliere i campi al sink nella destinazione o per modificare i nomi dei campi nella destinazione, la disattivazione **mapping automatico**. Quindi aprire il **Mapping** pressione di tab per eseguire il mapping di campi di output.
 
-È anche possibile scegliere "Mapping automatico" per elaborare tutti i campi in ingresso. Se si scelgono i campi in cui si vuole effettuare il sink nella destinazione o si vogliono modificare i nomi dei campi nella destinazione, scegliere "Disattivato" per "Mapping automatico" e fare clic sulla scheda Mapping per eseguire il mapping dei campi di output:
+![Le opzioni nella scheda Mapping](media/data-flow/sink2.png "sink 2")
 
-![Opzioni di sink](media/data-flow/sink2.png "sink 2")
+## <a name="output"></a>Output 
+Per i tipi di sink di archivio Data Lake o archiviazione Blob di Azure di output i dati trasformati in una cartella. Spark genera file di dati di output partizionato basati sullo schema di partizionamento utilizzato dalla trasformazione sink. 
 
-## <a name="output-to-one-file"></a>Output in un solo file
-Per i tipi di sink BLOB del servizio di archiviazione di Azure o Data Lake, si potranno ottenere i dati trasformati in una cartella. Spark genererà file di dati di output partizionati, in base allo schema di partizione usato nella Trasformazione sink. È possibile impostare lo schema di partizione facendo clic sulla scheda "Ottimizza". Se si vuole che Azure Data Factory unisca l'output in un singolo file, fare clic sul pulsante di opzione "Partizione singola".
+È possibile impostare lo schema di partizionamento dal **Ottimizza** scheda. Se si desidera che Data Factory per unire l'output in un singolo file, selezionare **singola partizione**.
 
-![Opzioni di sink](media/data-flow/opt001.png "opzioni di sink")
+![Le opzioni nella scheda Ottimizza](media/data-flow/opt001.png "sink opzioni")
 
 ## <a name="field-mapping"></a>Mapping campi
 
-Nella scheda Mapping della Trasformazione sink, è possibile eseguire il mapping delle colonne in ingresso (lato sinistro) nella destinazione (lato destro). Quando si esegue il sink dei flussi di dati nei file, Azure Data Factory scriverà sempre nuovi file in una cartella. Quando si esegue il mapping in un set di dati del database, è possibile scegliere di generare una nuova tabella con questo schema (impostare Salva criteri di Azure per "sovrascrivere") o inserire nuove righe in una tabella esistente ed eseguire il mapping di campi in uno schema esistente.
+Nel **Mapping** scheda della trasformazione del sink, è possibile mappare le colonne in ingresso a sinistra per le destinazioni a destra. Quando si sink flussi di dati per il file, Data Factory verrà sempre in grado di scrivere i nuovi file in una cartella. Quando esegue il mapping a un set di dati di database, è possibile generare una nuova tabella che utilizza questo schema impostando **Salva criterio** al **Sovrascrivi**. O inserire nuove righe in una tabella esistente e quindi eseguire il mapping campi allo schema esistente. 
 
-È possibile usare una selezione multipla nella tabella di mapping per collegare le colonne di più con un solo clic, vengono scollegate le più colonne o eseguire il mapping di più righe per lo stesso nome di colonna.
+![Scheda Mapping](media/data-flow/sink2.png "sink")
 
-Quando si vuole eseguire sempre richiedere il set di campi in ingresso ed eseguirne il mapping a una destinazione come-, impostare l'impostazione "Consenti deviazioni dello Schema".
+Nella tabella di mapping, è possibile selezione multipla per collegare più colonne, vengono scollegate le più colonne o eseguire il mapping di più righe per lo stesso nome di colonna.
 
-![Mapping dei campi](media/data-flow/multi1.png "più opzioni")
+Eseguire il mapping sempre il set di campi in ingresso a una destinazione non appena vengono e di accettare completamente le definizioni di schema flessibile, selezionare **consentire deviazione schema**.
 
-Se si vuole reimpostare il mapping delle colonne, fare clic sul pulsante "Nuovo mapping" per reimpostare il mapping.
+![Scheda Mapping, che mostra i campi mappati alle colonne nel set di dati](media/data-flow/multi1.png "più opzioni")
 
-![Opzioni di sink](media/data-flow/sink1.png "Sink 1")
+Per reimpostare i mapping delle colonne, selezionare **rimappare**.
 
-![Opzioni di sink](media/data-flow/sink2.png "Sink")
+![La scheda di Sink](media/data-flow/sink1.png "un Sink")
 
-* Le opzioni Consenti deviazione schema e Convalida schema sono ora disponibili nel Sink. Ciò permette di inviare una richiesta ad Azure Data Factory per accettare completamente le definizioni dello schema (Deviazione schema) o fallire il Sink se lo schema cambia (Convalida schema).
+Selezionare **schema di convalida** per eseguire il sink se viene modificato lo schema.
 
-* Cancellare la cartella. Azure Data Factory troncherà il contenuto della cartella sink, prima di scrivere i file di destinazione nella cartella di destinazione.
+Selezionare **cancellare la cartella** per troncare il contenuto della cartella sink prima di scrivere i file di destinazione in tale cartella di destinazione.
 
 ## <a name="file-name-options"></a>Opzioni di nomi di file
 
-   * Predefinito: consentire a Spark di denominare i file basati sulle impostazioni predefinite di PART
-   * Criterio: Immettere un modello per i file di output. Ad esempio, "loans [n]" creerà loans1.csv, loans2.csv,...
-   * Per ogni partizione: immettere un nome di file per ogni partizione
-   * Dati nella colonna: impostare il file di output per il valore di una colonna
+Impostare la denominazione dei file: 
+
+   * **Predefinita**: Consenti Spark per denominare i file basati sulle impostazioni predefinite di parte.
+   * **Modello**: Immettere un modello per i file di output. Ad esempio, **loans [n]** creerà loans1.csv loans2.csv e così via.
+   * **Per ogni partizione**: Immettere un nome di file per ogni partizione.
+   * **I dati nella colonna**: Impostare il file di output per il valore di una colonna.
+   * **L'output in un singolo file**: Con questa opzione, Azure Data factory combinerà i file di output partizionato in un unico file denominato. Per usare questa opzione, il set di dati deve risolvere un nome di cartella. Inoltre, tenere presente che questa operazione di unione può verificarsi un errore in base alla dimensione del nodo.
 
 > [!NOTE]
-> Le operazioni sui file verranno eseguite solo quando l'attività di esecuzione del Flusso di dati è in corso, non in modalità Debug del Flusso di dati
+> Avvio di operazioni di file solo quando si esegue l'attività di esecuzione del flusso di dati. Non vengano avviati in modalità di flusso di Debug dei dati.
 
 ## <a name="database-options"></a>Opzioni di database
 
-* Consenti insert, update, delete, esegue l'Upsert. Il valore predefinito è per consentire gli inserimenti. Se si desidera eliminare righe, upsert o aggiornamento, è innanzitutto necessario aggiungere una trasformazione di riga alter alle righe di tag per le azioni specifiche. La disattivazione di "Consenti insert" smetterà di Azure Data factory di inserire nuove righe provenienti dall'origine.
-* Istruzione TRUNCATE table (rimuove tutte le righe dalla tabella di destinazione prima di completare il flusso di dati)
-* Ricreare la tabella (eseguita creano/eliminano della tabella di destinazione prima di completare il flusso di dati)
-* Dimensione batch per i caricamenti di dati di grandi dimensioni. Immettere un numero di scritture di bucket in blocchi
-* Abilitare la gestione temporanea: Ciò indicherà a Azure Data factory per usare Polybase durante il caricamento di Azure Data Warehouse come set di dati sink
+Scegliere le impostazioni del database:
+
+* **Aggiornare il metodo**: Il valore predefinito è per consentire gli inserimenti. Deselezionare **Consenti insert** se si desidera arrestare l'inserimento di nuove righe provenienti dall'origine. Per aggiornare, upsert, o eliminare le righe, innanzitutto aggiungere una trasformazione Modifica righe alle righe di tag per le azioni. 
+* **Ricrea tabella**: Eliminare o creare la tabella di destinazione prima di completamento del flusso di dati.
+* **Istruzione TRUNCATE table**: Rimuovere tutte le righe dalla tabella di destinazione prima al termine del flusso di dati.
+* **Dimensioni batch**: Immettere un numero di scritture di bucket in blocchi. Usare questa opzione per carichi di dati di grandi dimensioni. 
+* **Abilitare la gestione temporanea**: Usare PolyBase durante il caricamento di Azure Data Warehouse come set di dati sink.
+
+![La scheda Impostazioni, che mostra le opzioni del sink SQL](media/data-flow/alter-row2.png "opzioni SQL")
 
 > [!NOTE]
-> Nel flusso di dati, è possibile chiedere di Azure Data factory per creare una nuova definizione di tabella nel database di destinazione impostando un set di dati nella trasformazione Sink con un nuovo nome di tabella. Nel set di dati SQL, fare clic su "Modifica" sotto il nome della tabella e immettere un nuovo nome di tabella. Quindi, nella trasformazione del Sink, attivare "Consenti deviazioni dello Schema". Seth l'impostazione "Importa Schema" su None.
+> Nel flusso di dati, è possibile indirizzare Data Factory per creare una nuova definizione di tabella nel database di destinazione. Per creare la definizione della tabella, impostare un set di dati nella trasformazione sink con un nuovo nome di tabella. Nel set di dati SQL, sotto il nome della tabella, selezionare **modifica** e immettere un nuovo nome di tabella. Quindi, nella trasformazione sink, attivare **consentire deviazione schema**. Impostare **Importa schema** al **None**.
 
-![Schema di origine Transformation](media/data-flow/dataset2.png "Schema SQL")
-
-![Opzioni di SQL Sink](media/data-flow/alter-row2.png "opzioni SQL")
+![Impostazioni di set di dati SQL, che mostra dove modificare il nome della tabella](media/data-flow/dataset2.png "Schema SQL")
 
 > [!NOTE]
-> Durante l'aggiornamento o eliminazione di righe nel sink di database, è necessario impostare la colonna chiave. In questo modo, Alter riga è in grado di determinare la riga univoca nel DML.
+> Quando si aggiornano o eliminano righe nel sink di database, è necessario impostare la colonna chiave. Questa impostazione consente la trasformazione Modifica righe determinare la riga univoca nella libreria di spostamento dei dati (DML).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stato creato il flusso di dati, aggiungere un'[attività di esecuzione del Flusso di dati alla pipeline](concepts-data-flow-overview.md).
+Ora che è stato creato il flusso di dati, aggiungere un [attività di flusso di dati per la pipeline](concepts-data-flow-overview.md).

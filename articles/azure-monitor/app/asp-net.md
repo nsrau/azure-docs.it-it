@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: c69e925913d4dcb3a8bec34cbf25dac184ea65c5
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472030"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595572"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Installare Application Insights per un sito Web ASP.NET
 
@@ -28,7 +28,7 @@ Il programma di installazione richiede pochi clic in Visual Studio. Per evitare 
 ## <a name="prerequisites"></a>Prerequisiti
 Per aggiungere Application Insights al sito Web ASP.NET è necessario:
 
-- Installare [Visual Studio 2017 per Windows](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
+- Installare [Visual Studio 2019 per Windows](https://www.visualstudio.com/downloads/) con carichi di lavoro seguenti:
     - Sviluppo ASP.NET e web (non si deseleziona i componenti facoltativi)
     - Sviluppo di Azure
 
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 ## <a name="ide"></a> Passaggio 1: Aggiungere Application Insights SDK
 
 > [!IMPORTANT]
-> Le schermate contenute in questo esempio si basano su Visual Studio 2017 versione 15.9.9. L'esperienza per aggiungere Application Insights varia tra le versioni di Visual Studio 2017, nonché dal tipo di modello ASP.NET. Le versioni precedenti potrebbero essere testo alternativo, ad esempio "Configura Application Insights".
+> Le schermate contenute in questo esempio sono basati su Visual Studio 2017 versione 15.9.9 e versioni successive. L'esperienza per aggiungere Application Insights varia tra le versioni di Visual Studio, nonché dal tipo di modello ASP.NET. Le versioni precedenti potrebbero essere testo alternativo, ad esempio "Configura Application Insights".
 
 Fare clic sul nome dell'app web in Esplora soluzioni e scegliere **Add** > **Application Insights Telemetry**
 
@@ -115,7 +115,7 @@ La telemetria viene creata nel portale di Application Insights, in cui è possib
 
 ## <a name="land"></a> Le impostazioni sono state completate.
 
-Congratulazioni. Il pacchetto Application Insights è stato installato nell'app e configurato per l'invio di dati di telemetria al servizio Application Insights in Azure.
+Congratulazioni! Il pacchetto Application Insights è stato installato nell'app e configurato per l'invio di dati di telemetria al servizio Application Insights in Azure.
 
 La risorsa di Azure che riceve i dati di telemetria dell'app è identificata da una *chiave di strumentazione*, disponibile nel file ApplicationInsights.config.
 

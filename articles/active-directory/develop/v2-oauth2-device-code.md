@@ -3,8 +3,8 @@ title: Piattaforma delle identità Microsoft Usa per consentire agli utenti nei 
 description: Compilare flussi di autenticazione incorporati e senza browser usando la concessione del codice del dispositivo.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 86e875108e0349c0ab08a7217074e2afe23bcacc
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299405"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544930"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Flusso del codice di piattaforma delle identità Microsoft e il dispositivo di OAuth 2.0
 
@@ -42,7 +42,7 @@ Sono supportati sulla piattaforma di Microsoft identity il [concessione del codi
 
 L'intero flusso del codice del dispositivo ha un aspetto simile a quello illustrato nel diagramma seguente. Tutti i passaggi vengono descritti in seguito nell'articolo.
 
-![Flusso del codice del dispositivo](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
+![Flusso di codice del dispositivo](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
 ## <a name="device-authorization-request"></a>Richiesta di autorizzazione del dispositivo
 
@@ -63,7 +63,7 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parametro | Condizione | DESCRIZIONE |
+| Parametro | Condizione | Descrizione |
 | --- | --- | --- |
 | `tenant` | Obbligatorio |Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere fornito nel formato di nome descrittivo o GUID.  |
 | `client_id` | Obbligatorio | Il **ID applicazione (client)** che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) esperienza assegnato all'app. |
@@ -73,7 +73,7 @@ scope=user.read%20openid%20profile
 
 Una risposta con esito positivo sarà un oggetto JSON contenente le informazioni richieste per consentire all'utente di accedere.  
 
-| Parametro | Format | DESCRIZIONE |
+| Parametro | Format | Descrizione |
 | ---              | --- | --- |
 |`device_code`     | String | Una stringa lunga usata per verificare la sessione tra il client e il server di autorizzazione. Il client Usa questo parametro per richiedere il token di accesso dal server di autorizzazione. |
 |`user_code`       | String | Una breve stringa visualizzata all'utente che viene usato per identificare la sessione in un dispositivo secondario.|
@@ -98,7 +98,7 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-| Parametro | Obbligatorio | DESCRIZIONE|
+| Parametro | Obbligatorio | Descrizione|
 | -------- | -------- | ---------- |
 | `grant_type` | Obbligatorio | Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Obbligatorio | Deve corrispondere al `client_id` usato nella richiesta iniziale. |
@@ -108,7 +108,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 Il flusso del codice di dispositivo è un protocollo di polling in modo che i client devono prevedere di ricevere gli errori prima che l'utente ha terminato l'autenticazione.  
 
-| Tipi di errore | DESCRIZIONE | Azione client |
+| Tipi di errore | Descrizione | Azione client |
 | ------ | ----------- | -------------|
 | `authorization_pending` | L'utente non è stata completata l'autenticazione, ma non è stato annullato il flusso. | Ripetere la richiesta dopo almeno `interval` secondi. |
 | `authorization_declined` | L'utente finale ha rifiutato la richiesta di autorizzazione.| Arrestare il polling e ripristinare uno stato non autenticato.  |
@@ -130,13 +130,13 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 }
 ```
 
-| Parametro | Format | DESCRIZIONE |
+| Parametro | Format | Descrizione |
 | --------- | ------ | ----------- |
 | `token_type` | String| Sempre "Bearer". |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, verranno elencati gli ambiti per cui è valido. |
 | `expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 | `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti.  |
-| `id_token`   | Token JSON Web | Emessa nel parametro `scope` originale incluso nell'ambito `openid`.  |
+| `id_token`   | JWT | Emessa nel parametro `scope` originale incluso nell'ambito `openid`.  |
 | `refresh_token` | Stringa opaca | Emessa nel parametro `scope` originale incluso `offline_access`.  |
 
 È possibile utilizzare il token di aggiornamento per acquisire nuovi token di accesso che token di aggiornamento utilizzando lo stesso flusso documentato nel [documentazione flusso del codice OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ca473b9947a9b0df610a9c3dac66914b06cc9217
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60881454"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595493"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Testing unità dei servizi con stato in Service Fabric
 
@@ -36,7 +36,7 @@ I servizi con stato di testing unità possono aiutare a individuare alcuni error
 
 ## <a name="common-practices"></a>Procedure comuni
 
-La sezione seguente indica nelle abitudini più comuni per i testing unità un servizio con stato. Viene anche indicato cosa deve avere un livello di comportamento fittizio per allineare strettamente l'orchestrazione di Service Fabric e la gestione dello stato. Per le librerie di simulazione esistono librerie che forniscono questa funzionalità. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) al momento della stesura 3.3.0 o nella versione successiva, è una di queste librerie che forniscono la funzionalità di creazione di versioni fittizie consigliata e che segue le procedure indicate di seguito.
+La sezione seguente indica nelle abitudini più comuni per i testing unità un servizio con stato. Viene anche indicato cosa deve avere un livello di comportamento fittizio per allineare strettamente l'orchestrazione di Service Fabric e la gestione dello stato. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) al momento della stesura 3.3.0 o nella versione successiva, è una di queste librerie che forniscono la funzionalità di creazione di versioni fittizie consigliata e che segue le procedure indicate di seguito.
 
 ### <a name="arrangement"></a>Disposizione
 

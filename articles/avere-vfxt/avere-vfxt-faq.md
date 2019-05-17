@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409966"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595420"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Domande frequenti su Avere vFXT per Azure
 
@@ -204,7 +204,7 @@ No, Avere vFXT è progettato per l'uso in un ambiente di rete protetto tramite p
 
 In generale, è possibile configurare sicurezza aggiuntiva sulla rete virtuale in base alle necessità, ma alcune restrizioni possono interferire con l'operazione del cluster.
 
-Ad esempio, limitare l'accesso a internet in uscita dalla rete virtuale può causare problemi per il cluster a meno che non è inoltre aggiungere regole che consentono in modo esplicito l'accesso per AzureConnectors e AzureCloud. Questa situazione è descritta in [documentazione aggiuntiva su GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+Ad esempio, limitare l'accesso a internet in uscita dalla rete virtuale può causare problemi per il cluster a meno che non è inoltre aggiungere una regola che consenta in modo esplicito l'accesso al cloud Azure. Questa situazione è descritta in [documentazione aggiuntiva su GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
 
 Per informazioni sulla protezione personalizzate, contattare il supporto come descritto in [Ottieni assistenza per il sistema](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
 

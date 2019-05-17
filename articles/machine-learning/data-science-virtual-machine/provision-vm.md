@@ -13,14 +13,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712426"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596497"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Effettuare un provisioning di una macchina virtuale di Data Science Windows di Azure
 
@@ -105,6 +105,8 @@ Per creare un'istanza di DSVM:
 ## <a name="how-to-access-the-dsvm"></a>Come accedere alla DSVM
 
 Dopo aver creato la VM ed averne effettuare il provisioning, è possibile connettersi tramite desktop remoto usando le credenziali dell'account amministratore configurato nella sezione **Nozioni di base** precedente. Si è pronti per iniziare a usare gli strumenti installati e configurati nella VM. Molti degli strumenti sono accessibili tramite i riquadri del menu di avvio e le icone del desktop.
+
+È anche possibile collegare una macchina virtuale Data Science per i notebook di Azure per eseguire i notebook di Jupyter nella VM e ignorare le limitazioni del livello di servizio gratuito. Per altre informazioni, vedere [gestire e configurare progetti di notebook - livello di calcolo](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Strumenti installati nella macchina virtuale per l'analisi scientifica dei dati di Microsoft
 

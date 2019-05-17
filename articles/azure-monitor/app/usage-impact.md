@@ -13,12 +13,12 @@ ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 8efab173f464b67c0c88c87ee28ea7fa19980501
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373217"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604187"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analisi di impatto con Application Insights
 
@@ -63,7 +63,7 @@ Lo strumento Impatto supporta proprietà e misure sia standard che personalizzat
 2. Scegliere "Country or region" (Paese o area geografica) nell'elenco a discesa **analyze how its** (analizza come l'elemento).
 3. Nell'elenco a discesa **impacts the usage of** (influisce sull'utilizzo di) selezionare un evento personalizzato corrispondente a un elemento dell'interfaccia utente nella visualizzazione pagina scelta nel passaggio 1.
 
-In questo caso i risultati non rientrano più in un modello di asse x continuo come nel primo esempio. Al contrario, viene presentata una visualizzazione simile a un grafico a imbuto segmentato. Ordinare in base all'opzione **Utilizzo** per visualizzare la variazione di conversione dell'evento personalizzato in base al paese.
+In questo caso i risultati non rientrano più in un modello di asse x continuo come nel primo esempio. Al contrario, viene presentata una visualizzazione simile a un grafico a imbuto segmentato. Per ordinare **utilizzo** per visualizzare la variazione di conversione dell'evento personalizzato di base a paese/area geografica.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Come vengono calcolati questi tassi di conversione dallo strumento Impatto?

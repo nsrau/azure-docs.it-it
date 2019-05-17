@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ffebdd5b88603113dd7624e97dcf7353ab5d1ba
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371111"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605575"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Trasferimento della proprietà di una sottoscrizione di Azure a un altro account
 
@@ -64,7 +64,7 @@ Trasferire la sottoscrizione a un altro utente nel Centro account per modificare
    ![Prima pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/image4.png)
 
    ![Seconda pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/image5.png)
-1. Completamento della procedura La sottoscrizione è stata trasferita.
+1. Operazione riuscita La sottoscrizione è stata trasferita.
 
 <a id="EA"></a>
 
@@ -119,7 +119,7 @@ Tutte le risorse, come macchine virtuali, dischi e siti Web, vengono trasferite 
 
 ### <a id="no-button"></a> Perché non viene visualizzato il pulsante Trasferisci sottoscrizione?
 
-Sfortunatamente, il trasferimento della sottoscrizione in modalità self-service non è disponibile per l'offerta o il paese specifico. Per trasferire la sottoscrizione, [contattare il supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Sfortunatamente, trasferimento della sottoscrizione Self-Service non è disponibile per l'offerta o il paese/area geografica. Per trasferire la sottoscrizione, [contattare il supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Il trasferimento di una sottoscrizione comporta tempi di inattività del servizio?
 
@@ -156,9 +156,9 @@ Il mittente è responsabile del pagamento per qualsiasi utilizzo segnalato fino 
 
 L'offerta deve rimanere invariata. Per modificare l'offerta, vedere [Trasferire la sottoscrizione di Azure a un'altra offerta](billing-how-to-switch-azure-offer.md).
 
-### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>È possibile trasferire una sottoscrizione a un account utente in un altro paese?
+### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-countryregion"></a>È possibile trasferire una sottoscrizione a un account utente in un altro paese/area geografica?
 
-No, il trasferimento di una sottoscrizione a un account utente in un altro paese non è supportato. L'account utente del destinatario deve essere nello stesso paese.
+No, il trasferimento di una sottoscrizione a un account utente in un altro paese/area geografica non è supportato. Account utente del destinatario deve essere nello stesso paese.
 
 ### <a name="can-the-recipient-use-a-different-payment-method"></a>Il destinatario può usare un metodo di pagamento diverso?
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 61968265670c53ebc4187c983996caa8c94a4cde
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 9006590583f0ef52bbce716529534f8bce6f47c5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508013"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780378"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 
@@ -58,7 +58,7 @@ Il piano di indirizzo IP per un cluster servizio Azure Kubernetes è costituito 
 
 ## <a name="maximum-pods-per-node"></a>Numero massimo di pod per nodo
 
-Il numero massimo di pod per nodo in un cluster servizio Azure Kubernetes è 110. Il numero massimo *predefinito* di pod per nodo varia tra le funzionalità di rete *kubenet* e *Azure CNI* e il metodo di distribuzione del cluster.
+Il numero massimo di POD per ogni nodo in un cluster AKS è 250. Il numero massimo *predefinito* di pod per nodo varia tra le funzionalità di rete *kubenet* e *Azure CNI* e il metodo di distribuzione del cluster.
 
 | Metodo di distribuzione | Kubenet predefinito | Azure CNI predefinito | Configurabile in fase di distribuzione |
 | -- | :--: | :--: | -- |

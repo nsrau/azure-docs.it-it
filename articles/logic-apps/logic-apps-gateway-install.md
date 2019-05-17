@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405178"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544470"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -36,7 +36,7 @@ Il gateway supporta [connettori locali](../connectors/apis-list.md#on-premises-c
 *   PostgreSQL
 *   Server applicazioni SAP 
 *   Server messaggi SAP
-*   SharePoint Server
+*   Server SharePoint
 *   SQL Server
 *   Teradata
 
@@ -51,7 +51,7 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un [account aziendale o dell'istituto di istruzione](../active-directory/fundamentals/sign-up-organization.md) con una [sottoscrizione di Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+* Un [account aziendale o dell'istituto di istruzione](../active-directory/fundamentals/sign-up-organization.md) con una [sottoscrizione di Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) 
 
   Durante l'installazione del gateway, è necessario eseguire l'accesso a questo account in modo da associare l'installazione del gateway con la sottoscrizione di Azure. 
   Lo stesso account verrà anche usato in un secondo momento, durante la creazione di una risorsa di Azure per l'installazione del gateway nel portale di Azure. 
@@ -238,7 +238,7 @@ Il gateway crea una connessione in uscita al [bus di servizio di Azure](https://
 
 Il gateway usa i nomi di dominio completi seguenti:
 
-| Nomi di dominio | Porte in uscita | DESCRIZIONE | 
+| Nomi di dominio | Porte in uscita | Descrizione | 
 | ------------ | -------------- | ----------- | 
 | *. analysis.windows.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
@@ -418,7 +418,7 @@ Per la risoluzione dei problemi, iniziare sempre raccogliendo ed esaminando i lo
 
 Di seguito sono riportate altre posizioni in cui è possibile trovare vari log:
 
-| Tipo di log | Location | 
+| Tipo di log | Località | 
 |----------|----------| 
 | **Log del programma di installazione** | %localappdata%\Temp\On-premises_data_gateway_<*aaaammgg*>.<*numero*>.log | 
 | **Log di configurazione** | C:\Users\<*nomeutente*>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*aaaammgg*>.<*numero*>.log | 
@@ -485,7 +485,7 @@ Per determinare la durata di una query, seguire questa procedura:
 
    2. Per trovare una query, cercare un tipo di attività, ad esempio: 
 
-      | Tipo di attività | DESCRIZIONE | 
+      | Tipo di attività | Descrizione | 
       |---------------|-------------| 
       | MGEQ | Query eseguite su ADO.NET. | 
       | MGEO | Query eseguite su OLEDB. | 

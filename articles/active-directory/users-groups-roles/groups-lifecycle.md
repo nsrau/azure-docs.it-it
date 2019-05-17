@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1de17429dfe89506445b2d47999b102f3becb15b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920161"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604388"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Office 365
 
-È ora possibile gestire il ciclo di vita dei gruppi di Office 365 impostando specifici criteri di scadenza. È possibile impostare i criteri di scadenza dei soli gruppi di Office 365 in Azure Active Directory (Azure AD). 
+È ora possibile gestire il ciclo di vita dei gruppi di Office 365 impostando specifici criteri di scadenza. È possibile impostare i criteri di scadenza dei soli gruppi di Office 365 in Azure Active Directory (Azure AD).
 
 Dopo l'impostazione della scadenza di un gruppo:
 
@@ -54,7 +54,7 @@ Per altre informazioni sulle autorizzazioni per ripristinare un gruppo eliminato
 
 1. Aprire l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account di amministratore globale per il tenant di Azure AD.
 
-2. Selezionare **Gruppi** e quindi **Scadenza** per aprire le impostazioni di scadenza.
+2. Selezionare **gruppi**, quindi selezionare **scadenza** per aprire le impostazioni di scadenza.
   
    ![Impostazioni di scadenza per i gruppi](./media/groups-lifecycle/expiration-settings.png)
 
@@ -66,8 +66,8 @@ Per altre informazioni sulle autorizzazioni per ripristinare un gruppo eliminato
   * Al termine salvare le impostazioni facendo clic su **Salva**.
 
 > [!NOTE]
-> * Quando si configura la scadenza per la prima volta, la scadenza di tutti i gruppi creati prima dell'intervallo di scadenza scelto viene impostata su 30 giorni. La prima notifica di rinnovo viene inviata tramite posta elettronica entro un giorno. Ad esempio, il gruppo A è stato creato da 400 giorni e l'intervallo di scadenza è impostato su 180 giorni. Quando si applicano le impostazioni di scadenza, il gruppo A ha 30 giorni prima di essere eliminato, a meno che il proprietario non lo rinnovi.
-> * Quando un gruppo dinamico viene eliminato e ripristinato, viene considerato come un nuovo gruppo e popolato nuovamente in base alla regola. Questo processo può richiedere fino a 24 ore.
+> Quando si configura la scadenza per la prima volta, la scadenza di tutti i gruppi creati prima dell'intervallo di scadenza scelto viene impostata su 30 giorni. La prima notifica di rinnovo viene inviata tramite posta elettronica entro un giorno. Ad esempio, il gruppo A è stato creato da 400 giorni e l'intervallo di scadenza è impostato su 180 giorni. Quando si applicano criteri di scadenza, il gruppo A ha 30 giorni prima che vengano eliminati, a meno che non lo rinnova il proprietario.
+> Quando un gruppo dinamico viene eliminato e ripristinato, viene considerata come un nuovo gruppo e popolato nuovamente in base alla regola. Questo processo può richiedere fino a 24 ore.
 
 ## <a name="email-notifications"></a>Notifiche tramite posta elettronica
 

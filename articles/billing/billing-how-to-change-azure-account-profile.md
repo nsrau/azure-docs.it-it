@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74afb98387172f6c58398673862274c7b1880d86
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6280068303e66ca9a930f94d9a754afe1f88f4f2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922949"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604256"
 ---
 # <a name="change-your-azure-account-profile-information"></a>Modificare le informazioni del profilo account di Azure
 
@@ -51,9 +51,9 @@ Aggiornamento dell'indirizzo di posta elettronica del profilo non verrà aggiorn
 
 Per informazioni su come aggiornare le informazioni di fatturazione, vedere [Modificare la carta di credito usata per pagare una sottoscrizione di Azure](billing-how-to-change-credit-card.md).
 
-### <a name="you-cant-update-your-country"></a>Non è possibile aggiornare il paese
+### <a name="you-cant-update-your-countryregion"></a>Non è possibile aggiornare il paese/area geografica
 
-A causa di limiti tecnici, è possibile modificare il paese per un account esistente. È possibile tuttavia creare un account nel paese desiderato e contattare il supporto tecnico di Azure per eseguire la migrazione dei servizi verso l'account.
+A causa di limiti tecnici, è possibile modificare il paese/regione per un account esistente. Tuttavia, è possibile creare un account nel paese/regione desiderato e quindi contattare il supporto tecnico di Azure per eseguire la migrazione dei servizi a tale account.
 
 ## <a name="service-and-marketing-emails"></a>Servizio e messaggi di posta elettronica di marketing
 
@@ -62,7 +62,7 @@ Il team di Microsoft Azure invia relativi ai servizi messaggi di posta elettroni
 Le richieste il [portale di Azure](https://portal.azure.com) per verificare o aggiornare l'indirizzo di posta elettronica ogni 90 giorni. Lo scopo di notifica è assicurarsi che Microsoft ha aggiornato le informazioni di contatto in caso di eventuali notifiche relative al servizio ad alta priorità. Microsoft invia messaggi di posta elettronica all'indirizzo di posta elettronica del profilo con le informazioni relative all'account Azure per:
 
 - Notifiche del servizio
-- Avvisi di sicurezza
+- Avvisi sicurezza
 - A scopo di fatturazione
 - Supporto
 - Comunicazioni di marketing

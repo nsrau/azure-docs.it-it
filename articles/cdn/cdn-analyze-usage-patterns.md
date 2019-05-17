@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61061542"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606386"
 ---
 # <a name="core-reports-from-verizon"></a>Report principali da Verizon
 
@@ -96,7 +96,7 @@ Per ridurre i riscontri nella cache scaduti, impostare il valore `max-age` dell'
   
   * Cache-Control: s-maxage
   * Cache-Control: max-age
-  * Expires
+  * Scade
 * TCP_MISS: Questo stato indica che una versione memorizzata nella cache dell'asset richiesto non è stata trovata nel POP vicino al client. La risorsa viene richiesta da un server di origine o da un server shield di origine. Se il server di origine o il server shield di origine restituiscono un asset, esso viene fornito al client e memorizzato nella cache sul client e sul server perimetrale. In caso contrario, viene restituito un codice di stato diverso da 200 (ad esempio, 403 - Accesso negato o 404 - Non trovato).
 * TCP_EXPIRED_HIT: Questo stato viene segnalato quando una richiesta avente per destinazione un asset con un tempo TTL scaduto è stata servita direttamente dal POP al client. Ad esempio, quando la durata max. della risorsa è scaduta. 
   
@@ -119,7 +119,7 @@ Il report fornisce i dettagli seguenti:
 
 Il report non include:
 
-* Richieste rifiutate a causa di opzioni di filtro di paese.
+* Richieste rifiutate a causa di opzioni di filtro di paese/regione.
 * Richieste di asset le cui intestazioni indicano che non devono essere memorizzate nella cache. Ad esempio, le intestazioni `Cache-Control: private`, `Cache-Control: no-cache` o `Pragma: no-cache` impediscono la memorizzazione nella cache di un asset.
 * Richieste di intervallo di byte di contenuti parzialmente memorizzati nella cache.
 

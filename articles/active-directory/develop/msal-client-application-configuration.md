@@ -4,7 +4,7 @@ description: Informazioni sulle opzioni di configurazione per client riservati e
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a48eea9fedd2d82f44693d58b31ee0d5c8c288d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d731a8153dc6a70382c0d87cc20d8c961d9fe24
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138546"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546017"
 ---
 # <a name="application-configuration-options"></a>Opzioni di configurazione dell'applicazione
 
@@ -35,7 +35,7 @@ Nel codice, si inizializza un nuovo client pubblici o riservati (o user-agent pe
     - [segreto client](#client-secret) (per le applicazioni client riservato).
 - [Le opzioni di registrazione](#logging), inclusi il nome del componente usando la libreria di livello di registrazione e controllo dei dati personali.
 
-## <a name="authority"></a>Authority
+## <a name="authority"></a>Autorità
 L'autorità è un URL che indica una directory che MSAL può richiedere token da. Autorità di solito sono:
 
 - https://login.microsoftonline.com/&lt; tenant&gt;/, dove &lt;tenant&gt; è l'ID tenant del tenant di Azure AD o in un dominio associati al tenant Azure AD.  Usato solo per consentire agli utenti di un'organizzazione specifica.
@@ -58,7 +58,7 @@ Le autorità di Azure AD cloud hanno due parti:
 
 L'istanza e il gruppo di destinatari possono essere concatenati e forniti come l'URL dell'autorità. Nelle versioni di MSAL.NET prima MSAL 3.x, era necessario compose manualmente nel cloud che si desidera di destinazione e il pubblico accesso in base l'autorità.  Il diagramma seguente mostra come viene composto l'URL dell'autorità.
 
-![Authority](media/msal-client-application-configuration/authority.png)
+![Autorità](media/msal-client-application-configuration/authority.png)
 
 ## <a name="cloud-instance"></a>Istanza cloud
 Il **istanza** consente di specificare se l'applicazione esegue l'accesso degli utenti dal cloud pubblico di Microsoft Azure o dal cloud nazionali. Con MSAL nel codice, l'istanza di cloud di Azure può essere impostata tramite un'enumerazione o passando l'URL per il [istanza del cloud nazionale](authentication-national-cloud.md#azure-ad-authentication-endpoints) come il `Instance` membro (se lo si conosce).

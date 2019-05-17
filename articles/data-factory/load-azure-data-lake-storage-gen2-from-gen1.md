@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d6e09ec1f070f9ee0f4162524e4bd80d1f81adc3
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546275"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560645"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiare dati da Azure Data Lake Storage Gen1 a Gen2 con Azure Data Factory
 
@@ -132,12 +132,47 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-Quando si copia un volume considerevole di dati dall'archivio dati basato su file, è consigliabile:
+Per valutare l'aggiornamento da Azure Data Lake Storage (ADLS) Gen1 a Gen2 in generale, fare riferimento a [esegue l'aggiornamento alle soluzioni di analitica di big data da Azure Data Lake archiviazione Gen1 per Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md). Le sezioni seguenti presentano le procedure consigliate dell'uso di Azure Data factory per l'aggiornamento dei dati da Gen1 a Gen2.
 
-- Partizionare i file in set di file da 10 TB a 30 TB l'uno.
-- Non attivare troppe esecuzioni di copia simultanee per evitare la limitazione dagli archivi di dati di origine o sink. È possibile iniziare con un'esecuzione di copia e monitorare la velocità effettiva, quindi aggiungerne gradualmente altre in base alle esigenze.
+### <a name="data-partition-for-historical-data-copy"></a>Partizione di dati per la copia dei dati cronologici
+
+- Se le dimensioni totali dei dati in Azure Data Lake Store Gen1 minore **30TB** e il numero di file è minore di **1 milione**, è possibile copiare tutti i dati in esecuzione singola attività di copia.
+- Se si dispone di dimensioni maggiori di dati da copiare, o si vuole che la flessibilità necessaria per gestire la migrazione dei dati in batch e rendere ognuno di essi completata all'interno di windows un intervallo specifico, vengono suggeriti per partizionare i dati, nel qual caso può anche ridurre il rischio di qualsiasi iss imprevisto UE.
+
+Un PoC (Proof of Concept) è fortemente consigliato per verificare la soluzione end-to-end e la velocità effettiva di copia di test nell'ambiente in uso. Passaggi principali di questo modello di verifica: 
+
+1. Creare una pipeline di Azure Data factory con una singola attività di copia per copiare i vari terabyte di dati da ADLS Gen1 a Gen2 Azure Data Lake Store per ottenere una linea di base delle prestazioni di copia, a partire [unità di integrazione di dati (DIUs)](copy-activity-performance.md#data-integration-units) come 128. 
+2. In base alla velocità effettiva di copia che si verifica nel passaggio #1, calcolare il tempo stimato necessario per la migrazione di tutti i dati. 
+3. (Facoltativo) Creare una tabella di controllo e definire il filtro del file per partizionare i file per eseguire la migrazione. Il modo migliore per partizionare i file come indicato di seguito: 
+
+    - Partizionati dal nome della cartella o il nome di cartella con il filtro con caratteri jolly (consigliato) 
+    - Partizionata in base l'ora dell'ultima modifica del file 
+
+### <a name="network-bandwidth-and-storage-io"></a>/ O archiviazione e larghezza di banda di rete 
+
+È possibile controllare la concorrenza di processi di copia ADF che leggere i dati da ADLS Gen1 e Gen2 Azure Data Lake Store, scrivere i dati in modo che è possibile gestire l'utilizzo in archiviazione dei / o per non compromettere le operazioni aziendali normale in Azure Data Lake Store Gen1 durante la migrazione.
+
+### <a name="permissions"></a>Autorizzazioni 
+
+In Data Factory [connettore di Azure Data Lake Store Gen1](connector-azure-data-lake-store.md) supporta entità servizio e identità gestita per le autenticazioni di risorse di Azure; [Connettore di Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) supporta, chiave dell'account dell'entità servizio e l'identità gestita per le autenticazioni di risorse di Azure. Per rendere Data Factory in grado di passare e copia che tutti i file/gli ACL in base alle esigenze, assicurarsi di che concedere alto delle autorizzazioni sufficienti per l'account fornire a accesso/lettura/scrittura a tutti i file e impostare gli ACL se si sceglie di. Suggerisci per concedere a tale ruolo super utenti/proprietario durante il periodo di migrazione. 
+
+### <a name="preserve-acls-from-data-lake-storage-gen1"></a>Mantenere gli ACL da Data Lake Store Gen1
+
+Se si vuole replicare gli ACL con file di dati durante l'aggiornamento da Data Lake archiviazione Gen1 a Gen2, fare riferimento a [conservare gli ACL da Data Lake archiviazione Gen1](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1). 
+
+### <a name="incremental-copy"></a>Copia incrementale 
+
+Diversi approcci sono utilizzabile per caricare solo i file nuovi o aggiornati da Azure Data Lake Store Gen1:
+
+- Caricare i file nuovi o aggiornati da tempo partizionato nome file o cartella, ad esempio/2019/05/13 / *;
+- Caricare i file nuovi o aggiornati da LastModifiedDate & gt;
+- Identificare i file nuovi o aggiornati in qualsiasi strumento o soluzione di terze parti 3rd, quindi passare il nome file o cartella alla pipeline di Azure Data factory tramite parametro o un tabella/file.  
+
+La frequenza appropriata per eseguire operazioni di caricamento incrementale varia a seconda il numero totale di file in Azure Data Lake Store Gen1 e il volume del file nuovi o aggiornati per essere caricato ogni volta.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica dell'attività di copia](copy-activity-overview.md)
-* [Connettore di Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+> [!div class="nextstepaction"]
+> [Panoramica dell'attività di copia](copy-activity-overview.md)
+> [connettore di Azure Data Lake archiviazione Gen1](connector-azure-data-lake-store.md)
+> [connettore Gen2 di archiviazione di Azure Data Lake](connector-azure-data-lake-storage.md)

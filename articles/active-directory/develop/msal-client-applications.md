@@ -4,7 +4,7 @@ description: Informazioni sui client pubblico e client riservato applicazioni in
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f21aa62bae7599cf586ccf6f885ad9f58c148d1f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9e0300ec0ef4ee67b06acb85514ae898bbd0a830
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077141"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544281"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Applicazioni client riservati e client pubblici
 Microsoft Authentication Library (MSAL) definisce due tipi di client: i client riservati e client pubblici. I tipi di due client si differenziano per capacità di eseguire l'autenticazione in modo sicuro con il server di autorizzazione e mantenere la riservatezza delle proprie credenziali client.  Al contrario, Azure AD Authentication Library (ADAL) ha il concetto di contesto di autenticazione (che è una connessione ad Azure AD).

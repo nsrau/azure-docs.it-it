@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304181"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546265"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
@@ -36,7 +36,7 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
 
 * L'installazione del gateway non è già associata a una risorsa per il gateway in Azure. È possibile collegare l'installazione del gateway a una sola risorsa per il gateway. Questa operazione viene eseguita quando si crea la risorsa del gateway e si seleziona l'installazione del gateway. Questo collegamento rende l'installazione del gateway non disponibile per le altre risorse.
 
-* Quando si accede al portale di Azure e si crea la risorsa per il gateway, servirsi dello stesso account di accesso usato in precedenza per [installare il gateway dati locale](../logic-apps/logic-apps-gateway-install.md#requirements) e della stessa [sottoscrizione di Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) usata per installare il gateway. Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">registrarsi per creare un account Azure gratuito</a>.
+* Quando si accede al portale di Azure e si crea la risorsa per il gateway, servirsi dello stesso account di accesso usato in precedenza per [installare il gateway dati locale](../logic-apps/logic-apps-gateway-install.md#requirements) e della stessa [sottoscrizione di Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) usata per installare il gateway. Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">registrarsi per creare un account Azure gratuito</a>.
 
 * Per creare e gestire la risorsa per il gateway nel portale di Azure, l'[account del servizio di Windows](../logic-apps/logic-apps-gateway-install.md#windows-service-account) deve avere almeno autorizzazioni di **Collaboratore**. Il gateway dati locale viene eseguito come servizio di Windows ed è configurato per usare `NT SERVICE\PBIEgwService` come credenziali di accesso al servizio di Windows. 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f29625ed8ddd6eabf8b75380d84d7a7b64396d7a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696508"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597085"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -136,11 +136,11 @@ Per visualizzare i risultati in CSV:
 | Funzionalità | Stato del supporto | Note |
 |---------|----------------|-------|
 | Elenchi di controllo di accesso (ACL) | Supporto completo | Gli elenchi di controllo di accesso di Windows vengono mantenuti da Sincronizzazione file di Azure e vengono applicati da Windows Server negli endpoint server. Gli ACL di Windows non sono ancora supportati da File di Azure se si accede ai file direttamente nel cloud. |
-| Collegamenti reali | Skipped | |
-| Collegamenti simbolici | Skipped | |
+| Collegamenti reali | Ignorata | |
+| Collegamenti simbolici | Ignorata | |
 | Punti di montaggio | Supporto parziale | I punti di montaggio possono corrispondere alla radice di un endpoint server, ma vengono ignorati se sono contenuti nello spazio dei nomi di un endpoint server. |
-| Giunzioni | Skipped | Ad esempio, le cartelle DfrsrPrivate e DFSRoots del file system distribuito. |
-| Punti di analisi | Skipped | |
+| Giunzioni | Ignorata | Ad esempio, le cartelle DfrsrPrivate e DFSRoots del file system distribuito. |
+| Punti di analisi | Ignorata | |
 | Compressione NTFS | Supporto completo | |
 | File sparse | Supporto completo | I file sparse vengono sincronizzati (non bloccati), ma vengono sincronizzati nel cloud come file completi. Se il contenuto del file viene modificato nel cloud (o in un altro server), il file non è più di tipo sparse quando viene scaricata la modifica. |
 | Flussi di dati alternativi (ADS) | Mantenuti, ma non sincronizzati | Ad esempio, i tag di classificazione creati tramite Infrastruttura di classificazione file non vengono sincronizzati. I tag di classificazione esistenti sui file in ognuno degli endpoint server non subiscono variazioni. |
@@ -150,7 +150,7 @@ Per visualizzare i risultati in CSV:
 
 ### <a name="files-skipped"></a>File ignorati
 
-| File/cartella | Note |
+| File/cartella | Nota |
 |-|-|
 | Desktop.ini | File specifico del sistema |
 | ethumbs.db$ | File temporaneo per anteprime |
@@ -230,7 +230,7 @@ In genere, Sincronizzazione file di Azure supporta l'interoperabilità con soluz
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Altre soluzioni di gestione dell'archiviazione gerarchica
 Con Sincronizzazione file di Azure non devono essere usate altre soluzioni di gestione dell'archiviazione gerarchica.
 
-## <a name="region-availability"></a>Aree di disponibilità
+## <a name="region-availability"></a>Disponibilità a livello di area
 Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 
 | Region | Ubicazione del data center |
@@ -242,10 +242,10 @@ Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 | Canada orientale | Quebec City |
 | India centrale | Pune |
 | Stati Uniti centrali | Iowa |
-| Asia orientale | RAS di Hong Kong |
+| Asia orientale | Hong Kong - R.A.S. |
 | Stati Uniti orientali | Virginia |
 | Stati Uniti Orientali 2 | Virginia |
-| Corea del Sud centrale| Seul |
+| Corea del Sud centrale| Seoul |
 | Corea del Sud meridionale| Busan |
 | Giappone orientale | Tokyo, Saitama |
 | Giappone occidentale | Osaka |
@@ -256,10 +256,18 @@ Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 | Asia sud-orientale | Singapore |
 | Regno Unito meridionale | Londra |
 | Regno Unito occidentale | Cardiff |
+| US Gov Arizona (anteprima) | Arizona |
+| US Gov Texas (anteprima) | Texas |
+| US Gov Virginia (anteprima) | Virginia |
 | Europa occidentale | Paesi Bassi |
+| Stati Uniti centro-occidentali | Wyoming |
 | Stati Uniti occidentali | California |
+| Stati Uniti occidentali 2 | Washington |
 
 Sincronizzazione file di Azure supporta solo la sincronizzazione con una condivisione file di Azure nella stessa area del servizio di sincronizzazione archiviazione.
+
+> [!Note]  
+> Sincronizzazione File di Azure è attualmente disponibile solo in anteprima privata per le aree per enti pubblici. Vedere la [note sulla versione](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) per istruzioni su come la registrazione nel programma di anteprima.
 
 ### <a name="azure-disaster-recovery"></a>Ripristino di emergenza di Azure
 Per evitare la perdita di un'area di Azure, Sincronizzazione file di Azure si integra con l'opzione [ di ridondanza dell'archiviazione con ridondanza geografica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). L'archiviazione con ridondanza geografica funziona usando la replica a blocchi asincrona tra l'archiviazione nell'area primaria, con cui in genere interagisce l'utente, e l'archiviazione nell'area secondaria associata. In caso di un'emergenza che provoca la disconnessione temporanea o definitiva di un'area di Azure, Microsoft eseguirà il failover dell'archiviazione nell'area abbinata. 
@@ -271,8 +279,9 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 
 | Area primaria      | Area associata      |
 |---------------------|--------------------|
-| Australia orientale      | Australia sud-orientale |
+| Australia orientale      | Australia sud-orientale|
 | Australia sud-orientale | Australia orientale     |
+| Brasile meridionale        | Stati Uniti centro-meridionali   |
 | Canada centrale      | Canada orientale        |
 | Canada orientale         | Canada centrale     |
 | India centrale       | India meridionale        |
@@ -280,16 +289,24 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 | Asia orientale           | Asia sud-orientale     |
 | Stati Uniti orientali             | Stati Uniti occidentali            |
 | Stati Uniti orientali 2           | Stati Uniti centrali         |
+| Giappone orientale          | Giappone occidentale         |
+| Giappone occidentale          | Giappone orientale         |
 | Corea del Sud centrale       | Corea del Sud meridionale        |
 | Corea del Sud meridionale         | Corea del Sud centrale      |
 | Europa settentrionale        | Europa occidentale        |
 | Stati Uniti centro-settentrionali    | Stati Uniti centro-meridionali   |
+| Stati Uniti centro-meridionali    | Stati Uniti centro-settentrionali   |
 | India meridionale         | India centrale      |
 | Asia sud-orientale      | Asia orientale          |
 | Regno Unito meridionale            | Regno Unito occidentale            |
 | Regno Unito occidentale             | Regno Unito meridionale           |
+| US Gov Arizona      | US Gov Texas       |
+| US Gov Iowa         | US Gov Virginia    |
+| US Gov Virgini      | US Gov Texas       |
 | Europa occidentale         | Europa settentrionale       |
+| Stati Uniti centro-occidentali     | Stati Uniti occidentali 2          |
 | Stati Uniti occidentali             | Stati Uniti orientali            |
+| Stati Uniti occidentali 2           | Stati Uniti centro-occidentali    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

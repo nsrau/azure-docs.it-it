@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404430"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606500"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Con Mapping dei servizi puoi visualizzare i server nel modo in cui pensi a essi, ovvero come sistemi interconnessi che forniscono servizi essenziali. Il Mapping dei servizi visualizza le connessioni fra i server, i processi, la latenza di connessione in ingresso e in uscita e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -297,7 +297,7 @@ I record in queste tabelle vengono generati dai dati segnalati da Dependency Age
 
 Per gestire i costi e la complessità, i record di connessione non rappresentano singole connessioni di rete fisiche. Più connessioni di rete fisiche vengono raggruppate in una connessione logica, che viene quindi riflessa nella rispettiva tabella.  Ciò significa che i record nella tabella *VMConnection* rappresentano un raggruppamento logico e non le singole connessioni fisiche osservate. Le connessioni di rete fisiche che condividono lo stesso valore per gli attributi seguenti durante uno specifico intervallo di un minuto vengono aggregate in un singolo record logico in *VMConnection*. 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 | `Direction` |Direzione della connessione. Il valore è *inbound* o *outbound* |
 | `Machine` |FQDN del computer |
@@ -309,7 +309,7 @@ Per gestire i costi e la complessità, i record di connessione non rappresentano
 
 Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record seguenti vengono fornite informazioni sul numero di connessioni fisiche raggruppate:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 | `LinksEstablished` |Numero di connessioni di rete fisiche che sono state stabilite durante l'intervallo di tempo di creazione del report |
 | `LinksTerminated` |Numero di connessioni di rete fisiche che sono state terminate durante l'intervallo di tempo di creazione del report |
@@ -320,7 +320,7 @@ Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record s
 
 Oltre alle metriche relative al numero di connessioni, nelle proprietà del record seguenti vengono fornite anche informazioni sul volume dei dati inviati e ricevuti in una determinata connessione logica o porta di rete:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 | `BytesSent` |Numero totale di byte che sono stati inviati durante l'intervallo di tempo di creazione del report |
 | `BytesReceived` |Numero totale di byte che sono stati ricevuti durante l'intervallo di tempo di creazione del report |
@@ -346,16 +346,16 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 #### <a name="geolocation"></a>Georilevazione
 *VMConnection* include anche informazioni di georilevazione per l'estremità remota di ogni record di connessione nelle proprietà del record seguenti: 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
-| `RemoteCountry` |Nome del paese che ospita RemoteIp.  Ad esempio, *Stati Uniti* |
+| `RemoteCountry` |Nome del paese/area geografica che ospita RemoteIp.  Ad esempio, *Stati Uniti* |
 | `RemoteLatitude` |Latitudine della georilevazione.  Ad esempio, *47.68* |
 | `RemoteLongitude` |Longitudine della georilevazione.  Ad esempio, *-122.12* |
 
 #### <a name="malicious-ip"></a>Indirizzi IP dannosi
 Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un set di indirizzi IP con attività dannosa nota. Se la proprietà RemoteIp viene identificata come dannosa, le proprietà del record seguenti (vuote quando l'indirizzo IP non è considerato dannoso) vengono popolate:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 | `MaliciousIp` |Indirizzo RemoteIp |
 | `IndicatorThreadType` |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
@@ -397,7 +397,7 @@ I record che contengono il tipo *ServiceMapComputer_CL* includono dati di invent
 ### <a name="servicemapprocesscl-type-records"></a>Record con tipo ServiceMapProcess_CL
 I record con tipo *ServiceMapProcess_CL* includono dati di inventario relativi ai processi con connessione TCP eseguiti sui server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |

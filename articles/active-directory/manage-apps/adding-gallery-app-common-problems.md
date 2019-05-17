@@ -3,8 +3,8 @@ title: Errore durante l'aggiunta di un'applicazione della raccolta di Azure AD| 
 description: Informazioni sui problemi frequenti che si riscontrano quando si aggiungono applicazioni della raccolta di Azure AD e sulle azioni da eseguire per risolverli
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60438796"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784436"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Errore durante l'aggiunta di un'applicazione della raccolta di Azure AD
 
@@ -40,7 +40,7 @@ Se si verifica un errore quando si fa clic sul pulsante **Aggiungi**, viene visu
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Non si sa come configurare l'applicazione dopo averla aggiunta
 
-Per informazioni su come configurare le applicazioni, vedere l'articolo [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Se ti serve assistenza a conoscere le applicazioni, il [elenco di esercitazioni sulla procedura di integrazione delle App SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) articolo è un buon punto di partenza.
 
 Vedere anche la [raccolta di documenti sulle applicazioni di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) che include informazioni sull'accesso Single Sign-On con Azure AD e ne illustra il funzionamento.
 
@@ -48,7 +48,7 @@ Vedere anche la [raccolta di documenti sulle applicazioni di Azure AD](https://d
 
 È possibile visualizzare i dettagli di qualsiasi notifica del portale seguendo questa procedura:
 
-1.  Fare clic sull'icona **Notifiche** (la campanella) in alto a destra nel portale di Azure
+1.  Selezionare il **notifiche** icona (la campanella) nella parte superiore destra del portale di Azure
 
 2.  Selezionare una notifica con stato **Errore** contrassegnata con un punto esclamativo (!) rosso.
 
@@ -93,7 +93,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
   -   Esempio: **2017-03-23T19:50:43.7583681Z**
 
-- **ID transazione interna**: l'ID interno che è possibile usare per cercare l'errore nei sistemi
+- **ID transazione interna** : l'ID interno, è possibile usare per cercare l'errore nei sistemi
 
   -   Esempio: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 

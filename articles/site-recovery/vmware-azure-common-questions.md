@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/26/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 767f087910136ce558d71602a1c4c632090168cd
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925526"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540633"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Domande frequenti - Replica da VMware ad Azure
 
@@ -251,13 +251,13 @@ Nell'insieme di credenziali di servizi di ripristino, fare clic su **server di c
 
 ## <a name="process-server"></a>Server di elaborazione
 
-### <a name="unable-to-select-process-server-during-enable-replication"></a>Non è possibile selezionare server di elaborazione durante l'abilitazione della replica
+### <a name="why-am-i-unable-to-select-process-server-during-enable-replication"></a>Il motivo per cui sto non è possibile selezionare il server di elaborazione durante abilitare la replica?
 
-Da versione 9.24, miglioramenti hanno scopo di fornire [elaborare avvisi server](vmware-physical-azure-monitor-process-server.md#process-server-alerts) sui casi in cui configurare un server di elaborazione scale-out. Si tratta di evitare la limitazione delle richieste di processo server ed evitare l'utilizzo del server di elaborazione non integro.
+Da versione 9.24, vengono apportati miglioramenti per la visualizzazione [integrità del server di elaborazione durante l'abilitazione della replica](vmware-azure-enable-replication.md#enable-replication). Si tratta di evitare la limitazione delle richieste di processo server e ridurre l'utilizzo dei server di elaborazione non integro.
 
-### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>Cosa devo fare per ottenere lo stato di integrità accurata del server di elaborazione?
+### <a name="what-is-meant-by-upgrading-process-server-to-924-or-higher-versions-for-accurate-health"></a>Cosa si intende per l'aggiornamento di server di elaborazione a versioni 9.24 o versione successive per l'integrità accurati?
 
-Aggiornare i componenti di Site Recovery per la [versioni più recenti](service-updates-how-to.md#links-to-currently-supported-update-rollups) (almeno 9.24 o versione successiva).
+Dal [9.24 versioni](service-updates-how-to.md#links-to-currently-supported-update-rollups), altri avvisi sono stati introdotti per ottimizzare gli avvisi sull'integrità del server di elaborazione. Aggiornare i componenti di Site Recovery a 9.24 versioni o versioni successive per tutti gli avvisi da generare.
 
 ## <a name="failover-and-failback"></a>Failover e failback
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>È possibile usare il server di elaborazione in locale per il failback?

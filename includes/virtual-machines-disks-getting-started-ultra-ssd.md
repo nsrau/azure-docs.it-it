@@ -5,85 +5,150 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3b596e5bad8202d88ea06c7eee114bec1063a35f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 495326c172f900dc8bcff78b0df38f2cb64ed27e
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61075696"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546532"
 ---
-# <a name="enabling-azure-ultra-ssds"></a>Abilitazione unità SSD Ultra-Azure
+# <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>Abilita e si distribuisce Azure SSDs extra (anteprima)
 
-Azure Ultra SSD offre una velocità effettiva elevata, un numero elevato di operazioni di I/O al secondo e archiviazione su disco con bassa latenza coerente per le macchine virtuali IaaS di Azure. Questa nuova offerta fornisce prestazioni all'avanguardia con gli stessi livelli di disponibilità delle offerte di dischi esistenti. I vantaggi aggiuntivi delle unità Ultra SSD includono la possibilità di modificare dinamicamente le prestazioni del disco in base ai carichi di lavoro, senza dover riavviare le macchine virtuali. Le unità Ultra SSD sono adatte per carichi di lavoro a elevato utilizzo di dati, come SAP HANA, database di alto livello e carichi di lavoro con numerose transazioni.
+Azure extra unità velocità effettiva elevata dell'offerta (SSD) (anteprima), numero elevato di IOPS e di archiviazione su disco a bassa latenza coerente per le macchine virtuali IaaS di Azure (VM). Questa nuova offerta fornisce prestazioni all'avanguardia con gli stessi livelli di disponibilità delle offerte di dischi esistenti. Uno dei vantaggi principali di SSDs extra è la possibilità di modificare dinamicamente le prestazioni dell'unità SSD e i carichi di lavoro senza la necessità di riavviare le macchine virtuali. Unità SSD extra sono adatti per carichi di lavoro a elevato utilizzo di dati, ad esempio SAP HANA, i database di livello superiore e i carichi di lavoro con intensa attività di transazione.
 
-Le unità Ultra SSD sono attualmente in anteprima ed è necessario [eseguire la registrazione](https://aka.ms/UltraSSDPreviewSignUp) all'anteprima per accedervi.
+Attualmente, SSDs extra sono disponibili in anteprima ed è necessario [registrare](https://aka.ms/UltraSSDPreviewSignUp) nel riquadro di anteprima per accedervi.
 
-Dopo l'approvazione, eseguire uno dei comandi seguenti per determinare in quale zona degli Stati Uniti orientali 2 distribuire il disco Ultra:
+## <a name="determine-your-availability-zone"></a>Determinare la zona di disponibilità
+
+Dopo l'approvazione, è necessario determinare quale zona di disponibilità in uso, per poter usare unità SSD extra. Eseguire i comandi seguenti per determinare quale zona negli Stati Uniti orientali 2 per la distribuzione del disco extra per:
 
 PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
-Interfaccia della riga di comando: `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS’]”`
+Interfaccia della riga di comando: `az vm list-skus --resource-type disks --query “[?name==UltraSSD_LRS]”`
 
-Il formato della risposta sarà simile al seguente, dove X è la zona da usare per la distribuzione negli Stati Uniti orientali 2. X può essere 1, 2 o 3.
+La risposta sarà simile a quello riportato di seguito, dove X è la zona da utilizzare per la distribuzione negli Stati Uniti orientali 2. X può essere 1, 2 o 3.
 
-|ResourceType  |NOME  |Località  |Zone  |Restrizione  |Funzionalità  |Value  |
+Mantenere il **zone** valore, rappresenta la zona di disponibilità e sarà necessario per distribuire un'unità SSD extra.
+
+|ResourceType  |NOME  |Località  |Zone  |Restrizione  |Capacità  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
-|disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|dischi     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-Se il comando non restituisce risposte, significa che la registrazione alla funzionalità è ancora in sospeso o non è ancora stata approvata.
+Se si è verificato alcun risposta dal comando, quindi la registrazione per la funzionalità è ancora in sospeso o non ancora approvati.
 
 Ora che si conosce la zona in cui eseguire la distribuzione, seguire la procedura illustrata in questo articolo per distribuire le prime macchine virtuali con unità Ultra SSD.
 
-## <a name="deploying-an-ultra-ssd"></a>Distribuzione di un'unità Ultra SSD
+## <a name="deploy-an-ultra-ssd-using-azure-resource-manager"></a>Distribuire un'unità SSD extra tramite Azure Resource Manager
 
-Determinare prima di tutto le dimensioni della macchina virtuale da distribuire. In questa anteprima sono supportate solo le famiglie di macchine virtuali DsV3 ed EsV3. Per altri dettagli su queste dimensioni di macchine virtuali, vedere la seconda tabella in questo [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
-Vedere anche l'esempio per la [creazione di una macchina virtuale con più unità Ultra SSD](https://aka.ms/UltraSSDTemplate), che illustra come creare una macchina virtuale con più unità Ultra SSD.
+In primo luogo, determinare le dimensioni di macchina virtuale da distribuire. In questa anteprima sono supportate solo le famiglie di macchine virtuali DsV3 ed EsV3. Per altri dettagli su queste dimensioni di macchine virtuali, vedere la seconda tabella in questo [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
-Di seguito vengono elencati i cambiamenti apportati a un modello di Resource Manager nuovo/modificato: **apiVersion** per `Microsoft.Compute/virtualMachines` e `Microsoft.Compute/Disks` deve essere impostato come `2018-06-01` (o versione successiva).
+Se si desidera creare una VM con più SSD extra, vedere l'esempio [creare una VM con più unità SSD extra](https://aka.ms/UltraSSDTemplate).
 
-Specificare UltraSSD_LRS come SKU del disco, la capacità del disco, le operazioni di I/O al secondo e la velocità effettiva in MBps per creare un disco Ultra. Il seguente è un esempio che crea un disco con 1.024 GiB (GiB = 2^30 byte), 80.000 operazioni di I/O al secondo e 1.200 MBps  (MBps = 10^6 byte al secondo):
+Se si prevede di usare un modello personalizzato, assicurarsi che **apiVersion** per `Microsoft.Compute/virtualMachines` e `Microsoft.Compute/Disks` viene impostato come `2018-06-01` (o versione successiva).
 
-```json
-"properties": {  
-    "creationData": {  
-    "createOption": "Empty"  
-},  
-"diskSizeGB": 1024,  
-"diskIOPSReadWrite": 80000,  
-"diskMBpsReadWrite": 1200,  
-}
-```
-
-Aggiungere un'ulteriore funzionalità nelle proprietà della macchina virtuale per indicare che l'unità Ultra è abilitata. Vedere l'[esempio](https://aka.ms/UltraSSDTemplate) per il modello di Resource Manager completo:
-
-```json
-{
-    "apiVersion": "2018-06-01",
-    "type": "Microsoft.Compute/virtualMachines",
-    "properties": {
-                    "hardwareProfile": {},
-                    "additionalCapabilities" : {
-                                    "ultraSSDEnabled" : "true"
-                    },
-                    "osProfile": {},
-                    "storageProfile": {},
-                    "networkProfile": {}
-    }
-}
-```
+Impostare lo sku di disco **UltraSSD_LRS**, quindi impostare la capacità, IOPS, zona di disponibilità e velocità effettiva in MBps per creare un disco extra.
 
 Dopo aver effettuato il provisioning della macchina virtuale, è possibile partizionare e formattare i dischi dati e configurarli per i carichi di lavoro.
 
-## <a name="additional-ultra-ssd-scenarios"></a>Altri scenari delle unità Ultra SSD
+## <a name="deploy-an-ultra-ssd-using-cli"></a>Distribuire un'unità SSD extra utilizzando CLI
 
-- Durante la creazione della macchina virtuale possono essere create implicitamente anche unità Ultra SSD. Questi dischi riceveranno tuttavia un valore predefinito per le operazioni di I/O al secondo (500) e la velocità effettiva (8 MiB/s).
-- Unità Ultra SSD aggiuntive possono essere collegate alle macchine virtuali compatibili.
-- Ultra SSD supporta la regolazione degli attributi delle prestazioni del disco (operazioni di I/O al secondo e velocità effettiva) in fase di esecuzione senza scollegare il disco dalla macchina virtuale. Dopo l'esecuzione di un'operazione di ridimensionamento delle prestazioni in un disco, può essere necessario attendere fino a un'ora prima che la modifica abbia effetto.
-- Per aumentare la capacità del disco, è necessario deallocare una macchina virtuale.
+In primo luogo, determinare le dimensioni di macchina virtuale da distribuire. In questa anteprima sono supportate solo le famiglie di macchine virtuali DsV3 ed EsV3. Per altri dettagli su queste dimensioni di macchine virtuali, vedere la seconda tabella in questo [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
+
+Per usare unità SSD extra, è necessario creare una macchina virtuale che è capace di usare unità SSD extra.
+
+Sostituire o impostare il **$vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** variabili con i propri valori. Impostare **$zone** al valore della zona di disponibilità che è stato creato dalle [avvio di questo articolo](#determine-your-availability-zone). Eseguire quindi il comando seguente per creare una macchina virtuale abilitata extra:
+
+```azurecli-interactive
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
+```
+
+### <a name="create-an-ultra-ssd-using-cli"></a>Creare un'unità SSD extra utilizzando CLI
+
+Dopo aver creato una macchina virtuale che è in grado di utilizzare Ultra-unità SSD, è possibile creare e collegare un'unità SSD extra.
+
+```azurecli-interactive
+location="eastus2"
+subscription="xxx"
+rgname="ultraRG"
+diskname="ssd1"
+vmname="ultravm1"
+zone=123
+
+#create an Ultra SSD disk
+az disk create `
+--subscription $subscription `
+-n $diskname `
+-g $rgname `
+--size-gb 4 `
+--location $location `
+--zone $zone `
+--sku UltraSSD_LRS `
+--disk-iops-read-write 1000 `
+--disk-mbps-read-write 50
+```
+
+### <a name="adjust-the-performance-of-an-ultra-ssd-using-cli"></a>Modificare le prestazioni di un'unità SSD extra utilizzando CLI
+
+Unità SSD extra offrono una funzionalità univoca che consente di regolare le prestazioni, il comando seguente illustra come usare questa funzionalità:
+
+```azurecli-interactive
+az disk update `
+--subscription $subscription `
+--resource-group $rgname `
+--name $diskName `
+--set diskIopsReadWrite=80000 `
+--set diskMbpsReadWrite=800
+```
+
+## <a name="deploy-an-ultra-ssd-using-powershell"></a>Distribuire un'unità SSD extra usando PowerShell
+
+In primo luogo, determinare le dimensioni di macchina virtuale da distribuire. In questa anteprima sono supportate solo le famiglie di macchine virtuali DsV3 ed EsV3. Per altri dettagli su queste dimensioni di macchine virtuali, vedere la seconda tabella in questo [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
+
+Per usare unità SSD extra, è necessario creare una macchina virtuale che è capace di usare unità SSD extra. Sostituire o impostare il **$resourcegroup** e **$vmName** variabili con i propri valori. Impostare **$zone** al valore della zona di disponibilità che è stato creato dalle [avvio di questo articolo](#determine-your-availability-zone). Quindi eseguire il comando seguente [New-AzVm](/powershell/module/az.compute/new-azvm) comando per creare un extra macchina virtuale abilitata:
+
+```powershell
+New-AzVm `
+    -ResourceGroupName $resourcegroup `
+    -Name $vmName `
+    -Location "eastus2" `
+    -Image "Win2016Datacenter" `
+    -EnableUltraSSD `
+    -size "Standard_D4s_v3" `
+    -zone $zone
+```
+
+### <a name="create-an-ultra-ssd-using-powershell"></a>Creare un'unità SSD extra usando PowerShell
+
+Dopo aver creato una macchina virtuale che è in grado di utilizzare Ultra-unità SSD, è possibile creare e collegare un'unità SSD extra:
+
+```powershell
+$diskconfig = New-AzDiskConfig `
+-Location 'EastUS2' `
+-DiskSizeGB 8 `
+-DiskIOPSReadWrite 1000 `
+-DiskMBpsReadWrite 100 `
+-AccountType UltraSSD_LRS `
+-CreateOption Empty `
+-zone $zone;
+
+New-AzDisk `
+-ResourceGroupName $resourceGroup `
+-DiskName 'Disk02' `
+-Disk $diskconfig;
+```
+
+### <a name="adjust-the-performance-of-an-ultra-ssd-using-powershell"></a>Modificare le prestazioni di un'unità SSD extra usando PowerShell
+
+Ultra-unità SSD hanno una capacità univoca consente di regolare le prestazioni, il comando riportato di seguito è riportato un esempio che consente di regolare le prestazioni senza che sia necessario scollegare il disco:
+
+```powershell
+$diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
+Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate $diskupdateconfig
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per provare il nuovo tipo di disco, se non è ancora stata effettuata l'iscrizione all'anteprima, [richiedere l'accesso tramite questo sondaggio](https://aka.ms/UltraSSDPreviewSignUp).
+Se si vuole provare il nuovo tipo di disco [richiedere l'accesso all'anteprima con questo questionario](https://aka.ms/UltraSSDPreviewSignUp).

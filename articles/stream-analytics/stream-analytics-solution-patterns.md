@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4f4f22628d2c2a6beb7974aa9b776a2148a3fee0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65238063"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761985"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Modelli di soluzioni Azure Stream Analitica
 
@@ -58,7 +58,7 @@ Hub eventi, d'altra parte, offre il punto di integrazione più flessibile. Molti
 
 La maggior parte dei servizi web e applicazioni web oggi utilizzano un modello di richiesta/risposta per soddisfare il livello di presentazione. Il modello di richiesta/risposta è semplice da compilare e possono essere facilmente ridimensionati con tempi di riposta ridotti con un front-end senza stato e gli archivi a scalabilità, come Cosmos DB.
 
-Volume elevato dei dati crea spesso i colli di bottiglia in un sistema basato su CRUD. Il [modello di soluzione di origine eventi](/azure/architecture/patterns/event-sourcing.md) viene usato per risolvere i colli di bottiglia delle prestazioni. Informazioni approfondite e modelli temporali sono anche difficile e inefficiente per estrarre da un archivio dati tradizionale. Volumi elevati di dati moderne applicazioni basate su spesso adottano un'architettura basata su flussi di dati. Azure Stream Analitica, come il motore di calcolo per i dati in transito è un fattore fondamentale in quell'architettura.
+Volume elevato dei dati crea spesso i colli di bottiglia in un sistema basato su CRUD. Il [modello di soluzione di origine eventi](/azure/architecture/patterns/event-sourcing) viene usato per risolvere i colli di bottiglia delle prestazioni. Informazioni approfondite e modelli temporali sono anche difficile e inefficiente per estrarre da un archivio dati tradizionale. Volumi elevati di dati moderne applicazioni basate su spesso adottano un'architettura basata su flussi di dati. Azure Stream Analitica, come il motore di calcolo per i dati in transito è un fattore fondamentale in quell'architettura.
 
 ![App di determinazione dell'origine eventi ASA](media/stream-analytics-solution-patterns/eventsourcingapp.png)
 

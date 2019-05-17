@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d295a5a7eae2bdc7983e7271aa11bce1840b92dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7968de8ad4357241eb8d86d51e991f4bbab959d
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61387583"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601582"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Soluzione di wire Data 2.0 (anteprima) in Monitoraggio di Azure
 
@@ -400,7 +400,7 @@ Per ogni tipo di dati di input vene creato un record con tipo _WireData_. I reco
 | Direction | In ingresso o in uscita |
 | MaliciousIP | Indirizzo IP di un'origine dannosa nota |
 | Severity | Gravità del software dannoso sospetto |
-| RemoteIPCountry | Paese dell'indirizzo IP remoto |
+| RemoteIPCountry | Paese/regione dell'indirizzo IP remoto |
 | ManagementGroupName | Nome del gruppo di gestione di Operations Manager |
 | SourceSystem | Origine in cui sono stati raccolti i dati |
 | SessionStartTime | Data e ora di inizio della sessione |

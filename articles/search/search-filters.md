@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 49f971fb50d0a8a6a0dab09158f780206a4d32f1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1871fee2734d347ff54d6aa70d90d1c28bd1f6f1
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024838"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597293"
 ---
 # <a name="filters-in-azure-search"></a>Filtri in Ricerca di Azure 
 
@@ -50,24 +50,24 @@ I filtri non sono l'unica opzione disponibile per limitare i risultati della ric
 
  + Il parametro di query `searchFields` delimita la ricerca a campi specifici. Se, ad esempio, l'indice fornisce campi separati per le descrizioni in inglese e in spagnolo, è possibile usare searchFields per definire i campi da usare per la ricerca full-text. 
 
-+ Il parametro `$select` viene usato per specificare i campi da includere in un set di risultati, per limitare in modo efficace la risposta prima di inviarla all'applicazione chiamante. Questo parametro non affina la query né riduce la raccolta di documenti, ma se l'obiettivo è quello di ottenere una risposta granulare, può rappresentare una valida alternativa. 
++ Il parametro `$select` viene usato per specificare i campi da includere in un set di risultati, per limitare in modo efficace la risposta prima di inviarla all'applicazione chiamante. Questo parametro non affinare la query o ridurre la raccolta di documenti, ma se l'obiettivo è una risposta più piccola, questo parametro è un'opzione da considerare. 
 
 Per altre informazioni su questi parametri, vedere [Search Documents > Request > Query parameters](https://docs.microsoft.com/rest/api/searchservice/search-documents#request) (Ricerca di documenti > Richiesta > Parametri di query).
 
 
-## <a name="filters-in-the-query-pipeline"></a>Filtri nella pipeline di query
+## <a name="how-filters-are-executed"></a>Modo in cui vengono eseguiti i filtri
 
-In fase di query, un parser di filtro accetta i criteri come input, converte l'espressione in espressioni booleane atomiche e crea un albero di filtro, che viene quindi valutato sui campi filtrabili in un indice.  
+In fase di query, un parser di filtro accetta i criteri come input, converte l'espressione in espressioni booleane atomiche rappresentate come una struttura ad albero e quindi restituisce l'albero di filtro sui campi filtrabili in un indice.
 
-Il filtro viene applicato prima della ricerca, definendo i documenti da includere nell'elaborazione a valle per il recupero dei documenti e l'assegnazione dei punteggi relativi alla pertinenza. Quando viene usato in combinazione con una stringa di ricerca, il filtro riduce in modo efficace l'area della superficie dell'operazione di ricerca successiva. Se usato da solo (ad esempio, quando la stringa di query è vuota con `search=*`), il criterio di filtro è l'unico input. 
+Filtro viene applicato in parallelo con ricerca, definendo i documenti da includere nell'elaborazione a valle per il recupero di documenti e l'assegnazione dei punteggi di rilevanza. Quando abbinata a una stringa di ricerca, il filtro riduce in modo efficace il set di richiamo dell'operazione di ricerca successivi. Se usato da solo (ad esempio, quando la stringa di query è vuota con `search=*`), il criterio di filtro è l'unico input. 
 
-## <a name="filter-definition"></a>Definizione di filtro
+## <a name="defining-filters"></a>Definizione di filtri
 
 I filtri sono espressioni OData, articolate usando un [subset della sintassi OData V4 supportata in Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
-È possibile specificare un filtro per ogni operazione di **ricerca**, ma il filtro può includere più campi, più criteri e, se si usa una funzione **ismatch**, più espressioni. In un'espressione filtro multiparte è possibile specificare i predicati in qualsiasi ordine. Il riposizionamento dei predicati in una sequenza specifica non offre un miglioramento delle prestazioni rilevante.
+È possibile specificare un filtro per ognuna **ricerca** operazione, ma il filtro può includere più campi, più criteri e se si usa un' **ismatch** (funzione), più espressioni di ricerca full-text. In un'espressione filtro multiparte, è possibile specificare predicati in qualsiasi ordine (soggetti alle regole di precedenza degli operatori). Il riposizionamento dei predicati in una sequenza specifica non offre un miglioramento delle prestazioni rilevante.
 
-Il limite assoluto per un'espressione filtro è il limite massimo per la richiesta. L'intera richiesta, compreso il filtro, può avere dimensioni massime di 16 MB per POST o 8 KB per GET. I limiti flessibili sono correlati al numero di clausole nell'espressione filtro. In genere, se si hanno centinaia di clausole, è probabile che si superi il limite. È consigliabile progettare l'applicazione in modo che non generi filtri con dimensioni non vincolate.
+Uno dei limiti di un'espressione di filtro è il limite di dimensione massima della richiesta. L'intera richiesta, compreso il filtro, può avere dimensioni massime di 16 MB per POST o 8 KB per GET. È anche previsto un limite al numero di clausole nell'espressione filtro. In genere, se si hanno centinaia di clausole, è probabile che si superi il limite. È consigliabile progettare l'applicazione in modo che non generi filtri con dimensioni non vincolate.
 
 Gli esempi seguenti rappresentano definizioni di filtro prototipo in diverse API.
 
@@ -75,7 +75,7 @@ Gli esempi seguenti rappresentano definizioni di filtro prototipo in diverse API
 # Option 1:  Use $filter for GET
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2019-05-06
 
-# Option 2: Use filter for POST and pass it in the header
+# Option 2: Use filter for POST and pass it in the request body
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
@@ -92,25 +92,26 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
             Select = new[] { "hotelId", "description" }
         };
 
+    var results = searchIndexClient.Documents.Search("*", parameters);
 ```
 
-## <a name="filter-design-patterns"></a>Modelli di progettazione di filtri
+## <a name="filter-usage-patterns"></a>Filtra i modelli di utilizzo
 
-Gli esempi seguenti illustrano diversi modelli di progettazione per gli scenari di filtro. Per altre idee, vedere [OData expression syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) (Sintassi delle espressioni OData -> Esempi).
+Gli esempi seguenti illustrano diversi modelli di utilizzo per gli scenari di filtro. Per altre idee, vedere [OData expression syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) (Sintassi delle espressioni OData -> Esempi).
 
-+ Elemento **$filter** autonomo, senza una stringa di query, utile quando l'espressione filtro è in grado di specificare il nome completo dei documenti di interesse. Senza una stringa di query, non ci sono un'analisi lessicale o linguistica, un'assegnazione del punteggio e una classificazione. Si noti che la stringa di ricerca è vuota.
++ Elemento **$filter** autonomo, senza una stringa di query, utile quando l'espressione filtro è in grado di specificare il nome completo dei documenti di interesse. Senza una stringa di query, non ci sono un'analisi lessicale o linguistica, un'assegnazione del punteggio e una classificazione. Si noti che la stringa di ricerca è solo un asterisco, che significa "tutti i documenti corrispondenti".
 
    ```
    search=*&$filter=(baseRate ge 60 and baseRate lt 300) and accommodation eq 'Hotel' and city eq 'Nogales'
    ```
 
-+ Combinazione di stringa di query e **$filter**, dove il filtro crea il subset e la stringa di query fornisce gli input dei termini per la ricerca full-text nel subset filtrato. L'uso di un filtro con una stringa di query è il modello di codice più comune.
++ Combinazione di stringa di query e **$filter**, dove il filtro crea il subset e la stringa di query fornisce gli input dei termini per la ricerca full-text nel subset filtrato. Uso di un filtro con una stringa di query è il modello di utilizzo più comune.
 
    ```
    search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) and city eq 'Los Angeles'
    ```
 
-+ Query composte, separate da "or", ciascuna con i propri criteri di filtro (ad esempio, 'beagle' in 'cane' or 'siamese' in 'gatto'). Le espressioni con OR vengono valutate singolarmente e le risposte di ciascuna di esse vengono combinate in un'unica risposta inviata all'applicazione chiamante. Questo modello di progettazione viene ottenuto tramite la funzione search.ismatch. È possibile usare la versione senza assegnazione di punteggio (search.ismatch) o con assegnazione di punteggio (search.ismatchscoring).
++ Query composte, separate da "or", ciascuna con i propri criteri di filtro (ad esempio, 'beagle' in 'cane' or 'siamese' in 'gatto'). Le espressioni combinate con `or` vengono valutate singolarmente e con l'unione di documenti corrispondenti a ogni espressione inviato nella risposta. Questo modello di utilizzo avviene attraverso la `search.ismatchscoring` (funzione). È anche possibile usare la versione non di punteggio, `search.ismatch`.
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -120,6 +121,14 @@ Gli esempi seguenti illustrano diversi modelli di progettazione per gli scenari 
    $filter=search.ismatchscoring('luxury | high-end', 'description') or category eq 'Luxury'
    ```
 
+  È anche possibile combinare la ricerca full-text tramite `search.ismatchscoring` con filtri di uso `and` invece di `or`, ma questa funzionalità equivale all'utilizzo il `search` e `$filter` parametri in una richiesta di ricerca. Ad esempio, le due query seguenti producono lo stesso risultato:
+
+  ```
+  $filter=search.ismatchscoring('pool') and rating ge 4
+
+  search=pool&$filter=rating ge 4
+  ```
+
 Leggere gli articoli seguenti per indicazioni complete sui casi d'uso specifici:
 
 + [Filtri facet](search-filters-facets.md)
@@ -128,36 +137,32 @@ Leggere gli articoli seguenti per indicazioni complete sui casi d'uso specifici:
 
 ## <a name="field-requirements-for-filtering"></a>Requisiti dei campi per il filtro
 
-Nell'API REST la proprietà filterable è *attivata* per impostazione predefinita. I campi filtrabili causano un aumento delle dimensioni dell'indice. Assicurarsi di impostare `filterable=FALSE` per i campi che non si prevede di usare in un filtro. Per altre informazioni sulle impostazioni delle definizioni di campo, vedere l'articolo relativo all'operazione [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Nell'API REST, proprietà filterable è *su* per impostazione predefinita per i campi semplici. I campi filtrabili causano un aumento delle dimensioni dell'indice. Assicurarsi di impostare `"filterable": false` per i campi che non si prevede di usare in un filtro. Per altre informazioni sulle impostazioni delle definizioni di campo, vedere l'articolo relativo all'operazione [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-In .NET SDK la proprietà filterable è *disattivata* per impostazione predefinita. L'API per l'impostazione della proprietà filtrabile è [IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). Nell'esempio seguente è impostata nella definizione di campo BaseRate.
+In .NET SDK la proprietà filterable è *disattivata* per impostazione predefinita. È possibile rendere un campo filtrabile impostando il [proprietà IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) dell'oggetto corrispondente [campo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) oggetto `true`. È anche possibile farlo in modo dichiarativo utilizzando il [IsFilterable attributo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). Nell'esempio seguente, l'attributo è impostato sul `BaseRate` proprietà di una classe di modello che esegue il mapping alla definizione dell'indice.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
     public double? BaseRate { get; set; }
 ```
 
-### <a name="reindexing-requirements"></a>Requisiti di reindicizzazione
+### <a name="making-an-existing-field-filterable"></a>Rendere filtrabile un campo esistente
 
-Se un campo non è filtrabile e lo si vuole rendere filtrabile, è necessario aggiungere un nuovo campo oppure ricompilare il campo esistente. La modifica di una definizione di campo comporta la modifica della struttura fisica dell'indice. In Ricerca di Azure tutti i percorsi di accesso consentiti vengono indicizzati per offrire alta velocità di query e ciò richiede la ricompilazione delle strutture di dati quando le definizioni di campo cambiano. 
-
-La ricompilazione di singoli campi può essere un'operazione di basso impatto, che richiede solo un'operazione di merge che invia la chiave del documento esistente e i valori associati all'indice, lasciando intatto il resto di ogni documento. Se si verifica necessaria la ricompilazione, vedere [azioni di indicizzazione (upload, merge, mergeOrUpload, delete)](search-what-is-data-import.md#indexing-actions) per un elenco di opzioni.
-
+Non è possibile modificare i campi esistenti per renderli filtrabile. In alternativa, è necessario aggiungere un nuovo campo oppure ricompilare l'indice. Per altre informazioni sulla ricompilazione di un indice o il ripopolamento di campi, vedere [come ricompilare un indice di ricerca di Azure](search-howto-reindex.md).
 
 ## <a name="text-filter-fundamentals"></a>Concetti fondamentali sui filtri di testo
 
-Filtri per testo sono validi per i campi stringa, da cui si vuole effettuare il pull di una raccolta arbitraria di documenti in base ai valori all'interno dell'indice di ricerca.
+Filtri per testo corrispondono ai campi stringa in valore letterale stringa fornita nel filtro. A differenza di ricerca full-text, non vi è alcuna analisi lessicale o word breaking per i filtri di testo, quindi i confronti riguardano solo le corrispondenze esatte. Si supponga ad esempio un campo *f* contiene "sunny day" `$filter=f eq 'Sunny'` non corrisponde, ma `$filter=f eq 'sunny day'` verrà. 
 
-Per i filtri di testo costituiti da stringhe, non c'è un'analisi lessicale o una separazione delle parole, quindi i confronti riguardano solo le corrispondenze esatte. Si supponga, ad esempio, un campo *f* che contiene "sunny day": non viene trovata la corrispondenza con `$filter=f eq 'Sunny'`, mentre con `$filter=f eq 'Sunny day'` sì. 
+Per le stringhe di testo viene fatta distinzione tra maiuscole e minuscole. Non vi è alcun minuscole delle lettere maiuscole parole: `$filter=f eq 'Sunny day'` non sarà possibile trovare "sunny day".
 
-Per le stringhe di testo viene fatta distinzione tra maiuscole e minuscole. Non c'è corrispondenza tra parole minuscole e maiuscole: `$filter=f eq 'Sunny day'` non consente di trovare "sunny day".
+### <a name="approaches-for-filtering-on-text"></a>Approcci per il filtro sul testo
 
-
-| Approccio | DESCRIZIONE | 
-|----------|-------------|
-| [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Funzione che fornisce l'elenco delimitato da virgole di stringhe per un determinato campo. Le stringhe includono i criteri di filtro, che vengono applicati a ogni campo nell'ambito per la query. <br/><br/>`search.in(f, ‘a, b, c’)` è semanticamente equivalente a `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, ad eccezione del fatto che l'esecuzione è molto più veloce quando l'elenco di valori è grande.<br/><br/>Si consiglia di usare la funzione **search.in** per i [filtri di sicurezza](search-security-trimming-for-azure-search.md) e per tutti i filtri costituiti da testo non elaborato di cui trovare la corrispondenza con i valori in un determinato campo. Questo approccio è progettato per offrire velocità. È possibile ottenere un tempo di risposta di frazioni di secondo per centinaia o migliaia di valori. Anche se non c'è alcun limite esplicito per il numero di elementi che è possibile passare alla funzione, la latenza aumenta proporzionalmente al numero di stringhe fornite. | 
-| [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Funzione che consente di combinare le operazioni di ricerca full-text con operazioni di filtro esclusivamente booleane nella stessa espressione filtro. Consente più combinazioni di filtro di query in un'unica richiesta. Può essere usata anche con un filtro *contains* per applicare un filtro su una stringa parziale all'interno di una stringa più grande. |  
-| [$filter=stringa operatore di campo](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Espressione definita dall'utente composta da campi, operatori e valori. | 
+| Approccio | Descrizione | Quando usare le autorizzazioni | 
+|----------|-------------|-------------|
+| [search.in](query-odata-filter-orderby-syntax.md) | Una funzione che corrisponde a un campo rispetto a un elenco delimitato da virgole di stringhe. | Consigliato per [filtri di sicurezza](search-security-trimming-for-azure-search.md) e per tutti i filtri in cui devono essere associata a un campo stringa molti valori di testo non elaborato. Il **search.in** funzione è progettata per offrire velocità ed è molto più veloce rispetto a confronto esplicito di campo in ogni stringa usando `eq` e `or`. | 
+| [search.ismatch](query-odata-filter-orderby-syntax.md) | Funzione che consente di combinare le operazioni di ricerca full-text con operazioni di filtro esclusivamente booleane nella stessa espressione filtro. | Uso **IsMatch** (o equivalente, assegnazione dei punteggi **search.ismatchscoring**) quando si desidera più combinazioni di filtri di ricerca in un'unica richiesta. Può essere usata anche con un filtro *contains* per applicare un filtro su una stringa parziale all'interno di una stringa più grande. |
+| [$filter=stringa operatore di campo](query-odata-filter-orderby-syntax.md) | Espressione definita dall'utente composta da campi, operatori e valori. | Usare questo metodo quando si desidera individuare corrispondenze esatte tra un campo stringa e un valore stringa. |
 
 ## <a name="numeric-filter-fundamentals"></a>Concetti fondamentali sui filtri numerici
 

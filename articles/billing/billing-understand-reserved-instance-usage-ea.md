@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: 8d85dd1c21f952261e838c01843e15dafcc0e931
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 09242eaa6058229226062801f5f71f2bf4c7a9e8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415764"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789381"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere informazioni sull'utilizzo e costi di prenotazione contratto Enterprise Agreement
 
@@ -67,7 +67,7 @@ I dati non sono disponibili nel [API di creazione di report per clienti Enterpri
 Ecco un esempio di chiamata all'API:
 
 ```
-https://consumption.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
 ```
 
 Per altre informazioni su {enrollmentId} e {billingPeriodId}, vedere la [dettagli di utilizzo – elenco](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) articolo API.

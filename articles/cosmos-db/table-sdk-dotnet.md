@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 506f623fe928cf122a16630844996c981cc20e9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db7cc556525ab57f14984232bf1797764865fca3
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330347"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606244"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET tabella per Azure Cosmos DB: download e note sulla versione
 
@@ -33,6 +33,8 @@ ms.locfileid: "60330347"
 |**Framework attualmente supportato**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
+> .NET Framework SDK [cosmosdb](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) è in modalità manutenzione modalità e lo saranno presto deprecati. Eseguire l'aggiornamento alla nuova libreria .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) per continuare a ottenere le funzionalità più recenti supportate dall'API di tabella.
+
 > Se si è creato un account dell'API di tabella durante l'anteprima, creare un [nuovo account dell'API di tabella](create-table-dotnet.md#create-a-database-account) per usare gli SDK dell'API di tabella disponibili a livello generale.
 >
 
@@ -75,22 +77,22 @@ ms.locfileid: "60330347"
 
 Microsoft invia una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
 
-Il pacchetto di anteprima [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) è stato deprecato e sostituito dal pacchetto [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). L'SDK WindowsAzure.Storage-PremiumTable verrà ritirato il 15 novembre 2018. Da quella data, le richieste all'SDK ritirato non saranno consentite. La libreria `Microsoft.Azure.CosmosDB.Table` è attualmente disponibile solo per .NET Standard. Non è ancora disponibile per .NET Core.
+Il `Microsoft.Azure.CosmosDB.Table` libreria è attualmente disponibile per .NET Framework e si trova in modalità di manutenzione e saranno presto deprecata. Nuove funzionalità e le funzionalità e le ottimizzazioni vengono aggiunte solo alla libreria .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), come tale è consigliabile eseguire l'aggiornamento a [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
-Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente. È quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima. 
+Il [windowsazure. Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) pacchetto di anteprima è stata deprecata. L'SDK WindowsAzure.Storage-PremiumTable verrà ritirato il 15 novembre 2018. Da quella data, le richieste all'SDK ritirato non saranno consentite. 
 
 Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiutata dal servizio.
 <br/>
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [2.1.0](#2.1.0) |22 gennaio 2019|--- |
-| [2.0.0](#2.0.0) |26 settembre 2018|--- |
-| [1.1.3](#1.1.3) |17 luglio 2018|--- |
-| [1.1.1](#1.1.1) |26 marzo 2018|--- |
-| [1.1.0](#1.1.0) |21 febbraio 2018|--- |
-| [1.0.0](#1.0.0) |15 novembre 2017|--- |
-| 0.9.0-preview |11 novembre 2017 |--- |
+| [2.1.0](#2.1.0) |22 gennaio 2019|01 aprile 2020 |
+| [2.0.0](#2.0.0) |26 settembre 2018|01 marzo 2020 |
+| [1.1.3](#1.1.3) |17 luglio 2018|01 dicembre 2019 |
+| [1.1.1](#1.1.1) |26 marzo 2018|01 dicembre 2019 |
+| [1.1.0](#1.1.0) |21 febbraio 2018|01 dicembre 2019 |
+| [1.0.0](#1.0.0) |15 novembre 2017|Dal 15 novembre 2019 |
+| 0.9.0-preview |11 novembre 2017 |11 novembre 2019 |
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 

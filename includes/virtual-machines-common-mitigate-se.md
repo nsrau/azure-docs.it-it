@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: be8c3d3be4410d15ba132a24a417e7a7b0418352
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: ba41f6cce5233491020a0b42f4fd40dac060be57
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620244"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815497"
 ---
 **Ultimo aggiornamento del documento**: 14 maggio 2019 10 12:00 AM PST.
 
@@ -29,7 +29,7 @@ Altre informazioni sul modo in cui la sicurezza è integrata in ogni aspetto di 
 > Poiché questo documento è stato pubblicato prima di tutto, sono state comunicate più varianti di questa classe di vulnerabilità. Microsoft continua a investire in modo consistente nella protezione dei clienti e a fornire informazioni aggiuntive. Questa pagina verrà aggiornata per rilasciare altre correzioni. 
 > 
 > Il 14 maggio 2019 [Intel divulgate](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) un nuovo set di una vulnerabilità del canale sul lato dell'esecuzione speculativa noto come campionamento dei dati della microarchitettura (MDS vedere la Guida alla sicurezza Microsoft [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), ovvero è stato assegnato CVE segnalati in più: 
-> - CVE-2018-11091 - i dati della microarchitettura il campionamento di memoria Uncacheable (MDSUM)
+> - CVE-2019-11091 - i dati della microarchitettura il campionamento di memoria Uncacheable (MDSUM)
 > - CVE-2018-12126 - i dati nel Buffer della microarchitettura Store campionamento (MSBDS) 
 > - CVE-2018-12127 - porta di carico della microarchitettura dati di campionamento (MLPDS)
 > - CVE-2018-12130 - i dati nel Buffer della microarchitettura riempimento campionamento (MFBDS)
@@ -123,7 +123,7 @@ Se l'output mostra `MDS mitigation is enabled: False`, verificare [contattare il
 <a name="linux"></a>Per abilitare il set di funzionalità di sicurezza aggiuntive all'interno è necessario che il sistema operativo di destinazione sia completamente aggiornato. Alcune soluzioni di mitigazione verranno abilitate per impostazione predefinita. La sezione seguente descrive le funzionalità che sono disattivate per impostazione predefinita e/o fanno affidamento su supporto hardware (microcodice). L'abilitazione di queste funzionalità può causare un impatto sulle prestazioni. Fare riferimento alla documentazione del provider del sistema operativo per altre istruzioni
 
 
-**Passaggio 1: Disabilitare l'hyperthreading nella macchina virtuale** : i clienti che eseguono codice non attendibile in una macchina virtuale sarà necessario disabilitare l'hyperthreading o spostare una macchina virtuale non Hyper-Threading di Threading.  Per controllare se si esegue una macchina virtuale Hyper-Threading, eseguire il `lspcu` comando nella VM Linux. 
+**Passaggio 1: Disabilitare l'hyperthreading nella macchina virtuale** : i clienti che eseguono codice non attendibile in una macchina virtuale sarà necessario disabilitare l'hyperthreading o spostare una macchina virtuale non Hyper-Threading di Threading.  Per controllare se si esegue una macchina virtuale Hyper-Threading, eseguire il `lscpu` comando nella VM Linux. 
 
 Se `Thread(s) per core = 2`, quindi è stato abilitato l'hyperthreading. 
 
@@ -146,7 +146,7 @@ NUMA node(s):          1
 
 ```
 
-Se si esegue una macchina virtuale Hyper-Threading, please [contattare il supporto tecnico di Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) per ottenere l'Hyper-Threading disabilitato.  Note: Dopo aver disabilitato, l'Hyper-Threading **il supporto richiederà un riavvio della macchina virtuale completo**.
+Se si esegue una macchina virtuale Hyper-Threading, please [contattare il supporto tecnico di Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) per ottenere l'Hyper-Threading disabilitato.  Dopo aver disabilitato, l'Hyper-Threading **il supporto richiederà un riavvio della macchina virtuale completo**.
 
 
 **Passaggio 2**: Per ridurre i rischi uno qualsiasi del seguito vulnerabilità del canale laterale dell'esecuzione speculativa, fare riferimento alla documentazione del provider di sistema operativo:   
@@ -159,18 +159,18 @@ Se si esegue una macchina virtuale Hyper-Threading, please [contattare il suppor
 
 Questo articolo fornisce indicazioni per la sotto attacchi al canale laterale dell'esecuzione speculativa che influiscono sul numero di processori moderni:
 
-[Spectre Meltdown](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+[Spectre Meltdown](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002):
 - CVE-2017-5715 - inserimento destinazione diramazione (BTI)  
 - CVE-2017-5754 - isolamento tramite Kernel pagina tabella (si esegue)
 - CVE-2018-3639 – Store speculativa Bypass (si esegue) 
  
-[L1 Errore Terminal (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+[L1 Errore Terminal (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
 - CVE-2018-3615 - Intel Software Guard Extensions (Intel SGX)
 - CVE-2018-3620 - sistemi operativi (OS) e modalità di gestione del sistema (SMM)
 - CVE-2018-3646: impatto di Virtual Machine Manager (VMM)
 
-[Campionamento dei dati della microarchitettura](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
-- CVE-2018-11091 - i dati della microarchitettura il campionamento di memoria Uncacheable (MDSUM)
+[Campionamento dei dati della microarchitettura](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013): 
+- CVE-2019-11091 - i dati della microarchitettura il campionamento di memoria Uncacheable (MDSUM)
 - CVE-2018-12126 - i dati nel Buffer della microarchitettura Store campionamento (MSBDS)
 - CVE-2018-12127 - porta di carico della microarchitettura dati di campionamento (MLPDS)
 - CVE-2018-12130 - i dati nel Buffer della microarchitettura riempimento campionamento (MFBDS)

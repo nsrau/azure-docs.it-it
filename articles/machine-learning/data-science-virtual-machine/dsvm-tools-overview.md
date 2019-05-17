@@ -14,20 +14,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: f1a791e7a063c2bf2ae75cb3ca8d4fbdd35ddd90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1defaea3743ebb8ddb688cef28efb7eee8ecb07c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598538"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597123"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Conoscere la macchina virtuale per data science
 
 La macchina virtuale per data science (DSVM) include un elenco completo di strumenti comuni per data science, apprendimento automatico/intelligenza artificiale e piattaforme di dati. Le configurazioni degli strumenti vengono rigorosamente testate da data scientist e sviluppatori di Microsoft e dalla più ampia community di data science per assicurare la stabilità e la redditività generale.
 
-La macchina virtuale per data science include anche diverse procedure dettagliate ed esempi di codice sotto forma di Jupyter Notebook che possono essere eseguiti in locale. È anche disponibile una documentazione per questi esempi, per facilitarne la comprensione. 
+La macchina virtuale data SCIENCE include anche diverse procedure dettagliate ed esempi di codice sotto forma di notebook di Jupyter che possono essere eseguiti in locale. È inoltre disponibile la documentazione per questi esempi per facilitarne la comprensione. 
+
+> [!NOTE]
+> È possibile usare [Azure Notebooks](/azure/notebooks/azure-notebooks-overview.md) per creare, eseguire e condividere notebook di Jupyter nel cloud. È possibile [collegare una macchina virtuale Data Science per Azure Notebooks](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) per espandere la potenza di calcolo disponibili.
 
 Gli strumenti, le piattaforme, le utilità e gli esempi inclusi nella macchina virtuale per data science sono organizzati nelle sezioni seguenti:
 

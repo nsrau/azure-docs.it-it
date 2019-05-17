@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec6caecde3e90f7113f60286e95cdaeb996003f7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437730"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784032"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD
 
@@ -59,13 +59,14 @@ Con l'estensione MyApps del browser, tutti gli URL interni pubblicati con Applic
 
 Per usare questa funzionalità, l'utente deve scaricare l'estensione e avere effettuato l'accesso. Non è necessaria nessun'altra configurazione per gli amministratori o gli utenti. 
 
- 
+Per altre informazioni, incluse le procedure configurare questa opzione, vedere la [l'estensione del Browser App personali](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) documentazione.
 
 ### <a name="option-3-link-translation-setting"></a>Opzione 3: Impostazione di conversione dei collegamenti 
 
-Quando la conversione dei collegamenti è abilitata, il servizio Application Proxy cerca nel codice HTML e CSS i collegamenti interni pubblicati e li converte in modo da offrire agli utenti un'esperienza senza interruzioni. 
+Quando la conversione dei collegamenti è abilitata, il servizio Application Proxy cerca nel codice HTML e CSS i collegamenti interni pubblicati e li converte in modo da offrire agli utenti un'esperienza senza interruzioni. È preferibile all'impostazione di traslazione del collegamento usare l'estensione del Browser App personali, poiché offre un'esperienza più ad alte prestazioni per gli utenti.
 
-
+> [!NOTE]
+> Se si usa l'opzione 2 o 3, solo uno di questi deve essere abilitato alla volta.
 
 ## <a name="how-link-translation-works"></a>Come funziona la conversione dei collegamenti
 
@@ -83,7 +84,7 @@ Esistono due tipi comuni di collegamenti interni nelle applicazioni locali:
 - I **collegamenti interni hardcoded** ad altre applicazioni locali come `http://expenses` o i file pubblicati come `http://expenses/logo.jpg`. La funzionalità di conversione dei collegamenti opera sui collegamenti interni hardcoded e li converte, in modo che puntino agli URL esterni che gli utenti remoti devono usare.
 
 L'elenco completo dei tag di codice HTML che il Proxy di applicazione supporta la conversione dei collegamenti per includono:
-* a
+* uno
 * audio
 * base
 * button
@@ -96,10 +97,10 @@ L'elenco completo dei tag di codice HTML che il Proxy di applicazione supporta l
 * IFRAME
 * Immagine
 * input
-* link
+* collegamento
 * MenuItem
 * meta
-* object
+* oggetto
 * script
 * una sezione source
 * Track

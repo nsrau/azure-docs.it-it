@@ -6,13 +6,13 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 3c7f0b263cc775b7f9fec62e4d5388250e5124fb
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/13/2019
+ms.openlocfilehash: 04d710f4d60b776f8059d87ea4d009bed6f7f8ba
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079121"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551698"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Creare un tenant di Azure AD per Azure Red Hat OpenShift
 
@@ -34,7 +34,7 @@ Per creare un tenant:
 
     ![Screenshot del portale che mostra il nome del tenant in alto a destra][tenantcallout]  
 
-8. Assicurarsi di annotare il *ID tenant* quindi in un secondo momento è possibile specificare la posizione in cui creare il cluster di Azure Red Hat OpenShift. Nel portale, viene visualizzato il pannello di panoramica di Azure Active Directory per il nuovo tenant. Selezionare **delle proprietà** e copiare il valore per il **ID Directory**. Si farà riferimento a questo valore come la `tenant id` nella [creare un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) esercitazione.
+8. Assicurarsi di annotare il *ID tenant* quindi in un secondo momento è possibile specificare la posizione in cui creare il cluster di Azure Red Hat OpenShift. Nel portale, viene visualizzato il pannello di panoramica di Azure Active Directory per il nuovo tenant. Selezionare **delle proprietà** e copiare il valore per il **ID Directory**. Si farà riferimento a questo valore come `TENANT` nella [creare un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) esercitazione.
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 

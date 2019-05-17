@@ -4,7 +4,7 @@ description: Informazioni su come un utente può ottenere il consenso non defini
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45bad9a03e8eff6f22ebb99fd2ef4bcd5fecf9b5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8f7d24a1e14cfbb1163ab78b94dd36ec288dce50
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65158821"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544057"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Ottiene il consenso per varie risorse tramite MSAL.NET
 L'endpoint di piattaforma di identità di Microsoft non consente di ottenere un token per diverse risorse in una sola volta. Quando si usa Microsoft Authentication Library per .NET (MSAL.NET), il parametro gli ambiti nel metodo di token di acquisizione deve contenere solo gli ambiti per una singola risorsa. Tuttavia, è possibile pre-fornire il consenso a numerose risorse upfront specificando altri ambiti tramite il `.WithExtraScopeToConsent` metodo del generatore.

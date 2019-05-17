@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 3cd22b89852706ed129373fd24ca9a9d9a27d25b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153369"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556215"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -33,7 +33,7 @@ Servizi multimediali di Azure consente di offrire eventi live per i clienti nel 
 Questo articolo offre una panoramica e informazioni aggiuntive dello streaming live con servizi multimediali e include collegamenti ad altri articoli pertinenti.
 
 > [!NOTE]
-> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](developers-guide.md) supportati.
+> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
 ## <a name="dynamic-packaging"></a>Creazione dinamica dei pacchetti
 
@@ -67,9 +67,9 @@ Quando si usa la codifica live con Servizi multimediali, è possibile configurar
 
 Per comprendere il flusso di lavoro streaming live in servizi multimediali v3, è necessario esaminare prima e comprendere i concetti seguenti: 
 
-- [Endpoint di streaming](streaming-endpoint-concept.md)
-- [Eventi live e output live](live-events-outputs-concept.md)
-- [Localizzatori di streaming](streaming-locators-concept.md)
+- [Gli endpoint API di streaming](streaming-endpoint-concept.md)
+- [In tempo reale degli eventi e API di output in tempo reale](live-events-outputs-concept.md)
+- [I localizzatori di API di streaming](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Passaggi generali
 
@@ -93,7 +93,7 @@ Per comprendere il flusso di lavoro streaming live in servizi multimediali v3, �
 - [Stati e fatturazione](live-event-states-billing.md)
 - [Latency](live-event-latency.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire commenti e suggerimenti, ottenere gli aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

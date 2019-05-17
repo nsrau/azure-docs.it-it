@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699087"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796433"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Risolvere i problemi di replica delle VM da Azure ad Azure
 
@@ -40,7 +40,7 @@ Se il percorso di destinazione ha un vincolo di capacità, disabilitare la repli
 
 Se nella VM non sono presenti tutti i certificati radice trusted più recenti, il processo di abilitazione della replica potrebbe non riuscire. Senza i certificati, le chiamate di autenticazione e autorizzazione del servizio Site Recovery dalla VM non riescono. Viene visualizzato il messaggio di errore del processo di abilitazione della replica di Site Recovery:
 
-**Codice errore** | **Causa possibile** | **Raccomandazioni**
+**Codice errore** | **Causa possibile** | **Indicazioni**
 --- | --- | ---
 151066<br></br>**Messaggio**: la configurazione di Site Recovery non è riuscita (151197). | I certificati radice trusted necessari usati per l'autorizzazione e l'autenticazione non sono presenti nel computer. | - Per una VM che esegue il sistema operativo Windows, assicurarsi che i certificati radice trusted siano presenti nel computer. Per informazioni, vedere [Configurare radici attendibili e certificati non consentiti](https://technet.microsoft.com/library/dn265983.aspx).<br></br>- Per una VM che esegue il sistema operativo Linux, seguire le indicazioni per i certificati radice trusted pubblicate dal distributore della versione del sistema operativo Linux.
 
@@ -209,7 +209,7 @@ Per includere nell'elenco elementi consentiti gli [URL necessari](azure-to-azure
 
 È necessario inizializzare un nuovo disco collegato alla VM.
 
-**Codice errore** | **Possibili cause** | **Raccomandazioni**
+**Codice errore** | **Possibili cause** | **Indicazioni**
 --- | --- | ---
 150039<br></br>**Messaggio**: Il disco dati di Azure (NomeDisco) (%DiskUri) con numero di unità logica (LUN) (ValoreLUN) non è stato mappato a un disco corrispondente presente all'interno della macchina virtuale con lo stesso valore LUN. | - Alla VM è stato collegato un nuovo disco dati che però non è stato inizializzato.</br></br>- Il disco dati all'interno della VM non segnala il valore LUN corretto con il quale il disco è stato collegato alla VM.| Assicurarsi che i dischi dati siano inizializzati e quindi provare a eseguire di nuovo l'operazione.</br></br>Per Windows: [Connettere e inizializzare un nuovo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Per Linux: [Inizializzare un nuovo disco dati in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
@@ -232,10 +232,10 @@ Se il problema persiste, contattare il supporto tecnico.
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. Per ignorare l'avviso. Passare a elementi replicati > macchina virtuale > fare clic su Ignora avviso nella sezione Panoramica.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Impossibile vedere la VM di Azure tra le opzioni per l'abilitazione della replica
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Non è possibile visualizzare il macchina virtuale di Azure o gruppo di risorse per la selezione di "Abilitazione della replica"
 
  **Causa 1:  Il gruppo di risorse e la macchina virtuale di origine si trovano in una posizione diversa** <br>
-Attualmente, Azure Site Recovery richiede che il gruppo di risorse dell'area di origine e le macchine virtuali si trovino obbligatoriamente nella stessa posizione. Se non è questo il caso, non sarà possibile trovare la macchina virtuale durante il periodo di protezione.
+Azure Site Recovery attualmente mandati che il gruppo di risorse di area e le macchine virtuali di origine devono essere nella stessa posizione. Se non è questo il caso, non sarà possibile trovare la macchina virtuale durante il periodo di protezione. In alternativa, è possibile abilitare la replica dalla macchina virtuale anziché l'insieme di credenziali di servizi di ripristino. Passare alla VM Sourece > Proprietà > Abilita la replica e ripristino di emergenza.
 
 **Causa 2: Il gruppo di risorse non appartiene alla sottoscrizione selezionata** <br>
 Potrebbe non essere possibile trovare il gruppo di risorse durante il periodo di protezione se il gruppo non fa parte della sottoscrizione specificata. Assicurarsi che il gruppo di risorse appartenga alla sottoscrizione in uso.
@@ -252,7 +252,7 @@ Se la macchina virtuale che si desidera abilitare per la replica non viene visua
 >
 >Assicurarsi di aggiornare il modulo ""AzureRM.Resources"" prima di usare lo script seguente.
 
-È possibile usare lo [script per la rimozione della configurazione non aggiornata di Azure Site Recovery](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) e rimuovere la configurazione dalla VM di Azure. Dopo la rimozione della configurazione non aggiornata dovrebbe essere possibile visualizzare la macchina virtuale.
+È possibile usare lo [script per la rimozione della configurazione non aggiornata di Azure Site Recovery](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1) e rimuovere la configurazione dalla VM di Azure. Dopo la rimozione della configurazione non aggiornata dovrebbe essere possibile visualizzare la macchina virtuale.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Impossibile selezionare la macchina virtuale per eseguire la procedura di protezione
  **Causa 1:  Un'estensione installata nella macchina virtuale si trova in stato di errore o non risponde** <br>
@@ -292,7 +292,7 @@ Per abilitare la replica sulla VM, lo stato di provisioning deve essere **Riusci
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>Errore del servizio Copia Shadow del volume/COM+ (codice di errore 151025)
 
-**Codice errore** | **Possibili cause** | **Raccomandazioni**
+**Codice errore** | **Possibili cause** | **Indicazioni**
 --- | --- | ---
 151025<br></br>**Messaggio**: Site recovery extension failed to install (Impossibile installare l'estensione di Site Recovery) | - Il servizio "Applicazione di sistema COM+" è disabilitato.</br></br>- Il servizio "Copia Shadow del volume" è disabilitato.| Impostare i servizi "Applicazione di sistema COM+" e "Copia Shadow del volume" sulla modalità di avvio automatica o manuale.
 
@@ -304,14 +304,14 @@ Per abilitare la replica sulla VM, lo stato di provisioning deve essere **Riusci
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>Dimensioni del disco gestito non supportate (codice di errore 150172)
 
 
-**Codice errore** | **Possibili cause** | **Raccomandazioni**
+**Codice errore** | **Possibili cause** | **Indicazioni**
 --- | --- | ---
 150172<br></br>**Messaggio**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 1024 MB (Impossibile abilitare la protezione per la macchina virtuale perché contiene (DiskName) con dimensioni (DiskSize), valore inferiore alla dimensione minima supportata, ovvero 1024 MB). | - Le dimensioni del disco sono inferiori alle dimensioni supportate (1024 MB)| Assicurarsi che le dimensioni del disco siano comprese nell’intervallo di dimensioni supportate, quindi ripetere l'operazione.
 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>Abilitare la protezione non riuscita come nome del dispositivo indicato nella configurazione GRUB anziché UUID (codice di errore 151126)
 
 **Causa possibile:** </br>
-I file di configurazione di GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" o"/etc/default/grub") possono contenere il valore per i parametri **root** (radice) e **resume** (riprendi) come nomi effettivi dei dispositivi anziché l'UUID. Site Recovery impone l'approccio UUID in quanto il nome dei dispositivi è soggetto a cambiamento al riavvio della macchina virtuale; la stessa potrebbe non essere visualizzata con lo stesso nome in caso di failover, con conseguenti problemi. Ad esempio:  </br>
+I file di configurazione di GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" o"/etc/default/grub") possono contenere il valore per i parametri **root** (radice) e **resume** (riprendi) come nomi effettivi dei dispositivi anziché l'UUID. Site Recovery impone l'approccio UUID in quanto il nome dei dispositivi è soggetto a cambiamento al riavvio della macchina virtuale; la stessa potrebbe non essere visualizzata con lo stesso nome in caso di failover, con conseguenti problemi. Ad esempio: </br>
 
 
 - La riga seguente si trova nel file GRUB **/boot/grub2/grub.cfg**. <br>
@@ -327,7 +327,7 @@ Se si osserva la stringa precedente formattata in grassetto, si noterà che GRUB
 I nomi dei dispositivi devono essere sostituiti con l'UUID corrispondente.<br>
 
 
-1. Individuare l'UUID del dispositivo eseguendo il comando "blkid \<nome dispositivo >". Ad esempio: <br>
+1. Individuare l'UUID del dispositivo eseguendo il comando "blkid \<nome dispositivo >". Ad esempio:<br>
    ```
    blkid /dev/sda1
    ```<br>

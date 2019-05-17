@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: jafreebe;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: efeab014c7d92a6c19d516a121fbc4436925be75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82e8936a888cbc99088ab18423e55dd57a3c2e77
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850989"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604180"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurare un Windows app Java per servizio App di Azure
 
@@ -27,7 +27,7 @@ Servizio App di Azure permette agli sviluppatori Java per creare, distribuire e 
 Questa guida fornisce i concetti chiave e le istruzioni per sviluppatori Java usando nel servizio App. Se non si è mai usato Azure App Service, è consigliabile leggere il [Guida introduttiva a Java](app-service-web-get-started-java.md) prima. Risposta alle domande di carattere generale sull'uso del servizio App che non sono specifiche per lo sviluppo Java nel [domande frequenti su Windows del servizio App](faq-configuration-and-management.md).
 
 > [!NOTE]
-> Le informazioni cercate non sono disponibili? Vedere la [domande frequenti su sistemi operativi Windows](faq-configuration-and-management.md) o nella [Guida alla configurazione di Java Linux](containers/app-service-linux-java.md) per informazioni sulla distribuzione e protezione di app Java.
+> Le informazioni cercate non sono disponibili? Vedere la [domande frequenti su sistemi operativi Windows](faq-configuration-and-management.md) o nella [Guida alla configurazione di Java Linux](containers/configure-language-java.md) per informazioni sulla distribuzione e protezione di app Java.
 
 ## <a name="configuring-tomcat"></a>Configurazione Tomcat
 

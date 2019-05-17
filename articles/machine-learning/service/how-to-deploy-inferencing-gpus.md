@@ -1,5 +1,5 @@
 ---
-title: Come distribuire un modello di apprendimento avanzato per inferenza con GPU
+title: Distribuzione modello per inferenza con GPU
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come distribuire un modello di apprendimento avanzato come servizio web che usa una GPU per inferenza. In questo articolo, viene distribuito un modello Tensorflow in un cluster Azure Kubernetes Service. Il cluster Usa una VM abilitate per GPU per ospitare il servizio web e le richieste di inferenza di punteggio.
 services: machine-learning
@@ -10,33 +10,30 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 5cc0fe0526937245d3ca913afc477f0259e2afd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7796e8dc07889c9816e4227f3b38904d91a24da3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515175"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595646"
 ---
-# <a name="how-to-do-gpu-inferencing"></a>Come eseguire questa operazione inferenza GPU
+# <a name="deploy-a-deep-learning-model-for-inferencing-with-gpu"></a>Distribuire un modello di apprendimento avanzato per inferenza con GPU
 
 Informazioni su come usare inferenza GPU per un modello di machine learning distribuito come servizio web. In questo articolo descrive come usare il servizio Azure Machine Learning per distribuire un modello di apprendimento approfondito Tensorflow di esempio. Il modello viene distribuito in un cluster Azure Kubernetes Service (AKS) che usa una macchina virtuale basata su GPU per ospitare il servizio. Quando le richieste vengono inviate al servizio, il modello Usa la GPU per eseguire l'inferenza.
 
 Le GPU offrono vantaggi di prestazioni rispetto alla CPU su calcolo altamente parallelizzabile. Training e inferenza dei modelli (soprattutto per i batch di grandi dimensioni delle richieste) per l'apprendimento avanzato sono casi d'uso eccellente per GPU.  
 
-In questo esempio mostra come distribuire un modello TensorFlow salvati in Azure Machine Learning. 
+In questo esempio verrà illustrato come distribuire un modello TensorFlow salvati in Azure Machine Learning per:
+* Creazione di un cluster AKS abilitate per GPU
+* Distribuzione di un modello con Tensorflow GPU
 
-## <a name="goals-and-prerequisites"></a>Gli obiettivi e prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Seguire le istruzioni per:
-* Creare una GPU abilitata cluster servizio contenitore di AZURE
-* Distribuire un modello con Tensorflow GPU
-
-Prerequisiti:
 * Area di lavoro di Azure Machine Learning services
 * Python
 * Tensorflow SavedModel registrato. Per informazioni su come registrare i modelli vedere [distribuzione di modelli](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#registermodel)
 
-Questo articolo si basa sul [distribuzione di modelli di Tensorflow per AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), che usa TensorFlow salvato modella e distribuisce a un cluster del servizio contenitore di AZURE. Tuttavia, con piccole modifiche per il file di assegnazione dei punteggi e il file di ambiente è applicabile a qualsiasi framework di machine learning che supporta le GPU.  
+Questo articolo si basa su notebook di Jupyter [distribuzione di modelli di Tensorflow per AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), che usa TensorFlow salvato modella e distribuisce a un cluster del servizio contenitore di AZURE. Tuttavia, con piccole modifiche per il file di assegnazione dei punteggi e il file di ambiente è applicabile a qualsiasi framework di machine learning che supporta le GPU.  
 
 ## <a name="provision-aks-cluster-with-gpus"></a>Cluster AKS effettuare il provisioning con GPU
 Azure offre molte opzioni GPU, ognuno dei quali può essere utilizzato per inferenza. Visualizzare [l'elenco di serie N](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) per un elenco completo delle funzionalità e i costi. 

@@ -3,8 +3,8 @@ title: Protocollo SAML per Single Sign-Out di Azure | Documentazione Microsoft
 description: Questo articolo illustra il protocollo SAML per Single Sign-Out in Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d4f9c69d6ddcbef96a88a0df10c3b0974cd5b74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06fd36935c1f43cc14697748666eccd9e6d31168
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297774"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545956"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocollo SAML per Single Sign-Out
 
@@ -50,7 +50,7 @@ L'elemento `LogoutRequest` inviato ad Azure AD richiede gli attributi seguenti:
 * `Version`: impostare il valore di questo elemento su **2.0**. Questo valore è obbligatorio.
 * `IssueInstant`: è una stringa `DateTime` con un valore di UTC (Coordinate Universal Time) e il [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore di questo tipo, ma non lo impone.
 
-### <a name="issuer"></a>Issuer
+### <a name="issuer"></a>Rilasciato da
 L'elemento `Issuer` in una `LogoutRequest` deve corrispondere esattamente a uno dei **ServicePrincipalNames** nel servizio cloud in Azure AD. Viene in genere impostato sull' **URI ID app** specificato durante la registrazione dell'applicazione.
 
 ### <a name="nameid"></a>NameID
@@ -71,7 +71,7 @@ Azure AD invia un elemento `LogoutResponse` in risposta a un elemento `LogoutReq
 ### <a name="logoutresponse"></a>LogoutResponse
 Azure AD imposta i valori `ID`, `Version` e `IssueInstant` nell'elemento `LogoutResponse`. Imposta anche l'elemento `InResponseTo` sul valore dell'attributo `ID` dell'elemento `LogoutRequest` che ha provocato la risposta.
 
-### <a name="issuer"></a>Issuer
+### <a name="issuer"></a>Rilasciato da
 Azure AD imposta questo valore su `https://login.microsoftonline.com/<TenantIdGUID>/` in cui \<TenantIdGUID > è l'ID tenant del tenant di Azure AD.
 
 Per valutare il valore dell'elemento `Issuer` usare il valore dell' **URI ID app** specificato durante la registrazione dell'applicazione.

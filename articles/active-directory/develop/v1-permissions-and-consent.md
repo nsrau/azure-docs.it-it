@@ -3,8 +3,8 @@ title: Autorizzazioni in Azure Active Directory | Microsoft Docs
 description: Informazioni sulle autorizzazioni in Azure Active Directory e su come usarle.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee58c2a3bed7544ff68e7d6ec756c35bee1d05b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250792"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545202"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory
 
@@ -61,13 +61,13 @@ Le autorizzazioni in Azure AD hanno diverse proprietà che aiutano utenti, ammin
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| Nome proprietà | DESCRIZIONE | Esempio |
+| Nome proprietà | Descrizione | Esempio |
 | --- | --- | --- |
 | `ID` | Valore GUID che identifica in modo univoco l'autorizzazione. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
 | `IsEnabled` | Indica se l'autorizzazione è disponibile per l'uso. | true |
 | `Type` | Indica se l'autorizzazione richiede il consenso dell'utente o dell'amministratore. | Utente |
-| `AdminConsentDescription` | Descrizione che viene visualizzata per gli amministratori durante l'esperienza di consenso dell'amministratore. | Consente all'app di leggere i messaggi di posta elettronica nelle cassette postali degli utenti. |
-| `AdminConsentDisplayName` | Nome descrittivo visualizzato per gli amministratori durante l'esperienza di consenso dell'amministratore. | Leggi i messaggi di un altro utente |
+| `AdminConsentDescription` | Descrizione che viene visualizzata per gli amministratori durante l'esperienza di consenso dell'amministratore. | Consente all'app di leggere i messaggi di posta elettronica nelle cassette postali di un utente. |
+| `AdminConsentDisplayName` | Nome descrittivo visualizzato per gli amministratori durante l'esperienza di consenso dell'amministratore. | Legge i messaggi di posta elettronica dell'utente |
 | `UserConsentDescription` | Descrizione che viene visualizzata per gli utenti durante l'esperienza di consenso dell'utente. |  Consente all'app di leggere i messaggi di posta elettronica nella cassetta postale personale. |
 | `UserConsentDisplayName` | Nome descrittivo visualizzato per gli utenti durante l'esperienza di consenso dell'utente. | Lettura dei messaggi |
 | `Value` | Stringa usata per identificare l'autorizzazione durante i flussi di autorizzazione OAuth 2.0. `Value` può anche essere combinata con la stringa dell'URI ID app per formare un nome di autorizzazione completo. | `Mail.Read` |
@@ -106,7 +106,7 @@ Le applicazioni in Azure AD si basano sul consenso per ottenere l'accesso alle A
   - `Permission` corrisponde all'azione che un utente può eseguire su tali dati
   - `Modifier` viene usato facoltativamente per descrivere le specializzazioni di un'altra autorizzazione
     
-    Ad esempio: 
+    Ad esempio:
   - Mail.Read: consente agli utenti di leggere i messaggi di posta.
   - Mail.ReadWrite: consente agli utenti di leggere o scrivere messaggi di posta.
   - Mail.ReadWrite.All: consente a un amministratore o a un utente di accedere a tutti i messaggi di posta nell'organizzazione.

@@ -3,9 +3,9 @@ title: Procedure consigliate di gestione degli errori per i client di Azure Acti
 description: Fornisce linee guida e procedure consigliate per la gestione degli errori per le applicazioni client ADAL.
 services: active-directory
 documentationcenter: ''
-author: danieldobalian
-manager: mtillman
-ms.author: celested
+author: rwike77
+manager: CelesteDG
+ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e92c3b302ab18aaaf20d187d61a488603ce81a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 652175e99c800b8e4aa69c639f0bdb9aba838987
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411462"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544627"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Procedure consigliate di gestione degli errori per i client di Azure Active Directory Authentication Library (ADAL)
 
@@ -52,7 +52,7 @@ Esiste un set di errori generati dal sistema operativo, che potrebbe richiedere 
 
 Fondamentalmente, esistono due casi di errori AcquireTokenSilent:
 
-| Caso | DESCRIZIONE |
+| Maiuscole/minuscole | Descrizione |
 |------|-------------|
 | **Caso 1**: l'errore è risolvibile con un accesso interattivo | Per gli errori causati dalla mancanza di token validi, è necessaria una richiesta interattiva. In particolare, per la risoluzione di ricerche nella cache e token di aggiornamento non validi/scaduti è necessaria una chiamata di AcquireToken.<br><br>In questi casi, occorre chiedere all'utente finale di eseguire l'accesso. L'applicazione può scegliere di effettuare una richiesta interattiva immediatamente dopo l'interazione con l'utente finale (ad esempio, l'uso di un pulsante di accesso) o in seguito. La scelta dipende dal comportamento desiderato dell'applicazione.<br><br>Vedere il codice nella sezione seguente per questo caso specifico e gli errori per diagnosticarlo.|
 | **Caso 2**: l'errore non è risolvibile con un accesso interattivo | Per la rete e gli errori temporanei o altri malfunzionamenti, l'esecuzione di una richiesta AcquireToken interattiva non risolve il problema. Le richieste di accesso interattivo non necessarie possono anche risultare frustranti per gli utenti finali. ADAL esegue automaticamente solo un ulteriore tentativo per la maggior parte degli errori AcquireTokenSilent.<br><br>L'applicazione client può anche eseguire un altro tentativo in seguito, ma quando e come eseguirlo dipende dal comportamento dell'applicazione e dall'esperienza desiderata per gli utenti finali. Ad esempio, l'applicazione può eseguire un nuovo tentativo di chiamata di AcquireTokenSilent dopo alcuni minuti oppure in risposta a un'azione dell'utente finale. Un tentativo immediato causerebbe la limitazione dell'applicazione ed è sconsigliato.<br><br>Un tentativo successivo che genera lo stesso errore non significa che il client deve eseguire una richiesta interattiva tramite AcquireToken, perché non risolverebbe l'errore.<br><br>Vedere il codice nella sezione seguente per questo caso specifico e gli errori per diagnosticarlo. |

@@ -4,17 +4,17 @@ description: Riepilogo delle funzionalità di richiesta dei dati dei clienti in 
 author: ashannon7
 ms.author: anshan
 manager: cshankar
-ms.date: 05/17/2018
+ms.date: 05/08/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 30f6b1fd953f89170a18d56bf0353c643853074e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67aea6b3d535eeb0838da4ac6990c50e607617bf
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880709"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546381"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
 
@@ -65,3 +65,11 @@ Per altre informazioni, vedere [Strumento di esplorazione di Azure Time Series I
 Attualmente, Time Series Insights non supporta l'eliminazione granulare dei dati. Tuttavia, Time Series Insights offre la possibilità di rimuovere i dati dei clienti archiviati configurando i criteri di conservazione. È possibile regolare il periodo di conservazione dell'intero ambiente di Time Series Insights su qualsiasi numero di giorni per supportare i requisiti di eliminazione.
 
 Per altre informazioni, vedere [Configurazione della conservazione in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Altre informazioni, vedere [concedere l'accesso ai dati nell'ambiente Time Series Insights](./time-series-insights-data-access.md).
+
+* Visualizza i [Azure Time Series Insights explorer](time-series-insights-explorer.md).
+
+* Scopri [configurazione della conservazione in Time Series Insights](time-series-insights-how-to-configure-retention.md).

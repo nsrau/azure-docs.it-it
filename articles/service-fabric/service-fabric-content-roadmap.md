@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394405"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540712"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Informazioni su Service Fabric
 Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili.  Service Fabric ha una struttura molto estesa e richiede un apprendimento completo.  Questo articolo offre un riepilogo di Service Fabric e descrive i concetti di base, i modelli di programmazione, il ciclo di vita dell'applicazione, i test, i cluster e il monitoraggio dell'integrità. Leggere [Panoramica](service-fabric-overview.md) e [Cosa sono i microservizi?](service-fabric-overview-microservices.md) per la presentazione di Service Fabric e per informazioni su come usarlo per creare microservizi. Questo articolo non offre un elenco completo dei contenuti ma include collegamenti ad articoli di panoramica e introduttivi su tutte le aree di Service Fabric. 
@@ -30,7 +30,7 @@ Gli articoli [Panoramica della terminologia di Service Fabric](service-fabric-te
 ### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Fase di progettazione: tipo di applicazione, tipo di servizio, manifesto e pacchetto dell'applicazione, manifesto e pacchetto del servizio
 Il tipo di applicazione è il nome o la versione assegnata a una raccolta di tipi di servizio. Questo viene definito in un file *ApplicationManifest.xml* incorporato in una directory del pacchetto dell'applicazione. I file nella directory del pacchetto dell'applicazione vengono copiati nell'archivio immagini del cluster di Service Fabric. Da questo tipo di applicazione è quindi possibile creare un'applicazione denominata che viene eseguita all'interno del cluster. 
 
-Il tipo di servizio è il nome o la versione assegnata ai pacchetti di codice, ai pacchetti di dati e ai pacchetti di configurazione del servizio. Questo viene definito in un file ServiceManifest.xml incorporato in una directory del pacchetto del servizio. Un file *ApplicationManifest.xml* del pacchetto dell'applicazione fa quindi riferimento alla directory del pacchetto del servizio. All'interno del cluster, dopo aver creato un'applicazione denominata, è possibile creare un servizio denominato da uno dei tipi di servizio del tipo di applicazione. Un tipo di servizio è descritto dal relativo file *ServiceManifest.xml*. Il tipo di servizio è composto dalle impostazioni di configurazione del servizio del codice eseguibile, caricate in fase di esecuzione, e dai dati statici utilizzati dal servizio.
+Il tipo di servizio è il nome o la versione assegnata ai pacchetti di codice, ai pacchetti di dati e ai pacchetti di configurazione del servizio. Questo viene definito in un file ServiceManifest.xml incorporato in una directory del pacchetto del servizio. Un file *ApplicationManifest.xml* del pacchetto dell'applicazione fa quindi riferimento alla directory del pacchetto del servizio. All'interno del cluster, dopo aver creato un'applicazione denominata, è possibile creare un servizio denominato da uno dei tipi di servizio del tipo di applicazione. Un tipo di servizio è descritto dal relativo file *ServiceManifest.xml*. Il tipo di servizio è costituito da codice eseguibile e le impostazioni di configurazione del servizio, che vengono caricate in fase di esecuzione, e dai dati statici utilizzati dal servizio.
 
 ![Tipi di applicazioni di Service Fabric e tipi di servizio][cluster-imagestore-apptypes]
 

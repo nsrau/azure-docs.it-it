@@ -16,12 +16,12 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5404d1b85821458aedef64b72ae635ea49aa1ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287575"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602485"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Usare un dashboard delle risorse per eseguire una verifica di accesso in PIM
 
@@ -31,9 +31,9 @@ ms.locfileid: "60287575"
 - Due grafici che visualizzano la distribuzione delle assegnazioni di ruolo in base al tipo di assegnazione.
 - Un'area dati che si riferisce a nuove assegnazioni di ruolo.
 
-![Screenshot del dashboard Visualizzazione amministratore che mostra grafici e diagrammi](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![Screenshot del dashboard Visualizzazione amministratore che mostra grafici e diagrammi](media/pim-resource-roles-overview-dashboards/rbac-overview-top.png)
 
-![Screenshot del dashboard Visualizzazione amministratore che mostra elenchi di dati](media/azure-pim-resource-rbac/role-settings.png)
+![Screenshot del dashboard Visualizzazione amministratore che mostra elenchi di dati](media/pim-resource-roles-overview-dashboards/role-settings.png)
 
 La rappresentazione grafica delle attivazioni del ruolo delle risorse copre gli ultimi sette giorni. Come ambito per questi dati viene specificata la risorsa selezionata e vengono visualizzate attivazioni per i ruoli più comuni (proprietario, collaboratore, amministratore accesso utenti) e per tutti i ruoli combinati.
 

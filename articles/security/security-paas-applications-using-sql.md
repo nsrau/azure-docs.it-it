@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057ec69db300c3ec95cbc63bd5056a78c24d5660
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596664"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601654"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Procedure consigliate per la protezione di database PaaS in Azure
 
@@ -78,7 +78,7 @@ Azure SQL gestisce i principali problemi correlati per TDE. Come con TDE, è nec
 
 Azure SQL fornisce la crittografia per le colonne tramite [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Questa crittografia consente solo alle applicazioni autorizzate l'accesso alle colonne sensibili. L'uso di questo tipo di crittografia limita le query SQL per le colonne crittografate a valori basati sull'uguaglianza.
 
-La crittografia a livello di applicazione deve essere usata anche per dati selettivi. È possibile talvolta limitare le problematiche legate alla sovranità dei dati crittografandoli con una chiave da conservare nel paese appropriato. In questo modo si impedisce anche che un trasferimento accidentale dei dati possa rappresentare un problema, perché è comunque impossibile decrittografarli senza la chiave, presupponendo che venga usato un algoritmo avanzato come AES 256.
+La crittografia a livello di applicazione deve essere usata anche per dati selettivi. Problematiche legate alla sovranità dei dati può talvolta essere attenuate crittografandoli con una chiave da conservare nel paese/area geografica corretto. In questo modo si impedisce anche che un trasferimento accidentale dei dati possa rappresentare un problema, perché è comunque impossibile decrittografarli senza la chiave, presupponendo che venga usato un algoritmo avanzato come AES 256.
 
 È possibile usare diverse precauzioni per proteggere il database, ad esempio la progettazione di un sistema sicuro, la crittografia di risorse riservate e la creazione di un firewall che protegga i server di database.
 

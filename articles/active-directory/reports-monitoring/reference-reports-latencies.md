@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64bd2247a3437a2cc960da1820d9be417eedff8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285172"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594027"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
 
@@ -41,10 +41,10 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per i report 
 > **Latenza (95° percentile)** si riferisce al tempo entro il quale verrà segnalato il 95% dei log e **Latenza (99° percentile)** si riferisce al tempo entro il quale verrà segnalato il 99% dei log. 
 >
 
-| Report | Latenza (95° percentile) |Latenza (99° percentile)|Intervallo di tempo entro il quale verranno segnalati i log|
-| :-- | --- | --- | --- |
-| Log di controllo | 2 min  | 5 min  | 2-60 min |
-| Accessi | 2 min  | 5 min | 2-120 min |
+| Report | Latenza (95° percentile) |Latenza (99° percentile)|
+| :-- | --- | --- |
+| Log di controllo | 2 min  | 5 min  |
+| Accessi | 2 min  | 5 min |
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>In quanto tempo è possibile visualizzare i dati di attività dopo aver acquistato una licenza Premium?
 
@@ -73,7 +73,7 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per gli event
 | Report | Minima | Media | Massima |
 | :-- | --- | --- | --- |
 | Accessi da indirizzi IP anonimi |5 minuti |15 minuti |2 ore |
-| Accessi da posizioni non note |5 minuti |15 minuti |2 ore |
+| Accessi da posizioni insolite |5 minuti |15 minuti |2 ore |
 | Utenti con credenziali perse |2 ore |4 ore |8 ore |
 | Trasferimento impossibile a posizioni atipiche |5 minuti |1 ora |8 ore  |
 | Accessi da dispositivi infetti |2 ore |4 ore |8 ore  |

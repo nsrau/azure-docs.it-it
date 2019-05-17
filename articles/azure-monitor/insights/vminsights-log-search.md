@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702511"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602088"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali (anteprima)
 Monitoraggio di Azure per le macchine virtuali consente prestazioni e metriche relative alla connessione, computer e i dati di inventario di processo e le informazioni sullo stato di integrità e lo inoltra all'area di lavoro di Log Analitica in Monitoraggio di Azure.  Questi dati sono disponibili per [query](../../azure-monitor/log-query/log-query-overview.md) in Monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
@@ -101,7 +101,7 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 
 | Proprietà | Description |
 |:--|:--|
-|RemoteCountry |Nome del paese che ospita RemoteIp.  Ad esempio, *Stati Uniti* |
+|RemoteCountry |Nome del paese/area geografica che ospita RemoteIp.  Ad esempio, *Stati Uniti* |
 |RemoteLatitude |Latitudine della georilevazione. Ad esempio, *47.68* |
 |RemoteLongitude |Longitudine della georilevazione. Ad esempio, *-122.12* |
 
@@ -130,7 +130,7 @@ Porte in un computer che attivamente accettano il traffico in ingresso o potenzi
 >- Stati Uniti orientali  
 >- Europa occidentale
 >
-> Raccolta dei dati è abilitata in altro [aree supportate](vminsights-onboard.md#log-analytics) per monitoraggio di Azure per le macchine virtuali. 
+> Raccolta dei dati è abilitata in altro [aree supportate](vminsights-enable-overview.md#log-analytics) per monitoraggio di Azure per le macchine virtuali. 
 
 Ogni record presente nel VMBoundPort è identificato dai campi seguenti: 
 

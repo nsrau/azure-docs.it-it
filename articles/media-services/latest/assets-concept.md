@@ -9,30 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235673"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551768"
 ---
 # <a name="assets"></a>Asset
 
-In Servizi multimediali di Azure un [asset](https://docs.microsoft.com/rest/api/media/assets) contiene file digitali, tra cui video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, con i relativi metadati. Una volta caricati in un asset, i file digitali possono essere usati nei flussi di lavoro di codifica, trasmissione e analisi di Servizi multimediali di Azure. Per altre informazioni, vedere più avanti la sezione [Caricare i file digitali negli asset](#upload-digital-files-into-assets).
+In servizi multimediali di Azure, un' [Asset](https://docs.microsoft.com/rest/api/media/assets) contiene informazioni sui file digitali archiviati in archiviazione di Azure (tra cui video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi). 
 
 Un asset viene mappato a un contenitore BLOB nell'[account di archiviazione di Azure](storage-account-concept.md) e i file contenuti nell'asset vengono archiviati come BLOB in blocchi in tale contenitore. Servizi multimediali supporta i livelli BLOB quando l'account usa l'archiviazione Utilizzo generico v2 (GPv2). Con GPv2, è possibile spostare i file in uno [spazio di archiviazione ad accesso sporadico o archivio](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). L'archiviazione **archivio** è adatta all'archiviazione di file di origine quando non sono più necessari (ad esempio, dopo la codifica).
 
 Il livello di archiviazione **archivio** è consigliato solo per file di origine di dimensioni molto estese già codificati e con l'output del processo di codifica inserito in un contenitore BLOB di output. I BLOB nel contenitore di output che si vuole associare a un asset e usare per trasmettere o analizzare il contenuto, devono esistere in un livello di archiviazione ad **accesso frequente** o ad **accesso sporadico**.
 
-> [!NOTE]
-> Le proprietà dell'asset di tipo Datetime sono sempre in formato UTC.
-
 ## <a name="upload-digital-files-into-assets"></a>Caricare i file digitali negli asset
 
-Uno dei flussi di lavoro comuni di Servizi multimediali consiste nel caricare, codificare e trasmettere un file. Questa sezione descrive i passaggi generali.
+Dopo che i file digitali vengono caricati nell'archiviazione e associati a un Asset, possono essere utilizzati in servizi multimediali di codifica, streaming, l'analisi dei flussi di lavoro del contenuto. Uno dei flussi di lavoro comuni di Servizi multimediali consiste nel caricare, codificare e trasmettere un file. Questa sezione descrive i passaggi generali.
 
 > [!TIP]
 > Prima di iniziare lo sviluppo, esaminare [lo sviluppo con le API di servizi multimediali v3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, le convenzioni di denominazione e così via).
@@ -54,6 +51,9 @@ Uno dei flussi di lavoro comuni di Servizi multimediali consiste nel caricare, c
 Per un esempio .NET completo che illustra come creare l'asset, ottenere un URL di firma di accesso condiviso scrivibile del contenitore dell'asset nella risorsa di archiviazione e caricare il file nel contenitore nella risorsa di archiviazione usando l'URL di firma di accesso condiviso, vedere [Creare un input del processo da un file locale](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Creare un nuovo asset
+
+> [!NOTE]
+> Le proprietà dell'asset di tipo Datetime sono sempre in formato UTC.
 
 #### <a name="rest"></a>REST
 

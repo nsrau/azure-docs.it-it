@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472454"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780530"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 
@@ -37,7 +37,7 @@ Durante il processo di acquisizione della proprietà da parte di un amministrato
 
 Alcuni prodotti che includono SharePoint e OneDrive, ad esempio Office 365, non supportano l'acquisizione esterna della proprietà. In questo caso oppure se si è un amministratore e si vuole acquisire la proprietà di un tenant non gestito o "shadow" creato da utenti che hanno usato l'iscrizione self-service, è possibile eseguire questa operazione con un'acquisizione interna della proprietà da parte di un amministratore.
 
-1. Creare un contesto utente nel tenant non gestito tramite l'iscrizione, ad esempio, con Power BI. Per semplificare l'esempio, questa procedura presuppone tale percorso.
+1. Creare un contesto utente nel tenant non gestito tramite l'iscrizione a Power BI. Per semplificare l'esempio, questa procedura presuppone tale percorso.
 
 2. Aprire il [sito di Power BI](https://powerbi.com) e selezionare **Inizia gratuitamente**. Immettere un account utente che usa il nome di dominio per l'organizzazione, ad esempio `admin@fourthcoffee.xyz`. Dopo avere immesso il codice di verifica, verificare la disponibilità del codice di conferma nella posta elettronica.
 
@@ -82,7 +82,7 @@ Se si gestisce già un tenant con i servizi di Azure o Office 365, non è possib
 Quando si verifica la proprietà del nome di dominio, Azure AD lo rimuove dal tenant non gestito e lo sposta nel tenant esistente. L'acquisizione esterna della proprietà di una directory non gestita da parte di un amministratore richiede lo stesso processo convalida di convalida TXT DNS dell'acquisizione interna della proprietà da parte di un amministratore, con la differenza che anche gli elementi seguenti vengono spostati con il nome di dominio:
 
 - Utenti
-- Sottoscrizioni
+- Abbonamenti
 - Assegnazioni di licenze
 
 ### <a name="support-for-external-admin-takeover"></a>Supporto per l'acquisizione esterna della proprietà da parte dell'amministratore
@@ -153,7 +153,7 @@ Cmdlet | Uso
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Copiare il valore (la richiesta di verifica) restituita da questo comando. Ad esempio: 
+4. Copiare il valore (la richiesta di verifica) restituita da questo comando. Ad esempio:
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -164,7 +164,7 @@ Cmdlet | Uso
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
    ```
   
-   Ad esempio: 
+   Ad esempio:
   
    ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com

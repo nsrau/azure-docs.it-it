@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6e7b3b316a8a6dcde95bdf872dbda4cd1372f072
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b1a79f2798fc98fd7361c47788c79e329e2cb827
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721817"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556183"
 ---
 # <a name="scaling-media-processing"></a>Ridimensionamento dell'elaborazione di contenuti multimediali
 
@@ -47,7 +47,7 @@ Il resto dell'articolo viene illustrato come utilizzare [interfaccia della riga 
 > [!NOTE]
 > Per i processi di analisi audio e video generati da Servizi multimediali v3 o Video Indexer, è fortemente consigliato effettuare il provisioning dell'account con 10 MRU S3. Se sono necessarie più di 10 MRU S3, aprire un ticket di supporto dal [portale di Azure](https://portal.azure.com/).
 >
-> Attualmente, è possibile usare il portale di Azure per gestire altre risorse di v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](developers-guide.md) supportati.
+> Attualmente, è possibile usare il portale di Azure per gestire altre risorse di v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
 ## <a name="prerequisites"></a>Prerequisiti 
 

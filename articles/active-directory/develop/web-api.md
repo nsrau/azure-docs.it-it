@@ -3,8 +3,8 @@ title: App per le API Web in Azure Active Directory
 description: Descrive che cosa sono le applicazioni API Web e presenta le informazioni di base su flusso del protocollo, registrazione e scadenza del token per questo tipo di app.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f344a4f928030c07f59c2f7aba201d153da123f1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 484e6b4c5f0e064254c957b07b8ba15ef98f2634
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918708"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545220"
 ---
 # <a name="web-api"></a>API Web
 

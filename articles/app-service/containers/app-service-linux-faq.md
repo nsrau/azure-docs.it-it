@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919955"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594272"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -39,13 +39,15 @@ In caso di domande, inviare commenti su questo articolo.
 
 **Quali sono i valori previsti per la sezione relativa al file di avvio quando si configura lo stack di runtime?**
 
-| Stack     | Valore previsto                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | un comando per avviare il `.jar` applicazione                                    |
-| Tomcat    | il percorso di uno script per eseguire eventuali configurazioni per l'app          |
-| Node.js   | il file di configurazione PM2 o il file script                                |
-| .Net Core | il nome della DLL compilato come `dotnet <myapp>.dll`                                 |
-| Ruby      | lo script Ruby che si desidera inizializzazione dell'app                     |
+| Stack           | Valore previsto                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | il comando per avviare l'app con estensione JAR (ad esempio, `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | il percorso di uno script per eseguire tutte le configurazioni necessarie (ad esempio, `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | il file di configurazione PM2 o il file script                                |
+| .Net Core       | il nome della DLL compilato come `dotnet <myapp>.dll`                                 |
+| Ruby            | lo script Ruby che si desidera inizializzazione dell'app                     |
+
+Questi comandi o gli script vengono eseguiti dopo che viene avviato il contenitore Docker, ma prima dell'applicazione viene avviato codice.
 
 ## <a name="management"></a>Gestione
 
@@ -65,7 +67,7 @@ Sì, è possibile farlo tramite il sito di gestione controllo del codice sorgent
 
 È necessario impostare il campo **reserved** del servizio app su *true*.
 
-## <a name="continuous-integration-and-deployment"></a>Integrazione e distribuzione continue
+## <a name="continuous-integration-and-deployment"></a>Integrazione continua e distribuzione
 
 **L'app Web usa ancora un'immagine obsoleta del contenitore Docker dopo l'aggiornamento dell'immagine su DockerHub. È supportata l'integrazione e distribuzione continua di contenitori personalizzati?**
 
@@ -93,7 +95,7 @@ Se la distribuzione in GIT non riesce per l'app Web di Linux, scegliere una dell
 
    Se si verifica un errore che indica l'impossibilità di trovare il comando `curl`, assicurarsi di installare curl tramite `apt-get install curl` prima di eseguire il comando `curl` precedente.
 
-## <a name="language-support"></a>Supporto per le lingue
+## <a name="language-support"></a>Supporto per la lingua
 
 **Esistono impostazioni speciali o configurazioni specifiche da impostare se si vogliono usare Web Socket nell'applicazione Node.js?**
 
@@ -202,5 +204,5 @@ Per le impostazioni dell'applicazione è possibile usare solo lettere (A-Z, a-z)
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Che cos'è il Servizio app di Azure in Linux?](app-service-linux-intro.md)
-- [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurare ambienti di servizio App di Azure di staging](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Distribuzione continua con l'app Web per contenitori](./app-service-linux-ci-cd.md)

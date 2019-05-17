@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fae245e4d72f7f6f7809d85da17023deb1518e5
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425963"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560845"
 ---
 # <a name="azure-monitor-log-queries"></a>Query di log di Monitoraggio di Azure
 I log di Monitoraggio di Azure si basano su Esplora dati, mentre le query di log di Monitoraggio di Azure usano una versione dello stesso linguaggio di query Kusto. La [documentazione del linguaggio di query Kusto](/azure/kusto/query) contiene tutti i dettagli del linguaggio e deve essere la risorsa principale per la scrittura di query di log di Monitoraggio di Azure. Questa pagina fornisce collegamenti ad altre risorse per apprendere come scrivere le query e sulle differenze con l'implementazione del linguaggio di Monitoraggio di Azure.
@@ -61,7 +61,7 @@ I log di Monitoraggio di Azure si basano su Esplora dati, mentre le query di log
 ## <a name="cheatsheets"></a>Schede di riferimento rapido
 
 -  [Query di log da SQL a Monitoraggio di Azure ](sql-cheatsheet.md) assiste gli utenti che hanno già familiarità con SQL.
--  [Query di log da Splunk a di Monitoraggio di Azure](sql-cheatsheet.md) assiste gli utenti che hanno già familiarità con Splunk.
+-  [Query di log da Splunk a di Monitoraggio di Azure](splunk-cheatsheet.md) assiste gli utenti che hanno già familiarità con Splunk.
  
 ## <a name="next-steps"></a>Passaggi successivi
 

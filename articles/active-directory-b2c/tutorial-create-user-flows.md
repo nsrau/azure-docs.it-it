@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e12b3cbcb8f7a433b37c450c84bd34745f68a22d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9c08b5b5278045341ed86d987557d03cb46754e6
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711516"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601593"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Esercitazione: Creare flussi utente in Azure Active Directory B2C
 
@@ -76,7 +76,7 @@ Il flusso utente di iscrizione e accesso consente di gestire le esperienze di is
 4. Immettere un indirizzo di posta elettronica valido, fare clic su **Invia codice di verifica**, quindi immettere il codice di verifica ricevuto.
 5. Immettere una nuova password e confermarla.
 6. Immettere il nome visualizzato desiderato, selezionare il paese e l'area, immettere un codice postale e quindi fare clic su **Crea**. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato.
-7. Ora si può eseguire di nuovo il flusso utente e dovrebbe essere possibile accedere con l'account creato. Il token restituito include le attestazioni selezionate di nome, paese e codice postale.
+7. Ora si può eseguire di nuovo il flusso utente e dovrebbe essere possibile accedere con l'account creato. Il token restituito include le attestazioni che è stato selezionato del nome di paese/regione e CAP.
 
 ## <a name="create-a-profile-editing-user-flow"></a>Creare un flusso utente di modifica del profilo
 
@@ -94,7 +94,7 @@ Se si vuole abilitare nell'applicazione la modifica del profilo da parte degli u
 1. Nella pagina Panoramica del flusso utente creato selezionare **Esegui il flusso utente**.
 2. Per **Applicazione** selezionare l'applicazione Web denominata *webapp1* che è stata registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 3. Fare clic su **Esegui il flusso utente**, quindi accedere con l'account creato in precedenza.
-4. A questo punto si ha la possibilità di modificare il nome visualizzato e la posizione dell'utente. Fare clic su **Continue**. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato.
+4. A questo punto si ha la possibilità di modificare il nome visualizzato e la posizione dell'utente. Scegliere **Continua**. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato.
 
 ## <a name="create-a-password-reset-user-flow"></a>Creare un flusso utente di reimpostazione delle password
 
@@ -113,7 +113,7 @@ Se si vuole abilitare nell'applicazione la modifica del profilo da parte degli u
 1. Nella pagina Panoramica del flusso utente creato selezionare **Esegui il flusso utente**.
 2. Per **Applicazione** selezionare l'applicazione Web denominata *webapp1* che è stata registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 3. Fare clic su **Esegui il flusso utente**, quindi accedere con l'account creato in precedenza.
-4. Ora è possibile modificare la password per l'utente. Fare clic su **Continue**. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato.
+4. Ora è possibile modificare la password per l'utente. Scegliere **Continua**. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

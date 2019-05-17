@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: a5d93a77652f540fde44b33963b13df04b45ecee
-ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987937"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596106"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Aggiornare il data warehouse a Gen2
 
@@ -39,9 +39,9 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 | Canada orientale |\* |\* |
 | Stati Uniti centrali |Disponibile |1 giugno 2019 |
 | Cina orientale |\* |\* |
-| Cina orientale 2 |\* |\* |
+| Cina orientale 2 |\* |Solo Gen2 |
 | Cina settentrionale |\* |\* |
-| Cina settentrionale 2 |\* |\* |
+| Cina settentrionale 2 |Disponibile |Solo Gen2 |
 | Asia orientale |Disponibile |1 giugno 2019 |
 | Stati Uniti orientali |Disponibile |1 giugno 2019 |
 | Stati Uniti orientali 2 |Disponibile |1 giugno 2019 |

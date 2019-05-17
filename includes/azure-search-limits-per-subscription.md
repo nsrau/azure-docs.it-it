@@ -5,23 +5,23 @@ services: search
 author: HeidiSteen
 ms.service: search
 ms.topic: include
-ms.date: 04/04/2018
+ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
-ms.openlocfilehash: 0da7ad35f6efc031a52ef43caa514559c08c94fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e147e8bd9260cd1ece60b70641968a229995ec1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61464780"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65211989"
 ---
 È possibile creare più servizi all'interno di una sottoscrizione. Ognuno di essi può eseguire il provisioning a un livello specifico. Si è limitati solo dal numero di servizi consentiti a ogni livello. Ad esempio, è possibile creare fino a 12 servizi a livello Basic e altri 12 servizi a livello S1 nella stessa sottoscrizione. Per altre informazioni sui livelli, vedere [scegliere una SKU o un livello per ricerca di Azure](../articles/search/search-sku-tier.md).
 
 È possibile aumentare i limiti massimi del servizio su richiesta. Se sono necessari più servizi nella stessa sottoscrizione, contattare il supporto di Azure.
 
-| Risorsa            | Gratuito<sup>1</sup> | Basic | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resource            | Gratuito<sup>1</sup> | Di base | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- | -- | -- |
-| Numero massimo di servizi    |1     | 12    | 12  | 6  | 6  | 6     | 6  | 6  |
+| Numero massimo di servizi    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
 | Scalabilità massima in unità di ricerca (SU)<sup>2</sup> |N/D |3 unità di ricerca |36 unità di ricerca |36 unità di ricerca |36 unità di ricerca |36 unità di ricerca |36 unità di ricerca |36 unità di ricerca |
 
 <sup>1</sup> Il servizio gratuito è basato su risorse condivise, non dedicate. L'aumento delle prestazioni del servizio non è supportato sulle risorse condivise.

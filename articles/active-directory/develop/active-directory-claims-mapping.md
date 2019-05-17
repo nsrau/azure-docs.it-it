@@ -2,23 +2,23 @@
 title: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant di Azure AD (anteprima pubblica)
 description: Questa pagina descrive il mapping delle attestazioni di Azure Active Directory.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300479"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546195"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -44,7 +44,7 @@ I criteri di mapping delle attestazioni sono un tipo di oggetto **Criteri** che 
 
 Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 
-| Set di attestazioni | DESCRIZIONE |
+| Set di attestazioni | Descrizione |
 |---|---|
 | Set di attestazioni core | Sono presenti in ogni token, indipendentemente dai criteri. Queste attestazioni sono anche considerate limitate e non possono essere modificate. |
 | Set di attestazioni di base | Include le attestazioni generate per impostazione predefinita per i token (oltre al set di attestazioni core). È possibile omettere o modificare le attestazioni di base usando i criteri di mapping delle attestazioni. |
@@ -97,7 +97,7 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 | domain_dns_name |
 | domain_netbios_name |
 | e_exp |
-| email |
+| posta elettronica |
 | endpoint |
 | enfpolids |
 | exp |
@@ -105,7 +105,7 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 | grant_type |
 | graph |
 | group_sids |
-| groups |
+| Gruppi |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -156,10 +156,10 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| resource |
-| role |
-| roles |
-| scope |
+| Risorsa |
+| ruolo |
+| ruoli |
+| ambito |
 | scp |
 | sid |
 | signature |
@@ -284,14 +284,14 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabella 3: Valori di ID validi per ogni Source
 
-| Source (Sorgente) | ID | DESCRIZIONE |
+| `Source` | ID | Descrizione |
 |-----|-----|-----|
 | Utente | surname | Cognome |
 | Utente | givenname | Nome |
 | Utente | displayname | Nome visualizzato |
 | Utente | objectId | ObjectID |
 | Utente | mail | Indirizzo di posta elettronica |
-| Utente | userprincipalname | Nome dell'entità utente |
+| Utente | userprincipalname | Nome entità utente |
 | Utente | department|department|
 | Utente | onpremisessamaccountname | Nome Account SAM locale |
 | Utente | netbiosname| Nome NetBios |
@@ -321,14 +321,14 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 | Utente | othermail | Posta elettronica alternativa |
 | Utente | country | Paese |
 | Utente | city | city |
-| Utente | state | Stato |
+| Utente | stato | Stato |
 | Utente | jobtitle | Posizione |
 | Utente | employeeid | ID dipendente |
 | Utente | facsimiletelephonenumber | Numero di telefono fax |
 | application, resource, audience | displayname | Nome visualizzato |
 | application, resource, audience | objected | ObjectID |
 | application, resource, audience | tags | Tag di entità servizio |
-| Azienda | tenantcountry | Paese del tenant |
+| Società | tenantcountry | Paese del tenant |
 
 **TransformationID:** l'elemento TransformationID è obbligatorio solo se l'elemento Source è impostato su "transformation".
 
@@ -358,9 +358,9 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabella 4: Metodi di trasformazione e input/output previsti
 
-|TransformationMethod|Input previsto|Output previsto|DESCRIZIONE|
+|TransformationMethod|Input previsto|Output previsto|Descrizione|
 |-----|-----|-----|-----|
-|Join|string1, string2, separator|outputClaim|Esegue il join di stringhe di input dividendole con un separatore. Ad esempio: stringa1: "foo@bar.com", stringa2: "sandbox", separatore: "." comporta in outputClaim: "foo@bar.com.sandbox"|
+|Unisci|string1, string2, separator|outputClaim|Esegue il join di stringhe di input dividendole con un separatore. Ad esempio: stringa1: "foo@bar.com", stringa2: "sandbox", separatore: "." comporta in outputClaim: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Estrae la parte locale di un indirizzo di posta elettronica. Ad esempio: mail:"foo@bar.com" comporta in outputClaim:"foo". Se non è presente un segno \@, la stringa di input originale viene restituita così come è.|
 
 **InputClaims:** un elemento InputClaims può essere usato per passare i dati da una voce dello schema di attestazioni a una trasformazione. Include due attributi: **ClaimTypeReferenceId** e **TransformationClaimType**.
@@ -384,10 +384,10 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabella 5: Attributi consentiti come origine dati per NameID di SAML
 
-|Source (Sorgente)|ID|DESCRIZIONE|
+|`Source`|ID|Descrizione|
 |-----|-----|-----|
 | Utente | mail|Indirizzo di posta elettronica|
-| Utente | userprincipalname|Nome dell'entità utente|
+| Utente | userprincipalname|Nome entità utente|
 | Utente | onpremisessamaccountname|Nome account SAM locale|
 | Utente | employeeid|ID dipendente|
 | Utente | extensionattribute1 | Attributo di estensione 1 |
@@ -411,7 +411,7 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 | TransformationMethod | Restrizioni |
 | ----- | ----- |
 | ExtractMailPrefix | Nessuna |
-| Join | Il suffisso da aggiungere deve essere un dominio verificato del tenant delle risorse. |
+| Unisci | Il suffisso da aggiungere deve essere un dominio verificato del tenant delle risorse. |
 
 ### <a name="custom-signing-key"></a>Chiave di firma personalizzata
 

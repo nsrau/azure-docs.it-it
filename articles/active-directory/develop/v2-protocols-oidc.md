@@ -3,8 +3,8 @@ title: Piattaforma delle identità Microsoft e il protocollo OpenID Connect | Az
 description: Creare applicazioni web usando l'implementazione di piattaforma di identità di Microsoft del protocollo di autenticazione OpenID Connect.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfac577d7582caa5b538f05273a02e4c3baf71ff
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 23a8eaaf095be1d59944791bd793047886dda40c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918453"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544803"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Piattaforma delle identità Microsoft e il protocollo OpenID Connect
 
@@ -52,12 +52,12 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 `{tenant}` può assumere uno dei quattro valori seguenti:
 
-| Value | DESCRIZIONE |
+| Value | Descrizione |
 | --- | --- |
 | `common` |Gli utenti con un account Microsoft personale e un account aziendale o dell'istituto di istruzione da Azure AD possono accedere all'applicazione. |
 | `organizations` |Possono accedere all'applicazione solo gli utenti con account aziendali o dell'istituto d'istruzione di Azure AD. |
 | `consumers` |Possono accedere all'applicazione solo gli utenti con account Microsoft personali. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` oppure `contoso.onmicrosoft.com` | Possono accedere all'applicazione solo gli utenti con account aziendali o dell'istituto d'istruzione di un tenant specifico di Azure AD. È possibile usare il nome di dominio descrittivo del tenant di Azure AD o l'identificatore GUID. È anche possibile usare il tenant consumer `9188040d-6c67-4c5b-b112-36a304b66dad`, anziché il `consumers` tenant.  |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` o `contoso.onmicrosoft.com` | Possono accedere all'applicazione solo gli utenti con account aziendali o dell'istituto d'istruzione di un tenant specifico di Azure AD. È possibile usare il nome di dominio descrittivo del tenant di Azure AD o l'identificatore GUID. È anche possibile usare il tenant consumer `9188040d-6c67-4c5b-b112-36a304b66dad`, anziché il `consumers` tenant.  |
 
 I metadati sono un semplice documento JavaScript Object Notation (JSON). Per un esempio, vedere il frammento di codice seguente. Il contenuto del frammento di codice è descritto dettagliatamente nelle [specifiche di OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
@@ -91,7 +91,7 @@ Quando l'app Web deve autenticare l'utente, può indirizzarlo all'endpoint `/aut
 > [!IMPORTANT]
 > Per richiedere un token ID dall'endpoint di /authorization, la registrazione dell'app nel [portale di registrazione](https://portal.azure.com) deve avere la concessione implicita di token ID abilitata nella scheda di autenticazione (che imposta la `oauth2AllowIdTokenImplicitFlow`flag nel [manifesto dell'applicazione](reference-app-manifest.md) a `true`). Se non è abilitato, un `unsupported_response` viene restituito l'errore: "Il valore specificato per il parametro di input 'response_type' non è consentito per questo client. Expected value is 'code'" (Il valore fornito per il parametro di input 'response_type' non è consentito per questo client. Il valore previsto è 'code')
 
-Ad esempio: 
+Ad esempio:
 
 ```
 // Line breaks are for legibility only.
@@ -110,14 +110,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Fare clic sul collegamento seguente per eseguire la richiesta. Dopo l'accesso, il browser verrà reindirizzato a `https://localhost/myapp/`, con un token ID nella barra degli indirizzi. Si noti che questa richiesta usa `response_mode=fragment` (solo a scopo dimostrativo). È consigliabile usare `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| Parametro | Condizione | DESCRIZIONE |
+| Parametro | Condizione | Descrizione |
 | --- | --- | --- |
-| `tenant` | Obbligatoria | È possibile usare il valore `{tenant}` nel percorso della richiesta per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sui protocolli](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | Obbligatoria | Il **ID applicazione (client)** che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) esperienza assegnato all'app. |
-| `response_type` | Obbligatoria | Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere altri valori `response_type`, ad esempio `code`. |
+| `tenant` | Obbligatorio | È possibile usare il valore `{tenant}` nel percorso della richiesta per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sui protocolli](active-directory-v2-protocols.md#endpoints). |
+| `client_id` | Obbligatorio | Il **ID applicazione (client)** che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) esperienza assegnato all'app. |
+| `response_type` | Obbligatorio | Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere altri valori `response_type`, ad esempio `code`. |
 | `redirect_uri` | Consigliato | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Se non è presente, l'endpoint è eseguirà il prelievo un redirect_uri registrati in modo casuale per inviare all'utente di. |
-| `scope` | Obbligatoria | Elenco di ambiti separati da spazi. Per OpenID Connect, deve includere l'ambito `openid`che esegue la conversione all'autorizzazione per l'accesso nell'interfaccia utente di consenso. È anche possibile includere in questa richiesta altri ambiti per richiedere il consenso. |
-| `nonce` | Obbligatoria | Valore incluso nella richiesta, generato dall'app, che verrà incluso nel token ID risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
+| `scope` | Obbligatorio | Elenco di ambiti separati da spazi. Per OpenID Connect, deve includere l'ambito `openid`che esegue la conversione all'autorizzazione per l'accesso nell'interfaccia utente di consenso. È anche possibile includere in questa richiesta altri ambiti per richiedere il consenso. |
+| `nonce` | Obbligatorio | Valore incluso nella richiesta, generato dall'app, che verrà incluso nel token ID risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
 | `response_mode` | Consigliato | Specifica il metodo che deve essere usato per inviare il codice di autorizzazione risultante all'app. Può essere `form_post` o `fragment`. Per le applicazioni Web è consigliabile usare `response_mode=form_post` per assicurare il trasferimento più sicuro dei token nell'applicazione. |
 | `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per [evitare gli attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Anche lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la visualizzazione corrente dell'utente. |
 | `prompt` | Facoltativo | Indica il tipo di interazione obbligatoria dell'utente. Gli unici valori validi al momento sono `login`, `none` e `consent`. L'attestazione `prompt=login` forza l'utente a immettere le sue credenziali alla richiesta, negando l'accesso Single Sign-On. L'attestazione `prompt=none` è l'opposto, Questa attestazione garantisce che l'utente non riceve alcuna richiesta interattiva in. Se la richiesta non può essere completata automaticamente tramite accesso single sign-on, l'endpoint di Microsoft identity platform restituisce un errore. L'attestazione `prompt=consent` attiva la finestra di dialogo di consenso di OAuth dopo l'accesso dell'utente. La finestra di dialogo chiede all'utente di concedere le autorizzazioni per l'app. |
@@ -128,7 +128,7 @@ A questo punto, all'utente viene chiesto di immettere le credenziali e completar
 
 Dopo che l'utente esegue l'autenticazione e dato il consenso, l'endpoint di Microsoft identity platform restituisce una risposta per le app nell'URI URI di reindirizzamento usando il metodo specificato nel `response_mode` parametro.
 
-### <a name="successful-response"></a>Risposta con esito positivo
+### <a name="successful-response"></a>Risposta riuscita
 
 La risposta con esito positivo quando si usa `response_mode=form_post` è simile alla seguente:
 
@@ -140,7 +140,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | `id_token` | Token ID richiesto dall'app. È possibile usare il parametro `id_token` per verificare l'identità dell'utente e avviare una sessione con l'utente. Per informazioni dettagliate sui token ID e sul relativo contenuto, vedere le [informazioni di riferimento su `id_tokens`](id-tokens.md). |
 | `state` | Se un parametro `state` è incluso nella richiesta, lo stesso valore deve essere visualizzato nella risposta. L'app deve verificare che i valori dello stato nella richiesta e nella risposta siano identici. |
@@ -157,7 +157,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | `error` | Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | `error_description` | Messaggio di errore specifico che consente di identificare la causa principale di un errore di autenticazione. |
@@ -166,7 +166,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 La tabella seguente descrive i codici di errore che possono essere restituiti nel parametro `error` della risposta di errore:
 
-| Codice di errore | DESCRIZIONE | Azione client |
+| Codice di errore | Descrizione | Azione client |
 | --- | --- | --- |
 | `invalid_request` | Errore del protocollo, ad esempio un parametro obbligatorio mancante. |Correggere e inviare di nuovo la richiesta. Si tratta di un errore di sviluppo rilevato in genere durante il test iniziale. |
 | `unauthorized_client` | L'applicazione client non è possibile richiedere un codice di autorizzazione. |Ciò si verifica quando l'applicazione client non è registrato in Azure AD o non viene aggiunta al tenant di Azure AD dell'utente. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
@@ -201,7 +201,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Parametro | Condizione | DESCRIZIONE |
+| Parametro | Condizione | Descrizione |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | Consigliato | L'URL di destinazione al quale l'utente viene reindirizzato dopo la disconnessione. Se il parametro non è incluso, l'utente viene visualizzato un messaggio generico generato dall'endpoint della piattaforma Microsoft identity. Questo URL deve corrispondere esattamente a uno degli URI di reindirizzamento registrati per l'applicazione nel portale di registrazione delle app. |
 
@@ -241,7 +241,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 
 Includendo gli ambiti di autorizzazione nella richiesta e usando `response_type=id_token code`, l'endpoint di piattaforma di identità Microsoft garantisce che l'utente ha acconsentito alle autorizzazioni indicate nel `scope` parametro di query. Verrà restituito nell'app un codice di autorizzazione da scambiare con un token di accesso.
 
-### <a name="successful-response"></a>Risposta con esito positivo
+### <a name="successful-response"></a>Risposta riuscita
 
 La risposta con esito positivo quando si usa `response_mode=form_post` è simile alla seguente:
 
@@ -253,7 +253,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | `id_token` | Token ID richiesto dall'app. È possibile usare il token ID per verificare l'identità dell'utente e avviare una sessione con l'utente. Altre informazioni sui token ID e il relativo contenuto sono disponibili nelle [informazioni di riferimento su `id_tokens`](id-tokens.md). |
 | `code` | Codice di autorizzazione richiesto dall'app. L'app può usare il codice di autorizzazione per richiedere un token di accesso per la risorsa di destinazione. Un codice di autorizzazione è di breve durato. In genere, un codice di autorizzazione scade dopo circa 10 minuti. |
@@ -271,7 +271,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | `error` | Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | `error_description` | Messaggio di errore specifico che consente di identificare la causa principale di un errore di autenticazione. |

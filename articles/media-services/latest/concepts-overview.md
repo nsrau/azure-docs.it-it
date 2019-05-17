@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8a4ffdc09cb12f7a16173c86bd3d0e3aee78d46d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152637"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762301"
 ---
 # <a name="media-services-concepts"></a>Concetti relativi a servizi multimediali
 
@@ -26,7 +26,7 @@ In questo argomento offre una breve panoramica dei concetti e terminologia di se
 Prima di iniziare lo sviluppo, è consigliabile esaminare i concetti fondamentali descritti in questi argomenti.
 
 > [!NOTE]
-> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](developers-guide.md) supportati.
+> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
 ## <a name="terminology"></a>Terminologia
 
@@ -62,7 +62,7 @@ Per eseguire la codifica con servizi multimediali v3, è necessario creare **tra
 - [Trasformazioni e processi](transforms-jobs-concept.md)
 - [Codifica con servizi multimediali](encoding-concept.md)
 
-## <a name="media-analytics"></a>Analisi di contenuti multimediali
+## <a name="media-analytics"></a>Analisi Servizi multimediali
 
 Per analizzare i file audio e video, è anche necessario creare **trasforma** e **processi**.
 
@@ -76,7 +76,7 @@ Quando si crea il **localizzatore di Streaming**, oltre al nome dell'asset, è n
 
 Creazione dinamica dei pacchetti viene usato se si esegue lo streaming di contenuti live o on demand. Il diagramma seguente illustra lo streaming on demand con flusso di lavoro di creazione dinamica dei pacchetti.
 
-![Creazione dinamica dei pacchetti](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Creazione dinamica dei pacchetti](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 Con servizi multimediali, è possibile distribuire contenuti live e on demand crittografati dinamicamente con Advanced Encryption Standard (AES-128) o / e uno dei tre principali digital rights management (DRM) sistemi: Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati.
 
@@ -114,7 +114,7 @@ L'immagine seguente illustra il flusso di lavoro di tipo pass-through:
 
 ## <a name="monitoring"></a>Monitoraggio
 
-### <a name="event-grid"></a>Griglia di eventi
+### <a name="event-grid"></a>Griglia eventi
 
 Per visualizzare lo stato di avanzamento del processo, è consigliabile usare **griglia di eventi**. Servizi multimediali genera anche i tipi di eventi in tempo reale. Con Griglia di eventi, le app possono rimanere in ascolto e reagire agli eventi praticamente da tutti i servizi di Azure, oltre che da origini personalizzate. 
 
@@ -134,7 +134,7 @@ Monitorare le metriche e log di diagnostica che consentono di comprendere come l
 
 - [Panoramica di Azure Media Player](use-azure-media-player.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire commenti e suggerimenti, ottenere gli aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
