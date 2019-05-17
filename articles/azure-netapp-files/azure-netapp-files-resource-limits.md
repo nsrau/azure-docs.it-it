@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: b-juche
-ms.openlocfilehash: d55e11ace4ca306c3d3ec8c0094a751966289db6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b55467d77beb8f97b8e392b72682268ae0407e54
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523057"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826368"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limiti delle risorse per Azure NetApp Files
 
@@ -36,6 +36,7 @@ La tabella seguente descrive i limiti delle risorse per i file di Azure NetApp:
 |  Numero di volumi per ogni pool di capacità     |    500   |    Sì     |
 |  Numero di snapshot per volume       |    255     |    N.        |
 |  Numero di subnet delegate NetApp in file di Azure (Microsoft.NetApp/volumes) per ogni rete virtuale di Azure    |   1   |    N.    |
+|  Numero massimo di macchine virtuali (che include le reti virtuali con peering) per connettersi a un volume     |    1000   |    N.   |
 |  Dimensioni minime di un pool di capacità della singola   |  4 TiB     |    N.  |
 |  Dimensioni massime di un pool di capacità della singola    |  500 TiB   |   N.   |
 |  Dimensione minima di un singolo volume    |    100 GiB    |    N.    |

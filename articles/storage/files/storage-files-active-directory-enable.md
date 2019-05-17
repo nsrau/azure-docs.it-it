@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: rogarana
-ms.openlocfilehash: 974a4341bd140da60c5e229a644657fe7ab02535
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d5e2f9dba3afee953d296316e990b58c536cbdae
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721606"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602013"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Abilitare l'autenticazione di Azure Active Directory tramite SMB per File di Azure (anteprima)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -103,12 +103,6 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -SkuName Standard_LRS `
     -Kind StorageV2 `
     -EnableAzureFilesAadIntegrationForSMB $true
-
-# Update an existing storage account
-# Supported for storage accounts created after September 24, 2018 only
-Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
-    -Name "<storage-account-name>" `
-    -EnableAzureFilesAadIntegrationForSMB $true```
 ```
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
@@ -124,10 +118,6 @@ Creare un nuovo account di archiviazione, quindi chiamare [az storage account up
 ```azurecli-interactive
 # Create a new storage account
 az storage account create -n <storage-account-name> -g <resource-group-name> --file-aad true
-
-# Update an existing storage account
-# Supported for storage accounts created after September 24, 2018 only
-az storage account update -n <storage-account-name> -g <resource-group-name> --file-aad true
 ```
 
 ## <a name="assign-access-permissions-to-an-identity"></a>Assegnare le autorizzazioni di accesso a un'identità 
@@ -203,7 +193,7 @@ Il comando seguente di PowerShell consente di creare un ruolo personalizzato bas
 New-AzRoleDefinition -InputFile "<custom-role-def-json-path>"
 ```
 
-#### <a name="cli"></a>CLI 
+#### <a name="cli"></a>Interfaccia della riga di comando 
 
 Il comando seguente dell'interfaccia della riga di comando di Azure consente di creare un ruolo personalizzato basato su uno dei modelli di esempio.
 
@@ -231,7 +221,7 @@ $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/provi
 New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
-#### <a name="cli"></a>CLI
+#### <a name="cli"></a>Interfaccia della riga di comando
   
 Il comando seguente dell'interfaccia della riga di comando 2.0 mostra come visualizzare l'elenco dei ruoli personalizzati disponibili e quindi assegna un il ruolo a un'identità di Azure AD, in base al nome di accesso. Per altre informazioni sull'assegnazione dei ruoli RBAC con l'interfaccia della riga di comando di Azure, vedere [Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure](../../role-based-access-control/role-assignments-cli.md). 
 

@@ -2,22 +2,22 @@
 title: Impostazioni dei cookie in Application Proxy - Azure Active Directory  | Microsoft Docs
 description: Azure Active Directory (Azure AD) dispone di cookie di sessione e accesso per accedere ad applicazioni locali tramite Application Proxy. In questo articolo vengono fornite informazioni su come usare e configurare le impostazioni dei cookie.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/16/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06fd83ee815e9e207c1fa5a1c6767280122c4d0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2e7f1bb54ce316a10eca0d020519779b0536c9e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440531"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825752"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Cookie settings for accessing on-premises applications in Azure Active Directory (Impostazioni dei cookie per l'accesso alle applicazioni locali in Azure Active Directory)
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) dispone di cookie di sessione e accesso per ac
 
 [Application Proxy](application-proxy.md) utilizza le seguenti impostazioni cookie di sessione e accesso.
 
-| Impostazione dei cookie | Predefinito | DESCRIZIONE | Consigli |
+| Impostazione dei cookie | Predefinito | Descrizione | Consigli |
 | -------------- | ------- | ----------- | --------------- |
 | Usa cookie solo HTTP | **No** | **Sì** consente ad Application Proxy di includere il contrassegno HTTPOnly nelle intestazioni di risposta HTTP. Questo contrassegno offre vantaggi aggiuntivi di sicurezza, ad esempio, impedisce agli scripting del client (CSS) di copiare o modificare i cookie.<br></br><br></br>Prima che fosse supportata l'impostazione solo HTTP, Application Proxy crittografava e trasmetteva i cookie in un canale SSL per prevenire le modifiche. | Usare **Sì** per i vantaggi aggiuntivi di sicurezza.<br></br><br></br>Usare **No** per i client o gli agenti utente che richiedono l'accesso per il cookie di sessione. Ad esempio, usare **No** per un client RDP o MTSC che si connette a un server Gateway Desktop remoto tramite Application Proxy.|
 | Usa cookie protetti | **No** | **Sì** consente ad Application Proxy di includere il contrassegno Protetto nelle intestazioni di risposta HTTP. Cookie protetti migliorano la sicurezza mediante la trasmissione di cookie su un canale TLS protetto, ad esempio HTTPS. Ciò impedisce che i cookie vengano esaminati da parti non autorizzate dovuta alla trasmissione di cookie in testo non crittografato. | Usare **Sì** per i vantaggi aggiuntivi di sicurezza.|

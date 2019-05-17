@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: bf0c6a5234846499d7b8a49f427dba7af36edc15
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 5dc311538055d9ecb7aba21f95d819a914cd1db7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937958"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826563"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Funzionalità e considerazioni sulle transazioni ‎commerciali di Azure Marketplace
 
@@ -137,11 +137,14 @@ Questa opzione deve essere configurata per la vendita tramite Microsoft e il pre
 |*Importo addebitato da Microsoft al cliente*    |  *$ 100,00 al mese. Nota: l'editore deve calcolare i costi di infrastruttura sostenuti o trasmessi nei costi di licenza*  |
 
 * In questo scenario Microsoft addebita $ 100,00 per la licenza software e paga $ 80,00 all'editore.
+* I partner che sono qualificati per la tariffa del servizio Marketplace ridotto visualizzeranno che una tariffa ridotta su SaaS offre da maggio 2019 fino a giugno 2020. In questo scenario Microsoft addebita $100.00 la licenza del software e paga out $90,00 al server di pubblicazione.
 
 |Microsoft addebita  | $ 100,00 al mese  |
 |---------|---------|
-|Microsoft paga l'80% del costo della licenza    |   $ 80,00 al mese     |
-|Microsoft trattiene il 20% del costo della licenza   |  $ 20,00 al mese       |
+|Microsoft paga l'80% del costo della licenza <br> \* Microsoft paga il 90% del costo della licenza per le app SaaS completo   |   $ 80,00 al mese <br> \* $90,00 al mese    |
+|Microsoft trattiene il 20% del costo della licenza <br> \* Microsoft trattiene il 10% del costo della licenza per le app SaaS completo.  |  $ 20,00 al mese <br> \* $10.00     |
+
+* **Tariffa del servizio Marketplace ridotta:** Per determinati prodotti SaaS che si pubblica nel Marketplace commerciale, Microsoft ridurrà la tariffa del servizio Marketplace dal 20%, come descritto nel contratto per la pubblicazione Microsoft, al 10%.  Affinché il prodotto qualificare, almeno uno dei tuoi prodotti deve essere designato da Microsoft come IP CO-Selling o la priorità di CO-Selling di IP. Per ricevere questa tariffa del servizio Marketplace ridotto per il mese, idoneità deve soddisfare almeno cinque (5) giorni prima della fine del mese del calendario. Riduzione del servizio Marketplace tariffa non verrà applicate alle macchine virtuali, le app gestite o qualsiasi altro prodotto reso disponibile tramite Marketplace commerciale.  Questa tariffa ridotta del servizio Marketplace saranno disponibile per le offerte completo, con gli addebiti delle licenze raccolti da Microsoft tra 31 maggio 2019 e il 30 giugno 2020.  Dopo tale periodo, la tariffa del servizio Marketplace restituirà al relativo al normale.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Fatturazione cliente, pagamento e riscossioni
 
@@ -159,7 +162,7 @@ I clienti possono anche pagare con una carta di credito e una fattura mensile. I
 
 Se ad esempio il cliente effettua un acquisto con la carta di credito:
 
-|DESCRIZIONE    |    Data  |
+|Descrizione    |    Date  |
 |----------|----------|
 |Periodo dell'ordine   | 15 ago 2018 - 30 ago 2018 |
 |Fine periodo (mese)   | 30 ago 2018 |
@@ -173,7 +176,7 @@ Se ad esempio il cliente effettua un acquisto con la carta di credito:
 
 Se il cliente effettua un acquisto con un contratto Enterprise Agreement:
 
-| DESCRIZIONE |    Data  |
+| Descrizione |    Date  |
 |----------|----------|
 |Periodo dell'ordine | 15 ago 2018 - 30 ago 2018 |
 |Fine periodo (trimestre) | 30 set 2018 |

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 2ca3c69178dde830e226812da34917246781c1ee
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 22494984ca45cde7255fb5e1a30548c859bfad68
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762163"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826500"
 ---
 # <a name="security-model-of-azure-notification-hubs"></a>Modello di sicurezza di Hub di notifica di Azure
 
@@ -51,4 +51,5 @@ Analogamente ad altre entità, le operazioni degli hub di notifica sono consenti
 
 Gli hub di notifica accettano attestazioni concesse dai token del Controllo di accesso di Microsoft Azure e dai token di firma generati con chiavi condivise configurate direttamente nell’hub di notifica.
 
-Non è possibile inviare una notifica a più di uno spazio dei nomi. Gli spazi dei nomi sono un contenitore logico per gli hub di notifica e non sono coinvolti con l'invio di notifiche. I criteri di accesso a livello dello spazio dei nomi (credenziali) possono essere usati per le operazioni a livello di spazio dei nomi, ad esempio: elenco di hub di notifica, la creazione o eliminazione di hub di notifica, e così via. Solo i criteri di accesso a livello di hub consente di inviare notifiche.
+Non è possibile inviare una notifica a più di uno spazio dei nomi. Gli spazi dei nomi sono un contenitore logico per gli hub di notifica e non sono coinvolti con l'invio di notifiche.
+I criteri di accesso a livello dello spazio dei nomi (credenziali) possono essere usati per le operazioni a livello di spazio dei nomi, ad esempio: elenco di hub di notifica, la creazione o eliminazione di hub di notifica, e così via. Solo i criteri di accesso a livello di hub consente di inviare notifiche.

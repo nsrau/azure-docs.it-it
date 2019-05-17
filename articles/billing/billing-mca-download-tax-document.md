@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 82b568d5a6abae1f061166afc1c80ef639df036c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 245e5ca6e2d7d1f48951d63ba6539180a35f1358
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371547"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604154"
 ---
 # <a name="view-the-tax-documents-for-your-microsoft-customer-agreement"></a>Visualizzare i documenti fiscali del contratto di Microsoft dal cliente
 

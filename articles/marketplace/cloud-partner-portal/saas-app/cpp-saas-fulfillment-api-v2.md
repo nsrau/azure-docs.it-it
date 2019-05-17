@@ -1,23 +1,22 @@
 ---
 title: SaaS evasione API V2 | Azure Marketplace
-description: Viene illustrato come creare un'offerta SaaS in Azure Marketplace con l'API V2 di evasione degli ordini associati.
+description: Viene illustrato come creare un'offerta SaaS in AppSource e Azure Marketplace con l'API V2 di evasione degli ordini associati.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 433059dc1b1567c5cbcb1091f2d616001d1dbf44
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 551f3be2ca23bc18224d28faeea6a6df80eba1db
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762278"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823528"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS evasione API versione 2 
 
-Questo articolo illustra in dettaglio le API che consente a fornitori di software indipendenti (ISV) di integrare le proprie applicazioni SaaS con Azure Marketplace. Questa API consente alle applicazioni di ISV di far parte di tutti i canali di commercio elettronico: diretto, a cura del partner (rivenditori) e a cura del campo.  Questa API è un requisito per l'elenco che SaaS transactable alle offerte in Azure Marketplace.
-
+Questo articolo descrive in dettaglio l'API che consente a fornitori di software indipendenti (ISV) di vendere le proprie applicazioni SaaS in Azure Marketplace e AppSource. Questa API è un requisito per l'elenco SaaS offre sul Azure Marketplace e AppSource.
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>La gestione del ciclo di vita di sottoscrizione di SaaS
 

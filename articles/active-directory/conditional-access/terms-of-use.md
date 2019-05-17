@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/03/2019
+ms.date: 05/15/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8659ecab649216650403f3a992cc6e356e5de5d0
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60356981"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823590"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare con Condizioni per l'utilizzo.
@@ -37,7 +37,7 @@ Per altri video, vedere:
 - [Come distribuire Condizioni per l'utilizzo in Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
 - [Come distribuire Condizioni per l'utilizzo in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
-## <a name="what-can-i-do-with-terms-of-use"></a>Quali operazioni si possono eseguire con Condizioni per l'utilizzo?
+## <a name="what-can-i-do-with-terms-of-use"></a>Vantaggi delle Condizioni per l'utilizzo
 Condizioni per l'utilizzo di Azure AD ha le funzionalità seguenti:
 - Fare accettare le condizioni per l'utilizzo ai dipendenti o agli ospiti prima dell'accesso.
 - Fare accettare le condizioni per l'utilizzo di ogni dispositivo ai dipendenti o ai guest prima dell'accesso.
@@ -58,10 +58,10 @@ Per usare e configurare Condizioni per l'utilizzo di Azure AD, è necessario dis
     - Se non si dispone di una di queste sottoscrizioni, è possibile [ottenere Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) oppure [abilitare la versione di valutazione di Azure AD Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
 - Uno dei seguenti account di amministratore per la directory da configurare:
     - Amministratore globale
-    - Amministratore della sicurezza
-    - Amministratore di accesso condizionale
+    - Amministratore della protezione
+    - Amministratore accesso condizionale
 
-## <a name="terms-of-use-document"></a>Documento sulle condizioni per l'utilizzo
+## <a name="terms-of-use-document"></a>Documento sulle Condizioni per l'utilizzo
 
 Il contenuto di Condizioni per l'utilizzo di Azure AD viene presentato in formato PDF. Il contenuto del file PDF può essere di qualsiasi tipo, ad esempio documenti di contratti esistenti. Questo consente di acquisire il consenso degli utenti finali durante l'accesso. Per supportare gli utenti sui dispositivi mobili, le dimensioni del carattere consigliato nel file PDF sono 24 punti.
 
@@ -121,7 +121,7 @@ Dopo avere completato le condizioni per l'utilizzo, seguire questa procedura per
 
     ![Modelli di accesso condizionale](./media/terms-of-use/conditional-access-templates.png)
 
-    | Modello | DESCRIZIONE |
+    | Modello | Descrizione |
     | --- | --- |
     | **Accesso alle app cloud per tutti i guest** | Verrà creato un criterio di accesso condizionale per tutti i guest e tutte le app cloud. Questi criteri influiscono sul portale di Azure. Dopo la creazione, potrebbe essere necessario disconnettersi e accedere. |
     | **Accesso alle app cloud per tutti gli utenti** | Verrà creato un criterio di accesso condizionale per tutti gli utenti e tutte le app cloud. Questi criteri influiscono sul portale di Azure. Dopo la creazione, sarà necessario disconnettersi e accedere. |
@@ -260,7 +260,7 @@ L'impostazione **Richiedere agli utenti di fornire il consenso in tutti i dispos
 Ecco un elenco dei software e delle piattaforme supportate.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Altri |
+> |  | iOS | Android | Windows 10 | Altro |
 > | --- | --- | --- | --- | --- |
 > | **App nativa** | Sì | Sì | Sì |  |
 > | **Microsoft Edge** | Sì | Sì | Sì |  |
@@ -383,6 +383,9 @@ R: È possibile [annullare l'accettazione di Condizioni per l'utilizzo accettate
 
 **D: Cosa succede se si usano anche termini e condizioni di Intune?**<br />
 R: Se sono stati configurati sia Condizioni per l'utilizzo di Azure AD sia [termini e condizioni di Intune](/intune/terms-and-conditions-create), l'utente dovrà accettarli entrambi. Per altre informazioni, vedere il [post di blog sulla scelta della soluzione di Condizioni di utilizzo più adatta per l'organizzazione](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+
+**D: Gli endpoint Usa i termini di utilizzo del servizio per l'autenticazione?**<br />
+R: Condizioni di utilizzo utilizza i seguenti endpoint per l'autenticazione: https://tokenprovider.termsofuse.identitygovernance.azure.com e https://account.activedirectory.windowsazure.com. Se l'organizzazione ha un elenco Consenti di URL per la registrazione, è necessario aggiungere questi endpoint all'elenco Consenti, con gli endpoint di Azure AD per l'accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598486"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544522"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "60598486"
 
 ## <a name="consumption-pricing-model"></a>Modello di prezzi a consumo
 
-Nuova App per la logica che eseguono nel servizio App per la logica di Azure pubblico o "global", si paga solo per ciò che usi. Queste app per la logica usano un piano e un modello di determinazione prezzi in base al consumo. Nella definizione dell'app per la logica ogni passaggio è un'azione. Ad esempio, le azioni includono: 
+Nuova App per la logica che eseguono nel servizio App per la logica di Azure pubblico o "global", si paga solo per ciò che usi. Queste app per la logica usano un piano e un modello di determinazione prezzi in base al consumo. Nella definizione dell'app per la logica ogni passaggio è un'azione. Ad esempio, le azioni includono:
 
 * Trigger, che sono azioni speciali. Tutte le App per la logica richiedono un trigger come primo passaggio.
 * "Predefinite" o native le azioni, ad esempio HTTP, le chiamate a funzioni di Azure e gestione API e così via
@@ -38,12 +38,16 @@ Le app di Azure per la logica conteggia tutte le azioni eseguite nell'app per la
 
 ## <a name="fixed-pricing-model"></a>Modello di determinazione dei prezzi fissi
 
-Un' [ *ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) consente in modo privato isolato e dedicato per poter creare ed eseguire le App per la logica che possono accedere alle risorse in una rete virtuale di Azure. Nuova App per la logica eseguite all'interno di un'istanza di ISE, si paga un prezzo mensile fisso per i connettori Standard e le azioni predefinite. L'ISE include anche un connettore Enterprise gratuito, che include il numero di connessioni. Utilizzo per i connettori aziendali aggiuntivi viene addebitato in base al prezzo di consumo dell'organizzazione. 
+Un' [ *ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) consente in modo privato isolato e dedicato per poter creare ed eseguire le App per la logica che possono accedere alle risorse in una rete virtuale di Azure. Nuova App per la logica eseguite all'interno di un'istanza di ISE, pagare un prezzo mensile fisso per i trigger e azioni predefinite, nonché per i connettori Standard.
 
-L'unità di base di ISE ha corretto la capacità, quindi se è necessaria una velocità effettiva maggiore, è possibile [aggiungere altre unità di scala](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), durante la creazione o in un secondo momento.
+L'ISE include anche un connettore Enterprise gratuito, che include il numero di connessioni. Utilizzo per i connettori aziendali aggiuntivi viene addebitato in base al prezzo di consumo dell'organizzazione.
 
 > [!NOTE]
-> ISE è nel [ *versione di anteprima pubblica*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per informazioni specifiche sui prezzi, vedere [prezzi di Azure per la logica app](https://azure.microsoft.com/pricing/details/logic-apps).
+> All'interno di un'istanza di ISE, incorporato trigger e azioni di visualizzare il **Core** etichette ed eseguire in ISE stesso come App per la logica. Connettori standard e aziendali che consentono di visualizzare il **ISE** etichetta eseguire in ISE stesso come App per la logica. I connettori che non consentono di visualizzare l'etichetta ISE eseguiti nel servizio App per la logica globale.
+
+L'unità di base di ISE ha corretto la capacità, quindi se è necessaria una velocità effettiva maggiore, è possibile [aggiungere altre unità di scala](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), durante la creazione o in un secondo momento. 
+
+Per informazioni specifiche sui prezzi, vedere [prezzi di Azure per la logica app](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="connectors"></a>
 

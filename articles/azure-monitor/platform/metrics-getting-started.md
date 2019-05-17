@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e611f1564896cfdecb3ce34ab7c5361e5200b48a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254093"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595442"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introduzione a Esplora metriche di Azure
 
@@ -24,7 +24,7 @@ Esplora metriche di Monitoraggio di Azure è un componente del portale di Micros
 
 1. Provare [applicando filtri di dimensione e la suddivisione](#apply-dimension-filters-and-splitting). I filtri e dividendo per analizzare i segmenti della metrica contribuiscono al valore complessivo delle metriche e identificare i possibili outlier.
 
-1. Uso [impostazioni avanzate](#advanced-chart-settings-and-next-steps) per personalizzare il grafico prima di aggiungerlo al dashboard. [Configurare gli avvisi](alerts-metric-overview.md) per ricevere notifiche quando il valore della metrica supera o scende sotto una soglia.
+1. Uso [impostazioni avanzate](#advanced-chart-settings) per personalizzare il grafico prima di aggiungerlo al dashboard. [Configurare gli avvisi](alerts-metric-overview.md) per ricevere notifiche quando il valore della metrica supera o scende sotto una soglia.
 
 ## <a name="create-your-first-metric-chart"></a>Creare il primo grafico delle metriche
 
@@ -61,12 +61,13 @@ Per impostazione predefinita, il grafico mostra le ultime 24 ore di dati delle m
 
 Visualizzare [esempi dei grafici](metric-chart-samples.md) che sono applicati filtri e dividendo. L'articolo illustra che i passaggi sono stati usati per configurare i grafici.
 
-## <a name="advanced-chart-settings-and-next-steps"></a>Impostazioni avanzate del grafico e i passaggi successivi
+## <a name="advanced-chart-settings"></a>Impostazioni avanzate del grafico
 
 È possibile personalizzare lo stile del grafico, titolo e modificare le impostazioni avanzate del grafico. Al termine con la personalizzazione, aggiungerla a un dashboard per salvare il lavoro. È anche possibile configurare gli avvisi delle metriche. Seguire [documentazione del prodotto](metrics-charts.md) per informazioni su questi e altri avanzate funzionalità di Esplora metriche di monitoraggio di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Visualizzare un elenco delle metriche disponibili per servizi di Azure](metrics-supported.md)
 * [Informazioni sulle funzionalità avanzate di Esplora metriche](metrics-charts.md)
+* [Risoluzione dei problemi di Esplora metriche](metrics-troubleshoot.md)
+* [Visualizzare un elenco delle metriche disponibili per servizi di Azure](metrics-supported.md)
 * [Vedere esempi grafici configurati](metric-chart-samples.md)

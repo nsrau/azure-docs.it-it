@@ -2,41 +2,36 @@
 title: Trasferire la proprietà della sottoscrizione di Azure a un altro account | Microsoft Docs
 description: Questo articolo descrive come trasferire una sottoscrizione di Azure a un altro utente e contiene alcune domande frequenti (FAQ) sul processo
 keywords: trasferire la sottoscrizione di Azure, trasferimento della sottoscrizione di Azure, spostare una sottoscrizione di Azure su account, cambiare il proprietario della sottoscrizione di Azure, trasferire la sottoscrizione di Azure a un altro account
-services: ''
-documentationcenter: ''
-author: genlin
-manager: adpick
-editor: ''
+author: bandersmsft
+manager: amberb
 tags: billing,top-support-issue
-ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ffebdd5b88603113dd7624e97dcf7353ab5d1ba
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605575"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826752"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Trasferimento della proprietà di una sottoscrizione di Azure a un altro account
 
 Trasferire la sottoscrizione a un altro utente nel Centro account per modificare l'amministratore dell'account e passare la proprietà della fatturazione della sottoscrizione. Per modificare la sottoscrizione passando a un'offerta diversa, vedere [Trasferire la sottoscrizione di Azure a un'altra offerta](billing-how-to-switch-azure-offer.md).
 
 > [!IMPORTANT]
-> 
+>
 > Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione. È inoltre necessario ricreare manualmente le identità gestite per le risorse di Azure. Per altre informazioni, vedere [domande frequenti e problemi noti relativi a managed identità](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Trasferimento della proprietà di una sottoscrizione di Azure
 
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
->
->
+
 
 1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come amministratore account. Per individuare l'amministratore account della sottoscrizione, vedere [Domande frequenti](#faq).
 
@@ -51,7 +46,7 @@ Trasferire la sottoscrizione a un altro utente nel Centro account per modificare
 1. Specificare il destinatario.
 
    > [!IMPORTANT]
-   > 
+   >
    > Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione. È inoltre necessario ricreare manualmente le identità gestite per le risorse di Azure. Per altre informazioni, vedere [domande frequenti e problemi noti relativi a managed identità](../active-directory/managed-identities-azure-resources/known-issues.md).
 
    ![Finestra di dialogo Trasferisci sottoscrizione](./media/billing-subscription-transfer/image2.PNG)
@@ -68,22 +63,22 @@ Trasferire la sottoscrizione a un altro utente nel Centro account per modificare
 
 <a id="EA"></a>
 
-## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Trasferire la proprietà di una sottoscrizione per i clienti con contratto Enterprise (EA, Enterprise Agreement)
+## <a name="transfer-subscription-ownership-for-ea-customers"></a>Trasferire la proprietà di sottoscrizione per i clienti con contratto Enterprise
 
 L'amministratore Enterprise può trasferire la proprietà delle sottoscrizioni nell'ambito di una registrazione. Per iniziare, vedere [Transfer Account Ownership](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) (Trasferire la proprietà account) nel portale EA.
 
-## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Passaggi successivi all'accettazione della proprietà di una sottoscrizione
+## <a name="next-steps-after-accepting-ownership"></a>Passaggi successivi all'accettazione della proprietà
 
 1. A questo punto si è l'amministratore dell'account. Rivedere e aggiornare il ruolo dell'amministratore del servizio, il ruolo dei coamministratori e gli altri ruoli RBAC. Per altre informazioni, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](billing-add-change-azure-subscription-administrator.md) e [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 1. Aggiornare le credenziali associate ai servizi della sottoscrizione, tra cui:
    1. Certificati di gestione che concedono all'utente privilegi di amministratore per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](../cloud-services/cloud-services-certs-create.md)
    1. Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
-   1. Credenziali di accesso remoto per servizi quali macchine virtuali di Azure. 
+   1. Credenziali di accesso remoto per servizi quali macchine virtuali di Azure.
 1. Se si lavora con un partner, è consigliabile aggiornare l'ID partner nella sottoscrizione. È possibile aggiornare l'ID partner nel [portale di Azure](https://portal.azure.com).
 
 <a id="supported"></a>
 
-## <a name="whats-supported"></a>Attività supportate:
+## <a name="supported-offers"></a>Offerte supportate
 
 Il trasferimento della sottoscrizione in modalità self-service è disponibile per le offerte o i tipi di sottoscrizione elencati nella tabella seguente. Attualmente non è possibile trasferire sottoscrizioni della versione di valutazione gratuita o [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/). Per aggirare questa limitazione, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/resource-group-move-resources.md). Per il trasferimento di altre sottoscrizioni, ad esempio [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) o piani di supporto, [contattare il supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -119,7 +114,12 @@ Tutte le risorse, come macchine virtuali, dischi e siti Web, vengono trasferite 
 
 ### <a id="no-button"></a> Perché non viene visualizzato il pulsante Trasferisci sottoscrizione?
 
-Sfortunatamente, trasferimento della sottoscrizione Self-Service non è disponibile per l'offerta o il paese/area geografica. Per trasferire la sottoscrizione, [contattare il supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Sfortunatamente, trasferimento della sottoscrizione Self-Service non è disponibile per l'offerta. Visualizzare l'elenco di offerte supportate nel [supportate offerte](#supported-offers) sezione di questo articolo.
+
+### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>È possibile trasferire la proprietà a un account in un altro paese?
+
+Sfortunatamente, Azure non consente il trasferimento tra paese. Per trasferire la sottoscrizione incrociato, paese [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Il trasferimento di una sottoscrizione comporta tempi di inattività del servizio?
 
@@ -175,3 +175,7 @@ Se non è possibile trasferire la proprietà di una sottoscrizione, eseguire la 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Rivedere e aggiornare il ruolo dell'amministratore del servizio, il ruolo dei coamministratori e gli altri ruoli RBAC. Per altre informazioni, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](billing-add-change-azure-subscription-administrator.md) e [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).

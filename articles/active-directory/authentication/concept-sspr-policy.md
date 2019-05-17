@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 05/16/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 728d961961250aad1d06067e0264c6b90aca4915
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65593840"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823399"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
@@ -81,8 +81,8 @@ La tabella seguente descrive le impostazioni dei criteri password applicate ad a
 
 | Proprietà | Requisiti |
 | --- | --- |
-| Caratteri consentiti |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> spazio vuoto |
-| Caratteri non consentiti |<ul><li>Caratteri Unicode.</li><li>Spazi.</li><li> Non può contenere un punto "." subito prima di "\@ \" simbolo".</li></ul> |
+| Caratteri consentiti |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>spazio vuoto</li></ul> |
+| Caratteri non consentiti |<ul><li>Caratteri Unicode.</li><li> Non può contenere un punto "." subito prima di "\@ \" simbolo".</li></ul> |
 | Restrizioni per le password |<ul><li>Almeno 8 caratteri e un massimo di 256 caratteri.</li><li>è necessario soddisfare tre dei quattro requisiti seguenti:<ul><li>Caratteri minuscoli.</li><li>Caratteri maiuscoli.</li><li>Numeri (da 0 a 9).</li><li>Simboli (vedere le restrizioni per le password elencate sopra).</li></ul></li></ul> |
 | Durata di validità della password |<ul><li>Valore predefinito: **90** giorni.</li><li>Il valore può essere configurato con il cmdlet `Set-MsolPasswordPolicy` del modulo di Azure Active Directory per Windows PowerShell.</li></ul> |
 | Notifica della scadenza della password |<ul><li>Valore predefinito: **14** giorni (prima della scadenza della password).</li><li>Il valore può essere configurato con il cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
@@ -99,7 +99,6 @@ Queste indicazioni si applicano ad altri provider, ad esempio Intune e Office 36
 
 > [!NOTE]
 > Solo le password degli account utente per cui non è usata la sincronizzazione della directory possono essere configurate per non scadere. Per altre informazioni sulla sincronizzazione delle directory, vedere [Connettere AD con Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Impostare o verificare i criteri password con PowerShell
 
@@ -157,7 +156,7 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
    ```
 
    > [!WARNING]
-   > Le password impostate su `-PasswordPolicies DisablePasswordExpiration` diventano comunque obsolete in base all'attributo `pwdLastSet`. Dopo che sono trascorsi più di 90 giorni, le password scadono anche se sono state impostate in modo da non scadere mai. In base all'attributo `pwdLastSet`, se si modifica la scadenza in `-PasswordPolicies None`, all'accesso successivo l'utente sarà tenuto a cambiare tutte le password che hanno un attributo `pwdLastSet` che risale a più di 90 giorni prima. Questa modifica può riguardare un numero elevato di utenti. 
+   > Le password impostate su `-PasswordPolicies DisablePasswordExpiration` diventano comunque obsolete in base all'attributo `pwdLastSet`. Dopo che sono trascorsi più di 90 giorni, le password scadono anche se sono state impostate in modo da non scadere mai. In base all'attributo `pwdLastSet`, se si modifica la scadenza in `-PasswordPolicies None`, all'accesso successivo l'utente sarà tenuto a cambiare tutte le password che hanno un attributo `pwdLastSet` che risale a più di 90 giorni prima. Questa modifica può riguardare un numero elevato di utenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

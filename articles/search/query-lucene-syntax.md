@@ -4,7 +4,7 @@ description: Informazioni di riferimento sulla sintassi Lucene completa, usata c
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/13/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b37961f96aca95c0aeaec511411a309d40e990f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b051f844b8c221e2e53c5fcf204878f80447cfe8
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024230"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596556"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintassi di query Lucene in Ricerca di Azure
 È possibile scrivere query su Ricerca di Azure basate sulla sintassi avanzata del [parser di query Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) per moduli di query specializzati, ad esempio caratteri jolly, ricerca fuzzy, ricerca per prossimità, espressioni regolari. La maggior parte della sintassi del parser di query Lucene viene [implementata in Ricerca di Azure senza essere modificata](search-lucene-query-architecture.md), ad eccezione delle *ricerche per intervalli* che vengono costruite in Ricerca di Azure tramite le espressioni `$filter`. 
@@ -121,16 +121,19 @@ L'uso di `searchMode=all` aumenta il livello di precisione delle query includend
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Punteggio delle query con caratteri jolly e regex
  Ricerca di Azure usa il punteggio basato sulla frequenza ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) per le query di testo. Per le query con caratteri jolly e regex, in cui l'ambito dei termini può essere potenzialmente ampio, il fattore frequenza viene tuttavia ignorato per evitare che la classificazione privilegi le corrispondenze con termini più rari. Tutte le corrispondenze vengono trattate equamente per le ricerche con caratteri jolly e regex.
 
-##  <a name="bkmk_fields"></a> Query con ambito campo  
- È possibile specificare una costruzione `fieldname:searchterm` per definire un'operazione di query con campo, dove il campo è una singola parola e il termine di ricerca è una singola parola o frase, facoltativamente con operatori booleani. Ecco alcuni esempi:  
+##  <a name="bkmk_fields"></a> Ricerca con campo  
+È possibile definire un'operazione di ricerca con campo con il `fieldName:searchExpression` sintassi, in cui l'espressione di ricerca può essere una singola parola o una frase o un'espressione più complessa tra parentesi, facoltativamente con gli operatori booleani. Ecco alcuni esempi:  
 
 - genre:jazz NOT history  
 
 - artists:("Miles Davis" "John Coltrane")
 
-  Assicurarsi di inserire più stringhe racchiuse tra virgolette se si vuole che entrambe le stringhe siano valutate come una singola entità, in questo caso per la ricerca di due artisti distinti nel campo `artists`.  
+Assicurarsi di inserire più stringhe racchiuse tra virgolette se si vuole che entrambe le stringhe siano valutate come una singola entità, in questo caso per la ricerca di due artisti distinti nel campo `artists`.  
 
-  Il campo specificato in `fieldname:searchterm` deve essere un campo `searchable`.  Per informazioni dettagliate sull'uso di attributi dell'indice nelle definizioni campo, vedere [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creare l'indice).  
+Il campo specificato in `fieldName:searchExpression` deve essere un campo `searchable`.  Per informazioni dettagliate sull'uso di attributi dell'indice nelle definizioni campo, vedere [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creare l'indice).  
+
+> [!NOTE]
+> Quando tramite natura prese in considerazione le espressioni di ricerca, è necessario usare il `searchFields` parametro perché ognuno natura prese in considerazione espressione di ricerca ha un nome di campo specificato in modo esplicito. Tuttavia, è comunque possibile usare il `searchFields` parametro se si desidera eseguire una query in cui alcune parti sono limitate a un campo specifico e il resto è stato possibile applicare ai campi diversi. Ad esempio, la query `search=genre:jazz NOT history&searchFields=description` corrisponderebbe `jazz` solo al `genre` campo, mentre in base alla distinzione `NOT history` con il `description` campo. Il nome del campo previsto `fieldName:searchExpression` ha sempre la precedenza sul `searchFields` parametro, perché in questo esempio, non è necessario includere `genre` nel `searchFields` parametro.
 
 ##  <a name="bkmk_fuzzy"></a> Ricerca fuzzy  
  Una ricerca fuzzy trova le corrispondenze in termini che hanno una costruzione simile. Secondo la [documentazione di Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), le ricerche fuzzy si basano sulla [distanza di Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Le ricerche fuzzy possono espandere un termine fino a un massimo di 50 termini che soddisfano i criteri di distanza. 

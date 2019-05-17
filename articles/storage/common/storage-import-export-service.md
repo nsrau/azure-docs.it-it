@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413913"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603102"
 ---
 # <a name="what-is-azure-importexport-service"></a>Che cos'è il servizio Importazione/Esportazione di Azure?
 
@@ -74,9 +74,9 @@ In generale, un processo di importazione prevede i passaggi seguenti:
 8. Le unità vengono restituite usando l'account del vettore all'indirizzo mittente specificato nel processo di importazione.
 
 > [!NOTE]
-> Per le spedizioni locali (all'interno del paese del data center), condividere un account del vettore nazionale 
+> Per le spedizioni locale (all'interno di data center paese/area geografica), Microsoft invita un account del vettore nazionali 
 >
-> Per le spedizioni all'estero (all'esterno di data center paese), Microsoft invita un account del vettore internazionali
+> Per le spedizioni all'estero (all'esterno di data center paese/area geografica), Microsoft invita un account del vettore internazionali
 
  ![Figura 1: importazione del flusso di processo](./media/storage-import-export-service/importjob.png)
 
@@ -104,9 +104,9 @@ In generale, un processo di esortazione prevede i passaggi seguenti:
 10. Le unità vengono restituite usando l'account del vettore all'indirizzo mittente specificato nel processo di importazione.
 
 > [!NOTE]
-> Per le spedizioni locali (all'interno del paese del data center), condividere un account del vettore nazionale 
+> Per le spedizioni locale (all'interno di data center paese/area geografica), Microsoft invita un account del vettore nazionali 
 >
-> Per le spedizioni all'estero (all'esterno di data center paese), Microsoft invita un account del vettore internazionali
+> Per le spedizioni all'estero (all'esterno di data center paese/area geografica), Microsoft invita un account del vettore internazionali
   
  ![Figura 2: esportazione del flusso di processo](./media/storage-import-export-service/exportjob.png)
 
@@ -119,7 +119,7 @@ Il servizio Importazione/Esportazione di Azure supporta la copia dei dati da e v
 ### <a name="supported-shipping-locations"></a>Località di spedizione supportate
 
 
-|Paese  |Paese  |Paese  |Paese  |
+|Paese/Area geografica  |Paese/Area geografica  |Paese/Area geografica  |Paese/Area geografica  |
 |---------|---------|---------|---------|
 |Stati Uniti orientali    | Europa settentrionale        | India centrale        |US Gov Iowa         |
 |Stati Uniti occidentali     |Europa occidentale         | India meridionale        | US DoD East        |

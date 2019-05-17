@@ -12,12 +12,12 @@ ms.date: 05/09/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb3a3d85c9cac85b6658167806cea59b6d5163de
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c2ecc458183006872d5a4c6712cdf00a97993dbc
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782857"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825545"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Accesso remoto ad applicazioni locali tramite Azure Active Directory Application Proxy 
 
@@ -44,7 +44,7 @@ Application Proxy supporta:
 
 Application Proxy supporta Single Sign-On. Per altre informazioni sui metodi supportati, vedere [Scelta di un metodo di accesso Single Sign-On](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
-Proxy dell'applicazione è consigliabile per consentire agli utenti remoti esterni l'accesso alle risorse interne. Proxy dell'applicazione sostituisce la necessità di una VPN o un proxy inverso. Non è destinato agli utenti interni nella rete aziendale.  Gli utenti interni che usano inutilmente il Proxy di applicazione possono introdurre problemi di prestazioni impreviste e indesiderate.
+Proxy dell'applicazione è consigliato per concedere agli utenti remoti l'accesso alle risorse interne. Proxy dell'applicazione sostituisce la necessità di una VPN o un proxy inverso. Non è destinato agli utenti interni nella rete aziendale.  Questi utenti che usano inutilmente il Proxy di applicazione possono introdurre problemi di prestazioni impreviste e indesiderate.
 
 ## <a name="how-application-proxy-works"></a>Come funziona Application Proxy
 

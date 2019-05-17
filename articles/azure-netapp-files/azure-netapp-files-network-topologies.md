@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 2afd5f0a574fd15c4327b141901d2651dbe2b9e5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524236"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826473"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Linee guida per la pianificazione della rete per Azure NetApp Files
 
@@ -42,7 +42,7 @@ Non sono attualmente supportate per i file di Azure NetApp funzionalità riporta
 
 File di Azure NetApp si applicano le restrizioni di rete seguenti:
 
-* Il numero di indirizzi IP da una rete virtuale (che include le reti virtuali con peering) la connessione a un volume in una rete virtuale non può superare i 1000.
+* Il numero di macchine virtuali che possono connettersi a un volume (con una rete virtuale o tra reti virtuali con peering) non può superare i 1000.
 * In ogni rete virtuale di Azure (VNet), è possibile delegare solo una subnet in Azure NetApp Files.
 
 

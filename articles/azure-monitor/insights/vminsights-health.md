@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402148"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522197"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Comprendere l'integrità delle macchine virtuali di Azure
 
@@ -28,13 +28,13 @@ Lo stato di integrità globale della macchina virtuale di Azure e del sistema op
 
 Questo articolo illustra come valutare, analizzare e risolvere rapidamente i problemi di integrità rilevati.
 
-Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine virtuali, vedere [Enable Azure Monitor for VMs](vminsights-onboard.md) (Abilitare Monitoraggio di Azure per le macchine virtuali).
+Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine virtuali, vedere [Enable Azure Monitor for VMs](vminsights-enable-overview.md) (Abilitare Monitoraggio di Azure per le macchine virtuali).
 
 ## <a name="monitoring-configuration-details"></a>Dettagli di configurazione di monitoraggio
 
 Questa sezione descrive i criteri di integrità predefiniti per monitorare le macchine virtuali Linux e Windows Azure. Tutti i criteri di integrità sono preconfigurati per l'invio di un avviso quando viene rilevata una condizione di non integrità. 
 
-### <a name="windows-vms"></a>Macchine virtuali di Windows
+### <a name="windows-vms"></a>Macchine virtuali Windows
 
 - Megabyte disponibili per la memoria 
 - Media scritture disco/secondi (disco logico)
@@ -65,7 +65,7 @@ Questa sezione descrive i criteri di integrità predefiniti per monitorare le ma
 - Integrità del servizio Windows Firewall
 - Integrità del servizio Gestione remota Windows
 
-### <a name="linux-vms"></a>Macchine virtuali di Linux
+### <a name="linux-vms"></a>Macchine virtuali Linux
 - Media disco Disk sec/Transfer 
 - Media disco Disk sec/Read 
 - Media disco Disk sec/Write 
@@ -95,12 +95,12 @@ Nella sezione **Integrità della macchina virtuale guest** della scheda **Integr
 
 La tabella seguente descrive gli stati di integrità definiti per una macchina virtuale: 
 
-|Icona |Stato di integrità |Significato |
+|Icona |Stato del sistema |Significato |
 |-----|-------------|------------|
-| |Healthy |Lo stato è Integro se è conforme alle condizioni di integrità definite, e questo indica che per la macchina virtuale non sono stati rilevati problemi e la macchina funziona in modo corretto. Con un monitoraggio rollup padre, esegue il rollup dell'integrità che riflette lo stato peggiore o migliore dell'elemento figlio.|
+| |Integra |Lo stato è Integro se è conforme alle condizioni di integrità definite, e questo indica che per la macchina virtuale non sono stati rilevati problemi e la macchina funziona in modo corretto. Con un monitoraggio rollup padre, esegue il rollup dell'integrità che riflette lo stato peggiore o migliore dell'elemento figlio.|
 | |Critico |Lo stato di integrità è critico se non è conforme alla condizione di integrità definita, la quale indica che sono stati rilevati uno o più problemi critici, che devono essere risolti per poter ripristinare il normale funzionamento. Con un monitoraggio rollup padre, esegue il rollup dell'integrità che riflette lo stato peggiore o migliore dell'elemento figlio.|
 | |Avviso |Lo stato di integrità è definito come Avviso se è compreso tra due valori soglia della condizione di integrità definita, dove uno indica uno stato *Avviso* e l'altro indica uno stato *Critico* (è possibile configurare tre soglie per lo stato di integrità), oppure quando viene rilevato un problema non critico che può causare problemi critici se non risolto. Con un rollup padre monitor, se uno o più elementi figlio è in uno stato di avviso, quindi padre rifletterà *avviso* dello stato. Se è presente un elemento figlio in stato *Critico* e un altro in stato *Avviso*, il rollup padre mostra uno stato di integrità *Critico*.|
-| |Sconosciuto |Lo stato di integrità è *Sconosciuto* quando non può essere calcolato per vari motivi, ad esempio non è possibile raccogliere i dati, il servizio non è inizializzato e così via. Questo stato di integrità non è configurabile.| 
+| |Sconosciuti |Lo stato di integrità è *Sconosciuto* quando non può essere calcolato per vari motivi, ad esempio non è possibile raccogliere i dati, il servizio non è inizializzato e così via. Questo stato di integrità non è configurabile.| 
 
 Selezionando **Visualizza diagnostica integrità** si apre una pagina che mostra tutti i componenti della macchina virtuale, i criteri di integrità associati, le modifiche dello stato e altri problemi importanti rilevati dal monitoraggio dei componenti correlati alla macchina virtuale. Per altre informazioni, vedere [Diagnostica integrità](#health-diagnostics). 
 
@@ -249,15 +249,15 @@ Gli avvisi provenienti da altri tipi di risorse o servizi non devono essere incl
 
 È possibile filtrare questa visualizzazione selezionando i valori nei menu a discesa nella parte superiore della pagina.
 
-|Colonna |DESCRIZIONE | 
+|Colonna |Descrizione | 
 |-------|------------| 
 |Sottoscrizione |Selezionare una sottoscrizione di Azure. Sono inclusi nella visualizzazione solo gli avvisi della sottoscrizione selezionata. | 
 |Gruppo di risorse |Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. | 
 |Tipo di risorsa |Selezionare uno o più tipi di risorsa. Per impostazione predefinita, in questa visualizzazione sono selezionati e inclusi solo gli avvisi della **Macchina virtuale** di destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un gruppo di risorse. | 
-|Risorsa |Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un tipo di risorsa. | 
-|Gravità |Selezionare un livello di gravità degli avvisi oppure *Tutti* per includere gli avvisi di tutti i livelli di gravità. | 
+|Resource |Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un tipo di risorsa. | 
+|Severity |Selezionare un livello di gravità degli avvisi oppure *Tutti* per includere gli avvisi di tutti i livelli di gravità. | 
 |Condizione del monitoraggio |Selezionare una condizione di monitoraggio per filtrare gli avvisi se sono stati *Attivati* dal sistema oppure *Risolti* dal sistema se la condizione non è più attiva. In alternativa selezionare *Tutti* per includere gli avvisi di tutte le condizioni. | 
-|Stato dell'avviso |Selezionare uno stato dell'avviso, *Nuovo*, *Conferma*, *Chiuso*, oppure selezionare *Tutti* per includere gli avvisi di tutti gli stati. | 
+|Stato avviso |Selezionare uno stato dell'avviso, *Nuovo*, *Conferma*, *Chiuso*, oppure selezionare *Tutti* per includere gli avvisi di tutti gli stati. | 
 |Servizio di monitoraggio |Selezionare un servizio oppure *Tutti* per includere tutti i servizi. Per questa funzionalità sono supportati solo gli avvisi generati da *Informazioni dettagliate macchina virtuale*.| 
 |Intervallo di tempo| Nella visualizzazione vengono inclusi solo gli avvisi attivati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. | 
 

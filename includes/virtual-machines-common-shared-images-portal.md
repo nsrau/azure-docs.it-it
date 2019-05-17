@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 9b9b6d08fd14a850838590ce003e889e8e652c7c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148056"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827065"
 ---
 ## <a name="sign-in-to-azure"></a>Accedi ad Azure 
 
@@ -51,7 +51,7 @@ Creare la definizione dell'immagine della raccolta all'interno della raccolta. I
 1. Per la **server di pubblicazione**, digitare *myPublisher*. 
 1. Per la **offrono**, digitare *myOffer*.
 1. Per la **SKU**, digitare *mySKU*.
-1. Assicurarsi che **Yes** us selezionato per **abilitare** e quindi selezionare **revisione + Crea**.
+1. Al termine, selezionare **revisione + Crea**.
 1. Dopo la definizione dell'immagine supera la convalida, selezionare **Create**.
 1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
 

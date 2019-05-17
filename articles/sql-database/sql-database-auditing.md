@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924749"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827764"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -110,10 +110,11 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 10. Per personalizzare gli eventi controllati, è possibile usare i [cmdlet PowerShell](#subheading-7) o l'[API REST](#subheading-9).
 11. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
 
-
 > [!IMPORTANT]
->L'abilitazione del controllo su Azure SQL Data Warehouse o su un server che dispone di Azure SQL Data Warehouse **comporta il riavvio del data warehouse**, anche nel caso in cui questo sia stato precedentemente sospeso. **Assicurarsi di sospendere nuovamente il data warehouse dopo l'abilitazione del controllo**.
+> L'abilitazione del controllo in un Azure SQL Data Warehouse in pausa non è possibile. Per abilitarla, annullare la sospensione del Data Warehouse.
 
+> [!WARNING]
+> L'abilitazione del controllo in un server che dispone di un Azure SQL Data Warehouse su di esso **comporterà il Data Warehouse viene ripreso e nuovamente sospeso nuovamente** che possono causare una riduzione di costi alla fatturazione.
 
 ## <a id="subheading-3"></a>Analizzare i log di controllo e i report
 

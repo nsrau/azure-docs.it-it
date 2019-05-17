@@ -3,8 +3,8 @@ title: Problemi di accesso a un'applicazione della raccolta configurata per il S
 description: Linee guida per errori durante l'accesso a un'applicazione configurata per il Single Sign-On federato basato su SAML con Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1985b7bbcfdaab2aa303f67a9b1d090c85eedd5d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292215"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825202"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemi di accesso a un'applicazione della raccolta configurata per il Single Sign-On federato
 
@@ -57,7 +57,7 @@ Verificare che il `Issuer` attributo nella richiesta SAML corrisponde al valore 
 
 1.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
 
-1.  Dopo aver caricato l'applicazione, aprire **configurazione SAML base**. Verificare che il valore nella casella di testo identificatore corrisponde al valore per il valore dell'identificatore visualizzato nel messaggio di errore.
+1.  Dopo il caricamento dell'applicazione, aprire **Configurazione SAML di base**. Verificare che il valore nella casella di testo identificatore corrisponde al valore per il valore dell'identificatore visualizzato nel messaggio di errore.
 
 
 
@@ -87,7 +87,7 @@ Verificare che il `AssertionConsumerServiceURL` valore nella richiesta SAML corr
 
 1.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
 
-1.  Dopo aver caricato l'applicazione, aprire **configurazione SAML base**. Verificare o aggiornare il valore nella casella di testo URL di risposta in modo che corrisponda il `AssertionConsumerServiceURL` valore nella richiesta SAML.    
+1.  Dopo il caricamento dell'applicazione, aprire **Configurazione SAML di base**. Verificare o aggiornare il valore nella casella di testo URL di risposta in modo che corrisponda il `AssertionConsumerServiceURL` valore nella richiesta SAML.    
     
 Dopo avere aggiornato il valore URL di risposta di Azure AD e corrisponde al valore inviato dall'applicazione nella richiesta SAML, è necessario essere in grado di accedere all'applicazione.
 
@@ -123,7 +123,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 1.  Fare clic sul selettore **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
 
-1. Nel **Cerca per nome o indirizzo di posta** casella di ricerca, digitare il nome completo o posta elettronica dell'utente che si desidera aggiungere.
+1. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il nome completo o l'indirizzo di posta elettronica dell'utente da aggiungere.
 
 1. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Selezionare la casella di controllo accanto alla foto del profilo dell'utente o il logo per aggiungere l'utente per il **Selected** elenco.
 
@@ -152,7 +152,7 @@ Azure AD non supporta la richiesta SAML inviata dall'applicazione per l'accesso 
 
 1. Acquisire la richiesta SAML. Seguire l'esercitazione [come eseguire il debug basato su SAML single sign-on alle applicazioni in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) per informazioni su come acquisire la richiesta SAML.
 
-1. Contattare il fornitore dell'applicazione e condividere le informazioni seguenti:
+1. Contattare il fornitore dell'applicazione e condividere i dati seguenti:
 
    -   Richiesta SAML
 
@@ -186,7 +186,7 @@ Verificare che il `Issuer` attributo nella richiesta SAML corrisponde al valore 
 
 1.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
 
-1.  Dopo aver caricato l'applicazione, aprire **configurazione SAML base**. Verificare che il valore nella casella di testo identificatore corrisponde al valore per il valore dell'identificatore visualizzato nel messaggio di errore.
+1.  Dopo il caricamento dell'applicazione, aprire **Configurazione SAML di base**. Verificare che il valore nella casella di testo identificatore corrisponde al valore per il valore dell'identificatore visualizzato nel messaggio di errore.
 
 
 ## <a name="certificate-or-key-not-configured"></a>Chiave o certificato non configurato
@@ -263,7 +263,7 @@ Eliminare gli URL di risposta inutilizzati configurati per l'applicazione.
 
 6.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
 
-7.  Dopo aver caricato l'applicazione, aprire **configurazione SAML base**. Nel **Reply URL (Assertion Consumer Service URL)**, delete inutilizzati o gli URL di risposta predefinito creato dal sistema. Ad esempio: `https://127.0.0.1:444/applications/default.aspx`.
+7.  Dopo il caricamento dell'applicazione, aprire **Configurazione SAML di base**. Nel **Reply URL (Assertion Consumer Service URL)**, delete inutilizzati o gli URL di risposta predefinito creato dal sistema. Ad esempio: `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema di personalizzazione delle attestazioni SAML inviate a un'applicazione
 

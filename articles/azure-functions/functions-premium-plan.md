@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031250"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544744"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Piano Premium di funzioni di Azure (anteprima)
 
@@ -44,7 +44,7 @@ Se non gli eventi e le esecuzioni si verificano attualmente nel piano a consumo,
 
 Il piano Premium, è possibile avere app pre-riscaldato su un numero di istanze, fino alle dimensioni del piano minimo specificato.  Le istanze di pre-riscaldate consentono inoltre di pre-ridimensionare un'app in precedenza un carico elevato. L'app viene scalata orizzontalmente, innanzitutto aumenta in istanze di pre-warmed. Altre istanze continuano a disconnettersi e a caldo immediatamente in preparazione per l'operazione di ridimensionamento successivo del buffer. Grazie all'uso di un buffer di pre-riscaldate istanze, è possibile evitare in modo efficace le latenze di avvio a freddo.  Pre-riscaldate istanze è una funzionalità del piano Premium, è necessario conservare almeno un'istanza in esecuzione e disponibile in tutte le volte in cui il piano è attivo.
 
-È possibile configurare il numero di istanze di pre-riscaldate nel portale di Azure selezionando **Scale Out** nel **funzionalità della piattaforma** scheda.
+È possibile configurare il numero di istanze di pre-riscaldate nel portale di Azure portale mediante la selezione di **App per le funzioni**, uscita per il **funzionalità della piattaforma** scheda e selezionando il **Scale Out**le opzioni. Nella finestra di modifica di app di funzione, le istanze di pre-riscaldate viene specifiche dell'app, ma si applicano le istanze minime e massime per l'intero piano.
 
 ![Impostazioni di scalabilità elastica](./media/functions-premium-plan/scale-out.png)
 
@@ -99,7 +99,7 @@ Quando si crea il piano di ridimensionamento, è possibile scegliere tra tre dim
 |EP2|2|7 GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
-## <a name="regions"></a>Regioni
+## <a name="regions"></a>Aree
 
 Di seguito sono le aree attualmente supportate per l'anteprima pubblica.
 
@@ -114,6 +114,7 @@ Di seguito sono le aree attualmente supportate per l'anteprima pubblica.
 |Francia centrale|
 |Giappone occidentale|
 |Corea del Sud centrale|
+|Stati Uniti centro-settentrionali|
 |Europa settentrionale|
 |Stati Uniti centro-meridionali|
 |India meridionale|

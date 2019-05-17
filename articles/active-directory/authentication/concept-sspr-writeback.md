@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190737"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823291"
 ---
 # <a name="what-is-password-writeback"></a>Che cos'è il writeback delle password?
 
@@ -42,9 +42,8 @@ Il writeback delle password offre:
 * **Supporta il writeback delle password quando un amministratore le reimposta dal portale di Azure**: quando un amministratore reimposta la password di un utente nel [portale di Azure](https://portal.azure.com), se tale utente è federato o sincronizzato con l'hash delle password, la password verrà riscritta in locale. Questa funzionalità non è attualmente supportata nel portale di amministrazione di Office.
 * **Non richiede regole del firewall in entrata**: il writeback delle password usa un bus di servizio di Azure come canale di comunicazione sottostante. Tutte le comunicazioni sono in uscita tramite la porta 443.
 
-> [!Note]
+> [!NOTE]
 > Gli account utente presenti all'interno di gruppi protetti in Active Directory locale non possono essere usati con il writeback delle password. Gli account amministratore presenti all'interno di gruppi protetti nell'istanza locale di AD possono essere usati con il writeback delle password. Per altre informazioni sui gruppi protetti, vedere l'articolo relativo ad [account e gruppi protetti in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
->
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisiti di licenza per il writeback delle password
 
@@ -52,7 +51,7 @@ Il writeback delle password offre:
 
 Per usare il writeback delle password, è necessario disporre una delle licenze seguenti assegnate nel tenant:
 
-* Azure AD Premium P1
+* Azure AD P1 Premium
 * Azure AD P2 Premium
 * Enterprise Mobility + Security E3 o A3
 * Enterprise Mobility + Security E5 o A5
@@ -63,7 +62,6 @@ Per usare il writeback delle password, è necessario disporre una delle licenze 
 
 > [!WARNING]
 > I piani di licenza Office 365 autonomi *non supportano "Reimpostazione/modifica/sblocco con writeback in locale delle password in modalità self-service"* e richiedono uno dei piani precedenti per l'uso della funzionalità.
->
 
 ## <a name="how-password-writeback-works"></a>Funzionamento del writeback delle password
 
@@ -90,7 +88,6 @@ Quando un utente federato o sincronizzato con l'hash delle password tenta di rei
 1. Se l'operazione di impostazione della password riesce, l'utente viene informato che la password è stata modificata.
    > [!NOTE]
    > Se l'hash delle password dell'utente viene sincronizzato con Azure AD usando la sincronizzazione dell'hash delle password, è probabile che i criteri della password locali siano più deboli rispetto ai criteri della password cloud. In questo caso vengono applicati i criteri locali. Questi criteri garantiscono che i criteri locali siano applicati nel cloud, indipendentemente dal fatto che si usi la sincronizzazione dell'hash delle password o la federazione per il Single Sign-On.
-   >
 
 1. Se l'operazione di impostazione della password non riesce, viene restituito un messaggio di errore con la richiesta all'utente di riprovare. L'operazione potrebbe non riuscire perché:
     * Il servizio era inattivo.
@@ -155,6 +152,7 @@ Il writeback delle password viene eseguito in tutte le situazioni seguenti:
    * Qualsiasi operazione self-service forzata di modifica della password dell'amministratore, ad esempio in seguito a scadenza della password
    * Qualsiasi reimpostazione password self-service dell'amministratore originata dal [portale di reimpostazione password](https://passwordreset.microsoftonline.com)
    * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dal [portale di Azure](https://portal.azure.com)
+   * Qualsiasi password dell'utente finale avviata dall'amministratore di reimpostare la password dal [interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>Operazioni di writeback non supportate
 
@@ -163,11 +161,10 @@ Il writeback delle password *non* viene eseguito nelle situazioni seguenti:
 * **Attività degli utenti finali non supportate**
    * Qualsiasi reimpostazione, da parte dell'utente finale, della propria password tramite PowerShell versione 1, versione 2 o l'API Graph di Azure AD
 * **Operazioni degli amministratori non supportate**
-   * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dal [portale di gestione di Office](https://portal.office.com)
    * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore da PowerShell versione 1, versione 2 o dall'API Graph di Azure AD
 
 > [!WARNING]
-> Utilizzo della casella di controllo "Cambiamento obbligatorio password all'accesso successivo" in strumenti di amministrazione Active Directory in locale come Active Directory Users e computer o il centro di amministrazione di Active Directory non è supportato. Quando si modifica una password locale non selezionare questa opzione. 
+> Utilizzo della casella di controllo "Cambiamento obbligatorio password all'accesso successivo" in strumenti di amministrazione Active Directory in locale come Active Directory Users e computer o il centro di amministrazione di Active Directory non è supportato. Quando si modifica una password locale non selezionare questa opzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

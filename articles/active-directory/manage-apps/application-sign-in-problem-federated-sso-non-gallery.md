@@ -3,8 +3,8 @@ title: Problemi di accesso a un'applicazione non nella raccolta configurata per 
 description: Linee guida per i problemi specifici che possono verificarsi durante l'accesso a un'applicazione configurata per il Single Sign-On federato basato su SAML con Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0139227012be610977df3240f74a03f53be7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440199"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825446"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemi di accesso a un'applicazione non nella raccolta configurata per il Single Sign-On federato
 
@@ -58,7 +58,7 @@ Verificare che il `Issuer` attributo nella richiesta SAML corrisponde al valore 
 
 7. Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
 
-8. Dopo aver caricato l'applicazione, aprire **configurazione SAML base**. Verificare che il valore nella casella di testo identificatore corrisponde al valore per il valore dell'identificatore visualizzato nel messaggio di errore.
+8. Dopo il caricamento dell'applicazione, aprire **Configurazione SAML di base**. Verificare che il valore nella casella di testo identificatore corrisponde al valore per il valore dell'identificatore visualizzato nel messaggio di errore.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L'indirizzo di risposta non corrisponde agli indirizzi di risposta configurati per l'applicazione. 
 
@@ -88,7 +88,7 @@ Verificare che il `Issuer` attributo nella richiesta SAML corrisponde al valore 
 
 7. Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
 
-8. Dopo aver caricato l'applicazione, aprire **configurazione SAML base**. Verificare o aggiornare il valore nella casella di testo URL di risposta in modo che corrisponda il `AssertionConsumerServiceURL` valore nella richiesta SAML.    
+8. Dopo il caricamento dell'applicazione, aprire **Configurazione SAML di base**. Verificare o aggiornare il valore nella casella di testo URL di risposta in modo che corrisponda il `AssertionConsumerServiceURL` valore nella richiesta SAML.    
     
 Dopo avere aggiornato il valore URL di risposta di Azure AD e corrisponde al valore inviato dall'applicazione nella richiesta SAML, è necessario essere in grado di accedere all'applicazione.
 
@@ -188,7 +188,7 @@ Verificare che il `Issuer` attributo nella richiesta SAML corrisponde al valore 
 
 1.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
 
-1.  Dopo aver caricato l'applicazione, aprire **configurazione SAML base**. Verificare che il valore nella casella di testo identificatore corrisponde al valore per il valore dell'identificatore visualizzato nel messaggio di errore.
+1.  Dopo il caricamento dell'applicazione, aprire **Configurazione SAML di base**. Verificare che il valore nella casella di testo identificatore corrisponde al valore per il valore dell'identificatore visualizzato nel messaggio di errore.
 
 ## <a name="certificate-or-key-not-configured"></a>Chiave o certificato non configurato
 
@@ -264,7 +264,7 @@ Eliminare gli URL di risposta inutilizzati configurati per l'applicazione.
 
 6.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
 
-7.  Dopo aver caricato l'applicazione, aprire **configurazione SAML base**. Nel **Reply URL (Assertion Consumer Service URL)**, delete inutilizzati o gli URL di risposta predefinito creato dal sistema. Ad esempio: `https://127.0.0.1:444/applications/default.aspx`.
+7.  Dopo il caricamento dell'applicazione, aprire **Configurazione SAML di base**. Nel **Reply URL (Assertion Consumer Service URL)**, delete inutilizzati o gli URL di risposta predefinito creato dal sistema. Ad esempio: `https://127.0.0.1:444/applications/default.aspx`.
 
 
 

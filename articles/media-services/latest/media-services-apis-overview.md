@@ -12,14 +12,16 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3ce20b56fc2cbebbed4b525eeccc2c12d14cccc3
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406555"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556237"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Sviluppo con servizi multimediali v3 API
+
+Gli sviluppatori possono usare l'[API REST](https://aka.ms/ams-v3-rest-ref) Servizi multimediali o le librerie client che consentono di interagire con l'API REST per creare, gestire e mantenere facilmente flussi di lavoro multimediali personalizzati. L'API [Servizi multimediali v3](https://aka.ms/ams-v3-rest-sdk) è basata sulla specifica OpenAPI (in precedenza nota come Swagger).
 
 Questo articolo illustra le regole che si applicano a entità e le API durante lo sviluppo con servizi multimediali v3.
 
@@ -98,6 +100,32 @@ Servizi multimediali ha le seguenti operazioni a esecuzione prolungata:
 * Arrestare entità StreamingEndpoint
 * Scalabilità StreamingEndpoint
 
+
+## <a name="sdks"></a>SDK
+
+> [!NOTE]
+> Gli SDK di Servizi multimediali di Azure v3 non sono garantiti come thread-safe. Quando si sviluppa un'applicazione multithreading, è necessario aggiungere la propria logica di sincronizzazione thread per proteggere il client oppure usare un nuovo oggetto AzureMediaServicesClient per ogni thread. È anche necessario prestare attenzione ai problemi di multithreading introdotti da oggetti facoltativi forniti dal codice al client (ad esempio, un'istanza di HttpClient in .NET).
+
+|SDK|Riferimenti|
+|---|---|
+|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[Informazioni di riferimento su .NET](https://aka.ms/ams-v3-dotnet-ref)|
+|[SDK per Java](https://aka.ms/ams-v3-java-sdk)|[Informazioni di riferimento su Java](https://aka.ms/ams-v3-java-ref)|
+|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Informazioni di riferimento su Python](https://aka.ms/ams-v3-python-ref)|
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Informazioni di riferimento su Node.js](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Informazioni di riferimento su Go](https://aka.ms/ams-v3-go-ref)|
+|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+
+### <a name="see-also"></a>Vedere anche 
+
+- [EventGrid .NET SDK che include gli eventi per Servizi multimediali](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Definizioni degli eventi di Servizi multimediali](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+
+## <a name="azure-media-services-explorer"></a>Explorer di Servizi multimediali di Azure
+
+[Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) è uno strumento disponibile per i clienti di Windows che vogliono informazioni su Servizi multimediali. AMSE è un'applicazione Winforms/C# che esegue operazioni di caricamento, download, codifica, streaming di VOD e contenuti live con Servizi multimediali. Lo strumento AMSE è stato pensato per i clienti che vogliono testare Servizi multimediali senza scrivere codice. Il codice AMSE viene fornito come risorsa per i clienti che vogliono sviluppare con Servizi multimediali.
+
+AMSE è un progetto open source il cui supporto viene fornito dalla community (i problemi possono essere segnalati a https://github.com/Azure/Azure-Media-Services-Explorer/issues). Questo progetto ha adottato il [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Codice di comportamento Open Source di Microsoft). Per altre informazioni, vedere [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Domande frequenti sul Codice di comportamento Open Source di Microsoft) oppure contattare opencode@microsoft.com per eventuali altre domande o commenti.
+
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali
 
 Vedere [filtro, ordinamento, paging delle entità di servizi multimediali di Azure](entities-overview.md)
@@ -108,4 +136,7 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Inizia a sviluppare con servizi multimediali v3 API usando gli SDK/tools](developers-guide.md)
+* [Connettersi a servizi multimediali con Java](configure-connect-java-howto.md)
+* [Connettersi a servizi multimediali con .NET](configure-connect-dotnet-howto.md)
+* [Connettersi a servizi multimediali con Node. js](configure-connect-nodejs-howto.md)
+* [Connettersi a servizi multimediali con Python](configure-connect-python-howto.md)

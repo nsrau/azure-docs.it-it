@@ -3,8 +3,8 @@ title: Come assegnare utenti e gruppi a un'applicazione | Microsoft Docs
 description: Assegnare utenti per concedere l'accesso all'applicazione
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/26/2019
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf19d2001f84fab6978bfc34ef14a361b89edea
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 7402778ec8170e60a623255d0d331f12d8389227
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441416"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824295"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Assegnare utenti e gruppi a un'applicazione in Azure Active Directory
 Questo articolo illustra come assegnare utenti e gruppi a un'applicazione in Azure Active Directory (Azure AD). Gli utenti devono essere assegnati a un'applicazione prima che un amministratore possa concedere loro l'accesso per eseguire le operazioni seguenti:

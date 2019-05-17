@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: cb7cf932433927d4ead853952ff74d55c55b9cf7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160021"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546731"
 ---
 Raccolte di immagini condivise consentono di immagini di condivisione tramite RBAC. È possibile usare RBAC per condividere le immagini all'interno del tenant e anche per singoli utenti all'esterno del tenant. Tuttavia, se si vuole condividere immagini di fuori del tenant di Azure, su larga scala, è consigliabile creare una registrazione dell'app per facilitare la condivisione.  Tramite la registrazione di un'app è possibile abilitare la condivisione di scenari più complessa, ad esempio: 
 
@@ -44,7 +44,9 @@ Concedere l'autorizzazione di registrazione di app per usare la raccolta di imma
 1. Sotto **selezionate**, digitare *myGalleryApp* e selezionarlo quando viene visualizzato nell'elenco. Al termine, selezionare **salvare**.
 
 
-Creare un'entità servizio per Tenant 2 da usare per l'accesso all'applicazione richiedendo un accesso aggiuntivo usando un browser. Sostituire *<Tenant2 ID>* con l'ID tenant per il tenant di cui si desidera condividere con la raccolta di immagini. Sostituire *< ID applicazione (client) >* con l'ID applicazione di registrazione dell'app è stato creato. Dopo aver eseguito le sostituzioni, incollare l'URL in un browser e seguire le istruzioni di accesso per accedere al Tenant 2.
+## <a name="give-tenant-2-access"></a>Concedere l'accesso Tenant 2
+
+Concedere l'accesso Tenant 2 per l'applicazione richiede un accesso aggiuntivo usando un browser. Sostituire *<Tenant2 ID>* con l'ID tenant per il tenant di cui si desidera condividere con la raccolta di immagini. Sostituire *< ID applicazione (client) >* con l'ID applicazione di registrazione dell'app è stato creato. Dopo aver eseguito le sostituzioni, incollare l'URL in un browser e seguire le istruzioni di accesso per accedere al Tenant 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

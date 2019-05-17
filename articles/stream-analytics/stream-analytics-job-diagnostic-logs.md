@@ -7,14 +7,13 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
-ms.custom: seodec18
-ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/15/2019
+ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480234"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826586"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Risoluzione dei problemi di Analisi di flusso di Azure mediante i log di diagnostica
 
@@ -83,7 +82,7 @@ I log attività sono attivati per impostazione predefinita e forniscono informaz
 
 ## <a name="diagnostics-log-categories"></a>Categorie del log di diagnostica
 
-Attualmente vengono acquisite due categorie di log di diagnostica:
+Azure Stream Analitica acquisisce due categorie di log di diagnostica:
 
 * **Creazione**: Acquisisce eventi di log relativi alle operazioni di creazione dei processi, tra cui creazione di processi, aggiunta ed eliminazione di input e output, aggiunta e aggiornamento della query, e avvio o arresto del processo.
 
@@ -110,7 +109,7 @@ properties | Dettagli specifici delle voci di log; serializzazione come stringa 
 
 ### <a name="execution-log-properties-schema"></a>Schema delle proprietà dei log di esecuzione
 
-I log di esecuzione hanno informazioni sugli eventi che si sono verificati durante l'esecuzione del processo di analisi di flusso. Lo schema della proprietà varia a seconda del tipo di evento. Attualmente i tipi di log di esecuzione sono i seguenti:
+I log di esecuzione hanno informazioni sugli eventi che si sono verificati durante l'esecuzione del processo di analisi di flusso. Lo schema delle proprietà varia a seconda che l'evento sia un errore nei dati o un evento generico.
 
 ### <a name="data-errors"></a>Errori nei dati
 
@@ -124,10 +123,14 @@ Type | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o 
 Dati | Dati utili per individuare con precisione l'origine dell'errore. Sono soggetti a troncamento in base alle dimensioni.
 
 In base al valore **operationName**, lo schema degli errori nei dati è il seguente:
-* **Eventi di serializzazione**. Gli eventi di serializzazione si verificano durante le operazioni di lettura degli eventi. Si verificano quando i dati in input non soddisfano lo schema di query per uno dei seguenti motivi:
-    * *Tipo non corrispondente durante la (de)serializzazione dell'evento*: identifica il campo che causa l'errore.
-    * *Impossibile leggere un evento, serializzazione non valida*: elenca le informazioni sulla posizione nei dati di input in cui si è verificato l'errore. Include il nome del BLOB per l'input del BLOB, l'offset e un campione dei dati.
-* **Eventi di invio**. Gli eventi di invio si verificano durante le operazioni di scrittura. Identificano l'evento di streaming che ha causato l'errore.
+
+* **Eventi di serializzazione** si verificano durante le operazioni di lettura eventi. Si verificano quando i dati in input non soddisfano lo schema di query per uno dei seguenti motivi:
+
+   * *Tipo non corrispondente durante la (de)serializzazione dell'evento*: identifica il campo che causa l'errore.
+
+   * *Impossibile leggere un evento, serializzazione non valida*: elenca le informazioni sulla posizione nei dati di input in cui si è verificato l'errore. Include il nome del BLOB per l'input del BLOB, l'offset e un campione dei dati.
+
+* **Inviare eventi** si verificano durante operazioni di scrittura. Identificano l'evento di streaming che ha causato l'errore.
 
 ### <a name="generic-events"></a>Eventi generici
 

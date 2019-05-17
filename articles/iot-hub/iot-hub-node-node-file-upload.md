@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 7ad2c9dd89843a36a786eeefee8403d32027e11c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61444365"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596617"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Caricare file da un dispositivo al cloud con l'hub IoT
 
@@ -26,7 +26,7 @@ Questa esercitazione si basa sul codice contenuto nell'esercitazione [Inviare me
 - 
 - Usare le notifiche di caricamento di file dell'hub IoT per attivare l'elaborazione del file nel back-end dell'app.
 
-L'esercitazione [Introduzione all'hub IoT](quickstart-send-telemetry-node.md) illustra le funzionalità di messaggistica di base da dispositivo a cloud dell'hub IoT. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Ad esempio: 
+L'esercitazione [Introduzione all'hub IoT](quickstart-send-telemetry-node.md) illustra le funzionalità di messaggistica di base da dispositivo a cloud dell'hub IoT. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Ad esempio:
 
 *  File di grandi dimensioni che contengono immagini
 *  Video
@@ -46,7 +46,7 @@ Al termine di questa esercitazione, verranno eseguite due app console Node.js:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Node.js 4.0.x o versione successiva.
+* Node. js versione 10.0 o versione successiva.
 
 * Un account Azure attivo. Se non si ha un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 

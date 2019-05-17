@@ -1,6 +1,6 @@
 ---
-title: Monitoraggio di Azure - monitoraggio per Kubernetes App ospitate Zero applicazioni di strumentazione | Microsoft Docs
-description: Monitoraggio per le app di Kubernetes ospitato zero applicazioni di strumentazione sono una soluzione di monitoraggio che consente di raccogliere dati di telemetria di Application Insights relativi a richieste in ingresso e in uscita da e verso i POD in esecuzione nel cluster Kubernetes da utilizzando la tecnologia mesh del servizio chiamato Istio.
+title: Usare Application Insights per il monitoraggio di Azure Kubernetes Service (AKS) o altri Kubernetes ospitato applications - monitoraggio di Azure | Microsoft Docs
+description: Monitoraggio di Azure Usa la tecnologia mesh del servizio, Istio, nel cluster Kubernetes per fornire il monitoraggio delle applicazioni per qualsiasi applicazione in Kubernetes ospitato. In questo modo è possibile raccogliere i dati di telemetria di Application Insights relativi a richieste in ingresso e in uscita da e verso i POD in esecuzione nel cluster.
 services: application-insights
 author: tokaplan
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
-ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408218"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555828"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Zero monitoraggio strumentazione dell'applicazione per Kubernetes ospitato l'App
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Zero monitoraggio strumentazione dell'applicazione per Kubernetes ospitato applicazioni
 
 > [!IMPORTANT]
 > Questa funzionalità è attualmente in anteprima pubblica.

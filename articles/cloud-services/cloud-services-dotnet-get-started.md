@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 68801f888df55924791188a3f4ff5b718798c9f3
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510560"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595169"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
@@ -51,11 +51,12 @@ Nell'esercitazione si presuppone che l'utente abbia familiarità con i [concetti
 
 È possibile eseguire l'app localmente senza sottoscrizione di Azure, ma sarà necessaria una sottoscrizione per distribuire l'applicazione nel cloud. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) oppure [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-Le istruzioni dell'esercitazione sono applicabili ai prodotti seguenti:
+Le istruzioni dell'esercitazione funzionano con uno qualsiasi dei seguenti prodotti:
 
 * Visual Studio 2013
 * Visual Studio 2015
 * Visual Studio 2017
+* Visual Studio 2019
 
 Se uno di questi prodotti non è disponibile, Visual Studio potrà essere installato automaticamente quando si installa Azure SDK.
 

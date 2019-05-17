@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7fe75dabe098cf98f0c3c04d592a32d6a44cebf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a4184fa361ba863cdaf916ef4853eda8b6e8188
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775309"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595935"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Batch
 
@@ -281,7 +281,7 @@ Il codice di esempio [MultiInstanceTasks][github_mpi] su GitHub illustra come us
 
 ### <a name="execution"></a>Esecuzione
 1. Scaricare [azure-batch-samples][github_samples_zip] da GitHub.
-2. Aprire la **soluzione** MultiInstanceTasks in Visual Studio 2017. Il `MultiInstanceTasks.sln` file della soluzione si trova:
+2. Aprire il MultiInstanceTasks **soluzione** in Visual Studio 2019. Il `MultiInstanceTasks.sln` file della soluzione si trova:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Immettere le credenziali dell'account di archiviazione e Batch in `AccountSettings.settings` nel progetto **Microsoft.Azure.Batch.Samples.Common**.

@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60785111"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604110"
 ---
 # <a name="application-insights-cohorts"></a>Coorti di Application Insights
 
@@ -123,13 +123,13 @@ Le due coorti precedenti sono state definite usando caselle di riepilogo a disce
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Selezionare **Esegui query**. Se gli ID utente non vengono visualizzati nella tabella, passare a un paese in cui esistono utenti dell'applicazione.
+3. Selezionare **Esegui query**. Se non vengono visualizzati gli ID utente vengono visualizzati nella tabella, modificare in un paese/area geografica in cui l'applicazione include gli utenti.
 
 4. Salvare la coorte e assegnarle un nome.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-_È stata definita una coorte di utenti di un determinato paese. Quando si confronta questa coorte nello strumento Utenti con la semplice impostazione di un filtro per tale paese, i risultati sono diversi. Perché?_
+_È stata definita una coorte di utenti da un determinato paese/regione. Quando si Confronta questa coorte nello strumento utenti per l'impostazione di un filtro per tale paese/area geografica, ottenere risultati diversi. Perché?_
 
 Le coorti e i filtri sono diversi. Si supponga di avere una coorte di utenti del Regno Unito (definita come l'esempio precedente) e di confrontarne i risultati con l'impostazione del filtro "Country or region = United Kingdom" (Paese o area geografica = Regno Unito).
 

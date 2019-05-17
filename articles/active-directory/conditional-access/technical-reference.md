@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b10a91499dbe7e627025be8487efa15890861b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764732"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823557"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory
 
@@ -48,7 +48,6 @@ Grazie ai criteri di accesso condizionale è possibile controllare la modalità 
 - Microsoft Application Insights Analitica
 - Microsoft Azure Information Protection - [altre informazioni](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Gestione di Microsoft Azure - [altre informazioni](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-- RemoteApp di Microsoft Azure
 - Gestione delle sottoscrizioni Microsoft Azure
 - Microsoft Cloud App Security
 - Portale di controllo di accesso di strumenti di Microsoft e-Commerce
@@ -167,7 +166,6 @@ Questa impostazione interessa i tentativi di accesso eseguiti dalle app per disp
 
 | App client | Servizio di destinazione | Piattaforma |
 | --- | --- | --- |
-| App Azure Remote | Servizio app Azure Remote | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
 | Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
 | App Posta/Calendario/Contatti, Outlook 2016, Outlook 2013 (con autenticazione moderna)| Office 365 Exchange Online | Windows 10 |
 | MFA e criteri relativi alle applicazioni. I criteri basati su dispositivo non sono supportati.| Qualsiasi servizio app Mie app| Android e iOS |

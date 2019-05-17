@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 961ce4427c509142077c95a6569ad2c444ec0a52
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205953"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603244"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Creare una pipeline di dati con l'API dell'Agente di raccolta dati
 
@@ -27,7 +27,7 @@ L'[API dell'agente di raccolta dati di Monitoraggio di Azure](data-collector-api
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Problema di esempio
-Nella parte restante di questo articolo, verranno esaminati i dati relativi alle visualizzazioni pagina in Application Insights. In questo scenario ipotetico, si vuole correlare informazioni geografiche, raccolte per impostazione predefinita da Application Insights SDK, a dati personalizzati contenenti la popolazione di tutti i Paesi nel mondo, allo scopo di identificare dove impiegare la maggiore quantità di opzioni di marketing. 
+Nella parte restante di questo articolo, verranno esaminati i dati relativi alle visualizzazioni pagina in Application Insights. In questo scenario ipotetico, si vuole correlare informazioni geografiche, raccolte per impostazione predefinita da Application Insights SDK a contenente la popolazione di ogni paese/area geografica del mondo, allo scopo di identificare dove si dovrebbe impiegare una notevole quantità di dati personalizzati le opzioni di marketing più più. 
 
 A questo scopo verrà usata un'origine dati pubblica, come ad esempio gli [UN World Population Prospect](https://esa.un.org/unpd/wpp/). I dati seguiranno il seguente schema semplice:
 

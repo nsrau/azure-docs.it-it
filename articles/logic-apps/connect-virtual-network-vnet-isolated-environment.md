@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150662"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544517"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -39,7 +39,7 @@ Per altre informazioni sugli ambienti del servizio di integrazione, vedere [Acce
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
 
   > [!IMPORTANT]
-  > Le app per la logica, le azioni predefinite e i connettori eseguiti nell'ambiente del servizio di integrazione usano un piano tariffario diverso, non quello con pagamento in base al consumo. Per altre informazioni, vedere [Prezzi di App per la logica](../logic-apps/logic-apps-pricing.md).
+  > App per la logica, incorporato trigger, azioni predefinite e i connettori eseguiti per l'utilizzo ISE un piano tariffario diverso dal piano tariffario in base al consumo. Per altre informazioni, vedere [Prezzi di App per la logica](../logic-apps/logic-apps-pricing.md).
 
 * Una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Se non si dispone di una rete virtuale, vedere l'articolo su come [creare una rete virtuale di Azure](../virtual-network/quick-create-portal.md). 
 
@@ -100,7 +100,7 @@ Per creare un ambiente del servizio di integrazione (ISE), seguire questa proced
 1. Scegliere [Crea una risorsa](https://portal.azure.com) dal menu principale di Azure nel **portale di Azure**.
 Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come filtro.
 
-   ![Create new resource (Crea nuova risorsa)](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
+   ![Crea nuova risorsa](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
 1. Nel riquadro di creazione ambiente del servizio di integrazione, scegliere **Create**.
 
@@ -132,7 +132,7 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
    * Usa il [formato Classless Interdomain Routing (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e uno spazio di indirizzi B di classe.
 
-   * Viene utilizzato almeno una `/27` nell'indirizzo spazio perché ogni subnet devono avere 32 indirizzi come i *minimo*. Ad esempio: 
+   * Viene utilizzato almeno una `/27` nell'indirizzo spazio perché ogni subnet devono avere 32 indirizzi come i *minimo*. Ad esempio:
 
      * `10.0.0.0/27` ha 32 indirizzi perché 2<sup>(32-27)</sup> è 2<sup>5</sup> o 32.
 
@@ -181,7 +181,7 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
    Se la distribuzione avviene con successo, Azure Mostra questa notifica:
 
-   ![Distribuzione completata](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+   ![La distribuzione è riuscita](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
    In caso contrario, seguire le istruzioni del portale di Azure per la risoluzione dei problemi di distribuzione.
 
@@ -199,33 +199,19 @@ Per altre informazioni sulla creazione di subnet, vedere [aggiungere una subnet 
 
 ## <a name="create-logic-app---ise"></a>Creare un'app per la logica - ISE
 
-Per creare app per la logica che usano l'ambiente del servizio di integrazione (ISE), seguire la procedura illustrata sotto la sezione [come creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md), ma con le seguenti differenze: 
-
-* Quando si crea l'app per la logica, nella proprietà **Posizione**, selezionare l'ISE nella sezione **Ambienti del servizio di integrazione**, ad esempio:
+Per creare App per la logica da eseguire nell'ambiente del servizio di integrazione (ISE), [creare le App per la logica nel modo consueto](../logic-apps/quickstart-create-first-logic-app-workflow.md) tranne quando si imposta la **posizione** proprietà, selezionare l'ISE dal  **Gli ambienti del servizio integrazione** sezione, ad esempio:
 
   ![Selezionare l'ambiente del servizio di integrazione](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* È possibile utilizzare le stessi trigger predefiniti e le azioni, ad esempio HTTP, che vengono eseguite in ISE stesso come app per la logica. Anche i connettori con l'etichetta **ISE** vengono eseguiti nello stesso ISE dell'app per la logica. I connettori senza l'etichetta **ISE** vengono eseguiti nel servizio App per la logica globale.
-
-  ![Selezionare i connettori ISE](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
-
-* Dopo aver collegato l'ISE in una rete virtuale di Azure, le app per la logica nell'ISE possono accedere direttamente alle risorse di quella rete virtuale. Nei sistemi locali connessi a una rete virtuale, collegare un ISE in suddetta rete per consentire l'accesso diretto delle app per la logica a tali sistemi tramite uno di questi elementi: 
-
-  * Connettore ISE per tale sistema, ad esempio, SQL Server
-  
-  * Azione HTTP 
-  
-  * Connettore personalizzato
-
-  Nei sistemi locali non inclusi in una rete virtuale o senza connettori ISE, [configurare il gateway dati locale](../logic-apps/logic-apps-gateway-install.md) come prima cosa.
+Le differenze nel modo in cui i trigger e azioni lavoro e come essi è contrassegnato come quando si usa un'istanza di ISE rispetto al servizio di App per la logica globale, vedere [isolati rispetto a globale nella panoramica ISE](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 <a name="create-integration-account-environment"></a>
 
 ## <a name="create-integration-account---ise"></a>Creare account di integrazione - ISE
 
-Per usare un account di integrazione con app per la logica in un ambiente del servizio di integrazione (ISE), l'account di integrazione deve usare lo *stesso ambiente* usato dalle app per la logica. Le app per la logica in un ISE possono fare riferimento solo agli account di integrazione che sono nello stesso ISE. 
+Se si desidera usare un account di integrazione con App per la logica in un ambiente del servizio di integrazione (ISE), tale account di integrazione è necessario usare il *stesso ambiente* come le App per la logica. Le app per la logica in un ISE possono fare riferimento solo agli account di integrazione che sono nello stesso ISE.
 
-Per creare un account di integrazione che usa un ISE, seguire la procedura riportata nella sezione su [come creare gli account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), con la differenza della sezione **Ambienti del servizio di integrazione** ora presente nella proprietà **Posizione**. Invece di un'area, selezionare l'ISE, ad esempio:
+Per creare un account di integrazione che usa un'istanza di ISE, [creare l'account di integrazione nel modo consueto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) tranne quando si imposta la **posizione** proprietà, selezionare l'ISE dal **integrazione gli ambienti del servizio** sezione, ad esempio:
 
 ![Selezionare l'ambiente del servizio di integrazione](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 05/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: ea3ee00e60ae5eaff5c7220e9502da11358c8793
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1d45e1a5e4053ead4330967c5e250c0797c19fe7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786735"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827462"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Passaggio a un certificato del gateway CA pubblico per la connessione da punto a sito
 
@@ -29,19 +29,7 @@ In passato un certificato autofirmato per il gateway emesso in background da Azu
 Questa modifica interessa solo i gateway meno recenti. Se è necessario eseguire la transizione del certificato del gateway in uso, si riceverà una comunicazione o un avviso popup nel portale di Azure. È possibile controllare se il gateway in uso è interessato dalla transizione seguendo la procedura descritta in questo articolo.
 
 > [!IMPORTANT]
-> **Questa transizione è stata completata il 12 maggio 2019.**
->
-> La transizione è pianificata per il 12 marzo 2019 a partire dalle 18:00 UTC. Se si preferisce una finestra temporale diversa, è possibile creare un caso di supporto. Creare e finalizzare la richiesta con almeno 24 ore di anticipo.  È possibile richiedere una delle finestre seguenti:
->
-> * 06:00 UTC del 25 febbraio
-> * 18:00 UTC del 25 febbraio
-> * 06:00 UTC del 1° marzo
-> * 18:00 UTC del 1° marzo
->
-> Tutti i gateway rimanenti passeranno marzo 12 2019 partire dall'ora UTC 18.00.
->
-> Una volta completato il processo di transizione de gateway, i clienti riceveranno un messaggio di posta elettronica.
-> 
+> È stata completata la transizione per certificati di autorità di certificazione pubblica il 12 maggio 2019. **Questo documento verrà rimosso il 31 maggio 2019.**
 
 ## <a name="1-verify-your-certificate"></a>1. Verificare il certificato
 

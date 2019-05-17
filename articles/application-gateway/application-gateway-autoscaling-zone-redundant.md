@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 5/16/2019
 ms.author: victorh
-ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510827"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827430"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>La scalabilità automatica e il Gateway applicazione ridondanza della zona 
 
@@ -62,7 +62,7 @@ Materiale sussidiario di unità di calcolo:
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-Il [pagina dei prezzi](https://azure.microsoft.com/pricing/details/application-gateway/) verrà aggiornato per riflettere i prezzi per area 14 maggio 2019. La fatturazione è pianificata per iniziare il 1 giugno 2019.
+Per altre informazioni sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/application-gateway/). La fatturazione è pianificata per iniziare il 1 ° luglio 2019.
 
 **Esempio 1**
 
@@ -100,7 +100,7 @@ Il [pagina dei prezzi](https://azure.microsoft.com/pricing/details/application-g
 È possibile configurare il Gateway applicazione e Web Application firewall per la scalabilità in due modalità:
 
 - **La scalabilità automatica** : con la scalabilità automatica abilitata, il Gateway applicazione e v2 WAF SKU aumentalo o Riducilo in base ai requisiti di traffico dell'applicazione. Questa modalità offre una migliore elasticità all'applicazione ed elimina la necessità di indovinare il numero di istanze o dimensioni del gateway applicazione. Questa modalità consente anche di risparmiare sui costi non è necessaria per eseguire i gateway in base alla capacità di picco il provisioning per il carico di traffico massimo previsto. I clienti devono specificare un numero di istanze minimo e massimo facoltativamente. Capacità minima garantisce che il Gateway applicazione e WAF v2 non rientrano sotto il numero di istanze minimo specificato, anche in assenza di traffico. L'addebito per questa capacità minima anche in assenza di qualsiasi tipo di traffico. È anche possibile specificare un numero massimo di istanze, che assicura che il Gateway applicazione supporta la scalabilità oltre il numero di istanze specificato. Si continuerà a essere fatturata la quantità di traffico fornita dal Gateway. I conteggi delle istanze può variare da 0 a 125. Il valore predefinito per il numero massimo di istanze è pari a 20 se non specificato.
-- **Manual** -in alternativa è possibile scegliere la modalità manuale in cui il gateway non sarà la scalabilità automatica. In questa modalità, se è presente traffico maggiore rispetto a quali il Gateway applicazione o Web Application firewall è in grado di gestire, potrebbero verificarsi una perdita di traffico. Con la modalità manuale, specifica il numero di istanza è obbligatorio. Numero di istanze può variare da 1 a 125 istanze.
+- **Manual** -in alternativa è possibile scegliere la modalità manuale in cui il gateway non sarà la scalabilità automatica. In questa modalità, se è presente più traffico che Gateway applicazione o Web Application firewall può essere gestito, potrebbero verificarsi una perdita di traffico. Con la modalità manuale, specifica il numero di istanza è obbligatorio. Numero di istanze può variare da 1 a 125 istanze.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Confronto delle funzionalità tra SKU v1 e v2 SKU
 
@@ -146,7 +146,7 @@ La tabella seguente confronta le funzionalità disponibili in ogni SKU.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva: Traffico web diretto con il Gateway applicazione di Azure - portale di Azure](quick-create-portal.md)
+- [Avvio rapido: Traffico web diretto con il Gateway applicazione di Azure - portale di Azure](quick-create-portal.md)
 - [Creare un gateway applicazione con scalabilità automatica e ridondanza della zona con un indirizzo IP virtuale riservato tramite Azure PowerShell](tutorial-autoscale-ps.md)
 - Altre informazioni sul [gateway applicazione](overview.md).
 - Altre informazioni su [Firewall di Azure](../firewall/overview.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5cfe91cfcc124ef3073cfb6bbeda683505ff8e1
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716269"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561374"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usare i report sull'integrità del sistema per la risoluzione dei problemi
 I componenti di Azure Service Fabric forniscono report sull'integrità del sistema in tutte le entità del cluster per impostazione predefinita. L' [archivio integrità](service-fabric-health-introduction.md#health-store) crea ed elimina le entità in base ai report di sistema. Le organizza anche in una gerarchia che acquisisce le interazioni delle entità.
@@ -57,7 +57,7 @@ Il report specifica il timeout di lease globale come durata (TTL). Il report vie
 * **Proprietà**: Inizia con **Neighborhood** e include informazioni sul nodo.
 * **Passaggi successivi**: Esaminare il motivo per cui il vicinato è perso. Ad esempio, controllare la comunicazione tra i nodi del cluster.
 
-### <a name="rebuild"></a>Ricompilazione
+### <a name="rebuild"></a>Ricompila
 
 Il servizio Gestione failover (FM) gestisce le informazioni relative ai nodi del cluster. In caso di perdita dei dati, il servizio Gestione failover non è in grado di garantire la disponibilità delle informazioni più aggiornate sui nodi del cluster. In questo caso, il sistema esegue una ricompilazione e l'evento System.FM raccoglie i dati da tutti i nodi nel cluster per ricompilare il proprio stato. In alcuni casi, a causa di problemi a livello di nodo o rete, è possibile che la ricompilazione si blocchi. Lo stesso problema può verificarsi con il servizio Failover Manager Master (FMM). FMM è un servizio di sistema senza stato che tiene traccia della posizione in cui si trovano tutte le istanze del servizio FM nel cluster. Il servizio FMM principale corrisponde sempre al nodo con l'ID più prossimo allo zero. In caso di rilascio del nodo, viene attivata una ricompilazione.
 Quando si verifica una delle condizioni precedenti, **System.FM** o **System.FMM** contrassegna tale condizione tramite un report degli errori. La ricompilazione può rimanere bloccata in una delle due fasi seguenti:
@@ -632,11 +632,11 @@ La proprietà e il testo indicano quale API è rimasta bloccata. I passaggi succ
 
 - **Istatefulservicereplica. Close** e **istatefulservicereplica. Abort**: Il caso più comune è un servizio che non rispetta il token di annullamento passato a `RunAsync`. È anche possibile che `ICommunicationListener.CloseAsync` o, se ignorato, `OnCloseAsync` sia bloccato.
 
-- **Changerole (S)** e **Istatefulservicereplica**: Il caso più comune è un servizio che non rispetta il token di annullamento passato a `RunAsync`.
+- **Changerole (S)** e **Istatefulservicereplica**: Il caso più comune è un servizio che non rispetta il token di annullamento passato a `RunAsync`. In questo scenario, la soluzione migliore è necessario riavviare la replica.
 
 - **IStatefulServiceReplica.ChangeRole(P)**: Il caso più comune è che il servizio non ha restituito un'attività da `RunAsync`.
 
-Altre chiamate API che possono rimanere bloccate sono presenti nell'interfaccia di **IReplicator**, Ad esempio: 
+Altre chiamate API che possono rimanere bloccate sono presenti nell'interfaccia di **IReplicator**, Ad esempio:
 
 - **IReplicator.CatchupReplicaSet**: Questo avviso indica che una delle seguenti operazioni. Le repliche attive sono insufficienti. Per appurare se questo è il caso, esaminare lo stato delle repliche nella partizione o il rapporto di stato di System.FM per una riconfigurazione bloccata. oppure le repliche non riconoscono le operazioni. È possibile usare il cmdlet `Get-ServiceFabricDeployedReplicaDetail` di PowerShell per determinare lo stato di tutte le repliche. Il problema è relativo alle repliche il cui valore `LastAppliedReplicationSequenceNumber` è successivo al valore `CommittedSequenceNumber` della replica primaria.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195579"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603203"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analizzare i dati in Azure Data Lake Storage Gen1 con Power BI
 Questo articolo spiega come usare Power BI Desktop per analizzare e visualizzare i dati presenti in Azure Data Lake Storage Gen1.
@@ -74,23 +74,23 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 14. Dopo l'aggiornamento della query, la scheda **Campi** contiene i nuovi campi disponibili per la visualizzazione.
     
     ![Campi aggiornati](./media/data-lake-store-power-bi/updated-query-fields.png "Campi aggiornati")
-15. È possibile creare un grafico a torta per rappresentare i conducenti in ogni città per un determinato paese. Per eseguire questa operazione, effettuare le selezioni seguenti.
+15. Possiamo creare un grafico a torta per rappresentare i conducenti in ogni città per un determinato paese/area geografica. Per eseguire questa operazione, effettuare le selezioni seguenti.
     
     1. Nella scheda Visualizzazioni fare clic sul simbolo del grafico a torta.
        
         ![Creare un grafico a torta](./media/data-lake-store-power-bi/create-pie-chart.png "Creare un grafico a torta")
-    2. Le colonne che verranno usate sono la **colonna 4** (nome della città) e la **colonna 7** (nome del paese). Trascinare le colonne dalla scheda **Campi** nella scheda **Visualizzazioni** come illustrato di seguito.
+    2. Le colonne che si intende utilizzare sono **Column 4** (nome della città) e **7 colonna** (nome del paese/area geografica). Trascinare le colonne dalla scheda **Campi** nella scheda **Visualizzazioni** come illustrato di seguito.
        
         ![Creare visualizzazioni](./media/data-lake-store-power-bi/create-visualizations.png "Creare visualizzazioni")
     3. Il grafico a torta ora dovrebbe essere simile a quello che segue.
        
         ![Grafico a torta](./media/data-lake-store-power-bi/pie-chart.png "Creare visualizzazioni")
-16. Se si seleziona un paese specifico dai filtri a livello di pagina, è possibile visualizzare il numero di conducenti in ogni città del paese selezionato. Ad esempio, nella scheda **Visualizzazioni** selezionare **Brazil** da **Filtri a livello di pagina**.
+16. Seleziona un paese/regione specificato uno dei filtri a livello di pagina, è ora possibile visualizzare il numero di conducenti in ogni città del paese/regione selezionato. Ad esempio, nella scheda **Visualizzazioni** selezionare **Brazil** da **Filtri a livello di pagina**.
     
-    ![Selezionare un paese](./media/data-lake-store-power-bi/select-country.png "Selezionare un paese")
+    ![Selezionare un paese](./media/data-lake-store-power-bi/select-country.png "selezionare un paese/area geografica")
 17. Il grafico a torta viene automaticamente aggiornato in modo da visualizzare i conducenti delle città del Brasile.
     
-    ![Conducenti in un paese](./media/data-lake-store-power-bi/driver-per-country.png "Conducenti in un paese")
+    ![Conducenti in un paese](./media/data-lake-store-power-bi/driver-per-country.png "i driver per ogni paese/area geografica")
 18. Dal menu **File** fare clic su **Salva** per salvare la visualizzazione come file di Power BI Desktop.
 
 ## <a name="publish-report-to-power-bi-service"></a>Pubblicare report nel servizio Power BI

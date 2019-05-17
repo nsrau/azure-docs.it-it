@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/11/2019
-ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
-ms.translationtype: HT
+ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620159"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823307"
 ---
 # <a name="sql-database-serverless-preview"></a>Database SQL serverless (anteprima)
 
@@ -277,19 +277,21 @@ La quantità di risorse di calcolo fatturata è esposta dalla metrica seguente:
 
 Questa quantità viene calcolata ogni secondo e aggregata in un minuto.
 
-**Esempio**: Si consideri un database che usa GP_S_Gen5_4 con l'utilizzo seguente in un periodo di un'ora:
+Si consideri un database senza server configurati con 1 min vcore e 4 Vcore per utilizzo massimi.  Ciò corrisponde a circa 3 GB di memoria minimo e massimo 12 GB di memoria.  Si supponga che il ritardo di sospensione automatica è impostato su 6 ore e il carico di lavoro di database sia attivo durante le ore 2 prima di un periodo di 24 ore su 24 e inattive in caso contrario.    
 
-|Ora (ore:minuti)|app_cpu_billed (secondi per vCore)|
-|---|---|
-|0:01|63|
-|0:02|123|
-|0:03|95|
-|0:04|54|
-|0:05|41|
-|0:06 - 1:00|1255|
-||Totale: 1631|
+In questo caso, il database viene fatturato per l'archiviazione e calcolo durante le prime 8 ore.  Anche se il database è inattivo avvio dopo l'ora 2nd, viene comunque fatturata per il calcolo nelle ore successive 6 basato su attività di calcolo minimo effettuato il provisioning quando il database è online.  Solo archiviazione sarà addebitata fino alla fine del periodo di 24 ore mentre il database è sospeso.
 
-Si supponga che il prezzo delle unità di calcolo sia $0,000073/vCore/secondo. Le risorse di calcolo fatturate per questa ora vengono determinate con la formula seguente: **$0,000073/vCore/secondo * 1631 secondi per vCore = $0,1191**
+Più precisamente, la fattura di calcolo in questo esempio viene calcolata come segue:
+
+|Intervallo di tempo|numero di Vcore utilizzati ogni secondo|GB utilizzati ogni secondo|Calcolo di dimensione fatturato|secondi di vCore fatturati intervallo di tempo|
+|---|---|---|---|---|
+|0:00-1:00|4|9|numero di Vcore utilizzati|4 Vcore * 3600 secondi = 14.400 secondi di vCore|
+|1:00-2:00|1|12|Memoria utilizzata|12 Gb * 1 o 3 * 3.600 secondi = 14400 vCore secondi|
+|2:00-8:00|0|0|Memoria minima effettuato il provisioning|3 Gb * 1 o 3 * 21600 secondi = 21600 vCore secondi|
+|8:00-24:00|0|0|Nessun calcolo fatturato mentre in pausa|vCore 0 secondi|
+|Totale vCore secondi fatturati più di 24 ore||||vCore 50400 secondi|
+
+Si supponga che il prezzo delle unità di calcolo sia $0,000073/vCore/secondo.  Le risorse di calcolo addebitate questo periodo di 24 ore è il prodotto dei calcolo unit price vcore secondi e fatturata: $0.000073/vCore/second * 50400 vCore secondi = $3.68
 
 ## <a name="available-regions"></a>Aree disponibili
 

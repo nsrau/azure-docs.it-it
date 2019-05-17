@@ -1,5 +1,5 @@
 ---
-title: Hosting ad alta densità con il ridimensionamento per app - Servizio app di Azure | Microsoft Docs
+title: Hosting ad alta densità per app con ridimensionamento - servizio App di Azure | Microsoft Docs
 description: Hosting ad alta densità nel servizio app di Azure
 author: btardif
 manager: erikre
@@ -12,27 +12,31 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 08d6d0c31e1cff799e952c50bae3446e41477aba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 824abbdfd1b3980b419e6d6c46814bb0318adf13
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104570"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602338"
 ---
-# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hosting ad alta densità nel servizio app di Azure con il ridimensionamento per app
+# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hosting ad alta densità nel servizio App di Azure con la scalabilità per app
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per impostazione predefinita, il ridimensionamento delle app nel servizio app si esegue ridimensionando il [piano di servizio app](overview-hosting-plans.md) su cui vengono eseguite. Se vengono eseguite più app nello stesso piano di servizio app,ogni istanza scale-out esegue tutte le app nel piano.
+Quando si usa servizio App, è possibile ridimensionare le tue App con il ridimensionamento il [piano di servizio App](overview-hosting-plans.md) queste vengono eseguite. Se vengono eseguite più app nello stesso piano di servizio app,ogni istanza scale-out esegue tutte le app nel piano.
 
-È possibile abilitare il *ridimensionamento per-app* a livello del piano si servizio app. Ciò consente di ridimensionare un'app indipendentemente dal piano di servizio app in cui è ospitata. È così possibile configurare un piano di servizio app per offrire 10 istanze e impostare un'app in modo che usi solo cinque istanze.
+*La scalabilità per app* può essere abilitata a livello di piano di servizio App per consentire il ridimensionamento di un'app indipendentemente dal piano di servizio App che lo ospita. È così possibile configurare un piano di servizio app per offrire 10 istanze e impostare un'app in modo che usi solo cinque istanze.
 
 > [!NOTE]
 > La scalabilità per app è disponibile solo per i piani tariffari **Standard**, **Premium**, **Premium V2** e **Isolated**.
 >
+
+Le app vengono allocate al piano di servizio App disponibile tramite un approccio migliore per una distribuzione uniforme tra più istanze. Durante una distribuzione uniforme non è garantita, la piattaforma garantirà che due istanze della stessa app non verranno ospitate nella stessa istanza del piano servizio App.
+
+La piattaforma non basarsi sulle metriche di decidere sull'allocazione di lavoro. Le applicazioni sono ribilanciate solo quando le istanze vengono aggiunte o rimosse dal piano di servizio App.
 
 ## <a name="per-app-scaling-using-powershell"></a>Scalabilità per app tramite PowerShell
 
@@ -60,10 +64,10 @@ Nell'esempio seguente l'app è limitata a due istanze indipendentemente dall'agg
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
 $newapp = Get-AzWebApp -ResourceGroupName $ResourceGroup -Name $webapp
-    
+
 # Modify the NumberOfWorkers setting to the desired value.
 $newapp.SiteConfig.NumberOfWorkers = 2
-    
+
 # Post updated app back to azure
 Set-AzWebApp $newapp
 ```
@@ -128,17 +132,18 @@ Il piano di servizio app imposta la proprietà **PerSiteScaling** su true `"perS
 ```
 
 ## <a name="recommended-configuration-for-high-density-hosting"></a>Configurazione consigliata per l'hosting ad alta densità
-La scalabilità per app è una funzionalità abilitata sia nelle aree di Azure globali che negli [ambienti del servizio app](environment/app-service-app-service-environment-intro.md). È tuttavia consigliabile usare gli ambienti del servizio app per sfruttarne le funzionalità avanzate e i pool di capacità di maggiori dimensioni.  
+
+La scalabilità per app è una funzionalità abilitata sia nelle aree di Azure globali che negli [ambienti del servizio app](environment/app-service-app-service-environment-intro.md). Tuttavia, la strategia consigliata è usare gli ambienti del servizio App per sfruttare le funzionalità avanzate e la capacità di piano servizio App superiore.  
 
 Per configurare l'hosting ad alta densità per le app, seguire questa procedura:
 
-1. Configurare l'ambiente del servizio app e scegliere un pool di lavoro da dedicare allo scenario di hosting ad alta densità.
-2. Creare un singolo piano di servizio app e ridimensionarlo in modo da usare tutta la capacità disponibile del pool di lavoro.
-3. Impostare il flag `PerSiteScaling` su true nel piano di servizio app.
-4. Vengono create nuove app e assegnate al piano di servizio app con la proprietà **numberOfWorkers** impostata su **1**. L'uso di questa configurazione consente di ottenere la massima densità possibile nel pool di lavoro.
-5. Il numero di ruoli di lavoro può essere configurato in modo indipendente per ogni app, per concedere risorse aggiuntive in base alle esigenze. Ad esempio: 
-    - Per un'app a utilizzo elevato è possibile impostare **numberOfWorkers** su **3** per avere una maggiore capacità di elaborazione per l'app. 
-    - Per le app a basso utilizzo impostare **numberOfWorkers** su **1**.
+1. Definire un piano di servizio App come il piano ad alta densità e scalarlo in orizzontale e la capacità desiderata.
+1. Impostare il flag `PerSiteScaling` su true nel piano di servizio app.
+1. Vengono create nuove app e assegnate al piano di servizio app con la proprietà **numberOfWorkers** impostata su **1**.
+   - Con questa configurazione genera la massima densità possibile.
+1. Il numero di ruoli di lavoro può essere configurato in modo indipendente per ogni app, per concedere risorse aggiuntive in base alle esigenze. Ad esempio:
+   - Per un'app a utilizzo elevato è possibile impostare **numberOfWorkers** su **3** per avere una maggiore capacità di elaborazione per l'app.
+   - Per le app a basso utilizzo impostare **numberOfWorkers** su **1**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

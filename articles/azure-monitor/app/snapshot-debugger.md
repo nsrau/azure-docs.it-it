@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: 074b701422f32f4cd18fd2eb05e3453e139e17ae
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205594"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595580"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Snapshot Debugger (anteprima) di [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitora la telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet Snapshot Collector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e configurare facoltativamente i parametri di raccolta in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati per le [eccezioni](../../azure-monitor/app/asp-net-exceptions.md) nel portale Application Insights.
 
-È possibile visualizzare gli snapshot di debug nel portale per vedere lo stack di chiamate e ispezionare le variabili in ogni stack frame di chiamate. Per ottenere un'esperienza di debug più potente con il codice sorgente, aprire gli snapshot con Visual Studio 2017 Enterprise. In Visual Studio è anche possibile [impostare punti di ancoraggio per creare in modo interattivo snapshot](https://aka.ms/snappoint) senza attendere un'eccezione.
+È possibile visualizzare gli snapshot di debug nel portale per vedere lo stack di chiamate e ispezionare le variabili in ogni stack frame di chiamate. Per ottenere un'esperienza di debug più potente con il codice sorgente, aprire gli snapshot con Visual Studio 2019 Enterprise. In Visual Studio è anche possibile [impostare punti di ancoraggio per creare in modo interattivo snapshot](https://aka.ms/snappoint) senza attendere un'eccezione.
 
 Gli snapshot di debug vengono archiviati per sette giorni. I criteri di conservazione sono impostati per ogni singola applicazione. Se è necessario aumentare questo valore, è possibile richiedere un aumento aprendo un caso di supporto nel portale di Azure.
 
@@ -81,9 +81,9 @@ Nella vista Debug Snapshot (Snapshot di debug) vengono visualizzati uno stack di
 Gli snapshot possono contenere informazioni riservate e per impostazione predefinita non sono visibili. Per visualizzare gli snapshot, è necessario che all'utente sia stato assegnato il ruolo `Application Insights Snapshot Debugger`.
 
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Visualizzare gli snapshot in Visual Studio 2017 Enterprise o versioni successive
-1. Fare clic sul pulsante **Download Snapshot** (Scarica snapshot) per scaricare un file `.diagsession` che può essere aperto con Visual Studio 2017 Enterprise.
+1. Fare clic sui **Scarica Snapshot** per scaricare un `.diagsession` file, che può essere aperta da Visual Studio Enterprise.
 
-2. Per aprire il file `.diagsession`, è necessario avere installato il componente di Visual Studio Snapshot Debugger. Il componente Snapshot Debugger è un componente obbligatorio del carico di lavoro ASP .NET in Visual Studio e può essere selezionato nell'elenco dei singoli componenti del programma di installazione di Visual Studio. Se si usa una versione di Visual Studio 2017 precedenti alla 15.5, è necessario installare l'estensione dal [marketplace di Visual Studio](https://aka.ms/snapshotdebugger).
+2. Per aprire la `.diagsession` file, è necessario avere installato il componente di Snapshot Debugger Visual Studio. Il componente Debugger di Snapshot è un componente obbligatorio per il carico di lavoro di ASP.net in Visual Studio e può essere selezionato dall'elenco dei singoli componenti del programma di installazione di Visual Studio. Se si usa una versione di Visual Studio precedenti a Visual Studio 2017 versione 15.5, è necessario installare l'estensione dal [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 3. Quando si apre il file di snapshot, in Visual Studio viene visualizzata la pagina per il debug di minidump. Fare clic su **Debug Managed Code** (Debug codice gestito) per avviare il debug dello snapshot. Lo snapshot viene aperto alla riga di codice in cui è stata generata l'eccezione in modo da consentire il debug dello stato corrente del processo.
 

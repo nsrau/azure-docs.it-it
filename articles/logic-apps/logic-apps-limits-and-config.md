@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 634f3948f9a5e28454e9b2b29f950c3fb00f6c19
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/10/2019
+ms.openlocfilehash: a320f584ff82f2b8a2b3d784e1995aa043004587
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147736"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597483"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -139,7 +139,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 | Limite per la valutazione delle espressioni | 131.072 caratteri | 131.072 caratteri | Le espressioni `@concat()`, `@base64()` e `@string()` non possono superare questo limite. |
 |||||
 
-#### <a name="retry-policy"></a>Criteri di ripetizione
+#### <a name="retry-policy"></a>Criteri per i tentativi
 
 | NOME | Limite | Note |
 | ---- | ----- | ----- |
@@ -182,7 +182,7 @@ Limiti per il numero di elementi per ogni account di integrazione. Per altre inf
 > [!NOTE] 
 > Solo per scenari di analisi esplorativi, non gli scenari di produzione, usare il livello gratuito. Questo livello limita la velocità effettiva e l'utilizzo e non dispone di alcun contratto di servizio (SLA).
 
-| Elemento | Gratuito | Basic | Standard |
+| Elemento | Gratuito | Di base | Standard |
 |----------|------|-------|----------|
 | Contratti commerciali EDI | 10 | 1 | 500 |
 | Partner commerciali EDI | 25 | 2 | 500 |
@@ -201,7 +201,7 @@ Limiti per il numero di elementi per ogni account di integrazione. Per altre inf
 | -------- | ----- | ----- |
 | Assembly | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare un [account di archiviazione di Azure e un contenitore BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 | Mappa (file XSLT) | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare l'[API REST di App per la logica di Azure Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). |
-| SCHEMA | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare un [account di archiviazione di Azure e un contenitore BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
+| Schema | 8 MB | Per caricare file di dimensioni superiori a 2 MB, usare un [account di archiviazione di Azure e un contenitore BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
 | Endpoint di runtime | Limite | Note |

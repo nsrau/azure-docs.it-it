@@ -3,8 +3,8 @@ title: Personalizzare le attestazioni rilasciate nel token SAML per le applicazi
 description: Informazioni su come personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4c1f8640918d433956935e9428e23aac59e36334
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231339"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764657"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -121,7 +121,7 @@ Per aggiungere attestazioni specifiche dell'applicazione:
 | **Extract () - prima corrispondenza** | Restituisce la sottostringa fino a quando non corrisponde a quello specificato.<br/>Ad esempio, se il valore dell'input è "BSimon_US", il valore corrisponda è "_US", quindi l'output dell'attestazione è "BSimon". |
 | **Extract () - tra corrispondenza** | Restituisce la sottostringa fino a quando non corrisponde a quello specificato.<br/>Ad esempio, se il valore dell'input è "Finance_BSimon_US", il primo valore corrisponda è "Finance_", il secondo valore corrisponda è "_US", quindi l'output dell'attestazione è "BSimon". |
 | **ExtractAlpha() - Prefix** | Restituisce la parte in ordine alfabetico di prefisso della stringa.<br/>Ad esempio, se il valore dell'input è "BSimon_123", viene restituito "BSimon". |
-| **ExtractAlpha() - Suffix** | Restituisce la parte alfabetico suffisso della stringa.<br/>Ad esempio, se il valore dell'input è "123_Simon", viene restituito "BSimon". |
+| **ExtractAlpha() - Suffix** | Restituisce la parte alfabetico suffisso della stringa.<br/>Ad esempio, se il valore dell'input è "123_Simon", viene restituito "Simon". |
 | **ExtractNumeric() - Prefix** | Restituisce la parte numerica di prefisso della stringa.<br/>Ad esempio, se il valore dell'input è "123_BSimon", viene restituito "123". |
 | **ExtractNumeric() - Suffix** | Restituisce la parte numerica suffisso della stringa.<br/>Ad esempio, se il valore dell'input è "BSimon_123", viene restituito "123". |
 | **IfEmpty()** | Restituisce un attributo o una costante se l'input è null o vuoto.<br/>Ad esempio, se si desidera restituire un attributo archiviato in un extensionattribute se il valore employeeid per un determinato utente è vuoto. A tale scopo, configurare i valori seguenti:<br/>Parametro 1(input): User. EmployeeID<br/>Il parametro 2 (output): user.extensionattribute1<br/>Parametro 3 (se non esiste alcuna corrispondenza di output): User. EmployeeID |

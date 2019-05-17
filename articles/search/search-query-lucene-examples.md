@@ -7,15 +7,15 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 108dd80aa90772eb01fe3c7f0176ddd37e27acaa
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024443"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595906"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Esempi di query usando la sintassi di ricerca Lucene "completa" (query avanzate in ricerca di Azure)
 
@@ -81,11 +81,11 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 Tutti gli esempi in questo articolo specificano il parametro di ricerca **queryType=full**, che indica che la sintassi completa viene gestita dal parser di query Lucene. 
 
-## <a name="example-1-field-scoped-query"></a>Esempio 1: Query con ambito campo
+## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Esempio 1: Query con ambito per un elenco di campi
 
-Questo primo esempio non è Lucene specifici, ma è giocando a introdurre il concetto di query fondamentali prima: contenimento. Questo esempio limita l'ambito dell'esecuzione di query e della risposta a un numero ridotto di campi specifici. È importante sapere come strutturare una risposta JSON leggibile quando lo strumento usato è Postman o Esplora ricerche. 
+Questo primo esempio non è Lucene specifici, ma è giocando a introdurre il concetto di query fondamentali prima: campo ambito. In questo esempio viene definito l'ambito dell'intera query e la risposta ai pochi campi specifici. È importante sapere come strutturare una risposta JSON leggibile quando lo strumento usato è Postman o Esplora ricerche. 
 
-In breve, la query punta solo al campo *business_title* e specifica che vengano restituite solo le qualifiche professionali. La sintassi è **searchFields** per limitare l'esecuzione della query al campo business_title e **select** per specificare i campi da includere nella risposta.
+In breve, la query punta solo al campo *business_title* e specifica che vengano restituite solo le qualifiche professionali. Il **searchFields** parametro consente di limitare l'esecuzione di query e solo il campo business_title, e **seleziona** specifica quali campi vengono inclusi nella risposta.
 
 ### <a name="partial-query-string"></a>Stringa di query parziali
 
@@ -99,6 +99,11 @@ Di seguito è la stessa query con più campi in un elenco delimitato da virgole.
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
 ```
 
+Gli spazi dopo le virgole sono facoltativi.
+
+> [!Tip]
+> Quando si usa l'API REST dal codice dell'applicazione, non dimenticare di codificare in URL parametri quali `$select` e `searchFields`.
+
 ### <a name="full-url"></a>URL completo
 
 ```http
@@ -109,41 +114,44 @@ La risposta per questa query dovrebbe essere simile alla seguente schermata.
 
   ![Risposta di esempio di Postman](media/search-query-lucene-examples/postman-sample-results.png)
 
-Si sarà notato il punteggio di ricerca nella risposta. Si ottengono punteggi uniformi pari a 1 in assenza di classificazione perché la ricerca non è una ricerca full-text o perché non sono stati applicati criteri. Per ricerche Null senza criteri le righe vengono restituite in ordine arbitrario. Se si includono criteri effettivi, i punteggi di ricerca si convertono in valori significativi.
+Si sarà notato il punteggio di ricerca nella risposta. Si ottengono punteggi uniformi pari a 1 in assenza di classificazione perché la ricerca non è una ricerca full-text o perché non sono stati applicati criteri. Per ricerche Null senza criteri le righe vengono restituite in ordine arbitrario. Quando si includono i criteri di ricerca effettivo, si noterà ricerca punteggi si trasformano in valori significativi.
 
-## <a name="example-2-intra-field-filtering"></a>Esempio 2 Filtro all'interno del campo
+## <a name="example-2-fielded-search"></a>Esempio 2 Ricerca con campo
 
-La sintassi Lucene completa supporta espressioni in un campo. Questo esempio cerca business_title con il termine senior ma non junior.
+Sintassi completa di Lucene supporta espressioni di ricerca singolo ambito a un campo specifico. Questo esempio cerca business_title con il termine senior ma non junior.
 
 ### <a name="partial-query-string"></a>Stringa di query parziali
 
 ```http
-searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+$select=business_title&search=business_title:(senior NOT junior)
 ```
 
 Di seguito è la stessa query con più campi.
 
 ```http
-searchFields=business_title, posting_type&$select=business_title, posting_type&search=business_title:senior+NOT+junior AND posting_type:external
+$select=business_title, posting_type&search=business_title:(senior NOT junior) AND posting_type:external
 ```
 
 ### <a name="full-url"></a>URL completo
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
   ![Risposta di esempio di Postman](media/search-query-lucene-examples/intrafieldfilter.png)
 
-Specificando una costruzione **fieldname:searchterm**, è possibile definire un'operazione di query con campo, dove il campo è una singola parola e il termine di ricerca è una singola parola o frase, facoltativamente con operatori booleani. Ecco alcuni esempi:
+È possibile definire un'operazione di ricerca con campo con il **fieldName:searchExpression** sulla sintassi, in cui l'espressione di ricerca può essere una singola parola o una frase o un'espressione più complessa tra parentesi, facoltativamente con gli operatori booleani. Ecco alcuni esempi:
 
-* business_title:(senior NOT junior)
-* state:("New York" AND "New Jersey")
-* business_title:(senior NOT junior) posting_type:external AND
+- `business_title:(senior NOT junior)`
+- `state:("New York" OR "New Jersey")`
+- `business_title:(senior NOT junior) AND posting_type:external`
 
-Assicurarsi di inserire più stringhe racchiuse tra virgolette se si vuole che entrambe le stringhe siano valutate come una singola entità, come in questo caso per la ricerca di due città distinte nel campo "location". Assicurarsi anche che l'operatore sia in lettere maiuscole, come NOT e AND.
+Assicurarsi di inserire più stringhe racchiuse tra virgolette doppie se si desidera che entrambe le stringhe siano valutate come una singola entità, come in questo caso la ricerca di due posizioni distinte nel `state` campo. Assicurarsi anche che l'operatore sia in lettere maiuscole, come NOT e AND.
 
-Il campo specificato in **nomecampo:terminericerca** deve essere un campo ricercabile. Per informazioni dettagliate sull'uso di attributi dell'indice nelle definizioni campo, vedere [Creare l'indice (API REST del servizio Ricerca di Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index) .
+Il campo specificato nel **fieldName:searchExpression** deve essere un campo ricercabile. Per informazioni dettagliate sull'uso di attributi dell'indice nelle definizioni campo, vedere [Creare l'indice (API REST del servizio Ricerca di Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index) .
+
+> [!NOTE]
+> Nell'esempio precedente, è stata non occorre utilizzare il `searchFields` parametro perché ogni parte della query ha un nome di campo specificato in modo esplicito. Tuttavia, è comunque possibile usare il `searchFields` parametro se si desidera eseguire una query in cui alcune parti sono limitate a un campo specifico e il resto è stato possibile applicare ai campi diversi. Ad esempio, la query `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` corrisponderebbe `senior NOT junior` solo al `business_title` campo, mentre in base alla "external" con il `posting_type` campo. Il nome del campo previsto **fieldName:searchExpression** ha sempre la precedenza sulle `searchFields` parametro, perché in questo esempio, non è necessario includere `business_title` nel `searchFields` parametro.
 
 ## <a name="example-3-fuzzy-search"></a>Esempio 3: Ricerca fuzzy
 

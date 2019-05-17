@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ff291bda87ca4b2b4055e36989b035cf410b3b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744313"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561231"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrizione di un cluster di Service Fabric
 Cluster Resource Manager di Service Fabric fornisce alcuni meccanismi per descrivere un cluster. Durante la fase di esecuzione, Cluster Resource Manager usa queste informazioni per assicurare la disponibilità elevata dei servizi in esecuzione sul cluster. Applicando queste regole importanti, tenta anche di ottimizzare il consumo di risorse all'interno del cluster.
@@ -33,7 +33,7 @@ Cluster Resource Manager supporta diverse funzionalità che descrivono un cluste
 * Capacità del nodo
 
 ## <a name="fault-domains"></a>Domini di errore
-Un dominio di errore è un'area di errore coordinato. Un singolo computer è un dominio di errore, in quanto il computer si può arrestare da solo per vari motivi, da interruzioni dell'alimentazione a errori delle unità o firmware NIC non valido. I computer connessi allo stesso commutatore Ethernet si trovano nello stesso dominio di errore, analogamente ai computer che condividono una singola fonte di alimentazione o si trovano nella stessa posizione. Poiché è naturale che gli errori hardware si sovrappongano, i domini di errore sono intrinsecamente gerarchici e sono rappresentati come URI in Service Fabric.
+Un dominio di errore è un'area di errore coordinato. Un singolo computer è un dominio di errore, in quanto il computer si può arrestare da solo per vari motivi, da interruzioni dell'alimentazione a errori delle unità o firmware NIC non valido. I computer connessi allo stesso commutatore Ethernet si trovano nello stesso dominio di errore, analogamente ai computer che condividono una singola fonte di alimentazione o si trovano nella stessa posizione. Poiché è naturale per errori hardware si sovrappongano, i domini di errore sono intrinsecamente gerarchici e sono rappresentati come URI in Service Fabric.
 
 È importante che i domini di errore siano impostati correttamente poiché Service Fabric usa queste informazioni per posizionare in modo sicuro i servizi. Service Fabric non posiziona i servizi in modo che la perdita di un dominio di errore (a causa dell'errore di qualche componente) causi l'interruzione di un servizio. Service Fabric, nell'ambiente di Azure, usa le informazioni del dominio di errore fornite dall'ambiente per configurare in modo corretto i nodi nel cluster per conto dell'utente. Nella versione autonoma di Service Fabric, i domini di errore vengono definiti al momento della configurazione del cluster 
 
@@ -95,13 +95,17 @@ Non è previsto alcun limite effettivo per il numero totale di domini di errore 
 ![Errore e layout dei domini di aggiornamento][Image4]
 </center>
 
-Non esiste un layout ottimale, ogni layout presenta vantaggi e svantaggi. Ad esempio, il modello di tipo 1FD:1UD è semplice da configurare. Il modello con un dominio di aggiornamento per nodo è probabilmente quello più noto. Durante l'aggiornamento, ogni nodo viene aggiornato in modo indipendente. È simile alla modalità con la quale un piccolo gruppo di computer veniva aggiornato manualmente in passato. 
+Non esiste un layout ottimale, ogni layout presenta vantaggi e svantaggi. Ad esempio, il modello di tipo 1FD:1UD è semplice da configurare. Il modello con un dominio di aggiornamento per nodo è probabilmente quello più noto. Durante l'aggiornamento, ogni nodo viene aggiornato in modo indipendente. È simile alla modalità con la quale un piccolo gruppo di computer veniva aggiornato manualmente in passato.
 
 Il modello più comune è basato sulla matrice FD/UD, in cui i domini di errore e i domini di aggiornamento formano una tabella e i nodi vengono posizionati a partire dalla diagonale. È il modello usato per impostazione predefinita nei cluster di Service Fabric in Azure. Per i cluster con molti nodi, il risultato è simile al complesso modello di matrice precedente.
 
+> [!NOTE]
+> Cluster di Service Fabric ospitate in Azure non supportano la modifica della strategia predefinita. Solo i cluster autonomi offrono la personalizzazione.
+>
+
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Vincoli del dominio di errore e di aggiornamento e comportamento risultante
 ### <a name="default-approach"></a>*Approccio predefinito*
-Per impostazione predefinita, il servizio Gestione risorse cluster mantiene bilanciati i servizi tra i domini di errore e di aggiornamento. Tale equilibrio è modellato come un [vincolo](service-fabric-cluster-resource-manager-management-integration.md). Il vincolo dei domini di errore e di aggiornamento afferma: "Per una data partizione di servizio non deve mai esistere una differenza maggiore di uno nel numero di oggetti servizio (istanze di servizio senza stato o repliche con stato) tra due domini dello stesso livello gerarchico". Si supponga che questo vincolo fornisca una garanzia di "differenza massima". Il vincolo dei domini di errore e di aggiornamento impedisce determinati spostamenti o disposizioni che violano la regola indicata in precedenza. 
+Per impostazione predefinita, il servizio Gestione risorse cluster mantiene bilanciati i servizi tra i domini di errore e di aggiornamento. Tale equilibrio è modellato come un [vincolo](service-fabric-cluster-resource-manager-management-integration.md). Il vincolo dei domini di errore e di aggiornamento afferma: "Per una data partizione di servizio non deve mai esistere una differenza maggiore di uno nel numero di oggetti servizio (istanze di servizio senza stato o repliche con stato) tra due domini dello stesso livello gerarchico". Si supponga che questo vincolo fornisca una garanzia di "differenza massima". Il vincolo dei domini di errore e di aggiornamento impedisce determinati spostamenti o disposizioni che violano la regola indicata in precedenza.
 
 Esaminiamo un esempio. Si supponga di avere un cluster con sei nodi, configurato con cinque domini di errore e cinque domini di aggiornamento.
 
@@ -339,7 +343,7 @@ mediante ClusterConfig.json per le distribuzioni autonome
 >
 
 ## <a name="node-properties-and-placement-constraints"></a>Proprietà dei nodi e vincoli di posizionamento
-Nella maggior parte dei casi, si vuole assicurare che determinati carichi di lavoro vengano eseguiti solo su determinati tipi di nodi nel cluster. Ad esempio, è possibile che alcuni carichi di lavoro richiedano GPU o SSD, mentre altri no. Un ottimo esempio di uso dell'hardware per carichi di lavoro specifici è dato da quasi tutte le architettura a più livelli. Alcuni computer fungono da lato front-end o API dell'applicazione e pertanto sono probabilmente esposti al client o a Internet. Altri computer, spesso con risorse hardware diverse, gestiscono il lavoro dei livelli di calcolo o archiviazione. In genere _non_ sono esposti direttamente a Internet o ai client. Service Fabric prevede alcune situazioni in cui determinati carichi di lavoro dovranno essere eseguiti in configurazioni hardware specifiche, Ad esempio: 
+Nella maggior parte dei casi, si vuole assicurare che determinati carichi di lavoro vengano eseguiti solo su determinati tipi di nodi nel cluster. Ad esempio, è possibile che alcuni carichi di lavoro richiedano GPU o SSD, mentre altri no. Un ottimo esempio di uso dell'hardware per carichi di lavoro specifici è dato da quasi tutte le architettura a più livelli. Alcuni computer fungono da lato front-end o API dell'applicazione e pertanto sono probabilmente esposti al client o a Internet. Altri computer, spesso con risorse hardware diverse, gestiscono il lavoro dei livelli di calcolo o archiviazione. In genere _non_ sono esposti direttamente a Internet o ai client. Service Fabric prevede alcune situazioni in cui determinati carichi di lavoro dovranno essere eseguiti in configurazioni hardware specifiche, Ad esempio:
 
 * Un'applicazione esistente con n livelli è stata "elevata e spostata" in un ambiente Service Fabric.
 * Un carico di lavoro deve essere eseguito su hardware specifico per finalità di prestazioni, scalabilità o isolamento di sicurezza.

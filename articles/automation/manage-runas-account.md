@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/26/2019
+ms.date: 05/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: af67109fb7f55f365cd71714a3eefab2336b636a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a104c9e41ef1843c377b0406b499ffae504db97
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61301144"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595692"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gestire account RunAs di Automazione di Azure
 
@@ -37,6 +37,9 @@ Esistono due tipi di account RunAs:
   
   > [!NOTE]
   > Le sottoscrizioni Cloud Solution Provider di Azure (Azure CSP) supportano solo il modello Azure Resource Manager, i servizi non Azure Resource Manager non sono disponibili nel programma. Quando si usa una sottoscrizione CSP, l'Account RunAs di Azure non verrà creato. L'Account RunAs di Azure viene comunque creato. Per altre informazioni sulle sottoscrizioni CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+
+  > [!NOTE]
+  > L'entità servizio per un Account runas non dispone di autorizzazioni per la lettura di Azure Active Directory per impostazione predefinita. Se si desidera aggiungere autorizzazioni di lettura o la gestione di Azure Active directory, è necessario concedere tale autorizzazione per l'entità nel servizio **le autorizzazioni API**. Per altre informazioni, vedere [aggiungere le autorizzazioni per accedere alle API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="permissions"></a>Autorizzazioni per la configurazione degli account RunAs
 

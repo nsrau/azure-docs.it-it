@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: d1e9a6da399adcdca87c1d6dc30eaf425ec0541e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72d7956036404d13849f7c2b08f9df4210f12aa7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61453601"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597265"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Connettere Raspberry Pi ad Azure IoT Hub (Node. js)
 
@@ -199,10 +199,10 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
    node -v
    ```
 
-   Se la versione è anteriore alla 4.x o se non è presente alcun Node.js in Pi, installare la versione più recente.
+   Se la versione è inferiore a 10.x o se è presente alcun Node. js nel raspberry Pi, installare la versione più recente.
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
@@ -230,7 +230,7 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
    nano config.json
    ```
 
-   ![File di configurazione](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
+   ![File config](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    Questo file contiene due elementi configurabili. Il primo è `interval`, che definisce l'intervallo di tempo (in millisecondi) tra due messaggi inviati al cloud. Il secondo è `simulatedData`, ossia un valore booleano che indica se usare o no i dati del sensore simulato.
 

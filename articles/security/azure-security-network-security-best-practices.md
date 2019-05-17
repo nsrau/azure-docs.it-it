@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: 78402d3e388f08eae6652859a71c93ff408a5b0d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f36658d57fb514ff279c39e9cb1644cf56341ec4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152981"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761840"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Azure e le procedure consigliate per la sicurezza di rete
 Questo articolo descrive una raccolta di Azure e le procedure consigliate per migliorare la sicurezza di rete. derivate dalla nostra esperienza con la rete di Azure e dalle esperienze di altri clienti.
@@ -129,7 +129,7 @@ Molte organizzazioni hanno scelto la strada dell'IT ibrido. Con l'ambiente IT ib
 
 In un scenario IT ibrido, vi è in genere qualche tipo di connettività cross-premise. che consente alla società di connettere le proprie reti locali alle reti virtuali di Azure. Sono disponibili due soluzioni di connettività cross-premise:
 
-* [Site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). è una tecnologia attendibile, affidabile e consolidata, ma la connessione avviene tramite Internet. La larghezza di banda è vincolata a un massimo di circa 200 Mbps. Site-to-site VPN è una soluzione migliore in alcuni scenari.
+* [Site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). è una tecnologia attendibile, affidabile e consolidata, ma la connessione avviene tramite Internet. Larghezza di banda è vincolata a un massimo di circa 1,25 Gbps. Site-to-site VPN è una soluzione migliore in alcuni scenari.
 * **Azure ExpressRoute**. per la connettività cross-premise, [ExpressRoute](../expressroute/expressroute-introduction.md) è la scelta consigliata. ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività. Con ExpressRoute, è possibile stabilire connessioni ai servizi cloud Microsoft come Azure, Office 365 e Dynamics 365. ExpressRoute è una rete WAN dedicata collegamento tra il percorso locale o un provider di hosting Microsoft Exchange. Poiché si tratta di una connessione di telecomunicazioni, i dati non vengono trasmessi via internet, in modo che non viene esposto a potenziali rischi di comunicazioni internet.
 
 Il percorso della connessione di ExpressRoute può influire sulla capacità di firewall, la scalabilità, affidabilità e la visibilità del traffico di rete. È necessario identificare la posizione in cui terminare ExpressRoute nelle reti esistenti (locale). È possibile:

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728821"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596977"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -389,3 +389,18 @@ Aggiornare il ruolo RBAC dell'utente per il controller:
     * Per la *assegna accesso a* selezionate *utente, gruppo o entità servizio Azure AD*.
     * Per la *seleziona* cercare l'utente che si desidera concedere le autorizzazioni.
 1. Fare clic su *Save*.
+
+## <a name="controller-create-failing-due-to-controller-name-length"></a>Creare controller non riuscite perché la lunghezza del nome controller
+
+### <a name="reason"></a>`Reason`
+Nome del controller di spazi di sviluppo di Azure non può contenere più di 31 caratteri. Se il nome del controller supera 31 caratteri quando si abilita spazi di sviluppo in un cluster servizio contenitore di AZURE o creare un controller, si riceverà un errore, ad esempio:
+
+*Non è stato possibile creare un controller di spazi di sviluppo per il cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Nome del Controller di spazi di sviluppo Azure 'a-controller-name-that-is-way-too-long-aks-east-us' non è valido. Violata di vincoli: I nomi dei Controller di spazi di sviluppo di Azure può solo essere al massimo il 31 caratteri*
+
+### <a name="try"></a>Prova
+
+Creare un controller con un nome alternativo:
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```
