@@ -184,7 +184,7 @@ Quando si copiano dati da SAP BW, vengono usati i mapping seguenti tra i tipi di
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | String |
-| UNITÀ | String |
+| UNIT | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |
