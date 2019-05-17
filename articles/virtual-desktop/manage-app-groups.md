@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f0cdd28be8c6e7390aa26fdc2dfbf32ec5542c2d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578748"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233916"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Esercitazione: Gestire gruppi di app per l'anteprima di Desktop virtuale Windows
 
@@ -73,7 +73,7 @@ Prima di iniziare, [scaricare e importare il modulo Desktop virtuale Windows di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato i gruppi di app, creare entità servizio e assegnare i ruoli agli utenti. Per informazioni, vedere l'esercitazione su come creare entità servizio e assegnazioni di ruolo con PowerShell.
+In questa esercitazione si è appreso come creare gruppi di app, popolarli con RemoteApps e assegnare utenti. Per altre informazioni su come accedere a Desktop virtuale Windows, continuare con le procedure per connettersi a Desktop virtuale Windows.
 
-> [!div class="nextstepaction"]
-> [Creare entità servizio e assegnazioni di ruolo con PowerShell](create-service-principal-role-powershell.md)
+- [Connettersi al client di Desktop remoto in Windows 7 e Windows 10](connect-windows-7-and-10.md)
+- [Connettersi al client Web dell'anteprima di Desktop virtuale Windows](connect-web.md)

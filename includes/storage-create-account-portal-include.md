@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 842201ee20ef2e13c5179ccb5992a1ed98d36a3e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 56545b02c35d68455497c93582073c73d6c75da5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237868"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815645"
 ---
 Per creare un account di archiviazione per utilizzo generico v2 nel portale di Azure, eseguire questa procedura:
 
@@ -33,7 +33,7 @@ Per creare un account di archiviazione per utilizzo generico v2 nel portale di A
    |Modello di distribuzione     |Gestione risorse         |
    |Prestazioni     |Standard         |
    |Tipo di account     |Archiviazione v2 (utilizzo generico V2)         |
-   |Replica     |Archiviazione con ridondanza geografica e accesso in lettura (archiviazione con ridondanza locale)         |
+   |Replica     |Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).         |
    |Livello di accesso     |Accesso frequente         |
 
 1. Selezionare **Rivedi e crea** per esaminare le impostazioni dell'account di archiviazione e creare l'account.

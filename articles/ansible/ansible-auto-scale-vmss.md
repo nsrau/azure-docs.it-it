@@ -1,47 +1,63 @@
 ---
-title: Ridimensionare automaticamente un set di scalabilità di macchine virtuali in Azure con Ansible
-description: Informazioni su come usare Ansible per ridimensionare un set di scalabilità di macchine virtuali con scalabilità automatica in Azure
-ms.service: azure
+title: Esercitazione - Ridimensionare automaticamente i set di scalabilità di macchine virtuali in Azure con Ansible | Microsoft Docs
+description: Informazioni su come usare Ansible per ridimensionare set di scalabilità di macchine virtuali con scalabilità automatica in Azure
 keywords: ansible, azure, devops, bash, playbook, scalabilità, scalabilità automatica, macchina virtuale, set di scalabilità di macchine virtuali, vmss
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/10/2018
-ms.openlocfilehash: 578ad3207f62e74805be056ca11d3bd9b46513da
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: 4f2cd66b7460fc6fe48cb55f45bf4bc309ae054c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792430"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231276"
 ---
-# <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Ridimensionare automaticamente un set di scalabilità di macchine virtuali in Azure con Ansible
-Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per gestire il set di scalabilità di macchine virtuali in Azure, così come si farebbe con qualsiasi altra risorsa di Azure. 
+# <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>Esercitazione: Ridimensionare automaticamente i set di scalabilità di macchine virtuali in Azure con Ansible
 
-Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app. In questo articolo si creerà un'impostazione di scalabilità automatica e lo si assocerà a un set di scalabilità di macchine virtuali esistente. Nell'impostazione di scalabilità automatica è possibile configurare una regola per aumentare o ridurre il numero di istanze come desiderato.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+
+La funzionalità per adattare automaticamente il numero di istanze di macchine virtuali è denominata [scalabilità automatica](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview). Il vantaggio della scalabilità automatica è che riduce il sovraccarico di gestione per monitorare e ottimizzare le prestazioni dell'applicazione. È possibile configurare la scalabilità automatica in risposta a una richiesta o una pianificazione definita. Con Ansible è possibile specificare le regole di scalabilità automatica che definiscono le prestazioni accettabili per un'esperienza positiva del cliente.
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Definire un profilo di scalabilità automatica
+> * Ridimensionare automaticamente in base a una pianificazione ricorrente
+> * Ridimensionare automaticamente in base alle prestazioni delle app
+> * Recuperare informazioni sulle impostazioni di scalabilità automatica 
+> * Disabilitare un'impostazione di scalabilità automatica
 
 ## <a name="prerequisites"></a>Prerequisiti
-- **Sottoscrizione di Azure** - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- Un set di scalabilità di macchine virtuali di Azure esistente. - Se non è disponibile, [creare un set di scalabilità di macchine virtuali in Azure con Ansible](https://docs.microsoft.com/azure/ansible/ansible-create-configure-vmss).
 
-> [!Note]
-> In questa esercitazione, per eseguire i playbook di esempio seguenti è necessario Ansible 2.7. 
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
+[!INCLUDE [ansible-prereqs-vm-scale-set.md](../../includes/ansible-prereqs-vm-scale-set.md)]
 
-## <a name="auto-scale-based-on-a-schedule"></a>Scalabilità automatica in base a una pianificazione   
+## <a name="autoscale-based-on-a-schedule"></a>Ridimensionare automaticamente in base a una pianificazione
+
 Per abilitare la scalabilità automatica su un set di scalabilità, è innanzitutto necessario definire un profilo di scalabilità automatica. Questo profilo definisce la capacità predefinita, minima e massima del set di scalabilità. Questi limiti consentono di controllare i costi perché le istanze di macchine virtuali non vengono create di continuo. Permettono anche di trovare un equilibrio appropriato tra prestazioni e numero minimo di istanze che rimangono in un evento di riduzione. 
 
-È possibile aumentare e ridurre il numero di istanze dei set di scalabilità di macchine virtuali in base a una pianificazione ricorrente oppure a una data specifica. In questa sezione viene presentato un playbook di Ansible di esempio che crea un'impostazione di scalabilità automatica che aumenta a tre il numero di istanze di macchine virtuali nei set di scalabilità alle 10:00 di ogni lunedì, fuso orario del Pacifico. 
+Ansible consente di ridimensionare i set di scalabilità in base a una data specifica o a una pianificazione ricorrente.
+
+Il codice del playbook in questa sezione consente di aumentare a tre il numero di istanze delle macchine virtuali alle 10 del mattino di ogni lunedì.
+
+Salvare il playbook seguente come `vmss-auto-scale.yml`:
 
 ```yml
 ---
 - hosts: localhost
   vars:
     resource_group: myResourceGroup
-    vmss_name: myVMSS
+    vmss_name: myScaleSet
     name: autoscalesetting
   tasks: 
-    - name: Create auto scaling
+    - name: Create autoscaling
       azure_rm_autoscale:
          resource_group: "{{ resource_group }}"
          name: "{{ name }}"
@@ -65,23 +81,31 @@ Per abilitare la scalabilità automatica su un set di scalabilità, è innanzitu
               - '10'
 ```
 
-Salvare il playbook come *vmss-auto-scale.yml*. Per eseguire il playbook Ansible, usare il comando **ansible-playbook** come segue:
+Eseguire il playbook usando il comando `ansible-playbook`:
 
 ```bash
 ansible-playbook vmss-auto-scale.yml
 ```
 
-## <a name="auto-scale-based-on-performance-data"></a>Scalabilità automatica in base ai dati delle prestazioni
-Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle istanze di macchine virtuali nei set di scalabilità. Se il carico aumenta in modo coerente e non momentaneamente, è possibile configurare regole di scalabilità automatica per aumentare il numero di istanze di macchine virtuali nel set di scalabilità. Quando sono state create le istanze di macchine virtuali e sono state distribuite le applicazioni, il set di scalabilità inizia a distribuire loro il traffico tramite il bilanciamento del carico. È possibile controllare le metriche da monitorare, ad esempio per la CPU o il disco, il tempo per cui il carico dell'applicazione deve soddisfare una determinata soglia e il numero di istanze di macchine virtuali da aggiungere al set di scalabilità.
+## <a name="autoscale-based-on-performance-data"></a>Ridimensionare automaticamente in base ai dati delle prestazioni
 
-È possibile aumentare e ridurre il numero di istanze nei set di scalabilità di macchine virtuali in base ai valori soglia per le metriche delle prestazioni, a una pianificazione ricorrente oppure a una data specifica. In questa sezione viene presentato un playbook di Ansible di esempio che controlla il carico di lavoro negli ultimi 10 minuti alle 18.00 di ogni lunedì, fuso orario del Pacifico, e aumenta a quattro o riduce a uno il numero di istanze di macchine virtuali nei set di scalabilità in base alla metrica della percentuale di utilizzo della CPU. 
+Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle istanze di macchine virtuali nei set di scalabilità. Se il carico aumenta in modo coerente e non momentaneamente, è possibile configurare regole di scalabilità automatica per aumentare il numero di istanze di macchine virtuali nel set di scalabilità. Quando sono state create le istanze di macchine virtuali e sono state distribuite le applicazioni, il set di scalabilità inizia a distribuire loro il traffico tramite il bilanciamento del carico. Ansible consente di controllare le metriche da monitorare, ad esempio l'utilizzo della CPU, l'utilizzo del disco e il tempo di caricamento delle app. È possibile aumentare e ridurre il numero di istanze nei set di scalabilità in base ai valori soglia per le metriche delle prestazioni, a una pianificazione ricorrente oppure a una data specifica. 
+
+Il codice del playbook in questa sezione consente di controllare il carico di lavoro della CPU nei 10 minuti che precedono le 18 di ogni lunedì. 
+
+In base alle metriche delle prestazioni della CPU, il playbook esegue una delle azioni seguenti:
+
+- Aumenta a quattro il numero di istanze delle macchine virtuali
+- Riduce a uno il numero di istanze delle macchine virtuali
+
+Salvare il playbook seguente come `vmss-auto-scale-metrics.yml`:
 
 ```yml
 ---
 - hosts: localhost
   vars:
     resource_group: myResourceGroup
-    vmss_name: myVMSS
+    vmss_name: myScaleSet
     name: autoscalesetting
   tasks:
   - name: Get facts of the resource group
@@ -89,11 +113,11 @@ Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle ista
       name: "{{ resource_group }}"
     register: rg
 
-  - name: Get VMSS resource uri
+  - name: Get scale set resource uri
     set_fact:
       vmss_id: "{{ rg.ansible_facts.azure_resourcegroups[0].id }}/providers/Microsoft.Compute/virtualMachineScaleSets/{{ vmss_name }}"
     
-  - name: Create auto scaling
+  - name: Create autoscaling
     azure_rm_autoscale:
       resource_group: "{{ resource_group }}"
       name: "{{ name }}"
@@ -151,14 +175,17 @@ Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle ista
             value: '1'
 ```
 
-Salvare il playbook come *vmss-auto-scale-metrics.yml*. Per eseguire il playbook Ansible, usare il comando **ansible-playbook** come segue:
+Eseguire il playbook usando il comando `ansible-playbook`:
 
 ```bash
 ansible-playbook vmss-auto-scale-metrics.yml
 ```
 
-## <a name="get-information-for-existing-autoscale-settings"></a>Ottenere informazioni sulle impostazioni di scalabilità automatica esistenti
-È possibile ottenere i dettagli di qualsiasi impostazione di scalabilità automatica tramite il modulo *azure_rm_autoscale_facts* con il playbook come segue:
+## <a name="get-autoscale-settings-information"></a>Ottenere informazioni sulle impostazioni di scalabilità automatica 
+
+Il codice del playbook in questa sezione usa il modulo `azure_rm_autoscale_facts` per recuperare i dettagli dell'impostazione di scalabilità automatica.
+
+Salvare il playbook seguente come `vmss-auto-scale-get-settings.yml`:
 
 ```yml
 - hosts: localhost
@@ -166,7 +193,7 @@ ansible-playbook vmss-auto-scale-metrics.yml
     resource_group: myResourceGroup
     name: autoscalesetting
   tasks: 
-    - name: Retrieve auto scale settings information
+    - name: Retrieve autoscale settings information
       azure_rm_autoscale_facts:
         resource_group: "{{ resource_group }}"
         name: "{{ name }}"
@@ -176,8 +203,19 @@ ansible-playbook vmss-auto-scale-metrics.yml
         var: autoscale_query.autoscales[0]
 ```
 
-## <a name="disable-the-autoscale-settings"></a>Disabilitare le impostazioni di scalabilità automatica
-È possibile disabilitare le impostazioni di scalabilità automatica cambiando `enabled: true` in `enabled: false` o eliminando le impostazioni di scalabilità automatica con il playbook come segue:
+Eseguire il playbook usando il comando `ansible-playbook`:
+
+```bash
+ansible-playbook vmss-auto-scale-get-settings.yml
+```
+
+## <a name="disable-autoscale-settings"></a>Disabilitare le impostazioni di scalabilità automatica
+
+È possibile disabilitare le impostazioni di scalabilità automatica in due modi. Un modo consiste nel modificare il valore della chiave `enabled` da `true` a `false`. Il secondo modo consiste nell'eliminare l'impostazione.
+
+Il codice del playbook in questa sezione consente di eliminare l'impostazione di scalabilità automatica. 
+
+Salvare il playbook seguente come `vmss-auto-scale-delete-setting.yml`:
 
 ```yml
 - hosts: localhost
@@ -185,13 +223,20 @@ ansible-playbook vmss-auto-scale-metrics.yml
     resource_group: myResourceGroup
     name: autoscalesetting
   tasks: 
-    - name: Delete auto scaling
+    - name: Delete autoscaling
       azure_rm_autoscale:
          resource_group: "{{ resource_group }}"
          name: "{{ name }}"
          state: absent
 ```
 
+Eseguire il playbook usando il comando `ansible-playbook`:
+
+```bash
+vmss-auto-scale-delete-setting.yml
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
+
 > [!div class="nextstepaction"] 
-> [Playbook Ansible di esempio per i set di scalabilità di macchine virtuali](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Esercitazione: Aggiornare l'immagine personalizzata di set di scalabilità di macchine virtuali di Azure tramite Ansible](./ansible-vmss-update-image.md)

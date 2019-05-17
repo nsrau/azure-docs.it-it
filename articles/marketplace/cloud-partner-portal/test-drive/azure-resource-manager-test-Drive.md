@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 7665050dfc9a561f42fec00c40d0a40dfa5cc183
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941581"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606429"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Test drive di Azure Resource Manager
 
@@ -82,7 +82,7 @@ Tuttavia, il test drive funziona in modalità interamente automatica, senza inte
 
 ### <a name="accepted-parameter-metadata-types"></a>Tipi di metadati di parametro accettati
 
-| Tipo di metadati   | Tipo di parametro  | DESCRIZIONE     | Valore di esempio    |
+| Tipo di metadati   | Tipo parametro  | Descrizione     | Valore di esempio    |
 |---|---|---|---|
 | **baseuri**     | string          | URI di base del pacchetto di distribuzione| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
 | **username**    | string          | Nuovo nome utente casuale.| admin68876      |
@@ -382,7 +382,7 @@ In caso contrario, creare un nuovo tenant in Azure Active Directory.
 
 ![Elenco dei tenant di Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Definire l'organizzazione, il dominio e il paese del tenant di Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Definire l'organizzazione, dominio e paese/area geografica per il tenant di Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Confermare la selezione](./media/azure-resource-manager-test-drive/subdetails6.png)
 

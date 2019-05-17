@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: c4ab209d63a01d9e1089eec351eff64fc116f403
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924966"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236767"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Esercitazione: Creare un pool di host con Azure Marketplace
 
@@ -70,7 +70,7 @@ Per il pannello di informazioni sul tenant di Desktop virtuale Windows:
 
 1. Immettere il **nome del gruppo di tenant di Desktop virtuale Windows** che contiene il proprio tenant. Se non è stato pianificato uno specifico nome di gruppo di tenant, lasciare il valore predefinito.
 2. Immettere il **nome del tenant di Desktop virtuale Windows** in cui verrà creato il pool di host.
-3. Specificare il tipo di credenziali da usare per l'autenticazione come proprietario di Servizi Desktop remoto del tenant di Desktop virtuale Windows. Se si seleziona **Entità servizio**, è necessario specificare anche l'**ID tenant di Azure AD** associato all'entità servizio.
+3. Specificare il tipo di credenziali da usare per l'autenticazione come proprietario di Servizi Desktop remoto del tenant di Desktop virtuale Windows. Se è stata completata l'esercitazione [Creare entità servizio e assegnazioni di ruolo con PowerShell](./create-service-principal-role-powershell.md), selezionare **Entità servizio**. È necessario immettere l'**ID tenant di Azure AD** dell'istanza di Azure Active Directory che contiene l'entità servizio.
 4. Immettere le credenziali per l'account amministratore del tenant. Sono supportate solo entità servizio con una credenziale password.
 5. Selezionare **OK**.
 

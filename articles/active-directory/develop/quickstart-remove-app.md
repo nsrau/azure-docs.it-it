@@ -3,8 +3,8 @@ title: Rimuovere un'applicazione registrata con Microsoft Identity Platform | Az
 description: Informazioni su come rimuovere un'applicazione registrata con Microsoft Identity Platform.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20d7218b9b1d53b3cfb72a12ee34a77956327ce2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 271fe45082749afc310e8f217e8119d3931c3cac
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093195"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413716"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Guida introduttiva: Rimuovere un'applicazione registrata con Microsoft Identity Platform (anteprima)
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Guida introduttiva: Rimuovere un'applicazione registrata con Microsoft Identity Platform
 
 Gli sviluppatori aziendali e i provider SaaS (Software as a Service) che hanno registrato applicazioni con Microsoft Identity Platform potrebbero dover rimuovere la registrazione di un'applicazione.
 
@@ -35,10 +35,7 @@ In questa guida introduttiva si apprende come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per iniziare, assicurarsi di soddisfare questi prerequisiti:
-
-* Avere un tenant in cui sono registrate applicazioni. Per informazioni su come aggiungere e registrare app, vedere [Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md).
-* Acconsentire esplicitamente all'esperienza di anteprima per le registrazioni di app nel portale di Azure. Le procedure illustrate in questa guida introduttiva corrispondono alla nuova interfaccia utente e funzionano solo se si è acconsentito esplicitamente all'esperienza di anteprima.
+È necessario avere un tenant in cui sono registrate applicazioni. Per informazioni su come aggiungere e registrare app, vedere [Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md).
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Rimuovere un'applicazione creata dall'utente o dalla relativa organizzazione
 
@@ -47,8 +44,8 @@ Le applicazioni registrate dall'utente o dalla relativa organizzazione vengono r
 ### <a name="to-remove-an-application"></a>Per rimuovere un'applicazione
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-2. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
-3. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app (anteprima)**. Trovare e selezionare l'applicazione che si vuole configurare. Dopo la selezione dell'app verrà visualizzata la pagina **Panoramica** dell'applicazione.
+2. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
+3. Nel riquadro di spostamento sinistro selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app**. Trovare e selezionare l'applicazione che si vuole configurare. Dopo la selezione dell'app verrà visualizzata la pagina **Panoramica** dell'applicazione.
 4. Nella pagina **Panoramica** selezionare **Elimina**.
 5. Selezionare **Sì** per confermare l'eliminazione dell'app.
 

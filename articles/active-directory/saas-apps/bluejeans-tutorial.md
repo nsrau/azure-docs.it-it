@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d1c10d9df85b04cf7b8ea7e0020bc8e802a0d5d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698929"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463553"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Esercitazione: Integrazione di Azure Active Directory con BlueJeans
 
@@ -102,18 +102,17 @@ Per configurare l'accesso Single Sign-On di Azure AD con BlueJeans, seguire ques
 
 3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-    ![Modificare la configurazione SAML di base](common/edit-urls.png)
+    ![Modificare la configurazione SAML di base](media/bluejeans-tutorial/edit-urls-bluejeans.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
+4. Nella finestra di dialogo **Configurazione SAML di base** immettere i valori seguenti:
 
-    ![Informazioni sull'accesso Single Sign-On per URL e dominio di BlueJeans](common/sp-identifier.png)
+    ![Informazioni sull'accesso Single Sign-On per URL e dominio di BlueJeans](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-    a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<companyname>.BlueJeans.com`
-
-    b. Nella casella di testo **Identificatore** digitare un URL: `http://samlsp.bluejeans.com`
-
-    > [!NOTE]
-    > Poiché il valore di URL accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di BlueJeans](https://support.bluejeans.com/contact). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+   - Nella casella di testo **Identificatore** digitare il valore seguente: `https://samlsp.bluejeans.com`
+    
+   - Nella casella di testo **URL accesso** digitare l'URL della pagina di destinazione fornita da BlueJeans: `https://<companyname>.bluejeans.com`. Per ottenere questo valore, contattare il [team di supporto clienti di BlueJeans team](https://support.bluejeans.com/contact).
+    
+   - Fare clic su **Save**.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -161,9 +160,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con BlueJeans, seguire ques
 
     ![Salvare le modifiche](./media/bluejeans-tutorial/ic785874.png "Salvare le modifiche")
 
-    a. Nella casella di testo **User Id** (ID utente) digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    a. Nella casella di testo **User Id** (ID utente) digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. Nella casella di testo **Email** (Posta elettronica) digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. Nella casella di testo **Email** (Posta elettronica) digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     c. Fare clic su **SAVE CHANGES** (Salva modifiche).
 

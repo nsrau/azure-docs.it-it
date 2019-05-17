@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146138"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236936"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell
 
@@ -38,7 +38,7 @@ Prima di creare entità servizio e assegnazioni di ruolo, è necessario eseguire
     Install-Module AzureAD
     ```
 
-2. Eseguire i cmdlet seguenti con i valori tra virgolette sostituiti dai valori appropriati per la sessione.
+2. Eseguire i cmdlet seguenti con i valori tra virgolette sostituiti dai valori appropriati per la sessione. Se è stato appena creato il tenant di Desktop virtuale Windows con l'esercitazione [Creare un tenant in Desktop virtuale Windows](./tenant-setup-azure-active-directory.md), usare "Default Tenant Group" come nome del gruppo di tenant.
 
     ```powershell
     $myTenantGroupName = "<my-tenant-group-name>"
@@ -109,7 +109,7 @@ Ecco le tre credenziali da annotare e i cmdlet che è necessario eseguire per re
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come creare un'entità servizio da usare per accedere a Desktop virtuale Windows. Per altre informazioni su come accedere a Desktop virtuale Windows, continuare con le procedure per connettersi a Desktop virtuale Windows.
+Dopo aver creato l'entità servizio e aver assegnato un ruolo nel tenant di Desktop virtuale Windows, è possibile usarla per creare un pool di host. Per altre informazioni sui pool di host, continuare con l'esercitazione per la creazione di pool di host in Desktop virtuale Windows.
 
-- [Connettersi da Windows 10 o Windows 7](connect-windows-7-and-10.md)
-- [Connettersi da un Web browser](connect-web.md)
+ > [!div class="nextstepaction"]
+ > [Esercitazione sui pool di host di Desktop virtuale Windows](./create-host-pools-azure-marketplace.md)

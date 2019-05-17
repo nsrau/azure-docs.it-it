@@ -1,10 +1,10 @@
 ---
-title: Registrare un'app con Microsoft Identity Platform (anteprima) | Azure
+title: Registrare un'app con Microsoft Identity Platform | Microsoft Identity Platform
 description: Informazioni su come aggiungere e registrare un'applicazione con Microsoft Identity Platform.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,33 +12,29 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2018
-ms.author: celested
+ms.date: 05/09/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 366d6fe8921a5330f48da2879444e0b80cbc9bd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6943ad460bb5d852220e704492f892961992a59f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090713"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413596"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform (anteprima)
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform
 
 Gli sviluppatori aziendali e i provider SaaS (Software as a Service) possono sviluppare servizi cloud commerciali o applicazioni line-of-business integrabili con Microsoft Identity Platform per garantire la sicurezza dell'accesso e dell'autorizzazione per i propri servizi.
 
-Questa guida introduttiva illustra come aggiungere e registrare un'applicazione usando il servizio **Registrazioni app (anteprima)** nel portale di Azure in modo da consentirne l'integrazione con Microsoft Identity Platform. Per altre informazioni sulle nuove funzionalità e sui miglioramenti nella nuova esperienza di registrazione di app, vedere [questo post di blog](https://developer.microsoft.com/graph/blogs/new-app-registration/). 
-
-## <a name="prerequisite"></a>Prerequisito
-
-Per iniziare, è necessario acconsentire esplicitamente all'esperienza di anteprima per le registrazioni di app nel portale di Azure. Le procedure illustrate in questa guida introduttiva corrispondono alla nuova interfaccia utente e funzionano solo se si è acconsentito esplicitamente all'esperienza di anteprima.
+Questa guida introduttiva illustra come aggiungere e registrare un'applicazione usando il servizio **Registrazioni app** nel portale di Azure in modo da consentirne l'integrazione con Microsoft Identity Platform. Per altre informazioni sulle nuove funzionalità e sui miglioramenti nella nuova esperienza di registrazione di app, vedere [questo post di blog](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Registrare una nuova applicazione mediante il portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app (anteprima) > Nuova registrazione**.
+1. Nel riquadro di spostamento sinistro selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app > Nuova registrazione**.
 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
 
    - **Nome**: immettere un nome di applicazione significativo, che verrà visualizzato agli utenti dell'app.
