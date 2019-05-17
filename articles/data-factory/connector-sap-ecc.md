@@ -162,14 +162,14 @@ Quando si copiano dati da SAP ECC, vengono usati i mapping seguenti tra i tipi d
 
 | Tipo di dati di OData | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| Edm.Binary | string |
+| Edm.Binary | String |
 | Edm.Boolean | Bool |
-| Edm.Byte | string |
+| Edm.Byte | String |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
-| Edm.Guid | string |
+| Edm.Guid | String |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
