@@ -63,8 +63,9 @@
     - name: Scalabilità
       href: concepts-scale.md
     - name: Procedure consigliate
-      href: best-practices.md
       items:
+        - name: Panoramica
+          href: best-practices.md
         - name: Per gli operatori del cluster
           items:
             - name: Isolamento cluster e multi-tenant
@@ -115,9 +116,9 @@
           maintainContext: true
         - name: Creare nodi virtuali
           items:
-            - name: Interfaccia della riga di comando di Azure
+            - name: Utilizzare l’interfaccia della riga di comando di Azure
               href: virtual-nodes-cli.md
-            - name: Portale di Azure
+            - name: Usare il portale di Azure
               href: virtual-nodes-portal.md
         - name: Usare Virtual Kubelet
           href: virtual-kubelet.md
@@ -165,9 +166,10 @@
             - name: Usare TLS con i propri certificati
               href: ingress-own-tls.md
             - name: Usare TLS con Let's Encrypt
-              href: ingress-tls.md
               items:
-                - name: Usare un IP pubblico statico
+                - name: Usare un indirizzo IP pubblico dinamico
+                  href: ingress-tls.md
+                - name: Usare un indirizzo IP pubblico statico
                   href: ingress-static-ip.md
         - name: Traffico in uscita
           href: egress.md
@@ -212,6 +214,20 @@
         - name: Visualizzare i log dei contenitori in tempo reale (anteprima)
           href: ../azure-monitor/insights/container-insights-live-logs.md
           maintainContext: true
+    - name: Usare i contenitori di Windows Server (anteprima)
+      items:
+        - name: Creare un cluster del servizio Azure Container
+          href: windows-container-cli.md
+        - name: Connettersi in remoto
+          href: rdp.md
+        - name: Limitazioni note
+          href: windows-node-limitations.md
+        - name: Usare il dashboard di Kubernetes
+          href: kubernetes-dashboard.md
+        - name: Creare file Docker per i contenitori di Windows Server
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context'
+        - name: Ottimizzare i file Docker per i contenitori di Windows Server
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
     - name: Sviluppare ed eseguire applicazioni
       items:
         - name: Sviluppare con Dev Spaces

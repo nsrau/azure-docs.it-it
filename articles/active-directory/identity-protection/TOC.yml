@@ -46,6 +46,8 @@
           href: security-overview.md
         - name: Analizzare utenti e accessi a rischio
           href: howto-investigate-risky-users-signins.md
+        - name: Fornire feedback sugli eventi a rischio
+          href: howto-provide-risk-event-feedback.md
         - name: Configurare i criteri di rischio
           href: howto-configure-risk-policies.md
         - name: Migliorare l'accuratezza del rilevamento

@@ -208,7 +208,7 @@
       items:
         - name: Creare trasformazioni - Interfaccia della riga di comando
           href: cli-create-transform.md
-        - name: Creare processi - Interfaccia della riga di comando
+        - name: Creare i processi - Interfaccia della riga di comando
           href: cli-create-jobs.md
     - name: Codificare contenuti
       items:

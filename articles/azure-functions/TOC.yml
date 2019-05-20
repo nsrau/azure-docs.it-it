@@ -53,6 +53,8 @@
       href: functions-create-serverless-api.md
     - name: Creare una definizione OpenAPI
       href: functions-openapi-definition.md
+    - name: Connettersi a una rete virtuale
+      href: functions-create-vnet.md
     - name: Ridimensionamento di immagini con Griglia di eventi
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Creare un'app Web senza server
@@ -213,7 +215,7 @@
         - name: Connessione al database SQL
           href: functions-scenario-database-table-cleanup.md
         - name: Connettersi a una rete virtuale
-          href: functions-create-vnet.md
+          href: functions-create-vnet-old.md
         - name: Creare una definizione OpenAPI 2.0
           href: functions-api-definition-getting-started.md
         - name: Esportare in PowerApps e Microsoft Flow
@@ -297,6 +299,8 @@
       href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: Calcolatore prezzi
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Informazioni sulle quote
+      href: 'functions-scale.md#service-limits'
     - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Video

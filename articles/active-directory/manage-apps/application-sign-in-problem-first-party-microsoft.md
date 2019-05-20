@@ -3,8 +3,8 @@ title: Problemi di accesso a un'applicazione Microsoft | Microsoft Docs
 description: Risoluzione di problemi comuni relativi all'accesso ad applicazioni prodotte direttamente da Microsoft usando Azure AD (ad esempio Office 365)
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292198"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825223"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemi di accesso a un'applicazione Microsoft
 
@@ -435,7 +435,7 @@ Per verificare o convalidare un singolo criterio di accesso condizionale:
 
 6. Fare clic sul criterio che si desidera controllare.
 
-7. Verificare che non vi siano condizioni specifiche, assegnazioni o altre impostazioni che possano bloccare l'accesso dell'utente.
+7. Verifica che siano senza condizioni specifiche, assegnazioni o altre impostazioni che potrebbero bloccare l'accesso utente.
 
    >[!NOTE]
    >Può essere opportuno disabilitare temporaneamente questo criterio per assicurarsi che non impedisca gli accessi. A tale scopo, impostare **Abilita criterio** su **No** e fare clic sul pulsante **Salva**.
@@ -456,7 +456,7 @@ Per verificare o convalidare i criteri di accesso condizionale attualmente confi
 
 5.  Fare clic su **Tutte le applicazioni**.
 
-6.  Cercare l'applicazione desiderata, o a cui l'utente sta cercando di accedere, mediante il nome visualizzato o l'ID dell'applicazione.
+6.  Cercare l'applicazione che si è interessati oppure l'utente sta tentando di accedere a dall'applicazione visualizzare ID nome o dell'applicazione.
 
      >[!NOTE]
      >Se l'applicazione che si sta cercando non è visualizzata, fare clic sul pulsante **Filtro** ed espandere l'ambito dell'elenco a **Tutte le applicazioni**. Se si desidera visualizzare più colonne, fare clic sul pulsante **Colonne** per aggiungere ulteriori dettagli per le applicazioni.
