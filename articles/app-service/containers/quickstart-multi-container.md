@@ -138,7 +138,7 @@ La creazione di un'app multi-contenitore in App Web per contenitori è stata **c
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: App WordPress multi-contenitore](tutorial-multi-container-app.md)
+> [Esercitazione: App WordPress multicontenitore](tutorial-multi-container-app.md)
 
 > [!div class="nextstepaction"]
 > [Configurare un contenitore personalizzato](configure-custom-container.md)

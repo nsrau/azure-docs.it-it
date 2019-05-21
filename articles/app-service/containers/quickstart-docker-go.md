@@ -81,4 +81,4 @@ http://<app_name>.azurewebsites.net/hello
 > [Configurare un contenitore personalizzato](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Esercitazione: App WordPress multi-contenitore](tutorial-multi-container-app.md)
+> [Esercitazione: App WordPress multicontenitore](tutorial-multi-container-app.md)

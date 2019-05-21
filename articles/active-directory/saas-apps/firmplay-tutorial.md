@@ -126,7 +126,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FirmPlay - Employee Adv
 
 ### <a name="configure-firmplay---employee-advocacy-for-recruiting-single-sign-on"></a>Configurare l'accesso Single Sign-On di FirmPlay - Employee Advocacy for Recruiting
 
-Per configurare l'accesso Single Sign-On sul lago **FirmPlay - Employee Advocacy for Recruiting**, è necessario inviare il **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **FirmPlay - Employee Advocacy for Recruiting**, è necessario inviare il **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 

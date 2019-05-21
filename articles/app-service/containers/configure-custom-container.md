@@ -172,4 +172,4 @@ Gli elenchi seguenti illustrano supportate e non supportate opzioni di configura
 > [Esercitazione: Eseguire la distribuzione da un repository di contenitore privato](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
-> [Esercitazione: App WordPress multi-contenitore](tutorial-multi-container-app.md)
+> [Esercitazione: App WordPress multicontenitore](tutorial-multi-container-app.md)

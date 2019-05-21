@@ -91,7 +91,7 @@ L'entità predefinita geographyV2 estrae le informazioni sulla posizione, compre
 1. Aggiungere i due ruoli `Origin` e `Destination`. 
 
     ![Aggiungere i ruoli all'entità predefinita](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
-1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **MoveEmployeeToCity**. Notare che i nomi delle città sono etichettati con l'entità predefinita **geogrpahyV2**.
+1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **MoveEmployeeToCity**. Notare che i nomi delle città sono etichettati con l'entità predefinita **geographyV2**.
 1. Nella prima espressione dell'elenco selezionare la posizione di origine. Viene visualizzato un menu a discesa. Selezionare **geographyV2** nell'elenco, quindi seguire il menu per selezionare **Origin** (Origine).
 1. Usare il metodo del passaggio precedente per contrassegnare tutti i ruoli delle posizioni in tutte le espressioni. 
 
