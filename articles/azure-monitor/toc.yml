@@ -819,53 +819,47 @@
       items:
         - name: Avvisi
           items:
-            - name: Usare gli avvisi delle metriche
-              items:
-                - name: 'Creare, visualizzare e gestire gli avvisi delle metriche in Monitoraggio di Azure'
-                  href: platform/alerts-metric.md
-                - name: 'Creare, visualizzare e gestire avvisi delle metriche della versione classica in Monitoraggio di Azure'
-                  href: platform/alerts-classic-portal.md
-                - name: Avvisi delle metriche con soglie dinamiche
-                  href: platform/alerts-dynamic-thresholds.md
-                - name: Configurare avvisi delle metriche per i log
-                  href: platform/alerts-metric-logs.md
-                - name: Creare un avviso di metrica più recente con un modello di Resource Manager
-                  href: platform/alerts-metric-create-templates.md
-                - name: Creare un avviso di metrica classico con un modello di Resource Manager
-                  href: platform/alerts-enable-template.md
-                - name: Chiamare un webhook con un avviso di metrica classico
-                  href: platform/alerts-webhooks.md
-            - name: Usare gli avvisi dei log
-              items:
-                - name: Configurare avvisi per una query di analisi
-                  href: platform/alerts-log.md
-                - name: Query per gli avvisi dei log
-                  href: platform/alerts-log-query.md
-                - name: Azioni webhook per gli avvisi del log
-                  href: platform/alerts-log-webhook.md
-                - name: Risoluzione dei problemi degli avvisi dei log
-                  href: platform/alert-log-troubleshoot.md
-            - name: Usare gli avvisi dei log attività
-              items:
-                - name: Configurare avvisi per un evento del log attività
-                  href: platform/alerts-activity-log.md
-                - name: Eseguire la migrazione agli avvisi del log attività
-                  href: platform/migrate-management-alerts.md
-                - name: Configurare avvisi per le notifiche del servizio
-                  href: platform/alerts-activity-log-service-notifications.md
-            - name: Usare gli avvisi delle applicazioni
+            - name: Regole di avviso per applicazioni
               items:
                 - name: Disponibilità
                   href: app/monitor-web-app-availability.md
                 - name: Avvisi delle metriche
                   href: app/alerts.md
-            - name: Usare i gruppi di azioni con gli avvisi
+            - name: Regole di avviso per le metriche della piattaforma
               items:
-                - name: Creare gruppi di azioni
+                - name: Gestire gli avvisi per le metriche
+                  href: platform/alerts-metric.md
+                - name: Usare soglie dinamiche
+                  href: platform/alerts-dynamic-thresholds.md
+                - name: Avvisi per le metriche nei log
+                  href: platform/alerts-metric-logs.md
+                - name: Con il modello di Azure Resource Manager
+                  href: platform/alerts-metric-create-templates.md
+            - name: Regole di avviso per i log
+              items:
+                - name: Configurare avvisi per una query di analisi
+                  href: platform/alerts-log.md
+                - name: Query
+                  href: platform/alerts-log-query.md
+                - name: Azioni webhook
+                  href: platform/alerts-log-webhook.md
+                - name: risoluzione dei problemi
+                  href: platform/alert-log-troubleshoot.md
+            - name: Regole di avviso del log attività
+              items:
+                - name: Avviso in un evento del log attività
+                  href: platform/alerts-activity-log.md
+                - name: Eseguire la migrazione di eventi di gestione negli avvisi del log attività
+                  href: platform/migrate-management-alerts.md
+                - name: Avviso nelle notifiche sull'integrità del servizio
+                  href: platform/alerts-activity-log-service-notifications.md
+            - name: Usare i gruppi di azioni
+              items:
+                - name: Creare un gruppo di azioni
                   href: platform/action-groups.md
-                - name: Informazioni sullo schema del webhook
+                - name: Schema dei webhook
                   href: platform/activity-log-alerts-webhook.md
-                - name: Definizioni dello schema di avviso comune
+                - name: Definizione dello schema di avviso comune
                   href: platform/alerts-common-schema-definitions.md
                 - name: Comportamento degli avvisi SMS
                   href: platform/alerts-sms-behavior.md
@@ -875,9 +869,9 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: Implementare un'azione dell'app per la logica
                   href: platform/action-groups-logic-app.md
-            - name: Avvisi di Operations Manager
+            - name: Soluzione Gestione avvisi
               href: platform/alert-management-solution.md
-            - name: Gestisci avvisi
+            - name: Interfaccia utente degli avvisi
               items:
                 - name: Gestire le istanze di avviso
                   href: platform/alerts-managing-alert-instances.md
@@ -887,19 +881,31 @@
                   href: platform/alerts-managing-alert-states.md
                 - name: Gestire gli avvisi di altri servizi di monitoraggio
                   href: platform/alerts-managing-nagios-zabbix-scom.md
-            - name: Eseguire la migrazione di avvisi classici
+            - name: Eseguire la migrazione delle regole di avviso (versione classica)
               items:
-                - name: Usare lo strumento di migrazione
-                  href: platform/alerts-using-migration-tool.md
                 - name: Preparare la migrazione
                   href: platform/alerts-prepare-migration.md
                 - name: Informazioni sullo strumento di migrazione
                   href: platform/alerts-understand-migration.md
+                - name: Usare lo strumento di migrazione
+                  href: platform/alerts-using-migration-tool.md
+                - name: Gestire gli avvisi per le metriche (versione classica)
+                  href: platform/alerts-classic-portal.md
+                - name: Avviso per le metriche (versione classica) con un modello di Resource Manager
+                  href: platform/alerts-enable-template.md
+                - name: Avviso per le metriche (versione classica) tramite chiamata a un webhook
+                  href: platform/alerts-webhooks.md
+        - name: Notifiche sull'integrità del servizio nel log attività
+          items:
+            - name: Visualizzare le notifiche
+              href: platform/service-notifications.md
+            - name: Configurare gli avvisi per eventi di notifica
+              href: platform/alerts-activity-log-service-notifications.md
         - name: Autoscale
           items:
-            - name: Procedura dettagliata sulla scalabilità automatica
+            - name: Procedura dettagliata
               href: platform/autoscale-get-started.md
-            - name: Informazioni sulle impostazioni di scalabilità automatica
+            - name: Impostazioni
               href: platform/autoscale-understanding-settings.md
             - name: Procedure consigliate
               href: platform/autoscale-best-practices.md
@@ -907,20 +913,14 @@
               href: platform/autoscale-common-metrics.md
             - name: Modelli comuni
               href: platform/autoscale-common-scale-patterns.md
-            - name: Scalabilità automatica con metriche personalizzate
+            - name: Ridimensionare con metriche personalizzate
               href: platform/autoscale-custom-metric.md
-            - name: Ridimensionare automaticamente i set di scalabilità di macchine virtuali con i modelli di Resource Manager
-              href: platform/autoscale-virtual-machine-scale-sets.md
-            - name: Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali
+            - name: Ridimensionare i set di scalabilità delle macchine virtuali
               href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
-            - name: Configurare webhook e notifiche di posta elettronica per la scalabilità automatica
+            - name: Ridimensionare i set di scalabilità di macchine virtuali con i modelli di Resource Manager
+              href: platform/autoscale-virtual-machine-scale-sets.md
+            - name: Usare webhook e notifiche di posta elettronica
               href: platform/autoscale-webhook-email.md
-        - name: Notifiche del servizio
-          items:
-            - name: Visualizzare le notifiche del servizio
-              href: platform/service-notifications.md
-            - name: Configurare avvisi per le notifiche del servizio
-              href: platform/alerts-activity-log-service-notifications.md
         - name: Gestione dei servizi IT
           items:
             - name: IT Service Management Connector

@@ -89,6 +89,8 @@
           items:
             - name: Calcolo Edge
               href: data-box-edge-manage-compute.md
+            - name: Rete di calcolo Edge
+              href: data-box-edge-extend-compute-access-modules.md
             - name: Condivisioni
               href: data-box-edge-manage-shares.md
             - name: Utenti
