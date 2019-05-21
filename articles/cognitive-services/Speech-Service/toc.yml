@@ -303,9 +303,9 @@
         - name: Informazioni
           href: speech-devices-sdk.md
         - name: Licenza
-          href: speech-devices-sdk-license.md
+          href: 'https://aka.ms/sdsdk-license'
         - name: Comunicazioni di terze parti
-          href: devices-sdk-third-party-notices.md
+          href: 'https://aka.ms/sdsdk-toctpn'
     - name: Risolvere i problemi di Speech SDK
       href: troubleshooting.md
     - name: Risolvere i problemi di Speech Devices SDK
