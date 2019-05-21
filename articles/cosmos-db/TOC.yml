@@ -216,6 +216,8 @@
           href: online-backup-and-restore.md
         - name: Conformità
           href: compliance.md
+    - name: Limiti
+      href: concepts-limits.md
 - name: 'Cassandra, MongoDB e altre API'
   expanded: true
   items:

@@ -49,6 +49,7 @@
       items:
         - name: Archiviazione
           href: storage-account-concept.md
+          displayName: Storage side encryption
         - name: API per Asset
           href: assets-concept.md
     - name: Codifica
@@ -169,6 +170,7 @@
       items:
         - name: Creare un account - Interfaccia della riga di comando
           href: create-account-cli-how-to.md
+          displayName: storage
         - name: Reimpostare le credenziali dell'account - Interfaccia della riga di comando
           href: cli-reset-account-credentials.md
         - name: Accedere alle API - Interfaccia della riga di comando
