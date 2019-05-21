@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866538"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954645"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Esempi di campioni vocali per la creazione di una voce personalizzata
 
@@ -53,7 +53,7 @@ Scegliere uno speaker con la voce naturale che si preferisce. È possibile crear
 
 Il fattore più importante per la scelta di uno speaker è l'uniformità. Tutte le registrazioni devono sembrare come eseguite nello stesso giorno e nella stessa stanza. È possibile avvicinarsi a questa situazione ideale tramite procedure e tecniche ottimali di registrazione.
 
-Lo speaker rappresenta la seconda parte dell'equazione. Deve essere in grado di parlare con velocità, livello di volume e tono costanti e una dizione perfetta è naturalmente indispensabile. Lo speaker deve essere anche in grado di controllare rigorosamente la propria variazione di tono, l'effetto emotivo e i modi di parlare.
+Lo speaker rappresenta la seconda parte dell'equazione. Devono essere in grado di parlare con frequenza coerente, a livello di volume, il passo e tono. e una dizione perfetta è naturalmente indispensabile. Il talento deve inoltre essere in grado di controllare accuratamente relativi tono varianti emotivo effetto ed è utile vocale.
 
 La registrazione di campioni vocali personalizzati può essere più difficoltosa rispetto ad altri tipi di attività legate alla voce. La maggior parte degli speaker può registrare per due o tre ore al giorno. Limitare le sessioni a tre o quattro alla settimana, con un giorno di riposo tra l'una e l'altra, se possibile.
 
@@ -105,7 +105,7 @@ In base alle norme sul copyright, la lettura di un testo protetto da copyright d
 
 È possibile tuttavia evitare completamente questi problemi. Sono disponibili molte origini di testo che si possono usare senza licenza né autorizzazione.
 
-|Origine del testo|DESCRIZIONE|
+|Origine del testo|Descrizione|
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|Circa 1100 frasi selezionate da testi non protetti da copyright per l'uso specifico in progetti di sintesi vocale. Si tratta di un punto di partenza eccellente.|
 |Testi non più protetti<br>da copyright|Si tratta in genere di testi pubblicati prima del 1923. Per l'inglese, sul sito [Project Gutenberg](https://www.gutenberg.org/) sono disponibili decine di migliaia di tali testi. Può essere opportuno, tuttavia, concentrarsi su testi più recenti perché la lingua si avvicina di più all'inglese moderno.|
@@ -117,7 +117,7 @@ In base alle norme sul copyright, la lettura di un testo protetto da copyright d
 
 Registrare lo script in uno studio di registrazione professionale specializzato in attività vocali. In uno studio di questo tipo sono disponibili un banco di registrazione, le apparecchiature adeguate e le persone esperte per farle funzionare. Quando di tratta di eseguire una registrazione, è opportuno non risparmiare.
 
-Discutere il progetto con il tecnico di registrazione di studio e ascoltarne i consigli. La registrazione deve avere minima o nessuna compressione di intervallo dinamico (massimo 4:1). È fondamentale che l'audio sia caratterizzato da un volume uniforme e da un rapporto segnale/rumore elevato e che sia privo di suoni non desiderati.
+Esaminare il progetto con il tecnico di registrazione di studio e ascoltare i consigli. La registrazione deve avere minima o nessuna compressione di intervallo dinamico (massimo 4:1). È fondamentale che l'audio sia caratterizzato da un volume uniforme e da un rapporto segnale/rumore elevato e che sia privo di suoni non desiderati.
 
 ### <a name="do-it-yourself"></a>Provare
 
@@ -131,7 +131,7 @@ Usare un microfono unidirezionale da studio di qualità elevata (abbreviato in "
 
 Installare il microfono su un supporto o su un'asta e installare un filtro pop davanti al microfono per eliminare il rumore derivante da consonanti occlusive come "p" e "b". Alcune microfoni sono dotati di un supporto a sospensione che li isola dalle vibrazioni del supporto, condizione estremamente utile.
 
-Lo speaker deve mantenere una distanza costante dal microfono. Con del nastro, contrassegnare sul pavimento i punti in cui deve trovarsi lo speaker. Se lo speaker vuole sedersi, prestare particolare attenzione a monitorare la distanza del microfono ed evitare rumori della sedia.
+Lo speaker deve mantenere una distanza costante dal microfono. Contrassegnare sul pavimento i punti in cui deve trovarsi lo speaker. Se lo speaker vuole sedersi, prestare particolare attenzione a monitorare la distanza del microfono ed evitare rumori della sedia.
 
 Usare un supporto per lo script. Evitare l'angolazione del supporto in modo che possa riflettere il suono verso il microfono.
 
@@ -158,12 +158,12 @@ Registrare a una qualità monofonica di 44,1 KHz 16 bit (qualità CD) o superior
 
 ### <a name="before-the-session"></a>Prima della sessione
 
-Per evitare di sprecare tempo in studio, esaminare lo script con lo speaker prima della sessione di registrazione. Lo speaker deve acquisire familiarità con il testo nonché chiarire la pronuncia delle parole che non conosce.
+Per evitare di sprecare tempo in studio, esaminare lo script con lo speaker prima della sessione di registrazione. Mentre il talento vocale diventi familiare con il testo, essi può aiutare a chiarire la pronuncia di tutte le parole non note.
 
 > [!NOTE]
 > La maggior parte degli studi di registrazione consente di visualizzare in modo elettronico gli script nel banco di registrazione. In questo caso digitare le note direttamente nel documento dello script. È tuttavia opportuno disporre di una copia cartacea per prendere appunti durante la sessione. Anche la maggior parte dei tecnici vuole in genere una copia cartacea. Predisporre anche una terza copia stampata come backup per lo speaker qualora il computer si arresti.
 
-Lo speaker potrebbe chiedere quale parola deve essere enfatizzata in un'espressione ("parola operativa"). Comunicare allo speaker che si desidera una lettura naturale senza alcuna enfasi particolare. L'enfasi può essere aggiunta in fase di sintesi vocale, ma non deve far parte della registrazione originale.
+Lo speaker potrebbe chiedere quale parola deve essere enfatizzata in un'espressione ("parola operativa"). Comunicare loro che si desidera una naturale di lettura con alcuna particolare attenzione. L'enfasi può essere aggiunta in fase di sintesi vocale, ma non deve far parte della registrazione originale.
 
 Indicare allo speaker di pronunciare distintamente le parole. Ogni parola dello script deve essere pronunciata come è stata scritta. I suoni non devono essere omessi né confusi, come talvolta avviene in un discorso casuale, *a meno che non siano stati scritti in tal modo nello script.*
 
@@ -196,7 +196,7 @@ Ascoltare con attenzione, usando le cuffie, la prestazione dello speaker. Verifi
 
 Prendere nota del numero del take o del time code per ogni espressione. Chiedere al tecnico se può contrassegnare ogni espressione nei metadati o nel foglio della segnalazione della registrazione.
 
-Concedere momenti di pausa e offrire bevande per consentire allo speaker di mantenere la voce in buono stato.
+Eseguire le normali interruzioni e fornire una bevanda per dimostra il tuo talento vocale mantenere la propria voce formattati correttamente.
 
 ### <a name="after-the-session"></a>Al termine della sessione
 

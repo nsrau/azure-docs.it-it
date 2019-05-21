@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1232cdd156dd473850fde6e7c4f3ce0554155764
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 9bb721221f8f90a39b1c84bcdd66429bbd628494
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020391"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912656"
 ---
 # <a name="ship-an-application"></a>Spedire un'applicazione
 
@@ -28,7 +28,7 @@ A seconda della piattaforma, esistono diverse dipendenze per eseguire l'applicaz
 
 Speech SDK do Servizi cognitivi è stato testato su Windows 10 e su Windows Server 2016.
 
-Speech SDK di Servizi cognitivi richiede il [Microsoft Visual C++ Redistributable per Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) sul sistema. È possibile scaricare i programmi di installazione per l'ultima versione di `Microsoft Visual C++ Redistributable for Visual Studio 2017` qui:
+il SDK di riconoscimento vocale di servizi cognitivi richiede la [Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) nel sistema. È possibile scaricare i programmi di installazione per l'ultima versione di `Microsoft Visual C++ Redistributable for Visual Studio 2019` qui:
 
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)

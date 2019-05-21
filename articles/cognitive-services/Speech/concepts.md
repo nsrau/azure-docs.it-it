@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60514960"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954514"
 ---
 # <a name="basic-concepts"></a>Concetti di base
 
@@ -32,7 +32,7 @@ Se è la prima volta che si crea un'applicazione abilitata per il riconoscimento
 
 Il *flusso audio* è uno dei concetti di base principali del riconoscimento vocale. A differenza di una pressione di tasti, che si verifica in un unico momento nel tempo e contiene un unico dato, una richiesta parlata è distribuita su centinaia di millisecondi e contiene molti kilobyte di informazioni. La durata delle espressioni parlate presenta alcune difficoltà per gli sviluppatori che desiderano offrire un'esperienza vocale semplice ed elegante per la propria applicazione. I computer e gli algoritmi di oggi eseguono la trascrizione vocale in circa metà della durata dell'espressione, pertanto un'espressione di 2 secondi può essere trascritta approssimativamente in 1 secondo, ma qualsiasi applicazione in cui si verifichi un ritardo di 1 secondo nell'elaborazione utente non è né semplice né elegante.
 
-Esistono tuttavia modi di "nascondere" il tempo di trascrizione eseguendo la trascrizione stessa di una parte dell'espressione mentre l'utente ne pronuncia un'altra. Se ad esempio si suddivide un'espressione di 1 secondo in 10 blocchi di 100 millisecondi e si esegue la trascrizione di un blocco alla volta, oltre 450 dei 500 millisecondi totali necessari per la trascrizione possono essere "nascosti" in modo che l'utente, mentre parla, non sia consapevole dell'esecuzione della trascrizione. In relazione a questo esempio, tenere presente che il servizio esegue la trascrizione dei precedenti 100 millisecondi di audio mentre l'utente parla nei 100 successivi. Di conseguenza, quando l'utente smette di parlare, il servizio dovrà trascrivere circa solo 100 millisecondi di audio per generare un risultato.
+Esistono tuttavia modi di "nascondere" il tempo di trascrizione eseguendo la trascrizione stessa di una parte dell'espressione mentre l'utente ne pronuncia un'altra. È ad esempio suddividendo un 1 secondo utterance in 10 blocchi di 100 millisecondi ed eseguendo la trascrizione su ogni blocco a sua volta, oltre 450 il totale 500 millisecondi necessari per la trascrizione possono essere "nascosti" in modo che l'utente è a conoscenza trascrizione in esecuzione mentre stanno parlando. In relazione a questo esempio, tenere presente che il servizio esegue la trascrizione dei precedenti 100 millisecondi di audio mentre l'utente parla nei 100 successivi. Di conseguenza, quando l'utente smette di parlare, il servizio dovrà trascrivere circa solo 100 millisecondi di audio per generare un risultato.
 
 Per ottenere questa esperienza utente, le informazioni audio parlate vengono raccolte in blocchi e trascritte mentre l'utente parla. La raccolta di tali blocchi dal *flusso audio* e il relativo processo di invio al servizio sono denominati, complessivamente, *streaming audio.* Lo streaming audio è una parte importante di ogni applicazione abilitata al riconoscimento vocale. La messa a punto delle dimensioni dei blocchi e l'ottimizzazione dell'implementazione del flusso sono alcuni modi per migliorare l'esperienza utente che comportano un maggiore impatto.
 
@@ -82,9 +82,9 @@ Il servizio di riconoscimento vocale Microsoft consente agli sviluppatori di agg
 | Casi d'uso | [API REST](GetStarted/GetStartedREST.md) | [Librerie client](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
 | Convertire breve contenuto vocale, ad esempio comandi (lunghezza audio < 15 secondi) senza risultati temporanei | Sì | Sì |
-| Convertire contenuto audio lungo (> 15 secondi) | No  | Sì |
-| Trasmettere un flusso audio con risultati temporanei desiderati | No  | Sì |
-| Comprendere il testo convertito dall'audio tramite LUIS | No  | Sì |
+| Convertire contenuto audio lungo (> 15 secondi) | N. | Sì |
+| Trasmettere un flusso audio con risultati temporanei desiderati | N. | Sì |
+| Comprendere il testo convertito dall'audio tramite LUIS | N. | Sì |
 
  Se la lingua o la piattaforma non dispone ancora di un componente SDK, è possibile creare la propria implementazione in base alla [documentazione del protocollo](API-Reference-REST/websocketprotocol.md).
 
@@ -160,9 +160,9 @@ Le risposte di trascrizione restituiscono il testo convertito dall'audio ai clie
 
 - `RecognitionStatus` specifica lo stato del riconoscimento. I valori possibili sono indicati nella tabella seguente.
 
-| Stato | DESCRIZIONE |
+| Stato | Descrizione |
 | ------------- | ---------------- |
-| Success | Il riconoscimento ha avuto esito positivo e il campo DisplayText è presente |
+| Esito positivo | Il riconoscimento ha avuto esito positivo e il campo DisplayText è presente |
 | NoMatch | La parte parlata è stata rilevata nel flusso audio, ma non sono state trovate corrispondenze per alcuna parola nella lingua di destinazione. Per altri dettagli, vedere [NoMatch Recognition Status(#nomatch-recognition-status)  |
 | InitialSilenceTimeout | La parte iniziale del flusso audio conteneva solo silenzio e il servizio ha raggiunto il timeout in attesa della parte parlata |
 | BabbleTimeout | La parte iniziale del flusso audio conteneva solo rumore e il servizio ha raggiunto il timeout in attesa della parte parlata |
@@ -190,7 +190,7 @@ Il servizio di riconoscimento vocale Microsoft può restituire una vasta gamma d
 
 È possibile controllare il formato di un'espressione restituita specificando il parametro di query dell'URL `format`. Per impostazione predefinita, il servizio restituisce `simple` risultati.
 
-| Format | DESCRIZIONE |
+| Format | Descrizione |
 |-----|-----|
 | `simple` | Risultato di un'espressione semplificata contenente lo stato di riconoscimento e il testo riconosciuto nella forma di visualizzazione. |
 | `detailed` | Stato di riconoscimento ed elenco degli N migliori risultati in cui ogni espressione restituita contiene tutte le quattro forme di riconoscimento e un punteggio di attendibilità. |
@@ -307,7 +307,7 @@ Il formato di payload dell'espressione `detailed` restituita è il seguente:
 
 Il servizio di riconoscimento vocale Microsoft riconosce tutte le forme del parlare umano, tra cui parole ed espressioni che molte persone classificherebbero come "contenuto volgare". È possibile controllare il modo in cui il servizio gestisce il contenuto volgare usando il parametro di query *profanity*. Per impostazione predefinita, il servizio maschera il contenuto volgare nei risultati *speech.phrase* e non restituisce messaggi *speech.hypothesis* in cui è presente contenuto volgare.
 
-| Valore di *profanity* | DESCRIZIONE |
+| Valore di *profanity* | Descrizione |
 | - | - |
 | `masked` | Maschera il contenuto volgare con asterischi. Questo è il comportamento predefinito. |
 | `removed` | Rimuove il contenuto volgare da tutti i risultati. |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 4/05/2019
+ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1860b788b9f33a6a2ec806be68a67aa2df10cbd4
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831929"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914265"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Usare un token di insights per ottenere informazioni dettagliate per un'immagine
 
@@ -64,7 +64,7 @@ Per esempi che usano il token di informazioni dettagliate, vedere [C#](#use-with
 
 ### <a name="c-prerequisites"></a>C#prerequisiti
 
-- Qualsiasi versione di [Visual Studio 2017](https://www.visualstudio.com/downloads/) per ottenere questo codice in esecuzione su Windows.
+- Qualsiasi versione di [Visual Studio 2019](https://www.visualstudio.com/downloads/) per ottenere questo codice in esecuzione su Windows.
 - Una sottoscrizione di Azure. Per questa Guida introduttiva, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) chiave di sottoscrizione o una chiave di sottoscrizione a pagamento.
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
@@ -245,7 +245,7 @@ namespace VisualSearchInsightsToken
 Per eseguire l'applicazione, seguire questa procedura:
 
 1. Scaricare o installare il [libreria Gson Java](https://github.com/google/gson). È anche possibile ottenere Gson tramite Maven.
-2. Creare un nuovo progetto Java nell'IDE o nell'editor preferito.
+2. Creare un nuovo progetto Java nell'ambiente di sviluppo integrato o nell'editor preferito.
 3. Aggiungere il codice fornito in un file denominato `VisualSearch.java`.
 4. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
 5. Eseguire il programma.

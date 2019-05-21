@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: 7c3fc67dbeac71530d9c5ddedc609296023fe901
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a65994ffb2fc707c59e507cad71699211b6a64a5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796525"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896265"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Esercitazione: Ritagliare un'immagine con l'SDK di Ricerca visiva Bing per C#
 
@@ -33,7 +33,7 @@ Questa esercitazione illustra come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Qualsiasi edizione di [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 * Il pacchetto [Ricerca personalizzata NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) installato.
     - Da Esplora soluzioni in Visual Studio, fare clic destro sul progetto, quindi scegliere **Gestisci pacchetti NuGet** dal menu di scelta. Installare il pacchetto `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. L'installazione del pacchetto Ricerca personalizzata NuGet comporta anche l'installazione degli assembly seguenti:

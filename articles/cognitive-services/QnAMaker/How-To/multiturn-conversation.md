@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/14/2019
 ms.author: diberry
-ms.openlocfilehash: 24158d5949c0a31e5444c609cbfced970bdeca07
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: f12b55e9b00e933e13f84832b8cc36267a1da05f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471941"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954881"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare richieste di follow-up per creare attiva più di una conversazione
 
@@ -52,7 +52,7 @@ Quando si importa il documento PDF, QnA Maker determina le richieste di follow-u
 
 ![! [Quando si importa il documento PDF, QnA Maker determina le richieste di follow-up dalla struttura di creare il flusso colloquiale. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-## <a name="filter-questions-and-answers-by-context"></a>Filtro domande e risposte dal contesto
+## <a name="show-questions-and-answers-with-context"></a>Visualizzare domande e risposte con contesto
 
 1. Ridurre le coppie di domande e risposte visualizzate solo a quelli delle conversazioni contestuali. Selezionare **visualizzare le opzioni**, quindi selezionare **Show contesto (anteprima)**. L'elenco sarà vuoto finché non si aggiunge la prima coppia di domanda e risposta con un prompt di completamento. 
 
@@ -64,22 +64,36 @@ Quando si importa il documento PDF, QnA Maker determina le richieste di follow-u
 1. Immettere il nuovo testo, domanda `Give feedback.` con una risposta di `What kind of feedback do you have?`.
 
 1. Nel **risposte** colonna per questa domanda, seleziona **prompt dei comandi follow-up Aggiungi**. 
-1. Il **prompt dei comandi di follow-up** finestra di dialogo popup consente di cercare una domanda esistente o immettere una nuova domanda. In questa procedura, immettere il testo `Feedback on an QnA Maker service`, per il **visualizzare il testo**. 
-1. Controllare **solo contesto**. Il **contesto di sola** opzione indica che il testo di questo utente verrà compresa _solo_ se assegnato in risposta alla domanda precedente. Per questo scenario, il testo della richiesta non ha senso come domanda autonoma, è utile solo dal contesto della domanda precedente.
-1. Nel **Collega a rispondere** testo casella, immettere la risposta, `How would you rate QnA Maker?`.
-1. Selezionare **Crea nuovo** quindi selezionare **salvare**. 
+1. Il **prompt dei comandi di follow-up (anteprima)** finestra popup consente di cercare una domanda esistente o immettere una nuova domanda. Creare un nuovo prompt dei comandi, immettere i valori seguenti: 
+
+    |Campo di testo|Value|
+    |--|--|
+    |**Testo da visualizzare**|`Feedback on an QnA Maker service`|
+    |**Collegamento di rispondere a**|`How would you rate QnA Maker??`|
+    |||
 
     ![Creare nuove domande e risposte dei messaggi di richiesta](../media/conversational-context/create-child-prompt-from-parent.png)
 
-    Questo ha creato una nuova coppia di domande e risposte e collegato alla domanda selezionata come richiesta follow-up. Il **contesto** colonna, per entrambe le domande, indicare una relazione di follow-up dei messaggi di richiesta. 
+1. Controllare **solo contesto**. Il **contesto di sola** opzione indica che il testo di questo utente verrà compresa _solo_ se assegnato in risposta alla domanda precedente. Per questo scenario, il testo della richiesta non ha senso come domanda autonoma, è utile solo dal contesto della domanda precedente.
+1. Selezionare **Crea nuovo** quindi selezionare **salvare**. 
+
+    Questo ha creato una nuova coppia di domande e risposte e collegato alla domanda selezionata come richiesta follow-up. Il **contesto** colonna, per entrambe le domande, indica una relazione di follow-up dei messaggi di richiesta. 
 
     ![! [La colonna di contesto, per entrambe le domande, indica una relazione di follow-up dei messaggi di richiesta.] (.. / media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. Selezionare **Add prompt follow-up** per il `Give feedback` domanda a cui aggiungere un'altra richiesta di follow-up. 
-1. Creare una nuova domanda immettendo `Feedback on an existing feature`, con la risposta `Which feature would you like to give feedback on?`.  
+1. Selezionare **Add prompt follow-up** per il `Give feedback` domanda a cui aggiungere un'altra richiesta di follow-up. Verrà visualizzata la **prompt dei comandi di follow-up (anteprima)** finestra popup.
 
-1.  Controllare **solo contesto**. Il **contesto di sola** opzione indica che il testo di questo utente verrà compresa _solo_ se assegnato in risposta alla domanda precedente. Per questo scenario, il testo della richiesta non ha senso come domanda autonoma, è utile solo dal contesto della domanda precedente.
-1.  Selezionare **Salva**. 
+1. Creare un nuovo prompt dei comandi, immettere i valori seguenti:
+
+    |Campo di testo|Value|
+    |--|--|
+    |**Testo da visualizzare**|`Feedback on an existing feature`|
+    |**Collegamento di rispondere a**|`Which feature would you like to give feedback on?`|
+    |||
+
+1. Controllare **solo contesto**. Il **contesto di sola** opzione indica che il testo di questo utente verrà compresa _solo_ se assegnato in risposta alla domanda precedente. Per questo scenario, il testo della richiesta non ha senso come domanda autonoma, è utile solo dal contesto della domanda precedente.
+
+1. Selezionare **Salva**. 
 
     Questo creata una nuova domanda e collegato alla domanda come domanda follow-up dei messaggi di richiesta per il `Give feedback` domanda.
     
@@ -93,26 +107,34 @@ Quando si importa il documento PDF, QnA Maker determina le richieste di follow-u
 
 1. Se si desidera collegare una coppia di QnA esistente come richiesta follow-up, selezionare la riga per la coppia di domanda e risposta.
 1. Selezionare **prompt dei comandi follow-up Aggiungi** in tale riga.
-1. Nella finestra di dialogo popup, immettere il testo della domanda nella casella di ricerca. Vengono restituite tutte le corrispondenze. Selezionare la domanda desiderata come follow-up e controllare **contesto di sola**, quindi selezionare **salvare**. 
+1. Nel **prompt dei comandi di follow-up (anteprima)** finestra popup, immettere il testo della risposta nella casella di ricerca. Vengono restituite tutte le corrispondenze. Selezionare la risposta desiderata come follow-up e controllare **contesto di sola**, quindi selezionare **salvare**. 
 
-    Una volta ou aver aggiunto la richiesta di follow-up, ricordarsi di selezionare **salvare ed eseguire il training**.
+    ![Collegamento del prompt di completamento alla finestra di dialogo di risposta per una risposta esistente, utilizzando il testo della risposta di ricerca.](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+
+    Dopo aver aggiunto la richiesta di follow-up, ricordarsi di selezionare **salvare ed eseguire il training**.
   
-## <a name="add-metadata-to-follow-up-prompts"></a>Aggiungere i metadati per richieste di follow-up 
+<!--
 
-Nella knowledge base, quando una coppia di domande e risposte è collegata a richiede un completamento, i filtri di metadati vengono applicati per primi, quindi vengono restituiti i follow-up.
+## To find best prompt answer, add metadata to follow-up prompts 
 
-1. Per le due coppie di domande e risposte follow-up, aggiungere i metadati per ciascuna di esse:
+If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
 
-    |Domanda|Aggiungere metadati|
+In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
+
+1. For the two follow-up QnA pairs, add metadata to each one:
+
+    |Question|Add metadata|
     |--|--|
-    |`Feedback on an QnA Maker service`|"Funzionalità": "all"|
-    |`Feedback on an existing feature`|"Funzionalità": "uno"|
+    |`Feedback on an QnA Maker service`|"Feature":"all"|
+    |`Feedback on an existing feature`|"Feature":"one"|
     
-    ![Aggiungere metadati al prompt di completamento in modo che possono essere filtrato nella risposta alla conversazione dal servizio](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
+    ![Add metadata to follow-up prompt so it can be filtered in conversation response from service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
 
-1. Salvare ed eseguire il training. 
+1. Save and train. 
 
-    Quando si invia la domanda `Give feedback` con il filtro di metadati `Feature` con il valore `all`, verrà restituita solo la coppia di domande e risposte con i metadati. Entrambe le coppie di domande e risposte non vengono restituite perché entrambi non corrispondono al filtro. 
+    When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+
+-->
 
 ## <a name="test-the-qna-set-to-get-all-the-follow-up-prompts"></a>Viene richiesto di imposta le domande e risposte per ottenere tutte le azioni di completamento test
 
@@ -145,7 +167,7 @@ La sezione precedente ha richiesto una risposta e tutte le istruzioni follow-up 
             "questions": [
                 "Accounts and signing in"
             ],
-            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way he or she likes. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
+            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way they like. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
             "score": 86.96,
             "id": 37,
             "source": "surface-pro-4-user-guide-EN .pdf",
@@ -269,15 +291,11 @@ QnA Maker _GenerateAnswer_ risposta JSON include le istruzioni di follow-up nel 
 
 ## <a name="displaying-prompts-and-sending-context-in-the-client-application"></a>Visualizzazione di richieste e l'invio di contesto nell'applicazione client 
 
-L'applicazione client consente di visualizzare tutte le domande con un'opzione per l'utente visualizzare le istruzioni visualizzate come pulsanti o le azioni consigliate.
-Quindi l'applicazione client archivia la query domande e risposte in coppia e utente corrente come contesto per essere passato con la query successiva dell'utente. 
+Se si sono aggiunte istruzioni nelle informazioni di base e aver testato il flusso nel riquadro di test, le istruzioni non avvierà automaticamente visualizzati nelle applicazioni client. È possibile visualizzare le istruzioni come pulsanti o le azioni consigliate come parte della risposta alla query dell'utente nel client applicazioni includendo ciò [esempio di Bot Framework](https://aka.ms/qnamakermultiturnsample) nel codice. L'applicazione client deve archiviare l'ID di QnA corrente e la query dell'utente e passarli nel [oggetto di contesto dell'API GenerateAnswer](#json-request-to-return-non-initial-answer-and-follow-up-prompts) per le query utente successiva.
 
-Usare questa [esempio di Bot Framework](https://aka.ms/qnamakermultiturnsample) per visualizzare una finestra di dialogo Multi-turn lavoro end-to-end in un bot QnA Maker.
+## <a name="display-order-supported-in-api"></a>Ordine di visualizzazione supportate nell'API
 
-
-## <a name="prompt-order-supported-in-api"></a>Ordine dei messaggi di richiesta supportati nell'API
-
-L'ordine dei messaggi di richiesta, restituiti nella risposta JSON, è supportata per la modifica da solo l'API. 
+L'ordine di visualizzazione, restituito nella risposta JSON, è supportata per la modifica da solo l'API. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
