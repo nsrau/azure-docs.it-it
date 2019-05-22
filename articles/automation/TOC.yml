@@ -42,6 +42,8 @@
           href: automation-onboard-solutions-from-vm.md
         - name: Eseguire l'onboarding dall'account di Automazione
           href: automation-onboard-solutions-from-automation-account.md
+        - name: Mapping delle aree
+          href: how-to/region-mappings.md
     - name: Gestione degli aggiornamenti
       items:
         - name: Panoramica di Gestione aggiornamenti

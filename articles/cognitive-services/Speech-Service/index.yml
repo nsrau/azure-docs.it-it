@@ -18,19 +18,7 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: |
-    Di seguito sono riportate informazioni su come usare i servizi Voce con le API REST o con Speech SDK per aggiungere alle app funzionalità abilitate al riconoscimento vocale. È possibile usare Speech SDK per aggiungere queste e altre funzionalità alle app&colon; 
-    <div class="row" style="font-size:16px"><div class="column"><ul>
-    <li><b><a href="speech-to-text.md">riconoscimento vocale</a></b> (speech-recognition/SR)</li>
-    <li><b><a href="speech-devices-sdk-create-kws.md">parola di attivazione personalizzata</a></b> (keyword-spotter/KWS)</li>
-    <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">finalità</a></b></li>
-    <li><b><a href="speech-translation.md">traduzione</a></b></li>
-    <li><b><a href="speech-container-howto.md">contenitore locale</a></b></li></ul></div><div class="column"><ul>
-    <li><b><a href="text-to-speech.md">sintesi vocale</a></b> (TTS)</li>
-    <li><b><a href="conversation-transcription-service.md">trascrizione conversazione</a></b> (CTS)</li>
-    <li><b><a href="how-to-phrase-lists.md">personalizzazione dell'elenco di frasi</a>/<a href="how-to-custom-speech.md">adattamento personalizzato del parlato</a></b></li>
-    <li><b><a href="voice-first-virtual-assistants.md">assistente virtuale voice-first</a></b></li>
-    <li><b><a href="call-center-transcription.md">trascrizione di call center</a></b></li></ul></div></div>
+  description: Uso con Speech SDK o con API REST.
 sections:
   - items:
       - type: list
@@ -53,10 +41,26 @@ sections:
             image:
               src: ../media/index/i_guidelines.svg
             title: Speech Devices SDK
+  - title: Introduzione
+    items:
+      - type: paragraph
+        text: |
+          È possibile usare Speech SDK per aggiungere queste e altre funzionalità alle app&colon; 
+          <div class="row"><div class="column"><ul>
+          <li><b><a href="speech-to-text.md">riconoscimento vocale</a></b> (speech-recognition/SR)</li>
+          <li><b><a href="speech-devices-sdk-create-kws.md">parola di attivazione personalizzata</a></b> (keyword-spotter/KWS)</li>
+          <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">finalità</a></b></li>
+          <li><b><a href="speech-translation.md">traduzione</a></b></li>
+          <li><b><a href="speech-container-howto.md">contenitore locale</a></b></li></ul></div><div class="column"><ul>
+          <li><b><a href="text-to-speech.md">sintesi vocale</a></b> (TTS)</li>
+          <li><b><a href="conversation-transcription-service.md">trascrizione conversazione</a></b> (CTS)</li>
+          <li><b><a href="how-to-phrase-lists.md">personalizzazione dell'elenco di frasi</a>/<a href="how-to-custom-speech.md">adattamento personalizzato del parlato</a></b></li>
+          <li><b><a href="voice-first-virtual-assistants.md">assistente virtuale voice-first</a></b></li>
+          <li><b><a href="call-center-transcription.md">trascrizione di call center</a></b></li></ul></div></div>
   - title: Guide introduttive di 5 minuti
     items:
       - type: paragraph
-        text: 'Informazioni su come scaricare, installare e usare l''SDK mediante la selezione di un collegamento con freccia <img src="media/index/link.jpg" height="15" width="15"></img>.<br/><br/>Tutti i collegamenti contrassegnati da una freccia <img src="media/index/link.jpg" height="15" width="15"></img> indirizzano per impostazione predefinita a una guida di avvio rapido sul riconoscimento vocale. Da qui è possibile selezionare altre guide di avvio rapido (<a href="scenario-availability.md">se disponibili</a>), ad esempio sulla sintesi vocale o sull''assistente virtuale voice-first.'
+        text: 'Informazioni su come scaricare, installare e usare l''SDK mediante la selezione di un collegamento con freccia <img src="media/index/link.jpg" height="15" width="15"></img>.<br/>Tutti i collegamenti contrassegnati da una freccia <img src="media/index/link.jpg" height="15" width="15"></img> indirizzano per impostazione predefinita a una guida di avvio rapido sul riconoscimento vocale. Da qui è possibile selezionare altre guide di avvio rapido (<a href="scenario-availability.md">se disponibili</a>), ad esempio sulla sintesi vocale o sull''assistente virtuale voice-first.'
       - type: table
         style: dataMatrix
         columns:
