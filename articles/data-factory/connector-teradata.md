@@ -164,15 +164,15 @@ Quando si copiano dati da Teradata, vengono usati i mapping seguenti tra i tipi 
 | Tipo di dati di Teradata | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
 | BigInt |Int64 |
-| BLOB |Byte[] |
+| Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |string |
-| Clob |string |
-| Data |DateTime |
+| Char |String |
+| Clob |String |
+| Date |DateTime |
 | Decimal |Decimal |
 | Double |Double |
-| Graphic |string |
+| Graphic |String |
 | Integer |Int32 |
 | Interval Day |TimeSpan |
 | Interval Day To Hour |TimeSpan |
@@ -180,28 +180,28 @@ Quando si copiano dati da Teradata, vengono usati i mapping seguenti tra i tipi 
 | Interval Day To Second |TimeSpan |
 | Interval Hour |TimeSpan |
 | Interval Hour To Minute |TimeSpan |
-| Intervallo - da ora a secondo |TimeSpan |
+| Interval Hour To Second |TimeSpan |
 | Interval Minute |TimeSpan |
 | Interval Minute To Second |TimeSpan |
-| Interval Month |string |
+| Interval Month |String |
 | Interval Second |TimeSpan |
-| Interval Year |string |
-| Interval Year To Month |string |
+| Interval Year |String |
+| Interval Year To Month |String |
 | Number |Double |
-| Period(Date) |string |
-| Period(Time) |string |
-| Period(Time With Time Zone) |string |
-| Period(Timestamp) |string |
-| Period(Timestamp With Time Zone) |string |
+| Period(Date) |String |
+| Period(Time) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
 | SmallInt |Int16 |
-| Tempo |TimeSpan |
-| Time With Time Zone |string |
+| Time |TimeSpan |
+| Time With Time Zone |String |
 | Timestamp |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
-| VarChar |string |
-| VarGraphic |string |
-| Xml |string |
+| VarChar |String |
+| VarGraphic |String |
+| Xml |String |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
