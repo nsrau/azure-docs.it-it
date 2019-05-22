@@ -91,7 +91,7 @@ Le proprietà seguenti sono supportate in `translator`  ->  `mappings` -> oggett
 | Proprietà | Descrizione                                                  | Obbligatorio |
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Nome della colonna di origine o sink.                           | Sì      |
-| Numero ordinale  | Indice della colonna. Iniziare con 1. <br>Applicare e obbligatorio quando si utilizzando delimitato da testo senza intestazione riga. | No        |
+| ordinal  | Indice della colonna. Iniziare con 1. <br>Applicare e obbligatorio quando si utilizzando delimitato da testo senza intestazione riga. | No        |
 | path     | Espressione di percorso JSON per ogni campo da estrarre o eseguire il mapping. Applicare per i dati gerarchici, ad esempio MongoDB/REST.<br>Per i campi sotto l'oggetto radice, percorso JSON inizia con la radice $; per i campi nella matrice scelta dalla `collectionReference` percorso JSON di proprietà, inizia dall'elemento matrice. | No        |
 | type     | Tipo di dati provvisori Data Factory della colonna di origine o sink. | No        |
 | culture  | Impostazioni cultura della colonna di origine o sink. <br>Si applicano quando il tipo è `Datetime` o `Datetimeoffset`. Il valore predefinito è `en-us`. | No        |
@@ -296,8 +296,8 @@ Data Factory supporta i tipi di dati provvisori seguenti: Quando si configurano 
 * Int32
 * Int64
 * Single
-* string
-* TimeSpan
+* String
+* Timespan
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli altri articoli relativi all'attività di copia:
