@@ -138,6 +138,18 @@
         - name: Aggiungere e registrare set di dati
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
+        - name: Esplorazione dei dati
+          displayName: 'data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
+          href: how-to-explore-prepare-data.md
+        - name: Controllare la versione e gestire le definizioni dei dati
+          displayName: 'data, etl, dataset, data preparation, dataprep, version'
+          href: how-to-manage-dataset-definitions.md
+        - name: Creare snapshot dei dati
+          displayName: 'snapshots, profile, summary statistics, data copy'
+          href: how-to-create-dataset-snapshots.md
+        - name: Recuperare dati da un archivio dati
+          displayName: blob get fileshare access storage
+          href: how-to-access-data.md
         - name: Eseguire la preparazione con azureml.dataprep
           items:
             - name: Caricare i dati
@@ -149,18 +161,6 @@
             - name: Scrivere dati
               displayName: 'data, etl, data prep, dataprep'
               href: how-to-write-data.md
-        - name: Eseguire la preparazione con set di dati (anteprima)
-          displayName: 'data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
-          href: how-to-explore-prepare-data.md
-        - name: Controllare la versione e gestire le definizioni dei dati
-          displayName: 'data, etl, dataset, data preparation, dataprep, version'
-          href: how-to-manage-dataset-definitions.md
-        - name: Creare snapshot dei dati
-          displayName: 'snapshots, profile, summary statistics, data copy'
-          href: how-to-create-dataset-snapshots.md
-        - name: Recuperare dati da un archivio dati
-          displayName: blob get fileshare access storage
-          href: how-to-access-data.md
     - name: Eseguire il training dei modelli
       items:
         - name: Configurare ambienti di training
