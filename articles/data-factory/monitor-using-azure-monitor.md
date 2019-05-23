@@ -108,11 +108,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | storageAccountId |string | ID risorsa dell'account di archiviazione a cui si vogliono inviare i log di diagnostica |
 | serviceBusRuleId |string | ID regola del bus di servizio dello spazio dei nomi del bus di servizio in cui creare gli hub eventi per il flusso dei log di diagnostica. Il formato dell'ID della regola è: "{ID risorsa bus di servizio}/authorizationrules/{nome chiave}".|
 | workspaceId | Tipo complesso | Matrice di intervalli di tempo di metrica e relativi criteri di conservazione. Questa proprietà è attualmente vuota. |
-|Metriche| Valori di parametri della pipeline eseguita da passare alla pipeline richiamata| Oggetto JSON che esegue il mapping dei nomi di parametro ai valori degli argomenti |
-| log| Tipo complesso| Nome di una categoria di log di diagnostica per un tipo di risorsa. Per ottenere l'elenco di una categoria di log di diagnostica per una risorsa, eseguire prima un'operazione GET sulle impostazioni di diagnostica. |
+|metrics| Valori di parametri della pipeline eseguita da passare alla pipeline richiamata| Oggetto JSON che esegue il mapping dei nomi di parametro ai valori degli argomenti |
+| logs| Tipo complesso| Nome di una categoria di log di diagnostica per un tipo di risorsa. Per ottenere l'elenco di una categoria di log di diagnostica per una risorsa, eseguire prima un'operazione GET sulle impostazioni di diagnostica. |
 | category| string| Matrice di categorie di log e relativi criteri di conservazione |
 | timeGrain | string | Granularità delle metriche acquisite nel formato di durata ISO 8601. Deve essere PT1M (un minuto)|
-| Enabled| Boolean | Specifica se la raccolta di tale metrica o categoria di log è abilitata per questa risorsa|
+| enabled| Boolean | Specifica se la raccolta di tale metrica o categoria di log è abilitata per questa risorsa|
 | retentionPolicy| Tipo complesso| Descrive i criteri di conservazione per una metrica o categoria di log. Usata solo per l'opzione dell'account di archiviazione.|
 | days| Int| Numero di giorni di conservazione delle metriche o dei log. Se il valore è 0, i log vengono conservati all'infinito. Usata solo per l'opzione dell'account di archiviazione. |
 
