@@ -16,11 +16,11 @@ ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 426162d6655a107aad6fc7dd1081ca9352099449
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899333"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897907"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Esercitazione: Integrazione di Azure Active Directory con Korn Ferry ALP
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Korn Ferry ALP, seguire
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Korn Ferry ALP](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente:
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente:
 
     | |
     |--|
@@ -113,7 +113,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Korn Ferry ALP, seguire
     | `https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>` |
     | `https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>` |
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente:
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente:
     
     | |
     |--|

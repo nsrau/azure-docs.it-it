@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f239c7ab92ad2de4391468b646ff08fb61721517
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884864"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65864217"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apptio"></a>Esercitazione: Integrazione di Azure Active Directory con Apptio
 
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Apptio, seguire questa 
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | NOME |  Source Attribute|
+    | Nome |  Attributo di origine|
     | -------------- | -------------------- |
     | fullname       | user.displayname |
     | mail           | user.mail |

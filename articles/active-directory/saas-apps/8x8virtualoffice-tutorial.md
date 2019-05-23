@@ -16,11 +16,11 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9385ec6a86c24e619ffafdae67bc66f66e099f3b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842737"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Esercitazione: Integrazione di Azure Active Directory con 8x8 Virtual Office
 
@@ -110,7 +110,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con 8x8 Virtual Office, seg
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://sso.8x8.com/saml2`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://sso.8x8.com/saml2`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://sso.8x8.com/saml2`
 
 4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **Certificato (base)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 

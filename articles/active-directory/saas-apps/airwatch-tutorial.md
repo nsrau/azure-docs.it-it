@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ec8b575157dcf2fe8430f554798af62b966c78d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e20a298c34a7b2723963396f8ccaafaa9472e19a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406707"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899104"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Esercitazione: Integrazione di Azure Active Directory con AirWatch
 
@@ -207,15 +207,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con AirWatch, seguire quest
 
     a. Nella casella di testo **Identificatore oggetto** digitare `http://schemas.microsoft.com/identity/claims/objectidentifier`.
 
-    b. Nella casella di testo **Nome utente** digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    b. Nella casella di testo **Nome utente** digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    c. Nella casella di testo **Nome visualizzato** digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    c. Nella casella di testo **Nome visualizzato** digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    d. Nella casella di testo **Nome** digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. Nella casella di testo **Nome** digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    e. Nella casella di testo **Cognome** digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. Nella casella di testo **Cognome** digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-    f. Nella casella di testo **Email** (Posta elettronica) digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. Nella casella di testo **Email** (Posta elettronica) digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     g. Fare clic su **Save**.
 

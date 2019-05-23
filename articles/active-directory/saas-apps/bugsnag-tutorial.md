@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 01877e4d982433608dd10fb44f2506b8bf71aff6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65858917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>Esercitazione: Integrazione di Azure Active Directory con Bugsnag
 
@@ -101,11 +101,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Bugsnag, seguire questa
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione nella modalità avviata da **IDP**:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Bugsnag](common/both-replyurl.png)
 
-    Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://app.bugsnag.com/user/sign_in/saml/<org_slug>/acs`
+    Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://app.bugsnag.com/user/sign_in/saml/<org_slug>/acs`
 
     > [!NOTE]
     > Il valore di URL di risposta non è reale. è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di Bugsnag](mailto:support@bugsnag.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

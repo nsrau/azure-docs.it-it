@@ -16,11 +16,11 @@ ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 896f24ee20aece111c496a5b16d4b3dade119f85
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842380"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900528"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridge"></a>Esercitazione: Integrazione di Azure Active Directory con Bridge
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Bridge, seguire questa 
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Bridge](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<company name>.bridgeapp.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<company name>.bridgeapp.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<company name>.bridgeapp.com`
 

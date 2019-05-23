@@ -16,11 +16,11 @@ ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ba76692ec35ddfd0b6c8c49306d6056709d684e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840682"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902929"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Cloud for Customer
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SAP Cloud for Customer,
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di SAP Cloud for Customer](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<server name>.crm.ondemand.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<server name>.crm.ondemand.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<server name>.crm.ondemand.com`
 

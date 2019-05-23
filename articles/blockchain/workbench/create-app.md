@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d9f736b0b976ac6ec0da45a672d2e992405625cd
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578799"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619762"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Esercitazione: Creare un'applicazione blockchain in Azure Blockchain Workbench
 
@@ -271,7 +271,7 @@ Aggiungere le variabili di stato al contratto nel file di codice del contratto i
 
 ### <a name="constructor"></a>Costruttore
 
-Il costruttore definisce i parametri da immettere per una nuova istanza del contratto intelligente di un flusso di lavoro. Il costruttore viene dichiarato come funzione con lo stesso nome del contratto. I parametri richiesti per il costruttore sono definiti come parametri del costruttore nel file di configurazione. Il numero, l'ordine e il tipo dei parametri devono corrispondere in entrambi i file.
+Il costruttore definisce i parametri da immettere per una nuova istanza del contratto intelligente di un flusso di lavoro. I parametri richiesti per il costruttore sono definiti come parametri del costruttore nel file di configurazione. Il numero, l'ordine e il tipo dei parametri devono corrispondere in entrambi i file.
 
 Nella funzione costruttore scrivere la logica di business che deve essere eseguita prima di creare il contratto. Ad esempio, inizializzare le variabili di stato con i valori iniziali.
 

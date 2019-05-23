@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 0ed1a72a5dc61458200b72c768ad722656b820d8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 05/16/2019
 ms.locfileid: "65025606"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Informazioni sull'API Riconoscimento input penna
@@ -28,7 +28,7 @@ Il servizio cognitivo Riconoscimento input penna fornisce un'API REST basata sul
 
 Con l'API Riconoscimento input penna, è possibile riconoscere con facilità il contenuto scritto a mano nelle applicazioni. 
 
-|Funzionalità  |Descrizione  |
+|Funzionalità  |DESCRIZIONE  |
 |---------|---------|
 | Riconoscimento della grafia | Riconosce il contenuto scritto a mano in 63 [lingue e impostazioni locali](language-support.md) principali. | 
 | Riconoscimento del layout | Fornisce informazioni strutturali sul contenuto dell'input penna. Il contenuto viene diviso in aree di scrittura, paragrafi, righe, parole, elenchi puntati. L'applicazione può quindi usare le informazioni sul layout per sviluppare altre funzionalità, come la formattazione automatica degli elenchi e l'allineamento delle forme. |

@@ -1,5 +1,5 @@
 ---
-title: Spostare VM IaaS di Azure in un'altra area di Azure con il servizio Azure Site Recovery | Microsoft Docs
+title: Spostare macchine virtuali IaaS di Azure in un'altra area di Azure usando il servizio Azure Site Recovery | Microsoft Docs
 description: Usare Site Recovery per lo spostamento di macchine virtuali IaaS di Azure da un'area di Azure a un'altra.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 7619b8831d75ce639c6f6c773c7c7d491abc93e7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d446be664d695af946d46abc48389d4f7be92cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122030"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791030"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
 Esistono vari scenari in cui può essere opportuno spostare le macchine virtuali (VM) IaaS di Azure esistenti da un'area a un'altra, ad esempio per aumentare l'affidabilità e la disponibilità delle VM esistenti, per migliorare la gestibilità oppure per motivi di governance. Per altre informazioni, vedere la [panoramica dello spostamento di VM di Azure](azure-to-azure-move-overview.md). 
 
-È possibile usare il servizio [Azure Site Recovery](site-recovery-overview.md) per gestire e orchestrare il ripristino di emergenza di computer locali e VM di Azure ai fini della continuità aziendale e del ripristino di emergenza, nonché per gestire lo spostamento di VM di Azure in un'area secondaria.
+È possibile usare il servizio [Azure Site Recovery](site-recovery-overview.md) per gestire e orchestrare il ripristino di emergenza di computer locali e VM di Azure ai fini della continuità aziendale e del ripristino di emergenza (BCDR), nonché per gestire lo spostamento di VM di Azure in un'area secondaria.
 
 In questa esercitazione si apprenderà come:
 
@@ -56,7 +56,7 @@ In questa esercitazione si apprenderà come:
     - Per le macchine virtuali di Windows, installare tutti gli aggiornamenti di Windows più recenti nella macchina virtuale in modo che tutti i certificati radice trusted siano presenti nel computer. In un ambiente non connesso, seguire i processi di aggiornamento di Windows e di aggiornamento dei certificati standard per l'organizzazione.
     - Per le VM Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati nella VM.
 1. Assicurarsi di non usare un proxy di autenticazione per controllare la connettività di rete per le VM da spostare.
-1. Se la VM che si intende spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, [controllare i requisiti](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+1. Se la VM che si intende spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, [controllare i requisiti](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 1. Identificare il layout di rete di origine e tutte le risorse attualmente in uso, tra cui i servizi di bilanciamenti del carico, i gruppi di sicurezza di rete e gli indirizzi IP pubblici.
 
 ## <a name="prepare-the-target-region"></a>Preparare l'area di destinazione
@@ -74,7 +74,7 @@ In questa esercitazione si apprenderà come:
 
    - [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
    - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [IP pubblico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
     
      Per qualsiasi altro componente di rete, vedere la [documentazione relativa alle reti](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 
@@ -96,7 +96,7 @@ La procedura seguente illustra come usare Azure Site Recovery per copiare i dati
 1. Selezionare il modello di distribuzione Resource Manager. Selezionare quindi la **sottoscrizione di origine** e il **gruppo di risorse di origine**.
 1. Scegliere **OK** per salvare le impostazioni.
 
-### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>Abilitare la replica per le VM di Azure e avviare la copia dei dati
+### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>Abilitare la replica per le macchine virtuali di Azure e avviare la copia dei dati
 
 Site Recovery recupera un elenco delle VM associate alla sottoscrizione e al gruppo di risorse.
 

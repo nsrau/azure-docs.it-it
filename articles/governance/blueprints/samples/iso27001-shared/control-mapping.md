@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 9290609136d1314762d9f716531464ad2496fb63
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c40efca9abd418c8b48f931d327b1f81805b38fb
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005299"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520414"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Servizi condivisi ISO 27001
 
@@ -24,7 +24,7 @@ I mapping seguenti fanno riferimento ai controlli **ISO 27001:2013**. Usare la b
 
 La presenza di un solo proprietario di sottoscrizioni di Azure non consente la ridondanza amministrativa. Al contrario, la presenza di troppi proprietari di sottoscrizioni di Azure può aumentare la probabilità che si verifichi una violazione tramite un account di proprietario compromesso. Questo progetto consente di mantenere un numero appropriato di proprietari di sottoscrizioni di Azure assegnando due definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano questo numero. La gestione delle autorizzazioni dei proprietari di sottoscrizioni consente di implementare la separazione appropriata dei compiti.
 
-- [Anteprima]: Audit minimum number of owners for subscription
+- [Anteprima]: Audit minimum number of owners for a subscription
 - [Anteprima]: Audit maximum number of owners for a subscription
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 Classificazione delle informazioni
@@ -87,7 +87,7 @@ Azure implementa il [controllo degli accessi in base al ruolo](../../../../role-
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Procedure di accesso sicure
 
-Questo progetto assegna tre definizioni di Criteri di Azure per controllare gli account per cui non è abilitata l'autenticazione a più fattori. Multi-Factor Authentication di Azure offre ulteriore sicurezza richiedendo una seconda forma di autenticazione nonché un'autenticazione avanzata. Monitorando gli account senza autenticazione a più fattori abilitata, è possibile identificare quelli che potrebbero venire compromessi con più probabilità.
+Questo progetto assegna tre definizioni di Criteri di Azure per controllare gli account per cui non è abilitata l'autenticazione a più fattori. Azure Multi-Factor Authentication offre ulteriore sicurezza richiedendo una seconda forma di autenticazione nonché un'autenticazione avanzata. Monitorando gli account senza autenticazione a più fattori abilitata, è possibile identificare quelli che potrebbero venire compromessi con più probabilità.
 
 - [Anteprima]: Audit accounts with owner permissions who are not MFA enabled on a subscription
 - [Anteprima]: Audit accounts with read permissions who are not MFA enabled on a subscription

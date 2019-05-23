@@ -16,11 +16,11 @@ ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a925b13e6aed55f13bb38df53f2d6063b0948730
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838239"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Esercitazione: Integrazione di Azure Active Directory con eKincare
 
@@ -109,7 +109,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con eKincare, seguire quest
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<instancename>.ekincare.com/`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<instancename>.ekincare.com/hul/saml`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<instancename>.ekincare.com/hul/saml`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori contattare il [team di supporto clienti di eKincare](mailto:tech@ekincare.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con eKincare, seguire quest
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | NOME | Source Attribute |
+    | Nome | Attributo di origine |
     | ---------------| --------------- |    
     | employeeid | *user.extensionattribute1* |
     | organizationid | *"uniquevalue"* |

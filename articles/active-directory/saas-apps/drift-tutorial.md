@@ -16,11 +16,11 @@ ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 876780189768411eba40a99192755bee6732728b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874814"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862959"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-drift"></a>Esercitazione: Integrazione di Azure Active Directory con Drift
 
@@ -121,7 +121,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Drift, seguire questa p
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | ---------------| --------------- |    
     | NOME | user.displayname |
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236936"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523306"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell
 
@@ -38,10 +38,9 @@ Prima di creare entità servizio e assegnazioni di ruolo, è necessario eseguire
     Install-Module AzureAD
     ```
 
-2. Eseguire i cmdlet seguenti con i valori tra virgolette sostituiti dai valori appropriati per la sessione. Se è stato appena creato il tenant di Desktop virtuale Windows con l'esercitazione [Creare un tenant in Desktop virtuale Windows](./tenant-setup-azure-active-directory.md), usare "Default Tenant Group" come nome del gruppo di tenant.
+2. Eseguire i cmdlet seguenti con i valori tra virgolette sostituiti dai valori appropriati per la sessione.
 
     ```powershell
-    $myTenantGroupName = "<my-tenant-group-name>"
     $myTenantName = "<my-tenant-name>"
     ```
 
@@ -68,8 +67,7 @@ Eseguire i cmdlet di PowerShell seguenti per connettersi a Desktop virtuale Wind
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsContext -TenantGroupName $myTenantGroupName
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantGroupName $myTenantGroupName -TenantName $myTenantName
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## <a name="sign-in-with-the-service-principal"></a>Accedere con l'entità servizio

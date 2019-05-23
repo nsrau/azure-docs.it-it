@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb066ce346d56b9b879a5e3cdcf30e7da77d94fe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57846719"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65859440"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Esercitazione: Integrazione di Azure Active Directory con Adobe Experience Manager
 
@@ -109,7 +109,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     a. Nella casella di testo **Identificatore** digitare un valore univoco definito anche nel server Adobe Experience Manager.
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<AEM Server Url>/saml_login`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<AEM Server Url>/saml_login`
 
     > [!NOTE]
     > Il valore di URL di risposta non è reale. Aggiornare questo valore con l'URL di risposta effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di Adobe Experience Manager](https://helpx.adobe.com/support/experience-manager.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     Nella casella di testo **URL di accesso** digitare l'URL del server Adobe Experience Manager.
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819f7d12f0554145295a0ec4f1eff7cb404d552d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c7d2920e84e0e1e61627afe1fe029e047e13ed02
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406950"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897888"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Esercitazione: Integrazione di Azure Active Directory con LCVista
 
@@ -140,13 +140,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con LCVista, seguire questa
 
     c. Aprire nel Blocco note il file XML dei metadati scaricato dal portale di Azure, copiare il valore di **X509Certificate** e incollarlo nella sezione **x509 Certificate** (Certificato x509).
 
-    d. Nella casella di testo **Attributo nome** incollare il valore `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. Nella casella di testo **Attributo nome** incollare il valore `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    e. Nella casella di testo **Attributo cognome** incollare il valore `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. Nella casella di testo **Attributo cognome** incollare il valore `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-    f. Nella casella di testo **Attributo posta elettronica** incollare il valore `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. Nella casella di testo **Attributo posta elettronica** incollare il valore `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    g. Nella casella di testo **Attributo nome utente** incollare il valore `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    g. Nella casella di testo **Attributo nome utente** incollare il valore `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     e. Fare clic su **Salva** per salvare le impostazioni.
 

@@ -16,11 +16,11 @@ ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 453827b42d12333fd4f27761e7f73484fb749532
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65865781"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Esercitazione: Integrazione di Azure Active Directory con Trello
 
@@ -132,7 +132,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trello, seguire questa 
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come illustrato nell'immagine precedente. Seguire quindi questa procedura:
 
-    | NOME |  Source Attribute|
+    | NOME |  Attributo di origine|
     | --- | --- |
     | User.Email | user.mail |
     | User.FirstName | user.givenname |

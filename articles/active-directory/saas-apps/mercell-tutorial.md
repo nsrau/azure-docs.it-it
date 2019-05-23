@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 2411a036cd56d88e261317ae523d8186b85b5a15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65872290"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Esercitazione: Integrazione di Azure Active Directory con Mercell
 

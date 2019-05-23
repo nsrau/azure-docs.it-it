@@ -16,11 +16,11 @@ ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6df8c5829ccd55f7da946a1cd72cb5bf89c2f6a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839118"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65859041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cbre-serviceinsight"></a>Esercitazione: Integrazione di Azure Active Directory con CBRE ServiceInsight
 
@@ -117,7 +117,7 @@ Per configurare Single Sign-On di Azure AD con CBRE ServiceInsight, seguire ques
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME |  Source Attribute|
+    | NOME |  Attributo di origine|
     | ------------ | --------- |
     | SSOCallerPhone | user.telephonenumber |
     | | |

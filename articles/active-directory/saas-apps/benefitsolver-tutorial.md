@@ -16,11 +16,11 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39b285dd81347cb9ea031bfab168e372d4537f39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862453"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Esercitazione: Integrazione di Azure Active Directory con Benefitsolver
 
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Benefitsolver, seguire 
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | NOME |  Source Attribute|
+    | Nome |  Attributo di origine|
     |---------------|----------------|
     | ClientID | È necessario ottenere questo valore dal [team di supporto clienti di Benefitsolver](https://www.businessolver.com/contact).|
     | ClientKey | È necessario ottenere questo valore dal [team di supporto clienti di Benefitsolver](https://www.businessolver.com/contact).|

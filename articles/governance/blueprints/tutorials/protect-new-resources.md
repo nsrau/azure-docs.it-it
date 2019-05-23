@@ -7,14 +7,14 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b885a90728df8cb15c75141b7bce81aec3968359
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791610"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779576"
 ---
-# <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Proteggere le nuove risorse con blocchi delle risorse in Azure Blueprints
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Esercitazione: Proteggere le nuove risorse con blocchi delle risorse in Azure Blueprints
 
 Il [blocco delle risorse](../concepts/resource-locking.md) di Azure Blueprints consente di proteggere le risorse appena distribuite da eventuali manomissioni, anche da parte di un account con il ruolo _Proprietario_. È possibile aggiungere questo tipo di protezione per le risorse create da un elemento del modello di Resource Manager nella definizione del progetto.
 

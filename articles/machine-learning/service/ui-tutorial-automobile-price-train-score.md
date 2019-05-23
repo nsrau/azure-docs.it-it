@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 352f695f186b656ad0f6471d8ede905d53ad5274
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 52b5291e4b56b5065b9dddd5b8908ade0c1a8387
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65234111"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66019830"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Esercitazione: Stimare il prezzo delle automobili con l'interfaccia visiva grafica
 
@@ -35,8 +35,8 @@ Nella [seconda parte](ui-tutorial-automobile-price-deploy.md) della serie di ese
 > Una versione completa dell'esercitazione è disponibile come esperimento di esempio.
 > Nella pagina Experiments (Esperimenti) passare a **Add New (Aggiungi nuovo)** > **Sample 1 - Regression: Automobile Price Prediction(Basic)**
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Build-zero-code-machine-learning-models-with-Azure-Machine-Learning-service/player]
 
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 

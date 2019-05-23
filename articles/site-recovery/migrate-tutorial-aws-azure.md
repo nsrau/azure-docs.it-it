@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 17acd4eebe53704699d3ec9a3f4f121eed79794d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b2ff67e207f8a3a2b79635b080c78021162f0ac6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310388"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519225"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
@@ -115,7 +115,11 @@ Nella pagina **Obiettivo di protezione** selezionare i valori seguenti:
 
 Al termine, selezionare **OK** per passare alla sezione successiva.
 
-### <a name="2-prepare-source"></a>2: Preparare l'origine
+### <a name="2-select-deployment-planning"></a>2: Selezionare la pianificazione di distribuzione
+
+In **È stata completata la pianificazione della distribuzione?** selezionare **Operazione da completare in seguito** e quindi selezionare **OK**.
+
+### <a name="3-prepare-source"></a>3: Preparare l'origine
 
 Nella pagina **Prepara origine** selezionare **+ Server di configurazione**.
 
@@ -140,7 +144,7 @@ Nella pagina **Prepara origine** selezionare **+ Server di configurazione**.
 
 Al termine della configurazione del server di configurazione, tornare al portale e selezionare il server appena creato come **Server di configurazione**. Selezionare **OK** per passare a 3: Preparare la destinazione.
 
-### <a name="3-prepare-target"></a>3: Preparare la destinazione
+### <a name="4-prepare-target"></a>4: Preparare la destinazione
 
 In questa sezione vengono immesse informazioni sulle risorse create nella sezione precedente [Preparare le risorse di Azure](#prepare-azure-resources) in questa esercitazione.
 
@@ -149,8 +153,7 @@ In questa sezione vengono immesse informazioni sulle risorse create nella sezion
 3. Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili. Dovrebbe trattarsi delle risorse create nella sezione precedente [Preparare le risorse di Azure](#prepare-azure-resources) in questa esercitazione.
 4. Al termine, fare clic su **OK**.
 
-
-### <a name="4-prepare-replication-settings"></a>4: Preparare le impostazioni di replica
+### <a name="5-prepare-replication-settings"></a>5: Preparare le impostazioni di replica
 
 Prima di abilitare la replica è necessario creare i criteri di replica.
 
@@ -158,12 +161,7 @@ Prima di abilitare la replica è necessario creare i criteri di replica.
 2. In **Nome** immettere **myReplicationPolicy**.
 3. Lasciare le altre impostazioni predefinite e quindi selezionare **OK** per creare i criteri. I nuovi criteri vengono associati automaticamente al server di configurazione.
 
-### <a name="5-select-deployment-planning"></a>5: Selezionare la pianificazione di distribuzione
-
-In **È stata completata la pianificazione della distribuzione?** selezionare **Operazione da completare in seguito** e quindi selezionare **OK**.
-
 Quando si è terminato con tutte le cinque sezioni in **Preparare l'infrastruttura**, selezionare **OK**.
-
 
 ## <a name="enable-replication"></a>Abilitare la replica
 

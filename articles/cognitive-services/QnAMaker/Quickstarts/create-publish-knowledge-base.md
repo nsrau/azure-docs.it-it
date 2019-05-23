@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/10/2019
 ms.author: diberry
-ms.openlocfilehash: cf6b0cd99254d5b034687598c588ce5ef13dbd53
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1411576d078115921cb04b41347264bccdc390f4
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272853"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593991"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Creare, eseguire il training e pubblicare la knowledge base QnA Maker
 
@@ -66,7 +66,7 @@ ms.locfileid: "59272853"
 
 1. Selezionare **Ispeziona** per esaminare la risposta in modo più dettagliato. La finestra di test viene utilizzata per testare le modifiche alla knowledge base prima che vengano pubblicate.
 
-    ![Pannello Test](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Pannello Test](../media/qnamaker-quickstart-kb/inspect.png)
 
 1. Selezionare nuovamente **Esegui test** per comprimere il pop-up **Esegui test**.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Assistente virtuale voice-first personalizzato (anteprima), C# (piattaforma UWP) - Servizi Voce'
+title: 'Guida introduttiva: Assistente virtuale voice-first personalizzato (anteprima), C# (piattaforma UWP) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: In questo articolo viene creata un'applicazione della piattaforma UWP (Universal Windows Platform) C# usando Speech SDK (Speech Software Development Kit) di Servizi cognitivi. L'applicazione client viene connessa a un bot di Bot Framework creato in precedenza e configurato per l'uso del canale Direct Line Speech. L'applicazione si basa sul pacchetto NuGet Speech SDK e su Microsoft Visual Studio 2017.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: e2b25875a0dff12bba32b033bca0c35394d407aa
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: e03cc45c5868f90dd1c2da0d7b4890fbf72c9899
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465635"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954797"
 ---
-# <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Avvio rapido: Creare un assistente virtuale voice-first con Speech SDK, piattaforma UWP
+# <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Guida introduttiva: Creare un assistente virtuale voice-first con Speech SDK, piattaforma UWP
 
 Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-csharp-uwp.md) e la [traduzione vocale](quickstart-translate-speech-uwp.md).
 
@@ -353,7 +353,6 @@ Questa guida di avvio rapido descrive in dettaglio come creare una semplice appl
     ![Screenshot della richiesta di autorizzazione](media/sdk/qs-csharp-uwp-10-access-prompt.png "Avviare l'applicazione per eseguire il debug")
 
 1. Selezionare **Talk to your bot** (Parla al bot) e pronunciare una frase o un'espressione nel microfono del dispositivo. Il contenuto vocale viene trasmesso al canale Direct Line Speech e trascritto come testo che viene visualizzato nella finestra.
-quickstart-cs-uwp-bot-successful-turn
 
     ![Screenshot del turno del bot riuscito](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png "Turno del bot riuscito")
 

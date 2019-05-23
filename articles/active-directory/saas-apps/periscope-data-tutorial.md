@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 878d9b40172313ac6c3d816cbf0da6aba5e18542
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617887"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Esercitazione: Integrazione di Azure Active Directory con Periscope Data
 
@@ -111,7 +111,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Periscope Data, seguire
     | `https://app.periscopedata.com/` |
     | `https://app.periscopedata.com/app/<SITENAME>` |
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://app.periscopedata.com/<SITENAME>/sso`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://app.periscopedata.com/<SITENAME>/sso`
 
     > [!NOTE]
     > Il valore dell'URL di accesso non è reale. Aggiornarlo con quello effettivo. Contattare il [team di supporto clienti di Periscope Data](mailto:support@periscopedata.com) per ottenere questo valore e il valore dell'identificatore ottenuto nella sezione **Configurare l'accesso Single Sign-On per Periscope Data** , come spiegato più avanti nell'esercitazione. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

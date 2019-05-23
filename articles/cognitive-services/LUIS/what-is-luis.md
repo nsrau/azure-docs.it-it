@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c26f3d6c3b34ed90a5455bb94ea71d7556b47751
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441968"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522013"
 ---
 # <a name="what-is-language-understanding-luis"></a>Che cos'è il servizio Language Understanding (LUIS)?
 
@@ -53,7 +53,7 @@ Un'app LUIS contiene un modello di linguaggio naturale specifico per il dominio.
 * **Entità personalizzate** LUIS offre diversi modi per identificare le finalità e le entità personalizzate, comprese le entità apprese automaticamente, le entità specifiche o con valore letterale e una combinazione di entità apprese automaticamente e con valore letterale.
 
 ## <a name="build-the-luis-model"></a>Compilare il modello LUIS
-Compilare il modello con le API di [creazione](https://aka.ms/luis-authoring-apis) o con il portale LUIS.
+Compilare il modello con le API di [creazione](https://go.microsoft.com/fwlink/?linkid=2092087) o con il portale LUIS.
 
 Il modello LUIS inizia con le categorie di intenzioni dell'utente, denominate **[finalità](luis-concept-intent.md)**. Per ogni finalità sono necessari esempi di **[espressioni](luis-concept-utterance.md)** dell'utente. Ogni espressione può fornire una serie di dati che devono essere estratti con le **[entità](luis-concept-entity-types.md)**. 
 
@@ -65,7 +65,7 @@ Il modello LUIS inizia con le categorie di intenzioni dell'utente, denominate **
 
 ## <a name="query-prediction-endpoint"></a>Eseguire query sull'endpoint di stima
 
-Dopo la compilazione e la pubblicazione del modello nell'endpoint, l'applicazione client invia le espressioni all'API dell'[endpoint di stima](https://aka.ms/luis-endpoint-apis) pubblicato. L'API applica il modello al testo per l'analisi. L'API risponde con i risultati della stima in formato JSON.  
+Dopo la compilazione e la pubblicazione del modello nell'endpoint, l'applicazione client invia le espressioni all'API dell'[endpoint di stima](https://go.microsoft.com/fwlink/?linkid=2092356) pubblicato. L'API applica il modello al testo per l'analisi. L'API risponde con i risultati della stima in formato JSON.  
 
 La risposta dell'endpoint JSON contiene almeno l'espressione della query e la finalità con il punteggio più alto. Può anche estrarre dati, ad esempio l'entità **Contact Type** seguente. 
 
@@ -126,6 +126,6 @@ Creare una nuova app LUIS con un dominio [precompilato](luis-get-started-create-
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
-[authoring-apis]: https://aka.ms/luis-authoring-api
-[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
+[endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

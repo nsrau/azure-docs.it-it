@@ -16,11 +16,11 @@ ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cdf8f78a54c89ac89441a87ca0ba34d61a3d2a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888315"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65740134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>Esercitazione: Integrazione di Azure Active Directory con Euromonitor Passport
 
@@ -117,7 +117,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Euromonitor Passport, s
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | ---------------| --------- |
     | Valore identificatore nome | user.userprincipalname |
     | emailaddress | user.mail |

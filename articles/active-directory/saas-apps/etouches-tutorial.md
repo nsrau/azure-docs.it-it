@@ -16,11 +16,11 @@ ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46fa85581829f82da9a137315e1f890aa481408d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850786"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Esercitazione: Integrazione di Azure Active Directory con etouches
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con etouches, seguire quest
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di etouches](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://www.eiseverywhere.com/<instance name>`
 
@@ -119,7 +119,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con etouches, seguire quest
 
 6. Oltre quelli elencati in precedenza, l'applicazione etouches prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | ------------------- | -------------------- |
     | Email | user.mail | 
 

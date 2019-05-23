@@ -16,11 +16,11 @@ ms.date: 01/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7fbaad8ea3e242c79f06ac314f551bddd892d45
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852150"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900136"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asset-bank"></a>Esercitazione: Integrazione di Azure Active Directory con Asset Bank
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Asset Bank, seguire que
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Asset Bank](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<companyname>.assetbank-server.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.assetbank-server.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<companyname>.assetbank-server.com/shibboleth`
 

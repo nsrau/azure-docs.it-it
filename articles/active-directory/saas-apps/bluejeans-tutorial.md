@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 2830e95f042d5c83d91d6c026d2fa2e70eb3e3b2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463553"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901160"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Esercitazione: Integrazione di Azure Active Directory con BlueJeans
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con BlueJeans, seguire ques
 
     ![Informazioni sull'accesso Single Sign-On per URL e dominio di BlueJeans](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-   - Nella casella di testo **Identificatore** digitare il valore seguente: `https://samlsp.bluejeans.com`
+   - Nella casella di testo **Identificatore** digitare il valore seguente: `http://samlsp.bluejeans.com`
     
    - Nella casella di testo **URL accesso** digitare l'URL della pagina di destinazione fornita da BlueJeans: `https://<companyname>.bluejeans.com`. Per ottenere questo valore, contattare il [team di supporto clienti di BlueJeans team](https://support.bluejeans.com/contact).
     
@@ -160,9 +160,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con BlueJeans, seguire ques
 
     ![Salvare le modifiche](./media/bluejeans-tutorial/ic785874.png "Salvare le modifiche")
 
-    a. Nella casella di testo **User Id** (ID utente) digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    a. Nella casella di testo **User Id** (ID utente) digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. Nella casella di testo **Email** (Posta elettronica) digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. Nella casella di testo **Email** (Posta elettronica) digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     c. Fare clic su **SAVE CHANGES** (Salva modifiche).
 

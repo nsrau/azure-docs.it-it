@@ -17,11 +17,11 @@ ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 798245dc293ecac01fb874fc57b98b14d258f686
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564884"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900301"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amms"></a>Esercitazione: Integrazione di Azure Active Directory con AMMS
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con AMMS, seguire questa pr
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di AMMS](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<SUBDOMAIN>.microwestcloud.com/amms/pages/login.aspx`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.microwestcloud.com/amms/pages/login.aspx`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `<SUBDOMAIN>.microwestcloud.com/amms`
 

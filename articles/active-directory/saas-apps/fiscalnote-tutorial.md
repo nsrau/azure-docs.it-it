@@ -16,11 +16,11 @@ ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 592d885656ee7753054f020f5768a75a5d43a489
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886321"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898719"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>Esercitazione: Integrazione di Azure Active Directory con FiscalNote
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FiscalNote, seguire que
 
     ![Informazioni su URL e dominio per Single Sign-On di FiscalNote](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<InstanceName>.fiscalnote.com/login?client=<ClientID>&redirect_uri=https://app.fiscalnote.com/saml-login.html&audience=https://api.fiscalnote.com/&connection=<CONNECTION_NAME>&response_type=id_token%20token`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<InstanceName>.fiscalnote.com/login?client=<ClientID>&redirect_uri=https://app.fiscalnote.com/saml-login.html&audience=https://api.fiscalnote.com/&connection=<CONNECTION_NAME>&response_type=id_token%20token`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `urn:auth0:fiscalnote:<CONNECTIONNAME>`
 
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FiscalNote, seguire que
 
 6. Oltre quelli elencati in precedenza, l'applicazione FiscalNote prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | ---------------| ----------------|
     | familyName| user.surname|
     | email| user.mail|
@@ -179,7 +179,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente**, digitare **brittasimon\@dominioaziendale.estensione**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

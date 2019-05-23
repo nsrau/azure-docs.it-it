@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33fd6b8b7423f8640910e02383bba8397d2f8336
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408085"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904020"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Esercitazione: Integrazione di Azure Active Directory con QuickHelp
 
@@ -150,11 +150,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con QuickHelp, seguire ques
    
     b. Per caricare il file dei metadati di Azure scaricato, fare clic su **Sfoglia**, passare al file e quindi fare clic su **Carica metadati**.
    
-    c. Nella casella di testo **Email** (Posta elettronica) digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. Nella casella di testo **Email** (Posta elettronica) digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
    
-    d. Nella casella di testo **Nome** digitare `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. Nella casella di testo **Nome** digitare `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
    
-    e. Nella casella di testo **Cognome** digitare `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. Nella casella di testo **Cognome** digitare `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
    
     f. Nella **barra delle azioni**, fare clic su **Salva**.
 

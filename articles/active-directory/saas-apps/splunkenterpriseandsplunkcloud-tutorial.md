@@ -16,11 +16,11 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28b98a5001d5b02c61fab1bc6ce06a8f08eaf0e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875601"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65866900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con Splunk Enterprise and Splunk Cloud
 
@@ -109,7 +109,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Splunk Enterprise and S
 
     b. Nella casella di testo **Identificatore** digitare un URL usando il modello seguente: `<splunkserverUrl>`
 
-    c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<splunkserver>/saml/acs`
+    c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<splunkserver>/saml/acs`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Splunk Enterprise e Splunk Cloud](https://www.splunk.com/about-us/contact.html#tabs/customer-support). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

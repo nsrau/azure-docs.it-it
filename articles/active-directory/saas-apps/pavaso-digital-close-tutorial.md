@@ -16,11 +16,11 @@ ms.date: 01/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b9e6a271f4e2c2190abf0074eb11c2a5e0e60755
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861520"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65869708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Esercitazione: Integrazione di Azure Active Directory con Pavaso Digital Close
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.pavaso.com/AuthServices`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<SUBDOMAIN>.pavaso.com/AuthServices/Acs`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.pavaso.com/AuthServices/Acs`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 

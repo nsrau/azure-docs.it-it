@@ -16,11 +16,11 @@ ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea17794a5ca57ae0d38d9a90857706cf380cab36
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895669"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862188"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deskradar"></a>Esercitazione: Integrazione di Azure Active Directory con Deskradar
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://YOURDOMAIN.deskradar.cloud`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/consume`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://YOURDOMAIN.deskradar.cloud/auth/sso/saml/consume`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -124,7 +124,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME | Source Attribute|
+    | NOME | Attributo di origine|
     | ---------------| --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
@@ -149,7 +149,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     g. Fare clic su **Save**.
 
-8. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+8. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 

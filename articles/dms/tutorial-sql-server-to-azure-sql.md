@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 22e55379c79678a2792f439137e8d58d03cd8377
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/14/2019
+ms.openlocfilehash: 32d8bd528da2823907e4f992f977eef91e55b9b0
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415083"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605479"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Esercitazione: Eseguire la migrazione offline di SQL Server a un database singolo o in pool in Database SQL di Azure con Servizio Migrazione del database
 
@@ -24,6 +24,7 @@ ms.locfileid: "65415083"
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
+>
 > - Valutare il database locale usando Data Migration Assistant.
 > - Eseguire la migrazione dello schema di esempio con Data Migration Assistant.
 > - Creare un'istanza del Servizio Migrazione del database di Azure.
@@ -79,7 +80,7 @@ Prima di eseguire la migrazione dei dati da un'istanza locale di SQL Server a un
    - Check database compatibility (Verificare la compatibilità del database)
    - Check feature parity (Verificare la parità di funzionalità)
 
-     Entrambi i tipi di report sono selezionati per impostazione predefinita.
+    Entrambi i tipi di report sono selezionati per impostazione predefinita.
 
 3. In Data Migration Assistant selezionare **Avanti** nella schermata **Opzioni**.
 4. Nella schermata **Seleziona origini** della finestra di dialogo **Connetti a un server** indicare i dettagli della connessione a SQL Server e quindi selezionare **Connetti**.

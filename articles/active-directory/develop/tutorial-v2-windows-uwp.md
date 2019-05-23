@@ -16,17 +16,16 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 448858efeaae4c3e2a41d41181e9ec74b03223f6
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 42b7e59e39adbb485738ca66b7ad8e5ba8293ddc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138245"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784984"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (XAML)
 
 > [!div renderon="docs"]
-> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Questa guida illustra come un'applicazione nativa della piattaforma UWP (Universal Windows) può richiedere un token di accesso e quindi chiamare l'API Microsoft Graph. La guida si applica anche ad altre API che richiedono token di accesso generati dall'endpoint di Microsoft Identity Platform.
 
@@ -335,7 +334,7 @@ I token ID acquisiti tramite **OpenID Connect** includono anche un piccolo subse
 1. Nella pagina **Panoramica**  dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota. Tornare a Visual Studio, aprire **MainPage.xaml.cs** e sostituire il valore di ClientId con l'ID applicazione annotato nel passaggio precedente:
 1. Nell'elenco delle pagine per l'app selezionare **Autenticazione**.
    1. Nella sezione **URI di reindirizzamento**, nell'elenco URI di reindirizzamento:
-   1. Nella colonna **TIPO** selezionare **Client pubblico (dispositivi mobili e desktop)**.
+   1. Nella colonna **TIPO** selezionare **Client pubblico (per dispositivi mobili e desktop)**.
    1. Immettere `urn:ietf:wg:oauth:2.0:oob` nella colonna **URI DI REINDIRIZZAMENTO**.
 1. Selezionare **Salva**.
 1. Nell'elenco delle pagine per l'app selezionare **Autorizzazioni API**

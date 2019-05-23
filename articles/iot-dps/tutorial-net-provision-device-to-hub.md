@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 8602f020481249282756a952a46b32bd9e768372
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6e1681e4eca923e8e4ce541570b4ed4b3ba9d567
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241321"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834366"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registrare il dispositivo in un hub IoT usando il client del servizio Device Provisioning in hub IoT di Azure (.NET)
 
@@ -30,7 +30,7 @@ Nell'esercitazione precedente abbiamo appreso come configurare un dispositivo pe
 
 Prima di procedere, assicurarsi di configurare il dispositivo e il relativo *modulo di protezione hardware* come descritto nell'esercitazione [Configurare un dispositivo per il provisioning usando il servizio Device Provisioning in hub IoT di Azure](./tutorial-set-up-device.md).
 
-* Visual Studio 2015 o Visual Studio 2017
+* Visual Studio
 
 > [!NOTE]
 > Visual Studio non è necessario. L'installazione di [.NET](https://www.microsoft.com/net) è sufficiente e gli sviluppatori possono usare il proprio editor preferito in Windows o Linux.  
@@ -241,7 +241,7 @@ In seguito all'avvio del dispositivo dovrebbero verificarsi le azioni seguenti. 
     ![Successful connection to hub in the portal (Connessione all'hub nel portale riuscita)](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Registrare il dispositivo

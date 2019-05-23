@@ -16,11 +16,11 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c19dae4af1007d8444097db06bded51d714e74ff
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837163"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65867802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-schoox"></a>Esercitazione: Integrazione di Azure Active Directory con Schoox
 
@@ -101,7 +101,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Schoox, seguire questa 
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione nella modalità avviata da **IDP**:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Informazioni sull'accesso Single Sign-On di URL e dominio Schoox](common/idp-identifier.png)
 

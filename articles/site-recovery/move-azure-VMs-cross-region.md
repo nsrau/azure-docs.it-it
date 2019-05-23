@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 10966a7e658e02f04137b594fc12ec09cb676cf8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192923"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793730"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
@@ -53,7 +53,7 @@ Può essere opportuno spostare macchine virtuali dell'infrastruttura di Azure co
     - Per le macchine virtuali Windows, installare gli aggiornamenti di Windows più recenti in modo che nella macchina virtuale siano presenti tutti i certificati radice trusted. In un ambiente non connesso, seguire i processi di aggiornamento di Windows e di aggiornamento dei certificati standard per l'organizzazione.
     - Per le macchine virtuali Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati.
 2. Assicurarsi di non usare un proxy di autenticazione per controllare la connettività di rete per le macchine virtuali che si prevede di spostare.
-3. Se la macchina virtuale che si vuole spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, controllare i [requisiti](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+3. Se la macchina virtuale che si vuole spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, controllare i [requisiti](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 4. Documentare il layout di rete di origine e tutte le risorse attualmente in uso, tra cui i servizi di bilanciamento del carico, i gruppi di sicurezza di rete e gli indirizzi IP pubblici, per la verifica.
 
 ## <a name="prepare-the-target-region"></a>Preparare l'area di destinazione

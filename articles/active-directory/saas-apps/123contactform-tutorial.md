@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 768afe007141eacbcea1560d3ec1676d9a7d2867
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65859594"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Esercitazione: Integrazione di Azure Active Directory con 123ContactForm
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con 123ContactForm, seguire
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 

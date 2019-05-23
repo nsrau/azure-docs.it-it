@@ -16,11 +16,11 @@ ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 30c6958fef66e492ae1875538503e4094d8eeccb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65859496"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Esercitazione: Integrazione di Azure Active Directory con Acadia
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Acadia, seguire questa 
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<CUSTOMER>.acadia.sysalli.com/shibboleth`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/SAML2/POST`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/SAML2/POST`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 

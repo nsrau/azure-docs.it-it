@@ -3,20 +3,20 @@ title: 'Avvio rapido: Eseguire una ricerca di notizie - SDK di Ricerca notizie B
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per cercare notizie con l'SDK di Ricerca notizie Bing per Python ed elaborare la risposta.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 01/10/2019
-ms.author: v-gedod
+ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1d6f4bb2bda550c72566243b2d2d98b1685e9147
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e9a24084e025723febf854fad7ba83db55d1f824
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119803"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798610"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Avvio rapido: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per Python
 

@@ -16,11 +16,11 @@ ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6741cf58208e972c85d41f2fa657e7dd82cc4f2b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877684"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900220"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Esercitazione: Integrazione di Azure Active Directory con Degreed
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Degreed, seguire questa
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Degreed](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://degreed.com/?orgsso=<company code>`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://degreed.com/?orgsso=<company code>`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://degreed.com/<instancename>`
 

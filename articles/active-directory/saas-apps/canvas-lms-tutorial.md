@@ -16,11 +16,11 @@ ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7556e93e6e7b7e9bdb1f19f5a6e5b3c15c7b910
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894071"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900581"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Esercitazione: Integrazione di Azure Active Directory con Canvas
 
@@ -79,8 +79,8 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Canvas, è ne
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Canvas](#configure-canvas-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Canvas](#create-canvas-test-user)**: per avere una controparte di Britta Simon in Canvas collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Canvas](#create-canvas-test-user)**: per avere una controparte di Britta Simon in Canvas collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Canvas, seguire questa 
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Canvas](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<tenant-name>.instructure.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<tenant-name>.instructure.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<tenant-name>.instructure.com/saml2`
 
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Canvas, seguire questa 
 
     ![Copiare il valore di Identificazione personale](common/copy-thumbprint.png)
 
-7. Nella sezione **Configura Canvas** copiare gli URL appropriati in base alle esigenze.
+7. Nella sezione **Configura Canvas** copiare gli URL appropriati in base alle proprie esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -162,9 +162,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Canvas, seguire questa 
 
     h. Fare clic su **Save authentication settings**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -187,9 +187,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Canvas.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Canvas.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Canvas**.
 
@@ -197,7 +197,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 2. Nell'elenco delle applicazioni selezionare **Canvas**.
 
-    ![Collegamento di Canvas nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di Canvas nell'elenco Applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -213,7 +213,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-canvas-test-user"></a>Creare l'utente di test di Canvas
+### <a name="create-canvas-test-user"></a>Creare un utente di test di Canvas
 
 Per consentire agli utenti di Azure AD di accedere a Canvas, è necessario effettuarne il provisioning in Canvas. Nel caso di Canvas, il provisioning utenti è un'attività manuale.
 
