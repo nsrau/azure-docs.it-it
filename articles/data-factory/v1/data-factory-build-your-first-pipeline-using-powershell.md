@@ -161,8 +161,8 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 
    | Proprietà | DESCRIZIONE |
    |:--- |:--- |
-   | ClusterSize |Specifica le dimensioni del cluster HDInsight. |
-   | TimeToLive |Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato. |
+   | clusterSize |Specifica le dimensioni del cluster HDInsight. |
+   | timeToLive |Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato. |
    | linkedServiceName |Specifica l'account di archiviazione che viene usato per archiviare i log generati da HDInsight. |
 
     Tenere presente quanto segue:
@@ -220,7 +220,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
    | fileName |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In tal caso viene elaborato solo il file input.log. |
    | type |I file di log sono in formato testo, quindi viene usato TextFormat. |
    | columnDelimiter |Le colonne nei file di log sono delimitate da virgola (,). |
-   | frequenza/intervallo |La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
+   | frequency/interval |La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
    | external |Questa proprietà è impostata su true se i dati di input non vengono generati dal servizio Data factory. |
 2. Eseguire questo comando in Azure PowerShell per creare il set di dati di Data Factory:
 
