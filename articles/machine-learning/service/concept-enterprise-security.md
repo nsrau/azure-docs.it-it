@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821421"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151198"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Sicurezza aziendale per un servizio di Azure Machine Learning
 
@@ -83,12 +83,12 @@ Ogni area di lavoro dispone anche di un assegnato dal sistema gestito identità 
 
 Per altre informazioni sulle identità gestita, vedere [gestite le identità per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-| Risorsa | Autorizzazioni |
+| Resource | Autorizzazioni |
 | ----- | ----- |
 | Area di lavoro | Collaboratore | 
 | Account di archiviazione | Collaboratore ai dati dei BLOB di archiviazione | 
 | Key Vault | Accesso a tutte le chiavi, segreti, certificati | 
-| Registro Azure Container | Collaboratore | 
+| Registro contenitori di Azure | Collaboratore | 
 | Gruppo di risorse che contiene l'area di lavoro | Collaboratore | 
 | Gruppo di risorse che contiene l'insieme di credenziali chiave (se diverso da quello contenente l'area di lavoro) | Collaboratore | 
 
@@ -101,12 +101,12 @@ Servizio Azure Machine Learning crea un'applicazione aggiuntiva (nome inizia con
 
 Il servizio Azure Machine Learning si basa su altri servizi di Azure per le risorse di calcolo. Le risorse di calcolo (destinazioni di calcolo) vengono usate per eseguire il training e la distribuzione dei modelli. Queste destinazioni di calcolo possono essere create in una rete virtuale. È ad esempio possibile usare un ambiente Microsoft Data Science Virtual Machine per eseguire il training di un modello e quindi distribuire il modello nel servizio Azure Kubernetes.  
 
-Per altre informazioni, vedere [come eseguire gli esperimenti e inferenza in una rete virtuale](how-to-enable-virtual-network.md).
+Per altre informazioni, vedere [come eseguire gli esperimenti e l'inferenza in una rete virtuale](how-to-enable-virtual-network.md).
 
-## <a name="data-encryption"></a>Crittografia dei dati
+## <a name="data-encryption"></a>Crittografia dati
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
-#### <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
+#### <a name="azure-blob-storage"></a>Archivio BLOB di Azure
 Servizio Azure Machine Learning vengono archiviati gli snapshot, output e i log nell'account di archiviazione Blob di Azure che è associato all'area di lavoro del servizio Azure Machine Learning e si trova nella sottoscrizione dell'utente. Tutti i dati archiviati in archiviazione Blob di Azure vengono crittografati a riposo usando chiavi Microsoft-Managed.
 
 Per altre informazioni su come usare chiavi personalizzate per i dati archiviati in archiviazione Blob di Azure, vedere [crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
@@ -154,7 +154,7 @@ Il diagramma seguente illustra il flusso di lavoro di creazione dell'area di lav
 Utente effettua l'accesso AD Azure da qualsiasi client del servizio Azure Machine Learning supportati (portale di Azure CLI, SDK, Python) e richiede il token di Azure Resource Manager appropriato.  Utente chiama quindi Azure Resource Manager per creare l'area di lavoro.  Provider di risorse per l'area di lavoro di eseguire il provisioning del servizio Azure Resource Manager contatti di Azure Machine Learning.  Risorse aggiuntive vengono create nella sottoscrizione del cliente durante la creazione dell'area di lavoro:
 * Key Vault (per archiviare i segreti)
 * Un account di archiviazione di Azure (ad esempio Blob e condivisione file)
-* Registro contenitori di Azure (per archiviare le immagini docker per inferenza e la sperimentazione)
+* Registro contenitori di Azure (per archiviare le immagini docker per inferenza/di assegnazione dei punteggi e la sperimentazione)
 * Application Insights (per archiviare i dati di telemetria)
 
 Altre risorse di calcolo collegati a un'area di lavoro (servizio Kubernetes di Azure, VM e così via) possono anche eseguire il provisioning da parte dei clienti in base alle esigenze. 
@@ -172,7 +172,7 @@ Il diagramma seguente illustra il flusso di lavoro di training.
 * Servizio Azure Machine Learning viene chiamato con l'ID dello snapshot per lo snapshot di codice salvato in precedenza
 * Azure Machine Learning Crea servizio di esecuzione (facoltativo) ID e token di servizio di Azure Machine Learning, che viene successivamente utilizzato per le destinazioni di calcolo, ad esempio Machine Learning calcolo/macchina virtuale per comunicare nuovamente con il servizio di Azure Machine Learning
 * È possibile scegliere un computer gestito (ad esempio Machine Learning calcolo) o di calcolo non gestito (ad esempio La macchina virtuale) per l'esecuzione dei processi di training. Viene illustrato il flusso di dati per entrambi gli scenari seguenti:
-* (Macchina virtuale/HDInsight/elemento locale: a cui si accede usando le credenziali SSH in Azure Key Vault nella sottoscrizione di Microsoft) Servizio Azure Machine Learning esegue codice di gestione sulla destinazione di calcolo che:
+* (Macchina virtuale/HDInsight: a cui si accede usando le credenziali SSH in Azure Key Vault nella sottoscrizione di Microsoft) Servizio Azure Machine Learning esegue codice di gestione sulla destinazione di calcolo che:
     1.  Prepara l'ambiente (Nota: Docker è anche un'opzione per la macchina virtuale o locale. Vedere i passaggi per calcolo di Machine Learning riportato di seguito comprendere l'esperimento come in esecuzione sul funzionamento del contenitore docker)
     2.  Scarica il codice
     3.  Consente di impostare le variabili di ambiente/configs
@@ -189,7 +189,7 @@ Questo passaggio è illustrato nel flusso in cui corsi di formazione calcolo scr
 ![Screenshot di Crea flusso di lavoro dell'area di lavoro](./media/enterprise-readiness/training-and-metrics.png)
 
 ### <a name="creating-web-services"></a>Creazione di servizi web
-Il diagramma seguente illustra il flusso di lavoro di inferenza in cui modello viene distribuito come servizio web.
+Il diagramma seguente illustra il flusso di lavoro di inferenza. Inferenza o modello di punteggio, è la fase in cui viene usato il modello distribuito per la stima, in genere sui dati di produzione.
 Vedere i dettagli di seguito:
 * Utente si registra un modello usando un client, come Azure Machine Learning SDK
 * Utente Crea immagine con modello di punteggio file e altre dipendenze di modello

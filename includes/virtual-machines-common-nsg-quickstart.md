@@ -2,19 +2,18 @@
 title: File di inclusione
 description: File di inclusione
 services: virtual-machines-windows
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-origin.date: 09/12/2018
-ms.date: 11/12/2018
-ms.author: v-yeche
+ms.date: 09/12/2018
+ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405401"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154771"
 ---
 Per aprire una porta, o creare un endpoint, in una macchina virtuale (VM) di Azure si crea un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete collegato alla risorsa che riceve il traffico.
 
@@ -34,4 +33,8 @@ Dopo aver creato una macchina virtuale configurata per elaborare le richieste We
 
 3. Associare il gruppo di sicurezza di rete alla subnet o all'interfaccia di rete della macchina virtuale.
 
-    Anche se questo esempio usa una regola semplice per consentire il traffico HTTP, è possibile usare anche regole e gruppi di sicurezza di rete per creare configurazioni di rete più complesse.
+Anche se questo esempio usa una regola semplice per consentire il traffico HTTP, è possibile usare anche regole e gruppi di sicurezza di rete per creare configurazioni di rete più complesse. 
+
+
+
+

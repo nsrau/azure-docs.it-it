@@ -15,11 +15,11 @@ ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999043"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160325"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell
 
@@ -215,7 +215,7 @@ Per elencare le assegnazioni di ruolo per l'amministratore e i coamministratori 
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="grant-access"></a>Concedere l'accesso
+## <a name="grant-access"></a>Concedi accesso
 
 Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si crea un'assegnazione di ruolo.
 
@@ -355,7 +355,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-## <a name="remove-access"></a>Rimuovere un accesso
+## <a name="remove-access"></a>Rimuovi accesso
 
 Nel controllo degli accessi in base al ruolo, per rimuovere un accesso, è possibile rimuovere un'assegnazione di ruolo tramite [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 

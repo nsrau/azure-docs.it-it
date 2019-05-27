@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un'istanza di Load Balancer Basic - Interfaccia della riga di comando di Azure"
+title: "Guida introduttiva: Creare un'istanza di Load Balancer Basic - Interfaccia della riga di comando di Azure"
 titlesuffix: Azure Load Balancer
 description: Questa guida introduttiva mostra come creare un servizio di bilanciamento del carico pubblico con l'interfaccia della riga di comando di Azure
 services: load-balancer
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
 ms.openlocfilehash: a947b5983f4a7d58878fc15785cfbcbcbba7f226
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733842"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156212"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Avvio rapido: Creare un servizio di bilanciamento del carico per le macchine virtuali tramite l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Guida introduttiva: Creare un servizio di bilanciamento del carico per le macchine virtuali tramite l'interfaccia della riga di comando di Azure
 
 Questa Guida introduttiva illustra come creare un Azure Load Balancer per bilanciare il carico del traffico internet tra le macchine virtuali in Azure. Per testare il servizio di bilanciamento del carico, si distribuiscono due macchine virtuali (VM) che eseguono Ubuntu Server e si bilancia il carico di un'app Web tra di esse.
 

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386298"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148163"
 ---
 **Dischi di macchine virtuali non gestiti Premium: Limiti per ogni account**
 
-| Risorsa | Limite predefinito |
+| Resource | Limite predefinito |
 | --- | --- |
 | Capacità totale dischi per account |35 TB |
 | Capacità totale snapshot per account |10 TB |
@@ -32,7 +32,7 @@ ms.locfileid: "60386298"
 
 **Dischi di macchine virtuali non gestiti Premium: Limiti per ogni VM**
 
-| Risorsa | Limite predefinito |
+| Resource | Limite predefinito |
 | --- | --- |
 | Numero massimo di IOPS per ogni macchina virtuale |80.000 IOPS con VM GS5 |
 | Velocità effettiva massima per macchina virtuale |2.000 MB/sec con VM GS5 |

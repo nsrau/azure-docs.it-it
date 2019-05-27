@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
 ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453474"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155224"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -231,7 +231,7 @@ Per fare in modo che il trigger di pianificazione attivi l'esecuzione di una pip
 ### <a name="schema-overview"></a>Panoramica dello schema
 La tabella seguente fornisce una panoramica generale degli elementi dello schema principali correlati alla ricorrenza e alla pianificazione di un trigger:
 
-| Proprietà JSON | DESCRIZIONE |
+| Proprietà JSON | Descrizione |
 |:--- |:--- |
 | **startTime** | Valore data-ora. Per le pianificazioni di base, il valore della proprietà **startTime** si applica alla prima occorrenza. Per le pianificazioni complesse, il trigger viene attivato non prima del valore **startTime** specificato. |
 | **endTime** | Data e ora di fine per il trigger. Il trigger non viene eseguito dopo la data e l'ora di fine specificate. Il valore della proprietà non può essere nel passato. <!-- This property is optional. --> |
@@ -279,11 +279,11 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 | Proprietà JSON | Type | Obbligatorio | Valore predefinito | Valori validi | Esempio |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | stringa | Sì | Nessuna | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | object | Sì | Nessuna | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | number | No  | 1 | Da 1 a 1000 | `"interval":10` |
-| **endTime** | stringa | Sì | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | object | No  | Nessuna | Oggetto schedule | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **startTime** | string | Sì | Nessuna | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | oggetto | Sì | Nessuna | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **interval** | numero | N. | 1 | Da 1 a 1000 | `"interval":10` |
+| **endTime** | string | Sì | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | oggetto | N. | Nessuna | Oggetto schedule | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Proprietà startTime
 La tabella seguente illustra come la proprietà **startTime** controlla l'esecuzione di un trigger:
@@ -310,7 +310,7 @@ Se vengono specificati più elementi **schedule**, la valutazione viene eseguita
 
 La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
 
-| Elemento JSON | DESCRIZIONE | Valori validi |
+| Elemento JSON | Descrizione | Valori validi |
 |:--- |:--- |:--- |
 | **minutes** | Minuti dell'ora in cui verrà eseguito il trigger. |- Numero intero<br />- Matrice di numeri interi|
 | **hours** | Ore del giorno in cui verrà eseguito il trigger. |- Numero intero<br />- Matrice di numeri interi|
@@ -334,7 +334,7 @@ Questa sezione fornisce esempi di pianificazioni di ricorrenza. È incentrata su
 
 Gli esempi presumono che il valore **interval** sia 1 e che il valore **frequency** sia corretto in base alla definizione della pianificazione. Non è ad esempio possibile avere un valore **frequency** uguale a "day" e anche una modifica **monthDays** nell'oggetto **schedule**. Questi tipi di restrizioni vengono descritti nella tabella disponibile nella sezione precedente.
 
-| Esempio | DESCRIZIONE |
+| Esempio | Descrizione |
 |:--- |:--- |
 | `{"hours":[5]}` | Viene eseguito alle 5:00 ogni giorno. |
 | `{"minutes":[15], "hours":[5]}` | Viene eseguito alle 05:15 ogni giorno. |

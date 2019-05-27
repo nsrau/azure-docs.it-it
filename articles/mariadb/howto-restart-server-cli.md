@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/28/2019
 ms.openlocfilehash: a6e0509d941d9bfdfe6db7a8b93ee49c5bece1a6
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623079"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "66171432"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Riavviare il Database di Azure per MariaDB server tramite la CLI di Azure
 Questo argomento descrive come riavviare un server di Database di Azure per MariaDB. Potrebbe essere necessario riavviare il server per motivi di manutenzione, causando così una breve interruzione del servizio mentre il server esegue l'operazione.

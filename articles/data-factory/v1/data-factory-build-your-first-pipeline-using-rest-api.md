@@ -14,11 +14,11 @@ ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 5dcf31adc5e8bdf810d484f07ebeb6f23acbf452
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487805"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146834"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Esercitazione: Creare la prima data factory di Azure usando l'API REST di Data Factory
 > [!div class="op_single_selector"]
@@ -125,8 +125,8 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel fram
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| clusterSize |Dimensioni del cluster HDInsight. |
-| timeToLive |Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato. |
+| ClusterSize |Dimensioni del cluster HDInsight. |
+| TimeToLive |Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato. |
 | linkedServiceName |Specifica l'account di archiviazione che viene usato per archiviare i log generati da HDInsight. |
 
 Tenere presente quanto segue:
@@ -176,7 +176,7 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel fram
 | fileName |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In tal caso viene elaborato solo il file input.log. |
 | type |I file di log sono in formato testo, quindi viene usato TextFormat. |
 | columnDelimiter |Le colonne nei file di log sono delimitate da virgola (,). |
-| frequency/interval |La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
+| frequenza/intervallo |La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
 | external |Questa proprietà è impostata su true se i dati di input non vengono generati dal servizio Data factory. |
 
 ### <a name="outputdatasetjson"></a>outputdataset.json

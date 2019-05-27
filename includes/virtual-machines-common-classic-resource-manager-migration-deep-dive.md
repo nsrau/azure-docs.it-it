@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125363"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66167093"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 È importante comprendere prima di tutto la differenza tra le operazioni a livello di piano dati e quelle a livello di piano di gestione sulle risorse dell'infrastruttura distribuita come servizio (IaaS).
@@ -107,7 +107,7 @@ Non c'è un intervallo di tempo definito entro cui è necessario eseguire il com
 
 Se si verificano problemi, è sempre possibile interrompere la migrazione e tornare al modello di distribuzione classica. Tornando indietro, Azure apre le operazioni del piano di gestione sulle risorse, per consentire di riprendere le normali operazioni sulle macchine virtuali nel modello di distribuzione classica.
 
-### <a name="abort"></a>Interruzione
+### <a name="abort"></a>Interrompi
 Questo è un passaggio facoltativo che permette di annullare le modifiche al modello di distribuzione classica e di arrestare la migrazione. L'operazione elimina i metadati di Resource Manager creati nella fase di preparazione per le risorse. 
 
 ![Diagramma della fase di interruzione](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
@@ -117,7 +117,7 @@ Questo è un passaggio facoltativo che permette di annullare le modifiche al mod
 > Non è possibile eseguire questa operazione dopo aver avviato l'operazione di commit.     
 >
 
-### <a name="commit"></a>Commit
+### <a name="commit"></a>Esegui commit
 Dopo aver completato la convalida, è possibile eseguire il commit della migrazione. Le risorse non vengono più visualizzate nel modello di distribuzione classica e sono disponibili solo nel modello di distribuzione Resource Manager. Le risorse migrate possono essere gestite solo nel nuovo portale.
 
 > [!NOTE]
@@ -147,7 +147,7 @@ La tabella seguente mostra la rappresentazione delle risorse nel modello di dist
 | Proprietà del set di disponibilità |Risorsa del set di disponibilità | La specifica del set di disponibilità è una proprietà della macchina virtuale nel modello di distribuzione classica. I set di disponibilità diventano una risorsa di primo livello come parte della migrazione. Le seguenti configurazioni non sono più supportate: più set di disponibilità per ogni servizio cloud o uno o più set di disponibilità insieme a VM non incluse in un set di disponibilità in un servizio cloud. |
 | Configurazione di rete in una VM |Interfaccia di rete primaria |La configurazione di rete in una VM viene rappresentata come risorsa di interfaccia di rete primaria dopo la migrazione. Per le VM che non sono in una rete virtuale, l'indirizzo IP interno viene modificato durante la migrazione. |
 | Più interfacce di rete in una VM |Interfacce di rete |Se una macchina virtuale ha più interfacce di rete associate, ognuna diventa una risorsa di primo livello come parte della migrazione, insieme a tutte le proprietà. |
-| Set di endpoint con carico bilanciato |Bilanciamento del carico |Nel modello di distribuzione classica la piattaforma assegna un servizio di bilanciamento del carico implicito per ogni servizio cloud. Durante la migrazione, si crea una nuova risorsa di bilanciamento del carico e il set di endpoint di bilanciamento del carico diventa una serie di regole di bilanciamento del carico. |
+| Set di endpoint con carico bilanciato |Servizio di bilanciamento del carico |Nel modello di distribuzione classica la piattaforma assegna un servizio di bilanciamento del carico implicito per ogni servizio cloud. Durante la migrazione, si crea una nuova risorsa di bilanciamento del carico e il set di endpoint di bilanciamento del carico diventa una serie di regole di bilanciamento del carico. |
 | Regole NAT in ingresso |Regole NAT in ingresso |Gli endpoint di input definiti nella VM vengono convertiti in regole NAT in ingresso nel servizio di bilanciamento del carico durante la migrazione. |
 | Indirizzo VIP |Indirizzo IP pubblico con nome DNS |L'indirizzo IP virtuale diventa un indirizzo IP pubblico e viene associato al servizio di bilanciamento del carico. La migrazione di un indirizzo IP virtuale può essere eseguita solo se all'indirizzo è assegnato un endpoint di input. |
 | Rete virtuale |Rete virtuale |Viene eseguita la migrazione della rete virtuale con tutte le relative proprietà nel modello di distribuzione di Resource Manager. Viene creato un nuovo gruppo di risorse con il nome `-migrated`. |

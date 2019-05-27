@@ -2,19 +2,18 @@
 title: File di inclusione
 description: File di inclusione
 services: virtual-network
-author: rockboyfor
+author: genlin
 ms.service: virtual-network
 ms.topic: include
-origin.date: 04/13/2018
-ms.date: 06/11/2018
-ms.author: v-yeche
+ms.date: 04/13/2018
+ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 40b81904daabfdad7e45571d8ab86cf32cac8964
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743391"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170855"
 ---
 ## <a name="scenario"></a>Scenario
 Per illustrare meglio come creare una route definita dall'utente, in questo documento verrà usato lo scenario seguente.
@@ -29,3 +28,4 @@ In questo scenario creare una route definita dall'utente per la *subnet front-en
   * **RouteToFrontend**. Questa route invia tutto il traffico nella subnet di font-end per la macchina virtuale **FW1**.
 
 La combinazione di queste route garantisce che tutto il traffico destinato da una subnet a un'altra venga indirizzato alla macchina virtuale **FW1**, che viene usata come appliance virtuale. È inoltre necessario attivare l'inoltro IP per tale macchina virtuale **FW1**, per garantire che possa ricevere il traffico destinato ad altre macchine virtuali.
+

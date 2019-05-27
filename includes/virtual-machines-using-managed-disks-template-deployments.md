@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: 6085eb2b520217c4e678a75032e8a1cb4b9343ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904bd884bc09c1e2016f55ffc8e1e9f635974ac7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581097"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157686"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Uso di Managed Disks nei modelli di Azure Resource Manager
 
@@ -202,7 +202,7 @@ All'interno dell'oggetto macchina virtuale, fare riferimento all'oggetto disco d
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Creare set di disponibilità gestiti con macchine virtuali che usano dischi gestiti
 
-Per creare set di disponibilità gestiti con macchine virtuali che usano dischi gestiti, aggiungere l'oggetto `sku` alla risorsa set di disponibilità e impostare la proprietà `name` su `Aligned`. Questa proprietà garantisce che i dischi per ogni macchina virtuale siano sufficientemente isolati tra loro da evitare singoli punti di guasto. Si noti anche che `apiVersion` per la risorsa del set di disponibilità è impostato su `2017-03-30`.
+Per creare set di disponibilità gestiti con macchine virtuali che usano dischi gestiti, aggiungere l'oggetto `sku` alla risorsa set di disponibilità e impostare la proprietà `name` su `Aligned`. Questa proprietà garantisce che i dischi per ogni macchina virtuale siano sufficientemente isolati tra loro da evitare singoli punti di guasto. Si noti anche che `apiVersion` per la risorsa del set di disponibilità è impostato su `2018-10-01`.
 
 ```json
 {

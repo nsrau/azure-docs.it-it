@@ -9,11 +9,11 @@ ms.date: 04/26/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: f3c1a946afb7f51a1c7543dabae7f2f42ff466be
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199180"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145836"
 ---
 Macchine virtuali di Azure serie H (VM) sono progettate per offrire prestazioni della classe di leadership, scalabilità MPI e convenienza per un'ampia gamma di carichi di lavoro HPC reali.
 
@@ -29,7 +29,7 @@ Le macchine virtuali serie H sono ottimizzate per applicazioni da elevata delle 
 
 Archiviazione Premium: Archiviazione Premium è supportata la memorizzazione nella cache: Supportato
 
-| Dimensione | vCPU | Processore | Memoria (GB) | Larghezza di banda di memoria GB/s | Frequenza della CPU di base (GHz) | Frequenza di all-core (GHz, picco) | Frequenza single core (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto di MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | Interfacce di rete Ethernet max |
+| Dimensione | CPU virtuale | Processore | Memoria (GB) | Larghezza di banda di memoria GB/s | Frequenza della CPU di base (GHz) | Frequenza di all-core (GHz, picco) | Frequenza single core (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto di MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | Interfacce di rete Ethernet max |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | Tutti | 700 | 4 | 1 |
 
@@ -40,7 +40,7 @@ Archiviazione Premium: Archiviazione Premium è supportata la memorizzazione nel
 Archiviazione Premium: Archiviazione Premium è supportata la memorizzazione nella cache: Supportato
 
 
-| Dimensione | vCPU | Processore | Memoria (GB) | Larghezza di banda di memoria GB/s | Frequenza della CPU di base (GHz) | Frequenza di all-core (GHz, picco) | Frequenza single core (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto di MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | Interfacce di rete Ethernet max |
+| Dimensione | CPU virtuale | Processore | Memoria (GB) | Larghezza di banda di memoria GB/s | Frequenza della CPU di base (GHz) | Frequenza di all-core (GHz, picco) | Frequenza single core (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto di MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | Interfacce di rete Ethernet max |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3,7 | 100 | Tutti | 700 | 4 | 1 |
 
@@ -51,11 +51,11 @@ Archiviazione Premium: Archiviazione Premium è supportata la memorizzazione nel
 
 ACU: 290-300
 
-Archiviazione Premium:  Non supportato
+Archiviazione Premium:  Non supportata
 
 Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
-| Dimensione | vCPU | Processore | Memoria (GB) | Larghezza di banda di memoria GB/s | Frequenza della CPU di base (GHz) | Frequenza di all-core (GHz, picco) | Frequenza single core (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto di MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | Interfacce di rete Ethernet max |
+| Dimensione | CPU virtuale | Processore | Memoria (GB) | Larghezza di banda di memoria GB/s | Frequenza della CPU di base (GHz) | Frequenza di all-core (GHz, picco) | Frequenza single core (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto di MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | Interfacce di rete Ethernet max |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 | 8 | Intel Xeon E5 v3 di 2667 | 56 | 40 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 1000 | 32 | 2 |
 | Standard_H16 | 16 | Intel Xeon E5 v3 di 2667 | 112 | 80 | 3.2 | 3.3 | 3.6 |  56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |

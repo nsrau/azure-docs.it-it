@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou
 ms.openlocfilehash: 56b13a0ba6a93f1acd8edf1ce6c95561f63758c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61217069"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148772"
 ---
 > [!WARNING]
 >  **Il servizio Azure Container (ACS) è deprecato. Non saranno aggiunte nuove funzionalità al servizio Azure Container. Tutte le API, l'esperienza del portale, i comandi dell'interfaccia della riga di comando e la documentazione sono contrassegnate come deprecate.**

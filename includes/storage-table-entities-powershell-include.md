@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541384"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159755"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
@@ -70,7 +70,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 Questo comando restituisce risultati simili a quelli riportati nella tabella seguente:
 
-| userid | username | partition | rowkey |
+| userid | username | partizione | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -85,7 +85,7 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 I risultati sono simili a quelli riportati nella tabella seguente:
 
-| userid | username | partition | rowkey |
+| userid | username | partizione | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |

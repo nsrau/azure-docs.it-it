@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/13/2019
+ms.date: 05/16/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 8cc13e9aec679a79d31d2724ba412efd2d58dfd1
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 0b0e03b163d4de7a441bb7d2714be23b58c95028
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561268"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170367"
 ---
 Le dimensioni delle macchine virtuali con ottimizzazione per la memoria offrono un rapporto memoria-CPU elevato, ideale per server di database relazionali, cache di medie e grandi dimensioni e analisi in memoria. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, oltre che sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento. 
 
@@ -98,15 +98,57 @@ Memorizzazione nella cache archiviazione Premium: Supportato
 
 Acceleratore di scrittura: [Supportato](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
+La serie Mv2 funzionalità velocità effettiva elevata, bassa latenza, direttamente il mapping dell'archiviazione NVMe locale in esecuzione in Platinum un hyperthreading di Intel® Xeon® 8180 M a 2,5 GHz (Skylake) processore con una frequenza di base core tutti di 2.5 GHz e una frequenza turbo massima pari a 3,8 GHz. Tutte le dimensioni delle macchine virtuali di serie Mv2 è possibile usare dischi persistenti standard e premium. Le istanze serie Mv2 sono dimensioni di macchina virtuale, fornendo prestazioni di calcolo impareggiabili per supportare carichi di lavoro, con un rapporto elevato tra memoria e CPU che è ideale per server di database relazionali, cache di grandi dimensioni e in memoria e i database di grandi dimensioni in memoria ottimizzate per la memoria analitica. 
+
 |Dimensione | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M208ms_v22<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40.000/1000 | 8 / 16000 |
-| Standard_M208s_v22<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40.000/1000 | 8 / 16000 |
+| Standard_M208ms_v2<sup>1, 2</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40.000/1000 | 8 / 16000 |
+| Standard_M208s_v2<sup>1, 2</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40.000/1000 | 8 / 16000 |
 
 Macchine virtuali serie Mv2 integrano la tecnologia Intel® Hyper-Threading  
 
-<sup>1</sup> queste grandi vCPU, è necessario uno dei seguenti sistemi operativi guest supportati: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15 e RHEL 7.6
+<sup>1</sup> queste macchine virtuali di grandi dimensioni, è necessario uno di questi sistemi operativi guest supportati: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
 
+<sup>2</sup> VM della serie Mv2 sono generazione 2. Se si usa Linux, vedere la sezione seguente per informazioni su come trovare e selezionare un'immagine SUSE Linux.
+
+#### <a name="find-a-suse-image"></a>Trovare un'immagine SUSE
+
+Per selezionare un'immagine SUSE Linux appropriata nel portale di Azure: 
+
+1. Nel portale di Azure, selezionare **crea una risorsa** 
+1. Cercare "SAP SUSE" 
+1. SLES per immagini di generazione 2 di SAP sono disponibili come entrambi con pagamento a consumo o bring (BYOS) nella propria sottoscrizione. Nei risultati della ricerca, espandere la categoria di immagine desiderato:
+
+    * SUSE Linux Enterprise Server (SLES) per SAP
+    * SUSE Linux Enterprise Server (SLES) for SAP (BYOS)
+    
+1. Immagini SUSE compatibile con la serie Mv2 hanno come prefisso il nome `GEN2:`. Immagini SUSE seguenti sono disponibili per le macchine virtuali serie Mv2:
+
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 per le applicazioni SAP
+    * GEN2: SUSE Linux Enterprise Server (SLES) 15 for SAP Applications
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 for SAP Applications (BYOS) SP4
+    * GEN2: SUSE Linux Enterprise Server (SLES) 15 for SAP Applications (BYOS)
+
+#### <a name="select-a-suse-image-via-azure-cli"></a>Selezionare un'immagine SUSE tramite CLI di Azure
+
+Per visualizzare un elenco di SLES per immagini SAP attualmente disponibili per le macchine virtuali serie Mv2, usare il comando seguente [ `az vm image list` ](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list) comando:
+
+```azurecli
+az vm image list --output table --publisher SUSE --sku gen2 --all
+```
+
+Il comando restituisce attualmente disponibili generazione 2 macchine virtuali disponibili da SUSE per le VM serie Mv2. 
+
+Output di esempio:
+
+```
+Offer          Publisher  Sku          Urn                                        Version
+-------------  ---------  -----------  -----------------------------------------  ----------
+SLES-SAP       SUSE       gen2-12-sp4  SUSE:SLES-SAP:gen2-12-sp4:2019.05.13       2019.05.13
+SLES-SAP       SUSE       gen2-15      SUSE:SLES-SAP:gen2-15:2019.05.13           2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-12-sp4  SUSE:SLES-SAP-BYOS:gen2-12-sp4:2019.05.13  2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-15      SUSE:SLES-SAP-BYOS:gen2-15:2019.05.13      2019.05.13
+```
 
 ## <a name="m-series"></a>Serie M 
 

@@ -50,7 +50,7 @@
         - name: Archiviazione
           href: storage-account-concept.md
           displayName: Storage side encryption
-        - name: API per Asset
+        - name: Asset
           href: assets-concept.md
     - name: Codifica
       items:

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 1cf5bbdad555c50c418851904f36a578522843b2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164323"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159684"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Per creare endpoint pubblici nell'appliance cloud
 
@@ -31,7 +31,7 @@ ms.locfileid: "50164323"
 
         Nel pannello Aggiungi regola di sicurezza in ingresso:
 
-        1. In **Nome** digitare il nome seguente per l'endpoint: WinRMHttps.
+        1. Per il **nome**, digitare il nome dell'endpoint seguente: WinRMHttps.
         
         2. In **Priorità** selezionare un numero minore di 1000 (priorità per la regola predefinita). Maggiore è questo numero, minore è la priorità.
 

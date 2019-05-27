@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474276"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158518"
 ---
 Per usare l'interfaccia della riga di comando di Azure con i comandi e i modelli di Resource Manager per distribuire risorse e carichi di lavoro di Azure tramite gruppi di risorse, è necessario un account Azure. Se non si dispone di un account, è possibile ottenere un [Azure qui versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -34,8 +34,8 @@ Questo articolo illustra i comandi di base da usare con l'interfaccia della riga
 | --- | --- |
 | Creare la macchina virtuale di base |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>Ottenere `image-urn` dal comando `azure vm image list`. Vedere [questo articolo](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per esempi. |
 | Creare una macchina virtuale Linux |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
-| Creare un'app Windows |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
-| Elenco delle macchine virtuali |`azure  vm list [options]` |
+| Creare una macchina virtuale Windows |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
+| Elenca macchine virtuali |`azure  vm list [options]` |
 | Visualizzare informazioni su una macchina virtuale |`azure  vm show [options] <resource_group> <name>` |
 | Avviare una macchina virtuale |`azure vm start [options] <resource_group> <name>` |
 | Arrestare una macchina virtuale |`azure vm stop [options] <resource_group> <name>` |

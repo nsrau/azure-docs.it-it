@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
 ms.openlocfilehash: d1db228f4c73cc00cd32ca6ae5b86056db68f05b
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155964"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Linux in Azure usando l'autenticazione di Azure Active Directory (anteprima)
 

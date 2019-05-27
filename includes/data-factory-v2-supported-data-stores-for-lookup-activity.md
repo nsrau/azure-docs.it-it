@@ -9,13 +9,13 @@ ms.date: 02/22/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 498a4471d1ba6803d68e0b497c7c8352f19ff743
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768652"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153455"
 ---
-| Categoria | Archivio dati |
+| Category | Archivio dati |
 |:--- |:--- |
 | **Azure** |[Archivio BLOB di Azure](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (API SQL)](../articles/data-factory/connector-azure-cosmos-db.md) |

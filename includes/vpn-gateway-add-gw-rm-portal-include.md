@@ -9,11 +9,11 @@ ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 72e61a36b58c0bc666f3e19b71fb1abe842208f5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111634"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150285"
 ---
 1. Accedere al portale di Azure e selezionare **Crea una risorsa**. Verrà visualizzata la pagina **Nuovo**.
 
@@ -37,7 +37,7 @@ ms.locfileid: "53111634"
   
    - **Località**: può essere necessario scorrere la schermata per trovare l'elenco a discesa **Località**. In **Località** impostare la località in cui si trova la rete virtuale. Ad esempio, **Stati Uniti occidentali**. Se come località non si imposta l'area in cui si trova la rete virtuale, quest'ultima non viene visualizzata nell'elenco a discesa quando si seleziona una rete virtuale.
 
-   - **Rete virtuale**: scegliere la rete virtuale a cui si vuole aggiungere il gateway. Selezionare **Rete virtuale** per aprire la pagina **Scegli rete virtuale** ed eseguire la selezione. Se la rete virtuale non viene visualizzata, verificare che il campo **Località** faccia riferimento all'area in cui si trova la rete virtuale.
+   - **Rete virtuale**: Scegliere la rete virtuale a cui si vuole aggiungere il gateway. Selezionare **Rete virtuale** per aprire la pagina **Scegli rete virtuale** ed eseguire la selezione. Se la rete virtuale non viene visualizzata, verificare che il campo **Località** faccia riferimento all'area in cui si trova la rete virtuale.
 
    - **Intervallo di indirizzi subnet del gateway**: questa impostazione viene visualizzata solo se in precedenza non si è creata una subnet del gateway per la rete virtuale. Se in precedenza si è creata una subnet del gateway valida, questa impostazione non viene visualizzata.
 

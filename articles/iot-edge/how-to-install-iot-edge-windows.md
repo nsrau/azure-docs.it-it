@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e48ab075264423479e792848af522a890736a403
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8907ae61fb03b417a74eb32e1fd09aece75d5e2c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152699"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151712"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installare il runtime di Azure IoT Edge in Windows
 
@@ -76,6 +76,13 @@ Questo esempio viene illustrata un'installazione manuale con i contenitori di Wi
 
 2. Eseguire PowerShell come amministratore.
 
+   >[!NOTE]
+   >Usare una sessione AMD64 di PowerShell per installare IoT Edge, non PowerShell (x86). Se non si conosce il tipo di sessione in uso, eseguire il comando seguente:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. Il **Distribuisci IoTEdge** comando verifica che nel computer Windows si trova in una versione supportata, viene attivata la funzionalità del contenitore e quindi scarica il runtime moby e runtime di IoT Edge. Impostazione predefinita il comando Usa i contenitori di Windows. 
 
    ```powershell
@@ -85,7 +92,7 @@ Questo esempio viene illustrata un'installazione manuale con i contenitori di Wi
 
 4. A questo punto, i dispositivi IoT Core potrebbe essere riavviato automaticamente. Altri dispositivi Windows 10 o Windows Server possono essere necessario riavviare. In questo caso, riavviare il dispositivo. Quando il dispositivo è pronto, eseguire PowerShell come amministratore di nuovo.
 
-5. Il **Initialize-IoTEdge** comando Configura il runtime di IoT Edge nel computer. Il comando viene impostato su provisioning manuale con i contenitori di Windows. 
+5. Il comando **Initialize-IoTEdge** configura il runtime IoT Edge nel computer. L'impostazione predefinita del comando è provisioning manuale con i contenitori di Windows. 
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -111,12 +118,19 @@ In questa seconda opzione viene effettuato il provisioning del dispositivo con i
 
 L'esempio seguente illustra un'installazione automatica con i contenitori di Windows:
 
-1. Seguire i passaggi descritti in [Creare ed effettuare il provisioning di un dispositivo simulato TPM Edge in Windows](how-to-auto-provision-simulated-device-windows.md) per configurare il servizio di provisioning di dispositivi e recuperare il relativo **ID ambito**, simulare un dispositivo TPM e recuperare il relativo **ID registrazione**, quindi creare una registrazione singola. Dopo aver registrato il dispositivo nell'hub IoT, continuare con la procedura di installazione.  
+1. Seguire i passaggi descritti in [crea ed effettuare il provisioning di un dispositivo TPM IoT Edge simulato in Windows](how-to-auto-provision-simulated-device-windows.md) per configurare il servizio Device Provisioning e il recupero relativo **ID ambito**, simulare un dispositivo TPM e il recupero relativo **ID registrazione**, quindi creare una registrazione singola. Dopo aver registrato il dispositivo nell'hub IoT, continuare con la procedura di installazione.  
 
    >[!TIP]
    >Mantenere aperta la finestra di esecuzione del simulatore TPM durante l'installazione e il test. 
 
 2. Eseguire PowerShell come amministratore.
+
+   >[!NOTE]
+   >Usare una sessione AMD64 di PowerShell per installare IoT Edge, non PowerShell (x86). Se non si conosce il tipo di sessione in uso, eseguire il comando seguente:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. Il **Distribuisci IoTEdge** comando verifica che nel computer Windows si trova in una versione supportata, viene attivata la funzionalità del contenitore e quindi scarica il runtime moby e runtime di IoT Edge. Impostazione predefinita il comando Usa i contenitori di Windows. 
 
@@ -127,7 +141,7 @@ L'esempio seguente illustra un'installazione automatica con i contenitori di Win
 
 4. A questo punto, i dispositivi IoT Core potrebbe essere riavviato automaticamente. Altri dispositivi Windows 10 o Windows Server possono essere necessario riavviare. In questo caso, riavviare il dispositivo. Quando il dispositivo è pronto, eseguire PowerShell come amministratore di nuovo.
 
-6. Il **Initialize-IoTEdge** comando Configura il runtime di IoT Edge nel computer. Il comando viene impostato su provisioning manuale con i contenitori di Windows. Usare il `-Dps` flag da utilizzare il servizio Device Provisioning invece di provisioning manuale.
+6. Il comando **Initialize-IoTEdge** configura il runtime IoT Edge nel computer. L'impostazione predefinita del comando è provisioning manuale con i contenitori di Windows. Usare il `-Dps` flag da utilizzare il servizio Device Provisioning invece di provisioning manuale.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -262,7 +276,7 @@ Il comando Distribuisci IoTEdge Scarica e distribuisce il Daemon di sicurezza di
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
-Il comando Initialize-IoTEdge Configura IoT Edge con la stringa di connessione del dispositivo e i dettagli operativi. Gran parte delle informazioni generate da questo comando viene quindi archiviata nel file iotedge\config.yaml. Il comando di inizializzazione accetta i parametri comuni, tra gli altri. Per un elenco completo, usare il coman `Get-Help Initialize-IoTEdge -full`. 
+Il comando Initialize-IoTEdge Configura IoT Edge con la stringa di connessione del dispositivo e i dettagli operativi. Gran parte delle informazioni generate da questo comando viene quindi archiviata nel file iotedge\config.yaml. Il comando di inizializzazione accetta i parametri comuni, tra gli altri. Per un elenco completo, usare il comando `Get-Help Initialize-IoTEdge -full`. 
 
 | Parametro | Valori accettati | Commenti |
 | --------- | --------------- | -------- |

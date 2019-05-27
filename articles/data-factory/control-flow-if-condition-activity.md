@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431496"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153463"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Attività IfCondition in Azure Data Factory
 L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguaggi di programmazione. Valuta un set di attività se la condizione restituisce `true` e un altro set di attività se la condizione restituisce `false`. 
@@ -66,8 +66,8 @@ L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguag
 
 Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività if-condition. | string | Sì
-type | Deve essere impostata su **IfCondition** | string | Sì
+name | Nome dell'attività if-condition. | String | Sì
+tipo | Deve essere impostata su **IfCondition** | String | Sì
 expression | Espressione che deve restituire true o false | Espressione con tipo di risultato booleano | Sì
 ifTrueActivities | Set di attività che vengono eseguite quando l'espressione restituisce `true`. | Array | Sì
 ifFalseActivities | Set di attività che vengono eseguite quando l'espressione restituisce `false`. | Array | Sì

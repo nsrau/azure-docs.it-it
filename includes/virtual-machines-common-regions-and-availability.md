@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: fb296236fb73823690175b12f4e07c05b60cdbcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f33312d0a5fbe383d438408d471dd9ae09d0332
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542601"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156252"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Aree e disponibilità per le macchine virtuali in Azure
 Azure è compatibile con svariati datacenter in tutto il mondo. Questi datacenter sono raggruppati in aree geografiche, per lasciare l'utente libero di scegliere dove creare le applicazioni. È importante comprendere dove e come funzionano le macchine virtuali (VM) in Azure, così come le possibilità di ottimizzare le prestazioni, la disponibilità e la ridondanza. Questo articolo offre una panoramica delle funzionalità di disponibilità e ridondanza di Azure.
@@ -63,7 +63,7 @@ Conoscere le aree geografiche di Azure diventa importante quando si considerano 
   * I dati vengono replicati tre volte all'interno dell'area in cui è stato creato l'account di archiviazione.
 * Archiviazione con ridondanza della zona (ZRS)
   * I dati vengono replicati tre volte in due o tre strutture distribuite in un'area sola o in due aree.
-* Archiviazione con ridondanza geografica (GRS)
+* Archiviazione con ridondanza geografica
   * I dati vengono replicati in un'area secondaria a centinaia di chilometri di distanza dall'area primaria.
 * Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
   * I dati vengono replicati in un'area secondaria, come con la ridondanza geografica, ma risultano anche accessibili in sola lettura nell'area secondaria.
@@ -72,8 +72,8 @@ La tabella seguente fornisce una rapida panoramica delle differenze tra i tipi d
 
 | Strategia di replica | Archiviazione con ridondanza locale | ZRS | Archiviazione con ridondanza geografica | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| I dati vengono replicati in più strutture |No  |Sì |Sì |Sì |
-| I dati possono essere letti dalla località secondaria e da quella primaria. |No  |No  |No  |Sì |
+| I dati vengono replicati in più strutture |N. |Sì |Sì |Sì |
+| I dati possono essere letti dalla località secondaria e da quella primaria. |N. |N. |N. |Sì |
 | Numero di copie di dati mantenute in nodi distinti |3 |3 |6 |6 |
 
 Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md). Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md) (Panoramica di Azure Managed Disks).
@@ -95,6 +95,8 @@ Per informazioni sulle opzioni di disponibilità e sui prezzi dei vari tipi di a
 Un set di disponibilità è un raggruppamento logico di macchine virtuali in un data center che consente ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Non è previsto alcun costo per il set di disponibilità, si paga solo per ogni istanza di macchina virtuale creata. Quando una sola macchina virtuale usa le [unità SSD Premium di Azure](../articles/virtual-machines/windows/disks-types.md#premium-ssd), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure.
 
 Un set di disponibilità comprende due raggruppamenti aggiuntivi che proteggono dagli errori hardware (domini di errore) e consentono di applicare gli aggiornamenti in modo sicuro (domini di aggiornamento). Sono disponibili altre informazioni su come gestire la disponibilità delle macchine virtuali [Linux](../articles/virtual-machines/linux/manage-availability.md) o [Windows](../articles/virtual-machines/windows/manage-availability.md).
+
+Quando si alloca più risorse di calcolo che non utilizzano i costrutti di disponibilità elevata di domini di errore è presente un'elevata probabilità di anti-affinità, tuttavia questa anti-affinità non è garantito.
 
 ### <a name="fault-domains"></a>Domini di errore
 Un dominio di errore è un raggruppamento logico di tutto l'hardware sottostante che condivide una fonte di alimentazione e uno switch di rete comuni, come a un rack in un datacenter locale. Man mano che si creano le macchine virtuali all'interno di un set di disponibilità, la piattaforma Azure le distribuisce automaticamente in questi domini di errore. Questo approccio consente di limitare l'impatto di eventuali guasti dell'hardware fisico, interruzioni di rete o interruzioni dell'alimentazione.

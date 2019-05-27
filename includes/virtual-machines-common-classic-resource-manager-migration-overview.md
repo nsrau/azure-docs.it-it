@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: f60b5421f2bc66cf09ede4178ce18e2394030264
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 289912e1519a68ae607ace7766e35731af0016b9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64929405"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158263"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager
 L'articolo descrive come eseguire la migrazione di risorse di infrastruttura distribuita come servizio (IaaS) dai modelli di distribuzione classica ad Azure Resource Manager e illustra in modo dettagliato come collegare le risorse da due modelli di distribuzione che coesistono nella sottoscrizione con gateway da sito a sito di rete virtuale. Altre informazioni su [funzionalità e vantaggi di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -130,6 +130,5 @@ Le seguenti configurazioni non sono attualmente supportate.
 | Servizio app di Azure |Rete virtuale contenente ambienti del servizio app |Non supportato attualmente. |
 | HDInsight di Azure |Rete virtuale contenente servizi HDInsight |Non supportato attualmente. |
 | Servizi del ciclo di vita Microsoft Dynamics |Rete virtuale contenente macchine virtuali gestite da Dynamics Lifecycle Services |Non supportato attualmente. |
-| Servizi di dominio Azure Active Directory |Reti virtuali che contengono i servizi di dominio Azure AD |Non supportato attualmente. |
-| Azure RemoteApp |Reti virtuali che contengono distribuzioni di Azure RemoteApp |Non supportato attualmente. |
+| Azure AD Domain Services |Reti virtuali che contengono i servizi di dominio Azure AD |Non supportato attualmente. |
 | Gestione API di Azure |Reti virtuali che contengono distribuzioni di Gestione API |Non supportato attualmente. Per eseguire la migrazione di VNET IaaS, modificare la rete virtuale della distribuzione di Gestione API che è un'operazione senza tempi di inattività. |
