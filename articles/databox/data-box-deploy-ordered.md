@@ -1,19 +1,19 @@
 ---
-title: Ordinare Microsoft Azure Data Box | Microsoft Docs
+title: Esercitazione per ordinare Azure Data Box | Microsoft Docs
 description: Informazioni sui prerequisiti di distribuzione e su come ordinare un dispositivo Azure Data Box
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/05/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834269"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604083"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
@@ -66,10 +66,10 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |---------|---------|
     |Sottoscrizione     | Selezionare una sottoscrizione di tipo Contratto Enterprise, CSP o Azure Sponsorship per il servizio Data Box. <br> La sottoscrizione viene collegata all'account di fatturazione.       |
     |Tipo di trasferimento     | Selezionare **Importa in Azure**.        |
-    |Paese di origine     |   Selezionare il paese in cui si trovano attualmente i dati.         |
+    |Paese di origine     |   Selezionare il paese/area in cui si trovano attualmente i dati.         |
     |Area di Azure di destinazione     |     Selezionare l'area di Azure in cui si vogliono trasferire i dati.        |
 
-5. Selezionare **Data Box**. La capacità massima che è possibile usare per un singolo ordine è di 786 TB. È possibile creare più ordini per volumi di dati maggiori.
+5. Selezionare **Data Box**. La capacità massima che è possibile usare per un singolo ordine è di 80 TB. È possibile creare più ordini per volumi di dati maggiori.
 
       [![Selezione del Data Box - opzione 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 

@@ -1,5 +1,5 @@
 ---
-title: Esercitazione per ordinare dischi di Microsoft Azure Data Box | Microsoft Docs
+title: Esercitazione per ordinare dischi di Azure Data Box | Microsoft Docs
 description: Usare questa esercitazione per scoprire come iscriversi e ordinare dischi di Azure Data Box per importare dati in Azure.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404893"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603175"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Esercitazione: Ordinare un disco di Azure Data Box
 
@@ -65,7 +65,7 @@ Seguire questa procedura nel [portale di Azure](https://aka.ms/azuredataboxfromd
     |---|---|
     |Sottoscrizione|Selezionare la sottoscrizione per cui è abilitato il servizio Data Box.<br> La sottoscrizione viene collegata all'account di fatturazione. |
     |Tipo di trasferimento| Importa in Azure|
-    |Paese di origine | Selezionare il paese in cui si trovano attualmente i dati.|
+    |Paese di origine | Selezionare il paese/area in cui si trovano attualmente i dati.|
     |Area di Azure di destinazione|Selezionare l'area di Azure in cui si vogliono trasferire i dati.|
 
   
