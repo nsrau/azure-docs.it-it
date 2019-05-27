@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/22/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: fe15cafceea8128735f7241fa5e4187d4d9c47a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce6c5f3059041d8dbb097470cf4a415e73d9156b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518982"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237261"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 Elenco completo dei limiti di QnA Maker.
@@ -51,19 +51,19 @@ Limiti complessivi sul contenuto nella knowledge base:
 * Caratteri supportati per il valore dei metadati: tutti tranne : e | 
 * Lunghezza del nome file: 200
 * Formati di file supportati: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
-* Numero massimo di domande alternative: 100
+* Numero massimo di domande alternative: 300
 * Numero massimo di coppie di risposta alla domanda: Dipende i [livello ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) scelto. Una coppia di domanda e la risposta viene eseguito il mapping a un documento nell'indice di ricerca di Azure. 
 
 ## <a name="create-knowledge-base-call-limits"></a>Creare i limiti di chiamata per la Knowledge base:
 Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ovvero, fare clic su *Crea KB* o richiamare l'API di Crea Knowledge Base.
-* Numero massimo di domande alternative per ogni risposta: 100
+* Numero massimo di domande alternative per ogni risposta: 300
 * Numero massimo di URL: 10
 * Numero massimo di file: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>Aggiornare i limiti di chiamata per la Knowledge base
 Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ovvero, fare clic su *Crea KB* o richiamare l'API di Crea Knowledge Base.
 * Lunghezza di ogni nome di origine: 300
-* Numero massimo di domande alternative aggiunte o eliminate: 100
+* Numero massimo di domande alternative aggiunte o eliminate: 300
 * Numero massimo di campi di metadati aggiunti o eliminati: 10
 * Numero massimo di URL che è possibile aggiornare: 5
 
