@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: f4a9a131bcabc28a1eb77ffc31d93dc1d391cce4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61296068"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157173"
 ---
 ## <a name="prerequisites"></a>Prerequisiti 
 Per completare questa esercitazione è necessario un file VHD caricato nell'account di archiviazione associato al laboratorio in cui si crea l'immagine personalizzata. Selezionare uno dei collegamenti seguenti per caricare un file VHD:

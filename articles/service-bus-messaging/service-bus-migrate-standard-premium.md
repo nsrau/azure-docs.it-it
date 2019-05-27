@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687075"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991412"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Eseguire la migrazione esistente spazi dei nomi standard del Bus di servizio di Azure per il livello premium
 Il Bus di servizio di Azure offerto in precedenza, gli spazi dei nomi solo nel livello standard. Gli spazi dei nomi sono impostazioni di multi-tenant che sono ottimizzate per gli ambienti di sviluppo e una velocità effettiva bassa. Il livello premium offre risorse dedicate per ogni spazio dei nomi per aumentare la velocità effettiva a un prezzo fisso e latenza prevedibile. Il livello premium è ottimizzato per la velocità effettiva elevata e ambienti di produzione che richiedono funzionalità aggiuntive dell'organizzazione.
 
-Questo articolo descrive come eseguire la migrazione di spazi dei nomi esistenti di livello standard al livello premium.
+Questo articolo descrive come eseguire la migrazione di spazi dei nomi esistenti di livello standard al livello premium.  
 
 >[!WARNING]
 > La migrazione è progettata per gli spazi dei nomi standard del Bus di servizio per l'aggiornamento al livello premium. Lo strumento di migrazione non supporta il downgrade.
@@ -33,6 +33,7 @@ Alcuni punti da notare:
 - Il **premium** dello spazio dei nomi deve avere **Nessuna entità** in esso per la migrazione abbia esito positivo. 
 - Tutti i **entities** nello spazio dei nomi standard vengono **copiati** allo spazio dei nomi premium durante il processo di migrazione. 
 - Supporta la migrazione **1.000 entità per ogni unità di messaggistica** nel livello premium. Per identificare quante unità di messaggistica è necessario, iniziare con il numero di entità che è necessario sullo spazio dei nomi standard corrente. 
+- Non è possibile eseguire la migrazione direttamente da **il livello basic** al **livello premier**, ma è possibile eseguire in modo indiretto tramite la migrazione da basic a standard prima e quindi da standard a premium nel passaggio successivo.
 
 ## <a name="migration-steps"></a>Passaggi della migrazione
 Alcune condizioni associate con il processo di migrazione. Acquisire familiarità con i passaggi seguenti per ridurre la possibilità di errori. Questi passaggi illustrano il processo di migrazione e le informazioni dettagliate sono elencati nelle sezioni che seguono.

@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 12/21/2018
 ms.author: diberry
 ms.openlocfilehash: 355fe134939b26c51d6e03368f782845628a6b96
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738897"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123740"
 ---
 L'applicazione client deve stabilire se un'espressione non è significativa o appropriata per l'applicazione. La finalità **None** (Nessuna) viene aggiunta a ciascuna applicazione come parte del processo di creazione per determinare se l'applicazione client non può rispondere a un'espressione.
 

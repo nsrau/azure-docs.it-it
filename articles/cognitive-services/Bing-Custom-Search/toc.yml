@@ -110,3 +110,5 @@
       href: endpoint-custom.md
     - name: Supporto di lingua e area geografica
       href: language-support.md
+    - name: Conformità
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

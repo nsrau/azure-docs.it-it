@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
 ms.openlocfilehash: 0ebda53db852a613c2ad6f0e223c25b3946b7116
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474276"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127469"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>Esempio di interfaccia della riga di comando: Creare e gestire un pool Linux in Azure Batch
 

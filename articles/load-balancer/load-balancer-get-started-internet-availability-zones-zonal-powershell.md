@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
-ms.openlocfilehash: faffe5acb6ec33dcddee5c47679f29f64d2e61fb
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8ede8df2f069681008175494cfd5937738ce5ea9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674311"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122147"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>Creare un Load Balancer Standard con un front-end di zona usando Azure PowerShell
 
@@ -40,7 +40,7 @@ Accedere alla sottoscrizione di Azure con il comando `Connect-AzAccount` e segui
 Connect-AzAccount
 ```
 
-## <a name="create-resource-group"></a>Creare un gruppo di risorse
+## <a name="create-resource-group"></a>Crea gruppo di risorse
 
 Creare un gruppo di risorse usando il comando seguente:
 

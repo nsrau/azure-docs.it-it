@@ -3,9 +3,8 @@ title: 'Esercitazione: Configurare Asana per il provisioning utenti automatico c
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Asana.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: sakula
+author: ArvindHarinder1
+manager: CelesteDG
 ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -14,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: asmalser
-ms.reviewer: asmalser
+ms.author: arvinh
+ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a763b2516f88e8c92efc321db50dc15881f54c9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10d5ceedfd1f0fad0c6f03feba2150968aecf02b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437483"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964217"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Esercitazione: Configurare Asana per il provisioning utenti automatico
 

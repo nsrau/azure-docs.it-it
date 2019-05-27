@@ -9,18 +9,18 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739046"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133131"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Abilitare le soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario in più VM
 
 Automazione di Azure fornisce soluzioni per gestire gli aggiornamenti della sicurezza del sistema operativo, tenere traccia delle modifiche e gestire l'inventario dei componenti installati nei computer. Esistono diversi modi per eseguire l'onboarding di computer. Ad esempio, è possibile eseguire l'onboarding della soluzione [da una macchina virtuale](automation-onboard-solutions-from-vm.md), dall'[account di Automazione](automation-onboard-solutions-from-automation-account.md), durante l'esplorazione delle macchine virtuali o tramite [runbook](automation-onboard-solutions.md). Questo articolo descrive il processo di onboarding di queste soluzioni durante l'esplorazione delle macchine virtuali in Azure.
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Accedere ad Azure all'indirizzo https://portal.azure.com
 
@@ -59,27 +59,10 @@ Se l'area di lavoro selezionata non è collegata a un account di Automazione, ve
 
 ![Nessuna area di lavoro](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro Log Analytics e un account di Automazione.
-
-La tabella seguente mostra i mapping supportati:
-
-|**Area dell'area di lavoro di Log Analytics**|**Area di Automazione di Azure**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|Europa occidentale|Europa occidentale|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> mapping EastUS2EUAP e Stati Uniti orientali per aree di lavoro di Log Analitica per gli account di automazione non sono un mapping di un'area a un'altra esatto, ma è il mapping corretto.
-
-<sup>2</sup> a causa di limiti di capacità dell'area non è disponibile durante la creazione di nuove risorse. Sono inclusi gli account di automazione e Log Analitica aree di lavoro. Tuttavia, le risorse collegate preesistente nell'area continueranno a funzionare.
+> [!NOTE]
+> Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro Log Analytics e un account di Automazione.
+>
+> Per un elenco di coppie di mapping supportati, vedere [mapping di area per area di lavoro di Account di automazione e Log Analitica](how-to/region-mappings.md).
 
 Deselezionare la casella di controllo accanto alle macchine virtuali che non si vuole abilitare. Le macchine virtuali che non è possibile abilitare sono già deselezionate.
 
@@ -120,7 +103,9 @@ Se è stata usata la soluzione per avviare/arrestare VM durante gli orari di min
 
 * Avviare e arrestare le pianificazioni di runbook delle VM
 * Avviare e arrestare i runbook delle VM
-* variables
+* Variabili
+
+È inoltre in alternativa possibile scollegare l'area di lavoro dall'Account di automazione dall'area di lavoro di Log Analitica. Sull'area di lavoro, selezionare **Account di automazione** sotto **le risorse correlate**. Nella pagina Account di automazione, selezionare **scollegare l'account**.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
@@ -152,7 +137,7 @@ Durante l'onboarding di più computer, per alcuni computer potrebbe essere visua
 
 **Causa**: le macchine virtuali che usano il modello di distribuzione classica non sono supportate.
 
-**Soluzione**: eseguire la migrazione della macchina virtuale al modello di distribuzione Resource Manager. Per altre informazioni in proposito, vedere [Eseguire la migrazione di risorse del modello di distribuzione classica](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Soluzione**: Eseguire la migrazione della macchina virtuale per il modello di distribuzione Resource Manager. Per altre informazioni in proposito, vedere [Eseguire la migrazione di risorse del modello di distribuzione classica](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>La macchina virtuale viene arrestata (deallocata).
 

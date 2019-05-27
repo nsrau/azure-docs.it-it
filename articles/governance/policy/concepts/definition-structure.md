@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b9fe723ca13cbee0e31b14e60a6bd740d2a282df
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779299"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979541"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -100,7 +100,8 @@ Un parametro presenta le proprietà seguenti, usate nella definizione di criteri
   - `displayName`: il nome descrittivo visualizzato per il parametro nel portale.
   - `strongType`: (facoltativa) usata quando si assegna la definizione di criteri tramite portale. Fornisce un elenco con riconoscimento del contesto. Per altre informazioni, vedere [strongType](#strongtype).
   - `assignPermissions`: (Facoltativo) Impostare come _true_ affinché il portale di Azure creare assegnazioni di ruolo durante l'assegnazione dei criteri. Questa proprietà è utile nel caso in cui si desidera assegnare autorizzazioni di fuori dell'ambito di assegnazione. È presente un'assegnazione di ruolo per ogni definizione di ruolo nel criterio (o per ogni definizione di ruolo in tutti i criteri nell'iniziativa). Il valore del parametro deve essere una valida risorsa o un ambito.
-- `defaultValue`: (facoltativa) imposta il valore del parametro in un'assegnazione se non viene specificato alcun valore. Obbligatoria quando si aggiorna una definizione di criteri esistente già assegnata.
+- `defaultValue`: (facoltativa) imposta il valore del parametro in un'assegnazione se non viene specificato alcun valore.
+  Obbligatoria quando si aggiorna una definizione di criteri esistente già assegnata.
 - `allowedValues`: (Facoltativo) Fornisce una matrice di valori che accetta il parametro durante l'assegnazione.
 
 Ad esempio, è possibile definire una definizione di criteri per limitare i percorsi in cui le risorse possono essere distribuite. Un parametro per questa definizione di criteri potrebbe essere **allowedLocations**. Questo parametro è stato usato da ogni assegnazione della definizione di criteri per limitare i valori accettati. L'uso di **strongType** offre un'esperienza migliorata nel completamento dell'assegnazione tramite portale:
@@ -268,8 +269,7 @@ Sono supportati i seguenti campi:
 - alias delle proprietà; per un elenco, vedere [alias](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]` e `tags[tag.with.dots]` sono comunque modi accettabili per dichiarare un campo tags.
-> Tuttavia, le espressioni preferibili sono quelle elencate in precedenza.
+> `tags.<tagName>`, `tags[tagName]` e `tags[tag.with.dots]` sono comunque modi accettabili per dichiarare un campo tags. Tuttavia, le espressioni preferibili sono quelle elencate in precedenza.
 
 #### <a name="use-tags-with-parameters"></a>Usare tag con parametri
 

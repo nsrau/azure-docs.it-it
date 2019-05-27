@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9be062ec42f054832225c17a65b06e47dbcbe990
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123485"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977444"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenario di monitoraggio in Funzioni durevoli - Esempio di watcher per il meteo
 
@@ -89,7 +89,8 @@ Si possono eseguire simultaneamente più istanze dell'agente di orchestrazione i
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>Trasferimento dei dati fortemente tipizzati (solo .NET)
 
-Poiché l'agente di orchestrazione richiede più gruppi di dati, per il trasferimento dei dati fortemente tipizzati vengono usati gli [oggetti POCO condivisi](../functions-reference-csharp.md#reusing-csx-code): in C# e nello script C#: [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+L'agente di orchestrazione richiede più gruppi di dati, pertanto [oggetti POCO condivisi](../functions-reference-csharp.md#reusing-csx-code) usati per il trasferimento di dati fortemente tipizzati in C# e C# script:  
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
 

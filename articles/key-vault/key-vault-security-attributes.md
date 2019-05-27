@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 652e6ecb9ef9506fd306942eae45b13b52ae1c24
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1c2265ff5f4c444121bf70c35145703f1b9fe981
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691835"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000188"
 ---
-# <a name="common-security-attributes-for-azure-key-vault"></a>Attributi di sicurezza comuni per Azure Key Vault
+# <a name="security-attributes-for-azure-key-vault"></a>Attributi di sicurezza per Azure Key Vault
 
-La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo articolo sono descritti gli attributi di sicurezza comuni incorporati in Azure Key Vault. 
+Questo articolo sono descritti gli attributi di sicurezza integrati di Azure Key Vault. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -29,16 +29,16 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 | Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Nella crittografia di rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| Sì | Tutte le comunicazioni vengono effettuate tramite chiamate API crittografate |
 | Gestione della crittografia chiave (CMK, modalità BYOK e così via)| Sì | Il cliente controlla tutte le chiavi nel loro insieme di credenziali delle chiavi. Quando vengono specificate le chiavi module (HSM) supportata di protezione hardware, un modulo di protezione hardware di FIPS livello 2 consente di proteggere la chiave, un certificato o un segreto. |
 | Crittografia a livello di colonna (Azure Data Services)| N/D |  |
-| Chiamate API crittografate| Sì | Viene usato HTTPS. |
+| Chiamate API crittografate| Sì | Uso di HTTPS. |
 
 ## <a name="network-segmentation"></a>Segmentazione di rete
 
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
 | Supporto endpoint del servizio| Sì | Tramite gli endpoint di servizio di rete virtuale (VNet). |
-| Supportare l'inserimento di rete virtuale| No  |  |
+| Supportare l'inserimento di rete virtuale| N. |  |
 | Isolamento di rete e supporto firewall| Sì | Usando le regole del firewall della rete virtuale. |
-| Supporto di tunneling forzato| No  |  |
+| Supporto di tunneling forzato| N. |  |
 
 ## <a name="detection"></a>Rilevamento
 

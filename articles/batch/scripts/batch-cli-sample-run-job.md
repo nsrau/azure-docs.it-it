@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
 ms.openlocfilehash: 4ddcc2541bd31c887c17e549209270c60d735351
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127382"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>Esempio di interfaccia della riga di comando: Eseguire un processo e attività con Azure Batch
 

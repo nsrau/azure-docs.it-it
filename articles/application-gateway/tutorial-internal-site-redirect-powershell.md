@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: victorh
-ms.openlocfilehash: 3b13e75694f17a8ea22fee1f025692b9c64d8fa4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c69866312c32b5bd52e8e5f50647444e83bc425e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877489"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "66133488"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Creare un gateway applicazione con reindirizzamento interno tramite Azure PowerShell
 
@@ -99,7 +99,7 @@ $frontendPort = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>Creare il pool e le impostazioni back-end
 
-Creare un pool di back-end denominato *contosoPool* per il gateway applicazione usando [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configurare le impostazioni per il pool back-end usando [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings).
+Creare un pool di back-end denominato *contosoPool* per il gateway applicazione usando [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configurare le impostazioni per il pool back-end usando [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $contosoPool = New-AzApplicationGatewayBackendAddressPool `

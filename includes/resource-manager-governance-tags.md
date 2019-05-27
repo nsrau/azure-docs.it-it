@@ -9,11 +9,11 @@ ms.date: 11/20/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: c426df2293cfb2d8ba4dc02e8fc5519c3d822168
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868790"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66128789"
 ---
 I tag vengono applicati alle risorse di Azure che contengono metadati per organizzarle in modo logico in categorie in una tassonomia. Ogni tag è costituito da una coppia di nome e valore. Ad esempio, è possibile applicare il nome "Environment" e il valore "Production" a tutte le risorse nell'ambiente di produzione.
 

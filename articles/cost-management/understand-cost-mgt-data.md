@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/22/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 81947baccf723ab759f2dc24df40b81af4502e09
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f4c296aeefacc9516303ad75dd8b7d67325e38ee
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692453"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969063"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
@@ -27,7 +27,7 @@ Gestione dei costi include tutti gli utilizzi e gli acquisti, incluse le prenota
 
 Le informazioni seguenti mostrano le [offerte di Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) attualmente supportate in Gestione costi di Azure.  Per offerta di Azure si intende il tipo di sottoscrizione di Azure di cui si dispone.
 
-| Categoria  | **Nome dell'offerta** | **Quota ID** | **Numero offerta** |
+| Category  | **Nome dell'offerta** | **Quota ID** | **Numero offerta** |
 | --- | --- | --- | --- |
 | **Azure Germania** | [Azure Germania con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure per enti pubblici Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
@@ -51,7 +51,7 @@ Le informazioni seguenti mostrano le [offerte di Microsoft Azure](https://azure.
 
 La tabella seguente mostra le offerte non supportate.
 
-| Categoria  | **Nome dell'offerta** | **Quota ID** | **Numero offerta** |
+| Category  | **Nome dell'offerta** | **Quota ID** | **Numero offerta** |
 | --- | --- | --- | --- |
 | **Cloud Solution Provider (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Cloud Solution Provider (CSP)** | CSP Azure per enti pubblici                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |

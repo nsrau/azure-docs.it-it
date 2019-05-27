@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192284"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966388"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -118,3 +118,15 @@ Restrizioni di denominazione vengono implementate dal servizio contenitore di AZ
 
 * Il servizio contenitore di AZURE *MC _* nome gruppo di risorse combina nome gruppo di risorse e il nome di risorsa. La sintassi di autogenerato `MC_resourceGroupName_resourceName_AzureRegion` non deve essere maggiore di 80 caratteri. Se necessario, ridurre la lunghezza del nome del gruppo di risorse o il nome del cluster servizio contenitore di AZURE.
 * Il *dnsPrefix* deve iniziare e terminare con valori alfanumerici. I caratteri validi includono valori alfanumerici e trattini (-). Il *dnsPrefix* non possono contenere caratteri speciali, ad esempio un punto (.).
+
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Si verificano errori durante il tentativo di creare, aggiornare, scalare, eliminare o aggiornare il cluster, operazione non consentita perché un'altra operazione è in corso.
+
+*Questo tipo di servizio di risoluzione dei problemi viene indirizzato dal aka.ms/aks-in sospeso-operazione*
+
+Le operazioni del cluster sono limitate quando un'operazione precedente è ancora in corso. Per recuperare uno stato dettagliato del cluster, usare il `az aks show -g myResourceGroup -n myAKSCluster -o table` comando. Usare il proprio gruppo di risorse e il nome del cluster servizio contenitore di AZURE in base alle esigenze.
+
+Basata sull'output dello stato del cluster:
+
+* Se il cluster è diverso da qualsiasi stato di provisioning *Succeeded* oppure *Failed*, attendere finché l'operazione (*l'aggiornamento / l'aggiornamento / creazione / scala / eliminazione / migrazione*) termina. Al termine dell'operazione precedente, ripetere l'operazione di cluster più recente.
+
+* Se il cluster dispone di un aggiornamento non riuscito, seguire la procedura descritta [sono la ricezione di errori che il cluster non è in stato di errore e l'aggiornamento o ridimensionamento non funzionerà fintanto che permane](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

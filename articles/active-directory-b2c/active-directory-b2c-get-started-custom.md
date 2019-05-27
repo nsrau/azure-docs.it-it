@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 05/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6a66d45028b9fbf9c421b10ffb7863fcb9be5bec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f4ecc01f42d491f5d9d967b9983e773c1df22298
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779856"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986822"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introduzione ai criteri personalizzati in Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ I [criteri personalizzati](active-directory-b2c-overview-custom.md) sono file di
 ## <a name="add-signing-and-encryption-keys"></a>Aggiungere le chiavi di firma e di crittografia
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
-2. Assicurarsi che si usa la directory che contiene il tenant di Azure AD B2C. Fare clic sui **Directory e sottoscrizione filtro** nel menu in alto e scegliendo la directory che contiene il tenant. 
+2. Assicurarsi che si usa la directory che contiene il tenant di Azure AD B2C. Fare clic sui **Directory e sottoscrizione filtro** nel menu in alto e scegliere la directory che contiene il tenant. 
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
 
@@ -70,17 +70,17 @@ Azure AD B2C richiede di registrare due applicazioni che vengono usate per regis
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrare l'applicazione IdentityExperienceFramework
 
-1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
-2. Selezionare **Registrazione nuova applicazione**.
-3. Per **Nome** immettere `IdentityExperienceFramework`.
-4. Per **Tipo di applicazione** scegliere **App Web/API**.
-5. Per **URL di accesso** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, dove `your-tenant-name` è il nome di dominio del tenant di Azure AD B2C.
-6. Fare clic su **Create**(Crea). 
-7. Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
+1. Scegli **tutti i servizi** nell'angolo superiore sinistro del portale di Azure, cercare e selezionare **Azure Active Directory**.
+2. Nel menu, selezionare **registrazioni per l'App (Legacy)**.
+3. Selezionare **Registrazione nuova applicazione**.
+4. Per **Nome** immettere `IdentityExperienceFramework`.
+5. Per **Tipo di applicazione** scegliere **App Web/API**.
+6. Per **URL di accesso** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, dove `your-tenant-name` è il nome di dominio del tenant di Azure AD B2C. Tutti gli URL dovrebbero ora usare [b2clogin.com](b2clogin.md).
+7. Fare clic su **Create**(Crea). Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrare l'applicazione ProxyIdentityExperienceFramework
 
-1. Selezionare **Registrazioni app** e quindi **Registrazione nuova applicazione**.
+1. Nelle **registrazioni per l'App (Legacy)**, selezionare **registrazione nuova applicazione**.
 2. Per **Nome** immettere `ProxyIdentityExperienceFramework`.
 3. Per **Tipo di applicazione** scegliere **Nativo**.
 4. Per **URI di reindirizzamento** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, dove `yourtenant` è il tenant di Azure AD B2C.

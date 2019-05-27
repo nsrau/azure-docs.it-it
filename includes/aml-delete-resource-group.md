@@ -9,11 +9,11 @@ author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
 ms.openlocfilehash: 6af620f54acb3bf782f05b81f12aca2103cddf47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753841"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123245"
 ---
 >[!IMPORTANT]
 >Le risorse create possono essere usate come prerequisiti per altre esercitazioni e procedure dettagliate per il servizio Azure Machine Learning. 

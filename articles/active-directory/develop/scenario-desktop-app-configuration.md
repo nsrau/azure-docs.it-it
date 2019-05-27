@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/o7/2019
+ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eadcae393128d9721f2c988f713af07913c5fd1d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: bc0042d6392891e8282c563afea2212031a0f49a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545511"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121877"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>App desktop che chiama l'API - configurazione del codice web
 
@@ -38,7 +38,7 @@ Da un punto di vista di codice, applicazioni desktop sono le applicazioni client
 
 ### <a name="exclusively-by-code"></a>Esclusivamente dal codice
 
-Il codice seguente crea un'istanza di un'applicazione client pubblica, gli utenti di accesso nel cloud pubblico di Microsoft Azure, con il proprio lavoro e dell'istituto di istruzione o l'account Microsoft personale.
+Il codice seguente crea un'istanza di un'applicazione client pubblica, gli utenti di accesso nel cloud pubblico di Microsoft Azure, con un lavoro e dell'istituto di istruzione o un account Microsoft personale.
 
 ```CSharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
@@ -50,8 +50,8 @@ Se si prevede di usare l'autenticazione interattiva, come nell'esempio precedent
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithRedirectUri(PublicClientApplicationBuilder.DefaultInteractiveDesktopRedirectUri)
-         .Build();
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .Build();
 ```
 
 ### <a name="using-configuration-files"></a>Usando i file di configurazione
@@ -61,7 +61,8 @@ Il codice seguente crea un'istanza di un'applicazione client pubblica da un ogge
 ```CSharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
-    .Build();
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .Build();
 ```
 
 ### <a name="more-elaborated-configuration"></a>Configurazione di più elaborato
@@ -71,6 +72,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
         .WithAadAuthority(AzureCloudInstance.AzureUsGovernment,
                          AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
@@ -167,6 +169,7 @@ A questo punto, per creare l'applicazione, è semplicemente necessario scrivere 
 ```CSharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
+           .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
            .Build();
 ```
 

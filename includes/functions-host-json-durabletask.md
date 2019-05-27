@@ -10,11 +10,11 @@ ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: d79d1bd5ec244ad4399a02c349e2504516d06ccd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710527"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131700"
 ---
 Impostazioni di configurazione per [Funzioni permanenti](../articles/azure-functions/durable-functions-overview.md).
 
@@ -45,7 +45,7 @@ Impostazioni di configurazione per [Funzioni permanenti](../articles/azure-funct
 
 I nomi degli hub attività devono iniziare con una lettera e contenere solo lettere e numeri. Se non specificato, il nome dell'hub attività predefinito per un'app per le funzioni è **DurableFunctionsHub**. Per altre informazioni, vedere [Hub attività](../articles/azure-functions/durable-functions-task-hubs.md).
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|I nomi alternativi dell'[hub attività](../articles/azure-functions/durable-functions-task-hubs.md) possono essere usati per separare le applicazioni di Durable Functions, anche se usano lo stesso back-end di archiviazione.|
 |controlQueueBatchSize|32|Numero di messaggi di cui eseguire il pull dalla coda di controllo contemporaneamente.|

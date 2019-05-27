@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
 ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153240"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -135,7 +135,7 @@ Rete virtuale di Azure è una rappresentazione logica della propria rete nel clo
 
 La tabella seguente riassume i consigli di configurazione di rete e del runtime di integrazione self-hosted in base alle diverse combinazioni di percorsi di origine e destinazione per lo spostamento dei dati ibridi.
 
-| Source (Sorgente)      | Destination                              | Configurazione di rete                    | Impostazione runtime di integrazione                |
+| `Source`      | Destination                              | Configurazione di rete                    | Impostazione runtime di integrazione                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | VPN IPSec (da punto a sito o da sito a sito) | Il runtime di integrazione self-hosted deve essere installato nella macchina virtuale di Azure nella rete virtuale.  |
 | Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | ExpressRoute (peering privato)           | Il runtime di integrazione self-hosted deve essere installato nella macchina virtuale di Azure nella rete virtuale.  |
@@ -158,7 +158,7 @@ In un'azienda il firewall aziendale viene eseguito nel router centrale dell'orga
 
 La tabella seguente indica la porta in uscita e i requisiti di dominio per i firewall aziendale:
 
-| Nomi di dominio                  | Porte in uscita | DESCRIZIONE                              |
+| Nomi di dominio                  | Porte in uscita | Descrizione                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | Richieste dal runtime di integrazione self-hosted per connettersi ai servizi di spostamento dei dati in Data Factory. |
 | `*.frontend.clouddatahub.net` | 443            | Richiesta dal runtime di integrazione self-hosted per connettersi al servizio Data Factory. |
@@ -172,7 +172,7 @@ La tabella seguente indica la porta in uscita e i requisiti di dominio per i fir
 
 Nella tabella seguente vengono indicati i requisiti relativi alla porta in ingresso per Windows Firewall:
 
-| Porte in ingresso | DESCRIZIONE                              |
+| Porte in ingresso | Descrizione                              |
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | Richiesta dal cmdlet di crittografia PowerShell, come descritto in [Crittografare le credenziali per gli archivi dati locali in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), e dall'applicazione di gestione delle credenziali per impostare in modo sicuro le credenziali per gli archivi dati locali nel runtime di integrazione self-hosted. |
 

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58794020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130690"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -530,7 +530,7 @@ Tutti i record creati nell'area di lavoro Log Analytics in Monitoraggio di Azure
 
 Le proprietà seguenti sono comuni a tutti i record di Office 365.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | Type | *OfficeActivity* |
 | ClientIP | L'indirizzo IP del dispositivo usato quando l'attività è stata registrata. L'indirizzo IP viene visualizzato in formato di indirizzo IPv4 o IPv6. |

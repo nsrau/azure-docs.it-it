@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66126544"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum Proof-of-Authority Consortium
 
@@ -46,7 +46,7 @@ Per gli utenti che hanno familiarità con la community blockchain, il rilascio d
 
 Poiché proof-of-authority si basa su un elenco di autorità di rete per mantenere la rete integri consentiti, è importante fornire un meccanismo equo per apportare modifiche a questo elenco di autorizzazioni. Ogni distribuzione include un set di contratti di smart e portale per la governance nella catena di questo elenco consentiti. Dopo che una modifica proposta raggiunge un voto di maggioranza da parte dei membri del consorzio, la modifica viene applicata. In questo modo si possono aggiungere nuovi partecipanti al consenso o rimuovere i partecipanti compromessi in un modo trasparente che favorisce una rete affidabile.
 
-### <a name="admin-account"></a>Account amministratore
+### <a name="admin-account"></a>Account amministrativo
 
 Durante la distribuzione dei nodi di proof-of-authority, verrà chiesto un indirizzo Admin Ethereum. Si possono usare meccanismi diversi per generare e proteggere questo account Ethereum. Dopo che questo indirizzo viene aggiunto come autorità della rete, è possibile usare questo account per partecipare alla governance. Questo account amministratore verrà anche usato per delegare la partecipazione al consenso ai nodi di convalida creati durante questa distribuzione. Poiché viene utilizzato solo l'indirizzo pubblico Ethereum, ogni amministratore ha la possibilità di proteggere le chiavi private in modo che segue il modello di sicurezza desiderato.
 
@@ -83,7 +83,7 @@ Questa soluzione include anche Monitoraggio di Azure per tenere traccia delle st
 
 ### <a name="deployment-architecture"></a>Architettura di distribuzione
 
-#### <a name="description"></a>DESCRIZIONE
+#### <a name="description"></a>Descrizione
 
 Questa soluzione consente di distribuire una rete di consorzio Ethereum multi-membro basata su una singola area o su più aree. Per impostazione predefinita, gli endpoint RPC e peering sono accessibili tramite IP pubblico per abilitare la connettività semplificata tra le sottoscrizioni e i cloud. È consigliabile usare i [contratti di concessione delle autorizzazioni di Parity](https://wiki.parity.io/Permissioning) per i controlli di accesso a livello di applicazione. Sono supportate anche le reti distribuite dietro VPN, che sfruttano i gateway di rete virtuale per la connettività tra sottoscrizioni. Queste distribuzioni sono più complesse, quindi è consigliabile iniziare prima con il modello di IP pubblico.
 
@@ -202,23 +202,23 @@ Quando una sottoscrizione è protetta, accedere al portale di Azure. Selezionare
 
 La sezione seguente consente di configurare in modo guidato il footprint del primo membro nella rete. Il flusso di distribuzione è suddiviso in cinque fasi: informazioni di base, aree di distribuzione, dimensioni e prestazioni della rete, impostazioni di Ethereum, Monitoraggio di Azure.
 
-#### <a name="basics"></a>Nozioni di base
+#### <a name="basics"></a>Generale
 
 In **Informazioni di base** specificare i valori dei parametri standard per qualsiasi distribuzione, ad esempio sottoscrizione, gruppo di risorse e proprietà di base della macchina virtuale.
 
 Segue una descrizione dettagliata di ogni parametro:
 
-Nome parametro|DESCRIZIONE|Valori consentiti|Valori predefiniti
+Nome parametro|Descrizione|Valori consentiti|Valori predefiniti
 ---|---|---|---
-Creare una nuova rete o eseguire l'aggiunta a una esistente?|Creare una nuova rete o eseguire l'aggiunta a una rete di consorzio preesistente|Creazione nuova rete, aggiunta a rete esistente|Creazione di un nuovo sito
-Indirizzo di posta elettronica (facoltativo)|Al termine della distribuzione si riceverà una notifica di posta elettronica con le informazioni sulla distribuzione.|Indirizzo di posta elettronica valido|ND
-Nome utente macchina virtuale|Nome utente dell'amministratore di ogni macchina virtuale distribuita (solo caratteri alfanumerici)|1-64 caratteri|ND
+Creare una nuova rete o eseguire l'aggiunta a una esistente?|Creare una nuova rete o eseguire l'aggiunta a una rete di consorzio preesistente|Creazione nuova rete, aggiunta a rete esistente|Crea nuova
+Indirizzo di posta elettronica (facoltativo)|Al termine della distribuzione si riceverà una notifica di posta elettronica con le informazioni sulla distribuzione.|Indirizzo di posta elettronica valido|NA
+Nome utente macchina virtuale|Nome utente dell'amministratore di ogni macchina virtuale distribuita (solo caratteri alfanumerici)|1-64 caratteri|NA
 Tipo di autenticazione|Metodo per l'autenticazione per la macchina virtuale.|Password o chiave pubblica SSH|Password
-Password (tipo di autenticazione = password)|Password dell'account dell'amministratore per ognuna delle macchine virtuali distribuite.  La password deve contenere 3 dei caratteri seguenti: un carattere maiuscolo, un carattere minuscolo, un numero e un carattere speciale. Inizialmente tutte le macchine virtuali hanno la stessa password, ma è possibile modificarla dopo il provisioning.|12-72 caratteri|ND
-Chiave SSH (tipo di autenticazione = chiave pubblica)|Chiave Secure Shell usata per l'accesso remoto.||ND
-Sottoscrizione|La sottoscrizione sul quale eseguire la distribuzione della rete di consorzio||ND
-Gruppo di risorse|Gruppo di risorse nel quale eseguire la distribuzione della rete di consorzio.||ND
-Località|La regione di Azure per gruppo di risorse.||ND
+Password (tipo di autenticazione = password)|Password dell'account dell'amministratore per ognuna delle macchine virtuali distribuite.  La password deve contenere 3 dei caratteri seguenti: un carattere maiuscolo, un carattere minuscolo, un numero e un carattere speciale. Inizialmente tutte le macchine virtuali hanno la stessa password, ma è possibile modificarla dopo il provisioning.|12-72 caratteri|NA
+Chiave SSH (tipo di autenticazione = chiave pubblica)|Chiave Secure Shell usata per l'accesso remoto.||NA
+Sottoscrizione|La sottoscrizione sul quale eseguire la distribuzione della rete di consorzio||NA
+Gruppo di risorse|Gruppo di risorse nel quale eseguire la distribuzione della rete di consorzio.||NA
+Località|La regione di Azure per gruppo di risorse.||NA
 
 Di seguito è illustrata una distribuzione di esempio: ![Pannello Informazioni di base](./media/ethereum-poa-deployment/basic-blade.png)
 
@@ -228,14 +228,14 @@ In Deployment regions (Aree di distribuzione) specificare gli input per il numer
 
 Segue una descrizione dettagliata di ogni parametro:
 
-  Nome parametro|DESCRIZIONE|Valori consentiti|Valori predefiniti
+  Nome parametro|Descrizione|Valori consentiti|Valori predefiniti
   ---|---|---|---
   Numero di regioni|Numero di aree per la distribuzione della rete di consorzio|1, 2, 3, 4, 5|1
-  Prima regione|Prima regione per la distribuzione della rete di consorzio|Tutte le aree di Azure consentite|ND
-  Seconda regione|Seconda regione per la distribuzione della rete di consorzio (visibile solo quando è selezionato 2 come numero di regioni)|Tutte le aree di Azure consentite|ND
-  Terza regione|Terza regione per la distribuzione della rete di consorzio (visibile solo quando è selezionato 3 come numero di regioni)|Tutte le aree di Azure consentite|ND
-  Quarta regione|Quarta regione per la distribuzione della rete di consorzio (visibile solo quando è selezionato 4 come numero di regioni)|Tutte le aree di Azure consentite|ND
-  Quinta regione|Quinta regione per la distribuzione della rete di consorzio (visibile solo quando è selezionato 5 come numero di regioni)|Tutte le aree di Azure consentite|ND
+  Prima regione|Prima regione per la distribuzione della rete di consorzio|Tutte le aree di Azure consentite|NA
+  Seconda regione|Seconda regione per la distribuzione della rete di consorzio (visibile solo quando è selezionato 2 come numero di regioni)|Tutte le aree di Azure consentite|NA
+  Terza regione|Terza regione per la distribuzione della rete di consorzio (visibile solo quando è selezionato 3 come numero di regioni)|Tutte le aree di Azure consentite|NA
+  Quarta regione|Quarta regione per la distribuzione della rete di consorzio (visibile solo quando è selezionato 4 come numero di regioni)|Tutte le aree di Azure consentite|NA
+  Quinta regione|Quinta regione per la distribuzione della rete di consorzio (visibile solo quando è selezionato 5 come numero di regioni)|Tutte le aree di Azure consentite|NA
 
 Di seguito è illustrata una distribuzione di esempio: ![Aree di distribuzione](./media/ethereum-poa-deployment/deployment-regions.png)
 
@@ -246,7 +246,7 @@ Le dimensioni di archiviazione dei nodi convalida determineranno le dimensioni p
 
 Segue una descrizione dettagliata di ogni parametro:
 
-  Nome parametro|DESCRIZIONE|Valori consentiti|Valori predefiniti
+  Nome parametro|Descrizione|Valori consentiti|Valori predefiniti
   ---|---|---|---
   Number of load balanced validator nodes (Numero di nodi di convalida con carico bilanciato)|Numero di nodi di convalida di cui effettuare il provisioning come parte della rete|2-15|2
   Validator node storage performance (Prestazioni di archiviazione dei nodi di convalida)|Tipo di disco gestito che supporta ogni nodo di convalida distribuito.|SSD Standard o Premium|SSD Standard
@@ -262,7 +262,7 @@ Macchina virtuale e il livello di archiviazione influirà sulle prestazioni di r
   ---|---|---|---|---
   F1|SSD Standard|basso|bassa|elevata
   D2_v3|SSD Standard|medio|medio|media
-  F16s|SSD Premium|elevata|elevata|bassa
+  F16s|Unità SSD Premium|elevata|elevata|bassa
 
 Di seguito è illustrata una distribuzione di esempio: ![Dimensioni e prestazioni di rete](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
@@ -272,16 +272,16 @@ Successivamente, in Ethereum Settings (Impostazioni Ethereum) specificare le imp
 
 Segue una descrizione dettagliata di ogni parametro:
 
-  Nome parametro|DESCRIZIONE|Valori consentiti|Valori predefiniti
+  Nome parametro|Descrizione|Valori consentiti|Valori predefiniti
   ---|---|---|---
-Consortium Member ID (ID membro del consorzio)|L'ID associato a ogni membro che partecipa alla rete di consorzio che consente di configurare spazi di indirizzi IP per evitare conflitti. Nel caso di una rete privata, l'ID membro deve essere univoco per tutte le organizzazioni della stessa rete.  È necessario un ID membro univoco anche quando la stessa organizzazione esegue la distribuzione in più regioni. Prendere nota del valore di questo parametro, poiché sarà necessario per condividerlo con altri membri unita tramite join per assicurarsi che non si verifica alcun conflitto.|0-255|ND
+Consortium Member ID (ID membro del consorzio)|L'ID associato a ogni membro che partecipa alla rete di consorzio che consente di configurare spazi di indirizzi IP per evitare conflitti. Nel caso di una rete privata, l'ID membro deve essere univoco per tutte le organizzazioni della stessa rete.  È necessario un ID membro univoco anche quando la stessa organizzazione esegue la distribuzione in più regioni. Prendere nota del valore di questo parametro, poiché sarà necessario per condividerlo con altri membri unita tramite join per assicurarsi che non si verifica alcun conflitto.|0-255|NA
 ID rete|L'ID di rete per la rete di consorzio Ethereum in fase di realizzazione.  Ogni rete Ethereum ha il proprio ID di rete, di cui 1 è l'ID della rete pubblica.|5 - 999,999,999|10101010
-Admin Ethereum Address (Indirizzo Ethereum amministratore)|Indirizzo dell'account Ethereum che viene usato per la partecipazione alla governance PoA.  È consigliabile usare MetaMask per la generazione di un indirizzo Ethereum.|42 caratteri alfanumerici che iniziano con 0x|ND
-Opzioni avanzate|Opzioni avanzate per le impostazioni di Ethereum|Abilita o Disabilita|Disabilitazione
+Admin Ethereum Address (Indirizzo Ethereum amministratore)|Indirizzo dell'account Ethereum che viene usato per la partecipazione alla governance PoA.  È consigliabile usare MetaMask per la generazione di un indirizzo Ethereum.|42 caratteri alfanumerici che iniziano con 0x|NA
+Opzioni avanzate|Opzioni avanzate per le impostazioni di Ethereum|Abilita o Disabilita|Disattiva
 IP pubblico (Opzioni avanzate = Abilita)|Distribuisce la rete dietro un gateway di rete virtuale e rimuove l'accesso peering. Se questa opzione è selezionata, tutti i membri devono usare un gateway di rete virtuale perché la connessione sia compatibile.|IP pubblico, Private VNet (Rete virtuale privata)|IP pubblico
 Block Gas Limit (Advanced Options = Enable) (Limite gas blocco (Opzioni avanzate = Abilita))|Limite di gas blocco iniziale della rete|Qualsiasi valore numerico|50000000
 Block Reseal Period (sec) (Periodo nuovo sigillo blocco (sec))|Frequenza con cui verranno creati blocchi vuoti in assenza di transazioni in rete. Una frequenza maggiore determina una finalità più rapida, ma costi di archiviazione maggiori.|Qualsiasi valore numerico|15
-Transaction Permission Contract (Contratto autorizzazione transazione) (Opzioni avanzate = Abilita)|Bytecode per il contratto di concessione delle autorizzazioni per le transazioni. Limita contratto intelligente distribuzione ed esecuzione per un elenco consentito di account Ethereum.|Bytecode del contratto|ND
+Transaction Permission Contract (Contratto autorizzazione transazione) (Opzioni avanzate = Abilita)|Bytecode per il contratto di concessione delle autorizzazioni per le transazioni. Limita contratto intelligente distribuzione ed esecuzione per un elenco consentito di account Ethereum.|Bytecode del contratto|NA
 
 Di seguito è illustrata una distribuzione di esempio: ![Impostazioni di Ethereum](./media/ethereum-poa-deployment/ethereum-settings.png)
 
@@ -291,18 +291,18 @@ Il pannello monitoraggio consente di configurare una risorsa di log di monitorag
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-  Nome parametro|DESCRIZIONE|Valori consentiti|Valori predefiniti
+  Nome parametro|Descrizione|Valori consentiti|Valori predefiniti
   ---|---|---|---
-Monitoraggio|Opzione per abilitare Monitoraggio|Abilita o Disabilita|Abilita
-Connettersi al log di monitoraggio di Azure esistenti|Creare una nuova istanza di log di monitoraggio di Azure o partecipare a un'istanza esistente|Crea nuova o Join existing (Aggiungi esistente)|Creare un nuovo gruppo di risorse
-Monitoraggio percorso (connettersi a log di monitoraggio di Azure esistenti = Crea nuovo)|Verrà distribuito l'area in cui il monitoraggio di Azure nuova Registra istanza|Monitoraggio di Azure tutti i log di aree|ND
-ID area di lavoro di analitica log esistenti (connettersi a log di monitoraggio di Azure esistenti = Join esistenti)|ID area di lavoro del monitoraggio di Azure esistente Registra istanza||ND
-Chiave primaria esistente log analitica (connettersi a log di monitoraggio di Azure esistenti = Join esistenti)|La chiave primaria usata per connettersi all'istanza di log di monitoraggio di Azure esistente||ND
+Monitoraggio|Opzione per abilitare Monitoraggio|Abilita o Disabilita|Attiva
+Connettersi al log di monitoraggio di Azure esistenti|Creare una nuova istanza di log di monitoraggio di Azure o partecipare a un'istanza esistente|Crea nuova o Join existing (Aggiungi esistente)|Crea nuova
+Monitoraggio percorso (connettersi a log di monitoraggio di Azure esistenti = Crea nuovo)|Verrà distribuito l'area in cui il monitoraggio di Azure nuova Registra istanza|Monitoraggio di Azure tutti i log di aree|NA
+ID area di lavoro di analitica log esistenti (connettersi a log di monitoraggio di Azure esistenti = Join esistenti)|ID area di lavoro del monitoraggio di Azure esistente Registra istanza||NA
+Chiave primaria esistente log analitica (connettersi a log di monitoraggio di Azure esistenti = Join esistenti)|La chiave primaria usata per connettersi all'istanza di log di monitoraggio di Azure esistente||NA
 
 
 Di seguito è illustrata una distribuzione di esempio: ![Monitoraggio di Azure](./media/ethereum-poa-deployment/azure-monitor.png)
 
-#### <a name="summary"></a>Summary
+#### <a name="summary"></a>Riepilogo
 
 Fare clic su tramite il pannello di riepilogo per analizzare l'input specificato e per eseguire la convalida pre-distribuzione di base. Prima della distribuzione è possibile scaricare il modello e i parametri.
 
@@ -413,7 +413,7 @@ $MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName
 New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
-### <a name="service-monitoring"></a>Monitoraggio del servizio
+### <a name="service-monitoring"></a>Monitoraggio dei servizi
 
 È possibile individuare il portale di Monitoraggio di Azure seguendo il collegamento nel messaggio di posta elettronica di conferma o individuando il parametro nell'output di distribuzione \[OMS\_PORTAL\_URL\].
 

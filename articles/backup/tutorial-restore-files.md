@@ -11,11 +11,11 @@ ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 905fce2be5de2fff371272efa79bdec5b3bef112
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497699"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127615"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Ripristinare file in una macchina virtuale in Azure
 Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di credenziali di ripristino con ridondanza geografica. Quando si esegue il ripristino da un punto di recupero, è possibile ripristinare l'intera macchina virtuale o file singoli. In questo articolo viene illustrato come ripristinare singoli file. In questa esercitazione si apprenderà come:
