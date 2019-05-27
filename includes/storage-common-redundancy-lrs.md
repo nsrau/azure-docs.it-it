@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 32032f729283cb3f2a786412b563fdee88ba4c8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 124f5c01b7718f729094de1c02391946ff50cef4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729629"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113783"
 ---
 L'archiviazione con ridondanza locale garantisce almeno il 99,999999999% (11 nove) di durabilità degli oggetti nell'arco di un anno specifico. L'archiviazione con ridondanza locale assicura questa durabilità degli oggetti tramite la replica dei dati in un'unità di scala di archiviazione. L'unità di scala di archiviazione è ospitata in un data center nell'area in cui è stato creato l'account di archiviazione. Una richiesta di scrittura in un account di archiviazione con ridondanza locale viene restituita correttamente solo dopo che i dati sono stati scritti in tutte le repliche. Ogni replica risiede in domini di errore e domini di aggiornamento distinti all'interno di un'unità di scala di archiviazione.
 
@@ -22,4 +22,4 @@ Un'unità di scala di archiviazione è una raccolta di rack di nodi di archiviaz
 L'archiviazione con ridondanza locale è l'opzione di replica più economica e offre una durabilità inferiore rispetto alle altre opzioni. Se si verifica un'emergenza a livello di data center (ad esempio un incendio o un allagamento), tutte le repliche possono andare perse o non essere più recuperabili. Per attenuare questo rischio, è consigliabile usare l'archiviazione con ridondanza della zona (ZRS, Zone-Redundant Storage) o l'archiviazione con ridondanza geografica (GRS, Geo-Redundant Storage).
 
 * Se l'applicazione archivia dati che possono essere ricostruiti facilmente in caso di perdita, è possibile scegliere l'archiviazione con ridondanza locale.
-* Per alcune applicazioni è necessario replicare i dati solo all'interno di un paese a causa di requisiti di governance dei dati. In alcuni casi, le aree abbinate tra le quali i dati vengono replicati per gli account di archiviazione con ridondanza geografica possono trovarsi in un altro paese. Per altre informazioni sulle aree abbinate, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
+* Alcune applicazioni è necessario replicare i dati solo all'interno di un paese/area geografica a causa di requisiti di governance dei dati. In alcuni casi, le aree abbinate, tra cui i dati vengono replicati per gli account di archiviazione con ridondanza geografica potrebbero essere in un altro paese/area geografica. Per altre informazioni sulle aree abbinate, vedere [Aree di Azure](https://azure.microsoft.com/regions/).

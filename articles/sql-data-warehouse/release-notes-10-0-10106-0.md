@@ -4,18 +4,18 @@ description: Note sulla versione di Azure SQL Data Warehouse.
 services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 05/13/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 519cec0951305db60e0994134f8c680f6c560752
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 215f7c9c65658ddbb10498bb59f3d326bf3a10f1
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792425"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988279"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Note sulla versione di Azure SQL Data Warehouse
 
@@ -23,15 +23,11 @@ Questo articolo presenta una sintesi delle nuove funzionalità e dei miglioramen
 
 ## <a name="check-your-azure-sql-data-warehouse-version"></a>Controllare la versione di Azure SQL Data Warehouse
 
-Connettersi al data warehouse tramite SQL Server Management Studio (SSMS) ed eseguire la sintassi seguente per restituire la versione corrente di SQL Data Warehouse.
-
-```sql
-SELECT @@VERSION AS 'SQL Data Warehouse';
-```
+Come per tutte le aree vengono implementate nuove funzionalità, controllare la versione distribuita per l'istanza e le note sulla versione di Azure SQL Data Warehouse più recenti per la disponibilità delle funzionalità. Per controllare la versione di Azure SQL DW, connettersi al data warehouse tramite SQL Server Management Studio (SSMS) ed eseguire `SELECT @@VERSION AS 'SQL Data Warehouse';` per restituire la versione corrente di Azure SQL Data Warehouse.
 
 Output di esempio: ![Versione di SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
 
-Utilizzare il functoid date identificato per verificare quale versione è stato applicato da Azure SQL Data Warehouse.
+Utilizzare il functoid date identificato per verificare quale versione è stato applicato ad Azure SQL DW.
 
 ## <a name="may-2019"></a>Maggio 2019
 
@@ -39,7 +35,7 @@ Utilizzare il functoid date identificato per verificare quale versione è stato 
 | --- | --- |
 |**(Anteprima) di maschera dati dinamica**|Dynamic Data Masking (DDM) impedisce l'accesso non autorizzato ai dati sensibili nel data warehouse al volo nei risultati della query, in base alle regole di maschera che è definire nascondendoli alla vista. Per altre informazioni, vedere [maschera dati dinamica del Database SQL](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
 |**Importanza del carico di lavoro disponibile a livello generale**|La classificazione di gestione del carico di lavoro e l'importanza offrono la possibilità di influenzare l'ordine di esecuzione delle query. Per altre informazioni sull'importanza del carico di lavoro, vedere la [classificazione](sql-data-warehouse-workload-classification.md) e [importanza](sql-data-warehouse-workload-importance.md) articoli di panoramica nella documentazione. Consultare il [CLASSIFICATORE del carico di lavoro creare](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) doc anche.<br/><br/>Vedere l'importanza del carico di lavoro in azione nel video di seguito:<br/> -[Concetti relativi alla gestione del carico di lavoro](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[Scenari di gestione del carico di lavoro](https://www.youtube.com/embed/_2rLMljOjw8)|
-|**Supporto aggiuntivo di T-SQL**|L'area della superficie del linguaggio T-SQL per SQL Data Warehouse è stato esteso per includere il supporto per: </br> - [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
+|**Supporto aggiuntivo di T-SQL**|L'area della superficie del linguaggio T-SQL per SQL Data Warehouse è stato esteso per includere il supporto per: </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**Funzioni JSON**|I business analyst familiare linguaggio T-SQL ora è possibile usare per eseguire query e modificare documenti formattati come dati JSON tramite le seguenti nuove funzioni JSON in Azure Data Warehouse:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
 |**La memorizzazione nella cache (anteprima) del set di risultati**|La memorizzazione nella cache di set di risultati consente tempi di risposta query immediata allo stesso tempo ridurre tempo per l'analisi per business analyst reporting degli utenti. Per altre informazioni, vedere:</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [Opzioni ALTER DATABASE SET (istruzione Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [SET RESULT SET CACHING (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET Statement (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
 

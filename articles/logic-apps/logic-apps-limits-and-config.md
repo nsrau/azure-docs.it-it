@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a320f584ff82f2b8a2b3d784e1995aa043004587
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 53f9f67397e1484559ee8243a52ad8339df930bc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597483"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990210"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -166,7 +166,7 @@ Limiti per i connettori personalizzati che è possibile creare da API Web.
 
 | NOME | Limite |
 | ---- | ----- |
-| Numero di app per la logica con identità gestite assegnate dal sistema per ogni sottoscrizione di Azure | 10 |
+| Numero di app per la logica con identità gestite assegnate dal sistema per ogni sottoscrizione di Azure | 100 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -241,7 +241,7 @@ Tutte le app per la logica nella stessa area usano gli stessi intervalli di indi
 
 Per supportare le chiamate effettuate dai [connettori gestiti da Microsoft](../connectors/apis-list.md), impostare le configurazioni del firewall in modo che includano *tutti* gli indirizzi IP [in uscita](#outbound) usati da questi connettori, in base alle aree in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto l'intestazione **In uscita** in questa sezione e vengono ordinati in base all'area.
 
-Per [Azure per enti pubblici](../azure-government/documentation-government-overview.md) e [Azure Cina 21Vianet](/azure/china/china-welcome), gli indirizzi IP riservati per i connettori non sono attualmente disponibili.
+Per [Azure per enti pubblici](../azure-government/documentation-government-overview.md) e [Azure Cina 21Vianet](https://docs.microsoft.com/azure/china/), gli indirizzi IP riservati per i connettori non sono attualmente disponibili.
 
 > [!IMPORTANT]
 >

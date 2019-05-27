@@ -4,15 +4,15 @@ description: Compromessi nella disponibilità e nelle prestazioni per vari livel
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09777a9980e4576a5d00123516e33696e845dcac
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894029"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990231"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromessi tra coerenza, disponibilità e prestazioni 
 
@@ -55,9 +55,9 @@ Nella tabella seguente definisce la relazione tra coerenza del modello e durabil
 |1|Master singolo o multimaster|Qualsiasi livello di coerenza|< 240 minuti|<1 settimana|
 |>1|Master singolo|Sessione, Prefisso coerente, Finale|< 15 minuti|< 15 minuti|
 |>1|Master singolo|Decadimento ristretto|*K* & *T*|< 15 minuti|
+|>1|Master singolo|Alta|0|< 15 minuti|
 |>1|Multimaster|Sessione, Prefisso coerente, Finale|< 15 minuti|0|
 |>1|Multimaster|Decadimento ristretto|*K* & *T*|0|
-|>1|Master singolo o multimaster|Assoluta|0|< 15 minuti|
 
 *K* = numero di *"K"* versioni, ad esempio, gli aggiornamenti, di un elemento.
 

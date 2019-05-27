@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: bb47a1b828084673961a6d2c5657793b4437f294
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b7386cbbe18d7e05c2fbffb96f6214b468956192
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160576"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151695"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Usare IoT Edge in Windows per eseguire contenitori Linux
 
@@ -55,7 +55,7 @@ Uno script di PowerShell scarica e installa il daemon di sicurezza di Azure IoT 
 
 Quando si installa il runtime di IoT Edge per la prima volta in un dispositivo, è necessario effettuare il provisioning del dispositivo con un'identità da un hub IoT. Un singolo dispositivo IoT Edge può eseguirne manualmente usando una stringa di connessione dispositivo fornita dall'hub IoT. In alternativa, è possibile usare il servizio Device Provisioning per effettuare automaticamente il provisioning dei dispositivi. Ciò è utile quando si dispone di molti dispositivi da configurare. 
 
-Altre informazioni sulle opzioni di installazione e i parametri nell'articolo [installare il runtime di Azure IoT Edge su Windows](how-to-install-iot-edge-windows.md). Dopo aver creato Desktop Docker installato e configurato per i contenitori Linux, la differenza principale sta dichiarando Linux con il **- ContainerOs** parametro. Ad esempio:  
+Altre informazioni sulle opzioni di installazione e i parametri nell'articolo [installare il runtime di Azure IoT Edge su Windows](how-to-install-iot-edge-windows.md). Dopo aver creato Desktop Docker installato e configurato per i contenitori Linux, la differenza principale sta dichiarando Linux con il **- ContainerOs** parametro. Ad esempio: 
 
 1. Se già stato fatto, registrare un nuovo dispositivo IoT Edge e recuperare la stringa di connessione. Copiare la stringa di connessione da usare in seguito in questa sezione. È possibile completare questo passaggio con gli strumenti seguenti:
 
@@ -64,6 +64,13 @@ Altre informazioni sulle opzioni di installazione e i parametri nell'articolo [i
    * [Visual Studio Code](how-to-register-device-vscode.md)
 
 2. Eseguire PowerShell come amministratore.
+
+   >[!NOTE]
+   >Usare una sessione AMD64 di PowerShell per installare IoT Edge, non PowerShell (x86). Se non si conosce il tipo di sessione in uso, eseguire il comando seguente:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. Il **Distribuisci IoTEdge** comando verifica che nel computer Windows si trova in una versione supportata, viene attivata la funzionalità del contenitore e quindi scarica il runtime moby (che non viene usato per i contenitori Linux) e il runtime di IoT Edge. Le impostazioni predefinite di comandi ai contenitori Windows, quindi dichiarare Linux come sistema operativo contenitore desiderato. 
 
@@ -74,7 +81,7 @@ Altre informazioni sulle opzioni di installazione e i parametri nell'articolo [i
 
 4. A questo punto, i dispositivi IoT Core potrebbe essere riavviato automaticamente. Altri dispositivi Windows 10 o Windows Server possono essere necessario riavviare. In questo caso, riavviare il dispositivo. Quando il dispositivo è pronto, eseguire PowerShell come amministratore di nuovo.
 
-5. Il **Initialize-IoTEdge** comando Configura il runtime di IoT Edge nel computer. Il comando viene impostato su provisioning manuale con una stringa di connessione del dispositivo. Dichiarare nuovamente Linux come sistema operativo contenitore desiderato. 
+5. Il comando **Initialize-IoTEdge** configura il runtime IoT Edge nel computer. Il comando viene impostato su provisioning manuale con una stringa di connessione del dispositivo. Dichiarare nuovamente Linux come sistema operativo contenitore desiderato. 
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `

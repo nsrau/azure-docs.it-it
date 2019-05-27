@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766863"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988567"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurare la gestione della sessione di autenticazione con l'accesso condizionale
 
@@ -50,7 +50,7 @@ L'impostazione predefinita Azure AD per la persistenza della sessione del browse
 
 ## <a name="configuring-authentication-session-controls"></a>Configurazione dei controlli di sessione di autenticazione
 
-Accesso condizionale è una funzionalità di Azure AD Premium e richiede una licenza premium. Per altre informazioni sull'argomento, vedere [Cos'è l'accesso condizionale in Azure Active Directory](overview.md#license-requirements-for-using-conditional-access).
+Accesso condizionale è una funzionalità di Azure AD Premium e richiede una licenza premium. Per altre informazioni sull'argomento, vedere [Cos'è l'accesso condizionale in Azure Active Directory](overview.md#license-requirements).
 
 > [!WARNING]
 > Se si usa la [durata dei token configurabili](../develop/active-directory-configurable-token-lifetimes.md) funzionalità attualmente in anteprima pubblica, si noti che non è supportata la creazione di due criteri diversi per la stessa combinazione di utente o un'app: uno con questa funzionalità e un'altra con funzionalità di durata dei token configurabili. Microsoft prevede di ritirare la funzionalità di durata dei token configurabili in 15 ottobre e sostituirla con la funzionalità di gestione sessione di autenticazione di accesso condizionale.  
@@ -66,7 +66,7 @@ Accesso condizionale è una funzionalità di Azure AD Premium e richiede una lic
 1. Passare a **controlli di accesso** > **sessione** e fare clic su **frequenza di accesso**
 1. Immettere il valore obbligatorio di giorni e ore nella prima casella di testo
 1. Selezionare il valore **ore** oppure **giorni** dall'elenco a discesa
-1. Si salva criterio
+1. Salvare il criterio
 
 ![Criteri di accesso condizionale configurati per l'accesso in frequenza](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 

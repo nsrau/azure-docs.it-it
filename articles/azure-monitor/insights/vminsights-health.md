@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 9fa76c9637a6dcdca48bf45e8ee2aa9305a4f64f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522197"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130444"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Comprendere l'integrità delle macchine virtuali di Azure
 
@@ -85,7 +85,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 Prima di approfondire l'uso della funzionalità dell'integrità per una singola macchina virtuale o per un gruppo di macchine virtuali, è importante fornire una breve introduzione su come vengono presentate le informazioni e su ciò che rappresentano le visualizzazioni.  
 
-## <a name="view-health-directly-from-a-virtual-machine"></a>Visualizzare l'integrità direttamente da una macchina virtuale 
+### <a name="view-health-directly-from-a-virtual-machine"></a>Visualizzare l'integrità direttamente da una macchina virtuale 
 
 Per visualizzare l'integrità di una macchina virtuale di Azure, selezionare **Informazioni dettagliate (anteprima)** nel riquadro a sinistra della macchina virtuale. Nella pagina Informazioni dettagliate macchina virtuale, la scheda **Integrità** è aperta per impostazione predefinita e mostra la visualizzazione dell'integrità della macchina virtuale.  
 
@@ -96,11 +96,21 @@ Nella sezione **Integrità della macchina virtuale guest** della scheda **Integr
 La tabella seguente descrive gli stati di integrità definiti per una macchina virtuale: 
 
 |Icona |Stato del sistema |Significato |
-|-----|-------------|------------|
+|-----|-------------|---------------|
 | |Integra |Lo stato è Integro se è conforme alle condizioni di integrità definite, e questo indica che per la macchina virtuale non sono stati rilevati problemi e la macchina funziona in modo corretto. Con un monitoraggio rollup padre, esegue il rollup dell'integrità che riflette lo stato peggiore o migliore dell'elemento figlio.|
 | |Critico |Lo stato di integrità è critico se non è conforme alla condizione di integrità definita, la quale indica che sono stati rilevati uno o più problemi critici, che devono essere risolti per poter ripristinare il normale funzionamento. Con un monitoraggio rollup padre, esegue il rollup dell'integrità che riflette lo stato peggiore o migliore dell'elemento figlio.|
 | |Avviso |Lo stato di integrità è definito come Avviso se è compreso tra due valori soglia della condizione di integrità definita, dove uno indica uno stato *Avviso* e l'altro indica uno stato *Critico* (è possibile configurare tre soglie per lo stato di integrità), oppure quando viene rilevato un problema non critico che può causare problemi critici se non risolto. Con un rollup padre monitor, se uno o più elementi figlio è in uno stato di avviso, quindi padre rifletterà *avviso* dello stato. Se è presente un elemento figlio in stato *Critico* e un altro in stato *Avviso*, il rollup padre mostra uno stato di integrità *Critico*.|
-| |Sconosciuti |Lo stato di integrità è *Sconosciuto* quando non può essere calcolato per vari motivi, ad esempio non è possibile raccogliere i dati, il servizio non è inizializzato e così via. Questo stato di integrità non è configurabile.| 
+| |Sconosciuti |Stato di integrità *sconosciuto* quando non può essere calcolata per diversi motivi. Vedere la nota seguente <sup>1</sup> per altri dettagli e le possibili soluzioni per risolverli. |
+
+<sup>1</sup> sconosciuto di stato di integrità è causato da problemi seguenti:
+
+- L'agente è stato riconfigurato e non è più report all'area di lavoro specificato quando è stato abilitato il monitoraggio di Azure per le macchine virtuali. Per configurare l'agente invii report per l'area di lavoro, vedere [aggiungendo o rimuovendo un'area di lavoro](../platform/agent-manage.md#adding-or-removing-a-workspace).
+- Macchina virtuale è stata eliminata.
+- Area di lavoro associato a monitoraggio di Azure per le macchine virtuali viene eliminato. Per ripristinare l'area di lavoro, se hai è possibile aprire una richiesta di supporto con i benefici di supporto tecnico Premier [Premier](https://premier.microsoft.com/).
+- Dipendenze delle soluzioni sono stati eliminati. Per riabilitare le soluzioni ServiceMap e InfrastructureInsights nell'area di lavoro di Log Analitica, è possibile reinstallare usando un [modello di Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions) che ha fornito o utilizzando l'opzione di configurazione dell'area di lavoro disponibili nel Get Started scheda.
+- Macchina virtuale è stato arrestato.
+- Macchina virtuale di Azure è disponibile o è in corso la manutenzione.
+- Area di lavoro [giornaliera dei dati o il limite di conservazione](../platform/manage-cost-storage.md) viene soddisfatta.
 
 Selezionando **Visualizza diagnostica integrità** si apre una pagina che mostra tutti i componenti della macchina virtuale, i criteri di integrità associati, le modifiche dello stato e altri problemi importanti rilevati dal monitoraggio dei componenti correlati alla macchina virtuale. Per altre informazioni, vedere [Diagnostica integrità](#health-diagnostics). 
 
@@ -108,7 +118,7 @@ Nella sezione **Integrità componenti** la tabella mostra uno stato di rollup de
 
 Quando si accede integrità da una VM di Azure che eseguono il sistema operativo Windows, lo stato di integrità dei primi cinque funzionalità di base Windows vengono visualizzati nella sezione **integrità dei servizi di base**.  Selezionando uno dei servizi si apre una pagina in cui sono elencati i criteri di integrità che monitorano il componente e il relativo stato di integrità.  Fare clic sul nome dei criteri di integrità per aprire il riquadro delle proprietà da cui è possibile esaminare i dettagli di configurazione, incluso il fatto che sia stato definito un avviso di Monitoraggio di Azure per i criteri di integrità. Per altre informazioni, vedere [Diagnostica dell'integrità e uso dei criteri di integrità](#health-diagnostics).  
 
-## <a name="aggregate-virtual-machine-perspective"></a>Prospettiva delle macchine virtuali aggregate
+### <a name="aggregate-virtual-machine-perspective"></a>Prospettiva delle macchine virtuali aggregate
 
 Per visualizzare la raccolta di integrità per tutte le macchine virtuali in un gruppo di risorse, dall'elenco spostamenti del portale selezionare **Monitoraggio di Azure**, quindi **Macchine virtuali (anteprima)**.  
 
@@ -154,7 +164,7 @@ Selezionando **Visualizza tutti i criteri di integrità** si apre una pagina con
 
 ## <a name="health-diagnostics"></a>Diagnostica integrità
 
-La pagina **Diagnostica integrità** consente di visualizzare il modello di integrità della macchina virtuale, di elencare tutti i componenti della macchina virtuale, i criteri di integrità associati, le modifiche stato e altri problemi significativi rilevati da componenti monitorati correlati alla macchina virtuale.
+Il **diagnostica dell'integrità** consente di pagina è possibile visualizzare il modello di integrità di una macchina virtuale, elencare tutti i componenti della macchina virtuale, associato ai criteri di integrità, le modifiche di stato, e altri importanti problemi identificati da monitorare componenti correlati per la macchina virtuale.
 
 ![Esempio di pagina Diagnostica integrità per una macchina virtuale](./media/vminsights-health/health-diagnostics-page-01.png)
 
@@ -343,7 +353,7 @@ Per abilitare o disabilitare un avviso per un criterio di integrità specifico, 
 Monitoraggio di integrità delle VM di Azure supporta le notifiche di posta elettronica e SMS quando vengono generati avvisi quando i criteri di integrità diventa non integro. Per configurare le notifiche, è necessario annotare il nome del gruppo di azioni che è configurato per l'invio di notifiche di posta elettronica o SMS. 
 
 >[!NOTE]
->Questa azione deve essere eseguita su ogni macchina virtuale monitorati che si desidera ricevere una notifica per.
+>Questa azione deve essere eseguita su ogni macchina virtuale monitorati che si desidera ricevere una notifica, non è applicabile a tutte le macchine virtuali nel gruppo di risorse.  
 
 1. In una finestra del terminale digitare **armclient.exe login**. In questo modo viene richiesto di accedere ad Azure.
 

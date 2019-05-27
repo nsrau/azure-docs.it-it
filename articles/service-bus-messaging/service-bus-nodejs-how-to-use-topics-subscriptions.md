@@ -14,18 +14,23 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591816"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992102"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Come argomenti del Bus di servizio di utilizzo e le sottoscrizioni con Node. js e il pacchetto azure-sb
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node. js | Service bus di azure)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+In questa esercitazione descrive come creare applicazioni Node. js per inviare messaggi a un argomento del Bus di servizio e ricevere messaggi da una sottoscrizione del Bus di servizio usando il [azure-sb](https://www.npmjs.com/package/azure-sb) pacchetto. Gli esempi sono scritti in JavaScript e usare Node. js [modulo di Azure](https://www.npmjs.com/package/azure) che usa internamente il `azure-sb` pacchetto.
 
-Questa guida descrive come usare gli argomenti e le sottoscrizioni del bus di servizio da applicazioni Node.js. Gli scenari trattati includono:
+Il [azure-sb](https://www.npmjs.com/package/azure-sb) pacchetto Usa [le API di runtime REST del Bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). È possibile ottenere un'esperienza più veloce usando le nuove [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) pacchetto che usa più veloci [protocollo AMQP 1.0](service-bus-amqp-overview.md). Per altre informazioni relative al nuovo pacchetto, vedere [come usare le sottoscrizioni e gli argomenti del Bus di servizio con Node. js e @azure/service-bus pacchetto](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), in caso contrario, continuare a leggere per informazioni su come usare i [azure](https://www.npmjs.com/package/azure) pacchetto.
+
+Gli scenari trattati includono:
 
 - Creazione di argomenti e sottoscrizioni 
 - Creazione di filtri di sottoscrizione 
@@ -36,8 +41,8 @@ Questa guida descrive come usare gli argomenti e le sottoscrizioni del bus di se
 Per altre informazioni su argomenti e sottoscrizioni, vedere la sezione [Passaggi successivi](#next-steps).
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [i benefici della sottoscrizione MSDN o Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Seguire i passaggi nel [Guida introduttiva: Usare il portale di Azure per creare un argomento del Bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per creare un Bus di servizio **dello spazio dei nomi** e ottenere il **stringa di connessione**.
+- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [i benefici della sottoscrizione MSDN o Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure iscriversi per una [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Seguire i passaggi nel [Guida introduttiva: Usare il portale di Azure per creare un argomento del Bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per creare un Bus di servizio **dello spazio dei nomi** e ottenere il **stringa di connessione**.
 
     > [!NOTE]
     > Si creerà una **argomento** e una **sottoscrizione** all'argomento usando **Node. js** in questa Guida introduttiva. 
@@ -82,7 +87,7 @@ Per un esempio di impostazione delle variabili di ambiente per un servizio cloud
 
 
 
-## <a name="create-a-topic"></a>Creare un argomento
+## <a name="create-a-topic"></a>Crea un argomento
 L'oggetto **ServiceBusService** consente di usare gli argomenti. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per l'importazione del modulo azure:
 
 ```javascript
@@ -330,7 +335,10 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 });
 ```
 
-## <a name="next-steps"></a>Fasi successive
+> [!NOTE]
+> È possibile gestire le risorse del Bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del Bus di servizio e amministrarne le entità di messaggistica in modo semplificato. Lo strumento offre funzionalità avanzate come la funzionalità di importazione/esportazione o la possibilità di testare l'argomento, code, sottoscrizioni, servizi di inoltro, hub di notifica e gli hub eventi. 
+
+## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, usare i seguenti collegamenti per altre informazioni.
 
 * Vedere [Code, argomenti e sottoscrizioni del bus di servizio][Queues, topics, and subscriptions].

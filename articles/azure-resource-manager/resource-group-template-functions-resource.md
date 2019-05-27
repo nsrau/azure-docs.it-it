@@ -1,30 +1,24 @@
 ---
 title: Funzioni del modello di Azure Resource Manager | Documentazione Microsoft
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per recuperare i valori relativi alle risorse.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/09/2019
+ms.date: 05/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4d5e6d20cb93c339d75c12ca1c0f56eaa5cc8cdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dcad4b988f37d46a0b843fbf905e18011bc4e313
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783008"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990767"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risorse:
 
 * [list*](#list)
-* [provider](#providers)
+* [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
@@ -43,17 +37,17 @@ La sintassi per questa funzione varia in base al nome delle operazioni list. Ogn
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sì |string |Identificatore univoco della risorsa. |
 | apiVersion |Sì |string |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
-| functionValues |No  |object | Oggetto che contiene valori per la funzione. Specificare solo questo oggetto per le funzioni che supportano la ricezione di un oggetto con valori di parametro, ad esempio **listAccountSas** per un account di archiviazione. Questo articolo illustra un esempio di passaggio dei valori di funzione. | 
+| functionValues |N. |oggetto | Oggetto che contiene valori per la funzione. Specificare solo questo oggetto per le funzioni che supportano la ricezione di un oggetto con valori di parametro, ad esempio **listAccountSas** per un account di archiviazione. Questo articolo illustra un esempio di passaggio dei valori di funzione. | 
 
 ### <a name="implementations"></a>Implementazioni
 
 Gli utilizzi possibili della funzione list* sono visualizzati nella tabella seguente.
 
-| Tipo di risorsa | Nome della funzione |
+| Tipo di risorsa | Nome funzione |
 | ------------- | ------------- |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -171,11 +165,11 @@ L'oggetto restituito varia a seconda della funzione list usata. La funzione list
 
 Altre funzioni list possono avere formati di restituzione diversi. Per visualizzare il formato di una funzione, includerlo nella sezione outputs, come mostrato nel modello di esempio.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 Specificare la risorsa usando il nome della risorsa stessa o la [funzione resourceId](#resourceid). Quando si usa una funzione list nello stesso modello che distribuisce la risorsa di riferimento, usare il nome della risorsa.
 
-Se si usa un' **elenco** funzione in una risorsa che viene distribuita in modo condizionale, la funzione viene valutata anche se la risorsa non è stata distribuita. Si verifica un errore se il **elenco** funzione fa riferimento a una risorsa che non esiste. Usare la **se** funzione per assicurarsi che la funzione viene valutata solo quando la risorsa esiste. Vedere le [se funzione](resource-group-template-functions-logical.md#if) per un modello di esempio che usa se e un elenco con una risorsa distribuita in modo condizionale.
+Se si usa un' **elenco** funzione in una risorsa che viene distribuita in modo condizionale, la funzione viene valutata anche se la risorsa non è stata distribuita. Si verifica un errore se il **elenco** funzione fa riferimento a una risorsa che non esiste. Usare la **se** funzione per assicurarsi che la funzione viene valutata solo quando la risorsa viene distribuita. Vedere le [se funzione](resource-group-template-functions-logical.md#if) per un modello di esempio che usa se e un elenco con una risorsa distribuita in modo condizionale.
 
 ### <a name="example"></a>Esempio
 
@@ -254,10 +248,10 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Sì |string |Spazio dei nomi del provider |
-| resourceType |No  |string |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
+| resourceType |N. |string |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -329,25 +323,25 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sì |string |Nome o identificatore univoco di una risorsa. |
-| apiVersion |No  |string |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. |
-| 'Full' |No  |string |Valore che specifica se restituire l'oggetto risorsa completo. Se non si specifica `'Full'`, viene restituito solo l'oggetto proprietà della risorsa. L'oggetto completo include valori quali l'ID e la posizione della risorsa. |
+| apiVersion |N. |string |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. |
+| 'Full' |N. |string |Valore che specifica se restituire l'oggetto risorsa completo. Se non si specifica `'Full'`, viene restituito solo l'oggetto proprietà della risorsa. L'oggetto completo include valori quali l'ID e la posizione della risorsa. |
 
 ### <a name="return-value"></a>Valore restituito
 
 Ogni tipo di risorsa restituisce proprietà diverse per la funzione di riferimento. La funzione non restituisce un singolo formato predefinito. Il valore restituito, poi, è diverso a seconda del fatto che sia stato richiesto l'oggetto completo o meno. Per visualizzare le proprietà per un tipo di risorsa, restituire l'oggetto nella sezione output, come illustrato nell'esempio.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 La funzione reference recupera lo stato di runtime di una risorsa distribuita in precedenza o di una risorsa distribuita nel modello corrente. Questo articolo contiene esempi relativi a entrambi gli scenari. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza, fornire l'ID della risorsa e una versione dell'API per tale risorsa. È possibile individuare le versioni delle API valide per la risorsa nella [documentazione di riferimento per il modello](/azure/templates/).
 
-La funzione reference può essere usata solo nelle proprietà di una definizione di risorsa e nella sezione outputs di un modello o una distribuzione.
+La funzione reference può essere usata solo nelle proprietà di una definizione di risorsa e nella sezione outputs di un modello o una distribuzione. Quando abbinata [iterazione di una proprietà](resource-group-create-multiple.md#property-iteration), è possibile usare la funzione di riferimento per `input` perché è assegnata l'espressione per la proprietà della risorsa. Non è possibile usare con `count` perché il conteggio deve essere determinato prima che la funzione di riferimento viene risolta.
 
 Usando la funzione di riferimento, si dichiara implicitamente che una risorsa dipende da un'altra se il provisioning della risorsa cui si fa riferimento viene effettuato nello stesso modello e si fa riferimento alla risorsa tramite il nome, non tramite l'ID risorsa. Non è necessario usare anche la proprietà dependsOn. La funzione non viene valutata fino a quando la risorsa cui si fa riferimento ha completato la distribuzione.
 
-Se si usa la **riferimento** funzione in una risorsa che viene distribuita in modo condizionale, la funzione viene valutata anche se la risorsa non è stata distribuita.  Si verifica un errore se il **riferimento** funzione fa riferimento a una risorsa che non esiste. Usare la **se** funzione per assicurarsi che la funzione viene valutata solo quando la risorsa esiste. Vedere le [se funzione](resource-group-template-functions-logical.md#if) per un modello di esempio che usa se e riferimento a una risorsa distribuita in modo condizionale.
+Se si usa la **riferimento** funzione in una risorsa che viene distribuita in modo condizionale, la funzione viene valutata anche se la risorsa non è stata distribuita.  Si verifica un errore se il **riferimento** funzione fa riferimento a una risorsa che non esiste. Usare la **se** funzione per assicurarsi che la funzione viene valutata solo quando la risorsa viene distribuita. Vedere le [se funzione](resource-group-template-functions-logical.md#if) per un modello di esempio che usa se e riferimento a una risorsa distribuita in modo condizionale.
 
 Per visualizzare i nomi e i valori delle proprietà per un tipo di risorsa, creare un modello che restituisca l'oggetto nella sezione outputs. Se si dispone di una risorsa esistente di quel tipo, il modello restituisce l'oggetto senza distribuire nuove risorse. 
 
@@ -535,7 +529,7 @@ L'oggetto restituito è nel formato seguente:
 }
 ```
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 La funzione `resourceGroup()` non può essere usata in un modello che viene [distribuito a livello di sottoscrizione](deploy-to-subscription.md). Può essere usata solo nei modelli distribuiti in un gruppo di risorse.
 
@@ -592,13 +586,13 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |No  |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
-| resourceGroupName |No  |string |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. |
+| subscriptionId |N. |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
+| resourceGroupName |N. |string |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. |
 | resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
 | resourceName1 |Sì |string |Nome della risorsa. |
-| resourceName2 |No  |string |Segmento successivo del nome della risorsa se la risorsa è annidata. |
+| resourceName2 |N. |string |Segmento successivo del nome della risorsa se la risorsa è annidata. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -608,7 +602,7 @@ L'identificatore viene restituito nel formato seguente:
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 Se usata con una [distribuzione a livello di sottoscrizione](deploy-to-subscription.md), la funzione `resourceId()` può recuperare solo l'ID delle risorse distribuite a tale livello. Ad esempio, è possibile ottenere l'ID di una definizione di criteri o di una definizione di ruolo, ma non l'ID di un account di archiviazione. Per le distribuzioni a un gruppo di risorse, si verifica il contrario. Non è possibile ottenere l'ID delle risorse distribuite a livello di sottoscrizione.
 
@@ -720,10 +714,10 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | NOME | Type | Value |
 | ---- | ---- | ----- |
-| sameRGOutput | string | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | string | /subscriptions/{id-sott-corrente}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | string | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | string | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | String | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | String | /subscriptions/{id-sott-corrente}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | String | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>sottoscrizione
 

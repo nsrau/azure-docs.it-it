@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003012"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991389"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -60,14 +60,14 @@ Gestione dei costi supporta i seguenti ruoli predefiniti per ognuno degli ambiti
 - [**Proprietario** ](../role-based-access-control/built-in-roles.md#owner) : può visualizzare i costi e gestire tutto, inclusa la configurazione di costo.
 - [**Per i collaboratori** ](../role-based-access-control/built-in-roles.md#contributor) : è possibile visualizzare i costi e gestire tutto, inclusa la configurazione di costo, escluso il controllo di accesso.
 - [**Lettore** ](../role-based-access-control/built-in-roles.md#reader) : può visualizzare tutto, compresi i dati relativi ai costi e la configurazione, ma non è possibile apportare modifiche.
-- [**Collaboratore gestione dei costi** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) : può visualizzare i costi e gestire la configurazione di costo.
-- [**Lettore di gestione dei costi** ](../role-based-access-control/built-in-roles.md#cost-management-reader) : può visualizzare dati relativi ai costi e la configurazione.
+- [**Collaboratore gestione dei costi** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) : può visualizzare i costi, gestire la configurazione di costi e visualizzare le raccomandazioni corrispondenti.
+- [**Lettore di gestione dei costi** ](../role-based-access-control/built-in-roles.md#cost-management-reader) : può visualizzare i dati di costo, la configurazione di costo e visualizzare le raccomandazioni corrispondenti.
 
 Collaboratore gestione costi è il ruolo con privilegi minimi consigliato. La consente agli utenti l'accesso creare e gestire i budget e l'esportazione in modo efficace più monitorare e creare report sui costi. I collaboratori di gestione costi può inoltre richiedere ruoli aggiuntivi per supportare scenari di gestione costi di end-to-end. Esaminare gli scenari seguenti:
 
 - **Intervenire quando vengono superati il budget** – gestione costose anche necessario accedere per creare e/o gestire gruppi di azione per rispondere automaticamente a un quantità in eccedenza. Provare a concedere [collaboratore al monitoraggio](../role-based-access-control/built-in-roles.md#monitoring-contributor) a un gruppo di risorse che contiene il gruppo di azioni da utilizzare quando vengono superate le soglie di budget. Automazione delle azioni specifiche richiede che i ruoli aggiuntivi per i servizi specifici usati, ad esempio l'automazione e funzioni di Azure.
 - **Pianificazione di esportazione dei dati di costo** – gestione costose anche necessario accedere per gestire gli account di archiviazione per pianificare un'esportazione per copiare dati in un account di archiviazione. Provare a concedere [collaboratore Account di archiviazione](../role-based-access-control/built-in-roles.md#storage-account-contributor) in un gruppo di risorse che contiene lo spazio di archiviazione viene esportato account in cui i dati sui costi.
-- **Visualizzazione delle raccomandazioni convenienti** – Cost Management Readers e Contributors autorizzati ad accedere a recommendations per impostazione predefinita. Accesso a recommendations richiede l'accesso in lettura alle singole risorse. Provare a concedere [Reader](../role-based-access-control/built-in-roles.md#reader) o una [specifico del servizio ruolo](../role-based-access-control/built-in-roles.md#built-in-role-descriptions).
+- **Visualizzazione delle raccomandazioni convenienti** – i lettori di gestione dei costi e i collaboratori di gestione dei costi hanno accesso a *visualizzazione* consigli sui costi per impostazione predefinita. Tuttavia, l'accesso ad agire per i consigli sui costi richiede l'accesso alle singole risorse. Provare a concedere un [specifici del servizio ruolo](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) se si desidera eseguire operazioni su una raccomandazione basato sui costi.
 
 ## <a name="enterprise-agreement-scopes"></a>Ambiti di contratto Enterprise Agreement
 

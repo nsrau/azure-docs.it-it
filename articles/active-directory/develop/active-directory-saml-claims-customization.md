@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c1f8640918d433956935e9428e23aac59e36334
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 622525705979cd6a7a088c606ac167d28f8f6482
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764657"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951009"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -47,7 +47,7 @@ I due possibili motivi per cui potrebbe essere necessario modificare le attestaz
 Per modificare l'elemento NameID (valore dell'identificatore nome):
 
 1. Aprire il **denominare il valore dell'ID** pagina.
-1. Selezionare l'attributo o la trasformazione da applicare all'attributo. Facoltativamente, è possibile specificare il formato desiderato egli attestazione NameID disporre.
+1. Selezionare l'attributo o la trasformazione da applicare all'attributo. Facoltativamente, è possibile specificare il formato desiderato l'attestazione NameID disporre.
 
    ![Modificare il valore di NameID (identificatore nome)](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
 
@@ -75,7 +75,7 @@ Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID).
 
 | NOME | Descrizione |
 |------|-------------|
-| Posta | Indirizzo di posta elettronica dell'utente |
+| Email | Indirizzo di posta elettronica dell'utente |
 | userprincipalName | Nome dell'entità utente (UPN) dell'utente |
 | onpremisessamaccount | Il nome dell'account SAM che è stato sincronizzato da Azure AD locale |
 | objectId | ObjectID dell'utente in Azure AD |

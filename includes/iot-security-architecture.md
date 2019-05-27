@@ -9,11 +9,11 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626613"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66166335"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Architettura della sicurezza di Internet delle cose (IoT)
 
@@ -184,7 +184,7 @@ In ognuna delle categorie descritte nell'architettura IoT di Azure, in questo es
 | Dispositivo |S |Assegnazione dell'identità al dispositivo e autenticazione del dispositivo |Sostituzione del dispositivo o di parte dello stesso con un altro dispositivo Come stabilire se si sta comunicando con il dispositivo giusto? |Autenticazione del dispositivo con Transport Layer Security (TLS) o IPSec. L'infrastruttura deve supportare l'uso di una chiave precondivisa (PSK) nei dispositivi che non riescono a gestire la crittografia asimmetrica completa. Usare Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Applicare meccanismi a prova di manomissione al dispositivo, ad esempio rendendo molto difficile, se non impossibile, estrarre chiavi e altro materiale crittografico dallo stesso. |Il rischio esiste se un utente sta manomettendo il dispositivo (intromissione fisica). Come è possibile accertarsi che il dispositivo non sia stato manomesso. |La soluzione più efficace è una funzionalità TPM (Trusted Platform Module) che consente l'archiviazione delle chiavi in speciali circuiti su chip da cui non è possibile leggerle, ma solo usarle per le operazioni di crittografia che le adoperano, senza mai divulgarle. Crittografia della memoria del dispositivo. Gestione delle chiavi per il dispositivo. Firma del codice. |
 || E |Avere il controllo di accesso del dispositivo. Schema di autorizzazione. |Se il dispositivo consente di eseguire singole azioni in base ai comandi da un'origine esterna o persino a sensori compromessi, l'attacco può eseguire operazioni non altrimenti accessibili. |Avere uno schema di autorizzazione per il dispositivo |
-| Gateway sul campo |S |Autenticazione del gateway sul campo al gateway cloud (basata sul certificato, PSK o basata su attestazione). |Se qualcuno riesce a effettuare lo spoofing del gateway sul campo, questo potrà presentarsi come qualsiasi dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Tutti gli stessi principali problemi di archiviazione e attestazione dei dispositivi in generale: il miglior caso è l'uso di TPM. Estensione 6LowPAN per IPSec per supportare le reti WSN (Wireless Sensor Network). |
+| Gateway sul campo |D |Autenticazione del gateway sul campo al gateway cloud (basata sul certificato, PSK o basata su attestazione). |Se qualcuno riesce a effettuare lo spoofing del gateway sul campo, questo potrà presentarsi come qualsiasi dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Tutti gli stessi principali problemi di archiviazione e attestazione dei dispositivi in generale: il miglior caso è l'uso di TPM. Estensione 6LowPAN per IPSec per supportare le reti WSN (Wireless Sensor Network). |
 || TRID |Proteggere il gateway sul campo da eventuali manomissioni (TPM)? |Gli attacchi di spoofing che simulano la comunicazione tra il gateway cloud e il gateway sul campo potrebbero comportare la divulgazione delle informazioni e la manomissione dei dati |Crittografia della memoria, TPM, autenticazione. |
 || E |Meccanismo di controllo di accesso per il gateway sul campo | | |
 
@@ -218,7 +218,7 @@ Ecco alcuni esempi di minacce in questa categoria:
 
 **Spoofing/manomissione/ripudio**: se un dispositivo non è protetto, condizione che si verifica assai raramente con i telecomandi di consumo, un utente malintenzionato può manipolarne lo stato in maniera anonima. Un buon esempio sono i telecomandi che possono accendere qualsiasi televisore e sono popolari strumenti per burloni.
 
-#### <a name="communication"></a>Comunicazione
+#### <a name="communication"></a>Comunicazioni
 
 Minacce presenti nel percorso di comunicazione tra dispositivi, dispositivi e gateway sul campo e dispositivo e gateway cloud. La tabella seguente contiene alcune indicazioni sui socket aperti nel dispositivo/VPN:
 

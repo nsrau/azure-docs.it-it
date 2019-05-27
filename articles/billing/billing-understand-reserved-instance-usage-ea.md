@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: 09242eaa6058229226062801f5f71f2bf4c7a9e8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789381"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66126852"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere informazioni sull'utilizzo e costi di prenotazione contratto Enterprise Agreement
 
@@ -42,9 +42,9 @@ Confronto tra due set di dati:
 
 | Dati | Set di dati di costo effettivo | Set di dati di costo ammortizzato |
 | --- | --- | --- |
-| Acquisto di istanze riservate | Disponibili in questa vista.<br>  Per ottenere questo filtro dei dati su ChargeType = &quot;acquisto&quot;. <br> Fare riferimento a ReservationID o ReservationName sapere quali prenotazione l'addebito è relativo.  | Non applicabile a questa visualizzazione. <br> I costi di acquisto non sono incluse nei dati ammortizzati. |
+| Acquisto di istanze riservate | Disponibili in questa vista.<br><br>  Per ottenere questo filtro dei dati su ChargeType = &quot;acquisto&quot;. <br><br> Fare riferimento a ReservationID o ReservationName sapere quali prenotazione l'addebito è relativo.  | Non applicabile a questa visualizzazione. <br><br> I costi di acquisto non sono incluse nei dati ammortizzati. |
 | EffectivePrice | Il valore è zero per l'utilizzo che consente di ottenere lo sconto della prenotazione. | Il valore è applicata la ripartizione proporzionale per ogni ora costo della prenotazione per l'utilizzo con lo sconto di prenotazione. |
-| Prenotazioni inutilizzate (indica il numero di ore che della prenotazione non è stata utilizzata in un giorno e il valore monetario dei rifiuti) | Non applicabile in questa visualizzazione. | Disponibili in questa vista.<br> Per ottenere questi dati, filtrare ChargeType = &quot;UnusedReservation&quot;.<br>  Fare riferimento a ReservationID o ReservationName sapere quali prenotazione è stata utilizzata in modo inadeguata. Si tratta di quantità della prenotazione è stato sprecato nella relativa al giorno.  |
+| Prenotazioni inutilizzate (indica il numero di ore che della prenotazione non è stata utilizzata in un giorno e il valore monetario dei rifiuti) | Non applicabile in questa visualizzazione. | Disponibili in questa vista.<br><br> Per ottenere questi dati, filtrare ChargeType = &quot;UnusedReservation&quot;.<br><br>  Fare riferimento a ReservationID o ReservationName sapere quali prenotazione è stata utilizzata in modo inadeguata. Si tratta di quantità della prenotazione è stato sprecato nella relativa al giorno.  |
 | Prezzo unitario (prezzo della risorsa dall'elenco prezzi) | Disponibile | Disponibile |
 
 Altre informazioni disponibili nei dati di utilizzo di Azure sono stata modificata:
@@ -77,12 +77,12 @@ Le informazioni sulle metriche e filtro nella tabella seguente consentono di ris
 | **Tipo di dati dell'API** | Azione chiamata API |
 | --- | --- |
 | **Tutti gli addebiti (utilizzo e gli acquisti)** | Sostituire {metric} con ActualCost |
-| **Utilizzo è stata ricevuta lo sconto della prenotazione** | Sostituire {metric} con ActualCost<br>Sostituire {filtro} con: properties/reservationId%20ne%20 |
-| **Utilizzo che non ha ottenuto lo sconto della prenotazione** | Sostituire {metric} con ActualCost<br>Sostituire {filtro} con: properties/reservationId%20eq%20 |
+| **Utilizzo è stata ricevuta lo sconto della prenotazione** | Sostituire {metric} con ActualCost<br><br>Sostituire {filtro} con: properties/reservationId%20ne%20 |
+| **Utilizzo che non hanno ottenuto lo sconto della prenotazione** | Sostituire {metric} con ActualCost<br><br>Sostituire {filtro} con: properties/reservationId%20eq%20 |
 | **Costi ammortizzati (utilizzo e gli acquisti)** | Sostituire {metric} con AmortizedCost |
-| **Report di prenotazioni inutilizzate** | Sostituire {metric} con AmortizedCost<br>Sostituire {filtro} con: properties/ChargeType%20eq%20'UnusedReservation' |
-| **Acquisto di istanze riservate** | Sostituire {metric} con {filter} ActualCostReplace con: properties/ChargeType%20eq%20'Purchase'  |
-| **Rimborsi** | Sostituire {metric} con ActualCost<br>Sostituire {filtro} con: properties/ChargeType%20eq%20'Refund' |
+| **Report di prenotazioni inutilizzate** | Sostituire {metric} con AmortizedCost<br><br>Sostituire {filtro} con: properties/ChargeType%20eq%20'UnusedReservation' |
+| **Acquisto di istanze riservate** | Sostituire {metric} con ActualCost<br><br>Sostituire {filtro} con: properties/ChargeType%20eq%20'Purchase'  |
+| **Rimborsi** | Sostituire {metric} con ActualCost<br><br>Sostituire {filtro} con: properties/ChargeType%20eq%20'Refund' |
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Scaricare il file CSV di utilizzo con i nuovi dati
 

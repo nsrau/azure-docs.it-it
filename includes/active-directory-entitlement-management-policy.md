@@ -5,15 +5,15 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: ef8155cda6c31a63204af80ca091a13bb16a687d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866427"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113397"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Criteri: Per gli utenti della directory
 
@@ -34,6 +34,9 @@ Seguire questa procedura se si desidera che i criteri per gli utenti e gruppi ne
 ### <a name="policy-for-users-not-in-your-directory"></a>Criteri: Per gli utenti non della directory
 
 Seguire questa procedura se si desidera che i criteri per gli utenti non della directory che può richiedere questo pacchetto di accesso. Le directory devono essere configurate per essere consentito nel **restrizioni di collaborazione aziendale relazioni** impostazioni.
+
+> [!NOTE]
+> Per un utente verrà creato un account utente guest non ancora nella directory di cui richiesta è approvata o approvata automaticamente. Il guest sarà invitato, ma non riceverà un messaggio di posta elettronica di invito. Al contrario, riceveranno un messaggio di posta elettronica quando viene fornito l'assegnazione di pacchetti di accesso. Per impostazione predefinita, in seguito quando tale utente guest non duri più ha qualsiasi pacchetto assegnazioni di accesso, perché è scaduta o è stata annullata, l'ultima assegnazione che l'account utente verrà impedito l'accesso ed eliminato. Se si desidera disporre gli utenti guest rimangono nella directory a tempo indeterminato, anche se non dispongono di alcun le assegnazioni di accesso pacchetto, è possibile modificare le impostazioni per la configurazione di gestione dei diritti.
 
 1. Nel **gli utenti che possono richiedere l'accesso** sezione, selezionare **per gli utenti non nella directory**.
 
@@ -112,7 +115,7 @@ Nella sezione scadenza, si specifica in cui scade l'assegnazione dell'utente per
 
     ![Pacchetto di accesso - impostazioni di scadenza dei criteri:](./media/active-directory-entitlement-management-policy/policy-expiration.png)
 
-### <a name="policy-enable-policy"></a>Criteri: Abilitare i criteri
+### <a name="policy-enable-policy"></a>Criteri: Attiva criterio
 
 1. Se si desidera che il pacchetto di accesso da rendere immediatamente disponibili per gli utenti nei criteri, fare clic su **Sì** per abilitare i criteri.
 

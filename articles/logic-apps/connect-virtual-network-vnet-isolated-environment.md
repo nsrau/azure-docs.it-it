@@ -7,14 +7,14 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544517"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961444"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -24,7 +24,7 @@ Per gli scenari in cui le app per la logica e gli account di integrazione devono
 
 Questo articolo descrive come portare a termine le attività seguenti:
 
-* Configurare le porte sulla rete virtuale di Azure in modo che il traffico possa essere trasmesso tramite l'ambiente del servizio di integrazione (ISE) su più subnet nella rete virtuale.
+* Assicurarsi che le porte necessarie in una rete virtuale sono aperte in modo che il traffico possono essere trasmessi tramite l'ambiente del servizio di integrazione (ISE) tra le subnet nella rete virtuale.
 
 * Creare un ambiente del servizio di integrazione (ISE).
 
@@ -60,11 +60,13 @@ Per altre informazioni sugli ambienti del servizio di integrazione, vedere [Acce
 
 <a name="ports"></a>
 
-## <a name="set-up-network-ports"></a>Configurare le porte di rete
+## <a name="check-network-ports"></a>Controllare le porte di rete
 
-Per funzionare correttamente ed essere sempre accessibile, l'ambiente del servizio di integrazione (ISE) deve avere porte specifiche disponibili nella propria rete virtuale. In caso contrario, se una di queste porte non è disponibile, si potrebbe perdere l'accesso per l'ISE, che potrebbe smettere di funzionare. Quando si usa un ISE in una rete virtuale, un problema di configurazione comune è la presenza di una o più porte bloccate. Per le connessioni tra l'ISE e il sistema di destinazione, il connettore che si usa potrebbe avere requisiti propri per le porte. Ad esempio, se si comunica con un sistema FTP usando il connettore FTP, assicurarsi che la porta utilizzata nel sistema FTP, ad esempio la porta 21 per l'invio di comandi, sia disponibile.
+Quando si usa un ambiente del servizio di integrazione (ISE) con una rete virtuale, un problema di configurazione comune è la presenza di uno o più porte bloccate. I connettori utilizzabili per la creazione di connessioni tra l'ISE e il sistema di destinazione potrebbero essere anche i propri requisiti delle porte. Ad esempio, se si comunica con un sistema FTP usando il connettore FTP, assicurarsi che la porta utilizzata nel sistema FTP, ad esempio la porta 21 per l'invio di comandi, sia disponibile.
 
-Per controllare il traffico tra subnet della rete virtuale in cui si distribuisce l'ISE, è possibile configurare [gruppi di sicurezza di rete](../virtual-network/security-overview.md) per queste subnet dal [filtraggio del traffico di rete tra subnet](../virtual-network/tutorial-filter-network-traffic.md). Le tabelle seguenti descrivono le porte usate dall'ISE nella rete virtuale e dove tali porte vengono usate. Il [tag di servizio di gestione risorse](../virtual-network/security-overview.md#service-tags) rappresenta un gruppo di prefissi di indirizzo IP che consentono di ridurre la complessità durante la creazione di regole di sicurezza.
+Per controllare il traffico tra subnet della rete virtuale in cui si distribuisce ISE, è possibile configurare [gruppi di sicurezza di rete](../virtual-network/security-overview.md) dal [filtraggio del traffico di rete tra subnet](../virtual-network/tutorial-filter-network-traffic.md). Tuttavia, l'ISE deve avere porte specifiche aperto nella rete virtuale che usa gruppi di sicurezza di rete. In questo modo, l'ISE rimane accessibile e può funzionare correttamente in modo da non perdere l'accesso per l'ISE. In caso contrario, se tutte le porte richieste siano disponibili, l'ISE smette di funzionare.
+
+Le tabelle seguenti descrivono le porte usate dall'ISE nella rete virtuale e dove tali porte vengono usate. Il [tag di servizio di gestione risorse](../virtual-network/security-overview.md#service-tags) rappresenta un gruppo di prefissi di indirizzo IP che consentono di ridurre la complessità durante la creazione di regole di sicurezza.
 
 > [!IMPORTANT]
 > Per le comunicazioni interne all'interno di subnet, ISE è necessario aprire tutte le porte all'interno di tali subnet.

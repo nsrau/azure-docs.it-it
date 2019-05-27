@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150292"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116345"
 ---
 >[!NOTE]
 >Per le risorse che non sono corretti, aprire un ticket di supporto per richiedere un aumento di quote. Non creare altri account di servizi multimediali di Azure nel tentativo di ottenere limiti più elevati.
@@ -31,7 +31,7 @@ ms.locfileid: "65150292"
 | Unità di streaming per endpoint di streaming  |10 |
 | Account di archiviazione | 1.000<sup>5</sup> (fisso) |
 | Criteri | 1,000,000<sup>6</sup> |
-| Dimensioni complete| In alcuni scenari è previsto un limite per le dimensioni massime del file supportate per l'elaborazione in servizi multimediali. <sup>7</sup> |
+| Dimensione file| In alcuni scenari è previsto un limite per le dimensioni massime del file supportate per l'elaborazione in servizi multimediali. <sup>7</sup> |
 
 <sup>1</sup>se si modifica il tipo, ad esempio da S2 a S1, i limiti di numero massimo di unità riservata vengono reimpostati.
 

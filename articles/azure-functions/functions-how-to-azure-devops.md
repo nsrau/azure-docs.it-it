@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
 ms.custom: ''
-ms.openlocfilehash: 86f1c36bd5f972a6ebd573019a22b0c0d07dc480
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 27b5dc9ccee8647d4fbb617063865df18b80bc5d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928093"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990268"
 ---
 # <a name="continuous-delivery-using-azure-devops"></a>Distribuzione continua tramite Azure DevOps
 
@@ -26,7 +26,7 @@ Per definire la pipeline, è possibile usare:
 
 ## <a name="yaml-based-pipeline"></a>Della pipeline basati su YAML
 
-### <a name="build-your-app"></a>Crea la tua app
+### <a name="build-your-app"></a>Creare l'app
 
 Creazione dell'app nelle pipeline di Azure dipende dal linguaggio di programmazione dell'app.
 Ogni linguaggio include i passaggi di compilazione specifica per creare un elemento di distribuzione, che può essere usato per distribuire l'app per le funzioni in Azure.
@@ -55,12 +55,12 @@ steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output/s"
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output"
     includeRootFolder: false
     archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     name: 'drop'
 ```
 
@@ -85,12 +85,12 @@ steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output/s"
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
     includeRootFolder: false
     archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     name: 'drop'
 ```
 
@@ -121,12 +121,12 @@ steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output/s"
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
     includeRootFolder: false
     archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     name: 'drop'
 ```
 
@@ -164,7 +164,7 @@ steps:
 
 I modelli di Azure DevOps, sono gruppo predefinito di attività che compila o si distribuisce un'app.
 
-### <a name="build-your-app"></a>Crea la tua app
+### <a name="build-your-app"></a>Creare l'app
 
 Creazione dell'app nelle pipeline di Azure dipende dal linguaggio di programmazione dell'app. Ogni linguaggio include i passaggi di compilazione specifica per creare un elemento di distribuzione, che può essere utilizzato per aggiornare l'app per le funzioni in Azure.
 Per usare i modelli di compilazione predefiniti, quando si crea una nuova pipeline di compilazione, scegliere **usare l'editor classico** per creare una pipeline usando i modelli di progettazione

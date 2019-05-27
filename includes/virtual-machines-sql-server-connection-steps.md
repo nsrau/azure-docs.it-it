@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 4d77e9b57301bea30d8a33985071c28e972a81a6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264275"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165548"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Aprire le porte TCP in Windows Firewall per l'istanza predefinita del motore di database
 1. Connettersi alla macchina virtuale tramite Desktop remoto. Per istruzioni dettagliate sulla connessione alla macchina virtuale, vedere [Aprire la macchina virtuale tramite Desktop remoto](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
@@ -26,12 +26,12 @@ ms.locfileid: "51264275"
 6. Fare clic su **Avanti**.
 7. Nella finestra di dialogo **Azione** selezionare **Consenti la connessione** e quindi fare clic su **Avanti**.
    
-    **Nota sulla sicurezza**: per un maggiore livello di sicurezza è possibile selezionare **Consenti solo connessioni protette**. Selezionare questa opzione per configurare altre opzioni di sicurezza per l'ambiente in uso.
+    **Nota sulla sicurezza:** Selezionando **Consenti solo connessioni protette** può fornire protezione aggiuntiva. Selezionare questa opzione per configurare altre opzioni di sicurezza per l'ambiente in uso.
    
     ![Consentire le connessioni](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
 8. Nella finestra di dialogo **Profilo** selezionare **Pubblico**, **Privato** e **Dominio**. Quindi fare clic su **Next**.
    
-    **Nota sulla sicurezza:** la selezione di un profilo **Pubblico** consente l'accesso tramite Internet. Se possibile, scegliere un profilo più restrittivo.
+    **Nota sulla sicurezza:**  Selezionando **pubblica** consente l'accesso tramite internet. Se possibile, scegliere un profilo più restrittivo.
    
     ![Profilo Pubblico](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 9. Nella finestra di dialogo **Nome** digitare un nome e una descrizione per la regola e quindi fare clic su **Fine**.
@@ -55,19 +55,19 @@ Il motore di database di SQL Server non può utilizzare l'Autenticazione di Wind
 1. Mentre si è connessi alla macchina virtuale, nella pagina iniziale digitare **SQL Server Management Studio** e fare clic sull'icona selezionata.
    
     Alla prima apertura di Management Studio è necessario creare gli utenti dell'ambiente Management Studio. L'operazione potrebbe richiedere alcuni istanti.
-2. Verrà visualizzata la finestra di dialogo **Connetti al server** di Management Studio. Nella casella **Nome server** digitare il nome della macchina virtuale per la connessione al motore di database con Esplora oggetti; al posto del nome della macchina virtuale, per **Nome server** è anche possibile usare **(locale)** o un singolo punto. Selezionare **Autenticazione di Windows** e lasciare ***nome_macchina_virtuale*\amministratore_locale** nella casella **Nome utente**. Fare clic su **Connetti**.
+2. Verrà visualizzata la finestra di dialogo **Connetti al server** di Management Studio. Nella casella **Nome server** digitare il nome della macchina virtuale per la connessione al motore di database con Esplora oggetti; al posto del nome della macchina virtuale, per **Nome server** è anche possibile usare **(locale)** o un singolo punto. Selezionare **Windows autenticazione**e lasciare ***your_VM_name\your_local_administrator*** nel **nome utente** casella. Fare clic su **Connetti**.
    
     ![Connetti al server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. In Esplora oggetti di SQL Server Management Studio fare clic con il pulsante destro del mouse sul nome dell'istanza di SQL Server (nome della macchina virtuale) e quindi scegliere **Proprietà**.
    
-    ![Proprietà del server](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
+    ![Proprietà server](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
 4. Nella pagina **Sicurezza**, in **Autenticazione server** selezionare **Autenticazione di SQL Server e di Windows** e quindi fare clic su **OK**.
    
     ![Selezione della modalità di autenticazione](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
 5. Nella finestra di dialogo di SQL Server Management Studio fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
 6. In Esplora oggetti fare clic con il pulsante destro del mouse sul server e quindi scegliere **Riavvia**. (Se SQL Server Agent è in esecuzione, anch'esso dovrà essere riavviato).
    
-    ![Riavvio](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
+    ![Riavvia](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. Nella finestra di dialogo di SQL Server Management Studio fare clic su **Sì** per accettare il riavvio di SQL Server.
 
 ### <a name="create-sql-server-authentication-logins"></a>Creare gli account di accesso di SQL Server

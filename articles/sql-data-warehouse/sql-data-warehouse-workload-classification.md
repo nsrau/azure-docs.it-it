@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c4630e11ef4001c546aecfe74dbced346b6d30e4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154216"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000112"
 ---
 # <a name="sql-data-warehouse-workload-classification"></a>Classificazione del carico di lavoro di SQL Data Warehouse
 
@@ -81,4 +81,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a usare la creazione di un classificatore, vedere la [CLASSIFICATORE di carico di lavoro CREATE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Per altre informazioni sulla classificazione del carico di lavoro di SQL Data Warehouse e importanza, vedere [crea un classificatore di carico di lavoro](quickstart-create-a-workload-classifier-tsql.md) e [importanza di SQL Data Warehouse](sql-data-warehouse-workload-importance.md). Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la loro priorità.
+- Per altre informazioni sulla creazione di un classificatore, vedere la [CLASSIFICATORE di carico di lavoro CREATE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Vedere la Guida introduttiva su come creare un classificatore di carico di lavoro [crea un classificatore di carico di lavoro](quickstart-create-a-workload-classifier-tsql.md).
+- Vedere gli articoli sulle procedure per [configurare il carico di lavoro importanza](sql-data-warehouse-how-to-configure-workload-importance.md) e su come [gestire e monitorare la gestione del carico di lavoro](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la loro priorità.

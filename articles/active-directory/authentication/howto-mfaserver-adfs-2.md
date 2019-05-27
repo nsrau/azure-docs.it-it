@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d345645337d070be15346b245bfaecd1cabc7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45ff198f55ff769667cfaef2dd8665d2c34314e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415478"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987751"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configurare il server Azure Multi-Factor Authentication per lavorare con AD FS 2.0
 
@@ -85,7 +85,7 @@ L'autenticazione di IIS è stata abilitata, tuttavia per eseguire la preautentic
 3. Se gli utenti immettono il proprio nome utente nel formato "dominio\nomeutente", il server deve essere in grado di eliminare il dominio dal nome utente quando crea la query LDAP. Che può essere eseguita tramite un'impostazione del Registro di sistema.
 4. Aprire l'editor del Registro di sistema e passare a HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/positivo Networks/PhoneFactor su un server a 64 bit. Se si dispone di un server a 32 bit, eseguire "Wow6432Node" dal percorso. Creare una chiave del Registro di sistema DWORD denominata "UsernameCxz_stripPrefixDomain" e impostare il valore su 1. Il proxy AD FS è ora protetta da Azure Multi-Factor Authentication.
 
-Assicurarsi che gli utenti siano stati importati da Active Directory nel Server. Per inserire nell'elenco elementi consentiti gli indirizzi IP interni in modo che non sia necessaria la verifica in due passaggi quando si accede al sito Web da tali percorsi, vedere la [sezione IP attendibili](#trusted-ips).
+Assicurarsi che gli utenti siano stati importati da Active Directory nel Server. Vedere le [sezione IP attendibili](#trusted-ips) se si vuole consentire gli indirizzi IP in modo che la verifica in due passaggi non è obbligatoria quando si accede al sito Web da tali percorsi.
 
 ![Editor del Registro di sistema per configurare le impostazioni aziendali](./media/howto-mfaserver-adfs-2/reg.png)
 
@@ -109,15 +109,17 @@ Assicurarsi che gli utenti siano stati importati da Active Directory nel Server.
 
 AD FS è protetto da Azure Multi-Factor Authentication.
 
-Assicurarsi che gli utenti siano stati importati da Active Directory nel Server. Per inserire nell'elenco elementi consentiti gli indirizzi IP interni in modo che non sia necessaria la verifica in due passaggi quando si accede al sito Web da tali percorsi, vedere la sezione IP attendibili.
+Assicurarsi che gli utenti siano stati importati da Active Directory nel Server. Se si vuole consentire gli indirizzi IP interni in modo che la verifica in due passaggi non è obbligatoria quando si accede al sito Web da tali percorsi, vedere la sezione IP attendibili.
 
 ## <a name="trusted-ips"></a>Indirizzi IP attendibili
+
 Gli IP attendibili consentono agli utenti di ignorare Azure Multi-Factor Authentication per le richieste del sito Web provenienti da specifici indirizzi IP o subnet. Ad esempio, è consigliabile fare in modo che gli utenti non debbano eseguire la verifica in due passaggi quando accedono dall'ufficio. A tale scopo, specificare la subnet dell'ufficio come voce di Indirizzi IP attendibili.
 
 ### <a name="to-configure-trusted-ips"></a>Per configurare indirizzi IP attendibili
+
 1. Fare clic sulla scheda **IP attendibili** nella sezione Autenticazione IIS.
 2. Fare clic su **Aggiungi** .
 3. Quando viene visualizzata la finestra di dialogo Aggiungi indirizzo IP attendibile, selezionare uno dei pulsanti di opzione **IP singolo**, **Intervallo IP** o **Subnet**.
-4. Immettere l'indirizzo IP, l'intervallo di indirizzi IP o la subnet da includere nell'elenco degli elementi attendibili. Se si immette una subnet, selezionare la Netmask appropriata e fare clic sul pulsante **OK**. È stato aggiunto l'indirizzo IP attendibile.
+4. Immettere l'indirizzo IP, intervallo di indirizzi IP o subnet a cui deve essere consentito. Se si immette una subnet, selezionare la Netmask appropriata e fare clic sul pulsante **OK**.
 
 ![Configurare indirizzi IP attendibili MFA server](./media/howto-mfaserver-adfs-2/trusted.png)

@@ -105,6 +105,8 @@
       href: language-support.md
     - name: Analisi per l'API Ricerca Web Bing
       href: bing-web-stats.md
+    - name: Conformità
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Supporto
       items:
         - name: Forum di UserVoice

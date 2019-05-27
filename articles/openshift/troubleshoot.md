@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 05/08/2019
-ms.openlocfilehash: 9ef32273c007e7319b7f6df99f3d904f805c31f2
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 82678091c1d0b71e6209f6d03e9d1a0ca60fe03e
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550917"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992161"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Risoluzione dei problemi per Azure Red Hat OpenShift
 
@@ -23,10 +23,6 @@ Questo articolo illustra alcuni problemi comuni incontrati durante la creazione 
 
 Se la creazione di un Azure Red Hat OpenShift cluster usando il `az` riga di comando non riesce, nuovo tentativo di creazione continuerà a non riuscire.
 Usare `az openshift delete` per eliminare il cluster non riuscita, quindi creare un cluster completamente nuovo.
-
-## <a name="untrusted-azure-red-hat-openshift-server-certificate"></a>Certificato del server non attendibile Azure Red Hat OpenShift
-
-La console OpenShift usa un certificato autofirmato. Quando richiesto nel browser, ignorare l'avviso e accettare il certificato "non attendibile".
 
 ## <a name="hidden-azure-red-hat-openshift-cluster-resource-group"></a>Gruppo di risorse cluster di Azure Red Hat OpenShift nascosto
 

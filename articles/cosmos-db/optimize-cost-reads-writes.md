@@ -4,14 +4,14 @@ description: Questo articolo spiega come ridurre i costi di Azure Cosmos DB dura
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: b6c5722d5e096300f76f60dfaf8bab1e07d0c61c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13ce5ee8b0e2a5d9cc84ea1a408ebba152b46050
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61330204"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967412"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Ottimizzare il costo delle operazioni di lettura e di scrittura in Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Non è necessario preoccuparsi di distinguere le unità richiesta di operazioni 
 |**Dimensioni elemento**  |**Costo operazione di lettura** |**Costo operazione di scrittura**|
 |---------|---------|---------|
 |1 KB |1 UR |5 UR |
-|100 kB |10 UR |50 UR |
+|100 KB |10 UR |50 UR |
 
 La lettura di un elemento con dimensioni pari a 1 K costa una UR. La scrittura di un elemento con dimensioni pari a 1 KB costa cinque UR. I costi di lettura e scrittura sono applicabili quando si usa il [livello di coerenza](consistency-levels.md) della sessione predefinito.  Per le UR è necessario tenere conto di dimensioni, numero di proprietà, coerenza dei dati, proprietà indicizzate, indicizzazione e modelli di query dell'elemento.
 
