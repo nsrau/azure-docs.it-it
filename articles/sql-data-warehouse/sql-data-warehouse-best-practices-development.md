@@ -2,20 +2,20 @@
 title: Procedure consigliate di sviluppo per Azure SQL Data Warehouse | Microsoft Docs
 description: Indicazioni e procedure consigliate da conoscere per lo sviluppo di soluzioni per Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 09/04/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1682a26ba713db564484e8984010e9c12ce9d79e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76297be79fca62b1f2f777f9cba4a0a8fe134768
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61421427"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851628"
 ---
 # <a name="development-best-practices-for-azure-sql-data-warehouse"></a>Procedure consigliate di sviluppo per Azure SQL Data Warehouse
 Questo articolo descrive le procedure consigliate e linee guida quando si sviluppa una soluzione di data warehouse. 

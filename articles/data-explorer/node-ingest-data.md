@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Inserire dati usando la libreria Node di Esplora dati di Azure'
+title: 'Guida introduttiva: Inserire dati usando la libreria Node di Esplora dati di Azure'
 description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure usando Node.js.
 author: orspod
 ms.author: orspodek
@@ -7,14 +7,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
-ms.openlocfilehash: d530ed3710a3406e5cd8115d615e91d5056a5f8c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 42a4d2e34eab3679f98d5a62099ab57e5924fcc3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047654"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800415"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Avvio rapido: Inserire dati usando la libreria Node di Esplora dati di Azure
+# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Guida introduttiva: Inserire dati usando la libreria Node di Esplora dati di Azure
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per Node: una [libreria di inserimento](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) e [una libreria di dati](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questa guida introduttiva, è innanzitutto necessario creare una tabella e il mapping dei dati in un cluster di prova. Quindi viene accodato l'inserimento nel cluster e vengono convalidati i risultati.
 
@@ -33,7 +33,7 @@ Oltre a una sottoscrizione di Azure, è necessario quanto segue per completare q
 Installare *azure-kusto-ingest* e *azure-kusto-data*
 
 ```bash
-npm i --save azure-kusto-ingest azure-kusto-data
+npm i azure-kusto-ingest azure-kusto-data
 ```
 
 ## <a name="add-import-statements-and-constants"></a>Aggiungere le costanti e le istruzioni import

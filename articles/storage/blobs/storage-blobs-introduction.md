@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/03/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 093f749ac29dc2bd341712d87b404de769d0b7bc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 498dd3be75cb27263c811d9db541b2e040599156
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865574"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788012"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduzione all'archiviazione BLOB di Azure
 
@@ -65,7 +65,7 @@ Per altre informazioni sui diversi tipi di BLOB, vedere [Informazioni sui BLOB i
 Esistono diverse soluzioni per la migrazione dei dati esistenti nell'archivio BLOB:
 
 - **AzCopy** è uno strumento da riga di comando facile da usare per Windows e Linux che copia i dati da e verso l’archivio BLOB, tra contenitori o tra account di archiviazione. Per altre informazioni su AzCopy, vedere [Trasferire dati con AzCopy v10 (Anteprima)](../common/storage-use-azcopy-v10.md). 
-- La **libreria di spostamento dei dati di archiviazione di Azure** è una libreria .NET per lo spostamento dei dati tra i servizi di archiviazione di Azure. L'utilità AzCopy viene compilata con la libreria di spostamento dei dati. Per ulteriori informazioni, vedere la [documentazione di riferimento](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement) per la libreria di spostamento dei dati. 
+- La **libreria di spostamento dei dati di archiviazione di Azure** è una libreria .NET per lo spostamento dei dati tra i servizi di archiviazione di Azure. L'utilità AzCopy viene compilata con la libreria di spostamento dei dati. Per ulteriori informazioni, vedere la [documentazione di riferimento](/dotnet/api/microsoft.azure.storage.datamovement) per la libreria di spostamento dei dati. 
 - **Azure Data Factory** supporta la copia dei dati da e verso l’archivio BLOB, tramite autenticazione con chiave dell'account, firma di accesso condiviso, entità servizio o identità gestite per le risorse di Azure. Per altre informazioni, vedere [Copiare dati da e verso l’archivio BLOB di Azure usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 - **Blobfuse** è un driver virtuale file system per l'archivio BLOB di Azure. È possibile usare blobfuse per accedere ai dati di BLOB in blocchi esistenti nell'account di archiviazione tramite il file system di Linux. Per altre informazioni, vedere [Come montare l'archivio BLOB come file system con blobfuse](storage-how-to-mount-container-linux.md).
 - **Azure Data Box Disk** è un servizio per il trasferimento di dati locali nell'archivio BLOB, quando grandi set di dati o vincoli di rete complicano il caricamento dei dati in rete. È possibile usare [Azure Data Box Disk](../../databox/data-box-disk-overview.md) per richiedere a Microsoft dischi SSD. È quindi possibile copiare i dati in tali dischi e rispedirli a Microsoft per farli caricare nell'archivio BLOB.

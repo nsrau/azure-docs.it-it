@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 02/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5cc86c40f56cee28ff6a6912acd67961285bffc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2410787c3307136f827ea7fc34df9a545a59cbf4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025319"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850897"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire l'accesso a un'area di lavoro di Azure Machine Learning
 
@@ -113,5 +113,5 @@ Per altre informazioni, vedere [ruoli personalizzati per le risorse di Azure](/a
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica della sicurezza aziendale](concept-enterprise-security.md)
-- [In modo sicuro eseguire esperimenti e l'inferenza all'interno di una rete virtuale](how-to-enable-virtual-network.md)
+- [In modo sicuro eseguire esperimenti e inferenza/score all'interno di una rete virtuale](how-to-enable-virtual-network.md)
 - [Esercitazione: Eseguire il training dei modelli](tutorial-train-models-with-aml.md)

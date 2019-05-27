@@ -4,7 +4,7 @@ description: Informazioni sull'acquisizione e la memorizzazione nella cache dei 
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,15 +17,15 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d32b56b28d9ce7425e782fc10fa9ffb67047ce0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7ca011ec7185b084de6d1d346556c1c270c7aee3
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139141"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546080"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>Acquisizione e memorizzazione nella cache dei token tramite MSAL
-I [token di accesso](access-tokens.md) consentono ai client di chiamare in modo sicuro le API Web protette da Azure. Esistono diversi modi per acquisire un token usando Microsoft Authentication Library (MSAL). Alcuni metodi richiedono interazioni dell'utente tramite un Web browser. Altri non richiedono alcuna interazione dell'utente. In generale, il modo per acquisire un token dipende dal fatto che l'applicazione sia un'applicazione client pubblica (app desktop o per dispositivi mobili) oppure un'applicazione client riservata (app Web, API Web o applicazione daemon, ad esempio un servizio Windows).
+I [token di accesso](access-tokens.md) consentono ai client di chiamare in modo sicuro le API Web protette da Azure. Esistono diversi modi per acquisire un token usando Microsoft Authentication Library (MSAL). Alcuni modi richiedono interazioni dell'utente tramite un Web browser. Altri non richiedono alcuna interazione dell'utente. In generale, il modo per acquisire un token dipende dal fatto che l'applicazione sia un'applicazione client pubblica (app desktop o per dispositivi mobili) oppure un'applicazione client riservata (app Web, API Web o applicazione daemon, ad esempio un servizio di Windows).
 
 MSAL memorizza un token nella cache dopo che è stato acquisito.  Il codice dell'applicazione deve tentare di ottenere un token in modo automatico (dalla cache) prima di acquisire un token con altri mezzi.
 
@@ -34,7 +34,7 @@ MSAL memorizza un token nella cache dopo che è stato acquisito.  Il codice dell
 ## <a name="scopes-when-acquiring-tokens"></a>Ambiti durante l'acquisizione dei token
 Gli [ambiti](v2-permissions-and-consent.md) sono le autorizzazioni esposte da un'API Web per consentire alle applicazioni client di richiedere l'accesso. Le applicazioni client richiedono il consenso dell'utente per questi ambiti quando si effettuano richieste di autenticazione per ottenere i token per l'accesso alle API Web. MSAL consente di ottenere i token per accedere alle API di Azure AD per sviluppatori (v1.0) e Microsoft Identity Platform (v2.0). Il protocollo della versione 2.0 usa gli ambiti invece delle risorse nelle richieste. Per altre informazioni, leggere il [confronto tra v1.0 e v2.0](active-directory-v2-compare.md). Sulla base della configurazione dell'API Web della versione del token che accetta, l'endpoint v2.0 restituisce il token di accesso a MSAL.
 
-Diversi metodi di acquisizione dei token di MSAL richiedono un parametro *scopes*. Questo parametro è un semplice elenco di stringhe che dichiarano le autorizzazioni desiderate e le risorse richieste. Ambiti ben noti sono le [autorizzazioni di Microsoft Graph](/graph/permissions-reference).
+Diversi metodi di acquisizione dei token di MSAL richiedono un parametro *ambiti*. Questo parametro è un semplice elenco di stringhe che dichiarano le autorizzazioni desiderate e le risorse richieste. Ambiti ben noti sono le [autorizzazioni di Microsoft Graph](/graph/permissions-reference).
 
 In MSAL è anche possibile accedere alle risorse v1.0. Per altre informazioni, vedere [Ambiti per un'applicazione v1.0](msal-v1-app-scopes.md).
 
@@ -51,9 +51,9 @@ Solo per l'API Microsoft Graph, un valore di ambito `user.read` è associato al 
 > Alcune API Web come l'API di Azure Resource Manager (https://management.core.windows.net/) prevedono una barra finale ("/") nell'attestazione dei destinatari (aud) del token di accesso. In questo caso, è importante passare l'ambito come https://management.core.windows.net//user_impersonation (si noti la doppia barra) perché il token sia valido nell'API.
 
 ### <a name="request-dynamic-scopes-for-incremental-consent"></a>Richiedere ambiti dinamici per il consenso incrementale
-Durante la creazione di applicazioni tramite v1.0, era necessario registrare il set completo di autorizzazioni (ambiti statici) richiesto dall'applicazione per ottenere il consenso dell'utente al momento dell'accesso. Nella versione 2.0 è possibile richiedere autorizzazioni aggiuntive in base alle esigenze usando il parametro scope. Tali autorizzazioni sono denominate ambiti dinamici e permettono all'utente di fornire un consenso incrementale agli ambiti.
+Durante la creazione di applicazioni tramite v1.0, era necessario registrare il set completo di autorizzazioni (ambiti statici) richiesto dall'applicazione per ottenere il consenso dell'utente al momento dell'accesso. Nella versione 2.0 è possibile richiedere autorizzazioni aggiuntive in base alle esigenze usando il parametro di ambito. Tali autorizzazioni sono denominate ambiti dinamici e permettono all'utente di offrire un consenso incrementale agli ambiti.
 
-Inizialmente, ad esempio, è possibile eseguire l'accesso dell'utente e negare a quest'ultimo qualsiasi tipo di accesso. In un secondo momento, è possibile offrire all'utente la possibilità di leggere il proprio calendario, richiedendo l'ambito del calendario nei metodi di acquisizione dei token, e ottenere il consenso dell'utente.
+Inizialmente, ad esempio, è possibile eseguire l'accesso dell'utente e negare a quest'ultimo qualsiasi tipo di accesso. In un secondo momento, è possibile offrire all'utente la possibilità di leggere il proprio calendario richiedendo l'ambito del calendario nei metodi di acquisizione dei token e ottenere il consenso dell'utente.
 
 Ad esempio: `https://graph.microsoft.com/User.Read` e `https://graph.microsoft.com/Calendar.Read`
 
@@ -85,7 +85,7 @@ Per le applicazioni client pubbliche (app desktop o per dispositivi mobili):
 - È possibile acquisire un token tramite il [flusso del codice del dispositivo](msal-authentication-flows.md#device-code) nelle applicazioni in esecuzione nei dispositivi che non dispongono di un Web browser. Vengono forniti un URL e un codice all'utente, che quindi passa a un Web browser in un altro dispositivo, immette il codice ed esegue l'accesso.  Azure AD invia quindi un token al dispositivo senza browser.
 
 ### <a name="confidential-client-applications"></a>Applicazioni client riservate 
-Per le applicazioni client riservate (app Web, API Web o applicazioni daemon come un servizio Windows):
+Per le applicazioni client riservate (app Web, API Web o applicazioni daemon come un servizio di Windows):
 - Acquisire i token **per l'applicazione stessa**, anziché per un utente, usando il [flusso di credenziali client](msal-authentication-flows.md#client-credentials). Questo metodo può essere usato per strumenti di sincronizzazione o per strumenti che elaborano gli utenti in generale e non un utente specifico. 
 - Usare il [flusso On-Behalf-Of](msal-authentication-flows.md#on-behalf-of) per un'API Web per chiamare un'API per conto dell'utente. L'applicazione viene identificata con le credenziali del client al fine di acquisire un token basato su un'asserzione utente (ad esempio, SAML o un token JWT). Questo flusso è usato dalle applicazioni che devono accedere alle risorse di un determinato utente nelle chiamate da servizio a servizio.
 - Acquisire i token usando il [flusso del codice di autorizzazione](msal-authentication-flows.md#authorization-code) nelle app Web dopo che l'utente esegue l'accesso tramite l'URL della richiesta di autorizzazione. Un'applicazione OpenID Connect in genere usa questo meccanismo, che consente all'utente di eseguire l'accesso usando OpenID Connect e quindi di accedere alle API Web per conto dell'utente.
@@ -94,10 +94,10 @@ Per le applicazioni client riservate (app Web, API Web o applicazioni daemon com
 ## <a name="authentication-results"></a>Risultati dell'autenticazione 
 Quando il client richiede un token di accesso, Azure AD restituisce anche un risultato dell'autenticazione che include alcuni metadati relativi al token di accesso. Queste informazioni includono l'ora di scadenza del token di accesso e gli ambiti per cui è valido. Questi dati consentono all'app di eseguire la memorizzazione intelligente nella cache dei token di accesso senza la necessità di analizzare il token di accesso stesso.  Il risultato dell'autenticazione espone:
 
-- Il [token di accesso](access-tokens.md) per l'API Web per l'accesso alle risorse. Questa è una stringa, in genere JWT con codifica base64, ma il client non deve mai fare riferimento al contenuto del token di accesso. Non è garantito che il formato rimanga stabile e può essere crittografato per la risorsa. La scrittura di codice dipendente dal contenuto del token di accesso nel client è una delle principali fonti di errori e problemi per la logica client.
+- Il [token di accesso](access-tokens.md) per l'API Web per l'accesso alle risorse. Questa è una stringa, in genere JWT con codifica base64, ma il client non deve mai fare riferimento al contenuto del token di accesso. Non è garantito che il formato rimanga stabile e può essere crittografato per la risorsa. La scrittura di codice dipendente dal contenuto del token di accesso nel client è una delle principali fonti di errori e interruzioni per la logica client.
 - Il [token ID](id-tokens.md) per l'utente (si tratta di un token JWT).
 - La scadenza del token, che indica la data/ora in cui scade il token.
-- L'ID tenant contiene il tenant in cui è stato trovato l'utente. Per gli utenti guest (scenari B2B con Azure AD), l'ID tenant è il tenant guest, non il tenant univoco. Quando il token viene inviato a nome di un utente, il risultato dell'autenticazione contiene anche le informazioni sull'utente. Per i flussi client riservato in cui vengono richiesti token senza utente (per l'applicazione), queste informazioni sull'utente sono null.
+- L'ID tenant contiene il tenant in cui è stato trovato l'utente. Per gli utenti guest (scenari B2B con Azure AD), l'ID tenant è il tenant guest, non il tenant univoco. Quando il token viene inviato a nome di un utente, il risultato dell'autenticazione contiene anche le informazioni sull'utente. Per i flussi client riservati in cui vengono richiesti token senza utente (per l'applicazione), queste informazioni sull'utente sono null.
 - Ambiti per cui è stato emesso il token.
 - ID univoco per l'utente.
 

@@ -15,14 +15,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b46df5e4ec8352b47f744a507fad702c37aa5fba
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6ce534c6eeecba220fd829be829caa679df52055
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075101"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833090"
 ---
-# <a name="scenario-web-app-that-signs-in-users"></a>Scenario: App Web di accesso degli utenti
+# <a name="scenario-web-app-that-signs-in-users"></a>Scenario: App Web che offre l'accesso agli utenti
 
 Scopri tutto quello che dovete compilare un'app web che gli utenti esegue l'accesso con la piattaforma delle identità Microsoft.
 
@@ -35,12 +35,12 @@ Scopri tutto quello che dovete compilare un'app web che gli utenti esegue l'acce
 Se si desidera creare le prime portabili (ASP.NET Core) web App che consentono l'accesso degli utenti, seguire questa Guida introduttiva:
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: ASP.NET Core che esegue l'accesso per gli utenti di app web](quickstart-v2-aspnet-core-webapp.md)
+> [Avvio rapido: ASP.NET Core che esegue l'accesso per gli utenti di app web](quickstart-v2-aspnet-core-webapp.md)
 
 Se si preferisce usare ASP.NET, provare l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: ASP.NET Core che esegue l'accesso per gli utenti di app web](quickstart-v2-aspnet-webapp.md)
+> [Avvio rapido: App web ASP.NET che esegue l'accesso gli utenti](quickstart-v2-aspnet-webapp.md)
 
 ## <a name="overview"></a>Panoramica
 

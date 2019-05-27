@@ -2,20 +2,20 @@
 title: Progettazione di tabelle - Azure SQL Data Warehouse | Microsoft Docs
 description: Introduzione alla progettazione di tabelle in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/15/2019
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1073e1b4ad38c4b05c9195cf4ea16ade7416fbce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474972"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851581"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Progettazione di tabelle in Azure SQL Data Warehouse
 
@@ -92,7 +92,7 @@ La categoria della tabella spesso determina l'opzione appropriata per la distrib
 |:---------------|:--------------------|
 | Fact           | Usare la distribuzione hash con indice columnstore cluster. Le prestazioni aumentano quando si crea un join tra due tabelle hash nella stessa colonna di distribuzione. |
 | Dimensione      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
-| Staging        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta i dati nella tabella di staging, utilizza l'istruzione INSERT... Selezionare questa opzione per spostare i dati in tabelle di produzione. |
+| Gestione temporanea        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta i dati nella tabella di staging, utilizza l'istruzione INSERT... Selezionare questa opzione per spostare i dati in tabelle di produzione. |
 
 ## <a name="table-partitions"></a>Partizioni della tabella
 Una tabella partizionata archivia ed esegue operazioni sulle righe di tabella in base agli intervalli di dati. Una tabella può, ad esempio, essere partizionata in base ai giorni, ai mesi o agli anni. È possibile migliorare le prestazioni delle query tramite l'eliminazione della partizione, che limita l'analisi di una query ai dati all'interno di una partizione. È inoltre possibile gestire i dati tramite la commutazione tra partizioni. Poiché i dati in SQL Data Warehouse sono già distribuiti, un numero eccessivo di partizioni può rallentare le prestazioni delle query. Per altre informazioni, vedere [Indicazioni sul partizionamento](sql-data-warehouse-tables-partition.md).  Quando le partizioni nella tabella cambio della partizione che non sono vuoti, è possibile usare l'opzione TRUNCATE_TARGET nel [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) istruzione se è possibile troncare i dati esistenti. Il seguente codice commutatori nei dati giornalieri trasformati nel SalesFact sovrascrivendo eventuali dati esistenti. 
@@ -112,7 +112,7 @@ Quando crea il piano per l'esecuzione di una query, Query Optimizer usa le stati
 ## <a name="commands-for-creating-tables"></a>Comandi per la creazione di tabelle
 È possibile creare una tabella come nuova tabella vuota. È inoltre possibile creare e popolare una tabella con i risultati di un'istruzione SELECT. Di seguito sono riportati i comandi T-SQL per la creazione di una tabella.
 
-| Istruzione T-SQL | DESCRIZIONE |
+| Istruzione T-SQL | Descrizione |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Crea una tabella vuota definendo tutte le opzioni e le colonne della tabella. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Crea una tabella esterna. La definizione della tabella viene archiviata in SQL Data Warehouse. I dati della tabella vengono archiviati nell'archivio BLOB di Azure o in Azure Data Lake Store. |

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287972"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864459"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -100,7 +100,7 @@ Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dat
 - Applicazione
 - Stato accesso
 - Accesso condizionale
-- Data
+- Date
 
 ![Attività di accesso](./media/concept-sign-ins/04.png "Attività di accesso")
 
@@ -111,15 +111,15 @@ Il filtro **Applicazione** permette di specificare il nome dell'applicazione ric
 Il filtro **Stato accesso** permette di selezionare:
 
 - Tutti
-- Success
-- Esito negativo
+- Esito positivo
+- Errore
 
 Il filtro **Accesso condizionale** consente di selezionare lo stato dei criteri di accesso condizionale per l'accesso:
 
 - Tutti
 - Non applicato
-- Success
-- Esito negativo
+- Esito positivo
+- Errore
 
 Il filtro **Date** (Data) permette di definire un intervallo di tempo per i dati restituiti.  
 I valori possibili sono:
@@ -131,21 +131,28 @@ I valori possibili sono:
 
 Quando si seleziona un intervallo di tempo personalizzato, è possibile configurare un'ora di inizio e un'ora di fine.
 
-Se si aggiungono altri campi alla visualizzazione degli accessi, questi campi verranno aggiunti automaticamente all'elenco dei filtri. Ad esempio, se si aggiunge il campo **App client** all'elenco, si otterrà un'altra opzione di filtro che consente di impostare i filtri seguenti:
-
-- Browser      
-- Exchange ActiveSync (supportato)               
-- Exchange ActiveSync (non supportato)
-- Altri client               
-    - IMAP
-    - MAPI
-    - Client Office precedenti
-    - POP
-    - SMTP
-
-
+Se si aggiungono altri campi alla visualizzazione degli accessi, questi campi verranno aggiunti automaticamente all'elenco dei filtri. Ad esempio, se si aggiunge il campo **App client** all'elenco, si otterrà un'altra opzione di filtro che consente di impostare i filtri seguenti:  
 ![Attività di accesso](./media/concept-sign-ins/12.png "Attività di accesso")
 
+- **Browser**  
+    Questo filtro Mostra tutti gli eventi in cui tentativi di accesso sono stati eseguiti usando i flussi del browser.
+- **Exchange ActiveSync (supportato)**  
+    Questo filtro Mostra tutti i tentativi di accesso in cui il protocollo Exchange ActiveSync (EAS) è stato tentato da piattaforme supportate, ad esempio iOS, Android e Windows Phone.
+- **Exchange ActiveSync (non supportato)**  
+    Questo filtro Mostra tutti i tentativi di accesso in cui è stato tentato il protocollo EAS da piattaforme non supportate, ad esempio, distribuzioni di Linux.
+- **App per dispositivi mobili e client Desktop** questo filtro Mostra tutti i tentativi di accesso riusciti che non usavano i flussi del browser. Può trattarsi di App per dispositivi mobili da qualsiasi piattaforma con qualsiasi protocollo o dalle App client per Desktop, ad esempio Office in Windows o MacOS.
+  
+- **Altri client**
+    - **IMAP**  
+        Un client di posta elettronica legacy tramite IMAP per recuperare la posta elettronica.
+    - **MAPI**  
+        Office 2013, in cui è abilitato ADAL e viene utilizzato MAPI.
+    - **Client Office precedenti**  
+        Office 2013 nella sua configurazione predefinita in cui ADAL non è abilitato e si utilizza MAPI oppure Office 2016, in cui è stata disabilitata ADAL.
+    - **POP**  
+        Un client di posta elettronica legacy utilizzando POP3 per recuperare la posta elettronica.
+    - **SMTP**  
+        Un client legacy di posta elettronica tramite SMTP per inviare posta elettronica.
 
 ## <a name="download-sign-in-activities"></a>Scaricare le attività di accesso
 
@@ -189,10 +196,10 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 - ID applicazione
 - Applicazione
 - Client
-- Location
+- Località
 - Indirizzo IP
-- Data
-- Autenticazione a più fattori obbligatoria
+- Date
+- Autenticazione MFA obbligatoria
 - Stato accesso
 
 > [!NOTE]

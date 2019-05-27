@@ -2,18 +2,17 @@
 title: Procedure consigliate per l'operatore - Sicurezza dei cluster nel servizio Azure Kubernetes
 description: Procedure consigliate per l'operatore del cluster per la gestione della sicurezza e degli aggiornamenti dei cluster nel servizio Azure Kubernetes
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 05/13/2019
-ms.author: v-yeche
-ms.openlocfilehash: 0f24f7378ceb9266acf8988835b77cef80bd6f13
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: HT
+ms.date: 12/06/2018
+ms.author: iainfou
+ms.openlocfilehash: a468c2f3b1b3034c817ac19988420b68e18deb83
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192201"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849858"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e gli aggiornamenti dei cluster nel servizio Azure Kubernetes
 
@@ -51,7 +50,7 @@ Per altre informazioni sull'integrazione con Azure AD e sul controllo degli acce
 
 Così come è opportuno concedere a utenti o gruppi il minor numero di privilegi necessari, anche i contenitori dovrebbero essere limitati ai soli processi e azioni che devono eseguire. Per ridurre al minimo i rischi di attacchi, non configurare applicazioni e contenitori che richiedono l'escalation dei privilegi o l'accesso radice. Ad esempio, impostare `allowPrivilegeEscalation: false` nel manifesto del pod. Questi *contesti di protezione dei pod* sono integrati in Kubernetes e consentono di definire autorizzazioni aggiuntive come l'account utente o di gruppo da usare o le funzionalità Linux da esporre. Per altre procedure consigliate, vedere [Proteggere l'accesso dei pod alle risorse][pod-security-contexts].
 
-Per un controllo più granulare delle azioni dei contenitori, è anche possibile usare funzionalità di sicurezza predefinite di Linux, come *AppArmor* e *seccomp*. Queste funzionalità vengono definite a livello di nodo e quindi implementate tramite un manifesto pod.
+Per un controllo più granulare delle azioni dei contenitori, è anche possibile usare funzionalità di sicurezza predefinite di Linux, come *AppArmor* e *seccomp*. Queste funzionalità vengono definite a livello di nodo e quindi implementate tramite un manifesto pod. Funzionalità di sicurezza incorporate Linux sono disponibili solo in nodi Linux e i POD.
 
 > [!NOTE]
 > Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. Funzionalità di sicurezza aggiuntive quali *AppArmor*, *seccomp*, i *criteri di sicurezza pod* o altri controlli degli accessi in base al ruolo (RBAC) con granularità fine per i nodi rendono più difficili gli attacchi. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati.
@@ -68,7 +67,7 @@ Per una dimostrazione di AppArmor in azione, l'esempio seguente crea un profilo 
 #include <tunables/global>
 profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
   #include <abstractions/base>
-
+  
   file,
   # Deny all file writes.
   deny /** w,
@@ -182,25 +181,25 @@ Il servizio Azure Kubernetes supporta quattro versioni secondarie di Kubernetes.
 
 Per verificare le versioni disponibili per il cluster in uso, usare il comando [az aks get-upgrades][az-aks-get-upgrades] come illustrato nell'esempio seguente:
 
-```azurecli
+```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
 È quindi possibile aggiornare il cluster AKS tramite il comando [az aks upgrade][az-aks-upgrade]. Il processo di aggiornamento isola e svuota un nodo alla volta, pianifica i pod sui nodi rimanenti e quindi distribuisce un nuovo nodo che esegue le versioni più recenti del sistema operativo e di Kubernetes.
 
-```azurecli
+```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
 ```
 
 Per altre informazioni sugli aggiornamenti nel servizio Azure Container, vedere [Versioni Kubernetes supportate nel servizio Kubernetes di Azure][aks-supported-versions] e [Aggiornare un cluster di Azure Kubernetes Service (AKS)][aks-upgrade].
 
-## <a name="process-node-updates-and-reboots-using-kured"></a>Elaborare gli aggiornamenti e i riavvii dei nodi tramite kured
+## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Nodo Linux processo aggiorna e riavvia usando kured
 
-**Indicazioni sulle procedure consigliate** - Il servizio Azure Kubernetes scarica e installa automaticamente le correzioni per la sicurezza in ogni nodo del ruolo di lavoro, ma non esegue il riavvio automaticamente se necessario. Usare `kured` per controllare i riavvii in sospeso, quindi isolare e svuotare il nodo per consentirne il riavvio e applicare gli aggiornamenti in modo che sia il più possibile protetto relativamente al sistema operativo.
+**Procedure consigliate** - AKS vengono scaricati automaticamente e la protezione di installazioni di correzioni in ogni nodo Linux, ma non riavvia automaticamente se necessario. Usare `kured` per controllare i riavvii in sospeso, quindi isolare e svuotare il nodo per consentirne il riavvio e applicare gli aggiornamenti in modo che sia il più possibile protetto relativamente al sistema operativo. Per i nodi Windows Server (attualmente in anteprima nel servizio contenitore di AZURE), eseguire regolarmente un'operazione di aggiornamento del servizio contenitore di AZURE in modo sicuro svuotano e svuotare i POD e distribuire i nodi aggiornati.
 
-Ogni sera i nodi AKS ricevono le patch di protezione disponibili tramite il canale di aggiornamento della distribuzione. Questo comportamento viene configurato automaticamente quando i nodi vengono distribuiti in un cluster AKS. Per ridurre al minimo le interruzioni del servizio e l'impatto sui carichi di lavoro in esecuzione, i nodi non vengono riavviati automaticamente se una patch di protezione o un aggiornamento del kernel lo richiede.
+Ogni sera, nodi di Linux nel servizio contenitore di AZURE ottengono le patch di sicurezza disponibili tramite il canale di aggiornamento della distribuzione. Questo comportamento viene configurato automaticamente quando i nodi vengono distribuiti in un cluster AKS. Per ridurre al minimo le interruzioni del servizio e l'impatto sui carichi di lavoro in esecuzione, i nodi non vengono riavviati automaticamente se una patch di protezione o un aggiornamento del kernel lo richiede.
 
-Il progetto open-source [kured (KUbernetes REboot Daemon)][kured] di Weaveworks controlla i riavvii di nodi in sospeso. Quando a un nodo vengono applicati aggiornamenti che richiedono un riavvio, il nodo viene isolato e svuotato in sicurezza per spostare e pianificare i pod in altri nodi del cluster. Dopo il riavvio, il nodo viene reinserito nel cluster e Kubernetes riprende la pianificazione dei pod su di esso. Per ridurre al minimo le interruzioni del servizio, a `kured` è consentito riavviare un solo nodo alla volta.
+Il progetto open-source [kured (KUbernetes REboot Daemon)][kured] di Weaveworks controlla i riavvii di nodi in sospeso. Quando un nodo Linux applica gli aggiornamenti che richiedono un riavvio, il nodo è contrassegnati come non pianificabili e svuotato per spostare e pianificare i POD in altri nodi del cluster in modo sicuro. Dopo il riavvio, il nodo viene reinserito nel cluster e Kubernetes riprende la pianificazione dei pod su di esso. Per ridurre al minimo le interruzioni del servizio, a `kured` è consentito riavviare un solo nodo alla volta.
 
 ![Processo di riavvio dei nodi AKS tramite kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 
@@ -225,8 +224,8 @@ In questo articolo è stato illustrato in particolare come proteggere il cluster
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
-[az-aks-get-upgrades]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
-[az-aks-upgrade]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade
+[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
+[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [aks-supported-versions]: supported-kubernetes-versions.md
 [aks-upgrade]: upgrade-cluster.md
 [aks-best-practices-identity]: concepts-identity.md

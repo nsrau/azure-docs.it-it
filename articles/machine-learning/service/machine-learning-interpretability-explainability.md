@@ -1,7 +1,7 @@
 ---
 title: Interpretabilità dei modelli
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come spiegare il motivo per cui il modello esegue stime usando il SDK di Azure Machine Learning. Può essere utilizzato durante il training e inferenza per comprendere come il modello effettua stime.
+description: Informazioni su come spiegare il motivo per cui il modello esegue stime usando il SDK di Azure Machine Learning. Può essere utilizzato durante il training e inferenza per comprendere come il modello esegue le stime.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,25 +10,25 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/29/2019
-ms.openlocfilehash: 62d51a0075d8b6864e4b10fa6c1eb423a440d6d0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4261e869fe17283886d7d8ea8101e03110d6dad4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926457"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851985"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Interpretazione di modello con il servizio di Azure Machine Learning
 
 In questo articolo si apprenderà come spiegare il motivo per cui il modello creato le stime quanto avveniva con il pacchetto di interpretazione di Azure Machine Learning Python SDK.
 
 Uso dei metodi e classi in questo pacchetto, è possibile ottenere:
-+ Interpretazione nel mondo reale i set di dati su larga scala, durante la fase di training e inferenza. 
++ Interpretazione nel mondo reale i set di dati su larga scala, durante il training e inferenza. 
 + Visualizzazioni interattive per facilitano l'individuazione di modelli nei dati e le spiegazioni in fase di training
 + I valori di priorità delle funzionalità: funzionalità di gestione delle eccezioni non elaborate e ingegneria
 
 Durante la fase di training del ciclo di sviluppo, gli analizzatori e i progettisti di modelli possono utilizzare per spiegare l'output di un modello agli stakeholder per fiducia va costruita.  Sono inoltre utilizzare le informazioni dettagliate nel modello per il debug, convalida il comportamento del modello una corrispondenza per i loro obiettivi e per verificare la presenza di distorsione.
 
-Durante la fase di inferenza ai data Scientist possono usare interpretazione di per spiegare le stime per le persone che usano il modello. Ad esempio, il motivo per cui è stato il modello di negare un mutuo o stimare che un portfolio di investimento comporta un rischio più elevato?
+Inferenza o modello di punteggio, è la fase in cui viene usato il modello distribuito per la stima, in genere sui dati di produzione. Durante questa fase, i data Scientist possono spiegare le stime per le persone che usano il modello risultante. Ad esempio, il motivo per cui è stato il modello di negare un mutuo o stimare che un portfolio di investimento comporta un rischio più elevato?
 
 Utilizzando queste offerta, si possono spiegare i modelli di machine learning **a livello globale in tutti i dati**, o **localmente su un punto dati specifico** usando le tecnologie di avanzato in modo scalabile e facile da usare.
 
@@ -126,7 +126,7 @@ Il `explain` pacchetto è progettato per funzionare con entrambe le destinazioni
     # "features" and "classes" fields are optional
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     ```
-    oppure
+    o
     
     ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
@@ -157,7 +157,7 @@ Il `explain` pacchetto è progettato per funzionare con entrambe le destinazioni
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
     ```
-    oppure
+    o
     ```python
     # explain the first five data points in the test set
     local_explanation = explainer.explain_local(x_test[0:4])
@@ -229,7 +229,7 @@ Usare il dashboard di visualizzazione per comprendere e interpretare il modello:
 
 I tracciati seguenti forniscono una visualizzazione globale del modello con Training con le stime e spiegazioni.
 
-|Tracciato|DESCRIZIONE|
+|Tracciato|Descrizione|
 |----|-----------|
 |Esplorazione dei dati| Panoramica del set di dati con valori di stima.|
 |Importanza globale|Mostra le prime funzioni importanti K (configurabile K) a livello globale. Questo grafico è utile per comprendere il comportamento globale del modello sottostante.|
@@ -241,7 +241,7 @@ I tracciati seguenti forniscono una visualizzazione globale del modello con Trai
 ### <a name="local-visualizations"></a>Visualizzazioni locali
 È possibile fare clic su qualsiasi singolo punto dati in qualsiasi momento il tracciato precedente per caricare il tracciato di importanza funzionalità locali per il punto dati specificato.
 
-|Tracciato|DESCRIZIONE|
+|Tracciato|Descrizione|
 |----|-----------|
 |Importanza locale|Mostra le prime funzioni importanti K (configurabile K) a livello globale. Questo grafico è utile per comprendere il comportamento locale del modello sottostante in un punto dati specifico.|
 
@@ -287,7 +287,7 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
 
-## <a name="interpretability-in-inferencing"></a>Interpretazione di inferenza
+## <a name="interpretability-in-inference"></a>Interpretazione di inferenza
 
 La spiegazione può essere distribuiti insieme al modello originale e utilizzabile in fase di assegnazione dei punteggi per fornire le informazioni di spiegazione locale. Il processo di distribuzione di una spiegazione di assegnazione dei punteggi è simile alla distribuzione di un modello e i passaggi seguenti:
 

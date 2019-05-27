@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 78d2392e32465b3091c49032dc5df5f3a5b6061a
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: acfd5230d1bd572ea5179651558e3f736a8570af
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416020"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833131"
 ---
 # <a name="what-is-ip-address-1686312916"></a>Che cos'è l'indirizzo IP 168.63.129.16?
 
@@ -38,7 +38,7 @@ L'indirizzo IP pubblico 168.63.129.16 viene usato in tutte le aree e tutti i clo
 
 [I probe di integrità di bilanciamento del carico Azure](../load-balancer/load-balancer-custom-probe-overview.md) proveniente da questo indirizzo IP. Se si blocca questo indirizzo IP, i probe avrà esito negativo.
 
-In uno scenario di rete non virtuale, il probe di integrità è originato da un indirizzo IP privato e non viene usato 168.63.129.16.
+In uno scenario di rete non virtuale (versione classica), il probe di integrità è originato da un indirizzo IP privato e non viene usato 168.63.129.16.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

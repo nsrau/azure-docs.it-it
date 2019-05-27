@@ -3,18 +3,18 @@ title: Sviluppare i moduli per Azure IoT Edge | Microsoft Docs
 description: Sviluppare moduli personalizzati per Azure IoT Edge in grado di comunicare con il runtime e l'hub IoT
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 02/25/2019
-ms.date: 03/25/2019
+ms.author: kgremban
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ea2d1dbcf991ce858f07905bc1bb41809f9bcdd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.custom: seodec18
+ms.openlocfilehash: 5285490ca1a27494cbcd3ea3d6527b78c7d38c8c
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322447"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833429"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Sviluppare moduli di IoT Edge personalizzati
 
@@ -48,7 +48,7 @@ Per semplificare la creazione delle route, IoT Edge aggiunge il concetto di endp
 
 Infine, i messaggi da dispositivo a cloud gestiti dall'hub Edge vengono contrassegnati con le proprietà di sistema seguenti:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | -------- | ----------- |
 | $connectionDeviceId | L'ID dispositivo del client che ha inviato il messaggio |
 | $connectionModuleId | L'ID modulo del modulo che ha inviato il messaggio |
@@ -67,7 +67,7 @@ Creare un'istanza di ModuleClient per connettere il modulo all'hub IoT Edge in e
 
 [Preparare l'ambiente di sviluppo e test per IoT Edge](development-environment.md)
 
-[Usare Visual Studio 2017 per lo sviluppo di C# moduli di IoT Edge](how-to-visual-studio-develop-csharp-module.md)
+[Usare Visual Studio per lo sviluppo di C# moduli di IoT Edge](how-to-visual-studio-develop-module.md)
 
 [Usare Visual Studio Code per sviluppare moduli di IoT Edge](how-to-vs-code-develop-module.md)
 

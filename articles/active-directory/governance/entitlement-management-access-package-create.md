@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/24/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad6570a3f30e40e4074502a8ce85bf739f58d3f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 312658bd653d94f3e1a32204b3c5ae4ae290558e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866425"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832635"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Creare un nuovo pacchetto di accesso nella gestione dei diritti di Azure AD (anteprima)
 
@@ -56,7 +56,7 @@ Il diagramma seguente illustra il processo generale per creare un nuovo pacchett
 
 1. Fare clic su **nuovo pacchetto di accesso**.
 
-## <a name="basics"></a>Nozioni di base
+## <a name="basics"></a>Generale
 
 Nel **nozioni di base** scheda, assegnare un nome al pacchetto di accesso e specificare quale catalogo per creare il pacchetto di accesso in.
 
@@ -98,7 +98,7 @@ Nel **i ruoli delle risorse** scheda, si seleziona le risorse da includere nel p
 
 1. Fare clic su **Avanti**.
 
-## <a name="policy"></a>Policy
+## <a name="policy"></a>Criteri
 
 Nel **criteri** scheda, si crea il primo criterio per specificare che possono richiedere il pacchetto di accesso e anche le impostazioni di approvazione e scadenza. In un secondo momento, è possibile creare più criteri per consentire altri gruppi di utenti di richiedere il pacchetto di accesso con le proprie impostazioni di approvazione e scadenza. È anche possibile scegliere creare i criteri in un secondo momento.
 

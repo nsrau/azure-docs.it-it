@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: b426399f73375618a2084eff82abba5d4934b914
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 1702d9558e27452006a2f015fd3312ac19362871
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074216"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849860"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Applicare sicurezza e gli aggiornamenti del kernel a nodi Linux in Azure Kubernetes Service (AKS)
 
@@ -57,14 +57,13 @@ Non è possibile mantenere la stessa versione di Kubernetes durante un evento di
 Per distribuire il DaemonSet `kured`, applicare l'esempio di manifesto YAML seguente dalla loro pagina dei progetti di GitHub. Questo manifesto crea un ruolo e un ruolo del cluster, associazioni e un account del servizio, quindi distribuisce il DaemonSet usando la versione 1.1.1.0 di `kured` che supporta i cluster di servizio Azure Kubernetes versione 1.9 o successiva.
 
 ```console
-kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.1.0/kured-1.1.0.yaml
-```
+kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.2.0/kured-1.2.0-dockerhub.yaml
 
-È anche possibile configurare i parametri aggiuntivi per `kured`, ad esempio l'integrazione con Prometheus o Slack. Per altre informazioni sui parametri di configurazione aggiuntivi, consultare la [documentazione di installazione di kured][kured-install].
+You can also configure additional parameters for `kured`, such as integration with Prometheus or Slack. For more information about additional configuration parameters, see the [kured installation docs][kured-install].
 
-## <a name="update-cluster-nodes"></a>Aggiornare i nodi del cluster
+## Update cluster nodes
 
-Per impostazione predefinita, i nodi di Linux nel servizio contenitore di AZURE controllare gli aggiornamenti ogni sera. Se non si vuole attendere, è possibile eseguire manualmente un aggiornamento per verificare che l'esecuzione di `kured` avvenga correttamente. In primo luogo, seguire la procedura per creare una [connessione SSH a uno dei nodi servizio Azure Kubernetes][aks-ssh]. Dopo aver creato una connessione SSH al nodo Linux, verificare la presenza di aggiornamenti e applicarli come indicato di seguito:
+By default, Linux nodes in AKS check for updates every evening. If you don't want to wait, you can manually perform an update to check that `kured` runs correctly. First, follow the steps to [SSH to one of your AKS nodes][aks-ssh]. Once you have an SSH connection to the Linux node, check for updates and apply them as follows:
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y

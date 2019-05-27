@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 648dc462477570a692eff588c558a18a3121e4e7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025242"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851015"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>Quali sono le matrici di campo-programmable gate (FPGA)
 
@@ -30,7 +30,7 @@ Il diagramma e la tabella seguenti evidenziano un confronto tra i circuiti FPGA 
 
 ![Diagramma di confronto dei dispositivi FPGA nel servizio Azure Machine Learning](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|Processore||DESCRIZIONE|
+|Processore||Descrizione|
 |---|:-------:|------|
 |Application-specific integrated circuit|ASIC|I circuiti personalizzati, ad esempio Google TensorFlow Processor Unit (TPU), offrono la massima efficienza. Non possono essere riconfigurati in base alle esigenze.|
 |Field-programmable Gate Arrays|FPGA|I circuiti FPGA, ad esempio quelli disponibili in Azure, assicurano prestazioni simili a quelle dei circuiti ASIC. Sono flessibili e possono essere riconfigurati nel corso del tempo per implementare la nuova logica.|
@@ -39,7 +39,7 @@ Il diagramma e la tabella seguenti evidenziano un confronto tra i circuiti FPGA 
 
 FPGA in Azure si basa sui dispositivi di Intel FPGA, quali i data Scientist e sviluppatori usano per accelerare i calcoli per intelligenza artificiale in tempo reale. L'architettura abilitata per i circuiti FPGA offre un livello elevato di prestazioni, flessibilità, scalabilità ed è disponibile in Azure.
 
-I dispositivi FPGA consentono di ottenere una bassa latenza per le richieste di inferenza in tempo reale. Non sono necessarie richieste asincrone (invio in batch). L'invio in batch può causare latenza perché rende necessario elaborare più dati. Le implementazioni delle unità di elaborazione neurale non richiedono l'invio in batch; di conseguenza la latenza può essere più volte inferiore, rispetto ai processori CPU e GPU.
+FPGA consentono di ottenere le richieste a bassa latenza per l'inferenza in tempo reale (o modello di punteggio). Non sono necessarie richieste asincrone (invio in batch). L'invio in batch può causare latenza perché rende necessario elaborare più dati. Le implementazioni delle unità di elaborazione neurale non richiedono l'invio in batch; di conseguenza la latenza può essere più volte inferiore, rispetto ai processori CPU e GPU.
 
 ### <a name="reconfigurable-power"></a>Potenza riconfigurabile
 I circuiti FPGA possono essere riconfigurati per diversi tipi di modelli di Machine Learning. Questa flessibilità consente di accelerare le applicazioni basandosi sul modello ottimale di memoria e precisione numerica utilizzato. Dal momento che sono riconfigurabili, è possibile rimanere al passo con i requisiti degli algoritmi AI in costante evoluzione.

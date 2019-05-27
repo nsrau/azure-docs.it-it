@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 90b2dfdbec0d6dc81a05b845832fda92fe36d98c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8bd6e7c77faa54a8ebf0842cf140ef8aa73e953
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656592"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834537"
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
 Questo articolo illustra la sintassi delle espressioni di criteri, che è C# 7. Ogni espressione ha accesso alla variabile [context](api-management-policy-expressions.md#ContextVariables) fornita implicitamente e a un [subset](api-management-policy-expressions.md#CLRTypes) autorizzato di tipi di .NET Framework.
@@ -192,7 +192,7 @@ Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membr
 |System.Xml.Linq.XComment|Tutti|
 |System.Xml.Linq.XContainer|Tutti|
 |System.Xml.Linq.XDeclaration|Tutti|
-|System.Xml.Linq.XDocument|Tutti, ad eccezione di: Caricamento|
+|System.Xml.Linq.XDocument|Tutti, ad eccezione di: Carica|
 |System.Xml.Linq.XDocumentType|Tutti|
 |System.Xml.Linq.XElement|Tutti|
 |System.Xml.Linq.XName|Tutti|
@@ -229,7 +229,7 @@ Una variabile denominata `context` è disponibile in modo implicito in ogni [esp
 |IUserIdentity|Id: string<br /><br /> Provider: string|
 |ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|
 |string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> Restituisce valori di parametro separati da virgole oppure `defaultValue` se il parametro non viene trovato.|
-|T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> Restituisce il valore della variabile nel tipo `T` oppure `defaultValue` se la variabile non viene trovata.<br /><br /> Questo metodo genera un'eccezione se il tipo specificato non corrisponde al tipo effettivo della variabile restituita.|
+|T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> defaultValue: M<br /><br /> Restituisce il valore della variabile nel tipo `T` oppure `defaultValue` se la variabile non viene trovata.<br /><br /> Questo metodo genera un'eccezione se il tipo specificato non corrisponde al tipo effettivo della variabile restituita.|
 |BasicAuthCredentials AsBasic(input: this string)|input: string<br /><br /> Se il parametro di input contiene un valore di intestazione di richiesta di autorizzazione Autenticazione HTTP di base valido, il metodo restituisce un oggetto di tipo `BasicAuthCredentials`; in caso contrario restituisce un valore null.|
 |bool TryParseBasic(input: this string, result: out BasicAuthCredentials)|input: string<br /><br /> result: out BasicAuthCredentials<br /><br /> Se il parametro di input contiene un valore di autorizzazione Autenticazione HTTP di base valido nell'intestazione della richiesta, il metodo restituisce `true` e il parametro risultante contiene un valore di tipo `BasicAuthCredentials`; in caso contrario, il metodo restituisce `false`.|
 |BasicAuthCredentials|Password: string<br /><br /> UserId: string|
@@ -243,6 +243,7 @@ Una variabile denominata `context` è disponibile in modo implicito in ogni [esp
 |byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - messaggio cifrato da decrittografare<br /><br />alg - nome di un algoritmo di crittografia simmetrica<br /><br />key - chiave di crittografia<br /><br />iv - vettore di inizializzazione<br /><br />Restituisce testo normale non crittografato.|
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - messaggio cifrato da decrittografare<br /><br />alg - algoritmo di crittografia<br /><br />Restituisce testo normale non crittografato.|
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - messaggio cifrato da decrittografare<br /><br />alg - algoritmo di crittografia<br /><br />key - chiave di crittografia<br /><br />iv - vettore di inizializzazione<br /><br />Restituisce testo normale non crittografato.|
+|bool VerifyNoRevocation(input: this System.Security.Cryptography.X509Certificates.X509Certificate2)|Esegue una convalida della catena X.509 senza controllare lo stato di revoca di certificato.<br /><br />input - oggetto certificato<br /><br />Restituisce `true` se la convalida ha esito positivo; `false` se la convalida non riesce.|
 
 
 ## <a name="next-steps"></a>Passaggi successivi

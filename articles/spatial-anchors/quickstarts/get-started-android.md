@@ -8,14 +8,14 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 003e9beb3a319802754397efae3b636f51de9e52
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 03589745e6e9b40b937c49162e99035ce6c81423
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995898"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800043"
 ---
-# <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Avvio rapido: Creare un'app Android con Ancoraggi nello spazio di Azure
+# <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Android con Ancoraggi nello spazio di Azure
 
 Questa guida introduttiva illustra come creare un'app Android usando [Ancoraggi nello spazio di Azure](../overview.md) in Java o C++/NDK. Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine, si avrà un'app ARCore per Android in grado di salvare e richiamare un ancoraggio nello spazio.
 
@@ -73,7 +73,7 @@ Individuare il campo `SpatialAnchorsAccountId` e sostituire `Set me` con l'ident
 
 # <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
 
-Aprire `Android/NDK/app/src/main/cpp/spatial_services_application.cc`.
+Aprire `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
 
 Individuare il campo `SpatialAnchorsAccountKey` e sostituire `Set me` con la chiave dell'account.
 

@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un indice in un'applicazione console C# - Ricerca di Azure"
+title: "Guida introduttiva: Creare un indice in un'applicazione console C# - Ricerca di Azure"
 description: Informazioni su come creare un indice di ricerca full-text in C# usando l'SDK .NET della Ricerca di Azure.
 author: heidisteen
 manager: cgronlun
@@ -9,19 +9,20 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/08/2019
-ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/16/2019
+ms.openlocfilehash: 8d186ae83e1016de9c4548d4b1c39303025a5270
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269045"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795807"
 ---
-# <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Avvio rapido: 1 - Creare un indice di Ricerca di Azure in C#
+# <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Guida introduttiva: 1 - Creare un indice di Ricerca di Azure in C#
 > [!div class="op_single_selector"]
 > * [C#](search-create-index-dotnet.md)
 > * [Portale](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Python](search-get-started-python.md)
 > * [Postman](search-fiddler.md)
 >*
 
@@ -36,11 +37,11 @@ Questo articolo illustra il processo di creazione di un [indice di Ricerca di Az
 
 In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti. 
 
-[Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido.
++ [Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido.
 
-[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), qualsiasi edizione. Il codice di esempio e le istruzioni sono stati testati nell'edizione Community Edition gratuita.
++ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), qualsiasi edizione. Il codice di esempio e le istruzioni sono stati testati nell'edizione Community Edition gratuita.
 
-[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) fornisce la soluzione di esempio, un'applicazione console .NET Core scritta in C#, disponibile nel repository GitHub di esempi di Azure. Scaricare ed estrarre la soluzione. Per impostazione predefinita, le soluzioni sono di sola lettura. Fare clic con il pulsante destro del mouse sulla soluzione e deselezionare l'attributo di sola lettura in modo che sia possibile modificare i file. I dati sono inclusi nella soluzione.
++ [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) fornisce la soluzione di esempio, un'applicazione console .NET Core scritta in C#, disponibile nel repository GitHub di esempi di Azure. Scaricare ed estrarre la soluzione. Per impostazione predefinita, le soluzioni sono di sola lettura. Fare clic con il pulsante destro del mouse sulla soluzione e deselezionare l'attributo di sola lettura in modo che sia possibile modificare i file. I dati sono inclusi nella soluzione.
 
 ## <a name="get-a-key-and-url"></a>Ottenere una chiave e un URL
 

@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 02463ba47a48f5e86055b9ecb4e0edbdf9608769
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 11819730e05e425066e1f060769e14d5290f877d
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024562"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851971"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Eseguire il training di modelli di PyTorch con il servizio Azure Machine Learning
 
@@ -43,7 +43,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 
 Qui si specificano i parametri seguenti al costruttore PyTorch:
 
-Parametro | DESCRIZIONE
+Parametro | Descrizione
 --|--
 `source_directory` |  Directory locale contenente tutto il codice necessario per il processo di training. Questa cartella viene copiata dal computer locale nelle risorse di calcolo remote
 `script_params` |  Dizionario che specifica gli argomenti della riga di comando allo script di training `entry_script`, sotto forma di < argomento della riga di comando, valore > coppie.  Per specificare un flag dettagliato nella `script_params`, usare `<command-line argument, "">`.
@@ -84,7 +84,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 
 Questo codice espone i nuovi parametri seguenti al costruttore di PyTorch:
 
-Parametro | DESCRIZIONE | Predefinito
+Parametro | Descrizione | Predefinito
 --|--|--
 `node_count` |  Numero di nodi da usare per il processo di training. | `1`
 `process_count_per_node` |  Numero di processi (o "ruoli di lavoro") da eseguire in ogni nodo. | `1`
@@ -105,7 +105,7 @@ run = exp.submit(pt_est)
 
 ## <a name="export-to-onnx"></a>Esportare in ONNX
 
-Per ottenere inferenza ottimizzato con la [ONNX Runtime](concept-onnx.md), è possibile convertire il modello di PyTorch training nel formato ONNX. Vedere le [esercitazione](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) per un esempio.
+Per ottimizzare l'inferenza con il [ONNX Runtime](concept-onnx.md), convertire il modello di PyTorch training nel formato ONNX. Inferenza o modello di punteggio, è la fase in cui viene usato il modello distribuito per la stima, in genere sui dati di produzione. Vedere le [esercitazione](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) per un esempio.
 
 ## <a name="examples"></a>Esempi
 
