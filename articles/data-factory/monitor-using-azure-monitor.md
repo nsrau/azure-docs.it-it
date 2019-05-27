@@ -379,7 +379,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| string | Avvio dell'attivazione del trigger nell'intervallo di tempo, in formato UTC | `2017-06-26T20:55:29.5007959Z`|
 |status| string | Stato finale indicante se il trigger è stato attivato correttamente (Succeeded o Failed) | `Succeeded`|
 
-## <a name="metrics"></a>Metriche
+## <a name="metrics"></a>metrics
 
 Il monitoraggio di Azure consente di usare la telemetria per ottenere visibilità sulle prestazioni e sull'integrità dei carichi di lavoro in Azure. Il tipo di dati di telemetria Azure più importante è rappresentato dalle metriche (altrimenti dette contatori delle prestazioni) generate dalla maggior parte delle risorse di Azure. Il monitoraggio di Azure offre alcuni modi per configurare e usare queste metriche per il monitoraggio e la risoluzione dei problemi.
 

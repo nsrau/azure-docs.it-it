@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b051f844b8c221e2e53c5fcf204878f80447cfe8
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 26935b53d8f852289513a5a7b5d31e3befe3e3b2
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596556"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002239"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintassi di query Lucene in Ricerca di Azure
 È possibile scrivere query su Ricerca di Azure basate sulla sintassi avanzata del [parser di query Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) per moduli di query specializzati, ad esempio caratteri jolly, ricerca fuzzy, ricerca per prossimità, espressioni regolari. La maggior parte della sintassi del parser di query Lucene viene [implementata in Ricerca di Azure senza essere modificata](search-lucene-query-architecture.md), ad eccezione delle *ricerche per intervalli* che vengono costruite in Ricerca di Azure tramite le espressioni `$filter`. 
@@ -79,7 +79,7 @@ L'esempio precedente è relativo alla tilde (~), ma lo stesso principio si appli
  I caratteri speciali devono essere preceduti da un carattere di escape per poter essere usati come parte del testo di ricerca. Per usare i caratteri di escape, anteporre la barra rovesciata (\\). I caratteri speciali che devono essere preceduti da un carattere di escape includono i seguenti:  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- Ad esempio, per usare i caratteri di escape con un carattere jolly, usare \\*.
+ Ad esempio, per eseguire l'escape di un carattere jolly, usare \\ \*.
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codifica dei caratteri riservati e non sicuri negli URL
 

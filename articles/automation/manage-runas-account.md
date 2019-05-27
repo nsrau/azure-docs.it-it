@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/03/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a104c9e41ef1843c377b0406b499ffae504db97
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 3afe27bf71d112b53c31ab696f71d4e1a0cf6b79
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595692"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002497"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gestire account RunAs di Automazione di Azure
 
@@ -24,12 +24,12 @@ Quando si crea un account RunAs, viene creato un nuovo utente dell'entità servi
 
 Esistono due tipi di account RunAs:
 
-* **Account RunAs di Azure**: questo account viene usato per gestire le risorse del modello di distribuzione di Resource Manager.
+* **Azure Account runas** -questo account viene usato per gestire [modello di distribuzione Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) le risorse.
   * Crea un'applicazione Azure AD da esportare con un certificato autofirmato, crea un account dell'entità servizio per l'applicazione in Azure AD e assegna il ruolo Collaboratore per l'account nella sottoscrizione corrente. È possibile cambiare l'impostazione in Proprietario o in qualsiasi altro ruolo. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md).
   * Crea un asset di certificato di Automazione denominato *AzureRunAsCertificate* nell'account di Automazione specificato. L'asset di certificato contiene la chiave privata del certificato usata dall'applicazione Azure AD.
   * Crea un asset di connessione di Automazione denominato *AzureRunAsConnection* nell'account di Automazione specificato. L'asset di connessione contiene l'ID applicazione, l'ID tenant, l'ID sottoscrizione e l'identificazione personale del certificato.
 
-* **Account RunAs classico di Azure**: questo account viene usato per gestire le risorse classiche del modello di distribuzione.
+* **Azure Account runas classico** -questo account viene usato per gestire [modello di distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md) le risorse.
   * Crea un certificato di gestione nella sottoscrizione
   * Crea un asset di certificato di Automazione denominato *AzureClassicRunAsCertificate* nell'account di Automazione specificato. L'asset di certificato contiene la chiave privata del certificato usata dal certificato di gestione.
   * Crea un asset di connessione di Automazione denominato *AzureClassicRunAsConnection* nell'account di Automazione specificato. L'asset di connessione contiene il nome della sottoscrizione, l'ID sottoscrizione e il nome dell'asset di certificato.
@@ -43,20 +43,20 @@ Esistono due tipi di account RunAs:
 
 ## <a name="permissions"></a>Autorizzazioni per la configurazione degli account RunAs
 
-Per creare o aggiornare un account RunAs, è necessario avere autorizzazioni e privilegi specifici. Un amministratore globale o un coamministratore può eseguire tutte le attività. Nel caso in cui i compiti siano separati, nella tabella seguente è disponibile un elenco delle attività, il relativo cmdlet e le autorizzazioni necessarie:
+Per creare o aggiornare un account RunAs, è necessario avere autorizzazioni e privilegi specifici. Un proprietario di una sottoscrizione e un amministratore globale in Azure Active Directory possono completare tutte le attività. Nel caso in cui i compiti siano separati, nella tabella seguente è disponibile un elenco delle attività, il relativo cmdlet e le autorizzazioni necessarie:
 
 |Attività|Cmdlet  |Autorizzazioni minime  |Dove impostare le autorizzazioni|
 |---|---------|---------|---|
 |Creare un'applicazione Azure AD|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Ruolo Sviluppatore di applicazioni<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > Registrazioni per l'app |
 |Aggiungere una credenziale all'applicazione.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Amministratore dell'applicazione o AMMINISTRATORE GLOBALE<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > Registrazioni per l'app|
-|Creare e ottenere un'entità servizio di Azure AD|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Amministratore dell'applicazione o AMMINISTRATORE GLOBALE        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > Registrazioni per l'app|
-|Assegnare o ottenere il ruolo Controllo degli accessi in base al ruolo per l'entità specificata|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Proprietario o Amministratore Accesso utenti        | [Sottoscrizione](../role-based-access-control/role-assignments-portal.md)</br>Home > Sottoscrizioni > \<nome della sottoscrizione\> - Controllo di accesso (IAM)|
+|Creare e ottenere un'entità servizio di Azure AD|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Amministratore dell'applicazione o AMMINISTRATORE GLOBALE<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > Registrazioni per l'app|
+|Assegnare o ottenere il ruolo Controllo degli accessi in base al ruolo per l'entità specificata|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | È necessario disporre delle autorizzazioni seguenti:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>O essere costituito da:</br></br>Proprietario o Amministratore Accesso utenti        | [Sottoscrizione](../role-based-access-control/role-assignments-portal.md)</br>Home > Sottoscrizioni > \<nome della sottoscrizione\> - Controllo di accesso (IAM)|
 |Creare o rimuovere un certificato di Automazione|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Collaboratore nel gruppo di risorse         |Gruppo di risorse account di Automazione|
 |Creare o rimuovere una connessione di Automazione|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Collaboratore nel gruppo di risorse |Gruppo di risorse account di Automazione|
 
-<sup>1</sup> Gli utenti non amministratori nel tenant di Azure AD possono [registrare le applicazioni di AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) se l'opzione **Gli utenti possono registrare applicazioni** del tenant di Azure AD nella pagina **Impostazioni utente** è impostata su **Sì**. Se le impostazioni delle registrazioni dell'app sono impostate su **No**, l'utente che esegue questa azione deve essere un amministratore globale in Azure AD.
+<sup>1</sup> Gli utenti non amministratori nel tenant di Azure AD possono [registrare le applicazioni di AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) se l'opzione **Gli utenti possono registrare applicazioni** del tenant di Azure AD nella pagina **Impostazioni utente** è impostata su **Sì**. Se l'impostazione registrazioni per l'app è impostato su **No**, l'utente che esegue questa azione deve essere un **amministratore globale** in Azure AD.
 
-Se l'utente non è membro dell'istanza di Active Directory della sottoscrizione prima dell'aggiunta al ruolo di amministratore globale/coamministratore della sottoscrizione, viene aggiunto come guest. In questo caso si riceverà un avviso `You do not have permissions to create…` nella pagina **Aggiungi account di Automazione**. Gli utenti che prima sono stati aggiunti al ruolo di amministratore globale/coamministratore possono essere rimossi dall'istanza di Active Directory della sottoscrizione e aggiunti nuovamente per renderli utenti completi in Active Directory. Per verificare questa situazione dal riquadro **Azure Active Directory** nel portale di Azure selezionare **Utenti e gruppi**, **Tutti gli utenti** e, dopo avere selezionato l'utente specifico, selezionare **Profilo**. Il valore dell'attributo **Tipo utente** nel profilo utente non deve essere **Guest**.
+Se non si è un membro dell'istanza di Active Directory della sottoscrizione prima di essere stato aggiunto per il **amministratore globale** ruolo della sottoscrizione, essere stato aggiunto come guest. In questo caso si riceverà un avviso `You do not have permissions to create…` nella pagina **Aggiungi account di Automazione**. Gli utenti che sono stati aggiunti per il **amministratore globale** ruolo prima di tutto può essere rimosso dall'istanza di Active Directory della sottoscrizione e aggiunti nuovamente per renderli utenti completi in Active Directory. Per verificare questa situazione dal riquadro **Azure Active Directory** nel portale di Azure selezionare **Utenti e gruppi**, **Tutti gli utenti** e, dopo avere selezionato l'utente specifico, selezionare **Profilo**. Il valore dell'attributo **Tipo utente** nel profilo utente non deve essere **Guest**.
 
 ## <a name="permissions-classic"></a>Autorizzazioni per configurare gli account RunAs classico
 

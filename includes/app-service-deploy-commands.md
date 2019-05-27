@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 2be66b742d7a4572d3613a8b1fdeafd5fb7ed271
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343750"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111263"
 ---
 Per distribuire le risorse in Azure, è necessario aver eseguito l'accesso all'account Azure e usare il modulo Azure Resource Manager. Per altre informazioni su come usare Gestione risorse di Azure con Azure PowerShell o l'interfaccia della riga di comando di Azure, vedere:
 

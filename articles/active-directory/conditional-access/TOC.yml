@@ -19,8 +19,8 @@
 - name: Concetti
   expanded: false
   items:
-    - name: Protezione di base
-      href: baseline-protection.md
+    - name: Criteri di protezione di base
+      href: concept-baseline-protection.md
     - name: Condizioni
       href: conditions.md
     - name: Condizioni di posizione
@@ -38,6 +38,16 @@
       href: plan-conditional-access.md
     - name: Procedure consigliate
       href: best-practices.md
+    - name: Criteri di base
+      items:
+        - name: Richiedere l'autenticazione a più fattori per gli amministratori
+          href: howto-baseline-protect-administrators.md
+        - name: Protezione dell'utente finale
+          href: howto-baseline-protect-end-users.md
+        - name: Bloccare l'autenticazione legacy
+          href: howto-baseline-protect-legacy-auth.md
+        - name: Richiedere MFA per la gestione dei servizi
+          href: howto-baseline-protect-azure.md
     - name: Bloccare l'autenticazione legacy
       href: block-legacy-authentication.md
     - name: Eseguire la migrazione di criteri classici

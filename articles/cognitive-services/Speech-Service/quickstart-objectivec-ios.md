@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 347969ac129faa9cbe841be097e2bc7fd66c6b8e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7d405c1e4ac5de7591f92b391071cfd66371c088
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020562"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003139"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Objective-C in iOS con Speech SDK
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in Objective-C in iOS con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -35,7 +35,7 @@ Prima di iniziare, ecco un elenco di prerequisiti:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.5.0`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.5.1`.
 
 Speech SDK di Servizi cognitivi per iOS viene attualmente distribuito come un Framework di Cocoa.
 Può essere scaricato da [questa pagina](https://aka.ms/csspeech/iosbinary). Scaricare il file nella home directory.

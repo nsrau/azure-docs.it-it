@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25b8669e5ca2abe2d763d9bc14f27ed9c4460886
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825941"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015466"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti
 
@@ -112,7 +112,7 @@ Consentire l'accesso agli URL seguenti:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure usa questi URL per verificare i certificati |
 | login.windows.net<br>login.microsoftonline.com | Il connettore usa questi URL durante il processo di registrazione. |
 
-Se il firewall o il proxy consente di inserire DNS nell'elenco elementi consentiti, è possibile aggiungere connessioni a \*.msappproxy.net e \*.servicebus.windows.net. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
+Se il firewall o proxy consente di configurare DNS elenco dei tipi consentiti, è possibile consentire le connessioni a \*. msappproxy.net e \*. servicebus.windows.net. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
 
 
 Se non è possibile consentire la connettività in base al nome di dominio completo ed è necessario specificare invece intervalli IP, usare queste opzioni:

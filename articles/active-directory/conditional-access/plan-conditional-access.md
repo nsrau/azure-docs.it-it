@@ -13,12 +13,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4832055bffa72732991cb766ce88cc48c07530e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e277f31dcf2627959b88d58f325fb4dad024a00
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301417"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001183"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procedura: Pianificare la distribuzione dell'accesso condizionale in Azure Active Directory
 
@@ -81,7 +81,7 @@ A questo punto si può stabilire uno standard di denominazione per i criteri. Lo
  
 ![Standard di denominazione](./media/plan-conditional-access/11.png)
 
-Mentre un nome descrittivo consente di avere una panoramica dell'implementazione dell'accesso condizionale, il numero di sequenza è utile se è necessario fare riferimento a un criterio in una conversazione. Se ad esempio si parla al telefono con un altro amministratore, è possibile chiedergli di aprire il criterio EM063 per risolvere un problema.
+Mentre un nome descrittivo consente di avere una panoramica dell'implementazione dell'accesso condizionale, il numero di sequenza è utile se è necessario fare riferimento a un criterio in una conversazione. Ad esempio, se si parla di un amministratore di colleghi sul telefono, è possibile chiedere loro di aprire Criteri EM063 per risolvere un problema.
 
 
 
@@ -131,7 +131,7 @@ Per semplificare l'esperienza di accesso degli utenti, è possibile consentire d
 
 I casi d'uso comuni per richiedere l'autenticazione MFA riguardano l'accesso:
 
-- [Da parte degli amministratori](baseline-protection.md#require-mfa-for-admins)
+- [Da parte degli amministratori](howto-baseline-protect-administrators.md)
 - [A specifiche app](app-based-mfa.md) 
 - [Da percorsi di rete che non si considerano attendibili](untrusted-networks.md).
 
@@ -193,7 +193,7 @@ Alcune organizzazioni hanno tenant di test a questo scopo. Tuttavia, può essere
 
 Il piano di test è importante per disporre di un confronto tra i risultati previsti e i risultati effettivi. È sempre necessario definire il risultato atteso prima di eseguire un test. Nella tabella seguente vengono descritti alcuni test case di esempio. Modificare gli scenari e i risultati previsti in base al modo in cui sono configurati i criteri di accesso condizionale.
 
-|Policy |Scenario |Risultato previsto | Risultato |
+|Criteri |Scenario |Risultato previsto | Risultato |
 |---|---|---|---|
 |[Richiedi autenticazione a più fattori quando non al lavoro](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Un utente autorizzato accede ad *App* da un percorso attendibile/dal posto di lavoro|All'utente non viene richiesta l'autenticazione a più fattori| |
 |[Richiedi autenticazione a più fattori quando non al lavoro](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Un utente autorizzato accede ad *App* da un percorso non attendibile/non dal posto di lavoro|All'utente viene richiesta l'autenticazione a più fattori e può eseguire correttamente l'accesso| |

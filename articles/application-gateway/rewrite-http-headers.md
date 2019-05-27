@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: 89df3a981ba3710e848f834c303772e94e10b139
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947185"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000961"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Riscrivere le intestazioni HTTP con il Gateway applicazione
 
@@ -60,7 +60,7 @@ Il Gateway applicazione usa le variabili del server per archiviare informazioni 
 
 Il gateway applicazione supporta le variabili del server:
 
-| Nome variabile | DESCRIZIONE                                                  |
+| Nome variabile | Descrizione                                                  |
 | -------------------------- | :----------------------------------------------------------- |
 | add_x_forwarded_for_proxy  | Il campo di intestazione di richiesta X-Forwarded-For client con il `client_ip` variabile (vedere la spiegazione più avanti in questa tabella) aggiunto a tale file nel formato IP1, IP2, lt;IP3 e così via. Se il campo X-Forwarded-For non è nell'intestazione della richiesta client, il `add_x_forwarded_for_proxy` variabile è uguale al `$client_ip` variabile. Questa variabile è particolarmente utile quando si desidera riscrivere l'intestazione X-Forwarded-For impostata dal Gateway applicazione in modo che l'intestazione contiene solo l'indirizzo IP senza le informazioni sulla porta. |
 | ciphers_supported          | Elenco di crittografie di supportate dal client.          |
@@ -157,9 +157,7 @@ Ecco i passaggi per la sostituzione del nome host:
 
 - I nomi di intestazione possono contenere caratteri alfanumerici e simboli specifici come definito in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Il carattere di sottolineatura non sono attualmente supportate (\_) caratteri speciali nei nomi di intestazione.
 
-## <a name="need-help"></a>Richiesta di assistenza
-
-Contattare Microsoft all'indirizzo [ AGHeaderRewriteHelp@microsoft.com ](mailto:AGHeaderRewriteHelp@microsoft.com) se occorre assistenza con questa funzionalità.
+- Se una risposta con intestazioni multiple con lo stesso nome, quindi la riscrittura il valore di una di queste intestazioni comporterà eliminando le altre intestazioni della risposta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
