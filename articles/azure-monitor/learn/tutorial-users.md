@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: e46dae199f4d45c325e41fa5432e98cba9a2f4ae
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 90357c13003820a25ee52aab5cda83029c9d85ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449598"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601549"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Usare Azure Application Insights per comprendere in che modo i clienti usano l'applicazione
 
@@ -35,7 +35,7 @@ Azure Application Insights raccoglie informazioni sull'utilizzo che consentono d
 
 Per completare questa esercitazione:
 
-- Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
+- Installare [Visual Studio 2019](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
     - Sviluppo Web e ASP.NET
     - Sviluppo di Azure
 - Scaricare e installare il [debugger di snapshot di Visual Studio](https://aka.ms/snapshotdebugger).
@@ -59,11 +59,11 @@ Il pannello **Utenti** consente di ottenere informazioni importanti relative agl
 
     ![Modificare l'intervallo di tempo](media/tutorial-users/TimeRange.png)
 
-4. Fare clic sull'elenco a discesa **Split by** (Dividi per) per aggiungere al grafico una scomposizione in base a una proprietà utente.  Selezionare **Paese o area geografica**.  Il grafico include gli stessi dati, ma consente di visualizzare una scomposizione del numero di utenti in base ai diversi paesi.
+4. Fare clic sull'elenco a discesa **Split by** (Dividi per) per aggiungere al grafico una scomposizione in base a una proprietà utente.  Selezionare **Paese o area geografica**.  Il grafico include gli stessi dati, ma consente di visualizzare una scomposizione del numero di utenti in base ai diversi paesi o alle diverse regioni.
 
     ![Grafico Paese o area geografica](media/tutorial-users/CountryorRegion.png)
 
-5. Posizionando il cursore sulle diverse barre del grafico, si nota che il conteggio per ogni paese riflette solo l'intervallo di tempo rappresentato da quella barra.
+5. Posizionando il cursore sulle diverse barre del grafico, si nota che il conteggio per ogni paese/regione riflette solo l'intervallo di tempo rappresentato da quella barra.
 6. La colonna **Informazioni dettagliate** a destra riporta le analisi effettuate sui dati utente.  Sono disponibili informazioni quali il numero di sessioni univoche per il periodo di tempo considerato e i record con proprietà comuni estrapolati dai dati utente più significativi. 
 
     ![Colonna Informazioni dettagliate](media/tutorial-users/insights.png)

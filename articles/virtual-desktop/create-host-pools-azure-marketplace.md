@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e19523834c0ddb517fa9d15853411c1b58024b43
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236767"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833998"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Esercitazione: Creare un pool di host con Azure Marketplace
 
@@ -59,6 +59,9 @@ Per il pannello di configurazione delle macchine virtuali:
 
 Per il pannello di impostazioni delle macchine virtuali:
 
+>[!NOTE]
+> Se si sta aggiungendo le macchine virtuali a un ambiente di Azure AD Domain Services, assicurarsi che l'utente di aggiunta a un dominio sia anche un membro del [gruppo AAD DC Administrators](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+
 1. Selezionare **Origine immagine** e immettere le informazioni appropriate per trovarla e archiviarla. Se si sceglie di non usare dischi gestiti, selezionare l'account di archiviazione contenente il file con estensione vhd.
 2. Immettere il nome dell'entità utente e la password per l'account di dominio che aggiungerà le VM al dominio di Active Directory. Gli stessi valori di nome utente e password verranno creati come account locali nelle macchine virtuali. È possibile reimpostare questi account locali in seguito.
 3. Selezionare la rete virtuale che ha connettività con il server Active Directory, quindi scegliere una subnet in cui ospitare le macchine virtuali.
@@ -68,7 +71,7 @@ Per il pannello di impostazioni delle macchine virtuali:
 
 Per il pannello di informazioni sul tenant di Desktop virtuale Windows:
 
-1. Immettere il **nome del gruppo di tenant di Desktop virtuale Windows** che contiene il proprio tenant. Se non è stato pianificato uno specifico nome di gruppo di tenant, lasciare il valore predefinito.
+1. Immettere il **nome del gruppo di tenant di Desktop virtuale Windows** che contiene il proprio tenant. Lasciare il valore predefinito se non è stato fornito un nome specifico per il gruppo di tenant.
 2. Immettere il **nome del tenant di Desktop virtuale Windows** in cui verrà creato il pool di host.
 3. Specificare il tipo di credenziali da usare per l'autenticazione come proprietario di Servizi Desktop remoto del tenant di Desktop virtuale Windows. Se è stata completata l'esercitazione [Creare entità servizio e assegnazioni di ruolo con PowerShell](./create-service-principal-role-powershell.md), selezionare **Entità servizio**. È necessario immettere l'**ID tenant di Azure AD** dell'istanza di Azure Active Directory che contiene l'entità servizio.
 4. Immettere le credenziali per l'account amministratore del tenant. Sono supportate solo entità servizio con una credenziale password.
@@ -94,12 +97,6 @@ Eseguire il cmdlet seguente per accedere all'ambiente di Desktop virtuale Window
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-Impostare il contesto sul gruppo di tenant di Desktop virtuale Windows specificato nell'offerta di Azure Marketplace con il cmdlet seguente. Se è stato lasciato il valore del gruppo di tenant di Desktop virtuale Windows come predefinito nell'offerta di Azure Marketplace, è possibile ignorare questo passaggio.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 Dopo aver completato queste due operazioni, è possibile aggiungere utenti al gruppo di applicazioni desktop con questo cmdlet:

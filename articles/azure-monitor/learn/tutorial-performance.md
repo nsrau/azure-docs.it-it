@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7eae71411a1a3772dbdbaa289a32cbc69fca0e5a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: f906ab5db35ce8b239eceac9cdc8244f230f5a77
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108751"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596035"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rilevare e diagnosticare i problemi di prestazioni con Azure Application Insights
 
@@ -32,7 +32,7 @@ Azure Application Insights raccoglie i dati di telemetria dall'applicazione per 
 
 Per completare questa esercitazione:
 
-- Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
+- Installare [Visual Studio 2019](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
     - Sviluppo Web e ASP.NET
     - Sviluppo di Azure
 - Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](../../azure-monitor/app/asp-net.md).
@@ -97,7 +97,7 @@ Oltre a identificare i processi server da ottimizzare, Application Insights è i
 
     ![Riepilogo del browser](media/tutorial-performance/browser-summary.png)
 
-2.  Scorrere verso il basso fino a **Quali sono le pagine in cui sono stati riscontrati maggiori rallentamenti?**,  dove è possibile visualizzare un elenco delle pagine nell'applicazione che hanno richiesto maggior tempo per il caricamento nei client.  Queste informazioni possono essere usate per classificare le pagine con l'impatto più significativo per l'utente.
+2.  Scorrere verso il basso fino a **Quali sono le pagine in cui sono stati riscontrati maggiori rallentamenti?** ,  dove è possibile visualizzare un elenco delle pagine nell'applicazione che hanno richiesto maggior tempo per il caricamento nei client.  Queste informazioni possono essere usate per classificare le pagine con l'impatto più significativo per l'utente.
 3.  Fare clic su una delle pagine per aprire il pannello **Visualizzazione pagina**.  In questo esempio la pagina **/FabrikamProd** mostra una durata media eccessiva.  Il pannello **Visualizzazione pagina** fornisce informazioni dettagliate su questa pagina, inclusa una scomposizione dei diversi intervalli di durata.
 
     ![Visualizzazione pagina](media/tutorial-performance/page-view.png)

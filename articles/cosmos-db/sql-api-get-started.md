@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 64aef17663fdc28a467172bbe8954fc06fdb7ff0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680392"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596099"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Compilare un'app console .NET per gestire i dati in un account API SQL di Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Seguire queste istruzioni per creare un account Azure Cosmos DB nel portale di A
 
 1. In Visual Studio 2017 selezionare **File** > **Nuovo** > **Progetto**.
    
-1. Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C#** > **App console (.NET Framework)**, assegnare al progetto il nome *AzureCosmosDBApp* e quindi fare clic su **OK**.
+1. Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C#**  > **App console (.NET Framework)** , assegnare al progetto il nome *AzureCosmosDBApp* e quindi fare clic su **OK**.
    
    ![Screenshot della finestra Nuovo progetto](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
    
@@ -145,6 +145,20 @@ Si inizierà ora a scrivere il codice. Il file *Project.cs* completo per questa 
       {
         client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
       }
+   ```
+
+   Se si sta usando un oggetto proxy per connettersi ad Azure Cosmos DB, usare invece il seguente blocco di codice per creare l'oggetto DocumentClient. L'esempio in questo documento non usa un oggetto proxy, per cui è solo un riferimento:
+
+   ```csharp
+   HttpClientHandler handler = new HttpClientHandler()
+   {
+     Proxy = proxyObject
+     UseProxy = true,
+   };
+
+   //Pass handler to the constructor of DocumentClient.
+   DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
+   
    ```
    
 1. Aggiungere il codice seguente al metodo `Main` per eseguire l'attività `GetStartedDemo`. Il metodo `Main` rileva le eccezioni e le scrive nella console.

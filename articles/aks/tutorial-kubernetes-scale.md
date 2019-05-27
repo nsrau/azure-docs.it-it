@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 74cd73cd7f9d5be9da552fb22ef2a2750ddc8321
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed82c214e2fbb2a1efc5917eb74ffe9b29abb115
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61029857"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560317"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Ridimensionare le applicazioni nel servizio Azure Kubernetes
 
@@ -83,7 +83,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-Per usare la scalabilità automatica, i pod devono avere richieste e limiti di CPU definiti. Nella distribuzione di `azure-vote-front` con il contenitore front-end è richiesto già un valore di 0,25 della CPU, con un limite pari a 0,5 della CPU. Le richieste e i limiti delle risorse vengono definiti come illustrato nel frammento di codice di esempio seguente:
+Per usare la scalabilità automatica, i pod e i contenitori al loro interno devono avere richieste e limiti di CPU definiti. Nella distribuzione di `azure-vote-front` con il contenitore front-end è richiesto già un valore di 0,25 della CPU, con un limite pari a 0,5 della CPU. Le richieste e i limiti delle risorse vengono definiti come illustrato nel frammento di codice di esempio seguente:
 
 ```yaml
 resources:

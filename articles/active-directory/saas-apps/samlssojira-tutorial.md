@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 943131bc746b5d2a1fd95a26a6a6c9f3bb6b9e57
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 020e0395c7678f6856a293c8386a44d7a959bc06
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65509951"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Esercitazione: Integrazione di Azure Active Directory con SAML SSO for Jira by resolution GmbH
 
@@ -76,12 +76,12 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On, è necessario completare i passaggi seguenti:
 
-1. **[Configurare l'applicazione aziendale di Azure AD per l'accesso Single Sign-On](#configure-the-azure-ad-enterprise-application-for-single-sign-on)**: configurare l'applicazione aziendale di Azure AD per l'accesso Single Sign-On.
-2. **[Configurare il plug-in SAML SSO dell'istanza di Jira](#configure-the-saml-sso-plugin-of-your-jira-instance)**: configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: creare un utente di test in Azure AD.
-1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: consentire all'utente di test di usare l'accesso Single Sign-On sul lato Azure.
-1. **[Creare l'utente di test in Jira](#create-the-test-user-also-in-jira)**: creare un utente di test controparte in Jira per l'utente di test di Azure AD.
-1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: verificare se la configurazione funziona.
+1. **[Configurare l'applicazione aziendale di Azure AD per l'accesso Single Sign-On](#configure-the-azure-ad-enterprise-application-for-single-sign-on)** : configurare l'applicazione aziendale di Azure AD per l'accesso Single Sign-On.
+2. **[Configurare il plug-in SAML SSO dell'istanza di Jira](#configure-the-saml-sso-plugin-of-your-jira-instance)** : configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : creare un utente di test in Azure AD.
+1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : consentire all'utente di test di usare l'accesso Single Sign-On sul lato Azure.
+1. **[Creare l'utente di test in Jira](#create-the-test-user-also-in-jira)** : creare un utente di test controparte in Jira per l'utente di test di Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** : verificare se la configurazione funziona.
 
 ### <a name="configure-the-azure-ad-enterprise-application-for-single-sign-on"></a>Configurare l'applicazione aziendale di Azure AD per l'accesso Single Sign-On
 
@@ -168,7 +168,7 @@ Per configurare l'accesso Single Sign-On con SAML SSO for Jira by resolution Gmb
     
     d. Fare clic su **Avanti**.
     
-11. Nella pagina **Identity provider configuration** (Configurazione provider di identità) fare clic su **Next** (Avanti).
+11. Nella pagina **Identity provider configuration** (Configurazione provider di identità), fare clic su **Next** (Avanti).
  
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5b.png)
 

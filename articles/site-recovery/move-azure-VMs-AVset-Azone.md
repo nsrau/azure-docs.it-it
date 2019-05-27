@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: b6107211f49978bbacd1a827a9adc37ccef60a5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7562d720b200e127fbfd56c403f0e29e28b3b5d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855412"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793749"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Spostare macchine virtuali di Azure nelle zone di disponibilità
 Le zone di disponibilità di Azure consentono di proteggere le applicazioni e i dati da eventuali guasti del data center. Ogni zona di disponibilità è costituita da uno o più data center dotati di impianti indipendenti per l'energia, il raffreddamento e la rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati dai guasti del data center. Con le zone di disponibilità, Azure offre un Contratto di servizio con tempo di attività delle macchine virtuali del 99,99%. Le zone di disponibilità sono supportate in aree selezionate, come indicato in [Informazioni sulle zone di disponibilità di Azure](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).
@@ -50,7 +50,7 @@ Se le macchine virtuali sono distribuite come *istanza singola* in un'area speci
 4. Per le macchine virtuali Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati nella macchina virtuale.
 5. Assicurarsi di non usare un proxy di autenticazione per controllare la connettività di rete per le macchine virtuali da spostare.
 
-6. Se la macchina virtuale che si intende spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, controllare i requisiti in [Configurare la connettività di rete in uscita](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+6. Se la macchina virtuale che si intende spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, controllare i requisiti in [Configurare la connettività di rete in uscita](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 
 7. Identificare il layout di rete di origine e le risorse attualmente in uso per la verifica, tra cui i servizi di bilanciamento del carico, i gruppi di sicurezza di rete e gli indirizzi IP pubblici.
 

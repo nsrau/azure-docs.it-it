@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150754"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603080"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Esercitazione: Restituire Azure Data Box Disk e verificare il caricamento dei dati in Azure
 
@@ -56,7 +56,7 @@ Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Unit
 2. Sigillare la scatola e assicurarsi che l'etichetta per la spedizione di ritorno sia visibile.
 3. Pianificare un ritiro con UPS. Per pianificare un ritiro:
 
-    - Chiamare il servizio UPS locale (numero verde specifico del paese).
+    - Chiamare il servizio UPS locale (numero verde specifico del paese o area).
     - Nella chiamata specificare il numero di monitoraggio della spedizione di reso indicato sull'etichetta stampata.
     - Se non si specifica il numero di monitoraggio, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
     - Anziché pianificare il ritiro, è anche possibile consegnare Data Box Disk al più vicino punto di consegna.
@@ -78,7 +78,7 @@ Eseguire la procedura seguente se si restituisce il dispositivo in Europa.
 
 2. Sigillare la scatola e assicurarsi che l'etichetta per la spedizione di ritorno sia visibile.
 3. Se i dischi vengono rispediti in Europa con DHL, richiedere un ritiro a DHL, visitando il sito Web e specificando il numero di lettera di vettura.
-4. Passare al sito Web di DHL Express del paese e scegliere **Prenota il ritiro di un reso > Richiedere ritiro**.
+4. Passare al sito Web di DHL Express del paese o area e scegliere **Prenota il ritiro di un reso > Richiedere ritiro**.
 
     ![Spedizione di ritorno DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     

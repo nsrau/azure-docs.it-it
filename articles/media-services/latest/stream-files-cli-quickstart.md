@@ -1,6 +1,6 @@
 ---
 title: Eseguire lo streaming di file video con Servizi multimediali di Azure e l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Seguire i passaggi di questa guida introduttiva per creare un nuovo account di Servizi multimediali di Azure, codificare un file ed eseguirne lo streaming ad Azure Media Player.
+description: Seguire i passaggi di questa esercitazione per creare un nuovo account di Servizi multimediali di Azure, codificare un file ed eseguirne lo streaming su Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,24 +9,24 @@ editor: ''
 keywords: azure media services, streaming
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cce424b11cc4cd587c6e7c50bc8bdf988004a43a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205411"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550208"
 ---
-# <a name="quickstart-stream-video-files---cli"></a>Guida introduttiva: Eseguire lo streaming di file video - Interfaccia della riga di comando
+# <a name="tutorial-stream-video-files---cli"></a>Esercitazione: Eseguire lo streaming di file video - Interfaccia della riga di comando
 
-Questo argomento di avvio rapido illustra come codificare ed eseguire lo streaming di video su un'ampia gamma di browser e dispositivi con la massima semplicità tramite Servizi multimediali di Azure e l'interfaccia della riga di comando di Azure. È possibile specificare il contenuto di input usando URL HTTPS, URL di firma di accesso condiviso o percorsi a file che si trovano nell'archivio BLOB di Azure.
+Questa esercitazione illustra come codificare ed eseguire lo streaming di video su un'ampia gamma di browser e dispositivi con la massima semplicità tramite Servizi multimediali di Azure e l'interfaccia della riga di comando di Azure. È possibile specificare il contenuto di input usando URL HTTPS, URL di firma di accesso condiviso o percorsi a file che si trovano nell'archivio BLOB di Azure.
 
 L'esempio in questo articolo codifica contenuti resi accessibili tramite un URL HTTPS. Attualmente Servizi multimediali v3 non supporta la codifica di trasferimenti in blocchi su URL HTTPS.
 
-Al termine dell'argomento di avvio rapido, si potrà eseguire lo streaming di un video.  
+Al termine di questa esercitazione, sarà possibile eseguire lo streaming di un video.  
 
 ![Riprodurre il video](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -342,7 +342,7 @@ Ad esempio:
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se l'intero contenuto del gruppo di risorse non è più necessario, compresi gli account di archiviazione e di Servizi multimediali creati per questo argomento di avvio rapido, eliminare il gruppo di risorse.
+Se l'intero contenuto del gruppo di risorse non è più necessario, compresi gli account di archiviazione e di Servizi multimediali creati per questa esercitazione, eliminare il gruppo di risorse.
 
 Eseguire questo comando dell'interfaccia della riga di comando:
 
@@ -350,10 +350,7 @@ Eseguire questo comando dell'interfaccia della riga di comando:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Vedere anche 
-
-Vedere [Codici errore dei processi](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Panoramica di Servizi multimediali](media-services-overview.md)
+

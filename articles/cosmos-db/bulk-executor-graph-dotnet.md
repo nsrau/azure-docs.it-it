@@ -5,15 +5,15 @@ author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 04/26/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 5e88602aa3b983e1533248253d53967f39e6b5eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f7a37b0b1a804851268fad30038388c20d2e4fb6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837525"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912682"
 ---
 # <a name="using-the-graph-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Uso della libreria .NET BulkExecutor per i grafi per eseguire operazioni in blocco nell'API Gremlin di Azure Cosmos DB
 
@@ -114,7 +114,7 @@ e.AddProperty("customProperty", "value");
 ## <a name="sample-application"></a>Applicazione di esempio
 
 ### <a name="prerequisites"></a>Prerequisiti
-* Visual Studio 2017 con il carico di lavoro di sviluppo di Azure. È possibile iniziare a usare [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com/downloads/) gratuitamente.
+* Visual Studio 2019 con il carico di lavoro di sviluppo di Azure. È possibile iniziare a usare [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) gratuitamente.
 * Una sottoscrizione di Azure. È possibile creare un [account Azure gratuito qui](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). In alternativa, è possibile creare un account di database Cosmos DB nella pagina [Prova gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure.
 * Database di API Gremlin di Azure Cosmos DB con una **raccolta illimitata**. Questa guida descrive come iniziare a usare l'[API Gremlin di Azure Cosmos DB in .NET](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet).
 * Git. Per altre informazioni, vedere la [pagina dei download di Git](https://git-scm.com/downloads).
