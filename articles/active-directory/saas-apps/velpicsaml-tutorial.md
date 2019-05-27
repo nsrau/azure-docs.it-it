@@ -17,11 +17,11 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc8431e2c45cc3bfdfa08dd0078220ab2d290309
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565717"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65905393"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Esercitazione: Integrazione di Azure Active Directory con Velpic SAML
 
@@ -106,9 +106,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Velpic SAML, seguire qu
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Velpic SAML](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<sub-domain>.velpicsaml.net`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<sub-domain>.velpicsaml.net`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://auth.velpic.com/saml/v2/<entity-id>/login`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://auth.velpic.com/saml/v2/<entity-id>/login`
 
     > [!NOTE]
     > Si noti che l'URL di Single Sign-On verrà indicato dal team di Velpic SAML e il valore dell'identificatore sarà disponibile quando si configura il plug-in SSO sul lato Velpic SAML. È necessario copiare tale valore dalla pagina dell'applicazione Velpic SAML e incollarlo qui.

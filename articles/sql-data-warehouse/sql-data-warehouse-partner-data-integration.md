@@ -2,26 +2,26 @@
 title: Partner di integrazione di dati di SQL Data Warehouse | Documentazione Microsoft
 description: Elenco di partner di terze parti con soluzioni per l'integrazione dei dati che supportano Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 03/27/2019
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 74449f7319f800e8008c5d457351fa49ae1af59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5593d6e392915448845adcac95da869e72a11310
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476739"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873792"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Partner di integrazione di dati di SQL Data Warehouse
 Per creare una soluzione di data warehouse, è possibile scegliere tra una vasta gamma di strumenti leader nel settore. Questo articolo vengono evidenziate le aziende partner Microsoft con soluzioni di integrazione dati ufficiale che supportano Azure SQL Data Warehouse.
 
 ## <a name="data-integration-partners"></a>Partner di integrazione dei dati
-| Partner | DESCRIZIONE | Collegamento di sito Web o prodotto |
+| Partner | Descrizione | Collegamento di sito Web o prodotto |
 | ------- | ----------- | -------------------- |
 | ![Alooma][7] |**Alooma**<br> Alooma è una soluzione ETL che permettono ai team di dati integrare, arricchire e trasmettere i dati da vari silo di dati in SQL Data Warehouse in tempo reale. |[Pagina del prodotto][alooma_website] |
 | ![Alteryx][1] |**Alteryx**<br>  Alteryx Designer fornisce un flusso di lavoro ripetibile per l'analisi di dati in modalità self-service che genera informazioni più dettagliate in ore e non in settimane come negli approcci tradizionali. Alteryx Designer consente agli analisti di dati di combinare le attività di preparazione e fusione dei dati e l'analisi predittiva, statistica e spaziale, usando la stessa intuitiva interfaccia utente. |[Pagina del prodotto][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|

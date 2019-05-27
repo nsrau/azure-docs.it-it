@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 75b86ea028a500b6b358c468a1d10a830db01b6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b1872699b8b3ac72424f00cd74bb90b8b7be87f
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354953"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873169"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Creare l'identità del modulo e i moduli gemelli dell'hub IoT con il portale e l'SDK per dispositivi .NET
 
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Visual Studio 2015 o Visual Studio 2017.
+* Visual Studio.
 * Un account Azure attivo. Se non si dispone di un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
@@ -53,11 +53,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 In una identità del dispositivo è possibile creare fino a 20 identità del modulo. Fare clic sul pulsante **Add Module Identity** (Aggiungi identità modulo) in alto per creare la prima identità del modulo, denominata **myFirstModule**.
 
-  ![Dettagli dispositivo](./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.png)
+  ![Device details](./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.png)
 
 Salvare e fare clic sull'identità del modulo appena creata. Verranno visualizzati i dettagli dell'identità del modulo. Salvare la stringa di connessione - chiave primaria Verrà usata nelle prossima sezione per configurare il modulo nel dispositivo.
 
-  ![Dettagli dispositivo](./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.png)
+  ![Device details](./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.png)
 
 ## <a name="update-the-module-twin-using-net-device-sdk"></a>Aggiornare il modulo gemello usando l'SDK per dispositivi .NET
 

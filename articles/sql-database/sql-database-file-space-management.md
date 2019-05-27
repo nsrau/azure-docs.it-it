@@ -13,11 +13,11 @@ ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123313"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gestire lo spazio file per database singoli e in pool nel database SQL di Azure
 
@@ -252,7 +252,7 @@ Dopo la compattazione dei file di dati del database, gli indici possono diventar
 - Per informazioni sulle dimensioni massime dei database, vedere:
   - [Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo](sql-database-vcore-resource-limits-single-databases.md)
   - [Limiti di risorse per i database singoli usando il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-single-databases.md)
-  - [Limiti del modello di acquisto in base ai vCore per il database SQL di Azure per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Limiti del modello di acquisto basato su vCore per il database SQL di Azure per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md)
   - [Limiti di risorse per i pool elastici usando il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Per altre informazioni sul comando `SHRINKDATABASE`, vedere [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Per altre informazioni sulla frammentazione e sulla ricompilazione degli indici, vedere [Riorganizzare e ricompilare gli indici](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

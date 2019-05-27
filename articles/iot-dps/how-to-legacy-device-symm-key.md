@@ -2,19 +2,18 @@
 title: Come usare le chiavi simmetriche per effettuare il provisioning di dispositivi legacy con il servizio Device Provisioning in hub IoT di Azure | Microsoft Docs
 description: Come usare le chiavi simmetriche per effettuare il provisioning di dispositivi legacy con l'istanza del servizio di provisioning di dispositivi
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 248c7977752eaec86121a0dd197e5bff2621ead5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: philmea
+ms.openlocfilehash: 00161f8158ad73591687764528258e1081f81ce2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775180"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914306"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Come effettuare il provisioning di dispositivi legacy usando chiavi simmetriche
 
@@ -44,7 +43,7 @@ Il codice del dispositivo illustrato in questo articolo seguirà lo stesso model
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Completamento della guida introduttiva per [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
-* Visual Studio 2015 oppure [Visual Studio 2017](https://www.visualstudio.com/vs/) con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o versione successiva con il [' sviluppo di applicazioni Desktop con C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) carico di lavoro abilitato.
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
 
@@ -173,7 +172,7 @@ Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in pre
 
 Sostituire il valore di **REG_ID**(ID_REG) con l'ID di registrazione.
 
-```PowerShell
+```powershell
 $KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
 $REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
 
@@ -184,7 +183,7 @@ $derivedkey = [Convert]::ToBase64String($sig)
 echo "`n$derivedkey`n"
 ```
 
-```PowerShell
+```powershell
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
@@ -269,7 +268,7 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
 
 
 
-## <a name="security-concerns"></a>Problemi di sicurezza
+## <a name="security-concerns"></a>Preoccupazioni relative alla sicurezza
 
 Tenere presente che in tal modo la chiave di dispositivo derivata viene inclusa come parte dell'immagine. Ciò non rappresenta una procedura di sicurezza consigliata. Questo è uno dei motivi per cui sicurezza e facilità d'uso sono compromessi. 
 
@@ -280,7 +279,7 @@ Tenere presente che in tal modo la chiave di dispositivo derivata viene inclusa 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni su altre Reprovisioning, vedere [dispositivo Hub IoT un nuovo provisioning concetti](concepts-device-reprovision.md) 
-* [Guida introduttiva: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
+* [Avvio rapido: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
 * Per informazioni su ulteriori il deprovisioning di utenti, vedere [come effettuare il deprovisioning di dispositivi che sono stati precedentemente sottoposti a provisioning](how-to-unprovision-devices.md) 
 
 

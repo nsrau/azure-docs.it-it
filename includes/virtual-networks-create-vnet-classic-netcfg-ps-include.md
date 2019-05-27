@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: bda289e73b9a782cd56c0c94b8f53e8002b1ccf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869972"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116868"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Come creare una rete virtuale usando un file di configurazione di rete da PowerShell
 Azure usa un file XML per definire tutte le reti virtuali disponibili per una sottoscrizione. È possibile scaricare questo file e modificarlo per eliminare o modificare le reti virtuali esistenti o per crearne di nuove. Questa esercitazione illustra come scaricare il file, chiamato anche file di configurazione di rete (o netcfg), e modificarlo per creare una nuova rete virtuale. Per altre informazioni sul file di configurazione di rete, vedere [Azure virtual network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) (Schema di configurazione della rete virtuale di Azure).

@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61254655"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910827"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,7 @@ La procedura dettagliata seguente riporta le istruzioni complete per creare un'a
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Procedura dettagliata: creare un'attività personalizzata
 ### <a name="prerequisites"></a>Prerequisiti
-* Visual Studio 2012/2013/2015
+* Visual Studio 2012/2013/2015/2017
 * Scaricare e installare [.NET SDK di Azure](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Prerequisiti di Azure Batch
@@ -100,10 +100,10 @@ Il metodo restituisce un dizionario che può essere usato per concatenare le att
 ### <a name="procedure"></a>Procedura
 1. Creare un progetto **Libreria di classi .NET** .
    <ol type="a">
-     <li>Avviare <b>Visual Studio 2017</b>, <b>Visual Studio 2015</b>, <b>Visual Studio 2013</b> oppure <b>Visual Studio 2012</b>.</li>
+     <li>Avviare Visual Studio.</li>
      <li>Fare clic su <b>File</b>, scegliere <b>Nuovo</b> e quindi fare clic su <b>Progetto</b>.</li>
      <li>Espandere <b>Modelli</b> e quindi selezionare <b>Visual C#</b>. In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET per sviluppare l'attività personalizzata.</li>
-     <li>Selezionare la <b>libreria di classi</b> dall'elenco relativo ai tipi di progetto visualizzato a destra. In Visual Studio 2017, scegliere <b>Libreria di classi (.NET Framework)</b> </li>
+     <li>Selezionare la <b>libreria di classi</b> dall'elenco relativo ai tipi di progetto visualizzato a destra. In Visual Studio, scegliere <b>libreria di classi (.NET Framework)</b> </li>
      <li>Immettere <b>MyDotNetActivity</b> for the <b>Nome</b>.</li>
      <li>Selezionare <b>C:\ADFGetStarted</b> per <b>Percorso</b>.</li>
      <li>Fare clic su <b>OK</b> per creare il progetto.</li>

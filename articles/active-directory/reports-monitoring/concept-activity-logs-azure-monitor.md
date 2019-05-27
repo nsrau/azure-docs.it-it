@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b924746c00a438ec4ac81dacc02905565adf30e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cffef4028a684e27c0941c234df551d844f13420
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682120"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896857"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>I log attività di Azure AD in Monitoraggio di Azure
 
@@ -107,6 +107,23 @@ La tabella seguente contiene una stima del costo mensile per un hub eventi di ba
 | Accessi | 1.000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Considerazioni sui costi dei log di Monitoraggio di Azure
+
+
+
+| Categoria di log       | Numero di utenti | Eventi al giorno | Eventi al mese (30 giorni) | Costo mensile in dollari USA (est). |
+| :--                | ---             | ---            | ---                        | --:                          |
+| Controllo e accessi | 100,000         | 16,500,000     | 495,000,000                |  $1093.00                       |
+| Audit              | 100,000         | 1,500,000      | 45.000.000                 |  $246.66                     |
+| Accessi           | 100,000         | 15.000.000     | 450,000,000                |  $847.28                     |
+
+
+
+
+
+
+
+
+
 
 Per esaminare i costi legati alla gestione dei log di Monitoraggio di Azure, vedere [Gestire i costi controllando il volume e la conservazione dei dati nei log di Monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 

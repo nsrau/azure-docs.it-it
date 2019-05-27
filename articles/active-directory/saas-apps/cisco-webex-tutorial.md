@@ -16,11 +16,11 @@ ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 308f745489fba2e2b539a2f2615b65228565dcf9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850010"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Esercitazione: Integrazione di Azure Active Directory con Cisco Webex Meetings
 
@@ -128,7 +128,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Cisco Webex Meetings, s
 
 6. Eliminare gli attributi predefiniti dalla sezione **Attestazioni utente** e l'applicazione Cisco Webex Meetings prevede che alcuni altri attributi vengano ritrasferiti nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
     
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | ---------------|  --------- |
     |   firstname    | user.givenname |
     |   lastname    | user.surname |

@@ -2,20 +2,20 @@
 title: Note sulla versione di Azure SQL Data Warehouse - Agosto 2018 | Microsoft Docs
 description: Note sulla versione di Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 08/13/2018
-ms.author: twounder
-ms.reviewer: twounder
-ms.openlocfilehash: 9547380d4636c1a72add9dab7a9eed850abd0307
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: f0840e9b91c81b8a99e8c736c3c5db082c92fe76
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474998"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912222"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Novità di Azure SQL Data Warehouse Agosto 2018
 Azure SQL Data Warehouse riceve continuamente miglioramenti. Questo articolo illustra le nuove funzionalità e le modifiche introdotte nel mese di agosto 2018.
@@ -30,7 +30,7 @@ Microsoft ha introdotto le [analisi intelligenti automatiche](https://azure.micr
 
 ## <a name="bug-fixes"></a>Correzioni di bug
 
-| Title | DESCRIZIONE |
+| Title | Descrizione |
 |:---|:---|
 | **Errori potenziali relativi alle query quando il numero di suddivisioni supera il limite massimo** |Quando veniva raggiunto il limite superiore di 1 milione di suddivisioni di file, un'eccezione non gestita causava il dump del motore SQL e le query non riuscivano. Questa correzione ha consentito di risolvere il problema gestendo l'eccezione nel modo corretto e restituendo un errore senza impedire l'esecuzione delle query. |
 | **Il valore predefinito di ExternalMoveReadersPerNode è stato aumentato per migliorare le prestazioni di caricamento** |Questo problema era causato dall'impostazione della proprietà ExternalMoveReadersPerNode che non era sincronizzata con l'impostazione di Service Fabric. Questa regressione comportava delle prestazioni ridotte di caricamento della seconda generazione. La correzione riporta le prestazioni di caricamento della seconda generazione ai parametri di progettazione ottimizzati.|

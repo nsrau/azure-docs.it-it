@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203517"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911257"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gestire Protezione DDoS di Azure Standard nel portale di Azure
 
@@ -31,7 +31,7 @@ Prima di completare qualsiasi passaggio in questa esercitazione, accedere al por
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-a-ddos-protection-plan"></a>Creare un piano di protezione DDoS
+## <a name="create-a-ddos-protection-plan"></a>Crea un piano di protezione DDoS
 
 Un piano di protezione DDoS definisce un set di reti virtuali in cui è abilitata la protezione DDoS standard per le sottoscrizioni. È possibile configurare un piano di protezione DDoS standard per l'organizzazione e collegare reti virtuali da più sottoscrizioni allo stesso piano. Il piano di protezione DDoS è a sua volta associato a una sottoscrizione che viene selezionata durante la creazione del piano. Il piano di protezione DDoS funziona in diverse aree e sottoscrizioni. Esempio-è possibile creare il piano nell'area geografica East-US e collegamento a #1 sottoscrizione nel tenant. Lo stesso piano può essere collegato a reti virtuali da altre sottoscrizioni in aree diverse, tra il tenant. Alla sottoscrizione a cui è associato il piano viene addebitato il costo mensile relativo al piano, nonché i costi in eccedenza, nel caso in cui gli indirizzi IP pubblici protetti siano più di 100. Per altre informazioni sui prezzi di DDoS, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
@@ -187,10 +187,10 @@ I log del flusso di mitigazione degli attacchi consentono di esaminare il traffi
 
 I log del flusso conterranno i campi seguenti: 
 - IP di origine
-- IP di destinazione
+- IP destinazione
 - Porta di origine 
 - Porta di destinazione 
-- Protocol type (Tipo di protocollo) 
+- Tipo di protocollo 
 - Action taken during mitigation (Azione eseguita durante la mitigazione)
 
 
@@ -203,6 +203,19 @@ Microsoft ha collaborato con [BreakingPoint Cloud](https://www.ixiacom.com/produ
 - Ottimizzare il processo di risposta agli eventi imprevisti durante un attacco DDoS
 - Documentare la conformità DDoS
 - Eseguire il training dei team di sicurezza di rete
+
+## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Visualizzare gli avvisi di protezione DDoS nel Centro sicurezza di Azure
+
+Centro sicurezza di Azure fornisce un elenco delle [gli avvisi di sicurezza](/azure/security-center/security-center-managing-and-responding-alerts), le informazioni necessarie per individuare e risolvere i problemi. Con questa funzionalità, puoi ottenere una visualizzazione unificata degli avvisi, inclusi avvisi relativi ai attacco DDoS e le azioni eseguite per attenuare l'attacco quasi in tempo.
+Esistono due avvisi specifici che verranno visualizzate le eventuali DDoS attaccare prevenzione e rilevamento:
+
+- **Rilevato attacco DDoS per indirizzo IP pubblico**: Questo avviso viene generato quando il servizio protezione DDoS rileva che uno degli indirizzi IP pubblici è la destinazione di un attacco DDoS.
+- **Attacco DDoS ridotti per indirizzo IP pubblico**: Questo avviso viene generato quando un attacco all'indirizzo IP pubblico è stato attenuato.
+Per visualizzare gli avvisi, aprire **Centro sicurezza** nel portale di Azure. Sotto **protezione dalle minacce**, selezionare **gli avvisi di sicurezza**. Lo screenshot seguente mostra un esempio degli avvisi di attacchi DDoS.
+
+![Avviso di DDoS in Centro sicurezza di Azure](./media/manage-ddos-protection/ddos-alert-asc.png)
+
+Gli avvisi includono informazioni generali sull'indirizzo IP pubblico che è sotto attacco, geografica e informazioni di intelligence sulle minacce e le correzioni degli passaggi.
 
 ## <a name="permissions"></a>Autorizzazioni
 

@@ -14,11 +14,11 @@ ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123142"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 
 <table>
 <tr>
-    <th align="left">Stato</th><th align="left">Sottostato</th><th align="left">DESCRIZIONE</th>
+    <th align="left">Stato</th><th align="left">Sottostato</th><th align="left">Descrizione</th>
 </tr>
 <tr>
     <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è il momento di eseguire la sezione.</td>
@@ -117,27 +117,27 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 </tr>
 <tr>
 <tr>
-<td rowspan="2">InProgress</td><td>Convalida in corso.</td><td>La convalida è in esecuzione.</td>
+<td rowspan="2">In corso</td><td>Convalida</td><td>La convalida è in esecuzione.</td>
 </tr>
 <td>-</td>
-<td>La sezione è in corso.</td>
+<td>La sezione è in fase di elaborazione.</td>
 </tr>
 <tr>
-<td rowspan="4">Operazione non riuscita</td><td>TimedOut</td><td>L'esecuzione dell'attività ha richiesto più tempo di quello consentito dall'attività.</td>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>L'esecuzione dell'attività ha richiesto più tempo di quello consentito dall'attività.</td>
 </tr>
 <tr>
-<td>Cancellati</td><td>La sezione è stata annullata dall'utente.</td>
+<td>Annullato</td><td>La sezione è stata annullata dall'utente.</td>
 </tr>
 <tr>
-<td>Convalida</td><td>Convalida non riuscita.</td>
+<td>Convalida</td><td>La convalida non è riuscita.</td>
 </tr>
 <tr>
 <td>-</td><td>Non è stato possibile generare e/o convalidare la sezione.</td>
 </tr>
-<td>Ready</td><td>-</td><td>La sezione è pronta per essere utilizzata.</td>
+<td>Pronto</td><td>-</td><td>La sezione è pronta per essere utilizzata.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>Nessuna</td><td>La sezione non viene elaborata.</td>
+<td>Ignorata</td><td>Nessuna</td><td>La sezione non viene elaborata.</td>
 </tr>
 <tr>
 <td>Nessuna</td><td>-</td><td>Esisteva una sezione con uno stato differente, ma è stata reimpostata.</td>
@@ -180,7 +180,7 @@ La sezione viene avviata nello stato **In attesa** e prima dell'esecuzione è ne
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Ad esempio: 
+Ad esempio:
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -191,7 +191,7 @@ Dopo aver risolto il problema della pipeline, è possibile riprendere l'esecuzio
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Ad esempio: 
+Ad esempio:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -224,7 +224,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Ad esempio: 
+   Ad esempio:
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -238,7 +238,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Ad esempio: 
+    Ad esempio:
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"

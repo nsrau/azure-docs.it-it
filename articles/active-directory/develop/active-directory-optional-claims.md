@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 593289e64c0f9cd13251a0f7b47b860158100b36
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544572"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119712"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedura: Fornire attestazioni facoltative per l'app di Azure AD
 
@@ -125,6 +125,9 @@ Questo oggetto OptionalClaims fa in modo che il token ID restituito al client in
 ## <a name="configuring-optional-claims"></a>Configurazione di attestazioni facoltative
 
 È possibile configurare attestazioni facoltative per l'applicazione modificando il manifesto dell'applicazione (vedere l'esempio riportato di seguito). Per altre informazioni, vedere la [comprendere l'articolo del manifesto dell'applicazione di Azure AD](reference-app-manifest.md).
+
+> [!IMPORTANT]
+> I token di accesso vengono **sempre** generato usando il manifesto della risorsa, non dal client.  In questo caso nella richiesta `...scope=https://graph.microsoft.com/user.read...` la risorsa è Graph.  Di conseguenza, il token di accesso viene creato utilizzando il manifesto di grafico, non manifesto del client.  Modificare il manifesto dell'applicazione non causerà mai i token per Graph in modo diverso.  Per convalidare che la `accessToken` le modifiche sono in effetti, richiedere un token per l'applicazione, non in un'altra app.  
 
 **Schema di esempio:**
 

@@ -9,28 +9,40 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 10600d8f3ff4e08b8d90f28ec15d3cb0c56bcae0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 510899e44e4ea4a90e21473ee6af546744c2be2a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61230897"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120218"
 ---
 # <a name="streaming-policies"></a>Criteri di streaming
 
-In Servizi multimediali di Azure v3, i [criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) consentono di definire i protocolli di streaming e le opzioni di crittografia per [StreamingLocators](streaming-locators-concept.md). È possibile sia usare uno dei criteri di streaming predefiniti oppure creare criteri personalizzati. I criteri di streaming predefiniti attualmente disponibili sono: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' e 'Predefined_MultiDrmStreaming'.
+In Servizi multimediali di Azure v3, i [criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) consentono di definire i protocolli di streaming e le opzioni di crittografia per [StreamingLocators](streaming-locators-concept.md). Servizi multimediali v3 offre che alcuni predefiniti i criteri di Streaming in modo che è possibile usarli direttamente per la versione di valutazione o di produzione. 
 
+Attualmente disponibili Streaming criteri predefiniti:<br/>'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' e 'Predefined_MultiDrmStreaming'.
+
+Se si hanno requisiti speciali (ad esempio, se si desidera specificare protocolli diversi, è necessario utilizzare un servizio di distribuzione delle chiavi personalizzato o necessario usare una traccia audio), è possibile creare un criterio personalizzato di Streaming. 
+
+ 
 > [!IMPORTANT]
 > * Le proprietà dei **criteri di streaming** di tipo Datetime sono sempre in formato UTC.
-> * È necessario progettare un set limitato di criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming tutte le volte che si devono usare le stesse opzioni. 
+> * È necessario progettare un set limitato di criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming tutte le volte che si devono usare le stesse opzioni. Per altre informazioni, vedere [Quote e limitazioni](limits-quotas-constraints.md).
+
+## <a name="decision-tree"></a>Albero delle decisioni
+
+L'albero delle decisioni seguente consentirà di scegliere un criterio per lo scenario di Streaming predefinito.
+
+Fare clic sull'immagine per visualizzarla a schermo intero.  <br/>
+<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/small.png"></a> 
 
 ## <a name="examples"></a>Esempi
 
 ### <a name="not-encrypted"></a>Non crittografato
 
-Se si vuole trasmettere i file in chiaro (ovvero non crittografati), impostare i criteri predefiniti per lo streaming in chiaro su "Predefined_ClearStreamingOnly" (in .NET è possibile usare PredefinedStreamingPolicy.ClearStreamingOnly).
+Se si vuole trasmettere il file in-the-clear (non crittografati), impostare i criteri predefiniti di streaming chiaro: a 'Predefined_ClearStreamingOnly' (in .NET, è possibile usare l'enumerazione PredefinedStreamingPolicy.ClearStreamingOnly).
 
 ```csharp
 StreamingLocator locator = await client.StreamingLocators.CreateAsync(

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0166622539a439a99aef7e476519881518baa0b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eecd2a50607fa42562a9ae6a7fb950a253655a45
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60904711"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872712"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
 Questo articolo illustra come spostare i dati di telemetria da [Azure Application Insights][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
@@ -44,7 +44,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 1. Creare un account di archiviazione per la sottoscrizione nel [portale di Azure][portal].
    
     ![Nel portale di Azure scegliere Nuovo, Dati, Archiviazione Selezionare Classica, scegliere Crea. Specificare un nome di archiviazione.](./media/code-sample-export-sql-stream-analytics/040-store.png)
-2. Creare un contenitore
+2. Crea contenitore
    
     ![Nel nuovo archivio selezionare Contenitori, fare clic sul riquadro Contenitori e quindi su Aggiungi](./media/code-sample-export-sql-stream-analytics/050-container.png)
 3. Copiare la chiave di accesso alle risorse di archiviazione.
@@ -179,10 +179,10 @@ Per ottenere il nome e la chiave di strumentazione (iKey) della risorsa di Appli
 
 > [!TIP]
 > Utilizzare la funzione di esempio per verificare di aver impostato correttamente il percorso di input. In caso di esito negativo: verificare che ci siano dati nell'archivio per l'intervallo di tempo di esempio che si seleziona. Modificare la definizione di input e controllare di impostare l'account di archiviazione, il prefisso del percorso e il formato di data corretto.
-> 
-> 
-> ## <a name="set-query"></a>Impostare la query
-> Aprire la sezione delle query:
+
+ 
+## <a name="set-query"></a>Impostare la query
+Aprire la sezione delle query:
 
 Sostituire la query predefinita con:
 

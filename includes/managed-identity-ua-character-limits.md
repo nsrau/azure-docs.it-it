@@ -9,11 +9,11 @@ ms.date: 05/29/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: a013c52d900f4882752d878d26c45069ba0879a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60290900"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66112302"
 ---
 > [!IMPORTANT]
 > Per la creazione di identità assegnate dall'utente, sono supportati solo caratteri alfanumerici (0-9, a-z, A-Z), il carattere di sottolineatura (\_) e il trattino (-). Inoltre, per il corretto funzionamento dell'assegnazione a VM/set di scalabilità di macchine virtuali, il nome deve contenere almeno 3 caratteri e fino a 128 caratteri. Ricontrollare in seguito per aggiornamenti. Per altre informazioni, vedere [Domande frequenti e problemi noti](/azure/active-directory/managed-service-identity/known-issues).

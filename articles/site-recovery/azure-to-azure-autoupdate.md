@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/29/2098
+ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925705"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922132"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility nella replica di Azure ad Azure
 
@@ -520,7 +520,7 @@ Se si verifica un problema con gli aggiornamenti automatici, verrà visualizzata
 
 Se si non è stato possibile abilitare gli aggiornamenti automatici, vedere i seguenti errori comuni e le azioni consigliate:
 
-- **Errore**: non si è autorizzati a creare un account RunAs di Azure (entità servizio) e a concedere il ruolo Collaboratore all'entità servizio.
+- **Errore**: Non si è autorizzati a creare un account RunAs (entità servizio) e a concedere il ruolo Collaboratore all'entità servizio.
 
    **Azione consigliata**: Assicurarsi che sia assegnato l'account di accesso come collaboratore e ripetere l'operazione. Vedere la sezione delle autorizzazioni necessarie nel [usare il portale per creare un'entità applicazione e del servizio che può accedere alle risorse di Azure AD](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) per altre informazioni sull'assegnazione di autorizzazioni.
  
@@ -535,3 +535,14 @@ Se si non è stato possibile abilitare gli aggiornamenti automatici, vedere i se
 - **Errore**: impossibile trovare l'account RunAs. È possibile che uno degli elementi seguenti (applicazione di Azure Active Directory, entità servizio, ruolo, asset di certificato di Automazione, asset di connessione di Automazione) o l'identificazione personale non siano identici tra certificato e connessione. 
 
     **Azione consigliata**: Eliminare e quindi [ricreare l'account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+
+-  **Errore**: L'esecuzione di Azure come certificato usata dall'account di automazione sta per scadere. 
+
+    Il certificato autofirmato che viene creato per l'account RunAs scade un anno dalla data di creazione. È possibile rinnovarlo in qualsiasi momento prima della scadenza. Se hanno effettuato l'iscrizione per le notifiche di posta elettronica, riceverai anche messaggi di posta elettronica quando un'azione è richiesta da parte dell'utente. Questo errore verrà visualizzato 2 mesi prima della data di scadenza e passerà a un errore critico se il certificato è scaduto. Dopo che il certificato è scaduto, l'aggiornamento automatico non sarà funzionante finché non si rinnova lo stesso.
+
+   **Azione consigliata**: Fare clic su 'Ripristina' e 'Rinnova certificato' per risolvere il problema.
+    
+   ![rinnovare-cert](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+
+> [!NOTE]
+> Una volta che si rinnova il certificato, aggiornare la pagina in modo che lo stato corrente viene aggiornato.

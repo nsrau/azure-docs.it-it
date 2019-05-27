@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 319ec5d09a6daddb5c1fc36f680ee6d0d856e337
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6cb40f8c9f1ee85848b5e3db311d0fb652ec1bc3
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205423"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921807"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Esercitazione: Rilevare le minacce con Sentinel anteprima di Azure
 
@@ -45,11 +45,11 @@ Regole di rilevamento sono basate sui tipi di minacce e anomalie che potrebbero 
 
 1. Nel portale di Azure in Azure Sentinel, selezionare **Analitica**.
 
-   ![Analytics](./media/tutorial-detect-threats/alert-rules.png)
+   ![Analisi](./media/tutorial-detect-threats/alert-rules.png)
 
 2. Nella barra dei menu superiore, fare clic su **+ Aggiungi**.  
 
-   ![Creare la regola di avviso](./media/tutorial-detect-threats/create-alert-rule.png)
+   ![Crea regola di avviso](./media/tutorial-detect-threats/create-alert-rule.png)
 
 3. Sotto **Crea regola di avviso**, specificare un nome descrittivo e impostare le **gravità** in base alle esigenze. 
 
@@ -59,6 +59,10 @@ Regole di rilevamento sono basate sui tipi di minacce e anomalie che potrebbero 
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
         | where ActivityStatus == "Succeeded"
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+
+   > [!NOTE]
+   > La lunghezza di query deve essere compreso tra 1 e 10000 caratteri e non può contenere "search *" e "union *".
+
 
 5. Nel **mapping dell'entità** sezione, i campi nell'area **tipo di entità** per eseguire il mapping ai campi dell'entità riconosciuti da Azure Sentinel le colonne nella query. Per ogni campo, eseguire il mapping di colonna corrispondente nella query che è stato creato in Log Analitica, per il campo dell'entità appropriata. Selezionare il nome della colonna pertinente sotto il **proprietà**. Ogni entità include più campi, ad esempio SID, GUID, e così via. È possibile eseguire il mapping dell'entità in base a uno dei campi, non solo le entità di livello superiore.
 

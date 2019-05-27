@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 3cfdca99c91dc54a711801d92aa0da91fb9703e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484250"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66115497"
 ---
 > [!IMPORTANT]
 > La chiave dell’account di archiviazione è simile alla password radice per l'account di archiviazione. Proteggere sempre con cura la chiave dell'account. Evitare di distribuirla ad altri utenti, impostarla come hardcoded o salvarla in un file di testo normale accessibile ad altri. Rigenerare la chiave dell'account tramite il portale di Azure se si ritiene che possa essere stata compromessa.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 35fc4e855ef53bd7e667fc8de7146916b4d05acb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 72505cfc0a86c00882de37c35dff61a12a9c3fbe
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407070"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899484"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Esercitazione: Integrazione di Azure Active Directory con DocuSign
 
@@ -178,7 +178,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con DocuSign, seguire quest
 
     ![Configurazione dell'accesso Single Sign-On][62]
 
-    i. Scegliere il campo di cui si vuole eseguire il mapping all'attestazione di Azure AD. In questo esempio, viene eseguito il mapping dell'attestazione **emailaddress** con il valore di **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Si tratta del nome di attestazione predefinito di Azure AD per l'attestazione basata su posta elettronica. Fare clic su **SALVA**.
+    i. Scegliere il campo di cui si vuole eseguire il mapping all'attestazione di Azure AD. In questo esempio, viene eseguito il mapping dell'attestazione **emailaddress** con il valore di **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Si tratta del nome di attestazione predefinito di Azure AD per l'attestazione basata su posta elettronica. Fare clic su **SALVA**.
 
     ![Configurazione dell'accesso Single Sign-On][57]
 

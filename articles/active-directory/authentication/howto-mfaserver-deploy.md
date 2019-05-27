@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 05/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae1db992984e8bb1dca71afed9fadd6b411b3dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa3d7d22ed032379f452eb4648c9a1cf87293df9
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415220"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956569"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introduzione al server Azure Multi-Factor Authentication
 
@@ -27,6 +27,9 @@ ms.locfileid: "60415220"
 Dopo aver stabilito di usare un server Multi-Factor Authentication locale, è possibile procedere. Questa pagina include una nuova installazione del server che include l'impostazione di Active Directory locale. Se il server MFA è già installato e lo si vuole aggiornare, vedere [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md) (Eseguire l'aggiornamento al server Azure Multi-Factor Authentication più recente). Per informazioni sull'installazione solo del servizio Web, vedere [Distribuzione del servizio Web App Mobile di Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-mobileapp.md).
 
 ## <a name="plan-your-deployment"></a>Pianificare la distribuzione
+
+> [!WARNING]
+> A partire da marzo del Server MFA 2019 download sarà disponibile solo per i tenant a pagamento. I tenant gratuiti/versione di valutazione non saranno in grado di scaricare o generare e usare le credenziali di attivazione.
 
 Prima di scaricare il server Azure Multi-Factor Authentication, valutare i propri requisiti in termini di carico e disponibilità elevata. Usare queste informazioni per decidere come e dove eseguire la distribuzione.
 
@@ -48,7 +51,7 @@ Quando un server Azure MFA master passa in modalità offline, le richieste di ve
 
 Verificare che il server usato per Azure Multi-Factor Authentication soddisfi i requisiti seguenti:
 
-| Requisiti del server Azure Multi-Factor Authentication | DESCRIZIONE |
+| Requisiti del server Azure Multi-Factor Authentication | Descrizione |
 |:--- |:--- |
 | Hardware |<li>200 MB di spazio su disco rigido</li><li>processore idoneo per x32 o x64</li><li>1 GB o più di RAM</li> |
 | Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, tutte le edizioni</li><li>Windows 8, tutte le edizioni</li><li>Windows 7, tutte le edizioni</li><li>Windows Vista, tutte le edizioni, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 o versione successiva se si installa il portale utenti o l'SDK servizi Web</li> |
@@ -90,6 +93,9 @@ Se non si usa la funzionalità di conferma dell'evento e gli utenti non usano ap
 
 ## <a name="download-the-mfa-server"></a>Scaricare il server MFA
 
+> [!WARNING]
+> A partire da marzo del Server MFA 2019 download sarà disponibile solo per i tenant a pagamento. I tenant gratuiti/versione di valutazione non saranno in grado di scaricare o generare e usare le credenziali di attivazione.
+
 Seguire questi passaggi per scaricare il server Azure Multi-Factor Authentication dal portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
@@ -102,9 +108,6 @@ Seguire questi passaggi per scaricare il server Azure Multi-Factor Authenticatio
 5. Tenere aperta questa pagina, perché sarà necessaria dopo l'esecuzione del programma di installazione.
 
 ## <a name="install-and-configure-the-mfa-server"></a>Installare e configurare il server MFA
-
-> [!WARNING]
-> A partire da marzo del Server MFA 2019 download sarà disponibile solo per i tenant a pagamento. I tenant gratuiti/versione di valutazione non saranno in grado di scaricare o generare e usare le credenziali di attivazione.
 
 Dopo averlo scaricato, è possibile installare e configurare il server. Assicurarsi che il server in cui viene installato soddisfi i requisiti elencati nella sezione relativa alla pianificazione.
 

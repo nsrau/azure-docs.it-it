@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d5751ab96dc6b44229e2b18b832a570930058ca
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 82c9aa961221b582bb16438f30a0584232164393
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442342"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65915110"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Eseguire il training di modelli di TensorFlow e Keras con il servizio di Azure Machine Learning
 
@@ -28,7 +28,7 @@ Il `TensorFlow` Estimatore fornisce inoltre un livello di astrazione rispetto al
 
 Poiché il `TensorFlow` estimator classe è simile alla base [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), è consigliabile leggere prima la [articolo sulle procedure di base Estimator](how-to-train-ml-models.md) comprendere i concetti generali.
 
-Per iniziare a usare servizio Azure Machine Learning [completare la Guida introduttiva](quickstart-run-cloud-notebook.md). Al termine, sarà necessario un [dell'area di lavoro di Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace) e tutti i nostri [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) inclusi quelli per reti neurali profonde training Keras con TensorFlow.
+Per iniziare a usare servizio Azure Machine Learning [completare la Guida introduttiva](quickstart-run-cloud-notebook.md). Al termine, sarà necessario un [dell'area di lavoro di Azure Machine Learning](concept-workspace.md) e tutti i nostri [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) inclusi quelli per reti neurali profonde training Keras con TensorFlow.
 
 ## <a name="single-node-training"></a>Training su nodo singolo
 

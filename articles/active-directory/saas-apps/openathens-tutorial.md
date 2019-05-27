@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cbb1bc64d923add0b1fd38749299714a9093633
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3eca6fc3ab788ee7085c0df5f6c9770858af29ba
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408028"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65891645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Esercitazione: Integrazione di Azure Active Directory con OpenAthens
 
@@ -143,11 +143,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con OpenAthens, seguire que
 
     a. In **Display name mapping** (Mapping nome visualizzato) selezionare **Use attribute** (Usa attributo).
 
-    b. Nella casella di testo **Display name attribute** (Attributo nome visualizzato) immettere il valore `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. Nella casella di testo **Display name attribute** (Attributo nome visualizzato) immettere il valore `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
     
     c. In **Unique user mapping** (Mapping utente univoco) selezionare **Use attribute** (Usa attributo).
 
-    d. Nella casella di testo **Unique user attribute** (Attributo utente univoco) immettere il valore `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    d. Nella casella di testo **Unique user attribute** (Attributo utente univoco) immettere il valore `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     e. In **Status** (Stato) selezionare tutte le tre caselle di controllo.
 

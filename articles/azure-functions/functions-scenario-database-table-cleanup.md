@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120671"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908130"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usare Funzioni di Azure per connettersi al database SQL di Azure
 
-Questo articolo illustra come usare Funzioni di Azure per creare un processo pianificato che si connette a un'istanza del database SQL di Azure. Il codice della funzione pulisce le righe in una tabella nel database. La nuova funzione C# viene creata in base a un modello predefinito di attivazione del timer in Visual Studio 2017. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione app nell'app per le funzioni. Questo scenario esegue un'operazione in blocco sul database. 
+Questo articolo illustra come usare Funzioni di Azure per creare un processo pianificato che si connette a un'istanza del database SQL di Azure. Il codice della funzione pulisce le righe in una tabella nel database. Il nuovo C# funzione viene creata in base a un modello di trigger del timer predefiniti in Visual Studio 2019. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione app nell'app per le funzioni. Questo scenario esegue un'operazione in blocco sul database. 
 
 Se si tratta della prima esperienza di utilizzo di funzioni C#, è consigliabile leggere la [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-dotnet-class-library.md).
 
@@ -64,7 +64,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Come procedu
 
 È necessario aggiungere il pacchetto NuGet che contiene la libreria SqlClient. Questa libreria di accesso ai dati è necessaria per connettersi a un database SQL.
 
-1. Aprire il progetto dell'app per le funzioni locale in Visual Studio 2017.
+1. Aprire il progetto di app di funzione locale in Visual Studio 2019.
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app per le funzioni e scegliere **Gestisci pacchetti NuGet**.
 

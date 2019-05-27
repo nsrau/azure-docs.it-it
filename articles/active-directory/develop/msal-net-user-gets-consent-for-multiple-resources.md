@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f7d24a1e14cfbb1163ab78b94dd36ec288dce50
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e8bd9a86d5ec0d39a7f1c26adac52f41e6420283
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544057"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121976"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Ottiene il consenso per varie risorse tramite MSAL.NET
 L'endpoint di piattaforma di identità di Microsoft non consente di ottenere un token per diverse risorse in una sola volta. Quando si usa Microsoft Authentication Library per .NET (MSAL.NET), il parametro gli ambiti nel metodo di token di acquisizione deve contenere solo gli ambiti per una singola risorsa. Tuttavia, è possibile pre-fornire il consenso a numerose risorse upfront specificando altri ambiti tramite il `.WithExtraScopeToConsent` metodo del generatore.
@@ -32,8 +32,8 @@ L'endpoint di piattaforma di identità di Microsoft non consente di ottenere un 
 
 Ad esempio, se si dispongono di due risorse con gli ambiti 2 ognuna:
 
-- https://mytenant.onmicrosoft.com/customerapi (con 2 ambiti `customer.read` e `customer.write`)
-- https://mytenant.onmicrosoft.com/vendorapi (con 2 ambiti `vendor.read` e `vendor.write`)
+- https:\//mytenant.onmicrosoft.com/customerapi (con 2 ambiti `customer.read` e `customer.write`)
+- https:\//mytenant.onmicrosoft.com/vendorapi (con 2 ambiti `vendor.read` e `vendor.write`)
 
 È consigliabile usare la `.WithExtraScopeToConsent` modificatore con il *extraScopesToConsent* parametro come illustrato nell'esempio seguente:
 
