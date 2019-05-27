@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236684"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153524"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Eseguire attività del flusso di dati in Azure Data Factory
 Usare l'attività del flusso di dati execute per eseguire il flusso di dati di Azure Data factory in esecuzioni di pipeline debug (sandbox) e nelle esecuzioni di pipeline attivata.
@@ -64,6 +64,10 @@ Usare i dati del flusso di Debug di usare un cluster warmed per il test in modo 
 Si tratta di un campo obbligatorio che definisce quale Runtime di integrazione da usare per l'esecuzione dell'attività flusso di dati. Per impostazione predefinita, Data Factory userà il runtime di integrazione di Azure predefinito risoluzione automatica. Tuttavia, è possibile creare il proprio runtime di integrazione di Azure che definiscono aree specifiche, tipo di conteggi core e durata (TTL) di calcolo per l'esecuzione di attività del flusso di dati.
 
 L'impostazione predefinita per le esecuzioni del flusso di dati è 8 core di calcolo generale con un valore TTL di 60 minuti.
+
+È possibile controllare l'ambiente di esecuzione di Spark per l'attività flusso di dati. Nel [runtime di integrazione di Azure](concepts-integration-runtime.md) sono le impostazioni per impostare il tipo di calcolo (utilizzo generico, ottimizzate per la memoria e ottimizzate per il calcolo), numero di memorie centrali di lavoro e time-to-live in modo che corrisponda il motore di esecuzione con le risorse di calcolo del flusso di dati requisiti. Inoltre, l'impostazione di durata (TTL) consentirà consente di gestire un cluster a caldo che è immediatamente disponibile per le esecuzioni di processo.
+
+![Runtime di integrazione di Azure](media/data-flow/ir-new.png "Runtime di integrazione di Azure")
 
 ### <a name="staging-area"></a>Area di gestione temporanea
 

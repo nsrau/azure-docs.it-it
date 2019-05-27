@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
 ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797535"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66150542"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Soluzione di ripristino di emergenza automatizzato usando Azure Site Recovery per le condivisioni file ospitate su StorSimple
 
@@ -93,7 +93,7 @@ Questo passaggio richiede la preparazione dell'ambiente di file server locale, l
       
 1. Fare clic su **Avanti**.
 1. Accettare le **condizioni del contratto** e quindi fare clic su **Avanti**.
-1. Fare clic su **Fine**.
+1. Fare clic su **Finish**.
 1. Creare condivisioni file usando volumi ottenuti dall'archiviazione StorSimple. Per maggiori informazioni, vedere l'articolo [Usare il servizio StorSimple Manager per gestire i volumi](storsimple-manage-volumes.md).
    
    1. Nelle macchine virtuali locali premere il tasto Windows + Q e cercare **iSCSI**.
@@ -241,7 +241,7 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
    
    - Fare clic sul pulsante **+ Piano di ripristino**. Verrà visualizzato il pannello seguente.
       
-      ![Crea piano di ripristino](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
+      ![Creare il piano di ripristino](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
       
    - Immettere un nome del piano di ripristino e scegliere i valori di Origine, Destinazione e Modello di distribuzione.
    
@@ -323,7 +323,7 @@ Durante il failback, i contenitori di volumi StorSimple vengono sottoposti a fai
 
 ## <a name="best-practices"></a>Procedure consigliate
 ### <a name="capacity-planning-and-readiness-assessment"></a>Pianificazione della capacità e valutazione della conformità
-#### <a name="hyper-v-site"></a>Sito di Hyper-V
+#### <a name="hyper-v-site"></a>Sito Hyper-V
 Usare lo [strumento Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057) per progettare l'infrastruttura di server, archiviazione e rete per l'ambiente di replica Hyper-V.
 
 #### <a name="azure"></a>Azure
@@ -361,5 +361,5 @@ La pianificazione della capacità prevede almeno due processi importanti:
   > Rieseguire il piano di ripristino al termine del failover dell'appliance.
 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Usando Azure Site Recovery è possibile creare un piano di ripristino di emergenza automatizzato completo per una VM del server file con condivisioni file ospitate nell'archiviazione StorSimple. È possibile avviare il failover in pochi secondi da qualsiasi luogo in caso di un'interruzione e fare in modo che l'applicazione sia operativa in pochi minuti.

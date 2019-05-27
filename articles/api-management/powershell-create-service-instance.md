@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: 475f558ee645be109a85a4344f82031fe4b0b01b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7f316cd24bbb7b00c263566efdd81805c79f2e48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66141286"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Creare una nuova istanza del servizio Gestione API di Azure
 
@@ -56,7 +56,7 @@ New-AzApiManagement -ResourceGroupName "myResourceGroup" -Location "West US" -Na
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile rimuovere il gruppo di risorse e tutte le risorse correlate usando il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+Quando non servono più, è possibile usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse correlate.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup

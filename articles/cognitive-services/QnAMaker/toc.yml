@@ -184,6 +184,8 @@
   items:
     - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Conformità
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prezzi e limiti

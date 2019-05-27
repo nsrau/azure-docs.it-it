@@ -9,11 +9,11 @@ ms.date: 02/13/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: afd4836229c60ebef1536d4fa1ca4206a492e56d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60763882"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150310"
 ---
 Dopo avere creato un certificato radice autofirmato, esportare il file con estensione cer con la chiave pubblica (non la chiave privata) del certificato radice. Successivamente, caricare il file in Azure. La procedura seguente consente di esportare il file con estensione .cer per il certificato radice autofirmato:
 
@@ -34,10 +34,10 @@ Dopo avere creato un certificato radice autofirmato, esportare il file con esten
    ![Sfoglia](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. Fare clic su **Fine** per esportare il certificato.
 
-   ![Finish](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
+   ![Fine](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
 7. Il certificato è stato esportato correttamente.
 
-   ![Success](./media/vpn-gateway-certificates-export-public-key-include/success.png)
+   ![Esito positivo](./media/vpn-gateway-certificates-export-public-key-include/success.png)
 8. Il certificato esportato è simile al seguente:
 
    ![Esportato](./media/vpn-gateway-certificates-export-public-key-include/exported.png)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f5d1c66cb049ab9ec52db619d55a4bb3e485e4b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8142551d9c20c18d83c256b3f07a0deb291577c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60588541"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147647"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 ##  <a name="introduction"></a>Introduzione
@@ -72,7 +72,7 @@ Gli utenti, i gruppi e le applicazioni da tale directory possono gestire le riso
 
 Per esigenze di diagnostica e manutenzione, è necessario e viene usato un modello operativo che impiega un sistema di elevazione dei privilegi just-in-time. Azure AD Privileged Identity Management (PIM) introduce il concetto di amministratore idoneo. Gli [amministratori idonei](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) devono essere utenti che necessitano dell'accesso con privilegi in modo occasionale, non con cadenza quotidiana. Il ruolo è inattivo fino a quando l'utente che necessita dell'accesso non completa un processo di attivazione e diventa amministratore attivo per un periodo di tempo predeterminato.
 
-![Gestione identità con privilegi di Azure AD](./media/azure-isolation/azure-isolation-fig2.png)
+![Azure AD Privileged Identity Management](./media/azure-isolation/azure-isolation-fig2.png)
 
 Azure Active Directory ospita ogni tenant nel relativo contenitore protetto, con i criteri e autorizzazioni per il contenitore e gli elementi al suo interno gestiti esclusivamente dal tenant che ne è anche proprietario.
 
@@ -137,6 +137,7 @@ L'utilizzo di dimensioni con piano Isolato garantisce che la macchina virtuale s
 * Standard_G5
 * Standard_DS15_v2
 * Standard_D15_v2
+* Standard_F72s_v2
 
 Altre informazioni su ogni dimensione con piano Isolato sono disponibili [qui](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
@@ -246,7 +247,7 @@ Per molte organizzazioni, [la crittografia dei dati inattivi](https://docs.micro
 
 -   [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS.
 
-#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
+#### <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
 [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) per le macchine virtuali consente di soddisfare i requisiti di conformità e sicurezza dell'organizzazione, grazie alla possibilità di crittografare i dischi delle macchine virtuali, inclusi i dischi di avvio e di dati, con chiavi e criteri gestiti in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 La soluzione Crittografia dischi per Windows è basata su [Crittografia unità BitLocker](https://technet.microsoft.com/library/cc732774.aspx) di Microsoft e la soluzione Linux è basata su [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).

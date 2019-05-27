@@ -9,11 +9,11 @@ ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: fb27386881e89cd9056d0efccb7d3c301867bd83
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965988"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156843"
 ---
 1. In **Android Studio** selezionare **Tools** (Strumenti) nel menu e quindi **SDK Manager**. 
 2. Selezionare la versione di destinazione di Android SDK usata nel progetto e quindi **Show Package Details** (Visualizza dettagli pacchetto). 

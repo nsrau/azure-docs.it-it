@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/16/2019
+ms.date: 5/22/2019
 ms.author: victorh
-ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827430"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986881"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>La scalabilità automatica e il Gateway applicazione ridondanza della zona 
 
@@ -93,8 +93,6 @@ Prezzo unitario capacità = 744(hours) * Max (compute unit Max(25/50 for connect
 
 Prezzo totale = $267.84 + $85.71 = $353.55
 
-Il [pagina dei prezzi](https://azure.microsoft.com/pricing/details/application-gateway/) verrà aggiornato per riflettere i prezzi per area 14 maggio 2019. La fatturazione è pianificata per iniziare il 1 giugno 2019.
-
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Ridimensionamento WAF e Gateway applicazione v2
 
 È possibile configurare il Gateway applicazione e Web Application firewall per la scalabilità in due modalità:
@@ -138,7 +136,7 @@ La tabella seguente confronta le funzionalità disponibili in ogni SKU.
 |Applicazione di una route definita dall'utente alla subnet del gateway applicazione|Non supportate|
 |Gruppo di sicurezza di rete per intervallo di porte in ingresso| - Da 65200 a 65535 per SKU versione 2 Standard<br>- Da 65503 a 65534 per SKU Standard.<br>Per altre informazioni, vedere la sezione [Domande frequenti](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Contatori delle prestazioni in Diagnostica di Azure|Non supportati.<br>Usare le metriche di Azure.|
-|Fatturazione|Fatturazione pianificata per iniziare il 1 giugno 2019.|
+|Fatturazione|Fatturazione pianificata l'avvio del 1 ° luglio 2019.|
 |Modalità FIPS|Attualmente non supportati.|
 |Modalità solo bilanciamento del carico interno|Non supportato attualmente. Le modalità pubblica e con bilanciamento del carico interno insieme non sono supportate.|
 |Integrazione di Netwatcher|Non supportati.|

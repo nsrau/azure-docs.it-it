@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
 ms.openlocfilehash: 94fe099984fae77c65658d7085a8540ff4f2448b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60755249"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161279"
 ---
 Questa sezione descrive i limiti del servizio Archiviazione di Azure e le convenzione di denominazione necessarie per File di Azure, BLOB in blocchi di Azure e BLOB di pagine di Azure, come applicabili al servizio Data Box Gateway/Data Box Edge. Esaminare attentamente i limiti di archiviazione e seguire tutte le raccomandazioni.
 

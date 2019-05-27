@@ -9,13 +9,13 @@ ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468381"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145932"
 ---
-I dischi del sistema operativo temporanei vengono creati nello spazio di archiviazione macchina virtuale (VM) locali e non persistenti nella risorsa di archiviazione di Azure remoto. I dischi del sistema operativo temporanei funzionano anche per carichi di lavoro senza stati, in cui le applicazioni sono a tolleranza di singoli errori di macchina virtuale, ma sono più interessati a tempo per ricreare l'immagine di singole istanze di VM o il tempo che necessario per le distribuzioni su larga scala. È anche adatto per le applicazioni, distribuite usando il modello di distribuzione classica, spostare il modello di distribuzione Resource Manager. Con un disco del sistema operativo temporaneo, si potrebbe osservare minore latenza di lettura/scrittura per il disco del sistema operativo e più veloci ricreazione dell'immagine della macchina virtuale. Inoltre, il disco del sistema operativo temporaneo è gratuito, si dovranno sostenere alcun costi di archiviazione per il disco del sistema operativo. 
+I dischi del sistema operativo temporanei vengono creati nello spazio di archiviazione macchina virtuale (VM) locali e non persistenti nella risorsa di archiviazione di Azure remoto. I dischi del sistema operativo temporanei funzionano anche per carichi di lavoro senza stati, in cui le applicazioni sono a tolleranza di singoli errori di macchina virtuale, ma sono più interessati a tempo per ricreare l'immagine di singole istanze di VM o il tempo che necessario per le distribuzioni su larga scala. È anche adatto per le applicazioni, distribuite usando il modello di distribuzione classica, spostare il modello di distribuzione Resource Manager. Il disco del sistema operativo temporaneo offre latenza minore per operazioni di lettura/scrittura nel disco del sistema operativo e una ricreazione più rapida delle immagini delle VM. Inoltre, il disco del sistema operativo temporaneo è gratuito, si dovranno sostenere alcun costi di archiviazione per il disco del sistema operativo. 
  
 Le funzionalità principali di dischi temporanei sono: 
 - Possono essere utilizzati con le immagini del Marketplace e le immagini personalizzate.
@@ -30,7 +30,7 @@ Differenze principali tra i dischi del sistema operativo permanenti e temporanee
 |                             | Disco del sistema operativo persistente                          | Disco del sistema operativo temporaneo                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | Dimensione massima per disco del sistema operativo      | 2 TiB                                                                                        | Memorizzare nella cache di dimensione per la dimensione di VM o 2TiB, qualunque sia il minore - [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), e [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| Dimensioni delle macchine Virtuali supportate          | Tutti                                                                                          | DSv1, DSv2, DSv3, Esv3, ADFS, FsV2, GS, M                                               |
+| Dimensioni delle macchine virtuali supportate          | Tutti                                                                                          | DSv1, DSv2, DSv3, Esv3, ADFS, FsV2, GS, M                                               |
 | Supporto dei tipi di disco           | Disco del sistema operativo gestito e non gestito                                                                | Solo disco del sistema operativo gestito                                                               |
 | Supporto di area              | Tutte le aree                                                                                  | Tutte le aree                              |
 | Persistenza dei dati            | Dati scritti su disco del sistema operativo del disco del sistema operativo vengono archiviati in archiviazione di Azure                                  | I dati scritti su disco del sistema operativo viene archiviati nella risorsa di archiviazione della macchina virtuale locale e non sono persistenti in archiviazione di Azure. |

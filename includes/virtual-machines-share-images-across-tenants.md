@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546731"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145894"
 ---
 Raccolte di immagini condivise consentono di immagini di condivisione tramite RBAC. È possibile usare RBAC per condividere le immagini all'interno del tenant e anche per singoli utenti all'esterno del tenant. Tuttavia, se si vuole condividere immagini di fuori del tenant di Azure, su larga scala, è consigliabile creare una registrazione dell'app per facilitare la condivisione.  Tramite la registrazione di un'app è possibile abilitare la condivisione di scenari più complessa, ad esempio: 
 

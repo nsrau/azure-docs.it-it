@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182405"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162045"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Pubblicare in un argomento personalizzato per la Griglia di eventi di Azure
 
@@ -100,10 +100,10 @@ Dopo la pubblicazione nell'endpoint dell'argomento, si riceve una risposta. La r
 
 |Risultato  |Risposta  |
 |---------|---------|
-|Success  | 200 - OK  |
+|Esito positivo  | 200 - OK  |
 |I dati di evento hanno un formato non corretto | 400 - Richiesta non valida |
 |Chiave di accesso non valida | 401 - Non autorizzato |
-|Endpoint non corretto | 404 - Non trovato |
+|Endpoint non corretto | 404 Non trovato |
 |Una matrice o un evento supera i limiti delle dimensioni | 413 Payload Too Large (413 Payload troppo grande) |
 
 Per gli errori, il corpo del messaggio ha il formato seguente:

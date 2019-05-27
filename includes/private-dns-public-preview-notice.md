@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for Azure DNS Private Zone public preview notice
 ms.openlocfilehash: 0d8f484b32136d9057442d930ae96fa154a96849
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596546"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149933"
 ---
 > [!IMPORTANT]
 > La funzionalità Zone private di DNS di Azure è attualmente disponibile in anteprima pubblica. 

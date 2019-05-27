@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/13/2019
-ms.openlocfilehash: f244a67abab5c7f8cd14277f87f055ac6d48b8d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 44b6f099b5b17329976b9fec3c0ac38b5e394221
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762423"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978007"
 ---
-# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters"></a>Configura limitazione del traffico di rete in uscita per i cluster HDInsight di Azure
+# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Configura limitazione del traffico di rete in uscita per i cluster HDInsight di Azure (anteprima)
 
 Questo articolo fornisce i passaggi per poter proteggere il traffico in uscita dal cluster HDInsight tramite il Firewall di Azure. I passaggi seguenti presuppongono che si sta configurando un Firewall di Azure per un cluster esistente. Se si distribuisce un nuovo cluster e un firewall, creare innanzitutto il cluster HDInsight e la subnet e quindi seguire i passaggi descritti in questa Guida.
 
@@ -27,7 +27,7 @@ Esistono varie dipendenze che richiedono il traffico in ingresso. Il traffico di
 
 Le dipendenze di traffico in uscita di HDInsight sono quasi interamente definite con nomi di dominio completo, che non hanno indirizzi IP statici su cui si basano. La mancanza di indirizzi statici significa i gruppi di sicurezza di rete (Nsg) non può essere utilizzati per bloccare il traffico in uscita da un cluster. Gli indirizzi cambiano con una frequenza tale che uno non è possibile impostare le regole di base la risoluzione dei nomi corrente e usarlo per impostare le regole di sicurezza di rete.
 
-La soluzione per proteggere gli indirizzi in uscita è usare un dispositivo firewall che può controllare il traffico in uscita in base ai nomi di dominio. Firewall di Azure può limitare il traffico HTTP e HTTPS in uscita in base all'FQDN della destinazione.
+La soluzione per proteggere gli indirizzi in uscita è usare un dispositivo firewall che può controllare il traffico in uscita in base ai nomi di dominio. Firewall di Azure è possibile limitare il traffico HTTP e HTTPS in uscita in base il FQDN della destinazione o [tag FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Configurazione di Firewall di Azure con HDInsight
 
@@ -80,7 +80,7 @@ Nel **aggiungere la raccolta di regole dell'applicazione** schermata, seguire qu
         1. Immettere `https:443` sotto **protocollo: Port** e `sqm.telemetry.microsoft.com` sotto **destinazione FQDN**.
     1. Se il cluster è supportato da WASB e non si usano gli endpoint del servizio precedenti, aggiungere una regola per WASB:
         1. Nel **destinazione FQDN** sezione, fornire un **nome**e impostare **indirizzi di origine** a `*`.
-        1. Immettere `wasb` sotto **protocollo: Port** e `*` sotto **destinazione FQDN**.
+        1. Immettere `http` [https] a seconda se si usa wasb: / / wasbs o: / / sotto **protocollo: porta** e l'url di account di archiviazione sotto **FQDN destinazione**.
 1. Fare clic su **Aggiungi**.
 
 ![Titolo: Immettere i dettagli sulla raccolta di regole di applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)

@@ -1,5 +1,5 @@
 ---
-title: Controllo delle versioni e definizione del set di dati
+title: Definizione del set di dati e controllo delle versioni con Azure ml-set di dati
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come aggiornare le definizioni dei set di dati e gestire il ciclo di vita delle definizioni
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 7c861c8cdc9985caa42bd2beb5236a4f4e93e4c7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028681"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146212"
 ---
 # <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>Aggiornare e gestire il ciclo di vita delle definizioni di set di dati
 
@@ -344,7 +344,7 @@ Dopo avere recuperato una definizione, è possibile usarlo con modelli di machin
 
 È possibile gestire il ciclo di vita di ogni definizione di set di dati in modo indipendente. Esistono tre fasi del ciclo di vita: attivo, deprecate o archiviato.
 
-### <a name="active"></a>Attivo
+### <a name="active"></a>Attive
 
 Quando viene creata una nuova definizione di set di dati, è attiva per impostazione predefinita. 
 
@@ -362,7 +362,7 @@ ds_def = dataset.get_definition(version_id = 1)
 ds_def.deprecate(deprecate_by_dataset_id=dataset.id, deprecated_by_definition_version=2)
 ```
 
-### <a name="archive"></a>Archiviazione
+### <a name="archive"></a>Archivia
 
 Le definizioni di set di dati possono essere archiviate quando le definizioni non sono considerate da usare per qualsiasi motivo (ad esempio, i dati sottostanti non saranno più disponibili). Quando viene usata una definizione di set di dati archiviata in pipeline di machine learning, con l'errore verrà bloccata l'esecuzione.
 
@@ -372,7 +372,7 @@ ds_def = dataset.get_definition(version_id = 1)
 ds_def.archive()
 ```
 
-### <a name="reactivate"></a>Riattiva
+### <a name="reactivate"></a>Riattivare
 
 È possibile riattivare facilmente qualsiasi definizione di set di dati deprecati o archived.
 

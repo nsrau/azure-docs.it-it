@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: aed63e332375be4f8ed939cf162545c9f366f329
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317596"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66143446"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizzare l'acceleratore di soluzioni di monitoraggio remoto
 
@@ -31,7 +31,7 @@ I passaggi seguenti illustrano il processo per configurare un ambiente locale pe
 
 1. Distribuire un'istanza **base** dell'acceleratore di soluzioni usando l'interfaccia della riga di comando **pcs**. Prendere nota del nome della distribuzione e delle credenziali specificate per la macchina virtuale. Per altre informazioni, vedere [Deploy using the CLI](iot-accelerators-remote-monitoring-deploy-cli.md) (Distribuire usando l'interfaccia della riga di comando).
 
-1. Per abilitare l'accesso SSH alla macchina virtuale che ospita i microservizi nella soluzione, usare il portale di Azure o Azure Cloud Shell. Ad esempio: 
+1. Per abilitare l'accesso SSH alla macchina virtuale che ospita i microservizi nella soluzione, usare il portale di Azure o Azure Cloud Shell. Ad esempio:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -39,7 +39,7 @@ I passaggi seguenti illustrano il processo per configurare un ambiente locale pe
 
     Abilitare l'accesso SSH solo durante il test e lo sviluppo. Se si abilita SSH, [disabilitarlo appena si termina di usarlo](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Usare il portale di Azure o Azure Cloud Shell per trovare il nome e l'indirizzo IP pubblico della macchina virtuale. Ad esempio: 
+1. Usare il portale di Azure o Azure Cloud Shell per trovare il nome e l'indirizzo IP pubblico della macchina virtuale. Ad esempio:
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table

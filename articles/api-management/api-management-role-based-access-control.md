@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 2e53b0d582a69e10de22e85720833800d44058e3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793867"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66141493"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Come usare il controllo degli accessi in base al ruolo in Gestione API di Azure
 
@@ -33,7 +33,7 @@ In Gestione API sono attualmente disponibili tre ruoli predefiniti e altri due n
 
 La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. È possibile assegnare questi ruoli tramite il portale di Azure o altri strumenti, tra cui Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), l'[interfaccia della riga di comando di Azure ](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) e l'[API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Per dettagli su come assegnare ruoli predefiniti, vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
-| Ruolo          | Accesso in lettura<sup>[1]</sup> | Accesso in scrittura<sup>[2]</sup> | Creazione, eliminazione e ridimensionamento di servizi, VPN e configurazione dominio personalizzato | Accesso al portale di pubblicazione legacy | DESCRIZIONE
+| Ruolo          | Accesso in lettura<sup>[1]</sup> | Accesso in scrittura<sup>[2]</sup> | Creazione, eliminazione e ridimensionamento di servizi, VPN e configurazione dominio personalizzato | Accesso al portale di pubblicazione legacy | Descrizione
 | ------------- | ---- | ---- | ---- | ---- | ---- 
 | Collaboratore Servizio Gestione API di Azure | ✓ | ✓ | ✓ | ✓ | Utente con privilegi avanzati. Dispone di accesso CRUD completo a servizi ed entità di Gestione API (ad esempio, API e criteri). Dispone di accesso al portale di pubblicazione legacy. |
 | Ruolo lettura del servizio Gestione API di Azure | ✓ | | || Dispone di accesso in sola lettura a servizi ed entità Gestione API. |

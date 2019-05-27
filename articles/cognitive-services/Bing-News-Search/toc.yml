@@ -109,3 +109,5 @@
       href: language-support.md
     - name: Analisi per l'API Ricerca notizie Bing
       href: bing-news-stats.md
+    - name: Conformità
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

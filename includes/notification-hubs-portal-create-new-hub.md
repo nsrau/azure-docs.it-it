@@ -9,11 +9,11 @@ ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
 ms.openlocfilehash: a5d29e77f6ba10ed3069cb3f5a3c8089f49c237d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60423300"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140578"
 ---
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere **Tutti i servizi** dal menu a sinistra e selezionare **Hub di notifica** nella sezione **Dispositivi mobili**. Selezionare l'asterisco (`*`) accanto al nome del servizio per aggiungerlo alla sezione **PREFERITI** nel menu a sinistra. Dopo aver aggiunto l'opzione **Hub di notifica** a **PREFERITI**, selezionarla nel menu a sinistra. 

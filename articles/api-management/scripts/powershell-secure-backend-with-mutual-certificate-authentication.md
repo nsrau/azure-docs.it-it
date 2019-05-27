@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 813b896c9a20e262752638ac26b57212929d8f27
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6c390cc956540e9065ffe30092a2f33e552c33fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66141083"
 ---
 # <a name="secure-back-end"></a>Proteggere il back-end
 
@@ -36,7 +36,7 @@ Se si sceglie di installare e usare PowerShell in locale, per questa esercitazio
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile rimuovere il gruppo di risorse e tutte le risorse correlate usando il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+Quando non servono più, è possibile usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse correlate.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
