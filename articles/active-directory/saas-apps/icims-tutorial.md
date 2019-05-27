@@ -16,11 +16,11 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0966fe01c90d5bf0bdaefba893b678f877805c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835164"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898216"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icims"></a>Esercitazione: Integrazione di Azure Active Directory con ICIMS
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ICIMS, seguire questa p
 
     ![Informazioni sul Single Sign-On di URL e dominio di ICIMS](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<tenant name>.icims.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<tenant name>.icims.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<tenant name>.icims.com`
 

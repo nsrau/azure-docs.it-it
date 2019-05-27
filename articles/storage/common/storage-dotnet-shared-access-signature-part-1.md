@@ -9,12 +9,12 @@ ms.date: 04/18/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154438"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65907231"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Uso delle firme di accesso condiviso
 
@@ -89,7 +89,7 @@ I token di firma di accesso condiviso dell'account e del servizio includono para
 * **Risorsa di archiviazione.**  Le risorse di archiviazione per cui è possibile delegare l'accesso con una firma di accesso condiviso del servizio sono:
   * Contenitori e BLOB
   * Condivisioni di file e file
-  * Queues
+  * Code
   * Le tabelle e gli intervalli di entità della tabella.
 
 ### <a name="parameters-for-an-account-sas-token"></a>Parametri per il token della firma di accesso condiviso dell'account
@@ -109,7 +109,7 @@ Di seguito è riportato un esempio di URI di firma di accesso condiviso del serv
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| NOME | Parte firma di accesso condiviso | DESCRIZIONE |
+| NOME | Parte firma di accesso condiviso | Descrizione |
 | --- | --- | --- |
 | URI del BLOB |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Indirizzo del BLOB. Si noti che è vivamente consigliato l'uso di HTTPS. |
 | Versione dei servizi di archiviazione |`sv=2015-04-05` |Per i servizi di archiviazione della versione 2012-02-12 e successive questo parametro indica la versione da usare. |
@@ -129,7 +129,7 @@ Di seguito è riportato un esempio di firma di accesso condiviso dell'account ch
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| NOME | Parte firma di accesso condiviso | DESCRIZIONE |
+| NOME | Parte firma di accesso condiviso | Descrizione |
 | --- | --- | --- |
 | URI della risorsa |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Endpoint di servizio BLOB con parametri per ottenere le proprietà del servizio (operazione GET) o per impostare le proprietà del servizio (operazione SET). |
 | Servizi |`ss=bf` |La firma di accesso condiviso si applica ai servizi BLOB e File |
@@ -232,7 +232,7 @@ Di seguito sono riportati alcuni esempi di entrambi i tipi di firma di accesso c
 Per eseguire questi esempi in C# è necessario fare riferimento ai seguenti pacchetti NuGet nel progetto:
 
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage), versione 6.x o versione successiva (per usare l'account SAS).
-* [Gestione configurazione di Azure](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Gestione configurazione di Azure](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager)
 
 Per altri esempi che illustrano come creare e testare una firma di accesso condiviso, vedere [Esempi di codice per Azure per Archiviazione](https://azure.microsoft.com/documentation/samples/?service=storage).
 
@@ -422,7 +422,6 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all'account di archiviazione ai client ai quali non si desidera fornire la chiave dell'account. In quanto tali, costituiscono una parte essenziale del modello di sicurezza di qualsiasi applicazione che utilizza il servizio di archiviazione di Azure. Il rispetto delle procedure consigliate sopra elencate consente di usare la firma di accesso condiviso per offrire accesso ancor più flessibile alle risorse dell'account di archiviazione senza compromettere la sicurezza dell'applicazione.
 
 ## <a name="next-steps"></a>Fasi successive
-* [Firme di accesso condiviso, parte 2: Creare e usare una firma di accesso condiviso con l'archiviazione BLOB](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md)
 * [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Introduzione alla firma di accesso condiviso per tabelle e code](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

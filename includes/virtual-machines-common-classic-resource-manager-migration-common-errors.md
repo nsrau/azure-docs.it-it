@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 16ccd89fe6eaad3fd6c2704b2f324f486eee45e1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59532938"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111662"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Errori comuni durante la migrazione dalla distribuzione classica ad Azure Resource Manager
 Questo articolo descrive gli errori più comuni e le relative soluzioni per agevolare la migrazione delle risorse IaaS dal modello di distribuzione classica di Azure allo stack di Azure Resource Manager.
@@ -18,7 +18,7 @@ Questo articolo descrive gli errori più comuni e le relative soluzioni per agev
 
 ## <a name="list-of-errors"></a>Elenco degli errori
 
-| Stringa di errore | Mitigazione |
+| Stringa di errore | Attenuazione |
 | --- | --- |
 | Errore interno del server |In alcuni casi, si tratta di un errore temporaneo che si risolve con un nuovo tentativo. Se l'errore persiste, [contattare il supporto tecnico Azure](../articles/azure-supportability/how-to-create-azure-support-request.md) perché esamini i log della piattaforma. <br><br> **NOTA:** una volta che il team di supporto ha rilevato l'evento imprevisto, non tentare altre soluzioni di mitigazione in autonomia per evitare conseguenze impreviste nell'ambiente. |
 | La migrazione non è supportata per la distribuzione {nome-distribuzione} in HostedService {nome-servizio-ospitato} perché si tratta di una distribuzione PaaS (Web/di lavoro). |Ciò si verifica quando una distribuzione contiene un ruolo Web o di lavoro. Dal momento che la migrazione è supportata solo per le macchine virtuali, rimuovere il ruolo Web o di lavoro dalla distribuzione e tentare nuovamente la migrazione. |

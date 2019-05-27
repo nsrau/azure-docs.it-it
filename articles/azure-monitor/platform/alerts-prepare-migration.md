@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 347c89991cbb4d28b46eafff0a783148793ad2f7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727496"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015616"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparare l'App per la logica e i runbook per la migrazione delle regole di avviso classiche
 
-Come [annunciate in precedenza](monitoring-classic-retirement.md), gli avvisi classici in Monitoraggio di Azure verranno ritirati nel luglio 2019. Uno strumento di migrazione è disponibile nel portale di Azure per i clienti che usano le regole di avviso di classiche e che desiderano migrazione si attivano automaticamente.
+Come [annunciate in precedenza](monitoring-classic-retirement.md), gli avvisi classici in Monitoraggio di Azure verranno ritirati nel mese di settembre 2019 (è stato originariamente 2019 luglio). Uno strumento di migrazione è disponibile nel portale di Azure per i clienti che usano le regole di avviso di classiche e che desiderano migrazione si attivano automaticamente.
+
+> [!NOTE]
+> A causa di un ritardo nell'implementazione dello strumento di migrazione, la data di ritiro per la migrazione di avvisi classici è stata estesa al 31 agosto 2019 dalla data di originariamente annunciata del 30 giugno 2019.
 
 Se si sceglie di migrare volontariamente le regole di avviso classiche alle nuove regole di avviso, tenere presente che esistono alcune differenze tra i due sistemi. Questo articolo illustra tali differenze e come è possibile preparare per la modifica.
 
@@ -30,7 +33,7 @@ Nella tabella seguente è un riferimento a interfacce di programmazione per gli 
 |---------|---------|---------|
 |API REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Interfaccia della riga di comando di Azure     | [avviso di monitoraggio AZ](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [avviso delle metriche di monitoraggio AZ](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [Riferimento](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |      |
+|PowerShell      | [Riferimento](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Riferimento](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Modello di Azure Resource Manager | [Per gli avvisi classici](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Per i nuovi avvisi delle metriche](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
 ## <a name="notification-payload-changes"></a>Modifiche di payload di notifica
@@ -41,14 +44,14 @@ Usare la tabella seguente per eseguire il mapping i campi di payload di webhook 
 
 |  |Avvisi classici  |Nuovi avvisi delle metriche |
 |---------|---------|---------|
-|L'avviso è stato attivato o è stato risolto?    | **Stato**       | **data.status** |
+|L'avviso è stato attivato o è stato risolto?    | **status**       | **data.status** |
 |Informazioni contestuali relative all'avviso     | **context**        | **data.context**        |
 |Timestamp in corrispondenza del quale l'avviso è stato attivato o risolto     | **context.timestamp**       | **data.context.timestamp**        |
 | ID regola di avviso | **context.id** | **data.context.id** |
 | Nome regola di avviso | **context.name** | **data.context.name** |
 | Descrizione della regola di avviso | **context.description** | **data.context.description** |
 | Condizione di regola di avviso | **context.condition** | **data.context.condition** |
-| Nome metrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| Nome della metrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
 | Aggregazione temporale (come la metrica viene aggregata nell'intervallo di valutazione)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
 | Periodo di valutazione | **context.condition.windowSize** | **data.context.condition.windowSize** |
 | Operatore (come il valore della metrica aggregato viene confrontato con la soglia di) | **context.condition.operator** | **data.context.condition.operator** |

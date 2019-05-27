@@ -9,16 +9,16 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 888f4dedf2fda0f54297d42a5f813abf73ded748
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121520"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117808"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
 Questo articolo fornisce informazioni sulla verifica e la risoluzione dei problemi di connettività di ExpressRoute. ExpressRoute, che consente di estendere una rete locale nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività, coinvolge le tre diverse aree di rete seguenti:
 
--   Rete del cliente
+-   Rete cliente
 -   Rete del provider
 -   Datacenter Microsoft
 
@@ -157,7 +157,7 @@ Una risposta di esempio:
     Sku                              : Standard
     Status                           : Enabled
 
-Per verificare se un circuito ExpressRoute è operativo, prestare particolare attenzione ai campi seguenti: ServiceProviderProvisioningState : Provisioned Status                           : Attivato
+Per verificare se un circuito ExpressRoute è operativo, prestare particolare attenzione ai campi seguenti: ServiceProviderProvisioningState : Provisioned Status                           : Enabled
 
 > [!NOTE]
 > Se *Status* non è abilitato, contattare il [supporto tecnico Microsoft][Support]. Se *ServiceProviderProvisioningState* è senza provisioning, contattare il provider di servizi.

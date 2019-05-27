@@ -17,11 +17,11 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 88cee825f132054eb1228e8930f82199c7f1812f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565099"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65905436"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-useall"></a>Esercitazione: Integrazione di Azure Active Directory con Useall
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Useall, seguire questa 
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Useall](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<SUBDOMAIN>.useall.com.br/tenant/useall`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.useall.com.br/tenant/useall`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<SUBDOMAIN>.useall.com.br/tenant/apiuseall/saml2`
 

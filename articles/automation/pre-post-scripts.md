@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7317b634ee4c8886ce5c99bb2b3395d7d1f646d5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499807"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65913871"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Gestire gli script di pre e post
 
@@ -30,9 +30,7 @@ Per usare un pre-script e un post-script in una distribuzione di aggiornamento, 
 
 ![Selezionare gli script](./media/pre-post-scripts/select-scripts.png)
 
-Selezionare lo script da usare, in questo esempio, è stato usato il runbook **UpdateManagement-TurnOnVms**. Quando si seleziona il runbook si apre la pagina **Configura script**. Specificare i valori per i parametri e scegliere **Pre-script**. Fare clic su **OK** al termine dell'operazione.
-
-![Configura script](./media/pre-post-scripts/configure-script.png)
+Selezionare lo script da usare, in questo esempio, è stato usato il runbook **UpdateManagement-TurnOnVms**. Quando si seleziona il runbook il **Configura Script** verrà visualizzata la pagina, scegliere **pre-Script di**. Fare clic su **OK** al termine dell'operazione.
 
 Ripetere la procedura per lo script **UpdateManagement-TurnOffVms**. Al momento di selezionare il **Tipo di script**, scegliere però **Post-script**.
 
@@ -87,7 +85,7 @@ foreach($summary in $finalStatus)
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Proprietà SoftwareUpdateConfigurationRunContext
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | Nome della configurazione di aggiornamento software        |
 |SoftwareUpdateConfigurationRunId     | ID univoco per l'esecuzione.        |
@@ -136,7 +134,7 @@ Un esempio completo con tutte le proprietà è disponibile in: [Software Update 
 > [!NOTE]
 > Il `SoftwareUpdateConfigurationRunContext` oggetto può contenere le voci duplicate per le macchine. Ciò può provocare Pre e post-script da eseguire più volte nello stesso computer. Per risolvere questo problema, usare `Sort-Object -Unique` selezionare solo i nomi di macchina virtuale univoci nello script.
 
-## <a name="samples"></a>Esempi
+## <a name="samples"></a>Campioni
 
 Esempi di pre-script e post-script sono disponibili nella [raccolta Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) o possono essere importati tramite il portale di Azure. Per importarli tramite il portale, nell'account di automazione selezionare **Raccolta di runbook** in **Automazione processi**. Usare **Update Management** come filtro.
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0771c9c5311e264fb996bbac1c540f9ed11873cb
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60878852"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908065"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operazioni del file System in Azure Data Lake Storage Gen1 con .NET SDK
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Questo articolo descrive come eseguire operazioni del file system in Data Lake S
 Per istruzioni su come eseguire le operazioni di gestione di account in Data Lake Storage Gen1 con .NET SDK, consultare [Operazioni di gestione di account in Data Lake Storage Gen1 con .NET SDK](data-lake-store-get-started-net-sdk.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Visual Studio 2013, 2015 o 2017**. Le istruzioni seguenti fanno riferimento a Visual Studio 2017.
+* **Visual Studio 2013 o versione successiva**. Le istruzioni seguenti usano Visual Studio 2019.
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -41,19 +41,11 @@ Per istruzioni su come eseguire le operazioni di gestione di account in Data Lak
 ## <a name="create-a-net-application"></a>Creare un'applicazione .NET
 Il codice di esempio disponibile in [GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) offre una descrizione dei processi di creazione dei file nell'archivio, concatenazione dei file, download di un file ed eliminazione di alcuni file nell'archivio. Questa sezione dell'articolo descrive in modo dettagliato le parti principali del codice.
 
-1. Aprire Visual Studio e creare un'applicazione console.
-2. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
-3. In **Nuovo progetto**digitare o selezionare i valori seguenti:
+1. In Visual Studio, selezionare la **File** dal menu **New**e quindi **progetto**.
+2. Scegli **App Console (.NET Framework)**, quindi selezionare **successivo**.
+3. Nelle **nome progetto**, immettere `CreateADLApplication`, quindi selezionare **Create**.
 
-   | Proprietà | Value |
-   | --- | --- |
-   | Categoria |Templates/Visual C#/Windows |
-   | Modello |Applicazione console |
-   | NOME |CreateADLApplication |
-
-4. Fare clic su **OK** per creare il progetto.
-
-5. Aggiungere i pacchetti NuGet al progetto.
+4. Aggiungere i pacchetti NuGet al progetto.
 
    1. Fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**.
    2. Nella scheda **Gestione pacchetti NuGet** assicurarsi che **Origine pacchetto** sia impostato su **nuget.org** e che la casella di controllo **Includi versione preliminare** sia selezionata.
@@ -64,7 +56,7 @@ Il codice di esempio disponibile in [GitHub](https://github.com/Azure-Samples/da
     
       Chiudere **Gestione pacchetti NuGet**.
 
-6. Aprire **Program.cs**, eliminare il codice esistente e quindi includere le istruzioni seguenti per aggiungere riferimenti agli spazi dei nomi.
+5. Aprire **Program.cs**, eliminare il codice esistente e quindi includere le istruzioni seguenti per aggiungere riferimenti agli spazi dei nomi.
 
         using System;
         using System.IO;using System.Threading;
@@ -78,7 +70,7 @@ Il codice di esempio disponibile in [GitHub](https://github.com/Azure-Samples/da
         using Microsoft.Azure.DataLake.Store;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-7. Dichiarare le variabili come illustrato di seguito e fornire i valori per i segnaposto. Assicurarsi anche che il percorso locale e il nome file forniti siano presenti nel computer.
+6. Dichiarare le variabili come illustrato di seguito e fornire i valori per i segnaposto. Assicurarsi anche che il percorso locale e il nome file forniti siano presenti nel computer.
 
         namespace SdkSample
         {
@@ -139,7 +131,7 @@ Il frammento di codice seguente legge i contenuti di un file in Data Lake Storag
         }
     }
 
-## <a name="get-file-properties"></a>Ottenere le proprietà dei file
+## <a name="get-file-properties"></a>Recupera proprietà file
 Il frammento di codice seguente restituisce le proprietà associate a un file o una directory.
 
     // Get file properties
@@ -172,7 +164,7 @@ Il frammento di codice seguente elimina una directory e tutte le relative sottod
     // Delete a directory and all its subdirectories and files
     client.DeleteRecursive("/Test");
 
-## <a name="samples"></a>Esempi
+## <a name="samples"></a>Campioni
 Ecco alcuni esempi che illustrano come usare il SDK del file System di Data Lake Storage Gen1.
 * [Esempio di base in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Esempio avanzato in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)

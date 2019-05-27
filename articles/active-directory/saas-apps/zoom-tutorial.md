@@ -16,11 +16,11 @@ ms.date: 03/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 641fe5439e320208d41969b9563293257648d488
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842091"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65895953"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Esercitazione: Integrazione di Azure Active Directory con Zoom
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zoom, seguire questa pr
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Zoom](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<companyname>.zoom.us`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.zoom.us`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `<companyname>.zoom.us`
 
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zoom, seguire questa pr
 
 6. Oltre quelli elencati in precedenza, l'applicazione Zoom prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
     
-    | NOME | Spazio dei nomi  |  Source Attribute|
+    | NOME | Spazio dei nomi  |  Attributo di origine|
     | ---------------| --------------- | --------- |
     | Indirizzo di posta elettronica  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
     | Nome  | user.givenname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
@@ -149,7 +149,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zoom, seguire questa pr
     > [!NOTE]
     > Zoom può prevedere l'attestazione dei gruppi nel payload SAML, di conseguenza se sono stati creati gruppi, contattare [il team di supporto clienti di Zoom](https://support.zoom.us/hc/en-us) e fornire le informazioni sui gruppi in modo che possano configurarle in Zoom. È necessario fornire al [team di supporto clienti di Zoom](https://support.zoom.us/hc/en-us) anche l'ID oggetto per consentirne la configurazione in Zoom. Per recuperare l'ID oggetto, consultare la [documentazione](https://support.zoom.us/hc/en-us/articles/115005887566).
 
-7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 

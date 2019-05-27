@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ddac8a87bb557daadf0a6ea0f1303545ec63d50
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835538"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65886607"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Esercitazione: Integrazione di Azure Active Directory con Achieve3000
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Achieve3000, seguire qu
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Achieve3000](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://saml.achieve3000.com/district/<District Identifier>`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://saml.achieve3000.com/district/<District Identifier>`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare il valore `achieve3000-saml`
 
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Achieve3000, seguire qu
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | NOME |  Source Attribute|
+    | Nome |  Attributo di origine|
     | ---------------| --------- |
     | studentID     | user.mail |
     | | |

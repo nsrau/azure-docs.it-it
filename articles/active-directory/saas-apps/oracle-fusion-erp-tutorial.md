@@ -16,11 +16,11 @@ ms.date: 1/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ad7517765d824be600f019f76a1b067048b3a98
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855742"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65891266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oracle-fusion-erp"></a>Esercitazione: Integrazione di Azure Active Directory con Oracle Fusion ERP
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Oracle Fusion ERP, segu
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Oracle Fusion ERP](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<SUBDOMAIN>.fa.em2.oraclecloud.com/fscmUI/faces/AtkHomePageWelcome`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.fa.em2.oraclecloud.com/fscmUI/faces/AtkHomePageWelcome`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<SUBDOMAIN>.login.em2.oraclecloud.com:443/oam/fed`
 

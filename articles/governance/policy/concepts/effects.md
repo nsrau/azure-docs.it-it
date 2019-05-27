@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 67a195932ad1afc3c93a94dfcbda8ab8a47760b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498816"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116195"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -21,7 +21,7 @@ Ogni definizione di criteri in Criteri di Azure ha un effetto. Questo effetto de
 
 Attualmente sono disponibili sei effetti supportati in una definizione dei criteri:
 
-- Append
+- Aggiungi
 - Audit
 - AuditIfNotExists
 - Nega
@@ -30,7 +30,7 @@ Attualmente sono disponibili sei effetti supportati in una definizione dei crite
 
 ## <a name="order-of-evaluation"></a>Ordine di valutazione
 
-Le richieste di creare o aggiornare una risorsa tramite Azure Resource Manager vengono valutate per prime da Criteri di Azure. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e quindi valuta la risorsa rispetto a ogni definizione. Criteri di Azure elabora diversi effetti prima di passare la richiesta al provider di risorse appropriato. In questo modo si evita l'elaborazione non necessaria da parte di un provider di risorse quando una risorsa non soddisfa i controlli di governance progettati di Criteri di Azure.
+Criteri di Azure, le richieste per creare o aggiornare una risorsa tramite Azure Resource Manager vengono valutate per prime. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e quindi valuta la risorsa rispetto a ogni definizione. Alcuni degli effetti di elaborazione dei criteri di Azure prima di passare la richiesta al Provider di risorse appropriato. Tale operazione impedirà l'elaborazione non necessario da un Provider di risorse quando una risorsa non soddisfa i controlli di governance progettato di criteri di Azure.
 
 - **Disabled** viene verificato per primo, per determinare se valutare la regola dei criteri.
 - Successivamente viene valutato **Append**. Dal momento che Append può alterare la richiesta, una modifica apportata da Append potrebbe impedire l'attivazione di un effetto Audit o Deny.
@@ -43,7 +43,7 @@ Dopo che il provider di risorse restituisce un codice di riuscita, vengono valut
 
 Questo effetto è utile per gli scenari di test o quando la definizione dei criteri ha parametrizzato l'effetto. Grazie a questa flessibilità è possibile disabilitare una singola assegnazione invece di disabilitare tutte le assegnazioni di quei criteri.
 
-## <a name="append"></a>Append
+## <a name="append"></a>Aggiungi
 
 Append viene usato per aggiungere altri campi alla risorsa richiesta durante la creazione o l'aggiornamento. Un esempio comune è l'aggiunta di tag a risorse come costCenter o la specifica di indirizzi IP consentiti per una risorsa di archiviazione.
 
@@ -88,8 +88,7 @@ Esempio 2 due coppie **campo/valore** per accodare un set di tag.
 }
 ```
 
-Esempio 3: coppia **campo/valore** singola che usa un
-[alias](definition-structure.md#aliases) diverso da **[\*]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Quando l'alias diverso da **[\*]** è una matrice, l'effetto accoda il **valore** come intera matrice. Se la matrice esiste già, si verifica un evento Deny per effetto del conflitto.
+Esempio 3: Singolo **/valore del campo** abbinare usando non **[\*]** [alias](definition-structure.md#aliases) con una matrice **valore** per impostare le regole IP in un account di archiviazione. Quando l'alias diverso da **[\*]** è una matrice, l'effetto accoda il **valore** come intera matrice. Se la matrice esiste già, si verifica un evento Deny per effetto del conflitto.
 
 ```json
 "then": {
@@ -149,7 +148,7 @@ Audit viene usato per creare un evento di avviso nel log attività quando viene 
 
 ### <a name="audit-evaluation"></a>Valutazione di Audit
 
-Audit è l'ultimo effetto controllato da Criteri di Azure durante la creazione o l'aggiornamento di una risorsa. La risorsa viene quindi inviata al provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di Azure aggiunge un'operazione `Microsoft.Authorization/policies/audit/action` al log attività e contrassegna la risorsa come non conforme.
+Il controllo è l'ultimo effetto durante la creazione o aggiornamento di una risorsa controllata da criteri di Azure. Criteri di Azure invia quindi la risorsa del Provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di Azure aggiunge un `Microsoft.Authorization/policies/audit/action` dell'operazione del log attività e contrassegna la risorsa come non conforme.
 
 ### <a name="audit-properties"></a>Proprietà di Audit
 
@@ -171,7 +170,7 @@ AuditIfNotExists consente il controllo sulle risorse che corrispondono alla cond
 
 ### <a name="auditifnotexists-evaluation"></a>Valutazione di AuditIfNotExists
 
-AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. L'effetto Audit si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Criteri di Azure aggiunge un'operazione `Microsoft.Authorization/policies/audit/action` al log attività allo stesso modo dell'effetto Audit. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
+AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. L'effetto Audit si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Criteri di Azure aggiunge un `Microsoft.Authorization/policies/audit/action` operazione per l'attività di accedere allo stesso modo come l'effetto di controllo. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
 
 ### <a name="auditifnotexists-properties"></a>Proprietà di AuditIfNotExists
 
@@ -300,7 +299,7 @@ Esempio: valuta i database SQL Server per determinare se transparentDataEncrypti
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
         "roleDefinitionIds": [
-            "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
         ],
         "existenceCondition": {
@@ -340,7 +339,7 @@ Esempio: valuta i database SQL Server per determinare se transparentDataEncrypti
 
 ## <a name="layering-policies"></a>Livelli dei criteri
 
-Una risorsa potrebbe essere interessata da diverse assegnazioni. Queste assegnazioni possono essere nello stesso ambito o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. La condizione e l'effetto per ogni criterio vengono valutati in modo indipendente. Ad esempio: 
+Una risorsa potrebbe essere interessata da diverse assegnazioni. Queste assegnazioni possono essere nello stesso ambito o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. La condizione e l'effetto per ogni criterio vengono valutati in modo indipendente. Ad esempio:
 
 - Criterio 1
   - Limita la posizione delle risorse a "westus"
@@ -369,9 +368,9 @@ Ogni assegnazione viene valutata singolarmente. Di conseguenza, non c'è alcuna 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md)
-- Vedere la [struttura delle definizioni dei criteri](definition-structure.md)
-- Informazioni su come [creare criteri a livello di programmazione](../how-to/programmatically-create.md)
-- Informazioni su come [ottenere dati sulla conformità](../how-to/getting-compliance-data.md)
-- Informazioni su come [correggere le risorse non conformi](../how-to/remediate-resources.md)
-- Scoprire le caratteristiche di un gruppo di gestione con [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md)
+- Esaminare gli esempi nella [esempi di criteri di Azure](../samples/index.md).
+- Vedere la [struttura delle definizioni di Criteri di Azure](definition-structure.md).
+- Comprendere come [a livello di codice, creare criteri](../how-to/programmatically-create.md).
+- Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
+- Informazioni su come [monitora e aggiorna le risorse non conformi](../how-to/remediate-resources.md).
+- Esaminare un gruppo di gestione riguarda [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

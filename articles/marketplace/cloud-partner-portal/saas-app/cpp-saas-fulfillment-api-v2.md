@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 551f3be2ca23bc18224d28faeea6a6df80eba1db
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 4efd9556e255709204654cf0acbf1b08fa2c1fc0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823528"
+ms.locfileid: "65872146"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS evasione API versione 2 
 
-Questo articolo descrive in dettaglio l'API che consente a fornitori di software indipendenti (ISV) di vendere le proprie applicazioni SaaS in Azure Marketplace e AppSource. Questa API è un requisito per l'elenco SaaS offre sul Azure Marketplace e AppSource.
+Questo articolo descrive in dettaglio l'API che consente a fornitori di software indipendenti (ISV) di vendere le proprie applicazioni SaaS in Azure Marketplace e AppSource. Questa API è che un requisito per SaaS transactable offre sul Azure Marketplace e AppSource.
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>La gestione del ciclo di vita di sottoscrizione di SaaS
 

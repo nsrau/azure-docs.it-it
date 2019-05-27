@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713749"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873430"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Linux con rete accelerata
 
@@ -62,7 +62,7 @@ Nelle istanze che supportano l'hyperthreading, la Rete accelerata è supportata 
 
 Per altre informazioni sulle istanze di VM, vedere [Dimensioni per le macchine virtuali Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### <a name="regions"></a>Regioni
+### <a name="regions"></a>Aree
 Questa funzionalità è disponibile in tutte le aree di Azure pubbliche e nel cloud di Azure per enti pubblici.
 
 <!-- ### Network interface creation 
@@ -224,6 +224,10 @@ vf_tx_bytes: 1099443970
 vf_tx_dropped: 0
 ```
 La funzionalità di rete accelerata è ora abilitata per la VM.
+
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Gestire l'associazione dinamica e revoca di funzione virtuale 
+Le applicazioni devono eseguire tramite l'interfaccia di rete sintetica esposto nella macchina virtuale. Se l'applicazione viene eseguito direttamente sull'interfaccia di rete VF, non può ricevere **tutti** che i pacchetti destinati alla macchina virtuale, perché alcuni pacchetti compaiono attraverso l'interfaccia sintetico.
+Se si esegue un'applicazione tramite l'interfaccia di rete sintetica, garantisce che l'applicazione riceve **tutti** che i pacchetti destinati a esso. Rende anche assicurarsi che l'applicazione rimane in esecuzione, anche se VF viene revocato quando l'host viene servita. Le applicazioni all'interfaccia di rete sintetica di associazione è un **obbligatorio** requisito per tutte le applicazioni che sfruttano **funzionalità rete accelerata**.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Abilitare la funzione Rete accelerata nelle macchine virtuali esistenti
 Se si è creata una macchina virtuale senza Rete accelerata, è possibile abilitare questa funzionalità in una macchina virtuale esistente.  Per il supporto di Rete accelerata, la macchina virtuale deve soddisfare i prerequisiti seguenti, descritti anche in precedenza:

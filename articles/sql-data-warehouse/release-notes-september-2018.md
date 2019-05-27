@@ -2,20 +2,20 @@
 title: Note sulla versione di Azure SQL Data Warehouse - Settembre 2018 | Microsoft Docs
 description: Note sulla versione di Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 10/08/2018
-ms.author: mausher
-ms.reviewer: twounder
-ms.openlocfilehash: bc559a1224aace2ee599c24c8dce07a6d55173fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5041458fdc3c6a49c59f2c4c476db71098531419
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474973"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912167"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Novità di Azure SQL Data Warehouse Settembre 2018
 Azure SQL Data Warehouse riceve continuamente miglioramenti. Questo articolo illustra le nuove funzionalità e le modifiche introdotte nel mese di settembre 2018.
@@ -99,7 +99,7 @@ Infine, il miglioramento riduce il tempo di esecuzione complessivo delle istruzi
 
 ## <a name="bug-fixes"></a>Correzioni di bug
 
-| Title | DESCRIZIONE |
+| Title | Descrizione |
 |:---|:---|
 | **Correzione di un errore relativo alla creazione di statistiche sulle distribuzioni per i vincoli univoci** | Questa correzione risolve un errore riscontrato dagli utenti durante l'esecuzione dell'istruzione UPDATE STATISTICS con la sola tabella specificata, quando per la tabella era stato definito un vincolo univoco. |
 | **Correzione di un errore relativo alla compilazione di query su tabelle esterne** | Questa correzione risolve un difetto del tempo di compilazione delle query che coinvolgono tabelle esterne.|

@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8acc835a7f18ee673f0857f65d49eed59638a6d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872784"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898088"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Esercitazione: Integrazione di Azure Active Directory con InstaVR Viewer
 
@@ -106,12 +106,12 @@ Per configurare l'accesso Single Sign-On di Azure AD con InstaVR Viewer, seguire
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di InstaVR Viewer](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
 
     > [!NOTE]
     > L'URL di accesso non ha un criterio fisso. Viene generato quando il cliente di InstaVR Viewer crea il pacchetto Web. È univoco per ogni cliente e pacchetto. Per ottenere l'URL di accesso esatto è necessario eseguire l'accesso all'istanza di InstaVR Viewer e creare il pacchetto Web.
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
 
     > [!NOTE]
     > Il valore dell'identificatore non è reale. Aggiornare questo valore con il valore effettivo dell'identificatore, come illustrato più avanti nell'esercitazione.

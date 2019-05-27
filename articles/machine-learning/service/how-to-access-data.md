@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ab01187b03b3d658b171029003667588382bd7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15118535578419f9e1230c5b2fcfd0d7c42257ea
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820300"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908994"
 ---
 # <a name="access-data-from-your-datastores"></a>Accedere ai dati da archivi di dati
 
@@ -30,7 +30,7 @@ Questo argomento vengono illustrati esempi delle attività seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare archivi dati, è necessaria prima di tutto un'[area di lavoro](concept-azure-machine-learning-architecture.md#workspace).
+Per usare archivi dati, è necessaria prima di tutto un'[area di lavoro](concept-workspace.md).
 
 Per iniziare, [creare una nuova area di lavoro](setup-create-workspace.md#sdk) o recuperarne una esistente:
 
@@ -74,7 +74,7 @@ Gli esempi seguenti illustrano è possibile registrare un contenitore Blob di Az
                                                create_if_not_exists=True)
   ```
 
-+ Per un **Azure File Share Datastore**, usare [ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). Ad esempio:  
++ Per un **Azure File Share Datastore**, usare [ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). Ad esempio: 
   ```Python
   ds = Datastore.register_azure_file_share(workspace=ws, 
                                            datastore_name='your datastore name', 
@@ -153,9 +153,9 @@ Dopo aver effettuato l'archivio dati disponibile nella destinazione di calcolo, 
 
 La tabella seguente elenca i [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) metodi che indicano come usare l'archivio dati durante le esecuzioni della destinazione di calcolo.
 
-metodo|Metodo|DESCRIZIONE|
+metodo|Metodo|Descrizione|
 ----|-----|--------
-Eseguire il montaggio| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Usare per montare l'archivio dati nella destinazione di calcolo.
+Montaggio| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Usare per montare l'archivio dati nella destinazione di calcolo.
 Download|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Usare per scaricare il contenuto dell'archivio dati nella posizione specificata da `path_on_compute`. <br> Per il contesto di esecuzione di training, questo download viene eseguita prima dell'esecuzione.
 Caricamento|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Consente di caricare un file dal percorso specificato dal `path_on_compute` all'archivio dati. <br> Per il contesto di esecuzione di training, questo caricamento avviene dopo l'esecuzione.
 
@@ -182,7 +182,7 @@ ds.path('./bar').as_download()
 
 La matrice seguente consente di visualizzare le funzionalità di accesso di dati disponibili per gli scenari di contesto e l'archivio dati di calcolo diversi. Il termine "Pipeline" in questa matrice si riferisce alla possibilità di usare archivi dati come input o output in [pipeline di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines).
 
-||Calcolo locale|Ambiente di calcolo di Azure Machine Learning|Trasferimento dati|Databricks|HDInsight|Azure Batch|Azure Data Lake Analitica|Macchine virtuali|
+||Calcolo locale|Ambiente di calcolo di Azure Machine Learning|Trasferimento di dati|Databricks|HDInsight|Azure Batch|Azure Data Lake Analitica|Macchine virtuali|
 -|--|-----------|----------|---------|-----|--------------|---------|---------|
 |AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> Pipeline|Pipeline|Pipeline|[`as_download()`] <br> [`as_upload()`]|Pipeline||[`as_download()`] <br> [`as_upload()`]|
 |AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] Pipeline |||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|

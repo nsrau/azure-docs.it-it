@@ -1,6 +1,6 @@
 ---
 title: Metriche del bus di sevizio di Azure in Monitoraggio di Azure (anteprima) | Microsoft Docs
-description: Usare Monitoraggio di Azure per monitorare le entità del bus di servizio
+description: Usare monitoraggio di Azure per monitorare le entità del Bus di servizio
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: d5f5c1d9b1884c6e9975ceb0ce28ecd5f25e89b2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fdb0152ef398dbd53a8a2a99a10d90254252908b
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716106"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921225"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metriche del bus di sevizio di Azure in Monitoraggio di Azure (anteprima)
 
@@ -59,7 +59,7 @@ Tutti i valori delle metriche vengono inviati a Monitoraggio di Azure ogni minut
 
 Conta il numero di richieste di operazioni di dati e gestione.
 
-| Nome della metrica | DESCRIZIONE |
+| Nome della metrica | Descrizione |
 | ------------------- | ----------------- |
 | Richieste in ingresso (anteprima) | Numero di richieste inviate al servizio del bus di servizio in un periodo specificato. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 |Richieste completate (anteprima)|Numero di richieste completate inviate al servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
@@ -77,7 +77,7 @@ I due tipi di errori seguenti sono classificati come errori utente:
 
 ## <a name="message-metrics"></a>Metriche per i messaggi
 
-| Nome della metrica | DESCRIZIONE |
+| Nome della metrica | Descrizione |
 | ------------------- | ----------------- |
 |Messaggi in ingresso (anteprima)|Numero di eventi o messaggi inviati al bus di servizio in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 |Messaggi in uscita (anteprima)|Numero di eventi o messaggi inviati dal bus di servizio in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
@@ -88,7 +88,7 @@ I due tipi di errori seguenti sono classificati come errori utente:
 
 ## <a name="connection-metrics"></a>Metriche di connessione
 
-| Nome della metrica | DESCRIZIONE |
+| Nome della metrica | Descrizione |
 | ------------------- | ----------------- |
 |ActiveConnections (anteprima)|Numero di connessioni attive in uno spazio dei nomi e in un'entità.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 
@@ -97,16 +97,16 @@ I due tipi di errori seguenti sono classificati come errori utente:
 > [!NOTE] 
 > Le metriche seguenti sono disponibili solo con il livello **Premium**. 
 
-| Nome della metrica | DESCRIZIONE |
+| Nome della metrica | Descrizione |
 | ------------------- | ----------------- |
-|Uso della CPU per spazio dei nomi (anteprima)|Utilizzo percentuale della CPU dello spazio dei nomi.<br/><br/> Unità: Percentuale <br/> Tipo di aggregazione: Massima <br/> Dimensione: EntityName|
-|Utilizzo delle dimensioni della memoria per ogni spazio dei nomi (anteprima)|Utilizzo percentuale della memoria dello spazio dei nomi.<br/><br/> Unità: Percentuale <br/> Tipo di aggregazione: Massima <br/> Dimensione: EntityName|
+|Uso della CPU per spazio dei nomi (anteprima)|Utilizzo percentuale della CPU dello spazio dei nomi.<br/><br/> Unità: Percent <br/> Tipo di aggregazione: Massima <br/> Dimensione: EntityName|
+|Utilizzo delle dimensioni della memoria per ogni spazio dei nomi (anteprima)|Utilizzo percentuale della memoria dello spazio dei nomi.<br/><br/> Unità: Percent <br/> Tipo di aggregazione: Massima <br/> Dimensione: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensioni delle metriche
 
 Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in Monitoraggio di Azure. L'aggiunta di dimensioni alle metriche è facoltativa. Se non si aggiungono le dimensioni, le metriche vengono specificate a livello di spazio dei nomi. 
 
-|Nome della dimensione|DESCRIZIONE|
+|Nome della dimensione|Descrizione|
 | ------------------- | ----------------- |
 |EntityName| Il bus di servizio supporta le entità di messaggistica nello spazio dei nomi.|
 
@@ -121,10 +121,10 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
     3. Selezionare lo **spazio dei nomi del bus di servizio** nell'elenco. 
     4. Selezionare **Operazione completata**. 
     
-        ![Selezionare lo spazio dei nomi](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+        ![Seleziona spazio dei nomi](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Selezionare **Aggiungi criteri** ed eseguire le azioni seguenti nella pagina **Configura logica dei segnali**:
     1. Selezionare **Metriche** per **Tipo segnale**. 
-    2. Selezionare un segnale, Ad esempio:  **Errori del servizio (anteprima)**. 
+    2. Selezionare un segnale, Ad esempio: **Errori del servizio (anteprima)**. 
 
         ![Selezionare gli errori del server](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Selezionare **Greater than** (Maggiore di) per **Condizione**.
@@ -160,7 +160,7 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere [Panoramica sul monitoraggio in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+Vedere le [Panoramica di monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png

@@ -2,21 +2,20 @@
 title: Migliorare le prestazioni dell'indice columnstore in Azure SQL Data Warehouse| Microsoft Docs
 description: Ridurre i requisiti di memoria o aumentare la memoria disponibile per accrescere al massimo il numero di righe che un indice columnstore comprime in ogni gruppo di righe.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: kevinvngo
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-origin.date: 03/22/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.subservice: load data
+ms.date: 03/22/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e7ab09522184f5c2d1c5168b24b2948f58e5189e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b9a4ce84544beb09431e494385f3b9d8507c418
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60748791"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873545"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Ottimizzazione della qualità di un gruppo di righe per columnstore
 

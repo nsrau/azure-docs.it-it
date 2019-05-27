@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730410"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872529"
 ---
 # <a name="test-your-app-in-azure"></a>Testare l'app in Azure 
-Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure con DevTest Labs. In primo luogo, impostare una condivisione file all'interno di un lab e montarlo come unità nel computer di sviluppo locale e come macchina virtuale all'interno di un lab. È quindi possibile utilizzare Visual Studio 2017 per distribuire l'app per la condivisione file in modo che sia possibile eseguirla sulla macchina virtuale nel lab.  
+Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure con DevTest Labs. In primo luogo, impostare una condivisione file all'interno di un lab e montarlo come unità nel computer di sviluppo locale e come macchina virtuale all'interno di un lab. È quindi possibile utilizzare Visual Studio 2019 per distribuire l'app per la condivisione file in modo che sia possibile eseguire l'app nella macchina virtuale nel lab.  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure 
 ## <a name="publish-your-app-from-visual-studio"></a>Pubblicare l'app Web da Visual Studio
 In questa sezione, verrà mostrato come pubblicare l'app da Visual Studio a una macchina virtuale di test nel cloud.
 
-1. Creare un'applicazione desktop o Web usando Visual Studio 2017.
+1. Creare un'applicazione desktop o web usando Visual Studio 2019.
 2. Creare l'app.
 3. Per pubblicare l'app, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica**. 
 4. In **Pubblicazione guidata**, immettere l'**unità** mappata alla condivisione file.
@@ -75,7 +75,7 @@ In questa sezione, verrà mostrato come pubblicare l'app da Visual Studio a una 
 
     **App Web:**
 
-    ![app Web](media/test-app-in-azure/web-app.png)
+    ![App Web](media/test-app-in-azure/web-app.png)
 
 1. Selezionare **Avanti** per completare il flusso di lavoro e selezionare **Fine**. Al termine della procedura guidata, Visual Studio compila l'applicazione e la pubblica nella condivisione file. 
 

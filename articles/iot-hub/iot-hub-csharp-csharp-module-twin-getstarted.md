@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 3b10ae0998acbb010e61ebb41c602c7d42bc14fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5421423441d03a7375feea2ca0dfe289993145ee
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741859"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873215"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Introduzione all'identità del modulo e ai moduli gemelli dell'hub IoT usando il back-end .NET e i dispositivi .NET
 
@@ -31,7 +31,7 @@ Al termine di questa esercitazione si ottengono due app console .NET:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Visual Studio 2017.
+* Visual Studio.
 
 * Un account Azure attivo. Se non si dispone di un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 

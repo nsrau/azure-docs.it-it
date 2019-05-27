@@ -8,15 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 10/23/2018
-ms.date: 03/25/2019
-ms.author: v-junlch
-ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/23/2018
+ms.author: azfuncdf, glenga
+ms.openlocfilehash: 705a43f1ef35f953d1b87c7c44bbc45fcb4334be
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710950"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872854"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Creare funzioni permanenti con il portale di Azure
 
@@ -24,7 +23,7 @@ L'estensione [Funzioni permanenti](durable-functions-overview.md) di Funzioni di
 
 > [!NOTE]
 > 
-> * Se si sviluppano funzioni permanenti in C#, è consigliabile usare invece lo [sviluppo di Visual Studio 2017](durable-functions-create-first-csharp.md).
+> * Se si sviluppano funzioni permanenti in C#, è consigliabile utilizzare invece [sviluppo di Visual Studio 2019](durable-functions-create-first-csharp.md).
 > * Se si sviluppano funzioni permanenti in JavaScript, è consigliabile usare invece lo [sviluppo di Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
@@ -92,7 +91,7 @@ Se si stanno creando funzioni durevoli in JavaScript, è necessario installare i
 1. Usare uno strumento HTTP come Postman o cURL per inviare una richiesta POST all'URL copiato. L'esempio seguente è un comando cURL che invia una richiesta POST alla funzione permanente:
 
     ```bash
-    curl -X POST https://{your-function-app-name}.chinacloudsites.cn/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
     ```
 
     In questo esempio, `{your-function-app-name}` corrisponde al dominio che equivale al nome dell'app per le funzioni. Il messaggio di risposta contiene un set di endpoint URI che è possibile usare per monitorare e gestire l'esecuzione, con un aspetto simile al seguente:
@@ -141,5 +140,3 @@ La prima funzione permanente è ora attiva e in esecuzione in Azure.
 
 > [!div class="nextstepaction"]
 > [Informazioni sui criteri di funzione permanente comuni](durable-functions-concepts.md)
-
-<!-- Update_Description: wording update -->

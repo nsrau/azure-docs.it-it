@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: yegu
 ms.openlocfilehash: 23b8e4e7e88f5b993f9b0f9981bbae6b884e2818
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65911342"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Creare un'app Web e Cache Redis di Azure usando un modello
 
@@ -83,7 +83,7 @@ Il modello crea la cache nella stessa posizione in cui si trova il gruppo di ris
     }
 
 
-### <a name="web-app"></a>app Web
+### <a name="web-app"></a>App Web
 Crea l'app Web con il nome specificato nella variabile **webSiteName** .
 
 Si noti che l'app Web è configurata con proprietà di impostazione dell'app che consentono di usare Cache Redis di Azure. Queste app vengono create dinamicamente le impostazioni basate sui valori forniti durante la distribuzione.

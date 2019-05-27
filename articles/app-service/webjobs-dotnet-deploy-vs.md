@@ -14,12 +14,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ede7e2fe3a2ab4c0dfd4efaea5ec789924968194
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d375b559019529bdc170ce6bab535481e0569e0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832297"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873013"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Sviluppare e distribuire processi Web usando Visual Studio - Servizio app di Azure
 
@@ -92,7 +92,7 @@ A un progetto abilitato per i processi Web vengono aggiunti gli elementi seguent
 
 Se si usa Visual Studio 2015, installare [Azure SDK per .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
-Se si usa Visual Studio 2017, installare il [carico di lavoro di sviluppo di Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
+Se si usa Visual Studio 2019, installare il [carico di lavoro sviluppo di Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
 
 ### <a id="convert"></a> Abilitare la distribuzione dei processi Web per un progetto di applicazione console esistente
 
@@ -240,7 +240,7 @@ Le impostazioni seguenti sono supportate dai processi Web:
 | ----------- | --------- | --------------- |
 | `is_in_place` | Tutti | Consente di processo eseguiti sul posto senza prima essere copiati in una cartella temporanea. Per altre informazioni, vedere [directory di lavoro WebJobs](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Continuo | Eseguire solo i processi Web in una singola istanza di aumento del numero. Per altre informazioni, vedere [impostare un processo continuo come singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Attivato | Eseguire il processo Web in una pianificazione basata su CRON. PER altre informazioni, vedere la [articolo di riferimento sui trigger timer](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `schedule` | Attivati | Eseguire il processo Web in una pianificazione basata su CRON. PER altre informazioni, vedere la [articolo di riferimento sui trigger timer](../azure-functions/functions-bindings-timer.md#cron-expressions). |
 | `stopping_wait_time`| Tutti | Consente il controllo del comportamento di arresto. Per altre informazioni, vedere [arresto normale](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Passaggi successivi

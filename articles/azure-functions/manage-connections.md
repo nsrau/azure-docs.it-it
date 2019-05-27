@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: e15d6ad445c3fdde0632c3ad468eee7da836a394
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 69425129d5f049254a60032283ddc6ca2ab84d5c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785955"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872683"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gestire le connessioni in funzioni di Azure
 
@@ -21,9 +21,9 @@ Le funzioni in un'app per le funzioni condividono le risorse. Tra le risorse con
 
 ## <a name="connection-limit"></a>Limite connessione
 
-Il numero di connessioni disponibili è limitato in parte perché un'app per le funzioni in esecuzione in un [ambiente sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Una delle restrizioni della sandbox impone nel codice dell'oggetto è un limite al numero di connessioni (attualmente di 600 attive e connessioni 1.200 totale) per ogni istanza. Quando si raggiunge questo limite, il runtime di Funzioni crea un log con il messaggio seguente: `Host thresholds exceeded: Connections`.
+Il numero di connessioni disponibili è limitato in parte perché un'app per le funzioni in esecuzione in un [ambiente sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Una delle restrizioni della sandbox impone nel codice dell'oggetto è un limite al numero di connessioni in uscita, che è attualmente 600 active (totale 1.200) le connessioni per ogni istanza. Quando si raggiunge questo limite, il runtime di funzioni scrive il messaggio seguente nei log: `Host thresholds exceeded: Connections`. Per altre informazioni, vedere la [limiti del servizio funzioni](functions-scale.md#service-limits).
 
-Questo limite è per ogni istanza.  Quando la [controller di scalabilità aggiunge le istanze delle app di funzione](functions-scale.md#how-the-consumption-and-premium-plans-work) per gestire più richieste, ogni istanza ha un limite di connessione indipendente. Pertanto, non esiste un limite di connessione globali e si possono avere molto più di 600 connessioni attive tra tutte le istanze attive.
+Questo limite è per ogni istanza. Quando la [controller di scalabilità aggiunge le istanze delle app di funzione](functions-scale.md#how-the-consumption-and-premium-plans-work) per gestire più richieste, ogni istanza ha un limite di connessione indipendente. Pertanto, non esiste un limite di connessione globali e si possono avere molto più di 600 connessioni attive tra tutte le istanze attive.
 
 Per risolvere il problema, assicurarsi che sia stato abilitato Application Insights per app per le funzioni. Application Insights consente di visualizzare le metriche per le App per le funzioni, ad esempio le esecuzioni. Per altre informazioni, vedere [visualizzare i dati di telemetria in Application Insights](functions-monitoring.md#view-telemetry-in-application-insights).  
 

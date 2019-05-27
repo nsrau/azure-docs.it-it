@@ -2,20 +2,20 @@
 title: 'Esercitazione: Caricare i dati su Azure SQL Data Warehouse | Microsoft Docs'
 description: L'esercitazione usa il portale di Azure e SQL Server Management Studio per caricare il data warehouse WideWorldImportersDW da un archivio BLOB di Azure pubblico ad Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load data
 ms.date: 04/17/2018
-ms.author: cakarst
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6bc1431ace55538c489d73e0a62d18f274c06d57
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61081480"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873766"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare i dati su Azure SQL Data Warehouse
 
@@ -68,7 +68,7 @@ Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente.
 
 4. Fare clic su **Server** per creare e configurare un nuovo server per il nuovo database. Compilare il **modulo del nuovo server** con le informazioni seguenti: 
 
-    | Impostazione | Valore consigliato | Descrizione | 
+    | Impostazione | Valore consigliato | Description | 
     | ------- | --------------- | ----------- |
     | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
     | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
@@ -147,12 +147,12 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 2. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
 
-    | Impostazione      | Valore consigliato | DESCRIZIONE | 
+    | Impostazione      | Valore consigliato | Descrizione | 
     | ------------ | --------------- | ----------- | 
     | Tipo di server | Motore di database | Questo valore è obbligatorio |
-    | Nome server | Nome completo del server | Ad esempio, **sample-svr.database.windows.net** è un nome di server completo. |
+    | Nome del server | Nome completo del server | Ad esempio, **sample-svr.database.windows.net** è un nome di server completo. |
     | Authentication | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
-    | Login | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
+    | Accedi | Account amministratore del server | Si tratta dell'account specificato al momento della creazione del server. |
     | Password | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
 
     ![connetti al server](media/load-data-wideworldimportersdw/connect-to-server.png)

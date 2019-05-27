@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 2a491cd303cccd94cbb489654890d55c03912a63
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: d7020299bbd52f5e7ba22809847815cb04048cb6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408035"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65905165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Esercitazione: Integrazione di Azure Active Directory con MOVEit Transfer - Integrazione di Azure AD
 
@@ -174,7 +174,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con MOVEit Transfer - Azure
     
     b. Selezionare **Other** (Altro) per **Full name** (Nome completo) e nella casella di testo **Attribute name** (Nome attributo) immettere il valore: `http://schemas.microsoft.com/identity/claims/displayname`.
     
-    c. Selezionare **Other** (Altro) per **Email** (Posta elettronica) e nella casella di testo **Attribute name** (Nome attributo) immettere il valore: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. Selezionare **Other** (Altro) per **Email** (Posta elettronica) e nella casella di testo **Attribute name** (Nome attributo) immettere il valore: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
     
     d. Selezionare **Yes** (Sì) per **Auto-create account on signon** (Crea automaticamente account all'accesso).
     

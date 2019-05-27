@@ -2,26 +2,26 @@
 title: Partner di business intelligence per SQL Data Warehouse | Microsoft Docs
 description: Elenco di partner di business intelligence di terze parti con soluzioni che supportano SQL Data Warehouse.
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 03/27/2019
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87379631cc7f7b9e31def157ba38336e41b693d8
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477011"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873806"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partner di business intelligence per SQL Data Warehouse
 Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tra una vasta gamma di strumenti leader nel settore.  Questo articolo vengono evidenziate le aziende partner Microsoft con soluzioni di ufficiale business intelligence (BI) che supportano Azure SQL Data Warehouse.
 
 ## <a name="our-business-intelligence-partners"></a>I nostri partner di business intelligence
-| Partner | DESCRIZIONE | Collegamento di sito Web o prodotto |
+| Partner | Descrizione | Collegamento di sito Web o prodotto |
 | ------- | ----------- | -------------------- |
 | ![Birst][1] |**Birst**<br>Birst si connette l'intera organizzazione tramite una rete di interconnessa virtualizzato BI istanze in alto di un'infrastruttura di analitica comune condivisa|[Pagina del prodotto][birst_website]<br>[Azure Marketplace][birst_marketplace]<br> |
 | ![Dati clearStory][2] |**Dati clearStory (informazioni dettagliate aziendali continua)**<br>ClearStory Data permette l'analisi a ciclo rapido in diversi dati archiviati in SQL Data Warehouse. La piattaforma basata su Spark e l'applicazione di analisi integrate di ClearStory velocizzano l'accesso ai dati e l'armonizzazione di set di dati diversi. Permettono l'esplorazione rapida e collaborativa, che consente agli utenti aziendali di essere autonomi per ottenere approfondimenti utili. |[Pagina del prodotto][clearstory_website]<br> |
