@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 032c4af0e36626881b514573cc4a5f966e8c2077
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: cd1db615b11259bcf1d8aff988d2817e08065ca2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510307"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991743"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Come usare le code del bus di servizio con Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -182,6 +182,9 @@ Il bus di servizio fornisce funzionalità per il ripristino gestito automaticame
 Al messaggio bloccato nella coda è inoltre associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
 
 In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima dell'invio della richiesta **deleteMessage**, il messaggio viene nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo *At-Least-Once*, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usato il metodo **getMessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
+
+> [!NOTE]
+> È possibile gestire le risorse del Bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del Bus di servizio e amministrarne le entità di messaggistica in modo semplificato. Lo strumento offre funzionalità avanzate come la funzionalità di importazione/esportazione o la possibilità di testare l'argomento, code, sottoscrizioni, servizi di inoltro, hub di notifica e gli hub eventi. 
 
 ## <a name="next-steps"></a>Fasi successive
 A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere [Code, argomenti e sottoscrizioni del bus di servizio][Queues, topics, and subscriptions] per altre informazioni.

@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679786"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147904"
 ---
 *Preparare la cache*  
 Il disco con memorizzazione nella cache dell'host di tipo ReadOnly è in grado di ottenere valori di IOPS più elevati rispetto al limite del disco. Per ottenere queste prestazioni di lettura massime dalla cache dell'host, è prima di tutto necessario preparare la cache del disco. Ciò assicura che le operazioni di I/O di lettura che lo strumento di benchmarking eseguirà sul volume CacheReads raggiungano effettivamente la cache e non direttamente il disco. I riscontri nella cache producono IOPS aggiuntivi da un singolo disco abilitato per la cache.
@@ -62,13 +62,13 @@ Un esempio di specifiche di accesso per uno scenario con valori massimi di IOPS 
 
 1. Creare le specifiche di accesso con i valori seguenti.
 
-   | NOME | Dimensione della richiesta | % di casuali | % di letture |
+   | NOME | Dimensioni richiesta | % di casuali | % di letture |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
 1. Eseguire il test di Iometer per l'inizializzazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
 
-   | Scenario | Volume di destinazione | NOME | Duration |
+   | Scenario | Volume di destinazione | NOME | Durata |
    | --- | --- | --- | --- |
    | Inizializzare il disco della cache |CacheReads |RandomWrites\_1MB |2 ore |
 1. Eseguire il test di Iometer per la preparazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".

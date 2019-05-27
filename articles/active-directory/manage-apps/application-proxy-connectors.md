@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f337ea9d55a119c3aec6e94649cdbf049f99e9d6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783690"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113096"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -87,7 +87,9 @@ Per altre informazioni sui gruppi di connettori, vedere [Pubblicare applicazioni
 
 ## <a name="capacity-planning"></a>Capacity Planning 
 
-È importante assicurarsi di aver pianificato la capacità sufficiente tra i connettori per gestire il volume di traffico previsto. In generale, più utenti si hanno, più sarà grande il computer necessario. La tabella qui di seguito fornisce una descrizione dei volumi che possono gestire diversi computer. Tutto è basato sulle transazioni al secondo (TPS) previste e non sugli utenti, poiché i modelli di utilizzo variano e non possono essere usati per stimare il carico. Esistono inoltre alcune differenze basate sulla dimensione delle risposte e sul tempo di risposta dell'applicazione back-end. Dimensioni di risposta più grandi e tempi di risposta più lenti comporteranno un numero massimo di TPS inferiore. È consigliabile aggiungere altri computer in modo che il carico distribuito tra i computer sia di circa il 50%. La capacità aggiuntiva che si ottiene garantisce elevati livelli di disponibilità e resilienza.
+È importante assicurarsi di aver pianificato la capacità sufficiente tra i connettori per gestire il volume di traffico previsto. È consigliabile che ogni gruppo di connettori abbia almeno due connettori per assicurare scalabilità e disponibilità elevata. Con tre connettori è ottimale nel caso in cui potrebbe essere necessario un computer in qualsiasi punto del servizio. 
+
+In generale, più utenti si hanno, più sarà grande il computer necessario. Di seguito è una tabella fornisce una descrizione del volume e latenza prevista può gestire computer diversi. Tutto è basato sulle transazioni al secondo (TPS) previste e non sugli utenti, poiché i modelli di utilizzo variano e non possono essere usati per stimare il carico. Esistono inoltre alcune differenze basate sulla dimensione delle risposte e sul tempo di risposta dell'applicazione back-end. Dimensioni di risposta più grandi e tempi di risposta più lenti comporteranno un numero massimo di TPS inferiore. È anche consigliabile avere macchine aggiuntive in modo che il carico distribuito tra il computer fornisce sempre ampiamente buffer. La capacità aggiuntiva che si ottiene garantisce elevati livelli di disponibilità e resilienza.
 
 |Core|RAM|Latenza prevista (MS)-P99|Numero massimo di TPS|
 | ----- | ----- | ----- | ----- |

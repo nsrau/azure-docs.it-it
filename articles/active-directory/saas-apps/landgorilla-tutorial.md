@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2e1288885476aeeba01f966b615c23c5fe51081
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d12519a2bd0a5e3951d0ca9ae51a54bd728a782b
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60260659"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987888"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Esercitazione: Integrazione di Azure Active Directory con Land Gorilla Client
 
@@ -71,11 +71,11 @@ Per configurare l'integrazione di Land Gorilla Client in Azure AD, è necessario
 
 1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![APPLICAZIONI][2]
+    ![Applicazioni][2]
     
 1. Fare clic sul pulsante **Aggiungi** nella parte superiore della finestra di dialogo.
 
-    ![APPLICAZIONI][3]
+    ![Applicazioni][3]
 
 1. Digitare **Land Gorilla Client** nella casella di ricerca.
 
@@ -87,7 +87,7 @@ Per configurare l'integrazione di Land Gorilla Client in Azure AD, è necessario
 
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Land Gorilla Client in base a un utente test di nome "Britta Simon".
+In questa sezione viene configurato e testato single sign-on di Azure con Land Gorilla Client basato su un utente test di nome "B. Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve sapere qual è l'utente di Land Gorilla Client che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Land Gorilla Client.
 
@@ -97,8 +97,8 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Land Gorilla 
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con un gruppo limitato.
-1. **[Creazione di un utente test di Land Gorilla](#creating-a-land-gorilla-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Creazione di un utente test di Land Gorilla](#creating-a-land-gorilla-test-user)**  : per testare Azure AD single sign-on con B. Simon.
+1. **[Assegnazione dell'utente di test di Azure AD](#assigning-the-azure-ad-test-user)**  : per abilitare Simon B. usare Azure AD single sign-on.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
@@ -150,7 +150,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di gestione di Azure.
+L'obiettivo di questa sezione consiste nel creare un utente di test nel portale di gestione di Azure denominato B. Simon.
 
 ![Creare un utente di Azure AD][100]
 
@@ -172,9 +172,9 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
  
     ![Creazione di un utente test di Azure AD](./media/landgorilla-tutorial/create_aaduser_04.png) 
 
-    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
+    a. Nel **Name** nella casella di testo, digitare **Simon B.**.
 
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
+    b. Nel **nome utente** digitare il **indirizzo di posta elettronica** di B. Simon.
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
@@ -186,11 +186,11 @@ Collaborare con il [team di supporto di Land Gorilla](https://www.landgorilla.co
     
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
-In questa sezione viene concesso a Britta Simon l'accesso a Land Gorilla Client per consentirle di usare l'accesso Single Sign-On di Azure.
+In questa sezione si abilita Simon B. usare single sign-on di Azure concedendole l'accesso a Land Gorilla Client.
 
 ![Assegna utente][200] 
 
-**Per assegnare Britta Simon a Land Gorilla Client, seguire questa procedura:**
+**Per assegnare B. Simon a Land Gorilla Client, procedere come segue:**
 
 1. Nel portale di gestione di Azure aprire la visualizzazione applicazioni, passare alla visualizzazione directory e andare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 
@@ -208,7 +208,7 @@ In questa sezione viene concesso a Britta Simon l'accesso a Land Gorilla Client 
 
     ![Assegna utente][203]
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Sul **utenti e gruppi** finestra di dialogo, seleziona **B. Simon** nell'elenco di utenti.
 
 1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
-ms.author: monhaber
-ms.openlocfilehash: fa664952f3eb7d6f9e611fb87a9e484e97f388a2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: v-mohabe
+ms.openlocfilehash: e65e3869d420607ad2721df8ba0ef1005c923f73
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121812"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968099"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protezione delle macchine virtuali nel Centro sicurezza di Azure
 Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure, il server non di Azure e macchine virtuali. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali (VM) e computer, applicazioni, risorse di rete, SQL, identità e accesso.

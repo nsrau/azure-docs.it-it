@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: qianw211
-ms.openlocfilehash: 9f4ad704de83e5971b5bc10083aefeec5d28374b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c734461f1a57c100b4a00ab5c309659f8b0e903a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937843"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964013"
 ---
 # <a name="iot-edge-modules"></a>Moduli di IoT Edge
 
@@ -84,7 +84,7 @@ Se non è già stato fatto,
 
 - Eseguire la registrazione a [Microsoft Partner Network](https://partner.microsoft.com/membership).
 - Creare un [account Microsoft](https://account.microsoft.com/account/)(obbligatorio per le offerte di transazione di Azure Marketplace, consigliato per le altre).
-- Inviare il [modulo di registrazione a Marketplace](https://azuremarketplace.microsoft.com/sell/signup).
+- Inviare il [modulo di registrazione a Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Vedere come [creare un account Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per altre informazioni.
 
 Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
 

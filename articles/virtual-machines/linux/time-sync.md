@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ac102f388c404bab98354b7bd131989abedd7e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 075fc48d4db4c4cfcc6f45f5fe93e8cfb38d5559
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418610"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991849"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronizzazione dell'ora per le macchine virtuali Linux in Azure
 
@@ -40,7 +40,7 @@ Gli host di Azure vengono sincronizzati con i server di riferimento ora interni 
 
 Nei componenti hardware autonomi il sistema operativo Linux legge solo l'orologio dell'hardware dell'host in fase di avvio. Successivamente, l'orologio viene gestito usando il timer di interrupt nel kernel di Linux. In questa configurazione l'orologio si desincronizza nel tempo. Nelle distribuzioni di Linux più recenti in Azure, le macchine virtuali possono usare il provider VMICTimeSync, incluso nei servizi di integrazione di Linux, per eseguire query in modo da aggiornare più spesso l'orologio dall'host.
 
-Le interazioni delle macchine virtuali con l'host possono influire sull'orologio. Durante la [manutenzione con mantenimento della memoria](maintenance-and-updates.md#maintenance-not-requiring-a-reboot) le macchine virtuali vengono messe in pausa fino a 30 secondi. Ad esempio, prima che inizi la manutenzione l'orologio della macchina virtuale indica 10:00:00 AM e dura 28 secondi. Quando l'esecuzione della macchina virtuale riprende, l'orologio della macchina virtuale indicherebbe ancora 10:00:00 AM, con un ritardo di 28 secondi. Per correggere questo inconveniente, il servizio VMICTimeSync monitora ciò che accade nell'host e chiede di apportare modifiche alle macchine virtuali per compensare.
+Le interazioni delle macchine virtuali con l'host possono influire sull'orologio. Durante la [manutenzione con mantenimento della memoria](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot) le macchine virtuali vengono messe in pausa fino a 30 secondi. Ad esempio, prima che inizi la manutenzione l'orologio della macchina virtuale indica 10:00:00 AM e dura 28 secondi. Quando l'esecuzione della macchina virtuale riprende, l'orologio della macchina virtuale indicherebbe ancora 10:00:00 AM, con un ritardo di 28 secondi. Per correggere questo inconveniente, il servizio VMICTimeSync monitora ciò che accade nell'host e chiede di apportare modifiche alle macchine virtuali per compensare.
 
 Senza il lavoro di sincronizzazione dell'ora, l'orologio della macchina virtuale può accumulare errori. Quando è presente solo una macchina virtuale, l'effetto può non essere significativo, a meno che il carico di lavoro richieda una misurazione del tempo estremamente precisa. Tuttavia, nella maggior parte dei casi sono disponibili più macchine virtuali interconnesse che usano l'ora per tenere traccia delle transazioni e l'ora deve essere coerente in tutta la distribuzione. Quando l'ora è diversa tra le macchine virtuali, si possono osservare gli effetti seguenti:
 

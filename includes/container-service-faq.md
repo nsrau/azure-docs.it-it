@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60510535"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148820"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(DEPRECATO) Servizio contenitore: domande frequenti
 
@@ -99,7 +99,7 @@ Attualmente, il servizio Azure Container non fornisce strumenti per aggiornare l
 
 4. Nella pagina **Riepilogo** in **Output** sono disponibili diversi collegamenti al cluster. **SSHMaster0** fornisce una stringa di connessione SSH al primo master nel cluster del servizio contenitore. 
 
-Come già osservato, è anche possibile usare gli strumenti di Azure per trovare il nome FQDN del master. Stabilire una connessione SSH al master usando il nome FQDN del master e il nome utente specificato durante la creazione del cluster. Ad esempio: 
+Come già osservato, è anche possibile usare gli strumenti di Azure per trovare il nome FQDN del master. Stabilire una connessione SSH al master usando il nome FQDN del master e il nome utente specificato durante la creazione del cluster. Ad esempio:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 

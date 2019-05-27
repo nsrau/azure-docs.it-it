@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 2eea1a1d30558765a2f8320b0b23efdbe3368807
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 635e72a8e8a70b8885afea282511fbfaf24d2f94
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65140954"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957347"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -273,7 +273,7 @@ context.log(message)
 Permette di scrivere nei log della console di streaming nel livello di traccia predefinito. In `context.log` sono disponibili altri metodi di registrazione che permettono di scrivere log di funzioni in altri livelli di traccia:
 
 
-| Metodo                 | DESCRIZIONE                                |
+| Metodo                 | Descrizione                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_messaggio_)**   | Scrive nella registrazione a livello di errore o inferiore.   |
 | **warn(_messaggio_)**    | Scrive nella registrazione a livello di avviso o inferiore. |
@@ -350,7 +350,7 @@ I trigger e i webhook HTTP e le associazioni di output HTTP usano oggetti di ric
 
 L'oggetto (richiesta) `context.req` ha le proprietà seguenti:
 
-| Proprietà      | DESCRIZIONE                                                    |
+| Proprietà      | Descrizione                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Oggetto che contiene il corpo della richiesta.               |
 | _headers_     | Oggetto che contiene le intestazioni della richiesta.                   |
@@ -365,7 +365,7 @@ L'oggetto (richiesta) `context.req` ha le proprietà seguenti:
 
 L'oggetto (risposta) `context.res` ha le proprietà seguenti:
 
-| Proprietà  | DESCRIZIONE                                               |
+| Proprietà  | Descrizione                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Oggetto che contiene il corpo della risposta.         |
 | _headers_ | Oggetto che contiene le intestazioni della risposta.             |
@@ -504,7 +504,7 @@ FunctionApp
  | - myNodeFunction
  | | - function.json
  | - lib
- | | - nodeFunction.js
+ | | - sayHello.js
  | - node_modules
  | | - ... packages ...
  | - package.json
@@ -514,7 +514,7 @@ Il file `function.json` per `myNodeFunction` deve includere una proprietà `scri
 
 ```json
 {
-  "scriptFile": "../lib/nodeFunction.js",
+  "scriptFile": "../lib/sayHello.js",
   "bindings": [
     ...
   ]
@@ -544,7 +544,7 @@ class MyObj {
         this.foo = 1;
     };
 
-    function logFoo(context) { 
+    logFoo(context) { 
         context.log("Foo is " + this.foo); 
         context.done(); 
     }

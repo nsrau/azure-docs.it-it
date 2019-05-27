@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405435"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145849"
 ---
 È importante garantire la protezione delle macchine virtuali (VM) per le applicazioni che si intende eseguire. La protezione delle macchine virtuali può includere uno o più servizi o funzionalità di Azure che gestiscono l'accesso sicuro alle macchine virtuali e l'archiviazione sicura dei dati. Questo articolo contiene informazioni che permettono di mantenere sicure le macchine virtuali e le applicazioni.
 

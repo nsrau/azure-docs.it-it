@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: c2862c3521c05ba81f7a567f7951d22a9ab95c44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa3e50374c47f863923252a47b4b54fc1e18f87d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472336"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991856"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Ruby
  
@@ -43,7 +43,7 @@ Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
-## <a name="create-a-topic"></a>Creare un argomento
+## <a name="create-a-topic"></a>Crea un argomento
 L'oggetto **Azure::ServiceBusService** consente di usare argomenti. Il codice seguente crea un oggetto **Azure::ServiceBusService**. Per creare un argomento, usare il metodo `create_topic()`. Nel seguente esempio viene creato un argomento o stampato l'eventuale errore.
 
 ```ruby
@@ -167,6 +167,9 @@ Se si elimina un argomento, vengono eliminate anche tutte le sottoscrizioni regi
 ```ruby
 azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
+
+> [!NOTE]
+> È possibile gestire le risorse del Bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del Bus di servizio e amministrarne le entità di messaggistica in modo semplificato. Lo strumento offre funzionalità avanzate come la funzionalità di importazione/esportazione o la possibilità di testare l'argomento, code, sottoscrizioni, servizi di inoltro, hub di notifica e gli hub eventi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, usare i seguenti collegamenti per altre informazioni.

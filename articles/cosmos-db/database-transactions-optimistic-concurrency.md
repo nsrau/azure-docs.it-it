@@ -4,21 +4,21 @@ description: Questo articolo illustra le transazioni del database e il controllo
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1da5dabad04d72c903072a33dfb7b0229f99c62d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889356"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978980"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transazioni e controllo della concorrenza ottimistica
 
 Le transazioni di database offrono un modello di programmazione sicuro e prevedibile per gestire le modifiche simultanee ai dati. Database relazionali tradizionali, ad esempio SQL Server, consentono di scrivere la logica di business utilizzando stored procedure e/o i trigger, inviano al server per l'esecuzione direttamente nel motore di database. Con i tradizionali database relazionali, viene richiesto di gestire due diversi linguaggi di programmazione delle applicazioni (non transazionale), ad esempio JavaScript, Python, linguaggio di programmazione C#, Java e così via e (linguaggio di programmazione transazionale ad esempio T-SQL) che viene eseguito in modo nativo dal database.
 
-Il motore di database in Azure Cosmos DB supporta transazioni conformi ACID con l'isolamento dello snapshot. Tutte le operazioni di database all'interno dell'ambito di un contenitore [partizione logica](partition-data.md) vengono eseguite a livello di transazione all'interno del motore di database ospitato da parte della replica della partizione. Tali operazioni includono sia operazioni di scrittura (aggiornamento di uno o più elementi all'interno della partizione logica) e lettura. Nella tabella seguente vengono illustrate diverse operazioni e i tipi di transazione:
+Il motore di database in Azure Cosmos DB supporta transazioni conformi ACID con l'isolamento dello snapshot. Tutte le operazioni di database all'interno dell'ambito di un contenitore [partizione logica](partition-data.md) vengono eseguite a livello di transazione all'interno del motore di database ospitato da parte della replica della partizione. Tali operazioni includono sia operazioni di scrittura (aggiornamento di uno o più elementi all'interno della partizione logica) e lettura. Nella tabella seguente illustra diverse operazioni e i tipi di transazione:
 
 | **operazione**  | **Tipo di operazione** | **Transazione singola o con più elementi** |
 |---------|---------|---------|

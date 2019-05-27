@@ -14,23 +14,25 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8e1c031643fc3ce75d99ad619ce46b38c9cba82c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: c7415bfeadc978fe7b3b6a03265c0643b129afbf
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472705"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000177"
 ---
 # <a name="creating-filters-with-cli"></a>Creazione di filtri con l'interfaccia della riga di comando 
 
-Quando si distribuiscono contenuti ai clienti (flusso di eventi dal vivo o di video on demand), il client potrebbe avere bisogno di una maggiore flessibilità rispetto a quanto descritto nel file manifesto dell'asset predefinito. Servizi multimediali di Azure consente di definire i filtri account e i filtri asset per i propri contenuti. Per altre informazioni, vedere [Filtri e manifesti dinamici](filters-dynamic-manifest-overview.md).
+Quando si distribuiscono contenuti ai clienti (flusso di eventi dal vivo o di video on demand), il client potrebbe avere bisogno di una maggiore flessibilità rispetto a quanto descritto nel file manifesto dell'asset predefinito. Servizi multimediali di Azure consente di definire i filtri account e i filtri asset per i propri contenuti. Per altre informazioni, vedere [filtri](filters-concept.md) e [manifesti dinamici](filters-dynamic-manifest-overview.md).
 
 Questo argomento illustra come configurare un filtro per un asset Video on demand e usare l'interfaccia della riga di comando per Servizi multimediali v3 per creare [filtri account](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) e [filtri asset](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+
+> [!NOTE]
+> Assicurarsi di esaminare [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di Servizi multimediali. 
-- Leggere [Filtri e manifesti dinamici](filters-dynamic-manifest-overview.md).
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6bafa4614e40bb1796ec90e07ecf5b9286a8acb9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247229"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113421"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi o applicazioni in Azure AD le verifiche di accesso
 
@@ -30,8 +30,11 @@ Questo articolo descrive come creare uno o più verifiche di accesso per i membr
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+- Azure AD P2 Premium
 - [Verifiche di accesso abilitate](access-reviews-overview.md)
 - Amministratore globale o Amministratore utenti
+
+Per altre informazioni, vedere [quali gli utenti devono avere le licenze?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-one-or-more-access-reviews"></a>Creare uno o più verifiche di accesso
 
@@ -77,9 +80,13 @@ Questo articolo descrive come creare uno o più verifiche di accesso per i membr
 
     ![Creare una verifica di accesso - Revisori](./media/create-access-review/reviewers.png)
 
-1. Nella sezione **Programmi** selezionare il programma da usare. È possibile semplificare il rilevamento e la raccolta delle verifiche di accesso per scopi diversi organizzandole nei programmi. **Programma predefinito** è sempre presente oppure è possibile creare un altro programma. Ad esempio, è possibile scegliere che sia disponibile un programma per ogni obiettivo di business o iniziativa di conformità.
+1. Nella sezione **Programmi** selezionare il programma da usare. **Programma predefinito** è sempre presente.
 
     ![Creare una verifica di accesso - Programmi](./media/create-access-review/programs.png)
+
+    È possibile semplificare il rilevamento e la raccolta delle verifiche di accesso per scopi diversi organizzandole nei programmi. Ogni verifica di accesso può essere collegata a un programma. Quando si preparano i report per un revisore, è possibile concentrarsi sulle verifiche di accesso nell'ambito per un'iniziativa specifica. Programmi e i risultati della verifica di accesso sono visibili agli utenti nell'amministratore globale, l'utente amministratore, amministratore della sicurezza o ruolo di lettore di sicurezza.
+
+    Per visualizzare un elenco di programmi, go, l'accesso alle verifiche di pagina e selezionare **programmi**. Se si utilizza un amministratore globale o un ruolo utente amministratore, è possibile creare programmi aggiuntivi. Ad esempio, è possibile scegliere che sia disponibile un programma per ogni obiettivo di business o iniziativa di conformità. Se un programma non è più necessario e non dispone di controlli collegati, è possibile eliminarlo.
 
 ### <a name="upon-completion-settings"></a>Impostazioni al completamento
 
@@ -110,6 +117,8 @@ Questo articolo descrive come creare uno o più verifiche di accesso per i membr
 
 1. Impostare **Promemoria** su **Abilita** per fare in modo che Azure AD invii promemoria delle verifiche di accesso in corso ai revisori che non hanno completato la verifica.
 
+    Per impostazione predefinita, Azure AD invia automaticamente un promemoria ai revisori che non hanno ancora risposto a metà periodo rispetto alla data di scadenza.
+
 ## <a name="start-the-access-review"></a>Avviare la verifica di accesso
 
 Una volta specificate le impostazioni per una verifica di accesso, fare clic su **Avvia**. La verifica di accesso verrà visualizzato nell'elenco con un indicatore di stato.
@@ -118,19 +127,7 @@ Una volta specificate le impostazioni per una verifica di accesso, fare clic su 
 
 Per impostazione predefinita, Azure AD invia un messaggio di posta elettronica ai revisori poco tempo dopo l'inizio della verifica. Se si imposta Azure AD in modo che non invii un messaggio di posta elettronica, assicurarsi di informare i revisori che vi è una verifica di accesso in attesa di completamento. È possibile mostrare ai membri le istruzioni per la procedura [verificare l'accesso a gruppi o applicazioni](perform-access-review.md). Se la verifica prevede che i guest a verificare il proprio accesso, mostrare le istruzioni per la procedura [verifica di accesso personali a gruppi o applicazioni](review-your-access.md).
 
-Se alcuni revisori sono guest, i guest riceveranno la notifica tramite posta elettronica solo se hanno già accettato l'invito.
-
-## <a name="manage-the-access-review"></a>Gestire la verifica di accesso
-
-È possibile tenere traccia dello stato di avanzamento i revisori delle verifiche nel **Panoramica** pagina della verifica di accesso. Nessun diritto di accesso viene modificato nella directory fino al [completamento della verifica](complete-access-review.md).
-
-![Lo stato di avanzamento delle verifiche di accesso](./media/create-access-review/overview-progress.png)
-
-Se si tratta di una singola revisione, dopo il periodo della verifica l'accesso o l'amministratore ha interrotto la verifica di accesso, seguire i passaggi descritti in [completare una verifica di accesso dei gruppi o applicazioni](complete-access-review.md) per esaminare e applicare i risultati.  
-
-Per gestire una serie di accesso recensioni, passare alla verifica di accesso e si verrà trovare le ricorrenze future in revisioni pianificato e modificare la data di fine o aggiungere o rimuovere i revisori di conseguenza.
-
-Sulla base delle selezioni nel **impostazioni al completamento**, applicazione automatica verrà da eseguire dopo la data di fine dell'analisi o quando si arresta manualmente la revisione. Lo stato della verifica passerà da **Completed** attraverso alcuni stati intermedi, ad esempio **applicazione** e infine allo stato **applicato**. È possibile che, dopo alcuni minuti, eventuali utenti rifiutati vengano rimossi dall'appartenenza al gruppo o dall'assegnazione dell'applicazione.
+Se è stato assegnato l'accesso guest come revisori e non hanno accettato l'invito, non riceveranno un messaggio di posta elettronica dalle verifiche di accesso poiché dovranno accettare l'invito prima di esaminare.
 
 ## <a name="create-reviews-via-apis"></a>Creare verifiche tramite API
 

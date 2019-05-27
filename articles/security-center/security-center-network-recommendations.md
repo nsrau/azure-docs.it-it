@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
-ms.author: monhaber
-ms.openlocfilehash: 3d9658a6b7501714a6aad0e8eaa30ce587284bfe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-mohabe
+ms.openlocfilehash: e038c500d93e4d631c585eed743a373b5e6cec85
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906325"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968353"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteggere le risorse di Azure nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza continuamente lo stato di sicurezza delle risorse di Azure per consigliare le procedure ottimali di protezione della rete. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.
@@ -33,7 +33,7 @@ Questo articolo illustra le raccomandazioni applicabili alle risorse di Azure da
 La pagina **Rete** offre una panoramica delle sezioni da studiare per ottenere altre informazioni sull'integrità delle risorse di rete:
 
 - Mappa di rete (solo per il livello standard di Centro sicurezza di Azure)
-- Protezione avanzata adattiva della rete
+- Protezione avanzata adattiva per la rete
 - Raccomandazioni per la sicurezza della rete.
 - Pannello **Rete** legacy (il precedente pannello Rete) 
  
@@ -129,18 +129,18 @@ Il terzo livello contiene le macchine virtuali, che è simile a quello descritta
 
 ## <a name="network-recommendations"></a>Indicazioni per la rete
 
-|Tipo di risorsa|Punteggio di sicurezza|Recommendation|DESCRIZIONE|
+|Tipo di risorsa|Punteggio di sicurezza|Recommendation|Descrizione|
 |----|----|----|----|
 |Machine|40|Abilita i gruppi di sicurezza di rete sulle macchine virtuali|Consente di abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle macchine virtuali.|
 |Subnet|35|Abilita i gruppi di sicurezza di rete nelle subnet |Consente di abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle risorse distribuite nelle subnet.|
 |Machine|30|Applica un controllo di accesso di rete Just-In-Time|Applica un controllo di accesso Just-In-Time delle macchine virtuali per bloccare l'accesso in modo permanente ad alcune porte e consente agli utenti autorizzati di aprirle tramite lo stesso meccanismo e per un periodo di tempo limitato.|
-|Machine|20|Restrict access through Internet facing endpoint (Limita accesso tramite endpoint con connessione Internet)|Finalizza i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet limitando l'accesso delle regole di autorizzazione esistenti.|
+|Machine|20|Limita l'accesso tramite un endpoint con connessione Internet|Finalizza i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet limitando l'accesso delle regole di autorizzazione esistenti.|
 |Machine|10|Aggiunger un firewall di nuova generazione|Consente di aggiungere una soluzione Firewall di nuova generazione per proteggere le macchine virtuali con connessione Internet.|
 |Machine|5|Route traffic through network gateway firewall only (Instrada il traffico solo attraverso il firewall gateway di rete)|Per completare la distribuzione della soluzione Firewall di nuova generazione, il traffico verso le macchine virtuali protette con connessione Internet deve essere instradato solo tramite la soluzione Firewall di nuova generazione.|
-|VNet|5|Abilita Protezione DDoS Standard|Le applicazioni con indirizzi IP pubblici in queste reti virtuali non sono protette con lo standard del servizio Protezione DDOS. È consigliabile abilitarlo per consentire la mitigazione di attacchi volumetrici e ai protocolli della rete.|
+|Rete virtuale|5|Abilita Protezione DDoS Standard|Le applicazioni con indirizzi IP pubblici in queste reti virtuali non sono protette con lo standard del servizio Protezione DDOS. È consigliabile abilitarlo per consentire la mitigazione di attacchi volumetrici e ai protocolli della rete.|
 |Machine|10|Aggiunger un firewall di nuova generazione|Consente di aggiungere una soluzione Firewall di nuova generazione per proteggere le macchine virtuali con connessione Internet.|
 |Machine|5|Route traffic through network gateway firewall only (Instrada il traffico solo attraverso il firewall gateway di rete)|Per completare la distribuzione della soluzione Firewall di nuova generazione, il traffico verso le macchine virtuali protette con connessione Internet deve essere instradato solo tramite la soluzione Firewall di nuova generazione.|
-VNet|5|Abilita Protezione DDoS Standard|Le applicazioni con indirizzi IP pubblici in queste reti virtuali non sono protette con lo standard del servizio Protezione DDOS. È consigliabile abilitarlo per consentire la mitigazione di attacchi volumetrici e ai protocolli della rete.|
+Rete virtuale|5|Abilita Protezione DDoS Standard|Le applicazioni con indirizzi IP pubblici in queste reti virtuali non sono protette con lo standard del servizio Protezione DDOS. È consigliabile abilitarlo per consentire la mitigazione di attacchi volumetrici e ai protocolli della rete.|
 ## <a name="see-also"></a>Vedere anche 
 Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
 

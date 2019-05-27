@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 735be71faecb9882b13f6f536d43715139d0f4db
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 334e56db97213206d9ab7ed5ef4d1d96ab9325d6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071994"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956481"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con i dischi di Azure nel servizio Azure Kubernetes
 
@@ -39,6 +39,8 @@ Ogni cluster servizio Azure Kubernetes include due classi di archiviazione prede
     * Archiviazione Standard è supportata da unità disco rigido e offre un'archiviazione conveniente con buone prestazioni. I dischi standard sono ideali per un carico di lavoro di test e sviluppo conveniente.
 * La classe di archiviazione *gestita Premium* esegue il provisioning di un disco di Azure premium.
     * I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazioni basato su SSD. Ideale per le macchine virtuali che eseguono il carico di lavoro della produzione. Se i nodi del servizio Azure Container nel cluster usano l'archiviazione premium, selezionare la classe *gestita Premium*.
+    
+Queste classi di archiviazione predefinito non consentono di aggiornare le dimensioni del volume dopo averlo creata. Per abilitare questa funzionalità, aggiungere il *allowVolumeExpansion: true* riga a una delle classi di archiviazione predefinito oppure creare è classe di archiviazione personalizzati propri. È possibile modificare una classe di archiviazione esistente usando il `kubectl edit sc` comando. Per altre informazioni sulle classi di archiviazione e creazione youor personalizzati, vedere [opzioni di archiviazione per le applicazioni nel servizio contenitore di AZURE][storage-class-concepts].
 
 Usare il comando [kubectl get sc][kubectl-get] per visualizzare le classi di archiviazione create in precedenza. L'esempio seguente illustra la creazione preliminare di classi di archiviazione disponibile all'interno di un cluster servizio Azure Kubernetes:
 
@@ -86,7 +88,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Usare il volume permanente
 
-Dopo aver creato l'attestazione di volume persistente e aver effettuato il provisioning del disco, è possibile creare un pod con accesso al disco. Il manifesto seguente crea un pod NGINX di base che usa l'attestazione di volume persistente denominata *azure-managed-disk* per montare il disco di Azure nel percorso `/mnt/azure`.
+Dopo aver creato l'attestazione di volume persistente e aver effettuato il provisioning del disco, è possibile creare un pod con accesso al disco. Il manifesto seguente crea un pod NGINX di base che usa l'attestazione di volume persistente denominata *azure-managed-disk* per montare il disco di Azure nel percorso `/mnt/azure`. Per Windows Server i contenitori (attualmente in anteprima nel servizio contenitore di AZURE), specificare una *mountPath* usando la convenzione di percorso di Windows, ad esempio *'Unità d:'*.
 
 Creare un file denominato `azure-pvc-disk.yaml` e copiarlo nel manifesto seguente.
 
@@ -279,3 +281,4 @@ Altre informazioni sui volumi permanenti Kubernetes che usano i dischi di Azure.
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[storage-class-concepts]: concepts-storage.md#storage-classes

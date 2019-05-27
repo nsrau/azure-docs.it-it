@@ -9,58 +9,54 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/02/2019
+ms.date: 05/21/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: f38f9889ca057f2981774edfb8a67bb986fdd8d7
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: 4685d02fa9a1f08d86bdbe2915b94f177235b864
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619857"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016427"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
-Informazioni su come distribuire il modello di machine learning come servizio web nel cloud di Azure o nei dispositivi IoT Edge. Le informazioni contenute in questo documento spiega in che modo distribuire alle destinazioni di calcolo seguente:
+Informazioni su come distribuire il modello di machine learning come servizio web nel cloud di Azure o nei dispositivi IoT Edge. 
 
-| Destinazione del calcolo | Tipo di distribuzione | Descrizione |
-| ----- | ----- | ----- |
-| [Servizio web locale](#local) | Test/debug | Soluzione idonea per limitate di test e risoluzione dei problemi.
-| [Servizio Azure Kubernetes](#aks) | Inferenza in tempo reale | Soluzione ideale per le distribuzioni di produzione su vasta scala. Fornisce la scalabilità automatica e tempi di risposta rapidi. |
-| [Istanze di Azure Container](#aci) | Test | Soluzione idonea per la scala ridotta, carichi di lavoro basati su CPU. |
-| [Ambiente di calcolo di Machine Learning](how-to-run-batch-predictions.md) | (Anteprima) Inferenza del batch | Esecuzione batch di assegnazione dei punteggi a risorse di calcolo senza server. Supporta le macchine virtuali con priorità bassa o normale. |
-| [Azure IoT Edge](#iotedge) | (Anteprima) Modulo di IoT | Distribuire e gestire modelli di Machine Learning nei dispositivi IoT. |
+Il flusso di lavoro è simile indipendentemente [in cui si distribuisce](#target) del modello:
 
-## <a name="deployment-workflow"></a>Flusso di lavoro per la distribuzione
-
-Il processo di distribuzione di un modello è simile per tutte le destinazioni di calcolo:
-
-1. La registrazione dei modelli.
-1. Distribuzione dei modelli.
-1. Test distribuiti dei modelli.
+1. Registrare il modello.
+1. Preparare la distribuzione (specifica la destinazione di calcolo di asset, utilizzo,)
+1. Distribuire il modello per la destinazione di calcolo.
+1. Testare il modello distribuito, l'acronimo di servizio web.
 
 Per altre informazioni sui concetti relativi al flusso di lavoro di distribuzione, vedere [Gestire e distribuire modelli con il servizio Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites-for-deployment"></a>Prerequisiti per la distribuzione
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un modello. Se non è un modello con training, è possibile usare il modello di & file di dipendenza fornita [in questa esercitazione](https://aka.ms/azml-deploy-cloud).
 
-- Il [estensione di comando di Azure per il servizio di Machine Learning](reference-azure-machine-learning-cli.md), o il [SDK Python di Azure Machine Learning](https://aka.ms/aml-sdk).
+- Il [estensione di comando di Azure per il servizio di Machine Learning](reference-azure-machine-learning-cli.md), [SDK Python di Azure Machine Learning](https://aka.ms/aml-sdk), o nella [estensione Azure Machine Learning Visual Studio Code](how-to-vscode-tools.md).
 
-## <a id="registermodel"></a> Registrare un modello di machine learning
+## <a id="registermodel"></a> Registrare il modello
 
-Il registro di modelli consente di archiviare e organizzare i modelli con training nel cloud di Azure. I modelli vengono registrati nell'area di lavoro del servizio Azure Machine Learning. Il modello può eseguire il training con Azure Machine Learning o importati da un modello con training eseguito altrove. Gli esempi seguenti illustrano come registrare un modello dal file:
+Registrare i modelli di machine learning nell'area di lavoro Azure Machine Learning. Il modello può provenire da Azure Machine Learning o può provenire da altrove. Gli esempi seguenti illustrano come registrare un modello dal file:
 
 ### <a name="register-a-model-from-an-experiment-run"></a>Registrare un modello da un esperimento eseguito
 
-**Esempio di Scikit-Learn con l'interfaccia della riga di comando**
-```azurecli-interactive
-az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
-```
-**Tramite il SDK**
-```python
-model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
-print(model.name, model.id, model.version, sep='\t')
-```
++ **Esempio di Scikit-Learn con il SDK**
+  ```python
+  model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
+  print(model.name, model.id, model.version, sep='\t')
+  ```
++ **Usando l'interfaccia della riga di comando**
+  ```azurecli-interactive
+  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
+  ```
+
+
++ **Usando Visual Studio Code**
+
+  Registrare i modelli usando tutti i file di modello o le cartelle con il [Visual Studio Code](how-to-vscode-tools.md#deploy-and-manage-models) estensione.
 
 ### <a name="register-an-externally-created-model"></a>Registrare un modello creato esternamente
 
@@ -68,31 +64,46 @@ print(model.name, model.id, model.version, sep='\t')
 
 È possibile registrare un modello creato esternamente, fornendo una **percorso locale** al modello. È possibile fornire una cartella o un singolo file.
 
-**Esempio ONNX con Python SDK:**
-```python
-onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
-urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
-!tar xvzf mnist.tar.gz
++ **Esempio ONNX con Python SDK:**
+  ```python
+  onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
+  urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
+  !tar xvzf mnist.tar.gz
+  
+  model = Model.register(workspace = ws,
+                         model_path ="mnist/model.onnx",
+                         model_name = "onnx_mnist",
+                         tags = {"onnx": "demo"},
+                         description = "MNIST image classification CNN from ONNX Model Zoo",)
+  ```
 
-model = Model.register(workspace = ws,
-                       model_path ="mnist/model.onnx",
-                       model_name = "onnx_mnist",
-                       tags = {"onnx": "demo"},
-                       description = "MNIST image classification CNN from ONNX Model Zoo",)
-```
-
-**Usando l'interfaccia della riga di comando**
-```azurecli-interactive
-az ml model register -n onnx_mnist -p mnist/model.onnx
-```
++ **Usando l'interfaccia della riga di comando**
+  ```azurecli-interactive
+  az ml model register -n onnx_mnist -p mnist/model.onnx
+  ```
 
 **Tempo stimato**: circa 10 secondi.
 
 Per altre informazioni, vedere la documentazione di riferimento per la [classe Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## <a name="how-to-deploy"></a>Modalità di distribuzione
+<a name="target"></a>
 
-Per distribuire come servizio web, è necessario creare una configurazione di inferenza (`InferenceConfig`) e una configurazione di distribuzione. Nel file di configurazione l'inferenza, specificare gli script e le dipendenze necessarie per gestire il modello. Nel file di configurazione di distribuzione è specificare informazioni dettagliate su come rendere disponibile il modello di destinazione di calcolo.
+## <a name="choose-a-compute-target"></a>Scegliere una destinazione di calcolo
+
+Di seguito, destinazioni di calcolo o le risorse di calcolo, può essere usato per ospitare la distribuzione del servizio web. 
+
+| Destinazione del calcolo | Uso | Descrizione |
+| ----- | ----- | ----- |
+| [Servizio web locale](#local) | Test/debug | Soluzione idonea per limitate di test e risoluzione dei problemi.
+| [Servizio Azure Kubernetes](#aks) | Inferenza in tempo reale | Soluzione ideale per le distribuzioni di produzione su vasta scala. Fornisce la scalabilità automatica e tempi di risposta rapidi. |
+| [Istanze di Azure Container](#aci) | Test | Soluzione idonea per la scala ridotta, carichi di lavoro basati su CPU. |
+| [Ambiente di calcolo di Machine Learning](how-to-run-batch-predictions.md) | (Anteprima) Inferenza del batch | Esecuzione batch di assegnazione dei punteggi a risorse di calcolo senza server. Supporta le macchine virtuali con priorità bassa o normale. |
+| [Azure IoT Edge](#iotedge) | (Anteprima) Modulo di IoT | Distribuire e gestire modelli di Machine Learning nei dispositivi IoT. |
+
+
+## <a name="prepare-to-deploy"></a>Preparare la distribuzione
+
+Per distribuire come servizio web, è necessario creare una configurazione di inferenza (`InferenceConfig`) e una configurazione di distribuzione. Inferenza o modello di punteggio, è la fase in cui viene usato il modello distribuito per la stima, in genere sui dati di produzione. Nel file di configurazione l'inferenza, specificare gli script e le dipendenze necessarie per gestire il modello. Nel file di configurazione di distribuzione è specificare informazioni dettagliate su come rendere disponibile il modello di destinazione di calcolo.
 
 
 ### <a id="script"></a> 1. Definire le dipendenze & script di ingresso
@@ -141,8 +152,8 @@ Definire l'input e output formato di esempio tra il `input_sample` e `output_sam
 
 Nell'esempio seguente viene illustrato come accettare e restituire i dati JSON:
 
-**Esempio Scikit-learn con generazione Swagger:**
 ```python
+#example: scikit-learn and Swagger
 import json
 import numpy as np
 from sklearn.externals import joblib
@@ -199,7 +210,7 @@ In questo esempio, la configurazione contiene gli elementi seguenti:
 * Una directory che contiene gli asset necessari per l'inferenza
 * Che questo modello richiede Python
 * Il [script di ingresso](#script), che consente di gestire le richieste web inviate al servizio distribuito
-* Il file conda che descrive i pacchetti Python necessari per l'esecuzione di inferenza
+* Il file conda che descrive i pacchetti Python necessari per l'inferenza
 
 Per informazioni sulla funzionalità InferenceConfig, vedere la [configurazione avanzata](#advanced-config) sezione.
 
@@ -219,30 +230,31 @@ Nella tabella seguente fornisce un esempio di creazione di una configurazione di
 
 Le sezioni seguenti illustrano come creare la configurazione della distribuzione e quindi usarlo per distribuire il servizio web.
 
-## <a name="where-to-deploy"></a>Destinazione della distribuzione
+## <a name="deploy-to-target"></a>Distribuzione di destinazione
 
-### <a id="local"></a> Distribuire in locale
+### <a id="local"></a> Distribuzione locale
+
+Per distribuire in locale, è necessario disporre **Docker installato** nel computer locale.
 
 Gli esempi in questa sezione usano [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), che richiede di registrare il modello e l'immagine prima di eseguire una distribuzione. Per altre informazioni su altri metodi di distribuzione, vedere [distribuire](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) e [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-).
 
-**Per distribuire in locale, è necessario che Docker sia installato nel computer locale.**
 
-**Tramite il SDK**
++ **Tramite il SDK**
 
-```python
-deployment_config = LocalWebservice.deploy_configuration(port=8890)
-service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
-service.wait_for_deployment(show_output = True)
-print(service.state)
-```
+  ```python
+  deployment_config = LocalWebservice.deploy_configuration(port=8890)
+  service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
+  service.wait_for_deployment(show_output = True)
+  print(service.state)
+  ```
 
-**Usando l'interfaccia della riga di comando**
++ **Usando l'interfaccia della riga di comando**
 
-```azurecli-interactive
-az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
-```
+  ```azurecli-interactive
+  az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
+  ```
 
-### <a id="aci"></a> Distribuire in istanze di contenitore di Azure (sviluppo/test)
+### <a id="aci"></a> Istanze di contenitore di Azure (sviluppo/test)
 
 Usare Istanze di Azure Container per distribuire i modelli come servizio Web se una o più delle condizioni seguenti sono vere:
 - È necessario distribuire e convalidare rapidamente il modello.
@@ -250,59 +262,65 @@ Usare Istanze di Azure Container per distribuire i modelli come servizio Web se 
 
 Per informazioni su quote e aree di disponibilità per ACI, vedere la [quote e aree disponibili per istanze di contenitore di Azure](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) articolo.
 
-**Tramite il SDK**
++ **Tramite il SDK**
 
-```python
-deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
-service = Model.deploy(ws, "aciservice", [model], inference_config, deployment_config)
-service.wait_for_deployment(show_output = True)
-print(service.state)
-```
+  ```python
+  deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
+  service = Model.deploy(ws, "aciservice", [model], inference_config, deployment_config)
+  service.wait_for_deployment(show_output = True)
+  print(service.state)
+  ```
 
-**Usando l'interfaccia della riga di comando**
++ **Usando l'interfaccia della riga di comando**
 
-```azurecli-interactive
-az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
-```
+  ```azurecli-interactive
+  az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
+  ```
+
+
++ **Usando Visual Studio Code**
+
+  Per [distribuire i modelli con Visual Studio Code](how-to-vscode-tools.md#deploy-and-manage-models) non è necessario creare un contenitore ACI per verificare in anticipo, poiché i contenitori ACI vengono creati in tempo reale.
 
 Per altre informazioni, vedere la documentazione di riferimento per le classi [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
-### <a id="aks"></a> Distribuire in Azure Kubernetes Service (produzione)
+### <a id="aks"></a>Azure Kubernetes Service (produzione)
 
 È possibile usare un cluster servizio Azure Kubernetes esistente o crearne uno nuovo tramite il SDK di Azure Machine Learning, l'interfaccia della riga di comando o il portale di Azure.
 
+<a id="deploy-aks"></a>
 
-> [!IMPORTANT]
-> La creazione di un cluster servizio Azure Kubernetes si esegue una sola volta per l'area di lavoro. È possibile riutilizzare questo cluster per più distribuzioni.
-> Se non è stata creata o associata a un servizio contenitore di AZURE del cluster go <a href="#create-attach-aks">qui</a>.
+Se si dispone già di un cluster del servizio contenitore di AZURE collegato, è possibile distribuire ad esso. Se ancora stato creato o collegato un cluster AKS, seguire la procedura per <a href="#create-attach-aks">creare un nuovo cluster AKS</a>.
 
-#### Distribuire al servizio contenitore di AZURE <a id="deploy-aks"></a>
++ **Tramite il SDK**
 
-È possibile distribuire al servizio contenitore di AZURE con la CLI di Azure Machine Learning:
-```azurecli-interactive
-az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
-```
+  ```python
+  aks_target = AksCompute(ws,"myaks")
+  deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
+  service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
+  service.wait_for_deployment(show_output = True)
+  print(service.state)
+  print(service.get_logs())
+  ```
 
-È anche possibile usare Python SDK:
-```python
-aks_target = AksCompute(ws,"myaks")
-deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
-service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
-service.wait_for_deployment(show_output = True)
-print(service.state)
-print(service.get_logs())
-```
++ **Usando l'interfaccia della riga di comando**
 
-Per altre informazioni su come configurare la distribuzione del servizio contenitore di AZURE, tra cui la scalabilità automatica, vedere la [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) riferimento.
+  ```azurecli-interactive
+  az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
+  ```
 
++ **Usando Visual Studio Code**
+
+  È anche possibile [distribuire al servizio contenitore di AZURE tramite l'estensione di Visual Studio Code](how-to-vscode-tools.md#deploy-and-manage-models), ma è necessario configurare i cluster servizio contenitore di AZURE in anticipo.
+
+Altre informazioni sulla distribuzione AKS e scalabilità automatica nel [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) riferimento.
+
+#### Creare un nuovo cluster servizio contenitore di AZURE<a id="create-attach-aks"></a>
 **Tempo stimato:** Circa 5 minuti.
 
-#### Creare o collegare un cluster del servizio contenitore di AZURE <a id="create-attach-aks"></a>
-Creare o collegare un cluster del servizio contenitore di AZURE è un **un processo di runtime** dell'area di lavoro. Dopo che un cluster è stato associato all'area di lavoro, è possibile usarlo per più distribuzioni. 
+> [!IMPORTANT]
+> Creare o collegare un cluster del servizio contenitore di AZURE è una volta in elaborazione per l'area di lavoro. È possibile riutilizzare questo cluster per più distribuzioni. Se si elimina il cluster o il gruppo di risorse che lo contiene, è necessario creare un nuovo cluster alla successiva che è necessario distribuire.
 
-Se si elimina il cluster o il gruppo di risorse che lo contiene, è necessario creare un nuovo cluster alla successiva che è necessario distribuire.
-
-##### <a name="create-a-new-aks-cluster"></a>Creare un nuovo cluster servizio contenitore di AZURE
 Per altre informazioni sull'impostazione `autoscale_target_utilization`, `autoscale_max_replicas`, e `autoscale_min_replicas`, vedere il [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) riferimento.
 Nell'esempio seguente viene illustrato come creare un nuovo cluster Azure Kubernetes Service:
 
@@ -332,7 +350,7 @@ Per altre informazioni sulla creazione di un cluster del servizio contenitore di
 
 **Tempo stimato**: circa 20 minuti.
 
-##### <a name="attach-an-existing-aks-cluster"></a>Collegare un cluster servizio contenitore di AZURE esistente
+#### <a name="attach-an-existing-aks-cluster"></a>Collegare un cluster servizio contenitore di AZURE esistente
 
 Se si dispone già del cluster servizio contenitore di AZURE nella sottoscrizione di Azure, ed è versione 1.12. # # e dispone di almeno 12 CPU virtuali, è possibile usarla per distribuire l'immagine. Il codice seguente illustra come collegare un 1.12 servizio contenitore di AZURE esistente. # # cluster all'area di lavoro:
 
@@ -349,7 +367,10 @@ aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
 
 ## <a name="consume-web-services"></a>Utilizzare i servizi Web
+
 Ogni servizio web distribuito fornisce un'API REST, pertanto è possibile creare applicazioni client in una vasta gamma di linguaggi di programmazione. Se è stata abilitata l'autenticazione per il servizio, è necessario fornire una chiave del servizio come un token nell'intestazione di richiesta.
+
+### <a name="request-response-consumption"></a>Consumo di richiesta-risposta
 
 Ecco un esempio di come richiamare il servizio in Python:
 ```python
@@ -376,7 +397,17 @@ print(response.json())
 
 Per altre informazioni, vedere [Creare applicazioni client per utilizzare i servizi Web](how-to-consume-web-service.md).
 
-## <a id="update"></a> Aggiornare il servizio Web
+
+### <a id="azuremlcompute"></a> Utilizzo di batch
+Obiettivi di calcolo di Machine Learning di Azure vengono create e gestite dal servizio di Azure Machine Learning. Possono essere utilizzati per la stima batch dalla pipeline di Azure Machine Learning.
+
+Per una procedura dettagliata di inferenza del batch con calcolo di Azure Machine Learning, vedere la [come eseguire stime in Batch](how-to-run-batch-predictions.md) articolo.
+
+### <a id="iotedge"></a> Inferenza di IoT Edge
+Supporto per la distribuzione e il bordo è disponibile in anteprima. Per altre informazioni, vedere la [distribuire Azure Machine Learning come modulo di IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) articolo.
+
+
+## <a id="update"></a> L'aggiornamento dei servizi web
 
 Quando si crea un nuovo modello, è necessario aggiornare manualmente ogni servizio che si desidera usare il nuovo modello. Per aggiornare il servizio Web, usare il metodo `update`. Il codice seguente viene illustrato come aggiornare il servizio web per usare un nuovo modello:
 
@@ -401,15 +432,11 @@ print(service.state)
 print(service.get_logs())
 ```
 
-## <a name="clean-up"></a>Eseguire la pulizia
-Per eliminare un servizio Web distribuito, usare `service.delete()`.
-Per eliminare un modello registrato, usare `model.delete()`.
+<a id="advanced-config"></a>
 
-Per altre informazioni, vedere la documentazione di riferimento [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), e [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+## <a name="advanced-settings"></a>Impostazioni avanzate 
 
-## Impostazioni di configurazione avanzate <a id="advanced-config"></a>
-
-### <a id="customimage"></a> Usare un'immagine di base personalizzata
+**<a id="customimage"></a> Usare un'immagine di base personalizzata**
 
 Internamente, InferenceConfig crea un'immagine Docker contenente il modello e altre risorse necessarie per il servizio. Se non specificato, viene usata un'immagine di base predefinito.
 
@@ -453,15 +480,11 @@ Se il modello viene eseguito il training nel calcolo di Azure Machine Learning, 
 image_config.base_image = run.properties["AzureML.DerivedImageName"]
 ```
 
-## <a name="other-inference-options"></a>Altre opzioni di inferenza
+## <a name="clean-up-resources"></a>Pulire le risorse
+Per eliminare un servizio Web distribuito, usare `service.delete()`.
+Per eliminare un modello registrato, usare `model.delete()`.
 
-### <a id="azuremlcompute"></a> Inferenza del batch
-Obiettivi di calcolo di Machine Learning di Azure vengono create e gestite dal servizio di Azure Machine Learning. Possono essere utilizzati per la stima batch dalla pipeline di Azure Machine Learning.
-
-Per una procedura dettagliata di inferenza del batch con calcolo di Azure Machine Learning, vedere la [come eseguire stime in Batch](how-to-run-batch-predictions.md) articolo.
-
-## <a id="iotedge"></a> Inferenza in dispositivi perimetrali IoT
-Supporto per la distribuzione e il bordo è disponibile in anteprima. Per altre informazioni, vedere la [distribuire Azure Machine Learning come modulo di IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) articolo.
+Per altre informazioni, vedere la documentazione di riferimento [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), e [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Risoluzione dei problemi di distribuzione](how-to-troubleshoot-deployment.md)
@@ -469,3 +492,4 @@ Supporto per la distribuzione e il bordo è disponibile in anteprima. Per altre 
 * [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
 * [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md)
+

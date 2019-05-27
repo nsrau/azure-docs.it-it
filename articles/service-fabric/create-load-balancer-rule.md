@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
 ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786134"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66147472"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Aprire le porte per un cluster di Service Fabric
 
@@ -61,7 +61,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 Il comando dell'interfaccia della riga di comando di Azure include alcuni parametri descritti nella tabella seguente:
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | `--backend-port`  | Porta su cui è in ascolto l'applicazione di Service Fabric. |
 | `--frontend-port` | Porta esposta dal servizio di bilanciamento del carico per le connessioni esterne. |

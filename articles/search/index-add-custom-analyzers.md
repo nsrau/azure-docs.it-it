@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9daebf46093e38858feff87ca5c4ba89638aa74
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021670"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951897"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Aggiungere analizzatori personalizzati a un indice di Ricerca di Azure
 
@@ -223,7 +223,7 @@ Per gli analizzatori, gli attributi dell'indice variano a seconda che si usino g
 |-|-|  
 |NOME|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
 |Type|Deve essere "#Microsoft.Azure.Search.CustomAnalyzer".|  
-|CharFilters|Impostarlo su uno dei filtri di caratteri predefiniti elencati nella tabella [Filtri di caratteri](#CharFilter) o su un filtro di caratteri specificato nella definizione dell'indice.|  
+|CharFilters|Impostarlo su uno dei filtri di caratteri predefiniti elencati nella tabella [Filtri di caratteri](#char-filters-reference) o su un filtro di caratteri specificato nella definizione dell'indice.|  
 |Tokenizer|Richiesto. Impostarlo su uno dei tokenizer predefiniti elencati più avanti nella tabella [Tokenizer](#Tokenizers) o su un tokenizer personalizzato specificato nella definizione dell'indice.|  
 |TokenFilters|Impostarlo su uno dei filtri di token predefiniti elencati nella tabella [Filtri di token](#TokenFilters) o su un filtro di token specificato nella definizione dell'indice.|  
 
@@ -236,8 +236,8 @@ Per gli analizzatori, gli attributi dell'indice variano a seconda che si usino g
 |||  
 |-|-|  
 |NOME|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
-|Type|Tipo di filtro di caratteri incluso nell'elenco di filtri di caratteri supportati. Vedere più avanti la colonna **char_filter_type** nella tabella [Filtri di caratteri](#CharFilter).|  
-|Opzioni|Devono essere opzioni valide di un determinato tipo di [Filtri di caratteri](#CharFilter).|  
+|Type|Tipo di filtro di caratteri incluso nell'elenco di filtri di caratteri supportati. Vedere più avanti la colonna **char_filter_type** nella tabella [Filtri di caratteri](#char-filters-reference).|  
+|Opzioni|Devono essere opzioni valide di un determinato tipo di [Filtri di caratteri](#char-filters-reference).|  
 
 ### <a name="tokenizers"></a>Tokenizer
 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 91ba5de6a6e0a18d494a449acfdea330234bcc9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258811"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadic"></a>Esercitazione: Integrazione di Azure Active Directory con Nomadic
 
