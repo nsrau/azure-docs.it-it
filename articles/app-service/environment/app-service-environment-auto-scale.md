@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769419"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955971"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Ridimensionamento automatico e ambiente del servizio app (versione 1)
 
@@ -63,7 +63,7 @@ Per illustrare il ridimensionamento automatico di un ambiente del servizio app, 
 Questo articolo descrive tutte le considerazioni necessarie per configurare il ridimensionamento automatico, nonché tutte le interazioni che entrano in gioco quando si configura il ridimensionamento automatico di ambienti del servizio app ospitati in un ambiente del servizio app.
 
 ### <a name="scenario-introduction"></a>Introduzione dello scenario
-Diego è amministratore di sistema presso una società e ha eseguito la migrazione di una parte dei carichi di lavoro che gestisce a un ambiente del servizio app.
+Diego è un amministratore di sistema ha eseguito la migrazione di una parte dei carichi di lavoro gestiti per un ambiente del servizio App.
 
 L'ambiente del servizio app è configurato per la scalabilità manuale come segue:
 
@@ -76,7 +76,7 @@ Il pool di lavoro 1 viene usato per i carichi di lavoro di produzione, mentre il
 
 I piani del servizio app per il controllo di qualità e lo sviluppo vengono configurati per il ridimensionamento manuale. Il piano del servizio app di produzione è impostato per il ridimensionamento automatico, in modo da adeguarsi alle variazioni del carico e del traffico.
 
-Diego ha una notevole familiarità con l'applicazione. Sa che le ore di picco di carico sono comprese tra le 9:00 e le 18:00, perché si tratta di un'applicazione di line-of-business (LOB) che i dipendenti usano mentre sono in ufficio. L'utilizzo si riduce al termine della giornata lavorativa degli utenti. Al di fuori dagli orari di picco il carico è ancora presente in parte, perché gli utenti possono accedere all'app in modalità remota usando i propri dispositivi mobili o i PC di casa. Il piano di servizio app è già configurato per il ridimensionamento automatico in base all'utilizzo della CPU con le regole seguenti:
+Diego ha una notevole familiarità con l'applicazione. Sanno che le ore di picco di carico sono tra le 9:00 e le 18.00, poiché si tratta di un'applicazione di line-of-business (LOB) che i dipendenti usano mentre sono in ufficio. L'utilizzo si riduce al termine della giornata lavorativa degli utenti. Al di fuori dagli orari di picco il carico è ancora presente in parte, perché gli utenti possono accedere all'app in modalità remota usando i propri dispositivi mobili o i PC di casa. Il piano di servizio app è già configurato per il ridimensionamento automatico in base all'utilizzo della CPU con le regole seguenti:
 
 ![Impostazioni specifiche per l'app LOB.][asp-scale]
 
@@ -84,7 +84,7 @@ Diego ha una notevole familiarità con l'applicazione. Sa che le ore di picco di
 | --- | --- |
 | **Nome:** profilo Giorno feriale |**Nome:** profilo Fine settimana |
 | **Ridimensiona di:** regole per la pianificazione e le prestazioni |**Ridimensiona di:** regole per la pianificazione e le prestazioni |
-| **Profilo:** Giorni della settimana |**Profilo:** fine settimana |
+| **Profilo:** Giorni feriali |**Profilo:** fine settimana |
 | **Tipo:** Ricorrenza |**Tipo:** Ricorrenza |
 | **Intervallo di destinazione:** da 5 a 20 istanze |**Intervallo di destinazione:** da 3 a 10 istanze |
 | **Giorni:** Lunedì, Martedì, Mercoledì, Giovedì, Venerdì |**Giorni:** Sabato, Domenica |
@@ -155,7 +155,7 @@ Con queste informazioni Diego può definire le regole e il profilo di ridimensio
 | --- | --- |
 | **Nome:** profilo Giorno feriale |**Nome:** profilo Fine settimana |
 | **Ridimensiona di:** regole per la pianificazione e le prestazioni |**Ridimensiona di:** regole per la pianificazione e le prestazioni |
-| **Profilo:** Giorni della settimana |**Profilo:** fine settimana |
+| **Profilo:** Giorni feriali |**Profilo:** fine settimana |
 | **Tipo:** Ricorrenza |**Tipo:** Ricorrenza |
 | **Intervallo di destinazione:** da 13 a 25 istanze |**Intervallo di destinazione:** da 6 a 15 istanze |
 | **Giorni:** Lunedì, Martedì, Mercoledì, Giovedì, Venerdì |**Giorni:** Sabato, Domenica |
