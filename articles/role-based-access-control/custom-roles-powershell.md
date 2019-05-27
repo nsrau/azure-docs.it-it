@@ -15,11 +15,11 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ad1185cab2b2bd2d0fea10f21b7859fd9ab1339f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807610"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66158459"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Creare ruoli personalizzati per le risorse di Azure tramite Azure PowerShell
 
@@ -231,7 +231,7 @@ Per aggiungere il ruolo alle sottoscrizioni, eseguire il comando PowerShell segu
 New-AzRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
 
-## <a name="update-a-custom-role"></a>Aggiornare un ruolo personalizzato
+## <a name="update-a-custom-role"></a>Aggiorna un ruolo personalizzato
 
 Così come per la creazione di un ruolo personalizzato, è possibile modificare un ruolo personalizzato esistente usando l'oggetto `PSRoleDefinition` o un modello JSON.
 

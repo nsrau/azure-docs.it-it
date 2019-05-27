@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa406ac2f1e0b89a1161660a49f2a4cb6f6d6c32
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105928"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157229"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato di Azure nativo: Portale di Azure
 
@@ -35,9 +35,9 @@ Le connessioni con autenticazione tramite certificato da punto a sito di Azure u
 
 È possibile usare i valori seguenti per creare un ambiente di test o fare riferimento a questi valori per comprendere meglio gli esempi di questo articolo:
 
-* **Nome della rete virtuale:** VNet1
+* **Nome della rete virtuale:** Rete virtuale1
 * **Spazio indirizzi**: 192.168.0.0/16<br>Per questo esempio, viene usato un solo spazio indirizzi. È possibile avere più di uno spazio indirizzi per la rete virtuale.
-* **Nome della subnet:** FrontEnd
+* **Nome della subnet:** Front-end
 * **Intervallo di indirizzi subnet:** 192.168.1.0/24
 * **Sottoscrizione:** se si dispone di più sottoscrizioni, verificare di usare quella corretta.
 * **Gruppo di risorse:** TestRG
@@ -46,7 +46,7 @@ Le connessioni con autenticazione tramite certificato da punto a sito di Azure u
 * **Server DNS:** (facoltativo) indirizzo IP del server DNS che si vuole usare per la risoluzione dei nomi.
 * **Nome del gateway di rete virtuale:** VNet1GW
 * **Tipo di gateway:** VPN
-* **Tipo di VPN:** basato su route
+* **Tipo di VPN:** Basato su route
 * **Nome dell'indirizzo IP pubblico**: VNet1GWpip
 * **Tipo di connessione**: Da punto a sito
 * **Pool di indirizzi client:** 172.16.201.0/24<br>I client VPN che si connettono alla rete virtuale con questa connessione da punto a sito ricevono un indirizzo IP dal pool di indirizzi client.
@@ -108,7 +108,7 @@ Il pool di indirizzi client è un intervallo di indirizzi IP privati specificati
 
 ## <a name="tunneltype"></a>7. Configurare il tipo di tunnel
 
-È possibile selezionare il tipo di tunnel. Le due opzioni per i tunnel sono SSTP e IKEv2. Il client strongSwan in Android e Linux e il client VPN IKEv2 nativo in iOS e OSX useranno solo il tunnel IKEv2 per la connessione. I client Windows provano prima IKEv2 e, se la connessione non viene stabilita, tornano a SSTP. È possibile scegliere di abilitarne una o entrambe. Selezionare le caselle di controllo richieste dalla soluzione.
+È possibile selezionare il tipo di tunnel. Le opzioni per i tunnel sono OpenVPN, SSTP e IKEv2. Il client strongSwan in Android e Linux e il client VPN IKEv2 nativo in iOS e OSX useranno solo il tunnel IKEv2 per la connessione. I client Windows provano prima IKEv2 e, se la connessione non viene stabilita, tornano a SSTP. È possibile usare il client OpenVPN per connettersi al tipo di tunnel OpenVPN.
 
 ![Tipo di tunnel](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 
@@ -146,7 +146,7 @@ Per la procedura di installazione, vedere [Install a client certificate](point-t
 
 I file di configurazione del client VPN contengono le impostazioni per configurare i dispositivi per la connessione a una rete virtuale tramite una connessione P2S. Per le istruzioni per generare e installare i file di configurazione del client VPN, vedere [Create and install VPN client configuration files for native Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md) (Creare e installare i file di configurazione del client VPN per le configurazioni P2S per l'autenticazione del certificato di Azure nativo).
 
-## <a name="connect"></a>12. Connect to Azure
+## <a name="connect"></a>12. Connettersi ad Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Per connettersi da un client VPN Windows
 

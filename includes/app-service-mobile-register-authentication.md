@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: d5557ce1dda7bb36b8b0a6a44fcaca50e0667bb7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429982"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66139873"
 ---
 Innanzitutto, è necessario registrare l'app nel sito di un provider di identità e quindi impostare le credenziali generate dal provider nel back-end dell'app per dispositivi mobili.
 

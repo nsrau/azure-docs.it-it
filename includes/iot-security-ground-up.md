@@ -9,11 +9,11 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951537"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66166297"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Sicurezza di Internet delle cose (IoT) sin dall'inizio
 
@@ -49,7 +49,7 @@ L'[hub IoT di Azure](../articles/iot-hub/about-iot-hub.md), compreso in [Solutio
 
 Per descrivere al meglio le funzionalità di sicurezza e privacy incorporate in Solution Accelerator di Azure IoT, in questo articolo la soluzione è stata scomposta nelle tre principali aree di sicurezza.
 
-![Solution Accelerator di Azure IoT](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
+![Acceleratori della soluzione Azure IoT](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>Proteggere il provisioning dei dispositivi e l'autenticazione
 

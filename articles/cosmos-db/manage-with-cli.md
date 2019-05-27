@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 4/8/2019
 ms.author: mjbrown
 ms.openlocfilehash: 1d19e58b2d1381725de490b68d9e4d00a2ca4cb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66151203"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gestire le risorse di Azure Cosmos DB usando l'interfaccia della riga di comando di Azure
 
@@ -21,7 +21,7 @@ La Guida seguente illustra i comandi comuni per automatizzare la gestione dell'a
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-an-azure-cosmos-db-account"></a>Creare un account Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a>Crea un account Azure Cosmos DB
 
 Per creare un account Azure Cosmos DB con l'API SQL, la coerenza di sessione nelle aree Stati Uniti orientali e Stati Uniti occidentali, eseguire il comando seguente:
 
@@ -38,7 +38,7 @@ az cosmosdb create \
 > [!IMPORTANT]
 > Il nome dell'account Azure Cosmos deve essere minuscolo.
 
-## <a name="create-a-database"></a>Creare un database
+## <a name="create-a-database"></a>Creazione di un database
 
 Per creare un database Cosmos DB, eseguire il comando seguente:
 
@@ -49,7 +49,7 @@ az cosmosdb database create \
    --resource-group myResourceGroup
 ```
 
-## <a name="create-a-container"></a>Creare un contenitore
+## <a name="create-a-container"></a>Crea contenitore
 
 Per creare un contenitore Cosmos DB con UR/s di 400 e una chiave di partizione, eseguire il comando seguente:
 

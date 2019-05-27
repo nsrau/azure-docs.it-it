@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cherylmc
 ms.openlocfilehash: f2ee442d0d6fecf34449ad28f058615a1274bbea
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52270684"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159256"
 ---
 Di seguito sono elencati gli SKU del gateway VPN legacy (precedenti):
 
-* Basic
+* Di base
 * Standard
 * HighPerformance
 

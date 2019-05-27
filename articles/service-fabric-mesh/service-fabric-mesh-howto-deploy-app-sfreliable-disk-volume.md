@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419221"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147486"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montare il volume basato su Reliable Disk di Service Fabric a disponibilità elevata in un'applicazione Service Fabric Mesh 
 Il metodo comune per rendere persistente lo stato con le app contenitore è usare una risorsa di archiviazione remota, ad esempio Archiviazione file di Azure o un database come Azure Cosmos DB. Ciò comporta un notevole latenza di rete per la lettura e la scrittura nell'archivio remoto.
@@ -73,7 +73,7 @@ Si noti il nome della risorsa del gateway con tipo di risorsa `Microsoft.Service
 
 Dopo aver distribuito correttamente l'applicazione, ottenere l'indirizzo IP della risorsa del gateway per l'app. Usare il nome del gateway evidenziato nelle sezione precedente.
 ```azurecli-interactive
-az mesh gateway show --resource-group myResourceGroup --gateway-name counterGateway
+az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
 L'output deve avere una proprietà `ipAddress` che è l'indirizzo IP pubblico per l'endpoint di servizio. Aprirlo da un browser. Viene visualizzata una pagina Web con il valore del contatore aggiornato ogni secondo.

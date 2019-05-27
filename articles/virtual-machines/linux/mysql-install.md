@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: f9e0582a1338bcae7b330c7ece7c3d8cc8593cfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 21ad3f9baf4b8e117f881d9a36fc606af04e17a5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543940"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158431"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Come installare MySQL in Azure
 In questo articolo verrà illustrato come installare e configurare MySQL in una macchina virtuale Azure che esegue Linux.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="install-mysql-on-your-virtual-machine"></a>Installare MySQL nella macchina virtuale.
 > [!NOTE]
 > Per poter completare questa esercitazione, è necessario disporre già di una macchina virtuale di Microsoft Azure che esegue Linux. Prima di continuare, vedere l’[esercitazione relativa alle macchine virtuali Linux di Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per creare e impostare una macchina virtuale Linux con `mysqlnode` come nome della macchina virtuale e `azureuser` come utente.
 > 
@@ -35,147 +33,208 @@ In questo articolo verrà illustrato come installare e configurare MySQL in una 
 
 [In questo caso, usare la porta 3306 come porta di MySQL].  
 
-Connettersi tramite putty alla macchina virtuale Linux creata. Se è la prima volta che si usa una macchina virtuale Linux di Azure, vedere come usare putty per connettersi a una macchina virtuale Linux facendo clic [qui](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 In questo articolo, come esempio, per installare MySQL5.6 verrà utilizzato il pacchetto repository. In realtà, MySQL5.6 presenta maggiori miglioramenti in termini di prestazioni rispetto a MySQL5.5.  Ulteriori informazioni sono disponibili [qui](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
 
-### <a name="how-to-install-mysql56-on-ubuntu"></a>Come installare MySQL5.6 in Ubuntu
-Di seguito si utilizzerà una VM Linux con Ubuntu da Azure.
+## <a name="install-mysql56-on-ubuntu"></a>Installare MySQL5.6 in Ubuntu
+Si userà una VM Linux che esegue Ubuntu.
 
-* Passaggio 1: Installare il server MySQL 5.6   Passare all'utente `root`:
-  
-            #[azureuser@mysqlnode:~]sudo su -
-  
-    Installare mysql-server 5.6:
-  
-            #[root@mysqlnode ~]# apt-get update
-            #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
-  
-    Durante l'installazione, verrà visualizzata una finestra di dialogo per chiedere di impostare la password radice di MySQL riportata di seguito, ed è necessario impostare la password qui.
-  
-    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 
-    Immettere la password per confermare.
+### <a name="install-mysql"></a>Installare MySQL
 
-    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
+Installare MySQL Server 5.6 passando al `root` utente:
 
-* Passaggio 2: Accedere al server MySQL
-  
-    Al termine dell'installazione del server MySQL, il servizio MySQL verrà avviato automaticamente. È possibile accedere al server MySQL con l’utente `root` .
-    Utilizzare il seguente comando per accedere e immettere la password.
-  
-             #[root@mysqlnode ~]# mysql -uroot -p
-* Passaggio 3: Gestire il servizio MySQL in esecuzione
-  
-    (a) Ottenere lo stato del servizio MySQL
-  
-             #[root@mysqlnode ~]# service mysql status
-  
-    (b) Avviare il servizio MySQL
-  
-             #[root@mysqlnode ~]# service mysql start
-  
-    (c) Interrompere il servizio MySQL
-  
-             #[root@mysqlnode ~]# service mysql stop
-  
-    (d) Riavviare il servizio MySQL
-  
-             #[root@mysqlnode ~]# service mysql restart
+```bash  
+sudo su -
+```
 
-### <a name="how-to-install-mysql-on-red-hat-os-family-like-centos-oracle-linux"></a>Come installare MySQL nella famiglia di sistemi operativi Redhat, come CentOS oppure Oracle Linux
+Installare mysql-server 5.6:
+
+```bash  
+apt-get update
+apt-get -y install mysql-server-5.6
+```
+
+  
+Durante l'installazione, verrà visualizzata una finestra di dialogo per chiedere di impostare la password radice di MySQL riportata di seguito, ed è necessario impostare la password qui.
+  
+![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
+
+Immettere la password per confermare.
+
+![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
+
+### <a name="sign-in"></a>Accesso
+  
+Al termine dell'installazione del server MySQL, il servizio MySQL verrà avviato automaticamente. È possibile accedere al MySQL Server con il `root` utente, quindi immettere la password.
+
+```bash  
+mysql -uroot -p
+```
+
+
+### <a name="manage-the-mysql-service"></a>Gestire il servizio MySQL
+
+Ottenere lo stato del servizio MySQL
+
+```bash   
+service mysql status
+```
+  
+Avviare il servizio MySQL
+
+```bash  
+service mysql start
+```
+  
+Arrestare il servizio MySQL
+
+```bash  
+service mysql stop
+```
+  
+Riavviare il servizio MySQL
+
+```bash  
+service mysql restart
+```
+
+## <a name="install-mysql-on-red-hat-os-centos-oracle-linux"></a>Installare MySQL in sistemi operativi di Red Hat, CentOS, Oracle Linux
 In questo caso si utilizzerà la VM Linux con CentOS oppure Oracle Linux.
 
-* Passaggio 1: Aggiungere il repository MySQL Yum   Passare all'utente `root`:
-  
-            #[azureuser@mysqlnode:~]sudo su -
-  
-    Scaricare e installare il pacchetto di rilascio di MySQL:
-  
-            #[root@mysqlnode ~]# wget https://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
-            #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
-* Passaggio 2: Modificare il file per abilitare il repository MySQL per il download del pacchetto MySQL5.6.
-  
-            #[root@mysqlnode ~]# vim /etc/yum.repos.d/mysql-community.repo
-  
-    Aggiornare ogni valore del file come indicato di seguito:
-  
-        \# *Enable to use MySQL 5.6*
-  
-        [mysql56-community]
-        name=MySQL 5.6 Community Server
-  
-        baseurl=http://repo.mysql.com/yum/mysql-5.6-community/el/6/$basearch/
-  
-        enabled=1
-  
-        gpgcheck=1
-  
-        gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-* Passaggio 3: Installare MySQL dal repository MySQL   Installare MySQL:
-  
-           #[root@mysqlnode ~]#yum install mysql-community-server
-  
-    Il pacchetto RPM MySQL e tutti i pacchetti correlati verranno installati.
-* Passaggio 4: Gestire il servizio MySQL in esecuzione
-  
-    (a) Verificare lo stato di servizio del server MySQL:
-  
-           #[root@mysqlnode ~]#service mysqld status
-  
-    (b) Verificare se la porta predefinita del server MySQL è in esecuzione:
-  
-           #[root@mysqlnode ~]#netstat  –tunlp|grep 3306
+### <a name="add-the-mysql-yum-repository"></a>Aggiungere il repository yum MySQL
+    
+Passare a `root` utente:
 
-    (c) Avviare il server MySQL:
+```bash  
+sudo su -
+```
 
-           #[root@mysqlnode ~]#service mysqld start
+Scaricare e installare il pacchetto di rilascio di MySQL:
 
-    (d) Interrompere il server MySQL:
+```bash  
+wget https://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+yum localinstall -y mysql-community-release-el6-5.noarch.rpm
+```
 
-           #[root@mysqlnode ~]#service mysqld stop
+### <a name="enable-the-mysql-repository"></a>Abilitare il repository MySQL
+Modificare il file per abilitare il repository MySQL per il download del pacchetto MySQL5.6.
 
-    (e) Impostare MySQL in modo che si avvii all’avvio del sistema:
+```bash  
+vim /etc/yum.repos.d/mysql-community.repo
+```
 
-           #[root@mysqlnode ~]#chkconfig mysqld on
+  
+Aggiornare ogni valore del file come indicato di seguito:
+
+```  
+\# *Enable to use MySQL 5.6*
+  
+[mysql56-community]
+name=MySQL 5.6 Community Server
+  
+baseurl=http://repo.mysql.com/yum/mysql-5.6-community/el/6/$basearch/
+  
+enabled=1
+  
+gpgcheck=1
+  
+gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+```
+
+### <a name="install-mysql"></a>Installare MySQL 
+
+Installare MySQL dal repository.
+
+```bash  
+yum install mysql-community-server
+```
+  
+Il pacchetto RPM MySQL e tutti i pacchetti correlati verranno installati.
 
 
-### <a name="how-to-install-mysql-on-suse-linux"></a>Come installare MySQL in Suse Linux
+## <a name="manage-the-mysql-service"></a>Gestire il servizio MySQL
+  
+Controllare lo stato del servizio del server MySQL:
+
+```bash  
+service mysqld status\
+```
+  
+Controllare se la porta predefinita del server MySQL è in esecuzione:
+
+```bash  
+netstat  –tunlp|grep 3306
+```
+
+Avviare il server MySQL:
+
+```bash
+service mysqld start
+```
+
+Arrestare il server MySQL:
+
+```bash
+service mysqld stop
+```
+
+Impostare MySQL da avviare quando l'avvio del sistema:
+
+```bash
+chkconfig mysqld on
+```
+
+## <a name="install-mysql-on-suse-linux"></a>Installare MySQL in SUSE Linux
+
 In questa circostanza si utilizzerà una VM Linux con OpenSUSE.
 
-* Passaggio 1: Scaricare e installare il server MySQL
+### <a name="download-and-install-mysql-server"></a>Scaricare e installare il server MySQL
   
-    Passare all’utente `root` mediante il comando seguente:  
-  
-           #sudo su -
-  
-    Scaricare e installare il pacchetto MySQL:
-  
-           #[root@mysqlnode ~]# zypper update
-  
-           #[root@mysqlnode ~]# zypper install mysql-server mysql-devel mysql
-* Passaggio 2: Gestire il servizio MySQL in esecuzione
-  
-    (a) Verificare lo stato del server MySQL:
-  
-           #[root@mysqlnode ~]# rcmysql status
-  
-    (b) Verificare se la porta predefinita del server MySQL è in esecuzione:
-  
-           #[root@mysqlnode ~]# netstat  –tunlp|grep 3306
+Passare all’utente `root` mediante il comando seguente:  
 
-    (c) Avviare il server MySQL:
+```bash  
+sudo su -
+```
+  
+Scaricare e installare il pacchetto MySQL:
 
-           #[root@mysqlnode ~]# rcmysql start
+```bash  
+zypper update
+zypper install mysql-server mysql-devel mysql
+```
 
-    (d) Interrompere il server MySQL:
+### <a name="manage-the-mysql-service"></a>Gestire il servizio MySQL
+  
+Controllare lo stato del server MySQL:
 
-           #[root@mysqlnode ~]# rcmysql stop
+```bash  
+rcmysql status
+```
+  
+Controllare se la porta predefinita del server MySQL:
 
-    (e) Impostare MySQL in modo che si avvii all’avvio del sistema:
+```bash  
+netstat  –tunlp|grep 3306
+```
 
-           #[root@mysqlnode ~]# insserv mysql
+Avviare il server MySQL:
 
-### <a name="next-step"></a>passaggio successivo
-Ulteriori utilizzi e informazioni su MySQL sono disponibili [qui](https://www.mysql.com/).
+```bash
+rcmysql start
+```
+
+Arrestare il server MySQL:
+
+```bash
+rcmysql stop
+```
+
+Impostare MySQL da avviare quando l'avvio del sistema:
+
+```bash
+insserv mysql
+```
+
+## <a name="next-step"></a>Passaggio successivo
+Per altre informazioni, vedere la [MySQL](https://www.mysql.com/) sito Web.
 

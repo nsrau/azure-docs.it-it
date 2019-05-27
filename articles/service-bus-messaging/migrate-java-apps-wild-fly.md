@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: asirveda
-ms.openlocfilehash: 2392d0ef9d6257b93b76f13a5354eeba57d78ddd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 60f4e410c7c4e3854235029acade550c9279c981
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800290"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158702"
 ---
 # <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>Eseguire la migrazione di App di Java enterprise edition (EE) in Azure
 Questo articolo illustra il processo di migrazione dei carichi di lavoro Java EE esistenti in Azure:
@@ -67,7 +67,7 @@ Si sarà eseguire la migrazione di App di esempio JBoss/WildFly in Azure. Queste
 Dopo la migrazione, si eseguirà l'App Usa il Bus di servizio di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per distribuire un'app web Java in Azure, necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account Azure gratuito](https://azure.microsoft.com/en-us/free/).
+Per distribuire un'app web Java in Azure, necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account Azure gratuito](https://azure.microsoft.com/free/).
 
 Inoltre, è necessario che i prerequisiti seguenti:
 
@@ -1070,7 +1070,7 @@ Vedere gli articoli seguenti:
 
 - [Guida aziendale Java per il servizio App in Linux](../app-service/containers/app-service-java-enterprise.md)
 - [Plug-in Maven per servizio App di Azure](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable)
-- [Distribuzione dell'Adapter e accesso in lettura generica JMS in JBoss/WildFly](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
+- [Distribuzione dell'Adapter e accesso in lettura generica JMS in JBoss/WildFly](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
 - [Configurazione della messaggistica JBoss/WildFly](https://docs.jboss.org/author/display/WFLY/Messaging+configuration)
 - [Guida dell'interfaccia della riga JBoss/WildFly](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
 - [Aprendo una connessione SSH dal computer di sviluppo](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)

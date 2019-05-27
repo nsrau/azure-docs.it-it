@@ -1,5 +1,5 @@
 ---
-title: Confronta & riprodurre i dati nel corso del tempo con gli snapshot
+title: Confronta & riprodurre i dati con set di dati snapshot
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come confrontare i dati nel tempo e garantire la riproducibilità con set di dati snapshot
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
-ms.date: 05/02/2019
-ms.openlocfilehash: 51d0dcfc543834e9a8725d11fa82b566a5132a6b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/23/2019
+ms.openlocfilehash: 525660be0f38c9458590e52cfcd575acb4cf5444
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205008"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162064"
 ---
 # <a name="compare-data-and-ensure-reproducibility-with-snapshots-preview"></a>Confrontare i dati e garantire la riproducibilità gli snapshot (anteprima)
 
@@ -41,7 +41,7 @@ Per creare gli snapshot di set di dati, è necessario Azure Machine Learning Dat
 
 ## <a name="create-dataset-snapshots"></a>Creazione di set di dati snapshot
 
-Per creare uno snapshot di un set di dati, usare [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) dal SDK di Azure Machine Learning.
+Per creare uno snapshot di un set di dati, usare [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) dal pacchetto azureml-set di dati di Azure Machine Learning SDK.
 
 Per impostazione predefinita, lo snapshot consente di archiviare il profilo (statistiche summary) dei dati con la versione più recente [definizione del set di dati](how-to-manage-dataset-definitions.md) applicato. Una definizione di set di dati contiene un record di tutti i passaggi di trasformazione definita per i dati. È un ottimo modo per il funzionamento di preparazione dei dati riproducibile.
 
@@ -128,14 +128,14 @@ snapshot.get_profile()
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e+07|1.05351e + 07|10,0|0.0|10,0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e + 07|1.05259e+07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
 Case Number|FieldType.STRING|HZ239907|HZ278872|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
-Data|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
-Blocco|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Blocca|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10,0|0.0|10,0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 Tipo principale|FieldType.STRING|PROCEDURE CONSIGLIATE INGANNEVOLI|FURTO|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
-DESCRIZIONE|FieldType.STRING|CONTROLLO FITTIZIO|SU 500 DOLLARI|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Descrizione|FieldType.STRING|CONTROLLO FITTIZIO|SU 500 DOLLARI|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 Descrizione della posizione|FieldType.STRING||ISTITUTO DI ISTRUZIONE, PUBBLICA, CREAZIONE|10,0|0.0|10,0|0.0|0.0|1.0||||||||||||||
-Arresto|FieldType.BOOLEAN|False|False|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
-Nazionale|FieldType.BOOLEAN|False|False|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Arresto|FieldType.BOOLEAN|Falso|Falso|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Nazionale|FieldType.BOOLEAN|Falso|Falso|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 Beat|FieldType.INTEGER|531|2433|10,0|0.0|10,0|0.0|0.0|0.0|531|531|531|614|1318.5|1911|2433|2433|2433|1371.1|692.094|478994|0.105418|-1.60684
 Distretto|FieldType.INTEGER|5|24|10,0|0.0|10,0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13,5|6.94822|48.2778|0.0930109|-1.62325
 Corsia|FieldType.INTEGER|1|48|10,0|0.0|10,0|0.0|0.0|0.0|1|5|1|9|22,5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
@@ -153,9 +153,9 @@ snapshot.to_pandas_dataframe().head(3)
 
 ||ID|Case Number|Data|Blocco|IUCR|Tipo principale|DESCRIZIONE|Descrizione della posizione|Arresto|Nazionale|...|Corsia|Area della community|Codice FBI|Coordinata X|Coordinata Y|Year|Aggiornato il|Latitude|Longitudine|Località
 -|--|-----------|----|-----|----|------------|-----------|--------------------|------|--------|---|----|--------------|--------|------------|------------|----|----------|--------|---------|--------
-0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|PROCEDURE CONSIGLIATE INGANNEVOLI|FURTO DELL'IDENTITÀ FINANZIARIA SU $ 300|OTHER|False|False|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
-1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|890|FURTO|DALLA CREAZIONE|RESIDENZA|False|False|...|21|71|6|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)
-2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|1154|PROCEDURE CONSIGLIATE INGANNEVOLI|FURTO DELL'IDENTITÀ FINANZIARIA $300 E IN|RESIDENZA|False|False|...|19|74|11|NaN|NaN|2016|2016-05-12 15:50:00|NaN|NaN|
+0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|PROCEDURE CONSIGLIATE INGANNEVOLI|FURTO DELL'IDENTITÀ FINANZIARIA SU $ 300|OTHER|Falso|Falso|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
+1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|890|FURTO|DALLA CREAZIONE|RESIDENZA|Falso|Falso|...|21|71|6|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)
+2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|1154|PROCEDURE CONSIGLIATE INGANNEVOLI|FURTO DELL'IDENTITÀ FINANZIARIA $300 E IN|RESIDENZA|Falso|Falso|...|19|74|11|NaN|NaN|2016|2016-05-12 15:50:00|NaN|NaN|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

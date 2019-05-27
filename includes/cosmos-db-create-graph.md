@@ -2,21 +2,19 @@
 title: File di inclusione
 description: File di inclusione
 services: cosmos-db
-author: rockboyfor
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-origin.date: 04/13/2018
-ms.date: 03/18/2019
-ms.author: v-yeche
+ms.date: 04/13/2018
+ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 9800848b24523a0eb5992e64ce1580cc53b0e3a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60891515"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151480"
 ---
-<!--Verify sucessfully-->
 È ora possibile usare lo strumento Esplora dati nel portale di Azure per creare un database a grafo. 
 
 1. Fare clic su **Esplora dati** > **New Graph** (Nuovo grafo).
@@ -35,7 +33,3 @@ ms.locfileid: "60891515"
     Velocità effettiva|400 UR/s|Modificare la velocità effettiva in 400 unità richiesta al secondo (UR/sec). Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.
 
 3. Dopo aver compilato il modulo, fare clic su **OK**.
-
-<!--Verify sucessfully-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->

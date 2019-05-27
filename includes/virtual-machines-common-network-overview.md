@@ -9,17 +9,17 @@ ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 8b77dceb8f5dd8def2fda493104892b13a95bccc
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505941"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154818"
 ---
 Quando si crea una macchina virtuale (VM) di Azure, è necessario creare una [rete virtuale](../articles/virtual-network/virtual-networks-overview.md) o usarne una esistente. È anche necessario decidere come si accederà alle macchine virtuali nella rete virtuale. È importante [pianificare prima di creare risorse](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e comprendere i [limiti delle risorse di rete](../articles/azure-subscription-service-limits.md#networking-limits).
 
 Nella figura seguente, le VM vengono rappresentate come server Web e server di database. Ogni set di VM viene assegnato a subnet separate nella rete virtuale.
 
-![rete virtuale di Azure](./media/virtual-machines-common-network-overview/vnetoverview.png)
+![Rete virtuale di Azure](./media/virtual-machines-common-network-overview/vnetoverview.png)
 
 È possibile creare una rete virtuale prima o durante la creazione di una VM. Creare queste risorse per supportare la comunicazione con una VM:
 
@@ -44,7 +44,7 @@ Ogni interfaccia di rete collegata a una VM deve trovarsi nello stesso percorso 
 
 Questa tabella elenca i metodi che è possibile usare per creare un'interfaccia di rete.
 
-| Metodo | DESCRIZIONE |
+| Metodo | Descrizione |
 | ------ | ----------- |
 | Portale di Azure | Quando si crea una VM nel portale di Azure, viene creata automaticamente un'interfaccia di rete. Non è possibile usare un'interfaccia di rete creata separatamente dall'utente. Il portale crea una VM con una sola interfaccia di rete. Una VM con più di un'interfaccia di rete dovrà essere creata con un metodo diverso. |
 | [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Usare [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) con il parametro **-PublicIpAddressId** per specificare l'identificatore dell'indirizzo IP pubblico creato in precedenza. |
@@ -66,7 +66,7 @@ Per far sì che l'indirizzo IP della VM rimanga invariato, è possibile impostar
     
 Questa tabella elenca i metodi che è possibile usare per creare un indirizzo IP.
 
-| Metodo | DESCRIZIONE |
+| Metodo | Descrizione |
 | ------ | ----------- |
 | [Portale di Azure](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Per impostazione predefinita, gli indirizzi IP pubblici sono dinamici e l'indirizzo associato può cambiare quando la VM viene arrestata o eliminata. Per garantire che la VM usi sempre lo stesso indirizzo IP pubblico, creare un indirizzo IP pubblico statico. Per impostazione predefinita, il portale assegna un indirizzo IP privato dinamico a un'interfaccia di rete durante la creazione di una VM. È possibile modificare l'indirizzo IP in statico dopo aver creato la VM.|
 | [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Usare [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) con il parametro **-AllocationMethod** impostato su Dynamic o Static. |
@@ -87,7 +87,7 @@ Per impostazione predefinita non esiste alcun limite di sicurezza tra subnet, qu
 
 Questa tabella elenca i metodi che è possibile usare per creare una rete virtuale e le subnet. 
 
-| Metodo | DESCRIZIONE |
+| Metodo | Descrizione |
 | ------ | ----------- |
 | [Portale di Azure](../articles/virtual-network/quick-create-portal.md) | Se è Azure a creare una rete virtuale quando si crea una VM, il nome sarà una combinazione del nome del gruppo di risorse che contiene la rete virtuale e **-vnet**. Lo spazio degli indirizzi è 10.0.0.0/24, il nome della subnet è **default** e l'intervallo di indirizzi della subnet è 10.0.0.0/24. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | Usare [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkSubnetConfig) e [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) per creare una subnet e una rete virtuale. È anche possibile usare [Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/Az.Network/Add-AzVirtualNetworkSubnetConfig) per aggiungere una subnet a una rete virtuale esistente. |
@@ -108,7 +108,7 @@ Tutti i gruppi di sicurezza di rete contengono un set di regole predefinite. Le 
 
 Questa tabella elenca i metodi che è possibile usare per creare un gruppo di sicurezza di rete.
 
-| Metodo | DESCRIZIONE |
+| Metodo | Descrizione |
 | ------ | ----------- |
 | [Portale di Azure](../articles/virtual-network/tutorial-filter-network-traffic.md) | Quando si crea una VM nel portale di Azure, un gruppo di sicurezza di rete viene creato e associato automaticamente all'interfaccia di rete creata dal portale. Il nome del gruppo di sicurezza di rete è una combinazione del nome della VM e **-nsg**. Questo gruppo di sicurezza di rete contiene una regola in ingresso con una priorità pari a 1000, il servizio impostato su RDP, il protocollo impostato su TCP, la porta impostata su 3389 e l'azione impostata su Consenti. Per consentire altro traffico in ingresso nella macchina virtuale è necessario aggiungere regole al gruppo di sicurezza di rete. |
 | [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | Usare [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) e specificare le informazioni necessarie per la regola. Usare [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) per creare il gruppo di sicurezza di rete. Usare [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworksubnetconfig) per configurare il gruppo di sicurezza di rete per la subnet. Usare [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork) per aggiungere il gruppo di sicurezza di rete alla rete virtuale. |
@@ -131,7 +131,7 @@ Quando si crea un servizio di bilanciamento del carico è anche necessario consi
 
 Questa tabella elenca i metodi che è possibile usare per creare un servizio di bilanciamento del carico con connessione Internet.
 
-| Metodo | DESCRIZIONE |
+| Metodo | Descrizione |
 | ------ | ----------- |
 | Portale di Azure | Non è attualmente possibile creare un servizio di bilanciamento del carico con connessione Internet usando il portale di Azure. |
 | [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-internet-arm-ps.md) | Usare [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) con il parametro **-PublicIpAddress** per specificare l'identificatore dell'indirizzo IP pubblico creato in precedenza. Usare [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) per creare la configurazione del pool di indirizzi back-end. Usare [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) per creare regole NAT in ingresso associate alla configurazione IP front-end creata. Usare [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) per creare i probe necessari. Usare [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) per creare la configurazione del servizio di bilanciamento del carico. Usare [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) per creare il servizio di bilanciamento del carico.|
@@ -140,14 +140,14 @@ Questa tabella elenca i metodi che è possibile usare per creare un servizio di 
     
 Questa tabella elenca i metodi che è possibile usare per creare un servizio di bilanciamento del carico interno.
 
-| Metodo | DESCRIZIONE |
+| Metodo | Descrizione |
 | ------ | ----------- |
 | Portale di Azure | Non è attualmente possibile creare un servizio di bilanciamento del carico interno usando il portale di Azure. |
 | [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Per specificare un indirizzo IP privato nella subnet della rete, usare [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) con il parametro **-PrivateIpAddress**. Usare [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) per creare la configurazione del pool di indirizzi back-end. Usare [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) per creare regole NAT in ingresso associate alla configurazione IP front-end creata. Usare [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) per creare i probe necessari. Usare [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) per creare la configurazione del servizio di bilanciamento del carico. Usare [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) per creare il servizio di bilanciamento del carico.|
 | [Interfaccia della riga di comando di Azure](../articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Usare il comando [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) per creare la configurazione del servizio di bilanciamento del carico. Per definire l'indirizzo IP privato, usare [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip) con il parametro **--private-ip-address**. Usare [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool) per aggiungere la configurazione del pool di indirizzi back-end. Usare [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) per aggiungere le regole NAT. Usare [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) per aggiungere le regole del servizio di bilanciamento del carico. Usare [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) per aggiungere i probe.|
 | [Modello](../articles/load-balancer/load-balancer-get-started-ilb-arm-template.md) | Vedere [Creare 2 macchine virtuali in un servizio di bilanciamento del carico e configurare le regole NAT nel servizio di bilanciamento del carico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) per istruzioni sulla distribuzione di un servizio di bilanciamento del carico con un modello. |
 
-## <a name="vms"></a>VM
+## <a name="vms"></a>Macchine virtuali
 
 Le VM possono essere create nella stessa rete virtuale e possono connettersi tra loro usando indirizzi IP privati. Possono connettersi anche se si trovano in subnet diverse senza dover configurare un gateway o usare indirizzi IP pubblici. Per inserire VM in una rete virtuale, creare la rete virtuale e quindi ogni VM, assegnandola alla rete virtuale e alla subnet. Le VM acquisiscono le impostazioni di rete durante la distribuzione o l'avvio.  
 
@@ -157,7 +157,7 @@ Se si crea una VM e successivamente si vuole eseguirne la migrazione in una rete
 
 Questa tabella elenca i metodi che è possibile usare per creare una VM in una rete virtuale.
 
-| Metodo | DESCRIZIONE |
+| Metodo | Descrizione |
 | ------ | ----------- |
 | [Portale di Azure](../articles/virtual-machines/windows/quick-create-portal.md) | Usa le impostazioni di rete predefinite citate in precedenza per creare una VM con una singola interfaccia di rete. Per creare una VM con più interfacce di rete è necessario procedere con un metodo diverso. |
 | [Azure PowerShell](../articles/virtual-machines/windows/tutorial-manage-vm.md) | Prevede l'uso di [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) per aggiungere l'interfaccia di rete creata in precedenza alla configurazione della macchina virtuale. |

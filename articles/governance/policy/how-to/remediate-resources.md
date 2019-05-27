@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fe06e7081e4e3691aeb054985f9f2f3f6dc7d19e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: d6753b319bc5bc4cbda18fe486695e5b0266acae
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794990"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169645"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Correggere le risorse non conformi con Criteri di Azure
 
-Le risorse che non sono conformi ai criteri **deployIfNotExists** possono essere messe in stato di conformità attraverso una **correzione**. La correzione avviene indicando a Criteri di eseguire l'effetto **deployIfNotExists** dei criteri assegnati sulle risorse esistenti. Questo articolo illustra i passaggi necessari per comprendere ed eseguire il processo di correzione con i Criteri.
+Le risorse che non sono conformi ai criteri **deployIfNotExists** possono essere messe in stato di conformità attraverso una **correzione**. Monitoraggio e aggiornamento avviene in modo che i criteri di Azure per eseguire la **deployIfNotExists** effetto dei criteri assegnato sulle risorse esistenti. Questo articolo illustra i passaggi necessari per comprendere ed eseguire monitoraggio e aggiornamento con criteri di Azure.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>Funzionamento della sicurezza della correzione
 
-Quando il servizio Criteri esegue il modello nella definizione dei criteri **deployIfNotExists**, usa un'[identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md).
-Il servizio Criteri crea un'identità gestita per ogni assegnazione, ma è necessario specificare i dettagli su quali ruoli concedere all'identità gestita. Se all'identità gestita non sono assegnati ruoli, viene visualizzato questo errore durante l'assegnazione dei criteri o un'iniziativa. Quando si usa il portale, il servizio Criteri concederà automaticamente all'identità gestita i ruoli elencati dopo che è iniziata l'assegnazione.
+Quando Criteri di Azure viene eseguito il modello nel **deployIfNotExists** definizione dei criteri, esegue pertanto l'uso di un [identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md).
+Criteri di Azure crea un'identità gestita per ogni assegnazione, ma devono avere informazioni dettagliate su quali ruoli per concedere l'identità gestita. Se all'identità gestita non sono assegnati ruoli, viene visualizzato questo errore durante l'assegnazione dei criteri o un'iniziativa. Quando si usa il portale, criteri di Azure verranno concessi automaticamente l'identità gestita i ruoli elencati dopo l'assegnazione viene avviata.
 
 ![Entità gestita - ruolo mancante](../media/remediate-resources/missing-role.png)
 
@@ -39,7 +39,7 @@ Il primo passaggio consiste nel definire i ruoli che devono essere presenti nell
 "details": {
     ...
     "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
         "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
     ]
 }
@@ -57,7 +57,7 @@ Get-AzRoleDefinition -Name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>Configurare manualmente l'identità gestita
 
-Quando si crea un'assegnazione tramite il portale, il servizio Criteri genera l'identità gestita e le concede i ruoli definiti in **roleDefinitionIds**. Nelle condizioni seguenti è necessario eseguire manualmente i passaggi per creare l'identità gestita e assegnarle le autorizzazioni:
+Quando si crea un'assegnazione tramite il portale, criteri di Azure sia genera l'identità gestita e la concessione di ruoli definiti **roleDefinitionIds**. Nelle condizioni seguenti è necessario eseguire manualmente i passaggi per creare l'identità gestita e assegnarle le autorizzazioni:
 
 - Quando si usa l'SDK (ad esempio, Azure PowerShell)
 - Quando una risorsa esterna all'ambito di assegnazione viene modificata dal modello
@@ -126,7 +126,8 @@ Per aggiungere un ruolo all'identità gestita dell'assegnazione, seguire questa 
 
 1. Fare clic sul collegamento **Controllo di accesso (IAM)** nella pagina delle risorse e quindi su **+ Aggiungi assegnazione di ruolo** nella parte superiore della pagina del controllo di accesso.
 
-1. Nella definizione dei criteri selezionare il ruolo appropriato che corrisponde a un **roleDefinitionIds**. Lasciare **Assegna accesso a** impostato sul valore predefinito di 'utente, gruppo o applicazione di Azure AD'. Nella casella **Seleziona** incollare o digitare la parte dell'ID di risorsa di assegnazione individuata precedentemente. Al termine della ricerca fare clic sull'oggetto con lo stesso nome per selezionare l'ID e fare clic su **Salva**.
+1. Nella definizione dei criteri selezionare il ruolo appropriato che corrisponde a un **roleDefinitionIds**.
+   Lasciare **Assegna accesso a** impostato sul valore predefinito di 'utente, gruppo o applicazione di Azure AD'. Nella casella **Seleziona** incollare o digitare la parte dell'ID di risorsa di assegnazione individuata precedentemente. Al termine della ricerca fare clic sull'oggetto con lo stesso nome per selezionare l'ID e fare clic su **Salva**.
 
 ## <a name="create-a-remediation-task"></a>Creare un'attività di correzione
 
@@ -193,9 +194,9 @@ Per altri cmdlet di correzione ed esempi, vedere la [Az.PolicyInsights](/powersh
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md)
-- Vedere la [struttura delle definizioni dei criteri](../concepts/definition-structure.md)
-- Vedere [Informazioni sugli effetti di Criteri](../concepts/effects.md)
-- Informazioni su come [creare criteri a livello di programmazione](programmatically-create.md)
-- Informazioni su come [ottenere dati sulla conformità](getting-compliance-data.md)
-- Scoprire le caratteristiche di un gruppo di gestione con [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md)
+- Esaminare gli esempi nella [esempi di criteri di Azure](../samples/index.md).
+- Vedere la [struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
+- Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
+- Comprendere come [a livello di codice, creare criteri](programmatically-create.md).
+- Informazioni su come [ottenere i dati di conformità](getting-compliance-data.md).
+- Esaminare un gruppo di gestione riguarda [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

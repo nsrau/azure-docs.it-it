@@ -1,7 +1,7 @@
 ---
 title: Creare, eseguire e monitorare pipeline di Machine Learning
 titleSuffix: Azure Machine Learning service
-description: Creare ed eseguire una pipeline di Machine Learning con l'SDK di Azure Machine Learning per Python. Le pipeline consentono di creare e gestire i flussi di lavoro in cui sono unite le varie fasi del processo di Machine Learning. Queste fasi includono la preparazione dei dati, il training del modello, la distribuzione del modello e l'inferenza.
+description: Creare ed eseguire una pipeline di Machine Learning con l'SDK di Azure Machine Learning per Python. Le pipeline consentono di creare e gestire i flussi di lavoro in cui sono unite le varie fasi del processo di Machine Learning. Queste fasi includono preparazione dei dati di training del modello, la distribuzione del modello e inferenza/di assegnazione dei punteggi.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914883"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165869"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Creare ed eseguire una pipeline di Machine Learning con l'SDK di Azure Machine Learning
 
@@ -251,6 +251,8 @@ trainStep = PythonScriptStep(
 )
 ```
 
+Riutilizzo dei risultati precedenti (`allow_reuse`) è chiave quando si usa le pipeline in un ambiente di collaborazione perché eliminando riesecuzioni non necessarie fornisce l'agilità. Si tratta del comportamento predefinito quando il script_name, input e i parametri di un passaggio rimangono invariati. Quando viene riutilizzato l'output del passaggio, non viene inviato il processo per le risorse di calcolo, invece, i risultati dall'esecuzione precedente sono immediatamente disponibili per l'esecuzione del passaggio successivo. Se impostato su false, una nuova esecuzione viene sempre generato per questo passaggio durante l'esecuzione della pipeline. 
+
 Dopo la definizione dei passaggi, si crea la pipeline usando alcuni o tutti i passaggi definiti.
 
 > [!NOTE]
@@ -315,6 +317,10 @@ Quando si esegue una pipeline per la prima volta, Azure Machine Learning:
 
 Per altre informazioni, vedere la [sperimentare classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) riferimento.
 
+## <a name="github-tracking-and-integration"></a>Integrazione e il rilevamento di GitHub
+
+Quando si avvia un'esecuzione in cui la directory di origine è un repository Git locale di training, informazioni sul repository vengono archiviate nella cronologia di esecuzione. Ad esempio, l'ID commit corrente per il repository viene registrato come parte della cronologia.
+
 ## <a name="publish-a-pipeline"></a>Pubblicare una pipeline
 
 È possibile pubblicare una pipeline in modo da eseguirla in un secondo momento con input diversi. Per consentire all'endpoint REST di una pipeline già pubblicata di accettare parametri, è necessario impostare parametri per la pipeline prima della pubblicazione. 
@@ -360,7 +366,7 @@ response = requests.post(published_pipeline1.endpoint,
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-## <a name="view-results"></a>Visualizzare i risultati
+## <a name="view-results"></a>Visualizza risultati
 
 Visualizzare l'elenco di tutte le pipeline e i relativi dettagli di esecuzione:
 1. Accedere al [portale di Azure](https://portal.azure.com/).  
@@ -373,11 +379,11 @@ Visualizzare l'elenco di tutte le pipeline e i relativi dettagli di esecuzione:
 ## <a name="caching--reuse"></a>La memorizzazione nella cache e riutilizzo  
 
 Per ottimizzare e personalizzare il comportamento delle pipeline di è possibile eseguire alcune operazioni per la memorizzazione nella cache e riutilizzare. Ad esempio, è possibile scegliere di:
-+ **Disattivare il riutilizzo predefinita del passaggio dell'output dell'esecuzione** impostando `allow_reuse=False` durante [passaggio definizione](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **Disattivare il riutilizzo predefinita del passaggio dell'output dell'esecuzione** impostando `allow_reuse=False` durante [passaggio definizione](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Riutilizzo è chiave quando si usa le pipeline in un ambiente di collaborazione perché esecuzioni non necessari eliminando fornisce l'agilità. Tuttavia, è possibile rifiutare esplicitamente questa.
 + **Estendere l'hashing di là dello script**, per includere anche un percorso assoluto o i percorsi relativi di directory_origine ad altri file e directory tramite il `hash_paths=['<file or directory']` 
 + **Imporre la rigenerazione di output per tutti i passaggi in un'esecuzione** con `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-Per impostazione predefinita, passaggio riutilizzare è abilitato e viene eseguito l'hashing solo il file di script principale. Pertanto, se lo script per un passaggio specifico rimane invariato (`script_name`, input e i parametri), l'output di un passaggio precedente eseguire viene riutilizzata, non viene inviato il processo per le risorse di calcolo e i risultati dall'esecuzione precedente sono immediatamente disponibili per il passaggio successivo invece .  
+Per impostazione predefinita, `allow-reuse` per questa procedura è abilitata e viene eseguito l'hashing solo il file di script principale. Pertanto, se lo script per un passaggio specifico rimane invariato (`script_name`, input e i parametri), l'output di un passaggio precedente eseguire viene riutilizzata, non viene inviato il processo per le risorse di calcolo e i risultati dall'esecuzione precedente sono immediatamente disponibili per il passaggio successivo invece .  
 
 ```python
 step = PythonScriptStep(name="Hello World", 

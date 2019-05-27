@@ -2,21 +2,20 @@
 title: Classi di risorse per la gestione del carico di lavoro - Azure SQL Data Warehouse | Microsoft Docs
 description: Materiale sussidiario per l'uso delle classi di risorse per gestire la concorrenza e le risorse di calcolo per le query in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-origin.date: 03/15/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 05/22/2019
+ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 75bd6e8071717ba755b71f51afcd884539049489
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475083"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165974"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestione del carico di lavoro con le classi di risorse in Azure SQL Data Warehouse
 
@@ -80,11 +79,12 @@ Le classi di risorse dinamiche vengono implementate con i ruoli predefiniti del 
 
 Se si approfondiscono i dettagli delle classi di risorse dinamiche della Prima generazione, alcuni dettagli aggiungono ulteriore complessità per la comprensione del comportamento specifico:
 
-- La classe di risorse smallrc funziona con un modello di memoria fissa, ad esempio una classe di risorse statica.  Le query smallrc non ottengono più memoria in modo dinamico quando aumenta il livello di servizio.
+**On Gen1**
+- La classe di risorse smallrc funziona con un modello di memoria fissa, ad esempio una classe di risorse statica.  Le query smallrc non ottengono più memoria in modo dinamico quando aumenta il livello di servizio. 
 - Quando cambiano i livelli di servizio, la concorrenza delle query disponibile può aumentare o diminuire.
-- Aumentando o diminuendo i livelli del servizio non cambia in modo proporzionale la memoria allocata alle stesse classi di risorse.
+- Scalabilità dei livelli di servizio non fornisce una modifica proporzionale alla memoria allocata per le classi di risorse stesso.
 
-**Solo con la Seconda generazione**, le classi di risorse dinamiche sono realmente dinamiche nel gestire i punti indicati in precedenza.  La nuova regola è 3-10-22-70 per le allocazioni in percentuale di memoria per le classi di risorse small-medium-large-xlarge, **indipendentemente dal livello di servizio**.  La tabella seguente contiene i dettagli consolidati delle percentuali di allocazione della memoria e il numero minimo di query simultanee eseguite, indipendentemente dal livello di servizio.
+**In Gen2**, classi di risorse dinamiche sono realmente dinamiche addressing quanto indicato in precedenza.  La nuova regola è 3-10-22-70 per le allocazioni in percentuale di memoria per le classi di risorse small-medium-large-xlarge, **indipendentemente dal livello di servizio**.  La tabella seguente contiene i dettagli consolidati delle percentuali di allocazione della memoria e il numero minimo di query simultanee eseguite, indipendentemente dal livello di servizio.
 
 | Classe di risorse | Percentuale di memoria | Numero minimo di query simultanee |
 |:--------------:|:-----------------:|:----------------------:|
@@ -942,7 +942,6 @@ Per altre informazioni sulla gestione degli utenti e della sicurezza del databas
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:../sql-database/sql-database-manage-logins.md
+[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
-<!-- Update_Description: update link, wording update-->

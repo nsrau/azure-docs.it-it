@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818483"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153606"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Eseguire il training di modelli con Azure Machine Learning usando l'oggetto Estimator
 
@@ -26,7 +26,7 @@ Per semplificare il training dei modelli di Deep Learning, Python SDK di Azure M
 
 ## <a name="train-with-an-estimator"></a>Eseguire il training con un Estimator
 
-Dopo aver creato l'[area di lavoro](concept-azure-machine-learning-architecture.md#workspace) e configurato l'[ambiente di sviluppo](how-to-configure-environment.md), il training di un modello in Azure Machine Learning prevede i passaggi seguenti:  
+Dopo aver creato l'[area di lavoro](concept-workspace.md) e configurato l'[ambiente di sviluppo](how-to-configure-environment.md), il training di un modello in Azure Machine Learning prevede i passaggi seguenti:  
 1. Creare una [destinazione di calcolo remota](how-to-set-up-training-targets.md) (è anche possibile usare il computer locale come destinazione di calcolo)
 2. Caricare i [dati di training](how-to-access-data.md) nell'archivio dati (facoltativo)
 3. Creare lo [script di training](tutorial-train-models-with-aml.md#create-a-training-script)
@@ -56,7 +56,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 Questo frammento di codice specifica i parametri seguenti per il costruttore di `Estimator`.
 
-Parametro | DESCRIZIONE
+Parametro | Descrizione
 --|--
 `source_directory`| Directory locale contenente tutto il codice necessario per il processo di training. Questa cartella viene copiata dal computer locale nelle risorse di calcolo remote 
 `script_params`| Dizionario che specifica gli argomenti della riga di comando allo script di training `entry_script`, sotto forma di < argomento della riga di comando, valore > coppie. Per specificare un flag dettagliato nella `script_params`, usare `<command-line argument, "">`.
@@ -107,7 +107,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 Il codice precedente espone i nuovi parametri seguenti al costruttore di `Estimator`:
 
-Parametro | DESCRIZIONE | Predefinito
+Parametro | Descrizione | Predefinito
 --|--|--
 `custom_docker_base_image`| Nome dell'immagine da usare. Specificare solo immagini disponibili in repository Docker pubblici (in questo caso Hub Docker). Per usare un'immagine da un repository Docker privato, usare invece il parametro `environment_definition` del costruttore. [Vedere l'esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Numero di nodi da usare per il processo di training. | `1`
@@ -119,6 +119,10 @@ Infine, inviare il processo di training:
 run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
+
+## <a name="github-tracking-and-integration"></a>Integrazione e il rilevamento di GitHub
+
+Quando si avvia un'esecuzione in cui la directory di origine è un repository Git locale di training, informazioni sul repository vengono archiviate nella cronologia di esecuzione. Ad esempio, l'ID commit corrente per il repository viene registrato come parte della cronologia.
 
 ## <a name="examples"></a>Esempi
 Per un notebook che illustra il modello Estimator di base, vedere:
