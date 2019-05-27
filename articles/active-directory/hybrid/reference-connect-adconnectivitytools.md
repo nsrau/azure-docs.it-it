@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40b4be9aca5243b80151afac0ae221f0d44509c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1084a3e546a234739fbede46612dce96537c7d4a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454643"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950649"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Informazioni di riferimento per PowerShell ADConnectivityTools
 
@@ -36,7 +36,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 ### <a name="description"></a>DESCRIZIONE
 
 Esegue test di connettività DNS locali.
-Per configurare Active Directory Connector, l'utente deve avere la risoluzione dei nomi sia per la foresta a cui tenta di connettersi che nei controller di dominio associati a questa foresta.
+Per configurare il connettore di Active Directory, utente deve avere entrambe la risoluzione dei nomi per la foresta che sta tentando di connettersi anche a come i controller di dominio associati a questa foresta.
 
 ### <a name="examples"></a>ESEMPI
 
@@ -309,7 +309,7 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Se l'utente non usa i servizi DNS forniti dal sito AD / controller di dominio di accesso, può essere preferibile evitare il controllo della porta 53.
+Se utenti non usa i servizi DNS forniti dal sito di Active Directory / controller di dominio di accesso e quindi si desideri ignorare controllo della porta 53.
 L'utente deve comunque essere in grado di risolvere _.ldap._tcp.\<forestfqdn\> affinché la configurazione di Active Directory Connector abbia esito positivo.
 
 ```yml

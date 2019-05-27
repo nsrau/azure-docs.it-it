@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 22e58f31e2f891eb09c3d42a01763c68cdcd11a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae9db483e15197e6cdaaaa5981410630184cc6ca
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60577598"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957233"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Raccogliere tracce distribuite da Python (anteprima)
 
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 Accedere al [portale di Azure](https://portal.azure.com/).
 
-## <a name="create-application-insights-resource"></a>Creare una risorsa di Application Insights
+## <a name="create-application-insights-resource"></a>Crea risorsa di Application Insights
 
 Prima di tutto, è necessario creare una risorsa di Application Insights, che genererà una chiave di strumentazione (iKey). La chiave di strumentazione viene quindi usata per configurare l'agente d'inoltro locale per inviare tracce distribuite dall'applicazione OpenCensus instrumentata ad Application Insights.   
 
@@ -78,10 +78,12 @@ Prima di tutto, è necessario creare una risorsa di Application Insights, che ge
 
 ## <a name="opencensus-python-package"></a>Aprire il pacchetto OpenCensus Python
 
-1. Installare il pacchetto OpenCensus per Python con pip o pipenv dalla riga di comando:
+1. Installare il pacchetto Census Open per Python e utilità di esportazione con pip o pipenv dalla riga di comando:
 
-    ```python
+    ```console
     python -m pip install opencensus
+    python -m pip install opencensus-ext-ocagent
+
     # pip env install opencensus
     ```
 
@@ -92,20 +94,20 @@ Prima di tutto, è necessario creare una risorsa di Application Insights, che ge
 
     ```python
     from opencensus.trace.tracer import Tracer
-    
+
     def main():
         while True:
             valuePrompt()
-    
+
     def valuePrompt():
         tracer = Tracer()
         with tracer.span(name="test") as span:
             line = input("Enter a value: ")
             print(line)
-    
+
     if __name__ == "__main__":
         main()
-    
+
     ```
 
 3. L'esecuzione del codice genera una richiesta ripetuta di immissione di un valore. Con ogni voce, il valore verrà stampato nella shell e un elemento corrispondente di **SpanData** verrà generato dal modulo OpenCensus Python. Il progetto OpenCensus definisce una [ _traccia sotto forma di albero di intervalli_](https://opencensus.io/core-concepts/tracing/).
@@ -127,32 +129,33 @@ Prima di tutto, è necessario creare una risorsa di Application Insights, che ge
     ```python
     from opencensus.trace.tracer import Tracer
     from opencensus.trace import config_integration
-    from opencensus.trace.exporters.ocagent import trace_exporter
+    from opencensus.ext.ocagent.trace_exporter import TraceExporter
     from opencensus.trace import tracer as tracer_module
-    
+
     import os
-    
-    def main():        
+
+    def main():
         while True:
             valuePrompt()
-    
+
     def valuePrompt():
-        export_LocalForwarder = trace_exporter.TraceExporter(
+        export_LocalForwarder = TraceExporter(
         service_name=os.getenv('SERVICE_NAME', 'python-service'),
         endpoint=os.getenv('OCAGENT_TRACE_EXPORTER_ENDPOINT'))
-        
+
         tracer = Tracer(exporter=export_LocalForwarder)
         with tracer.span(name="test") as span:
             line = input("Enter a value: ")
             print(line)
-    
+
     if __name__ == "__main__":
         main()
+
     ```
 
 5. Se si salva e si prova a eseguire il modulo precedente, è possibile che venga visualizzato un errore `ModuleNotFoundError` per `grpc`. In questo caso, eseguire il comando seguente per installare il [pacchetto grpcio](https://pypi.org/project/grpcio/) con:
 
-    ```
+    ```console
     python -m pip install grpcio
     ```
 

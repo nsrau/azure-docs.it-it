@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.openlocfilehash: 8d024e0bc90724892bc53f8895b270716ad0cefc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001087"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967754"
 ---
 # <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Ripristino di emergenza tra più aree per l'account di integrazione B2B: App per la logica di Azure | Microsoft Docs
 
@@ -62,7 +62,7 @@ La continuità aziendale nell'account di integrazione delle app per la logica of
 
 Durante un evento di emergenza, quando l'area primaria non è disponibile per la continuità aziendale, dirigere il traffico verso l'area secondaria. Un'area secondaria consente a un'azienda di ripristinare rapidamente le funzioni per soddisfare gli RPO/RTO concordati con i partner. Riduce al minimo gli sforzi per il failover da un'area a un'altra. 
 
-Esiste una latenza prevista durante la copia dei numeri di controllo dall'area primaria a quella secondaria. Per evitare l'invio ai partner di doppioni di numeri di controllo generati durante un evento di emergenza, è consigliabile incrementare i numeri di controllo negli accordi dell'area secondaria usando i [cmdlet di PowerShell](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).
+Esiste una latenza prevista durante la copia dei numeri di controllo dall'area primaria a quella secondaria. Per evitare l'invio ai partner di doppioni di numeri di controllo generati durante un evento di emergenza, è consigliabile incrementare i numeri di controllo negli accordi dell'area secondaria usando i [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
 ## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Eseguire il fallback all'area primaria dopo un evento di emergenza
 
@@ -70,7 +70,7 @@ Per eseguire il fallback a un'area primaria quando è disponibile, seguire quest
 
 1. Interrompere l'accettazione dei messaggi dai partner nell'area secondaria.  
 
-2. Incrementare i numeri di controllo generati per tutti i contratti dell'area primaria usando i [cmdlet di PowerShell](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).  
+2. Incrementare i numeri di controllo generati per tutti i contratti dell'area primaria usando i [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Indirizzare il traffico dall'area secondaria all'area primaria.
 

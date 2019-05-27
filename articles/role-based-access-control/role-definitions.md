@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121827"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950001"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Informazioni sulle definizioni del ruolo per le risorse di Azure
 
@@ -48,7 +48,7 @@ Le operazioni vengono specificate con stringhe che hanno il formato seguente:
 
 La parte `{action}` di una stringa relativa a un'operazione specifica il tipo di operazioni che è possibile eseguire su un tipo di risorsa. In `{action}` possono ad esempio essere elencate le sottostringhe seguenti:
 
-| Sottostringa azione    | DESCRIZIONE         |
+| Sottostringa azione    | Descrizione         |
 | ------------------- | ------------------- |
 | `*` | Il carattere jolly concede l'accesso a tutte le operazioni che corrispondono alla stringa. |
 | `read` | Abilita le operazioni di lettura (GET). |
@@ -147,9 +147,9 @@ Collaboratore ai dati dei BLOB di archiviazione
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Poiché Alice ha un'azione con carattere jolly (`*`) nell'ambito della sottoscrizione, eredita tutte le autorizzazioni della gerarchia e può quindi eseguire tutte le azioni di gestione, Alice può leggere, scrivere ed eliminare i contenitori. Tuttavia non può eseguire operazioni sui dati senza eseguire passaggi aggiuntivi. Ad esempio, per impostazione predefinita, non può leggere i BLOB all'interno di un contenitore. Per leggere i BLOB, Alice deve prima recuperare le chiavi di accesso alle risorse di archiviazione e usarle per accedere ai BLOB.
+Poiché Alice dispone di un carattere jolly (`*`) azione di un ambito della sottoscrizione, le relative autorizzazioni ereditano verso il basso per consentire loro di eseguire tutte le azioni di gestione. Alice può leggere, scrivere ed eliminare i contenitori. Tuttavia non può eseguire operazioni sui dati senza eseguire passaggi aggiuntivi. Ad esempio, per impostazione predefinita, non può leggere i BLOB all'interno di un contenitore. Per leggere i BLOB, Alice deve prima recuperare le chiavi di accesso alle risorse di archiviazione e usarle per accedere ai BLOB.
 
-Le autorizzazioni di Bob sono limitate al solo il `Actions` e `DataActions` specificato nella [collaboratore ai dati Blob di archiviazione](built-in-roles.md#storage-blob-data-contributor) ruolo. In base al ruolo, Bob può eseguire sia operazioni di gestione sia operazioni sui dati. Ad esempio, può scrivere sui contenitori, leggerli ed eliminarli nell'account di archiviazione specificato e anche scrivere sui BLOB, leggerli ed eliminarli.
+Le autorizzazioni di Bob sono limitate al solo il `Actions` e `DataActions` specificato nella [collaboratore ai dati Blob di archiviazione](built-in-roles.md#storage-blob-data-contributor) ruolo. In base al ruolo, Bob può eseguire sia operazioni di gestione sia operazioni sui dati. Ad esempio, Bob può leggere, scrivere ed eliminare i contenitori nell'account di archiviazione specificato e può anche leggere, scrivere ed eliminare i BLOB.
 
 Per altre informazioni sulla gestione e sulla sicurezza del piano dati per l'archiviazione, vedere [Guida alla sicurezza di Archiviazione di Azure](../storage/common/storage-security-guide.md).
 
@@ -157,7 +157,7 @@ Per altre informazioni sulla gestione e sulla sicurezza del piano dati per l'arc
 
 Per visualizzare ed eseguire le operazioni sui dati, è necessario disporre delle versioni corrette degli strumenti o degli SDK:
 
-| Strumento  | Version  |
+| Tool  | Version  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 o versione successiva |
 | [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) | 2.0.30 o successiva |
@@ -179,7 +179,7 @@ Il portale di Azure consente anche agli utenti di esplorare e gestire i contenut
 
 L'autorizzazione `Actions` specifica le operazioni di gestione che il ruolo consente di eseguire. Si tratta di una raccolta di stringhe di operazione che identificano operazioni a protezione diretta dei provider di risorse di Azure. Di seguito sono riportati alcuni esempi di operazioni di gestione che possono essere usate in `Actions`.
 
-| Stringa operazione    | DESCRIZIONE         |
+| Stringa operazione    | Descrizione         |
 | ------------------- | ------------------- |
 | `*/read` | Concede l'accesso a operazioni di lettura per tutti i tipi di risorse di tutti i provider di risorse di Azure.|
 | `Microsoft.Compute/*` | Concede l'accesso a tutte le operazioni per tutti i tipi di risorse nel provider di risorse Microsoft.Compute.|
@@ -199,7 +199,7 @@ L'autorizzazione `NotActions` specifica le operazioni di gestione che sono esclu
 
 L'autorizzazione `DataActions` specifica le operazioni sui dati che il ruolo consente di eseguire sui dati all'interno dell'oggetto. Ad esempio, se un utente dispone dell'accesso in lettura ai dati di BLOB per un account di archiviazione, può leggere i BLOB all'interno di tale account. Di seguito sono riportati alcuni esempi di operazioni sui dati che possono essere usate in `DataActions`.
 
-| Stringa operazione    | DESCRIZIONE         |
+| Stringa operazione    | Descrizione         |
 | ------------------- | ------------------- |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Restituisce un BLOB o un elenco di BLOB. |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Restituisce il risultato della scrittura su un BLOB. |

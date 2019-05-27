@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/13/2019
+ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: dae280f86abce47bfcc029f4d81e4ca3a7b696f4
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f3907cbc46bd226ef8e90d2061f2d36b2afabf8a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595425"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957148"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -70,7 +70,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |ShortParsingBusyThreads|Thread: thread occupati per analisi dei thread brevi|Conteggio|Media|Numero dei thread occupati nel pool dei thread per l'analisi dei thread brevi.|ServerResourceType|
 |ShortParsingIdleThreads|Thread: thread inattivi per analisi dei thread brevi|Conteggio|Media|Numero dei thread inattivi nel pool dei thread per l'analisi dei thread brevi.|ServerResourceType|
 |ShortParsingJobQueueLength|Thread: lunghezza coda processi di analisi dei thread brevi|Conteggio|Media|Numero dei processi nella coda del pool dei thread per l'analisi dei thread brevi.|ServerResourceType|
-|memory_thrashing_metric|Thrashing di memoria|Percentuale|Media|Thrashing di memoria medio.|ServerResourceType|
+|memory_thrashing_metric|Thrashing di memoria|Percent|Media|Thrashing di memoria medio.|ServerResourceType|
 |mashup_engine_qpu_metric|QPU Motore M|Conteggio|Media|Utilizzo QPU da parte dei processi motore mashup|ServerResourceType|
 |mashup_engine_memory_metric|Memoria Motore M|Byte|Media|Utilizzo della memoria da parte dei processi del motore mashup|ServerResourceType|
 
@@ -84,7 +84,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |FailedRequests|Richieste gateway non riuscite|Conteggio|Totale|Numero di errori nelle richieste gateway|Location, Hostname|
 |OtherRequests|Altre richieste del gateway|Conteggio|Totale|Numero di altre richieste del gateway|Location, Hostname|
 |Durata|Durata complessiva delle richieste del gateway|Millisecondi|Media|Durata complessiva delle richieste del gateway in millisecondi|Location, Hostname|
-|Capacity|Capacity|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Località|
+|Capacity|Capacity|Percent|Media|Metrica di utilizzo per il servizio ApiManagement|Località|
 |EventHubTotalEvents|Eventi di hub eventi totali|Conteggio|Totale|Numero di eventi inviati all'hub eventi|Località|
 |EventHubSuccessfulEvents|Eventi di hub eventi ha esito positivo|Conteggio|Totale|Numero di eventi di hub eventi riusciti|Località|
 |EventHubTotalFailedEvents|Eventi di hub eventi non riusciti|Conteggio|Totale|Numero di eventi di hub eventi non riusciti|Località|
@@ -154,12 +154,12 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |totalkeys|Totale chiavi|Conteggio|Massima||ShardId|
 |expiredkeys|Chiavi scadute|Conteggio|Totale||ShardId|
 |usedmemory|Memoria utilizzata|Byte|Massima||ShardId|
-|usedmemorypercentage|Percentuale memoria usata|Percentuale|Massima||ShardId|
+|usedmemorypercentage|Percentuale memoria usata|Percent|Massima||ShardId|
 |usedmemoryRss|Memoria utilizzata RSS|Byte|Massima||ShardId|
-|serverLoad|Carico server|Percentuale|Massima||ShardId|
+|serverLoad|Carico server|Percent|Massima||ShardId|
 |cacheWrite|Scrittura nella cache|Byte al secondo|Massima||ShardId|
 |cacheRead|Lettura della cache|Byte al secondo|Massima||ShardId|
-|percentProcessorTime|CPU|Percentuale|Massima||ShardId|
+|percentProcessorTime|CPU|Percent|Massima||ShardId|
 |cacheLatency|Microsecondi di latenza della cache (anteprima)|Conteggio|Media||ShardId, SampleType|
 |errori|Errors|Conteggio|Massima||ShardId, ErrorType|
 |connectedclients0|Client connessi (partizione 0)|Conteggio|Massima||Nessuna dimensione|
@@ -174,10 +174,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |expiredkeys0|Chiavi scadute (partizione 0)|Conteggio|Totale||Nessuna dimensione|
 |usedmemory0|Memoria usata (partizione 0)|Byte|Massima||Nessuna dimensione|
 |usedmemoryRss0|Memoria usata RSS (partizione 0)|Byte|Massima||Nessuna dimensione|
-|serverLoad0|Carico server (partizione 0)|Percentuale|Massima||Nessuna dimensione|
+|serverLoad0|Carico server (partizione 0)|Percent|Massima||Nessuna dimensione|
 |cacheWrite0|Scrittura nella cache (partizione 0)|Byte al secondo|Massima||Nessuna dimensione|
 |cacheRead0|Lettura da cache (partizione 0)|Byte al secondo|Massima||Nessuna dimensione|
-|percentProcessorTime0|CPU (partizione 0)|Percentuale|Massima||Nessuna dimensione|
+|percentProcessorTime0|CPU (partizione 0)|Percent|Massima||Nessuna dimensione|
 |connectedclients1|Client connessi (partizione 1)|Conteggio|Massima||Nessuna dimensione|
 |totalcommandsprocessed1|Totale operazioni (partizione 1)|Conteggio|Totale||Nessuna dimensione|
 |cachehits1|Riscontri cache (partizione 1)|Conteggio|Totale||Nessuna dimensione|
@@ -190,10 +190,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |expiredkeys1|Chiavi scadute (partizione 1)|Conteggio|Totale||Nessuna dimensione|
 |usedmemory1|Memoria usata (partizione 1)|Byte|Massima||Nessuna dimensione|
 |usedmemoryRss1|Memoria usata RSS (partizione 1)|Byte|Massima||Nessuna dimensione|
-|serverLoad1|Carico server (partizione 1)|Percentuale|Massima||Nessuna dimensione|
+|serverLoad1|Carico server (partizione 1)|Percent|Massima||Nessuna dimensione|
 |cacheWrite1|Scrittura nella cache (partizione 1)|Byte al secondo|Massima||Nessuna dimensione|
 |cacheRead1|Lettura da cache (partizione 1)|Byte al secondo|Massima||Nessuna dimensione|
-|percentProcessorTime1|CPU (partizione 1)|Percentuale|Massima||Nessuna dimensione|
+|percentProcessorTime1|CPU (partizione 1)|Percent|Massima||Nessuna dimensione|
 |connectedclients2|Client connessi (partizione 2)|Conteggio|Massima||Nessuna dimensione|
 |totalcommandsprocessed2|Totale operazioni (partizione 2)|Conteggio|Totale||Nessuna dimensione|
 |cachehits2|Riscontri cache (partizione 2)|Conteggio|Totale||Nessuna dimensione|
@@ -206,10 +206,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |expiredkeys2|Chiavi scadute (partizione 2)|Conteggio|Totale||Nessuna dimensione|
 |usedmemory2|Memoria usata (partizione 2)|Byte|Massima||Nessuna dimensione|
 |usedmemoryRss2|Memoria usata RSS (partizione 2)|Byte|Massima||Nessuna dimensione|
-|serverLoad2|Carico server (partizione 2)|Percentuale|Massima||Nessuna dimensione|
+|serverLoad2|Carico server (partizione 2)|Percent|Massima||Nessuna dimensione|
 |cacheWrite2|Scrittura nella cache (partizione 2)|Byte al secondo|Massima||Nessuna dimensione|
 |cacheRead2|Lettura da cache (partizione 2)|Byte al secondo|Massima||Nessuna dimensione|
-|percentProcessorTime2|CPU (partizione 2)|Percentuale|Massima||Nessuna dimensione|
+|percentProcessorTime2|CPU (partizione 2)|Percent|Massima||Nessuna dimensione|
 |connectedclients3|Client connessi (partizione 3)|Conteggio|Massima||Nessuna dimensione|
 |totalcommandsprocessed3|Totale operazioni (partizione 3)|Conteggio|Totale||Nessuna dimensione|
 |cachehits3|Riscontri cache (partizione 3)|Conteggio|Totale||Nessuna dimensione|
@@ -222,10 +222,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |expiredkeys3|Chiavi scadute (partizione 3)|Conteggio|Totale||Nessuna dimensione|
 |usedmemory3|Memoria usata (partizione 3)|Byte|Massima||Nessuna dimensione|
 |usedmemoryRss3|Memoria usata RSS (partizione 3)|Byte|Massima||Nessuna dimensione|
-|serverLoad3|Carico server (partizione 3)|Percentuale|Massima||Nessuna dimensione|
+|serverLoad3|Carico server (partizione 3)|Percent|Massima||Nessuna dimensione|
 |cacheWrite3|Scrittura nella cache (partizione 3)|Byte al secondo|Massima||Nessuna dimensione|
 |cacheRead3|Lettura da cache (partizione 3)|Byte al secondo|Massima||Nessuna dimensione|
-|percentProcessorTime3|CPU (partizione 3)|Percentuale|Massima||Nessuna dimensione|
+|percentProcessorTime3|CPU (partizione 3)|Percent|Massima||Nessuna dimensione|
 |connectedclients4|Client connessi (partizione 4)|Conteggio|Massima||Nessuna dimensione|
 |totalcommandsprocessed4|Totale operazioni (partizione 4)|Conteggio|Totale||Nessuna dimensione|
 |cachehits4|Riscontri cache (partizione 4)|Conteggio|Totale||Nessuna dimensione|
@@ -238,10 +238,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |expiredkeys4|Chiavi scadute (partizione 4)|Conteggio|Totale||Nessuna dimensione|
 |usedmemory4|Memoria usata (partizione 4)|Byte|Massima||Nessuna dimensione|
 |usedmemoryRss4|Memoria usata RSS (partizione 4)|Byte|Massima||Nessuna dimensione|
-|serverLoad4|Carico server (partizione 4)|Percentuale|Massima||Nessuna dimensione|
+|serverLoad4|Carico server (partizione 4)|Percent|Massima||Nessuna dimensione|
 |cacheWrite4|Scrittura nella cache (partizione 4)|Byte al secondo|Massima||Nessuna dimensione|
 |cacheRead4|Lettura da cache (partizione 4)|Byte al secondo|Massima||Nessuna dimensione|
-|percentProcessorTime4|CPU (partizione 4)|Percentuale|Massima||Nessuna dimensione|
+|percentProcessorTime4|CPU (partizione 4)|Percent|Massima||Nessuna dimensione|
 |connectedclients5|Client connessi (partizione 5)|Conteggio|Massima||Nessuna dimensione|
 |totalcommandsprocessed5|Totale operazioni (partizione 5)|Conteggio|Totale||Nessuna dimensione|
 |cachehits5|Riscontri cache (partizione 5)|Conteggio|Totale||Nessuna dimensione|
@@ -254,10 +254,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |expiredkeys5|Chiavi scadute (partizione 5)|Conteggio|Totale||Nessuna dimensione|
 |usedmemory5|Memoria usata (partizione 5)|Byte|Massima||Nessuna dimensione|
 |usedmemoryRss5|Memoria usata RSS (partizione 5)|Byte|Massima||Nessuna dimensione|
-|serverLoad5|Carico server (partizione 5)|Percentuale|Massima||Nessuna dimensione|
+|serverLoad5|Carico server (partizione 5)|Percent|Massima||Nessuna dimensione|
 |cacheWrite5|Scrittura nella cache (partizione 5)|Byte al secondo|Massima||Nessuna dimensione|
 |cacheRead5|Lettura da cache (partizione 5)|Byte al secondo|Massima||Nessuna dimensione|
-|percentProcessorTime5|CPU (partizione 5)|Percentuale|Massima||Nessuna dimensione|
+|percentProcessorTime5|CPU (partizione 5)|Percent|Massima||Nessuna dimensione|
 |connectedclients6|Client connessi (partizione 6)|Conteggio|Massima||Nessuna dimensione|
 |totalcommandsprocessed6|Totale operazioni (partizione 6)|Conteggio|Totale||Nessuna dimensione|
 |cachehits6|Riscontri cache (partizione 6)|Conteggio|Totale||Nessuna dimensione|
@@ -270,10 +270,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |expiredkeys6|Chiavi scadute (partizione 6)|Conteggio|Totale||Nessuna dimensione|
 |usedmemory6|Memoria usata (partizione 6)|Byte|Massima||Nessuna dimensione|
 |usedmemoryRss6|Memoria usata RSS (partizione 6)|Byte|Massima||Nessuna dimensione|
-|serverLoad6|Carico server (partizione 6)|Percentuale|Massima||Nessuna dimensione|
+|serverLoad6|Carico server (partizione 6)|Percent|Massima||Nessuna dimensione|
 |cacheWrite6|Scrittura nella cache (partizione 6)|Byte al secondo|Massima||Nessuna dimensione|
 |cacheRead6|Lettura da cache (partizione 6)|Byte al secondo|Massima||Nessuna dimensione|
-|percentProcessorTime6|CPU (partizione 6)|Percentuale|Massima||Nessuna dimensione|
+|percentProcessorTime6|CPU (partizione 6)|Percent|Massima||Nessuna dimensione|
 |connectedclients7|Client connessi (partizione 7)|Conteggio|Massima||Nessuna dimensione|
 |totalcommandsprocessed7|Totale operazioni (partizione 7)|Conteggio|Totale||Nessuna dimensione|
 |cachehits7|Riscontri cache (partizione 7)|Conteggio|Totale||Nessuna dimensione|
@@ -286,10 +286,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |expiredkeys7|Chiavi scadute (partizione 7)|Conteggio|Totale||Nessuna dimensione|
 |usedmemory7|Memoria usata (partizione 7)|Byte|Massima||Nessuna dimensione|
 |usedmemoryRss7|Memoria usata RSS (partizione 7)|Byte|Massima||Nessuna dimensione|
-|serverLoad7|Carico server (partizione 7)|Percentuale|Massima||Nessuna dimensione|
+|serverLoad7|Carico server (partizione 7)|Percent|Massima||Nessuna dimensione|
 |cacheWrite7|Scrittura nella cache (partizione 7)|Byte al secondo|Massima||Nessuna dimensione|
 |cacheRead7|Lettura da cache (partizione 7)|Byte al secondo|Massima||Nessuna dimensione|
-|percentProcessorTime7|CPU (partizione 7)|Percentuale|Massima||Nessuna dimensione|
+|percentProcessorTime7|CPU (partizione 7)|Percent|Massima||Nessuna dimensione|
 |connectedclients8|Client connessi (partizione 8)|Conteggio|Massima||Nessuna dimensione|
 |totalcommandsprocessed8|Totale operazioni (partizione 8)|Conteggio|Totale||Nessuna dimensione|
 |cachehits8|Riscontri cache (partizione 8)|Conteggio|Totale||Nessuna dimensione|
@@ -302,10 +302,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |expiredkeys8|Chiavi scadute (partizione 8)|Conteggio|Totale||Nessuna dimensione|
 |usedmemory8|Memoria usata (partizione 8)|Byte|Massima||Nessuna dimensione|
 |usedmemoryRss8|Memoria usata RSS (partizione 8)|Byte|Massima||Nessuna dimensione|
-|serverLoad8|Carico server (partizione 8)|Percentuale|Massima||Nessuna dimensione|
+|serverLoad8|Carico server (partizione 8)|Percent|Massima||Nessuna dimensione|
 |cacheWrite8|Scrittura nella cache (partizione 8)|Byte al secondo|Massima||Nessuna dimensione|
 |cacheRead8|Lettura da cache (partizione 8)|Byte al secondo|Massima||Nessuna dimensione|
-|percentProcessorTime8|CPU (partizione 8)|Percentuale|Massima||Nessuna dimensione|
+|percentProcessorTime8|CPU (partizione 8)|Percent|Massima||Nessuna dimensione|
 |connectedclients9|Client connessi (partizione 9)|Conteggio|Massima||Nessuna dimensione|
 |totalcommandsprocessed9|Totale operazioni (partizione 9)|Conteggio|Totale||Nessuna dimensione|
 |cachehits9|Riscontri cache (partizione 9)|Conteggio|Totale||Nessuna dimensione|
@@ -318,10 +318,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |expiredkeys9|Chiavi scadute (partizione 9)|Conteggio|Totale||Nessuna dimensione|
 |usedmemory9|Memoria usata (partizione 9)|Byte|Massima||Nessuna dimensione|
 |usedmemoryRss9|Memoria usata RSS (partizione 9)|Byte|Massima||Nessuna dimensione|
-|serverLoad9|Carico server (partizione 9)|Percentuale|Massima||Nessuna dimensione|
+|serverLoad9|Carico server (partizione 9)|Percent|Massima||Nessuna dimensione|
 |cacheWrite9|Scrittura nella cache (partizione 9)|Byte al secondo|Massima||Nessuna dimensione|
 |cacheRead9|Lettura da cache (partizione 9)|Byte al secondo|Massima||Nessuna dimensione|
-|percentProcessorTime9|CPU (partizione 9)|Percentuale|Massima||Nessuna dimensione|
+|percentProcessorTime9|CPU (partizione 9)|Percent|Massima||Nessuna dimensione|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
@@ -403,10 +403,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Flussi in uscita|Flussi in uscita (anteprima)|Conteggio|Media|Flussi in uscita è il numero di flussi correnti nella direzione in uscita (traffico in uscita dalla macchina virtuale)|Nessuna dimensione|
 |Numero massimo richieste di creazione flussi in ingresso|Numero massimo richieste di creazione flussi in ingresso (anteprima)|CountPerSecond|Media|Numero massimo di richieste di creazione per i flussi in ingresso (traffico verso la macchina virtuale)|Nessuna dimensione|
 |Numero massimo richieste di creazione flussi in uscita|Numero massimo richieste di creazione flussi in uscita (anteprima)|CountPerSecond|Media|Numero massimo di richieste di creazione per i flussi in uscita (traffico dalla macchina virtuale)|Nessuna dimensione|
-|Riscontri letture cache per un disco dati Premium|Riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco dati Premium|LUN|
-|Mancati riscontri letture cache per un disco dati Premium|Mancati riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco dati Premium|LUN|
-|Riscontri letture cache per un disco del sistema operativo Premium|Riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco del sistema operativo Premium|Nessuna dimensione|
-|Mancati riscontri letture cache per un disco del sistema operativo Premium|Mancati riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco del sistema operativo Premium|Nessuna dimensione|
+|Riscontri letture cache per un disco dati Premium|Riscontri letture cache per un disco dati Premium (anteprima)|Percent|Media|Riscontri letture cache per un disco dati Premium|LUN|
+|Mancati riscontri letture cache per un disco dati Premium|Mancati riscontri letture cache per un disco dati Premium (anteprima)|Percent|Media|Mancati riscontri letture cache per un disco dati Premium|LUN|
+|Riscontri letture cache per un disco del sistema operativo Premium|Riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percent|Media|Riscontri letture cache per un disco del sistema operativo Premium|Nessuna dimensione|
+|Mancati riscontri letture cache per un disco del sistema operativo Premium|Mancati riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percent|Media|Mancati riscontri letture cache per un disco del sistema operativo Premium|Nessuna dimensione|
 |Rete in ingresso (totale)|Rete in ingresso (totale)|Byte|Totale|Numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|Nessuna dimensione|
 |Rete in uscita (totale)|Rete in uscita (totale)|Byte|Totale|Numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|Nessuna dimensione|
 
@@ -447,10 +447,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Flussi in uscita|Flussi in uscita (anteprima)|Conteggio|Media|Flussi in uscita è il numero di flussi correnti nella direzione in uscita (traffico in uscita dalla macchina virtuale)|VMName|
 |Numero massimo richieste di creazione flussi in ingresso|Numero massimo richieste di creazione flussi in ingresso (anteprima)|CountPerSecond|Media|Numero massimo di richieste di creazione per i flussi in ingresso (traffico verso la macchina virtuale)|VMName|
 |Numero massimo richieste di creazione flussi in uscita|Numero massimo richieste di creazione flussi in uscita (anteprima)|CountPerSecond|Media|Numero massimo di richieste di creazione per i flussi in uscita (traffico dalla macchina virtuale)|VMName|
-|Riscontri letture cache per un disco dati Premium|Riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco dati Premium|LUN, VMName|
-|Mancati riscontri letture cache per un disco dati Premium|Mancati riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco dati Premium|LUN, VMName|
-|Riscontri letture cache per un disco del sistema operativo Premium|Riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco del sistema operativo Premium|VMName|
-|Mancati riscontri letture cache per un disco del sistema operativo Premium|Mancati riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco del sistema operativo Premium|VMName|
+|Riscontri letture cache per un disco dati Premium|Riscontri letture cache per un disco dati Premium (anteprima)|Percent|Media|Riscontri letture cache per un disco dati Premium|LUN, VMName|
+|Mancati riscontri letture cache per un disco dati Premium|Mancati riscontri letture cache per un disco dati Premium (anteprima)|Percent|Media|Mancati riscontri letture cache per un disco dati Premium|LUN, VMName|
+|Riscontri letture cache per un disco del sistema operativo Premium|Riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percent|Media|Riscontri letture cache per un disco del sistema operativo Premium|VMName|
+|Mancati riscontri letture cache per un disco del sistema operativo Premium|Mancati riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percent|Media|Mancati riscontri letture cache per un disco del sistema operativo Premium|VMName|
 |Rete in ingresso (totale)|Rete in ingresso (totale)|Byte|Totale|Numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|VMName|
 |Rete in uscita (totale)|Rete in uscita (totale)|Byte|Totale|Numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|VMName|
 
@@ -532,8 +532,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |CloudUploadThroughput|Velocità effettiva caricamento cloud|Byte al secondo|Media|Velocità effettiva di caricamento cloud in Azure durante il periodo di riferimento.|Nessuna dimensione|
 |CloudReadThroughput|Velocità effettiva download cloud|Byte al secondo|Media|Velocità effettiva di download cloud in Azure durante il periodo di riferimento.|Nessuna dimensione|
 |BytesUploadedToCloud|Cloud byte caricati (dispositivo)|Byte|Media|Numero totale di byte caricati in Azure da un dispositivo durante il periodo di riferimento.|Nessuna dimensione|
-|HyperVVirtualProcessorUtilization|Calcolo Edge - Percentuale CPU|Percentuale|Media|Percentuale di utilizzo CPU|InstanceName|
-|HyperVMemoryUtilization|Calcolo Edge - Utilizzo memoria|Percentuale|Media|Quantità di RAM in uso|InstanceName|
+|HyperVVirtualProcessorUtilization|Calcolo Edge - Percentuale CPU|Percent|Media|Percentuale di utilizzo CPU|InstanceName|
+|HyperVMemoryUtilization|Calcolo Edge - Utilizzo memoria|Percent|Media|Quantità di RAM in uso|InstanceName|
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
@@ -552,7 +552,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |ActivitySucceededRuns|Succeeded activity runs metrics (Metrica esecuzioni attività riuscite)|Conteggio|Totale||ActivityType, PipelineName, FailureType, Name|
 |TriggerFailedRuns|Failed trigger runs metrics (Metrica esecuzioni trigger non riuscite)|Conteggio|Totale||Name, FailureType|
 |TriggerSucceededRuns|Succeeded trigger runs metrics (Metrica esecuzioni trigger riuscite)|Conteggio|Totale||Name, FailureType|
-|IntegrationRuntimeCpuPercentage|Uso della CPU di Integration runtime|Percentuale|Media||IntegrationRuntimeName, NodeName|
+|IntegrationRuntimeCpuPercentage|Uso della CPU di Integration runtime|Percent|Media||IntegrationRuntimeName, NodeName|
 |IntegrationRuntimeAvailableMemory|Memoria disponibile di Integration Runtime|Byte|Media||IntegrationRuntimeName, NodeName|
 |MaxAllowedResourceCount|Numero massimo consentito entità|Conteggio|Massima||Nessuna dimensione|
 |MaxAllowedFactorySizeInGbUnits|Numero massimo di dimensioni factory (GB per unità)|Conteggio|Massima||Nessuna dimensione|
@@ -584,13 +584,13 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|cpu_percent|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
-|memory_percent|Percentuale memoria|Percentuale|Media|Percentuale memoria|Nessuna dimensione|
-|io_consumption_percent|IO percent (Percentuale IO)|Percentuale|Media|IO percent (Percentuale IO)|Nessuna dimensione|
-|storage_percent|Percentuale di archiviazione|Percentuale|Media|Percentuale di archiviazione|Nessuna dimensione|
+|cpu_percent|Percentuale CPU|Percent|Media|Percentuale CPU|Nessuna dimensione|
+|memory_percent|Percentuale memoria|Percent|Media|Percentuale memoria|Nessuna dimensione|
+|io_consumption_percent|IO percent (Percentuale IO)|Percent|Media|IO percent (Percentuale IO)|Nessuna dimensione|
+|storage_percent|Percentuale di archiviazione|Percent|Media|Percentuale di archiviazione|Nessuna dimensione|
 |storage_used|Spazio di archiviazione utilizzato|Byte|Media|Spazio di archiviazione utilizzato|Nessuna dimensione|
 |storage_limit|Limite archiviazione|Byte|Media|Limite archiviazione|Nessuna dimensione|
-|serverlog_storage_percent|Percentuale di archiviazione dei log del server|Percentuale|Media|Percentuale di archiviazione dei log del server|Nessuna dimensione|
+|serverlog_storage_percent|Percentuale di archiviazione dei log del server|Percent|Media|Percentuale di archiviazione dei log del server|Nessuna dimensione|
 |serverlog_storage_usage|Archiviazione dei log del server usata|Byte|Media|Archiviazione dei log del server usata|Nessuna dimensione|
 |serverlog_storage_limit|Limite di archiviazione dei log del server|Byte|Media|Limite di archiviazione dei log del server|Nessuna dimensione|
 |active_connections|Connessioni attive|Conteggio|Media|Connessioni attive|Nessuna dimensione|
@@ -604,13 +604,13 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|cpu_percent|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
-|memory_percent|Percentuale memoria|Percentuale|Media|Percentuale memoria|Nessuna dimensione|
-|io_consumption_percent|IO percent (Percentuale IO)|Percentuale|Media|IO percent (Percentuale IO)|Nessuna dimensione|
-|storage_percent|Percentuale di archiviazione|Percentuale|Media|Percentuale di archiviazione|Nessuna dimensione|
+|cpu_percent|Percentuale CPU|Percent|Media|Percentuale CPU|Nessuna dimensione|
+|memory_percent|Percentuale memoria|Percent|Media|Percentuale memoria|Nessuna dimensione|
+|io_consumption_percent|IO percent (Percentuale IO)|Percent|Media|IO percent (Percentuale IO)|Nessuna dimensione|
+|storage_percent|Percentuale di archiviazione|Percent|Media|Percentuale di archiviazione|Nessuna dimensione|
 |storage_used|Spazio di archiviazione utilizzato|Byte|Media|Spazio di archiviazione utilizzato|Nessuna dimensione|
 |storage_limit|Limite archiviazione|Byte|Media|Limite archiviazione|Nessuna dimensione|
-|serverlog_storage_percent|Percentuale di archiviazione dei log del server|Percentuale|Media|Percentuale di archiviazione dei log del server|Nessuna dimensione|
+|serverlog_storage_percent|Percentuale di archiviazione dei log del server|Percent|Media|Percentuale di archiviazione dei log del server|Nessuna dimensione|
 |serverlog_storage_usage|Archiviazione dei log del server usata|Byte|Media|Archiviazione dei log del server usata|Nessuna dimensione|
 |serverlog_storage_limit|Limite di archiviazione dei log del server|Byte|Media|Limite di archiviazione dei log del server|Nessuna dimensione|
 |active_connections|Connessioni attive|Conteggio|Media|Connessioni attive|Nessuna dimensione|
@@ -624,13 +624,13 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|cpu_percent|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
-|memory_percent|Percentuale memoria|Percentuale|Media|Percentuale memoria|Nessuna dimensione|
-|io_consumption_percent|IO percent (Percentuale IO)|Percentuale|Media|IO percent (Percentuale IO)|Nessuna dimensione|
-|storage_percent|Percentuale di archiviazione|Percentuale|Media|Percentuale di archiviazione|Nessuna dimensione|
+|cpu_percent|Percentuale CPU|Percent|Media|Percentuale CPU|Nessuna dimensione|
+|memory_percent|Percentuale memoria|Percent|Media|Percentuale memoria|Nessuna dimensione|
+|io_consumption_percent|IO percent (Percentuale IO)|Percent|Media|IO percent (Percentuale IO)|Nessuna dimensione|
+|storage_percent|Percentuale di archiviazione|Percent|Media|Percentuale di archiviazione|Nessuna dimensione|
 |storage_used|Spazio di archiviazione utilizzato|Byte|Media|Spazio di archiviazione utilizzato|Nessuna dimensione|
 |storage_limit|Limite archiviazione|Byte|Media|Limite archiviazione|Nessuna dimensione|
-|serverlog_storage_percent|Percentuale di archiviazione dei log del server|Percentuale|Media|Percentuale di archiviazione dei log del server|Nessuna dimensione|
+|serverlog_storage_percent|Percentuale di archiviazione dei log del server|Percent|Media|Percentuale di archiviazione dei log del server|Nessuna dimensione|
 |serverlog_storage_usage|Archiviazione dei log del server usata|Byte|Media|Archiviazione dei log del server usata|Nessuna dimensione|
 |serverlog_storage_limit|Limite di archiviazione dei log del server|Byte|Media|Limite di archiviazione dei log del server|Nessuna dimensione|
 |active_connections|Connessioni attive|Conteggio|Media|Connessioni attive|Nessuna dimensione|
@@ -645,10 +645,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|cpu_percent|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
-|memory_percent|Percentuale memoria|Percentuale|Media|Percentuale memoria|Nessuna dimensione|
+|cpu_percent|Percentuale CPU|Percent|Media|Percentuale CPU|Nessuna dimensione|
+|memory_percent|Percentuale memoria|Percent|Media|Percentuale memoria|Nessuna dimensione|
 |numero di IOPS|Input/output al secondo|Conteggio|Media|Operazioni dei / o al secondo|Nessuna dimensione|
-|storage_percent|Percentuale di archiviazione|Percentuale|Media|Percentuale di archiviazione|Nessuna dimensione|
+|storage_percent|Percentuale di archiviazione|Percent|Media|Percentuale di archiviazione|Nessuna dimensione|
 |storage_used|Spazio di archiviazione utilizzato|Byte|Media|Spazio di archiviazione utilizzato|Nessuna dimensione|
 |active_connections|Connessioni attive|Conteggio|Media|Connessioni attive|Nessuna dimensione|
 |network_bytes_egress|Rete in uscita|Byte|Totale|Output di rete tra connessioni attive|Nessuna dimensione|
@@ -747,7 +747,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |MongoRequests|Richieste Mongo|Conteggio|Conteggio|Numero di richieste Mongo eseguite|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
 |ProvisionedThroughput|Velocità effettiva sottoposta a provisioning|Conteggio|Massima|Velocità effettiva sottoposta a provisioning|DatabaseName, CollectionName|
 |ReplicationLatency|Livello P99 Latenza di replica|Millisecondi|Media|Latenza di replica P99 tra aree di origine e di destinazione per l'account abilitato per la replica geografica|SourceRegion, TargetRegion|
-|ServiceAvailability|Disponibilità del servizio|Percentuale|Media|Disponibilità dell'account di richieste con una granularità di un'ora, giorno o mese|Nessuna dimensione|
+|ServiceAvailability|Disponibilità del servizio|Percent|Media|Disponibilità dell'account di richieste con una granularità di un'ora, giorno o mese|Nessuna dimensione|
 |TotalRequestUnits|Total Request Units (Unità richiesta totali)|Conteggio|Totale|Unità richiesta utilizzate|DatabaseName, CollectionName, area, StatusCode, OperationType|
 |TotalRequests|Richieste totali|Conteggio|Conteggio|Numero di richieste eseguite|DatabaseName, CollectionName, area, StatusCode, OperationType|
 
@@ -839,7 +839,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |CaptureBacklog|Backlog acquisiti. (Anteprima)|Conteggio|Totale|Backlog acquisiti per Microsoft.EventHub. (Anteprima)|Nessuna dimensione|
 |CapturedMessages|Messaggi acquisiti. (Anteprima)|Conteggio|Totale|Messaggi acquisiti per Microsoft.EventHub. (Anteprima)|Nessuna dimensione|
 |CapturedBytes|Byte acquisiti. (Anteprima)|Byte|Totale|Byte acquisiti per Microsoft.EventHub. (Anteprima)|Nessuna dimensione|
-|CPU|CPU (anteprima)|Percentuale|Massima|Utilizzo CPU per il cluster dell'hub eventi in percentuale|Ruolo|
+|CPU|CPU (anteprima)|Percent|Massima|Utilizzo CPU per il cluster dell'hub eventi in percentuale|Ruolo|
 |AvailableMemory|Memoria disponibile (anteprima)|Conteggio|Massima|Memoria disponibile per il cluster dell'hub eventi in byte|Ruolo|
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
@@ -848,12 +848,6 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |---|---|---|---|---|---|
 |GatewayRequests|Richieste del gateway|Conteggio|Totale|Numero di richieste del gateway|ClusterDnsName, HttpStatus|
 |CategorizedGatewayRequests|Richieste del gateway per categoria|Conteggio|Totale|Numero di richieste del gateway per categoria (1xx/2xx/3xx/4xx/5xx)|ClusterDnsName, HttpStatus|
-|Autoscale|Metrica di scalabilità automatica|Conteggio|Massima|Metrica di scalabilità automatica|ClusterDnsName, MetricName|
-|AllocatedMB|MB allocati|Conteggio|Massima|MB allocati|ClusterDnsName, MetricName|
-|AvailableMB|MB disponibili|Conteggio|Massima|MB disponibili|ClusterDnsName, MetricName|
-|AppsPending|App in sospeso|Conteggio|Massima|App in sospeso|ClusterDnsName, MetricName|
-|AppsRunning|App in esecuzione|Conteggio|Massima|App in esecuzione|ClusterDnsName, MetricName|
-|AppsSubmitted|App inviate|Conteggio|Massima|App inviate|ClusterDnsName, MetricName|
 |NumActiveWorkers|Numero di thread di lavoro attivi|Conteggio|Massima|Numero di thread di lavoro attivi|ClusterDnsName, MetricName|
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
@@ -889,8 +883,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |performanceCounters/requestsPerSecond|Frequenza delle richieste HTTP|CountPerSecond|Media|Percentuale di tutte le richieste effettuate all'applicazione da ASP.NET in un secondo.|cloud/roleInstance|
 |performanceCounters/exceptionsPerSecond|Percentuale di eccezioni|CountPerSecond|Media|Conteggio delle eccezioni gestite e non gestite restituite in Windows, incluse le eccezioni .NET e non gestite che vengono convertite in eccezioni .NET.|cloud/roleInstance|
 |performanceCounters/processIOBytesPerSecond|Velocità di I/O processi|Byte al secondo|Media|Numero totale di byte al secondo letti e scritti in file, rete e dispositivi.|cloud/roleInstance|
-|performanceCounters/processCpuPercentage|CPU processi|Percentuale|Media|Percentuale di tempo trascorso per l'uso del processore da parte di tutti i thread di processo per eseguire le istruzioni. Il valore può variare tra 0 e 100. Questa metrica indica le prestazioni del solo processo w3wp.|cloud/roleInstance|
-|performanceCounters/processorCpuPercentage|Tempo processore|Percentuale|Media|Percentuale di tempo trascorsa dal processore in thread non inattivi.|cloud/roleInstance|
+|performanceCounters/processCpuPercentage|CPU processi|Percent|Media|Percentuale di tempo trascorso per l'uso del processore da parte di tutti i thread di processo per eseguire le istruzioni. Il valore può variare tra 0 e 100. Questa metrica indica le prestazioni del solo processo w3wp.|cloud/roleInstance|
+|performanceCounters/processorCpuPercentage|Tempo processore|Percent|Media|Percentuale di tempo trascorsa dal processore in thread non inattivi.|cloud/roleInstance|
 |performanceCounters/memoryAvailableBytes|Memoria disponibile|Byte|Media|Memoria fisica immediatamente disponibile per l'allocazione a un processo o utilizzabile dal sistema.|cloud/roleInstance|
 |performanceCounters/processPrivateBytes|Byte privati processi|Byte|Media|Memoria assegnata in modo esclusivo ai processi dell'applicazione monitorata.|cloud/roleInstance|
 |requests/duration|Tempo di risposta del server|Millisecondi|Media|Tempo compreso tra la ricezione di una richiesta HTTP e il completamento dell'invio della risposta.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
@@ -914,15 +908,15 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|ClusterDataCapacityFactor|Uso della cache|Percentuale|Media|Livello di uso nell'ambito del cluster|Nessuna dimensione|
+|ClusterDataCapacityFactor|Uso della cache|Percent|Media|Livello di uso nell'ambito del cluster|Nessuna dimensione|
 |QueryDuration|Durata delle query|Millisecondi|Media|Durata delle query in secondi|QueryStatus|
-|IngestionsLoadFactor|Uso dell'inserimento|Percentuale|Media|Percentuale di slot di inserimento usati nel cluster|Nessuna dimensione|
+|IngestionsLoadFactor|Uso dell'inserimento|Percent|Media|Percentuale di slot di inserimento usati nel cluster|Nessuna dimensione|
 |IsEngineAnsweringQuery|Keep-alive|Conteggio|Media|Test di integrità che indica che il cluster risponde alle query|Nessuna dimensione|
 |IngestCommandOriginalSizeInMb|Volume di inserimento (in MB)|Conteggio|Totale|Volume complessivo dei dati inseriti nel cluster (in MB)|Nessuna dimensione|
 |IngestedEventAgeSeconds|Latenza di inserimento (in secondi)|Secondi|Media|Tempo di inserimento dall'origine (ad esempio messaggio in EventHub) nel cluster in secondi|Nessuna dimensione|
 |EventRecievedFromEventHub|Eventi elaborati (per gli hub eventi)|Conteggio|Totale|Numero di eventi elaborati dal cluster durante l'inserimento dall'hub eventi|Nessuna dimensione|
 |IngestionResult|Risultato inserimento|Conteggio|Conteggio|Numero di operazioni di inserimento|IngestionResultDetails|
-|EngineCPU|CPU|Percentuale|Media|Livello di uso della CPU|Nessuna dimensione|
+|EngineCPU|CPU|Percent|Media|Livello di uso della CPU|Nessuna dimensione|
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
@@ -942,7 +936,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |RunLatency|Latenza esecuzioni|Secondi|Media|Latenza delle esecuzioni del flusso di lavoro completate.|Nessuna dimensione|
 |RunSuccessLatency|Latenza esecuzioni riuscite|Secondi|Media|Latenza delle esecuzioni del flusso di lavoro riuscite.|Nessuna dimensione|
 |RunThrottledEvents|Eventi limitati esecuzione|Conteggio|Totale|Numero di eventi di azione o trigger del flusso di lavoro limitati.|Nessuna dimensione|
-|RunFailurePercentage|Percentuale di errori di esecuzione|Percentuale|Totale|Percentuale di esecuzioni del flusso di lavoro non riuscite.|Nessuna dimensione|
+|RunFailurePercentage|Percentuale di errori di esecuzione|Percent|Totale|Percentuale di esecuzioni del flusso di lavoro non riuscite.|Nessuna dimensione|
 |ActionsStarted|Azioni avviate |Conteggio|Totale|Numero di azioni del flusso di lavoro avviate.|Nessuna dimensione|
 |ActionsCompleted|Azioni completate |Conteggio|Totale|Numero di azioni del flusso di lavoro completate.|Nessuna dimensione|
 |ActionsSucceeded|Azioni riuscite |Conteggio|Totale|Numero di azioni del flusso di lavoro riuscite.|Nessuna dimensione|
@@ -984,7 +978,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |RunSuccessLatency|Latenza esecuzioni riuscite|Secondi|Media|Latenza delle esecuzioni del flusso di lavoro riuscite.|Nessuna dimensione|
 |RunThrottledEvents|Eventi limitati esecuzione|Conteggio|Totale|Numero di eventi di azione o trigger del flusso di lavoro limitati.|Nessuna dimensione|
 |RunStartThrottledEvents|Eventi di avvio esecuzione limitati|Conteggio|Totale|Numero di eventi di avvio esecuzione del flusso di lavoro limitati.|Nessuna dimensione|
-|RunFailurePercentage|Percentuale di errori di esecuzione|Percentuale|Totale|Percentuale di esecuzioni del flusso di lavoro non riuscite.|Nessuna dimensione|
+|RunFailurePercentage|Percentuale di errori di esecuzione|Percent|Totale|Percentuale di esecuzioni del flusso di lavoro non riuscite.|Nessuna dimensione|
 |ActionsStarted|Azioni avviate |Conteggio|Totale|Numero di azioni del flusso di lavoro avviate.|Nessuna dimensione|
 |ActionsCompleted|Azioni completate |Conteggio|Totale|Numero di azioni del flusso di lavoro completate.|Nessuna dimensione|
 |ActionsSucceeded|Azioni riuscite |Conteggio|Totale|Numero di azioni del flusso di lavoro riuscite.|Nessuna dimensione|
@@ -1003,10 +997,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |TriggerFireLatency|Latenza trigger rimossi |Secondi|Media|Latenza dei trigger del flusso di lavoro attivati.|Nessuna dimensione|
 |TriggerSuccessLatency|Latenza trigger riusciti |Secondi|Media|Latenza dei trigger del flusso di lavoro riusciti.|Nessuna dimensione|
 |TriggerThrottledEvents|Eventi limitati trigger|Conteggio|Totale|Numero di eventi di trigger del flusso di lavoro limitati.|Nessuna dimensione|
-|IntegrationServiceEnvironmentWorkflowProcessorUsage|Utilizzo del processore del flusso di lavoro per l'ambiente del servizio di integrazione|Percentuale|Media|Utilizzo del processore del flusso di lavoro per l'ambiente del servizio di integrazione.|Nessuna dimensione|
-|IntegrationServiceEnvironmentWorkflowMemoryUsage|Utilizzo della memoria del flusso di lavoro per l'ambiente del servizio di integrazione|Percentuale|Media|Utilizzo della memoria del flusso di lavoro per l'ambiente del servizio di integrazione.|Nessuna dimensione|
-|IntegrationServiceEnvironmentConnectorProcessorUsage|Utilizzo del processore del connettore per l'ambiente del servizio di integrazione|Percentuale|Media|Utilizzo del processore del connettore per l'ambiente del servizio di integrazione.|Nessuna dimensione|
-|IntegrationServiceEnvironmentConnectorMemoryUsage|Utilizzo della memoria del connettore per l'ambiente del servizio di integrazione|Percentuale|Media|Utilizzo della memoria del connettore per l'ambiente del servizio di integrazione.|Nessuna dimensione|
+|IntegrationServiceEnvironmentWorkflowProcessorUsage|Utilizzo del processore del flusso di lavoro per l'ambiente del servizio di integrazione|Percent|Media|Utilizzo del processore del flusso di lavoro per l'ambiente del servizio di integrazione.|Nessuna dimensione|
+|IntegrationServiceEnvironmentWorkflowMemoryUsage|Utilizzo della memoria del flusso di lavoro per l'ambiente del servizio di integrazione|Percent|Media|Utilizzo della memoria del flusso di lavoro per l'ambiente del servizio di integrazione.|Nessuna dimensione|
+|IntegrationServiceEnvironmentConnectorProcessorUsage|Utilizzo del processore del connettore per l'ambiente del servizio di integrazione|Percent|Media|Utilizzo del processore del connettore per l'ambiente del servizio di integrazione.|Nessuna dimensione|
+|IntegrationServiceEnvironmentConnectorMemoryUsage|Utilizzo della memoria del connettore per l'ambiente del servizio di integrazione|Percent|Media|Utilizzo della memoria del connettore per l'ambiente del servizio di integrazione.|Nessuna dimensione|
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
@@ -1088,7 +1082,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |---|---|---|---|---|---|
 |QueryVolume|Volume della query|Conteggio|Totale|Numero di query per zona DNS|Nessuna dimensione|
 |RecordSetCount|Numero di set di record|Conteggio|Massima|Numero di set di record in una zona DNS|Nessuna dimensione|
-|RecordSetCapacityUtilization|Uso della capacità di set di record|Percentuale|Massima|Percentuale della capacità di set di record usata da una zona DNS|Nessuna dimensione|
+|RecordSetCapacityUtilization|Uso della capacità di set di record|Percent|Massima|Percentuale della capacità di set di record usata da una zona DNS|Nessuna dimensione|
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
@@ -1188,7 +1182,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|ProbesFailedPercent|% di probe non riusciti|Percentuale|Media|% di probe di monitoraggio connettività non riusciti|Nessuna dimensione|
+|ProbesFailedPercent|% di probe non riusciti|Percent|Media|% di probe di monitoraggio connettività non riusciti|Nessuna dimensione|
 |AverageRoundtripMs|Avg. Tempo di round trip (ms)|Millisecondi|Media|Tempo medio di round trip della rete (in ms) per i probe di monitoraggio della connettività inviati tra origine e destinazione|Nessuna dimensione|
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
@@ -1201,7 +1195,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |BackendRequestCount|Conteggio delle richieste del back-end|Conteggio|Totale|Numero di richieste inviate dal proxy HTTP/S ai back-end|HttpStatus, HttpStatusGroup, Backend|
 |BackendRequestLatency|Latenza della richiesta del back-end|Millisecondi|Media|Tempo calcolato da quando la richiesta è stata inviata dal proxy HTTP/S al back-end fino alla ricezione nel proxy HTTP/S dell'ultimo byte di risposta dal back-end|Back-end|
 |TotalLatency|Latenza totale|Millisecondi|Media|Tempo calcolato da quando la richiesta client è stata ricevuta dal proxy HTTP/S fino a quando il client ha confermato l'ultimo byte di risposta dal proxy HTTP/S|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
-|BackendHealthPercentage|Percentuale di integrità del back-end|Percentuale|Media|Percentuale di probe di integrità riusciti dal proxy HTTP/S ai back-end|Backend, BackendPool|
+|BackendHealthPercentage|Percentuale di integrità del back-end|Percent|Media|Percentuale di probe di integrità riusciti dal proxy HTTP/S ai back-end|Backend, BackendPool|
 |WebApplicationFirewallRequestCount|Conteggio delle richieste web application firewall|Conteggio|Totale|Numero di richieste client elaborate da Web Application Firewall|PolicyName, RuleName, Action|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
@@ -1355,7 +1349,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |QueryPoolJobQueueLength|Thread: lunghezza coda processi nel pool di query|Conteggio|Media|Numero dei processi nella coda del pool dei thread di query.|Nessuna dimensione|
 |qpu_high_utilization_metric|QPU High Utilization (Utilizzo elevato QPU)|Conteggio|Totale|Utilizzo elevato di QPU nell'ultimo minuto, 1 per utilizzo elevato, altrimenti 0|Nessuna dimensione|
 |memory_metric|Memoria|Byte|Media|Memoria. Intervallo di 0-3 GB per A1, 0-5 GB per A2, 0-10 GB per A3, 0-25 GB per A4, 0-50 GB per A5 e 0-100 GB per A6|Nessuna dimensione|
-|memory_thrashing_metric|Thrashing di memoria|Percentuale|Media|Thrashing di memoria medio.|Nessuna dimensione|
+|memory_thrashing_metric|Thrashing di memoria|Percent|Media|Thrashing di memoria medio.|Nessuna dimensione|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
@@ -1381,7 +1375,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |---|---|---|---|---|---|
 |SearchLatency|Latenza ricerca|Secondi|Media|La latenza di ricerca media per il servizio di ricerca|Nessuna dimensione|
 |SearchQueriesPerSecond|Query di ricerca al secondo|CountPerSecond|Media|Le query di ricerca al secondo per il servizio di ricerca|Nessuna dimensione|
-|ThrottledSearchQueriesPercentage|Percentuale query di ricerca limitate|Percentuale|Media|La percentuale di query di ricerca che sono state limitate per il servizio di ricerca|Nessuna dimensione|
+|ThrottledSearchQueriesPercentage|Percentuale query di ricerca limitate|Percent|Media|La percentuale di query di ricerca che sono state limitate per il servizio di ricerca|Nessuna dimensione|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
@@ -1400,8 +1394,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Messaggi attivi|Numero di messaggi attivi in una coda/argomento. (Anteprima)|Conteggio|Media|Numero di messaggi attivi in una coda/argomento. (Anteprima)|EntityName|
 |DeadletteredMessages|Numero di messaggi non recapitabili in una coda/argomento. (anteprima)|Conteggio|Media|Numero di messaggi non recapitabili in una coda/argomento. (anteprima)|EntityName|
 |ScheduledMessages|Numero di messaggi pianificati in una coda/argomento. (anteprima)|Conteggio|Media|Numero di messaggi pianificati in una coda/argomento. (anteprima)|EntityName|
-|CPUXNS|Uso della CPU per spazio dei nomi|Percentuale|Massima|Metrica per l'utilizzo della CPU dello spazio dei nomi Premium del bus di servizio|Nessuna dimensione|
-|WSXNS|Uso delle dimensioni della memoria per spazio dei nomi|Percentuale|Massima|Metrica per l'utilizzo della memoria dello spazio dei nomi Premium del bus di servizio|Nessuna dimensione|
+|CPUXNS|Uso della CPU per spazio dei nomi|Percent|Massima|Metrica per l'utilizzo della CPU dello spazio dei nomi Premium del bus di servizio|Nessuna dimensione|
+|WSXNS|Uso delle dimensioni della memoria per spazio dei nomi|Percent|Massima|Metrica per l'utilizzo della memoria dello spazio dei nomi Premium del bus di servizio|Nessuna dimensione|
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
 
@@ -1411,8 +1405,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |AllocatedMemory|AllocatedMemory|Byte|Media|Memoria allocata a questo contenitore in MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ActualCpu|ActualCpu|Conteggio|Media|Utilizzo della CPU effettivo in millicore|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ActualMemory|ActualMemory|Byte|Media|Utilizzo effettivo della memoria in MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|CpuUtilization|CpuUtilization|Percentuale|Media|Utilizzo della CPU per questo contenitore come percentuale della AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|MemoryUtilization|MemoryUtilization|Percentuale|Media|Utilizzo della CPU per questo contenitore come percentuale della AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|CpuUtilization|CpuUtilization|Percent|Media|Utilizzo della CPU per questo contenitore come percentuale della AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|MemoryUtilization|MemoryUtilization|Percent|Media|Utilizzo della CPU per questo contenitore come percentuale della AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ApplicationStatus|ApplicationStatus|Conteggio|Media|Stato dell'applicazione di Service Fabric Mesh|ApplicationName, stato|
 |ServiceStatus|ServiceStatus|Conteggio|Media|Stato di integrità di un servizio nell'applicazione di Service Fabric Mesh|ApplicationName, Status, ServiceName|
 |ServiceReplicaStatus|ServiceReplicaStatus|Conteggio|Media|Stato di integrità di una replica del servizio nell'applicazione di Service Fabric Mesh|ApplicationName, Status, ServiceName, ServiceReplicaName|
@@ -1427,70 +1421,70 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |MessageCount|Numero messaggi|Conteggio|Totale|Quantità totale di messaggi.|Nessuna dimensione|
 |InboundTraffic|Traffico in ingresso|Byte|Totale|Traffico in ingresso del servizio|Nessuna dimensione|
 |OutboundTraffic|Traffico in uscita|Byte|Totale|Traffico in uscita del servizio|Nessuna dimensione|
-|UserErrors|Errori utente|Percentuale|Massima|Percentuale di errori utente|Nessuna dimensione|
-|SystemErrors|Errori di sistema|Percentuale|Massima|Percentuale di errori di sistema|Nessuna dimensione|
+|UserErrors|Errori utente|Percent|Massima|Percentuale di errori utente|Nessuna dimensione|
+|SystemErrors|Errori di sistema|Percent|Massima|Percentuale di errori di sistema|Nessuna dimensione|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|cpu_percent|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
-|physical_data_read_percent|Percentuale di I/O di dati|Percentuale|Media|Percentuale di I/O di dati|Nessuna dimensione|
-|log_write_percent|Percentuale I/O registro|Percentuale|Media|Percentuale I/O log|Nessuna dimensione|
-|dtu_consumption_percent|Percentuale DTU|Percentuale|Media|Percentuale DTU|Nessuna dimensione|
+|cpu_percent|Percentuale CPU|Percent|Media|Percentuale CPU|Nessuna dimensione|
+|physical_data_read_percent|Percentuale di I/O di dati|Percent|Media|Percentuale di I/O di dati|Nessuna dimensione|
+|log_write_percent|Percentuale I/O registro|Percent|Media|Percentuale I/O log|Nessuna dimensione|
+|dtu_consumption_percent|Percentuale DTU|Percent|Media|Percentuale DTU|Nessuna dimensione|
 |archiviazione|Spazio dati usato|Byte|Massima|Dimensioni totali database|Nessuna dimensione|
 |connection_successful|Connessioni riuscite|Conteggio|Totale|Connessioni riuscite|Nessuna dimensione|
 |connection_failed|Connessioni non riuscite|Conteggio|Totale|Connessioni non riuscite|Nessuna dimensione|
 |blocked_by_firewall|Blocco da parte del firewall|Conteggio|Totale|Blocco da parte del firewall|Nessuna dimensione|
 |deadlock|Deadlock|Conteggio|Totale|Deadlock|Nessuna dimensione|
-|storage_percent|Percentuale di spazio usato i dati|Percentuale|Massima|Percentuale di dimensioni del database|Nessuna dimensione|
-|xtp_storage_percent|Percentuale di archiviazione OLTP in memoria|Percentuale|Media|Percentuale di archiviazione OLTP in memoria|Nessuna dimensione|
-|workers_percent|Percentuale ruoli di lavoro|Percentuale|Media|Percentuale ruoli di lavoro|Nessuna dimensione|
-|sessions_percent|Percentuale sessioni|Percentuale|Media|Percentuale sessioni|Nessuna dimensione|
+|storage_percent|Percentuale di spazio usato i dati|Percent|Massima|Percentuale di dimensioni del database|Nessuna dimensione|
+|xtp_storage_percent|Percentuale di archiviazione OLTP in memoria|Percent|Media|Percentuale di archiviazione OLTP in memoria|Nessuna dimensione|
+|workers_percent|Percentuale ruoli di lavoro|Percent|Media|Percentuale ruoli di lavoro|Nessuna dimensione|
+|sessions_percent|Percentuale sessioni|Percent|Media|Percentuale sessioni|Nessuna dimensione|
 |dtu_limit|Limite DTU|Conteggio|Media|Limite DTU|Nessuna dimensione|
 |dtu_used|Uso DTU|Conteggio|Media|Uso DTU|Nessuna dimensione|
 |cpu_limit|Limite CPU|Conteggio|Media|Limite CPU|Nessuna dimensione|
 |cpu_used|CPU usata|Conteggio|Media|CPU usata|Nessuna dimensione|
 |dwu_limit|Limite DWU|Conteggio|Massima|Limite DWU|Nessuna dimensione|
-|dwu_consumption_percent|Percentuale DWU|Percentuale|Massima|Percentuale DWU|Nessuna dimensione|
+|dwu_consumption_percent|Percentuale DWU|Percent|Massima|Percentuale DWU|Nessuna dimensione|
 |dwu_used|Uso DWU|Conteggio|Massima|Uso DWU|Nessuna dimensione|
-|dw_cpu_percent|Percentuale CPU a livello di nodo DW|Percentuale|Media|Percentuale CPU a livello di nodo DW|DwLogicalNodeId|
-|dw_physical_data_read_percent|Percentuale I/O dati a livello di nodo DW|Percentuale|Media|Percentuale I/O dati a livello di nodo DW|DwLogicalNodeId|
-    |cache_hit_percent|Percentuale dei riscontri nella cache|Percentuale|Massima|Percentuale dei riscontri nella cache|Nessuna dimensione|
-|cache_used_percent|Percentuale della cache utilizzata|Percentuale|Massima|Percentuale della cache utilizzata|Nessuna dimensione|
-|local_tempdb_usage_percent|Percentuale di tempdb locale|Percentuale|Media|Percentuale di tempdb locale|Nessuna dimensione|
+|dw_cpu_percent|Percentuale CPU a livello di nodo DW|Percent|Media|Percentuale CPU a livello di nodo DW|DwLogicalNodeId|
+|dw_physical_data_read_percent|Percentuale I/O dati a livello di nodo DW|Percent|Media|Percentuale I/O dati a livello di nodo DW|DwLogicalNodeId|
+    |cache_hit_percent|Percentuale dei riscontri nella cache|Percent|Massima|Percentuale dei riscontri nella cache|Nessuna dimensione|
+|cache_used_percent|Percentuale della cache utilizzata|Percent|Massima|Percentuale della cache utilizzata|Nessuna dimensione|
+|local_tempdb_usage_percent|Percentuale di tempdb locale|Percent|Media|Percentuale di tempdb locale|Nessuna dimensione|
 |app_cpu_billed|CPU dell'app fatturata|Conteggio|Totale|CPU dell'app fatturata|Nessuna dimensione|
-|app_cpu_percent|Percentuale CPU di App|Percentuale|Media|Percentuale CPU di App|Nessuna dimensione|
-|app_memory_percent|Percentuale memoria utilizzata di App|Percentuale|Media|Percentuale memoria utilizzata di App|Nessuna dimensione|
+|app_cpu_percent|Percentuale CPU di App|Percent|Media|Percentuale CPU di App|Nessuna dimensione|
+|app_memory_percent|Percentuale memoria utilizzata di App|Percent|Media|Percentuale memoria utilizzata di App|Nessuna dimensione|
 |allocated_data_storage|Spazio dati allocato|Byte|Media|Spazio dati allocato|Nessuna dimensione|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|cpu_percent|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
-|physical_data_read_percent|Percentuale di I/O di dati|Percentuale|Media|Percentuale di I/O di dati|Nessuna dimensione|
-|log_write_percent|Percentuale I/O registro|Percentuale|Media|Percentuale I/O log|Nessuna dimensione|
-|dtu_consumption_percent|Percentuale DTU|Percentuale|Media|Percentuale DTU|Nessuna dimensione|
-|storage_percent|Percentuale di spazio usato i dati||Percentuale|Media|Percentuale archiviazione|Nessuna dimensione|
-|workers_percent|Percentuale ruoli di lavoro|Percentuale|Media|Percentuale ruoli di lavoro|Nessuna dimensione|
-|sessions_percent|Percentuale sessioni|Percentuale|Media|Percentuale sessioni|Nessuna dimensione|
+|cpu_percent|Percentuale CPU|Percent|Media|Percentuale CPU|Nessuna dimensione|
+|physical_data_read_percent|Percentuale di I/O di dati|Percent|Media|Percentuale di I/O di dati|Nessuna dimensione|
+|log_write_percent|Percentuale I/O registro|Percent|Media|Percentuale I/O log|Nessuna dimensione|
+|dtu_consumption_percent|Percentuale DTU|Percent|Media|Percentuale DTU|Nessuna dimensione|
+|storage_percent|Percentuale di spazio usato i dati||Percent|Media|Percentuale archiviazione|Nessuna dimensione|
+|workers_percent|Percentuale ruoli di lavoro|Percent|Media|Percentuale ruoli di lavoro|Nessuna dimensione|
+|sessions_percent|Percentuale sessioni|Percent|Media|Percentuale sessioni|Nessuna dimensione|
 |eDTU_limit|Limite eDTU|Conteggio|Media|Limite eDTU|Nessuna dimensione|
 |storage_limit|Dimensioni massime dati|Byte|Media|Limite archiviazione|Nessuna dimensione|
 |eDTU_used|Uso eDTU|Conteggio|Media|Uso eDTU|Nessuna dimensione|
 |storage_used|Spazio dati usato|Byte|Media|Spazio di archiviazione utilizzato|Nessuna dimensione|
-|xtp_storage_percent|Percentuale di archiviazione OLTP in memoria|Percentuale|Media|Percentuale di archiviazione OLTP in memoria|Nessuna dimensione|
+|xtp_storage_percent|Percentuale di archiviazione OLTP in memoria|Percent|Media|Percentuale di archiviazione OLTP in memoria|Nessuna dimensione|
 |cpu_limit|Limite CPU|Conteggio|Media|Limite CPU|Nessuna dimensione|
 |cpu_used|CPU usata|Conteggio|Media|CPU usata|Nessuna dimensione|
 |allocated_data_storage|Spazio dati allocato|Byte|Media|Spazio dati allocato|Nessuna dimensione|
-|allocated_data_storage_percent|Percentuale di spazio allocato dati|Percentuale|Massima|Percentuale di spazio allocato dati|Nessuna dimensione|
+|allocated_data_storage_percent|Percentuale di spazio allocato dati|Percent|Massima|Percentuale di spazio allocato dati|Nessuna dimensione|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
 |virtual_core_count|Numero di core virtuali|Conteggio|Media|Numero di core virtuali|Nessuna dimensione|
-|avg_cpu_percent|Percentuale CPU Media|Percentuale|Media|Percentuale CPU Media|Nessuna dimensione|
+|avg_cpu_percent|Percentuale CPU Media|Percent|Media|Percentuale CPU Media|Nessuna dimensione|
 |reserved_storage_mb|Spazio di archiviazione riservato|Conteggio|Media|Spazio di archiviazione riservato|Nessuna dimensione|
 |storage_space_used_mb|Spazio di archiviazione usato|Conteggio|Media|Spazio di archiviazione usato|Nessuna dimensione|
 |io_requests|Numero di richieste I/O|Conteggio|Media|Numero di richieste I/O|Nessuna dimensione|
@@ -1581,7 +1575,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|ResourceUtilization|% utilizzo unità di streaming|Percentuale|Massima|% utilizzo unità di streaming|LogicalName, PartitionId|
+|ResourceUtilization|% utilizzo unità di streaming|Percent|Massima|% utilizzo unità di streaming|LogicalName, PartitionId|
 |InputEvents|Eventi di input|Conteggio|Totale|Eventi di input|LogicalName, PartitionId|
 |InputEventBytes|Byte evento di input|Byte|Totale|Byte evento di input|LogicalName, PartitionId|
 |LateInputEvents|Ultimi eventi di input|Conteggio|Totale|Ultimi eventi di input|LogicalName, PartitionId|
@@ -1654,8 +1648,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|CpuPercentage|Percentuale CPU|Percentuale|Media|Percentuale CPU|Istanza|
-|MemoryPercentage|Percentuale memoria|Percentuale|Media|Percentuale memoria|Istanza|
+|CpuPercentage|Percentuale CPU|Percent|Media|Percentuale CPU|Istanza|
+|MemoryPercentage|Percentuale memoria|Percent|Media|Percentuale memoria|Istanza|
 |DiskQueueLength|Lunghezza coda disco|Conteggio|Media|Lunghezza coda disco|Istanza|
 |HttpQueueLength|Lunghezza coda http|Conteggio|Media|Lunghezza coda http|Istanza|
 |BytesReceived|Dati in entrata|Byte|Totale|Dati in entrata|Istanza|
@@ -1782,8 +1776,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Http4xx|Http 4xx|Conteggio|Totale|Http 4xx|Istanza|
 |Http5xx|Errori server HTTP|Conteggio|Totale|Errori server HTTP|Istanza|
 |AverageResponseTime|Tempo medio di risposta|Secondi|Media|Tempo medi di risposta|Istanza|
-|CpuPercentage|Percentuale CPU|Percentuale|Media|Percentuale CPU|Istanza|
-|MemoryPercentage|Percentuale memoria|Percentuale|Media|Percentuale memoria|Istanza|
+|CpuPercentage|Percentuale CPU|Percent|Media|Percentuale CPU|Istanza|
+|MemoryPercentage|Percentuale memoria|Percent|Media|Percentuale memoria|Istanza|
 |DiskQueueLength|Lunghezza coda disco|Conteggio|Media|Lunghezza coda disco|Istanza|
 |HttpQueueLength|Lunghezza coda http|Conteggio|Media|Lunghezza coda http|Istanza|
 |ActiveRequests|Richieste attive|Conteggio|Totale|Richieste attive|Istanza|
@@ -1799,8 +1793,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |WorkersTotal|Ruoli di lavoro totali|Conteggio|Media|Ruoli di lavoro totali|Nessuna dimensione|
 |WorkersAvailable|Ruoli di lavoro disponibili|Conteggio|Media|Ruoli di lavoro disponibili|Nessuna dimensione|
 |WorkersUsed|Ruoli di lavoro usati|Conteggio|Media|Ruoli di lavoro usati|Nessuna dimensione|
-|CpuPercentage|Percentuale CPU|Percentuale|Media|Percentuale CPU|Istanza|
-|MemoryPercentage|Percentuale memoria|Percentuale|Media|Percentuale memoria|Istanza|
+|CpuPercentage|Percentuale CPU|Percent|Media|Percentuale CPU|Istanza|
+|MemoryPercentage|Percentuale memoria|Percent|Media|Percentuale memoria|Istanza|
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Metriche in Monitoraggio di Azure](data-platform.md)

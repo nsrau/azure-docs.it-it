@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2f3d08a32384cea815f096f51b24eea596d0d118
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8923c94409dcf079179ed0464046e39ef7654c4c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871166"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949820"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Come indicizzare set di dati di grandi dimensioni in Ricerca di Azure
 
@@ -67,7 +67,7 @@ Per requisiti di indicizzazione non comuni e con elevati livelli di calcolo, ad 
 L'elaborazione parallela prevede le operazioni seguenti:
 
 + Suddividere i dati di origine in più contenitori o in più cartelle virtuali all'interno dello stesso contenitore. 
-+ Eseguire il mapping di ogni mini set di dati alla propria [origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source), abbinata al relativo [indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
++ Eseguire il mapping di ogni set di dati di formattazione rapida per il proprio [zdroj dat](https://docs.microsoft.com/rest/api/searchservice/create-data-source), associata al proprio [indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 + Per la ricerca cognitiva, fare riferimento allo stesso [set di competenze](https://docs.microsoft.com/rest/api/searchservice/create-skillset) in ogni definizione dell'indicizzatore.
 + Scrivere nello stesso indice di ricerca di destinazione. 
 + Pianificare l'esecuzione di tutti gli indicizzatori nello stesso momento.

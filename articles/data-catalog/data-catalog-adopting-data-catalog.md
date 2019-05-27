@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.openlocfilehash: 62eb51e48ab688abcf39ba3c8d57aaccf6f47cb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3943332179a6d283a8ed3ca66ea559d5cea53a10
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61002409"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953186"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approccio e processo per l'adozione di Azure Data Catalog
 
@@ -54,7 +54,7 @@ Ecco alcuni suggerimenti per definire la visione:
 
 Ecco un esempio di dichiarazione della visione per un piano di adozione di Catalogo dati per la società fittizia Adventure Works:
 
-**Azure Data Catalog** permette al team Finanza di Adventure Works di collaborare alle origini dati chiave, in modo che ogni membro del team possa trovare con facilità e usare i dati necessari e condividere le proprie conoscenze con il team nel suo complesso.
+**Azure Data Catalog** permette al team Finanza di Adventure Works di collaborare alle origini dati chiave, in modo che ogni membro del team possa trovare con facilità e usare i dati necessari e possono condividere le proprie conoscenze con il team nel suo complesso.
 
 Una volta ottenuta una precisa dichiarazione della visione, è consigliabile identificare un progetto pilota per Catalogo dati. Poiché gli scenari per Data Catalog sono in genere più di uno, la prossima sezione offre alcuni suggerimenti per identificare i casi d'uso pertinenti.
 

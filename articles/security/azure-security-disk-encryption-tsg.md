@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4715ec92c4ee45733cc0eb2839c533f9ee8968fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 35d494702673d59290a0073c55135138f533b8bf
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694122"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956704"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Crittografia dischi di Azure
 
@@ -64,7 +64,7 @@ In alcuni casi, la crittografia del disco Linux sembra bloccata nella fase "OS d
 
 La sequenza di crittografia del disco del sistema operativo Linux smonta temporaneamente l'unità del sistema operativo, per poi eseguire la crittografia blocco per blocco dell'intero disco del sistema operativo e riportarlo allo stato crittografato. A differenza di Crittografia dischi di Azure in Windows, la crittografia dei dischi Linux non consente l'uso simultaneo della macchina virtuale mentre è in corso la crittografia. Le caratteristiche delle prestazioni della macchina virtuale possono determinare una differenza significativa nel tempo necessario per completare la crittografia. Tali caratteristiche includono le dimensioni del disco e l'archiviazione standard o premium (SSD) dell'account di archiviazione.
 
-Per controllare lo stato della crittografia, eseguire il polling il **ProgressMessage** restituita dal campo le [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) comando. Mentre viene eseguita la crittografia dell'unità del sistema operativo, la macchina virtuale passa in stato di manutenzione e SSH viene disabilitato per impedire interruzioni del processo in corso. Mentre la crittografia è in corso, di norma viene visualizzato il messaggio **EncryptionInProgress**. Diverse ore più tardi, il messaggio **VMRestartPending** chiederà di riavviare la macchina virtuale. Ad esempio: 
+Per controllare lo stato della crittografia, eseguire il polling il **ProgressMessage** restituita dal campo le [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) comando. Mentre viene eseguita la crittografia dell'unità del sistema operativo, la macchina virtuale passa in stato di manutenzione e SSH viene disabilitato per impedire interruzioni del processo in corso. Mentre la crittografia è in corso, di norma viene visualizzato il messaggio **EncryptionInProgress**. Diverse ore più tardi, il messaggio **VMRestartPending** chiederà di riavviare la macchina virtuale. Ad esempio:
 
 
 ```azurepowershell
@@ -130,7 +130,7 @@ Per risolvere il problema, copiare i quattro file seguenti da una macchina virtu
 
 1. Usare DiskPart per verificare i volumi, quindi procedere.  
 
-Ad esempio: 
+Ad esempio:
 
 ```
 DISKPART> list vol
@@ -150,7 +150,9 @@ If the expected encryption state does not match what is being reported in the po
 
 Il portale potrebbe visualizzare un disco come crittografato anche dopo che è stato crittografato all'interno della macchina virtuale.  Ciò può verificarsi quando i comandi di basso livello vengono utilizzati per decrittografare direttamente il disco dalla macchina virtuale, invece di usare i comandi di gestione crittografia dischi di Azure a livello superiore.  I comandi di livello superiore non solo decrittografare il disco dalla macchina virtuale, ma di fuori della macchina virtuale sono anche aggiornare impostazioni di crittografia a livello piattaforma importanti e le impostazioni di estensione associate alla macchina virtuale.  Se questi non vengono conservati nell'allineamento, la piattaforma non sarà in grado di segnalare lo stato della crittografia o effettuare il provisioning della macchina virtuale in modo corretto.   
 
-Per disabilitare correttamente la crittografia dischi di Azure, iniziare da uno stato noto soddisfacente con crittografia abilitata e quindi usare il [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) e [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) Powershell i comandi, o la [disabilitare la crittografia delle vm az](/cli/azure/vm/encryption) riga di comando. 
+Per disabilitare la crittografia dischi di Azure con PowerShell, usare [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) aggiungendo [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Esecuzione di Remove-AzVMDiskEncryptionExtension prima la crittografia è disabilitata avrà esito negativo.
+
+Per disabilitare la crittografia dischi di Azure con CLI, utilizzare [disabilitare la crittografia delle vm az](/cli/azure/vm/encryption). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

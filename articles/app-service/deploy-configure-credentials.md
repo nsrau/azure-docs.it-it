@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 03/10/2019
 ms.author: cephalin;byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: df874ab77c88f05b048b1f9d10873943b7bebf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b054e56afdec65ac000b0dc18a0c1a3fd845b4c3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765491"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955990"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
 Il [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) supporta due tipi di credenziali per la [distribuzione di GIT locale](deploy-local-git.md) e la [distribuzione FTP/S](deploy-ftp.md). Queste credenziali non corrispondono alle credenziali di Azure Active Directory.
 
-* **Credenziali a livello di utente**: un insieme di credenziali per tutto l'account Azure. Può essere usato per distribuire il Servizio app per qualsiasi app, in tutte le sottoscrizioni a cui l'account di Azure è autorizzato ad accedere. Corrisponde al set predefinito indicato nell'interfaccia utente grafica del portale, ad esempio nelle aree **Panoramica** e **Proprietà** della [pagina delle risorse](../azure-resource-manager/manage-resources-portal.md#manage-resources) dell'app. Quando a un utente viene concesso l'accesso all'app tramite il controllo degli accessi in base al ruolo o le autorizzazioni di coamministratore, tale utente può usare le proprie credenziali a livello di utente fino a quando non viene revocato l'accesso. Non condividere queste credenziali con altri utenti di Azure.
+* **Credenziali a livello di utente**: un insieme di credenziali per tutto l'account Azure. Può essere usato per distribuire il Servizio app per qualsiasi app, in tutte le sottoscrizioni a cui l'account di Azure è autorizzato ad accedere. Corrisponde al set predefinito indicato nell'interfaccia utente grafica del portale, ad esempio nelle aree **Panoramica** e **Proprietà** della [pagina delle risorse](../azure-resource-manager/manage-resources-portal.md#manage-resources) dell'app. Quando un utente viene concesso l'accesso all'app tramite Role-Based Access Control (RBAC) o le autorizzazioni di coamministratore, tale utente può usare le proprie credenziali a livello di utente fino a quando non viene revocato l'accesso. Non condividere queste credenziali con altri utenti di Azure.
 
 * **Credenziali a livello di applicazione**: un insieme di credenziali per ogni applicazione. Può essere usato per distribuire solo in quella app. Le credenziali per ogni app vengono generate automaticamente al momento della creazione dell'app. Non possono essere configurate manualmente, ma possono essere reimpostate in qualsiasi momento. Per ottenere l'accesso alle credenziali a livello di app tramite il controllo degli accessi in base al ruolo, l'utente deve avere il ruolo di Collaboratore o un ruolo superiore per l'app. I lettori non sono autorizzati alla pubblicazione e quindi non possono accedere a queste credenziali.
 

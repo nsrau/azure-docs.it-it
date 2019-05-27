@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.openlocfilehash: 836d36cc6f220bb544e0c7723506c624c5f9fc39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.openlocfilehash: dcd51756a9c5a5a24a082862bb911cc2d2605d61
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60896537"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954365"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
 
@@ -73,7 +73,7 @@ Un contenitore Cosmos Azure contiene i totali di esecuzione per i team home e i 
 | **Coerenza del prefisso** | 0-0, 0-1, 1-1, 1-2, 1-3, 2-3, 2-4, 2-5 |
 | **Finale** | 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5 |
 
-## <a name="additional-reading"></a>Informazioni aggiuntive
+## <a name="additional-reading"></a>Altre informazioni
 
 Per altre informazioni sui concetti di coerenza, vedere gli articoli seguenti:
 

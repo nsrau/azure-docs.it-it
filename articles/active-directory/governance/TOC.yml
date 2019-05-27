@@ -27,8 +27,6 @@
           href: manage-guest-access-with-access-reviews.md
         - name: Gestire l'accesso utente con verifiche
           href: manage-user-access-with-access-reviews.md
-        - name: Gestire i programmi e i relativi controlli
-          href: manage-programs-controls.md
         - name: Gestire gli utenti esclusi dall'accesso condizionale
           href: conditional-access-exclusion.md
 - name: Guide alle procedure
@@ -64,8 +62,6 @@
               href: review-your-access.md
             - name: Completare una verifica di accesso
               href: complete-access-review.md
-            - name: Recuperare i risultati della verifica di accesso
-              href: retrieve-access-review.md
         - name: Ruoli di Azure AD
           items:
             - name: Creare una verifica di accesso

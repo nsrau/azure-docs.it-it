@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9422d543ad83f29d60fd7e1de51a79c3416e5b14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919792"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956170"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurare un'app Node. js di Linux per servizio App di Azure
 
@@ -71,7 +71,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Eseguire npm start
 
-Per avviare l'app usando `npm start`, assicurarsi di un `start` script è nel *package. JSON* file. Ad esempio: 
+Per avviare l'app usando `npm start`, assicurarsi di un `start` script è nel *package. JSON* file. Ad esempio:
 
 ```json
 {
@@ -119,7 +119,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 È possibile eseguire il debug di app Node. js in modalità remota in [Visual Studio Code](https://code.visualstudio.com/) se si configura per [eseguito con PM2](#run-with-pm2), tranne quando si esegue usando un *. config. js, *.yml, o *yaml*.
 
-Nella maggior parte dei casi, non è necessario per l'app alcuna configurazione aggiuntiva. Se l'app viene eseguita con un *Process* file (predefinito o personalizzato), deve avere un `script` proprietà nella radice del JSON. Ad esempio: 
+Nella maggior parte dei casi, non è necessario per l'app alcuna configurazione aggiuntiva. Se l'app viene eseguita con un *Process* file (predefinito o personalizzato), deve avere un `script` proprietà nella radice del JSON. Ad esempio:
 
 ```json
 {
@@ -137,7 +137,7 @@ Una volta terminato il debug, arrestare il debugger selezionando **Disconnect**.
 
 ## <a name="access-environment-variables"></a>Accedere alle variabili di ambiente
 
-Nel servizio app è possibile [configurare le impostazioni dell'app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) al di fuori del codice dell'app. Quindi è possibile accedervi usando il modello standard di Node. js. Ad esempio, per accedere a un'impostazione dell'app denominata `NODE_ENV`, usare il codice seguente:
+Nel servizio app è possibile [configurare le impostazioni dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) al di fuori del codice dell'app. Quindi è possibile accedervi usando il modello standard di Node. js. Ad esempio, per accedere a un'impostazione dell'app denominata `NODE_ENV`, usare il codice seguente:
 
 ```javascript
 process.env.NODE_ENV
@@ -147,7 +147,7 @@ process.env.NODE_ENV
 
 Per impostazione predefinita, viene eseguito Kudu `npm install --production` quando riconosce viene distribuita un'app Node. js. Se l'app richiede uno qualsiasi degli strumenti di automazione più diffusi, ad esempio Grunt, Bower o Gulp, è necessario fornire un [script di distribuzione personalizzato](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) per eseguirlo.
 
-Per abilitare il repository eseguire questi strumenti, è necessario aggiungerle alle dipendenze in *package. JSON.* Ad esempio: 
+Per abilitare il repository eseguire questi strumenti, è necessario aggiungerle alle dipendenze in *package. JSON.* Ad esempio:
 
 ```json
 "dependencies": {
@@ -226,7 +226,7 @@ fi
 
 Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve controllare se le richieste degli utenti sono crittografate o meno, esaminare l'intestazione `X-Forwarded-Proto`.
 
-I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. Nelle [Express](https://expressjs.com/), è possibile usare [trust proxy](https://expressjs.com/guide/behind-proxies.html). Ad esempio: 
+I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. Nelle [Express](https://expressjs.com/), è possibile usare [trust proxy](https://expressjs.com/guide/behind-proxies.html). Ad esempio:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -249,11 +249,11 @@ if (req.secure) {
 Quando un'app Node. js funzionante nel servizio App, si comporta in modo diverso o presenta errori, procedere come segue:
 
 - [Accedere al flusso di log](#access-diagnostic-logs).
-- Testare l'app in locale in modalità di produzione. Servizio App le app Node. js viene eseguito in modalità di produzione, pertanto è necessario assicurarsi che il progetto funziona come previsto in modalità di produzione in locale. Ad esempio: 
+- Testare l'app in locale in modalità di produzione. Servizio App le app Node. js viene eseguito in modalità di produzione, pertanto è necessario assicurarsi che il progetto funziona come previsto in modalità di produzione in locale. Ad esempio:
     - A seconda del *package. JSON*, pacchetti diversi possono essere installati per la modalità di produzione (`dependencies` confronto `devDependencies`).
     - Alcuni Framework web possono distribuire file statici in modo diverso in modalità di produzione.
     - Alcuni Framework web può usare gli script di avvio personalizzate durante l'esecuzione in modalità di produzione.
-- Eseguire l'app nel servizio App in modalità di sviluppo. Ad esempio, nella [Mean. js](https://meanjs.org/), è possibile impostare l'app per la modalità di sviluppo in fase di esecuzione dal [impostazione il `NODE_ENV` impostazione app](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Eseguire l'app nel servizio App in modalità di sviluppo. Ad esempio, nella [Mean. js](https://meanjs.org/), è possibile impostare l'app per la modalità di sviluppo in fase di esecuzione dal [impostazione il `NODE_ENV` impostazione app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 78ed2fab81bfb1562125135c5901a2de395c3843
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c7f5fda405ca0e5ba9cf1dd0ed44c47cd3ee74b1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023942"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949870"
 ---
 #   <a name="text-split-cognitive-skill"></a>Competenza cognitiva Divisione del testo
 
@@ -32,7 +32,7 @@ Microsoft.Skills.Text.SplitSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | DESCRIZIONE |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | textSplitMode      | "Pagine" o "frasi" | 
 | maximumPageLength | Se textSplitMode è impostato su "pagine", si riferisce alla lunghezza massima della pagina misurata da `String.Length`. Il valore minimo è 100.  Se textSplitMode è impostato su "pages", l'algoritmo tenterà di suddividere il testo in blocchi con una dimensione massima di "maximumPageLength". In questo caso, l'algoritmo cercherà di interrompere una frase al suo termine, per questo motivo la dimensione del blocco potrebbe essere leggermente inferiore a "maximumPageLength". | 
@@ -41,14 +41,14 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome parametro       | DESCRIZIONE      |
+| Nome parametro       | Descrizione      |
 |----------------------|------------------|
 | text  | Testo da suddividere in sottostringhe. |
 | languageCode  | (Facoltativo) Codice lingua per il documento.  |
 
 ## <a name="skill-outputs"></a>Output competenze 
 
-| Nome parametro     | DESCRIZIONE |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | textItems | Una matrice di sottostringhe che sono state estratte. |
 
@@ -80,7 +80,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 }
 ```
 
-##  <a name="sample-input"></a>Input di esempio
+##  <a name="sample-input"></a>Campiona input
 
 ```json
 {
@@ -88,7 +88,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
         {
             "recordId": "1",
             "data": {
-                "text": "This is a the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia…",
+                "text": "This is a the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia…",
                 "languageCode": "en"
             }
         },

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 76f1ddeebb173bf19b15753d12e4374e6365bf8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5fe5e819c4f1079b6eb1fa8bb19d337ecfed600d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474228"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955143"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installare e configurare PostgreSQL in Azure
 PostgreSQL è un database open source avanzato simile a Oracle e DB2. Questo database include funzionalità aziendali quali la conformità ACID completa, l'elaborazione transazionale affidabile e il controllo della concorrenza per più versioni. Supporta anche standard come ANSI SQL e SQL/MED (compresi wrapper di dati esterni per Oracle, MySQL, MongoDB e molti altri). È inoltre altamente estendibile, supportando oltre 12 linguaggi procedurali, gli indici GIN e GIST, i dati spaziali e più funzionalità di tipo NoSQL per le applicazioni basate su chiave-valore o JSON.
@@ -232,7 +232,7 @@ Consente di eliminare tutte le informazioni nella riga "John". L'output è:
 ![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Aggiornare dati in una tabella
-Per aggiornare dati in una tabella, usare il comando seguente: In questo caso, Sandy ha confermato la sua partecipazione, pertanto lo stato di conferma verrà modificato da "N" a "Y":
+Per aggiornare dati in una tabella, usare il comando seguente: In questo caso, Sandy ha confermato che essi siano che vi sono iscritti, pertanto si modificherà il RSVP da "N" a "Y":
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

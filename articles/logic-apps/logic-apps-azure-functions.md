@@ -9,12 +9,12 @@ ms.author: estfan
 ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: e371a6abe32a1a41d3babeaa27aaec3e30bd3323
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9b304f2d4d2e498701be5977decf202cb0fa995b
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142314"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922063"
 ---
 # <a name="add-and-run-code-by-using-azure-functions-in-azure-logic-apps"></a>Aggiungere ed eseguire codice con funzioni di Azure nelle App per la logica di Azure
 
@@ -51,6 +51,9 @@ Per eseguire frammenti di codice senza la creazione di funzioni di Azure, inform
   Prima di poter aggiungere le azioni per eseguire le funzioni, l'app per la logica deve iniziare con un trigger.
 
   Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+> [!NOTE]
+> Integrazione delle App per la logica con funzioni non funziona quando sono abilitati gli slot (anteprima).
 
 <a name="create-function-external"></a>
 

@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 9026b561f52b2d43fff2d3e36ba569d7b62a4684
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 8a0fe87703c9fb471174c761a6e8296e6e7a37ec
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069036"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952099"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Risolvere i problemi di connessione al Database di Azure per PostgreSQL - Server singolo
 
@@ -53,7 +53,7 @@ Se l'applicazione continua a non riuscire a connettersi a Database di Azure per 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 
 1. Impostare le [regole del firewall](howto-manage-firewall-using-portal.md) per consentire l'indirizzo IP del client. Ai soli fini di test temporanei, impostare una regola del firewall usando 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo IP finale. Il server verrà così aperto a tutti gli indirizzi IP. Se questo risolve il problema di connettività, rimuovere la regola e creare una regola del firewall per un indirizzo o un intervallo di indirizzi IP adeguatamente limitato.
-2. Verificare che la porta 3306 sia aperta per le connessioni in uscita in tutti i firewall tra il client e Internet.
+2. Tutti i firewall tra il client e internet, assicurarsi che la porta 5432 sia aperta per le connessioni in uscita.
 3. Verificare la stringa di connessione e le altre impostazioni di connessione.
 4. Controllare l'integrità del servizio nel dashboard. Se si ritiene che vi sia un'interruzione a livello di area, vedere [Panoramica della continuità aziendale con Database di Azure per PostgreSQL](concepts-business-continuity.md) per la procedura di ripristino in una nuova area.
 

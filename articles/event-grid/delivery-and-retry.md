@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561999"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952893"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
 
@@ -24,16 +24,18 @@ Attualmente, Griglia di eventi invia singolarmente ogni evento ai sottoscrittori
 
 ## <a name="retry-schedule-and-duration"></a>Pianificazione e durata della ripetizione
 
-Griglia di eventi usa criteri per i tentativi di tipo backoff esponenziale per il recapito degli eventi. Se un endpoint non risponde o restituisce un codice di errore, griglia di eventi di tentativi di recapito in base alla pianificazione seguente in base ad approssimazioni ottimali:
+Griglia di eventi attende 30 secondi per una risposta dopo la distribuzione di un messaggio. Dopo 30 secondi, se l'endpoint non ha risposto, il messaggio viene accodato per la ripetizione dei tentativi. Griglia di eventi usa criteri per i tentativi di tipo backoff esponenziale per il recapito degli eventi. Griglia di eventi di tentativi di recapito in base alla pianificazione seguente in base ad approssimazioni ottimali:
 
-1. 10 secondi
-1. 30 secondi
-1. 1 minuto
-1. 5 minuti
-1. 10 minuti
-1. 30 minuti
-1. 1 ora
-1. Su base oraria per fino a 24 ore
+- 10 secondi
+- 30 secondi
+- 1 minuto
+- 5 minuti
+- 10 minuti
+- 30 minuti
+- 1 ora
+- Su base oraria per fino a 24 ore
+
+Se l'endpoint risponde entro 3 minuti, griglia di eventi proverà a rimuovere l'evento dalla coda di tentativi in base ad approssimazioni ottimali, ma è comunque possibile ricevere i duplicati.
 
 Griglia di eventi aggiunge una piccola parte di casualità a tutti i passaggi di ripetizione dei tentativi e può, in base alle esigenze, ignorare determinati tentativi se un endpoint è coerente non integro, verso il basso per un lungo periodo o sembra essere sovraccaricato.
 
@@ -72,7 +74,7 @@ I codici di risposta HTTP seguenti indicano che un tentativo di recapito di un e
 
 - 400 - Richiesta non valida
 - 401 - Non autorizzato
-- 404 - Non trovato
+- 404 Non trovato
 - 408 - Timeout richiesta
 - 413 Entità della richiesta troppo grande
 - 414 - URI richiesta troppo lungo

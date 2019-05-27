@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
-ms.author: monhaber
-ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-mohabe
+ms.openlocfilehash: 8f6f94fa8602dcc2b8eed19262f595cb18c40b57
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60905742"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968316"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Eseguire l'aggiornamento al piano Standard del Centro sicurezza per la sicurezza avanzata
 Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione a minacce e il rilevamento intelligente che consente di tenere il passo con gli attacchi informatici in rapida evoluzione.
@@ -49,7 +49,7 @@ Per ottenere il livello Standard:
 (I prezzi indicati nell'immagine sono ad esempio è solo a scopo). ![Prezzi del Centro sicurezza](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> Per abilitare tutte le funzionalità del Centro sicurezza, è necessario applicare il piano tariffario per la sottoscrizione che contiene le macchine virtuali applicabili Standard. La configurazione dei prezzi per un'area di lavoro non abilita solo l'accesso JIT alla macchina virtuale, i controlli dell'applicazione adattivi e i rilevamenti di rete per le risorse di Azure.
+> Per abilitare tutte le funzionalità del Centro sicurezza, è necessario applicare il piano tariffario Standard alla sottoscrizione contenente le macchine virtuali applicabili. La configurazione dei prezzi per un'area di lavoro non abilita solo l'accesso JIT alla macchina virtuale, i controlli dell'applicazione adattivi e i rilevamenti di rete per le risorse di Azure.
 >
 >
 

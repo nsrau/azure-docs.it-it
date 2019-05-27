@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba4643118c5d90b91c3e51d569e9a628c84159fc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780026"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964031"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: Valutazione delle applicazioni distribuite
 
@@ -94,7 +94,9 @@ Per visualizzare gli avvisi attivi e le regole sottostanti che attivano gli avvi
 
 Mappa delle applicazioni Usa il **nome del ruolo cloud** proprietà per identificare i componenti sulla mappa. SDK di Application Insights aggiunge automaticamente la proprietà nome del ruolo cloud per i dati di telemetria generati dai componenti. Ad esempio, il SDK aggiungerà un nome di sito web o ruolo del servizio per la proprietà nome del ruolo cloud. Tuttavia, vi sono casi in cui si desidera eseguire l'override del valore predefinito. Eseguire l'override di nome del ruolo cloud e modificare ciò che viene visualizzato nella mappa delle applicazioni:
 
-### <a name="net"></a>.NET
+### <a name="netnet-core"></a>.NET/.NET Core
+
+**Scrivere TelemetryInitializer personalizzato come indicato di seguito.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -117,9 +119,9 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**Caricare l'inizializzatore**
+**Caricare l'inizializzatore per il TelemetryConfiguration active**
 
-In ApplicationInsights.config:
+In ApplicationInsights.config :
 
 ```xml
     <ApplicationInsights>
@@ -131,7 +133,10 @@ In ApplicationInsights.config:
     </ApplicationInsights>
 ```
 
-Un metodo alternativo è quello di creare un'istanza dell'inizializzatore nel codice, ad esempio nel file Global.aspx.cs:
+> [!NOTE]
+> Aggiunta dell'inizializzatore utilizzando `ApplicationInsights.config` non è valido per le applicazioni ASP.NET Core.
+
+Un metodo alternativo per le app Web ASP.NET consiste nel creare un'istanza dell'inizializzatore nel codice, ad esempio nel file Global.aspx.cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -141,6 +146,17 @@ Un metodo alternativo è quello di creare un'istanza dell'inizializzatore nel co
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+Per la [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) le applicazioni, aggiunta di una nuova `TelemetryInitializer` avviene aggiungendolo al contenitore di inserimento delle dipendenze, come illustrato di seguito. Questa operazione viene eseguita `ConfigureServices` metodo di `Startup.cs` classe.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
     }
 ```
 

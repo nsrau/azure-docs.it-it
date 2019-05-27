@@ -4,15 +4,15 @@ description: Questo articolo aiuta a comprendere la fattura di Azure Cosmos DB c
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115538"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965629"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 
@@ -252,7 +252,7 @@ Ciò che si è effettivamente acquistato è un credito di 8 dollari all'ora, per
 |----|----|----|----|----|
 |Stati Uniti orientali|$ 0,008 |50 K|$ 4|$ 2.880 |
 |Giappone orientale|$ 0,009 |50 K| $ 4,50 |$ 3.240 |
-|||Pagamento in base al consumo|$ 8,50|$ 6120|
+|||Pagamento a consumo|$ 8,50|$ 6120|
 |Capacità riservata acquistata|$ 0,0064 (20% di sconto) |100 UR/sec o $ 8 di capacità preacquistata |-$ 8|-$ 5.760 |
 |Fattura netta|||$ 0.50 |$ 360 |
 

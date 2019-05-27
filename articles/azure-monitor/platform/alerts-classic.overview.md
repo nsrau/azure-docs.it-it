@@ -5,14 +5,14 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/29/2018
+ms.date: 05/19/2018
 ms.author: robb
-ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776636"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914715"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi classici in Microsoft Azure?
 
@@ -24,7 +24,7 @@ Gli avvisi consentono di configurare le condizioni sui dati e la notifica di qua
 
 ## <a name="old-and-new-alerting-capabilities"></a>Vecchie e nuove funzionalità di avviso
 
-In precedenza Monitoraggio di Azure, Application Insights, Log Analytics e Integrità dei servizi di Azure avevano funzionalità di avviso separate. Con il tempo Azure ha migliorato e combinato sia l'interfaccia utente che i diversi metodi di invio degli avvisi. Il consolidamento è ancora in corso. Avvisi
+In precedenza Monitoraggio di Azure, Application Insights, Log Analytics e Integrità dei servizi di Azure avevano funzionalità di avviso separate. Con il tempo Azure ha migliorato e combinato sia l'interfaccia utente che i diversi metodi di invio degli avvisi. Il consolidamento è ancora in corso.
 
 È possibile visualizzare gli avvisi classici solo nella schermata dell'utente degli avvisi classici nel portale di Azure. Questa schermata viene visualizzata usando il pulsante **Visualizza avvisi classici** sulla schermata degli avvisi. 
 

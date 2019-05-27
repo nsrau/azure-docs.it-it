@@ -4,14 +4,14 @@ description: Informazioni su come specificare e stimare i requisiti relativi all
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/20/2019
 ms.author: rimman
-ms.openlocfilehash: 72ec8332a3363d5336fb84b3390d5e44ced0b2e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9615aebd345c957c8e401581ff94735f39ba73c6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926026"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953530"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 

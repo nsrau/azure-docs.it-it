@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9fd594fb264ff0467cc315f59927cd157068d522
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146191"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961430"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -32,10 +32,10 @@ L'archiviazione con ridondanza della zona è disponibile a livello generale nell
 - Francia centrale
 - Giappone orientale
 - Regno Unito meridionale
+- Stati Uniti centrali
 - Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti occidentali 2
-- Stati Uniti centrali
 
 Microsoft continua ad abilitare l'archiviazione con ridondanza della zona in aree di Azure aggiuntive. Fare riferimento regolarmente alla pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/) per informazioni sulle nuove aree.
 
@@ -75,6 +75,7 @@ Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 - È possibile migrare solo i dati nella stessa area. Se si vuole eseguire la migrazione dei dati in un account di archiviazione con ridondanza della zona che si trova in un'area diversa rispetto all'account di origine, è necessario eseguire una migrazione manuale.
 - Solo gli account di archiviazione standard supportano la migrazione in tempo reale. Per gli account di archiviazione premium, è necessario usare la migrazione manuale.
 - Migrazione in tempo reale da ZRS a LRS, GRS o RA-GRS non è supportata. È necessario spostare manualmente i dati in un nuovo oggetto o un account di archiviazione.
+- Managed disks sono disponibili solo per l'archiviazione con ridondanza locale e non è possibile eseguire la migrazione all'archiviazione ZRS. Per l'integrazione con la disponibilità dei set di vedere [Introduzione ad Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets). È possibile archiviare gli snapshot e immagini per unità SSD Managed Disks Standard nell'archiviazione Standard HDD e [scegliere tra le opzioni di archiviazione con ridondanza locale e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 È possibile richiedere la migrazione in tempo reale tramite il [portale del supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Nel portale selezionare l'account di archiviazione da convertire in archiviazione con ridondanza della zona.
 1. Selezionare **Nuova richiesta di supporto**
@@ -96,7 +97,7 @@ Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza nec
 
 **È consigliabile pianificare tempi di inattività durante la migrazione?**
 
-Non vi è alcun tempo di inattività causato dalla migrazione. Durante una migrazione in tempo reale, è possibile continuare l'account di archiviazione mentre viene eseguita la migrazione dei dati tra gli indicatori di archiviazione di origine e destinazione. Durante il processo di migrazione, è necessario lo stesso livello di durabilità e disponibilità del contratto di servizio si fa di norma.
+Non vi è alcun tempo di inattività causato dalla migrazione. Durante una migrazione in tempo reale, puoi continuare a usare l'account di archiviazione mentre viene eseguita la migrazione dei dati tra gli indicatori di archiviazione di origine e destinazione. Durante il processo di migrazione, è necessario lo stesso livello di durabilità e disponibilità del contratto di servizio si fa di norma.
 
 **È disponibile alcuna perdita di dati associato alla migrazione?**
 

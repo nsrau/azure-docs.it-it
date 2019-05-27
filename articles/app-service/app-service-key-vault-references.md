@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 662260c3cf37f8f8a675c522f3d3dea41153e485
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f086850ecc2f15c41ab89db34b16d6d2e4a229cb
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853144"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956215"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Usare i riferimenti a Key Vault per Servizio app e Funzioni di Azure (anteprima)
 
@@ -44,7 +44,7 @@ Per leggere i segreti da Key Vault, è necessario avere creato un insieme di cre
 Un riferimento a Key Vault viene espresso nel formato `@Microsoft.KeyVault({referenceString})`, in cui sostituire `{referenceString}` con una delle opzioni seguenti:
 
 > [!div class="mx-tdBreakAll"]
-> | Stringa di riferimento                                                            | DESCRIZIONE                                                                                                                                                                                 |
+> | Stringa di riferimento                                                            | Descrizione                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | SecretUri=_secretUri_                                                       | **SecretUri** deve essere l'URI del piano dati completo di un segreto in Key Vault, inclusa una versione, ad esempio, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** deve essere il nome della risorsa Key Vault. **SecretName** deve essere il nome del segreto di destinazione. **SecretVersion** deve essere la versione del segreto da usare. |
@@ -67,7 +67,7 @@ In alternativa:
 
 ## <a name="source-application-settings-from-key-vault"></a>Impostazioni dell'applicazione di origine da Key Vault
 
-I riferimenti a Key Vault possono essere usati come valori per [Impostazioni applicazione](web-sites-configure.md#app-settings), consentendo di mantenere i segreti in Key Vault invece che nella configurazione del sito. Le impostazioni dell'applicazione vengono crittografate in modo sicuro se statiche, ma se sono necessarie funzionalità di gestione dei segreti, è consigliabile archiviarle in Key Vault.
+I riferimenti a Key Vault possono essere usati come valori per [Impostazioni applicazione](configure-common.md#configure-app-settings), consentendo di mantenere i segreti in Key Vault invece che nella configurazione del sito. Le impostazioni dell'applicazione vengono crittografate in modo sicuro se statiche, ma se sono necessarie funzionalità di gestione dei segreti, è consigliabile archiviarle in Key Vault.
 
 Per usare un riferimento a Key Vault per un'impostazione di applicazione, impostare il riferimento come valore dell'impostazione. L'app può fare riferimento al segreto tramite la relativa chiave come di consueto. Non sono necessarie modifiche al codice.
 

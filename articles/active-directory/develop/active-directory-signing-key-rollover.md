@@ -17,15 +17,15 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47430b4bd2f7fa6811785247ae6cd4f6df6f8f5
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f809fa856d39096a85dcc205d8211ba3551eeb48
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546136"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962864"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover della chiave di firma in Azure Active Directory
-Questo articolo illustra che cosa è necessario sapere sulle chiavi pubbliche usate per la firma dei token di sicurezza in Azure Active Directory (Azure AD). È importante notare che il rollover di queste chiavi viene eseguito periodicamente e in caso di emergenza può essere eseguito immediatamente. Tutte le applicazioni che usano Azure AD devono poter gestire a livello di codice il processo di rollover della chiave o stabilire un processo di rollover manuale periodico. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione o stabilire un processo di rollover manuale periodico per gestire il rollover della chiave, se necessario.
+Questo articolo illustra che cosa è necessario sapere sulle chiavi pubbliche usate per la firma dei token di sicurezza in Azure Active Directory (Azure AD). È importante notare che queste chiavi periodicamente il rollover e, in caso di emergenza, potrebbero essere eseguite immediatamente. Tutte le applicazioni che usano Azure AD devono poter gestire a livello di codice il processo di rollover della chiave o stabilire un processo di rollover manuale periodico. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione o stabilire un processo di rollover manuale periodico per gestire il rollover della chiave, se necessario.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Informazioni generali sulle chiavi di firma in Azure AD
 Azure AD usa la crittografia a chiave pubblica basata su standard di settore per stabilire una relazione di trust tra se stesso e le applicazioni che usano Azure AD. In pratica funziona nel modo seguente: Azure AD usa una chiave per la firma costituita da una coppia di chiavi pubblica e privata. Quando un utente accede a un'applicazione che usa Azure AD per l'autenticazione, Azure AD crea un token di sicurezza contenente informazioni sull'utente. Questo token viene firmato da Azure AD con la chiave privata prima che venga inviato di nuovo all'applicazione. Per verificare che il token sia valido e sia stato originato da Azure AD, l'applicazione deve convalidare la firma del token usando la chiave pubblica esposta da Azure AD contenuta nel [documento di individuazione di OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) del tenant o nel [documento dei metadati della federazione](azure-ad-federation-metadata.md) SAML/WS-Fed.
@@ -43,7 +43,7 @@ Il modo in cui l'applicazione gestisce il rollover della chiave dipende da varia
 * [API / applicazioni Web che proteggono le risorse usando middleware .NET OWIN OpenID Connect, WS-Fed o WindowsAzureActiveDirectoryBearerAuthentication](#owin)
 * [API / applicazioni Web che proteggono le risorse usando middleware .NET Core OpenID Connect o JwtBearerAuthentication](#owincore)
 * [API / applicazioni Web che proteggono le risorse usando il modulo Node.js passport-azure-ad](#passport)
-* [API/applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2015 o Visual Studio 2017](#vs2015)
+* [Le applicazioni Web / API di protezione delle risorse e creato con Visual Studio 2015 o versione successiva](#vs2015)
 * [Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2013](#vs2013)
 * API Web che proteggono le risorse e sono state create con Visual Studio 2013
 * [Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2012](#vs2012)
@@ -56,12 +56,12 @@ Queste indicazioni **non** sono valide per:
 * Applicazioni locali pubblicate tramite il proxy di applicazione, che non prevedono le chiavi di firma.
 
 ### <a name="nativeclient"></a>Applicazioni client native che accedono alle risorse
-Le applicazioni che si limitano ad accedere alle risorse, come Microsoft Graph, l'insieme di credenziali, l'API Outlook e altre API Microsoft, in genere ottengono soltanto un token e lo passano al proprietario della risorsa. Dato che tali applicazioni non proteggono risorse, il token non viene controllato e quindi non è necessario assicurarsi che sia firmato correttamente.
+Le applicazioni che si limitano ad accedere alle risorse, come Microsoft Graph, Key Vault, API Outlook e altre APIs Microsoft) in genere solo ottenere un token e lo passano al proprietario della risorsa. Dato che tali applicazioni non proteggono risorse, il token non viene controllato e quindi non è necessario assicurarsi che sia firmato correttamente.
 
 Le applicazioni client native, sia per desktop che per dispositivi mobili, rientrano in questa categoria e quindi non sono interessate dal rollover.
 
 ### <a name="webclient"></a>API / applicazioni Web che accedono alle risorse
-Le applicazioni che si limitano ad accedere alle risorse, come Microsoft Graph, l'insieme di credenziali, l'API Outlook e altre API Microsoft, in genere ottengono soltanto un token e lo passano al proprietario della risorsa. Dato che tali applicazioni non proteggono risorse, il token non viene controllato e quindi non è necessario assicurarsi che sia firmato correttamente.
+Le applicazioni che si limitano ad accedere alle risorse, come Microsoft Graph, Key Vault, API Outlook e altre APIs Microsoft) in genere solo ottenere un token e lo passano al proprietario della risorsa. Dato che tali applicazioni non proteggono risorse, il token non viene controllato e quindi non è necessario assicurarsi che sia firmato correttamente.
 
 Le applicazioni Web e le API Web che usano il flusso solo app (credenziali client / certificato client) rientrano in questa categoria e quindi non sono interessate dal rollover.
 
@@ -128,8 +128,8 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>API/applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2015 o Visual Studio 2017
-Se l'applicazione è stata creata usando un modello di applicazione Web in Visual Studio 2015 o Visual Studio 2017 ed è stata selezionata l'opzione **Account aziendali o dell'istituto di istruzione** nel menu **Modifica autenticazione**, l'applicazione ha già la logica necessaria per gestire automaticamente il rollover della chiave. Questa logica, incorporata nel middleware OWIN OpenID Connect, recupera e memorizza nella cache le chiavi dal documento di individuazione di OpenID Connect e le aggiorna periodicamente.
+### <a name="vs2015"></a>Le applicazioni Web / API di protezione delle risorse e creato con Visual Studio 2015 o versione successiva
+Se l'applicazione è stata creata usando un modello di applicazione web in Visual Studio 2015 o versione successiva ed è selezionata **account aziendali o dell'istituto di istruzione** dalle **Modifica autenticazione** menu, già disponga delle necessarie per la logica per gestire automaticamente il rollover della chiave. Questa logica, incorporata nel middleware OWIN OpenID Connect, recupera e memorizza nella cache le chiavi dal documento di individuazione di OpenID Connect e le aggiorna periodicamente.
 
 Se l'autenticazione è stata aggiunta alla soluzione manualmente, l'applicazione potrebbe non avare la logica di rollover della chiave necessaria. Sarà necessario scriverla oppure seguire i passaggi illustrati in [API/Applicazioni Web che proteggono le risorse usando qualsiasi altra libreria o con implementazione manuale di qualsiasi protocollo supportato](#other).
 

@@ -4,27 +4,17 @@ description: Risposte alle domande frequenti su Azure Cosmos DB, un servizio di 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8e4ae9b7c96677ce494bea31a49b8db83d6bcb3c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4935e06389266f049b8f7f79ca6fb9380f33c864
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793795"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954142"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Domande frequenti su diverse API in Azure Cosmos DB
-
-### <a name="what-happened-to-the-documentdb-api"></a>Che cosa è successo all'API DocumentDB?
-
-L'API SQL (DocumentDB) o API DocumentDB di Azure Cosmos DB è ora denominata API SQL di Azure Cosmos DB. Non è necessaria alcuna modifica per continuare a eseguire le app compilate con l'API DocumentDB. La funzionalità rimane invariata.
-
-Se in precedenza si aveva un account dell'API DocumentDB, adesso si ha un account dell'API SQL senza alcun cambiamento nella fatturazione.
-
-### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Che cosa è successo ad Azure DocumentDB come servizio?
-
-Il servizio Azure DocumentDB è ora incluso nel servizio Azure Cosmos DB e viene visualizzato come API SQL. Le applicazioni basate su Azure DocumentDB verranno eseguite senza modifiche nell'API SQL di Azure Cosmos DB. Cosmos DB implementa anche i protocolli di collegamento di [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) e [Archiviazione tabelle di Azure](table-introduction.md) direttamente nel servizio. Ciò consente di indirizzare i driver (e gli strumenti) del client per le API NoSQL di uso comune direttamente al database Cosmos.
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Quali sono i casi d'uso tipici per Azure Cosmos DB?
 
@@ -32,9 +22,9 @@ Azure Cosmos DB è la scelta ideale per le nuove applicazioni Web, per dispositi
 
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Come vengono offerte prestazioni prevedibili in Azure Cosmos DB?
 
-Un'[unità richiesta](request-units.md) (UR) è l'unità di misura della velocità effettiva in Azure Cosmos DB. Una velocità effettiva di 1 UR corrisponde alla velocità effettiva dell'operazione GET su un documento da 1 KB. Ogni operazione in Azure Cosmos DB, incluse letture, scritture, query SQL ed esecuzioni di stored procedure, ha un valore di UR deterministico basato sulla velocità effettiva necessaria per completare l'operazione. Invece di considerare CPU, I/O e memoria e il modo in cui ognuno di essi influisce sulla velocità effettiva dell'applicazione, è possibile ragionare in termini di singola misura di UR.
+Un'[unità richiesta](request-units.md) (UR) è l'unità di misura della velocità effettiva in Azure Cosmos DB. Una velocità effettiva 1RU corrisponde alla velocità effettiva dell'operazione GET di un documento di 1 KB. Ogni operazione in Azure Cosmos DB, incluse letture, scritture, query SQL ed esecuzioni di stored procedure, ha un valore di UR deterministico basato sulla velocità effettiva necessaria per completare l'operazione. Invece di considerare CPU, I/O e memoria e il modo in cui ognuno di essi influisce sulla velocità effettiva dell'applicazione, è possibile ragionare in termini di singola misura di UR.
 
-Ogni contenitore di Azure Cosmos DB può essere configurato con la velocità effettiva di provisioning in termini di UR di velocità effettiva al secondo. Per applicazioni di qualsiasi dimensione, è possibile effettuare un benchmark delle singole richieste per misurarne i valori di UR ed effettuare il provisioning di un contenitore per gestire il totale delle unità richiesta tra tutte le richieste. È anche possibile aumentare o ridurre la velocità effettiva del contenitore con il variare delle esigenze dell'applicazione. Per altre informazioni sulle unità richiesta e per assistenza con la definizione dei requisiti del contenitore, provare il [calcolatore della velocità effettiva](https://www.documentdb.com/capacityplanner).
+È possibile configurare ogni contenitore di Azure Cosmos con velocità effettiva con provisioning in termini di UR di velocità effettiva al secondo. Per applicazioni di qualsiasi dimensione, è possibile effettuare un benchmark delle singole richieste per misurarne i valori di UR ed effettuare il provisioning di un contenitore per gestire il totale delle unità richiesta tra tutte le richieste. È anche possibile aumentare o ridurre la velocità effettiva del contenitore con il variare delle esigenze dell'applicazione. Per altre informazioni sulle unità richiesta e per assistenza con la definizione dei requisiti del contenitore, provare il [calcolatore della velocità effettiva](https://www.documentdb.com/capacityplanner).
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>In che modo Azure Cosmos DB supporta diversi modelli di dati, ad esempio chiave/valore, colonne, documenti e grafi?
 
@@ -91,12 +81,13 @@ Le sottoscrizioni di prova di Azure Cosmos DB vengono visualizzate nel portale d
 
 Le condizioni seguenti si applicano alle sottoscrizioni di prova di Azure Cosmos DB:
 
-* Un contenitore per sottoscrizione per account SQL, API Gremlin e Tabelle.
-* Fino a tre raccolte per sottoscrizione per gli account MongoDB.
+* Uno [contenitore di velocità effettiva con provisioning](./set-throughput.md#set-throughput-on-a-container) per sottoscrizione per account SQL, API Gremlin e tabella.
+* Fino a tre [velocità effettiva di provisioning raccolte](./set-throughput.md#set-throughput-on-a-container) per ogni sottoscrizione per gli account MongoDB.
+* Uno [database sottoposto a provisioning della velocità effettiva](./set-throughput.md#set-throughput-on-a-database) per ogni sottoscrizione. I database di velocità effettiva di provisioning possono contenere un numero qualsiasi di contenitori all'interno.
 * 10 GB di capacità di archiviazione.
 * La replica globale è attualmente disponibile nelle [aree di Azure](https://azure.microsoft.com/regions/) seguenti: Stati Uniti centrali, Europa settentrionale e Asia sud-orientale
 * Velocità effettiva massima di 5 K UR/s durante il provisioning a livello di contenitore.
-* Velocità effettiva di un massimo di 20 K UR/s durante il provisioning a livello di database.
+* Velocità effettiva massima pari a 20 K UR/s durante il provisioning a livello di database.
 * Le sottoscrizioni scadono dopo 30 giorni e possono essere esteso a un massimo di 31 giorni totale.
 * Non è possibile creare ticket di supporto di Azure per gli account di prova di Azure Cosmos DB. È tuttavia previsto il supporto per i sottoscrittori con piani di supporto esistenti.
 
@@ -530,7 +521,7 @@ Azure Cosmos DB usa il [partizionamento orizzontale](partition-data.md) per gest
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Come ci si può proteggere da attacchi di tipo injection con driver Gremlin?
 
-La maggior parte dei driver Tinkerpop Gremlin nativi consente di specificare un dizionario di parametri per l'esecuzione delle query. Ecco un esempio di come ottenere questo risultato in [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) e in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Driver di Apache Tinkerpop Gremlin nativi più abilitare l'opzione per fornire un dizionario di parametri per l'esecuzione di query. Ecco un esempio di come ottenere questo risultato in [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) e in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Perché viene visualizzato un errore analogo a "Errore di compilazione query Gremlin: non è possibile trovare un metodo"?
 
@@ -755,7 +746,7 @@ Sì, è possibile usare la sintassi normale per creare una chiave di partizione 
 
 No, stable loader non è supportato durante l'anteprima.
 
-### <a name="can-an-on-premises-cassandra-cluster-be-paired-with-azure-cosmos-dbs-apache-cassandra-api"></a>È possibile associare un cluster Cassandra locale all'API Apache Cassandra di Azure Cosmos DB?
+### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>Un cluster Apache Cassandra in locale può essere abbinato con l'API Cassandra di Azure Cosmos DB?
 
 Attualmente Azure Cosmos DB offre un'esperienza ottimizzata per l'ambiente cloud, senza l'overhead delle operazioni. Se è necessaria l'associazione, inviare un messaggio di posta elettronica all'indirizzo [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) con una descrizione dello scenario.
 

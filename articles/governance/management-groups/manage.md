@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: e47ce094cd690cba4ef398bc5d5d443f7ed647e9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b3798ec7578530e04ec9e00086fffaec9a58a7cd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272479"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950312"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione
 
@@ -281,7 +281,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## <a name="move-management-groups-in-the-hierarchy"></a>Spostare gruppi di gestione nella gerarchia  
 
-Quando si sposta un gruppo di gestione padre, la gerarchia in tale gruppo si sposta con essa.
+Quando si sposta un gruppo di gestione padre, la gerarchia in tale gruppo si sposta con essa. Per l'accesso è necessario spostare i gruppi di gestione, vedere [accesso al gruppo di gestione](index.md#management-group-access).
 
 ### <a name="move-management-groups-in-the-portal"></a>Spostare gruppi di gestione nel portale
 

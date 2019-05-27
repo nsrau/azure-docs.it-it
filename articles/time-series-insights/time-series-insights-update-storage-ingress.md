@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405707"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951098"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights
 
@@ -28,7 +28,7 @@ Quando si crea un ambiente SKU con pagamento in base al consumo della versione d
 * Un ambiente Time Series Insights.
 * Un account V1 per utilizzo generico di Archiviazione di Azure in cui verranno archiviati i dati.
 
-La versione di anteprima di Time Series Insights usa Archiviazione BLOB di Azure con il tipo di file Parquet. Time Series Insights gestisce tutte le operazioni sui dati, tra cui la creazione di BLOB, l'indicizzazione e il partizionamento di dati nell'account di archiviazione di Azure. Creare questi BLOB usando un account di archiviazione di Azure.
+L'anteprima di Insights serie ora Usa l'archiviazione Blob di Azure con il tipo di file Parquet. Time Series Insights gestisce tutte le operazioni sui dati, tra cui la creazione di BLOB, l'indicizzazione e il partizionamento di dati nell'account di archiviazione di Azure. Creare questi BLOB usando un account di archiviazione di Azure.
 
 Come altri BLOB di Archiviazione di Azure, i BLOB creati da Time Series Insights consentono operazioni di lettura e scrittura per supportare svariati scenari di integrazione.
 
@@ -101,12 +101,12 @@ Una partizione fisica è un BLOB in blocchi archiviato nell'account di archiviaz
 
 ### <a name="logical-partitions"></a>Partizioni logiche
 
-Una partizione logica è una partizione all'interno di una partizione fisica in cui sono archiviati tutti i dati associati al valore di una singola chiave di partizione. La versione di anteprima di Time Series Insights partiziona in modo logico ogni BLOB in base a due proprietà:
+Una partizione logica è una partizione all'interno di una partizione fisica in cui sono archiviati tutti i dati associati al valore di una singola chiave di partizione. La versione di anteprima di tempo Series Insights in modo logico le partizioni ogni blob in base a due proprietà:
 
 * **Time Series ID**: la chiave di partizione per tutti i dati di Time Series Insights all'interno del flusso di eventi e del modello.
 * **Timestamp**: l'ora basata sull'ingresso iniziale.
 
-La versione di anteprima di Time Series Insights fornisce query ad alte prestazioni basate su queste due proprietà. Le due proprietà forniscono anche il metodo più efficace per la distribuzione rapida dei dati di Time Series Insights.
+La versione di anteprima di tempo Series Insights offre query ad alte prestazioni basate su queste due proprietà. Le due proprietà forniscono anche il metodo più efficace per la distribuzione rapida dei dati di Time Series Insights.
 
 È importante selezionare un valore Time Series ID appropriato perché questa proprietà non è modificabile. Per altre informazioni, vedere [Scegliere gli ID di serie temporali](./time-series-insights-update-how-to-id.md).
 
@@ -120,7 +120,7 @@ Time Series Insights pubblica fino a due copie di ogni evento nell'account di ar
 
 Inoltre, Time Series Insights rieseguirà il partizionamento dei file Parquet per assicurarne l'ottimizzazione per le API di Time Series Insights. Viene salvato anche il file partizionato più recente.
 
-In fase di anteprima pubblica, i dati vengono archiviati a tempo indeterminato nell'account di archiviazione di Azure.
+Durante l'anteprima pubblica, i dati vengono archiviati in modo indefinito nell'account di archiviazione di Azure.
 
 ### <a name="writing-and-editing-time-series-insights-blobs"></a>Scrittura e modifica di BLOB di Time Series Insights
 
@@ -146,13 +146,13 @@ Per garantire le prestazioni delle query e la disponibilità dei dati, non modif
 
 ### <a name="data-deletion"></a>Eliminazione di dati
 
-Non eliminare i BLOB perché l'anteprima di Time Series Insights conserva nei BLOB i relativi metadati.
+Non eliminare i BLOB. Non solo sono utili per il controllo e la gestione di un record dei dati, la versione di anteprima di tempo Series Insights gestisce i metadati dei blob all'interno di ogni blob.
 
 ## <a name="time-series-insights-data-ingress"></a>Inserimento dei dati di ora Series Insights
 
 ### <a name="ingress-policies"></a>Criteri in ingresso
 
-La versione di anteprima di Time Series Insights supporta le stesse origini evento e tipi di file attualmente supportati da Time Series Insights.
+La versione di anteprima di tempo Series Insights supporta le stesse origini eventi e tipi di file che Time Series Insights supporta attualmente.
 
 Alcune origini evento supportate sono:
 
@@ -168,7 +168,7 @@ Alcuni tipi di file supportati sono:
 
 ### <a name="data-availability"></a>Disponibilità dei dati
 
-La versione di anteprima di Time Series Insights indicizza i dati usando una strategia di ottimizzazione delle dimensioni dei BLOB. I dati diventano disponibili per la query dopo l'indicizzazione, che si basa sulla quantità di dati in arrivo e sulla velocità.
+La versione di anteprima di tempo Series Insights indicizza i dati tramite una strategia di ottimizzazione delle dimensioni di blob. I dati diventano disponibili per la query dopo l'indicizzazione, che si basa sulla quantità di dati in arrivo e sulla velocità.
 
 > [!IMPORTANT]
 > * La versione di disponibilità generale di Time Series Insights renderà disponibili i dati entro 60 secondi dal riscontro di un'origine evento. 
@@ -177,7 +177,7 @@ La versione di anteprima di Time Series Insights indicizza i dati usando una str
 
 ### <a name="scale"></a>Scalabilità
 
-La versione di anteprima di Time Series Insights supporta una scalabilità a livello di ingresso iniziale pari a un massimo di 6 megabyte al secondo (Mbps) per ogni ambiente. Il supporto per una scalabilità di livello avanzato è in fase di sviluppo. Per riflettere questi miglioramenti, è previsto un aggiornamento della documentazione
+La versione di anteprima di tempo Series Insights supporta una scalabilità un ingresso iniziale di fino a 1 Byte Mega al secondo (Mbps) per ogni ambiente. Il supporto per una scalabilità di livello avanzato è in fase di sviluppo. Per riflettere questi miglioramenti, è previsto un aggiornamento della documentazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137872"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955826"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -46,7 +46,7 @@ Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione 
 
 2. Nel riquadro di spostamento a sinistra, scegliere l'opzione **Slot di distribuzione (anteprima)** e quindi fare clic su **Aggiungi slot**.
    
-    ![Aggiungi nuovo slot di distribuzione](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
+    ![Aggiungi un nuovo slot di distribuzione](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
    > Se l'app non è già in esecuzione nel piano **Standard**, **Premium** o **Isolato**, si riceverà un messaggio di errore che indica i piani supportati per l'abilitazione della pubblicazione di gestione temporanea. A questo punto è possibile selezionare **Aggiorna** e spostarsi alla scheda **Scalabilità** dell'app prima di continuare.
@@ -54,7 +54,7 @@ Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione 
 
 3. Nella finestra di dialogo **Aggiungi uno slot** assegnare un nome allo slot e selezionare se clonare la configurazione dell'app da uno slot di distribuzione esistente. Fare clic su **Aggiungi** per continuare.
    
-    ![Origine della configurazione](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+    ![Origine configurazione](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
     È possibile clonare la configurazione da uno slot esistente. Le impostazioni che possono essere clonate includono le impostazioni dell'app, le stringhe di connessione, le versioni di framework del linguaggio, i Web Socket, la versione HTTP e il numero di bit della piattaforma.
 
@@ -96,10 +96,10 @@ Funzionalità contrassegnate con un * è pianificata per essere reso permanente 
 * Endpoint di pubblicazione
 * Nomi di dominio personalizzati
 * Certificati privati e associazioni SSL
-* Impostazioni di scalabilità
+* Impostazioni scalabilità
 * Utilità di pianificazione WebJobs
 * Restrizioni IP
-* Always On
+* Sempre online
 * Le impostazioni del protocollo (HTTP**S**, versione di TLS, certificati client)
 * Impostazioni di log di diagnostica
 * CORS
@@ -132,7 +132,7 @@ Per scambiare gli slot di distribuzione, seguire questa procedura:
 
 2. Selezionare gli slot desiderati in **Origine** e **Destinazione**. In genere, la destinazione è lo slot di produzione. Inoltre, fare clic sulle schede **Modifiche dell'origine** e **Modifiche della destinazione** e verificare che le modifiche della configurazione siano quelle previste. Al termine, è possibile effettuare immediatamente lo scambio degli slot facendo clic su **Scambia**.
 
-    ![Scambio completo](./media/web-sites-staged-publishing/SwapImmediately.png)
+    ![Completa scambio](./media/web-sites-staged-publishing/SwapImmediately.png)
 
     Per verificare il funzionamento dello slot di destinazione con le nuove impostazioni prima di eseguire effettivamente lo scambio, non fare clic su **Scambia**, ma seguire le istruzioni in [Scambio con anteprima](#Multi-Phase).
 
@@ -217,7 +217,7 @@ Quando si usa [Scambio automatico](#Auto-Swap), alcune app potrebbero richiedere
 
 Per altre informazioni sulla personalizzazione il `applicationInitialization` elemento, vedere [più comuni errori scambio dello slot di distribuzione e come risolverli](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
-È anche possibile personalizzare il comportamento di riscaldamento con una o più [impostazioni dell'app](web-sites-configure.md) seguenti:
+È anche possibile personalizzare il comportamento di riscaldamento con una o più [impostazioni dell'app](configure-common.md) seguenti:
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: percorso di cui effettuare il ping per il riscaldamento del sito. Aggiungere questa impostazione dell'app specificando un percorso personalizzato che inizi con una barra come valore. Ad esempio: `/statuscheck`. Il valore predefinito è `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: codici di risposta HTTP validi per l'operazione di riscaldamento. Aggiungere questa impostazione dell'app con un elenco di codici HTTP separati da virgole. Ad esempio: `200,202`. Se il codice di stato restituito non è presente nell'elenco, le operazioni di riscaldamento e scambio vengono arrestate. Per impostazione predefinita, sono validi tutti i codici di risposta.

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84ed1632a61ae097bd2e187de4766dfc50f2503f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 050f301b55c718e80c1b4157639bd9dce506f6ba
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263780"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979396"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
-Uno dei maggiori vantaggi di Criteri di Azure è rappresentato dalle informazioni dettagliate e dai controlli che offre sulle risorse in una sottoscrizione o in un [gruppo di gestione](../../management-groups/overview.md) di sottoscrizioni. Questi controlli possono essere esercitati in molti modi diversi, ad esempio impedendo la creazione di risorse nel percorso errato, imponendo un uso dei tag coerente e comune o controllando che per le risorse esistenti ci siano configurazioni e impostazioni appropriate. In tutti i casi i dati vengono generati da Criteri per consentire di comprendere lo stato di conformità dell'ambiente in uso.
+Uno dei maggiori vantaggi di Criteri di Azure è rappresentato dalle informazioni dettagliate e dai controlli che offre sulle risorse in una sottoscrizione o in un [gruppo di gestione](../../management-groups/overview.md) di sottoscrizioni. Questi controlli possono essere esercitati in molti modi diversi, ad esempio impedendo la creazione di risorse nel percorso errato, imponendo un uso dei tag coerente e comune o controllando che per le risorse esistenti ci siano configurazioni e impostazioni appropriate. In tutti i casi, i dati vengono generati da criteri di Azure che consentono di comprendere lo stato di conformità dell'ambiente.
 
 Esistono diversi modi per accedere alle informazioni sulla conformità generate dalle assegnazioni di criteri e iniziative:
 
@@ -33,7 +33,7 @@ Prima di esaminare i metodi disponibili per creare report sulla conformità, è 
 
 ## <a name="evaluation-triggers"></a>Trigger di valutazione
 
-I risultati di un ciclo di valutazione completato sono disponibili nel provider di risorse `Microsoft.PolicyInsights` attraverso le operazioni `PolicyStates` e `PolicyEvents`. Per altre informazioni sulle operazioni dell'API REST di Policy Insights, vedere [Policy Insights](/rest/api/policy-insights/).
+I risultati di un ciclo di valutazione completato sono disponibili nel provider di risorse `Microsoft.PolicyInsights` attraverso le operazioni `PolicyStates` e `PolicyEvents`. Per altre informazioni sulle operazioni dell'API REST di Insights di criteri di Azure, vedere [Azure Policy Insights](/rest/api/policy-insights/).
 
 Le valutazioni delle iniziative e dei criteri assegnati sono il risultato di diversi eventi:
 
@@ -88,14 +88,15 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ## <a name="how-compliance-works"></a>Funzionamento della conformità
 
-In un'assegnazione, una risorsa risulta **Non conforme** se non segue le regole dei criteri o delle iniziative. La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in base alla valutazione della condizione per lo stato di conformità risultante:
+In un'assegnazione, una risorsa risulta **Non conforme** se non segue le regole dei criteri o delle iniziative.
+La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in base alla valutazione della condizione per lo stato di conformità risultante:
 
 | Stato della risorsa | Effetto | Valutazione dei criteri | Stato di conformità |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | Non conforme |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
+| Esiste | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | Non conforme |
+| Esiste | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Conforme |
 | Nuovo | Audit, AuditIfNotExist\* | True  | Non conforme |
-| Nuovo | Audit, AuditIfNotExist\* | False | Conforme |
+| Nuovo | Audit, AuditIfNotExist\* | Falso | Conforme |
 
 \* Gli effetti Append, DeployIfNotExist e AuditIfNotExist richiedono che l'istruzione IF sia TRUE.
 Richiedono inoltre che la condizione di esistenza sia FALSE per lo stato non conforme. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.
@@ -114,7 +115,7 @@ Oltre a **Conforme** e **Non conforme**, i criteri e le risorse possono avere al
 - **Non avviato**: il ciclo di valutazione per i criteri o la risorsa non è stato avviato.
 - **Non registrato**: il provider di risorse di Criteri di Azure non è stato registrato o l'account connesso non è autorizzato a leggere i dati di conformità.
 
-I criteri usano i campi **tipo** e **nome** nella definizione per determinare se una risorsa corrisponde. Se la risorsa corrisponde, viene considerata applicabile e il suo stato è **Conforme** o **Non conforme**. Se la sola proprietà presente nella definizione è **tipo** o **nome**, tutte le risorse sono considerate applicabili e vengono valutate.
+Criteri di Azure usano il **tipo** e **nome** campi nella definizione per determinare se una risorsa è una corrispondenza. Se la risorsa corrisponde, viene considerata applicabile e il suo stato è **Conforme** o **Non conforme**. Se la sola proprietà presente nella definizione è **tipo** o **nome**, tutte le risorse sono considerate applicabili e vengono valutate.
 
 La percentuale di conformità viene determinata dividendo le risorse **conformi** per il  _totale delle risorse_.
 Per _totale delle risorse_ si intende la somma delle risorse **conformi**, **non conformi** e **in conflitto**. I valori di conformità complessiva corrispondono alla somma delle risorse distinte **conformi** divisa per la somma di tutte le risorse distinte. Nell'immagine seguente sono presenti 20 risorse distinte applicabili, di cui una sola **Non conforme**. La conformità complessiva delle risorse è pari al 95% (19 su 20).
@@ -123,23 +124,22 @@ Per _totale delle risorse_ si intende la somma delle risorse **conformi**, **non
 
 ## <a name="portal"></a>Portale
 
-Il portale di Azure illustra un'esperienza grafica di visualizzazione e comprensione dello stato di conformità nell'ambiente in uso. Nella pagina **Criteri** l'opzione **Panoramica** fornisce i dettagli per gli ambiti disponibili sulla conformità dei criteri e delle iniziative. Oltre allo stato di conformità e al conteggio per assegnazione, contiene un grafico che mostra la conformità negli ultimi sette giorni.
-La pagina **Conformità** contiene buona parte di queste stesse informazioni (eccetto il grafico), ma fornisce altre opzioni di ordinamento e applicazione di filtri.
+Il portale di Azure illustra un'esperienza grafica di visualizzazione e comprensione dello stato di conformità nell'ambiente in uso. Nella pagina **Criteri** l'opzione **Panoramica** fornisce i dettagli per gli ambiti disponibili sulla conformità dei criteri e delle iniziative. Oltre allo stato di conformità e al conteggio per assegnazione, contiene un grafico che mostra la conformità negli ultimi sette giorni. La pagina **Conformità** contiene buona parte di queste stesse informazioni (eccetto il grafico), ma fornisce altre opzioni di ordinamento e applicazione di filtri.
 
-![Esempio di pagina di conformità dei criteri](../media/getting-compliance-data/compliance-page.png)
+![Esempio di pagina di conformità dei criteri di Azure](../media/getting-compliance-data/compliance-page.png)
 
 Dal momento che un criterio o un'iniziativa può essere assegnata a diversi ambiti, la tabella include l'ambito di ogni assegnazione e il tipo di definizione assegnato. È anche indicato il numero di risorse non conformi e di criteri non conformi per ogni assegnazione. Quando si fa clic su un criterio o su un'iniziativa nella tabella, viene fornita un'analisi più approfondita della conformità per quella particolare assegnazione.
 
-![Esempio di pagina dei dettagli di conformità dei criteri](../media/getting-compliance-data/compliance-details.png)
+![Esempio di pagina dei dettagli di conformità dei criteri di Azure](../media/getting-compliance-data/compliance-details.png)
 
 L'elenco delle risorse nella scheda **Conformità risorsa** mostra lo stato di valutazione delle risorse esistenti per l'assegnazione corrente. Il valore predefinito della scheda è **Non conforme**, ma è possibile applicare un filtro.
 Gli eventi (Append, Audit, Deny, Deploy) attivati dalla richiesta di creazione di una risorsa sono visualizzati nella scheda **Eventi**.
 
-![Esempio di eventi di conformità dei criteri](../media/getting-compliance-data/compliance-events.png)
+![Esempio di eventi di conformità dei criteri di Azure](../media/getting-compliance-data/compliance-events.png)
 
 Fare clic con il pulsante destro del mouse sulla riga dell'evento per cui si vogliono raccogliere maggiori dettagli e selezionare **Mostra log attività**. La pagina del log attività viene aperta e pre-filtrata con la ricerca contenente i dettagli per l'assegnazione e gli eventi. Il log attività offre un contesto aggiuntivo e altre informazioni su tali eventi.
 
-![Esempio di Log attività di conformità dei criteri](../media/getting-compliance-data/compliance-activitylog.png)
+![Esempio di Log attività di conformità dei criteri di Azure](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>Comprendere mancata conformità
 
@@ -149,7 +149,7 @@ Quando una risorsa viene identificata come **non conformi**, esistono numerose c
 
 ## <a name="command-line"></a>Riga di comando
 
-Le stesse informazioni disponibili nel portale possono essere recuperate con l'API REST (anche con [ARMClient](https://github.com/projectkudu/ARMClient)) o Azure PowerShell. Per tutti i dettagli sull'API REST, vedere le informazioni di riferimento su [Policy Insights](/rest/api/policy-insights/). Le pagine di riferimento sull'API REST includono un pulsante verde "Prova", che consente di provare ogni operazione direttamente nel browser.
+Le stesse informazioni disponibili nel portale possono essere recuperate con l'API REST (anche con [ARMClient](https://github.com/projectkudu/ARMClient)) o Azure PowerShell. Per informazioni dettagliate sull'API REST, vedere la [Azure Policy Insights](/rest/api/policy-insights/) riferimento. Le pagine di riferimento sull'API REST includono un pulsante verde "Prova", che consente di provare ogni operazione direttamente nel browser.
 
 Per usare gli esempi seguenti in Azure PowerShell, creare un token di autenticazione con questo codice di esempio. Sostituire quindi $restUri con la stringa riportata negli esempi per recuperare un oggetto JSON che può quindi essere analizzato.
 
@@ -178,7 +178,7 @@ $response
 
 ### <a name="summarize-results"></a>Riepilogare i risultati
 
-L'API REST consente di eseguire il riepilogo per contenitore, definizione o assegnazione. Di seguito è riportato un esempio di riepilogo a livello di sottoscrizione tramite il [riepilogo per sottoscrizione](/rest/api/policy-insights/policystates/summarizeforsubscription) di Policy Insights:
+L'API REST consente di eseguire il riepilogo per contenitore, definizione o assegnazione. Ecco un esempio di riepilogo a livello di sottoscrizione mediante Azure criteri Insight [riepilogare per sottoscrizione](/rest/api/policy-insights/policystates/summarizeforsubscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
@@ -266,7 +266,7 @@ Per brevità, la risposta di esempio seguente è stata tagliata in una singola r
 }
 ```
 
-### <a name="view-events"></a>Visualizzare eventi
+### <a name="view-events"></a>Visualizza gli eventi
 
 Quando si crea o si aggiorna una risorsa, viene generato un risultato di valutazione dei criteri. I risultati sono chiamati _eventi criteri_. Usare l'Uri seguente per visualizzare gli eventi criteri recenti associati alla sottoscrizione.
 
@@ -288,11 +288,12 @@ I risultati saranno simili all'esempio seguente:
 }
 ```
 
-Per altre informazioni sull'esecuzione di query sugli eventi dei criteri, vedere l'articolo di riferimento [Policy Events](/rest/api/policy-insights/policyevents) (Eventi dei criteri).
+Per altre informazioni sull'esecuzione di query eventi dei criteri, vedere la [gli eventi dei criteri di Azure](/rest/api/policy-insights/policyevents) articolo di riferimento.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Il modulo Azure PowerShell per Criteri è disponibile in PowerShell Gallery come [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights). Grazie all'uso di PowerShellGet, è possibile installare il modulo usando `Install-Module -Name Az.PolicyInsights` (assicurarsi di avere la versione più recente di [Azure PowerShell](/powershell/azure/install-az-ps) installata):
+Il modulo Azure PowerShell per criteri di Azure è disponibile in PowerShell Gallery come [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
+Grazie all'uso di PowerShellGet, è possibile installare il modulo usando `Install-Module -Name Az.PolicyInsights` (assicurarsi di avere la versione più recente di [Azure PowerShell](/powershell/azure/install-az-ps) installata):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
@@ -417,13 +418,13 @@ Trent Baker
 
 Se si dispone di un [dell'area di lavoro di Log Analitica](../../../log-analytics/log-analytics-overview.md) con `AzureActivity` dal [soluzione Analitica Log attività](../../../azure-monitor/platform/collect-activity-logs.md) associato alla sottoscrizione, è anche possibile visualizzare i risultati di conformità dal ciclo di valutazione usando query Kusto semplici e `AzureActivity` tabella. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
 
-![Conformità dei criteri con i log di Monitoraggio di Azure](../media/getting-compliance-data/compliance-loganalytics.png)
+![Conformità di criteri di Azure usando i log di monitoraggio di Azure](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md)
-- Vedere la [struttura delle definizioni dei criteri](../concepts/definition-structure.md)
-- Vedere [Informazioni sugli effetti di Criteri](../concepts/effects.md)
-- Informazioni su come [creare criteri a livello di programmazione](programmatically-create.md)
-- Informazioni su come [correggere le risorse non conformi](remediate-resources.md)
-- Scoprire le caratteristiche di un gruppo di gestione con [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md)
+- Esaminare gli esempi nella [esempi di criteri di Azure](../samples/index.md).
+- Vedere la [struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
+- Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
+- Comprendere come [a livello di codice, creare criteri](programmatically-create.md).
+- Informazioni su come [monitora e aggiorna le risorse non conformi](remediate-resources.md).
+- Esaminare un gruppo di gestione riguarda [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

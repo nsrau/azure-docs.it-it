@@ -8,12 +8,12 @@ editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: d0479b834f814616e44a1888ab8b958990610820
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbc3bba3d95526277da3487cb8670c1f1a88a925
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611713"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951762"
 ---
 # <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>Applicare l'autenticazione a più fattori (MFA) per gli amministratori della sottoscrizione
 
@@ -22,7 +22,7 @@ Quando si creano gli amministratori, incluso l'account amministratore globale, �
 È possibile eseguire le operazioni di amministrazione quotidiana assegnando ruoli di amministratore specifici, ad esempio amministratore di Exchange o amministratore password, ad account utente del personale IT in base alle esigenze.
 Inoltre, l'abilitazione di [Azure Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) per gli amministratori consente di aggiungere un secondo livello di sicurezza agli accessi e alle transazioni degli utenti. Grazie a Azure MFA, i reparti IT possono anche ridurre la probabilità di accesso ai dati dell'organizzazione usando credenziali compromesse.
 
-Ad esempio: è possibile applicare Azure MFA per gli utenti e configurarlo per l'uso di una telefonata o di un messaggio di testo di verifica. Se le credenziali dell'utente vengono compromesse, l'autore dell'attacco non può accedere alle risorse perché non ha accesso al telefono dell'utente. Le organizzazioni che non aggiungono livelli supplementari di protezione delle identità sono più vulnerabili agli attacchi con furto di credenziali, con conseguente rischio di compromissione dei dati.
+Ad esempio: Applicare Azure MFA per gli utenti e configurarlo per usare una telefonata o un messaggio di testo come verifica. Se le credenziali dell'utente vengono compromesse, l'autore dell'attacco non sarà possibile accedere alle risorse perché non hanno accesso al telefono dell'utente. Le organizzazioni che non aggiungono livelli supplementari di protezione delle identità sono più vulnerabili agli attacchi con furto di credenziali, con conseguente rischio di compromissione dei dati.
 
 In alternativa, le organizzazioni che vogliono mantenere in locale tutto il controllo dell'autenticazione possono usare il [server Microsoft Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server), detto anche "MFA in locale". Questo metodo consentirà comunque di applicare la Multi-Factor Authentication, mantenendo il server MFA in locale.
 

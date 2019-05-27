@@ -4,14 +4,14 @@ description: Informazioni su come configurare e modificare i criteri per l'indic
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: thweiss
-ms.openlocfilehash: c7f2ccd2c074f2488c86b45a09859b308655df8d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: c45beb3ed6f87e95d171e2299c533b4be2827f27
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068596"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954041"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
 
@@ -57,8 +57,8 @@ Quando un percorso in modo esplicito sia incluso nei criteri di indicizzazione, 
 
 | Tipo di indice | Tipi di dati di destinazione consentiti |
 | --- | --- |
-| Range | Stringa o numero |
-| Spatial | Point, LineString o poligono |
+| Intervallo | Stringa o numero |
+| Spaziale | Point, LineString o poligono |
 
 Ad esempio, è possibile includere il `/headquarters/employees/?` percorso e specificare che un `Range` indice deve essere applicato in tale percorso per entrambi `String` e `Number` valori.
 
@@ -114,7 +114,7 @@ Se modalità dei nuovi criteri di indicizzazione sono impostato su Consistent, n
 
 ## <a name="indexing-policies-and-ttl"></a>I criteri di indicizzazione e durata (TTL)
 
-Il [funzionalità di Time-to-Live (TTL)](time-to-live.md) richiede l'indicizzazione per essere attiva per il contenitore è attivata. Ciò significa che:
+Il [funzionalità di Time-to-Live (TTL)](time-to-live.md) richiede l'indicizzazione per essere attiva per il contenitore è attivata. Vale a dire che:
 
 - non è possibile attivare la durata (TTL) in un contenitore in cui la modalità di indicizzazione è impostata su None,
 - non è possibile impostare la modalità di indicizzazione su None per un contenitore in cui viene attivato durata (TTL).

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 9006590583f0ef52bbce716529534f8bce6f47c5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6516b11bf5d4d4c4e5406a3e6e0cce3189796d33
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780378"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956409"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 
@@ -41,6 +41,7 @@ Gli indirizzi IP per i pod e i nodi del cluster vengono assegnati dalla subnet s
 > Per calcolare il numero di indirizzi IP necessari, è opportuno considerare le eventuali operazioni di aggiornamento e ridimensionamento. Se si imposta l'intervallo di indirizzi IP solo per supportare un numero fisso di nodi, non è possibile aggiornare o ridimensionare il cluster.
 >
 > - Quando si esegue l'**aggiornamento** del cluster servizio Azure Kubernetes, viene distribuito un nuovo nodo nel cluster. Viene avviata l'esecuzione di servizi e carichi di lavoro nel nuovo nodo e il nodo precedente viene rimosso dal cluster. Questo processo di aggiornamento in sequenza richiede la disponibilità di almeno un altro blocco di indirizzi IP. Il numero di nodi risulta quindi pari a `n + 1`.
+>   - Questa considerazione è particolarmente importante quando si usa il pool di nodi Windows Server (attualmente in anteprima nel servizio contenitore di AZURE). Nodi di Windows Server nel servizio contenitore di AZURE non vengono applicate automaticamente gli aggiornamenti di Windows, invece eseguire un aggiornamento sul pool di nodi. Questo aggiornamento consente di distribuire nuovi nodi con la finestra Server 2019 nodo base immagine e la sicurezza le patch più recenti. Per altre informazioni sull'aggiornamento di un pool di nodi di Windows Server, vedere [esegue l'aggiornamento di un pool di nodi in AKS][nodepool-upgrade].
 >
 > - Quando si esegue il **ridimensionamento** di un cluster servizio Azure Kubernetes, viene distribuito un nuovo nodo nel cluster. Viene avviata l'esecuzione di servizi e carichi di lavoro nel nuovo nodo. Per calcolare l'intervallo di indirizzi IP, è necessario considerare il modo in cui si vuole aumentare il numero di nodi e pod supportati dal cluster. È necessario includere anche un nodo aggiuntivo per le operazioni di aggiornamento. Il numero di nodi risulta quindi pari a `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 
@@ -68,7 +69,7 @@ Il numero massimo di POD per ogni nodo in un cluster AKS è 250. Il numero massi
 
 ### <a name="configure-maximum---new-clusters"></a>Configurare il valore massimo - nuovi cluster
 
-È possibile configurare il numero massimo di pod per nodo *solo in fase di distribuzione del cluster*. Se si distribuisce con il comando di Azure o con un modello di Resource Manager, è possibile impostare il numero massimo di POD per ogni valore del nodo in base alle esigenze all'interno di quanto segue `maxPods` linee guida:
+È possibile configurare il numero massimo di pod per nodo *solo in fase di distribuzione del cluster*. Se si distribuisce con il comando di Azure o con un modello di Resource Manager, è possibile impostare il numero massimo di POD per ogni valore di nodo fino a 250.
 
 | Rete | Minima | Massima |
 | -- | :--: | :--: |
@@ -76,8 +77,7 @@ Il numero massimo di POD per ogni nodo in un cluster AKS è 250. Il numero massi
 | Kubenet | 30 | 110 |
 
 > [!NOTE]
-> Il valore minimo nella tabella precedente viene applicato esclusivamente per il servizio contenitore di AZURE.
-È non possibile impostare un valore maxPods inferiori al valore minimo indicato come questo può impedire al cluster di avvio.
+> Il valore minimo nella tabella precedente viene applicato esclusivamente per il servizio contenitore di AZURE. È non possibile impostare un valore maxPods inferiori al valore minimo indicato come questo può impedire al cluster di avvio.
 
 * **Interfaccia della riga di comando di Azure**: specificare l'`--max-pods`argomento quando si distribuisce un cluster con il comando [az aks create][az-aks-create]. Il valore massimo è 250.
 * **Modello di Resource Manager**: specificare la `maxPods` proprietà nell'oggetto [ManagedClusterAgentPoolProfile] quando si distribuisce un cluster con un modello di Resource Manager. Il valore massimo è 250.
@@ -114,7 +114,7 @@ Quando si crea un cluster del servizio Azure Kubernetes con l'interfaccia della 
 
 Ottenere prima di tutto l'ID risorsa della subnet esistente in cui verrà aggiunto il cluster servizio Azure Kubernetes:
 
-```console
+```azurecli-interactive
 $ az network vnet subnet list \
     --resource-group myVnet \
     --vnet-name myVnet \
@@ -125,7 +125,7 @@ $ az network vnet subnet list \
 
 Usare il comando [az servizio Azure Kubernetes create][az-aks-create] con l'argomento `--network-plugin azure` per creare un cluster con funzionalità di rete avanzate. Aggiornare il valore `--vnet-subnet-id` con l'ID della subnet raccolto nel passaggio precedente:
 
-```azurecli
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -133,7 +133,8 @@ az aks create \
     --vnet-subnet-id <subnet-id> \
     --docker-bridge-address 172.17.0.1/16 \
     --dns-service-ip 10.2.0.10 \
-    --service-cidr 10.2.0.0/24
+    --service-cidr 10.2.0.0/24 \
+    --generate-ssh-keys
 ```
 
 ## <a name="configure-networking---portal"></a>Configurare le impostazioni di rete - portale
@@ -211,3 +212,4 @@ I cluster Kubernetes creati con AKS Engine supportano entrambi i plug-in [kubene
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

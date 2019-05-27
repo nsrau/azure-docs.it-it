@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/20/2019
 ms.author: danlep
-ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582415"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977208"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automate OS and framework patching with ACR Tasks (Automatizzare l'applicazione di patch al sistema operativo e al framework con ACR Tasks)
 
@@ -41,7 +41,7 @@ Per un'introduzione, vedere la Guida introduttiva a [compilare ed eseguire un'im
 
 La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per ACR Tasks:
 
-| Posizione contesto | DESCRIZIONE | Esempio |
+| Posizione contesto | Descrizione | Esempio |
 | ---------------- | ----------- | ------- |
 | File system locale | File contenuti in una directory nel file System locale. | `/home/user/projects/myapp` |
 | Ramo master GitHub | File nel master (o altra impostazione predefinita) di un repository GitHub.  | `https://github.com/gituser/myapp-repo.git` |
@@ -94,6 +94,16 @@ Ad esempio, è possibile creare un'attività in più passaggi che consenta di au
 Le attività in più passaggi consentono di dividere la creazione, l'esecuzione e il test di un'immagine in più passaggi componibili, con il supporto della dipendenza tra i passaggi. Con le attività in più passaggi in ACR Tasks si dispone di un controllo più granulare sulla compilazione delle immagini, sui test e sui flussi di lavoro di applicazione di patch al framework e al sistema operativo.
 
 Altre informazioni sulle attività in più passaggi in [Run multi-step build, test, and patch tasks in ACR Tasks](container-registry-tasks-multi-step.md) (Eseguire attività di compilazione, test e applicazione di patch in più passaggi con ACR Tasks).
+
+## <a name="view-task-logs"></a>Visualizzare i log attività
+
+Ogni esecuzione di attività genera output del log che è possibile esaminare per determinare se i passaggi di attività è stata eseguita correttamente. Se si usa la [compilazione di az acr](/cli/azure/acr#az-acr-build), [az acr eseguire](/cli/azure/acr#az-acr-run), o [dell'esecuzione dell'attività az acr](/cli/azure/acr/task#az-acr-task-run) comando per attivare l'attività, output del log per l'esecuzione dell'attività è trasmesse alla console e anche archiviati per un uso successivo recupero. Visualizza i log per un'attività Esegui nel portale di Azure oppure usano il [log attività di az acr](/cli/azure/acr/task#az-acr-task-logs) comando.
+
+A partire da luglio 2019, dati e i log per le esecuzioni di attività in un registro verranno conservati per impostazione predefinita per 30 giorni e quindi eliminati automaticamente. Se si desidera archiviare i dati per eseguire un'operazione, abilitare l'archiviazione tramite il [update-esecuzione di az acr attività](/cli/azure/acr/task#az-acr-task-update-run) comando. L'esempio seguente Abilita l'archiviazione per l'esecuzione dell'attività *cf11* nel Registro di sistema *myregistry*.
+
+```azurecli
+az acr task update-run --registry myregistry --run-id cf11 --no-archive false
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

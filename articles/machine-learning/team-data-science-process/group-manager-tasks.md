@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fb0482be1670a96befdd69a5356c9e21476d9f9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60305415"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950093"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Attività di un responsabile del gruppo in un progetto di data science in team
 
-Questo argomento illustra le attività che un responsabile del gruppo deve completare per la propria organizzazione di data science. L'obiettivo è stabilire un ambiente di collaborazione per il gruppo, che viene standardizzato con il [processo di data science per i team](overview.md) (TDSP, Team Data Science Process). Per una descrizione dei ruoli del personale e delle relative attività associate gestiti da un team di data science, che vengono standardizzati con il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
+Questo argomento illustra le attività che un responsabile del gruppo deve completare per la propria organizzazione di analisi scientifica dei dati. L'obiettivo è stabilire un ambiente di collaborazione per il gruppo, che viene standardizzato con il [processo di data science per i team](overview.md) (TDSP, Team Data Science Process). Per una descrizione dei ruoli del personale e delle relative attività associate gestiti da un team di data science, che vengono standardizzati con il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
 
 Il **responsabile del gruppo** è il responsabile dell'intera unità di data science in un'azienda. Un'unità di data science può comprendere più team, ognuno dei quali lavora a più progetti di data science in segmenti verticali aziendali distinti. Un responsabile del gruppo può delegare le attività a un sostituto, ma le attività associate al ruolo sono le stesse. Le attività principali sono sei, come illustrato nel diagramma seguente:
 
@@ -99,7 +99,7 @@ Inserire le informazioni per gli Azure DevOps Services che si vogliono creare ne
 ![5](./media/group-manager-tasks/create-account-2.png)
 
 
-Fare clic su **Continue**.
+Scegliere **Continua**.
 
 ## <a name="2-groupcommon-project"></a>2. Progetto GroupCommon
 

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7a0269ff22987648d134cb7f4fba8e28e29fd8b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61023739"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956285"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usare Virtual Kubelet con il servizio Azure Kubernetes
 
@@ -26,13 +26,35 @@ Quando si usa il provider Virtual Kubelet per Istanze di Azure Container, è pos
 >
 > Virtual Kubelet è un progetto open source sperimentale e deve essere usato in quanto tale. Per contribuire, registrare problemi e leggere altre informazioni su Virtual Kubelet, vedere il [progetto GitHub Virtual Kubelet][vk-github].
 
-## <a name="prerequisite"></a>Prerequisito
+## <a name="before-you-begin"></a>Prima di iniziare
 
 Questo documento presuppone che si abbia già un cluster servizio Azure Kubernetes. Se è necessario un cluster del servizio Azure Kubernetes, vedere la [guida introduttiva al servizio Azure Kubernetes][aks-quick-start].
 
 È anche necessaria l'interfaccia della riga di comando di Azure versione **2.0.33**. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 Per installare Virtual Kubelet, è anche necessario [Helm](https://docs.helm.sh/using_helm/#installing-helm).
+
+### <a name="register-container-instances-feature-provider"></a>Registrare il provider di funzionalità di istanze di contenitore
+
+Se non è stato precedentemente usato il servizio di istanza di contenitore di Azure (ACI), registrare il provider di servizi con la sottoscrizione. È possibile controllare lo stato della registrazione del provider ACI usando il comando di [az-provider-list] [az provider list], come illustrato nell'esempio seguente:
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+```
+
+Il provider *Microsoft.ContainerInstance* deve essere contrassegnato come *Registrato*, come spiegato nell'output di esempio seguente:
+
+```
+Namespace                    RegistrationState
+---------------------------  -------------------
+Microsoft.ContainerInstance  Registered
+```
+
+Se il provider viene visualizzato come *NotRegistered*, registrare il provider con [az provider register] [az-provider-register], come illustrato nell'esempio seguente:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 ### <a name="for-rbac-enabled-clusters"></a>Per i cluster che dispongono dell’abilitazione RBAC
 
@@ -85,18 +107,18 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 Per il comando `aks install-connector` sono disponibili questi argomenti.
 
-| Argomento: | DESCRIZIONE | Obbligatoria |
+| Argomento: | Descrizione | Obbligatorio |
 |---|---|:---:|
 | `--connector-name` | Nome del connettore di Istanze di contenitore di Azure.| Sì |
 | `--name` `-n` | Nome del cluster gestito. | Sì |
 | `--resource-group` `-g` | Nome del gruppo di risorse. | Sì |
-| `--os-type` | Tipo di sistema operativo delle istanze di contenitore. Valori consentiti: Entrambi, Linux, Windows. Predefinito: Linux. | No  |
-| `--aci-resource-group` | Gruppo di risorse in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | No  |
-| `--location` `-l` | Posizione in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | No  |
-| `--service-principal` | Entità servizio usata per l'autenticazione alle API di Azure. | No  |
-| `--client-secret` | Segreto associato all'entità servizio. | No  |
-| `--chart-url` | URL di un chart Helm che installa il connettore di Istanze di contenitore di Azure. | No  |
-| `--image-tag` | Tag dell'immagine del contenitore Virtual Kubelet. | No  |
+| `--os-type` | Tipo di sistema operativo delle istanze di contenitore. Valori consentiti: Entrambi, Linux, Windows. Predefinito: Linux. | N. |
+| `--aci-resource-group` | Gruppo di risorse in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | N. |
+| `--location` `-l` | Posizione in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | N. |
+| `--service-principal` | Entità servizio usata per l'autenticazione alle API di Azure. | N. |
+| `--client-secret` | Segreto associato all'entità servizio. | N. |
+| `--chart-url` | URL di un chart Helm che installa il connettore di Istanze di contenitore di Azure. | N. |
+| `--image-tag` | Tag dell'immagine del contenitore Virtual Kubelet. | N. |
 
 ## <a name="validate-virtual-kubelet"></a>Convalidare Virtual Kubelet
 

@@ -4,16 +4,16 @@ description: Ancoraggi nello spazio di Azure è un servizio cloud gestito e una 
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d38f7a22d90c62b245e49e6bdb0a3041c4f1023f
-ms.sourcegitcommit: 68ba7916a6ff8dd40f5037e57059733d74374954
+ms.openlocfilehash: fdde10c9ef7c035ed36b5f823a0b77e7c8b53803
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753594"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964563"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 

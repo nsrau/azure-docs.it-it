@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/20/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3fb1f430076b26f7b5dd83e167371ac6d957ac4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311939"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967232"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Eseguire la migrazione dal contratto Enterprise a API di contratto dei clienti di Microsoft
 
@@ -90,7 +90,7 @@ Il [ottenere riepilogo bilanciamento](/rest/api/billing/enterprise/billing-enter
 - Saldi
 - Nuovi acquisti
 - Addebiti per servizi di Azure Marketplace
-- Rettifiche
+- Modifiche
 - Addebiti per eccedenza del servizio
 
 Tutte le API di utilizzo vengono sostituite dalle API nativa di Azure che usano Azure AD per l'autenticazione e autorizzazione. Per altre informazioni sulla chiamata API REST di Azure, vedere [Introduzione a REST](/rest/api/azure/#create-the-request).
@@ -176,20 +176,20 @@ Modificare il nome di proprietà che contiene la matrice di record di utilizzo d
 | AccountNameAccountOwnerId e AccountOwnerEmail | N/D | Il creatore della sottoscrizione non viene tenuta traccia. Usare invoiceSectionName (uguale a departmentName). |
 | Informazioni aggiuntive | additionalInfo | &nbsp;  |
 | ChargesBilledSeparately | isAzureCreditEligible | Si noti che queste proprietà sono opposti. Se è true isAzureCreditEnabled, ChargesBilledSeparately sarà false. |
-| ConsumedQuantity | quantity | &nbsp; |
+| Quantità utilizzata | quantity | &nbsp; |
 | Servizio utilizzato | consumedService | Valori stringa esatta potrebbero differire. |
 | ID del servizio utilizzato | Nessuna | &nbsp; |
-| CostCenter | costCenter | &nbsp; |
+| Centro di costo | costCenter | &nbsp; |
 | Data e usageStartDate | date | &nbsp;  |
 | Giorno | Nessuna | Analizza giorno dalla data. |
 | ID del reparto | invoiceSectionId | Differenze tra valori esatti. |
-| DepartmentName | invoiceSectionName | Valori stringa esatta potrebbero differire. Configurare le sezioni della fattura in modo da corrispondere a reparti, se necessario. |
+| Nome del reparto | invoiceSectionName | Valori stringa esatta potrebbero differire. Configurare le sezioni della fattura in modo da corrispondere a reparti, se necessario. |
 | ExtendedCost e i costi | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
 | È un addebito ricorrente | Nessuna | &nbsp;  |
-| Location | location | &nbsp;  |
+| Località | percorso | &nbsp;  |
 | Categoria del contatore | meterCategory | Valori stringa esatta potrebbero differire. |
-| ID contatore | meterId | Differenze tra valori stringa esatta. |
+| ID del contatore | meterId | Differenze tra valori stringa esatta. |
 | Nome del contatore | meterName | Valori stringa esatta potrebbero differire. |
 | Area del contatore | meterRegion | Valori stringa esatta potrebbero differire. |
 | Sottocategoria del contatore | meterSubCategory | Valori stringa esatta potrebbero differire. |
@@ -200,8 +200,8 @@ Modificare il nome di proprietà che contiene la matrice di record di utilizzo d
 | PartNumber | Nessuna | Usare meterId e productOrderName per identificare in modo univoco i prezzi. |
 | Nome piano | productOrderName | &nbsp;  |
 | Prodotto | Prodotto |   |
-| ProductId | productId | Differenze tra valori stringa esatta. |
-| Nome entità di pubblicazione | publisherName | &nbsp;  |
+| ID prodotto | productId | Differenze tra valori stringa esatta. |
+| Nome autore | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
 | ResourceGuid | meterId | Differenze tra valori stringa esatta. |
 | Posizione della risorsa | resourceLocation | &nbsp;  |
@@ -210,13 +210,13 @@ Modificare il nome di proprietà che contiene la matrice di record di utilizzo d
 | ID dell'amministratore del servizio | N/D | &nbsp;  |
 | Informazioni sul servizio 1 | serviceInfo1 | &nbsp;  |
 | Informazioni sul servizio 2 | serviceInfo2 | &nbsp;  |
-| ServiceName | meterCategory | Valori stringa esatta potrebbero differire. |
+| Nome del servizio | meterCategory | Valori stringa esatta potrebbero differire. |
 | Livello di servizio | meterSubCategory | Valori stringa esatta potrebbero differire. |
 | Identificatore del servizio Store | N/D | &nbsp;  |
 | GUID della sottoscrizione | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
-| SubscriptionName | subscriptionName | &nbsp;  |
-| Tag | tags | La proprietà tags applicata all'oggetto radice, non per la proprietà di proprietà annidate. |
+| Nome della sottoscrizione | subscriptionName | &nbsp;  |
+| `Tags` | tags | La proprietà tags applicata all'oggetto radice, non per la proprietà di proprietà annidate. |
 | Unità di misura | unitOfMeasure | Differenze tra valori stringa esatta. |
 | usageEndDate | date | &nbsp;  |
 | Year | Nessuna | Analizza l'anno della data. |
@@ -369,7 +369,7 @@ La tabella seguente illustra i campi nella precedente API di elenco prezzi Enter
 
 | Proprietà precedente | Nuova proprietà | Note |
 | --- | --- | --- |
-| billingPeriodId  | _Non applicabile_ | Non applicabile Per i contratti dei clienti Microsoft, la fattura e l'elenco prezzi associati sostituito il concetto di billingPeriodId. |
+| billingPeriodId  | _Non applicabile_ | Non applicabile. Per i contratti dei clienti Microsoft, la fattura e l'elenco prezzi associati sostituito il concetto di billingPeriodId. |
 | meterId  | meterId | &nbsp;  |
 | unitOfMeasure  | unitOfMeasure | Valori stringa esatta potrebbero differire. |
 | includedQuantity  | includedQuantity | Non applicabile per i servizi in contratti dei clienti Microsoft. |
@@ -428,11 +428,11 @@ Nell'ambito di registrazione del contratto Enterprise, la risposta dell'API e le
 
 Le proprietà precedenti [API di Azure Resource Manager prezzo foglio](/rest/api/consumption/pricesheet) e sono le stesse proprietà di nuovo nella tabella seguente.
 
-| Proprietà API precedente Azure Resource Manager prezzo foglio  | Nuova proprietà API elenco prezzi di Microsoft dal cliente contratto   | DESCRIZIONE |
+| Proprietà API precedente Azure Resource Manager prezzo foglio  | Nuova proprietà API elenco prezzi di Microsoft dal cliente contratto   | Descrizione |
 | --- | --- | --- |
-| ID misuratore | _meterId_ | Identificatore univoco per il contatore. Uguale a meterId. |
+| ID contatore | _meterId_ | Identificatore univoco per il contatore. Uguale a meterId. |
 | Nome del contatore | meterName | Nome del contatore. Misurazione rappresenta la risorsa da distribuire il servizio di Azure. |
-| Categoria del contatore  | service | Nome della categoria di classificazione per il contatore. Uguale a servizio nell'elenco prezzi contratto dei clienti Microsoft. Differenze tra valori stringa esatta. |
+| Categoria del contatore  | servizio | Nome della categoria di classificazione per il contatore. Uguale a servizio nell'elenco prezzi contratto dei clienti Microsoft. Differenze tra valori stringa esatta. |
 | Sottocategoria di contatore | meterSubCategory | Nome della categoria sottoclassificazione del misuratore. Basata sulla classificazione di differenziazione di set di funzionalità generale nel servizio. Ad esempio, database SQL Basic Visual Studio database SQL Standard. |
 | Area del contatore | meterRegion | &nbsp;  |
 | Unità | _Non applicabile_ | Può essere analizzato da unitOfMeasure. |
@@ -457,17 +457,17 @@ L'elenco prezzi includa i prezzi per i servizi il cui prezzo è basato sull'util
 
 I campi seguenti non sono disponibili nelle API di Microsoft dal cliente contratto prezzo foglio o hanno gli stessi campi.
 
-|Campo ritirato| DESCRIZIONE|
+|Campo ritirato| Descrizione|
 |---|---|
 | billingPeriodId | Non applicabile. Corrisponde a InvoiceId per MCA. |
-| offerId | Non applicabile Corrisponde a productOrderName in MCA. |
-| meterCategory  | Non applicabile Corrisponde al servizio in MCA. |
-| unit | Non applicabile Può essere analizzato da unitOfMeasure. |
+| offerId | Non applicabile. Corrisponde a productOrderName in MCA. |
+| meterCategory  | Non applicabile. Corrisponde al servizio in MCA. |
+| unit | Non applicabile. Può essere analizzato da unitOfMeasure. |
 | currencyCode | Uguale a pricingCurrency in MCA. |
 | meterLocation | Uguale a meterRegion in MCA. |
 | Operativo{0 operativo{0 | Non applicabile perché il numero di parte non è elencato nella MCA fatture. Anziché operativo{0, usare la combinazione di ID contatore e productOrderName per identificare in modo univoco i prezzi. |
-| totalIncludedQuantity | Non applicabile |
-| pretaxStandardRate  | Non applicabile |
+| totalIncludedQuantity | Non applicabile. |
+| pretaxStandardRate  | Non applicabile. |
 
 ## <a name="reservation-instance-charge-api-replaced"></a>API per spese istanza prenotazione sostituito
 

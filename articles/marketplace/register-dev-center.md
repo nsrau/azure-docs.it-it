@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1caa523b2bc43b7b3690e01f589aecf18fd3da9e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937587"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965103"
 ---
 # <a name="register-in-dev-center"></a>Eseguire la registrazione nel Dev Center  
 Per assicurarsi di non essere connessi a un account personale aprire una nuova sessione di Navigazione in incognito su Chrome o InPrivate Browsing in Internet Explorer.  
@@ -156,7 +156,7 @@ Le informazioni bancarie e fiscali sono necessarie per tutte le offerte commerci
   > Verificare di avere specificato correttamente anche il CAP. Viene infatti eseguita una convalida anche tra città e CAP.
 
 * **Come si fa a ottenere un codice promozionale?**
-  > Completare il modulo di [Registrazione al Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) per ricevere un codice promozionale di Dev Center.
+  > Completare il modulo di [Registrazione al Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) per ricevere un codice promozionale di Dev Center. Vedere come [creare un account Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per altre informazioni.
  
 * **Che cosa succede dopo che è stata completata la registrazione?**
   > Cercare un messaggio di posta elettronica da verify@microsoft.com con riga dell'oggetto "Azione necessaria: Verificare l'account di posta elettronica con Microsoft". Fare clic sul collegamento di verifica temporale per completare la registrazione. *Se non si riceve l'e-mail entro 24 ore, controllare nella cartella della posta indesiderata.*
@@ -170,7 +170,7 @@ Le informazioni bancarie e fiscali sono necessarie per tutte le offerte commerci
 * **Perché l'applicazione di Dev Center di un utente è stata rifiutata?**
   > La società di verifica di terze parti (Duns & Bradstreet) non è riuscita a contattare l'utente attraverso il numero di telefono che l'utente aveva specificato. L'utente deve contattare il supporto all'indirizzo [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) per riavviare il processo di verifica
 
-> oppure
+> o
 > 
 > La registrazione dell'account è stata rifiutata per problemi relativi all'area geografica. Le società con filiali distribuite in località diverse dalla sede centrale necessitano di un solo account Dev Center.
  

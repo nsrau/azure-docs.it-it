@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 5ac6603be087e887e3304f6a7e14aa063863e1dd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796457"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952148"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Ritiro della funzionalità del Centro sicurezza (luglio 2019)
 
@@ -162,7 +162,7 @@ Se si dispone di soluzioni connesse esistente, si consiglia di spostare in Azure
 
 Il Centro sicurezza di Azure monitora le configurazioni di sicurezza applicando un set di [oltre 150 regole consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). per la protezione avanzata del sistema operativo. Queste regole sono relative a firewall, controllo, i criteri password e altro ancora. Se in un computer viene trovata una configurazione vulnerabile, il Centro sicurezza genera una raccomandazione di sicurezza. Il [schermata di configurazione della protezione Modifica](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) consente ai clienti di personalizzare la configurazione di sicurezza predefinita del sistema operativo nel Centro sicurezza.
 
-Si sta ritiro di questa funzionalità in anteprima.
+Si sta ritiro di questa funzionalità in anteprima. Se, dopo la data di ritiro, si desidera ripristinare le configurazioni di sicurezza sui valori predefiniti, è possibile farlo tramite Powershell o API usando il [attenendosi alle istruzioni](https://aka.ms/ascresetsecurityconfigurations)
 
 ![Modifica le configurazioni di sicurezza][17]
 

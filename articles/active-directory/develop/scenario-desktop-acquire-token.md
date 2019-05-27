@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fe9594471c6e8f723afff2def940bb675e04fb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9d18c92cccac6bfb0bd359767ecdb51951268735
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407013"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962531"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>App desktop che chiama le API - web acquisire un token
 
@@ -163,7 +163,7 @@ Il team MSAL.NET è riscritte i test dell'interfaccia utente per sfruttare quest
 
 #### <a name="other-optional-parameters"></a>Altri parametri facoltativi
 
-Altre informazioni su tutti gli altri parametri facoltativi per `AcquireTokenInteractive` nella documentazione di riferimento per [AcquireTokenInteractiveParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
+Altre informazioni su tutti gli altri parametri facoltativi per `AcquireTokenInteractive` nella documentazione di riferimento per [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="integrated-windows-authentication"></a>Autenticazione integrata di Windows
 
@@ -283,7 +283,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Per l'elenco dei possibili modificatori in AcquireTokenByIntegratedWindowsAuthentication, vedere [AcquireTokenByIntegratedWindowsAuthParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
+Per l'elenco dei possibili modificatori in AcquireTokenByIntegratedWindowsAuthentication, vedere [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="username--password"></a>Nome utente/password
 
@@ -519,7 +519,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Per informazioni dettagliate su tutti i modificatori che possono essere applicati a `AcquireTokenByUsernamePassword`, vedere [AcquireTokenByUsernamePasswordParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
+Per informazioni dettagliate su tutti i modificatori che possono essere applicati a `AcquireTokenByUsernamePassword`, vedere [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="command-line-tool-without-web-browser"></a>Strumento da riga di comando (senza un web browser)
 
@@ -634,7 +634,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
 
 ## <a name="file-based-token-cache"></a>Cache dei token basati su file
 
-In MSAL.NET, una cache dei token in memoria viene fornita per impostazione predefinita.
+In MSAL.NET viene fornita per impostazione predefinita una cache dei token in memoria.
 
 ### <a name="serialization-is-customizable-in-windows-desktop-apps-and-web-appsweb-apis"></a>La serializzazione è personalizzabile nelle App desktop Windows e App web/API web
 
@@ -643,16 +643,16 @@ Nel caso di .NET Framework e .NET core, se si non esegue alcuna operazione aggiu
 Classi e interfacce coinvolti nella serializzazione della cache dei token sono i seguenti tipi:
 
 - ``ITokenCache``, che definisce gli eventi per sottoscrivere le richieste di serializzazione della cache dei token, nonché i metodi per serializzare o deserializzare la cache in diversi formati (v3.0 ADAL, MSAL 2.x e MSAL 3.x = ADAL v5.0)
-- ``TokenCacheCallback`` un callback passato agli eventi in modo che è possibile gestire la serializzazione. verrà chiamati con argomenti di tipo ``TokenCacheNotificationArgs``.
+- ``TokenCacheCallback`` è un callback passato agli eventi in modo da consentire di gestire la serializzazione. verrà chiamati con argomenti di tipo ``TokenCacheNotificationArgs``.
 - ``TokenCacheNotificationArgs`` fornisce solo la ``ClientId`` dell'applicazione e un riferimento all'utente per cui il token è disponibile
 
   ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
-> MSAL.NET crea token memorizzati nella cache per te e ti offre il `IToken` memorizza nella cache quando si chiama un'applicazione `GetUserTokenCache` e `GetAppTokenCache` metodi. Non si dovrebbe implementare l'interfaccia. È responsabilità del cliente, quando si implementa una serializzazione, cache di token personalizzata:
+> MSAL.NET crea token memorizzati nella cache e fornisce la cache `IToken` quando si chiamano i metodi `GetUserTokenCache` e `GetAppTokenCache` di un'applicazione. Non si dovrebbe implementare l'interfaccia. Quando si implementa una serializzazione della cache dei token personalizzata, occorre:
 >
-> - Rispondere agli `BeforeAccess` e `AfterAccess` "eventi". Il`BeforeAccess` delegato ha la responsabilità di deserializzare la cache, mentre il `AfterAccess` uno è responsabile per la serializzazione della cache.
-> - Parte di questi eventi di archiviare o caricare i BLOB, che vengono passati tramite l'argomento dell'evento per il tipo di archiviazione desiderato.
+> - Reagire agli "eventi" `BeforeAccess` e `AfterAccess`. Il`BeforeAccess` delegato ha la responsabilità di deserializzare la cache, mentre il `AfterAccess` uno è responsabile per la serializzazione della cache.
+> - Alcuni di questi eventi archiviano o caricano BLOB, che vengono passati tramite l'argomento dell'evento al tipo di archiviazione desiderato.
 
 Le strategie sono diverse a seconda se si sta scrivendo una serializzazione della cache dei token per un'applicazione client pubblica (Desktop) o un'applicazione client riservata (web/API web app, app daemon).
 
@@ -660,9 +660,9 @@ Poiché V2.x MSAL sono disponibili diverse opzioni, a seconda se si vuole serial
 
 La personalizzazione della serializzazione di cache di Token di condividere lo stato SSO tra ADAL.NET 3.x, ADAL.NET 5.x e MSAL.NET sono illustrati nella parte dell'esempio seguente: [active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
 
-### <a name="simple-token-cache-serialization-msal-only"></a>Serializzazione semplice cache dei token (solo MSAL)
+### <a name="simple-token-cache-serialization-msal-only"></a>Serializzazione semplice della cache dei token (solo MSAL)
 
-Di seguito è riportato un esempio di un'implementazione semplice di serializzazione personalizzata di una cache dei token per le applicazioni desktop. Qui la cache dei token utente in un file nella stessa cartella dell'applicazione.
+Di seguito è riportato un esempio di implementazione semplice della serializzazione personalizzata di una cache dei token per le applicazioni desktop. Qui la cache dei token utente in un file nella stessa cartella dell'applicazione.
 
 Dopo aver compilato l'applicazione, si abilita la serializzazione tramite la chiamata ``TokenCacheHelper.EnableSerialization()`` passando all'applicazione `UserTokenCache`
 
@@ -722,7 +722,7 @@ static class TokenCacheHelper
  }
 ```
 
-Un'anteprima di una cache dei token qualità del prodotto serializzatore basati su file per le applicazioni client pubblico (per le applicazioni desktop in esecuzione su Windows, Mac e linux) è disponibile il [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) libreria open source. È possibile includerla nelle applicazioni dal pacchetto nuget seguente: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
+Un'anteprima di una cache dei token qualità del prodotto serializzatore basati su file per le applicazioni client pubblico (per le applicazioni desktop in esecuzione su Windows, Mac e linux) è disponibile il [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) libreria open source. È possibile includerla nelle applicazioni dal pacchetto NuGet seguente: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
 > Dichiarazione di non responsabilità. La libreria Microsoft.Identity.Client.Extensions.Msal è un'estensione tramite MSAL.NET. Le classi in queste librerie potrebbero arrivino in MSAL.NET in futuro, così come sono oppure con le modifiche di rilievo.
 

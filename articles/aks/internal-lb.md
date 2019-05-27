@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: a26eab83f567a46f613e3bfda95fd99aba2b79c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b5d18a3dfd1181fd06b58fd58f496457e24b58e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465547"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956380"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico interno con il servizio Azure Kubernetes
 
@@ -26,6 +26,8 @@ Per limitare l'accesso alle applicazioni nel servizio Azure Kubernetes, è possi
 Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
 Anche necessario la CLI di Azure versione 2.0.59 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+
+L'entità servizio cluster AKS richiede l'autorizzazione per gestire le risorse di rete se si usa una subnet esistente o un gruppo di risorse. In generale, assegnare il *collaboratore rete* ruolo all'entità servizio per le risorse Delegate. Per altre informazioni sulle autorizzazioni, vedere [AKS delegato accedere ad altre risorse di Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Creare un bilanciamento del carico interno
 
@@ -151,3 +153,4 @@ Altre informazioni sui servizi Kubernetes sono disponibili nella [documentazione
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources

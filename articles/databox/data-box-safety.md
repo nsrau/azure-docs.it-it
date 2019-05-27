@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747754"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953021"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Installazione sicura e funzionamento di Azure Data Box
 ![Icona di avviso](./media/data-box-safety/warning_icon.png)
@@ -24,7 +24,7 @@ Leggere tutte le informazioni di sicurezza in questo articolo prima di usare Azu
 ## <a name="safety-icon-conventions"></a>Convenzioni di sicurezza
 Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sicurezza cui attenersi durante l'installazione e l'utilizzo di Data Box.
 
-| Icona | DESCRIZIONE |
+| Icona | Descrizione |
 |:--- |:--- |
 | ![Icona di pericolo](./media/data-box-safety/warning_icon.png) **PERICOLO!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
 | ![Icona di avviso](./media/data-box-safety/warning_icon.png)**AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
@@ -116,7 +116,7 @@ Qualsiasi modifica apportata al dispositivo non espressamente approvata da Micro
 
 ![Icona di notifica](./media/data-box-safety/notice_icon.png)**NOTIFICA:** 
 
-Questo dispositivo è stato testato e valutato come conforme ai limiti di un dispositivo digitale di Classe A, ai sensi della parte 15 delle normative FCC. Questi limiti intendono fornire una protezione ragionevole da interferenze dannose quando l'attrezzatura si utilizzata in un ambiente commerciale. Questo dispositivo genera, usa e può irradiare energia a radiofrequenza e, se non installato e utilizzato in conformità con il manuale di istruzioni, potrebbe causare interferenze dannose alle comunicazioni radio. L'uso del dispositivo in una zona residenziale può causare interferenze dannose nel qual caso l'utente sarà tenuto a porre rimedio all'interferenza a proprie spese.
+Questo dispositivo è stato testato e valutato come conforme ai limiti di un dispositivo digitale di Classe A, ai sensi della parte 15 delle normative FCC. Questi limiti intendono fornire una protezione ragionevole da interferenze dannose quando l'attrezzatura si utilizzata in un ambiente commerciale. Questo dispositivo genera, usa e può irradiare energia a radiofrequenza e, se non installato e utilizzato in conformità con il manuale di istruzioni, potrebbe causare interferenze dannose alle comunicazioni radio. Uso del dispositivo in una zona residenziale è può causare l'interferenza dannoso nel quale caso l'utente verrà richiesto di risolvere tali interferenze i propri spese.
 
 Questo dispositivo è conforme alla parte 15 delle normative regole FCC e agli standard RSS esenti da licenza Industry Canada. L'uso è soggetto alle seguenti condizioni: (1) il dispositivo non deve causare radiofrequenza e (2) il dispositivo deve accettare eventuali interferenze ricevuta, comprese quelle che può provocare un funzionamento del dispositivo.
 

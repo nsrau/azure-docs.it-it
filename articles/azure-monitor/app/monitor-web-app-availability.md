@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76bbcd6fa400111514ec3496005a28ec28ae6ab7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205385"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977908"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorare la disponibilità e la velocità di risposta dei siti Web
 Dopo aver distribuito l'app Web o il sito Web in qualsiasi server, è possibile configurare alcuni test per monitorarne la disponibilità e la velocità di risposta. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Invia avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
@@ -71,7 +71,7 @@ Aprire il pannello Disponibilità e aggiungere un test.
 
 * **Soglia località di avviso**: Si consiglia un minimo di 3-5 posizioni. Il rapporto ottimale tra la soglia località di avviso e il numero di località di test è dato da **soglia località di avviso** = **numero di località di test** - 2, con un numero minimo pari a cinque località di test.
 
-## <a name="multi-step-web-tests"></a>Test Web in più passaggi
+## <a name="multi-step-web-tests"></a>Test Web in più passi
 È possibile monitorare uno scenario che comporta una sequenza di URL. Ad esempio, se si monitora un sito Web di vendita, si potrebbe testare il corretto funzionamento dell'aggiunta di articoli al carrelli acquisti.
 
 > [!NOTE]
@@ -175,8 +175,8 @@ Selezionare **Visualizza dettagli test** da un test specifico per visualizzare i
 
 Può essere necessario disabilitare i test di disponibilità o le regole di avviso associate ai test durante le operazioni di manutenzione del servizio.
 
-![Disabilitare un test Web](./media/monitor-web-app-availability/6disable.png)
-![Modificare test](./media/monitor-web-app-availability/8edittest.png)
+![Disabilitare un test web](./media/monitor-web-app-availability/6disable.png)  
+![Modifica test](./media/monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>In caso di errori
 Fare clic su un punto rosso.

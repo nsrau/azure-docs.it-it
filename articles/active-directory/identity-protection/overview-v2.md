@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d533e6aac9ae1a486d018414a86a9dc3fe742c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294286"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956942"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Cos'è Azure Active Directory Identity Protection (aggiornato)?
 
@@ -67,7 +67,7 @@ Azure AD Identity Protection rileva gli eventi di rischio seguenti:
 
  
 
-| Tipo di evento di rischio | DESCRIZIONE | Tipo di rilevamento |
+| Tipo di evento di rischio | Descrizione | Tipo di rilevamento |
 | ---             | ---         | ---            |
 | Trasferimento atipico | Accesso da una posizione insolita in base agli accessi recenti dell'utente. | Offline |
 | Indirizzo IP anonimo | Accesso da indirizzo IP anonimo (ad esempio Tor Browser, VPN per navigazione in anonimato). | Tempo reale |
@@ -147,44 +147,44 @@ Il flusso di base per il rilevamento dei rischi e la risposta di Identity Protec
 
 ## <a name="common-scenarios"></a>Scenari comuni 
 
-Esaminiamo l'esempio di Sarah, dipendente di Contoso. 
+Esaminiamo l'esempio di un dipendente di Contoso. 
 
-1. Sarah tenta di accedere a Exchange Online da Tor Browser. Al momento dell'accesso, Azure AD rileva gli eventi di rischio in tempo reale. 
+1. Un dipendente tenta di accedere a Exchange Online dal browser Tor. Al momento dell'accesso, Azure AD rileva gli eventi di rischio in tempo reale. 
 
-2. Azure AD rileva che Sarah esegue l'accesso da un indirizzo IP anonimo, attivando un livello di rischio di accesso medio. 
+2. Azure AD rileva che il dipendente esegue l'accesso da un indirizzo IP anonimo, attivazione di un livello di rischio di accesso medio. 
 
-3. Sarah visualizza una richiesta di verifica tramite prompt di autenticazione a più fattori (MFA), perché l’amministratore IT di Contoso ha configurato i criteri di accesso condizionale per il rischio di accesso di Identity Protection. I criteri richiedono l'autenticazione a più fattori per un rischio di accesso di livello medio o superiore. 
+3. Viene visualizzata una richiesta dipendente da un prompt di autenticazione a più fattori, perché i criteri di accesso condizionale di rischio di accesso di Identity Protection configurate dall'amministratore di Contoso. I criteri richiedono l'autenticazione a più fattori per un rischio di accesso di livello medio o superiore. 
 
-4. Sarah supera la richiesta di autenticazione a più fattori e accede a Exchange Online, con un livello di rischio utente inalterato. 
+4. Il dipendente passa la richiesta di autenticazione a più fattori e accede a Exchange Online e non viene modificato il livello di rischio utente. 
 
-Cosa è successo dietro le quinte? Il tentativo di accesso da Tor Browser ha attivato un rischio di accesso in tempo reale in Azure AD per l'indirizzo IP anonimo. Durante l’elaborazione della richiesta, Azure AD ha applicato il criterio di rischio di accesso configurato in Identity Protection poiché il livello di rischio di accesso di Sarah corrispondeva alla soglia (Medio). Poiché Sarah aveva in precedenza effettuato la registrazione per l’autenticazione a più fattori, è stata in grado di rispondere e di superare la richiesta di verifica MFA. La sua capacità di superare correttamente la verifica MFA ha segnalato ad Azure AD che probabilmente si trattava del legittimo proprietario dell’identità e quindi il suo livello di rischio utente non aumenta. 
+Cosa è successo dietro le quinte? Il tentativo di accesso da Tor Browser ha attivato un rischio di accesso in tempo reale in Azure AD per l'indirizzo IP anonimo. Man mano che elaborate la richiesta di Azure AD, applicato il criterio di rischio di accesso configurato in Identity Protection perché a livello di rischio di accesso del dipendente raggiunto la soglia (Medium). Poiché il dipendente fosse registrato in precedenza per MFA, erano in grado di rispondere e passare la richiesta di verifica MFA. La possibilità di passare correttamente la verifica MFA segnalato ad Azure AD che sono stati probabilmente il proprietario legittimo di identità e non si incrementa il livello di rischio utente. 
 
 
-Ma cosa sarebbe successo se Sara non fosse stata l’utente che tentava di accedere? 
+Ma cosa accade se il dipendente non è stato di un tentativo di accedere? 
 
-1. Un utente malintenzionato con le credenziali di Sarah teta di accedere all’account Exchange Online di Sarah da Tor Browser, poiché desidera nascondere il proprio indirizzo IP. 
+1. Un attore malintenzionato con credenziali del dipendente tenta di accedere al proprio account Exchange Online dal browser Tor, poiché si sta tentando di nascondere l'indirizzo IP. 
 
 2. Azure AD rileva che il tentativo di accesso avviene da un indirizzo IP anonimo, attivando un rischio di accesso in tempo reale. 
 
 3. L’utente malintenzionato visualizza una richiesta di verifica tramite prompt di autenticazione a più fattori (MFA), perché l’amministratore IT di Contoso ha configurato i criteri di accesso condizionale per il rischio di accesso di Identity Protection in modo richiedere l’autenticazione a più fattori quando il rischio di accesso è medio o superiore. 
 
-4. L'attore malintenzionato non riesce a superare la richiesta di verifica MFA e non può accedere all'account Exchange Online di Sarah. 
+4. L'attore malintenzionato si verifica un errore di verifica MFA e non può accedere all'account Exchange Online del dipendente. 
 
-5. Il prompt MFA non superato ha attivato la registrazione di un evento di rischio, aumentando il rischio utente di Sarah per gli accessi futuri. 
+5. L'autenticazione a più fattori non riuscite prompt attivato un evento di rischio per la registrazione, che genera il rischio utente per gli accessi futuri. 
 
-Ora che un utente malintenzionato ha provato ad accedere all'account di Sarah, vediamo cosa accade nel momento del successivo tentativo di accesso di Sarah. 
+Ora che un attore malintenzionato ha provato ad accedere l'account di Sarah, vediamo cosa accade la volta successiva che tenta di accedere al dipendente. 
 
-1. Sarah tenta di accedere a Exchange Online da Outlook. Al momento dell'accesso, Azure AD rileva gli eventi di rischio in tempo reale, nonché qualsiasi rischio utente precedente. 
+1. Il dipendente tenta di accedere a Exchange Online da Outlook. Al momento dell'accesso, Azure AD rileva gli eventi di rischio in tempo reale, nonché qualsiasi rischio utente precedente. 
 
 2. Azure AD non rileva alcun rischio di accesso in tempo reale, ma un rischio utente più elevato dovuto all’attività rischiosa degli scenari precedenti.  
 
-3. Sarah visualizzata una richiesta di verifica tramite prompt di reimpostazione della password, perché l’amministratore IT di Contoso ha configurato i criteri di rischio utente di Identity Protection affinché sia richiesta la modifica della password all'accesso di un utente ad alto rischio. 
+3. Il dipendente viene visualizzata una richiesta da una richiesta di reimpostazione della password, poiché Contoso dell'amministratore IT configurato i criteri di rischio utente di Identity Protection per richiedere la modifica della password all'accesso di un utente con ad alto rischio. 
 
-4. Poiché Sarah ha effettuato la registrazione per la reimpostazione della password self-service e l’autenticazione a più fattori, può reimpostare correttamente la propria password. 
+4. Poiché il dipendente è registrato per MFA e SSPR, sono correttamente Reimposta la password. 
 
-5. Reimpostando la password, le credenziali di Sarah non sono più compromesse e la sua identità torna in uno stato sicuro. 
+5. Per reimpostare la password, non è più compromissione delle credenziali del dipendente e la propria identità restituisce a uno stato sicuro. 
 
-6. Gli eventi di rischio precedenti di Sarah vengono risolti e il suo livello di rischio utente viene reimpostato automaticamente in risposta all’attenuazione del rischio di compromissione delle credenziali. 
+6. Gli eventi di rischio precedenti del dipendente vengono risolti e il livello di rischio utente viene reimpostato automaticamente in risposta a riduzione del rischio di compromissione delle credenziali. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Come si configura Identity Protection? 
 
@@ -210,13 +210,13 @@ Per altri dettagli, vedere [Assegnazione dei ruoli di amministratore in Azure Ac
 
 
 
-| Funzionalità | Azure AD P2 Premium | Azure AD Premium P1 | Azure AD Basic/Gratuito |
+| Capacità | Azure AD P2 Premium | Azure AD P1 Premium | Azure AD Basic/Gratuito |
 | --- | --- | --- | --- |
-| Criteri di rischio utente | Sì | No  | No  |
-| Criteri di rischio di accesso | Sì | No  | No  |
+| Criteri di rischio utente | Sì | N. | N. |
+| Criteri di rischio di accesso | Sì | N. | N. |
 | Report utenti a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
 | Report sugli accessi a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
-| Criteri di registrazione MFA | Sì | No  | No  |
+| Criteri di registrazione MFA | Sì | N. | N. |
 
 
 

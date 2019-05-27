@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205494"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951304"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Progettazione di applicazioni a disponibilità elevata con RA-GRS
 
@@ -54,7 +54,7 @@ Lo scopo di questo articolo è illustrare come progettare un'applicazione che co
 
 La soluzione proposta presuppone che sia accettabile restituire dati potenzialmente non aggiornati all'applicazione chiamante. Poiché i dati nell'area secondaria hanno coerenza finale, è possibile che l'area primaria diventi inaccessibile prima del termine della replica di un aggiornamento nell'area secondaria.
 
-Si supponga ad esempio che un cliente invii un aggiornamento completato correttamente, ma che l'area primaria diventi non disponibile prima che l'aggiornamento venga propagato all'area secondaria. Quando il cliente chiede di leggere nuovamente i dati, riceverà dati non aggiornati dall'area secondaria al posto di quelli aggiornati. Quando si progetta un'applicazione, è necessario stabilire se ciò sia accettabile e, in tal caso, come informare il cliente. 
+Si supponga ad esempio che un cliente invii un aggiornamento completato correttamente, ma che l'area primaria diventi non disponibile prima che l'aggiornamento venga propagato all'area secondaria. Quando il cliente chiede di leggere nuovamente i dati, ricevono dati non aggiornati dall'area secondaria anziché i dati aggiornati. Quando si progetta un'applicazione, è necessario stabilire se ciò sia accettabile e, in tal caso, come informare il cliente. 
 
 Più avanti nell'articolo verrà illustrato come controllare l'ora dell'ultima sincronizzazione per i dati secondari per verificare se l'area secondaria è aggiornata.
 
@@ -197,17 +197,17 @@ Per il terzo scenario, quando il ping dell'endpoint di archiviazione primario ha
 
 L'archiviazione con ridondanza geografica e accesso in lettura funziona replicando le transazioni dall'area primaria all'area secondaria. Il processo di replica garantisce che i dati nell'area secondaria abbiano *coerenza finale*. Questo significa che tutte le transazioni nell'area primaria saranno alla fine presenti nell'area secondaria, ma potrebbe verificarsi un ritardo prima che vengano visualizzate e che non è possibile garantire che giungano nell'area secondaria nello stesso ordine in cui si trovavano originariamente nell'area primaria. Se le transazioni non giungono nell'area secondaria nell'ordine originario, è *possibile* che i dati nell'area secondaria siano incoerenti finché il servizio non si allinea.
 
-La tabella seguente illustra un esempio del risultato ottenuto quando si aggiornano i dettagli di un dipendente per renderlo membro del ruolo *amministratori*. Ai fini di questo esempio è necessario aggiornare l'entità **employee** e aggiornare un'entità **administrator role** con un conteggio del numero totale di amministratori. Si noti il modo in cui gli aggiornamenti vengono applicati in un ordine diverso nell'area secondaria.
+La tabella seguente illustra un esempio di ciò che potrebbe verificarsi quando si aggiornano i dettagli di un dipendente per renderli un membro del *gli amministratori* ruolo. Ai fini di questo esempio è necessario aggiornare l'entità **employee** e aggiornare un'entità **administrator role** con un conteggio del numero totale di amministratori. Si noti il modo in cui gli aggiornamenti vengono applicati in un ordine diverso nell'area secondaria.
 
 | **Ora** | **Transazione**                                            | **Replica**                       | **Ora ultima sincronizzazione** | **Risultato** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transazione A: <br> Inserimento dell'entità <br> employee nell'area primaria |                                   |                    | Transazione A inserita nell'area primaria,<br> non ancora replicata. |
 | T1       |                                                            | Transazione A <br> replicata<br> nell'area secondaria | T1 | Transazione A replicata nell'area secondaria. <br>Ora ultima sincronizzazione aggiornata.    |
 | T2       | Transazione B:<br>Aggiornamento<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
-| T3       | Transazione C:<br> Aggiornamento <br>entità<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
+| T3       | Transazione C:<br> Aggiornamento <br>amministratore<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
 | *T4*     |                                                       | Transazione C <br>replicata<br> nell'area secondaria | T1         | Transazione C replicata nell'area secondaria.<br>LastSyncTime non aggiornato perché <br>la transazione B non è stata ancora replicata.|
 | *T5*     | Lettura delle entità <br>dall'area secondaria                           |                                  | T1                 | Si ottiene un valore non aggiornato per l'entità <br> employee perché la transazione B <br> non è stata ancora replicata. Si ottiene il nuovo valore per<br> l'entità administrator role perché C è stata<br> replicata. Ora ultima sincronizzazione non ancora<br> aggiornata perché la transazione B<br> non è stata replicata. È possibile stabilire che<br>l'entità administrator role è incoerente <br>perché la data/ora dell'entità è successiva <br>all'ora dell'ultima sincronizzazione. |
-| *T6*     |                                                      | Transazione B<br> replicata<br> nell'area secondaria | T6                 | *T6*: tutte le transazioni fino alla C sono <br>state replicate, ora ultima sincronizzazione<br> aggiornata. |
+| *T6*     |                                                      | Transazione B<br> replicata<br> secondario | T6                 | *T6*: tutte le transazioni fino alla C sono <br>state replicate, ora ultima sincronizzazione<br> aggiornata. |
 
 In questo esempio presupporre che il client passi alla lettura dell'area secondaria in corrispondenza di T5. Può leggere correttamente l'entità **administrator role** in questa fase, ma l'entità contiene un valore di conteggio degli amministratori che non è coerente con il numero di entità **employee** attualmente contrassegnate come amministratori nell'area secondaria. Il client può semplicemente visualizzare questo valore, con il rischio che si tratti di informazioni incoerenti. In alternativa, il client può determinare che **administrator role** si trova in uno stato potenzialmente incoerente perché gli aggiornamenti non hanno seguito l'ordine e informare l'utente.
 

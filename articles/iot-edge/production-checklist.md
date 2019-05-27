@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 80bf4718b63496c0b220aa79dcdd27f2711b70ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cb72949c0bb543885498b1b997fa0b4a644c204a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148092"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956976"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 
@@ -50,7 +50,7 @@ Prima di rendere disponibili tutti i dispositivi nell'ambiente di produzione è 
 * Le librerie del sistema operativo
 * Motore del contenitore, ad esempio Moby
 * Daemon IoT Edge
-* Certificati di CA
+* Certificati CA
 
 Per i passaggi per aggiornare il daemon di IoT Edge, vedere [Aggiornare il runtime di IoT Edge](how-to-update-iot-edge.md). Gli attuali metodi per aggiornare il daemon di IoT Edge richiedono l'accesso SSH o fisico al dispositivo IoT Edge. Se si devono aggiornare molti dispositivi, è consigliabile aggiungere i passaggi per l'aggiornamento a uno script o usare uno strumento di automazione come Ansible per eseguire aggiornamenti su larga scala.
 
@@ -215,13 +215,13 @@ Aggiungere (o accodare) queste informazioni in un file denominato `daemon.json` 
 | Piattaforma | Località |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
-| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+| Windows | `C:\ProgramData\iotedge-moby\config\` |
 
 Il motore del contenitore deve essere riavviato rendere effettive le modifiche.
 
 **Opzione: Modificare le impostazioni di log per ogni modulo del contenitore**
 
-È possibile eseguire questa operazione nel **createOptions** di ciascun modulo. Ad esempio: 
+È possibile eseguire questa operazione nel **createOptions** di ciascun modulo. Ad esempio:
 
     "createOptions": {
         "HostConfig": {

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3593324523340300279232e0e63392c9c127991d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 1107a6df92bf577cd60b9ad31627219da8e1a388
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823573"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956536"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -367,7 +367,7 @@ Creare e gestire i criteri di framework attendibilità nel Framework di esperien
 Può eseguire attività comuni relative alla fatturazione, ad esempio aggiornare le informazioni di pagamento.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -385,7 +385,7 @@ Può eseguire attività comuni relative alla fatturazione, ad esempio aggiornare
 Può accedere a servizi e strumenti di gestione desktop, ad esempio Intune, e gestirli.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -458,7 +458,7 @@ Accesso completo per la gestione dei dispositivi in Azure AD.
 Può gestire tutti gli aspetti di Azure AD e dei servizi Microsoft che usano identità di Azure AD.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -524,7 +524,7 @@ Può gestire tutti gli aspetti di Azure AD e dei servizi Microsoft che usano ide
 Può eseguire la lettura e gestire i report e la configurazione di conformità in Azure AD e Office 365.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -558,7 +558,7 @@ Può gestire le funzionalità di accesso condizionale.
 Può gestire tutti gli aspetti del prodotto Dynamics 365.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -575,7 +575,7 @@ Può gestire tutti gli aspetti del prodotto Dynamics 365.
 Può approvare le richieste di supporto Microsoft per l'accesso ai dati aziendali dei clienti.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -705,7 +705,7 @@ Può leggere e scrivere le informazioni base della directory. Per concedere l'ac
 Può gestire tutti gli aspetti del prodotto Exchange.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -765,7 +765,7 @@ Può reimpostare le password per gli utenti non amministratori e gli amministrat
 Può gestire tutti gli aspetti del prodotto Azure Information Protection.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -781,7 +781,7 @@ Può gestire tutti gli aspetti del prodotto Azure Information Protection.
 Può gestire tutti gli aspetti del prodotto Intune.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -829,7 +829,7 @@ Possono gestire licenze dei prodotti per utenti e gruppi.
 Può gestire tutti gli aspetti del prodotto Skype for Business.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -846,7 +846,7 @@ Può gestire tutti gli aspetti del prodotto Skype for Business.
 Può eseguire la lettura di messaggi e aggiornamenti per la propria organizzazione solo nel Centro messaggi di Office 365. 
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -859,7 +859,7 @@ Può eseguire la lettura di messaggi e aggiornamenti per la propria organizzazio
 Non usare: non destinato all'uso generale.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -891,7 +891,7 @@ Non usare: non destinato all'uso generale.
 Non usare: non destinato all'uso generale.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -925,7 +925,7 @@ Non usare: non destinato all'uso generale.
 Può gestire tutti gli aspetti del prodotto Power BI.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -955,7 +955,7 @@ Può gestire tutti gli aspetti del prodotto Power BI.
 Può gestire le assegnazioni di ruolo in Azure Active Directory e tutti gli aspetti di Privileged Identity Management.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -968,7 +968,7 @@ Può gestire le assegnazioni di ruolo in Azure Active Directory e tutti gli aspe
 Può eseguire la lettura dei report di accesso e di controllo.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -984,7 +984,7 @@ Può eseguire la lettura dei report di accesso e di controllo.
 Può eseguire la lettura dei report e delle informazioni di sicurezza e gestire la configurazione in Azure Active Directory e Office 365.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -1013,7 +1013,7 @@ Può eseguire la lettura dei report e delle informazioni di sicurezza e gestire 
 Può eseguire la lettura dei report e delle informazioni di sicurezza in Azure AD e Office 365.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -1033,7 +1033,7 @@ Può eseguire la lettura dei report e delle informazioni di sicurezza in Azure A
 Può eseguire la lettura delle informazioni di integrità dei servizi e gestire i ticket di supporto.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -1049,7 +1049,7 @@ Può eseguire la lettura delle informazioni di integrità dei servizi e gestire 
 Può gestire tutti gli aspetti del servizio SharePoint.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -1072,7 +1072,7 @@ Può gestire tutti gli aspetti del servizio SharePoint.
 Può gestire le funzionalità per le chiamate e le riunioni nel servizio Microsoft Teams.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -1089,7 +1089,7 @@ Può gestire le funzionalità per le chiamate e le riunioni nel servizio Microso
 Può risolvere i problemi relativi alle comunicazioni in Teams usando strumenti avanzati.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -1103,7 +1103,7 @@ Può risolvere i problemi relativi alle comunicazioni in Teams usando strumenti 
 Può risolvere problemi relativi alle comunicazioni in Teams usando strumenti di base.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 
@@ -1117,7 +1117,7 @@ Può risolvere problemi relativi alle comunicazioni in Teams usando strumenti di
 Può gestire il servizio Microsoft Teams.
 
   > [!NOTE]
-  > Questo ruolo dispone di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
   >
   >
 

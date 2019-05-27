@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838961"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955736"
 ---
 # <a name="security-in-azure-app-service"></a>Sicurezza in Servizio app di Azure
 
@@ -105,7 +105,7 @@ Per isolare completamente la connettività delle risorse dalle reti condivise in
 
 ## <a name="application-secrets"></a>Segreti dell'applicazione
 
-Non archiviare i segreti dell'applicazione, come le credenziali del database, i token API e le chiavi private, nel codice o nei file di configurazione. L'approccio comunemente accettato consiste nell'accedere ai segreti come [variabili di ambiente](https://wikipedia.org/wiki/Environment_variable) usando il modello standard nel linguaggio preferito. Nel servizio app, il modo per definire le variabili di ambiente è attraverso [le impostazioni dell'app](web-sites-configure.md#app-settings) (e, in particolare per le applicazioni .NET, le [stringhe di connessione](web-sites-configure.md#connection-strings)). Le impostazioni dell'app e le stringhe di connessione vengono archiviate in Azure in formato crittografato e vengono decrittografate solo prima di essere inserite nella memoria processi dell'app all'avvio di quest'ultima. Le chiavi di crittografia vengono sottoposte a rotazione regolarmente.
+Non archiviare i segreti dell'applicazione, come le credenziali del database, i token API e le chiavi private, nel codice o nei file di configurazione. L'approccio comunemente accettato consiste nell'accedere ai segreti come [variabili di ambiente](https://wikipedia.org/wiki/Environment_variable) usando il modello standard nel linguaggio preferito. Nel servizio app, il modo per definire le variabili di ambiente è attraverso [le impostazioni dell'app](configure-common.md#configure-app-settings) (e, in particolare per le applicazioni .NET, le [stringhe di connessione](configure-common.md#configure-connection-strings)). Le impostazioni dell'app e le stringhe di connessione vengono archiviate in Azure in formato crittografato e vengono decrittografate solo prima di essere inserite nella memoria processi dell'app all'avvio di quest'ultima. Le chiavi di crittografia vengono sottoposte a rotazione regolarmente.
 
 In alternativa, è possibile integrare l'app del servizio app con [Azure Key Vault](/azure/key-vault/) per la gestione avanzata dei segreti. [Accedendo all'insieme di credenziali delle chiavi con un'identità gestita](../key-vault/tutorial-web-application-keyvault.md), l'app del Servizio app può accedere in modo sicuro ai segreti necessari.
 

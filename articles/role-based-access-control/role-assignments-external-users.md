@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345301"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952201"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Gestire l'accesso alle risorse di Azure per utenti esterni usando il controllo degli accessi in base al ruolo
 
@@ -57,7 +57,7 @@ Dopo avere selezionato la sottoscrizione, l'utente amministratore deve fare clic
 
 Il passaggio successivo consiste nel selezionare il ruolo da assegnare e l'utente a cui verrà assegnato il ruolo di controllo degli accessi in base al ruolo. Nel menu a discesa **Ruolo** l'utente amministratore vede solo i ruoli predefiniti di controllo degli accessi in base al ruolo disponibili in Azure. Per una descrizione più dettagliata di ogni ruolo e dei relativi ambiti assegnabili, vedere [Ruoli predefiniti per le risorse di Azure](built-in-roles.md).
 
-L'utente amministratore deve quindi aggiungere l'indirizzo e-mail dell'utente esterno. Per l'utente esterno il comportamento previsto è quello di non essere visibile nel tenant esistente. Dopo che è stato invitato, l'utente esterno sarà visibile in **Sottoscrizioni > Controllo di accesso (IAM)** con tutti gli utenti correnti assegnati attualmente a un ruolo di controllo degli accessi in base al ruolo nell'ambito della sottoscrizione.
+L'utente amministratore deve quindi aggiungere l'indirizzo e-mail dell'utente esterno. Per l'utente esterno il comportamento previsto è quello di non essere visibile nel tenant esistente. Dopo che l'utente esterno è stato invitato, saranno visibili sotto **sottoscrizioni > controllo di accesso (IAM)** con tutti gli utenti correnti assegnati attualmente a un ruolo RBAC nell'ambito della sottoscrizione.
 
 ![aggiungere autorizzazioni al nuovo ruolo di controllo degli accessi in base al ruolo](./media/role-assignments-external-users/3.png)
 
@@ -66,7 +66,7 @@ L'utente amministratore deve quindi aggiungere l'indirizzo e-mail dell'utente es
 L'utente "chessercarlton@gmail.com" è stato inviato ad essere un **proprietario** per la sottoscrizione nella "versione di valutazione gratuita". Dopo avere inviato l'invito, l'utente esterno riceverà una conferma tramite posta elettronica con un collegamento di attivazione.
 ![Invito tramite posta elettronica per il ruolo di controllo degli accessi in base al ruolo](./media/role-assignments-external-users/5.png)
 
-Essendo esterno all'organizzazione, il nuovo utente non dispone degli attributi esistenti nella directory "Default tenant Azure". Questi verranno creati previo consenso dell'utente esterno alla registrazione nella directory associata alla sottoscrizione per cui gli è stato assegnato un ruolo.
+Essendo esterno all'organizzazione, il nuovo utente non dispone degli attributi esistenti nella directory "Default tenant Azure". Questi verranno creati previo consenso dell'utente esterno deve essere registrato nella directory che è associato alla sottoscrizione sono stati assegnati a un ruolo.
 
 ![messaggio di invito tramite posta elettronica per il ruolo di controllo degli accessi in base al ruolo](./media/role-assignments-external-users/6.png)
 

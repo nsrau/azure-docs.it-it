@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/11/2019
-ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.date: 05/20/2019
+ms.openlocfilehash: 57f2c38ce0479f43d7f24de8d1feb554517bcc69
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823307"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951488"
 ---
 # <a name="sql-database-serverless-preview"></a>Database SQL serverless (anteprima)
 
@@ -81,7 +81,22 @@ In generale, i database vengono eseguiti in un computer con capacità sufficient
 
 ### <a name="memory-management"></a>Gestione della memoria
 
-La memoria per i database serverless viene recuperata con maggiore frequenza rispetto ai database con provisioning. Questo comportamento è importante per controllare i costi nei database serverless. A differenza delle risorse di calcolo con provisioning, la memoria della cache SQL viene recuperata da un database serverless quando l'utilizzo della CPU o della cache è basso.
+Memoria per i database senza server viene recuperata più frequente per i database di calcolo sottoposte a provisioning. Questo comportamento è importante per controllare i costi in senza server e può influire sulle prestazioni.
+
+#### <a name="cache-reclaiming"></a>Memorizzare nella cache per reclamare
+
+A differenza dei database di calcolo sottoposte a provisioning, della memoria dalla cache del SQL viene recuperata da un database senza server quando l'utilizzo della CPU o della cache è bassa.
+
+- L'uso della cache viene considerata bassa quando la dimensione totale più usati di recente sono di voci della cache sotto una soglia per un periodo di tempo.
+- Quando viene attivato il recupero della cache, le dimensioni della cache di destinazione viene ridotta in modo incrementale a una frazione della dimensione precedente e recuperarne continua solo se l'utilizzo rimane basso.
+- Quando si verifica il recupero della cache, i criteri per la selezione di voci della cache per la rimozione sono gli stessi criteri di selezione a quelli di calcolo sottoposte a provisioning database quando l'utilizzo della memoria è elevato.
+- Le dimensioni della cache non viene ridotto mai di sotto di memoria minima in base ai Vcore minimi, che può essere configurato.
+
+Senza server sia stato eseguito il provisioning nel calcolo i database, le voci possono essere rimosse se viene utilizzata la memoria disponibile tutte le cache.
+
+#### <a name="cache-hydration"></a>Attivazione della cache
+
+La cache SQL aumenta man mano che i dati vengono recuperati dal disco nello stesso modo e con la stessa velocità a quelli di database con provisioning. Quando il database è occupato, la cache è consentita a crescere senza vincoli fino al limite di memoria massima.
 
 ## <a name="autopause-and-autoresume"></a>Sospensione automatica e ripresa automatica
 
@@ -115,7 +130,7 @@ La ripresa automatica viene attivata in presenza di una qualsiasi delle condizio
 
 ### <a name="connectivity"></a>Connettività
 
-Se un database serverless è in pausa, verrà ripreso al primo accesso. Verrà inoltre restituito un errore con codice 40613 che indica che il database non è disponibile. Dopo la ripresa del database è necessario ripetere l'accesso per stabilire la connettività. I client del database con la logica di ripetizione dei tentativi di connessione non devono essere modificati.
+Se un database senza server è in pausa, il primo accesso riprendere il database e restituire un errore indicante che il database non è disponibile con il codice di errore 40613. Dopo la ripresa del database è necessario ripetere l'accesso per stabilire la connettività. I client del database con la logica di ripetizione dei tentativi di connessione non devono essere modificati.
 
 ### <a name="latency"></a>Latenza
 
@@ -267,7 +282,7 @@ La quantità di risorse di calcolo fatturata corrisponde alla quantità massima 
 - **Importo fatturato ($)**: prezzo unitario vCore * massimo (numero minimo di vCore, numero di vCore usati, quantità minima di memoria in GB * 1/3, quantità di memoria in GB usata * 1/3) 
 - **Frequenza di fatturazione**: Al secondo
 
-Prezzo unitario del vCore nel costo per vCore al secondo. Per i prezzi unitari in una determinata area, vedere la [pagina dei prezzi del database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/).
+Il prezzo unitario di vCore del costo per ogni vCore al secondo. Per i prezzi unitari in una determinata area, vedere la [pagina dei prezzi del database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 La quantità di risorse di calcolo fatturata è esposta dalla metrica seguente:
 
@@ -277,9 +292,9 @@ La quantità di risorse di calcolo fatturata è esposta dalla metrica seguente:
 
 Questa quantità viene calcolata ogni secondo e aggregata in un minuto.
 
-Si consideri un database senza server configurati con 1 min vcore e 4 Vcore per utilizzo massimi.  Ciò corrisponde a circa 3 GB di memoria minimo e massimo 12 GB di memoria.  Si supponga che il ritardo di sospensione automatica è impostato su 6 ore e il carico di lavoro di database sia attivo durante le ore 2 prima di un periodo di 24 ore su 24 e inattive in caso contrario.    
+Si consideri un database senza server configurati con 1 min vCore e 4 Vcore per utilizzo massimi.  Ciò corrisponde a circa 3 GB di memoria minimo e massimo 12 GB di memoria.  Si supponga che il ritardo di sospensione automatica è impostato su 6 ore e il carico di lavoro di database sia attivo durante le ore 2 prima di un periodo di 24 ore e inattive in caso contrario.    
 
-In questo caso, il database viene fatturato per l'archiviazione e calcolo durante le prime 8 ore.  Anche se il database è inattivo avvio dopo l'ora 2nd, viene comunque fatturata per il calcolo nelle ore successive 6 basato su attività di calcolo minimo effettuato il provisioning quando il database è online.  Solo archiviazione sarà addebitata fino alla fine del periodo di 24 ore mentre il database è sospeso.
+In questo caso, il database viene fatturato per l'archiviazione e calcolo durante le prime 8 ore.  Anche se il database è inattivo a partire da dopo dalla seconda ora, viene comunque fatturata per il calcolo nelle ore successive 6 basato su attività di calcolo minimo effettuato il provisioning quando il database è online.  Solo archiviazione sarà addebitata fino alla fine del periodo di 24 ore mentre il database è sospeso.
 
 Più precisamente, la fattura di calcolo in questo esempio viene calcolata come segue:
 
@@ -291,7 +306,7 @@ Più precisamente, la fattura di calcolo in questo esempio viene calcolata come 
 |8:00-24:00|0|0|Nessun calcolo fatturato mentre in pausa|vCore 0 secondi|
 |Totale vCore secondi fatturati più di 24 ore||||vCore 50400 secondi|
 
-Si supponga che il prezzo delle unità di calcolo sia $0,000073/vCore/secondo.  Le risorse di calcolo addebitate questo periodo di 24 ore è il prodotto dei calcolo unit price vcore secondi e fatturata: $0.000073/vCore/second * 50400 vCore secondi = $3.68
+Si supponga che il prezzo delle unità di calcolo sia $0,000073/vCore/secondo.  Le risorse di calcolo addebitate questo periodo di 24 ore è il prodotto dei calcolo unit price vCore secondi e fatturata: $0.000073/vCore/second * 50400 vCore secondi = $3.68
 
 ## <a name="available-regions"></a>Aree disponibili
 

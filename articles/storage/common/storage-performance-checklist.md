@@ -8,28 +8,28 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904b9b8ba98be5e14b1d769a0e1d8c2d6084e24d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477295"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951167"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
 ## <a name="overview"></a>Panoramica
 Dal rilascio dei servizi di archiviazione di Microsoft Azure, Microsoft ha sviluppato diverse procedure comprovate per usare questi servizi in modo ottimale. In questo articolo vengono riepilogate le procedure più importanti, presentate sotto forma di elenco di controllo. L'intento dell'articolo è di consentire agli sviluppatori di applicazioni di assicurarsi di stare usando le procedure comprovate con l'archiviazione di Azure e di aiutarli a individuare altre eventuali procedure da adottare. Questo articolo non intende coprire tutti i possibili casi di ottimizzazione delle prestazioni e della scalabilità, pertanto esclude quelli che hanno effetti trascurabili o che non sono applicabili a un significativo numero di scenari. Nella misura in cui è possibile prevedere il comportamento dell'applicazione durante la progettazione, è opportuno effettuare una valutazione preliminare di questi aspetti per evitare progettazioni che potrebbero causare problemi in termini di prestazioni.  
 
-Ogni sviluppatore di applicazioni che usa l'archiviazione di Azure dovrebbe leggere attentamente questo articolo e verificare che l'applicazione su cui sta lavorando segua tutte le procedure comprovate elencate di seguito.  
+Ogni sviluppatore di applicazioni usando archiviazione di Azure deve dedicare del tempo per leggere questo articolo e verificare che la loro applicazione segua ognuna delle procedure comprovate elencate di seguito.  
 
 ## <a name="checklist"></a>Elenco di controllo
 Questo articolo organizza le procedure comprovate nei seguenti gruppi. Procedure comprovate applicabili a:  
 
 * Tutti i servizi di archiviazione di Azure (BLOB, tabelle, code e file)
-* Blobs
+* BLOB
 * Tabelle
 * Queues  
 
-| Operazione completata | Area | Categoria | Domanda |
+| Fine | Area | Category | Domanda |
 | --- | --- | --- | --- |
 | &nbsp; | Tutti i servizi |Obiettivi di scalabilità |[L'applicazione è progettata per evitare di raggiungere gli obiettivi di scalabilità?](#subheading1) |
 | &nbsp; | Tutti i servizi |Obiettivi di scalabilità |[La convenzione di denominazione è stata progettata per consentire un miglior bilanciamento del carico?](#subheading47) |
@@ -47,15 +47,15 @@ Questo articolo organizza le procedure comprovate nei seguenti gruppi. Procedure
 | &nbsp; | Tutti i servizi |Strumenti |[Si sta usando l'ultima versione delle librerie e degli strumenti client forniti da Microsoft?](#subheading13) |
 | &nbsp; | Tutti i servizi |Tentativi |[Si sta usando un criterio per l'esecuzione di nuovi tentativi per il backoff esponenziale per gli errori di limitazione e i timeout?](#subheading14) |
 | &nbsp; | Tutti i servizi |Tentativi |[L'applicazione sta evitando nuovi tentativi in caso di errori irreversibili?](#subheading15) |
-| &nbsp; | Blobs |Obiettivi di scalabilità |[È presente un numero elevato di client che accedono contemporaneamente a un singolo oggetto?](#subheading46) |
-| &nbsp; | Blobs |Obiettivi di scalabilità |[L'applicazione sta restando all'interno della larghezza di banda o dell'obiettivo di scalabilità delle operazioni per un singolo BLOB?](#subheading16) |
-| &nbsp; | Blobs |Copia dei BLOB |[La copia dei BLOB sta avvenendo in modo efficace?](#subheading17) |
-| &nbsp; | Blobs |Copia dei BLOB |[Si sta usando AzCopy per le copie bulk dei BLOB?](#subheading18) |
-| &nbsp; | Blobs |Copia dei BLOB |[Si sta usando Importazione/Esportazione di Azure per trasferire grandi volumi di dati?](#subheading19) |
-| &nbsp; | Blobs |Usare i metadati |[Si stanno archiviando i metadati usati di frequente relativi ai BLOB nei rispettivi metadati?](#subheading20) |
-| &nbsp; | Blobs |Caricamento rapido |[Quando si tenta di caricare rapidamente un BLOB, i blocchi vengono caricati in parallelo?](#subheading21) |
-| &nbsp; | Blobs |Caricamento rapido |[Quando si tenta di caricare rapidamente più BLOB, i BLOB vengono caricati in parallelo?](#subheading22) |
-| &nbsp; | Blobs |Tipo di BLOB corretto |[Si stanno usando BLOB di pagine o in blocchi quando appropriato?](#subheading23) |
+| &nbsp; | BLOB |Obiettivi di scalabilità |[È presente un numero elevato di client che accedono contemporaneamente a un singolo oggetto?](#subheading46) |
+| &nbsp; | BLOB |Obiettivi di scalabilità |[L'applicazione sta restando all'interno della larghezza di banda o dell'obiettivo di scalabilità delle operazioni per un singolo BLOB?](#subheading16) |
+| &nbsp; | BLOB |Copia dei BLOB |[La copia dei BLOB sta avvenendo in modo efficace?](#subheading17) |
+| &nbsp; | BLOB |Copia dei BLOB |[Si sta usando AzCopy per le copie bulk dei BLOB?](#subheading18) |
+| &nbsp; | BLOB |Copia dei BLOB |[Si sta usando Importazione/Esportazione di Azure per trasferire grandi volumi di dati?](#subheading19) |
+| &nbsp; | BLOB |Usare i metadati |[Si stanno archiviando i metadati usati di frequente relativi ai BLOB nei rispettivi metadati?](#subheading20) |
+| &nbsp; | BLOB |Caricamento rapido |[Quando si tenta di caricare rapidamente un BLOB, i blocchi vengono caricati in parallelo?](#subheading21) |
+| &nbsp; | BLOB |Caricamento rapido |[Quando si tenta di caricare rapidamente più BLOB, i BLOB vengono caricati in parallelo?](#subheading22) |
+| &nbsp; | BLOB |Tipo di BLOB corretto |[Si stanno usando BLOB di pagine o in blocchi quando appropriato?](#subheading23) |
 | &nbsp; | Tabelle |Obiettivi di scalabilità |[Si stanno raggiungendo gli obiettivi di scalabilità per le entità al secondo?](#subheading24) |
 | &nbsp; | Tabelle |Configurazione |[Si sta usando JSON per le richieste della tabella?](#subheading25) |
 | &nbsp; | Tabelle |Configurazione |[Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#subheading26) |
@@ -71,13 +71,13 @@ Questo articolo organizza le procedure comprovate nei seguenti gruppi. Procedure
 | &nbsp; | Tabelle |Inserimento/aggiornamento/eliminazione |[Si sta evitando di recuperare un'entità solo per determinare se chiamare un inserimento o un aggiornamento?](#subheading36) |
 | &nbsp; | Tabelle |Inserimento/aggiornamento/eliminazione |[È stata considerata l'archiviazione di serie di dati che vengono spesso recuperate insieme in una singola entità sotto forma di proprietà invece che in più entità?](#subheading37) |
 | &nbsp; | Tabelle |Inserimento/aggiornamento/eliminazione |[Per le entità recuperate sempre insieme e che possono essere scritte in batch (ad esempio, dati di serie temporali) è stato valutato l'uso di BLOB invece che di tabelle?](#subheading38) |
-| &nbsp; | Queues |Obiettivi di scalabilità |[Si stanno raggiungendo gli obiettivi di scalabilità per i messaggi al secondo?](#subheading39) |
-| &nbsp; | Queues |Configurazione |[Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#subheading40) |
-| &nbsp; | Queues |Dimensioni del messaggio |[I messaggi vengono compattati per migliorare le prestazioni della coda?](#subheading41) |
-| &nbsp; | Queues |Recupero bulk |[Si stanno recuperando più messaggi con un'unica operazione "Get"?](#subheading42) |
-| &nbsp; | Queues |Frequenza di polling |[Il polling viene eseguito abbastanza di frequente per ridurre la latenza percepita dell'applicazione?](#subheading43) |
-| &nbsp; | Queues |Aggiornamento del messaggio |[Si sta usando UpdateMessage per archiviare lo stato di elaborazione dei messaggi senza dover rielaborare l'intero messaggio in caso di errori?](#subheading44) |
-| &nbsp; | Queues |Architettura |[Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#subheading45) |
+| &nbsp; | Code |Obiettivi di scalabilità |[Si stanno raggiungendo gli obiettivi di scalabilità per i messaggi al secondo?](#subheading39) |
+| &nbsp; | Code |Configurazione |[Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#subheading40) |
+| &nbsp; | Code |Dimensioni del messaggio |[I messaggi vengono compattati per migliorare le prestazioni della coda?](#subheading41) |
+| &nbsp; | Code |Recupero bulk |[Si stanno recuperando più messaggi con un'unica operazione "Get"?](#subheading42) |
+| &nbsp; | Code |Frequenza di polling |[Il polling viene eseguito abbastanza di frequente per ridurre la latenza percepita dell'applicazione?](#subheading43) |
+| &nbsp; | Code |Aggiornamento del messaggio |[Si sta usando UpdateMessage per archiviare lo stato di elaborazione dei messaggi senza dover rielaborare l'intero messaggio in caso di errori?](#subheading44) |
+| &nbsp; | Code |Architettura |[Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#subheading45) |
 
 ## <a name="allservices"></a>Tutti i servizi
 Questa sezione elenca le procedure comprovate applicabili all'uso di tutti i servizi di archiviazione di Azure (BLOB, tabelle, code o file).  
@@ -299,7 +299,7 @@ Per altre informazioni, vedere il post [Tabelle di Microsoft Azure: introduzione
 #### <a name="subheading26"></a>Disattivazione di Nagle
 L'algoritmo Nagle viene spesso implementato nelle reti TCP/IP come strumento per migliorare le prestazioni di rete. Tuttavia, non è la soluzione ottimale in tutti gli scenari (ad esempio, gli ambienti ad alta interazione). In Archiviazione di Azure l'algoritmo Nagle ha un impatto negativo sulle prestazioni delle richieste ai servizi tabelle e di accodamento e, se possibile, dovrebbe essere disabilitato.
 
-### <a name="schema"></a>SCHEMA
+### <a name="schema"></a>Schema
 La modalità con cui vengono rappresentati i dati e vengono eseguite query su di essi è il fattore singolo più importante che influisce sulle prestazioni del servizio tabelle. Ogni applicazione è diversa, ma in questa sezione vengono descritte alcune procedure comprovate generali relative a:  
 
 * Progettazione della tabella
@@ -376,7 +376,7 @@ In alternativa, l'applicazione può archiviare l'utilizzo della CPU per ciascuna
 ##### <a name="subheading38"></a>Archiviazione di dati strutturati in BLOB
 A volte sembra che i dati strutturati debbano essere inseriti nelle tabelle, tuttavia gli intervalli delle entità vengono sempre recuperati insieme e possono essere inseriti in batch.  Per spiegarlo efficacemente, si prenda l'esempio di un file di log.  In questo caso è possibile creare in batch e inserire diversi minuti di log. Questi minuti di log vengono anche recuperati tutti in una volta.  Per motivi di prestazioni, si consiglia in questo caso di usare i BLOB invece delle tabelle perché consentono di ridurre significativamente il numero di oggetti scritti/restituiti e, di solito, anche il numero di richieste che occorre effettuare.  
 
-## <a name="queues"></a>Queues
+## <a name="queues"></a>Code
 Oltre alle procedure comprovate per [tutti i servizi](#allservices) descritte prima, le procedure comprovate seguenti si applicano specificamente al servizio di accodamento.  
 
 ### <a name="subheading39"></a>Limiti di scalabilità

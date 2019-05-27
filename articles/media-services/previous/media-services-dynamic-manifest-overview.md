@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 229f89a8803f089c24981f56e00e36efe96de3aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68eeb40e905d089601208d9fc181042c7b434843
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465203"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956791"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtri e manifesti dinamici
 
@@ -73,14 +73,14 @@ Di seguito è riportato un esempio di file manifesto:
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>Manifesti dinamici
-Esistono [scenari](media-services-dynamic-manifest-overview.md#scenarios) in cui il client deve poter disporre di una flessibilità maggiore rispetto a quanto descritto nel file manifesto predefinito dell'asset. Ad esempio: 
+Esistono [scenari](media-services-dynamic-manifest-overview.md#scenarios) in cui il client deve poter disporre di una flessibilità maggiore rispetto a quanto descritto nel file manifesto predefinito dell'asset. Ad esempio:
 
 * Per il dispositivo: distribuire solo i rendering specificati e/o le tracce di lingua specificate, se supportate dal dispositivo usato per la riproduzione dei contenuti ("filtro di rendering"). 
 * Ridurre il manifesto in modo da mostrare solo una sottoclip di un evento live ("filtro di sottoclip").
 * Tagliare l'inizio di un video ("trimming di un video").
 * Regolare la finestra di presentazione (DVR) in modo da ottenere una lunghezza limitata della finestra nel lettore ("regolazione finestra presentazione").
 
-Per ottenere questa flessibilità, Servizi multimediali offre **manifesti dinamici** basati su [filtri](media-services-dynamic-manifest-overview.md#filters)predefiniti.  Dopo aver definito i filtri, è possibile usarli per trasmettere solo un determinato rendering o specifici sottoclip di un video. I filtri desiderati dovranno essere specificati nell'URL di streaming. È possibile applicare filtri ai protocolli di streaming a bitrate adattivo supportati dalla funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Ad esempio: 
+Per ottenere questa flessibilità, Servizi multimediali offre **manifesti dinamici** basati su [filtri](media-services-dynamic-manifest-overview.md#filters)predefiniti.  Dopo aver definito i filtri, è possibile usarli per trasmettere solo un determinato rendering o specifici sottoclip di un video. I filtri desiderati dovranno essere specificati nell'URL di streaming. È possibile applicare filtri ai protocolli di streaming a bitrate adattivo supportati dalla funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Ad esempio:
 
 URL MPEG DASH con filtro
 

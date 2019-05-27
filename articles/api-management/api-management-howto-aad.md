@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d267ff3a43438d9fe6e4e21f0ac023cfa6675f19
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723633"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956298"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 
@@ -61,21 +61,22 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 14.  Dopo aver registrata l'applicazione, copiare il **ID applicazione (client)** dalle **Panoramica** pagina. 
 15. Tornare all'istanza di gestione API. Nel **Aggiungi provider di identità** finestra, incollare le **ID applicazione (client)** valore il **ID Client** casella.
 16. Tornare alla configurazione di Azure AD, selezionare **certificati e i segreti** sotto **Gestisci**. Selezionare il **nuovo segreto client** pulsante. Immettere un valore in **Description**, selezionare un'opzione per **Expires** e scegliere **Add**. Copiare il valore del segreto client prima di lasciare la pagina. Saranno necessari nel passaggio successivo. 
-17. Tornare all'istanza di gestione API, incollare la chiave privata nel **segreto Client** casella.
+17. Sotto **Manage**, selezionare **Authentication** e quindi selezionare **i token ID** sotto **concessione implicita**
+18. Tornare all'istanza di gestione API, incollare la chiave privata nel **segreto Client** casella.
 
     > [!IMPORTANT]
     > Assicurarsi di aggiornare il **segreto client** prima della scadenza della chiave. 
     >  
     >
 
-18. La finestra **Aggiungi provider di identità** contiene anche la casella di testo **Tenant consentiti**. In questa casella specificare i domini delle istanze di Azure AD a cui si vuole concedere l'accesso alle API dell'istanza del servizio Gestione API. È possibile separare più domini con virgole, spazi o caratteri di nuova riga.
+19. La finestra **Aggiungi provider di identità** contiene anche la casella di testo **Tenant consentiti**. In questa casella specificare i domini delle istanze di Azure AD a cui si vuole concedere l'accesso alle API dell'istanza del servizio Gestione API. È possibile separare più domini con virgole, spazi o caratteri di nuova riga.
 
 > [!NOTE]
 > Nella sezione **Tenant consentiti** si possono specificare più domini. Per consentire a un utente di accedere da un dominio diverso da quello originale in cui è stata registrata l'applicazione, un amministratore globale dell'altro dominio deve concedere l'autorizzazione che permette all'applicazione di accedere ai dati della directory. Per concedere l'autorizzazione, l'amministratore globale deve: una. Passare a `https://<URL of your developer portal>/aadadminconsent` (ad esempio, https://contoso.portal.azure-api.net/aadadminconsent).
 > b. Digitare il nome di dominio del tenant di Azure AD a cui concedere l'accesso.
 > c. Selezionare **Submit** (Invia). 
 
-19.  Dopo aver specificato la configurazione desiderata, selezionare **Aggiungi**.
+20.  Dopo aver specificato la configurazione desiderata, selezionare **Aggiungi**.
 
 Dopo aver salvato le modifiche, gli utenti nell'istanza di Azure AD specificata possono accedere al portale per sviluppatori seguendo i passaggi descritti in [Accedere al portale per sviluppatori con un account Azure AD](#log_in_to_dev_portal).
 

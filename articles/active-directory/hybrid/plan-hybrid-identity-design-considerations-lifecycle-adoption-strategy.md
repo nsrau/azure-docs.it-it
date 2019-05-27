@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b312f284d557c2c1344b82b9fcd570d3392077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aff695307fc97e9f2acfd44f7434d5cbb26ef53e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381273"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950835"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità
 In questa attività verrà definita la strategia di gestione delle identità in modo che la soluzione ibrida soddisfi i requisiti aziendali definiti in [Determinare le attività della gestione ibrida delle identità](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -42,7 +42,7 @@ Nelle aziende IT sofisticate gli account includono centinaia di parametri che de
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 Il controllo degli accessi in base al ruolo usa i ruoli e i criteri di provisioning per valutare, testare e imporre regole e processi aziendali per concedere l'accesso agli utenti. Gli amministratori principali creano i criteri di provisioning, assegnano gli utenti ai ruoli e definiscono set di assegnazioni alle risorse per questi ruoli. Il controllo degli accessi in base al ruolo estende la soluzione di gestione delle identità per usare processi basati sul software e ridurre l'interazione manuale dell'utente nel processo di provisioning.
-Il controllo degli accessi in base al ruolo di Azure AD permette alla società di limitare il numero di operazioni che possono essere eseguite da un soggetto una volta effettuato l'accesso al portale di Azure. L'uso del controllo degli accessi in base al ruolo per controllare gli accessi al portale, permette agli amministratori IT di delegare l'accesso tramite gli approcci di gestione dell'accesso seguenti:
+RBAC di Azure AD permette alla società di limitare il numero di operazioni che un utente può eseguire dopo aver ottenuto l'accesso al portale di Azure. L'uso del controllo degli accessi in base al ruolo per controllare gli accessi al portale, permette agli amministratori IT di delegare l'accesso tramite gli approcci di gestione dell'accesso seguenti:
 
 * **Assegnazione di ruolo basata su gruppo**: è possibile assegnare l'accesso ai gruppi di Azure AD che possono essere sincronizzati dall'istanza di Active Directory locale. Questo consente di sfruttare gli investimenti esistenti dell'organizzazione in termini di strumenti e processi per la gestione dei gruppi. È anche possibile usare la funzionalità di delega della gestione dei gruppi disponibile in Azure AD Premium.
 * **Uso dei ruoli predefiniti in Azure**: sono disponibili tre ruoli, proprietario, collaboratore e lettore, per garantire che utenti e gruppi siano autorizzati a eseguire solo le attività necessarie per svolgere il proprio lavoro.

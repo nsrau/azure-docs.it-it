@@ -8,12 +8,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 01e86d9769b07a57d44ae21b2c76d894ac29e8bc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6b4e145a693aabbf1a00d732e2fd602e7c887a03
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920033"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956018"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Rendere disponibile contenuto di Archiviazione di Azure nel servizio app in Linux
 
@@ -62,7 +62,7 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 
 È consigliabile eseguire questa operazione per tutte le altre directory che si vogliono collegare a un account di archiviazione.
 
-## <a name="verify"></a>Verificare
+## <a name="verify"></a>Esegui verifica
 
 Dopo aver collegato un contenitore di archiviazione a un'app Web, è possibile verificare il collegamento eseguendo il comando seguente:
 
@@ -74,7 +74,7 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 
 Archiviazione di Azure può essere montata con le app multi-contenitore usando l'id personalizzato. Per visualizzare il nome personalizzato-id, eseguire [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
-Nel *docker-Compose. yml* file, eseguire il mapping di `volumes` possibilità `custom-id`. Ad esempio: 
+Nel *docker-Compose. yml* file, eseguire il mapping di `volumes` possibilità `custom-id`. Ad esempio:
 
 ```yaml
 wordpress:
@@ -85,4 +85,4 @@ wordpress:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurazione delle app Web in Servizio app di Azure](https://docs.microsoft.com/azure/app-service/web-sites-configure)
+- [Configurazione delle app Web in Servizio app di Azure](../configure-common.md)
