@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mayg
-ms.openlocfilehash: 195c70cd887d75eebb23cb7632b5fa250f89661c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: a1fbc8a42492b4a9c2254ccea2ddc2909219ad23
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137767"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969355"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -65,17 +65,17 @@ Lo strumento indica i dettagli seguenti:
 
 | | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Da Hyper-V al sito secondario**|**Da VMware al sito secondario**
 --|--|--|--|--|--
-Scenari supportati |Sì|Sì|No |Sì*|No 
-Versione supportata | vCenter 6.7, 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
-Configurazione supportata|vCenter, ESXi| Cluster Hyper-V, host Hyper-V|ND|Cluster Hyper-V, host Hyper-V|ND|
-Numero di server che è possibile profilare per ogni istanza in esecuzione di Site Recovery Deployment Planner |Singolo (è possibile profilare le VM appartenenti a un solo server vCenter o a un solo server ESXi alla volta)|Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND |Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND
+Scenari supportati |Sì|Sì|N.|Sì*|N.
+Versione supportata | vCenter 6.7, 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
+Configurazione supportata|vCenter, ESXi| Cluster Hyper-V, host Hyper-V|NA|Cluster Hyper-V, host Hyper-V|NA|
+Numero di server che è possibile profilare per ogni istanza in esecuzione di Site Recovery Deployment Planner |Singolo (è possibile profilare le VM appartenenti a un solo server vCenter o a un solo server ESXi alla volta)|Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| NA |Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| NA
 
 *Lo strumento è destinato principalmente allo scenario di ripristino di emergenza da Hyper-V ad Azure. Per il ripristino di emergenza da Hyper-V al sito secondario, può essere usato solo per conoscere le raccomandazioni sul lato di origine, ad esempio larghezza di banda di rete necessaria, spazio di archiviazione libero necessario in ogni server Hyper-V di origine e numeri di invio in batch e definizioni dei batch della replica iniziale. Ignorare le raccomandazioni di Azure e i costi del report. L'operazione per misurare la velocità effettiva non è inoltre applicabile per lo scenario di ripristino di emergenza da Hyper-V al sito secondario.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Lo strumento prevede due fasi principali: profilatura e generazione di report. È anche disponibile una terza opzione per calcolare solo la velocità effettiva. I requisiti per il server da cui vengono avviate la profilatura e la misurazione della velocità effettiva sono elencati nella tabella seguente.
 
-| Requisito server | DESCRIZIONE|
+| Requisito server | Descrizione|
 |---|---|
 |Profilatura e misurazione della velocità effettiva| <ul><li>Sistema operativo: Windows Server 2016 o Windows Server 2012 R2<br>(idealmente corrispondente almeno alle [dimensioni consigliate per il server di configurazione](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, HDD da 300 GB</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1.000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>Le impostazioni a livello di statistiche di VMware vCenter possono essere 1 o un valore superiore</li><li>Consentire la porta vCenter (443 come valore predefinito): Site Recovery Deployment Planner usa questa porta per la connessione al server vCenter/all'host ESXi</ul></ul>|
 | Generazione di report | Un PC o server Windows con Excel 2013 o versione successiva.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) è obbligatorio solo quando si passa l'opzione -User nel comando di generazione del report per recuperare le informazioni di configurazione macchina virtuale più recenti delle VM. Deployment Planner si connette al server vCenter. Consentire la porta vCenter, che è la 443 per impostazione predefinita, per la connessione al server vCenter.</li>|
@@ -121,7 +121,7 @@ Se si ha una versione precedente di Deployment Planner, eseguire una di queste o
 
 ## <a name="version-history"></a>Cronologia delle versioni
 La versione più recente di Site Recovery Deployment Planner è 2.4.
-Per le correzioni aggiunte in ogni aggiornamento, vedere la pagina della [cronologia delle versioni di Site Recovery Deployment Planner](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx).
+Per le correzioni aggiunte in ogni aggiornamento, vedere la pagina della [cronologia delle versioni di Site Recovery Deployment Planner](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-deployment-planner-history).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Eseguire Site Recovery Deployment Planner](site-recovery-vmware-deployment-planner-run.md)

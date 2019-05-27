@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c346c51db2c06c2ef91b101255076b811dfea9e7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: aa923fa7e2d5e673e6a2db2b349e54d433d1817b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869752"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957280"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di Mappe di Azure
 
@@ -68,7 +68,7 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
     </body>
     ```
 
-5. Per inizializzare il controllo mappa, definire una nuova sezione nel corpo HTML e creare uno script. Usare la propria chiave dell'account di Mappe di Azure oppure le credenziali di Azure Active Directory (AAD) per autenticare la mappa usando le [opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Se è necessario creare un account o trovare la chiave, vedere [Come gestire l'account e le chiavi dell'account Mappe di Azure](how-to-manage-account-keys.md). L'opzione **language** specifica la lingua da usare per le etichette e i controlli mappa. Per altre informazioni sulle lingue supportate, vedere [Lingue supportate](supported-languages.md). Se si usa una chiave di sottoscrizione per l'autenticazione:
+5. Per inizializzare il controllo mappa, definire una nuova sezione nel corpo HTML e creare uno script. Passare il `id` della mappa `<div>` o un' `HTMLElement` (ad esempio, `document.getElementById('myMap')`) come primo parametro quando si crea un'istanza del `Map` classe. Usare la propria chiave dell'account di Mappe di Azure oppure le credenziali di Azure Active Directory (AAD) per autenticare la mappa usando le [opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Se è necessario creare un account o trovare la chiave, vedere [Come gestire l'account e le chiavi dell'account Mappe di Azure](how-to-manage-account-keys.md). L'opzione **language** specifica la lingua da usare per le etichette e i controlli mappa. Per altre informazioni sulle lingue supportate, vedere [Lingue supportate](supported-languages.md). Se si usa una chiave di sottoscrizione per l'autenticazione:
 
     ```HTML
     <script type="text/javascript">

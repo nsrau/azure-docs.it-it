@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7b5df31c3e1d07cc9ac93f73362e853fab728fa9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0c1efa0e5cfa4bf31e58be64b3fe78075b79b515
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793799"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141728"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -63,7 +63,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 6. Immettere un URL di segnaposto, ad esempio `http://resources` per **URI di reindirizzamento**, che è un campo obbligatorio, ma il valore non viene usato in seguito. Selezionare la casella di controllo per salvare l'applicazione.
 7. Fare clic su **Create**(Crea).
 
-### <a name="add-an-application"></a>Aggiungere un'applicazione
+### <a name="add-an-application"></a>Aggiungi applicazione
 
 1. Dopo aver creato l'applicazione, fare clic su **Impostazioni**.
 2. Fare clic su **Autorizzazioni necessarie**.
@@ -72,7 +72,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 5. Scegliere **API Gestione dei servizi di** **Windows Azure**.
 6. Fare clic su **Seleziona**.
 
-    ![Aggiungere autorizzazioni](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    ![Aggiungi autorizzazioni](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
 7. Fare clic su **Autorizzazioni delegate** accanto all'applicazione appena aggiunta, selezionare la casella per **Accesso a Gestione dei servizi di Azure (anteprima)**.
 8. Fare clic su **Seleziona**.
@@ -117,7 +117,7 @@ Sostituire `{tenant id}`, `{application id}` e `{redirect uri}` usando le istruz
 
     Dopo avere specificato i valori, l'esempio di codice dovrebbe restituire un token simile all'esempio seguente:
 
-    ![token][api-management-arm-token]
+    ![Token][api-management-arm-token]
 
     > [!NOTE]
     > Il token può scadere dopo un certo periodo. Eseguire nuovamente l'esempio di codice per generare un nuovo token.
@@ -223,7 +223,7 @@ Vedere le risorse seguenti per procedure dettagliate diverse del processo di bac
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
 
-[Azure API Management REST API]: https://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 

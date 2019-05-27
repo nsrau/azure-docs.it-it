@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
 ms.openlocfilehash: 1432db2651ad08a9d261592f6b48fa875a5f1d5f
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572322"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66136245"
 ---
 La possibilità di impostare un nome di dominio personalizzato in un'app Web integrata con Gestione traffico è disponibile solo per il piano tariffario **Standard**.  
 

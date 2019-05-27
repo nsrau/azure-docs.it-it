@@ -1,10 +1,15 @@
 ---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
 ms.openlocfilehash: a69df0cc9ea14a2c9fa172c77663afb1d6861f9b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097527"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140109"
 ---
 #### <a name="configure-the-ios-project-in-xamarin-studio"></a>Configurazione del progetto iOS in Xamarin Studio
 1. In Xamarin Studio aprire **Info.plist** e aggiornare il valore in **Bundle Identifier** (Identificatore bundle) con l'ID creata in precedenza.

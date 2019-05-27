@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 624ad22b1c63498e8ce936472cfc884910bc6f84
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: db289e5b5be23176e8589f408a86734181129ebe
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276950"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978499"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Abilitare Crittografia dischi di Azure per le macchine virtuali IaaS Linux 
 
@@ -130,7 +130,7 @@ Usare la [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azv
 
 La tabella seguente elenca i parametri del modello di Resource Manager per macchine virtuali esistenti o in esecuzione:
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | vmName | Nome della macchina virtuale per eseguire l'operazione di crittografia. |
 | keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave BitLocker. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o il comando dell'interfaccia della riga di comando di Azure `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`|
@@ -139,7 +139,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 | volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori validi sono _OS_, _Data_ e _All_. 
 | forceUpdateTag | Ogni volta che è necessario forzare l'esecuzione dell'operazione, passare un valore univoco, ad esempio un GUID. |
 | resizeOSDisk | La partizione del sistema operativo deve essere ridimensionata in modo da occupare il disco rigido virtuale completo del sistema operativo prima della divisione del volume di sistema. |
-| location | Posizione per tutte le risorse. |
+| percorso | Posizione per tutte le risorse. |
 
 
 
@@ -398,7 +398,7 @@ A differenza della sintassi di PowerShell, l'interfaccia della riga di comando n
 
 - **Disabilitare la crittografia dei dischi con Azure PowerShell:** Per disabilitare la crittografia, usare il [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. 
      ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [--volume-type {ALL, DATA, OS}]
+     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [-VolumeType {ALL, DATA, OS}]
      ```
 
 - **Disabilitare la crittografia con l'interfaccia della riga di comando di Azure:** per disabilitare la crittografia, usare il comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). 

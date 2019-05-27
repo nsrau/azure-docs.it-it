@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 49ac1a7585ddf2a6500c7e9382880109c3f7f431
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025992"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131751"
 ---
 ## <a name="export-an-api-definition"></a>Esportare una definizione API
 Si ha una definizione OpenAPI per la funzione, ottenuta in [Creare una definizione OpenAPI per una funzione](../articles/azure-functions/functions-openapi-definition.md). Il passaggio successivo di questo processo consiste nell'esportare la definizione API in modo che PowerApps e Microsoft Flow possano usarla in un'API personalizzata.
@@ -23,11 +23,11 @@ Si ha una definizione OpenAPI per la funzione, ottenuta in [Creare una definizio
 
 1. Fare clic su **Esporta in PowerApps e Microsoft Flow**.
 
-    ![Origine della definizione API](media/functions-export-api-definition/export-api-1.png)
+    ![Origine della definizione dell'API](media/functions-export-api-definition/export-api-1.png)
 
 1. Nel riquadro destro usare le impostazioni specificate nella tabella.
 
-    |Impostazione|DESCRIZIONE|
+    |Impostazione|Descrizione|
     |--------|------------|
     |**Modalità di esportazione**|Selezionare **Rapida** per generare automaticamente l'API personalizzata. Se si seleziona **Manuale**, la definizione API viene esportata, ma è quindi necessario importarla manualmente in PowerApps e Microsoft Flow. Per altre informazioni, vedere [Esportare in PowerApps e Microsoft Flow](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md).|
     |**Environment**|Selezionare l'ambiente in cui salvare l'API personalizzata. Per altre informazioni, vedere [Panoramica degli ambienti (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) o [Panoramica degli ambienti (Microsoft Flow)](https://us.flow.microsoft.com/documentation/environments-overview-admin/).|

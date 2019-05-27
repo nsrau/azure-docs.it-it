@@ -9,11 +9,11 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9132cf438cab518e20e6c2ddfdb7d0928753bd19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407640"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170139"
 ---
 1. Nel portale passare alla rete virtuale per cui si vuole creare un gateway di rete virtuale.
 2. Nella sezione **Impostazioni** della pagina della rete virtuale fare clic su **Subnet** per espandere la pagina Subnet.

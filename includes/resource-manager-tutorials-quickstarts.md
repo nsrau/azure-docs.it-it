@@ -15,11 +15,11 @@ ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
 ms.openlocfilehash: 8c5347b412475b86222acabb76b88baaceb7645a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589421"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66129008"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Guide introduttive ed esercitazioni
 

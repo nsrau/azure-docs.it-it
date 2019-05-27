@@ -15,11 +15,11 @@ ms.date: 12/11/2017
 ms.author: msangapu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b5f75ded0b51b78d56354bf97b5ebb0488022509
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136902"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Creare un backup pianificato per un'app del servizio app usando l'interfaccia della riga di comando
 

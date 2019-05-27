@@ -6,13 +6,13 @@ manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: rayne-wiselman
-ms.openlocfilehash: 605421196c2ec7f62826e2f6c823d50262af8144
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: raynew
+ms.openlocfilehash: 8a3c9a4fb1b43c1d00d66fee3548ccd10a1e075e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61278143"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969383"
 ---
 # <a name="monitor-site-recovery"></a>Monitoraggio di Site Recovery
 
@@ -35,9 +35,9 @@ In questo articolo viene illustrato come usare le funzionalità di monitoraggio 
 
 La sezione Elementi replicati mostra l'integrità di tutte le macchine con la replica abilitata nell'insieme di credenziali.
 
-**State** | **Dettagli**
+**Stato** | **Dettagli**
 --- | ---
-Healthy | La replica sta procedendo normalmente. Non sono stati rilevati sintomi di errore o avviso.
+Integra | La replica sta procedendo normalmente. Non sono stati rilevati sintomi di errore o avviso.
 Avviso | Sono stati rilevati uno o più sintomi di avviso che potrebbero influire sulla replica.
 Critico | Sono stati rilevati uno o più sintomi di errore di replica critici.<br/><br/> Questi sintomi di errore in genere sono indicatori del fatto che la replica è bloccata o non sta procedendo con la stessa frequenza di modifica dei dati.
 Non applicabile | Server di cui attualmente non è prevista la replica. Potrebbe includere le macchine di cui è stato eseguito il failover.
@@ -49,7 +49,7 @@ Non applicabile | Server di cui attualmente non è prevista la replica. Potrebbe
 - È consigliabile eseguire un failover di test nelle macchine replicate almeno una volta ogni sei mesi. È un modo per verificare che il failover funzioni come previsto senza interruzioni per l'ambiente di produzione. 
 - Un failover di test è considerato riuscito solo una volta che il failover e la pulizia dopo il failover sono stati completati correttamente.
 
-**State** | **Dettagli**
+**Stato** | **Dettagli**
 --- | ---
 Test consigliato | Macchine in cui non è stato eseguito un failover di test dal momento in cui è stata abilitata la protezione.
 Eseguito correttamente | Macchine con uno o più failover di test riusciti.
@@ -62,7 +62,7 @@ La sezione **Problemi di configurazione** visualizza un elenco di problemi che p
 - I problemi di configurazione (ad eccezione della disponibilità di aggiornamenti software) vengono rilevati da un'operazione periodica del validator eseguita ogni 12 ore per impostazione predefinita. Per eseguire immediatamente l'operazione del validator, fare clic sull'icona Aggiorna accanto all'intestazione della sezione **Problemi di configurazione**.
 - Fare clic sui collegamenti per ottenere altri dettagli. Per problemi che hanno effetto su computer specifici, fare clic su **richiede attenzione** nella colonna **Configurazioni di destinazione**. I dettagli includono raccomandazioni sulla risoluzione dei problemi.
 
-**State** | **Dettagli**
+**Stato** | **Dettagli**
 --- | ---
 Configurazioni mancanti | Un'impostazione necessaria non è presente, ad esempio una rete di ripristino o un gruppo di risorse.
 Risorse mancanti | Una risorsa specificata non è stata trovata o non è disponibile nella sottoscrizione. Ad esempio, la risorsa è stata eliminata o ne è stata eseguita la migrazione. Le risorse monitorate includono gruppo di risorse di destinazione, rete virtuale e subnet di destinazione, account di archiviazione di log/destinazione, set di disponibilità di destinazione, indirizzo IP di destinazione.
@@ -95,14 +95,14 @@ In **Visualizzazione dell'infrastruttura** vengono mostrati i componenti dell'in
 - Per usare tutte le funzionalità nella visualizzazione dell'infrastruttura, è necessario eseguire l'[aggiornamento cumulativo 22](https://support.microsoft.com/help/4072852) per questi componenti.
 - Per usare la visualizzazione dell'infrastruttura, selezionare lo scenario di replica appropriato per lo specifico ambiente. È possibile eseguire il drill-down nella visualizzazione per altri dettagli. La tabella seguente illustra gli scenari rappresentati.
 
-    **Scenario** | **State**  | **Visualizzazione disponibile?**
+    **Scenario** | **Stato**  | **Visualizzazione disponibile?**
     --- |--- | ---
-    **Replica tra siti locali** | Tutti gli stati | No  
+    **Replica tra siti locali** | Tutti gli stati | N. 
     **Replica di VM di Azure tra aree di Azure**  | Replica abilitata/replica iniziale in corso | Sì
-    **Replica di VM di Azure tra aree di Azure** | Failover/failback | No    
+    **Replica di VM di Azure tra aree di Azure** | Failover/failback | N.   
     **Replica VMware in Azure** | Replica abilitata/replica iniziale in corso | Sì     
-    **Replica VMware in Azure** | Failover/failback | No       
-    **Replica Hyper-V in Azure** | Failover/failback | No 
+    **Replica VMware in Azure** | Failover/failback | N.      
+    **Replica Hyper-V in Azure** | Failover/failback | N.
 
 - Per visualizzare la visualizzazione dell'infrastruttura per una singola macchina di replica, nel menu dell'insieme di credenziali fare clic su **Elementi replicati** e selezionare un server.  
 

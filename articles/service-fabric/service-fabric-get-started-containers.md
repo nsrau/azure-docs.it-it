@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
 ms.openlocfilehash: 2cf5bf26dbe18d7b4c6e3b1a93aa38d7748dc5a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049492"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66119136"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Creare la prima applicazione contenitore di Service Fabric in Windows
 
@@ -471,7 +471,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Compatibilità tra il sistema operativo del contenitore di Windows Server e il sistema operativo dell'host
 
-I contenitori di Windows Server non sono compatibili con tutte le versioni del sistema operativo host. Ad esempio: 
+I contenitori di Windows Server non sono compatibili con tutte le versioni del sistema operativo host. Ad esempio:
  
 - I contenitori di Windows Server creati tramite Windows Server versione 1709 non funzionano in un host che esegue Windows Server 2016. 
 - I contenitori di Windows Server creati tramite Windows Server 2016 funzionano in modalità di isolamento Hyper-V solo in un host che esegue Windows Server versione 1709. 
@@ -479,7 +479,7 @@ I contenitori di Windows Server non sono compatibili con tutte le versioni del s
  
 Per altre informazioni, vedere [Compatibilità delle versioni dei contenitori di Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Considerare la compatibilità del sistema operativo host e del sistema operativo del contenitore durante la creazione e la distribuzione dei contenitori nel cluster di Service Fabric. Ad esempio: 
+Considerare la compatibilità del sistema operativo host e del sistema operativo del contenitore durante la creazione e la distribuzione dei contenitori nel cluster di Service Fabric. Ad esempio:
 
 - Assicurarsi di distribuire i contenitori con un sistema operativo compatibile con il sistema operativo nei nodi del cluster.
 - Assicurarsi che la modalità di isolamento specificata per l'app contenitore sia coerente con il supporto per il sistema operativo del contenitore nel nodo in cui viene distribuito.

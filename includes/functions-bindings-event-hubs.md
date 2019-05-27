@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 1957fa4310a22a162ee2a621d1e0349e253badb3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456568"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132456"
 ---
 ## <a name="trigger"></a>Trigger
 
@@ -386,7 +386,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su `eventHubTrigger`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
-|**nome** | n/d | Nome della variabile che rappresenta l'elemento evento nel codice della funzione. |
+|**name** | n/d | Nome della variabile che rappresenta l'elemento evento nel codice della funzione. |
 |**path** |**EventHubName** | Solo Funzioni 1.x. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. |
 |**eventHubName** |**EventHubName** | Solo Funzioni 2.x. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. |
 |**consumerGroup** |**ConsumerGroup** | Proprietà facoltativa che consente di impostare il [gruppo di consumer](../articles/event-hubs/event-hubs-features.md)i consumer di eventi #) usati per sottoscrivere gli eventi nell'hub. Se omessa, al suo posto viene usato il gruppo di consumer `$Default`. |
@@ -400,7 +400,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Il trigger di Hub eventi fornisce diverse [proprietà di metadati](../articles/azure-functions/./functions-bindings-expressions-patterns.md). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste sono proprietà della classe [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata).
 
-|Proprietà|Type|DESCRIZIONE|
+|Proprietà|Type|Descrizione|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|L'istanza di `PartitionContext`.|
 |`EnqueuedTimeUtc`|`DateTime`|Il tempo di accodamento in formato UTC.|
@@ -446,6 +446,26 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 {
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     return $"{DateTime.Now}";
+}
+```
+
+L'esempio seguente viene illustrato come utilizzare il `IAsyncCollector` interfaccia per inviare un batch di messaggi. Questo scenario è comune quando si elaborano i messaggi provenienti da un Hub eventi e invia il risultato a un altro Hub eventi.
+
+```csharp
+[FunctionName("EH2EH")]
+public static async Task Run(
+    [EventHubTrigger("source", Connection = "EventHubConnectionAppSetting")] EventData[] events,
+    [EventHub("dest", Connection = "EventHubConnectionAppSetting")]IAsyncCollector<string> outputEvents,
+    ILogger log)
+{
+    foreach (EventData eventData in events)
+    {
+        // do some processing:
+        var myProcessedEvent = DoSomething(eventData);
+
+        // then send the message
+        await outputEvents.AddAsync(JsonConvert.SerializeObject(myProcessedEvent));
+    }
 }
 ```
 
@@ -656,7 +676,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su "eventHub". |
 |**direction** | n/d | Deve essere impostato su "out". Questo parametro viene impostato automaticamente quando si crea l'associazione nel portale di Azure. |
-|**nome** | n/d | Nome della variabile usato nel codice della funzione che rappresenta l'evento. |
+|**name** | n/d | Nome della variabile usato nel codice della funzione che rappresenta l'evento. |
 |**path** |**EventHubName** | Solo Funzioni 1.x. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. |
 |**eventHubName** |**EventHubName** | Solo Funzioni 2.x. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. |
 |**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo *spazio dei nomi*, non per lo stesso Hub eventi. Per inviare il messaggio al flusso di eventi, questa stringa di connessione deve disporre di autorizzazioni Send.|
@@ -699,7 +719,7 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }  
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
 |maxBatchSize|64|Il numero massimo degli eventi ricevuto per ogni ciclo di ricezione.|
 |prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato dall’EventProcessorHost sottostante.|

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527880"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124767"
 ---
 Bing supporta l'evidenziazione dei risultati, con cui i termini di query o altri termini ritenuti rilevanti da Bing vengono contrassegnati nelle stringhe visualizzate di alcune risposte. I termini di query possono ad esempio essere contrassegnati con i campi `name`, `displayUrl` e `snippet` di una pagina Web.
 
@@ -23,7 +23,7 @@ Come marcatori, Bing offre la possibilità di usare caratteri Unicode o tag HTML
   
 Se il parametro `textDecorations` è impostato su **true**, nelle stringhe visualizzate delle risposte possono essere inclusi da Bing i marcatori riportati di seguito. Se non esiste un equivalente HTML, la cella della colonna HTML della tabella è vuota.
 
-|Unicode|HTML|DESCRIZIONE
+|Unicode|HTML|Descrizione
 |-|-|-
 |U+E000|\<b>|Contrassegna l'inizio del termine di query (evidenziazione dei risultati)
 |U+E001|\</b>|Contrassegna la fine del termine di query

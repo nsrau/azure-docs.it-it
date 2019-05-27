@@ -8,21 +8,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413708"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000095"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Ridimensionare automaticamente i cluster HDInsight di Azure (anteprima)
+
+> [!Important]
+> La funzionalità scalabilità automatica funziona solo per i cluster Spark, Hive e MapReduce creati dopo maggio 2019 l'8. 
 
 Funzionalità di scalabilità automatica di cluster di HDInsight di Azure si adatta automaticamente il numero di nodi di lavoro in un cluster su e giù. Altri tipi di nodi del cluster non possono essere scalate attualmente.  Durante la creazione di un nuovo cluster HDInsight è possibile impostare un numero minimo e massimo di nodi del ruolo di lavoro. Scalabilità automatica può quindi monitora i requisiti di risorse del carico di analitica e scala il numero di nodi di lavoro verso l'alto o verso il basso. Non sono previsti addebiti aggiuntivi per questa funzionalità.
 
 ## <a name="cluster-compatibility"></a>Compatibilità di cluster
-
-> [!Important]
-> La funzionalità scalabilità automatica funziona solo per i cluster creati dopo la disponibilità della funzionalità pubblica in maggio 2019. Non è possibile usarlo per i cluster esistenti.
 
 Nella tabella seguente descrive i tipi di cluster e le versioni compatibili con la funzionalità di scalabilità automatica.
 
@@ -189,6 +189,25 @@ Per altre informazioni sulla creazione di cluster con modelli di Resource Manage
 Per abilitare la scalabilità automatica in un cluster in esecuzione, selezionare **dimensioni del Cluster** sotto **impostazioni**. Quindi fare clic su **abilitare la scalabilità automatica**. Selezionare il tipo di scalabilità automatica che si desidera e immettere le opzioni per la scalabilità in base al carico o basate su pianificazione. Infine, fare clic su **Salva**.
 
 ![Abilitare l'opzione di scalabilità automatica basate su pianificazione nodo ruolo di lavoro](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+
+## <a name="best-practices"></a>Procedure consigliate
+
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>Scegliere la scalabilità in base al carico o basate su pianificazione
+
+Prima di prendere una decisione sulla modalità da scegliere, prendere in considerazione i fattori seguenti:
+
+* Caricare la varianza: il carico del cluster segue un modello coerente in momenti specifici, in giorni specifici. In caso contrario, la programmazione di carico basato su un'opzione migliore.
+* Requisiti del contratto di servizio: Il ridimensionamento di scalabilità automatica è reattivo anziché predittiva. Vi sarà un ritardo sufficiente tra quando viene avviato il caricamento di aumento e quando il cluster deve essere con le dimensioni di destinazione? Se sono presenti requisiti rigorosi di contratto di servizio e il carico è uno schema fisso noto, 'schedule basato su' è un'opzione migliore.
+
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Prendere in considerazione la latenza di scala backup o ridurre le operazioni
+
+Può richiedere da 10 a 20 minuti per completare un'operazione di ridimensionamento. Quando si configura una pianificazione personalizzata, pianificare questo ritardo. Ad esempio, se è necessaria la dimensione del cluster a 20 dalle 09:00, impostare il trigger di pianificazione a un momento precedente, ad esempio 8:30 in modo che l'operazione di ridimensionamento è stata completata per le 9:00.
+
+### <a name="preparation-for-scaling-down"></a>Preparazione per la scalabilità verso il basso
+
+Durante il processo di ridimensionamento del cluster, ridimensionamento automatico verrà ritirati i nodi in modo da soddisfare le dimensioni di destinazione. Se si eseguono operazioni su tali nodi, la scalabilità automatica attenderà fino a quando non vengono completate le attività. Poiché ogni nodo di lavoro viene inoltre utilizzato un ruolo in HDFS, i nodi rimanenti verranno spostati i dati temporanei. Pertanto, assicurarsi che lo spazio sia sufficiente nei nodi rimanenti per ospitare tutti i dati temporanei. 
+
+I processi in esecuzione continuerà a eseguire e completare. I processi in sospeso verranno attesa di essere pianificato come di consueto con meno nodi di lavoro disponibili.
 
 ## <a name="monitoring"></a>Monitoraggio
 

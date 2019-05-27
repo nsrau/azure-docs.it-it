@@ -4,29 +4,29 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/16/2019
-ms.openlocfilehash: e92d1c65d9601c23e7e785f07e2de3e43ea6612b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 05961f8dd2788179a15e6bfe094484cf4770067b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598783"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124291"
 ---
-Le query per il contenitore vengono fatturate al piano tariffario della risorsa di Azure usato per il `<ApiKey>`.
+Le query sul contenitore vengono fatturate secondo il piano tariffario della risorsa di Azure usata per `<ApiKey>`.
 
-I contenitori di servizi cognitivi non sono concessi in licenza per l'esecuzione senza connettersi all'endpoint di fatturazione per il controllo. I clienti devono consentire i contenitori di comunicare le informazioni di fatturazione con endpoint di fatturazione in qualsiasi momento. I contenitori di Servizi cognitivi non inviano a Microsoft i dati dei clienti, ad esempio l'immagine o il testo analizzato. 
+I contenitori di Servizi cognitivi di Azure non vengono concessi in licenza per l'esecuzione senza connessione all'endpoint di fatturazione per la misurazione. È necessario consentire ai contenitori di comunicare sempre le informazioni di fatturazione all'endpoint di fatturazione. I contenitori di Servizi cognitivi non inviano a Microsoft i dati dei clienti, ad esempio l'immagine o il testo analizzato. 
 
-### <a name="connecting-to-azure"></a>La connessione ad Azure
+### <a name="connect-to-azure"></a>Connect to Azure
 
-Il contenitore deve i valori degli argomenti fatturazione per l'esecuzione. Questi valori consentono il contenitore per la connessione all'endpoint di fatturazione. Il contenitore segnala l'utilizzo ogni 10-15 minuti. Se il contenitore non può connettersi all'interno della finestra di tempo consentito ad Azure, il contenitore continuerà a essere eseguita ma non di servire query fino a quando non viene ripristinato l'endpoint di fatturazione. La connessione è tentata 10 volte nella stesso intervallo di tempo di 10-15 minuti. Se non è possibile connettersi all'endpoint di fatturazione all'interno di 10 tentativi, il contenitore cesserà di funzionare. 
+Per eseguire il contenitore, sono necessari i valori dell'argomento di fatturazione. Questi valori consentono al contenitore di connettersi all'endpoint di fatturazione. Il contenitore segnala l'utilizzo ogni 10-15 minuti. Se il contenitore non si connette ad Azure entro la finestra temporale consentita, continuerà a essere eseguito ma non fornirà query finché l'endpoint di fatturazione non verrà ripristinato. Il tentativo di connessione viene effettuato 10 volte nello stesso intervallo di tempo di 10-15 minuti. Se non è possibile stabilire la connessione con l'endpoint di fatturazione entro i 10 tentativi, l'esecuzione del contenitore verrà arrestata. 
 
 ### <a name="billing-arguments"></a>Argomenti di fatturazione
 
-Tutte e tre delle seguenti opzioni deve essere specificati con i valori validi per consentire il `docker run` comando per avviare il contenitore:
+Per avviare il contenitore con il comando `docker run`, è necessario che vengano specificate tutte e tre le opzioni seguenti con valori validi.
 
 | Opzione | DESCRIZIONE |
 |--------|-------------|
-| `ApiKey` | La chiave API della risorsa Servizio cognitivo usata per tenere traccia delle informazioni di fatturazione.<br/>Il valore di questa opzione deve essere impostato su una chiave API per la risorsa di cui è stato effettuato il provisioning specificata in `Billing`. |
-| `Billing` | L'endpoint della risorsa Servizio cognitivo usato per tenere traccia delle informazioni di fatturazione.<br/>Il valore di questa opzione deve essere impostato per l'URI di una risorsa di Azure con provisioning dell'endpoint.|
-| `Eula` | Indica che è stata accettata la licenza per il contenitore.<br/>Il valore di questa opzione deve essere impostato su `accept`. |
+| `ApiKey` | La chiave API della risorsa di Servizi cognitivi usata per tenere traccia delle informazioni di fatturazione.<br/>Il valore di questa opzione deve essere impostato su una chiave API per la risorsa di cui è stato effettuato il provisioning specificata in `Billing`. |
+| `Billing` | L'endpoint della risorsa di Servizi cognitivi usata per tenere traccia delle informazioni di fatturazione.<br/>Il valore di questa opzione deve essere impostato sull'URI dell'endpoint di una risorsa di Azure di cui è stato effettuato il provisioning.|
+| `Eula` | Indica che è la licenza per il contenitore è stata accettata.<br/>Il valore di questa opzione deve essere impostato su `accept`. |
 
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 3/28/2019
 ms.author: amitsriva
 ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135558"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integrità back-end, log di diagnostica e metriche per il gateway applicazione
 
@@ -90,7 +90,7 @@ Il frammento seguente illustra un esempio della risposta:
 }
 ```
 
-## <a name="diagnostic-logging"></a>Registri di diagnostica
+## <a name="diagnostic-logging"></a>Log di diagnostica
 
 In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei gateway applicazione. Alcuni di questi log sono accessibili tramite il portale. Tutti i log possono essere estratti dall'archiviazione BLOB di Azure e visualizzati in strumenti diversi, ad esempio i [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md), Excel e Power BI. L'elenco seguente contiene altre informazioni sui diversi tipi di log:
 
@@ -158,7 +158,7 @@ Azure genera il log attività per impostazione predefinita. I log vengono conser
 Il log di accesso viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Ogni accesso del gateway applicazione viene registrato in formato JSON, come illustrato nell'esempio seguente:
 
 
-|Valore  |DESCRIZIONE  |
+|Value  |Descrizione  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione che ha gestito la richiesta.        |
 |clientIP     | IP di origine della richiesta.        |
@@ -202,7 +202,7 @@ Il log di accesso viene generato solo se è stato abilitato in ogni istanza del 
 Il log delle prestazioni viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. I dati del log delle prestazioni vengono generati a intervalli di un minuto. Vengono registrati i dati seguenti:
 
 
-|Valore  |DESCRIZIONE  |
+|Value  |Descrizione  |
 |---------|---------|
 |instanceId     |  Istanza del gateway applicazione per cui vengono generati i dati delle prestazioni. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.        |
 |healthyHostCount     | Numero di host integri nel pool back-end.        |
@@ -239,7 +239,7 @@ Il log delle prestazioni viene generato solo se è stato abilitato in ogni istan
 Il log del firewall viene generato solo se è stato abilitato in ogni gateway applicazione, come descritto nei passaggi precedenti. Questo log richiede anche che il web application firewall sia configurato in un gateway applicazione. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Vengono registrati i dati seguenti:
 
 
-|Valore  |DESCRIZIONE  |
+|Value  |Descrizione  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione per cui vengono generati i dati del firewall. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.         |
 |clientIp     |   IP di origine della richiesta.      |
@@ -307,7 +307,7 @@ I [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-anal
 
 È stato pubblicato un modello di Resource Manager che installa ed esegue il diffuso analizzatore di log [GoAccess](https://goaccess.io/) per i log di accesso del gateway applicazione. GoAccess offre utili statistiche sul traffico HTTP, come ad esempio visitatori univoci, file richiesti, host, sistemi operativi, browser, codici di stato HTTP e altro ancora. Per altre informazioni, vedere il [file Readme nella cartella del modello di Resource Manager in GitHub](https://aka.ms/appgwgoaccessreadme).
 
-## <a name="metrics"></a>Metrica
+## <a name="metrics"></a>Metriche
 
 Le metriche sono una funzionalità di alcune risorse di Azure che consente di visualizzare i contatori delle prestazioni nel portale. Per il gateway applicazione sono disponibili le metriche seguenti:
 

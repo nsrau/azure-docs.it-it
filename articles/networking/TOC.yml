@@ -40,6 +40,8 @@
               href: connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Concetti
       items:
+        - name: WAN globale di Microsoft
+          href: azure-network.md
         - name: Reti virtuali
           href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Bilanciamento del carico di rete
@@ -54,7 +56,7 @@
           href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: 'Connettersi all''ambiente locale: rete dedicata'
           href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
-- name: Attività iniziali
+- name: Guida introduttiva
   items:
     - name: Creare la prima rete virtuale
       href: ../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json

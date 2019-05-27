@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
 ms.openlocfilehash: 91141e314bf276d9138157c8a9d85d5262ac5907
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60900519"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131018"
 ---
 Raccolta di misure personalizzate. Usare questa raccolta per segnalare la misura denominata associata all'elemento di telemetria. Casi d'uso tipici sono i seguenti:
 - dimensioni del payload della telemetria di dipendenza

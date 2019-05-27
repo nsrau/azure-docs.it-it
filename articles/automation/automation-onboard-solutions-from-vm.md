@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38b5b233d21c0c5d79d7bcb6a145e6232b238b0e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738936"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133115"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario da una macchina virtuale di Azure
 
@@ -104,6 +104,8 @@ Se è stata usata la soluzione per avviare/arrestare VM durante gli orari di min
 * Avviare e arrestare le pianificazioni di runbook delle VM
 * Avviare e arrestare i runbook delle VM
 * Variabili
+
+È inoltre in alternativa possibile scollegare l'area di lavoro dall'Account di automazione dall'area di lavoro di Log Analitica. Sull'area di lavoro, selezionare **Account di automazione** sotto **le risorse correlate**. Nella pagina Account di automazione, selezionare **scollegare l'account**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

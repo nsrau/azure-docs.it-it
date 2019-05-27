@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6e88d8f1c16e7c73f5c62325e41701e6f0ea97fb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728081"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967950"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per distribuire le funzionalità di integrazione di dati in ambienti di rete diversi. Per informazioni dettagliate sul runtime di integrazione, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
@@ -57,7 +57,7 @@ Di seguito viene indicato un flusso di dati generale per il riepilogo dei passag
 1. Lo sviluppatore di dati crea un runtime di integrazione self-hosted in un'istanza di Azure Data Factory tramite un cmdlet di PowerShell. Il portale di Azure attualmente non supporta questa funzionalità.
 2. Lo sviluppatore di dati crea quindi un servizio collegato per un archivio dati locale specificando l'istanza del runtime di integrazione self-hosted da usare per la connessione agli archivi dati.
 3. Il nodo del runtime di integrazione self-hosted crittografa le credenziali con Data Protection API (DPAPI) e le salva in locale. Se più nodi vengono impostati per la disponibilità elevata, le credenziali vengono ulteriormente sincronizzate negli altri nodi. Ogni nodo crittografa le credenziali con DPAPI e le archivia in locale. La sincronizzazione delle credenziali è trasparente allo sviluppatore di dati e viene gestita dal runtime di integrazione self-hosted.    
-4. Il servizio Data Factory comunica con il runtime di integrazione self-hosted per pianificare e gestire i processi tramite un *canale di controllo* che usa una coda condivisa del bus di servizio di Azure. Quando è necessario eseguire un processo di attività, Data Factory accoda la richiesta con le informazioni sulle credenziali (se le credenziali non sono già archiviate nel runtime di integrazione self-hosted). Il runtime di integrazione self-hosted avvia il processo dopo che è stato eseguito il polling della coda.
+4. Il servizio Data Factory comunica con il runtime di integrazione self-hosted per la pianificazione e gestione dei processi tramite un *canale di controllo* che usa un oggetto condiviso [inoltro del Bus di servizio di Azure](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay). Quando è necessario eseguire un processo di attività, Data Factory accoda la richiesta con le informazioni sulle credenziali (se le credenziali non sono già archiviate nel runtime di integrazione self-hosted). Il runtime di integrazione self-hosted avvia il processo dopo che è stato eseguito il polling della coda.
 5. Il runtime di integrazione self-hosted copia quindi i dati dall'archivio locale in una risorsa di archiviazione cloud o viceversa in base alla configurazione dell'attività di copia nella pipeline di dati. Per eseguire questo passaggio, il runtime di integrazione self-hosted comunica direttamente con i servizi di archiviazione basati sul cloud, ad esempio Archiviazione BLOB di Azure, su un canale protetto (HTTPS).
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Considerazioni sull'uso del runtime di integrazione self-hosted

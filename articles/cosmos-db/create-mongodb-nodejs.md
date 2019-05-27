@@ -7,15 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 12/06/2018
-ms.openlocfilehash: 99f6de4d0441594c09e5e8c29834b90aeb1d43a6
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.date: 05/21/2019
+ms.openlocfilehash: 3f6eca30379eb8890695df946f1d7e697cb3f7d7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586479"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979059"
 ---
-# <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Avvio rapido: Eseguire la migrazione di un'app Web Node.js MongoDB esistente ad Azure Cosmos DB 
+# <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Guida introduttiva: Eseguire la migrazione di un'app Web Node.js MongoDB esistente ad Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

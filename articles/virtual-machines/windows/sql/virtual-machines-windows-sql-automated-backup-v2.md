@@ -16,11 +16,11 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780015"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165694"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Backup automatico v2 per macchine virtuali in Azure (Resource Manager)
 
@@ -62,7 +62,7 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 
 ### <a name="basic-settings"></a>Basic Settings
 
-| Impostazione | Intervallo (impostazione predefinita) | DESCRIZIONE |
+| Impostazione | Intervallo (impostazione predefinita) | Descrizione |
 | --- | --- | --- |
 | **Backup automatico** | Enable/Disable (disabilitato) | Abilita o disabilita il backup automatico per una macchina virtuale di Azure in cui viene eseguito SQL Server 2016/2017 Developer, Standard o Enterprise. |
 | **Periodo di conservazione** | 1-30 giorni (30 giorni) | Numero di giorni di conservazione dei backup. |
@@ -72,7 +72,7 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 
 ### <a name="advanced-settings"></a>Impostazioni avanzate
 
-| Impostazione | Intervallo (impostazione predefinita) | DESCRIZIONE |
+| Impostazione | Intervallo (impostazione predefinita) | Descrizione |
 | --- | --- | --- |
 | **Backup dei database di sistema** | Enable/Disable (disabilitato) | Quando abilitata, questa funzionalità esegue inoltre il backup dei database di sistema: Master, MSDB e Model. Per i database MSDB e Model, verificare che siano in modalità di ripristino completo se si desidera eseguire il backup dei log. Non vengono mai eseguiti backup di log per Master, né backup di alcun tipo per TempDB. |
 | **Pianificazione backup** | Manual/Automated (Automated) (Manuale/Automatizzato - Automatizzato) | Per impostazione predefinita, la pianificazione del backup è determinata automaticamente in base all'aumento delle dimensioni dei log. Una pianificazione manuale del backup consente all'utente di specificare l'intervallo di tempo per i backup. In questo caso, i backup viene eseguiti unicamente con la frequenza e nell'intervallo di tempo specificati per il giorno in questione. |
@@ -108,7 +108,7 @@ Si dispone di una macchina virtuale di SQL Server che contiene una serie di data
 Il lunedì si abilita Backup automatico v2 con le seguenti impostazioni:
 
 - Pianificazione backup: Manuale
-- Frequenza backup completo: Giornaliera
+- Frequenza backup completo: Ogni giorno
 - Ora di inizio backup completo: 22:00
 - Intervallo di tempo per il backup completo: 6 ore
 

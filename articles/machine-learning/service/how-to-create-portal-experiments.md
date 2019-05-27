@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035438"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989958"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Creazione e l'esplorazione automatizzati esperimenti di machine learning nel portale di Azure (anteprima)
 
@@ -40,7 +40,7 @@ Passare al riquadro sinistro dell'area di lavoro. Selezionare automatizzati di M
 
 ![Pagina di destinazione esperimento del portale di Azure](media/how-to-create-portal-experiments/landing-page.png)
 
-In caso contrario, si noterà dashboard Automated machine learning con una panoramica di tutti automatizzati esperimenti di machine learning, inclusi quelli eseguiti con il SDK. Qui è possibile filtrare ed esplorare le esecuzioni per data, provare a nome e lo stato di esecuzione.
+In caso contrario, si noterà dashboard Automated machine learning con una panoramica di tutti automatizzati esperimenti di machine learning, inclusi quelli creati con il SDK. Qui è possibile filtrare ed esplorare le esecuzioni per data, provare a nome e lo stato di esecuzione.
 
 ![Dashboard di esperimento del portale di Azure](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -58,10 +58,10 @@ Selezionare il pulsante Crea esperimento per popolare il modulo seguente.
 
     ![Creare nuove risorse di calcolo per esperimento](media/how-to-create-portal-experiments/create-new-compute.png)
 
-    Campo|DESCRIZIONE
+    Campo|Descrizione
     ---|---
     Nome dell'ambiente di calcolo| Immettere un nome univoco che identifica il contesto di calcolo.
-    Dimensioni della macchina virtuale| Selezionare le dimensioni di macchina virtuale per le risorse di calcolo.
+    Dimensioni delle macchine virtuali| Selezionare le dimensioni di macchina virtuale per le risorse di calcolo.
     Impostazioni aggiuntive| *Nodo min*: Immettere il numero minimo di nodi per le risorse di calcolo. Il numero minimo di nodi di calcolo di Azure Machine Learning è 0. Per abilitare la profilatura dei dati, è necessario disporre di 1 o più nodi. <br> *Nodo max*: Immettere il numero massimo di nodi per le risorse di calcolo. Il valore predefinito è 6 nodi per un calcolo di Azure Machine Learning.
 
       Per avviare la creazione delle nuove risorse di calcolo, selezionare **Create**. Questa operazione può richiedere alcuni istanti.
@@ -100,7 +100,7 @@ Selezionare il pulsante Crea esperimento per popolare il modulo seguente.
 
 1. (Facoltativo) Impostazioni avanzate: impostazioni aggiuntive, è possibile usare per controllare meglio il processo di training.
 
-    Impostazioni avanzate|DESCRIZIONE
+    Impostazioni avanzate|Descrizione
     ------|------
     Metrica primaria| Metrica principale usato per la valutazione del modello. [Altre informazioni sulle metriche del modello](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics).
     Criteri uscita| Quando uno di questi criteri vengono soddisfatti, il processo di training termina prima del completamento completo. <br> *Ora (minuti) del processo di training*: Il tempo per consentire l'esecuzione del processo di training.  <br> *Numero massimo di iterazioni*: Numero massimo di pipeline (iterazioni) per eseguire il test nel processo di training. Il processo non verrà eseguito maggiore del numero specificato di iterazioni. <br> *Metrica di soglia del punteggio*:  Punteggio minimo delle metriche per tutte le pipeline. Ciò garantisce che se si dispone di una metrica definita destinazione che si vuole raggiungere, non dedicare più tempo nel processo di training più necessario.
@@ -154,7 +154,7 @@ Selezionare il pulsante Crea esperimento per popolare il modulo seguente.
 
 Quando si configurano gli esperimenti, è possibile abilitare l'impostazione avanzata `Preprocess`. Ciò significa quindi che i seguenti passaggi pre-elaborazione e definizione delle funzionalità di dati vengono eseguiti automaticamente.
 
-|Pre-elaborazione&nbsp;passaggi| DESCRIZIONE |
+|Pre-elaborazione&nbsp;passaggi| Descrizione |
 | ------------- | ------------- |
 |Eliminazione delle caratteristiche con elevata cardinalità o senza varianza|Eliminare queste informazioni dal set di training e convalida, incluse le funzionalità con tutti i valori mancanti, stesso valore per tutte le righe o con una cardinalità molto elevata (ad esempio, gli hash, ID o GUID).|
 |Attribuire i valori mancanti|Per funzionalità numeriche, attribuire con Media dei valori nella colonna.<br/><br/>Per funzionalità categoriche, attribuire con valore più frequente.|
@@ -184,6 +184,63 @@ Eseguire il drill-in uno qualsiasi dei modelli di output per visualizzare i dett
 
 ![Dettagli iterazione](media/how-to-create-portal-experiments/iteration-details.png)
 
+## <a name="deploy-model"></a>Distribuzione del modello
+
+Dopo aver creato il modello migliore in questione, è possibile distribuirlo come servizio web per eseguire previsioni su nuovi dati.
+
+ML automatizzata consente di distribuire il modello senza scrivere codice:
+
+1. Sono disponibili alcune opzioni per la distribuzione. 
+    1. Se si vuole distribuire il modello migliore in base ai criteri delle metriche è impostato per l'esperimento, seleziona **distribuire il modello migliore** dalle **Dettagli esecuzione** pagina.
+
+        ![Pulsante modello di distribuzione](media/how-to-create-portal-experiments/deploy-model-button.png)
+
+    1. Se si desidera distribuire un'iterazione di modello specifico, eseguire il drill-sul modello per aprire la pagina dei dettagli di esecuzione specifico e selezionare **Distribuisci Model**.
+
+        ![Pulsante modello di distribuzione](media/how-to-create-portal-experiments/deploy-model-button2.png)
+
+1. Primo passaggio consiste nel registrare il modello nel servizio. Selezionare "Register model" e attendere il completamento del processo di registrazione.
+
+    ![Distribuire il pannello modello](media/how-to-create-portal-experiments/deploy-model-blade.png)
+
+1. Dopo aver registrato il modello, è possibile scaricare lo script di assegnazione dei punteggi (scoring.py) e lo script di ambiente (condaEnv.yml) da utilizzare durante la distribuzione.
+
+1. Quando vengono scaricati il script di assegnazione dei punteggi e l'ambiente, passare al **Assets** pannello del riquadro di spostamento a sinistra e selezionare **modelli**.
+
+    ![Modelli di riquadro di spostamento](media/how-to-create-portal-experiments/nav-pane-models.png)
+
+1. Selezionare il modello che è stato registrato e selezionare "Crea immagine".
+
+    È possibile identificare il modello tramite la relativa descrizione, che includerà l'ID di esecuzione, numero di iterazione, nel formato seguente: *modello < Iteration_number > _ < Run_ID >*
+
+    ![Modelli: Crea immagine](media/how-to-create-portal-experiments/model-create-image.png)
+
+1. Immettere un nome per l'immagine. 
+1. Selezionare il **esplorare** pulsante accanto alla casella "File di assegnazione dei punteggi" per caricare il file di assegnazione dei punteggi (scoring.py) scaricati in precedenza.
+
+1. Selezionare il **esplorare** pulsante accanto alla casella "File Conda" per caricare il file di ambiente (condaEnv.yml) scaricati in precedenza.
+
+    È possibile usare il proprio script di assegnazione dei punteggi e il file conda, nonché caricare i file aggiuntivi. [Altre informazioni su script di assegnazione dei punteggi](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+
+      >[!Important]
+      > I nomi di file devono sotto i 32 caratteri e deve iniziare e terminare con caratteri alfanumerici. Può includere trattini, caratteri di sottolineatura, punti e caratteri alfanumerici tra. Non sono consentiti spazi.
+
+    ![Crea immagine](media/how-to-create-portal-experiments/create-image.png)
+
+1. Selezionare il pulsante "Crea" per avviare la creazione dell'immagine. Questo richiederà alcuni minuti, al termine, verrà visualizzato un messaggio nella barra superiore.
+1. Passare alla scheda "Immagini", selezionare la casella di controllo accanto l'immagine da distribuire e selezionare "Crea distribuzione". [Altre informazioni sulle distribuzioni](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+
+    Sono disponibili 2 opzioni per la distribuzione.
+     + Istanza di contenitore di Azure (ACI) - questa viene usata più di test scopo anziché operational distribuzione su larga scala. Assicurarsi di specificare i valori per almeno una base per _capacità di riserva della CPU_e almeno un gigabyte (GB) per _capacità di riserva della memoria_
+     + Azure Kubernetes Service (AKS)) - questa opzione è per la distribuzione su larga scala. È necessario disporre di un calcolo basato su servizio contenitore di AZURE pronto.
+
+     ![Immagini: Creare una distribuzione](media/how-to-create-portal-experiments/images-create-deployment.png)
+
+1. Al termine, scegliere **Crea**. Distribuzione del modello può richiedere alcuni minuti per ogni termine dell'esecuzione della pipeline.
+
+1. L'operazione è terminata. Si dispone di un servizio web operativo per generare stime.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Altre informazioni sull'apprendimento automatico](concept-automated-ml.md) e Azure Machine Learning.
+* [Informazioni su come utilizzare un servizio web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

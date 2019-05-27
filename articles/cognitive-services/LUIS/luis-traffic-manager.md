@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
 ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523410"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123538"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usare Gestione traffico di Microsoft Azure per gestire la quota di endpoint tra le chiavi
 Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi). 

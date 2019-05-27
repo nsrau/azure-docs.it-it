@@ -4,14 +4,14 @@ description: Questo articolo illustra come gestire i costi di archiviazione dei 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: aed32db257ddbc8cb5b8f4af5f27024c23583798
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 71f1f8896126728277ba6f0bf2c0ded1b2a608b7
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60928914"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967252"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Ottimizzare i costi di archiviazione in Azure Cosmos DB
 

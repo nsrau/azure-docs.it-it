@@ -9,11 +9,11 @@ ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 020e59f029b09f3c7656f67039731e4141e68d31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61270195"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66137024"
 ---
 Se Python rileva un errore all'avvio dell'applicazione, verrà restituita una semplice pagina di errore del tipo "Impossibile visualizzare la pagina perché si è verificato un errore del server interno".
 

@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app e distribuire il codice in uno slot di staging | Microsoft Docs
+title: Esempio di script dell’interfaccia della riga di comando di Azure - Creare un’app e distribuire il codice in uno slot di staging | Microsoft Docs
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app del servizio app e distribuire il codice in uno slot di staging
 services: app-service\web
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 069dbcb5784414e63d093b7e38c399f358f830fb
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653782"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136730"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-to-a-staging-environment-using-azure-cli"></a>Creare un'app del servizio app e distribuire il codice in un ambiente di gestione temporanea usando l'interfaccia della riga di comando di Azure
 
@@ -49,9 +49,9 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Consente di creare un piano di servizio app. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Consente di creare un'app del servizio app. |
-| [`az webapp deployment slot create`](/cli/azure/webapp/deployment/slot?view=azure-cli-latest#az-webapp-deployment-slot-create) | Consente di creare uno slot di distribuzione. |
+| [`az webapp deployment slot create`](/cli/azure/webapp/deployment/slot?view=azure-cli-latest#az-webapp-deployment-slot-create) | Creare uno slot di distribuzione. |
 | [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Consente di associare un'app del servizio app a un repository GIT o Mercurial. |
-| [`az webapp deployment slot swap`](/cli/azure/webapp/deployment/slot?view=azure-cli-latest#az-webapp-deployment-slot-swap) | Consente di trasferire un determinato slot di distribuzione nell'ambiente di produzione. |
+| [`az webapp deployment slot swap`](/cli/azure/webapp/deployment/slot?view=azure-cli-latest#az-webapp-deployment-slot-swap) | Trasferire un determinato slot di distribuzione nell'ambiente di produzione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

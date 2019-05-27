@@ -5,15 +5,15 @@ author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/20/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60898399"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954407"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed di modifiche in Azure Cosmos DB - panoramica
 
@@ -35,10 +35,10 @@ La funzionalità è attualmente supportata dalle API e dagli SDK client Cosmos D
 
 | **Driver client** | **Interfaccia della riga di comando di Azure** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin**|**API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | ND | Sì | No  | No  | Sì | No  |
-|Java|ND|Sì|No |No |Sì|No |
-|Python|ND|Sì|No |No |Sì|No |
-|Node/JS|ND|Sì|No |No |Sì|No |
+| .NET | NA | Sì | N. | N. | Sì | N. |
+|Java|NA|Sì|N.|N.|Sì|N.|
+|Python|NA|Sì|N.|N.|Sì|N.|
+|Node/JS|NA|Sì|N.|N.|Sì|N.|
 
 ## <a name="change-feed-and-different-operations"></a>Feed di modifiche e operazioni diverse
 

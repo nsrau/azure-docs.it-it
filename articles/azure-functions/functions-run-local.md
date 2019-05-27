@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 7c6e7d8bb407b0ffeb320ebfe9e2639feb303800
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.openlocfilehash: fe483f00c5711c2b2b62add32e951d26f732de2f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603406"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131422"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -52,51 +52,51 @@ Se non specificato diversamente, gli esempi in questo articolo si riferiscono al
 
 ### <a name="v2"></a>Versione 2.x
 
-La versione 2.x degli strumenti usa il runtime di Funzioni di Azure 2.x basata su .NET Core. Questa versione è supportata su tutte le piattaforme supportate da .NET Core 2.x, incluse [Windows](#windows-npm), [macOS](#brew) e [Linux](#linux). È prima di tutto necessario installare .NET Core 2.x SDK.
+La versione 2.x degli strumenti usa il runtime di Funzioni di Azure 2.x basata su .NET Core. Questa versione è supportata su tutte le piattaforme supportate da .NET Core 2.x, incluse [Windows](#windows-npm), [macOS](#brew) e [Linux](#linux). 
+
+> [!IMPORTANT]
+> È possibile ignorare il requisito dell'installazione di .NET Core 2.x SDK usando [bundle estensione].
 
 #### <a name="windows-npm"></a>Windows
 
 I passaggi seguenti usano npm per installare gli strumenti di base in Windows. È anche possibile usare [Chocolatey](https://chocolatey.org/). Per altre informazioni, vedere il [file leggimi degli strumenti di base](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installare [.NET Core 2.x SDK per Windows](https://www.microsoft.com/net/download/windows).
+1. Installare [Node.js], che include npm. Per la versione 2.x degli strumenti, sono supportate solo le versioni Node.js 8.5 e successive.
 
-2. Installare [Node.js], che include npm. Per la versione 2.x degli strumenti, sono supportate solo le versioni Node.js 8.5 e successive.
-
-3. Installare il pacchetto degli strumenti di base:
+1. Installare il pacchetto degli strumenti di base:
 
     ```bash
     npm install -g azure-functions-core-tools
     ```
+1. Se non si prevede di utilizzare [bundle estensione], installare il [.NET Core 2.x SDK per Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS con Homebrew
 
 I passaggi seguenti usano Homebrew per installare gli strumenti di base su macOS.
 
-1. Installare [.NET Core 2.x SDK per macOS](https://www.microsoft.com/net/download/macos).
+1. Installare [Homebrew](https://brew.sh/), se non è già installato.
 
-2. Installare [Homebrew](https://brew.sh/), se non è già installato.
-
-3. Installare il pacchetto degli strumenti di base:
+1. Installare il pacchetto degli strumenti di base:
 
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
+1. Se non si prevede di utilizzare [bundle estensione], installare [.NET Core 2.x SDK per macOS](https://www.microsoft.com/net/download/macos).
+
 
 #### <a name="linux"></a> Linux (Ubuntu/Debian) con APT
 
 La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli strumenti di base nella distribuzione Ubuntu/Debian Linux. Per altre distribuzioni Linux, vedere il [file leggimi degli strumenti di base](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Installare [.NET Core 2.x SDK per Linux](https://www.microsoft.com/net/download/linux).
-
-2. Registrare il codice Product Key di Microsoft come attendibile:
+1. Registrare il codice Product Key di Microsoft come attendibile:
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-3. Verificare che il server Ubuntu esegua uno delle versioni appropriate nella tabella seguente. Per aggiungere l'origine apt, eseguire:
+1. Verificare che il server Ubuntu esegua uno delle versioni appropriate nella tabella seguente. Per aggiungere l'origine apt, eseguire:
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -110,11 +110,12 @@ La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli 
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
-4. Installare il pacchetto degli strumenti di base:
+1. Installare il pacchetto degli strumenti di base:
 
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+1. Se non si prevede di utilizzare [bundle estensione], installare [.NET Core 2.x SDK per Linux](https://www.microsoft.com/net/download/linux).
 
 ## <a name="create-a-local-functions-project"></a>Creare un progetto Funzioni locale
 
@@ -186,6 +187,7 @@ Il file local.settings.json archivia le impostazioni di app, le stringhe di conn
   "Host": {
     "LocalHttpPort": 7071,
     "CORS": "*"
+    "CORSCredentials": true
   },
   "ConnectionStrings": {
     "SQLConnectionString": "<sqlclient-connection-string>"
@@ -200,6 +202,7 @@ Il file local.settings.json archivia le impostazioni di app, le stringhe di conn
 | **`Host`** | Le impostazioni in questa sezione consentono di personalizzare il processo host di Funzioni durante l'esecuzione in locale. |
 | **`LocalHttpPort`** | Consente di impostare la porta predefinita usata durante l'esecuzione nell'host locale di Funzioni, ovvero `func host start` e `func run`. L'opzione `--port` della riga di comando ha la precedenza su questo valore. |
 | **`CORS`** | Definisce le origini consentite per la [condivisione di risorse tra le origini (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Le origini sono elencate in un elenco delimitato dalla virgola senza spazi. È supportato il valore del carattere jolly (\*) che consente le richieste di qualsiasi origine. |
+| **`CORSCredentials`** |  Impostarla su true per consentire `withCredentials` richieste |
 | **`ConnectionStrings`** | Non usare questa raccolta per le stringhe di connessione usate per l'associazione di funzione. Questa raccolta viene usata solo da parte di Framework che in genere ottengono le stringhe di connessione dal `ConnectionStrings` sezione di configurazione di una file, ad esempio [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Le stringhe di connessione in questo oggetto vengono aggiunte all'ambiente con il tipo di provider di [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Gli elementi in questa raccolta non vengono pubblicati in Azure con altre impostazioni di app. È necessario aggiungere in modo esplicito questi valori per il `Connection strings` raccolta di impostazioni dell'app di funzione. Se si sta creando un [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) nel codice della funzione, è consigliabile archiviare il valore di stringa di connessione nel **le impostazioni dell'applicazione** nel portale con le altre connessioni. |
 
 I valori delle impostazioni dell'app di funzione possono anche essere letti nel codice come variabili di ambiente. Per altre informazioni, vedere la sezione Variabili di ambiente negli argomenti di riferimento specifici del linguaggio seguenti:
@@ -500,3 +503,4 @@ Per registrare una richiesta per un bug o una funzionalità [aprire un problema 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
+[bundle estensione]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles

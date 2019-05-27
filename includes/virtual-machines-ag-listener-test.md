@@ -1,16 +1,15 @@
 ---
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 11/26/2018
-ms.author: v-yeche
+ms.date: 10/26/2018
+ms.author: cynthn
 ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097675"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165481"
 ---
 In questo passaggio si testa il listener del gruppo di disponibilità usando un'applicazione client in esecuzione nella stessa rete.
 
@@ -30,4 +29,3 @@ Questi sono i requisiti per la connettività client:
 
 Durante il test del listener, eseguire il failover del gruppo di disponibilità per assicurarsi che i client possano connettersi al listener attraverso i failover.
 
-<!-- Update_Description: update meta properties -->

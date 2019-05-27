@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
 ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259262"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135409"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creare un gateway applicazione con regole di routing basato su percorsi usando il portale di Azure
 
@@ -61,7 +61,7 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
    - *myAGSubnet* come nome della subnet.
    - *10.0.0.0/24* come spazio indirizzi della subnet.
 
-     ![Creare una rete virtuale](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
+     ![Crea rete virtuale](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. Fare clic su **OK** per creare la rete virtuale e la subnet.
 7. Fare clic su **Scegliere un indirizzo IP pubblico**, **Crea nuovo** e quindi immettere il nome dell'indirizzo IP pubblico. In questo esempio il nome dell'indirizzo IP pubblico è *myAGPublicIPAddress*. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
@@ -73,7 +73,7 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
 1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi su **myVNet** nell'elenco delle risorse.
 2. Fare clic su **Subnet** e quindi su **Subnet**.
 
-    ![Creare una subnet](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
+    ![Crea subnet](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
 3. Immettere *myBackendSubnet* come nome della subnet e quindi fare clic su **OK**.
 
@@ -117,7 +117,7 @@ In questo esempio vengono create tre macchine virtuali da usare come server back
       -Settings $publicSettings
     ```
 
-3. Creare altre due macchine virtuali e installare IIS seguendo la procedura appena completata. Immettere i nomi dei *myVM2* e *myVM3* per i nomi e valori di VMName in Set-AzVMExtension.
+3. Creare altre due macchine virtuali e installare IIS seguendo la procedura appena completata. Immettere *myVM2* e *myVM3* come nomi e valori di VMName in Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Creare pool back-end con le macchine virtuali
 

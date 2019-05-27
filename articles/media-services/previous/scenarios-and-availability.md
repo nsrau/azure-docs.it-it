@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0cae2befad1b0cd2d6a093387c41aac8ccdfff7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719221"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991439"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
 
@@ -196,8 +196,8 @@ AMS offre due codificatori su richiesta: **Media Encoder Standard** e **Flusso d
 
 |Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
-|Codificatore multimediale standard|GA|Tutti|
-|Flusso di lavoro Premium del codificatore multimediale|GA|Tutti tranne Cina|
+|Media Encoder Standard|GA|Tutti|
+|Media Encoder Premium Workflow|GA|Tutti tranne Cina|
 
 ### <a name="analytics-media-processors"></a>Processori di contenuti multimediali di analisi
 
@@ -208,7 +208,6 @@ Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e 
 |Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
 |Rilevamento multimediale volti di Azure|Anteprima|Tutti|
-|Azure Media Hyperlapse|Anteprima|Tutti|
 |Azure Media Indexer|GA|Tutti|
 |Rilevatore multimediale di movimento Azure|Anteprima|Tutti|
 |Riconoscimento ottico dei caratteri multimediale di Azure|Anteprima|Tutti|
