@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466069"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949620"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Come creare un'applicazione Windows Store Smooth Streaming  
 
@@ -507,7 +507,7 @@ Gli stessi eventi sono inoltre disponibili a livello di gestione dell'origine ad
    ```
 
    > [!NOTE]
-   > Per apportare modifiche al thread dell'interfaccia utente da un thread non di interfaccia utente viene usato CoreDispatcher. In caso di colli di bottiglia nel thread del dispatcher, gli sviluppatori possono scegliere di usare il dispatcher fornito dall'elemento dell'interfaccia utente che intendono aggiornare.  Ad esempio: 
+   > Per apportare modifiche al thread dell'interfaccia utente da un thread non di interfaccia utente viene usato CoreDispatcher. In caso di colli di bottiglia nel thread del dispatcher, sviluppatore può scegliere di usare il dispatcher fornito dall'interfaccia utente-elemento da aggiornare.  Ad esempio:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -847,7 +847,7 @@ Una presentazione Smooth Streaming può contenere più file video codificati con
          </ListBox>
          </StackPanel>
    ```
-3. Premere **CTRL+S** per salvare le modifiche.
+3. Premere **CTRL + S** per salvare le modifiche
 
 ### <a name="to-modify-the-code-behind-file"></a>Per modificare il file code-behind
 
