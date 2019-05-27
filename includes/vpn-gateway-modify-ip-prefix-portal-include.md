@@ -2,19 +2,18 @@
 title: File di inclusione
 description: File di inclusione
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 03/21/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 03/21/2018
+ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1199819d274590cc81d0234680f8765f9cc36c0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419596"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120991"
 ---
 ### <a name="noconnection"></a>Per modificare i prefissi degli indirizzi IP del gateway di rete locale senza connessione gateway
 
@@ -22,14 +21,14 @@ ms.locfileid: "60419596"
 
 1. Nella risorsa Gateway di rete locale, nella sezione **Impostazioni** fare clic su **Configurazione**.
 2. Aggiungere lo spazio di indirizzi IP nella casella *Aggiungi intervallo di indirizzi*.
-3. Per salvare le impostazioni, fare clic su **Save** .
+3. Fare clic su **salvare** per salvare le impostazioni.
 
 #### <a name="to-remove-address-prefixes"></a>Per rimuovere prefissi degli indirizzi:
 
 1. Nella risorsa Gateway di rete locale, nella sezione **Impostazioni** fare clic su **Configurazione**.
 2. Fare clic su **"..."** nella riga contenente il prefisso da rimuovere.
 3. Fare clic su **Rimuovi**.
-4. Per salvare le impostazioni, fare clic su **Save** .
+4. Fare clic su **salvare** per salvare le impostazioni.
 
 ### <a name="withconnection"></a>Per modificare i prefissi degli indirizzi IP del gateway di rete locale con connessione gateway esistente
 
@@ -39,7 +38,7 @@ Se è disponibile una connessione gateway e si vogliono aggiungere o rimuovere i
 
 1. Nella risorsa Gateway di rete locale, nella sezione **Impostazioni** fare clic su **Connessioni**.
 2. Fare clic su **...** nella riga di ogni connessione e quindi fare clic su **Elimina**.
-3. Per salvare le impostazioni, fare clic su **Save** .
+3. Fare clic su **salvare** per salvare le impostazioni.
 
 #### <a name="2-modify-the-address-prefixes"></a>2. Modificare i prefissi degli indirizzi.
 
@@ -47,14 +46,14 @@ Per aggiungere altri prefissi degli indirizzi:
 
 1. Nella risorsa Gateway di rete locale, nella sezione **Impostazioni** fare clic su **Configurazione**.
 2. Aggiungere lo spazio di indirizzi IP.
-3. Per salvare le impostazioni, fare clic su **Save** .
+3. Fare clic su **salvare** per salvare le impostazioni.
 
 Per rimuovere prefissi degli indirizzi:
 
 1. Nella risorsa Gateway di rete locale, nella sezione **Impostazioni** fare clic su **Configurazione**.
 2. Fare clic su **...** nella riga contenente il prefisso da rimuovere.
 3. Fare clic su **Rimuovi**.
-4. Per salvare le impostazioni, fare clic su **Save** .
+4. Fare clic su **salvare** per salvare le impostazioni.
 
 #### <a name="3-recreate-the-connection"></a>3. Ricreare la connessione.
 

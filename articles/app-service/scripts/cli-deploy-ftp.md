@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 7bca306911dc72a2f8ec31d2ac80f99b4925c9fd
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136815"
 ---
 # <a name="create-an-app-service-app-and-deploy-files-with-ftp-using-azure-cli"></a>Creare un'app del servizio app e distribuire i file con FTP usando l'interfaccia della riga di comando di Azure
 

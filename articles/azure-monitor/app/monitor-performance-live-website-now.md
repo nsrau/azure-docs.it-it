@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0587782cbfa31f7b397b950a752040cc678cf7d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576635"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130993"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentare app Web in fase di esecuzione con Application Insights Status Monitor
 
@@ -42,16 +42,16 @@ Status Monitor viene usato per instrumentare un'applicazione .NET ospitata in II
 
 Ecco un riepilogo di ciò che offrono i singoli modi:
 
-|  | Fase di compilazione | Fase di esecuzione |
+|  | Fase di compilazione | Tempo di esecuzione |
 | --- | --- | --- |
 | Richieste ed eccezioni |Sì |Sì |
 | [Eccezioni più dettagliate](../../azure-monitor/app/asp-net-exceptions.md) | |Sì |
 | [Diagnostica delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
 | [Contatori delle prestazioni di sistema](../../azure-monitor/app/performance-counters.md) |Sì |Sì |
-| [API per telemetria personalizzata][api] |Sì |No  |
-| [Integrazione log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) |Sì |No  |
-| [Visualizzazione pagina e dati utente](../../azure-monitor/app/javascript.md) |Sì |No  |
-| Ricompilazione del codice necessaria |Sì | No  |
+| [API per telemetria personalizzata][api] |Sì |N. |
+| [Integrazione log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) |Sì |N. |
+| [Visualizzazione pagina e dati utente](../../azure-monitor/app/javascript.md) |Sì |N. |
+| Ricompilazione del codice necessaria |Sì | N. |
 
 
 
@@ -149,6 +149,8 @@ Microsoft sta verificando [qui](https://github.com/Microsoft/ApplicationInsights
 * Per output di log dettagliati, modificare il file config: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` e aggiungere `<add key="TraceLevel" value="All" />` ad `appsettings`.
 Quindi riavviare il monitoraggio stato.
 
+* Come monitorare lo stato è un'applicazione .NET è anche possibile abilitare [traccia di .net, aggiungere i dati di diagnostica appropriato al file di configurazione](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Ad esempio, in alcuni scenari può essere utile vedere cosa accade a livello di rete da [configurazione della traccia di rete](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+
 ### <a name="insufficient-permissions"></a>Autorizzazioni insufficienti
   
 * Se sul server viene visualizzato un messaggio relativo alle autorizzazioni insufficienti, provare a seguire questa procedura:
@@ -184,7 +186,7 @@ Supporto del sistema operativo per Application Insights Status Monitor sul serve
 * Windows Server 2012 R2
 * Windows Server 2016
 
-con SP più recente e .NET Framework 4.5
+con SP più recente e .NET Framework 4.5 (Status Monitor è integrato in questa versione di framework)
 
 Sul lato client: Windows 7, 8, 8.1 e 10, con .NET Framework 4.5
 
@@ -276,7 +278,9 @@ Quando si seleziona un'app Web per l'instrumentazione da parte di Status Monitor
 
 ### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Quale versione di Application Insights SDK installa Status Monitor?
 
-A oggi Status Monitor può installare solo le versioni di Application Insights SDK 2.3 o 2.4.
+A oggi Status Monitor può installare solo le versioni di Application Insights SDK 2.3 o 2.4. 
+
+Application Insights SDK versione 2.4 è la [ultima versione per il supporto di .NET 4.0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) che è stata [EOL gennaio 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Pertanto, a partire da ora Status Monitor è utilizzabile per instrumentare un'applicazione .NET 4.0. 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>È necessario eseguire Status Monitor ogni volta che si aggiorna l'app?
 

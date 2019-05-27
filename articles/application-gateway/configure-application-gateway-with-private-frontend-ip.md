@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
 ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905539"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134584"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurare un gateway applicazione con un endpoint di servizio di bilanciamento del carico interno
 
@@ -55,7 +55,7 @@ Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtu
     ![private-frontendip-2](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-2.png)
 10. Rivedere le impostazioni nella pagina di riepilogo e quindi fare clic su **OK** per creare le risorse di rete e il gateway applicazione. La creazione del gateway applicazione potrebbe richiedere alcuni minuti. Attendere il completamento della distribuzione prima di passare alla sezione successiva.
 
-## <a name="add-backend-pool"></a>Aggiungere un pool back-end
+## <a name="add-backend-pool"></a>Aggiungi pool back-end
 
 Il pool back-end viene usato per indirizzare le richieste ai server back-end che gestiranno la richiesta. Il back-end può essere costituito da schede di interfaccia di rete, set di scalabilità di macchine virtuali, IP pubblici, IP interni, nomi di dominio completi (FQDN) e back-end multi-tenant come Servizio app di Azure. In questo esempio, come back-end di destinazione si useranno macchine virtuali. È possibile usare macchine virtuali esistenti o crearne di nuove. In questo esempio si creeranno due macchine virtuali usate da Azure come server back-end per il gateway applicazione. A tale scopo:
 

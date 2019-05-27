@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/22/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506823"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142551"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -34,7 +34,7 @@ Le origini dati e i connettori visualizzati in Get Data (Recupera dati) o Import
 ||||
 
 <a name="tab1400a">1</a> - Solo modelli tabulari 1400 e superiori.   
-<a name="azsqlmanaged">2</a> - Istanza gestita di database SQL di Azure è supportata. Poiché un'istanza gestita viene eseguita nella rete virtuale di Azure con un indirizzo IP privato, è necessario un gateway dati locale.   
+<a name="azsqlmanaged">2</a> - Istanza gestita di database SQL di Azure è supportata. Poiché un'istanza gestita viene eseguita nella rete virtuale di Azure con un indirizzo IP privato, è necessario un gateway dati locale. Azure SQL istanza gestita di Database con un endpoint pubblico non è attualmente supportato.   
 <a name="databricks">3</a> - Azure Databricks con il connettore Spark non è attualmente supportato.   
 <a name="gen2">4</a> - ADLS Gen2 non è attualmente supportato.
 

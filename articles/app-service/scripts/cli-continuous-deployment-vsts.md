@@ -17,11 +17,11 @@ ms.date: 12/11/2017
 ms.author: jeconnoc
 ms.custom: seodec18
 ms.openlocfilehash: 67e4f99046820aa21392ff1238318e1b48bb5354
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136789"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Creare un'app del servizio app con distribuzione continua usando l'interfaccia della riga di comando di Azure
 

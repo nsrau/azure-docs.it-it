@@ -9,11 +9,11 @@ ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
 ms.openlocfilehash: 9b86f2e05e2cb42470061bd6398b4200607f2418
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012286"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133050"
 ---
 1. Per creare un nuovo archivio di configurazione app, accedere al [portale di Azure](https://aka.ms/azconfig/portal). Nell'angolo superiore sinistro della pagina selezionare **+ Crea una risorsa**. Nella casella **Cerca nel Marketplace** immettere **Configurazione app** e quindi premere INVIO.
 

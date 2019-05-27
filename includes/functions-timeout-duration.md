@@ -5,16 +5,15 @@ services: functions
 author: nzthiago
 ms.service: azure-functions
 ms.topic: include
-origin.date: 02/21/2018
-ms.date: 03/25/2019
-ms.author: v-junlch
+ms.date: 02/21/2018
+ms.author: nzthiago
 ms.custom: include file
 ms.openlocfilehash: ffb29fc76313e8870b52cb0a63936da7853ea6ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61036261"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131361"
 ---
 ## <a name="timeout"></a>Durata del timeout di app (funzione) 
 
@@ -24,9 +23,8 @@ La durata del timeout di un'app per le funzioni viene definita dalla proprietà 
 |------|---------|---------|---------|
 | Consumo | 1.x | 5 | 10 |
 | Consumo | 2.x | 5 | 10 |
-| Servizio app | 1.x | Illimitato | Illimitato |
-| Servizio app | 2.x | 30 | Illimitato |
+| Servizio app | 1.x | Senza limitazioni | Senza limitazioni |
+| Servizio app | 2.x | 30 | Senza limitazioni |
 
 > [!NOTE] 
 > Indipendentemente dall'impostazione di timeout dell'app di funzione, 230 secondi è la quantità massima di tempo che può eseguire una funzione attivata tramite HTTP per rispondere a una richiesta. Ciò avviene perché il [predefinito di timeout di inattività del servizio Azure Load Balancer](../articles/app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds). Per tempi di elaborazione più lunghi, è consigliabile usare la [modello asincrono di funzioni permanenti](../articles/azure-functions/durable/durable-functions-concepts.md#async-http) oppure [rinviare l'effettiva operazione e restituire una risposta immediata](../articles/azure-functions/functions-best-practices.md#avoid-long-running-functions).
-

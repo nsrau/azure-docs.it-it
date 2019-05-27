@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 4cfe8b02697fe8234c29995a611cb99a89e2e54b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7ff6db5acb150207f975931155386a308c48888b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080982"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134081"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Creare un gateway applicazione usando il modello di Gestione risorse di Azure
 
@@ -55,7 +55,7 @@ In questo scenario si apprenderà come:
 1. Aprire il file salvato e visualizzare il contenuto in **parameters** nella riga
 1. La sezione parameters del modello di Gestione risorse di Azure è un segnaposto per i valori che possono essere inseriti durante la distribuzione.
 
-   | Parametro | DESCRIZIONE |
+   | Parametro | Descrizione |
    | --- | --- |
    | **subnetPrefix** |Blocco CIDR della subnet del gateway applicazione. |
    | **applicationGatewaySize** | Dimensione del gateway applicazione.  WAF consente solo gateway di medie e grandi dimensioni. |

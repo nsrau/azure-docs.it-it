@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: 1a5479cb54e15c0e740d800c8ee248a67e5ec5fc
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66133889"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite l'interfaccia della riga di comando di Azure
 
@@ -226,7 +226,7 @@ Per accettare l'avviso di sicurezza se si è usato un certificato autofirmato, s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Creare un certificato autofirmato

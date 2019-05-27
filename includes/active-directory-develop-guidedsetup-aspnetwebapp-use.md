@@ -15,11 +15,11 @@ ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 2b9d696ca896d0c8f0801f055000b9763d65d7ff
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203614"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121769"
 ---
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Aggiungere un controller per gestire le richieste di accesso e disconnessione
 
