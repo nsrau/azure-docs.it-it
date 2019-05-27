@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 19c2298c9bda03acba28496a97c89c2a53e3c44e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915255"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964908"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Esercitazione: Condivisione di Ancoraggi nello spazio di Azure tra sessioni e dispositivi con un back-end di Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Individuare la proprietà `StorageConnectionString` e impostare lo stesso valore
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato usato Azure Cosmos DB per condividere identificatori di ancoraggi tra dispositivi. Per altre informazioni sull'uso degli ancoraggi nello spazio di Azure in una nuova app Android, continuare con l'esercitazione successiva.
+In questa esercitazione è stato usato Azure Cosmos DB per condividere identificatori di ancoraggi tra dispositivi. Per altre informazioni sull'uso degli ancoraggi nello spazio di Azure in una nuova app HoloLens in Unity, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Avvio di una nuova app Android](./tutorial-new-android-app.md)
+> [Avvio di una nuova app Android](./tutorial-new-unity-hololens-app.md)

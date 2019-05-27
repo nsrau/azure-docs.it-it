@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc4ff596cdafd348288187b0cd9b32f7b4c2d275
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823381"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119372"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registrazione di informazioni sicurezza Abilita combinata (anteprima)
 
@@ -43,7 +43,7 @@ Completare questi passaggi per abilitare la registrazione combinata:
 > A partire da marzo 2019, le opzioni telefonata non saranno disponibili per multi-Factor Authentication e gli utenti SSPR nei tenant gratuiti/versione di valutazione AD Azure. Messaggi SMS non sono interessati da questa modifica. Le opzioni telefonata continuerà a essere disponibile per gli utenti a pagamento di tenant di Azure AD.
 
 > [!NOTE]
-> Dopo aver abilitato combinata registrazione, gli utenti che registrano o confermare che il numero di telefono o app per dispositivi mobili tramite la nuova esperienza possibile usarli per multi-Factor Authentication e SSPR, se tali metodi sono abilitati nella multi-Factor Authentication e SSPR criteri. Se si disabilita questa esperienza, gli utenti che passare per la registrazione SSPR precedente pagina `https:/aka.ms/ssprsetup` sarà necessario eseguire l'autenticazione a più fattori prima di poter accedere la pagina.
+> Dopo aver abilitato combinata registrazione, gli utenti che registrano o confermare che il numero di telefono o app per dispositivi mobili tramite la nuova esperienza possibile usarli per multi-Factor Authentication e SSPR, se tali metodi sono abilitati nella multi-Factor Authentication e SSPR criteri. Se si disabilita questa esperienza, gli utenti che passare per la registrazione SSPR precedente pagina `https://aka.ms/ssprsetup` sarà necessario eseguire l'autenticazione a più fattori prima di poter accedere la pagina.
 
 Se è stato configurato il sito all'elenco di assegnazione di zona in Internet Explorer, i siti seguenti devono essere nella stessa zona:
 
