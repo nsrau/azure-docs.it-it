@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 05/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 90e85e0030a696dd024dd65d27a0f4dbdc7e3cdc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3730e4a0bfa05e6606e50b9bbd9d9152e2488954
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023666"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851727"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Risoluzione dei problemi di distribuzione del servizio Azure Kubernetes e di Istanze di Azure Container con il servizio Azure Machine Learning
 
@@ -168,7 +168,7 @@ Per distribuire in locale, modificare il codice per usare `LocalWebservice.deplo
 from azureml.core.model import InferenceConfig
 from azureml.core.webservice import LocalWebservice
 
-# Create inferencing configuration. This creates a docker image that contains the model.
+# Create inference configuration. This creates a docker image that contains the model.
 inference_config = InferenceConfig(runtime= "python", 
                                    execution_script="score.py",
                                    conda_file="myenv.yml")
@@ -256,7 +256,7 @@ Impostazione del livello di registrazione di DEBUG può causare ulteriori inform
 
 ## <a name="function-fails-runinputdata"></a>Errore della funzione: run(input_data)
 
-Se il servizio viene distribuito correttamente, ma si arresta in modo anomalo quando si pubblicano dati nell'endpoint di assegnazione dei punteggi, è possibile aggiungere un'istruzione di rilevamento degli errori nella funzione `run(input_data)` in modo che restituisca il messaggio di errore dettagliato. Ad esempio: 
+Se il servizio viene distribuito correttamente, ma si arresta in modo anomalo quando si pubblicano dati nell'endpoint di assegnazione dei punteggi, è possibile aggiungere un'istruzione di rilevamento degli errori nella funzione `run(input_data)` in modo che restituisca il messaggio di errore dettagliato. Ad esempio:
 
 ```python
 def run(input_data):

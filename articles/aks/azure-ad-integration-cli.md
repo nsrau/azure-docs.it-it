@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: 0216a8c7d4e52e89098979223e9b792398e25038
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920174"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835194"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrare Azure Active Directory con Azure Kubernetes Service tramite la CLI di Azure
 
@@ -25,7 +25,6 @@ Per lo script di esempio completo usato in questo articolo, vedere [esempi di co
 Si applicano le limitazioni seguenti:
 
 - Azure AD può essere abilitato solo quando si crea un nuovo cluster abilitato per il controllo degli accessi in base al ruolo. Non è possibile abilitare Azure AD in un cluster del servizio Azure Kubernetes.
-- *Guest* agli utenti di Azure AD, ad esempio come se si usa un accesso federato da una directory diversa, non sono supportati.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -79,7 +78,7 @@ serverApplicationSecret=$(az ad sp credential reset \
 Azure AD necessita delle autorizzazioni per eseguire le azioni seguenti:
 
 * Leggi i dati della directory
-* Eseguire l'accesso e leggere il profilo utente
+* Accedi e leggi il profilo di un altro utente
 
 Assegnare queste autorizzazioni seguendo la [aggiungere l'autorizzazione dell'app ad az] [ az-ad-app-permission-add] comando:
 
@@ -237,8 +236,9 @@ Se viene visualizzato un messaggio di errore di autorizzazione dopo aver complet
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* L'utente è stato effettuato in come non è un *Guest* nell'istanza di Azure AD (questo è spesso il caso se si usa un account di accesso federato da una directory diversa).
+* L'ID di oggetto appropriato o UPN, a seconda se l'account utente è nello stesso tenant di Azure AD o non definito.
 * L'utente non deve essere membro di più di 200 gruppi.
+* Segreto definito nella registrazione dell'applicazione per server corrisponde al valore configurato con `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

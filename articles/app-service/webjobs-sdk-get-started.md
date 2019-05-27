@@ -13,32 +13,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a9e902a13071abefff71dc4db089380979c8d459
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198607"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864850"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
-Questo articolo illustra come usare Visual Studio 2017 per creare un progetto Azure WebJobs SDK, eseguirlo in locale e quindi distribuirlo per [servizio App di Azure](overview.md). Il progetto creato è un'app console .NET Core, che viene usata la versione 3.x di WebJobs SDK. Se si è interessati nella versione 2.x, che usa .NET Framework, vedere [sviluppare e distribuire processi Web usando Visual Studio - servizio App di Azure](webjobs-dotnet-deploy-vs.md).
+Questo articolo illustra come usare Visual Studio 2019 per creare un progetto Azure WebJobs SDK, eseguirlo in locale e quindi distribuirlo per [servizio App di Azure](overview.md). Il progetto creato è un'app console .NET Core, che viene usata la versione 3.x di WebJobs SDK. Se si è interessati nella versione 2.x, che usa .NET Framework, vedere [sviluppare e distribuire processi Web usando Visual Studio - servizio App di Azure](webjobs-dotnet-deploy-vs.md).
 
 Per altre informazioni sull'uso di WebJobs SDK, vedere [come usare Azure WebJobs SDK per l'elaborazione in background basata su eventi](webjobs-sdk-how-to.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Installare Visual Studio 2017](/visualstudio/install/) con il carico di lavoro **Sviluppo di Azure**. Se si ha già Visual Studio ma non tale carico di lavoro, aggiungere il carico di lavoro selezionando **Strumenti > Ottieni strumenti e funzionalità**.
+* [Installare Visual Studio 2019](/visualstudio/install/) con il **sviluppo in Azure** carico di lavoro. Se si ha già Visual Studio ma non tale carico di lavoro, aggiungere il carico di lavoro selezionando **Strumenti > Ottieni strumenti e funzionalità**.
 
 * È necessario disporre [un account Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) per pubblicare il progetto WebJobs SDK in Azure.
 
 ## <a name="create-a-project"></a>Creare un progetto
 
-1. In Visual Studio selezionare **File > Nuovo > Progetto**.
+1. In Visual Studio, selezionare **creare un nuovo progetto**.
 
-2. Selezionare **.NET Core > App (.NET Core) Console**.
+2. Selezionare **Console App (.NET Core)**.
 
-3. Assegnare al progetto il nome *WebJobsSDKSample* e quindi selezionare **OK**.
+3. Denominare il progetto *WebJobsSDKSample*, quindi selezionare **crea**.
 
    ![Finestra di dialogo Nuovo progetto](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -171,7 +171,7 @@ A partire dalla versione 3.x, è necessario installare esplicitamente l'estensio
                     });
     ```
 
-## <a name="create-a-function"></a>Creare una funzione
+## <a name="create-a-function"></a>Crea una funzione
 
 1. Fare clic sul progetto, selezionare **Add** > **nuovo elemento...** , scegliere **classe**, denominare il nuovo C# file di classe *Functions.cs*e selezionare **Add**.
 
@@ -340,7 +340,7 @@ In questa sezione si configura la registrazione in Application Insights prima de
 
    |NOME  |Stringa di connessione  |Tipo di database|
    |---------|---------|------|
-   |AzureWebJobsStorage | {stringa di connessione di archiviazione copiata in precedenza}|Personalizzate|
+   |AzureWebJobsStorage | {stringa di connessione di archiviazione copiata in precedenza}|Impostazioni personalizzate|
 
 1. Se la casella **Impostazioni applicazione** non contiene una chiave di strumentazione di Application Insights, aggiungere quella copiata in precedenza. La presenza o meno della chiave di strumentazione dipende da come è stata creata l'app del servizio app.
 

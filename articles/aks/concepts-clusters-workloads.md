@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230135"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850524"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -70,9 +70,9 @@ Per eseguire le applicazioni e i servizi di supporto, è necessario un *nodo* Ku
 
 La dimensione della macchina virtuale di Azure per i nodi definisce il numero di CPU, la quantità di memoria e la dimensione e tipo della risorsa di archiviazione disponibile, ad esempio unità SSD a prestazioni elevate o HDD normale. Se si prevede di aver bisogno di applicazioni che richiedono grandi quantità di CPU e memoria o archiviazione a prestazioni elevate, pianificare di conseguenza la dimensione dei nodi. È anche possibile aumentare il numero di nodi del cluster servizio Azure Kubernetes in base alle esigenze.
 
-In servizio Azure Kubernetes l'immagine della macchina virtuale per i nodi del cluster è attualmente basata su Ubuntu Linux. Quando si crea un cluster servizio Azure Kubernetes o si aumenta il numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le configura. Non è presente alcuna configurazione manuale per eseguire.
+Nel servizio contenitore di AZURE, l'immagine di macchina virtuale per i nodi del cluster è attualmente basato su Ubuntu Linux o Windows Server 2019. Quando si crea un cluster servizio Azure Kubernetes o si aumenta il numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le configura. Non è presente alcuna configurazione manuale per eseguire.
 
-Se è necessario usare un sistema operativo host diverso, un altro runtime del contenitore o includere pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [servizio Azure Kubernetes-engine][aks-engine]. `aks-engine` upstream rilascia funzionalità e offre opzioni di configurazione prima che siano supportate ufficialmente nei cluster del servizio Azure Kubernetes. Ad esempio, se si desidera usare i contenitori di Windows o un runtime di contenitore diverso da Moby, è possibile usare `aks-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
+Se è necessario usare un sistema operativo host diverso, un altro runtime del contenitore o includere pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [servizio Azure Kubernetes-engine][aks-engine]. `aks-engine` upstream rilascia funzionalità e offre opzioni di configurazione prima che siano supportate ufficialmente nei cluster del servizio Azure Kubernetes. Ad esempio, se si vuole usare un runtime di contenitore diverso da Moby, è possibile usare `aks-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
 
 ### <a name="resource-reservations"></a>Prenotazioni di risorse
 
@@ -104,6 +104,27 @@ I nodi della stessa configurazione sono raggruppati in *pool di nodi*. Un cluste
 Quando si ridimensiona o si aggiorna un cluster servizio Azure Kubernetes, l'azione viene eseguita sul pool di nodi predefinito. È anche possibile scalare o eseguire l'aggiornamento di un pool di nodi specifici. Per le operazioni di aggiornamento, i contenitori in esecuzione vengono pianificati in altri nodi del pool fino a quando non vengono aggiornati tutti i nodi.
 
 Per altre informazioni su come usare più pool di nodi nel servizio contenitore di AZURE, vedere [creare e gestire più pool di nodi per un cluster di AKS][use-multiple-node-pools].
+
+### <a name="node-selectors"></a>Selettori di nodo
+
+In un cluster servizio contenitore di AZURE che contiene più pool di nodi, è necessario indicare a quale pool di nodi da usare per una determinata risorsa l'utilità di pianificazione di Kubernetes. Ad esempio, i controller di ingresso non devono eseguire nei nodi di Windows Server (attualmente in anteprima nel servizio contenitore di AZURE). I selettori di nodo consentono di definire vari parametri, ad esempio il nodo del sistema operativo, al controllo in cui dovrebbe essere pianificato in un pod.
+
+Nell'esempio di base seguente pianifica un'istanza NGINX in un nodo Linux tramite il selettore di nodo *"beta.kubernetes.io/os": linux*:
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx:1.15.12
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
+```
+
+Per altre informazioni su come controllo in cui sono pianificati POD, vedere [procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione in AKS][operator-best-practices-advanced-scheduler].
 
 ## <a name="pods"></a>Pod
 
@@ -248,3 +269,4 @@ Questo articolo tratta alcuni dei componenti principali di Kubernetes descrivend
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

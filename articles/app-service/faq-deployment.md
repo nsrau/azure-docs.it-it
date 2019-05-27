@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9d7fd41657394e006957392f37ec1a258b33c8c6
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: beee76bdc443b3a66b4500b83d228075b84eed1e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413874"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864777"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla distribuzione per app Web in Azure
 
@@ -38,9 +38,9 @@ Di seguito sono riportate alcune opzioni per la pubblicazione del codice dell'ap
 
 Per altre informazioni, vedere [Distribuire l'app nel servizio app](deploy-local-git.md).
 
-## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Viene visualizzato un messaggio di errore quando si prova a eseguire la distribuzione da Visual Studio. Come posso risolvere il problema?
+## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Viene visualizzato un messaggio di errore quando si prova a eseguire la distribuzione da Visual Studio. Come si risolve l'errore?
 
-Se viene visualizzato il messaggio seguente, è possibile che si stia usando una versione precedente dell'SDK: "Si è verificato un errore durante la distribuzione per la risorsa 'YourResourceName' nel gruppo di risorse 'YourResourceGroup': MissingRegistrationForLocation: La sottoscrizione non è registrata per il tipo di risorsa 'components' nella località 'Stati Uniti centrali'. Eseguire di nuovo la registrazione al provider per accedere a questa località". 
+Se viene visualizzato il messaggio seguente, è possibile che si stia usando una versione precedente dell'SDK: "Si è verificato un errore durante la distribuzione per la risorsa 'YourResourceName' nel gruppo di risorse 'YourResourceGroup': MissingRegistrationForLocation: La sottoscrizione non è registrata per il tipo di risorsa 'components' nella località 'Stati Uniti centrali'. Ripetere la registrazione per questo provider per accedere a questa posizione." 
 
 Per risolvere questo errore, eseguire l'aggiornamento all'[SDK più recente](https://azure.microsoft.com/downloads/). Se viene visualizzato questo messaggio e si ha l'SDK più recente, inviare una richiesta di supporto.
 
@@ -59,7 +59,7 @@ Per informazioni sulla struttura dei file dell'app del servizio app, vedere [Str
 
 ## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>Come si risolve il problema "Errore FTP 550. Spazio su disco insufficiente" quando si prova a caricare i file tramite FTP?
 
-Se viene visualizzato questo messaggio, è probabile che sia stato raggiunto il limite di quota del disco nel piano di servizio per l'app Web. Potrebbe essere necessario passare a un livello di servizio superiore in base alle esigenze di spazio su disco. Per altre informazioni sui piani tariffari e i limiti delle risorse, vedere il [piano tariffario del servizio app](https://azure.microsoft.com/pricing/details/app-service/).
+Se viene visualizzato questo messaggio, è probabile che si verificano una quota del disco nel piano di servizio per l'app web. Potrebbe essere necessario passare a un livello di servizio superiore in base alle esigenze di spazio su disco. Per altre informazioni sui piani tariffari e i limiti delle risorse, vedere il [piano tariffario del servizio app](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Come si configura la distribuzione continua dell'app Web del servizio app?
 
@@ -69,11 +69,11 @@ Se viene visualizzato questo messaggio, è probabile che sia stato raggiunto il 
 
 Per informazioni sull'analisi dei problemi con la distribuzione continua da GitHub o Bitbucket, vedere [Investigating continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment) (Analisi della distribuzione continua).
 
-## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this"></a>Non è possibile accedere al sito tramite FTP e pubblicare il codice. Come posso risolvere il problema?
+## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this-issue"></a>Non è possibile accedere al sito tramite FTP e pubblicare il codice. Come si risolve questo problema?
 
 Per risolvere i problemi FTP:
 
-1. Verificare di aver immesso il nome host e le credenziali corretti. Per informazioni dettagliate sui diversi tipi di credenziali e sul loro uso, vedere [Deployment credentials](https://github.com/projectkudu/kudu/wiki/Deployment-credentials) (Credenziali di distribuzione).
+1. Verificare che si sta immettendo il nome host corretto e le credenziali. Per informazioni dettagliate sui diversi tipi di credenziali e sul loro uso, vedere [Deployment credentials](https://github.com/projectkudu/kudu/wiki/Deployment-credentials) (Credenziali di distribuzione).
 2. Verificare che le porte FTP non siano bloccate da un firewall. Le porte devono avere le impostazioni seguenti:
     * Porta di connessione di controllo FTP: 21
     * Porta di connessione dati FTP: 989, 10001-10300

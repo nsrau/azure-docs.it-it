@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 08920a25fc7213a773ef0d76a5daddbab3f765c2
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866856"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852138"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
@@ -115,7 +115,7 @@ CREATE CERTIFICATE
 WITH PRIVATE KEY (<private_key_options>)
 ```
 
-### <a name="credential"></a>Credenziali
+### <a name="credential"></a>Credenziale
 
 Sono supportati solo l'insieme di credenziali delle chiavi di Azure e le identità `SHARED ACCESS SIGNATURE`. Gli utenti di Windows non sono supportati.
 
@@ -192,7 +192,7 @@ Un'istanza gestita non può accedere a file, in modo che non è possibile creare
 - [Estensione del pool di buffer](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) non è supportato.
 - `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` non è supportata. Vedere [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
-### <a name="collation"></a>Collation
+### <a name="collation"></a>Regole di confronto
 
 Le regole di confronto di istanza predefinita sono `SQL_Latin1_General_CP1_CI_AS` e possono essere specificate come un parametro di creazione. Vedere [Regole di confronto](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
@@ -281,7 +281,7 @@ Per altre informazioni, vedere [ALTER DATABASE](https://docs.microsoft.com/sql/t
   - I processi di replica seguenti sono supportati:
     - Lettore di log delle transazioni
     - Snapshot
-    - Database di distribuzione
+    - Server di distribuzione
   - I passaggi di processo SSIS sono supportati.
   - Non sono attualmente supportati altri tipi di passaggi di processo:
     - Il passaggio di processo di merge della replica non è supportato. 
@@ -471,7 +471,7 @@ Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 
 ### <a name="tempdb-size"></a>Dimensioni di TEMPDB
 
-Le dimensioni massime di `tempdb` non può essere maggiore di 24 GB per ogni core in un livello utilizzo generico. Il valore massimo `tempdb` dimensioni su un livello Business Critical sono limitata con le dimensioni di archiviazione di istanza. Il `tempdb` database sempre è suddiviso in file di 12 dati. Queste dimensioni massime per ogni file non possono essere modificata e possono essere aggiunti nuovi file a `tempdb`. Alcune query potrebbero restituire un errore se necessitano più di 24 GB per ogni core di `tempdb`.
+Le dimensioni massime di `tempdb` non può essere maggiore di 24 GB per ogni core in un livello utilizzo generico. Il valore massimo `tempdb` dimensioni su un livello Business Critical sono limitata con le dimensioni di archiviazione di istanza. Il `tempdb` database sempre è suddiviso in file di 12 dati. Queste dimensioni massime per ogni file non possono essere modificata e non possono essere aggiunti al nuovo file `tempdb`. Alcune query potrebbero restituire un errore se necessitano più di 24 GB per ogni core di `tempdb`. `tempdb` viene sempre ricreato come un database vuoto quando l'avvio dell'istanza o il failover e qualsiasi modifica effettuata in `tempdb` non verrà mantenuta. 
 
 ### <a name="cant-restore-contained-database"></a>Non è possibile ripristinare i database indipendenti
 

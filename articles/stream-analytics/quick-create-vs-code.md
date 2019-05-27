@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.date: 05/06/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 511dab7090f6114c7769d504166f3e2c137d43ca
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 894f43a7da0abd129123d5c4ddf2bb95347c42c5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071880"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825306"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Avvio rapido: Creare un processo cloud di Analisi di flusso di Azure in Visual Studio Code (Anteprima)
+# <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Guida introduttiva: Creare un processo cloud di Analisi di flusso di Azure in Visual Studio Code (Anteprima)
 
 Questo argomento di avvio rapido descrive come creare ed eseguire un processo di analisi di flusso usando l'estensione di Analisi di flusso di Azure per Visual Studio Code. Il processo di esempio legge i dati in streaming da un dispositivo hub IoT. Viene definito un processo che calcola la temperatura media quando supera i 27° e scrive gli eventi di output risultanti in un nuovo file nell'archiviazione BLOB.
 
@@ -229,7 +229,7 @@ Esistono due modi per attivare la compilazione dello script:
 
 2. Fare clic con il pulsante destro del mouse sul nome del processo. Nel menu di scelta rapida selezionare **Avvia**.
 
-![Avviare un processo di Analisi di flusso in VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+   ![Avviare un processo di Analisi di flusso in VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
 
 3. Scegliere **Adesso** nella finestra popup per avviare il processo.
 

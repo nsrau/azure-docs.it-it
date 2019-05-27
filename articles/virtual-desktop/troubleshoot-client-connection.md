@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 99295fd4581cd81751f7d64b694c853efe51a106
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: f88dee579e44a01dc1a7404ef6a670de34063552
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522934"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833561"
 ---
 # <a name="remote-desktop-client-connections"></a>Connessioni client di Desktop remoto
 
@@ -28,9 +28,9 @@ Verificare che sia presente la connettività internet, aprire un altro sito web.
 
 Uso **nslookup** per verificare DNS può risolvere il FQDN:
 
-    ```cmd
-    nslookup rdweb.wvd.microsoft.com
-    ```
+```cmd
+nslookup rdweb.wvd.microsoft.com
+```
 
 Provare a connettersi con un altro client, ad esempio il client di Desktop remoto per Windows 7 o Windows 10 e controllo verificare se è possibile aprire il client web.
 
@@ -54,7 +54,7 @@ Provare a connettersi con un altro client, ad esempio il client di Desktop remot
 
 1. Riavviare il browser.
 2. Cookie del browser non crittografato. Visualizzare [come eliminare i file di cookie in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-3. Cache del browser non crittografato. Visualizzare [cancellare la cache del browser per il browser](https://binged.it/2RKyfdU).
+3. Cancellare la cache del browser. Visualizzare [cancellare la cache del browser per il browser](https://binged.it/2RKyfdU).
 4. Apri browser in modalità privata.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Client Web non risponde o si disconnette
@@ -74,7 +74,7 @@ Se il client Web mantiene vengono richieste le credenziali, seguire queste istru
 1. Confermare il che URL del client web sia corretto.
 2. Verificare che le credenziali per l'ambiente di Desktop virtuale di Windows associato all'URL.
 3. Cookie del browser non crittografato. Visualizzare [come eliminare i file di cookie in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Cache del browser non crittografato. Visualizzare [cancellare la cache del browser per il browser](https://binged.it/2RKyfdU).
+4. Cancellare la cache del browser. Visualizzare [cancellare la cache del browser per il browser](https://binged.it/2RKyfdU).
 5. Apri browser in modalità privata.
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Client Desktop remoto per Windows 7 o Windows 10 non risponde o non può essere aperto
@@ -111,20 +111,20 @@ Seguire queste istruzioni sulla risoluzione dei problemi generale per i codici d
 4. Usando **Get-RdsHostPool** e **Get-RdsSessionHost** cmdlet, verificare che la risoluzione dei problemi viene eseguita nel pool di host corretto.
 5. Eseguire il comando seguente per ottenere un elenco di tutte le attività non riuscite della connessione di tipo per l'intervallo di tempo specificato:
 
-    ```cmd
+    ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
 6. Usando il **ActivityId** dall'output del cmdlet precedente, eseguire il comando seguente:
 
-    ```
+    ```PowerShell
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
 7. Il comando restituisce un output simile all'output indicato di seguito. Uso **ErrorCodeSymbolic** e **ErrorMessage** per risolvere la causa radice.
 
-    ```
+    ```PowerShell
     ErrorSource       : <Source>
     ErrorOperation    : <Operation>
     ErrorCode         : <Error code>
@@ -159,7 +159,7 @@ Un utente può avviare i client Desktop remoto ed è in grado di eseguire l'aute
 
 Verificare che l'utente segnala i problemi sia stato assegnato ai gruppi di applicazioni mediante la riga di comando:
 
-```cmd
+```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 

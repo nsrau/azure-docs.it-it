@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a6ed8ec37a3b20ccdbd2b013ba308518d8e3b97c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192111"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849882"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes
 
@@ -23,7 +23,6 @@ Questo articolo illustra come distribuire i prerequisiti per servizio contenitor
 Si applicano le limitazioni seguenti:
 
 - Azure AD può essere abilitato solo quando si crea un nuovo cluster abilitato per il controllo degli accessi in base al ruolo. Non è possibile abilitare Azure AD in un cluster del servizio Azure Kubernetes.
-- *Guest* agli utenti di Azure AD, ad esempio come se si usa un accesso federato da una directory diversa, non sono supportati.
 
 ## <a name="authentication-details"></a>Dettagli di autenticazione
 
@@ -114,6 +113,10 @@ La seconda applicazione di Azure AD viene utilizzata quando l'accesso con la CLI
         Quando le autorizzazioni sono state concesse correttamente, viene visualizzata nel portale la notifica seguente:
 
         ![Notifica di esito positivo delle autorizzazioni concesse](media/aad-integration/permissions-granted.png)
+
+1. Nel riquadro di spostamento a sinistra dell'applicazione Azure AD, selezionare **autenticazione**.
+
+    * Sotto **tipo di client predefinito**, selezionare **Yes** a *trattare il client come un client pubblico*.
 
 1. Nel riquadro di spostamento a sinistra dell'applicazione Azure AD, annotare il **ID applicazione**. Quando si distribuisce un cluster servizio Azure Kubernetes abilitato per Azure AD, questo valore viene definito `Client application ID`.
 
@@ -242,13 +245,14 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 Al termine dell'esercitazione, viene memorizzato nella cache il token di autenticazione. Sono reinserire solo per l'accesso quando il token è scaduto o il file di configurazione di Kubernetes creato nuovamente.
 
 Se viene visualizzato un messaggio di errore di autorizzazione dopo aver avuto accesso correttamente, verificare che vengano soddisfatte le condizioni seguenti:
-1. L'utente si accede è diverso da un Guest nell'istanza di Azure AD (in questo scenario è spesso il caso se si usa un account federato da una directory diversa).
-2. L'utente non deve essere membro di più di 200 gruppi.
-3. Segreto definito nella registrazione dell'applicazione per il server non corrisponde al valore configurato con-- aad-server--segreto dell'app
 
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
+
+1. L'ID di oggetto appropriato o UPN, a seconda se l'account utente è nello stesso tenant di Azure AD o non definito.
+2. L'utente non deve essere membro di più di 200 gruppi.
+3. Segreto definito nella registrazione dell'applicazione per server corrisponde al valore configurato con `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

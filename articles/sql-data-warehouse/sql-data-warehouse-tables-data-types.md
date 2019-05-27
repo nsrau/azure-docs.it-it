@@ -2,20 +2,20 @@
 title: Definizione dei tipi di dati - Azure SQL Data Warehouse | Microsoft Docs
 description: Raccomandazioni per la definizione dei tipi di dati di tabella in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: aab51c3dc66a1486e8ad7ced55425a2b49c7dea1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06a273d3bfd5d416039a992e36bd4b0f72a85f78
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401766"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851560"
 ---
 # <a name="table-data-types-in-azure-sql-data-warehouse"></a>Tipi di dati di tabella in Azure SQL Data Warehouse
 Raccomandazioni per la definizione dei tipi di dati di tabella in Azure SQL Data Warehouse. 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 362df8cee163bcd2d1dac73c650e42ee4f0f7751
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3d50746324ddac21f222d4c743f4b7bf6ee9b773
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920111"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864795"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Come gestire gli account utente in Gestione API di Azure
 
@@ -69,7 +69,7 @@ Per bloccare un utente, eseguire la procedura seguente.
 
 ## <a name="reset-a-user-password"></a>Reimpostare la password di un utente
 
-Per lavorare con gli account utente a livello di codice, vedere la documentazione [Entità utente](https://docs.microsoft.com/rest/api/apimanagement/user) nel riferimento [API Management REST (REST di gestione API)](/rest/api/apimanagement/). Per reimpostare la password di un account utente su un valore specifico, è possibile usare la procedura [Update a user (Aggiornamento di un utente)](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e specificare la password desiderata.
+Per lavorare a livello di programmazione con gli account utente, vedere la documentazione relativa all'entità utente nel [API REST gestione API](/rest/api/apimanagement/) riferimento. Per reimpostare la password di un account utente su un valore specifico, è possibile usare la procedura [Update a user (Aggiornamento di un utente)](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e specificare la password desiderata.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 Dopo aver creato un account sviluppatore, è possibile associarlo ai ruoli ed effettuarne la sottoscrizione a prodotti e API. Per altre informazioni, vedere [Come creare e usare i gruppi][How to create and use groups].

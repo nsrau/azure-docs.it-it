@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 71ac525e2af7473ca9ce0a8f60268e76eccd1a9a
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530384"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833512"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per sviluppatori di Azure PowerShell di funzioni
 
@@ -23,9 +23,9 @@ Questo articolo fornisce informazioni dettagliate sulle modalità di scrittura d
 
 [!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
-Una funzione di PowerShell è rappresentata come uno script di PowerShell che viene eseguita quando attivati. Ogni script (funzione) dispone di un file Function. JSON correlato che definisce come il comportamento della funzione, ad esempio la modalità viene attivata e parametri di input e output. Per altre informazioni, vedere la [trigger e binding articolo](functions-triggers-bindings.md). 
+Una funzione di PowerShell Azure (funzione) è rappresentata come uno script di PowerShell che viene eseguita quando attivati. Ogni script di funzione è correlata una `function.json` file che definisce come il comportamento della funzione, ad esempio la modalità viene attivata e i relativi parametri di input e outpui. Per altre informazioni, vedere la [trigger e binding articolo](functions-triggers-bindings.md). 
 
-Come per altri tipi di funzioni, script di PowerShell accetta i parametri che corrispondono ai nomi di tutte le associazioni di input definiti nel file Function. JSON. Oggetto `TriggerMetadata` che contiene informazioni aggiuntive sul trigger che ha avviato la funzione viene anche passato nel parametro.
+Come per altri tipi di funzioni, funzioni di script di PowerShell accettano parametri che corrispondono ai nomi di tutte le associazioni di input definiti nel `function.json` file. Oggetto `TriggerMetadata` che contiene informazioni aggiuntive sul trigger che ha avviato la funzione viene anche passato nel parametro.
 
 Questo articolo presuppone che siano già state lette le [informazioni di riferimento per sviluppatori su Funzioni di Azure](functions-reference.md). È necessario avere completato anche il [avvio rapido di funzioni di PowerShell](functions-create-first-function-powershell.md) per creare la prima funzione di PowerShell.
 
@@ -56,9 +56,9 @@ PSFunctionApp
  | - bin
 ```
 
-Nella radice del progetto è presente un file [host.json](functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Ogni funzione dispone di una cartella con il proprio file di codice (con estensione ps1) e file di configurazione di associazione (Function. JSON). Il nome della directory padre di `function.json` è sempre il nome della funzione.
+Nella radice del progetto, vi è condivisa [ `host.json` ](functions-host-json.md) file che può essere usato per configurare l'app per le funzioni. Ogni funzione dispone di una cartella con il proprio file di codice (con estensione ps1) e file di configurazione di associazione (`function.json`). Il nome della directory padre del file Function. JSON è sempre il nome della funzione.
 
-Alcune associazioni richiedono la presenza di un `extensions.csproj`. Associazione di estensioni, obbligatorio in [versione 2.x](functions-versions.md) del runtime di funzioni, definite nel `extensions.csproj` file, con i file di libreria effettivo nel `bin` cartella. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
+Alcune associazioni richiedono la presenza di un `extensions.csproj` file. Associazione di estensioni, obbligatorio in [versione 2.x](functions-versions.md) del runtime di funzioni, definite nel `extensions.csproj` file, con i file di libreria effettivo nel `bin` cartella. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
 Nelle app di funzione di PowerShell, potrebbe essere facoltativamente un `profile.ps1` che viene eseguita all'avvio di un'app per le funzioni per l'esecuzione (in caso contrario, conosciuto come un  *[avvio a freddo](#cold-start)*. Per altre informazioni, vedere [profilo PowerShell](#powershell-profile).
 
@@ -81,7 +81,7 @@ Il `TriggerMetadata` parametro viene utilizzato per fornire informazioni aggiunt
 $TriggerMetadata.sys
 ```
 
-| Proprietà   | DESCRIZIONE                                     | Type     |
+| Proprietà   | Description                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | utcNow     | Quando, in formato UTC, la funzione è stata attivata        | DateTime |
 | Nome del metodo | Il nome della funzione che è stata attivata     | string   |
@@ -133,9 +133,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Di seguito sono i parametri validi per la chiamata `Push-OutputBinding`:
 
-| NOME | Type | Posizione | DESCRIZIONE |
+| NOME | Type | Posizione | Descrizione |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | string | 1 | Il nome dell'associazione di output a cui si desidera impostare. |
+| **`-Name`** | String | 1 | Il nome dell'associazione di output a cui si desidera impostare. |
 | **`-Value`** | Object | 2 | Il valore dell'associazione di output si desidera impostare, che è accettato dalla pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | denominata | (Facoltativo) Quando specificato, se ne determina il valore da impostare per un'associazione di output specificato. | 
 
@@ -302,9 +302,9 @@ I trigger e i webhook HTTP e le associazioni di output HTTP usano oggetti di ric
 
 L'oggetto richiesta che viene passato allo script è di tipo `HttpRequestContext`, che presenta le proprietà seguenti:
 
-| Proprietà  | DESCRIZIONE                                                    | Type                      |
+| Proprietà  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Oggetto che contiene il corpo della richiesta. `Body` viene serializzato nel tipo migliore in base ai dati. Ad esempio, se i dati JSON, viene passato come una tabella hash. Se i dati sono una stringa, viene passato sotto forma di stringa. | object |
+| **`Body`**    | Oggetto che contiene il corpo della richiesta. `Body` viene serializzato nel tipo migliore in base ai dati. Ad esempio, se i dati JSON, viene passato come una tabella hash. Se i dati sono una stringa, viene passato sotto forma di stringa. | oggetto |
 | **`Headers`** | Un dizionario che contiene le intestazioni della richiesta.                | Dizionario < stringa, stringa ><sup>*</sup> |
 | **`Method`** | Metodo HTTP della richiesta.                                | string                    |
 | **`Params`**  | Oggetto che contiene i parametri di routing della richiesta. | Dizionario < stringa, stringa ><sup>*</sup> |
@@ -317,9 +317,9 @@ L'oggetto richiesta che viene passato allo script è di tipo `HttpRequestContext
 
 L'oggetto risposta che deve inviare nuovamente è del tipo `HttpResponseContext`, che presenta le proprietà seguenti:
 
-| Proprietà      | DESCRIZIONE                                                 | Type                      |
+| Proprietà      | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Oggetto che contiene il corpo della risposta.           | object                    |
+| **`Body`**  | Oggetto che contiene il corpo della risposta.           | oggetto                    |
 | **`ContentType`** | Una mano breve per impostare il tipo di contenuto per la risposta. | string                    |
 | **`Headers`** | Oggetto che contiene le intestazioni della risposta.               | Dizionario o una tabella hash   |
 | **`StatusCode`**  | Codice di stato HTTP della risposta.                       | stringa o numero intero             |

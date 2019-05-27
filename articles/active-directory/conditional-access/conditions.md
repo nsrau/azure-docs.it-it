@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785387"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861553"
 ---
-# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quali sono le condizioni dell'accesso condizionale di Azure Active Directory? 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quali sono le condizioni dell'accesso condizionale di Azure Active Directory?
 
-Con l'[accesso condizionale di Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) è possibile controllare il modo in cui gli utenti accedono alle app cloud. In un criterio di accesso condizionale si definisce la risposta ("Allora fare questo") al motivo per cui viene attivato il criterio ("Quando accade questo"). 
+Con l'[accesso condizionale di Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) è possibile controllare il modo in cui gli utenti accedono alle app cloud. In un criterio di accesso condizionale si definisce la risposta ("Allora fare questo") al motivo per cui viene attivato il criterio ("Quando accade questo").
 
 ![Motivo e risposta](./media/conditions/10.png)
 
@@ -37,7 +37,7 @@ Nel contesto di accesso condizionale, **Quando accade questo** è una **condizio
 ![Criteri di accesso condizionale](./media/conditions/61.png)
 
 
-Le condizioni che non sono state configurate nei criteri di accesso condizionali non vengono applicate. Alcune condizioni sono [obbligatorie](best-practices.md) per applicare criteri di accesso condizionali in un ambiente. 
+Le condizioni che non sono state configurate nei criteri di accesso condizionali non vengono applicate. Alcune condizioni sono [obbligatorie](best-practices.md) per applicare criteri di accesso condizionali in un ambiente.
 
 Questo articolo offre una panoramica delle condizioni e di come vengono usate in un criterio di accesso condizionale. 
 
@@ -73,7 +73,7 @@ Le organizzazioni possono scegliere tra le opzioni seguenti:
 > [!NOTE]
 > È possibile escludere App specifiche da un criterio. Tuttavia, queste app sono comunque soggette ai criteri applicati ai servizi a cui accedono.
 
-**Le azioni utente** sono attività che possono essere eseguite da un utente. L'unica azione attualmente supportata è **registrare le informazioni di sicurezza (anteprima)**, che consente di criteri di accesso condizionale imporrà quando un utente registra le informazioni di sicurezza.
+**Le azioni utente** sono attività che possono essere eseguite da un utente. L'unica azione attualmente supportata è **registrare le informazioni di sicurezza (anteprima)**, che consente di criteri di accesso condizionale imporrà quando gli utenti che sono abilitati per la registrazione combinata tentano di registrare la sicurezza informazioni. Altre informazioni sono reperibili nell'articolo [combinato di abilitare la registrazione di informazioni di sicurezza (anteprima)](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ## <a name="sign-in-risk"></a>Rischio di accesso
 

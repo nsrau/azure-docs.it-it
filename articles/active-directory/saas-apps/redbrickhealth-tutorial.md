@@ -16,11 +16,11 @@ ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3ec8ffebbbe339e00431f510978f1d3155f1bc4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885216"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65868557"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Esercitazione: Integrazione di Azure Active Directory con RedBrick Health
 
@@ -117,7 +117,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con RedBrick Health, seguir
 
     c. Fare clic su **Impostare URL aggiuntivi**.
 
-    d. Nella casella di testo **Stato dell'inoltro** digitare un URL usando il modello seguente: `https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
+    d. Nella casella di testo **Stato dell'inoltro** digitare un URL nel formato seguente: `https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
 
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con lo stato dell'inoltro effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di RedBrick Health](https://home.redbrickhealth.com/contact/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -128,7 +128,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con RedBrick Health, seguir
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME | Source Attribute|
+    | NOME | Attributo di origine|
     | ---------------| --------------- | --------- |
     | principal name | ********** |
     | ID CLIENT | ********** |
@@ -155,7 +155,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con RedBrick Health, seguir
 
     g. Fare clic su **Save**.
 
-7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 

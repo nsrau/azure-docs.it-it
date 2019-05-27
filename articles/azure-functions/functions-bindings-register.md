@@ -10,20 +10,20 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 802e177b6f3844abe4d24c26b7ea2d0d4fb1688c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 53eb5fc9389d913ecacec3729a06e47a1c2bf56b
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697004"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864554"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrare le estensioni delle associazioni di funzioni di Azure
 
-A partire dalla versione di funzioni di Azure versione 2.x [associazioni](./functions-triggers-bindings.md) sono disponibili come pacchetti separati dal runtime di funzioni. Sebbene funzioni .NET accedono associazioni tramite pacchetti NuGet, pacchetti di estensione consentono l'accesso altre funzioni a tutte le associazioni tramite un'impostazione di configurazione.
+In funzioni di Azure versione 2.x [associazioni](./functions-triggers-bindings.md) sono disponibili come pacchetti separati dal runtime di funzioni. Sebbene funzioni .NET accedono associazioni tramite pacchetti NuGet, pacchetti di estensione consentono l'accesso altre funzioni a tutte le associazioni tramite un'impostazione di configurazione.
 
-Prendere in considerazione i seguenti elementi relativi a estensioni di binding:
+Prendere in considerazione gli elementi seguenti correlati a estensioni di binding:
 
-- Le estensioni delle associazioni non sono registrati in modo esplicito in funzioni 1.x tranne quando [creazione di un C# libreria di classi mediante Visual Studio 2017](#local-csharp).
+- Le estensioni delle associazioni non sono registrati in modo esplicito in funzioni 1.x tranne quando [creazione di un C# libreria di classi mediante Visual Studio 2019](#local-csharp).
 
 - Trigger timer e HTTP sono supportati per impostazione predefinita e non richiedono un'estensione.
 
@@ -33,7 +33,7 @@ Nella tabella seguente indica come e quando si registra le associazioni.
 |-------------------------|------------------------------------|------------------------------------|
 |Portale di Azure|Automatico|Automatico|
 |Linguaggi non .NET o lo sviluppo di strumenti di base di Azure locale|Automatico|[Usare Azure Functions Core Tools e aggregazioni di estensione](#local-development-with-azure-functions-core-tools-and-extension-bundles)|
-|Libreria di classi C# usando Visual Studio 2017|[Usare gli strumenti di NuGet](#c-class-library-with-visual-studio-2017)|[Usare gli strumenti di NuGet](#c-class-library-with-visual-studio-2017)|
+|C#libreria di classi mediante Visual Studio 2019|[Usare gli strumenti di NuGet](#c-class-library-with-visual-studio-2019)|[Usare gli strumenti di NuGet](#c-class-library-with-visual-studio-2019)|
 |Libreria di classi C# usando Visual Studio Code|N/D|[Usare l'interfaccia della riga di comando di .NET Core](#c-class-library-with-visual-studio-code)|
 
 ## <a name="local-development-with-azure-functions-core-tools-and-extension-bundles"></a>Sviluppo locale con Azure Functions Core Tools e aggregazioni di estensione
@@ -41,9 +41,9 @@ Nella tabella seguente indica come e quando si registra le associazioni.
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 <a name="local-csharp"></a>
-## <a name="c-class-library-with-visual-studio-2017"></a>Libreria di classi C# con Visual Studio 2017
+## <a name="c-class-library-with-visual-studio-2019"></a>C#libreria di classi con Visual Studio 2019
 
-In **Visual Studio 2017** è possibile installare pacchetti dalla Console di Gestione pacchetti usando il comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package), come illustrato nell'esempio seguente:
+Nelle **Visual Studio 2019**, è possibile installare i pacchetti dalla Console di gestione pacchetti usando la [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) comando, come illustrato nell'esempio seguente:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>

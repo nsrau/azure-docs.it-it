@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a748bb0fb44b3fae50426b56f2076f1a9730657
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 8e78cb712501b86f98d3459cac6280d0484f41a1
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075581"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833102"
 ---
 # <a name="protected-web-api---move-to-production"></a>API - spostamento nell'ambiente di produzione web protetta
 
@@ -38,7 +38,7 @@ Informazioni su come chiamare le API downstream:
 Scopri di più con esercitazioni ed esempi:
 
 > [!div class="nextstepaction"]
-> [Esercitazione di API Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+> [Esercitazione sull'API web di ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
 
 > [!div class="nextstepaction"]
-> [Esempio di API Web ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+> [Esempio di API web ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

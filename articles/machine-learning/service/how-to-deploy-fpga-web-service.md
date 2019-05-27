@@ -1,7 +1,7 @@
 ---
 title: Distribuire modelli in dispositivi FPGA
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come distribuire un servizio Web con un modello in esecuzione in un dispositivo FPGA con il servizio Azure Machine Learning per inferenze a latenza estremamente bassa.
+description: Informazioni su come distribuire un servizio web con un modello in esecuzione in un FPGA con il servizio di Azure Machine Learning per l'inferenza di una latenza estremamente bassa.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 249a21bf9eeb3913826971fd1aae136197d264c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8d667d45e1831e0fcc939d302a16f63d4a282963
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149602"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852039"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Come distribuire un modello come servizio Web in un dispositivo FPGA con il servizio Azure Machine Learning
 
-È possibile distribuire un modello come servizio web in [campo matrici programmable gate (FPGA)](concept-accelerate-with-fpgas.md) con modelli con accelerazione Hardware di Azure Machine Learning. L'uso di FPGA offre inferenze a latenza estremamente bassa, anche con una singola dimensione batch.
+È possibile distribuire un modello come servizio web in [campo matrici programmable gate (FPGA)](concept-accelerate-with-fpgas.md) con modelli con accelerazione Hardware di Azure Machine Learning. Utilizzo FPGA fornisce l'inferenza di una latenza estremamente bassa, anche con le dimensioni del batch singolo. Inferenza o modello di punteggio, è la fase in cui viene usato il modello distribuito per la stima, in genere sui dati di produzione.
 
 Questi sono i modelli attualmente disponibili:
   - ResNet 50
@@ -160,9 +160,9 @@ print(output_tensors)
 ```
 
 > [!IMPORTANT]
-> Salvare l'input e output tensors perché saranno necessari per le richieste di conversione e l'inferenza dei modelli.
+> Salvare l'input e output tensors perché saranno necessari per le richieste di conversione e l'inferenza del modello.
 
-I modelli disponibili e la funzione di classificazione predefinito corrispondente output tensors sono sotto, che è ciò che si utilizzerebbe durante l'inferenza se è stata usata la funzione di classificazione predefinito.
+I modelli disponibili e la funzione di classificazione predefinito corrispondente output tensors sono sotto, che è ciò che si utilizzerebbe per inferenza se è stata usata la funzione di classificazione predefinito.
 
 + Resnet50, QuantizedResnet50 ``
 output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"

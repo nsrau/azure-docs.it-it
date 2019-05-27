@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 9696f3c32f8b903257e337191a5ce32645bfd198
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142457"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834021"
 ---
-# <a name="connect-from-a-web-browser"></a>Connettersi da un web browser
+# <a name="connect-from-a-web-browser"></a>Connettersi da un Web browser
 
 Il client web consente di accedere alle risorse di anteprima di Desktop virtuale Windows da un browser web senza il processo di installazione di lunga durata.
 
@@ -38,6 +38,6 @@ Mentre qualsiasi browser che supporta HTML5 dovrebbe funzionare correttamente, s
 In un browser, passare al [client web di Windows Desktop virtuale](https://rdweb.wvd.microsoft.com/webclient) e accedere con l'account utente.
 
 >[!NOTE]
->Se già stato effettuato con un account Azure AD che è diverso da quello da usare per Windows Desktop virtuale, si potrebbe essere necessario disconnettersi o utilizzare una finestra del browser privata.
+>Se è già stata effettuata con un account Azure Active Directory diverso rispetto a quello da usare per Windows Desktop virtuale, si deve disconnettersi o utilizzare una finestra del browser privata.
 
 Dopo l'accesso, viene visualizzato un elenco di risorse. È possibile avviare le risorse selezionandoli analogo a una normale app nel **tutte le risorse** scheda.

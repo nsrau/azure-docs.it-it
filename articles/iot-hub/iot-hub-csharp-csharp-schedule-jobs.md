@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: robinsh
-ms.openlocfilehash: db34734e9fbb8635f1a62def8a877d83d02e2206
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f21f1eed6babee52f30c6eccc79f88dc7bee5d58
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216390"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864487"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Pianificare e trasmettere processi (.NET/.NET)
 
@@ -49,7 +49,7 @@ Al termine di questa esercitazione si ottengono due app console .NET (C#):
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Visual Studio 2017.
+* Visual Studio.
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT

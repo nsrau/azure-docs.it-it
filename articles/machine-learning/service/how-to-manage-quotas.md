@@ -11,16 +11,18 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9734a5d8f34536558fbf0c861889f3c7d6719da
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8754eedc8284aab01006ea71bfd870064b91ea17
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523994"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851130"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gestire e richiedere quote per risorse di Azure
 
-Come per altri servizi di Azure, sono previsti limiti per determinate risorse associate al servizio Azure Machine Learning. Questi limiti vanno dal limite applicato al numero delle aree di lavoro che è possibile creare ai limiti relativi al calcolo effettivo sottostante usato per il training o l'inferenza dei modelli. Questo articolo offre maggiori dettagli sui limiti preconfigurati per diverse risorse di Azure per la sottoscrizione e contiene anche alcuni collegamenti utili per richiedere miglioramenti relativi alle quote per ogni tipo di risorsa. Questi limiti vengono applicati per evitare lo sforamento del budget a causa di illeciti e per rispettare i vincoli di capacità di Azure.
+Come per altri servizi di Azure, sono previsti limiti per determinate risorse associate al servizio Azure Machine Learning. Queste vanno limiti da un limite al numero di aree di lavoro è possibile creare per i limiti per le risorse di calcolo sottostanti effettivo che viene usata per training del modello o la valutazione di inferenza /. 
+
+Questo articolo offre maggiori dettagli sui limiti preconfigurati per diverse risorse di Azure per la sottoscrizione e contiene anche alcuni collegamenti utili per richiedere miglioramenti relativi alle quote per ogni tipo di risorsa. Questi limiti vengono applicati per evitare lo sforamento del budget a causa di illeciti e per rispettare i vincoli di capacità di Azure.
 
 Tenere presenti queste quote quando si progettano e si aumentano le risorse del servizio Azure Machine Learning per i carichi di lavoro di produzione. Ad esempio, se il cluster non raggiunga il numero di nodi specificato, quindi si potrebbe essere stato raggiunto un limite di core di calcolo di Azure Machine Learning per la sottoscrizione. Per aumentare il limite o la quota oltre il valore del limite predefinito, è possibile aprire una richiesta di assistenza clienti online senza alcun addebito. Non è possibile aumentare i limiti oltre il valore massimo indicato nelle tabelle seguenti a causa dei vincoli di capacità di Azure. Se non è presente una colonna Limite massimo, la risorsa specificata non è associata a limiti modificabili.
 

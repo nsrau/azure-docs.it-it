@@ -11,18 +11,18 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: f1eca5bdd81a384efe04f769ebd12be9d91fc78a
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442411"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849736"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX e Azure Machine Learning: Creare e accelerare i modelli di Machine Learning
 
-Informazioni su come l'uso di [scambio di rete neurale Open](https://onnx.ai) (ONNX) può aiutare a ottimizzare i modelli di machine learning.
+Informazioni su come l'uso di [scambio di rete neurale Open](https://onnx.ai) (ONNX) può aiutare a ottimizzare l'inferenza del modello di machine learning. Inferenza o modello di punteggio, è la fase in cui viene usato il modello distribuito per la stima, in genere sui dati di produzione. 
 
-Ottimizzazione modelli di machine learning per l'inferenza sono difficili poiché è necessario ottimizzare il modello e la libreria di inferenza per sfruttare al meglio le funzionalità hardware. Il problema diventa estremamente difficile se si desidera ottenere prestazioni ottimali su diversi tipi di piattaforme (cloud/Microsoft edge, CPU/GPU e così via), poiché ogni uno ha le caratteristiche e funzionalità diverse. La complessità aumenta se si dispone di modelli da un'ampia gamma di Framework che dovranno essere eseguiti su una vasta gamma di piattaforme. È molto tempo per ottimizzare le diverse combinazioni di Framework e hardware. È necessaria una soluzione per il training di una volta il Framework preferito e possono essere eseguiti ovunque nel cloud o edge. Si tratta di ONNX entra in gioco.
+Poiché è necessario ottimizzare il modello e la libreria di inferenza per sfruttare al meglio le funzionalità hardware, è difficili ottimizzare modelli di machine learning per inferenza (o modello di punteggio). Il problema diventa estremamente difficile se si desidera ottenere prestazioni ottimali su diversi tipi di piattaforme (cloud/Microsoft edge, CPU/GPU e così via), poiché ogni uno ha le caratteristiche e funzionalità diverse. La complessità aumenta se si dispone di modelli da un'ampia gamma di Framework che dovranno essere eseguiti su una vasta gamma di piattaforme. È molto tempo per ottimizzare le diverse combinazioni di Framework e hardware. È necessaria una soluzione per il training di una volta il Framework preferito e possono essere eseguiti ovunque nel cloud o edge. Si tratta di ONNX entra in gioco.
 
 Microsoft e una community di partner creati ONNX con uno standard aperto per la rappresentazione di modelli di machine learning. Dai modelli [molti framework](https://onnx.ai/supported-tools) tra cui TensorFlow, PyTorch, SciKit-Learn, Keras, Chainer, MXNet e MATLAB possono essere esportati o convertiti nel formato ONNX standard. Una volta che i modelli sono nel formato ONNX, possono essere eseguiti su un'ampia gamma di piattaforme e dispositivi.
 

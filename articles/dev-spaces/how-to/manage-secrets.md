@@ -9,12 +9,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
-ms.openlocfilehash: 9fe29e8717c76c353f3e95d4693011f3925c4e1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ee50289083b12b7b2abd3b9ece2c8de345df9fe
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686443"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851424"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Come gestire i segreti quando si lavora in uno spazio Azure Dev Spaces
 
@@ -24,7 +24,7 @@ Azure Dev Spaces offre due opzioni consigliate per l'archiviazione dei segreti: 
  
 ## <a name="method-1-valuesdevyaml"></a>Metodo 1: values.dev.yaml
 1. Aprire Visual Studio Code con il progetto abilitato per Azure Dev Spaces.
-2. Aggiungere un file denominato _values.dev.yaml_ nella stessa cartella del file _values.yaml_ esistente e definire la chiave privata e i valori, come nell'esempio seguente:
+2. Aggiungere un file denominato _values.dev.yaml_ nella stessa cartella esistente _azds.yaml_ e definire la chiave privata e i valori, come nell'esempio seguente:
 
     ```yaml
     secrets:
@@ -34,12 +34,13 @@ Azure Dev Spaces offre due opzioni consigliate per l'archiviazione dei segreti: 
         key: "secretkeyhere"
     ```
      
-3. Aggiornare _azds.yaml_ per indicare ad Azure Dev Spaces di usare il nuovo file _values.dev.yaml_. A tale scopo, aggiungere questa configurazione nella sezione configurations.develop.container:
+3. _azds.yaml_ fa già riferimento la _values.dev.yaml_ file se esiste. Se si preferisce un nome file diverso, aggiornare la sezione install.values:
 
     ```yaml
-           container:
-             values:
-             - "charts/webfrontend/values.dev.yaml"
+    install:
+      values:
+      - values.dev.yaml?
+      - secrets.dev.yaml?
     ```
  
 4. Modificare il codice di servizio in modo che faccia riferimento a questi segreti come variabili di ambiente, come nell'esempio seguente:
@@ -76,17 +77,17 @@ Azure Dev Spaces offre due opzioni consigliate per l'archiviazione dei segreti: 
           set:
             secrets:
               redis:
-                port: "$REDIS_PORT_DEV"
-                host: "$REDIS_HOST_DEV"
-                key: "$REDIS_KEY_DEV"
+                port: "$REDIS_PORT"
+                host: "$REDIS_HOST"
+                key: "$REDIS_KEY"
     ```
      
 2.  Creare un file con estensione _env_ nella stessa cartella di _azds.yaml_. Immettere i segreti usando una chiave standard = notazione del valore. Non eseguire il commit del file con estensione _env_ al controllo del codice sorgente (per ometterlo dal controllo del codice sorgente in sistemi di controllo della versione basati su git, aggiungerlo al file con estensione _gitignore_). L'esempio seguente mostra un file con estensione _env_:
 
     ```
-    REDIS_PORT_DEV=3333
-    REDIS_HOST_DEV=myredishost
-    REDIS_KEY_DEV=myrediskey
+    REDIS_PORT=3333
+    REDIS_HOST=myredishost
+    REDIS_KEY=myrediskey
     ```
 2.  Modificare il codice sorgente del servizio in modo che faccia riferimento a questi segreti nel codice, come nell'esempio seguente:
 
