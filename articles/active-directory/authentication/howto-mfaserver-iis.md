@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6404356edca606d78656011b9dec654e9f29edd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a019aaec270fe1beb3914e7ab388fce9a701bcc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415031"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988616"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configurazione di Azure Multi-Factor Authentication per le App Web IIS
 
@@ -76,4 +76,4 @@ Il provider di identità attendibili consente agli utenti di ignorare Azure mult
 1. Fare clic sulla scheda **IP attendibili** nella sezione Autenticazione IIS.
 2. Fare clic su **Aggiungi**.
 3. Quando viene visualizzata la finestra di dialogo Add Trusted IPs (Aggiungi IP attendibili), selezionare il pulsante di opzione **IP singolo**, **Intervallo IP** o **Subnet**.
-4. Immettere l'indirizzo IP, intervallo di indirizzi IP o subnet devono essere incluse nell'elenco. Se si immette una subnet, selezionare la Netmask appropriata e fare clic su **OK**. L'elenco whitelist è stato aggiunto.
+4. Immettere l'indirizzo IP, intervallo di indirizzi IP o subnet a cui deve essere consentito. Se si immette una subnet, selezionare la Netmask appropriata e fare clic su **OK**.

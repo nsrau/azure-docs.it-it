@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 8cda617ca60a17fceaaa818480ff9bbaef46c3fd
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414058"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965974"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architettura di rete di transito globale e una rete WAN virtuale
 
@@ -48,7 +48,7 @@ Figura 2 mostra la visualizzazione logica della rete globale in cui utenti distr
 
 ## <a name="crossregion"></a>Connettività in più aree
 
-Per un'azienda, un footprint cloud segue in genere l'impronta fisica. La maggior parte delle aziende accedere a cloud da un'area più vicina ai propri fisico del sito e gli utenti. Una delle entità chiave dell'architettura di rete globale è per abilitare la connettività tra più aree tra le entità di rete ed endpoint. Un footprint cloud può estendersi su più aree. Ciò significa che il traffico proveniente da un ramo che è connesso al cloud in un'area possa raggiungere un altro ramo o una rete virtuale in un'area diversa.
+Per un'azienda, un footprint cloud segue in genere l'impronta fisica. La maggior parte delle aziende accedere a cloud da un'area più vicina ai propri fisico del sito e gli utenti. Una delle entità chiave dell'architettura di rete globale è per abilitare la connettività tra più aree tra le entità di rete ed endpoint. Un footprint cloud può estendersi su più aree. Ciò significa che il traffico proveniente da un ramo che è connesso al cloud in un'area possa raggiungere un altro ramo o una rete virtuale in un'altra area usando la connettività hub nell'hub che è attualmente in anteprima.
 
 ## <a name="any"></a>Connettività Any-to-any
 
@@ -89,7 +89,7 @@ Il percorso utente al ramo remoto consente agli utenti remoti che usano una conn
 
 ### <a name="vnetvnet"></a>VNet-to-VNet transito tramite il peering reti virtuali
 
-Per connettere le reti virtuali tra loro per supportare le applicazioni multilivello che vengono implementate in più reti virtuali, usare il peering reti virtuali. Uno scenario di transito VNet a VNet tramite Azure rete WAN virtuale non è attualmente supportato, ma la roadmap di Azure. La connessione di reti virtuali tramite peering reti virtuali è la soluzione consigliata per le reti virtuali che devono essere connesse tra loro. Per altre informazioni sul peering reti virtuali, vedere [Panoramica del Peering reti](../virtual-network/virtual-network-peering-overview.md).
+Per connettere le reti virtuali tra loro per supportare le applicazioni multilivello che vengono implementate in più reti virtuali, usare il peering reti virtuali. Uno scenario di transito VNet a VNet tramite Azure rete WAN virtuale non è attualmente supportato, ma la roadmap di Azure. La connessione di reti virtuali tramite peering reti virtuali è la soluzione consigliata per le reti virtuali che devono essere connesse tra loro. [Il transito gateway](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (nel contesto di peering reti virtuali) non è necessaria per la rete WAN virtuale perché rete WAN virtuale abilita automaticamente il transito gateway.
 
 ### <a name="globalreach"></a>Copertura globale di ExpressRoute
 

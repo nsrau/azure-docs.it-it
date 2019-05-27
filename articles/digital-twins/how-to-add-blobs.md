@@ -7,14 +7,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: adgera
+ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b77960961a7c032faad7000f7a2ce297802a1497
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926510"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967040"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Aggiungere BLOB agli oggetti in Gemelli digitali di Azure
 
@@ -51,16 +51,16 @@ I metadati dei BLOB JSON sono conformi al modello seguente:
   }
 ```
 
-| Attributo | Type | DESCRIZIONE |
+| Attributo | Type | Descrizione |
 | --- | --- | --- |
-| **parentId** | string | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
-| **name** |string | Nome descrittivo per il BLOB |
-| **type** | string | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
+| **parentId** | String | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
+| **name** |String | Nome descrittivo per il BLOB |
+| **type** | String | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
 | **typeId** | Integer | ID del tipo di BLOB: non è possibile usare *type* e *typeId* |
-| **subtype** | string | Sottotipo di BLOB: non è possibile usare *type* e *subtypeId* |
+| **subtype** | String | Sottotipo di BLOB: non è possibile usare *type* e *subtypeId* |
 | **subtypeId** | Integer | ID del sottotipo di BLOB: non è possibile usare *subtype* e *subtypeId* |
-| **description** | string | Descrizione personalizzata del BLOB |
-| **sharing** | string | Indica se il BLOB può essere condiviso: enumerazione [`None`, `Tree`, `Global`] |
+| **description** | String | Descrizione personalizzata del BLOB |
+| **sharing** | String | Indica se il BLOB può essere condiviso: enumerazione [`None`, `Tree`, `Global`] |
 
 I metadati del BLOB deve sempre essere specificati come primo blocco con **Content-Type** `application/json` o come file `.json`. I dati dei file vengono specificati nel secondo blocco e possono essere di qualsiasi tipo MIME supportato.
 
@@ -108,20 +108,20 @@ I BLOB restituiti singolarmente sono conformi allo schema JSON seguente:
 }
 ```
 
-| Attributo | Type | DESCRIZIONE |
+| Attributo | Type | Descrizione |
 | --- | --- | --- |
-| **id** | string | Identificatore univoco per il BLOB |
-| **name** |string | Nome descrittivo per il BLOB |
-| **parentId** | string | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
-| **type** | string | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
+| **id** | String | Identificatore univoco per il BLOB |
+| **name** |String | Nome descrittivo per il BLOB |
+| **parentId** | String | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
+| **type** | String | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
 | **typeId** | Integer | ID del tipo di BLOB: non è possibile usare *type* e *typeId* |
-| **subtype** | string | Sottotipo di BLOB: non è possibile usare *type* e *subtypeId* |
+| **subtype** | String | Sottotipo di BLOB: non è possibile usare *type* e *subtypeId* |
 | **subtypeId** | Integer | ID del sottotipo di BLOB: non è possibile usare *subtype* e *subtypeId* |
-| **sharing** | string | Indica se il BLOB può essere condiviso: enumerazione [`None`, `Tree`, `Global`] |
-| **description** | string | Descrizione personalizzata del BLOB |
+| **sharing** | String | Indica se il BLOB può essere condiviso: enumerazione [`None`, `Tree`, `Global`] |
+| **description** | String | Descrizione personalizzata del BLOB |
 | **contentInfos** | Array | Specifica le informazioni dei metadati non strutturati, inclusa la versione |
-| **fullName** | string | Nome completo del BLOB |
-| **spacePaths** | string | Percorso dello spazio |
+| **fullName** | String | Nome completo del BLOB |
+| **spacePaths** | String | Percorso dello spazio |
 
 I metadati del BLOB deve sempre essere specificati come primo blocco con **Content-Type** `application/json` o come file `.json`. I dati dei file vengono specificati nel secondo blocco e possono essere di qualsiasi tipo MIME supportato.
 
