@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.author: shvija
-ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746898"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978433"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identità gestite per le risorse di Azure con Hub eventi
 
@@ -27,8 +27,28 @@ Con le identità gestite, la piattaforma Azure gestisce questa identità di runt
 Una volta eseguita l'associazione a un'identità gestita, un client di Hub eventi può eseguire tutte le operazioni autorizzate. L'autorizzazione viene concessa associando un'identità gestita ai ruoli di Hub eventi. 
 
 ## <a name="event-hubs-roles-and-permissions"></a>Ruoli e autorizzazioni di Hub eventi
+È possibile aggiungere un'identità gestita per il **proprietario dei dati di hub eventi** ruolo di uno spazio dei nomi di hub eventi. Questo ruolo concede l'identità del controllo completo (per la gestione e operazioni sui dati) in tutte le entità nello spazio dei nomi.
 
-È possibile aggiungere un'identità gestita solo al ruolo "Proprietario" o "Collaboratore" di uno spazio dei nomi di Hub eventi, concedendo così all'identità controllo completo su tutte le entità nello spazio dei nomi. Le operazioni di gestione che modificano la topologia dello spazio dei nomi sono tuttavia inizialmente supportate solo tramite Azure Resource Manager e non tramite l'interfaccia di gestione REST nativa dell'Hub eventi. Questo supporto significa anche che non è possibile usare l'oggetto [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) del client .NET Framework in un'identità gestita. 
+>[!IMPORTANT]
+> È supportato in precedenza aggiungendo identità gestita per il **proprietario** oppure **collaboratore** ruolo. Accesso ai dati, tuttavia, i privilegi per **Owner** e **collaboratore** ruolo non vengono rispettate. Se si usa la **proprietario** o **collaboratore** ruolo, passare all'uso di **proprietario dei dati di hub eventi** ruolo.
+
+Per usare il nuovo ruolo incorporato, seguire questa procedura: 
+
+1. Passare al [portale di Azure](https://portal.azure.com)
+2. Passare allo spazio dei nomi di hub eventi.
+3. Nel **Namespace di hub eventi** pagina, selezionare **accesso (IAM)** nel menu a sinistra.
+4. Nel **controllo di accesso (IAM)** pagina, selezionare **Add** nel **aggiungere un'assegnazione di ruolo** sezione. 
+
+    ![Aggiungere un pulsante di assegnazione di ruolo](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. Nel **aggiungere un'assegnazione di ruolo** pagina, effettuare i passaggi seguenti: 
+    1. Per la **ruolo**, selezionare **proprietario dei dati di hub eventi Azure**. 
+    2. Selezionare il **identità** da aggiungere al ruolo.
+    3. Selezionare **Salva**. 
+
+        ![Ruolo di proprietario dei dati di hub eventi](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. Passare al **assegnazioni di ruolo** pagina e verificare che l'utente viene aggiunto al **proprietario dei dati hub eventi di Azure** ruolo. 
+
+    ![Confermare l'utente viene aggiunto al ruolo](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>Uso dell'Hub eventi con le identità gestite per le risorse di Azure
 
@@ -54,7 +74,7 @@ Una volta abilitata la funzionalità, una nuova identità del servizio viene cre
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Creare un nuovo spazio dei nomi di Hub eventi
 
-Successivamente, [creare uno spazio dei nomi di Hub eventi](event-hubs-create.md) in una delle aree di Azure con supporto di anteprima per l'identità gestite per le risorse di Azure: **Stati Uniti orientali**, **Stati Uniti orientali 2** o **Europa occidentale**. 
+Successivamente [creare uno spazio dei nomi di hub eventi](event-hubs-create.md). 
 
 Passare alla pagina **Controllo di accesso (IAM)** dello spazio dei nomi nel portale e quindi fare clic su **Aggiungi un'assegnazione di ruolo** per aggiungere l'identità gestita al ruolo **Proprietario**. A tale scopo, cercare il nome dell'applicazione Web nel campo **Seleziona** del pannello **Aggiungi autorizzazioni** e quindi fare clic sulla voce. Fare quindi clic su **Salva**. L'identità gestita per l'applicazione Web dispone ora dell'accesso allo spazio dei nomi di Hub eventi e all'hub eventi creato in precedenza. 
 

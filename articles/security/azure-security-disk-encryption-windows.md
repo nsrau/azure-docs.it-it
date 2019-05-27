@@ -7,32 +7,32 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: f17dc61f47dadf4c808467b2158cd9ef034e1ce9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 376df206d75780a4b814873d72d9c56554f6b0b8
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277120"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956608"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Abilitare Crittografia dischi di Azure per le macchine virtuali IaaS Windows
 
-È possibile abilitare molti scenari di crittografia dei dischi e la procedura può variare in base allo scenario. Le sezioni seguenti illustrano in modo più dettagliato gli scenari per le macchine virtuali IaaS Windows. Prima di poter usare crittografia dei dischi, è necessario soddisfare i [prerequisiti di Crittografia dischi di Azure](../security/azure-security-disk-encryption-prerequisites.md). 
+Questo articolo fornisce istruzioni sull'abilitazione di macchine virtuali di Microsoft Azure disco crittografia per Windows IaaS (VM). Prima di poter usare crittografia del disco, è necessario completare prima la [prerequisiti di crittografia dischi di Azure](../security/azure-security-disk-encryption-prerequisites.md). 
 
-Catturare uno [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) e/o eseguire il backup prima che i dischi vengono crittografati. I backup garantiscono la disponibilità di un'opzione di ripristino nel caso si verifichi un errore imprevisto durante la crittografia. Le macchine virtuali con dischi gestiti richiedono il backup prima della crittografia. Una volta che viene eseguito un backup, è possibile usare il cmdlet Set-AzVMDiskEncryptionExtension per crittografare i dischi gestiti specificando il parametro - skipVmBackup. Per altre informazioni su come eseguire il backup e il ripristino di macchine virtuali crittografate, vedere l'articolo [Backup di Azure](../backup/backup-azure-vms-encryption.md). 
+È anche consigliabile che si [creare uno snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) e/o eseguire il backup dei dischi prima della crittografia. I backup garantiscono la disponibilità di un'opzione di ripristino nel caso si verifichi un errore imprevisto durante la crittografia. Le macchine virtuali con dischi gestiti richiedono il backup prima della crittografia. Una volta che viene eseguito un backup, è possibile usare la [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) per crittografare i dischi gestiti specificando il parametro - skipVmBackup. Per altre informazioni su come eseguire il backup e ripristino di macchine virtuali crittografate, vedere [backup e ripristino di VM Azure crittografata](../backup/backup-azure-vms-encryption.md) articolo.
 
 >[!WARNING]
-> - Se in precedenza è stata usata la [Crittografia dischi di Azure con l'app Azure AD](azure-security-disk-encryption-prerequisites-aad.md) per crittografare la macchina virtuale, sarà necessario continuare a usare questa opzione per crittografare la macchina virtuale. Non è possibile usare la [Crittografia dischi di Azure](azure-security-disk-encryption-prerequisites.md) in questa macchina virtuale crittografata poiché non è uno scenario supportato ovvero non è ancora supportato il trasferimento dall'applicazione AAD per questa macchina virtuale. 
+> - Se in precedenza è stata usata la [Crittografia dischi di Azure con l'app Azure AD](azure-security-disk-encryption-prerequisites-aad.md) per crittografare la macchina virtuale, sarà necessario continuare a usare questa opzione per crittografare la macchina virtuale. Non è possibile usare [crittografia dischi di Azure](azure-security-disk-encryption-prerequisites.md) in questa macchina virtuale crittografata perché non è uno scenario supportato, significato uscire applicazione AAD per questo crittografati della macchina virtuale non è ancora supportata. 
 > - Per Crittografia dischi di Azure è necessario che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area. Creare e usare un insieme di credenziali delle chiavi nella stessa area della macchina virtuale da crittografare. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="bkmk_RunningWinVM"></a> Abilitare la crittografia nelle macchine virtuali IaaS Windows esistenti o in esecuzione
-In questo scenario è possibile abilitare la crittografia usando un modello, i cmdlet di PowerShell o i comandi dell'interfaccia della riga di comando. Le sezioni seguenti illustrano in modo più approfondito come abilitare Crittografia dischi di Azure. Per informazioni relative allo schema dell'estensione della macchina virtuale, leggere l'articolo [Crittografia dischi di Azure per Windows](../virtual-machines/extensions/azure-disk-enc-windows.md).
+È possibile abilitare la crittografia usando un modello, i cmdlet di PowerShell o i comandi dell'interfaccia della riga. Per informazioni relative allo schema dell'estensione della macchina virtuale, leggere l'articolo [Crittografia dischi di Azure per Windows](../virtual-machines/extensions/azure-disk-enc-windows.md).
 
 >[!IMPORTANT]
- >È obbligatorio catturare uno snapshot e/o eseguire il backup di un'istanza di macchina virtuale basata su un disco gestito all'esterno di Crittografia dischi di Azure e prima di abilitarla. È possibile catturare uno snapshot del disco gestito dal portale o tramite [Backup di Azure](../backup/backup-azure-vms-encryption.md). I backup garantiscono la disponibilità di un'opzione di ripristino nel caso si verifichi un errore imprevisto durante la crittografia. Una volta che viene eseguito un backup, il cmdlet Set-AzVMDiskEncryptionExtension è utilizzabile per crittografare i dischi gestiti specificando il parametro - skipVmBackup. Il comando Set-AzVMDiskEncryptionExtension avrà esito negativo nelle macchine virtuali basate su disco gestito fino a quando non è stata eseguita una copia di backup e questo parametro è stato specificato. 
+ > È obbligatorio catturare uno snapshot e/o eseguire il backup di un'istanza di macchina virtuale basata su un disco gestito all'esterno di Crittografia dischi di Azure e prima di abilitarla. È possibile catturare uno snapshot del disco gestito dal portale o tramite [Backup di Azure](../backup/backup-azure-vms-encryption.md). I backup garantiscono la disponibilità di un'opzione di ripristino nel caso si verifichi un errore imprevisto durante la crittografia. Una volta che viene eseguito un backup, il cmdlet Set-AzVMDiskEncryptionExtension è utilizzabile per crittografare i dischi gestiti specificando il parametro - skipVmBackup. Il comando Set-AzVMDiskEncryptionExtension avrà esito negativo nelle macchine virtuali basate su disco gestito fino a quando non è stata eseguita una copia di backup e questo parametro è stato specificato. 
 >
->La crittografia o la disabilitazione della crittografia può causare il riavvio della macchina virtuale. 
+> La crittografia o la disabilitazione della crittografia può causare il riavvio della macchina virtuale. 
 >
 
 ### <a name="bkmk_RunningWinVMPSH"></a> Abilitare la crittografia in una macchina virtuale esistente o in esecuzione con Azure PowerShell 
@@ -76,7 +76,7 @@ Usare la [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azv
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
     
-- **Disabilitare la crittografia del disco:** Per disabilitare la crittografia, usare il [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. La procedura per disabilitare la crittografia del disco dati nella macchina virtuale di Windows, quando sono stati crittografati sia il disco del sistema operativo sia il disco dati, non funziona come previsto. Disabilitare la crittografia in tutti i dischi.
+- **Disabilitare la crittografia del disco:** Per disabilitare la crittografia, usare il [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. Disabilitare la crittografia del disco dati nella macchina virtuale di Windows durante i dischi del sistema operativo sia i dati siano crittografati non funziona come previsto. Disabilitare la crittografia in tutti i dischi.
 
      ```azurepowershell-interactive
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
@@ -106,7 +106,7 @@ Usare il comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryp
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **Disabilitare la crittografia:** per disabilitare la crittografia, usare il comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). La procedura per disabilitare la crittografia del disco dati nella macchina virtuale di Windows, quando sono stati crittografati sia il disco del sistema operativo sia il disco dati, non funziona come previsto. Disabilitare la crittografia in tutti i dischi.
+- **Disabilitare la crittografia:** per disabilitare la crittografia, usare il comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). Disabilitare la crittografia del disco dati nella macchina virtuale di Windows durante i dischi del sistema operativo sia i dati siano crittografati non funziona come previsto. Disabilitare la crittografia in tutti i dischi.
 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
@@ -128,7 +128,7 @@ Usare il comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryp
 
 La tabella seguente elenca i parametri del modello di Resource Manager per macchine virtuali esistenti o in esecuzione:
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | vmName | Nome della macchina virtuale per eseguire l'operazione di crittografia. |
 | keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave BitLocker. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o il comando dell'interfaccia della riga di comando di Azure `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
@@ -137,7 +137,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 | volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori validi sono _OS_, _Data_ e _All_. 
 | forceUpdateTag | Ogni volta che è necessario forzare l'esecuzione dell'operazione, passare un valore univoco, ad esempio un GUID. |
 | resizeOSDisk | La partizione del sistema operativo deve essere ridimensionata in modo da occupare il disco rigido virtuale completo del sistema operativo prima della divisione del volume di sistema. |
-| location | Posizione per tutte le risorse. |
+| percorso | Posizione per tutte le risorse. |
 
 ## <a name="encrypt-virtual-machine-scale-sets"></a>Crittografare i set di scalabilità di macchine virtuali
 
@@ -313,7 +313,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 
 
 ## <a name="disable-encryption"></a>Disabilitare la crittografia
-È possibile disabilitare la crittografia usando Azure PowerShell, l'interfaccia della riga di comando di Azure oppure un modello di Resource Manager. La procedura per disabilitare la crittografia del disco dati nella macchina virtuale di Windows, quando sono stati crittografati sia il disco del sistema operativo sia il disco dati, non funziona come previsto. Disabilitare la crittografia in tutti i dischi.
+È possibile disabilitare la crittografia usando Azure PowerShell, l'interfaccia della riga di comando di Azure oppure un modello di Resource Manager. Disabilitare la crittografia del disco dati nella macchina virtuale di Windows durante i dischi del sistema operativo sia i dati siano crittografati non funziona come previsto. Disabilitare la crittografia in tutti i dischi.
 
 - **Disabilitare la crittografia dei dischi con Azure PowerShell:** Per disabilitare la crittografia, usare il [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. 
      ```azurepowershell-interactive

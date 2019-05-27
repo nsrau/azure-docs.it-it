@@ -9,13 +9,13 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 03/25/2019
-ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.date: 05/22/2019
+ms.openlocfilehash: b37a6b6995df6f784b5f1b4a7a3f54d91faafc13
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544522"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990183"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -92,11 +92,15 @@ Dopo che un'app per la logica è stata disabilitata, l'arresto di eventuali ista
 Prezzi a consumo si applica a [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) in cui è possibile esplorare, sviluppare e testare il [EDI e B2B](logic-apps-enterprise-integration-b2b.md) e [elaborazione XML](logic-apps-enterprise-integration-xml.md) funzionalità nelle App per la logica di Azure gratuitamente costi aggiuntivi.
 È possibile avere un account di integrazione in ogni area di Azure. Ogni account di integrazione può archiviare un [numero specifico di artefatti](../logic-apps/logic-apps-limits-and-config.md), ad esempio partner commerciali, contratti, mappe, schemi, assembly, certificati, configurazioni batch e così via.
 
-Le App per la logica di Azure offre anche gli account di integrazione Basic e Standard con contratto di servizio app di per la logica supportati. Ecco come è possibile scegliere se usare un account di integrazione Basic o Standard:
+Le App per la logica di Azure offre gli account di integrazione Free, Basic e Standard. I livelli Basic e Standard sono supportati dall'App per la logica contratto di servizio (SLA), mentre il livello gratuito non è supportato da un contratto di servizio e presenta limiti di velocità effettiva e l'utilizzo.
 
-* Usare gli account di integrazione di base quando si semplicemente desidera che la gestione dei messaggi o agire come un piccolo partner che ha una relazione tra partner commerciali con un'entità di business più grande.
+Per scegliere tra un account di integrazione Free, Basic o Standard:
 
-* Usare account di integrazione Standard quando si hanno relazioni B2B più complesse e si vuole aumentare il numero di entità che è possibile gestire.
+* **Gratuito**: Per quando si desidera provare a scenari di analisi esplorativi, non gli scenari di produzione.
+
+* **Basic**: Quando si desidera solo la gestione dei messaggi o per agire come un piccolo partner che ha una relazione tra partner commerciali con un'entità di business più grande.
+
+* **Standard**: Nel caso in cui relazioni B2B più complesse e un numero maggiore di entità che è necessario gestire.
 
 Per informazioni specifiche sui prezzi, vedere [prezzi di App per la logica di Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 

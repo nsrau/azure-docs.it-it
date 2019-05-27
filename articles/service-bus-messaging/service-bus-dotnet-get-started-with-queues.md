@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 22996b277aba96cbbfedbb3e9cc67644d1a535ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abef7815effcf420c8a0065ed46ce3c16c19ebe0
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714280"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991777"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -390,6 +390,9 @@ Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core 
     ![Lunghezza coda][queue-message-receive]
 
 Congratulazioni! È stata creata una coda, è stato inviato un set di messaggi alla coda e sono stati ricevuti tali messaggi dalla stessa coda.
+
+> [!NOTE]
+> È possibile gestire le risorse del Bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del Bus di servizio e amministrarne le entità di messaggistica in modo semplificato. Lo strumento offre funzionalità avanzate come la funzionalità di importazione/esportazione o la possibilità di testare l'argomento, code, sottoscrizioni, servizi di inoltro, hub di notifica e gli hub eventi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

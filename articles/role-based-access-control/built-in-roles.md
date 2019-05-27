@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ce23b891decd20db239e653702533ac7af21b980
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5d964ebd40ac1bd8817bc93d5e4f78096f221be2
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073350"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977758"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
 
@@ -33,7 +33,7 @@ Questo articolo illustra i ruoli predefiniti per le risorse di Azure, che sono i
 La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fare clic sul nome del ruolo per vedere l'elenco di `Actions`, `NotActions`, `DataActions` e `NotDataActions` per ogni ruolo. Per informazioni sul significato di queste azioni e su come si applicano ai piani di gestione e ai piani dati, vedere [Informazioni sulle definizioni del ruolo per le risorse di Azure](role-definitions.md).
 
 
-| Ruolo predefinito | DESCRIZIONE |
+| Ruolo predefinito | Descrizione |
 | --- | --- |
 | [Proprietario](#owner) | Consente di gestire tutto, incluso l'accesso alle risorse. |
 | [Collaboratore](#contributor) | Consente di gestire tutto, tranne l'accesso alle risorse. |
@@ -56,12 +56,14 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 | [Operatore di avere](#avere-operator) | Usato dal cluster vFXT Avere per gestire il cluster |
 | [Ruolo di amministratore del cluster del servizio Azure Kubernetes](#azure-kubernetes-service-cluster-admin-role) | Elencare l'azione delle credenziali di amministratore del cluster. |
 | [Ruolo di utente del cluster del servizio Azure Kubernetes](#azure-kubernetes-service-cluster-user-role) | Elencare l'azione delle credenziali di utente del cluster. |
+| [Lettore di dati di mappe di Azure (anteprima)](#azure-maps-data-reader-preview) | Concede l'accesso per la lettura dei dati correlati alle mappe da un account Mappe di Azure. |
 | [Proprietario della registrazione di Azure Stack](#azure-stack-registration-owner) | Consente di gestire le registrazioni di Azure Stack. |
 | [Collaboratore di backup](#backup-contributor) | Consente di gestire il servizio di backup, ma non di creare insiemi di credenziali e concedere l'accesso ad altri utenti. |
 | [Operatore di backup](#backup-operator) | Consente di gestire i servizi di backup, ma non di rimuovere il backup, creare insiemi di credenziali e concedere l'accesso ad altri utenti. |
 | [Lettore di backup](#backup-reader) | Può visualizzare i servizi di backup, ma non può apportare modifiche. |
 | [Lettore per la fatturazione](#billing-reader) | Consente l'accesso in lettura ai dati di fatturazione. |
 | [Collaboratore BizTalk](#biztalk-contributor) | Consente di gestire i servizi BizTalk, ma non di accedervi. |
+| [Accesso al nodo membro Blockchain (anteprima)](#blockchain-member-node-access-preview) | Consente l'accesso ai nodi di tipo membro della blockchain |
 | [Collaboratore endpoint rete CDN](#cdn-endpoint-contributor) | Può gestire gli endpoint della rete CDN, ma non può concedere l'accesso ad altri utenti. |
 | [Lettore endpoint rete CDN](#cdn-endpoint-reader) | Può visualizzare gli endpoint della rete CDN, ma non può apportare modifiche. |
 | [Collaboratore profilo rete CDN](#cdn-profile-contributor) | Può gestire i profili e i rispettivi endpoint della rete CDN, ma non può concedere l'accesso ad altri utenti. |
@@ -86,6 +88,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 | [Utente DevTest Labs](#devtest-labs-user) | Consente di connettere, avviare, riavviare e arrestare le macchine virtuali in Azure DevTest Labs. |
 | [Collaboratore zona DNS](#dns-zone-contributor) | Consente di gestire le zone DNS e i set di record in DNS di Azure, ma non di controllare chi è autorizzato ad accedervi. |
 | [Collaboratore account DocumentDB](#documentdb-account-contributor) | È in grado di gestire account Azure Cosmos DB. Azure Cosmos DB era precedentemente noto come DocumentDB. |
+| [Proprietario dei dati di hub eventi](#event-hubs-data-owner) | Consente di accedere alle risorse di hub eventi di Azure | 
 | [Collaboratore per sottoscrizioni di eventi di Griglia di eventi](#eventgrid-eventsubscription-contributor) | Consente di gestire le operazioni di sottoscrizione di eventi EventGrid. |
 | [Ruolo con autorizzazioni di lettura per sottoscrizioni di eventi di Griglia di eventi](#eventgrid-eventsubscription-reader) | Consente di leggere le sottoscrizioni di eventi EventGrid. |
 | [Operatore del Cluster HDInsight](#hdinsight-cluster-operator) | Consente di leggere e modificare le configurazioni dei cluster HDInsight. |
@@ -116,6 +119,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 | [Amministrazione della protezione](#security-admin) | Solo in Centro sicurezza: è possibile visualizzare i criteri di sicurezza e gli stati di sicurezza, modificare i criteri di sicurezza, visualizzare gli avvisi e le raccomandazioni, ignorare gli avvisi e le raccomandazioni |
 | [Gestore sicurezza (legacy)](#security-manager-legacy) | Questo è un ruolo legacy. Usare invece Amministratore della protezione |
 | [Ruolo con autorizzazioni di lettura per la sicurezza](#security-reader) | Solo in Centro sicurezza: è possibile visualizzare raccomandazioni, avvisi, criteri di sicurezza e stati di sicurezza, ma non è possibile apportare modifiche |
+| [Proprietario dei dati del Bus di servizio](#service-bus-data-owner) | Consente l'accesso completo alle risorse del Bus di servizio di Azure |
 | [Collaboratore al ripristino sito](#site-recovery-contributor) | Consente di gestire il servizio Site Recovery ad eccezione della creazione dell'insieme di credenziali e dell'assegnazione di ruolo. |
 | [Operatore del ripristino sito](#site-recovery-operator) | Consente di eseguire il failover e il failback ma non di eseguire altre operazioni di gestione di Site Recovery. |
 | [Reader di ripristino sito](#site-recovery-reader) | Consente di visualizzare lo stato di Site Recovery ma non di eseguire altre operazioni di gestione. |
@@ -574,6 +578,21 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
+## <a name="azure-maps-data-reader-preview"></a>Lettore di dati per Mappe di Azure (anteprima)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Concede l'accesso per la lettura dei dati correlati alle mappe da un account Mappe di Azure. |
+> | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | **Actions** |  |
+> | *nessuna* |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | Microsoft.Maps/accounts/data/read | Concede l'accesso in lettura ai dati in un account di Mappe. |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
 ## <a name="azure-stack-registration-owner"></a>Proprietario della registrazione di Azure Stack
 > [!div class="mx-tableFixed"]
 > | | |
@@ -812,6 +831,21 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | *nessuna* |  |
 > | **DataActions** |  |
 > | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
+## <a name="blockchain-member-node-access-preview"></a>Accesso ai nodi di tipo membro della blockchain (anteprima)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente l'accesso ai nodi di tipo membro della blockchain |
+> | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
+> | **Actions** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Ottiene o elenca esistenti ai nodi membro delle transazioni di Blockchain. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Si connette a un nodo transazione membro Blockchain. |
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
@@ -1139,6 +1173,8 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.Resources/subscriptions/read | Ottiene l'elenco delle sottoscrizioni. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | Microsoft.Advisor/configurations/read | Ottiene le configurazioni |
+> | Microsoft.Advisor/recommendations/read | Legge i suggerimenti |
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
@@ -1159,6 +1195,8 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.Resources/subscriptions/read | Ottiene l'elenco delle sottoscrizioni. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | Microsoft.Advisor/configurations/read | Ottiene le configurazioni |
+> | Microsoft.Advisor/recommendations/read | Legge i suggerimenti |
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
@@ -1198,6 +1236,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | Elenca le credenziali non crittografate correlate all'ordine. |
 > | Microsoft.Databox/locations/availableSkus/action | Restituisce l'elenco degli SKU disponibili. |
+> | Microsoft.Databox/locations/validateAddress/action | Convalida l'indirizzo di spedizione e fornisce indirizzi alternativi, se disponibili. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 > | **NotActions** |  |
@@ -1299,6 +1338,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.DevTestLab/*/read | Leggere le proprietà di un lab |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | Attesta una macchina virtuale attestabile casualmente nel lab. |
 > | Microsoft.DevTestLab/labs/createEnvironment/action | Crea macchine virtuali in un lab. |
+> | Microsoft.DevTestLab/labs/ensureCurrentUserProfile/action | Verificare che l'utente corrente dispone di un profilo valido nel lab. |
 > | Microsoft.DevTestLab/labs/formulas/delete | Elimina le formule. |
 > | Microsoft.DevTestLab/labs/formulas/read | Esegue la lettura di formule. |
 > | Microsoft.DevTestLab/labs/formulas/write | Aggiunge o modifica le formule. |
@@ -1369,6 +1409,22 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
+## <a name="event-hubs-data-owner"></a>Proprietario dei dati di hub eventi
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente l'accesso completo alle risorse di hub eventi di Azure. |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **Actions** |  |
+> | Microsoft.EventHubs/* | Consente l'accesso di gestione completa per lo spazio dei nomi di hub eventi |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHubs/* | Consente l'accesso completo a nomi di hub eventi |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
 ## <a name="eventgrid-eventsubscription-contributor"></a>Collaboratore per sottoscrizioni di eventi di Griglia di eventi
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1426,6 +1482,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Resources/deployments/operations/read | Ottiene o elenca le operazioni di distribuzione. |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
+> | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 > | **NotActions** |  |
 > | *nessuna* |  |
@@ -2019,6 +2076,22 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
+## <a name="service-bus-data-owner"></a>Proprietario dei dati del Bus di servizio
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente l'accesso completo alle risorse del Bus di servizio di Azure. |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Actions** |  |
+> | Microsoft.ServiceBus/* | Consente l'accesso di gestione completa per lo spazio dei nomi del Bus di servizio |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* | Consente l'accesso completo ai dati allo spazio dei nomi del Bus di servizio |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
 ## <a name="site-recovery-contributor"></a>Collaboratore al ripristino sito
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2482,7 +2555,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **Descrizione** | Fornisce accesso completo ai contenitori blob di archiviazione di Azure e i dati, inclusa l'assegnazione di controllo di accesso POSIX. Per informazioni su quali azioni sono necessari per una determinata operazione sui dati, vedere [le autorizzazioni per la chiamata di operazioni sui dati blob e coda](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Autorizzazioni complete su contenitori.  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Autorizzazioni complete su contenitori. |
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |

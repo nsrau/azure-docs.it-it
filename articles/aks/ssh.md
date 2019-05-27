@@ -5,18 +5,18 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: d421fad5f574b0d10b24453aca01adf574f493e8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: a85c39fbfbf629e6ba9e668d55dd905c1ce0800c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407695"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956362"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Connessione con SSH ai nodi del cluster del servizio Azure Kubernetes per la risoluzione dei problemi e le attività di manutenzione
 
-Durante l'intero ciclo di vita del cluster del servizio Azure Kubernetes, potrebbe essere necessario accedere a un nodo del servizio Azure Kubernetes. Questo accesso potrebbe servire per la manutenzione, la raccolta dei registri o altre operazioni di risoluzione dei problemi. I nodi servizio Azure Kubernetes sono macchine virtuali Linux, quindi è possibile accedervi utilizzando SSH. Per motivi di sicurezza, i nodi di servizio Azure Kubernetes non sono esposti in Internet.
+Durante l'intero ciclo di vita del cluster del servizio Azure Kubernetes, potrebbe essere necessario accedere a un nodo del servizio Azure Kubernetes. Questo accesso potrebbe servire per la manutenzione, la raccolta dei registri o altre operazioni di risoluzione dei problemi. È possibile accedere tramite SSH, inclusi i nodi di Windows Server, attualmente in anteprima nel servizio contenitore di AZURE, i nodi AKS. È anche possibile [connettersi ai nodi Windows Server tramite connessioni remote desktop protocol (RDP)][aks-windows-rdp]. Per motivi di sicurezza, i nodi di servizio Azure Kubernetes non sono esposti in Internet.
 
 Questo articolo mostra come creare una connessione SSH con un nodo servizio Azure Kubernetes utilizzando i loro indirizzi IP privati.
 
@@ -24,13 +24,16 @@ Questo articolo mostra come creare una connessione SSH con un nodo servizio Azur
 
 Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
-Anche necessario la CLI di Azure versione 2.0.59 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+Anche necessario la CLI di Azure versione 2.0.64 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="add-your-public-ssh-key"></a>Aggiungere la chiave SSH pubblica
 
-Per impostazione predefinita, le chiavi SSH vengono generate quando si crea un cluster servizio Azure Kubernetes. Se non sono state specificate le proprie chiavi SSH quando si è creato il cluster servizio Azure Kubernetes, aggiungere le chiavi SSH pubbliche ai nodi servizio Azure Kubernetes.
+Per impostazione predefinita, le chiavi SSH sono ottenute, o generate e quindi aggiunti ai nodi quando si crea un cluster AKS. Se è necessario specificare le chiavi SSH diverse rispetto a quelli utilizzati durante la creazione del cluster AKS, aggiungere la chiave pubblica SSH ai nodi Linux AKS. Se necessario, è possibile creare una chiave di SSH usando [macOS o Linux] [ ssh-nix] oppure [Windows][ssh-windows]. Se si usa PuTTY generazione per creare la coppia di chiavi, salvare la coppia di chiavi in un OpenSSH formato anziché il valore predefinito formato chiave privata PuTTy (file con estensione ppk).
 
-Per aggiungere la chiave SSH a un nodo servizio Azure Kubernetes, attenersi alla seguente procedura:
+> [!NOTE]
+> Can le chiavi SSH attualmente essere aggiunti solo ai nodi Linux tramite la CLI di Azure. Se si utilizzano i nodi di Windows Server, usare le chiavi SSH fornite durante la creazione del cluster servizio contenitore di AZURE e andare al passaggio sul [come ottenere l'indirizzo del nodo AKS](#get-the-aks-node-address). In alternativa, [connettersi ai nodi Windows Server tramite connessioni remote desktop protocol (RDP)][aks-windows-rdp].
+
+Per aggiungere la chiave SSH a un nodo Linux AKS, completare i passaggi seguenti:
 
 1. Ottenere il nome del gruppo di risorse per le risorse del cluster servizio Azure Kubernetes utilizzando [az servizio Azure Kubernetes show][az-aks-show]. Fornire il proprio gruppo di risorse di base e il nome del cluster servizio Azure Kubernetes:
 
@@ -64,7 +67,12 @@ Per aggiungere la chiave SSH a un nodo servizio Azure Kubernetes, attenersi alla
 
 ## <a name="get-the-aks-node-address"></a>Ottenere l'indirizzo del nodo servizio Azure Kubernetes
 
-I nodi servizio Azure Kubernetes non sono pubblicamente esposti in Internet. Per SSH ai nodi servizio Azure Kubernetes, si utilizza l'indirizzo IP privato. Nel passaggio successivo è creare un pod helper nel cluster AKS che ti permette di SSH per questo indirizzo IP privato del nodo.
+I nodi servizio Azure Kubernetes non sono pubblicamente esposti in Internet. Per SSH ai nodi servizio Azure Kubernetes, si utilizza l'indirizzo IP privato. Nel passaggio successivo è creare un pod helper nel cluster AKS che ti permette di SSH per questo indirizzo IP privato del nodo. I passaggi per ottenere l'indirizzo IP privato dei nodi del servizio contenitore di AZURE è diverso in base al tipo del cluster servizio contenitore di AZURE eseguire:
+
+* Per la maggior parte dei cluster servizio contenitore di AZURE, seguire la procedura per [ottenere l'indirizzo IP per i cluster AKS regolari](#regular-aks-clusters).
+* Se si usa qualsiasi funzionalità in anteprima nel servizio contenitore di AZURE che usano set di scalabilità di macchine virtuali, ad esempio più pool di nodi o supporto dei contenitori Windows Server, [seguire i passaggi per i cluster servizio contenitore di AZURE basata su set di scalabilità macchina virtuale](#virtual-machine-scale-set-based-aks-clusters).
+
+### <a name="regular-aks-clusters"></a>Regolare i cluster servizio contenitore di AZURE
 
 Visualizzare l'indirizzo IP privato di un nodo del cluster servizio Azure Kubernetes utilizzando il comando [az vm list-ip-addresses][az-vm-list-ip-addresses]. Fornire il nome del gruppo di risorse del cluster servizio Azure Kubernetes ottenuto in un passaggio [az-servizio Azure Kubernetes-show][az-aks-show] precedente:
 
@@ -80,6 +88,26 @@ VirtualMachine            PrivateIPAddresses
 aks-nodepool1-79590246-0  10.240.0.4
 ```
 
+### <a name="virtual-machine-scale-set-based-aks-clusters"></a>Cluster di AKS basata su set di scalabilità macchine virtuali
+
+Elencare l'indirizzo IP interno dei nodi usando il [comando di kubectl get][kubectl-get]:
+
+```console
+kubectl get nodes -o wide
+```
+
+L'output di esempio seguente mostra gli indirizzi IP interni di tutti i nodi nel cluster, incluso un nodo Windows Server.
+
+```console
+$ kubectl get nodes -o wide
+
+NAME                                STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                    KERNEL-VERSION      CONTAINER-RUNTIME
+aks-nodepool1-42485177-vmss000000   Ready    agent   18h   v1.12.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS          4.15.0-1040-azure   docker://3.0.4
+aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67   <none>        Windows Server Datacenter   10.0.17763.437
+```
+
+Registrare l'indirizzo IP interno del nodo che si desidera risolvere i problemi. Si userà questo indirizzo in un passaggio successivo.
+
 ## <a name="create-the-ssh-connection"></a>Creare la connessione SSH
 
 Per creare una connessione SSH a un nodo servizio Azure Kubernetes, si esegue un helper pod nel cluster servizio Azure Kubernetes. Questo helper pod fornisce l'accesso SSH nel cluster e quindi l'accesso a un nodo SSH aggiuntivo. Per creare e utilizzare questo helper pod, attenersi alla seguente procedura:
@@ -89,6 +117,11 @@ Per creare una connessione SSH a un nodo servizio Azure Kubernetes, si esegue un
     ```console
     kubectl run -it --rm aks-ssh --image=debian
     ```
+
+    > [!TIP]
+    > Se si utilizzano i nodi di Windows Server (attualmente in anteprima nel servizio contenitore di AZURE), aggiunta un selettore di nodo per il comando per pianificare il contenitore in un nodo Linux Debian, come indicato di seguito:
+    >
+    > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 
 1. L'immagine Debian di base non include i componenti SSH. Una volta che la sessione del terminale è collegata al contenitore, installare un client SSH usando `apt-get` come segue:
 
@@ -163,3 +196,6 @@ Se sono necessari ulteriori dati per la risoluzione dei problemi, è possibile [
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-windows-rdp]: rdp.md
+[ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
+[ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md

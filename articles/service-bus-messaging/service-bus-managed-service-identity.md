@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8477ff8c8ff0bc1629ff4cdc61f7c28c6eed778c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228404"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978804"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identità gestite per le risorse di Azure con il bus di servizio 
 
@@ -29,7 +29,23 @@ Con le identità gestite, la piattaforma Azure gestisce questa identità di runt
 
 ## <a name="service-bus-roles-and-permissions"></a>Ruoli e autorizzazioni del bus di servizio
 
-È possibile aggiungere un'identità gestita solo ai ruoli "Proprietario" o "Collaboratore" di uno spazio dei nomi del bus di servizio. In questo modo si concede all'identità il controllo completo su tutte le entità nello spazio dei nomi. Le operazioni di gestione che modificano la topologia dello spazio dei nomi sono tuttavia inizialmente supportate solo tramite Azure Resource Manager e non tramite l'interfaccia di gestione REST nativa del bus di servizio. Questo supporto significa anche che è possibile usare il client di .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) o il client .NET Standard [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) oggetti all'interno di un'identità gestita.
+È possibile aggiungere un'identità gestita per il ruolo "Proprietario di dati del Bus di servizio" di uno spazio dei nomi del Bus di servizio. Garantisce l'identità del controllo completo (per la gestione e operazioni sui dati) in tutte le entità nello spazio dei nomi.
+
+>[!IMPORTANT]
+> È supportato in precedenza aggiungendo identità gestita per il **"Proprietario"** oppure **"Collaboratore"** ruolo.
+>
+> Accesso ai dati, tuttavia, i privilegi per **"Proprietario"** e **"Collaboratore"** non verranno rispettato non è più ruoli. Se si usa il **"Proprietario"** oppure **"Collaboratore"** ruolo, quindi quelli dovrà essere adattate per utilizzare il **"Proprietario del servizio del Bus di dati"** ruolo.
+
+Per usare il nuovo ruolo predefinito, completare il seguito questa procedura:
+
+1. procedere con la [portale di Azure](https://portal.azure.com)
+2. Passare allo spazio dei nomi del Bus di servizio in cui si dispone attualmente il programma di installazione del ruolo "Proprietario" o "Collaboratore".
+3. Dal menu del riquadro a sinistra, fare clic su "Accesso (IAM)".
+4. Procedere all'aggiunta di una nuova assegnazione di ruolo come indicato di seguito
+
+    ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+
+5. Scegliere "Salva" per salvare la nuova assegnazione di ruolo.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Usare il bus di servizio con le identità gestite per le risorse di Azure
 
@@ -51,7 +67,7 @@ Una volta abilitata la funzionalità, una nuova identità del servizio viene cre
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Creare un nuovo spazio dei nomi della messaggistica del bus di servizio
 
-Successivamente, [creare uno spazio dei nomi della messaggistica del bus di servizio](service-bus-create-namespace-portal.md) in una delle aree di Azure con supporto di anteprima per Controllo degli accessi in base al ruolo: **Stati Uniti orientali**, **Stati Uniti orientali 2** o **Europa occidentale**. 
+Successivamente [creare uno spazio dei nomi di messaggistica del Bus di servizio](service-bus-create-namespace-portal.md). 
 
 Passare alla pagina **Controllo di accesso (IAM)** dello spazio dei nomi nel portale e quindi fare clic su **Aggiungi un'assegnazione di ruolo** per aggiungere l'identità gestita al ruolo **Proprietario**. A tale scopo, cercare il nome dell'applicazione Web nel campo **Seleziona** del pannello **Aggiungi autorizzazioni** e quindi fare clic sulla voce. Fare quindi clic su **Salva**.
 

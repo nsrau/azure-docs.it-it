@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 892b9bc63f9f2d9abc7108587a7bf929473e4648
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779444"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989855"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -30,6 +30,24 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
 ### <a name="azure-machine-learning-sdk-for-python-v1039"></a>Azure Machine Learning SDK per Python v1.0.39
 + **Modifiche**
   + Opzione di configurazione di esecuzione auto_prepare_environment verrà deprecata, si consiglia di preparare diventando il valore predefinito automatico.
+
+## <a name="2019-05-08"></a>2019-05-08
+
+### <a name="azure-machine-learning-data-prep-sdk-v113"></a>SDK v1.1.3 della preparazione dei dati di Azure Machine Learning
+
++ **Nuove funzionalità**
+  + Aggiunta del supporto per la lettura da un database PostgresSQL, mediante la chiamata a read_postgresql o tramite un archivio dati.
+    + Vedere gli esempi nelle guide pratiche:
+      + [Notebook per l'inserimento dei dati](https://aka.ms/aml-data-prep-ingestion-nb)
+      + [Notebook di archivio dati](https://aka.ms/aml-data-prep-datastore-nb)
+
++ **Correzioni di bug e miglioramenti**
+  + Risoluzione dei problemi con conversione del tipo di colonna:
+  + A questo punto converte correttamente una colonna numerica o booleana in una colonna booleana.
+  + A questo punto non è normale durante il tentativo di impostare una colonna di date come tipo Data.
+  + Tipi di valore JoinType e migliorati che accompagna la documentazione di riferimento. Quando si uniscono due flussi di dati, è ora possibile specificare uno di questi tipi di join:
+    + NESSUNO, CORRISPONDE, INTERNA, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI, RIGHTOUTER, FULLANTI, COMPLETO.
+  + Tipo di dati migliorati inferenza per riconoscere più formati di Data.
 
 ## <a name="2019-05-06"></a>2019-05-06
 
@@ -367,7 +385,7 @@ Il servizio Azure Machine Learning è ora disponibile a livello generale.
 Con questa versione, Microsoft presenta una nuova esperienza di calcolo gestita tramite l'[ambiente di calcolo di Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute). Questa destinazione di calcolo sostituisce l'ambiente di calcolo di Azure Batch per intelligenza artificiale per Azure Machine Learning. 
 
 La nuova destinazione di calcolo presenta queste caratteristiche:
-+ Viene usata per il training dei modelli e l'inferenza dei batch
++ Viene usato per il modello corsi di formazione e batch inferenza/punteggio
 + È un ambiente di calcolo a uno o più nodi
 + Esegue la gestione del cluster e la pianificazione dei processi per l'utente
 + Viene ridimensionata automaticamente per impostazione predefinita

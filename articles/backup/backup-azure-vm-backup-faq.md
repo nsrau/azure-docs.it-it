@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848181"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966309"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Back-domande frequenti su backup di macchine virtuali di Azure
 
@@ -24,25 +24,25 @@ Questo articolo risponde alle domande frequenti su backup di macchine virtuali d
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quando creano, quali immagini di macchina virtuale possono essere abilitate per il backup?
 Quando si crea una macchina virtuale, è possibile abilitare il backup per macchine virtuali che eseguono [sistemi operativi supportati](backup-support-matrix-iaas.md#supported-backup-actions)
- 
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>È il costo del backup è incluso nel costo della macchina virtuale? 
+
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>È il costo del backup è incluso nel costo della macchina virtuale?
 
  No. Costi di backup sono separati dai costi della macchina virtuale. Altre informazioni sulle [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
- 
-### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Quali autorizzazioni sono necessarie per abilitare il backup per una macchina virtuale? 
 
-Se si ha un collaboratore macchina virtuale, è possibile abilitare il backup della macchina virtuale. Se si usa un ruolo personalizzato, sono necessarie le autorizzazioni seguenti per abilitare il backup della macchina virtuale: 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Quali autorizzazioni sono necessarie per abilitare il backup per una macchina virtuale?
 
-- Microsoft.RecoveryServices/Vaults/write 
-- Microsoft.RecoveryServices/Vaults/read 
-- Microsoft.RecoveryServices/locations/* 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
- 
+Se si ha un collaboratore macchina virtuale, è possibile abilitare il backup della macchina virtuale. Se si usa un ruolo personalizzato, sono necessarie le autorizzazioni seguenti per abilitare il backup della macchina virtuale:
+
+- Microsoft.RecoveryServices/Vaults/write
+- Microsoft.RecoveryServices/Vaults/read
+- Microsoft.RecoveryServices/locations/*
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write
+
 Se l'insieme di credenziali di servizi di ripristino e della macchina virtuale dispone di diversi gruppi di risorse, verificare di che disporre delle autorizzazioni di scrittura nel gruppo di risorse per l'insieme di credenziali di servizi di ripristino.  
 
 
@@ -91,7 +91,7 @@ Backup di Azure non può eseguire il backup del disco con acceleratore di scritt
 Anteprima privata per un backup di SAP HANA è in esecuzione con un RPO pari a 15 minuti. È stata creata in modo simile al backup del database SQL e usa l'interfaccia backInt per soluzioni di terze parti certificate da SAP HANA. Se si è interessati, scrivici all'indirizzo `AskAzureBackupTeam@microsoft.com` con il soggetto **iscriversi per l'anteprima privata per il backup di SAP HANA in macchine virtuali di Azure**.
 
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Ripristina
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>In che modo si decide se è opportuno ripristinare solo i dischi oppure una macchina virtuale completa?
 Il ripristino di una macchina virtuale può essere considerato come un'opzione di creazione rapida di una macchina virtuale di Azure. Questa opzione consente di modificare i nomi dei dischi, contenitori usati dai dischi, gli indirizzi IP pubblici e i nomi di interfaccia di rete. Con la modifica le risorse vengono mantenute univoche quando si crea una macchina virtuale. La macchina virtuale non viene aggiunta a un set di disponibilità.
@@ -140,3 +140,6 @@ Il backup della macchina virtuale viene eseguito usando le impostazioni di conse
 3. Abilitata di nuovo il backup nell'insieme di credenziali stesso o nuovo.
 
 È possibile ripristinare la macchina virtuale dai punti di ripristino disponibili creati prima dell'operazione di spostamento.
+
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>È previsto un limite sul numero di macchine virtuali che possono essere associati a un criterio di backup stesso?
+Sì, è previsto un limite di 100 macchine virtuali che possono essere associati al criterio di backup stesso dal portale. È consigliabile che per più di 100 macchine virtuali, creare più criteri di backup con pianificazione diverse o stesso.

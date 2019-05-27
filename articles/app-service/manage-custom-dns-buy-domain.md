@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619726"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978887"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
 
@@ -201,7 +201,9 @@ Navigare tra i nomi host elencati nel browser. Nell'esempio della schermata prec
 
 ## <a name="renew-the-domain"></a>Rinnovare il dominio
 
-Il dominio del servizio app acquistato è valido per un anno dalla data di acquisto. Per impostazione predefinita, il dominio è configurato per il rinnovo automatico tramite l'addebito dell'importo per l'anno successivo in base al metodo di pagamento selezionato. Se si desidera disattivare il rinnovo automatico o se si desidera rinnovare manualmente il dominio, eseguire la procedura seguente.
+Il dominio del servizio app acquistato è valido per un anno dalla data di acquisto. Per impostazione predefinita, il dominio è configurato per il rinnovo automatico tramite l'addebito dell'importo per l'anno successivo in base al metodo di pagamento selezionato. È possibile rinnovare manualmente il nome di dominio.
+
+Se si desidera disattivare il rinnovo automatico o se si desidera rinnovare manualmente il dominio, eseguire la procedura seguente.
 
 Nella scheda **Servizi app** fare clic sul nome dell'app, selezionare **Impostazioni** e quindi **Domini personalizzati**.
 
@@ -211,11 +213,25 @@ Nella sezione **Domini del servizio app** selezionare il dominio che si desidera
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
-Nel riquadro di spostamento a sinistra del dominio selezionare **Rinnovo del dominio**. Per interrompere il rinnovo automatico del dominio, selezionare **No** e quindi **Salva**. 
+Nel riquadro di spostamento a sinistra del dominio selezionare **Rinnovo del dominio**. Per interrompere il rinnovo automatico del dominio, selezionare **No** e quindi **Salva**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-Per rinnovare manualmente il dominio, selezionare **Rinnova dominio**. Tuttavia, questo pulsante non è attivo fino a 90 giorni prima della scadenza del dominio.
+Per rinnovare manualmente il dominio, selezionare **Rinnova dominio**. Tuttavia, questo pulsante non è attivo fino alla [90 giorni prima della scadenza del dominio](#when-domain-expires).
+
+Se il rinnovo del dominio ha esito positivo, si riceve una notifica di posta elettronica entro 24 ore.
+
+## <a name="when-domain-expires"></a>Quando è scaduto
+
+Azure si occupa in scadenza o scaduto domini del servizio App come indicato di seguito:
+
+* Se il rinnovo automatico è disabilitato: 90 giorni prima della scadenza del dominio, un messaggio di notifica di rinnovo viene inviato all'utente e la **rinnova dominio** viene attivato il pulsante nel portale.
+* Se il rinnovo automatico è abilitato: Il giorno dopo la data di scadenza del dominio, Azure tenta di addebito per il rinnovo del nome di dominio.
+* Se si verifica un errore durante il rinnovo automatico (ad esempio, l'importo sulla carta è scaduto), o se il rinnovo automatico è disabilitato e si consente il dominio scada, Azure invia una notifica di scadenza del dominio e parchi il nome di dominio. È possibile [rinnovare manualmente](#renew-the-domain) del dominio.
+* Il giorno 4 e 12 giorni dopo la scadenza, Azure invia notifiche aggiuntive tramite posta elettronica. È possibile [rinnovare manualmente](#renew-the-domain) del dominio.
+* Il 19 giorno dopo la scadenza, il dominio rimane in attesa, ma diventa soggetti a una tariffa di riscatto. È possibile contattare il supporto tecnico per rinnovare il nome di dominio, soggetti a tariffe di riscatto e qualsiasi rinnovo applicabile.
+* Il giorno 25 dopo la scadenza, Azure inserisce il dominio asta con un servizio al ribasso del settore. È possibile contattare il supporto tecnico per rinnovare il nome di dominio, soggetti a tariffe di riscatto e qualsiasi rinnovo applicabile.
+* Il giorno 30 dopo la scadenza, non si è più possono riscattare il dominio.
 
 <a name="custom"></a>
 

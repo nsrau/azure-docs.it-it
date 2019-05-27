@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/12/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e4d4ac45ad0ba9516d863682015b9c07096ae106
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 75c0deaa8bca94349091e3317e4ca70129bb4426
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794757"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991597"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -72,6 +72,7 @@ ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) 
 * È supportata la maggior parte dei servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.<br><br>
   **I servizi seguenti NON sono supportati**:
     * RETE CDN
+    * Frontdoor di Azure
     * Multi-Factor Authentication
     * Gestione traffico
 
@@ -84,6 +85,7 @@ ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) 
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (community di Servizi globali di Azure)
 * È supportata la maggior parte dei servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.<br><br>**I servizi seguenti NON sono supportati**:
     * RETE CDN
+    * Frontdoor di Azure
     * Multi-Factor Authentication
     * Gestione traffico
 
@@ -220,7 +222,7 @@ Sì. Sono accettati al massimo 4000 prefissi di route per il peering privato e 2
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>Sono previste limitazioni per gli intervalli IP pubblicabili tramite la sessione BGP?
 
-I prefissi privati (RFC1918) non sono accettati nella sessione BGP per il peering Microsoft.
+I prefissi privati (RFC1918) non sono accettati nella sessione BGP per il peering Microsoft. Sono accettati qualsiasi dimensione di prefisso (fino a /32) in Microsoft e il peering privato.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Cosa succede se si superano i limiti per BGP?
 
@@ -283,6 +285,26 @@ Per informazioni sui costi, vedere [Dettagli prezzi](https://azure.microsoft.com
 ### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>È necessario un pagamento aggiuntivo per ExpressRoute Premium, oltre agli addebiti per la versione standard di ExpressRoute?
 
 Sì. Gli addebiti per ExpressRoute Premium vengono sommati agli addebiti per ExpressRoute e agli addebiti richiesti dal provider di connettività.
+
+## <a name="expressroute-local"></a>ExpressRoute locale
+### <a name="what-is-expressroute-local"></a>Che cos'è ExpressRoute locale?
+ExpressRoute locale è un circuito di SKU di ExpressRoute. Una funzionalità chiave di variabile locale è che un circit locale a un circuito ExpressRoute località di peering consente di accedere solo a uno o due aree di Azure in o quasi la stessa area metropolitana. Al contrario, un circuito Standard consente di accedere a livello globale per tutte le aree di Azure in un circuito di Premium per tutte le aree di Azure e un'area geopolitica. 
+
+### <a name="what-are-the-benefits-of-expressroute-local"></a>Quali sono i vantaggi di ExpressRoute locale?
+Anche se è necessario pagare il trasferimento dei dati in uscita per il circuito ExpressRoute Premium o Standard, non devi pagare il trasferimento dei dati in uscita separatamente il circuito ExpressRoute locale. In altre parole, il prezzo locale di ExpressRoute include tariffe di trasferimento dei dati. ExpressRoute locale è una soluzione più conveniente se hai enormi quantità di dati da trasferire e si può portare i dati tramite una connessione privata a una località di peering di ExpressRoute in prossimità di aree di Azure. 
+
+### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Quali funzionalità sono disponibili e quali non sono in locale di ExpressRoute?
+Rispetto a un circuito ExpressRoute Standard, un circuito locale ha lo stesso set di funzionalità di eccezione:
+* Ambito di accesso alle aree di Azure come descritto sopra
+* Raggiungere globale ExpressRoute non è disponibile in locale
+
+ExpressRoute locale ha anche gli stessi limiti sulle risorse (ad esempio, il numero di reti virtuali al circuito) come Standard. 
+
+### <a name="how-to-configure-expressroute-local"></a>Come configurare ExpressRoute locale? 
+ExpressRoute locale è solo disponibile in diretta di ExpressRoute. Quindi, innanzitutto è necessario configurare la porta diretta di ExpressRoute. Dopo aver creata la porta diretta è possibile creare un circuito locale seguendo le istruzioni riportate [qui](expressroute-howto-erdirect.md).
+
+### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Quali aree di Azure e in cui è disponibile ExpressRoute locale ogni località di peering mappato a?
+ExpressRoute locale è disponibile la località di peering in cui uno o due aree di Azure sono close-by. Non è disponibile in una località di peering in cui è presente alcuna area di Azure in tale stato o provincia o paese. Sulla, vedere il mapping esatto [pagina percorsi](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-office-365"></a>ExpressRoute per Office 365
 

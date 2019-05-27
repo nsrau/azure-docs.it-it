@@ -15,11 +15,11 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405029"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65956099"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Distribuzione dell'archivio Git locale nel servizio app di Azure
 
@@ -172,7 +172,7 @@ Di seguito sono riportati gli errori o i problemi comuni che si verificano duran
 
 **Causa**: questo errore può verificarsi se non si specifica un ramo durante l'operazione `git push` oppure se non è stato impostato il valore `push.default` in `.gitconfig`.
 
-**Soluzione**: eseguire nuovamente l'operazione `git push`, specificando il ramo master. Ad esempio: 
+**Soluzione**: eseguire nuovamente l'operazione `git push`, specificando il ramo master. Ad esempio:
 
 ```bash
 git push azure master
@@ -183,7 +183,7 @@ git push azure master
 
 **Causa**: questo errore può verificarsi se si tenta di eseguire il push in un ramo diverso dal master nel repository remoto "azure".
 
-**Soluzione**: eseguire nuovamente l'operazione `git push`, specificando il ramo master. Ad esempio: 
+**Soluzione**: eseguire nuovamente l'operazione `git push`, specificando il ramo master. Ad esempio:
 
 ```bash
 git push azure master

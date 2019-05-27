@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: 549cfb84ff247295e01c800aa41ba265bb8921c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343461"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978302"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controllo degli accessi in base al ruolo di Active Directory (anteprima)
 
@@ -27,8 +27,13 @@ Per Hub eventi di Azure, la gestione degli spazi dei nomi e di tutte le risorse 
 Per un'applicazione che usa Controllo degli accessi in base al ruolo di Azure AD non è necessario gestire le chiavi e le regole di firma di accesso condiviso o altri token di accesso specifici di Hub eventi. L'app client interagisce con Azure AD per stabilire un contesto di autenticazione e acquisisce un token di accesso per Hub eventi. Con gli account utente di dominio che richiedono l'accesso interattivo, l'applicazione non gestisce mai le credenziali direttamente.
 
 ## <a name="event-hubs-roles-and-permissions"></a>Ruoli e autorizzazioni di Hub eventi
+Azure offre i seguenti ruoli RBAC predefiniti per autorizzare l'accesso a uno spazio dei nomi di hub eventi:
 
-Per l'anteprima pubblica iniziale, è possibile aggiungere entità servizio e account di Azure AD solo al ruolo "Proprietario" o "Collaboratore" di uno spazio dei nomi di Hub eventi. Questa operazione garantisce all'identità il controllo completo su tutte le entità nello spazio dei nomi. Le operazioni di gestione che modificano la topologia dello spazio dei nomi sono inizialmente supportate solo tramite Azure Resource Manager e non tramite l'interfaccia di gestione REST nativa di Hub eventi. Questo supporto significa anche che non è possibile usare l'oggetto [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) del client .NET Framework con un account di Azure AD.  
+Il [proprietario dei dati di hub eventi (anteprima)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) ruolo consente l'accesso a uno spazio dei nomi di hub eventi e le sue entità (code, argomenti, sottoscrizioni e i filtri)
+
+>[!IMPORTANT]
+> È supportato in precedenza aggiungendo identità gestita per il **proprietario** oppure **collaboratore** ruolo. Accesso ai dati, tuttavia, i privilegi per **Owner** e **collaboratore** ruolo non vengono rispettate. Se si usa la **proprietario** o **collaboratore** ruolo, passare all'uso di **proprietario dei dati di hub eventi** ruolo.
+
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Usare Hub eventi con un account utente di dominio di Azure AD
 
@@ -44,7 +49,7 @@ Se si vuole comunque creare un account specifico per questo scenario, [seguire q
 
 ### <a name="create-an-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi
 
-Successivamente, [creare uno spazio dei nomi di Hub eventi](event-hubs-create.md) in una delle aree di Azure con supporto di anteprima di Hub eventi per Controllo degli accessi in base al ruolo: **Stati Uniti orientali**, **Stati Uniti orientali 2**, o **Europa occidentale**. 
+Successivamente [creare uno spazio dei nomi di hub eventi](event-hubs-create.md). 
 
 Una volta creato lo spazio dei nomi, passare alla relativa pagina **Controllo di accesso (IAM)** nel portale e quindi fare clic su **Aggiungi assegnazione ruolo** per aggiungere l'account utente di Azure AD al ruolo Proprietario. Se si usa il proprio account utente e si è creato lo spazio dei nomi, si sta già usando il ruolo Proprietario. Per aggiungere un account utente diverso al ruolo, cercare il nome dell'applicazione Web nel campo **Seleziona** del pannello **Aggiungi autorizzazioni** e quindi fare clic sulla voce. Fare quindi clic su **Salva**. L'account utente dispone ora dell'accesso allo spazio dei nomi di Hub eventi e all'hub eventi creato in precedenza.
  

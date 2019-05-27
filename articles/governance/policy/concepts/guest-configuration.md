@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c11d6519986cf7a0e70d1fe004ef527c3df247d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277725"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979519"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -63,15 +63,15 @@ La tabella seguente elenca gli strumenti locali usati on ciascun sistema operati
 
 ### <a name="validation-frequency"></a>Frequenza di convalida
 
-Il client della configurazione guest verifica la presenza di nuovi contenuti ogni cinque minuti. Dopo aver ricevuto un'assegnazione guest, le impostazioni vengono controllate a intervalli di 15 minuti. Al termine del controllo, i risultati vengono inviati al provider di risorse di configurazione guest. Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di configurazione guest viene scritto lo stato del computer. In questo modo, Criteri di Azure può valutare le proprietà di Azure Resource Manager. Una valutazione on demand di Criteri recupera il valore più recente dal provider di risorse di configurazione guest, ma non attiva un nuovo controllo della configurazione nella macchina virtuale.
+Il client della configurazione guest verifica la presenza di nuovi contenuti ogni cinque minuti. Dopo aver ricevuto un'assegnazione guest, le impostazioni vengono controllate a intervalli di 15 minuti. Al termine del controllo, i risultati vengono inviati al provider di risorse di configurazione guest. Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di configurazione guest viene scritto lo stato del computer. In questo modo, Criteri di Azure può valutare le proprietà di Azure Resource Manager. Una valutazione di criteri di Azure on demand recupera il valore più recente dal provider di risorse di configurazione di Guest. ma non attiva un nuovo controllo della configurazione nella macchina virtuale.
 
 ### <a name="supported-client-types"></a>Tipi di client supportati
 
 La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 
-|Editore|NOME|Versioni|
+|Pubblicato da|NOME|Versioni|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
+|Canonico|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|Data Center 2012, 2012 R2 Datacenter, 2016 Datacenter, Datacenter 2019|
 |Microsoft|Client Windows|Windows 10|
@@ -80,7 +80,7 @@ La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Configurazione Guest può controllare i nodi che eseguono un sistema operativo supportato.  Se vuoi controllare le macchine virtuali che usano un'immagine personalizzata, è necessario duplicare i **DeployIfNotExists** definizione e modificare le **se** sezione per includere le proprietà dell'immagine.
+> Configurazione Guest può controllare i nodi che eseguono un sistema operativo supportato. Se vuoi controllare le macchine virtuali che usano un'immagine personalizzata, è necessario duplicare i **DeployIfNotExists** definizione e modificare le **se** sezione per includere le proprietà dell'immagine.
 
 ### <a name="unsupported-client-types"></a>Tipi di client non supportati
 
@@ -93,9 +93,7 @@ Per comunicare con il provider di risorse di configurazione Guest in Azure, macc
 Per un elenco di indirizzi IP, è possibile scaricare [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). Questo file viene aggiornato ogni settimana e presenta gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. È sufficiente consentire l'accesso in uscita agli indirizzi IP nelle aree in cui vengono distribuite le macchine virtuali.
 
 > [!NOTE]
-> Il file XML degli indirizzi IP dei data center di Azure elenca gli intervalli di indirizzi IP usati nei data center di Microsoft Azure. Il file include gli intervalli per le risorse di calcolo, SQL e di archiviazione.
-> Viene pubblicata una versione aggiornata del file ogni settimana. Il file include gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. I nuovi intervalli riportati nel file non vengono usati nei data center per almeno una settimana.
-> È consigliabile scaricare il nuovo file XML ogni settimana e aggiornare quindi il sito per identificare correttamente i servizi in esecuzione in Azure. Per gli utenti di ExpressRoute è importante sottolineare che questo file viene usato per aggiornare l'annuncio BGP (Border Gateway Protocol) dello spazio di Azure la prima settimana del mese.
+> Il file XML degli indirizzi IP dei data center di Azure elenca gli intervalli di indirizzi IP usati nei data center di Microsoft Azure. Il file include gli intervalli per le risorse di calcolo, SQL e di archiviazione. Viene pubblicata una versione aggiornata del file ogni settimana. Il file include gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. I nuovi intervalli riportati nel file non vengono usati nei data center per almeno una settimana. È consigliabile scaricare il nuovo file XML ogni settimana e aggiornare quindi il sito per identificare correttamente i servizi in esecuzione in Azure. Per gli utenti di ExpressRoute è importante sottolineare che questo file viene usato per aggiornare l'annuncio BGP (Border Gateway Protocol) dello spazio di Azure la prima settimana del mese.
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisiti per la definizione della configurazione guest
 
@@ -140,7 +138,7 @@ Esempi di configurazione dei criteri Guest sono disponibili nei percorsi seguent
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare gli esempi nella [esempi di criteri di Azure](../samples/index.md).
-- Vedere [Struttura delle definizioni di criteri di Azure](definition-structure.md).
+- Vedere la [struttura delle definizioni di Criteri di Azure](definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Comprendere come [a livello di codice, creare criteri](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).

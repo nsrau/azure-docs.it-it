@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 1ce9c5ddb08f3e81a0f0050048a8afef24e4c625
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0ae734ac8814cc605ce03756fde5545c77c837d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203708"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992060"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con PHP
 
@@ -101,7 +101,7 @@ $connectionString = "Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageShare
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## <a name="create-a-topic"></a>Creare un argomento
+## <a name="create-a-topic"></a>Crea un argomento
 È possibile eseguire operazioni di gestione per gli argomenti del bus di servizio usando la classe `ServiceBusRestProxy`. Un oggetto `ServiceBusRestProxy` è costruito tramite il metodo factory `ServicesBuilder::createServiceBusService` con una stringa di connessione appropriata che incapsula le autorizzazioni di token per gestirlo.
 
 L'esempio seguente mostra come creare un'istanza di `ServiceBusRestProxy` e chiamare il metodo `ServiceBusRestProxy->createTopic` per creare un argomento denominato `mytopic` in uno spazio dei nomi `MySBNamespace`:
@@ -136,7 +136,7 @@ catch(ServiceException $e){
 > 
 > 
 
-## <a name="create-a-subscription"></a>Creare una sottoscrizione
+## <a name="create-a-subscription"></a>Crea una sottoscrizione
 È possibile creare le sottoscrizioni di un argomento con il metodo `ServiceBusRestProxy->createSubscription`. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita l'insieme dei messaggi passati alla coda virtuale della sottoscrizione.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
@@ -343,6 +343,9 @@ catch(ServiceException $e){
 ```php
 $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
+
+> [!NOTE]
+> È possibile gestire le risorse del Bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del Bus di servizio e amministrarne le entità di messaggistica in modo semplificato. Lo strumento offre funzionalità avanzate come la funzionalità di importazione/esportazione o la possibilità di testare l'argomento, code, sottoscrizioni, servizi di inoltro, hub di notifica e gli hub eventi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere [Code, argomenti e sottoscrizioni del bus di servizio][Queues, topics, and subscriptions].

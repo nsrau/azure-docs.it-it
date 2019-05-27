@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7ce57e1f8b2732ea909625c89f3e8148cb70635c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bbf43ecb07947fad8cc1ee064d2038e4a21d4444
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728835"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964760"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Monitorare le metriche di servizi multimediali e i log di diagnostica
 
@@ -34,11 +34,11 @@ Le metriche vengono raccolte a intervalli regolari indipendentemente dal fatto c
 
 Attualmente, i seguenti servizi multimediali [gli endpoint di Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) metriche vengono generate da Azure:
 
-|NOME|DESCRIZIONE|
-|---|---|
-|Requests|Fornisce i dettagli per n. totale di richieste elaborate dall'Endpoint di Streaming.|
-|Egress|Numero totale di byte in uscita. Ad esempio, i byte trasmessi dall'Endpoint di Streaming.|
-|Latenza end to end esito positivo| Fornisce informazioni sulla latenza end-to-end di richieste eseguite correttamente.|
+|Metrica|`Display name`|Descrizione|
+|---|---|---|
+|Requests|Requests|Fornisce i dettagli per n. totale di richieste elaborate dall'Endpoint di Streaming.|
+|Dati in uscita|Dati in uscita|Numero totale di byte in uscita. Ad esempio, i byte trasmessi dall'Endpoint di Streaming.|
+|SuccessE2ELatency|Latenza end to end esito positivo| Fornisce informazioni sulla latenza end-to-end di richieste eseguite correttamente.|
 
 Ad esempio, per ottenere le metriche "dei servizi esterni" con CLI, eseguire questo `az monitor metrics` riga di comando:
 
@@ -54,7 +54,7 @@ Per informazioni su come creare avvisi delle metriche, vedere [crea, visualizzar
 
 Attualmente, è possibile ottenere i log di diagnostica seguenti:
 
-|NOME|DESCRIZIONE|
+|NOME|Descrizione|
 |---|---|
 |Richiesta di servizio di distribuzione delle chiavi|Log che mostrano le informazioni sulla richiesta di servizio di distribuzione delle chiavi. Per altre informazioni, vedere [schemi](media-services-diagnostic-logs-schema.md).|
 
@@ -76,7 +76,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-Ad esempio: 
+Ad esempio:
 
 ```cli
 az monitor diagnostic-settings create --name amsv3diagnostic \

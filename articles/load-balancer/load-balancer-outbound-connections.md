@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: kumud
-ms.openlocfilehash: d5f52829f5895b30afd160cc8ded755332aca5c5
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190161"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967727"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -34,13 +34,13 @@ Azure usa SNAT (Source Network Address Translation) per eseguire questa funzione
 Sono presenti più [scenari in uscita](#scenarios). È possibile combinare questi scenari in base alle esigenze. Esaminarli con attenzione per comprenderne le funzionalità, i vincoli e gli schemi, in riferimento a modelli di distribuzione e scenari di applicazione specifici. Vedere le linee guida per la [gestione di questi scenari](#snatexhaust).
 
 >[!IMPORTANT] 
->Load Balancer Standard e l'indirizzo IP pubblico standard introducono nuove funzionalità e comportamenti differenti per la connettività in uscita.  Non corrispondono agli SKU di base.  Per disporre di connettività in uscita quando si utilizzano SKU standard, è necessario definire questa opzione sia per gli indirizzi IP pubblici standard sia per un'istanza di Load Balancer Standard pubblica.  Ciò include la creazione di connettività in uscita quando si usa un'istanza di Load Balancer Standard interna.  È consigliabile usare sempre le regole in uscita in un'istanza di Load Balancer Standard pubblica.  Lo [scenario 3](#defaultsnat) non è disponibile con gli SKU standard.  Ciò significa che quando viene usata un'istanza di Load Balancer Standard interna, è necessario provvedere a creare una connettività in uscita per le macchine virtuali nel pool di back-end se è richiesta la connettività in uscita.  Nel contesto di connettività in uscita, una singola macchina virtuale autonoma, tutte le macchine virtuali in un set di disponibilità e tutte le istanze in un set di scalabilità di macchine virtuali si comportano come un gruppo. Ciò significa che, se una singola macchina virtuale in un set di disponibilità è associata a uno SKU standard, tutte le istanze della macchina virtuale all'interno di questo set di disponibilità si comportano allo stesso modo, come se fossero associate allo SKU standard, anche se una singola istanza non è direttamente associata a tale SKU.  Rivedere attentamente l'intero documento per comprendere i concetti generali, esaminare [Load Balancer Standard](load-balancer-standard-overview.md) per le differenze tra gli SKU e rivedere le [regole in uscita](load-balancer-outbound-rules-overview.md).  L'uso di regole in uscita offre all'utente un controllo dettagliato su tutti gli aspetti della connettività in uscita.
+>Load Balancer Standard e l'indirizzo IP pubblico standard introducono nuove funzionalità e comportamenti differenti per la connettività in uscita.  Non corrispondono agli SKU di base.  Per disporre di connettività in uscita quando si utilizzano SKU standard, è necessario definire questa opzione sia per gli indirizzi IP pubblici standard sia per un'istanza di Load Balancer Standard pubblica.  Ciò include la creazione di connettività in uscita quando si usa un Load Balancer Standard interno.  È consigliabile usare sempre le regole in uscita in un'istanza di Load Balancer Standard pubblica.  Lo [scenario 3](#defaultsnat) non è disponibile con gli SKU standard.  Ciò significa che quando viene usata un'istanza di Load Balancer Standard interna, è necessario provvedere a creare una connettività in uscita per le macchine virtuali nel pool di back-end se è richiesta la connettività in uscita.  Nel contesto di connettività in uscita, una singola macchina virtuale autonoma, tutte le macchine virtuali in un set di disponibilità e tutte le istanze in un set di scalabilità di macchine virtuali si comportano come un gruppo. Ciò significa che, se una singola macchina virtuale in un set di disponibilità è associata a uno SKU standard, tutte le istanze della macchina virtuale all'interno di questo set di disponibilità si comportano allo stesso modo, come se fossero associate allo SKU standard, anche se una singola istanza non è direttamente associata a tale SKU.  Rivedere attentamente l'intero documento per comprendere i concetti generali, esaminare [Load Balancer Standard](load-balancer-standard-overview.md) per le differenze tra gli SKU e rivedere le [regole in uscita](load-balancer-outbound-rules-overview.md).  L'uso di regole in uscita offre all'utente un controllo dettagliato su tutti gli aspetti della connettività in uscita.
 
 ## <a name="scenarios"></a>Panoramica dello scenario
 
 Quando si usa [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), vengono definiti in modo esplicito il servizio Azure Load Balancer e le risorse correlate.  Attualmente, Azure offre tre diversi metodi per ottenere la connettività in uscita per le risorse di Azure Resource Manager. 
 
-| SKU | Scenario | Metodo | Protocolli IP | DESCRIZIONE |
+| SKU | Scenario | Metodo | Protocolli IP | Descrizione |
 | --- | --- | --- | --- | --- |
 | Standard, di base | [1. Macchina virtuale con indirizzo IP pubblico a livello di istanza (con o senza Load Balancer)](#ilpip) | SNAT, il mascheramento delle porte non viene usato | TCP, UDP, ICMP, ESP | Azure usa l'indirizzo IP pubblico assegnato alla configurazione IP della scheda di interfaccia di rete dell'istanza. L'istanza ha tutte le porte temporanee disponibili. Quando si usa Load Balancer Standard, è consigliabile usare le [regole in uscita](load-balancer-outbound-rules-overview.md) per definire in modo esplicito la connettività in uscita. |
 | Standard, di base | [2. Servizio Load Balancer pubblico associato a una macchina virtuale (nessun indirizzo IP pubblico a livello di istanza per l'istanza)](#lb) | SNAT con mascheramento delle porte (PAT) tramite i front-end di Load Balancer | TCP, UDP |Azure condivide l'indirizzo IP pubblico dei front-end di Load Balancer pubblici con più IP privati. Azure usa le porte temporanee dei front-end per PAT. |

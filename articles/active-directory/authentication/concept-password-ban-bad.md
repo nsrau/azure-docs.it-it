@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415711"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977297"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminare le password non appropriate nell'organizzazione
 
@@ -75,7 +75,7 @@ Nessuna delle password precedenti corrisponde esattamente alla password esclusa 
 
 Sulla password normalizzata viene applicata la corrispondenza delle sottostringhe per verificare il nome e il cognome dell'utente e il nome del tenant (la corrispondenza del nome del tenant non viene applicata quando si convalida una password in un controller di dominio di Active Directory).
 
-Esempio: si supponga che un utente di nome John Doe voglia reimpostare la password su "J0hn123fb". Dopo la normalizzazione, la password diventerebbe "john123fb". La corrispondenza delle sottostringhe rileva che la password contiene il nome dell'utente "John". Anche se "J0hn123fb" non è contenuto in modo specifico negli elenchi delle password escluse, la corrispondenza delle sottostringhe ha identificato il termine "John" nella password, che viene quindi rifiutata.
+Esempio: si supponga che abbiamo un utente, Pol, chi desidera reimpostare la password per "P0l123fb". Dopo la normalizzazione, questa password diverrebbe "pol123fb". Corrispondenza nelle sottostringhe rileva che la password contiene il nome dell'utente prima "Pol". Anche se "P0l123fb" non è stata specificamente su entrambi gli elenchi delle password vietate, sottostringa corrispondente trovato "Pol" nella password. che viene quindi rifiutata.
 
 #### <a name="score-calculation"></a>Calcolo del punteggio
 
@@ -106,7 +106,7 @@ Dopo la normalizzazione, la password diventa "contosoblankf9!". Il processo di c
 
 |   | Protezione delle password di Azure AD con elenco globale di password escluse | Protezione delle password di Azure AD con elenco password personalizzate escluse|
 | --- | --- | --- |
-| Solo utenti cloud | Azure AD Free | Azure AD Premium P1 o P2 |
+| Solo utenti cloud | Azure AD Gratuito | Azure AD Premium P1 o P2 |
 | Utenti sincronizzati da Windows Server Active Directory locale | Azure AD Premium P1 o P2 | Azure AD Premium P1 o P2 |
 
 > [!NOTE]

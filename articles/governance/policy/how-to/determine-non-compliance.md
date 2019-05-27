@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868680"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979337"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
@@ -90,7 +90,7 @@ La matrice seguente esegue il mapping di ogni possibile _motivo_ per il responsa
 |Il valore corrente deve contenere il valore di destinazione come chiave. |containsKey oppure **non** notContainsKey |
 |Il valore corrente deve contenere il valore di destinazione. |contiene oppure **non** notContains |
 |Il valore corrente deve essere uguale al valore di destinazione. |è uguale a o **non** notEquals |
-|Il valore corrente deve esistere. |exists |
+|Il valore corrente deve esistere. |esiste |
 |Il valore corrente deve essere nel valore di destinazione. |in o **non** notIn |
 |Il valore corrente deve essere uguale al valore di destinazione. |ad esempio oppure **non** notLike |
 |Il valore corrente deve corrispondere al valore di destinazione con distinzione tra maiuscole/minuscole. |corrispondenza o **non** notMatch |
@@ -215,11 +215,11 @@ Come parte di una nuova **versione di anteprima pubblica**, gli ultimi 14 giorni
 
 1. Selezionare la scheda **Cronologia modifiche (anteprima)** nella pagina **Conformità risorsa**. Verrà visualizzato un elenco delle eventuali modifiche rilevate.
 
-   ![Scheda Cronologia modifiche dei criteri nella pagina relativa alla conformità risorsa](../media/determine-non-compliance/change-history-tab.png)
+   ![Scheda Cronologia delle modifiche dei criteri di Azure nella pagina relativa alla conformità risorsa](../media/determine-non-compliance/change-history-tab.png)
 
 1. Selezionare una delle modifiche rilevate. Il _diff visual_ per la risorsa viene presentata nella **cronologia delle modifiche** pagina.
 
-   ![Diff Visual cronologia modifiche di criteri nella pagina cronologia modifiche](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Azure criteri di modifica della cronologia Visual Diff nella pagina cronologia modifiche](../media/determine-non-compliance/change-history-visual-diff.png)
 
 Il _diff visivo_ facilita l'identificazione delle modifiche di una risorsa. Sono state rilevate le modifiche potrebbero non essere correlate per lo stato di conformità corrente della risorsa.
 
@@ -228,7 +228,7 @@ Dati della cronologia delle modifiche viene forniti da [Graph di Azure Resource]
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare gli esempi nella [esempi di criteri di Azure](../samples/index.md).
-- Vedere [Struttura delle definizioni di criteri di Azure](../concepts/definition-structure.md).
+- Vedere la [struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
 - Comprendere come [a livello di codice, creare criteri](programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](getting-compliance-data.md).

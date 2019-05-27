@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Uso di Ruby per chiamare l'API Analisi del testo"
+title: "Guida introduttiva: Uso di Ruby per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare l'API Analisi del testo in Servizi cognitivi di Azure.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 3163b58a9b325f28ab253ca090314515cf82ccb2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 56a482ae4eab4cde3cf39fcc187b703f253e0cbb
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008002"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990256"
 ---
-# <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso di Ruby per chiamare il servizio cognitivo Analisi del testo
+# <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di Ruby per chiamare il servizio cognitivo Analisi del testo
 <a name="HOLTop"></a>
 
 Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities) usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con Ruby.
@@ -308,7 +308,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 ```
 <a name="Entities"></a>
 
-## <a name="identify-entities"></a>Identificare le entità
+## <a name="entity-recognition"></a>Riconoscimento delle entità
 
 L'API Entità estrae le entità in un documento di testo usando il metodo [Entities](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). L'esempio seguente identifica le entità per i documenti in inglese.
 

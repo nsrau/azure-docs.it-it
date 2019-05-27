@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486151"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978533"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuire ed esplorare un'applicazione multi-tenant partizionata
 
@@ -58,7 +58,7 @@ Per completare questa esercitazione, verificare che i prerequisiti seguenti sian
 ### <a name="plan-the-names"></a>Pianificare i nomi
 
 Nei passaggi di questa sezione si forniscono un valore *utente* usato per assicurare che i nomi delle risorse siano univoci a livello globale e un nome per il *gruppo di risorse* contenente tutte le risorse create da una distribuzione dell'app. Per un utente di nome *Ann Finley* si consiglia:
-- *Utente:* **af1**, *ossia le iniziali e un numero. Usare un valore diverso, ad esempio af2, se si distribuisce l'app una seconda volta.*
+- *Utente:* **af1***(le proprie iniziali, oltre a una cifra.   Usare un valore diverso, ad esempio af2, se si distribuisce l'app una seconda volta.*
 - *Gruppo di risorse:* **wingtip-mt-af1** *: wingtip-mt indica che si tratta dell'app multi-tenant partizionata. L'aggiunta del nome utente af1 correla il nome del gruppo di risorse con i nomi delle risorse in esso contenute.*
 
 Scegliere ora i nomi e annotarli. 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785803"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953132"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gestione del calcolo in Azure Data Box Edge
 
@@ -129,24 +129,6 @@ Eseguire i passaggi seguenti nel portale di Azure per sincronizzare le chiavi di
 
 3. Uscire dalla finestra di dialogo dopo aver completato la sincronizzazione.
 
-## <a name="enable-a-network-interface-for-compute"></a>Abilitare un'interfaccia di rete per il calcolo
-
-Potrebbe essere necessario accedere a un modulo in esecuzione nel dispositivo Data Box Edge. Per accedere al modulo dall'esterno, si dovrà assegnare un indirizzo IP a un'interfaccia di rete nel dispositivo. È possibile gestire queste impostazioni di calcolo dall'interfaccia utente Web locale.
-
-Per configurare le impostazioni di calcolo, seguire questa procedura nell'interfaccia utente Web locale.
-
-1. Nell'interfaccia utente Web locale passare a **Configurazione > Impostazioni calcolo**.  
-
-2. **Abilitare** l'interfaccia di rete che si vuole usare per connettersi ai moduli di calcolo nel dispositivo. 
-
-    - Se si usano indirizzi IP statici, immettere un indirizzo IP per l'interfaccia di rete.
-    - Se si usa DHCP, gli indirizzi IP verranno assegnati automaticamente.
-
-3. Selezionare **Applica** per applicare le impostazioni.
-
-    ![Abilitare le impostazioni di calcolo](media/data-box-edge-manage-compute/compute-settings-1.png)
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [gestire gli utenti dal portale di Azure](data-box-edge-manage-users.md).
+- Informazioni su come [rete tramite il portale di Azure di gestire Edge calcolo](data-box-edge-extend-compute-access-modules.md).

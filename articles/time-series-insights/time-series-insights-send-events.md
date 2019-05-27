@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2842a365cdf25a6b19f655f6397d62ecb9a723b0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 48524020940149f6c67f4859f23c03eea140454b
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406946"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991486"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Inviare eventi a un ambiente Time Series Insights usando un hub eventi
 
@@ -28,31 +28,31 @@ Questo articolo illustra come creare e configurare un hub eventi in hub eventi d
 1. Per informazioni su come creare un hub eventi, vedere la [documentazione di Hub eventi](https://docs.microsoft.com/azure/event-hubs/).
 1. Nella casella di ricerca cercare **hub eventi**. Nell'elenco restituito selezionare **Hub eventi**.
 1. Selezionare l'hub eventi.
-1. Quando si crea un hub eventi, in realtà si crea uno spazio dei nomi dell'hub eventi. Se nello spazio dei nomi non è ancora stato creato un hub eventi, crearne uno in **Entità**.  
+1. Quando si crea un hub eventi, si crea uno spazio dei nomi dell'hub eventi. Se è ancora stato creato un hub eventi nello spazio dei nomi, nel menu sotto **entità**, creare un hub eventi.  
 
     [![Elenco degli hub eventi](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
 
 1. Dopo aver creato un hub eventi, selezionarlo nell'elenco degli hub eventi.
-1. Nel menu, in **Entità** selezionare **Hub eventi**.
+1. Nel menu sotto **Entities**, selezionare **hub eventi**.
 1. Selezionare il nome dell'hub eventi per configurarlo.
 1. In **Entità** selezionare **Gruppi di consumer** e quindi selezionare **Gruppo di consumer**.
 
     [![Creare un gruppo di consumer](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
-1. Assicurarsi di creare un gruppo di consumer usato esclusivamente dall'origine evento di Time Series Insights.
+1. Assicurarsi di che creare un gruppo di consumer usato esclusivamente dall'origine evento Time Series Insights.
 
     > [!IMPORTANT]
-    > Verificare che questo gruppo di consumer non venga usato da altri servizi, ad esempio un processo di Analisi di flusso di Azure o un altro ambiente Time Series Insights. Se il gruppo di consumer viene usato da altri servizi, le operazioni di lettura sono compromesse negativamente per questo ambiente e per altri servizi. Se si usa **$Default** come gruppo di consumer, altri lettori potrebbero potenzialmente usare nuovamente il gruppo di consumer.
+    > Assicurarsi che questo gruppo di consumer non viene usato da nessun altro servizio, ad esempio un processo Azure Stream Analitica o di un altro ambiente Time Series Insights. Se il gruppo di consumer viene usato da altri servizi, le operazioni di lettura sono compromesse negativamente per questo ambiente e per altri servizi. Se si usa **$Default** come gruppo di consumer, altri lettori potrebbero potenzialmente usare nuovamente il gruppo di consumer.
 
-1. Nel menu, in **Impostazioni** selezionare **Criteri di accesso condiviso** e quindi selezionare **Aggiungi**.
+1. Nel menu sotto **impostazioni**, selezionare **criteri di accesso condiviso**, quindi selezionare **Aggiungi**.
 
     [![Selezionare i criteri di accesso condiviso e quindi selezionare il pulsante Aggiungi](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
 
-1. Nel riquadro **Aggiungi nuovi criteri di accesso condiviso** creare un accesso condiviso denominato **MySendPolicy** che verrà usato per inviare gli eventi negli esempi C# più avanti in questo articolo.
+1. Nel riquadro **Aggiungi nuovi criteri di accesso condiviso** creare un accesso condiviso denominato **MySendPolicy** Si usa questo criterio di accesso condiviso per inviare eventi nel C# esempi più avanti in questo articolo.
 
     [![Nella casella nome dei criteri, immettere MySendPolicy](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
 
-1. In **Attestazione** selezionare la casella di controllo **Invia**.
+1. Sotto **attestazione**, selezionare la **inviare** casella di controllo.
 
 ## <a name="add-a-time-series-insights-instance"></a>Aggiungere un'istanza di Time Series Insights
 
@@ -70,7 +70,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 1. Selezionare l'hub eventi.
 
-1. Andare a **Criteri di accesso condiviso** > **RootManageSharedAccessKey**. Copiare il valore per **Stringa di connessione - chiave primaria**.
+1. Andare a **Criteri di accesso condiviso** > **RootManageSharedAccessKey**. Copiare il valore per **connessione stringa chiave primaria**.
 
     [![Copiare il valore per la stringa di connessione chiave primaria](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 
@@ -81,7 +81,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 1. Selezionare **Click to start** (Fare clic per avviare). Il simulatore genera istanza JSON che è possibile usare direttamente.
 
-1. Tornare all'hub eventi nel portale di Azure. Nel **Panoramica** pagina, si dovrebbero vedere i nuovi eventi ricevuti dall'hub eventi.
+1. Tornare all'hub eventi nel portale di Azure. Nel **Panoramica** pagina, noterete che i nuovi eventi che vengono ricevuti dall'hub eventi.
 
     [![Una pagina di panoramica di hub eventi che mostra le metriche dell'hub eventi](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 

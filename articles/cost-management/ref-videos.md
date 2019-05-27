@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/18/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: f531bdb80be34cb3228042588ecd4c338b003ed0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f96c78e636b873a0238f6e34d9b80d1036e5ba4f
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020231"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969107"
 ---
 # <a name="cloudyn-walk-through-training-videos"></a>Video di training: procedure dettagliate di Cloudyn
 
 I video seguenti sono demo dettagliate di introduzione a Cloudyn e alle relative funzionalità. Cloudyn offre funzioni di verifica e ottimizzazione dei costi per scenari di uso di più cloud, ad esempio Microsoft Azure, Amazon Web Services e Google Cloud Platform.
 
-## <a name="overview-video"></a>Video di panoramica
+## <a name="overview-video"></a>Panoramica video
 
 [Introduzione a Cloudyn](https://youtu.be/NWIRny6Wpsk)
 

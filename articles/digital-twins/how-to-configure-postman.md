@@ -7,13 +7,13 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: adgera
-ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-adgera
+ms.openlocfilehash: 797dfc44b9897920f9fd74346ee01e4b157a4ce8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926145"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967790"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Come configurare Postman per Gemelli digitali di Azure
 
@@ -70,13 +70,13 @@ Successivamente installare e configurare Postman per ottenere un token di Azure 
 
     | Campo  | Value |
     |---------|---------|
-    | Grant Type (Tipo di concessione) | `Implicit` |
+    | Tipo di concessione | `Implicit` |
     | Callback URL (URL callback) | `https://www.getpostman.com/oauth2/callback` |
     | Auth URL (URL autorizzazione) | Usare l'**URL di autorizzazione** ottenuto al passaggio 2 |
     | ID client | Usare l'**ID applicazione** per l'app di Azure Active Directory creata o riconfigurata nella sezione precedente |
     | `Scope` | Lasciare vuoto |
     | Stato | Lasciare vuoto |
-    | Client Authentication (Autenticazione client) | `Send as Basic Auth header` |
+    | Autenticazione client | `Send as Basic Auth header` |
 
 1. Il client ora dovrebbe essere visualizzato come:
 

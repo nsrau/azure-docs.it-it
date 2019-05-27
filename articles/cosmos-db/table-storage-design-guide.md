@@ -4,16 +4,16 @@ description: 'Guida alla progettazione di tabelle di Archiviazione di Azure: Pro
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 84749332c5b7ab5fec2905c0fc36d89863adc3d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60579644"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966102"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione di tabelle di Archiviazione di Azure: progettazione di tabelle scalabili ed efficienti
 
@@ -49,7 +49,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -69,7 +69,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -82,7 +82,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 </tr>
 <tr>
 <td>Marketing</td>
-<td>department</td>
+<td>Reparto</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
@@ -106,7 +106,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -200,12 +200,12 @@ I seguenti esempi presuppongono che nel servizio tabelle vengano archiviate enti
 
 | *Nome colonna* | *Tipo di dati* |
 | --- | --- |
-| **PartitionKey** (nome del reparto) |string |
-| **RowKey** (ID dipendente) |string |
-| **FirstName** |string |
-| **LastName** |string |
+| **PartitionKey** (nome del reparto) |String |
+| **RowKey** (ID dipendente) |String |
+| **FirstName** |String |
+| **LastName** |String |
 | **Age** |Integer |
-| **EmailAddress** |string |
+| **EmailAddress** |String |
 
 La sezione precedente Panoramica del servizio tabelle di Azure descrive alcune funzionalità chiave del servizio tabelle di Azure che influiscono direttamente sulla progettazione della query. Se ne possono ricavare le seguenti linee guida generali per la progettazione di query del servizio tabelle. La sintassi del filtro usata negli esempi riportati sotto proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx) (Query su entità).  
 
@@ -653,7 +653,7 @@ In un database relazionale, in genere i dati vengono normalizzati per rimuovere 
 ![Entità reparto ed entità dipendente][16]
 
 #### <a name="solution"></a>Soluzione
-Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio:   
+Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio:  
 
 ![Entità reparto denormalizzata e combinata][17]
 
@@ -1124,7 +1124,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1144,7 +1144,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1162,7 +1162,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <td>
 <table>
 <tr>
-<th>DepartmentName</th>
+<th>Nome del reparto</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -1181,7 +1181,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1217,7 +1217,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1239,7 +1239,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1259,11 +1259,11 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <table>
 <tr>
 <th>EntityType</th>
-<th>DepartmentName</th>
+<th>Nome del reparto</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
-<td>department</td>
+<td>Reparto</td>
 <td></td>
 <td></td>
 </tr>
@@ -1280,7 +1280,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Age</th>
+<th>Tempo di risoluzione</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1515,7 +1515,7 @@ In questo esempio asincrono è possibile visualizzare le modifiche seguenti dall
 
 L'applicazione client può chiamare più metodi asincroni come questo e ogni chiamata al metodo verrà eseguita su un thread separato.  
 
-### <a name="credits"></a>Credits
+### <a name="credits"></a>Riconoscimenti
 Un particolare ringraziamento ai membri seguenti del team di Azure per il loro contributo: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah e Serdar Ozler, nonché Tom Hollander di Microsoft DX. 
 
 Un grazie anche ai Microsoft MVP seguenti per i preziosi commenti forniti durante i cicli di revisione: Igor Papirov ed Edward Bakker.
