@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197964"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072844"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Aggiungere un'entità in espressioni di esempio 
 
@@ -89,25 +89,6 @@ Supponendo che il utterance `Does John Smith work in Seattle?`, un utterance com
 
     ![Schermata della pagina dei dettagli delle finalità, con l'entità composita](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## <a name="add-hierarchical-entity"></a>Aggiungere un'entità gerarchica
-
-**Entità gerarchiche sarà deprecata. Uso [ruoli entità](luis-concept-roles.md) determinare sottotipi dell'entità, invece di entità gerarchiche.**
-
-Un'entità gerarchica è una categoria di entità con apprendimento su base contestuale e correlate per concetto. Nell'esempio seguente, l'entità contiene ubicazioni di origine e destinazione. 
-
-Nell'emissione `Move John Smith from Seattle to Cairo`, Seattle è l'origine, mentre Il Cairo è la destinazione. Ogni ubicazione è diversa a livello di contesto e viene appresa dall'ordine e dalla scelta delle parole nell'espressione.
-
-1. Nella pagina delle finalità selezionare `Seattle` nell'espressione, quindi inserire il nome dell'entità `Location` e premere INVIO sulla tastiera.
-
-1. Nella finestra popup **What type of entity do you want to create?** (Che tipo di entità vuoi creare?) selezionare il _gerarchico_ per **Tipo di entità**, quindi aggiungere `Origin` e `Destination` come elementi figlio e selezionare **Done** (Chiudi).
-
-    ![Screenshot della pagina dei dettagli delle finalità, con l'entità ToLocation evidenziata](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
-
-1. La parola nell'espressione viene etichettata con l'entità gerarchica padre. È necessario assegnare la parola a un'entità figlio. Nella pagina di dettaglio preventivi, tornare al utterance. Selezionare la parola quindi nell'elenco a discesa scegliere il nome dell'entità creata e seguire il menu a destra per scegliere l'entità figlio corretta.
-
-    >[!CAUTION]
-    >I nomi delle entità figlio devono essere univoci per tutte le entità in una singola app. Due diverse entità gerarchiche non possono contenere entità figlio con lo stesso nome. 
-
 ## <a name="add-entitys-role-to-utterance"></a>Aggiungere il ruolo dell'entità a utterance
 
 Un ruolo è un sottotipo di un'entità, determinato dal contesto del utterance denominato. È possibile contrassegnare un'entità all'interno di un utterance come entità o selezionare un ruolo all'interno di tale entità. Qualsiasi entità possono avere ruoli, inclusi le entità personalizzate che sono Appresa macchina (entità semplice e composta), non sono Appresa macchina (le entità predefinite, le entità di espressione regolare, elenco di entità). 
@@ -143,9 +124,6 @@ Le soluzioni seguenti consentono di risolvere la discrepanza nella previsione de
 |Testo non etichettato|sottolineatura rossa|Previsione errata|Le espressioni correnti che usano questa entità errata devono essere esaminate in tutte le finalità. Le espressioni correnti hanno indicato erroneamente a LUIS che questo testo è l'entità prevista.
 |Testo correttamente etichettato|entità con evidenziazione blu, sottolineatura rossa|Previsione errata|Fornire più espressioni con l'entità correttamente etichettata in diverse posizioni e ambiti di utilizzo. Le espressioni correnti non sono sufficienti per insegnare a LUIS che questa è l'entità oppure nel contesto sono presenti entità simili. Le entità simili devono essere combinate in un'unica entità in modo da non confondere LUIS. Un'altra soluzione consiste nell'aggiungere un elenco di frasi per migliorare la significatività delle parole. |
 |Testo non correttamente etichettato|entità con evidenziazione blu, sottolineatura rossa|Previsione corretta| Fornire più espressioni con l'entità correttamente etichettata in diverse posizioni e ambiti di utilizzo. 
-
-> [!Note]
-> Una volta una casella rossa intorno lo scopo con etichettato nella riga di utterance l'esempio, un' [errore di previsione preventivo](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) si è verificato. È necessario correggere l'errore. 
 
 ## <a name="other-actions"></a>Altre azioni
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813836"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073018"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Ruoli di entità per i sottotipi contestuali
 
@@ -37,8 +37,8 @@ I ruoli assegnano un nome a tali differenze:
 
 |Tipo di entità|Nome dell'entità|Ruolo|Scopo|
 |--|--|--|--|
-|Semplice|Località|origin|luogo in cui parte l'aereo|
-|Semplice|Località|destination|luogo in cui atterra l'aereo|
+|Semplice|Località|origine|luogo in cui parte l'aereo|
+|Semplice|Località|destinazione|luogo in cui atterra l'aereo|
 
 ## <a name="non-machine-learned-entity-example-of-roles"></a>Esempio di entità non-machine-appreso dei ruoli
 
@@ -79,12 +79,6 @@ Le espressioni di esempio seguenti usano le entità e ruoli:
 |--|--|
 |Mi interessante scoprire di più sulle **Seattle**|Vorrei scoprire di più sulle località {Location}|
 |Acquista un ticket da Seattle a New York|Acquistare un ticket da {Location: Origin} per {Location: Destination}|
-
-## <a name="how-are-roles-related-to-hierarchical-entities"></a>Come i ruoli sono correlati alle entità gerarchiche?
-
-I ruoli sono ora disponibili per tutte le entità in espressioni di esempio, nonché l'utilizzo precedente dei modelli. Perché sono disponibili ovunque, sostituiscono la necessità di entità gerarchiche. Nuove entità deve essere creata con i ruoli, invece di usare le entità gerarchiche. 
-
-Entità gerarchiche sarà deprecata.
 
 ## <a name="how-are-roles-used-in-patterns"></a>In che modo vengono utilizzati i ruoli nei criteri?
 Nell'espressione del modello del criterio, i ruoli vengono utilizzati all'interno dell'espressione: 

@@ -1,7 +1,7 @@
 ---
 title: Dashboard - Language Understanding Intelligent Service
 titleSuffix: Azure Cognitive Services
-description: Risolvere gli Intent con il dashboard di riepilogo di analitica, uno strumento di creazione di report visualizzato.
+description: Correggere gli Intent con il dashboard di analitica, uno strumento di creazione di report visualizzato.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072537"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236953"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Come usare il Dashboard per migliorare l'app
 
-Trovare e risolvere i problemi con finalità dell'app sottoposto a training, quando si usa espressioni di esempio. Dashboard di riepilogo Visualizza informazioni sull'app complessiva, con le evidenziazioni di Intent che dovrebbe essere risolto. 
+Trovare e risolvere i problemi con finalità dell'app sottoposto a training, quando si usa espressioni di esempio. Il dashboard Visualizza informazioni sull'app complessiva, con le evidenziazioni di Intent che dovrebbe essere risolto. 
 
 Esaminare l'analisi è un processo iterativo e ripetuto durante la modifica e migliorare il modello di Dashboard.
 
@@ -38,11 +38,11 @@ I tre problemi risolti nel dashboard sono:
 
 Le stime corrette sono rappresentate con il colore blu.
 
-Dashboard di riepilogo Mostra questi problemi e indica quale Intent sono interessati e suggerisce cosa deve fare per migliorare l'app. 
+Il dashboard Mostra questi problemi e indica quale Intent sono interessati e suggerisce cosa deve fare per migliorare l'app. 
 
 ## <a name="before-app-is-trained"></a>Prima viene eseguito il training di app 
 
-Prima di eseguire il training dell'app, dashboard di riepilogo non contiene suggerimenti per correzioni. Il training dell'app per visualizzare questi suggerimenti.  
+Prima di eseguire il training dell'app, il dashboard non contiene suggerimenti per correzioni. Il training dell'app per visualizzare questi suggerimenti.  
 
 ## <a name="check-your-publishing-status"></a>Controllare lo stato della pubblicazione
 
@@ -50,7 +50,7 @@ Il **lo stato di pubblicazione** scheda contiene informazioni su Attiva versione
 
 Verificare che la versione attiva è la versione che si desidera correggere. 
 
-![Servizi esterni dell'app Mostra dashboard di riepilogo, pubblicato le aree e aggregati riscontri endpoint.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Servizi esterni dell'app Mostra dashboard, pubblicati aree e aggregati riscontri endpoint.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
 Questo inoltre Mostra tutti i servizi esterni, aree pubblicate e aggregati riscontri endpoint. 
 
@@ -96,7 +96,7 @@ Il **lo sbilanciamento delle classi di dati** preventivo elenco Mostra gli Inten
 
 * Aggiungere altre espressioni alla finalità, quindi eseguire nuovamente il training. 
 
-Non aggiungere espressioni a None preventivo a meno che non che viene suggerito nel dashboard di riepilogo.
+Non aggiungere espressioni a None preventivo a meno che non che viene suggerito nel dashboard.
 
 > [!Tip]
 > Utilizzare la terza sezione nella pagina **Utterances per finalità** con il **Utterances (numero)** impostazione, come una guida visiva rapida dei quali gli Intent necessario altre espressioni.  
@@ -154,7 +154,7 @@ Determinare le percentuali di soglia che si è pronti per la tua azienda.
 
 Il filtro consente di trovare gli Intent problema specifico:
 
-|Filtro|Percentuale suggerita|Scopo|
+|Applica filtro|Percentuale suggerita|Scopo|
 |--|--|--|
 |Intent più problematici|-|**Iniziare da qui** -correzione le espressioni in questa finalità migliorerà l'app più di altre correzioni.|
 |Stime corrette riportato di seguito|60%|Questa è la percentuale di espressioni nell'intenzione selezionato siano corretti, ma hanno un punteggio di confidenza di sotto della soglia. |

@@ -1,5 +1,5 @@
 ---
-title: Che cos'è l'API rilevatore di anomalie? | Microsoft Docs
+title: Cos'è l'API Rilevamento anomalie? | Microsoft Docs
 titleSuffix: Azure Cognitive Services
 description: Usare algoritmi avanzati dell'API di rilevamento delle anomalie per identificare le anomalie nei dati delle serie temporali.
 services: cognitive-services
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 48dffb8853d3def590e434c1683ecf038e2a194e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473198"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "64415812"
 ---
-# <a name="what-is-the-anomaly-detector-api"></a>Che cos'è l'API rilevatore di anomalie?
+# <a name="what-is-the-anomaly-detector-api"></a>Cos'è l'API Rilevamento anomalie?
 
 L'API rilevatore di anomalie consente di monitorare e rilevare le anomalie nei dati delle serie temporali con machine learning. L'API rilevatore di anomalie si adatta automaticamente che identifica e applicando i modelli di mapping più appropriati ai dati, indipendentemente dal settore, scenario o volume di dati. Usa dati delle serie temporali, l'API determina i limiti per il rilevamento di anomalie, i valori previsti, e quali punti dati sono le anomalie.
 
@@ -28,7 +28,7 @@ Usando il rilevatore di anomalie non richiede alcuna esperienza precedente in ma
 
 Con il rilevatore di anomalie, è possibile rilevare automaticamente le anomalie in tutta la serie temporale, o appena si verificano in tempo reale. 
 
-|Funzionalità  |DESCRIZIONE  |
+|Funzionalità  |Descrizione  |
 |---------|---------|
 |Rilevare le anomalie appena si verificano in tempo reale. | Rilevare le anomalie nei dati di streaming usando i punti dati visualizzati in precedenza per determinare se la versione più recente è un'anomalia. Questa operazione genera un modello usando i punti dati, inviare e determina se il punto di destinazione è un'anomalia. Chiamando l'API con ogni nuovo punto dati che è generare, è possibile monitorare i dati durante la creazione. |
 |Rilevare le anomalie in tutto il set di dati come batch. | Usare le serie temporali per rilevare eventuali anomalie che potrebbero esistere in tutto i dati. Questa operazione genera un modello usando i dati delle serie intera temporali, con ogni punto di analisi con lo stesso modello.         |
@@ -56,7 +56,7 @@ L'API rilevatore di anomalie è un servizio web RESTful, rendendo più semplice 
 
 [!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
-Dopo l'iscrizione:
+Dopo aver eseguito l'iscrizione:
 
 1. Richiedere i dati delle serie temporali e convertirlo in un formato JSON valido. Uso [procedure consigliate](concepts/anomaly-detection-best-practices.md) durante la preparazione dei dati per ottenere risultati ottimali.
 1. Inviare una richiesta per l'API rilevatore di anomalie con i dati.
@@ -64,6 +64,6 @@ Dopo l'iscrizione:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali utilizzando l'API REST di rilevatore di anomalie](quickstarts/detect-data-anomalies-csharp.md)
+* [Avvio rapido: Rilevare le anomalie nei dati delle serie temporali utilizzando l'API REST di rilevatore di anomalie](quickstarts/detect-data-anomalies-csharp.md)
 * L'API rilevatore di anomalie [demo online](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector)
 * Il rilevatore di anomalie [riferimento all'API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: diberry
-ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: b379ebeeec7d9309cdf150b8b90ddd006e3bcd9a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124333"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240218"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -36,7 +36,7 @@ Per eseguire il contenitore LUIS, è necessario quanto segue:
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|Azure `Cognitive Services` risorse e LUIS [app in pacchetto](luis-how-to-start-new-app.md#export-app-for-containers) file |Per usare il contenitore, è necessario disporre di:<br><br>* A _servizi cognitivi_ risorse di Azure e la fatturazione correlata chiave l'URI dell'endpoint fatturazione. Entrambi i valori sono disponibili nelle pagine di panoramica e le chiavi per la risorsa e sono necessari per avviare il contenitore. È necessario aggiungere il `luis/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente BILLING_ENDPOINT_URI. <br>* Un'app pubblicata o sottoposta a training inserita in un pacchetto come input montato per il contenitore con il relativo ID app associato. È possibile ottenere il file nel pacchetto dal portale di LUIS o le API di creazione. Se si desidera ottenere app in pacchetto LUIS dal [API di creazione](#authoring-apis-for-package-file), è necessario anche il _Creazione chiave_.<br><br>Questi requisiti vengono usati per passare gli argomenti della riga di comando per le variabili seguenti:<br><br>**{AUTHORING_KEY}**: questa chiave viene usata per ottenere il pacchetto dell'app dal servizio LUIS nel cloud e caricare i log di query nel cloud. Il formato è `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: questo ID viene usato per selezionare l'app. Il formato è `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: questa chiave viene usata per avviare il contenitore. È possibile trovare la chiave dell'endpoint in due posizioni. Il primo è il portale di Azure all'interno di _servizi cognitivi_ elenco di chiavi della risorsa. La chiave dell'endpoint è anche disponibile nel portale di LUIS nella pagina relativa a impostazioni dell'endpoint e chiavi. Non usare la chiave di avvio.<br><br>**{BILLING_ENDPOINT}**: Ad esempio: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>La [chiave di creazione e la chiave dell'endpoint](luis-boundaries.md#key-limits) hanno scopi diversi. Non usarle in modo intercambiabile. |
+|Azure `Cognitive Services` risorse e LUIS [app in pacchetto](luis-how-to-start-new-app.md#export-app-for-containers) file |Per usare il contenitore, è necessario disporre di:<br><br>* A _servizi cognitivi_ risorse di Azure e la fatturazione correlata chiave l'URI dell'endpoint fatturazione. Entrambi i valori sono disponibili nelle pagine di panoramica e le chiavi per la risorsa e sono necessari per avviare il contenitore. È necessario aggiungere il `luis/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente BILLING_ENDPOINT_URI. <br>* Un'app pubblicata o sottoposta a training inserita in un pacchetto come input montato per il contenitore con il relativo ID app associato. È possibile ottenere il file nel pacchetto dal portale di LUIS o le API di creazione. Se si desidera ottenere app in pacchetto LUIS dal [API di creazione](#authoring-apis-for-package-file), è necessario anche il _Creazione chiave_.<br><br>Questi requisiti vengono usati per passare gli argomenti della riga di comando per le variabili seguenti:<br><br>**{AUTHORING_KEY}** : questa chiave viene usata per ottenere il pacchetto dell'app dal servizio LUIS nel cloud e caricare i log di query nel cloud. Il formato è `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : questo ID viene usato per selezionare l'app. Il formato è `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : questa chiave viene usata per avviare il contenitore. È possibile trovare la chiave dell'endpoint in due posizioni. Il primo è il portale di Azure all'interno di _servizi cognitivi_ elenco di chiavi della risorsa. La chiave dell'endpoint è anche disponibile nel portale di LUIS nella pagina relativa a impostazioni dell'endpoint e chiavi. Non usare la chiave di avvio.<br><br>**{BILLING_ENDPOINT}** : Ad esempio: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>La [chiave di creazione e la chiave dell'endpoint](luis-boundaries.md#key-limits) hanno scopi diversi. Non usarle in modo intercambiabile. |
 
 ### <a name="authoring-apis-for-package-file"></a>API di creazione di file del pacchetto
 
@@ -223,20 +223,24 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 |{ENDPOINT_KEY} | Questa chiave viene usata per avviare il contenitore. Non usare la chiave di avvio. |
 |{BILLING_ENDPOINT} | Il valore dell'endpoint fatturazione è disponibile nel portale di Azure `Cognitive Services` pagina Panoramica. È necessario aggiungere il `luis/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
 
-Sostituire i parametri con i valori personalizzati nel comando `docker run` di esempio seguente.
+Sostituire i parametri con i valori personalizzati nel comando `docker run` di esempio seguente. Eseguire il comando nella console di Windows.
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
+```console
+docker run --rm -it -p 5000:5000 ^
+--memory 4g ^
+--cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output\,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-> [!Note] 
-> Il comando precedente usa una directory al di fuori dell'unità `c:` per evitare conflitti di autorizzazione in Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker. Il comando Docker precedente usa la barra rovesciata, `\`, come carattere di continuazione di riga. Sostituire o rimuovere questo carattere in base ai requisiti del sistema operativo del [computer host](#the-host-computer). Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
+* Questo esempio viene utilizzata la directory di disattivare il `c:` unità per evitare eventuali conflitti di autorizzazione su Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker. 
+* Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
+* Se si usa un sistema operativo diverso, usare la console/terminal corretto, sintassi cartella per punti di montaggio e il carattere di continuazione di riga per il sistema. Questi esempi presuppongono una console di Windows con un carattere di continuazione riga `^`. Poiché il contenitore è un sistema operativo Linux, il montaggio di destinazione utilizza una sintassi di cartella basato su Linux.
+
 
 
 Questo comando:

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: d5af2bb61eeb986f02a31d45ff9236ecc0c8427e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 073166a594088bca04d81883247a5880fcbd1cb7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026196"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234504"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Avvio rapido: Eseguire l'app di esempio Speech SDK di dispositivi in Android
 
-In questa Guida introduttiva si apprenderà come usare il riconoscimento vocale Devices SDK per Android per compilare un prodotto abilitate al riconoscimento vocale.
+In questa Guida introduttiva verrà illustrato come usare dispositivi Speech SDK per Android per compilare un prodotto abilitate al riconoscimento vocale o usarla come una [trascrizione conversazione](conversation-transcription-service.md) dispositivo.
 
 Questa guida richiede un [servizi cognitivi di Azure](get-started.md) account con una risorsa di servizi di riconoscimento vocale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
@@ -33,9 +33,11 @@ Prima di iniziare a usare il SDK di dispositivi di riconoscimento vocale, è nec
 
 * Scaricare la versione più recente del [vocale Devices SDK](https://aka.ms/sdsdk-download)ed estrarre il file zip nella directory di lavoro.
    > [!NOTE]
-   > Il file ZIP include l'app di esempio di Android.
+   > Il file di esempio-Android-Release.zip include l'app di esempio di Android e questa Guida introduttiva presuppone che l'app venga estratto in C:\SDSDK\Android-Sample-Release
 
 * Per ottenere un [chiave di sottoscrizione di Azure per servizi di riconoscimento vocale](get-started.md)
+
+* Se si prevede di usare la trascrizione di conversazione è necessario utilizzare un [microfono circolare](get-speech-devices-sdk.md) e il servizio è attualmente disponibile solo per "en-US" e "zh-CN" in aree geografiche, "centralus" e "Asia orientale". È necessario disporre una chiave di riconoscimento vocale in una di queste aree per usare la trascrizione di conversazione.
 
 * Se si prevede di usare i servizi di riconoscimento vocale per identificare gli Intent (o azioni) da espressioni di utente, è necessario un [servizio LUIS (Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) sottoscrizione. Per altre informazioni su LUIS e riconoscimento delle intenzioni tramite, vedere [riconosce gli Intent di riconoscimento vocale con LUIS, C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
@@ -80,18 +82,25 @@ Per convalidare l'installazione del kit di sviluppo, compilare e installare l'ap
 
 1. Passare a C:\SDSDK\Android-Sample-Release\example. Fare clic su **OK** per aprire il progetto di esempio.
 
-1. Aggiungere la chiave di sottoscrizione del Servizio di riconoscimento vocale al codice sorgente. Se si vuole provare la funzionalità Riconoscimento finalità, aggiungere anche la chiave di sottoscrizione e l'ID applicazione del [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+1. Aggiungere la chiave di sottoscrizione del riconoscimento vocale per il codice sorgente. Se si vuole provare la funzionalità Riconoscimento finalità, aggiungere anche la chiave di sottoscrizione e l'ID applicazione del [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
-   Le chiavi e le informazioni relative all'applicazione devono essere inserite nelle righe seguenti del file di origine MainActivity.java:
+   Per il riconoscimento vocale e LUIS le informazioni entra in mainactivity. Java:
 
    ```java
-   // Subscription
-   private static final String SpeechSubscriptionKey = "[your speech key]";
-   private static final String SpeechRegion = "westus";
-   private static final String LuisSubscriptionKey = "[your LUIS key]";
-   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-   private static final String LuisAppId = "[your LUIS app ID]"
+    // Subscription
+    private static String SpeechSubscriptionKey = "<enter your subscription info here>";
+    private static String SpeechRegion = "westus"; // You can change this if your speech region is different.
+    private static String LuisSubscriptionKey = "<enter your subscription info here>";
+    private static String LuisRegion = "westus2"; // you can change this, if you want to test the intent, and your LUIS region is different.
+    private static String LuisAppId = "<enter your LUIS AppId>";
    ```
+
+    Se si usa la trascrizione di conversazione sono necessarie anche le informazioni chiave e l'area di riconoscimento vocale in conversation.java:
+
+   ```java
+    private static final String CTSKey = "<Conversation Transcription Service Key>";
+    private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
+    ```
 
 1. La parola di attivazione (parola chiave) predefinita è "Computer". È anche possibile provare una delle altre parole di attivazione disponibili, come "Machine" o "Assistant". I file di risorse per queste parole di attivazione alternative sono disponibili nella cartella keyword di Speech Devices SDK. La cartella C:\SDSDK\Android-Sample-Release\keyword\Computer contiene ad esempio i file usati per la parola di attivazione "Computer".
 
@@ -135,6 +144,10 @@ Per convalidare l'installazione del kit di sviluppo, compilare e installare l'ap
 1. L'applicazione di esempio di Speech Devices SDK viene avviata e visualizza le opzioni seguenti:
 
    ![Applicazione di esempio di Speech Devices SDK e opzioni](media/speech-devices-sdk/qsg-8.png)
+
+1. Aggiunti di recente è la demo di trascrizione di conversazione. Avviare la trascrizione con 'Avvia sessione'. Per impostazione predefinita è tutti gli utenti guest, tuttavia, se si dispone delle firme di voce del partecipante possono essere inserite nel /video/participants.properties file nel dispositivo. Per generare le vocali firma sguardo [trascrivere conversazioni (SDK)](how-to-use-conversation-transcription-service.md).
+
+   ![Applicazione demo conversazione trascrizione](media/speech-devices-sdk/qsg-15.png)
 
 1. A questo punto, non resta che sperimentare.
 

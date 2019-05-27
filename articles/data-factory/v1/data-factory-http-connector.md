@@ -161,7 +161,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati. La sezion
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del set di dati deve essere impostata su **Http**. | Sì |
-| relativeUrl | URL relativo della risorsa che contiene i dati. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. <br><br> Per creare un URL dinamico, è possibile usare le [funzioni e variabili di sistema di Data Factory](data-factory-functions-variables.md). Esempio: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | No  |
+| relativeUrl | URL relativo della risorsa che contiene i dati. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. <br><br> Per creare un URL dinamico, è possibile usare le [funzioni e variabili di sistema di Data Factory](data-factory-functions-variables.md). Esempio: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)** . | No  |
 | requestMethod | Metodo HTTP. I valori consentiti sono **GET** e **POST**. | No  <br />Il valore predefinito è **GET** |
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No  |
 | requestBody | Corpo della richiesta HTTP. | No  |
