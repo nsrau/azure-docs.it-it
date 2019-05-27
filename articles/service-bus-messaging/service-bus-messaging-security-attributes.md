@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 11977a5aa36b023e468ce6a54862b5138995c417
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: d68ffe6561da6a23c288dfabd1d3eb6b34099bb3
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64513524"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003119"
 ---
-# <a name="common-security-attributes-for-azure-service-bus-messaging"></a>Attributi di sicurezza comuni per la messaggistica del Bus di servizio di Azure
+# <a name="security-attributes-for-azure-service-bus-messaging"></a>Attributi di sicurezza per la messaggistica del Bus di servizio di Azure
 
-La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo articolo sono descritti gli attributi comuni di sicurezza integrati di messaggistica del Bus di servizio di Azure.
+Questo articolo sono descritti gli attributi di sicurezza integrati di messaggistica del Bus di servizio di Azure.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -28,7 +28,7 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 |---|---|--|
 | Crittografia di dati inattivi:<ul><li>Modello di crittografia lato server</li><li>Crittografia lato server con chiavi gestite dal cliente</li><li>Altre funzionalità di crittografia (ad esempio lato client, Always Encrypted e così via)</ul>|  Sì per il server-side encryption inattivi per impostazione predefinita. | Chiavi gestite dal cliente e la chiave BYOK non sono ancora supportati. Crittografia lato client è responsabilità del cliente |
 | Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Nella crittografia di rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| Sì | Supporta il meccanismo HTTPS/TLS standard. |
-| Gestione della crittografia chiave (CMK, modalità BYOK e così via)| No  |   |
+| Gestione della crittografia chiave (CMK, modalità BYOK e così via)| N. |   |
 | Crittografia a livello di colonna (Azure Data Services)| N/D | |
 | Chiamate API crittografate| Sì | Le chiamate API vengono effettuate tramite [Azure Resource Manager](../azure-resource-manager/index.yml) e HTTPS. |
 
@@ -37,9 +37,9 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
 | Supporto endpoint del servizio| Sì (solo livello Premium) | Endpoint del servizio rete virtuale sono supportate per [livello Premium del Bus di servizio](service-bus-premium-messaging.md) solo. |
-| Supportare l'inserimento di rete virtuale| No  | |
+| Supportare l'inserimento di rete virtuale| N. | |
 | Isolamento di rete e supporto firewall| Sì (solo livello Premium) |  |
-| Supporto di tunneling forzato| No  |  |
+| Supporto di tunneling forzato| N. |  |
 
 ## <a name="detection"></a>Rilevamento
 
@@ -61,7 +61,7 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
 | La registrazione di piano di controllo e la gestione e controllo| Sì | I log operazioni sono disponibili; visualizzare [log di diagnostica del Bus di servizio](service-bus-diagnostic-logs.md).  |
-| Controllo e registrazione di piano dati| No  |  |
+| Controllo e registrazione di piano dati| N. |  |
 
 ## <a name="configuration-management"></a>Gestione della configurazione
 

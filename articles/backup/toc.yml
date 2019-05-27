@@ -21,6 +21,8 @@
       href: tutorial-restore-disk.md
     - name: Ripristinare singoli file
       href: tutorial-restore-files.md
+    - name: Eseguire il backup di SQL Server nelle VM di Azure
+      href: tutorial-sql-backup.md
     - name: Eseguire il backup di Windows Server
       href: tutorial-backup-windows-server-to-azure.md
     - name: Ripristinare i file in Windows Server

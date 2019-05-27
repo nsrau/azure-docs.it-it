@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 21fb2b84fd58fb7cca7551ee1cef0c79179cfa40
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467137"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002421"
 ---
 # <a name="dynamic-manifests"></a>Manifesti dinamici
 
@@ -31,7 +31,7 @@ Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
+ 
 > [!NOTE]
 > I manifesti dinamici non modificano l'asset e il relativo manifesto predefinito. È possibile decidere di richiedere un flusso con o senza filtri. 
 > 
@@ -124,7 +124,7 @@ Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-m
 
 ## <a name="associate-filters-with-streaming-locator"></a>Associare i filtri localizzatore di Streaming
 
-È possibile specificare un elenco di filtri di asset o account, si applica anche per il localizzatore di Streaming. Il [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) si applica questo elenco di filtri insieme a quelli del client specifica l'URL. Questa combinazione genera una [manifesto dinamico](filters-dynamic-manifest-overview.md), basata su filtri nell'URL + filtri è specificare nel localizzatore di Streaming. È consigliabile usare questa funzionalità se si desidera applicare i filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
+Visualizzare [filtri: associare con i localizzatori di Streaming](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="considerations-and-limitations"></a>Considerazioni e limiti
 
@@ -136,7 +136,6 @@ Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-m
     
     - Per determinare le proprietà dei brani in un asset, [ottenere ed esaminare il file manifesto](#get-and-examine-manifest-files).
     - Formula per impostare le proprietà del timestamp di filtro dell’asset: <br/>startTimestamp = &lt;ora di inizio nel manifesto&gt; +  &lt;ora di inizio del filtro prevista in secondi&gt;*scala cronologica
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

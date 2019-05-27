@@ -11,22 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384681"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113248"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Verificare l'accesso a gruppi o applicazioni in Azure AD le verifiche di accesso
 
 Azure Active Directory (Azure AD) semplifica le aziende gestiscono l'accesso a gruppi e applicazioni in Azure AD e vengono esaminati altri Microsoft Online Services con una funzionalità denominata accesso di Azure AD.
 
 Questo articolo descrive come un revisore designato esegue una verifica di accesso per i membri di un gruppo o gli utenti con accesso a un'applicazione.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+- Azure AD P2 Premium
+
+Per altre informazioni, vedere [quali gli utenti devono avere le licenze?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="open-the-access-review"></a>Aprire la verifica di accesso
 
@@ -64,14 +70,14 @@ Se la richiesta di verifica del proprio accesso, la pagina avrà un aspetto dive
 
 Esistono due modi, che è possibile approvare o negare l'accesso:
 
-- È possibile approvare o rifiutare ogni richiesta singolarmente, o
+- È possibile approvare o negare l'accesso per uno o più utenti, o
 - È possibile accettare i suggerimenti di sistema, che rappresenta il modo più semplice e rapido.
 
-### <a name="approve-or-deny-access-for-each-request"></a>Approvare o negare l'accesso per ogni richiesta
+### <a name="approve-or-deny-access-for-one-or-more-users"></a>Approvare o negare l'accesso per uno o più utenti
 
 1. Esaminare l'elenco di utenti di decidere se approvare o negare l'accesso continuo.
 
-1. Per approvare o rifiutare ogni richiesta, fare clic sulla riga per aprire una finestra per specificare l'azione da intraprendere.
+1. Per approvare o negare l'accesso per un singolo utente, fare clic sulla riga per aprire una finestra per specificare l'azione da intraprendere. Per approvare o negare l'accesso per più utenti, segni di spunta accanto agli utenti di aggiungere e quindi scegliere il **utente/i X revisione** pulsante per aprire una finestra per specificare l'azione da intraprendere.
 
 1. Fare clic su **approvare** oppure **negare**. Se si è certi, è possibile fare clic su **Don ' t know**. Questa operazione comporterà l'utente di mantenere l'accesso, ma la selezione si rifletteranno nel log di controllo.
 

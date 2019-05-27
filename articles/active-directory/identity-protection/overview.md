@@ -17,23 +17,16 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 304e23ec76a2f79d0ab3852efe2a483cf86c51b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d9b0c80522a988447b2753953c0c51b058fdd43
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453023"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "66015205"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Cos'è Azure Active Directory Identity Protection?
 
-Azure Active Directory Identity Protection è una funzionalità dell'edizione Azure AD Premium P2 che consente di:
-
-- Rilevare le potenziali vulnerabilità per le identità dell'organizzazione
-
-- Configurare risposte automatizzate alle azioni sospette rilevate correlate alle identità dell'organizzazione  
-
-- Esaminare gli eventi imprevisti sospetti ed eseguire l'azione appropriata per risolverli   
-
+Azure Active Directory Identity Protection consente alle organizzazioni di configurare risposte automatizzate alle azioni sospette rilevate in relazione alle identità utente.
 
 ## <a name="get-started"></a>Attività iniziali
 
@@ -51,47 +44,38 @@ Trovare le identità compromesse non è un compito facile. Azure Active Director
 
 Azure Active Directory Identity Protection è ben più di un semplice strumento di monitoraggio e reporting. Per proteggere le identità dell'organizzazione, è possibile configurare criteri basati sul rischio che rispondano automaticamente ai problemi rilevati quando viene raggiunto un livello di rischio specificato. Questi criteri, insieme ad altri controlli di accesso condizionale forniti da Azure Active Directory e da [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), possono eseguire il blocco automatico o avviare azioni di correzione adattive, incluse la reimpostazione della password e l'applicazione dell'autenticazione a più fattori.
 
-
-#### <a name="identity-protection-capabilities"></a>Funzionalità di Identity Protection
+### <a name="identity-protection-capabilities"></a>Funzionalità di Identity Protection
 
 **Rilevamento di vulnerabilità e di account rischiosi:**  
 
-* Raccomandazioni personalizzate per migliorare il comportamento di sicurezza in generale evidenziando le vulnerabilità.
-* Calcolo dei livelli di rischio di accesso.
-* Calcolo dei livelli di rischio utente.
-
+- Raccomandazioni personalizzate per migliorare il comportamento di sicurezza in generale evidenziando le vulnerabilità.
+- Calcolo dei livelli di rischio di accesso.
+- Calcolo dei livelli di rischio utente.
 
 **Analisi degli eventi di rischio:**
 
-* Invio di notifiche per gli eventi di rischio.
-* Analisi degli eventi di rischio con informazioni rilevanti e contestuali.
-* Flussi di lavoro di base per tenere traccia delle analisi.
-* Accesso semplificato ad azioni di correzione come la reimpostazione della password.
+- Invio di notifiche per gli eventi di rischio.
+- Analisi degli eventi di rischio con informazioni rilevanti e contestuali.
+- Flussi di lavoro di base per tenere traccia delle analisi.
+- Accesso semplificato ad azioni di correzione come la reimpostazione della password.
 
 **Criteri di accesso condizionale basati sul rischio:**
 
-* Criteri per mitigare gli accessi rischiosi con il blocco degli accessi o le richieste di autenticazione a più fattori
-* Criteri per bloccare o proteggere gli account utente rischiosi.
-* Criteri per richiedere la registrazione degli utenti per l'autenticazione a più fattori
-
-
+- Criteri per mitigare gli accessi rischiosi con il blocco degli accessi o le richieste di autenticazione a più fattori
+- Criteri per bloccare o proteggere gli account utente rischiosi.
+- Criteri per richiedere la registrazione degli utenti per l'autenticazione a più fattori
 
 ## <a name="identity-protection-roles"></a>Ruoli di Identity Protection
 
 Per bilanciare il carico delle attività di gestione per l'implementazione di Identity Protection, è possibile assegnare più ruoli. Azure AD Identity Protection supporta 3 ruoli di directory:
 
-| Ruolo                         | Operazione consentita                          | Operazione non consentita
-| :--                          | ---                                |  ---   |
-| Amministratore globale         | Accesso completo a Identity Protection, implementazione di Identity Protection| |
-| Amministratore della sicurezza       | Accesso completo a Identity Protection | Implementazione di Identity Protection, reimpostazione delle password per un utente |
-| Ruolo con autorizzazioni di lettura per la sicurezza              | Accesso in sola lettura a Identity Protection | Implementazione di Identity Protection, correzione degli utenti, configurazione dei criteri, reimpostazione delle password |
-
-
-
+| Ruolo | Operazione consentita | Operazione non consentita |
+| :-- | --- | --- |
+| Amministratore globale | Accesso completo a Identity Protection, implementazione di Identity Protection| |
+| Amministratore della sicurezza | Accesso completo a Identity Protection | Implementazione di Identity Protection, reimpostazione delle password per un utente |
+| Ruolo con autorizzazioni di lettura per la sicurezza | Accesso in sola lettura a Identity Protection | Implementazione di Identity Protection, correzione degli utenti, configurazione dei criteri, reimpostazione delle password |
 
 Per altri dettagli, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
-
-
 
 ## <a name="detection"></a>Rilevamento
 
@@ -104,7 +88,6 @@ Azure Active Directory Identity Protection analizza la configurazione e rileva l
 Azure Active Directory usa l'euristica e algoritmi adattivi di apprendimento automatico per rilevare azioni sospette correlate alle identità dell'utente. Il sistema crea un record per ogni azione sospetta rilevata. Questi record sono denominati anche eventi di rischio.  
 Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](../active-directory-identity-protection-risk-events.md).
 
-
 ## <a name="investigation"></a>Analisi
 
 L'esperienza con Identity Protection inizia in genere dal relativo dashboard.
@@ -113,29 +96,26 @@ L'esperienza con Identity Protection inizia in genere dal relativo dashboard.
 
 Il dashboard consente di accedere a:
 
-* Report, ad esempio **Utenti contrassegnati per il rischio**, **Eventi di rischio** e **Vulnerabilità**
-* Impostazioni come la configurazione dei **criteri di sicurezza**, delle **notifiche** e della **registrazione per l'autenticazione a più fattori**
+- Report, ad esempio **Utenti contrassegnati per il rischio**, **Eventi di rischio** e **Vulnerabilità**
+- Impostazioni come la configurazione dei **criteri di sicurezza**, delle **notifiche** e della **registrazione per l'autenticazione a più fattori**
 
 Si tratta in genere del punto di partenza dell'analisi, ovvero del processo di analisi di attività, log e altre informazioni rilevanti relative a un evento di rischio per decidere se sono necessarie procedure di correzione o mitigazione, se e come l'identità è stata compromessa e come è stata usata l'identità compromessa.
 
 È possibile collegare le attività di analisi alle [notifiche](notifications.md) che Azure Active Directory Protection invia per posta elettronica.
-
-
 
 ## <a name="policies"></a>Criteri
 
 Per implementare risposte automatiche, Azure Active Directory Identity Protection offre tre criteri:
 
 - [Criteri di registrazione per l'autenticazione a più fattori](howto-mfa-policy.md)
-
 - [Criteri di rischio utente](howto-user-risk-policy.md)
-
 - [Criteri di rischio di accesso](howto-sign-in-risk-policy.md)
 
+## <a name="license-requirements"></a>Requisiti relativi alle licenze
+
+[!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
-
 - [Abilitazione di Azure Active Directory Identity Protection](enable.md)
-

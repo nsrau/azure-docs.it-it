@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: cherylmc
 ms.openlocfilehash: 34d8eb976a2a1e173f234be214799832dae7e9ca
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58079606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66115077"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creare e installare i file di configurazione del client VPN per l'autenticazione RADIUS da punto a sito
 
@@ -50,7 +50,7 @@ Quando si configura l'autenticazione con nome utente/password, è possibile crea
 
 È possibile generare file di configurazione client VPN usando il portale di Azure o tramite Azure PowerShell.
 
-#### <a name="azure-portal"></a>portale di Azure
+#### <a name="azure-portal"></a>Portale di Azure
 
 1. Passare al gateway di rete virtuale.
 2. Fare clic su **configurazionePoint-to-Site**.

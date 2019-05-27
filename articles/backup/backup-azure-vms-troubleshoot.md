@@ -2,21 +2,21 @@
 title: Risolvere i problemi relativi al backup di macchine virtuali di Azure
 description: Risolvere i problemi relativi al backup e al ripristino delle macchine virtuali di Azure
 services: backup
-author: srinathv
+author: srinathvasireddy
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: srinathv
-ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/22/2019
+ms.author: srinathvasireddy
+ms.openlocfilehash: 179f806fcff5ce0e384455fdc9db3b2253449eb0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550023"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002305"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Risolvere i problemi relativi al backup delle macchine virtuali di Azure
-È possibile risolvere gli errori rilevati durante l'uso di Backup di Azure con le informazioni elencate nella tabella seguente:
+È possibile risolvere gli errori rilevati durante l'utilizzo di Backup di Azure con le informazioni elencate di seguito:
 
 ## <a name="backup"></a>Backup
 
@@ -82,7 +82,7 @@ Riavviare i writer VSS in uno stato non valido. Da un prompt dei comandi con pri
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - errore nell'analisi del file di configurazione per l'estensione di backup
 
 Codice errore: ExtensionConfigParsingFailure<br/>
-Messaggio di errore: Errore durante l'analisi della configurazione per l'estensione di backup.
+Messaggio di errore: Si è verificato un errore durante l'analisi della configurazione per l'estensione del backup.
 
 Questo errore si verifica a causa della modifica delle autorizzazioni nella directory **MachineKeys**: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
 Eseguire il comando seguente e verificare che le autorizzazioni per il **MachineKeys** directory sono quelli predefiniti:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
@@ -161,7 +161,7 @@ Questo garantirà che gli snapshot vengano creati tramite host invece che guest.
 
 | Dettagli errore | Soluzione alternativa |
 | ------ | --- |
-| Codice errore: 320001<br/> Messaggio di errore: Impossibile eseguire l'operazione perché la VM non esiste più. <br/> <br/> Codice errore: 400094 <br/> Messaggio di errore: La macchina virtuale non esiste <br/> <br/>  La macchina virtuale di Azure non è stata trovata.  |Questo errore si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale di cui eseguire il backup. Per risolvere l'errore, procedere come segue: <ol><li> Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>**or**</li><li> Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. Per altre informazioni, vedere [Arrestare la protezione delle macchine virtuali](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
+| Codice errore: 320001<br/> Messaggio di errore: Non è stato possibile eseguire l'operazione perché la macchina virtuale non esiste più. <br/> <br/> Codice errore: 400094 <br/> Messaggio di errore: La macchina virtuale non esiste <br/> <br/>  La macchina virtuale di Azure non è stata trovata.  |Questo errore si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale di cui eseguire il backup. Per risolvere l'errore, procedere come segue: <ol><li> Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>**or**</li><li> Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. Per altre informazioni, vedere [Arrestare la protezione delle macchine virtuali](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | Lo stato di provisioning della macchina virtuale è Non riuscito. <br>Riavviare la macchina virtuale e assicurarsi che lo stato della macchina virtuale sia In esecuzione o Arresto. | Questo errore si verifica quando gli errori di una delle estensioni provocano lo stato non riuscito del provisioning della macchina virtuale. Passare all'elenco di estensioni, verificare se è presente un'estensione con errore, rimuoverla e provare a riavviare la macchina virtuale. Se tutte le estensioni sono in stato di esecuzione, verificare se è in esecuzione il servizio agente di macchine virtuali. In caso contrario, riavviare il servizio agente di macchine virtuali. |
 |Codice errore: UserErrorBCMPremiumStorageQuotaError<br/> Messaggio di errore: Non è stato possibile copiare lo snapshot della macchina virtuale, a causa di spazio sufficiente nell'account di archiviazione | Per le macchine virtuali Premium nello stack V1 di backup di macchine virtuali, lo snapshot viene copiato nell'account di archiviazione, in modo da assicurare che il traffico di gestione dei backup, che funziona sullo snapshot, non limiti il numero di IOPS disponibili all'applicazione che usa i dischi Premium. <br><br>Si consiglia di allocare solo il 50%, 17,5 TB, dello spazio totale dell'account di archiviazione. In questo modo il servizio Backup di Azure può copiare lo snapshot nell'account di archiviazione e trasferire i dati da questa posizione copiata nell'account di archiviazione all'insieme di credenziali. |
 | Non è stato possibile installare l'estensione servizi di ripristino di Microsoft come macchina virtuale non è in esecuzione <br>L'agente VM è un prerequisito dell'estensione Servizi di ripristino di Azure. Installare l'agente VM di Azure e riavviare l'operazione di registrazione. |<ol> <li>Controllare se l'agente di macchine virtuali è stato installato correttamente. <li>Assicurarsi che il flag sul file di configurazione della macchina virtuale sia impostato correttamente.</ol> Altre informazioni sull'installazione dell'agente di macchine virtuali e su come convalidarlo. |
@@ -182,7 +182,7 @@ Questo garantirà che gli snapshot vengano creati tramite host invece che guest.
 | Non è possibile annullare il processo perché non è in corso. <br>L'annullamento è supportato solo per i processi in corso. Provare ad annullare un processo in corso. |Questo errore si verifica a causa di uno stato temporaneo. Attendere un minuto e ripetere l'operazione di annullamento. |
 | Non è stato possibile annullare il processo. <br>Attendere il completamento del processo. |Nessuna |
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Ripristina
 
 | Dettagli errore | Soluzione alternativa |
 | --- | --- |
@@ -205,22 +205,22 @@ Se il backup impiega più di 12 ore o il ripristino impiega più di 6 ore, rived
 ### <a name="set-up-the-vm-agent"></a>Configurare l'agente di macchine virtuali
 L'agente di VM è in genere già presente nelle VM create dalla raccolta di Azure. Nelle macchine virtuali di cui viene eseguita la migrazione da data center locali, tuttavia, l'agente di macchine virtuali non è installato. Per queste macchine virtuali è necessario installare esplicitamente l'agente VM.
 
-#### <a name="windows-vms"></a>Macchine virtuali di Windows
+#### <a name="windows-vms"></a>Macchine virtuali Windows
 
 * Scaricare e installare il file [MSI per l'agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione è necessario disporre dei privilegi di amministratore.
 * Per le macchine virtuali create con il modello di distribuzione classica, [aggiornare le proprietà della macchina virtuale](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. Questo passaggio non è necessario per le macchine virtuali di Azure Resource Manager.
 
-#### <a name="linux-vms"></a>Macchine virtuali di Linux
+#### <a name="linux-vms"></a>Macchine virtuali Linux
 
 * Installare la versione più recente dell'agente dal repository di distribuzione. Per informazioni dettagliate sul nome del pacchetto, vedere il [repository dell'agente Linux](https://github.com/Azure/WALinuxAgent).
 * Per le macchine virtuali create con il modello di distribuzione classica, [usare questo blog](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per aggiornare le proprietà della macchina virtuale e verificare che l'agente sia installato. Questo passaggio non è necessario per le macchine virtuali di Resource Manager.
 
 ### <a name="update-the-vm-agent"></a>Aggiornare l'agente di macchine virtuali
-#### <a name="windows-vms"></a>Macchine virtuali di Windows
+#### <a name="windows-vms"></a>Macchine virtuali Windows
 
 * Per aggiornare l'agente di macchine virtuali, reinstallare i [file binari dell'agente di macchine virtuali](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Prima di aggiornare l'agente, assicurarsi che non venga eseguita alcuna operazione di backup durante l'aggiornamento dell'agente di macchine virtuali.
 
-#### <a name="linux-vms"></a>Macchine virtuali di Linux
+#### <a name="linux-vms"></a>Macchine virtuali Linux
 
 * Per aggiornare l'agente di macchine virtuali Linux, seguire le istruzioni nell'articolo [Aggiornamento dell'agente di macchine virtuali Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

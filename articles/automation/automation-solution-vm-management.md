@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501968"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002485"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività in Automazione di Azure
 
@@ -49,7 +49,7 @@ I runbook per questa soluzione funzionano con un [account RunAs di Azure](automa
 
 ### <a name="permissions-needed-to-deploy"></a>Autorizzazioni necessarie per la distribuzione
 
-Sono disponibili determinate autorizzazioni che un utente deve disporre per distribuire l'avviare/arrestare VM durante la disattivazione soluzione ore. Queste autorizzazioni sono diverse se si usa un'area di lavoro Log Analitica e Account di automazione creato in precedenza oppure crearne di nuovi durante la distribuzione.
+Sono disponibili determinate autorizzazioni che un utente deve disporre per distribuire l'avviare/arrestare VM durante la disattivazione soluzione ore. Queste autorizzazioni sono diverse se si usa un'area di lavoro Log Analitica e Account di automazione creato in precedenza oppure crearne di nuovi durante la distribuzione. Se sei un collaboratore della sottoscrizione e un amministratore globale nel tenant di Azure Active Directory, non devi configurare le autorizzazioni seguenti. Se non si dispone di tali diritti o necessario configurare un ruolo personalizzato, vedere le autorizzazioni necessarie di sotto.
 
 #### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Account preesistenti Account di automazione e Log Analitica
 
@@ -79,41 +79,21 @@ Per distribuire avviare/arrestare VM durante la disattivazione soluzione ore a u
 
 Per avviare/arrestare VM durante gli orari di minore di distribuire soluzioni per un nuovo Account di automazione e Log Analitica dell'area di lavoro l'utente che distribuisce la soluzione deve disporre di autorizzazioni definiti nella sezione precedente, nonché le autorizzazioni seguenti:
 
-- CO-amministratore nella sottoscrizione: questo è necessario creare l'Account runas classico
-- Far parte del **sviluppatore di applicazioni** ruolo. Per altre informazioni su come configurare gli account RunAs, vedere [autorizzazioni necessarie per configurare gli account RunAs](manage-runas-account.md#permissions).
+- CO-amministratore della sottoscrizione - necessario solo per creare l'Account runas classico
+- Far parte del [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **sviluppatore di applicazioni** ruolo. Per altre informazioni su come configurare gli account RunAs, vedere [autorizzazioni necessarie per configurare gli account RunAs](manage-runas-account.md#permissions).
+- Collaboratore nella sottoscrizione o le autorizzazioni seguenti.
 
 | Autorizzazione |`Scope`|
 | --- | --- |
+| Microsoft.Authorization/Operations/read | Sottoscrizione|
+| Microsoft.Authorization/permissions/read |Sottoscrizione|
 | Microsoft.Authorization/roleAssignments/read | Sottoscrizione |
 | Microsoft.Authorization/roleAssignments/write | Sottoscrizione |
+| Microsoft.Authorization/roleAssignments/delete | Sottoscrizione |
 | Microsoft.Automation/automationAccounts/connections/read | Gruppo di risorse |
 | Microsoft.Automation/automationAccounts/certificates/read | Gruppo di risorse |
 | Microsoft.Automation/automationAccounts/write | Gruppo di risorse |
 | Microsoft.OperationalInsights/workspaces/write | Gruppo di risorse |
-
-### <a name="region-mappings"></a>Mapping delle aree
-
-Quando si abilita Avvia/Arresta macchine virtuali durante orari di minore attività, sono supportati solo determinate aree geografiche per il collegamento a un'area di lavoro di Log Analitica e un Account di automazione.
-
-La tabella seguente mostra i mapping supportati:
-
-|**Area dell'area di lavoro di Log Analytics**|**Area di Automazione di Azure**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|Europa occidentale|Europa occidentale|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> mapping EastUS2EUAP e Stati Uniti orientali per aree di lavoro di Log Analitica per gli account di automazione non sono un mapping di un'area a un'altra esatto, ma è il mapping corretto.
-
-<sup>2</sup> a causa di limiti di capacità dell'area non è disponibile durante la creazione di nuove risorse. Sono inclusi gli account di automazione e Log Analitica aree di lavoro. Tuttavia, le risorse collegate preesistente nell'area continueranno a funzionare.
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
@@ -140,6 +120,11 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
    - Per il **gruppo di risorse**, è possibile selezionare un gruppo di risorse esistente o crearne uno nuovo.
    - Selezionare un **percorso**. Attualmente le uniche località disponibili sono: **Australia sud-orientale**, **Canada centrale**, **India centrale**, **Stati Uniti orientali**, **Giappone orientale**, **Asia sud-orientale**, **Regno Unito meridionale**, **Europa occidentale** e **Stati Uniti occidentali 2**.
    - Selezionare un **Piano tariffario**. Scegliere l'opzione **Per GB (autonomo)**. Log di monitoraggio di Azure è aggiornato [prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) e livello Per GB è l'unica opzione.
+
+   > [!NOTE]
+   > Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro Log Analytics e un account di Automazione.
+   >
+   > Per un elenco di coppie di mapping supportati, vedere [mapping di area per area di lavoro di Account di automazione e Log Analitica](how-to/region-mappings.md).
 
 5. Dopo aver specificato le informazioni necessarie nella pagina **area di lavoro Log Analytics**, fare clic su **Crea**. È possibile monitorarne lo stato scegliendo **Notifiche** dal menu. Al termine, si tornerà alla pagina **Aggiungi soluzione**.
 6. Nella pagina **Aggiungi soluzione** selezionare **Account di Automazione**. Se si sta creando una nuova area di lavoro Log Analytics, è possibile creare un nuovo account di Automazione da associarvi oppure selezionare un Account di automazione esistente che non sia già collegato a un'area di lavoro Log Analytics. Selezionare un account di Automazione esistente o fare clic su **Crea un account di Automazione** e specificare le informazioni seguenti nella pagina **Aggiungi account di Automazione**:
@@ -433,7 +418,9 @@ Se non è più necessario usare la soluzione, è possibile eliminarla dall'accou
 
 Per eliminare la soluzione, attenersi alla procedura seguente:
 
-1. Dall'account di Automazione selezionare **Area di lavoro** dalla pagina di sinistra.
+1. Dall'account di automazione, sotto **le risorse correlate**, selezionare **dell'area di lavoro collegato**.
+1. Selezionare **passare all'area di lavoro**.
+1. Sotto **generali**, selezionare **soluzioni**. 
 1. Nella pagina **Soluzioni** selezionare la soluzione **Start-Stop-VM[Workspace]** (Avvio-Arresto-VM[Area di lavoro]). Nella pagina **VMManagementSolution[area di lavoro]** scegliere **Elimina** dal menu.<br><br> ![Eliminare una soluzione di gestione di macchine virtuali](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. Nella finestra **Elimina soluzione** confermare di voler eliminare la soluzione.
 1. Per tenere traccia dello stato di avanzamento della verifica delle informazioni e della rimozione della soluzione, è possibile usare la voce **Notifiche** nel menu. Quando il processo di rimozione della soluzione inizia, l'utente viene rimandato alla pagina **Soluzioni**.

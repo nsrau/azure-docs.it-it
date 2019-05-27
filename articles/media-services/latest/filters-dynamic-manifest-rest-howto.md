@@ -11,20 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: 32b9664d12d6fe3a44329665c730dbc8709430f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69399513291a47f7109003e825052314f447125a
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322720"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002332"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali
 
-Quando si distribuiscono contenuti ai clienti (flusso di Eventi dal vivo o Video on demand) il client potrebbe avere bisogno di una maggiore flessibilità rispetto a quanto descritto nel file manifesto dell'asset predefinito. Servizi multimediali di Azure consente di definire i filtri account e i filtri asset per i propri contenuti. Per altre informazioni, vedere [Filtri e manifesti dinamici](filters-dynamic-manifest-overview.md).
+Quando si distribuiscono contenuti ai clienti (flusso di Eventi dal vivo o Video on demand) il client potrebbe avere bisogno di una maggiore flessibilità rispetto a quanto descritto nel file manifesto dell'asset predefinito. Servizi multimediali di Azure consente di definire i filtri account e i filtri asset per i propri contenuti. Per altre informazioni, vedere [filtri](filters-concept.md) e [manifesti dinamici](filters-dynamic-manifest-overview.md).
 
 Questo argomento illustra come definire un filtro per un asset Video on demand e usare le API REST per creare [Filtri account](https://docs.microsoft.com/rest/api/media/accountfilters) e [Filtri asset](https://docs.microsoft.com/rest/api/media/assetfilters). 
+
+> [!NOTE]
+> Assicurarsi di esaminare [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## <a name="prerequisites"></a>Prerequisiti 
 

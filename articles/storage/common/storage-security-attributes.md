@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7868b52fee991d4b9323fa0b7969aeca4dc83cdb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 922273e3805004f6af068ea748c16f5675810144
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711960"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001469"
 ---
-# <a name="common-security-attributes-for-azure-storage"></a>Attributi di sicurezza comuni per l'archiviazione di Azure
+# <a name="security-attributes-for-azure-storage"></a>Attributi di sicurezza per archiviazione di Azure
 
-La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo articolo sono descritti gli attributi di sicurezza comuni integrati in archiviazione di Azure. 
+Questo articolo sono descritti gli attributi di sicurezza integrati in archiviazione di Azure. 
 
 [!INCLUDE [Security Attributes Header](../../../includes/security-attributes-header.md)]
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 5/3/2019
 ms.author: victorh
-ms.openlocfilehash: 4c4a6776e3bb56026a48963ec83fe582380c68d0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 84b42654ec472ea2c7c81bed545f56b647158c95
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145949"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016013"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -84,10 +84,10 @@ Visualizzare [prezzi di Azure Firewall](https://azure.microsoft.com/pricing/deta
 
 È possibile usare i metodi di *deallocazione* e *allocazione* di Azure PowerShell.
 
-Ad esempio: 
+Ad esempio:
 
 ```azurepowershell
-# Stop an exisitng firewall
+# Stop an existing firewall
 
 $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
@@ -123,9 +123,9 @@ Sì. Tuttavia, la configurazione di route definite dall'utente per reindirizzare
 
 Il tunneling forzato non è supportato per impostazione predefinita, ma può essere abilitata con l'aiuto di supporto.
 
-Firewall di Azure deve avere connettività Internet diretta. Se il AzureFirewallSubnet apprende una route predefinita alla rete locale tramite BGP, è necessario sostituire questo con una route UDR 0.0.0.0/0 con il **NextHopType** impostare il valore come **Internet** mantenere diretto Connettività Internet. Per impostazione predefinita, i Firewall di Azure non supporta il tunneling forzato a una rete locale.
+Connettività diretta al Firewall di Azure. Se AzureFirewallSubnet apprende una route predefinita alla rete locale tramite BGP è necessario sostituirla con una route UDR 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet** per mantenere connettività diretta a Internet. Per impostazione predefinita, Firewall di Azure non supporta il tunneling forzato a una rete locale.
 
-Tuttavia, se la configurazione richiede il tunneling forzato a una rete locale, Microsoft supporterà il caso per caso. Contattare il supporto in modo da consentire di rivedere il caso. Se accettato, verrà elenco elementi consentiti la sottoscrizione e assicurare che venga mantenuta la connettività Internet di firewall necessarie.
+Tuttavia, se la configurazione richiede il tunneling forzato a una rete locale, Microsoft effettuerà assistenza caso per caso. Contattare il supporto tecnico per poter esaminare il caso. Se accettato, la sottoscrizione verrà inserita nell'elenco elementi consentiti e si assicurerà che venga mantenuta la connettività Internet del firewall necessaria.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Vi sono restrizioni relative al gruppo di risorse del firewall?
 

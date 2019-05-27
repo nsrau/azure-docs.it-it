@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: wolfma
-ms.openlocfilehash: c36913cb8f6625895a293c97a6a9779cc0f1d39f
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 6a85281214fe28a48aa9d405f4f1120905495b83
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466975"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002197"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in C++ su Linux con Speech SDK
+# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscere i contenuti vocali in C++ su Linux con Speech SDK
 
 Sono disponibili guide di avvio rapido anche per la [sintesi vocale](quickstart-text-to-speech-cpp-linux.md).
 
@@ -34,7 +34,7 @@ Per completare questa guida di avvio rapido, è necessaria una chiave di sottosc
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.5.0`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.5.1`.
 
 Speech SDK per Linux è utilizzabile per compilare applicazioni sia a 64 bit che a 32 bit. Le librerie necessarie e i file di intestazione possono essere scaricati come file tar da https://aka.ms/csspeech/linuxbinary.
 

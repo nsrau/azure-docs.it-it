@@ -16,11 +16,11 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 18350337ba44d969173d518a4bc8dfe40185de21
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447116"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66112706"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurare le identità gestite per risorse di Azure in una macchina virtuale di Azure usando le chiamate API REST
 
@@ -81,10 +81,10 @@ Per creare una macchina virtuale di Azure con l'identità gestita assegnata dal 
    
    **Intestazioni della richiesta**
    
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
    
    **Corpo della richiesta**
 
@@ -170,10 +170,10 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
    ```
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
    
    **Corpo della richiesta**
     
@@ -202,10 +202,10 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
    ```
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -237,10 +237,10 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
     
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -280,10 +280,10 @@ Per disabilitare l'identità gestita assegnata dal sistema in una macchina virtu
    ```
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -339,10 +339,10 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
 
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -420,10 +420,10 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
 
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -511,9 +511,9 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
    ```
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.
 
     Se si dispone di qualsiasi utente o assegnato dal sistema gestito le identità assegnate alla macchina virtuale come indicato nella `identity` valore nella risposta, andare al passaggio 5 che illustra come mantenere l'identità gestita assegnato dal sistema durante l'aggiunta di un'identità gestita assegnata dall'utente in la macchina virtuale.
 
@@ -532,10 +532,10 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
    ```
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
  
    **Corpo della richiesta**
 
@@ -564,10 +564,10 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
    
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -600,10 +600,10 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
    
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -639,10 +639,10 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
 
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -680,10 +680,10 @@ Per rimuovere un'identità assegnata dall'utente da una macchina virtuale, all'a
 
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.
  
    Se sono state gestite identità assegnate alla macchina virtuale, sono elencate nella risposta nel valore `identity`.
 
@@ -703,10 +703,10 @@ Per rimuovere un'identità assegnata dall'utente da una macchina virtuale, all'a
 
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -735,10 +735,10 @@ Per rimuovere un'identità assegnata dall'utente da una macchina virtuale, all'a
 
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |DESCRIZIONE  |
+   |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -765,10 +765,10 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Intestazioni della richiesta**
 
-|Intestazione della richiesta  |DESCRIZIONE  |
+|Intestazione della richiesta  |Descrizione  |
 |---------|---------|
 |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+|*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
 
 **Corpo della richiesta**
 
@@ -792,10 +792,10 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Intestazioni della richiesta**
 
-|Intestazione della richiesta  |DESCRIZIONE  |
+|Intestazione della richiesta  |Descrizione  |
 |---------|---------|
 |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.| 
+|*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.| 
 
 **Corpo della richiesta**
 

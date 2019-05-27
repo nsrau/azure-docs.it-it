@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: f26391e36e3208996160fffad01e39ec2f182318
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a9f8066896134072665c3f5b325e033b638bf094
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130894"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001003"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Distribuire un'applicazione dual-stack IPv6 in Azure PowerShell (anteprima)
 
@@ -149,9 +149,9 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendPort 80
 ```
 
-### <a name="create-load-balancer"></a>Creare un servizio di bilanciamento del carico
+### <a name="create-load-balancer"></a>Crea servizio di bilanciamento del carico
 
-Creare l'istanza di Load Balancer Basic con [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). L'esempio seguente crea un pubblico Basic Load Balancer denominato *myLoadBalancer* utilizzando le configurazioni IP front-end IPv4 e IPv6, i pool back-end, probe di integrità, il bilanciamento del carico regole e NAT regole che è stato creato nel passaggi precedenti:
+Creare l'istanza di Load Balancer Basic con [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). L'esempio seguente crea un pubblico Basic Load Balancer denominato *myLoadBalancer* usando l'indirizzo IP front-end IPv4 e IPv6 configurazioni, i pool back-end e le regole di bilanciamento del carico creato nei passaggi precedenti:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
@@ -167,7 +167,7 @@ $lb = New-AzLoadBalancer `
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 Prima di distribuire alcune macchine virtuali e testare il servizio di bilanciamento, è necessario creare risorse di rete supporto - set di disponibilità, il gruppo di sicurezza di rete, reti virtuali e schede di rete virtuale. 
-### <a name="create-an-availability-set"></a>Creare un set di disponibilità
+### <a name="create-an-availability-set"></a>Crea set di disponibilità
 Per aumentare la disponibilità elevata dell'app, posizionare le macchine virtuali in un set di disponibilità.
 
 Creare un set di disponibilità con [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). L'esempio seguente crea un set di disponibilità denominato *myAvailabilitySet*:

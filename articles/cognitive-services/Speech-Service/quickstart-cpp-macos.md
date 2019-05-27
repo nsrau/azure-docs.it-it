@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, C++ (macOS) - Servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, C++ (macOS) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in C++ in macOS con Speech SDK
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: wolfma
-ms.openlocfilehash: 86ad938cd3d248ad907b3143342b0acf9ff15631
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 498246292b3cf591433a709139621b039ac3af33
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236879"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002181"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C++ su macOS con Speech SDK
+# <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in C++ su macOS con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -31,7 +31,7 @@ Per completare questa guida di avvio rapido, è necessaria una chiave di sottosc
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.5.0`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.5.1`.
 
 Speech SDK per macOS è disponibile per il download come bundle framework compresso in https://aka.ms/csspeech/macosbinary.
 

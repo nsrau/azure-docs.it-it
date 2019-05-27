@@ -14,12 +14,12 @@ ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 127b411f4de0bceff98f1c81f6a4ca8c1fc4fb3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c147023635f337e203f02779ef6df3d0a0f0088c
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390990"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015560"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Resource Manager
 
@@ -203,7 +203,7 @@ New-AzResourceGroupDeployment `
 
 Quando si distribuisce il modello, usare lo stesso gruppo di risorse dell'insieme di credenziali delle chiavi. Ciò semplifica la pulizia delle risorse, perché sarà necessario eliminare un solo gruppo di risorse anziché due.
 
-## <a name="valid-the-deployment"></a>Convalidare la distribuzione
+## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 
 Al termine della distribuzione della macchina virtuale, testare l'accesso usando la password archiviata nell'insieme di credenziali delle chiavi.
 

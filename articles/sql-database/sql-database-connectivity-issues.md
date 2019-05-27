@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202175"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019829"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Gestione dei problemi di connessione e degli errori temporanei del database SQL
 
@@ -134,7 +134,7 @@ Se il programma client si connette al database SQL usando la classe .NET Framewo
 Quando si crea la [stringa di connessione](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) per l'oggetto **SqlConnection**, coordinare i valori tra i parametri seguenti:
 
 - **ConnectRetryCount**:&nbsp;&nbsp;Il valore predefinito è 1. L'intervallo consentito è tra 0 e 255.
-- **ConnectRetryInterval**:&nbsp;&nbsp;Il valore predefinito è 1 secondo. L'intervallo consentito è tra 1 e 60.
+- **ConnectRetryInterval**:&nbsp;&nbsp;predefinito è 10 secondi. L'intervallo consentito è tra 1 e 60.
 - **Timeout di connessione**:&nbsp;&nbsp;Il valore predefinito è 15 secondi. L'intervallo consentito è tra 0 e 2147483647.
 
 In particolare, i valori scelti devono rendere vera l'eguaglianza seguente: Timeout di connessione = ConnectRetryCount * ConnectionRetryInterval
@@ -275,7 +275,7 @@ Enterprise Library 6 (EntLib60) offre classi .NET gestite per semplificare la re
 
 Ecco alcune istruzioni Transact-SQL SELECT che eseguono query nei log degli errori e alla ricerca di altre informazioni.
 
-| Query di un log | DESCRIZIONE |
+| Query di un log | Descrizione |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |La visualizzazione [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) offre informazioni sui singoli eventi, inclusi quelli che possono causare errori temporanei o di connettività.<br/><br/>In teoria, è possibile correlare i valori **start_time** o **end_time** con le informazioni relative al momento in cui si sono verificati problemi nel programma client.<br/><br/>È necessario connettersi al database *master* per eseguire questa query. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |La vista [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) offre un conteggio aggregato dei tipi di evento, per consentire operazioni di diagnostica aggiuntive.<br/><br/>È necessario connettersi al database *master* per eseguire questa query. |

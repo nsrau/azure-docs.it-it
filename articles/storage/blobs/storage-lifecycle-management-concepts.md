@@ -5,16 +5,16 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 26ff592ea0d0a57049ae11a981fe8d8e77ca876f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606954"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001748"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di archiviazione Blob di Azure
 
@@ -393,8 +393,12 @@ Per i dati che vengono modificati e usati regolarmente per tutto il loro ciclo d
 
 ## <a name="faq"></a>Domande frequenti
 
-**Ho creato un nuovo criterio, perché le azioni non vengono eseguite immediatamente?**  
+**Ho creato un nuovo criterio, perché le azioni di non eseguire immediatamente?**  
 La piattaforma esegue i criteri di gestione del ciclo di vita una volta al giorno. Dopo aver configurato un criterio, può richiedere fino a 24 ore per alcune azioni da eseguire per la prima volta.  
+
+**Riattivata manualmente un blob archiviato, come posso evitarlo venga spostato indietro a livello di accesso archivio temporaneamente?**  
+Quando un blob viene spostato dal livello di un accesso a un altro livello di accesso, l'ultima ora di modifica non cambia. Se si riattivare manualmente un blob archiviato al livello ad accesso frequente, si sarebbe spostato di nuovo archiviare a livelli dal motore di gestione del ciclo di vita. È possibile evitarla disabilitando la regola che interessa temporaneamente questo blob. È possibile copiare i blob in un altro percorso che deve rimanere nel livello ad accesso frequente in modo permanente. È possibile riabilitare la regola quando il blob può essere in modo sicuro spostato di nuovo per l'archiviazione a livelli. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

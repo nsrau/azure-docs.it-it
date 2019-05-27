@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458802"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019778"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integrazione continua in Azure DevOps Services con i progetti di distribuzione di tipo Gruppo di risorse di Azure
 Per distribuire un modello di Azure, eseguire attività nelle varie fasi: Compilazione, Test, copia in Azure (detta anche "Staging") e distribuire il modello. Esistono due modi diversi per distribuire i modelli in Azure DevOps Services. Entrambi i metodi forniscono gli stessi risultati, quindi è opportuno scegliere quello che meglio si adatta al proprio flusso di lavoro.
@@ -93,7 +93,7 @@ Le procedure seguenti consentono di eseguire i passaggi necessari per configurar
       
       Per l'interfaccia della riga di comando di Azure usare:
       
-      `azure account show`
+      `az account show`
    8. Per ottenere un ID entità servizio, una chiave entità servizio e un ID tenant, seguire la procedura in [Usare il portale per creare un'applicazione Active Directory e un'entità servizio](active-directory/develop/howto-create-service-principal-portal.md) o [Authenticating a service principal with Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md) (Autenticazione di un'entità servizio con Azure Resource Manager).
    9. Aggiungere i valori di ID entità servizio, chiave entità servizio e ID tenant alla finestra di dialogo **Aggiungi sottoscrizione di Azure**, quindi scegliere il pulsante **OK**.
       
@@ -109,7 +109,7 @@ Le procedure seguenti consentono di eseguire i passaggi necessari per configurar
     ![Modificare il percorso dello script][10]
 8. Nella casella **Argomenti script** immettere i parametri seguenti, su una sola riga. Quando si esegue lo script in Visual Studio, è possibile vedere come vengono usati i parametri nella finestra **Output** . Si può usare questa finestra come punto di partenza per impostare i valori dei parametri nell'istruzione di compilazione.
    
-   | Parametro | DESCRIZIONE |
+   | Parametro | Descrizione |
    | --- | --- |
    | -ResourceGroupLocation |Valore dell'area geografica in cui si trova il gruppo di risorse, ad esempio **eastus** o **'East US'**. Aggiungere virgolette singole se nel nome è presente uno spazio. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
    | -ResourceGroupName |Nome del gruppo di risorse usato per la distribuzione. |

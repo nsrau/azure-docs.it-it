@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713963"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003126"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Panoramica delle code dei messaggi non recapitabili del bus di servizio
 
@@ -102,6 +102,17 @@ while(true)
     }
 }
 ```
+
+## <a name="path-to-the-dead-letter-queue"></a>Percorso per la coda di messaggi non recapitabili
+È possibile accedere la coda di messaggi non recapitabili utilizzando la sintassi seguente:
+
+```
+<queue path>/$deadletterqueue
+<topic path>/Subscription/<subscription path>/$deadletterqueue
+```
+
+Se si usa .NET SDK, è possibile ottenere il percorso per la coda di messaggi non recapitabili utilizzando il metodo SubscriptionClient.FormatDeadLetterPath(). Questo metodo accetta il nome dell'argomento nome, sottoscrizione e i suffissi con **/$DeadLetterQueue**.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

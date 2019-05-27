@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 55e6b515328df635a423e0ecf736b03e17a90b8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698415"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015630"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Usare lo strumento di migrazione volontaria in modo per eseguire la migrazione delle regole di avviso classiche
 
-Come [annunciate in precedenza](monitoring-classic-retirement.md), gli avvisi classici in Monitoraggio di Azure verranno ritirati nel luglio 2019. Uno strumento di migrazione è disponibile nel portale di Azure per i clienti che usano le regole di avviso di classiche e che desiderano migrazione si attivano automaticamente. Questo articolo illustra come usare lo strumento di migrazione per migrare volontariamente le regole di avviso classiche prima dell'avvio della migrazione automatica in luglio 2019.
+Come [annunciate in precedenza](monitoring-classic-retirement.md), gli avvisi classici in Monitoraggio di Azure verranno ritirati nel mese di settembre 2019 (è stato originariamente 2019 luglio). Uno strumento di migrazione è disponibile nel portale di Azure per i clienti che usano le regole di avviso di classiche e che desiderano migrazione si attivano automaticamente. Questo articolo illustra come usare lo strumento di migrazione per migrare volontariamente le regole di avviso classiche prima dell'avvio della migrazione automatica in settembre 2019.
+
+> [!NOTE]
+> A causa di un ritardo nell'implementazione dello strumento di migrazione, è stata la data di ritiro per la migrazione di avvisi classici [esteso al 31 agosto 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) dalla data di originariamente annunciata del 30 giugno 2019.
 
 ## <a name="benefits-of-new-alerts"></a>Vantaggi di nuovi avvisi
 
@@ -78,7 +81,7 @@ Per attivare la migrazione delle regole di avviso classiche nel portale di Azure
 
 ### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>Il motivo per cui l'abbonamento è elencato come non pronto per la migrazione?
 
-Lo strumento di migrazione è l'implementazione per i clienti nelle fasi. Nelle prime fasi, la maggior parte o tutte le sottoscrizioni potrebbero essere contrassegnate come **non è pronto per la migrazione**. Dalla metà di aprile, tuttavia, tutte le sottoscrizioni devono essere pronte per la migrazione.
+Lo strumento di migrazione è l'implementazione per i clienti nelle fasi. Nelle prime fasi, la maggior parte o tutte le sottoscrizioni potrebbero essere contrassegnate come **non è pronto per la migrazione**. 
 
 Quando una sottoscrizione diventa pronta per la migrazione, il proprietario della sottoscrizione verrà visualizzato un messaggio di posta elettronica che indica che lo strumento è disponibile. Non perderti per questo messaggio.
 

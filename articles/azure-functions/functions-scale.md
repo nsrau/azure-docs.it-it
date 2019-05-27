@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05fb277564f72e62a4cdacc12a16cce229b2befc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045833"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872735"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -165,3 +165,9 @@ La fatturazione per il piano a consumo viene illustrata in modo dettagliato nell
 Query utili e informazioni su come comprendere la fattura di consumo reperibili [sulle domande frequenti su fatturazione](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
 [Pagina dei prezzi di Funzioni di Azure]: https://azure.microsoft.com/pricing/details/functions
+
+## <a name="service-limits"></a>Limiti del servizio
+
+Nella tabella seguente indica i limiti applicabili alle App per le funzioni durante l'esecuzione in vari piani di hosting:
+
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]

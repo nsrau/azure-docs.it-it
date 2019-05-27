@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/21/2019
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0516c954bd23d5a2e339c5df447a923528e09d93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61430631"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002019"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Domande frequenti su Cloudyn
 
@@ -74,9 +74,9 @@ Dopo aver completato i passaggi precedenti, sarà possibile visualizzare le racc
 
 Di seguito sono elencati gli scenari più comuni in cui gli account utente diventano *initiallySuspended*.
 
-> Admin1 potrebbe essere un utente di Microsoft Cloud Solution Provider o di Enterprise Agreement. La sua organizzazione è pronta per iniziare a usare Cloudyn.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. Essendo la persona che registra il servizio Cloudyn e accede al portale di Cloudyn, diventa l'*amministratore primario*. Admin1 non crea account utente. ma, usando il portale di Cloudyn, crea account Azure e configura una gerarchia di entità. Admin1 informa Admin2, un amministratore del tenant, che deve eseguire la registrazione con Cloudyn e accedere al portale di Cloudyn.
-> 
-> Admin2 esegue la registrazione tramite il portale di Azure, ma, quando prova ad accedere al portale di Cloudyn, viene visualizzato un errore indicante che il suo account è **sospeso**. All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l'*accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
+> Admin1 potrebbe essere un utente di Microsoft Cloud Solution Provider o contratto Enterprise Agreement. L'organizzazione è pronta per iniziare a usare Cloudyn.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. Come persona che registra il servizio di Cloudyn e accede al portale di Cloudyn, Admin1 diventa il *amministratore principale*. Admin1 non crea account utente. Tramite il portale di Cloudyn, tuttavia, essi creare gli account di Azure e configurare una gerarchia di entità. Admin1 informa Admin2, un amministratore del tenant, che devono registrarsi a Cloudyn e accedere al portale di Cloudyn.
+>
+> Admin2 esegue la registrazione tramite il portale di Azure, Tuttavia quando si tenta di accedere al portale di Cloudyn, ricevono un errore indicante che l'account viene **sospeso**. All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l'*accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
 
 
 Se si riceve un avviso che richiede di consentire l'accesso a un utente, è necessario attivarne l'account.

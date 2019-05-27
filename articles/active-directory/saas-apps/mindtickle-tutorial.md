@@ -16,11 +16,11 @@ ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c38ccf8e1c2bee9695e629a2fc5e8e7b60c64a2a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57879965"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65891530"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindtickle"></a>Esercitazione: Integrazione di Azure Active Directory con MindTickle
 
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con MindTickle, seguire que
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<subdomain>.mindtickle.com`
 
     > [!Note]
-    > Se il valore di **Identificatore** non viene inserito automaticamente, immetterlo manualmente in base ai propri requisiti. Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore contattare il [team di supporto di MindTickle](mailto:support@mindtickle.com).
+    > Se il valore di **Identificatore** non viene inserito automaticamente, immetterlo manualmente in base ai propri requisiti. Poiché il valore di URL accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore contattare il [team di supporto di MindTickle](mailto:support@mindtickle.com).
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 

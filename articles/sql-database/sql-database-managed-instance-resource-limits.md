@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/27/2019
-ms.openlocfilehash: 9726c589472c9ff6d456c922f88d12071e5ebcaf
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.date: 05/22/2019
+ms.openlocfilehash: e091ec29c810fce7a39ad5aa5cc8f0ddae711752
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560571"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016398"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse del database SQL di Azure per le istanze gestite
 
@@ -56,7 +56,7 @@ Istanza gestita ha due livelli di servizio: per utilizzo generico e business cri
 | Numero massimo di database per istanza | 100 | 100 |
 | Numero massimo di file di database per istanza | Fino a 280 | 32.767 file per ogni database |
 | Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes).| 11 K - 110 K (1375/vCore) |
-| Velocità effettiva di log | 22 MB/s per ogni istanza | 4 MB al secondo per vCore<br/>Numero massimo 48 MB/s per ogni istanza|
+| Velocità effettiva di log | 3 MB/s per ogni vCore<br/>Max 22 MB/s per ogni istanza | 4 MB al secondo per vCore<br/>Numero massimo 48 MB/s per ogni istanza|
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes). | |
 | Latenza di I/O (approssimativa) | 5-10 ms | 1-2 ms |
 | Dimensioni max di tempDB | 192 - 1.920 GB (24 GB per vCore) | Nessun vincolo; limitato dalla dimensione massima di archiviazione dell'istanza |

@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fc5bcdbbe821008f74e85a91889044c8975ce93
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350967"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113251"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gestire l'accesso guest con le verifiche di accesso di Azure AD
 
@@ -31,16 +31,13 @@ Con Azure Active Directory (Azure AD) è possibile abilitare facilmente la colla
 È possibile anche assicurarsi che gli utenti guest dispongano dell'accesso appropriato. Si può chiedere ai guest stessi o a un decision maker di partecipare a una verifica di accesso e certificare di nuovo (o "attestare") l'accesso dei guest. I revisori possono esprimere il proprio giudizio sull'effettiva esigenza di accesso continuo da parte di ogni utente in base ai suggerimenti ottenuti da Azure AD. Al termine di una verifica di accesso è possibile apportare modifiche e rimuovere l'accesso per i guest per i quali non è più necessario.
 
 > [!NOTE]
-> Questo documento è incentrato sulla verifica dell'accesso degli utenti guest. Se si vuole controllare l'accesso di tutti gli utenti, non solo dei guest, vedere l'argomento su come [gestire l'accesso utente con le verifiche di accesso](manage-user-access-with-access-reviews.md). Se si vuole verificare l'appartenenza degli utenti a ruoli amministrativi come amministratore globale, vedere l'articolo su come [avviare una verifica di accesso in Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md). 
->
->
+> Questo documento è incentrato sulla verifica dell'accesso degli utenti guest. Se si vuole controllare l'accesso di tutti gli utenti, non solo dei guest, vedere l'argomento su come [gestire l'accesso utente con le verifiche di accesso](manage-user-access-with-access-reviews.md). Se si vuole verificare l'appartenenza degli utenti a ruoli amministrativi come amministratore globale, vedere l'articolo su come [avviare una verifica di accesso in Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
+- Azure AD P2 Premium
 
-Le verifiche di accesso sono disponibili con Azure AD edizione Premium P2, incluso in Microsoft Enterprise Mobility + Security E5. Per altre informazioni, vedere [Edizioni di Azure Active Directory](../fundamentals/active-directory-whatis.md). Ogni utente che interagisce con questa funzionalità, ad esempio per creare una verifica, compilarla oppure verificare il proprio accesso, necessita di una licenza. 
-
-È anche possibile chiedere agli utenti guest di verificare il proprio accesso. Per ogni licenza di Azure AD Premium P2 a pagamento assegnata a uno degli utenti della propria organizzazione, è possibile usare B2B per invitare fino a cinque utenti guest in base al limite di utenti esterni. Questi utenti guest possono anche usare le funzionalità di Azure AD Premium P2. Per altre informazioni, vedere [Licenze di collaborazione B2B di Azure AD](../b2b/licensing-guidance.md).
+Per altre informazioni, vedere [quali gli utenti devono avere le licenze?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Creare ed eseguire una verifica di accesso per i guest
 

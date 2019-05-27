@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60400485"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015270"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordinare gli eventi di connessione dei dispositivi dall'hub IoT di Azure tramite Azure Cosmos DB
 
@@ -36,7 +36,7 @@ In primo luogo creare una stored procedure e impostarlo fino all'esecuzione di u
 
 1. Nell'API SQL di Cosmos DB selezionare **Data Explorer** > **Items** > **New Stored Procedure** (Esplora dati > Elementi > Nuova stored procedure).
 
-   ![Creare la stored procedure](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
+   ![Crea stored procedure](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
 2. Immettere **LatestDeviceConnectionState** per l'ID della stored procedure e incollare il codice seguente nel **corpo di Stored Procedure**. Si noti che questo codice deve sostituire il codice esistente nel corpo della stored procedure. Questo codice mantiene una riga per ogni ID dispositivo e registra lo stato di connessione più recente di tale ID identificando il numero di sequenza più alto.
 
@@ -220,7 +220,7 @@ Nel flusso di lavoro dell'app per la logica, le condizioni consentono di eseguir
 
    **ID database**: ToDoList
 
-   **ID raccolta**: Items
+   **ID raccolta**: Elementi
 
    **ID della stored procedure**: LatestDeviceConnectionState
 

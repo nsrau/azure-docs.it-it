@@ -8,16 +8,16 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ebc39dcd9fe921c794add48cc677a799841cbb78
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a771d4c2ae22b7bf149c13c80fe5286ef52a4545
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943632"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002269"
 ---
-# <a name="common-security-attributes-for-azure-resource-manager"></a>Attributi di sicurezza comuni per Azure Resource Manager
+# <a name="security-attributes-for-azure-resource-manager"></a>Attributi di sicurezza per Azure Resource Manager
 
-La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo articolo sono descritti gli attributi di sicurezza comuni compilati in Azure Resource Manager.
+Questo articolo sono descritti gli attributi di sicurezza creati in Azure Resource Manager.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -26,7 +26,7 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
 | Crittografia di dati inattivi:<ul><li>Modello di crittografia lato server</li><li>Crittografia lato server con chiavi gestite dal cliente</li><li>Altre funzionalità di crittografia (ad esempio lato client, Always Encrypted e così via)</ul>| Sì |  |
-| Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Crittografia nella rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| Sì | HTTPS/TLS. |
+| Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Nella crittografia di rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| Sì | HTTPS/TLS. |
 | Gestione della crittografia chiave (CMK, modalità BYOK e così via)| N/D | Azure Resource Manager non archivia alcun contenuto del cliente, solo i dati di controllo. |
 | Crittografia a livello di colonna (Azure Data Services)| Sì | |
 | Chiamate API crittografate| Sì | |
@@ -35,16 +35,16 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Supporto endpoint del servizio| No  | |
+| Supporto endpoint del servizio| N. | |
 | Supportare l'inserimento di rete virtuale| Sì | |
-| Isolamento di rete e supporto firewall| No  |  |
-| Supporto di tunneling forzato| No  |  |
+| Isolamento di rete e supporto firewall| N. |  |
+| Supporto di tunneling forzato| N. |  |
 
 ## <a name="detection"></a>Rilevamento
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Monitoraggio di supporto (analitica di Log, Application insights e così via) di Azure| No  | |
+| Monitoraggio di supporto (analitica di Log, Application insights e così via) di Azure| N. | |
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
 

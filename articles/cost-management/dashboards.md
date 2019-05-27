@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 7ea7cbf4526528eb481b6125b006d0c29d86deb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60577635"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002059"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Visualizzare le metriche di costo chiave con i dashboard
 
@@ -118,7 +118,7 @@ Per duplicare (clonare) un dashboard personalizzato:
 1. Fare clic su **Dashboard Settings** (Impostazioni dashboard) per visualizzare l'elenco di dashboard disponibili e selezionare il dashboard che si vuole impostare come predefinito.  
     ![opzioni del dashboard per un dashboard predefinito](./media/dashboards/dashboard-options.png)
 2. Fare clic su **Default** (Predefinito) nella riga del dashboard. Viene visualizzata la finestra di dialogo di conferma Default Dashboard (Dashboard predefinito).
-3. Fare clic su **Sì**. Il dashboard viene impostato come predefinito.
+3. Scegliere **Sì**. Il dashboard viene impostato come predefinito.
 
 ## <a name="management-dashboard"></a>Dashboard di gestione
 Il dashboard Management (o dashboard MSP per gli utenti di MSP) include gli elementi di rilievo dei tipi di report principali.  
@@ -233,7 +233,7 @@ Questo dashboard visualizza le indicazioni sulla riduzione delle dimensioni, le 
 Questo widget visualizza il numero di consigli per l'acquisto di istanze riservate ed evidenzia il potenziale risparmio annuale.
 - Fare clic sul widget per aprire il calcolatore di istanze riservate in cui è possibile determinare quando usare i piani tariffari on demand o riservati.
 
-### <a name="sizing"></a>Ridimensionamento
+### <a name="sizing"></a>Dimensionamento
 Questo widget evidenzia il ridimensionamento consigliato e il risparmio potenziale, se implementato.
 - Fare clic sul widget per aprire il report EC2 Cost Effective Sizing Recommendations (Consigli per il ridimensionamento effettivo dei costi EC2).
 

@@ -2,23 +2,22 @@
 title: Attributi di sicurezza comuni per il Backup di Azure
 description: Un elenco di controllo degli attributi di sicurezza comuni per la valutazione di Backup di Azure
 services: backup
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7bc4fd42f64bba09fd20fedf5e06dc30c3b2cc49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 86b8ab96a94a6ffc44c304d8a0a689301560a989
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64680807"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002810"
 ---
-# <a name="common-security-attributes-for-azure-backup"></a>Attributi di sicurezza comuni per il Backup di Azure
+# <a name="security-attributes-for-azure-backup"></a>Attributi di sicurezza per il Backup di Azure
 
-La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo articolo sono descritti gli attributi di sicurezza comuni incorporati in Backup di Azure. 
+Questo articolo sono descritti gli attributi di sicurezza integrati di Backup di Azure. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -27,19 +26,19 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
 | Crittografia di dati inattivi:<ul><li>Modello di crittografia lato server</li><li>Crittografia lato server con chiavi gestite dal cliente</li><li>Altre funzionalità di crittografia (ad esempio lato client, Always Encrypted e così via)</ul>| Sì | Uso della crittografia del servizio di archiviazione per gli account di archiviazione. |
-| Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Nella crittografia di rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| No  | Uso di HTTPS. |
-| Gestione della crittografia chiave (CMK, modalità BYOK e così via)| No  |  |
-| Crittografia a livello di colonna (Azure Data Services)| No  |  |
+| Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Nella crittografia di rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| N. | Uso di HTTPS. |
+| Gestione della crittografia chiave (CMK, modalità BYOK e così via)| N. |  |
+| Crittografia a livello di colonna (Azure Data Services)| N. |  |
 | Chiamate API crittografate| Sì |  |
 
 ## <a name="network-segmentation"></a>Segmentazione di rete
 
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Supporto endpoint del servizio| No  |  |
-| Supportare l'inserimento di rete virtuale| No  |  |
+| Supporto endpoint del servizio| N. |  |
+| Supportare l'inserimento di rete virtuale| N. |  |
 | Isolamento di rete e supporto firewall| Sì | Il tunneling forzato è supportato per il backup delle macchine virtuali. Il tunneling forzato non è supportato per i carichi di lavoro in esecuzione all'interno di macchine virtuali. |
-| Supporto di tunneling forzato| No  |  |
+| Supporto di tunneling forzato| N. |  |
 
 ## <a name="detection"></a>Rilevamento
 
@@ -60,7 +59,7 @@ La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo artico
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
 | La registrazione di piano di controllo e la gestione e controllo| Sì | Tutte le azioni attivate dai clienti dal portale di Azure vengono registrate nei log attività. |
-| Controllo e registrazione di piano dati| No  | Il piano dati di Backup di Azure non è raggiungibile direttamente.  |
+| Controllo e registrazione di piano dati| N. | Il piano dati di Backup di Azure non è raggiungibile direttamente.  |
 
 ## <a name="configuration-management"></a>Gestione della configurazione
 

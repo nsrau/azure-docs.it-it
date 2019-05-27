@@ -45,6 +45,8 @@
           href: publish-portal.md
         - name: Usare un segreto da Key Vault
           href: key-vault-access.md
+        - name: Distribuire con Identità gestita
+          href: publish-managed-identity.md
     - name: Consumer
       items:
         - name: Monitorare un'applicazione gestita
