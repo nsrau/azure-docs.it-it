@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f69c2ea334109a42d63b85cb71de0deb7174beab
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847307"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701678"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
@@ -23,7 +23,7 @@ I database di SQL Server sono carichi di lavoro critici che richiedono un obiett
 
 Questa soluzione sfrutta le API native SQL per eseguire i backup dei database SQL.
 
-* Dopo aver specificato la macchina virtuale di SQL Server da proteggere e aver eseguito la query per trovare i database al suo interno, il servizio Backup di Azure installerà un'estensione di backup di carichi di lavoro nella VM denominata `AzureBackupWindowsWorkload` extension.
+* Dopo aver specificato la macchina virtuale di SQL Server da proteggere e aver eseguito la query per trovare i database al suo interno, il servizio Backup di Azure installerà un'estensione di backup di carichi di lavoro nella macchina virtuale denominata `AzureBackupWindowsWorkload` extension.
 * Questa estensione è costituita da un coordinatore e da un plug-in SQL. Mentre il coordinatore è responsabile di attivare i flussi di lavoro per varie operazioni, come la configurazione del backup, il backup e il ripristino, il plug-in gestisce il flusso di dati effettivo.
 * Per individuare i database in questa VM, Backup di Azure crea l'account  `NT SERVICE\AzureWLBackupPluginSvc`. Questo account viene usato per il backup e il ripristino e richiede le autorizzazioni sysadmin SQL. Backup di Azure sfrutta l'account  `NT AUTHORITY\SYSTEM`  per l'individuazione o l'interrogazione dei database, quindi questo account deve essere un account di accesso pubblico in SQL. Se la VM di SQL Server non è stata creata da Azure Marketplace, si potrebbe ricevere un errore  **UserErrorSQLNoSysadminMembership**. In tal caso  [seguire queste istruzioni](backup-azure-sql-database.md).
 * Dopo aver attivato la configurazione della protezione nei database selezionati, il servizio di backup configura il coordinatore con le pianificazioni di backup e altri dettagli sui criteri, che l'estensione memorizza nella cache locale della VM. 
@@ -54,20 +54,27 @@ Prima di iniziare, verificare quanto segue:
 ## <a name="feature-consideration-and-limitations"></a>Considerazioni e limitazioni della funzionalità
 
 - Il backup di SQL Server può essere configurato nel portale di Azure o in **PowerShell**. L'interfaccia della riga di comando non è supportata.
+- La soluzione è supportata in entrambe le tipologie di [distribuzione](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model): macchine virtuali di Azure Resource Manager e macchine virtuali classiche.
 - La macchina virtuale che esegue SQL Server richiede la connettività Internet per accedere agli indirizzi IP pubblici di Azure.
 - L'**Istanza del cluster di failover** di SQL Server e l'istanza del cluster di failover AlwaysOn di SQL Server.
 - Le operazioni di backup e ripristino per i database mirror e gli snapshot di database non sono supportate.
-- L'uso di più soluzioni per eseguire il backup dell'istanza di SQL Server autonoma o del gruppo di disponibilità Always On di SQL potrebbe generare un errore di backup. Evitare questo approccio.
-- Anche il backup di due nodi di un gruppo di disponibilità singolarmente con soluzioni uguali o differenti potrebbe generare errori. Backup di Azure è in grado di rilevare e proteggere tutti i nodi che si trovano nella stessa area dell'insieme di credenziali. Se il gruppo di disponibilità Always On di SQL Server si estende in più aree di Azure, configurare il backup dall'area che include il nodo primario. Backup di Azure è in grado di rilevare e proteggere tutti i database nel gruppo di disponibilità in base alle preferenze di backup.  
+- L'uso di più soluzioni per eseguire il backup dell'istanza di SQL Server autonoma o del gruppo di disponibilità AlwaysOn di SQL potrebbe generare un errore di backup. Evitare questo approccio.
+- Anche il backup di due nodi di un gruppo di disponibilità singolarmente con soluzioni uguali o differenti potrebbe generare errori.
 - Backup di Azure supporta solo i tipi di backup completo e completo solo copia per i database di **sola lettura**
 - Non è possibile proteggere i database con un numero elevato di file. Il numero massimo di file supportato è **~1000**.  
 - È possibile eseguire il backup di un totale di **~2000** database SQL Server in un insieme di credenziali. Nel caso di un numero elevato di database, è possibile creare più insiemi di credenziali.
 - È possibile configurare il backup per un totale di **50** database alla volta. Questa restrizione contribuisce a ottimizzare i carichi di backup.
 - Sono supportati database di dimensioni fino a **2 TB**. Per dimensioni maggiori, potrebbero verificarsi problemi di prestazioni.
-- Per avere un'idea della quantità di database che è possibile proteggere per ogni server, è necessario considerare fattori come la larghezza di banda, le dimensioni delle VM, la frequenza dei backup, le dimensioni dei database e così via. È in fase di sviluppo uno strumento di pianificazione che risulterà utile per calcolare autonomamente questo numero. Verrà pubblicato prossimamente.
+- Per avere un'idea della quantità di database che è possibile proteggere per ogni server, è necessario considerare fattori come la larghezza di banda, le dimensioni delle VM, la frequenza dei backup, le dimensioni dei database e così via. È in fase di sviluppo uno strumento di pianificazione che risulterà utile per calcolare autonomamente questi numeri. Verrà pubblicato prossimamente.
 - Nel caso dei gruppi di disponibilità, i backup vengono eseguiti da diversi nodi in base ad alcuni fattori. Il comportamento di backup per un gruppo di disponibilità è riepilogato di seguito.
 
-### <a name="backup-behavior-in-case-of-always-on-availability-groups"></a>Comportamento di backup nel caso di gruppi di disponibilità Always On
+### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Comportamento di backup nel caso di gruppi di disponibilità AlwaysOn
+
+È consigliabile configurare il backup solo su un nodo di un gruppo di disponibilità. Il backup deve sempre essere configurato nella stessa area del nodo primario. In altre parole, il nodo primario deve essere sempre presente nell'area in cui si sta configurando il backup. Se tutti i nodi del gruppo di disponibilità risiedono nella stessa area in cui è configurato il backup, non c'è motivo di preoccuparsi.
+
+**Per i gruppi di disponibilità tra più aree**
+- Indipendentemente dalle preferenze per il backup, non verrà eseguito alcun backup dai nodi che non risiedono nella stessa area in cui è configurato il backup, perché i backup tra più aree non sono supportati. Se sono presenti solo 2 nodi e il nodo secondario risiede nell'altra area, verranno eseguiti solo i backup dal nodo primario, a meno che la preferenza scelta per il backup non sia 'solo secondario'.
+- Se viene eseguito il failover in un'area diversa da quella in cui è configurato il backup, il backup sui nodi dell'area di failover non verrà eseguito.
 
 In base alle preferenze e ai tipi di backup (completo/differenziale/log/completo solo copia), i backup vengono eseguiti da uno specifico nodo (primario o secondario).
 

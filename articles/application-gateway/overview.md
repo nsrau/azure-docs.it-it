@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/18/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 91e94c70444430725ffec836d1663aef99eb5496
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 78dd4b31991a15d3d946c47c5394f64bb3afea95
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003361"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947261"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -21,48 +21,29 @@ Il gateway applicazione di Azure è un servizio di bilanciamento del carico del 
 
 ![Concetti relativi al gateway applicazione](media/overview/figure1-720.png)
 
-Con il gateway applicazione si può essere ancora più specifici. Ad esempio, è possibile eseguire il rounting del traffico in base all'URL in ingresso. Pertanto, se `/images` è nell'URL in ingresso, è possibile eseguire il rounting del traffico verso un set specifico di server, detto pool, configurato per le immagini. Se `/video` è nell'URL, viene eseguito il rounting di quel traffico verso un altro pool ottimizzato per i video.
+Il gateway applicazione consente di prendere decisioni relative al routing basate su altri attributi di una richiesta HTTP, ad esempio il percorso dell'URI o le intestazioni host. Ad esempio, è possibile eseguire il rounting del traffico in base all'URL in ingresso. Pertanto, se `/images` è nell'URL in ingresso, è possibile eseguire il rounting del traffico verso un set specifico di server, detto pool, configurato per le immagini. Se `/video` è incluso nell'URL, il routing del traffico corrispondente viene instradato a un altro pool ottimizzato per i video.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
-Questo tipo di routing è detto bilanciamento del carico a livello di applicazione (OSI livello 7). Il gateway applicazione di Azure può eseguire il routing basato su URL e molto altro. 
+Questo tipo di routing è detto bilanciamento del carico a livello di applicazione (OSI livello 7). Il gateway applicazione di Azure può eseguire il routing basato su URL e molto altro.
 
 Il gateway applicazione di Azure offre le funzionalità seguenti:
 
-## <a name="autoscaling-public-preview"></a>Anteprima pubblica della scalabilità automatica
-
-Oltre alle funzionalità descritte in questo articolo, nel gateway applicazione è inclusa un'anteprima pubblica di un nuovo SKU [Standard_V2] che offre scalabilità automatica e altri miglioramenti critici delle prestazioni.
-
-- **Scalabilità automatica**: le distribuzioni del gateway applicazione o WAF nello SKU con scalabilità automatica possono passare a un piano superiore o inferiore in base alle modifiche dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. 
-
-- **Ridondanza della zona**: una distribuzione del gateway applicazione o WAF può estendersi a più zone di disponibilità, eliminando la necessità di effettuare il provisioning e aggiungere istanze del gateway applicazione separate in ogni zona con un'utilità di gestione del traffico.
-
-- **VIP statico**: l'indirizzo VIP del gateway applicazione supporta ora esclusivamente il tipo di indirizzo VIP statico. Questa funzionalità garantisce che l'indirizzo VIP associato al gateway applicazione non cambi neppure dopo il riavvio.
-
-- **Tempi di distribuzione e aggiornamento più rapidi** rispetto allo SKU disponibile a livello generale. 
-
-- **Prestazioni di offload SSL 5 volte migliori** rispetto allo SKU disponibile a livello generale.
-
-Per altre informazioni sulle funzionalità dell'anteprima pubblica del gateway applicazione, vedere [Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)](application-gateway-autoscaling-zone-redundant.md).
-
 ## <a name="secure-sockets-layer-ssl-termination"></a>Terminazione di Secure Sockets Layer (SSL)
 
-Il gateway applicazione supporta la terminazione SSL nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. Questa funzionalità consente ai server Web di non gestire il costoso carico di crittografia e decrittografia. In alcuni casi, tuttavia, le comunicazioni non crittografate verso i server non rappresentano un'opzione accettabile. Questo può dipendere dai requisiti di sicurezza e conformità o dal fatto che l'applicazione può accettare solo connessioni protette. Per queste applicazioni, il gateway applicazione supporta la crittografia SSL end-to-end.
+Il gateway applicazione supporta la terminazione SSL nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. Questa funzionalità consente ai server Web di non gestire il costoso carico di crittografia e decrittografia. In alcuni casi, tuttavia, le comunicazioni non crittografate verso i server non rappresentano un'opzione accettabile. Questo può dipendere dai requisiti di sicurezza e conformità o dal fatto che l'applicazione può accettare solo connessioni sicure. Per queste applicazioni, il gateway applicazione supporta la crittografia SSL end-to-end.
 
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Anteprima del controller di ingresso del servizio Azure Kubernetes 
+## <a name="autoscaling"></a>Scalabilità automatica
 
-Il controller di ingresso del gateway applicazione viene eseguito come pod all'interno del cluster servizio Azure Kubernetes e consente al gateway applicazione di fungere da ingresso per un cluster servizio Azure Kubernetes. È supportato solo con il gateway applicazione v2.
+Le distribuzioni del gateway applicazione o WAF nello SKU Standard_v2 o WAF_v2 supportano la scalabilità automatica e l'aumento o la riduzione delle prestazioni in base alle variazioni dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. Per altre informazioni sulle funzionalità del gateway applicazione Standard_v2 e WAF_v2, vedere [SKU di scalabilità automatica v2](application-gateway-autoscaling-zone-redundant.md).
 
-Per altre informazioni, vedere [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) (Controller di ingresso del gateway applicazione di Azure).
+## <a name="zone-redundancy"></a>Ridondanza della zona
 
-## <a name="connection-draining"></a>Esaurimento delle connessioni
+Le distribuzioni del gateway applicazione o WAF nello SKU Standard_v2 o WAF_v2 possono estendersi su più zone di disponibilità per offrire una migliore resilienza agli errori ed eliminare la necessità di effettuare il provisioning di gateway applicazione separati in ogni zona.
 
-Lo svuotamento delle connessioni aiuta a rimuovere in modo controllato i membri del pool back-end durante gli aggiornamenti pianificati del servizio. Questa modalità viene abilitata tramite l'impostazione http back-end e può essere applicata a tutti i membri di un pool back-end durante la creazione delle regole. Quando è abilitata, il gateway applicazione assicura che tutte le istanze di un pool back-end che stanno annullando la registrazione non ricevano nuove richieste e che le richieste esistenti vengano completate entro un limite di tempo configurato. Questo vale sia per le istanze back-end che vengono rimosse dal pool back-end in modo esplicito mediante una chiamata API, sia per le istanze back-end che vengono segnalate come non integre, come determinato dai probe di integrità.
+## <a name="static-vip"></a>Indirizzo VIP statico
 
-## <a name="custom-error-pages"></a>Pagine di errore personalizzate
-Il gateway applicazione consente di creare pagine di errore personalizzate da visualizzare al posto delle pagine di errore predefinite. Se si usa una pagina di errore personalizzata, è possibile usare il proprio layout e marchio aziendali.
-
-Per altre informazioni, vedere [Create Application Gateway custom error pages](custom-error.md) (Creare pagine di errore personalizzate del gateway applicazione).
+L'indirizzo VIP del gateway applicazione nello SKU Standard_v2 o WAF_v2 supporta esclusivamente il tipo di indirizzo VIP statico. Questa funzionalità garantisce che l'indirizzo VIP associato al gateway applicazione non cambi nel corso del ciclo di vita del gateway applicazione.
 
 ## <a name="web-application-firewall"></a>Web application firewall
 
@@ -92,9 +73,9 @@ Per altre informazioni, vedere [Hosting di più siti in un gateway applicazione]
 
 ## <a name="redirection"></a>Reindirizzamento
 
-Uno scenario comune per molte applicazioni Web è il supporto del reindirizzamento automatico da HTTP a HTTPS per assicurare che tutte le comunicazioni tra l'applicazione e gli utenti avvengano tramite un percorso crittografato. 
+Uno scenario comune per molte applicazioni Web è il supporto del reindirizzamento automatico da HTTP a HTTPS per assicurare che tutte le comunicazioni tra l'applicazione e gli utenti avvengano tramite un percorso crittografato.
 
-In passato si usavano usato tecniche come la creazione di un pool dedicato il cui unico scopo è quello di reindirizzare le richieste ricevute su HTTP a HTTPS. Il gateway applicazione consente di reindirizzare il traffico sul gateway applicazione. Questo semplifica la configurazione delle applicazioni, ottimizza l'utilizzo delle risorse e supporta i nuovi scenari di reindirizzamento, tra cui il reindirizzamento globale e basato sul percorso. Il supporto del reindirizzamento nel gateway applicazione non è limitato al solo reindirizzamento da HTTP a HTTPS. Si tratta di un meccanismo di reindirizzamento generico che consente di eseguire il reindirizzamento da e verso qualsiasi porta definita mediante regole. Supporta anche il reindirizzamento a un sito esterno.
+È possibile che in passato siano state usate tecniche come la creazione di un pool dedicato il cui unico scopo è quello di reindirizzare le richieste ricevute su HTTP ad HTTPS. Il gateway applicazione consente di reindirizzare il traffico sul gateway applicazione. Questo semplifica la configurazione delle applicazioni, ottimizza l'utilizzo delle risorse e supporta i nuovi scenari di reindirizzamento, tra cui il reindirizzamento globale e basato sul percorso. Il supporto del reindirizzamento nel gateway applicazione non è limitato al solo reindirizzamento da HTTP ad HTTPS. Si tratta di un meccanismo di reindirizzamento generico che consente di eseguire il reindirizzamento da e verso qualsiasi porta definita mediante regole. Supporta anche il reindirizzamento a un sito esterno.
 
 Il supporto del reindirizzamento nel gateway applicazione offre le funzionalità seguenti:
 
@@ -114,22 +95,41 @@ Il gateway applicazione offre il supporto nativo per i protocolli WebSocket e HT
 
 I protocolli WebSocket HTTP/2 consentono una comunicazione full duplex tra un server e un client su una connessione TCP con esecuzione prolungata. Questo consente una comunicazione più interattiva tra il server Web e il client che può essere bidirezionale senza necessità di polling che invece è richiesto nelle implementazioni basate su HTTP. A differenza del protocollo HTTP, questi protocolli presentano un sovraccarico ridotto e possono riutilizzare la stessa connessione TCP per più richieste/risposte garantendo così un uso più efficiente delle risorse. Questi protocolli sono progettati per usare le porte HTTP 80 e 443 tradizionali.
 
-Per altre informazioni, vedere [Supporto per WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) e [supporto per HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support). 
+Per altre informazioni, vedere [Supporto per WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) e [supporto per HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
 
-## <a name="rewrite-http-headers-public-preview"></a>Riscrivere le intestazioni HTTP (anteprima pubblica)
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Anteprima del controller di ingresso del servizio Azure Kubernetes 
+
+Il controller di ingresso del gateway applicazione viene eseguito come pod all'interno del cluster servizio Azure Kubernetes e consente al gateway applicazione di fungere da ingresso per un cluster servizio Azure Kubernetes. È supportato solo con il gateway applicazione v2.
+
+Per altre informazioni, vedere [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) (Controller di ingresso del gateway applicazione di Azure).
+
+## <a name="connection-draining"></a>Esaurimento delle connessioni
+
+Lo svuotamento delle connessioni aiuta a rimuovere in modo controllato i membri del pool back-end durante gli aggiornamenti pianificati del servizio. Questa modalità viene abilitata tramite l'impostazione http back-end e può essere applicata a tutti i membri di un pool back-end durante la creazione delle regole. Quando è abilitata, il gateway applicazione assicura che tutte le istanze di un pool back-end in fase di annullamento della registrazione non ricevano nuove richieste e che le richieste esistenti vengano completate entro un limite di tempo configurato. Questo vale sia per le istanze back-end che vengono rimosse dal pool back-end in modo esplicito mediante una chiamata API, sia per le istanze back-end che vengono segnalate come non integre, come determinato dai probe di integrità.
+
+## <a name="custom-error-pages"></a>Pagine di errore personalizzate
+
+Il gateway applicazione consente di creare pagine di errore personalizzate da visualizzare al posto delle pagine di errore predefinite. Se si usa una pagina di errore personalizzata, è possibile usare il proprio layout e marchio aziendali.
+
+Per altre informazioni, vedere [Riscrivere le intestazioni HTTP](rewrite-http-headers.md).
+
+## <a name="rewrite-http-headers"></a>Riscrivere le intestazioni HTTP
 
 Le intestazioni HTTP consentono al client e al server di passare informazioni aggiuntive insieme alla richiesta o alla risposta. La riscrittura delle intestazioni HTTP consente di affrontare diversi scenari importanti, ad esempio:
+
 - Aggiunta di campi di intestazione relativi alla sicurezza come HSTS/X-XSS-Protection.
 - Rimozione di campi di intestazione della risposta che possono rivelare informazioni riservate.
 - Rimozione delle informazioni sulle porte dalle intestazioni X-Forwarded-For.
 
 Il gateway applicazione supporta la possibilità di aggiungere, rimuovere o aggiornare le intestazioni di richieste e risposte HTTP durante lo spostamento dei pacchetti di richiesta e risposta tra il client e i pool back-end. Consente inoltre di aggiungere le condizioni necessarie per garantire che le intestazioni specificate vengono riscritte solo in presenza di determinate condizioni.
 
-Per altre informazioni su questa funzionalità in anteprima pubblica, vedere [Riscrivere le intestazioni HTTP](rewrite-http-headers.md).
+Per altre informazioni, vedere [Riscrivere le intestazioni HTTP](rewrite-http-headers.md).
 
 ## <a name="sizing"></a>Ridimensionamento
 
-Il gateway applicazione è attualmente disponibile in tre dimensioni: **Small**, **Medium** e **Large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
+Gli SKU Standard_v2 e WAF_v2 del gateway applicazione possono essere configurati per la scalabilità automatica o per le distribuzioni con dimensioni fisse. Questi SKU non offrono dimensioni diverse per le istanze.
+
+Lo SKU Standard e WAF del gateway applicazione è attualmente offerto in tre dimensioni: **Small**, **Medium** e **Large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
 
 Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del servizio Gateway applicazione](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
@@ -147,6 +147,6 @@ La tabella seguente illustra una velocità effettiva media delle prestazioni per
 
 A seconda dei requisiti e dell'ambiente, è possibile creare un'applicazione gateway di test usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure:
 
-- [Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure](quick-create-portal.md).
+- [Guida introduttiva: Indirizzare il traffico Web con il gateway applicazione di Azure - Portale di Azure](quick-create-portal.md)
 - [Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Azure PowerShell](quick-create-powershell.md)
 - [Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Interfaccia della riga di comando di Azure](quick-create-cli.md)

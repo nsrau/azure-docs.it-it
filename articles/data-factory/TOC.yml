@@ -142,6 +142,8 @@
           href: concepts-data-flow-column-pattern.md
         - name: Monitoraggio dei flussi di dati
           href: concepts-data-flow-monitoring.md
+        - name: Prestazioni dei flussi di dati
+          href: concepts-data-flow-performance.md
         - name: Spostamento di nodi
           href: concepts-data-flow-move-nodes.md
         - name: Scheda Ottimizza
@@ -318,6 +320,8 @@
           href: connector-sap-ecc.md
         - name: SAP HANA
           href: connector-sap-hana.md
+        - name: Tabella SAP
+          href: connector-sap-table.md
         - name: ServiceNow
           href: connector-servicenow.md
         - name: SFTP

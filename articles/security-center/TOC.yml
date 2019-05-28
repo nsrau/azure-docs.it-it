@@ -6,6 +6,8 @@
       href: security-center-intro.md
     - name: Piattaforme e funzionalità supportate dal Centro sicurezza
       href: security-center-os-coverage.md
+    - name: Valutazione e consigli per la protezione degli endpoint
+      href: security-center-endpoint-protection.md
 - name: Guide introduttive
   expanded: true
   items:

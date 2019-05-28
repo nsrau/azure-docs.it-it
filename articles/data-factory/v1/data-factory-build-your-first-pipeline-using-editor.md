@@ -217,7 +217,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
    | fileName | typeProperties |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In questo tutorial viene elaborato solo il file input.log. |
    | type | format |I file di log sono in formato testo, quindi si usa **TextFormat**. |
    | columnDelimiter | format |Le colonne nei file di log sono delimitate dalla virgola (`,`). |
-   | frequenza/intervallo | Disponibilità |La frequenza è impostata su **Month** e l'intervallo è **1**; ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
+   | frequency/interval | Disponibilità |La frequenza è impostata su **Month** e l'intervallo è **1**; ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
    | external | properties | Questa proprietà è impostata su **true** se i dati di input non vengono generati dalla pipeline. In questa esercitazione, il file input.log non viene generato dalla pipeline, quindi la proprietà viene impostata su **true**. |
 
     Per altre informazioni su queste proprietà JSON, vedere il [connettore BLOB di Azure](data-factory-azure-blob-connector.md#dataset-properties).

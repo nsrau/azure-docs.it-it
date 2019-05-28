@@ -63,28 +63,24 @@
       href: azure-management.md
     - name: Monitoraggio continuo
       href: continuous-monitoring.md
+    - name: Origini dati
+      href: platform/data-sources.md
     - name: Piattaforma dati
       items:
         - name: Panoramica
           href: platform/data-platform.md
+        - name: Posizioni dei dati
+          href: platform/data-locations.md
         - name: Metriche
           href: platform/data-platform-metrics.md
         - name: Log
           href: platform/data-platform-logs.md
-    - name: Origini dati
-      items:
-        - name: Riepilogo delle origini dati
-          href: platform/data-sources.md
-        - name: Origini dati di Azure
-          href: platform/data-sources-reference.md
-        - name: Log attività
-          href: platform/activity-logs-overview.md
-        - name: Log di diagnostica
-          href: platform/diagnostic-logs-overview.md
         - name: Tempo di inserimento dati di log
           href: platform/data-ingestion-time.md
-        - name: Metriche personalizzate nell'archivio delle metriche
-          href: platform/metrics-custom-overview.md
+    - name: Informazioni dettagliate
+      href: insights/insights-overview.md
+    - name: Soluzioni di monitoraggio
+      href: insights/solutions-inventory.md
     - name: Sicurezza dei dati
       items:
         - name: Dati di log
@@ -93,24 +89,6 @@
           href: platform/personal-data-mgmt.md
         - name: 'Raccolta, conservazione e archiviazione dei dati dell''applicazione'
           href: app/data-retention-privacy.md
-    - name: Informazioni dettagliate
-      items:
-        - name: Application Insights
-          items:
-            - name: Panoramica
-              href: app/app-insights-overview.md
-            - name: DevOps
-              href: app/detect-triage-diagnose.md
-            - name: Analisi distribuita
-              href: app/distributed-tracing.md
-            - name: Metriche basate su log e preaggregate
-              href: app/pre-aggregated-metrics-log-metrics.md
-        - name: Contenitori
-          href: insights/container-insights-overview.md
-        - name: Macchine virtuali
-          href: insights/vminsights-overview.md
-        - name: Soluzioni di monitoraggio
-          href: insights/solutions-inventory.md
     - name: Rispondere agli eventi imprevisti
       items:
         - name: Avvisi
@@ -189,6 +167,42 @@
               href: platform/service-providers.md
     - name: Raccogliere i dati
       items:
+        - name: Risorse di Azure
+          items:
+            - name: Log attività
+              items:
+                - name: Panoramica
+                  href: platform/activity-logs-overview.md
+                - name: Visualizzare e recuperare
+                  href: platform/activity-log-view.md
+                - name: Raccogliere e analizzare
+                  href: platform/activity-log-collect.md
+                - name: Raccogliere in più tenant
+                  href: platform/activity-log-collect-tenants.md
+                - name: Esportazione
+                  href: platform/activity-log-export.md
+                - name: SCHEMA
+                  href: platform/activity-log-schema.md
+            - name: Log di diagnostica
+              items:
+                - name: Panoramica
+                  href: platform/diagnostic-logs-overview.md
+                - name: Raccogliere nei log
+                  href: platform/diagnostic-logs-stream-log-store.md
+                - name: Raccogliere da Archiviazione di Azure
+                  href: platform/collect-azure-metrics-logs.md
+                - name: Archiviare nello spazio di archiviazione
+                  href: platform/archive-diagnostic-logs.md
+                - name: Trasmettere dati in Hub eventi
+                  href: platform/diagnostic-logs-stream-event-hubs.md
+                - name: Abilitare con modelli di Resource Manager
+                  href: platform/diagnostic-logs-stream-template.md
+                - name: Log e metriche per i servizi
+                  href: platform/azure-storage-iis-table.md
+            - name: Trasmettere un flusso a Hub eventi
+              href: platform/stream-monitoring-data-event-hubs.md
+            - name: Correlare origini dati personalizzate
+              href: app/custom-data-correlation.md
         - name: Installare e configurare agenti
           items:
             - name: Panoramica degli agenti di monitoraggio
@@ -221,17 +235,15 @@
                   href: platform/diagnostics-extension-stream-event-hubs.md
                 - name: risoluzione dei problemi
                   href: platform/diagnostics-extension-troubleshooting.md
-                - name: Abilitare le impostazioni di diagnostica con i modelli di Resource Manager
-                  href: platform/diagnostic-logs-stream-template.md
                 - name: Preparazione per il formato dei log di diagnostica JSON Lines
                   href: platform/diagnostic-logs-append-blobs.md
-                - name: Sistema operativo guest e archivio delle metriche - VM
+                - name: Sistema operativo guest e metriche - VM
                   href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                - name: Sistema operativo guest e archivio delle metriche - Set di scalabilità di macchine virtuali
+                - name: Sistema operativo guest e metriche - Set di scalabilità di macchine virtuali
                   href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                - name: Sistema operativo guest e archivio delle metriche - VM classica
+                - name: Sistema operativo guest e metriche - VM classica
                   href: platform/collect-custom-metrics-guestos-vm-classic.md
-                - name: Sistema operativo guest e archivio delle metriche - Servizio cloud
+                - name: Sistema operativo guest e metriche - Servizio cloud
                   href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
             - name: Risolvere problemi
               items:
@@ -341,8 +353,6 @@
                       href: app/status-monitor-v2-api-get-status.md
                     - name: API Set-ApplicationInsightsMonitoringConfig
                       href: app/status-monitor-v2-api-set-config.md
-                - name: Servizi Windows
-                  href: app/windows-services.md
                 - name: Desktop di Windows
                   href: app/windows-desktop.md
                 - name: Console
@@ -432,83 +442,46 @@
                   href: app/proactive-email-notification.md
             - name: Creare una risorsa
               href: app/create-new-resource.md
-            - name: Risolvere problemi
+            - name: Dati dell'applicazione in Log Analytics
+              href: platform/app-insights-connector.md
+            - name: Esportare i dati dell'applicazione
               items:
                 - name: Nessun dato per .NET
                   href: app/asp-net-troubleshoot-no-data.md
                 - name: Debugger di snapshot
                   href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-                - name: Analytics
-                  href: app/analytics-troubleshooting.md
                 - name: Java
                   href: app/java-troubleshoot.md
                 - name: Analisi dell'utilizzo
                   href: app/usage-troubleshoot.md
-        - name: Risorse di Azure
-          items:
-            - name: Log attività di Azure
-              items:
-                - name: Analytics
-                  href: platform/collect-activity-logs.md
-                - name: Raccolta tra sottoscrizioni
-                  href: platform/collect-activity-logs-subscriptions.md
-            - name: Log e metriche per i servizi
-              href: platform/collect-azure-metrics-logs.md
-            - name: Dati di diagnostica o dei log dall'archiviazione di Azure
-              href: platform/azure-storage-iis-table.md
-            - name: Risorse PaaS di Azure
-              href: platform/collect-azurepass-posh.md
-            - name: Correlare origini dati personalizzate
-              href: app/custom-data-correlation.md
         - name: Raccogliere dati personalizzati
           items:
+            - name: Metriche personalizzate
+              href: platform/metrics-custom-overview.md
             - name: API di raccolta dati di Log Analytics
               href: platform/data-collector-api.md
             - name: Esempio di pipeline con l'API di raccolta dati di Log Analytics
               href: platform/create-pipeline-datacollector-api.md
-            - name: API REST dell'archivio di metriche
+            - name: API REST delle metriche
               href: platform/metrics-store-custom-rest-api.md
-            - name: Sistema operativo guest e archivio delle metriche - VM Linux (Telegraf)
+            - name: Sistema operativo guest e metriche - VM Linux (Telegraf)
               href: platform/collect-custom-metrics-linux-telegraf.md
         - name: System Center
           items:
             - name: Gestione configurazione
               href: platform/collect-sccm.md
-            - name: Monitoraggio delle prestazioni applicative con SCOM
-              href: app/scom.md
-        - name: Indirizzare i dati
-          items:
-            - name: Archiviare il log attività
-              href: platform/archive-activity-log.md
-            - name: Archiviare i log di diagnostica
-              href: platform/archive-diagnostic-logs.md
-            - name: Trasmettere i log di diagnostica
-              href: platform/diagnostic-logs-stream-log-store.md
-            - name: Trasmettere il log attività a Hub eventi
-              href: platform/activity-logs-stream-event-hubs.md
-            - name: Log e metriche in Hub eventi
-              href: platform/stream-monitoring-data-event-hubs.md
-            - name: Log di diagnostica in Hub eventi
-              href: platform/diagnostic-logs-stream-event-hubs.md
-            - name: Dati dell'applicazione in Log Analytics
-              href: platform/app-insights-connector.md
-            - name: Esportare i dati dell'applicazione
-              items:
-                - name: Esportazione continua
-                  href: app/export-telemetry.md
-                  items:
-                    - name: Esempi di codice
-                      items:
-                        - name: Eseguire l'esportazione in SQL usando Analisi di flusso
-                          href: app/code-sample-export-sql-stream-analytics.md
-                        - name: Esportare in Analisi di flusso
-                          href: app/export-stream-analytics.md
-                - name: Esportare il modello di dati
-                  href: app/export-data-model.md
     - name: Ottenere informazioni dettagliate
       items:
         - name: Monitorare le applicazioni
           items:
+            - name: Panoramica di Application Insights
+              items:
+                - name: Panoramica
+                  href: app/app-insights-overview.md
+                - name: Analisi distribuita
+                  href: app/distributed-tracing.md
+                - name: Metriche basate su log e preaggregate
+                  href: app/pre-aggregated-metrics-log-metrics.md
             - name: Portale Application Insights
               items:
                 - name: Ricerca
@@ -982,6 +955,8 @@
               href: app/api-filtering-sampling.md
             - name: campionamento
               href: app/sampling.md
+            - name: Canali di telemetria
+              href: app/telemetry-channels.md
         - name: Soluzioni di monitoraggio
           items:
             - name: Progettare e compilare
@@ -1060,8 +1035,6 @@
       items:
         - name: 'Servizi, categorie e schemi dei log di diagnostica'
           href: platform/diagnostic-logs-schema.md
-        - name: Schema degli eventi del log attività
-          href: platform/activity-log-schema.md
         - name: Schema dell'estensione Diagnostica di Azure
           href: platform/diagnostics-extension-schema.md
           items:

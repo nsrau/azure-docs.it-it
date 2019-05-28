@@ -51,8 +51,6 @@
           href: event-hubs-capture-python.md
     - name: Eseguire lo streaming in Hub eventi per Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-    - name: Creare un cluster dedicato di hub eventi
-      href: event-hubs-dedicated-cluster-create-portal.md
 - name: Esercitazioni
   items:
     - name: Visualizzare le anomalie dei dati nei flussi di dati di Hub eventi
@@ -86,14 +84,18 @@
       href: event-hubs-event-processor-host.md
     - name: Guida alla programmazione
       href: event-hubs-programming-guide.md
-    - name: Identità gestita per le risorse di Azure
-      href: event-hubs-managed-service-identity.md
-    - name: Controllo degli accessi in base al ruolo (anteprima)
-      href: event-hubs-role-based-access-control.md
-    - name: Ripristino di emergenza geografico e replica geografica
-      href: event-hubs-geo-dr.md
-    - name: Panoramica del modello di autenticazione e sicurezza
-      href: event-hubs-authentication-and-security-model-overview.md
+    - name: Security
+      items:
+        - name: Identità gestita per le risorse di Azure
+          href: event-hubs-managed-service-identity.md
+        - name: Controllo degli accessi in base al ruolo (anteprima)
+          href: event-hubs-role-based-access-control.md
+        - name: Ripristino di emergenza geografico e replica geografica
+          href: event-hubs-geo-dr.md
+        - name: Panoramica del modello di autenticazione e sicurezza
+          href: event-hubs-authentication-and-security-model-overview.md
+        - name: Attributi di sicurezza
+          href: event-hubs-security-attributes.md
     - name: Disponibilità e coerenza
       href: event-hubs-availability-and-consistency.md
     - name: Guida al protocollo AMQP 1.0

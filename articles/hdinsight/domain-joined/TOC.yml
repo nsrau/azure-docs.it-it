@@ -8,6 +8,8 @@
   items:
     - name: Pianificare cluster ESP
       href: apache-domain-joined-architecture.md
+    - name: Creare cluster ESP e sincronizzarli con l'istanza locale
+      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Configurare cluster ESP con Azure Active Directory Domain Services
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Sincronizzare gli utenti di Azure AD con un cluster HDInsight
