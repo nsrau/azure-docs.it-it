@@ -287,7 +287,7 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 | Proprietà | Descrizione | Obbligatorio | Predefinito |
 | --- | --- | --- | --- |
 | name | Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Sì |NA |
-| tipo | Tipo del set di dati. Specificare uno dei tipi supportati da Azure Data Factory, ad esempio: AzureBlob o AzureSqlTable. Vedere la sezione [Archivi dati](#data-stores) per tutti gli archivi dati e i tipi di set di dati supportati da Data Factory. |
+| type | Tipo del set di dati. Specificare uno dei tipi supportati da Azure Data Factory, ad esempio: AzureBlob o AzureSqlTable. Vedere la sezione [Archivi dati](#data-stores) per tutti gli archivi dati e i tipi di set di dati supportati da Data Factory. |
 | structure | Schema del set di dati. Contiene le colonne, i tipi e così via. | N. |NA |
 | typeProperties | Proprietà che corrispondono al tipo selezionato. Vedere la sezione [Archivi dati](#data-stores) per i tipi supportati e le rispettive proprietà. |Sì |NA |
 | external | Flag booleano per specificare se un set di dati è generato o meno in modo esplicito da una pipeline della data factory. |N. |false |
@@ -299,7 +299,7 @@ Ogni colonna della sezione **struttura** contiene le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | name |Nome della colonna. |Sì |
-| tipo |Tipo di dati della colonna.  |N. |
+| type |Tipo di dati della colonna.  |N. |
 | culture |Impostazioni cultura basate su .NET da usare quando il tipo è specificato ed un tipo .NET `Datetime` o `Datetimeoffset`. Il valore predefinito è `en-us`. |N. |
 | format |Stringa di formato da usare quando il tipo è specificato ed è un tipo .NET `Datetime` o `Datetimeoffset`. |N. |
 
@@ -3317,7 +3317,7 @@ Per altre informazioni, vedere [Connettore Amazon S3](data-factory-amazon-simple
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| tipo |Verificare che la proprietà type sia impostata su **OnPremisesFileServer**. |Sì |
+| type |Verificare che la proprietà type sia impostata su **OnPremisesFileServer**. |Sì |
 | host |Specifica il percorso radice della cartella da copiare. Usare il carattere di escape '\' per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere Servizio collegato di esempio e definizioni del set di dati. |Sì |
 | userid |Specificare l'ID dell'utente che ha accesso al server. |No (se si sceglie encryptedCredential) |
 | password |Specificare la password per l'utente (userid). |No (se si sceglie encryptedCredential) |
@@ -4745,7 +4745,7 @@ Per definire un set di dati Web, impostare il **tipo** di set di dati su **WebTa
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| tipo |Tipo del set di dati. Deve essere impostato su **WebTable** |Sì |
+| type |Tipo del set di dati. Deve essere impostato su **WebTable** |Sì |
 | path |URL relativo della risorsa che contiene la tabella. | No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
 | index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione Ottenere l'indice di una tabella in una pagina HTML. |Sì |
 
