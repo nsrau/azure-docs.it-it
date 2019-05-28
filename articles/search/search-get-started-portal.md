@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare e caricare un indice ed eseguirvi query nel portale di Azure - Ricerca di Azure'
+title: 'Guida introduttiva: Creare e caricare un indice ed eseguirvi query nel portale di Azure - Ricerca di Azure'
 description: Creare il primo indice ed eseguirvi query in Ricerca di Azure usando i dati di esempio integrati e la procedura guidata Importa dati nel portale di Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b30fa61cd46acd4fa9da9d97c100e3b3a0aaf067
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e5baa0876dc976553e8e541cef6b481329500bf6
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024754"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606456"
 ---
-# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Avvio rapido: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure
+# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Guida introduttiva: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure
 > [!div class="op_single_selector"]
 > * [Portale](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
@@ -200,7 +200,7 @@ Nelle richieste di ricerca vengono inclusi filtri facet. È possibile usare il p
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcitytop2"></a>Esempio (con facet e riduzione dell'ambito): `search=*&facet=city&$top=2`
 
-* **search=*** è una ricerca vuota. Le ricerche vuote permettono di eseguire la ricerca su tutti gli elementi. Una query vuota permette di filtrare o esplorare in base a facet il set completo di documenti, ad esempio per ottenere una struttura di esplorazione con facet composta da tutte le città incluse nell'indice.
+* **search=** * è una ricerca vuota. Le ricerche vuote permettono di eseguire la ricerca su tutti gli elementi. Una query vuota permette di filtrare o esplorare in base a facet il set completo di documenti, ad esempio per ottenere una struttura di esplorazione con facet composta da tutte le città incluse nell'indice.
 
 * **facet** restituisce una struttura di esplorazione che è possibile passare a un controllo dell'interfaccia utente. Restituisce un conteggio e categorie. In questo caso le categorie sono basate sul numero di città. Ricerca di Azure non prevede alcuna aggregazione, ma è possibile ottenere qualcosa di simile all'aggregazione usando `facet`, che restituisce un conteggio dei documenti in ogni categoria.
 
@@ -252,7 +252,7 @@ La ricerca geospaziale è supportata tramite il [tipo di dati edm.GeographyPoint
 
 La query di esempio filtra tutti i risultati in base a dati posizionali, restituendo i risultati a meno di 5 chilometri da un punto specificato, indicato mediante coordinate di latitudine e longitudine. Aggiungendo **$count** è possibile visualizzare il numero di risultati restituiti se si modifica la distanza o le coordinate.
 
-La ricerca geospaziale risulta utile se l'applicazione di ricerca include una funzionalità di "ricerca nelle vicinanze" o usa l'esplorazione mappa. Non si tratta, tuttavia, di una ricerca full-text. Se i requisiti dell'utente prevedono la ricerca in una città o un paese in base al nome, oltre alle coordinate è necessario aggiungere campi contenenti nomi di città o di paesi.
+La ricerca geospaziale risulta utile se l'applicazione di ricerca include una funzionalità di "ricerca nelle vicinanze" o usa l'esplorazione mappa. Non si tratta, tuttavia, di una ricerca full-text. Se i requisiti dell'utente prevedono la ricerca in una città, un paese o area in base al nome, oltre alle coordinate è necessario aggiungere campi contenenti nomi di città, di paesi o aree.
 
 ## <a name="takeaways"></a>Risultati
 

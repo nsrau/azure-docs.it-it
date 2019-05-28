@@ -82,7 +82,7 @@ L'attività Hive di HDInsight in una [pipeline](data-factory-create-pipelines.md
 | outputs |Output generati dall'attività Hive |Sì |
 | linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Sì |
 | script |Specificare lo script Hive inline |No  |
-| scriptPath |Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No  |
+| script path |Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No  |
 | defines |Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Hive usando "hiveconf" |No  |
 
 ## <a name="example"></a>Esempio
@@ -216,7 +216,7 @@ Per usare lo script con parametri Hive, eseguire le operazioni seguenti:
       }
     }
     ```
-* Nello script Hive fare riferimento al parametro tramite **${hiveconf:parameterName}**. 
+* Nello script Hive fare riferimento al parametro tramite **${hiveconf:parameterName}** . 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 

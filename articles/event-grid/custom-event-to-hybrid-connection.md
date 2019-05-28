@@ -9,12 +9,12 @@ ms.date: 02/02/2019
 ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 2a050f8bc5d2437c7cdbadcf3296c2ef6d4659dc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 270059537fc8d06648c86088b22aef5b78ff00ec
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728640"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606304"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Esercitazione: Instradare eventi personalizzati a Connessioni ibride di Inoltro di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
@@ -80,7 +80,7 @@ Si noti che per la sottoscrizione è impostata una [data di scadenza](concepts.m
 
 È necessaria un'applicazione in grado di recuperare gli eventi dalla connessione ibrida. L'[esempio di consumer della connessione ibrida di Griglia di eventi di Microsoft Azure per C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) esegue tale operazione. I passaggi preliminari sono stati completati.
 
-1. Assicurarsi di disporre di Visual Studio 2017, versione 15.5 o successiva.
+1. Assicurarsi di disporre di Visual Studio 2019 o versioni successive.
 
 1. Clonare il repository nel computer locale.
 

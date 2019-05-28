@@ -1,19 +1,19 @@
 ---
-title: Copiare dati in Microsoft Azure Data Box tramite SMB | Microsoft Docs
+title: Esercitazione per copiare dati tramite SMB in Azure Data Box | Microsoft Docs
 description: Informazioni su come copiare dati in Azure Data Box tramite SMB
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 05/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 83eabca3b2ec1903e25b02083b1a2d5b49745396
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118085"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800459"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Esercitazione: Copiare dati in Azure Data Box tramite SMB
 
@@ -41,8 +41,8 @@ Prima di iniziare, verificare che:
 
 In base all'account di archiviazione selezionato, Data Box crea fino a:
 - Tre condivisioni per ogni account di archiviazione associato per GPv1 e GPv2.
-- Una condivisione per l'archiviazione Premium. 
-- Una condivisione per l'account di archiviazione BLOB. 
+- Una condivisione per l'archiviazione Premium.
+- Una condivisione per l'account di archiviazione BLOB.
 
 Nelle condivisioni per BLOB di pagine e BLOB in blocchi le entità di primo livello sono contenitori, mentre le entità di secondo livello sono BLOB. Nelle condivisioni per File di Azure le entità di primo livello sono condivisioni, mentre le entità di secondo livello sono file.
 
@@ -91,7 +91,7 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
 
     **Creare sempre una cartella per i file che si intendono copiare nella condivisione e quindi copiare i file in tale cartella**. La cartella creata nelle condivisioni di BLOB in blocchi e BLOB di pagine rappresenta un contenitore in cui i dati vengono caricati come BLOB. Non è possibile copiare direttamente i file nella cartella *root* dell'account di archiviazione.
     
-Se si usa un client Linux, usare il comando seguente per montare la condivisione SMB. Il parametro "vers" di seguito è la versione di SMB supportata dall'host Linux. Collegare la versione appropriata nel comando seguente. Per le versioni di SMB supportate da Data Box,vedere [File system supportati per client Linux](https://docs.microsoft.com/en-us/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+Se si usa un client Linux, usare il comando seguente per montare la condivisione SMB. Il parametro "vers" di seguito è la versione di SMB supportata dall'host Linux. Collegare la versione appropriata nel comando seguente. Per le versioni di SMB supportate da Data Box,vedere [File system supportati per client Linux](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
     `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
     
@@ -132,7 +132,7 @@ Dopo aver stabilito la connessione alla condivisione SMB, avviare la copia dei d
 |/z    | Copia i file in modalità di riavvio (usare se l'ambiente è instabile). Questa opzione riduce la velocità effettiva a causa dell'aumento delle operazioni di registrazione.      |
 | /zb     | Usa la modalità di riavvio. Se l'accesso viene negato, questa opzione usa la modalità di backup. Questa opzione riduce la velocità effettiva a causa delle operazioni di checkpoint.         |
 |/efsraw     | Copia tutti i file crittografati in modalità RAW EFS. Usare solo con i file crittografati.         |
-|log+:<LogFile>| Accoda l'output al file di log esistente.|    
+|log+:\<LogFile>| Accoda l'output al file di log esistente.|    
  
 L'esempio seguente mostra l'output del comando robocopy per la copia dei file nel Data Box.
     
@@ -202,7 +202,7 @@ Per ottimizzare le prestazioni, usare i parametri robocopy seguenti durante la c
 
 Per altre informazioni sul comando Robocopy, vedere [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy e alcuni esempi).
 
-Aprire la cartella di destinazione per visualizzare e verificare i file copiati. In caso di errori durante il processo di copia, scaricare i file di log degli errori per la risoluzione dei problemi.
+Aprire la cartella di destinazione per visualizzare e verificare i file copiati. In caso di errori durante il processo di copia, scaricare i file di log degli errori per la risoluzione dei problemi. Per altre informazioni, vedere [Visualizzare i log degli errori durante la copia dei dati in Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). Per un elenco dettagliato degli errori durante la copia dei dati, vedere [Risolvere i problemi di Data Box](data-box-troubleshoot.md).
 
 Per assicurare l'integrità dei dati, il checksum viene calcolato inline durante la copia dei dati. Al termine della copia, verificare lo spazio occupato e lo spazio disponibile nel dispositivo.
     
