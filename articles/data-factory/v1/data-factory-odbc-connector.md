@@ -71,7 +71,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | connectionString |La parte delle credenziali non di accesso della stringa di connessione e una credenziale crittografata facoltativa. Vedere gli esempi nelle sezioni seguenti. <br/><br/>È possibile specificare la stringa di connessione con un modello come `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, o usare il sistema DSN, ovvero il nome dell'origine dati, per eseguire la configurazione nel computer del gateway con `"DSN=<name of the DSN>;"`. È necessario comunque specificare la parte delle credenziali nel servizio collegato in base alle esigenze. |Sì |
 | credential |La parte delle credenziali di accesso della stringa di connessione specificata nel formato di valore della proprietà specifico del driver. Esempio: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |N. |
 | authenticationType |Tipo di autenticazione usato per connettersi all'archivio dati ODBC. I valori possibili sono: Anonymous e Basic. |Sì |
-| username |Specificare il nome utente se si usa l'autenticazione di base. |N. |
+| userName |Specificare il nome utente se si usa l'autenticazione di base. |N. |
 | password |Specificare la password per l'account utente specificato per il nome utente. |N. |
 | gatewayName |Nome del gateway che il servizio Data Factory deve usare per connettersi all'archivio dati ODBC. |Sì |
 
