@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: 9f3473d83678ffea888dad736a9620006b2961f7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.date: 05/14/2019
+ms.openlocfilehash: a5e4b2073a29785ee851b2733c12d6331afe59d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406398"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791322"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Esercitazione: Progettare un dashboard di analisi in tempo reale usando Database di Azure per PostgreSQL - Hyperscale (Citus) (anteprima)
 
@@ -30,72 +30,7 @@ In questa esercitazione si usa Database di Azure per PostgreSQL - Hyperscale (Ci
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
-## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
-
-Accedere al [portale di Azure](https://portal.azure.com).
-
-## <a name="create-an-azure-database-for-postgresql"></a>Creare un database di Azure per PostgreSQL
-
-Seguire questa procedura per creare un database di Azure per il server PostgreSQL:
-1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
-2. Selezionare **Database** nella pagina **Nuovo** e selezionare **Database di Azure per PostgreSQL** nella pagina **Database**.
-3. Per l'opzione di distribuzione, fare clic sul pulsante **Crea** in **Gruppo di server Hyperscale (Citus) - ANTEPRIMA**.
-4. Compilare il modulo dei dettagli del nuovo server con le informazioni seguenti:
-   - Gruppo di risorse: fare clic sul collegamento **Crea nuovo** sotto la casella di testo di questo campo. Immettere un nome, ad esempio **myresourcegroup**.
-   - Nome gruppo server: **mydemoserver** (nome di un server, che esegue il mapping al nome DNS e deve essere univoco a livello globale).
-   - Nome utente amministratore: **myadmin** (verrà usato in seguito per la connessione al database).
-   - Password: deve essere composta da almeno otto caratteri e deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri (0-9) e caratteri non alfanumerici (!, $, #, % e così via).
-   - Località: usare la località più vicina agli utenti per consentire loro l'accesso più rapido ai dati.
-
-   > [!IMPORTANT]
-   > L'account di accesso amministratore server e la password qui specificati sono necessari per accedere al server e ai relativi database più avanti in questa esercitazione. Prendere nota di queste informazioni per usarle in seguito.
-
-5. Fare clic su **Configura gruppo di server**. Lasciare invariate le impostazioni di tale sezione e fare clic su **Salva**.
-6. Fare clic su **Rivedi e crea** e quindi su **Crea** per effettuare il provisioning del server. Il provisioning richiede alcuni minuti.
-7. La pagina verrà reindirizzata per monitorare la distribuzione. Quando lo stato attivo passa da **La distribuzione è in corso** a **La distribuzione è stata completata**, fare clic sulla voce di menu **Output** nella parte sinistra della pagina.
-8. La pagina degli output conterrà un nome host di coordinatore con accanto un pulsante per copiare il valore negli Appunti. Prendere nota di queste informazioni per un uso successivo.
-
-## <a name="configure-a-server-level-firewall-rule"></a>Configurare una regola del firewall a livello di server
-
-Il servizio Database di Azure per PostgreSQL usa un firewall a livello di server. Per impostazione predefinita, il firewall impedisce a tutte le applicazioni e a tutti gli strumenti esterni di connettersi al server e ai database sul server. È necessario aggiungere una regola per aprire il firewall per un intervallo specifico di indirizzi IP.
-
-1. Dalla sezione **Output** dove prima si è copiato il nome host del nodo coordinatore, fare clic per tornare alla voce di menu **Panoramica**.
-
-2. Trovare il gruppo di ridimensionamento per la distribuzione nell'elenco delle risorse e fare clic su di esso. Il nome sarà preceduto da "sg-".
-
-3. Fare clic su **Firewall** in **Sicurezza** nel menu a sinistra.
-
-4. Fare clic sul collegamento **+ Aggiungi regola del firewall per l'indirizzo IP del client corrente**. Fare infine clic sul pulsante **Salva**.
-
-5. Fare clic su **Save**.
-
-   > [!NOTE]
-   > Il server PostgreSQL Azure comunica sulla porta 5432. Se si sta cercando di connettersi da una rete aziendale, il traffico in uscita sulla porta 5432 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server di database SQL di Azure, a meno che il reparto IT non apra la porta 5432.
-   >
-
-## <a name="connect-to-the-database-using-psql-in-cloud-shell"></a>Connettersi al database usando psql in Cloud Shell
-
-Si usi ora l'utilità della riga di comando [psql](https://www.postgresql.org/docs/current/app-psql.html) per connettersi al Database di Azure per il server PostgreSQL.
-1. Avviare Azure Cloud Shell tramite l'icona del terminale nel riquadro di spostamento in alto.
-
-   ![Database di Azure per PostgreSQL - Icona del terminale di Azure Cloud Shell](./media/tutorial-design-database-hyperscale-realtime/psql-cloud-shell.png)
-
-2. Azure Cloud Shell si apre nel browser, consentendo di digitare i comandi bash.
-
-   ![Database di Azure per PostgreSQL - Prompt Bash di Azure Cloud Shell](./media/tutorial-design-database-hyperscale-realtime/psql-bash.png)
-
-3. Al prompt di Cloud Shell connettersi al database di Azure per il server PostgreSQL usando i comandi psql. Il formato seguente è usato per connettersi a un Database di Azure per il server PostgreSQL con l'utilità [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
-   ```bash
-   psql --host=<myserver> --username=myadmin --dbname=citus
-   ```
-
-   Il comando seguente, ad esempio, consente di connettersi al database predefinito denominato **citus** nel server PostgreSQL **mydemoserver.postgres.database.azure.com** usando le credenziali di accesso. Quando richiesto, immettere la password di amministratore del server.
-
-   ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
-   ```
+[!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Usare l'utilità psql per creare uno schema
 
@@ -117,7 +52,7 @@ CREATE TABLE http_request (
 );
 ```
 
-Verrà anche creata una tabella che conterrà le aggregazioni al minuto e una tabella che gestisce la posizione dell'ultimo rollup. Eseguire anche il codice seguente in psql:
+Verrà anche creata una tabella che conterrà le aggregazioni al minuto e una tabella che gestisce la posizione dell'ultimo rollup. Eseguire i comandi seguenti anche in psql:
 
 ```sql
 CREATE TABLE http_request_1min (
@@ -170,7 +105,7 @@ DO $$
       ip_address, status_code, response_time_msec
     ) VALUES (
       trunc(random()*32), clock_timestamp(),
-      concat('https://example.com/', md5(random()::text)),
+      concat('http://example.com/', md5(random()::text)),
       ('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
       concat(
         trunc(random()*250 + 2), '.',
@@ -181,12 +116,13 @@ DO $$
       ('{200,404}'::int[])[ceil(random()*2)],
       5+trunc(random()*150)
     );
+    COMMIT;
     PERFORM pg_sleep(random() * 0.25);
   END LOOP;
 END $$;
 ```
 
-La query aggiunge una riga ogni 0,25 secondi circa. Le righe vengono archiviate in nodi di lavoro diversi determinati dalla colonna di distribuzione `site_id`.
+La query inserisce circa otto righe al secondo. Le righe vengono archiviate in nodi di lavoro diversi determinati dalla colonna di distribuzione `site_id`.
 
    > [!NOTE]
    > Lasciare la query di generazione dei dati in esecuzione e aprire una seconda connessione psql per i comandi rimanenti in questa esercitazione.
@@ -213,13 +149,13 @@ GROUP BY site_id, minute
 ORDER BY minute ASC;
 ```
 
-## <a name="performing-rollups"></a>Esecuzione di rollup
+## <a name="rolling-up-data"></a>Rollup dei dati
 
-La query precedente funziona bene nelle fasi iniziali, ma le prestazioni diminuiranno con l'aumentare dei dati. Anche con l'elaborazione distribuita, è più veloce precalcolare questi dati che ricalcolarli ripetutamente.
+La query precedente funziona bene nelle fasi iniziali, ma le prestazioni diminuiranno con l'aumentare dei dati. Anche con l'elaborazione distribuita, è più veloce precalcolare i dati che ricalcolarli ripetutamente.
 
-Per fare in modo che il dashboard non subisca rallentamenti, eseguire regolarmente il rollup dei dati non elaborati in una tabella aggregata. In questo caso si eseguirà il rollup nella tabella di aggregazione di un minuto, ma è anche possibile avere aggregazioni di 5 minuti, 15 minuti, un'ora e così via.
+Per fare in modo che il dashboard non subisca rallentamenti, eseguire regolarmente il rollup dei dati non elaborati in una tabella aggregata. È possibile effettuare esperimenti con la durata dell'aggregazione. È stata usata una tabella di aggregazione al minuto, ma è possibile dividere i dati in 5, 15 e 60 minuti.
 
-Poiché questo rollup verrà eseguito continuamente, si creerà una funzione per eseguirlo. Eseguire questi comandi in psql per creare la funzione `rollup_http_request`.
+Per eseguire più facilmente questo rollup, sarà necessario inserirlo in una funzione plpgsql. Eseguire questi comandi in psql per creare la funzione `rollup_http_request`.
 
 ```sql
 -- initialize to a time long ago
@@ -260,7 +196,7 @@ Dopo aver creato la funzione, usarla per eseguire il rollup dei dati:
 SELECT rollup_http_request();
 ```
 
-Con i dati in formato preaggregato è possibile eseguire una query sulla tabella di rollup per ottenere lo stesso report di prima. Eseguire questo comando:
+Con i dati in formato preaggregato è possibile eseguire una query sulla tabella di rollup per ottenere lo stesso report di prima. Eseguire questa query:
 
 ```sql
 SELECT site_id, ingest_time as minute, request_count,
@@ -278,7 +214,7 @@ DELETE FROM http_request WHERE ingest_time < now() - interval '1 day';
 DELETE FROM http_request_1min WHERE ingest_time < now() - interval '1 month';
 ```
 
-In fase di produzione è possibile eseguire il wrapping di queste query in una funzione e chiamarla ogni minuto in un processo cron.
+In fase di produzione, è possibile eseguire il wrapping di queste query in una funzione e chiamarla ogni minuto in un processo cron.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

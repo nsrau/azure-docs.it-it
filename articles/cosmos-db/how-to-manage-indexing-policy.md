@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0b47ffd77ee23f997bb7de2ea41f83c2854cba72
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068665"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550897"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gestire i criteri di indicizzazione in Azure Cosmos DB
 
@@ -22,6 +22,9 @@ In Azure Cosmos DB, i dati vengono indicizzati seguendo i [criteri di indicizzaz
 - usando uno degli SDK
 
 Un [aggiornamento dei criteri di indicizzazione](index-policy.md#modifying-the-indexing-policy) attiva una trasformazione dell'indice. Lo stato di avanzamento della trasformazione può essere monitorato anche dagli SDK.
+
+> [!NOTE]
+> Come parte dell'aggiornamento dell'SDK e del portale, stiamo cambiando i criteri di indicizzazione per allinearli con un nuovo layout di indicizzazione implementato nei nuovi contenitori. Con questo nuovo layout, tutti i tipi di dati primitivi sono indicizzati come Intervallo con la massima precisione (-1). Di conseguenza, le tipologie e la precisione dell'indice non sono più esposti all'utente. In futuro, gli utenti dovranno semplicemente aggiungere percorsi alla sezione includedPaths e ignorare indexKinds e la precisione. Questa modifica non ha alcun impatto sulle prestazioni ed è possibile continuare ad aggiornare i criteri di indicizzazione con la stessa sintassi. È possibile continuare a usare tutti gli esempi nella documentazione esistente per aggiornare i criteri di indicizzazione.
 
 ## <a name="use-the-azure-portal"></a>Usare il portale di Azure
 

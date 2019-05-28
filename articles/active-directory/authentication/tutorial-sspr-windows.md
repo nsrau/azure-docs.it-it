@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224652"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861523"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione password self-service di Azure AD dalla schermata di accesso
 
-In questa esercitazione viene descritto come consentire agli utenti di reimpostare le password dalla schermata di accesso di Windows 10. Con il nuovo aggiornamento del 10 aprile 2018 di Windows 10, gli utenti con dispositivi **aggiunti ad Azure AD** o **aggiunti ad Azure AD in modalità ibrida** possono usare il collegamento "Reimposta password" nella schermata di accesso. Facendo clic su questo collegamento, viene visualizzata l'esperienza di reimpostazione della password self-service che gli utenti conoscono.
+In questa esercitazione viene descritto come consentire agli utenti di reimpostare le password dalla schermata di accesso di Windows 10. Con il nuovo aggiornamento del 10 aprile 2018 di Windows 10, gli utenti con dispositivi **aggiunti ad Azure AD** o **aggiunti ad Azure AD in modalità ibrida** possono usare il collegamento "Reimposta password" nella schermata di accesso. Facendo clic su questo collegamento, viene visualizzata l'esperienza di reimpostazione della password self-service che gli utenti conoscono. Se un utente viene bloccato, questo processo non sblocca account su Active Directory locale.
 
 > [!div class="checklist"]
 > * Configurare il collegamento di reimpostazione della password con Intune

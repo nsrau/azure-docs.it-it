@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: d3ad4cdfe33948c04c278ed3dfef7aa6fda637ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0b5e39e9cf2fc3ffe91db6587bc1ed1bab079e93
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027497"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65777335"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Esercitazione: Inviare transazioni con il servizio Azure Blockchain
 
@@ -128,7 +128,7 @@ Ogni nodo di transazioni ha una chiave pubblica. La chiave pubblica consente di 
 ### <a name="transaction-node-endpoint-addresses"></a>Indirizzi degli endpoint dei nodi di transazioni
 
 1. Nel portale di Azure passare a ogni nodo di transazioni e selezionare **Transaction nodes > Connection strings** (Nodi di transazioni > Stringhe di connessione).
-1. Copiare e salvare l'URL dell'endpoint da **HTTPS (Access key 1) per ogni nodo di transazioni. Gli indirizzi degli endpoint sono necessari per il file di configurazione del contratto intelligente più avanti nell'esercitazione.
+1. Copiare e salvare l'URL dell'endpoint da **HTTPS (Chiave di accesso 1)** per ogni nodo della transazione. Gli indirizzi degli endpoint sono necessari per il file di configurazione del contratto intelligente più avanti nell'esercitazione.
 
     ![Indirizzo dell'endpoint delle transazioni](./media/send-transaction/endpoint.png)
 
@@ -230,7 +230,7 @@ Sostituire i valori racchiusi tra le parentesi uncinate.
 
 In questo esempio il valore iniziale di **storeData** è impostato su 42.
 
-**privateFor** definisce i nodi in cui il contratto è disponibile. In questo esempio l'account del nodo di transazioni predefinito può eseguire il cast delle transazioni private nel nodo **alpha**. È necessario aggiungere chiavi pubbliche per tutti i partecipanti alla transazione privata. Se non si includono i valori per **privateFor:** e **from:**, le transazioni del contratto intelligente sono pubbliche e possono essere viste da tutti i membri del consorzio.
+**privateFor** definisce i nodi in cui il contratto è disponibile. In questo esempio l'account del nodo di transazioni predefinito può eseguire il cast delle transazioni private nel nodo **alpha**. È necessario aggiungere chiavi pubbliche per tutti i partecipanti alla transazione privata. Se non si includono i valori per **privateFor:** e **from:** , le transazioni del contratto intelligente sono pubbliche e possono essere viste da tutti i membri del consorzio.
 
 Salvare il file selezionando **File > Save All** (File > Salva tutto).
 

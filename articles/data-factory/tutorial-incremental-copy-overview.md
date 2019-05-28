@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: cb75e943416c227730589ab5e7feeb7b8ba5e245
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 1d8b31e55a2a230385730c924d3e6bcc6072e7ea
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957930"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520433"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Caricare dati in modo incrementale da un archivio dati di origine a un archivio dati di destinazione
 
@@ -44,13 +44,13 @@ Per istruzioni dettagliate, vedere l'esercitazione seguente: <br/>
 [Eseguire la copia incrementale di dati dal database SQL di Azure a un archivio BLOB di Azure usando la tecnologia Rilevamento modifiche](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 ## <a name="loading-new-and-changed-files-only-by-using-lastmodifieddate"></a>Caricamento dei soli file nuovi e modificati usando LastModifiedDate
-È possibile prima ottenere i metadati (LastModifiedDate) dei file e quindi copiare solo i file nuovi e modificati nell'archivio di destinazione.
+È possibile copiare i file nuovi e modificati solo usando LastModifiedDate nell'archivio di destinazione. Azure Data Factory analizza tutti i file dall'archivio di origine, applica il filtro LastModifiedDate sui file e copia nell'archivio di destinazione solo quello nuovo e aggiornato più di recente.  Tenere presente che, se Azure Data Factory analizza enormi quantità di file, ma si copiano pochi file nella destinazione, bisognerà comunque aspettarsi un'operazione lunga, perché anche l'analisi dei file richiede tempo.   
 
 Per istruzioni dettagliate, vedere l'esercitazione seguente: <br/>
 [Incrementally copy new and changed files based on LastModifiedDate from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-lastmodified-copy-data-tool.md) (Eseguire la copia incrementale dei file nuovi e modificati in base a LastModifiedDate da Archiviazione BLOB di Azure ad Archiviazione BLOB di Azure)
 
 ## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>Caricamento dei soli file nuovi usando il nome di file o cartella partizionato in base al tempo
-È possibile copiare solo i nuovi file se i file o le cartelle sono già stati partizionati in base al tempo con informazioni temporali inserite nel nome di file o cartella (ad esempio, /aaaa/mm/gg/file.csv). 
+È possibile copiare solo i nuovi file se i file o le cartelle sono già stati partizionati in base al tempo con informazioni temporali inserite nel nome di file o cartella (ad esempio, /aaaa/mm/gg/file.csv). Questo è l'approccio più redditizio in termini di prestazioni per il caricamento incrementale di nuovi file. 
 
 Per istruzioni dettagliate, vedere l'esercitazione seguente: <br/>
 [Incrementally copy new files based on time partitioned folder or file name from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) (Eseguire la copia incrementale dei file nuovi in base al nome di cartella o di file partizionato in base al tempo da Archiviazione BLOB di Azure ad Archiviazione BLOB di Azure)

@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: ac9a748742bda6b1e7a321a427090662542f1032
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f20cc1107476f8d65323d277a53086b8bd035a1b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486912"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518914"
 ---
 # <a name="back-up-azure-file-shares"></a>Eseguire il backup di condivisioni file di Azure
 Questo articolo illustra come usare il portale di Azure per eseguire il backup e il ripristino delle [condivisioni file di Azure](../storage/files/storage-files-introduction.md).
@@ -56,7 +56,7 @@ In questa esercitazione si presuppone che sia già disponibile una condivisione 
 
     ![Scegliere Condivisione file di Azure come obiettivo di backup](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
-3. Fare clic su **Backup** per configurare la condivisione file di Azure nell'insieme di credenziali di Servizi di ripristino. 
+3. Fare clic su **Backup** per configurare la condivisione file di Azure nell'insieme di credenziali di Servizi di ripristino.
 
    ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/set-backup-goal.png)
 
@@ -85,7 +85,7 @@ A volte si vuole generare uno snapshot di backup, o punto di ripristino, fuori d
 
    ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/list-of-backup-items.png)
 
-2. Dall'elenco selezionare **Archiviazione di Azure (File di Azure)**. Verrà visualizzato l'elenco delle condivisioni file di Azure.
+2. Dall'elenco selezionare **Archiviazione di Azure (File di Azure)** . Verrà visualizzato l'elenco delle condivisioni file di Azure.
 
    ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
@@ -123,10 +123,12 @@ Nella pagina **Processi di backup** è possibile eseguire diverse attività di g
 Per aprire la pagina **Processi di backup**:
 
 - Aprire l'insieme di credenziali di Servizi di ripristino che si vuole monitorare e nel relativo menu fare clic su **Processi** e quindi su **Processi di backup**.
+
    ![Selezionare il processo da monitorare](./media/backup-file-shares/open-backup-jobs.png)
 
     Verrà visualizzato l'elenco dei processi di backup con il relativo stato.
-   ![Selezionare il processo da monitorare](./media/backup-file-shares/backup-jobs-progress-list.png)
+
+    ![Selezionare il processo da monitorare](./media/backup-file-shares/backup-jobs-progress-list.png)
 
 ### <a name="create-a-new-policy"></a>Creare nuovi criteri
 
@@ -164,7 +166,7 @@ Per interrompere la protezione di una condivisione file di Azure:
 
    ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/list-of-backup-items.png)
 
-2. Nell'elenco **Tipo di gestione di backup** selezionare **Archiviazione di Azure (File di Azure)**. Verrà visualizzato l'elenco Elementi di backup (Archiviazione di Azure (File di Azure)).
+2. Nell'elenco **Tipo di gestione di backup** selezionare **Archiviazione di Azure (File di Azure)** . Verrà visualizzato l'elenco Elementi di backup (Archiviazione di Azure (File di Azure)).
 
    ![Fare clic su un elemento per aprire un altro menu](./media/backup-file-shares/azure-file-share-backup-items.png)
 
