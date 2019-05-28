@@ -1,20 +1,19 @@
 ---
 title: Configurare i criteri di Apache HBase in HDInsight con Enterprise Security Package - Azure
 description: Informazioni su come configurare i criteri di Apache Ranger per HBase in Azure HDInsight con Enterprise Security Package.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: 1421b142fbca83d2de46f52f8390d0c25f22780c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117286"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926104"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri di Apache HBase in HDInsight con Enterprise Security Package (Anteprima)
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Esercitazione: Configurare i criteri di Apache HBase in HDInsight con Enterprise Security Package
 
 Informazioni su come configurare i criteri di Apache Ranger per i cluster Apache HBase Enterprise Security Package (ESP). Gli ESP cluster sono connessi a un dominio che consente agli utenti di eseguire l'autenticazione con le credenziali di dominio. In questa esercitazione vengono creati due criteri Ranger per limitare l'accesso a diverse famiglie di colonne in una tabella HBase.
 

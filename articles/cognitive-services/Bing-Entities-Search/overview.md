@@ -10,16 +10,16 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
-ms.openlocfilehash: 96bb11dad34d6ebcfebe0956d2a08b954a37e843
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0755688d1cc2f00ffef253b7695d9cb504f9e169
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733045"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866850"
 ---
 # <a name="what-is-bing-entity-search-api"></a>Informazioni sull'API Ricerca entità Bing
 
-L'API Ricerca entità Bing invia una query di ricerca a Bing e ottiene risultati che includono entità e località. I risultati relativi alle località includono ristoranti, hotel o altre aziende locali. Bing restituisce località se la query specifica il nome dell'azienda locale o richiede un tipo di azienda (ad esempio, ristoranti nelle vicinanze). Bing restituisce entità se la query specifica persone, oggetti o località note (attrazioni, stati, paesi e così via).
+L'API Ricerca entità Bing invia una query di ricerca a Bing e ottiene risultati che includono entità e località. I risultati relativi alle località includono ristoranti, hotel o altre aziende locali. Bing restituisce località se la query specifica il nome dell'azienda locale o richiede un tipo di azienda (ad esempio, ristoranti nelle vicinanze). Bing restituisce entità se la query specifica persone, oggetti o località note (attrazioni, stati, paesi/aree geografiche e così via).
 
 |Funzionalità  |DESCRIZIONE  |
 |---------|---------|

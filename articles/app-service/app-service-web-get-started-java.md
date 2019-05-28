@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 04/23/2019
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007356"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706143"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Creare la prima app Web Java in Azure
 
-[Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Questa guida introduttiva illustra come distribuire un'app Web Java nel servizio app usando [Eclipse IDE for Java EE Developers](https://www.eclipse.org/).
+Il Servizio app di Azure offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Questa guida introduttiva illustra come distribuire un'app Web Java nel servizio app usando Eclipse IDE for Java EE Developers.
 
 > [!IMPORTANT]
 > Servizio app di Azure in Linux rappresenta anche un'opzione per l'hosting nativo di app Web Java su Linux mediante offerte gestite Tomcat, Java SE e WildFly. Se si è interessati alle attività iniziali con il Servizio app in Linux, vedere [Avvio rapido: Creare un'app Java nel Servizio app in Linux](containers/quickstart-java.md).

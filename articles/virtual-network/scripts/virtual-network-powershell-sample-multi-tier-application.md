@@ -3,8 +3,8 @@ title: Esempio di script di Azure PowerShell - Creare una rete per applicazioni 
 description: Esempio di script di Azure PowerShell - Creare una rete virtuale per applicazioni multilivello.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 12/13/2018
-ms.author: jdial
-ms.openlocfilehash: efd496f2f69f243b958f4e780b9f3455d2ffece3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: 2fad78db4fdc92f3dc9c0f320c36d12dea554a61
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648695"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725399"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Esempio di script per la creazione di una rete per applicazioni multilivello
 
@@ -34,7 +34,8 @@ Questo script di esempio crea una rete virtuale con subnet front-end e back-end.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> Un ID subnet viene assegnato dopo aver creato una rete virtuale, nello specifico usando il cmdlet New-AzVirtualNetwork con l'opzione -Subnet. Se si configura la subnet usando il cmdlet New-AzVirtualNetworkSubnetConfig prima della chiamata a New-AzVirtualNetwork, l'ID subnet non sarà visibile fino a dopo la chiamata di New-AzVirtualNetwork.
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 -->
+Un ID subnet viene assegnato dopo aver creato una rete virtuale, nello specifico usando il cmdlet New-AzVirtualNetwork con l'opzione -Subnet. Se si configura la subnet usando il cmdlet New-AzVirtualNetworkSubnetConfig prima della chiamata a New-AzVirtualNetwork, l'ID subnet non sarà visibile fino a dopo la chiamata di New-AzVirtualNetwork.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 

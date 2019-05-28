@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 1d6343705e8d27fb2d22827cf792de332861456e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: da56c9664ce533709676ded677add4a2391dce03
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007968"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64865857"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Cos'è il filtro geografico in un dominio per il servizio Frontdoor di Azure?
 
-Per impostazione predefinita, il servizio Frontdoor di Azure risponde alle richieste degli utenti indipendentemente dalla posizione dell'utente che effettua la richiesta. In alcuni casi, tuttavia, si può avere l'esigenza di limitare l'accesso alle applicazioni Web in base al paese. Il servizio Web application firewall (WAF) del servizio Frontdoor consente di definire criteri mediante regole di accesso personalizzate per un percorso specifico nell'endpoint per consentire o bloccare l'accesso da paesi specifici. 
+Per impostazione predefinita, il servizio Frontdoor di Azure risponde alle richieste degli utenti indipendentemente dalla posizione dell'utente che effettua la richiesta. In alcuni casi, tuttavia, si può avere l'esigenza di limitare l'accesso alle applicazioni Web in base al paese/area geografica. Il servizio Web application firewall (WAF) del servizio Frontdoor consente di definire criteri mediante regole di accesso personalizzate per un percorso specifico nell'endpoint per consentire o bloccare l'accesso da specifici paesi/aree geografiche. 
 
 I criteri WAF includono in genere un set di regole personalizzate. Una regola è costituita da condizioni di corrispondenza, un'azione e una priorità. Nella condizione di corrispondenza si definisce una variabile di corrispondenza, un operatore e un valore di corrispondenza.  Per la regola di filtro geografico, la variabile di corrispondenza è REMOTE_ADDR, l'operatore è GeoMatch e il valore è il codice di due lettere del paese che interessa. È possibile combinare una condizione GeoMatch e una condizione di corrispondenza stringa REQUEST_URI per creare una regola di filtro geografico basato sul percorso.
 
@@ -62,7 +62,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | BY | Bielorussia|
 | BZ | Belize|
 | CA | Canada|
-| CD | Congo, Repubblica democratica del|
+| CD | Congo, Repubblica democratica|
 | CF | Repubblica centrafricana|
 | CH | Svizzera|
 | CI | Côte d'Ivoire (Costa d'Avorio)|

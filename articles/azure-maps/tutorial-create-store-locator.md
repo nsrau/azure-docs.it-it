@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1d3099da3d449e29d378e2f350fdc87ce5166f2e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545298"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574393"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -71,7 +71,7 @@ I wireframe mostrano un'applicazione abbastanza semplice. L'applicazione include
 
 ## <a name="create-the-store-location-dataset"></a>Creare il set di dati relativo alla posizione dei punti vendita
 
-Prima di sviluppare un'applicazione di tipo localizzatore di punti vendita, è necessario creare un set di dati dei punti vendita da visualizzare sulla mappa. In questa esercitazione viene usato un set di dati per un bar fittizio denominato Contoso Coffee. Il set di dati per questo semplice localizzatore di punti vendita viene gestito in una cartella di lavoro di Excel. Il set di dati contiene 10.213 posizioni di bar Contoso Coffee in nove paesi, ovvero Stati Uniti, Canada, Regno Unito, Francia, Germania, Italia, Paesi Bassi, Danimarca e Spagna. Ecco uno screenshot dell'aspetto dei dati:
+Prima di sviluppare un'applicazione di tipo localizzatore di punti vendita, è necessario creare un set di dati dei punti vendita da visualizzare sulla mappa. In questa esercitazione viene usato un set di dati per un bar fittizio denominato Contoso Coffee. Il set di dati per questo semplice localizzatore di punti vendita viene gestito in una cartella di lavoro di Excel. Il set di dati contiene 10.213 posizioni di bar Contoso Coffee in nove paesi/aree geografiche, ovvero Stati Uniti, Canada, Regno Unito, Francia, Germania, Italia, Paesi Bassi, Danimarca e Spagna. Ecco uno screenshot dell'aspetto dei dati:
 
 <br/>
 <center>
@@ -93,7 +93,7 @@ Esaminando lo screenshot dei dati è possibile fare le osservazioni seguenti:
 
 Un altro approccio consiste nel convertire questo set di dati in un file flat di testo che può essere analizzato con facilità dal browser. Il file stesso può essere ospitato insieme al resto dell'applicazione. Questa opzione consente di semplificare le procedure, ma è ideale solo per set di dati più piccoli perché l'utente scarica tutti i dati. Per questo set di dati viene usato il file flat di testo perché le dimensioni del file di dati sono inferiori a 1 MB.  
 
-Per convertire la cartella di lavoro in un file flat di testo, salvare la cartella di lavoro come file con valori delimitati da tabulazioni. Ogni colonna è delimitata da un carattere di tabulazione e le colonne risultano quindi facili da analizzare nel codice. È possibile usare il formato con valori delimitati da virgole (CSV), ma questa opzione richiede una quantità maggiore di logica di analisi. Qualsiasi campo delimitato da una virgola verrebbe racchiuso tra virgolette. Per esportare questi dati come file con valori delimitati da tabulazioni in Excel, selezionare **Salva con nome**. Nell'elenco a discesa **Salva come** selezionare **Testo (delimitato da tabulazione)(*.txt)**. Specificare il nome *ContosoCoffee.txt* per il file. 
+Per convertire la cartella di lavoro in un file flat di testo, salvare la cartella di lavoro come file con valori delimitati da tabulazioni. Ogni colonna è delimitata da un carattere di tabulazione e le colonne risultano quindi facili da analizzare nel codice. È possibile usare il formato con valori delimitati da virgole (CSV), ma questa opzione richiede una quantità maggiore di logica di analisi. Qualsiasi campo delimitato da una virgola verrebbe racchiuso tra virgolette. Per esportare questi dati come file con valori delimitati da tabulazioni in Excel, selezionare **Salva con nome**. Nell'elenco a discesa **Salva come** selezionare **Testo (delimitato da tabulazione)(*.txt)** . Specificare il nome *ContosoCoffee.txt* per il file. 
 
 <br/>
 <center>
@@ -403,7 +403,7 @@ A questo punto l'interfaccia utente è stata configurata. Ora è necessario aggi
 
 1. Aggiungere codice al file *index.js*. Il codice seguente consente di inizializzare la mappa, aggiungere un [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) che rimane in attesa fino al completamento del caricamento della pagina, aggiungere eventi per monitorare il caricamento della mappa e attivare il pulsante di ricerca e il pulsante My Location.
 
-   Quando l'utente seleziona il pulsante di ricerca o quando l'utente preme INVIO dopo avere immesso una posizione nella casella di ricerca, viene avviata una ricerca fuzzy rispetto alla query dell'utente. Passare una matrice di valori ISO 2 relativi ai paesi all'opzione `countrySet` per limitare i risultati della ricerca a tali paesi. La limitazione dei paesi in cui eseguire la ricerca consente di migliorare la precisione dei risultati restituiti. 
+   Quando l'utente seleziona il pulsante di ricerca o quando l'utente preme INVIO dopo avere immesso una posizione nella casella di ricerca, viene avviata una ricerca fuzzy rispetto alla query dell'utente. Passare una matrice di valori ISO 2 relativi ai paesi all'opzione `countrySet` per limitare i risultati della ricerca a tali paesi/aree geografiche. La limitazione dei paesi/aree geografiche in cui eseguire la ricerca consente di migliorare la precisione dei risultati restituiti. 
   
    Al termine della ricerca, accettare il primo risultato e impostare la fotocamera della mappa su tale area. Quando l'utente seleziona il pulsante My Location, usare l'API per la georilevazione HTML5 incorporata nel browser per recuperare la posizione dell'utente e centrare la mappa rispetto a tale posizione.  
 

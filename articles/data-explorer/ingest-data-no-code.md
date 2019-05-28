@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 04/07/2019
-ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/29/2019
+ms.openlocfilehash: 187aa4b02e389c485b24ad7de256422d1880182b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262908"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872594"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Esercitazione: Inserire dati in Esplora dati di Azure senza una riga di codice
 
@@ -380,7 +380,7 @@ A questo punto è necessario creare le connessioni dati per i log di diagnostica
     |---|---|---|
     | **Tabella** | *DiagnosticLogsRawRecords* | Tabella creata nel database *TestDatabase*. |
     | **Formato dati** | *JSON* | Formato usato nella tabella. |
-    | **Mapping di colonne** | *DiagnosticLogsRecordsMapping* | Il mapping creato nel database *TestDatabase*, che mappa i dati JSON in ingresso con i nomi di colonna e i tipi di dati della tabella *DiagnosticLogsRecords*.|
+    | **Mapping di colonne** | *DiagnosticLogsRecordsMapping* | Il mapping creato nel database *TestDatabase*, che mappa i dati JSON in ingresso con i nomi di colonna e i tipi di dati della tabella *DiagnosticLogsRawRecords*.|
     | | |
 
 1. Selezionare **Create**.  

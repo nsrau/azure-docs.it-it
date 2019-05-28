@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 964e6235923402814879fe59a204985b8aaac2b4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535995"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573815"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Esercitazione: Creare la prima data factory con il portale di Azure
 > [!div class="op_single_selector"]
@@ -209,16 +209,16 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
     ```
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice.
 
-   | Proprietà | DESCRIZIONE |
-   |:--- |:--- |
-   | type |La proprietà type è impostata su **AzureBlob** perché i dati risiedono nell'archivio BLOB. |
-   | linkedServiceName |Fa riferimento all'oggetto AzureStorageLinkedService creato in precedenza. |
-   | folderPath | Specifica il contenitore BLOB e la cartella che contiene i BLOB di input. | 
-   | fileName |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In questo tutorial viene elaborato solo il file input.log. |
-   | type |I file di log sono in formato testo, quindi si usa **TextFormat**. |
-   | columnDelimiter |Le colonne nei file di log sono delimitate dalla virgola (`,`). |
-   | frequency/interval |La frequenza è impostata su **Month** e l'intervallo è **1**; ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
-   | external | Questa proprietà è impostata su **true** se i dati di input non vengono generati dalla pipeline. In questa esercitazione, il file input.log non viene generato dalla pipeline, quindi la proprietà viene impostata su **true**. |
+   | Proprietà | Annidata in | DESCRIZIONE |
+   |:--- |:--- |:--- |
+   | type | properties |La proprietà type è impostata su **AzureBlob** perché i dati risiedono nell'archivio BLOB. |
+   | linkedServiceName | format |Fa riferimento all'oggetto AzureStorageLinkedService creato in precedenza. |
+   | folderPath | typeProperties | Specifica il contenitore BLOB e la cartella che contiene i BLOB di input. | 
+   | fileName | typeProperties |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In questo tutorial viene elaborato solo il file input.log. |
+   | type | format |I file di log sono in formato testo, quindi si usa **TextFormat**. |
+   | columnDelimiter | format |Le colonne nei file di log sono delimitate dalla virgola (`,`). |
+   | frequenza/intervallo | Disponibilità |La frequenza è impostata su **Month** e l'intervallo è **1**; ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
+   | external | properties | Questa proprietà è impostata su **true** se i dati di input non vengono generati dalla pipeline. In questa esercitazione, il file input.log non viene generato dalla pipeline, quindi la proprietà viene impostata su **true**. |
 
     Per altre informazioni su queste proprietà JSON, vedere il [connettore BLOB di Azure](data-factory-azure-blob-connector.md#dataset-properties).
 

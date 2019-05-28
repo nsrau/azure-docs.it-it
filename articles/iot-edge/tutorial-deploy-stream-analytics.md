@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Distribuire un processo di Analisi di flusso di Azure in un dispositivo - Azure IoT Edge | Microsoft Docs'
-description: In questa esercitazione Analisi di flusso di Azure viene distribuito come modulo in un dispositivo Iot Edge
+description: In questa esercitazione Analisi di flusso di Azure viene distribuito come modulo in un dispositivo IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cea0d091620d53892f3334306a341b196765879d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106016"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575894"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge
 
@@ -44,7 +44,7 @@ In questa esercitazione si apprenderà come:
 
 Un dispositivo Azure IoT Edge:
 
-* È possibile usare il computer per lo sviluppo o una macchina virtuale come dispositivo perimetrale seguendo la procedura illustrata nella guida introduttiva per dispositivi [Linux](quickstart-linux.md) o [Windows](quickstart.md).
+* è possibile usare una macchina virtuale di Azure come dispositivo IoT Edge seguendo la procedura illustrata nell'argomento di avvio rapido per dispositivi [Linux](quickstart-linux.md) o [Windows](quickstart.md).
 
 Risorse cloud:
 
@@ -233,11 +233,9 @@ Dovrebbe essere possibile osservare un progressivo aumento della temperatura del
 
 Se si intende continuare con il prossimo articolo consigliato, è possibile conservare le risorse e le configurazioni create e riutilizzarle. È anche possibile continuare a usare lo stesso dispositivo IoT Edge come dispositivo di test. 
 
-In caso contrario, è possibile eliminare le risorse di Azure e le configurazioni locali create in questo articolo per evitare addebiti. 
+In caso contrario, è possibile eliminare le risorse di Azure e le configurazioni locali usate in questo articolo per evitare addebiti. 
  
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>Passaggi successivi

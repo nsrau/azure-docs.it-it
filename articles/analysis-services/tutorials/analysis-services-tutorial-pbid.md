@@ -5,15 +5,15 @@ manager: kfile
 description: Informazioni su come connettersi ad Azure Analysis Services con Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 04/25/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 5d021aa7a6d55bb071340ebcd8e7090a4b0c2e2f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ea2a6612a568d4080a8df2c569f79aaaa283e9c4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188811"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702832"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Esercitazione: Connettersi con Power BI Desktop
 
@@ -71,4 +71,4 @@ In **portale di Azure** > server > **Panoramica** > **Nome server** copiare il n
 Se non è più necessario, non salvare il report o eliminare il file se è stato salvato.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione è stato illustrato come usare Power BI Desktop per connettersi a un modello di dati in un server e creare un report di base. Se non si ha familiarità con la creazione di un modello di dati, vedere l'[esercitazione sulla modellazione dei dati tabulari relativi alle vendite Internet in Adventure Works](aas-adventure-works-tutorial.md).
+In questa esercitazione è stato illustrato come usare Power BI Desktop per connettersi a un modello di dati in un server e creare un report di base. Se non si ha familiarità con la creazione di un modello di dati, vedere l'[esercitazione sulla modellazione dei dati tabulari relativi alle vendite Internet in Adventure Works](https://docs.microsoft.com/sql/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) nella documentazione di SQL Server Analysis Services.

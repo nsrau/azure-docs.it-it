@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620088"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686526"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Esercitazione: Preparare la distribuzione di Azure Data Box Gateway
 
@@ -51,6 +51,8 @@ Di seguito sono elencati i prerequisiti di configurazione per la risorsa Data Bo
 Prima di iniziare, verificare che:
 
 - La sottoscrizione di Microsoft Azure sia supportata per la risorsa Data Box Gateway. Le sottoscrizioni con pagamento in base al consumo non sono supportate.
+- Si abbia accesso alla sottoscrizione come proprietario o collaboratore.
+- Si abbia accesso all'API Graph di Azure Active Directory Graph come utente o amministratore. Per altre informazioni, vedere [API Graph di Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
 
 ### <a name="for-the-data-box-gateway-device"></a>Per il dispositivo Data Box Gateway
@@ -85,7 +87,7 @@ Per creare una risorsa Data Box Gateway, seguire questa procedura nel portale di
 
 1. Usare le credenziali di Microsoft Azure per accedere a:
 
-    - Portale di Azure all'URL [https://portal.azure.com](http://portal.azure.com).
+    - Portale di Azure all'URL [https://portal.azure.com](https://portal.azure.com).
     - Portale di Azure per enti pubblici all'URL [https://portal.azure.us](https://portal.azure.us). Per altri dettagli, vedere l'articolo su come [connettersi ad Azure per enti pubblici con il portale](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. Nel riquadro sinistro selezionare **Crea una risorsa**. Cercare **Data Box Edge/Data Box Gateway**. Selezionare Data Box Edge/Data Box Gateway. Selezionare **Create**.

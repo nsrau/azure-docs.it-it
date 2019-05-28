@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva - Creare un'app Unity per Android con Ancoraggi nello spazio di Azure | Microsoft Docs
+title: "Avvio rapido: Creare un'app Android in Unity con gli ancoraggi nello spazio di Azure | Microsoft Docs"
 description: In questa guida introduttiva si apprenderà a compilare un'app per Android con Unity usando il servizio Ancoraggi nello spazio.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: bce71db594d2bbd869dcc5a1ff5cb494a7a6f1c2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 001042a5499b492db151853172e999cf7a3c5f88
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994938"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687825"
 ---
-# <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Unity per Android con Ancoraggi nello spazio di Azure
+# <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Android in Unity con gli ancoraggi nello spazio di Azure
 
-Questa Guida introduttiva illustra come creare un'app Unity per Android usando [Ancoraggi nello spazio di Azure](../overview.md). Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine si avrà un'app ARCore per Android compilata con Unity in grado di salvare e richiamare un ancoraggio spaziale.
+Questo argomento di avvio rapido illustra come creare un'app Android in Unity usando [Ancoraggi nello spazio di Azure](../overview.md). Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine si avrà un'app ARCore per Android compilata con Unity in grado di salvare e richiamare un ancoraggio spaziale.
 
 Si apprenderà come:
 

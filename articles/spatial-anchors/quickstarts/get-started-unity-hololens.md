@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido - Creare un'app Unity HoloLens con Ancoraggi nello spazio di Azure | Microsoft Docs
+title: Avvio rapido - Creare un'app HoloLens in Unity con gli ancoraggi nello spazio di Azure | Microsoft Docs
 description: In questa guida introduttiva viene illustrato come compilare un'app HoloLens con Unity usando il servizio Ancoraggi nello spazio.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ce9bca3f11911677a6009b4cfe0c3f6413b9f837
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 31c7af3edf6364ebca021f87240e73c74e64ebc4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009243"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704127"
 ---
-# <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Unity HoloLens che usa Ancoraggi nello spazio di Azure
+# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app HoloLens in Unity che usa gli ancoraggi nello spazio di Azure
 
-Questa guida introduttiva illustra come creare un'app Unity HoloLens che usa [Ancoraggi nello spazio di Azure](../overview.md). Ancoraggi nello spazio è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista con oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine si avrà un'app HoloLens compilata con Unity in grado di salvare e richiamare un ancoraggio nello spazio.
+Questo argomento di avvio rapido illustra come creare un'app HoloLens in Unity che usa [Ancoraggi nello spazio di Azure](../overview.md). Ancoraggi nello spazio è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista con oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine si avrà un'app HoloLens compilata con Unity in grado di salvare e richiamare un ancoraggio nello spazio.
 
 Si apprenderà come:
 
@@ -36,8 +36,8 @@ Per completare questa guida introduttiva:
 
 - È necessario un computer Windows in cui sono installati <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> o versione successiva e <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> o versione successiva. L'installazione di Visual Studio deve includere il carico di lavoro di **sviluppo per la piattaforma UWP**. È inoltre necessario installare <a href="https://git-scm.com/download/win" target="_blank">Git per Windows</a>.
 - È necessario un dispositivo HoloLens con la [modalità sviluppatore](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) abilitata. Nel dispositivo deve essere installato l'[aggiornamento di Windows 10 (ottobre 2018)](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (anche noto come RS5). Per aggiornare alla versione più recente per HoloLens, aprire l'app **Impostazioni**, scegliere **Aggiornamento e sicurezza**, quindi selezionare **Verifica disponibilità aggiornamenti**.
-- Nell'app è necessario abilitare la funzionalità **SpatialPerception**. Questa impostazione si trova in **Build Settings (Impostazioni compilazione)** > **Player Settings (Impostazioni lettore)** > **Publishing Settings (Impostazioni pubblicazione)** > **Capabilities (Funzionalità)**.
-- Nell'app è necessario abilitare **Virtual Reality Supported** (Realtà virtuale supportata) con **Windows Mixed Reality SDK** (SDK realtà mista Windows). Questa impostazione si trova in **Build Settings (Impostazioni compilazione)** > **Player Settings (Impostazioni lettore)** > **XR Settings (Impostazioni realtà mista)**.
+- Nell'app è necessario abilitare la funzionalità **SpatialPerception**. Questa impostazione si trova in **Build Settings (Impostazioni compilazione)**  > **Player Settings (Impostazioni lettore)**  > **Publishing Settings (Impostazioni pubblicazione)**  > **Capabilities (Funzionalità)** .
+- Nell'app è necessario abilitare **Virtual Reality Supported** (Realtà virtuale supportata) con **Windows Mixed Reality SDK** (SDK realtà mista Windows). Questa impostazione si trova in **Build Settings (Impostazioni compilazione)**  > **Player Settings (Impostazioni lettore)**  > **XR Settings (Impostazioni realtà mista)** .
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 78c2f599ba7d22e6de070f5867398e111a396d45
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f79fbc46104eb886a758802aff79a46feb4f5a3b
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849738"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866622"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Creare la prima funzione ospitata in Linux usando Core Tools e l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -30,7 +30,7 @@ I passaggi seguenti sono supportati in computer Mac, Windows o Linux. Questo art
 
 Prima di eseguire questo esempio, è necessario disporre di quanto segue:
 
-+ Installare la [versione 2.x di Core Tools di Azure](functions-run-local.md#v2).
+- Installare [Azure Functions Core Tools](./functions-run-local.md#v2) versione 2.6.666 o successiva.
 
 + Installare l'[interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0 o versioni successive. Eseguire `az --version` per trovare la versione in uso. È possibile usare anche [Azure Cloud Shell](https://shell.azure.com/bash).
 
@@ -67,9 +67,11 @@ Usare il comando seguente per passare alla nuova cartella del progetto `MyFuncti
 cd MyFunctionProj
 ```
 
-[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
+## <a name="reference-bindings"></a>Associazioni di riferimento
 
-[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 

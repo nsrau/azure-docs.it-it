@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
-ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6786e4e3382c7c4d7a6a6a28c3cd3621df221c1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123046"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867127"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Esercitazione: Visualizzare le anomalie dei dati in eventi in tempo reale inviati a Hub eventi di Azure
 
-Con Hub eventi di Azure, è possibile usare Analisi di flusso di Azure per controllare i dati in ingresso e individuare le anomalie, per poi visualizzarle in Power BI. Supponiamo di avere migliaia di dispositivi che inviano costantemente dati in tempo reale a un hub eventi, aggiungendo fino a milioni di eventi al secondo. Come si controlla tale quantità di dati per individuare eventuali anomalie o errori? Ad esempio, cosa fare se i dispositivi inviano transazioni con carta di credito ed è necessario acquisire informazioni ogniqualvolta vengano eseguite più transazioni in diversi paesi in un intervallo di tempo di 5 secondi? Questo può succedere se le carte di credito sono state rubate e qualcuno le sta usando per fare acquisti in più paesi allo stesso tempo. 
+Con Hub eventi di Azure, è possibile usare Analisi di flusso di Azure per controllare i dati in ingresso e individuare le anomalie, per poi visualizzarle in Power BI. Supponiamo di avere migliaia di dispositivi che inviano costantemente dati in tempo reale a un hub eventi, aggiungendo fino a milioni di eventi al secondo. Come si controlla tale quantità di dati per individuare eventuali anomalie o errori? Ad esempio, cosa fare se i dispositivi inviano transazioni con carta di credito ed è necessario acquisire informazioni ogniqualvolta vengano eseguite più transazioni in diversi paesi/aree geografiche in un intervallo di tempo di 5 secondi? Questo può succedere se le carte di credito sono state rubate e qualcuno le sta usando per fare acquisti in più paesi allo stesso tempo. 
 
 In questa esercitazione verrà simulato proprio questo esempio. Viene eseguita un'applicazione che crea e invia transazioni con carta di credito a un hub eventi. In seguito vengono letti i flussi di dati in tempo reale con Analisi di flusso di Azure, che separa le transazioni valide da quelle non valide, e quindi si usa Power BI per identificare visivamente le transazioni contrassegnate come non valide.
 
@@ -54,7 +54,7 @@ Le sezioni seguenti descrivono come eseguire questa procedura necessaria. Seguir
 3. Creare un hub eventi.
 
 > [!NOTE]
-> In ogni script sono disponibili delle variabili impostate che saranno necessarie più avanti nell'esercitazione. Tra queste sono inclusi il nome del gruppo di risorse ($resourceGroup), lo spazio dei nomi dell'hub eventi (**$eventHubNamespace**) e il nome dell'hub eventi (**$eventHubName**). Più avanti in questo articolo viene fatto riferimento a queste variabili con il prefisso del segno del dollaro ($), in modo che sia chiaro che sono state impostate nello script.
+> In ogni script sono disponibili delle variabili impostate che saranno necessarie più avanti nell'esercitazione. Tra queste sono inclusi il nome del gruppo di risorse ($resourceGroup), lo spazio dei nomi dell'hub eventi ( **$eventHubNamespace**) e il nome dell'hub eventi ( **$eventHubName**). Più avanti in questo articolo viene fatto riferimento a queste variabili con il prefisso del segno del dollaro ($), in modo che sia chiaro che sono state impostate nello script.
 
 <!-- some day they will approve the tab control; 
   When that happens, put CLI and PSH in tabs. -->

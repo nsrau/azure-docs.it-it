@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 04/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 4b44eec5557d2083c38fe2714d93800f79b21b0f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: e8e251aa5031a8eadd2d567bff2830449c7decc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338446"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689499"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Esercitazione: Creare una connessione da sito a sito con la rete WAN virtuale di Azure
 
@@ -32,6 +32,7 @@ In questa esercitazione si apprenderà come:
 > * Creare un sito
 > * Creare un hub
 > * Connettere un hub a un sito
+> * Creare una rete virtuale compatibile (se non ne esiste già una)
 > * Connettere una rete virtuale a un hub
 > * Scaricare e applicare la configurazione del dispositivo VPN
 > * Visualizzare la rete WAN virtuale
@@ -40,21 +41,15 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## <a name="vnet"></a>1. Crea rete virtuale
-
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
-
-## <a name="openvwan"></a>2. Creare una rete WAN virtuale
+## <a name="openvwan"></a>1. Creare una rete WAN virtuale
 
 In un browser passare al [portale di Azure](https://aka.ms/azurevirtualwanpreviewfeatures) e accedere con l'account Azure.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-## <a name="site"></a>3. Creare un sito
+## <a name="site"></a>2. Creare un sito
 
 Creare il numero di siti necessari, corrispondenti alle località fisiche. Ad esempio, se esiste una succursale a New York, una a Londra e una a Milano, creare tre siti separati. Questi siti contengono gli endpoint di dispositivo VPN locali. A questo punto, è possibile specificare un solo spazio di indirizzi privato per il sito.
 
@@ -62,21 +57,21 @@ Creare il numero di siti necessari, corrispondenti alle località fisiche. Ad es
 2. Nella pagina **Siti VPN** fare clic su **+Crea sito**.
 3. Nella pagina **Crea sito** compilare i campi seguenti:
 
-   * **Nome** - Questo è il nome che si vuole usare per fare riferimento al sito locale.
-   * **Indirizzo IP pubblico** - Questo è l'indirizzo IP pubblico del dispositivo VPN che risiede nel sito locale.
+   * **Nome** - Nome che si vuole usare per fare riferimento al sito locale.
+   * **Indirizzo IP pubblico** - Indirizzo IP pubblico del dispositivo VPN che risiede nel sito locale.
    * **Spazio indirizzi privato** - Spazio di indirizzi IP nel sito locale. Il traffico destinato a questo spazio di indirizzi viene indirizzato al sito locale.
    * **Sottoscrizione** - Verificare la sottoscrizione.
    * **Gruppo di risorse** - Selezionare il gruppo di risorse che si vuole usare.
-   * **Località**.
+   * **Posizione**
 4. Fare clic su **Mostra impostazioni avanzate** per visualizzare le impostazioni aggiuntive. È possibile selezionare **BGP** per abilitare il protocollo BGP, abilitando questa funzionalità su tutte le connessioni create per questo sito in Azure. È anche possibile immettere **informazioni sul dispositivo** (campi facoltativi). Queste informazioni possono consentire al team di Azure di comprendere meglio l'ambiente per aggiungere ulteriori possibilità di ottimizzazione in futuro o per offrire supporto per la risoluzione dei problemi.
 5. Fare clic su **Conferma**.
 6. Dopo aver fatto clic su **Conferma**, visualizzare lo stato della pagina Siti VPN. Il sito passerà da **Provisioning** a **Provisioning effettuato**.
 
-## <a name="hub"></a>4. Creare un hub
+## <a name="hub"></a>3. Creare un hub
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="associate"></a>5. Associare i siti all'hub
+## <a name="associate"></a>4. Associare i siti all'hub
 
 In genere, gli hub devono essere associati a siti che si trovano nella stessa area della rete virtuale.
 
@@ -85,6 +80,12 @@ In genere, gli hub devono essere associati a siti che si trovano nella stessa ar
 3. È anche possibile aggiungere una **PSK** specifica o usare quella predefinita.
 4. Fare clic su **Conferma**.
 5. È possibile visualizzare lo stato di connessione nella pagina **Siti VPN**.
+
+## <a name="vnet"></a>5. Crea rete virtuale
+
+Se non è già disponibile una rete virtuale, è possibile crearne rapidamente una tramite PowerShell o il portale di Azure. Se è già disponibile una rete virtuale, verificare che soddisfi i criteri richiesti e che non abbia un gateway di rete virtuale.
+
+[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 
 ## <a name="vnet"></a>6. Connettere la rete virtuale a un hub
 
@@ -114,7 +115,7 @@ Usare la configurazione del dispositivo VPN per configurare il dispositivo VPN l
 Il file di configurazione del dispositivo contiene le impostazioni da usare quando si configura il dispositivo VPN locale. Quando si visualizza questo file, notare le informazioni seguenti:
 
 * **vpnSiteConfiguration -** Questa sezione indica i dettagli del dispositivo configurato come un sito che si connette alla rete WAN virtuale. Include il nome e l'indirizzo IP pubblico del dispositivo della succursale.
-* **vpnSiteConnections -** Questa sezione include informazioni su quanto segue:
+* **vpnSiteConnections -** Questa sezione include informazioni sulle impostazioni seguenti:
 
     * **Spazio degli indirizzi** della rete virtuale degli hub virtuali<br>Esempio:
  

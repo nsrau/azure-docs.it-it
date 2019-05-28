@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2018
 ms.author: sharadag
-ms.openlocfilehash: 1d1f7eeb6f55fa19b94a1eb4d05520c76352a414
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7e40a847b6ea4daa640a7ae6bc69fd25daa86a5b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756552"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575801"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modello di distribuzione Azure Resource Manager per Frontdoor
 
@@ -26,7 +26,7 @@ La tabella seguente contiene collegamenti ai modelli di distribuzione di Azure R
 | [Creare una frontodoor di base](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-basic)| Consente di creare una configurazione Frontdoor di base con un singolo back-end. |
 | [Creare una fontdoor con più back-end e pool back-end e routing basato su URL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-multiple-backends)| Crea una frontdoor con bilanciamento del carico configurato per più back-end in pool back-end, inclusi i pool back-end basati su percorso URL. |
 | [Eseguire l'onboarding di un dominio personalizzato tramite HTTPS (certificato gestito Frontdoor) con Frontdoor](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-custom-domain)| Aggiungere un dominio personalizzato alla fontdoor e abilitare il traffico HTTPS relativo con un certificato gestito Frontdoor generato tramite DigiCert. |
-| [Creare Frontdoor con filtro geografico ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)| Creare una frontdoor che consente o blocca il traffico proveniente da determinati paesi. |
+| [Creare Frontdoor con filtro geografico ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)| Creare una frontdoor che consente o blocca il traffico proveniente da determinati paesi/aree geografiche. |
 | [Controllare probe di integrità per il back-end in Frontdoor](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-health-probes)| Aggiornare Frontdoor per modificare le impostazioni di probe di integrità, aggiornando il percorso probe, nonché gli intervalli in cui verranno inviati i probe. |
 | [Creare una frontdoor con configurazione back-end attiva e in standby](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-priority-lb)| Consente di creare una frontdoor che verifica il routing basato su priorità per la topologia dell'applicazione attiva/standby: ciò significa che invia per impostazione predefinita tutto il traffico al back-end primario (con maggiore priorità) fino a quando non diventa disponibile. |
 | [Creare una frontdoor con la memorizzazione nella cache abilitata per determinati route](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-create-caching)| Crea una frontdoor con memorizzazione nella cache abilitata per la configurazione del routing, memorizzando quindi nella cache qualsiasi risorsa statica per il carico di lavoro. |

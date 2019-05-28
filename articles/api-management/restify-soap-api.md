@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 940756917c8f377e7d134818409e6287a4031e15
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0b120cedf35a6f88c880443dee626cce18835d42
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38239809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859278"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>Importare un'API SOAP e convertirla in REST
 
@@ -31,9 +31,9 @@ In questo articolo viene spiegato come:
 > * Testare l'API nel portale di Azure
 > * Testare l'API nel portale per sviluppatori
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
+Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

@@ -1,20 +1,20 @@
 ---
-title: Esercitazione sulla preparazione del portale di Azure per la distribuzione di Data Box Edge | Microsoft Docs
+title: Esercitazione per preparare il portale di Azure e l'ambiente di datacenter per la distribuzione di Azure Data Box Edge | Microsoft Docs
 description: La prima esercitazione sulla distribuzione di Azure Data Box Edge include la preparazione del portale di Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 04/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 19c4fc96653f966ea5642149d944886e4b7f4483
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d7e66970db3397531c798bc37bf7c1f346e999bf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401669"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924767"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Esercitazione: Preparare la distribuzione di Azure Data Box Edge  
 
@@ -55,6 +55,8 @@ Di seguito sono indicati i prerequisiti di configurazione per la risorsa Data Bo
 Prima di iniziare, verificare che:
 
 - La sottoscrizione di Microsoft Azure sia abilitata per la risorsa Data Box Edge. Le sottoscrizioni con pagamento in base al consumo non sono supportate.
+- Si abbia accesso alla sottoscrizione come proprietario o collaboratore.
+- Si abbia accesso all'API Graph di Azure Active Directory Graph come utente o amministratore. Per altre informazioni, vedere [API Graph di Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
 
 ### <a name="for-the-data-box-edge-device"></a>Per il dispositivo Data Box Edge
@@ -87,11 +89,15 @@ Per creare la risorsa Data Box Edge, completare i passaggi seguenti nel portale 
 
 1. Usare le credenziali di Microsoft Azure per accedere a: 
     
-    - Portale di Azure all'URL [https://portal.azure.com](http://portal.azure.com).
-    - Portale di Azure per enti pubblici all'URL [https://portal.azure.us](https://portal.azure.us).
+    - Portale di Azure all'URL [https://portal.azure.com](https://portal.azure.com).
+    - Portale di Azure per enti pubblici all'URL [https://portal.azure.us](https://portal.azure.us). Per altri dettagli, vedere l'articolo su come [connettersi ad Azure per enti pubblici con il portale](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. Nel riquadro sinistro selezionare **Crea una risorsa**. Cercare **Data Box Edge/Data Box Gateway**. Selezionare **Data Box Edge/Data Box Gateway**. Selezionare **Create**.
-3. Selezionare la sottoscrizione che si vuole usare per il dispositivo Data Box Edge. Selezionare l'area in cui si vuole distribuire la risorsa Data Box Edge. Per questa versione sono disponibili le aree Stati Uniti orientali, Asia sud-orientale ed Europa occidentale. Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo. Nell'opzione **Data Box Edge** selezionare **Crea**.
+3. Selezionare la sottoscrizione che si vuole usare per il dispositivo Data Box Edge. Selezionare l'area in cui si vuole distribuire la risorsa Data Box Edge. Per questa versione sono disponibili le aree Stati Uniti orientali, Asia sud-orientale ed Europa occidentale. 
+
+    Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo. L'area archivia solo i metadati per la gestione del dispositivo. I dati effettivi possono essere archiviati in qualsiasi account di archiviazione. 
+    
+    Nell'opzione **Data Box Edge** selezionare **Crea**.
 
     ![Cercare nel servizio Data Box Edge](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 

@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'app Unity per iOS con Ancoraggi nello spazio di Azure | Microsoft Docs"
+title: Avvio rapido - Creare un'app iOS in Unity usando gli ancoraggi nello spazio di Azure | Microsoft Docs
 description: In questa guida introduttiva verrà illustrato come creare un'app iOS con Unity usando Ancoraggi nello spazio.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e3320cd6131497d0b2c794646bae7fae578488cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 41189d4945ef22f8a587a51717b7dd6f40ac39ce
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995571"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690542"
 ---
-# <a name="quickstart-create-an-ios-unity-app-with-azure-spatial-anchors"></a>Avvio rapido: Creare un'app Unity per iOS con Ancoraggi nello spazio di Azure
+# <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app iOS in Unity con gli ancoraggi nello spazio di Azure
 
-Questa guida introduttiva illustra come creare un'app Unity per iOS usando [Ancoraggi nello spazio di Azure](../overview.md). Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine si avrà un'app ARKit per iOS compilata con Unity in grado di salvare e richiamare un ancoraggio nello spazio.
+Questo argomento di avvio rapido illustra come creare un'app iOS in Unity usando [Ancoraggi nello spazio di Azure](../overview.md). Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine si avrà un'app ARKit per iOS compilata con Unity in grado di salvare e richiamare un ancoraggio nello spazio.
 
 Si apprenderà come:
 

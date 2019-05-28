@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 97309a24c0ab12720f968409856a16cab4ff7ac7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013096"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714900"
 ---
 # <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Creare ed eseguire il training di un modello predittivo in R con Machine Learning Services di database SQL di Azure (anteprima)
 
@@ -106,7 +106,7 @@ Nei passaggi seguenti verranno impostati i dati di training, creato un modello d
 
 1. Creare una tabella in cui archiviare il modello in modo che sia possibile usarlo successivamente per la stima. 
 
-   L'output di un pacchetto R che crea un modello è in genere un **oggetto binario**, pertanto la tabella deve avere una colonna di tipo **VARBINARY(max)**.
+   L'output di un pacchetto R che crea un modello è in genere un **oggetto binario**, pertanto la tabella deve avere una colonna di tipo **VARBINARY(max)** .
 
     ```sql
     CREATE TABLE dbo.stopping_distance_models (
@@ -171,7 +171,7 @@ VALUES (
 
 **Risultati**
 
-![Modello con training con output aggiuntivo](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
+![Modello con training con output aggiuntivo](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
 ## <a name="score-new-data-using-the-trained-model"></a>Assegnare un punteggio ai nuovi dati usando il modello con training
 
@@ -239,7 +239,7 @@ Si noti che i dati di training originali terminano in corrispondenza di una velo
 
    **Risultati**
 
-   ![Set di risultati per la stima della distanza di arresto](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+   ![Set di risultati per la stima della distanza di arresto](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
 > In questo script di esempio, la funzione `str` viene aggiunta durante la fase di test per verificare lo schema dei dati restituiti da R. È possibile rimuovere l'istruzione in un secondo momento.
@@ -248,10 +248,9 @@ Si noti che i dati di training originali terminano in corrispondenza di una velo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Machine Learning Services, vedere gli articoli seguenti. Anche se alcuni di questi articoli sono per SQL Server, la maggior parte delle informazioni è applicabile anche a Machine Learning Services (con R) nel database SQL di Azure.
+Per altre informazioni su Machine Learning Services con R nel database SQL di Azure (anteprima), vedere gli articoli seguenti.
 
-- [Machine Learning Services (con R) nel database SQL di Azure](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Esercitazione: Informazioni sull'analisi nel database con R in SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [End-to-end data science walkthrough for R and SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) (Procedura dettagliata di data science end-to-end per R e SQL Server)
-- [Esercitazione: Usare funzioni R di RevoScaleR con dati di SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Machine Learning Services con R nel database SQL di Azure (anteprima)](sql-database-machine-learning-services-overview.md)
+- [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-create-script.md) Creare ed eseguire script R semplici nei Machine Learning Services nel database SQL di Azure (anteprima)
+- [Scrivere le funzioni R avanzate nel Database SQL di Azure con Machine Learning Services (anteprima)](sql-database-machine-learning-services-functions.md)
+- [Usare dati R e SQL in Machine Learning Services nel database SQL di Azure (anteprima)](sql-database-machine-learning-services-data-issues.md)

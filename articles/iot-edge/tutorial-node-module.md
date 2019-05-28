@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: creare un modulo Node.js personalizzato - Azure IoT Edge | Microsoft Docs'
+title: 'Esercitazione: Sviluppare un modulo Node.js per Linux - Azure IoT Edge| Microsoft Docs'
 description: Questa esercitazione illustra come creare un modulo per IoT Edge con codice Node.js e distribuirlo in un dispositivo perimetrale
 services: iot-edge
 author: shizn
@@ -9,14 +9,16 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 3b79c75b9846a4f8966a113c6e06fabc25bcf011
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2725f0a34ace3a353df5f746df299aeaf0ea92b3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792608"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574234"
 ---
-# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Esercitazione: Sviluppare e distribuire un modulo Node.js per IoT Edge in un dispositivo simulato
+# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare e distribuire un modulo Node.js per IoT Edge per dispositivi Linux
+
+Usare Visual Studio Code per sviluppare codice Node.js e distribuirlo in un dispositivo Linux che esegue Azure IoT Edge. 
 
 È possibile usare i moduli di IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la creazione e distribuzione di un modulo IoT Edge che filtra i dati del sensore. Verrà usato il dispositivo IoT Edge simulato creato nelle guide introduttive. In questa esercitazione si apprenderà come:    
 
@@ -31,56 +33,35 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## <a name="solution-scope"></a>Ambito della soluzione
+
+Questa esercitazione illustra come sviluppare un modulo in **Node.js** usando **Visual Studio Code** e come distribuirlo in un **dispositivo Linux**. IoT Edge non supporta i moduli Node.js per i dispositivi Windows.
+
+Usare la tabella seguente per informazioni sulle opzioni disponibili per lo sviluppo e la distribuzione di moduli Node.js: 
+
+| Node.js | Visual Studio Code | Visual Studio 2017 | 
+| - | ------------------ | ------------------ |
+| **Linux AMD64** | ![Usare Visual Studio Code per i moduli Node.js su Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Usare Visual Studio Code per i moduli Node.js su Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un dispositivo Azure IoT Edge:
+Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo per la creazione di contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando una delle due esercitazioni, saranno soddisfatti i prerequisiti seguenti: 
 
-* È possibile usare il computer di sviluppo o una macchina virtuale come dispositivo perimetrale seguendo la procedura illustrata nella guida introduttiva per [Linux](quickstart-linux.md).
-* I moduli Node.js per IoT Edge non supportano i contenitori Windows. 
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
+* Un [dispositivo Linux che esegue Azure IoT Edge](quickstart-linux.md)
+* Un registro contenitori, ad esempio [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio Code](https://code.visualstudio.com/) configurato con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) configurato per eseguire i contenitori Linux.
 
-Risorse cloud:
+Per sviluppare un modulo IoT Edge in Node.js, installare i prerequisiti aggiuntivi seguenti nel computer di sviluppo: 
 
-* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure. 
-
-Risorse per lo sviluppo:
-
-* [Visual Studio Code](https://code.visualstudio.com/). 
-* [Strumenti di Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) per Visual Studio Code. 
-* [Docker CE](https://docs.docker.com/engine/installation/). 
-   * Per lo sviluppo in un dispositivo Windows, verificare che Docker sia [configurato per l'uso di contenitori Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 * [Node.js e npm](https://nodejs.org). Poiché il pacchetto npm viene distribuito con Node.js, quando si scarica Node.js npm viene automaticamente installato nel computer.
 
-## <a name="create-a-container-registry"></a>Creare un registro contenitori
-
-In questa esercitazione vengono usati gli strumenti di Azure IoT per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo IoT Edge.  
-
-È possibile usare qualsiasi registro compatibile con Docker per inserire le immagini dei contenitori. Due servizi di registro Docker molto diffusi sono [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il Registro Azure Container. 
-
-Se non è ancora disponibile alcun registro contenitori, seguire questa procedura per crearne uno nuovo in Azure:
-
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro Container**.
-
-2. Specificare i valori seguenti per creare il registro contenitori:
-
-   | Campo | Valore |
-   | ----- | ----- |
-   | Nome registro | Specificare un nome univoco. |
-   | Sottoscrizione | Selezionare una sottoscrizione nell'elenco a discesa. |
-   | Gruppo di risorse | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide introduttive di IoT Edge. Ad esempio, **IoTEdgeResources**. |
-   | Località | Scegliere una località vicina. |
-   | Utente amministratore | Impostare su **Abilita**. |
-   | SKU | Selezionare **Basic**. |
-
-5. Selezionare **Create**.
-
-6. Dopo aver creato il registro contenitori, passare al registro e quindi selezionare **Chiavi di accesso**. 
-
-7. Copiare i valori nei campi **Server di accesso**, **Nome utente** e **Password**. Usare questi valori più avanti nell'esercitazione per fornire l'accesso al registro contenitori. 
-
-## <a name="create-an-iot-edge-module-project"></a>Creare un progetto di modulo IoT Edge
+## <a name="create-a-module-project"></a>Creare un progetto di modulo
 La procedura seguente illustra come creare un modulo Node.js per IoT Edge tramite Visual Studio Code e gli strumenti di Azure IoT.
 
-### <a name="create-a-new-solution"></a>Creare una nuova soluzione
+### <a name="create-a-new-project"></a>Creare un nuovo progetto
 
 Usare **npm** per creare un modello di soluzione Node.js a partire dalla quale eseguire la compilazione. 
 
@@ -108,13 +89,6 @@ Usare **npm** per creare un modello di soluzione Node.js a partire dalla quale e
  
    ![Specificare il repository di immagini Docker](./media/tutorial-node-module/repository.png)
 
-La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. L'area di lavoro della soluzione contiene cinque componenti di livello superiore. La cartella **modules** contiene il codice Node.js per il modulo e i file Dockerfile per creare il modulo come un'immagine del contenitore. Il file **\.env** archivia le credenziali del registro contenitori. Il file **deployment.template.json** contiene le informazioni che il runtime IoT Edge usa per distribuire i moduli in un dispositivo e il file **deployment.debug.template.json** contiene la versione di debug dei moduli. In questa esercitazione non verranno modificati né la cartella **\.vscode** né il file **\.gitignore**. 
-
-Se non è stato specificato un registro contenitori durante la creazione della soluzione, ma è stato accettato il valore predefinito localhost:5000, non sarà presente il file con estensione \. env. 
-
-<!--
-   ![Node.js solution workspace](./media/tutorial-node-module/workspace.png)
--->
 
 ### <a name="add-your-registry-credentials"></a>Aggiungere le credenziali del registro
 
@@ -124,19 +98,27 @@ Il file dell'ambiente archivia le credenziali per il repository di contenitori e
 2. Aggiornare i campi con i valori di **nome utente** e **password** copiati dal registro contenitori di Azure. 
 3. Salvare questo file. 
 
+### <a name="select-your-target-architecture"></a>Selezionare l'architettura di destinazione
+
+Attualmente, Visual Studio Code può sviluppare moduli Node.js per dispositivi Linux AMD64 e Linux ARM32v7. È necessario selezionare l'architettura di destinazione per ogni soluzione, perché il contenitore viene creato ed eseguito in modo diverso in base al tipo di architettura. L'impostazione predefinita è Linux AMD64. 
+
+1. Aprire il riquadro comandi e cercare **Azure IoT Edge: Set Default Target Platform for Edge Solution** (Azure IoT Edge: Imposta la piattaforma di destinazione predefinita per la soluzione Edge) oppure selezionare l'icona del collegamento sulla barra laterale nella parte inferiore della finestra. 
+
+2. Nel riquadro comandi selezionare l'architettura di destinazione nell'elenco di opzioni. Per questa esercitazione si usa una macchina virtuale Ubuntu come dispositivo IoT Edge, quindi si manterrà il valore predefinito **amd64**.
+
 ### <a name="update-the-module-with-custom-code"></a>Aggiornare il modulo con il codice personalizzato
 
 In ogni modello è incluso il codice di esempio, che accetta i dati simulati del sensore dal modulo **tempSensor** e li indirizza all'hub IoT. In questa sezione aggiungere il codice per fare in modo che NodeModule analizzi i messaggi prima di inviarli. 
 
 1. Nello strumento di esplorazione di VS Code aprire **modules** > **NodeModule** > **app.js**.
 
-5. Aggiungere una variabile di soglia della temperatura sotto i moduli Node richiesti. La soglia della temperatura imposta il valore che la temperatura misurata deve superare per inviare i dati all'hub IoT.
+2. Aggiungere una variabile di soglia della temperatura sotto i moduli Node richiesti. La soglia della temperatura imposta il valore che la temperatura misurata deve superare per inviare i dati all'hub IoT.
 
     ```javascript
     var temperatureThreshold = 25;
     ```
 
-6. Sostituire l'intera funzione `PipeMessage` con la funzione `FilterMessage`.
+3. Sostituire l'intera funzione `PipeMessage` con la funzione `FilterMessage`.
     
     ```javascript
     // This function filters out messages that report temperatures below the temperature threshold.
@@ -157,7 +139,7 @@ In ogni modello è incluso il codice di esempio, che accetta i dati simulati del
 
     ```
 
-7. Sostituire il nome della funzione `pipeMessage` con `filterMessage` nella funzione `client.on()`.
+4. Sostituire il nome della funzione `pipeMessage` con `filterMessage` nella funzione `client.on()`.
 
     ```javascript
     client.on('inputMessage', function (inputName, msg) {
@@ -165,7 +147,7 @@ In ogni modello è incluso il codice di esempio, che accetta i dati simulati del
         });
     ```
 
-8. Copiare il frammento di codice seguente nel callback della funzione `client.open()`, dopo `client.on()` nell'istruzione `else`. Questa funzione viene richiamata quando le proprietà desiderate vengono aggiornate.
+5. Copiare il frammento di codice seguente nel callback della funzione `client.open()`, dopo `client.on()` nell'istruzione `else`. Questa funzione viene richiamata quando le proprietà desiderate vengono aggiornate.
 
     ```javascript
     client.getTwin(function (err, twin) {
@@ -181,21 +163,11 @@ In ogni modello è incluso il codice di esempio, che accetta i dati simulati del
     });
     ```
 
-9. Salvare il file app.js.
+6. Salvare il file app.js.
 
-10. Nello strumento di esplorazione di VS Code aprire il file **deployment.template.json** nell'area di lavoro della soluzione IoT Edge. Questo file indica all'agente di IoT Edge quali moduli distribuire, in questo caso **tempSensor** e **NodeModule**, e indica all'hub di IoT Edge come indirizzare i messaggi tra i moduli. L'estensione di Visual Studio Code popola automaticamente la maggior parte delle informazioni necessarie nel modello di distribuzione, ma occorre assicurarsi che le informazioni siano appropriate per la soluzione specifica: 
+7. Nello strumento di esplorazione di VS Code aprire il file **deployment.template.json** nell'area di lavoro della soluzione IoT Edge.
 
-   1. La piattaforma predefinita del dispositivo IoT Edge è impostata su **amd64** nella barra di stato di VS Code, di conseguenza **NodeModule** è impostato sulla versione amd64 Linux dell'immagine. Cambiare la piattaforma predefinita nella barra di stato da **amd64** a **arm32v7** se corrisponde all'architettura del dispositivo IoT Edge. 
-
-      ![Aggiornare la piattaforma di immagini del modulo](./media/tutorial-node-module/image-platform.png)
-
-   2. Verificare che il modello abbia il nome modulo corretto, non il nome **SampleModule** predefinito che è stato modificato durante la creazione della soluzione IoT Edge.
-
-   3. La sezione **registryCredentials** archivia le credenziali del registro Docker, in modo che l'agente di IoT Edge possa eseguire il pull dell'immagine del modulo. Le coppie effettive di username e password vengono archiviate nel file ENV, che viene ignorato da Git. Aggiungere le credenziali al file con estensione env, se non è già stato fatto.  
-
-   4. Per altre informazioni sui manifesti della distribuzione, vedere [Informazioni su come distribuire moduli e definire route in IoT Edge](module-composition.md).
-
-11. Aggiungere il modulo gemello NodeModule al manifesto della distribuzione. Inserire il contenuto JSON seguente alla fine della sezione `moduleContent`, dopo il modulo gemello `$edgeHub`: 
+8. Aggiungere il modulo gemello NodeModule al manifesto della distribuzione. Inserire il contenuto JSON seguente alla fine della sezione `moduleContent`, dopo il modulo gemello `$edgeHub`: 
 
    ```json
      "NodeModule": {
@@ -207,69 +179,67 @@ In ogni modello è incluso il codice di esempio, che accetta i dati simulati del
 
    ![Aggiungere il modulo gemello al modello di distribuzione](./media/tutorial-node-module/module-twin.png)
 
-12. Salvare il file deployment.template.json.
+9. Salvare il file deployment.template.json.
 
 
-## <a name="build-your-iot-edge-solution"></a>Compilare la soluzione IoT Edge
+## <a name="build-and-push-your-module"></a>Compilare ed eseguire il push del modulo
 
-Nella sezione precedente è creata una soluzione IoT Edge ed è stato aggiunto a NodeModule il codice per filtrare i messaggi in cui la temperatura del computer segnalata è inferiore alla soglia accettabile. È ora necessario compilare la soluzione come immagine del contenitore ed eseguirne il push nel registro contenitori. 
+Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggiunto a NodeModule il codice per filtrare i messaggi in cui la temperatura del computer segnalata è compresa nei limiti accettabili. È ora necessario compilare la soluzione come immagine del contenitore ed eseguirne il push nel registro contenitori.
 
-1. Accedere a Docker immettendo il comando seguente nel terminale integrato di Visual Studio Code, per poter eseguire il push dell'immagine del modulo nel record di controllo di accesso: 
+1. Aprire il terminale integrato di VS Code selezionando **Visualizza** > **Terminale**.
+
+1. Accedere a Docker immettendo il comando seguente nel terminale. Accedere con il nome utente, la password e il server di accesso di Registro Azure Container. È possibile recuperare questi valori dalla sezione **Chiavi di accesso** del registro nel portale di Azure.
      
-   ```csh/sh
+   ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-   Usare il nome utente, la password e il server di accesso copiati da Registro Azure Container nella prima sezione oppure recuperarli nuovamente dalla sezione **Chiavi di accesso** del registro nel portale di Azure.
 
-2. Nello strumento di esplorazione di Visual Studio Code fare clic con il pulsante destro del mouse sul file **deployment.template.json** e scegliere **Build and Push IoT Edge solution** (Compila ed esegui il push della soluzione IoT Edge). 
+   Potrebbe venire visualizzato un avviso di sicurezza in cui si consiglia l'uso di `--password-stdin`. Sebbene si tratti di una procedura consigliata per gli scenari di produzione, esula dell'ambito di questa esercitazione. Per altri dettagli, vedere le informazioni di riferimento sull'[accesso a docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
 
-Quando si comunica a Visual Studio Code di compilare la soluzione, prima di tutto con le informazioni del modello di distribuzione viene generato un file `deployment.json` in una nuova cartella **config**. Vengono quindi eseguiti due comandi nel terminale integrato: `docker build` e `docker push`. Questi due comandi compilano il codice, includono il codice Node.js in un contenitore e ne eseguono il push nel registro contenitori specificato quando è stata inizializzata la soluzione. 
+2. Nello strumento di esplorazione di Visual Studio Code fare clic con il pulsante destro del mouse sul file **deployment.template.json** e scegliere **Build and Push IoT Edge solution** (Compila ed esegui il push della soluzione IoT Edge).
 
-È possibile visualizzare l'indirizzo completo dell'immagine del contenitore con tag nel comando `docker build` eseguito nel terminale integrato di VS Code. L'indirizzo dell'immagine è costituito dalle informazioni presenti nel file `module.json`, nel formato **\<repository\>:\<versione\>-\<piattaforma\>**. Per questa esercitazione, il risultato sarà simile a **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
+   Il comando di creazione e push avvia tre operazioni. Prima di tutto, crea una nuova cartella nella soluzione denominata **config** che contiene il manifesto della distribuzione completo, in base alle informazioni nel modello di distribuzione e altri file di soluzione. In secondo luogo, esegue `docker build` per creare l'immagine del contenitore in base al documento dockerfile appropriato per l'architettura di destinazione. Infine, esegue `docker push` per eseguire il push del repository di immagini nel registro contenitori.
 
->[!TIP]
->Se quando si prova a compilare ed eseguire il push del modulo viene visualizzato un errore, effettuare i controlli seguenti:
->* L'accesso a Docker in Visual Studio Code è stato eseguito con le credenziali del registro contenitori? Queste credenziali sono diverse rispetto a quelle usate per accedere al portale di Azure.
->* Il repository di contenitori è corretto? Aprire **modules** > **nodemodule** > **module.json** e trovare il campo **repository**. Il repository di immagini sarà simile a **\<nomeregistro\>.azurecr.io/nodemodule**. 
->* Si sta compilando lo stesso tipo di contenitori eseguito dal computer di sviluppo? L'impostazione predefinita in Visual Studio Code è costituita dai contenitori Linux amd64. Se il computer di sviluppo esegue contenitori Linux arm32v7, aggiornare la piattaforma sulla barra di stato blu nella parte inferiore della finestra di VS Code in modo che corrisponda alla piattaforma dei contenitori.
->* I moduli Node.js per IoT Edge non supportano i contenitori Windows.
+## <a name="deploy-modules-to-device"></a>Distribuire i moduli nel dispositivo
 
-## <a name="deploy-and-run-the-solution"></a>Distribuire ed eseguire la soluzione
+Usare Esplora risorse di Visual Studio Code e l'estensione Azure IoT Tools per distribuire il progetto di modulo nel dispositivo IoT Edge. Il manifesto della distribuzione, il file **deployment.json**, è già disponibile per questo scenario nella cartella config. Ora è sufficiente selezionare un dispositivo che riceverà la distribuzione.
 
-Nell'articolo della guida introduttiva usato per configurare il dispositivo IoT Edge è stato distribuito un modulo usando il portale di Azure. È possibile distribuire i moduli anche usando l'estensione Azure hub IoT Toolkit (in precedenza estensione Azure IoT Toolkit) per Visual Studio Code. Il manifesto della distribuzione, il file **deployment.json**, è già disponibile per questo scenario. Ora è sufficiente selezionare un dispositivo che riceverà la distribuzione.
+Assicurarsi che il dispositivo IoT Edge sia in esecuzione.
 
-1. Nel riquadro comandi di VS Code eseguire **hub IoT di Azure: Selezionare l'hub IoT**. 
+1. In Esplora risorse di Visual Studio Code espandere la sezione **Azure IoT Hub Devices** (Dispositivi dell'hub IoT di Azure).
 
-2. Scegliere la sottoscrizione e l'hub IoT che contiene il dispositivo IoT Edge che si vuole configurare. 
+2. Fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge, quindi selezionare **Create Deployment for Single Device** (Crea la distribuzione per un unico dispositivo).
 
-3. Nello strumento di esplorazione di VS Code espandere la sezione **Azure IoT Hub dispositivi** (Dispositivi dell'hub IoT di Azure). 
+3. Selezionare il file **deployment.json** nella cartella **config** e quindi fare clic su **Select Edge Deployment Manifest** (Seleziona il manifesto della distribuzione di Edge). Non usare il file deployment.template.json.
 
-4. Fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge, quindi selezionare **Create Deployment for Single Device** (Crea la distribuzione per un unico dispositivo). 
-
-   ![Create deployment for single device (Crea la distribuzione per un unico dispositivo)](./media/tutorial-node-module/create-deployment.png)
-
-5. Selezionare il file **deployment.json** nella cartella **config** e quindi fare clic su **Select Edge Deployment Manifest** (Seleziona il manifesto della distribuzione di Edge). Non usare il file deployment.template.json. 
-
-6. Fare clic sul pulsante Aggiorna. Dovrebbe essere visualizzato il nuovo **NodeModule** in esecuzione insieme al modulo **TempSensor** e a **$edgeAgent** e **$edgeHub**. 
-
+4. Fare clic sul pulsante Aggiorna. Dovrebbe essere visualizzato il nuovo **NodeModule** in esecuzione insieme al modulo **TempSensor** e a **$edgeAgent** e **$edgeHub**.
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 
-Dopo aver applicato il manifesto della distribuzione al dispositivo IoT Edge, il runtime di IoT Edge nel dispositivo raccoglie le informazioni della nuova distribuzione e si avvia all'interno di questa. Tutti i moduli in esecuzione nel dispositivo che non sono inclusi nel manifesto della distribuzione vengono arrestati. Tutti i moduli mancanti dal dispositivo vengono avviati. 
+Dopo aver applicato il manifesto della distribuzione al dispositivo IoT Edge, il runtime di IoT Edge nel dispositivo raccoglie le informazioni della nuova distribuzione e si avvia all'interno di questa. Tutti i moduli in esecuzione nel dispositivo che non sono inclusi nel manifesto della distribuzione vengono arrestati. Tutti i moduli mancanti dal dispositivo vengono avviati.
 
-È possibile visualizzare lo stato del dispositivo IoT Edge tramite la sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure) della finestra di esplorazione di Visual Studio Code. Espandere i dettagli del dispositivo per visualizzare un elenco dei moduli distribuiti e in esecuzione. 
+È possibile visualizzare lo stato del dispositivo IoT Edge tramite la sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure) della finestra di esplorazione di Visual Studio Code. Espandere i dettagli del dispositivo per visualizzare un elenco dei moduli distribuiti e in esecuzione.
 
-Nel dispositivo IoT Edge stesso è possibile visualizzare lo stato dei moduli della distribuzione usando il comando `iotedge list`. Devono essere presenti quattro moduli: i due moduli di runtime di IoT Edge, tempSensor e il modulo personalizzato creato in questa esercitazione. L'avvio di tutti i moduli può richiedere qualche minuto. Rieseguire quindi il comando se inizialmente non sono visualizzati tutti. 
+1. In Esplora risorse di Visual Studio Code fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge e scegliere **Start monitoring D2C message** (Avvia il monitoraggio dei messaggi D2C).
 
-Per visualizzare i messaggi generati da un qualsiasi modulo, usare il comando `iotedge logs <module name>`. 
+2. Visualizzare i messaggi in arrivo nell'hub IoT. L'arrivo dei messaggi potrebbe richiedere del tempo, perché il dispositivo IoT Edge deve ricevere la nuova distribuzione e avviare tutti i moduli. In seguito, le modifiche apportate al codice fanno sì che NodeModule attenda che la temperatura della macchina raggiunga i 25 gradi prima di inviare messaggi. Ai messaggi che indicano il raggiungimento della soglia di temperatura viene aggiunto il tipo di messaggio **Alert**. 
 
-È possibile visualizzare i messaggi man mano che arrivano nell'hub IoT tramite Visual Studio Code. 
 
-1. Per monitorare i dati in arrivo all'hub IoT, fare clic su **...** e selezionare **Start Monitoring D2C Messages** (Avvia il monitoraggio dei messaggi D2C).
-2. Per monitorare il messaggio D2C per un dispositivo specifico, fare clic con il pulsante destro del mouse sul dispositivo nell'elenco e scegliere **Start Monitoring D2C Messages** (Avvia il monitoraggio dei messaggi D2C).
-3. Per interrompere il monitoraggio dei dati, eseguire il comando **hub IoT di Azure: Interrompere il monitoraggio di messaggi D2C** nel riquadro comandi. 
-4. Per visualizzare o aggiornare il modulo gemello, fare clic con il pulsante destro del mouse sul modulo nell'elenco e scegliere **Edit module twin** (Modifica il modulo gemello). Per aggiornare il modulo gemello, salvare il file JSON gemello e fare clic con il pulsante destro del mouse sull'area degli editor e scegliere **Update Module Twin** (Aggiorna il modulo gemello).
-5. Per visualizzare i log di Docker, è possibile installare [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) per VS Code e trovare i moduli in esecuzione in locale nello strumento di esplorazione di Docker. Dal menu di scelta rapida scegliere **Mostra log** per visualizzarli nel terminale integrato. 
+## <a name="edit-the-module-twin"></a>Modificare il modulo gemello
+
+Si è usato il modulo gemello NodeModule nel manifesto della distribuzione per impostare la soglia di temperatura su 25 gradi. È possibile usare il modulo gemello per modificare la funzionalità senza dover aggiornare il codice del modulo.
+
+1. In Visual Studio Code espandere i dettagli relativi al dispositivo IoT Edge per vedere i moduli in esecuzione. 
+
+2. Fare clic con il pulsante destro del mouse su **NodeModule** e scegliere **Edit module twin** (Modifica il modulo gemello). 
+
+3. Trovare **TemperatureThreshold** nelle proprietà desiderate. Modificarne il valore in una nuova temperatura più alta di 5-10 gradi rispetto all'ultima temperatura segnalata. 
+
+4. Salvare il file del modulo gemello.
+
+5. Fare clic con il pulsante destro del mouse in qualsiasi punto del riquadro di modifica del modulo gemello e scegliere **Update module twin** (Aggiorna il modulo gemello). 
+
+5. Monitorare i messaggi da dispositivo a cloud in ingresso. L'arrivo dei messaggi dovrebbe interrompersi finché non viene raggiunta la nuova soglia di temperatura. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 
@@ -279,14 +249,13 @@ In caso contrario, è possibile eliminare le risorse di Azure e le configurazion
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato creato un modulo di IoT Edge contenente il codice per filtrare i dati non elaborati generati dal dispositivo di IoT Edge. È possibile continuare con una delle esercitazioni seguenti per ottenere informazioni sugli altri modi in cui Azure IoT Edge può contribuire alla trasformazione dei dati in informazioni dettagliate aziendali nei dispositivi perimetrali.
+In questa esercitazione è stato creato un modulo di IoT Edge contenente il codice per filtrare i dati non elaborati generati dal dispositivo di IoT Edge. Una volta pronti a creare moduli personalizzati, si può passare agli argomenti su come [sviluppare moduli IoT Edge personalizzati](module-development.md) o [sviluppare moduli con Visual Studio Code](how-to-vs-code-develop-module.md). Continuare con le esercitazioni successive per informazioni sul modo in cui Azure IoT Edge semplifica la distribuzione di servizi cloud di Azure per elaborare e analizzare i dati nei dispositivi perimetrali.
 
 > [!div class="nextstepaction"]
-> [Distribuire Funzione di Azure come modulo](tutorial-deploy-function.md)
-> [Distribuire Analisi di flusso di Azure come modulo](tutorial-deploy-stream-analytics.md)
-
+> [Funzioni](tutorial-deploy-function.md)
+> [Analisi di flusso di Azure](tutorial-deploy-stream-analytics.md)
+> [Machine Learning](tutorial-deploy-machine-learning.md)
+> [Servizio Visione personalizzata](tutorial-deploy-custom-vision.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1f8972c89ecb0fc7d8cc7ceb9bfdeab9e905e862
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051171"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570614"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
 
@@ -101,7 +101,7 @@ Servizi per l'archiviazione e la gestione dei dati:
 
 - Archiviazione di Azure (comprende i servizi BLOB, Code, Tabella e File di Azure)
 
-- Database SQL di Azure
+- database SQL di Azure
 
 - Azure Cosmos DB
 
@@ -145,7 +145,7 @@ Per la documentazione dettagliata sui servizi di Azure, vedere la [documentazion
 
 Azure è una piattaforma cloud globale disponibile a livello generale in molte aree del mondo. Quando si esegue il provisioning di un servizio, di un'applicazione o di una macchina virtuale in Azure, viene chiesto di selezionare un'area. L'area selezionata rappresenta un data center specifico in cui viene eseguita l'applicazione. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
 
-Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicazioni in più centri dati in tutto il mondo. La scelta dell'area può influire sulle prestazioni dell'applicazione. La scelta ottimale corrisponde all'area più vicina alla maggior parte dei clienti, per ridurre la latenza nelle richieste di rete. È anche possibile selezionare un'area in base ai requisiti legali per la distribuzione dell'app in determinati paesi.
+Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicazioni in più centri dati in tutto il mondo. La scelta dell'area può influire sulle prestazioni dell'applicazione. La scelta ottimale corrisponde all'area più vicina alla maggior parte dei clienti, per ridurre la latenza nelle richieste di rete. È anche possibile selezionare un'area in base ai requisiti legali per la distribuzione dell'app in determinati paesi/aree geografiche.
 
 ### <a name="azure-portal"></a>Portale di Azure
 

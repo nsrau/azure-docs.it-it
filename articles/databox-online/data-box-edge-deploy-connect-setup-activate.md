@@ -1,6 +1,6 @@
 ---
-title: Connettersi a un dispositivo Azure Data Box Edge, configurarlo e attivarlo nel portale di Azure | Microsoft Docs
-description: La terza esercitazione relativa alla distribuzione di Data Box Edge illustra come connettersi al dispositivo fisico, configurarlo e attivarlo.
+title: Esercitazione per connettersi a un dispositivo Azure Data Box Edge, configurarlo e attivarlo nel portale di Azure | Microsoft Docs
+description: Esercitazione su come distribuire Data Box Edge, connettersi al dispositivo fisico, configurarlo e attivarlo.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: b97334ae60715f021cce387f9d73b5ea69eea7fc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3e951e44aeaa4ca8d3d06bae80a80bcb2eb1dd52
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998108"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924549"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Esercitazione: Connettere, configurare e attivare Azure Data Box Edge 
 
@@ -59,7 +59,7 @@ Prima di configurare il dispositivo Data Box Edge, assicurarsi di:
     ![Pagina di accesso al dispositivo Data Box Edge](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
 
 6. Quando richiesto, modificare la password di amministratore del dispositivo.  
-    La nuova password deve contenere da 8 a 16 caratteri e deve includere tre dei seguenti tipi di carattere: lettere maiuscole, minuscole, numeri e caratteri speciali.
+    La nuova password deve contenere da 8 a 16 caratteri e deve contenere tre dei seguenti tipi di carattere: maiuscolo, minuscolo, numerico e speciale.
 
 Viene aperto il dashboard del dispositivo.
 

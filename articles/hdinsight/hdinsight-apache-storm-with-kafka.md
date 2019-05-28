@@ -1,7 +1,6 @@
 ---
 title: 'Esercitazione: usare Apache Storm per leggere e scrivere dati con Apache Kafka - Azure HDInsight'
 description: Informazioni su come creare una pipeline di flusso usando Apache Storm e Apache Kafka in HDInsight. In questa esercitazione si usano i componenti KafkaBolt e KafkaSpout per trasmettere dati da Kafka.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: dca789a850e5df58024d13b8f592765e55c39485
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c89567115079887295704e216cd4046fae99c9d1
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316950"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873020"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare Apache Storm con Apache Kafka in HDInsight
 
@@ -80,7 +79,7 @@ Apache Storm include numerosi componenti da usare con Apache Kafka. In questa es
     * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: esegue il mapping della struttura di dati della tupla usata all'interno della topologia Storm con i campi archiviati in Kafka.
 
 Questi componenti sono disponibili nel pacchetto di `org.apache.storm : storm-kafka`. Occorre usare la versione del pacchetto che corrisponde alla versione di Storm. Per HDInsight 3.6, la versione di Storm è 1.1.0.
-Occorre anche il pacchetto di `org.apache.kafka : kafka_2.10`, che contiene componenti Kafka aggiuntivi. Occorre usare la versione del pacchetto che corrisponde alla versione di Kafka. Per HDInsight 3.6, la versione di Kafka è 0.10.0.0.
+Occorre anche il pacchetto di `org.apache.kafka : kafka_2.10`, che contiene componenti Kafka aggiuntivi. Occorre usare la versione del pacchetto che corrisponde alla versione di Kafka. Per HDInsight 3.6, la versione di Kafka è 1.1.1.
 
 Il codice XML seguente rappresenta la dichiarazione di dipendenza nel file `pom.xml` per un progetto [Apache Maven](https://maven.apache.org/):
 
@@ -95,7 +94,7 @@ Il codice XML seguente rappresenta la dichiarazione di dipendenza nel file `pom.
 <dependency>
     <groupId>org.apache.kafka</groupId>
     <artifactId>kafka_2.10</artifactId>
-    <version>0.10.0.0</version>
+    <version>1.1.1</version>
     <!-- Exclude components that are loaded from the Storm cluster at runtime -->
     <exclusions>
         <exclusion>
@@ -392,7 +391,7 @@ Per creare una Rete virtuale di Microsoft Azure e quindi crearvi i cluster Kafka
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Il modello di Azure Resource Manager è disponibile in **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**. Crea le risorse seguenti:
+    Il modello di Azure Resource Manager è disponibile in **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json** . Crea le risorse seguenti:
     
     * Gruppo di risorse di Azure
     * Rete virtuale di Azure

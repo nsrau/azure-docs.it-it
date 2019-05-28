@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f69ef2c7c260d8df918fb2495bded6910d6b17b1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e994150f68c0f274c97c27fccc89f226bc8236cd
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707633"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000487"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Esercitazione: Integrazione di Azure Active Directory con l'accesso Single Sign-On di HRworks
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con HRworks Single Sign-On, è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di HRworks Single Sign-On](#configure-hrworks-single-sign-on-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di HRworks Single Sign-On](#create-hrworks-single-sign-on-test-user)**: per avere una controparte di Britta Simon in HRworks Single Sign-On collegata alla relativa rappresentazione in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di HRworks Single Sign-On](#configure-hrworks-single-sign-on-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di HRworks Single Sign-On](#create-hrworks-single-sign-on-test-user)** : per avere una controparte di Britta Simon in HRworks Single Sign-On collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -128,9 +128,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con HRworks Single Sign-On,
 
 1. In un'altra finestra del Web browser accedere a HRworks Single Sign-On come amministratore.
 
-2. Fare clic su **Administrator (Amministratore)** > **Basics (Generale)** > **Security (Sicurezza)** > **Single Sign-on** sulla barra dei menu a sinistra e seguire questa procedura:
+2. Fare clic su **Administrator (Amministratore)**  > **Basics (Generale)**  > **Security (Sicurezza)**  > **Single Sign-on** sulla barra dei menu a sinistra e seguire questa procedura:
 
-       ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure01.png)
+       ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
     a. Selezionare la casella **Use Single Sign-On** (Usa Single Sign-On).
 
@@ -138,7 +138,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con HRworks Single Sign-On,
 
     c. Selezionare **Individual NameID identifier** (Identificatore NameID singolo) per **Value for NameID** (Valore di NameID).
 
-    d. Nel Blocco note, aprire il file XML di metadati scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella di testo  **Metadati** .
+    d. Nel Blocco note aprire il file XML metadati scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella di testo **Metadati**.
 
     e. Fare clic su **Save**.
 
@@ -200,9 +200,9 @@ Per consentire agli utenti di Azure di AD di accedere a HRworks Single Sign-On, 
 
 1. Accedere a HRworks Single Sign-On come amministratore.
 
-2. Fare clic su **Administrator (Amministratore)** > **Persons (Persone)** > **Persons (Persone)** > **New person (Nuova persona)** sulla barra dei menu a sinistra.
+2. Fare clic su **Administrator (Amministratore)**  > **Persons (Persone)**  > **Persons (Persone)**  > **New person (Nuova persona)** sulla barra dei menu a sinistra.
 
-     ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 3. Nella finestra popup fare clic su **Avanti**.
 
