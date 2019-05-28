@@ -189,7 +189,7 @@ La pipeline in questo esempio contiene una sola attività di tipo HDInsightMapRe
 | jarFilePath |Percorso del file jar contenente la classe. Se si copia e incolla il codice seguente, non dimenticare di modificare il nome del cluster. |
 | jarLinkedService |Servizio collegato di Archiviazione di Azure che contiene il file jar. Questo servizio collegato fa riferimento allo spazio di archiviazione associato al cluster HDInsight. |
 | arguments |Il programma wordcount accetta due argomenti, un input e un output. Il file di input è il file davinci.txt. |
-| frequenza/intervallo |I valori per queste proprietà corrispondono al set di dati di output. |
+| frequency/interval |I valori per queste proprietà corrispondono al set di dati di output. |
 | linkedServiceName |fa riferimento al servizio collegato di HDInsight creato in precedenza. |
 
 ```JSON
