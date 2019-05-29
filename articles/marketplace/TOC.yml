@@ -8,15 +8,6 @@
     - name: Panoramica e vantaggi di Azure Marketplace e AppSource
       href: ./marketplace-publishers-guide.md
       items:
-        - name: Diventare un autore nel Marketplace
-          href: ./become-publisher.md
-          items:
-            - name: Creare un account Microsoft
-              href: ./guidelines.md
-            - name: Eseguire la registrazione nel Dev Center
-              href: ./register-dev-center.md
-            - name: Attribuzione dell'uso da parte dei clienti e dei partner di Azure
-              href: ./azure-partner-customer-usage-attribution.md
         - name: 'Un marketplace, due vetrine'
           href: ./comparing-appsource-azure-marketplace.md
         - name: Opzioni e considerazioni sulla pubblicazione
@@ -30,6 +21,8 @@
               href: ./private-offers.md
             - name: Contratto standard
               href: ./standard-contract.md
+            - name: Attribuzione dell'uso da parte dei clienti e dei partner di Azure
+              href: ./azure-partner-customer-usage-attribution.md
         - name: Guida alla pubblicazione per tipo di offerta
           href: ./publisher-guide-by-offer-type.md
           items:
@@ -481,6 +474,15 @@
       items:
         - name: Creare un'offerta SaaS
           href: ./partner-center-portal/create-new-saas-offer.md
+        - name: API di evasione ordini SaaS
+          href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+          items:
+            - name: Registrare un'applicazione SaaS
+              href: ./partner-center-portal/pc-saas-registration.md
+            - name: API di evasione ordini SaaS v2
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+            - name: API di evasione ordini SaaS v1 (deprecate)
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
     - name: Stato di pubblicazione
       href: ./partner-center-portal/publishing-status.md
     - name: Aggiornare le offerte esistenti

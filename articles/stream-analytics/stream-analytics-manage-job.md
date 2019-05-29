@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: 261b55f722fdc3c1e8f4b45debc664f49db3f898
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 056e5a0f56e1a8998288e6a78f448f0f91777e1d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523546"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969292"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analizzare i dati delle telefonate con Analisi di flusso di Azure e visualizzare i risultati in una dashboard Power BI
 
@@ -99,7 +99,7 @@ Prima di avviare l'app TelcoGenerator, configurarla per inviare i dati all'istan
 3. Aggiornare l'elemento `<appSettings>` nel file di configurazione con i dettagli seguenti:
 
    * Impostare il valore della chiave *EventHubName* sul valore di EntityPath nella stringa di connessione.
-   * Impostare il valore della chiave *Microsoft.ServiceBus.ConnectionString* sulla stringa di connessione senza il valore di EntityPath.
+   * Impostare il valore della chiave *Microsoft.ServiceBus.ConnectionString* sulla stringa di connessione senza il valore di EntityPath (non dimenticare di rimuovere il punto e virgola che lo precede).
 
 4. Salvare il file.
 5. Aprire quindi una finestra di comando e passare alla cartella in cui è stata decompressa l'app TelcoGenerator. Immettere quindi il comando seguente:
@@ -118,7 +118,7 @@ Prima di avviare l'app TelcoGenerator, configurarla per inviare i dati all'istan
    |**Record**  |**Definizione**  |
    |---------|---------|
    |CallrecTime    |  Timestamp dell'ora di inizio della chiamata.       |
-   |SwitchNum     |  Commutatore telefonico usato per la connessione della chiamata. Per questo esempio i commutatori sono stringhe che rappresentano il paese di origine (Stati Uniti, Cina, Regno Unito, Germania o Australia).       |
+   |SwitchNum     |  Commutatore telefonico usato per la connessione della chiamata. Per questo esempio i commutatori sono stringhe che rappresentano il paese/area di origine (Stati Uniti, Cina, Regno Unito, Germania o Australia).       |
    |CallingNum     |  Numero di telefono del chiamante.       |
    |CallingIMSI     |  Codice IMSI (International Mobile Subscriber Identity). Identificatore univoco del chiamante.       |
    |CalledNum     |   Numero di telefono del destinatario della chiamata.      |
@@ -212,7 +212,7 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Per controllare le chiamate fraudolente, è possibile eseguire un self-join sui dati di streaming in base al valore di `CallRecTime`. Cercare quindi i record delle chiamate in cui il valore `CallingIMSI` (numero di origine) è lo stesso, ma il valore `SwitchNum` (paese di origine) è diverso. Quando si usa un'operazione JOIN con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Dal momento che i dati di streaming sono infiniti, è necessario specificare i limiti di tempo per la relazione all'interno della clausola **ON** del join usando la funzione [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
+   Per controllare le chiamate fraudolente, è possibile eseguire un self-join sui dati di streaming in base al valore di `CallRecTime`. Cercare quindi i record delle chiamate in cui il valore `CallingIMSI` (numero di origine) è lo stesso, ma il valore `SwitchNum` (paese/area di origine) è diverso. Quando si usa un'operazione JOIN con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Dal momento che i dati di streaming sono infiniti, è necessario specificare i limiti di tempo per la relazione all'interno della clausola **ON** del join usando la funzione [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
 
    La query è simile a un normale join SQL, ad eccezione della funzione **DATEDIFF**. La funzione **DATEDIFF** usata in questa query è specifica di Analisi di flusso e deve essere inclusa nella clausola `ON...BETWEEN`.
 

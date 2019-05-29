@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: e9378f8d2b31bfed4c464951c427b1e9d00b7893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b073a270fabb8657be19b79601fa90f1b9a0351b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699365"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015231"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Esercitazione: Aggiungere un dispositivo reale all'applicazione Azure IoT Central
 
@@ -54,7 +54,7 @@ Per aggiungere un dispositivo reale all'applicazione, si usa il modello di dispo
 
    In **Esplora dispositivi** sono visualizzati il modello di dispositivo **Condizionatore connesso** e un dispositivo simulato. Quando si crea un modello di dispositivo, IoT Central crea automaticamente un dispositivo simulato.
 
-2. Per iniziare la connessione di un dispositivo condizionatore d'aria connesso reale, selezionare **+**, quindi **Reale**:
+2. Per iniziare la connessione di un dispositivo condizionatore d'aria connesso reale, selezionare **+** , quindi **Reale**:
 
    ![Iniziare ad aggiungere un nuovo dispositivo condizionatore d'aria connesso](media/tutorial-add-device/newreal.png)
 
@@ -348,7 +348,7 @@ Questa esercitazione illustra come:
 > * Comprendere come eseguire il mapping del codice client all'applicazione
 > * Configurare il codice client per il dispositivo reale
 
-Dopo avere connesso un dispositivo reale all'applicazione Azure IoT Central, i passaggi successivi consigliati sono i seguenti:
+Dopo avere connesso un dispositivo reale all'applicazione Azure IoT Central, qui sono consigliati alcuni passaggi successivi.
 
 Un operatore può apprendere come:
 
