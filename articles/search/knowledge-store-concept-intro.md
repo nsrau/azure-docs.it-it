@@ -1,5 +1,5 @@
 ---
-title: Introduzione e panoramica di Knowledge Store - Ricerca di Azure
+title: Introduzione e panoramica del knowledge store (anteprima) - Ricerca di Azure
 description: Inviare documenti arricchiti nell'archiviazione di Azure in cui è possibile visualizzare, rimodellare e utilizzare i documenti arricchiti in Ricerca di Azure e in altre applicazioni.
 manager: cgronlun
 author: HeidiSteen
@@ -9,32 +9,36 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 3000016de934aaa3faab96821f9747ea4b571ef7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030089"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540740"
 ---
-# <a name="what-is-knowledge-store-in-azure-search"></a>Che cos'è Knowledge Store in Ricerca di Azure?
+# <a name="what-is-knowledge-store-in-azure-search"></a>Che cos'è il knowledge store in Ricerca di Azure?
 
-Knowledge Store è una funzionalità facoltativa di Ricerca di Azure, attualmente in anteprima pubblica, che consente di salvare metadati e documenti arricchiti creati da una pipeline di indicizzazione basata su intelligenza artificiale [(ricerca cognitiva)](cognitive-search-concept-intro.md). Knowledge Store è supportato da un account di archiviazione di Azure configurato come parte della pipeline. Quando è abilitato, il servizio di ricerca usa questo account di archiviazione per memorizzare nella cache una rappresentazione di ogni documento arricchito. 
+> [!Note]
+> Il knowledge store è in anteprima e non ne è previsto l'uso in ambienti di produzione. Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
+>
+
+Il knowledge store è una funzionalità facoltativa di Ricerca di Azure che consente di salvare metadati e documenti arricchiti creati da una pipeline di indicizzazione basata su intelligenza artificiale [(ricerca cognitiva)](cognitive-search-concept-intro.md). Il knowledge store è supportato da un account di archiviazione di Azure configurato come parte della pipeline. Quando è abilitato, il servizio di ricerca usa questo account di archiviazione per memorizzare nella cache una rappresentazione di ogni documento arricchito. 
 
 Se è stata usata la ricerca cognitiva in precedenza, si sa già che è possibile usare i set di competenze per spostare un documento attraverso una sequenza di arricchimenti. Il risultato può essere rappresentato da un indice di Ricerca di Azure o (novità in questa anteprima) da proiezioni in un knowledge store.
 
 Le proiezioni sono un meccanismo per strutturare i dati per l'utilizzo in un'app downstream. È possibile usare [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) creato per l'archiviazione di Azure o per qualsiasi app che si connette all'archiviazione di Azure che apre nuove possibilità per l'utilizzo di documenti arricchiti. Alcuni esempi sono le pipeline di data science e le analisi personalizzate.
 
-![Knowledge Store nel diagramma della pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge Store nel diagramma della pipeline")
+![Diagramma del knowledge store nella pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Diagramma del knowledge store nella pipeline")
 
-Per usare Knowledge Store, aggiungere un elemento `knowledgeStore` a un set di competenze che definisce le operazioni graduali in una pipeline di indicizzazione. Durante l'esecuzione, Ricerca di Azure crea uno spazio nell'account di archiviazione di Azure e vi inserisce le definizioni e i contenuti creati dalla pipeline.
+Per usare il knowledge store, aggiungere un elemento `knowledgeStore` a un set di competenze che definisce le operazioni graduali in una pipeline di indicizzazione. Durante l'esecuzione, Ricerca di Azure crea uno spazio nell'account di archiviazione di Azure e vi inserisce le definizioni e i contenuti creati dalla pipeline.
 
-## <a name="benefits-of-knowledge-store"></a>Vantaggi di Knowledge Store
+## <a name="benefits-of-knowledge-store"></a>Vantaggi del knowledge store
 
 Un knowledge store offre una struttura, un contesto e un contenuto reale, ricavato da file di dati non strutturati e semi-strutturati come BLOB, file di immagini che sono stati sottoposti ad analisi, o anche dati strutturati che vengono rimodellati in nuove forme. In una [proceduta dettagliata](knowledge-store-howto.md) scritta per questa anteprima è possibile vedere come un documento JSON ad alta densità viene partizionato in sottostrutture, ricostituito in nuove strutture e reso altrimenti disponibile per processi downstream come carichi di lavoro di machine learning e data science.
 
-Sebbene sia utile per vedere cosa può produrre una pipeline di indicizzazione basata su intelligenza artificiale, la vera forza di Knowledge Store è la capacità di rimodellare i dati. È possibile iniziare con un set di competenze di base e quindi iterarlo per aggiungere livelli crescenti di struttura, che è possibile combinare in nuove strutture, utilizzabili in altre app oltre a Ricerca di Azure.
+Sebbene sia utile per vedere cosa può produrre una pipeline di indicizzazione basata su intelligenza artificiale, la vera forza del knowledge store è la capacità di rimodellare i dati. È possibile iniziare con un set di competenze di base e quindi iterarlo per aggiungere livelli crescenti di struttura, che è possibile combinare in nuove strutture, utilizzabili in altre app oltre a Ricerca di Azure.
 
-Di seguito vengono elencati i vantaggi di Knowledge Store:
+Di seguito vengono elencati i vantaggi del knowledge store:
 
 + Utilizzare documenti arricchiti in [strumenti di analisi e creazione report](#tools-and-apps) diversi dalla ricerca. Power BI con Power Query è una scelta interessante, ma qualsiasi strumento o app che può connettersi all'archiviazione di Azure può eseguire il pull da un knowledge store creato.
 
@@ -235,11 +239,11 @@ Quando si usano più servizi, è possibile creare tutti i servizi nella stessa a
 
 **Passaggio 4: [Introduzione al portale](cognitive-search-quickstart-blob.md) - oppure - [Introduzione ai dati di esempio con REST e Postman](knowledge-store-howto.md)** 
 
-È possibile usare REST `api-version=2019-05-06-Preview` per costruire una pipeline basata su intelligenza artificiale che include Knowledge Store. Nell'ultima API di anteprima l'oggetto Skillset fornisce la definizione di `knowledgeStore`.
+È possibile usare REST `api-version=2019-05-06-Preview` per costruire una pipeline basata su intelligenza artificiale che includa il knowledge store. Nell'ultima API di anteprima l'oggetto Skillset fornisce la definizione di `knowledgeStore`.
 
 ## <a name="takeaways"></a>Risultati
 
-Knowledge Store offre una serie di vantaggi, tra cui, ma non solo, la possibilità di usare i documenti arricchiti in scenari diversi dalla ricerca, dal controllo dei costi e dalla gestione di deviazione nel processo di arricchimento. Queste funzionalità sono tutte disponibili per essere usate semplicemente aggiungendo un account di archiviazione al set di competenze e usando il linguaggio delle espressioni aggiornato come descritto in [Introduzione a Knowledge Store](knowledge-store-howto.md). 
+Il knowledge store offre una serie di vantaggi, tra cui la possibilità di usare i documenti arricchiti in scenari diversi dalla ricerca, dal controllo dei costi e dalla gestione della deviazione nel processo di arricchimento. Queste funzionalità sono tutte disponibili per l'uso. È sufficiente aggiungere un account di archiviazione al set di competenze e usare il linguaggio delle espressioni aggiornato, come descritto in [Introduzione a Knowledge Store](knowledge-store-howto.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

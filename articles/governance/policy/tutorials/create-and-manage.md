@@ -7,14 +7,14 @@ ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1641a88a95d4c056cdd1be8d855482c80b1430cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c12345791e62aa99bd07dde7fc44dd52d0989941
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283614"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979174"
 ---
-# <a name="create-and-manage-policies-to-enforce-compliance"></a>Creare e gestire i criteri per applicare la conformità
+# <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Esercitazione: Creare e gestire i criteri per applicare la conformità
 
 Comprendere come creare e gestire i criteri in Azure è importante per assicurare la conformità agli standard e ai contratti di servizio aziendali. Questa esercitazione illustra come usare Criteri di Azure per eseguire alcune delle attività più comuni correlate alla creazione, all'assegnazione e alla gestione dei criteri dell'organizzazione, ad esempio:
 
@@ -42,11 +42,11 @@ Il primo passaggio per applicare la conformità a Criteri di Azure consiste nell
 
    ![Assegnare una definizione di criteri dalla pagina Assegnazioni](../media/create-and-manage/select-assign-policy.png)
 
-1. Nella pagina **Assegna criterio** selezionare il valore di **Ambito** facendo clic sui puntini di sospensione e quindi selezionando un gruppo di gestione o una sottoscrizione. Facoltativamente, selezionare un gruppo di risorse. L'ambito determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri  Fare quindi clic su **Seleziona** nella parte inferiore della pagina **Ambito**.
+1. Nella pagina **Assegna criterio** selezionare il valore di **Ambito** facendo clic sui puntini di sospensione e quindi selezionando un gruppo di gestione o una sottoscrizione. Facoltativamente, selezionare un gruppo di risorse. L'ambito determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri Fare quindi clic su **Seleziona** nella parte inferiore della pagina **Ambito**.
 
    Questo esempio descrive come usare la sottoscrizione **Contoso**. ma le opzioni disponibili sono diverse.
 
-1. Le risorse possono essere escluse in base all'**Ambito**.  Le **esclusioni** iniziano a un livello inferiore rispetto al livello dell'**Ambito**. Le **esclusioni** sono facoltative quindi per il momento è possibile lasciare vuoto il campo.
+1. Le risorse possono essere escluse in base all'**Ambito**. Le **esclusioni** iniziano a un livello inferiore rispetto al livello dell'**Ambito**. Le **esclusioni** sono facoltative quindi per il momento è possibile lasciare vuoto il campo.
 
 1. Selezionare i puntini di sospensione per **Definizione criteri** per aprire l'elenco delle definizioni disponibili. È possibile filtrare il **Tipo** della definizione del criterio su *Built-in* per visualizzarli tutti e leggere le rispettive descrizioni.
 
@@ -54,7 +54,8 @@ Il primo passaggio per applicare la conformità a Criteri di Azure consiste nell
 
    ![Usare il filtro di ricerca per individuare un criterio](../media/create-and-manage/select-available-definition.png)
 
-1. Il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome dei criteri selezionato, che è possibile modificare. In questo esempio lasciare *Richiedere SQL Server versione 12.0*. È anche possibile aggiungere una **descrizione** facoltativa. La descrizione fornisce informazioni dettagliate su questa assegnazione dei criteri.  **Assegnato da** viene riempito automaticamente in base a chi ha eseguito l'accesso. Questo campo è facoltativo, quindi è possibile inserire valori personalizzati.
+1. Il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome dei criteri selezionato, che è possibile modificare. In questo esempio lasciare *Richiedere SQL Server versione 12.0*. È anche possibile aggiungere una **descrizione** facoltativa. La descrizione fornisce informazioni dettagliate su questa assegnazione dei criteri.
+   **Assegnato da** viene riempito automaticamente in base a chi ha eseguito l'accesso. Questo campo è facoltativo, quindi è possibile inserire valori personalizzati.
 
 1. Lasciare l'opzione **Crea un'identità gestita** deselezionata. Questa casella _deve_ essere selezionata quando il criterio o l'iniziativa assegnati includono un criterio con l'effetto [deployIfNotExists](../concepts/effects.md#deployifnotexists). Poiché il criterio usato per questa esercitazione non lo include, lasciare vuoto. Per altre informazioni, vedere le [identità gestite](../../../active-directory/managed-identities-azure-resources/overview.md) e il [funzionamento della sicurezza di monitoraggio e aggiornamento](../how-to/remediate-resources.md#how-remediation-security-works).
 
@@ -116,7 +117,7 @@ Dopo avere assegnato una definizione predefinita del criterio, è possibile eseg
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>Creare una definizione di criteri con l'API REST
 
-È possibile creare un criterio con l'API REST per le definizioni dei criteri. L'API REST consente di creare ed eliminare le definizioni dei criteri, e di ottenere informazioni sulle definizioni esistenti. Per creare una definizione criteri, usare l'esempio seguente:
+È possibile creare un criterio con l'API REST per le definizioni dei Criteri di Azure. L'API REST consente di creare ed eliminare le definizioni dei criteri, e di ottenere informazioni sulle definizioni esistenti. Per creare una definizione criteri, usare l'esempio seguente:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
@@ -156,7 +157,7 @@ Includere un corpo della richiesta in modo simile all'esempio seguente:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Creare una definizione criteri con PowerShell
 
-Prima di passare all'esempio di PowerShell, verificare di avere installato la versione più recente del modulo Az di Azure PowerShell. 
+Prima di passare all'esempio di PowerShell, verificare di avere installato la versione più recente del modulo Az di Azure PowerShell.
 
 È possibile creare una definizione di criterio usando il cmdlet `New-AzPolicyDefinition`.
 
@@ -369,13 +370,14 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
 
    ![Assegnare una definizione dalla pagina Definizione dell'iniziativa](../media/create-and-manage/assign-definition.png)
 
-   È anche possibile fare clic con il tasto destro sulla riga selezionata o fare clic con il tasto sinistro sui puntini di sospensione alla fine della riga per un menu di scelta rapida.  Quindi selezionare **Assegna**.
+   È anche possibile fare clic con il tasto destro sulla riga selezionata o fare clic con il tasto sinistro sui puntini di sospensione alla fine della riga per un menu di scelta rapida. Quindi selezionare **Assegna**.
 
    ![Opzioni alternative per un'iniziativa](../media/create-and-manage/select-right-click.png)
 
 1. Compilare la pagina **Proteggi: Assegna iniziativa** immettendo le informazioni di esempio seguenti. È possibile usare informazioni personalizzate.
 
-   - Ambito: Il gruppo di gestione o la sottoscrizione in cui è stata salvata l'iniziativa, diventa l'impostazione predefinita.  È possibile modificare l'ambito per assegnare l'iniziativa a una sottoscrizione o gruppo di risorse all'interno del percorso di salvataggio.
+   - Ambito: Il gruppo di gestione o la sottoscrizione in cui è stata salvata l'iniziativa, diventa l'impostazione predefinita.
+     È possibile modificare l'ambito per assegnare l'iniziativa a una sottoscrizione o gruppo di risorse all'interno del percorso di salvataggio.
    - Esclusioni: Configurare le risorse all'interno dell'ambito per impedire che l'assegnazione dell'iniziativa venga applicata a esse.
    - Definizione dell'iniziativa e nome dell'assegnazione: Proteggi (prepopolato come nome dell'iniziativa assegnata).
    - Descrizione: Questa assegnazione dell'iniziativa è ottimizzata in modo da applicare questo gruppo di definizioni dei criteri.
@@ -389,7 +391,8 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
 
 1. Selezionare **Assegnazioni** a sinistra nella pagina Criteri di Azure.
 
-1. Individuare l'iniziativa **Get Source**. È probabile che sia ancora nello _Stato di conformità_ o **Non avviato**. Fare clic sull'iniziativa per ottenere i dettagli completi sullo stato di avanzamento dell'assegnazione.
+1. Individuare l'iniziativa **Get Source**. È probabile che sia ancora nello _Stato di conformità_ o **Non avviato**.
+   Fare clic sull'iniziativa per ottenere i dettagli completi sullo stato di avanzamento dell'assegnazione.
 
    ![Pagina di conformità dell'iniziativa - valutazioni non avviate](../media/create-and-manage/compliance-status-not-started.png)
 

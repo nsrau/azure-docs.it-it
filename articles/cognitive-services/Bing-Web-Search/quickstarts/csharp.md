@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire una ricerca Web con C# - API REST Ricerca Web Bing'
+title: 'Guida introduttiva: Eseguire una ricerca Web con C# - API REST Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste all'API REST Ricerca Web Bing usando C# e ricevere una risposta JSON.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 871cca9fe2b3ff50202feb4925a267b93d432700
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20cb5f65ed33bc3e737bbba902ed2d891eaf83be
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842074"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823366"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Avvio rapido: Effettuare ricerche sul Web con l'API REST Ricerca Web Bing e C#
 
@@ -26,7 +26,7 @@ Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca W
 
 Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare di avere quanto segue:
 
-* Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* Windows: [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/)
 * Linux/macOS: [Mono](https://www.mono-project.com/)  
 * Una chiave di sottoscrizione
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Project Answer Search, C#'
+title: 'Guida introduttiva: Project Answer Search, C#'
 titlesuffix: Azure Cognitive Services
 description: Esempio di codice per iniziare a usare Project Answer Search con C#.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 2fc2a4267c3a10a7837012dc65f0ce1a0f826a11
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dce13636cce299098c988ccea3a059f0f0e12acd
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871269"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823268"
 ---
-# <a name="quickstart-project-answer-search-query-in-c"></a>Avvio rapido: Query in C# di Project Answer Search
+# <a name="quickstart-project-answer-search-query-in-c"></a>Guida introduttiva: Query in C# di Project Answer Search
 
 L'esempio in C# seguente crea e invia una query per ottenere informazioni su "third law of calculus".
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire questo codice in Windows è necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/). È possibile usare la versione gratuita Community Edition.
+Per eseguire questo codice in Windows, è necessario [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/). È possibile usare la versione gratuita Community Edition.
 
 Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
 

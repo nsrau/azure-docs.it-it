@@ -1,20 +1,20 @@
 ---
-title: 'Avvio rapido: Inserire dati da Kafka in Esplora dati di Azure'
+title: 'Guida introduttiva: Inserire dati da Kafka in Esplora dati di Azure'
 description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure da Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 11/19/2018
-ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/17/2019
+ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047110"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901035"
 ---
-# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Avvio rapido: Inserire dati da Kafka in Esplora dati di Azure
+# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Guida introduttiva: Inserire dati da Kafka in Esplora dati di Azure
  
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre l'inserimento (caricamento dei dati) da Kafka. Kafka è una piattaforma di streaming distribuito che consente di creare pipeline di dati in streaming in tempo reale che spostano in modo affidabile i dati tra applicazioni o sistemi.
  
@@ -22,11 +22,11 @@ Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilit�
  
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare. 
  
-* [Un cluster e un database di test](create-cluster-database-portal.md)
+* [Un cluster e un database di test](create-cluster-database-portal.md).
  
-* [Un'app di esempio](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) che genera i dati e li invia a Kafka
+* [Un'app di esempio](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) che genera i dati e li invia a Kafka.
 
-* [Visual Studio 2017 versione 15.3.2 o successiva](https://www.visualstudio.com/vs/) per eseguire l'app di esempio
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) per eseguire l'app di esempio.
  
 ## <a name="kafka-connector-setup"></a>Installazione del connettore Kafka
 

@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 7e2b3424c3d8edc931054dea062280ea7789dc44
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 88e8d543e8bc3c3ae07133ec333b33c4486c2684
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143064"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864507"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Creare una funzione attivata tramite HTTP in Azure
 
@@ -108,7 +108,7 @@ Verrà creata una sottocartella denominata _HttpTrigger_ contenente i file segue
 
   Ogni associazione richiede una direzione, un tipo e un nome univoco. Il trigger HTTP dispone di un'associazione di input di tipo [`httpTrigger`](functions-bindings-http-webhook.md#trigger) e di un'associazione di output di tipo [`http`](functions-bindings-http-webhook.md#output).
 
-* **__init__py**: file di script che corrisponde alla funzione attivata tramite HTTP. Esaminare lo script e verificare che contenga un elemento `main()` predefinito. I dati HTTP del trigger vengono passati a questa funzione mediante il parametro denominato di associazione `req`. Definito in function.json, l'elemento `req` è un'istanza della [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). 
+* **\_\_init\_\_.py**: file di script che corrisponde alla funzione attivata tramite HTTP. Esaminare lo script e verificare che contenga un elemento `main()` predefinito. I dati HTTP del trigger vengono passati a questa funzione mediante il parametro denominato di associazione `req`. Definito in function.json, l'elemento `req` è un'istanza della [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). 
 
     L'oggetto restituito, definito come `$return` in function.json, è un'istanza della [classe azure.functions.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Per altre informazioni, vedere [Trigger e associazioni HTTP di Funzioni di Azure](functions-bindings-http-webhook.md).
 

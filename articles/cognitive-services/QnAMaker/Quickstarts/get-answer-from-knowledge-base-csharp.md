@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Ottenere una risposta dalla knowledge base in REST, C# - QnA Maker'
+title: 'Guida introduttiva: Ottenere una risposta dalla knowledge base in REST, C# - QnA Maker'
 titlesuffix: Azure Cognitive Services
 description: Questa Guida introduttiva C# basata su REST assiste nell'ottenimento di una risposta da una knowledge base a livello di codice.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 8ded7a86c1b4fb53ca81fc4e7b0c0d794c515ddf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 614d7c0b58ee318461cf3c97e934a77c84221ef7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886344"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827602"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Ottenere risposte a una domanda da una knowledge base con C#
 
@@ -36,7 +36,7 @@ Il codice per questo avvio rapido si trova nel repository [https://github.com/Az
 
 ## <a name="create-a-knowledge-base-project"></a>Creare un progetto per la knowledge base
 
-1. Aprire Visual Studio 2017 Community Edition.
+1. Aprire Visual Studio 2019 Community Edition.
 1. Creare un nuovo progetto App console (.NET Core) e assegnare al progetto il nome QnaMakerQuickstart. Accettare le impostazioni predefinite per le altre impostazioni.
 
 ## <a name="add-the-required-dependencies"></a>Aggiungere le dipendenze richieste
@@ -72,4 +72,4 @@ Compilare ed eseguire il programma da Visual Studio. Verrà inviata automaticame
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

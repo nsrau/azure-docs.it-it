@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: af849fa6790dfdb57d8073b17f6d31a3f59a532d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 19c2ccab6685f53ba714298f66bc8e8821b4aa02
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999758"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988035"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Esercitazione: Integrazione di Azure Active Directory con ForeSee CX Suite
 
@@ -78,11 +78,11 @@ Per il funzionamento dell'accesso Single Sign-On, deve essere stabilita una rela
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con ForeSee CX Suite, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di ForeSee CX Suite](#configure-foresee-cx-suite-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di ForeSee CX Suite](#create-foresee-cx-suite-test-user)**: per avere una controparte di Britta Simon in ForeSee CX Suite collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di ForeSee CX Suite](#configure-foresee-cx-suite-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di ForeSee CX Suite](#create-foresee-cx-suite-test-user)** : per avere una controparte di Britta Simon in ForeSee CX Suite collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -194,7 +194,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-foresee-cx-suite-test-user"></a>Creare un utente di test di ForeSee CX Suite
 
-In questa sezione viene creato un utente chiamato Britta Simon in ForeSee CX Suite. Rivolgersi al [team di supporto di ForeSee CX Suite](mailto:support@foresee.com) per aggiungere gli utenti o il dominio necessari per essere inclusi nella piattaforma ForeSee CX Suite. Se il dominio viene aggiunto dal team, verrà automaticamente eseguito il provisioning degli utenti per la piattaforma ForeSee CX Suite. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in ForeSee CX Suite. Rivolgersi al [team di supporto di ForeSee CX Suite](mailto:support@foresee.com) per aggiungere gli utenti o il dominio che devono essere aggiunti a un elenco di elementi consentiti per la piattaforma ForeSee CX Suite. Se il dominio viene aggiunto dal team, verrà automaticamente eseguito il provisioning degli utenti per la piattaforma ForeSee CX Suite. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

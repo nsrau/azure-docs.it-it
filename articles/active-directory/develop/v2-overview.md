@@ -3,8 +3,8 @@ title: Panoramica di Microsoft Identity Platform (v2.0) - Azure
 description: Informazioni sull'endpoint e sulla piattaforma Microsoft Identity Platform (v2.0).
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,20 +13,20 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3d139efaa8e6de4861dc8e885bd22a426fde6c94
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231086"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833066"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Panoramica di Microsoft Identity Platform (v2.0)
 
-Microsoft Identity Platform è un'evoluzione della piattaforma per sviluppatori e del servizio di gestione delle identità di Azure Active Directory (Azure AD). Permette agli sviluppatori di compilare applicazioni che supportano l'accesso per tutte le identità Microsoft e il recupero di token per chiamare API Microsoft, come Microsoft Graph o API create dagli sviluppatori. Microsoft Identity Platform è costituito da:
+Microsoft Identity Platform è un'evoluzione della piattaforma per sviluppatori di Azure Active Directory (Azure AD). Permette agli sviluppatori di compilare applicazioni che supportano l'accesso per tutte le identità Microsoft e il recupero di token per chiamare API Microsoft, come Microsoft Graph o API create dagli sviluppatori. Microsoft Identity Platform è costituito da:
 
 - **Servizio di autenticazione conforme agli standard OAuth 2.0 e OpenID Connect**, che permette agli sviluppatori di autenticare qualsiasi identità Microsoft, tra cui:
   - Account aziendali o dell'istituto di istruzione (di cui viene effettuato il provisioning tramite Azure AD)
@@ -79,4 +79,4 @@ Quando si è pronti ad avviare l'app in un **ambiente di produzione**, esaminare
 
 ## <a name="learn-more"></a>Altre informazioni
 
-Se si intende creare un'applicazione per i clienti che supporti l'accesso di identità di social networking o locali, vedere la [panoramica di Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+Se si intende creare un'applicazione per i clienti che supporti l'accesso di identità di social networking o locali, vedere [Panoramica di Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

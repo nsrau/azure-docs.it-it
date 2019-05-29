@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 69e86e486a9cdb058b972bda5176c14e15f4630a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 55fa42eb1c35025b1008b3b5d26f61c243ff2b97
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682728"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Esercitazione: integrazione di Azure Active Directory con Uberflip
 
@@ -72,15 +72,15 @@ Per configurare l'integrazione di Uberflip in Azure AD, è necessario aggiungere
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con U usando un utente di test denominato **Britta Simon**. Per il funzionamento dell'accesso Single Sign-On, deve essere stabilito un collegamento tra un utente di Azure AD e l'utente correlato in Uberflip.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con U usando un utente di test denominato **B Simon**. Per il funzionamento dell'accesso Single Sign-On, deve essere stabilito un collegamento tra un utente di Azure AD e l'utente correlato in Uberflip.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Uberflip, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** per consentire agli utenti di usare questa funzionalità.
 1. **[Configurare l'accesso Single Sign-On di Uberflip](#configure-uberflip-single-sign-on)** per configurare le impostazioni di Single Sign-On sul lato applicazione.
-1. **[Creare un utente test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Creare un utente di test Uberflip](#create-an-uberflip-test-user)** in modo che vi sia un utente denominato Britta Simon in Uberflip collegato a un utente di Azure AD denominato Britta Simon.
+1. **[Creare un utente test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Creare un utente di test Uberflip](#create-an-uberflip-test-user)** in modo che vi sia un utente denominato B. Simon in Uberflip collegato a un utente di Azure AD denominato B. Simon.
 1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -136,7 +136,7 @@ Per configurare l'accesso Single Sign-On sul lato Uberflip, è necessario inviar
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-In questa sezione viene creato un utente di test chiamato Britta Simon nel portale di Azure.
+In questa sezione viene creato un utente di test chiamato B. Simon nel portale di Azure.
 
 1. Nel riquadro di sinistra del portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
 
@@ -150,9 +150,9 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
     ![Riquadro Utente](common/user-properties.png)
 
-    1. Nella casella **Nome** immettere **BrittaSimon**.
+    1. Nella casella **Name** (Nome) immettere **BSimon**.
   
-    1. Nella casella **Nome utente** immettere **BrittaSimon\@\<dominioazienda>.\<estensione>**. Ad esempio, **BrittaSimon\@contoso.com**.
+    1. Nella casella **Nome utente** immettere **BSimon\@\<dominioazienda>.\<estensione>** . Ad esempio, **BSimon\@contoso.com**.
 
     1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
@@ -160,7 +160,7 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Uberflip.
+In questa sezione B. Simon riceve l'abilitazione per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso ad Uberflip.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** > **Uberflip**.
 
@@ -178,7 +178,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
-1. Nel riquadro **Utenti e gruppi** selezionare **Britta Simon** nell'elenco **Utenti** e quindi fare clic sul pulsante **Seleziona** nella parte inferiore del riquadro.
+1. Nel riquadro **Utenti e gruppi** selezionare **B. Simon** nell'elenco **Utenti** e quindi fare clic sul pulsante **Seleziona** nella parte inferiore del riquadro.
 
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nel riquadro **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Scegliere **Seleziona** nella parte inferiore del riquadro.
 
@@ -186,7 +186,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-an-uberflip-test-user"></a>Creare un utente di test di Uberflip
 
-A questo punto in Uberflip viene creato un utente denominato Britta Simon. Non è necessario eseguire alcuna operazione per creare tale utente. Uberflip supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Se in Uberflip non esiste già un utente denominato Britta Simon, ne viene creato uno nuovo dopo l'autenticazione.
+A questo punto in Uberflip viene creato un utente denominato B. Simon. Non è necessario eseguire alcuna operazione per creare tale utente. Uberflip supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Se in Uberflip non esiste già un utente denominato B. Simon, ne viene creato uno nuovo dopo l'autenticazione.
 
 > [!NOTE]
 > Se è necessario creare un utente manualmente, contattare il [team di supporto di Uberflip](mailto:support@uberflip.com).

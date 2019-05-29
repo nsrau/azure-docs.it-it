@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e29e36807aff6c32f295c79c90d80c7d2b5b4bcc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510740"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003000"
 ---
 # <a name="what-are-the-speech-services"></a>Informazioni sui servizi Voce
 
@@ -42,7 +42,9 @@ Queste funzionalità costituiscono i servizi Voce di Azure. Per altre informazio
 Informazioni sulle novità relative ai servizi Voce di Azure.
 
 * Maggio 2019 - Disponibilità della documentazione per [Trascrizione conversazione](conversation-transcription-service.md), [Trascrizione di call center](call-center-transcription.md) e [Assistenti virtuali voice-first](voice-first-virtual-assistants.md).
-* Maggio 2019 - Rilasciato Speech SDK 1.5.0. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
+* Maggio 2019
+    * Rilasciato Speech SDK 1.5.1. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
+    * Rilasciato Speech SDK 1.5.0. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
 * Aprile 2019 - Rilasciato Speech SDK 1.4.0 con il supporto per la sintesi vocale (beta) per C++, C# e Java su Windows e Linux. Inoltre, l'SDK ora supporta formati audio MP3 e Opus/Ogg per C++ e C# su Linux. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
 * Marzo 2019 - È ora disponibile un nuovo endpoint per la sintesi vocale che restituisce un elenco completo delle voci disponibili in aree specifiche. Inoltre, sono ora supportate nuove aree per la sintesi vocale. Per altre informazioni, vedere le [informazioni di riferimento sull'API di sintesi vocale (REST)](rest-text-to-speech.md).
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005991"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541534"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Esercitazione: Usare Visione artificiale per generare i metadati delle immagini in Archiviazione di Azure
 
@@ -40,17 +40,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="create-a-computer-vision-resource"></a>Creare una risorsa di Visione artificiale
 
-È necessario creare una risorsa di Visione artificiale per l'account Azure. Questa risorsa gestisce l'accesso al servizio Visione artificiale di Azure.
+È necessario creare una risorsa di Visione artificiale per l'account Azure. Questa risorsa gestisce l'accesso al servizio Visione artificiale di Azure. 
 
-1. Accedi al [portale di Azure](https://ms.portal.azure.com) e fare clic su **Crea una risorsa**, quindi su **Intelligenza artificiale e Machine Learning** e **Visione artificiale**.
+1. Seguire le istruzioni contenute in [Creare una risorsa di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) per creare una risorsa di Visione artificiale.
 
-    ![Creazione di una nuova sottoscrizione all'API Visione artificiale](../Images/new-vision-api.png)
-
-1. Nella finestra di dialogo, immettere "vision-api-key" nel campo **Nome** e selezionare **F0** come **Piano tariffario**. Selezionare la stessa **posizione** scelta quando si è configurato l'account di Archiviazione di Azure. In **Gruppo di risorse** selezionare **Usa esistente** e, anche in questo caso, scegliere lo stesso gruppo di risorse. Selezionare la casella **Sì, confermo**, quindi fare clic su **Crea**.
-
-    ![Sottoscrizione all'API Visione artificiale](../Images/create-vision-api.png)
-
-1. Tornare al menu del gruppo di risorse e fare clic sulla sottoscrizione API Visione artificiale appena creata. Copiare l'URL sotto **Endpoint** in qualsiasi punto sia possibile recuperarlo facilmente in seguito. Quindi fare clic su **Mostra chiavi di accesso**.
+1. Passare quindi al menu del gruppo di risorse e fare clic sulla sottoscrizione API Visione artificiale appena creata. Copiare l'URL sotto **Endpoint** in qualsiasi punto sia possibile recuperarlo facilmente in seguito. Quindi fare clic su **Mostra chiavi di accesso**.
 
     ![Pagina del portale di Azure con l'URL endpoint e il collegamento delle chiavi di accesso evidenziato](../Images/copy-vision-endpoint.png)
 

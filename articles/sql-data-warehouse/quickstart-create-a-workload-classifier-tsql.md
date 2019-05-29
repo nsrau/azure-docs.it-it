@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un classificatore di carico di lavoro - T-SQL | Microsoft Docs'
+title: 'Guida introduttiva: Creare un classificatore di carico di lavoro - T-SQL | Microsoft Docs'
 description: Usare T-SQL per creare un classificatore di carico di lavoro con priorità alta
 services: sql-data-warehouse
 author: ronortloff
@@ -10,14 +10,14 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2074ea1028f6a5e8a0251c6d0c9519361db6ba8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1c84bf84f8ba28a98937b02a463003a900aefaa0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150391"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002903"
 ---
-# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Avvio rapido: Creare un classificatore di carico di lavoro con T-SQL
+# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Guida introduttiva: Creare un classificatore di carico di lavoro con T-SQL
 
 In questa Guida introduttiva si creerà rapidamente un classificatore di carico di lavoro con priorità alta per il direttore generale dell'organizzazione. Il classificatore di carico di lavoro consentirà alle query del direttore generale di avere la precedenza su quelle con priorità inferiore nella coda.
 
@@ -107,6 +107,6 @@ Seguire questa procedura per pulire le risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stato creato un classificatore di carico di lavoro. Eseguire alcune query come IlCEO per verificarne le prestazioni. Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la loro priorità.
-
-Per ulteriori informazioni sulla gestione del carico di lavoro di SQL Data Warehouse, vedere [Priorità del carico di lavoro di SQL Data Warehouse](sql-data-warehouse-workload-importance.md) e [Classificazione del carico di lavoro di SQL Data Warehouse](sql-data-warehouse-workload-classification.md).
+- È stato creato un classificatore di carico di lavoro. Eseguire alcune query come IlCEO per verificarne le prestazioni. Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la loro priorità.
+- Per altre informazioni sulla gestione del carico di lavoro di Azure SQL Data Warehouse, vedere [Priorità del carico di lavoro](sql-data-warehouse-workload-importance.md) e [Classificazione del carico di lavoro](sql-data-warehouse-workload-classification.md).
+- Vedere gli articoli sulle procedure per [configurare la priorità del carico di lavoro](sql-data-warehouse-how-to-configure-workload-importance.md) e per [gestire e monitorare la priorità del carico di lavoro](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

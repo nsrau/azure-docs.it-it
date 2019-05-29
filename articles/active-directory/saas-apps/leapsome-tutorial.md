@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 602e3145a003a0413287b08151abf472ecf4ade0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406716"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988085"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Esercitazione: integrazione di Azure Active Directory con Leapsome
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Leapsome, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Leapsome](#configure-leapsome-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente test di Leapsome](#create-leapsome-test-user)**: per avere una controparte di Britta Simon in Leapsome collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Leapsome](#configure-leapsome-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente test di Leapsome](#create-leapsome-test-user)** : per avere una controparte di Britta Simon in Leapsome collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -126,10 +126,10 @@ Per configurare l'accesso Single Sign-On di Azure AD con Leapsome, seguire quest
 
     | Nome | Attributo di origine | Spazio dei nomi |
     | ---------------| --------------- | --------- |  
-    | firstname | user.givenname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | lastname | user.surname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | title | user. jobtitle | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | picture | URL dell'immagine del dipendente | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstname | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | title | user. jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | picture | URL dell'immagine del dipendente | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     > [!Note]
@@ -187,7 +187,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Leapsome, seguire quest
 
     d. Nella casella di testo **URL di accesso (fornito dal provider di identità)** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    e. Copiare il certificato che è stato scaricato dal portale di Azure senza i commenti `--BEGIN CERTIFICATE and END CERTIFICATE--` e incollarlo nella casella di testo **Certificato (fornito dal provider di identità)**.
+    e. Copiare il certificato che è stato scaricato dal portale di Azure senza i commenti `--BEGIN CERTIFICATE and END CERTIFICATE--` e incollarlo nella casella di testo **Certificato (fornito dal provider di identità)** .
 
     f. Fare clic su **UPDATE SSO SETTINGS** (AGGIORNA IMPOSTAZIONI SSO).
 
@@ -244,7 +244,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-leapsome-test-user"></a>Creare un utente di test di Leapsome
 
-In questa sezione viene creato un utente di nome Britta Simon in Leapsome. Rivolgersi al [team di supporto di Leapsome](mailto:support@leapsome.com) per aggiungere gli utenti o il dominio da includere nella piattaforma Leapsome. Se il dominio viene aggiunto dal team, verrà automaticamente eseguito il provisioning degli utenti nella piattaforma Leapsome. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Leapsome. Rivolgersi al [team di supporto di Leapsome](mailto:support@leapsome.com) per aggiungere gli utenti o il dominio che devono essere aggiunti a un elenco di elementi consentiti per la piattaforma Leapsome. Se il dominio viene aggiunto dal team, verrà automaticamente eseguito il provisioning degli utenti nella piattaforma Leapsome. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

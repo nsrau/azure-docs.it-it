@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c3b2134fae86b988fb21e993cd01b77a90bd2896
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 23754a1184f89d1fb563b2d73109f3a10c48920c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467072"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539330"
 ---
 # <a name="what-is-azure-search"></a>Che cos'è la Ricerca di Azure?
 Ricerca di Azure è una soluzione cloud di ricerca distribuita come servizio che offre agli sviluppatori le API e gli strumenti per ottenere un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali. Le query vengono eseguite su un indice definito dall'utente.
@@ -43,8 +43,8 @@ La funzionalità viene esposta tramite una semplice [API REST](/rest/api/searchs
 
 | Arricchimenti di&nbsp;intelligenza artificiale&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Funzionalità |
 |-------------------|----------|
-|Documenti arricchiti con intelligenza artificiale | [**Ricerca cognitiva**](cognitive-search-concept-intro.md) per l'analisi di testo e immagini si può applicare a una pipeline di indicizzazione per estrarre informazioni di testo dal contenuto non elaborato. Alcuni esempi di [competenze predefinite](cognitive-search-predefined-skills.md) includono il riconoscimento ottico dei caratteri (che permette di eseguire ricerche nelle immagini JPEG digitalizzate), il riconoscimento di entità (identificazione di un'organizzazione, un nome o una località) e il riconoscimento di frasi chiave. È anche possibile [sviluppare competenze personalizzate](cognitive-search-create-custom-skill-example.md) da collegare alla pipeline. |
-| Arricchimenti archiviati per l'analisi e l'utilizzo| [**Knowledge Store (anteprima)**](knowledge-store-concept-intro.md) è un'estensione dell'indicizzazione basata su intelligenza artificiale. Con l'archiviazione di Azure come back-end, è possibile salvare gli arricchimenti creati durante l'indicizzazione. Questi artefatti possono essere usati per definire set di competenze più efficaci oppure per creare forme e strutture da dati amorfi o ambigui. È possibile creare proiezioni di queste strutture destinate a specifici carichi di lavoro o utenti. È anche possibile analizzare direttamente i dati estratti oppure caricarli in altre app.<br/><br/> |
+|Documenti arricchiti con intelligenza artificiale | [**Ricerca cognitiva**](cognitive-search-concept-intro.md) per l'analisi di testo e immagini può essere applicata a una pipeline di indicizzazione per estrarre informazioni di testo dal contenuto non elaborato. Alcuni esempi di [competenze predefinite](cognitive-search-predefined-skills.md) includono il riconoscimento ottico dei caratteri (che permette di eseguire ricerche nelle immagini JPEG digitalizzate), il riconoscimento di entità (identificazione di un'organizzazione, un nome o una località) e il riconoscimento di frasi chiave. È anche possibile [sviluppare competenze personalizzate](cognitive-search-create-custom-skill-example.md) da collegare alla pipeline. |
+| Arricchimenti archiviati per l'analisi e l'utilizzo| [**Knowledge store (anteprima)** ](knowledge-store-concept-intro.md) è un'estensione dell'indicizzazione basata su intelligenza artificiale. Con l'archiviazione di Azure come back-end, è possibile salvare gli arricchimenti creati durante l'indicizzazione. Questi artefatti possono essere usati per definire set di competenze più efficaci oppure per creare forme e strutture da dati amorfi o ambigui. È possibile creare proiezioni di queste strutture destinate a specifici carichi di lavoro o utenti. È anche possibile analizzare direttamente i dati estratti oppure caricarli in altre app.<br/><br/> |
 
 | Importazione/indicizzazione di&nbsp;dati | Funzionalità |
 |----------------------------------|----------|
@@ -57,7 +57,7 @@ La funzionalità viene esposta tramite una semplice [API REST](/rest/api/searchs
 |-------------------|----------|
 | Strumenti per la creazione di prototipi e l'ispezione | Nel portale è possibile usare la [**procedura guidata di importazione dei dati**](search-import-data-portal.md) per configurare gli indicizzatori, indicizzare la finestra di progettazione e usare [**Esplora ricerche**](search-explorer.md) per testare le query e migliorare i profili di punteggio. È inoltre possibile aprire un indice qualsiasi per visualizzarne lo schema. |
 | Monitoraggio e diagnostica | [**Abilitare le funzionalità di monitoraggio**](search-monitor-usage.md) per andare oltre le metriche sempre visibili a colpo d'occhio nel portale. Le metriche sulle query al secondo, sulla latenza e sulla limitazione vengono acquisite e inserite in report nelle pagine del portale, senza necessità di configurazioni aggiuntive. <br/><br/>L'[**analisi del traffico di ricerca**](search-traffic-analytics.md) è un'altra alternativa per il monitoraggio, per cui vengono raccolti e analizzati dati sul lato server e sul lato client per fornire informazioni dettagliate su quello che gli utenti digitano nella casella di ricerca. |
-| Modello di crittografia lato server | La [**crittografia dei dati inattivi gestita da Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) è incorporata nel livello di archiviazione interno ed è irrevocabile. Facoltativamente, è possibile integrare la crittografia predefinita con [**chiavi di crittografia gestite dal cliente (anteprima)**](search-security-manage-encryption-keys.md). Le chiavi create e gestite in Azure Key Vault vengono usate per crittografare indici e mappe di sinonimi in Ricerca di Azure. |
+| Modello di crittografia lato server | La [**crittografia dei dati inattivi gestita da Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) è incorporata nel livello di archiviazione interno ed è irrevocabile. Facoltativamente, è possibile integrare la crittografia predefinita con [**chiavi di crittografia gestite dal cliente (anteprima)** ](search-security-manage-encryption-keys.md). Le chiavi create e gestite in Azure Key Vault vengono usate per crittografare indici e mappe di sinonimi in Ricerca di Azure. |
 | Infrastruttura | La **piattaforma a disponibilità elevata** garantisce un'esperienza del servizio di ricerca estremamente affidabile. Se si applica una scala corretta, [Ricerca di Azure offre un contratto di servizio con disponibilità del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Gestione completa e scalabile** come soluzione end-to-end, Ricerca di Azure non richiede assolutamente alcun tipo di gestione dell'infrastruttura. Il servizio può essere adattato alle proprie esigenze scalando in due dimensioni per gestire più archivi di documenti, carichi di query maggiori o entrambi.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Come usare Ricerca di Azure

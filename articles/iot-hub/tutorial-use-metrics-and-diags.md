@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 12/15/2018
+ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8bcc72cf151b085c7f65b6c600a49642cd330bac
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 40e54daa60efedd84b32c72f29d1e2a8858c27da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248488"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162412"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Esercitazione: Configurare e usare le metriche e i log di diagnostica con un hub IoT
 
@@ -163,7 +163,7 @@ Configurare ora alcune metriche per controllare quando i messaggi vengono inviat
 
 1. Nel riquadro delle impostazioni per l'hub IoT fare clic sull'opzione **Metriche** nella sezione **Monitoraggio**.
 
-2. Nella parte superiore della schermata fare clic su **Ultime 24 ore (automatico)**. Nell'elenco a discesa visualizzato selezionare **Ultime 4 ore** per **Intervallo di tempo** e impostare **Granularità temporale** su **1 minuto**, ora locale. Fare clic su **Applica** per salvare le impostazioni. 
+2. Nella parte superiore della schermata fare clic su **Ultime 24 ore (automatico)** . Nell'elenco a discesa visualizzato selezionare **Ultime 4 ore** per **Intervallo di tempo** e impostare **Granularità temporale** su **1 minuto**, ora locale. Fare clic su **Applica** per salvare le impostazioni. 
 
    ![Schermata che mostra le impostazioni temporali delle metriche.](./media/tutorial-use-metrics-and-diags/06-metrics-set-time-range.png)
 
@@ -196,7 +196,7 @@ L'hub IoT non è ancora stato migrato alle [metriche in Monitoraggio di Azure](/
 
     Compilare i campi: 
 
-    **Sottoscrizione**: lasciare questo campo impostato sulla sottoscrizione corrente.
+    **Sottoscrizione** lasciare questo campo impostato sulla sottoscrizione corrente.
 
     **Origine**: impostare questo campo su *Metriche*.
 
@@ -274,7 +274,7 @@ L'hub IoT non è ancora stato migrato alle [metriche in Monitoraggio di Azure](/
 
 In precedenza nella sezione di installazione dello script, è stato configurato un dispositivo per simulare l'uso di un dispositivo IoT. In questa sezione si scarica un'app console di .NET che simula un dispositivo che invia messaggi da dispositivo a cloud a un hub IoT.  
 
-Scaricare la soluzione per la [simulazione dispositivi IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Viene scaricato un repository contenente diverse applicazioni; la soluzione desiderata si trova in iot-hub/Esercitazioni/Routing/SimulatedDevice/.
+Scaricare la soluzione per la [simulazione dispositivi IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Viene scaricato un repository contenente diverse applicazioni. La soluzione desiderata si trova in iot-hub/Tutorials/Routing/.
 
 Fare doppio clic sul file di soluzione (SimulatedDevice.sln) per aprire il codice in Visual Studio, quindi aprire Program.cs. Sostituire `{iot hub hostname}` con il nome host dell'hub IoT. Il formato del nome host dell'hub IoT **{nome hub iot} .azure-devices.net**. Per questa esercitazione, il nome host dell'hub è **ContosoTestHub.azure devices.net**. Successivamente, sostituire `{device key}` con la chiave del dispositivo salvato in precedenza durante la configurazione del dispositivo simulato. 
 
@@ -298,7 +298,7 @@ Eseguire l'applicazione console. Attendere qualche minuto (10-15). È possibile 
 
 ### <a name="see-the-metrics-in-the-portal"></a>Visualizzare le metriche nel portale
 
-Aprire le metriche nel dashboard. Impostare il valore su *Ultimi 30 minuti* con una granularità temporale di *1 minuto*. Nel grafico vengono visualizzati i messaggi di telemetria inviati e il numero totale di messaggi usati con i numeri più recenti nella parte inferiore del grafico. 
+Aprire le metriche nel dashboard. Impostare il valore su *Ultimi 30 minuti* con una granularità temporale di *1 minuto*. Nel grafico vengono visualizzati i messaggi di telemetria inviati e il numero totale di messaggi usati con i numeri più recenti nella parte inferiore del grafico.
 
    ![Schermata che mostra le metriche.](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
 
@@ -385,4 +385,4 @@ In questa esercitazione è stato illustrato come usare le metriche e i log di di
 Passare all'esercitazione successiva per imparare a gestire lo stato di un dispositivo hub IoT. 
 
 > [!div class="nextstepaction"]
-[Configurare i dispositivi da un servizio back-end](tutorial-device-twins.md)
+> [Configurare i dispositivi da un servizio back-end](tutorial-device-twins.md)

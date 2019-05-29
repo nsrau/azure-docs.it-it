@@ -8,14 +8,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2017
 ms.author: rimman
-ms.openlocfilehash: 2fcd5f9e68d7f8bfa15cd596407c78af7fc8976b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 8ae4c5f64ad834e27db219fac8d30ff5250c3286
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587260"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519067"
 ---
-# <a name="quickstart-build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>Avvio rapido: Creare un'app Web usando l'API Azure Cosmos DB per MongoDB e Java SDK
+# <a name="quickstart-build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>Guida introduttiva: Creare un'app Web usando l'API Azure Cosmos DB per MongoDB e Java SDK
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -33,7 +33,7 @@ Questo argomento di avvio rapido illustra come creare un account Cosmos con l'[A
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di poter eseguire questo esempio, è necessario soddisfare i prerequisiti seguenti:
-* JDK 1.7+ (eseguire `apt-get install default-jdk` se JDK non è disponibile)
+* [Installare JDK per Azure e Azure Stack JDK versione 8] (https://aka.ms/azure-jdks))
 * Maven (eseguire `apt-get install maven` se Maven non è disponibile)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

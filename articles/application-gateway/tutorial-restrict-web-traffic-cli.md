@@ -3,33 +3,23 @@ title: Abilitare il web application firewall - Interfaccia della riga di comando
 description: Informazioni su come limitare il traffico Web con un web application firewall in un gateway applicazione usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1387dc5bb2cabf9a3078474564aadc81b28fd9a7
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1822fe032a7c7a6382dbae2cb9f7095d1d076008
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443609"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955481"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Abilitare il web application firewall usando l'interfaccia della riga di comando di Azure
 
-> [!div class="op_single_selector"]
->
-> - [Portale di Azure](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Interfaccia della riga di comando di Azure](tutorial-restrict-web-traffic-cli.md)
->
-> 
+È possibile limitare il traffico in un [gateway applicazione](overview.md) usando un [web application firewall](waf-overview.md). Il WAF usa regole di [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) per proteggere l'applicazione. Queste regole includono la protezione contro attacchi di tipo SQL injection, attacchi tramite script da altri siti (XSS) e hijack delle sessioni.
 
-È possibile limitare il traffico in un [gateway applicazione](overview.md) usando un [web application firewall](waf-overview.md). Il WAF usa regole di [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) per proteggere l'applicazione. Queste regole includono la protezione contro attacchi di tipo SQL injection, attacchi tramite script da altri siti (XSS) e hijack delle sessioni. 
-
-In questa esercitazione si apprenderà come:
+In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Configurare la rete
@@ -39,13 +29,13 @@ In questa esercitazione si apprenderà come:
 
 ![Esempio di web application firewall](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
-Se si preferisce, è possibile completare questa esercitazione usando [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
+Se si preferisce, è possibile completare questa procedura usando [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, in questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -148,7 +138,7 @@ az vmss extension set \
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Creare un account di archiviazione e configurare la diagnostica
 
-In questa esercitazione il gateway applicazione usa un account di archiviazione per archiviare i dati con finalità di rilevamento e prevenzione. È anche possibile usare i log di Monitoraggio di Azure o Hub eventi per registrare i dati. 
+In questo articolo il gateway applicazione usa un account di archiviazione per archiviare i dati con finalità di rilevamento e prevenzione. È anche possibile usare i log di Monitoraggio di Azure o Hub eventi per registrare i dati. 
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -196,18 +186,9 @@ az network public-ip show \
 Quando non sono più necessari, rimuovere il gruppo di risorse, il gateway applicazione e tutte le risorse correlate.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Configurare la rete
-> * Creare un gateway applicazione con WAF abilitato
-> * Creare un set di scalabilità di macchine virtuali
-> * Creare un account di archiviazione e configurare la diagnostica
-
-> [!div class="nextstepaction"]
-> [Creare un gateway applicazione con la terminazione SSL](./tutorial-ssl-cli.md)
+* [Creare un gateway applicazione con la terminazione SSL](./tutorial-ssl-cli.md)

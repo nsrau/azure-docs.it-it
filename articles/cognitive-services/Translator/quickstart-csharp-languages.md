@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Ottenere un elenco delle lingue supportate, C# - API Traduzione testuale'
+title: 'Guida introduttiva: Ottenere un elenco delle lingue supportate, C# - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari usando l'API Traduzione testuale.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: efa8399d20f6bacb41720d77e14336833f085323
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: aa9c59485882ea52a30471a76f2ee7377b847b8c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916576"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602821"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate usando C#
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Guida introduttiva: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate usando C#
 
 In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari usando l'API Traduzione testuale.
 
@@ -142,7 +142,7 @@ dotnet run
 
 ## <a name="sample-response"></a>Risposta di esempio
 
-Trovare l'abbreviazione del paese in questo [elenco di lingue](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Trovare l'abbreviazione del paese o dell'area geografica in questo [elenco di lingue](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 {

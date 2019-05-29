@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 93cc20c303d6c8ba0592651064790d83919b2948
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 113481a647b7c9b0c1499ddf376017ac9826128d
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916647"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602845"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate usando Go
 
@@ -135,7 +135,7 @@ Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio
 
 ## <a name="sample-response"></a>Risposta di esempio
 
-Trovare l'abbreviazione del paese in questo [elenco di lingue](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Trovare l'abbreviazione del paese o dell'area geografica in questo [elenco di lingue](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente:
 

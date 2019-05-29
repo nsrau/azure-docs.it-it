@@ -3,8 +3,8 @@ title: Accesso utenti e chiamata dell'API Microsoft Graph da un'app Desktop .NET
 description: Informazioni su come compilare un'applicazione Windows Desktop .NET che si integra con Azure AD per l'accesso e chiama le API protette di Azure AD usando OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/21/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: a2d9639c21e201db1df5145caf1345d4f0879af6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223394"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121951"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app Desktop .NET (WPF)
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app Desktop .NET (WPF)
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -57,13 +57,15 @@ Per consentire all'app di ottenere i token, registrare l'app nel tenant di Azure
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra in alto selezionare l'account e nell'elenco **Directory** scegliere il tenant di Active Directory in cui si vuole registrare l'applicazione.
 3. Selezionare **Tutti i servizi** nella barra di spostamento a sinistra e scegliere **Azure Active Directory**.
-4. In **Registrazioni app** scegliere **Aggiungi**.
-5. Seguire le istruzioni e creare una nuova applicazione client **nativa**.
-    * Il **Nome** dell'applicazione deve essere una descrizione per gli utenti finali.
-    * L' **URI di reindirizzamento** è una combinazione dello schema e della stringa che Azure AD userà per restituire le risposte dei token. Immettere un valore specifico per l'applicazione in uso, ad esempio `http://DirectorySearcher`.
+4. In **Registrazioni app** scegliere **Nuova registrazione**.
+5. Seguire le istruzioni per creare una nuova applicazione client.
+    * **Nome** è il nome dell'applicazione e descrive l'applicazione agli utenti finali.
+    * In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
+    * L'**URI di reindirizzamento** è una combinazione dello schema e della stringa che Azure AD usa per restituire le risposte dei token. Immettere un valore specifico per l'applicazione, ad esempio `http://DirectorySearcher`, in base alle informazioni sull'URI di reindirizzamento precedenti. Selezionare inoltre **Client pubblico (per dispositivi mobili e desktop)** dall'elenco a discesa. 
 
 6. Dopo avere completato la registrazione, AAD assegnerà all'app un ID app univoco. Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla pagina dell'applicazione.
-7. Nella pagina **Impostazioni** scegliere **Autorizzazioni necessarie** e quindi scegliere **Aggiungi**. Selezionare **Microsoft Graph** come API e in **Autorizzazioni delegate** aggiungere l'autorizzazione **Lettura dati directory**. L'impostazione di questa autorizzazione consente all'applicazione di cercare utenti nell'API Graph.
+7. Nella pagina **Autorizzazioni API** selezionare **Aggiungi un'autorizzazione**. In **Selezionare un'API** selezionare ***Microsoft Graph***.
+8. In **Autorizzazioni delegate** selezionare l'autorizzazione **User.Read** e quindi fare clic su **Aggiungi** per salvare. L'autorizzazione imposta l'applicazione in modo che possa eseguire query nell'API Graph di Azure AD per gli utenti.
 
 ## <a name="step-2-install-and-configure-adal"></a>Passaggio 2: Installare e configurare ADAL
 

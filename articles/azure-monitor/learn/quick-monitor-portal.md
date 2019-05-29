@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 08745c3ef3d4996340ec40af496f8f0a5e0201c3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805347"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595744"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET
 
@@ -26,7 +26,7 @@ Questa guida introduttiva illustra come aggiungere Application Insights a un'app
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida introduttiva:
 
-- Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
+- Installare [Visual Studio 2019](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
     - Sviluppo Web e ASP.NET
     - Sviluppo di Azure
 
@@ -35,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ## <a name="enable-application-insights"></a>Abilitare Application Insights
 
-1. Aprire il progetto in Visual Studio 2017.
+1. Aprire il progetto in Visual Studio 2019.
 2. Selezionare **Configura Application Insights** dal menu Progetto. Visual Studio aggiunge Application Insights SDK all'applicazione.
 
     > [!IMPORTANT]

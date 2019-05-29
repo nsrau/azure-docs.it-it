@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: overview
 ms.date: 04/15/2019
-ms.openlocfilehash: 553f50897afaaf9c677e84f9cfffbff7d2c1e607
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: aa0d01bfbebd5279b5268bae9d161492f30b81de
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679674"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546290"
 ---
 # <a name="hdinsight-40-overview"></a>Panoramica di HDInsight 4.0
 
@@ -90,7 +90,7 @@ Non è disponibile alcun percorso di aggiornamento supportato dalle versioni pre
 
 ## <a name="limitations"></a>Limitazioni
 
-* HDInsight 4.0 non supporta MapReduce. Usare invece Apache Tez. Per altre informazioni, vedere [Apache Tez](https://tez.apache.org/).
+* HDInsight 4.0 non supporta MapReduce per Apache Hive. Usare invece Apache Tez. Per altre informazioni, vedere [Apache Tez](https://tez.apache.org/).
 * HDInsight 4.0 non supporta Apache Storm. 
 * La vista Hive non è più disponibile in HDInsight 4.0. 
 * L'interprete shell di Apache Zeppelin non è supportato nei cluster Spark e Interactive Query.

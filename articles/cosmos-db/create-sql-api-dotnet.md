@@ -7,15 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/05/2019
-ms.openlocfilehash: e1b5ade470e3041fc15a8f71db76a4004a33f765
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/20/2019
+ms.openlocfilehash: 432ddf6e0fea0d6de3c24dc853502dca303ce693
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142677"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954547"
 ---
-# <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Avvio rapido: Compilare un'app Web .NET usando l'account API SQL in Azure Cosmos DB
+# <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Guida introduttiva: Compilare un'app Web .NET usando l'account API SQL in Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -35,8 +35,8 @@ In questa guida di avvio rapido si usa Esplora dati nel portale di Azure per cre
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Visual Studio 2017 con il flusso di lavoro di sviluppo di Azure installato
-- È possibile scaricare e usare la **versione gratuita** di [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**. 
+Visual Studio 2019 con il flusso di lavoro di sviluppo di Azure installato
+- È possibile scaricare e usare l'edizione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**. 
 
 Una sottoscrizione di Azure o un account di prova gratuito di Azure Cosmos DB
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 

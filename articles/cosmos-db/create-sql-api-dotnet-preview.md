@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un'app Web ASP.NET con Azure Cosmos DB usando l'API SQL e il portale di Azure"
+title: "Guida introduttiva: Creare un'app Web ASP.NET con Azure Cosmos DB usando l'API SQL e il portale di Azure"
 description: In questo avvio rapido si useranno l'API SQL di Azure Cosmos DB e il portale di Azure per creare un'app Web ASP.NET
 author: deborahc
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 1589c938e635ccff02f94a176b7fc886dbccb779
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 51494acaa393493e567e0fcbb359756bdab21503
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455769"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860899"
 ---
-# <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Compilare un'app Web ASP.NET usando un account API SQL di Azure Cosmos DB
+# <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Guida introduttiva: Compilare un'app Web ASP.NET usando un account API SQL di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET (Preview)](create-sql-api-dotnet-preview.md)
@@ -37,7 +37,7 @@ Questo avvio rapido usa la versione 3.0 e versioni successive di Azure Cosmos DB
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio, abilitare il carico di lavoro **Sviluppo di Azure**.
+Se Visual Studio 2019 non è ancora installato, è possibile scaricare e usare l'edizione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio, abilitare il carico di lavoro **Sviluppo di Azure**.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
@@ -120,7 +120,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     ![Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi](./media/create-sql-api-dotnet/keys.png)
 
-2. In Visual Studio 2017 aprire il file **web.config**. 
+2. In Visual Studio aprire il file **web.config**. 
 
 3. Copiare il valore dell'URI dal portale (usando il pulsante di copia) e impostarlo come valore della chiave ``endpoint`` in web.config. 
 

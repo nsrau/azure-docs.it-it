@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 1f86690b97fc7d65afed650664a76200ef490f33
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: a17461a90a19d775b8c7cac86d0bc6e9a18856bd
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517114"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860874"
 ---
-# <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Compilare un'app ToDo con Xamarin usando un account API SQ di Azure Cosmos DB
+# <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Guida introduttiva: Compilare un'app ToDo con Xamarin usando un account API SQ di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -37,7 +37,7 @@ Questa guida introduttiva mostra come creare un account dell'API SQL di Azure Co
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se si esegue lo sviluppo su Windows e Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo di applicazioni per dispositivi mobili con .NET**.
+Se si esegue lo sviluppo in Windows e Visual Studio 2019 non è ancora installato, è possibile scaricare e usare l'edizione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo di applicazioni per dispositivi mobili con .NET**.
 
 Se si usa un computer Mac, è possibile scaricare la versione **gratuita** di [Visual Studio per Mac](https://www.visualstudio.com/vs/mac/).
 
@@ -92,7 +92,7 @@ Tornare al portale di Azure per recuperare le informazioni sulla chiave API e co
 
     ![Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. In Visual Studio 2017 o Visual Studio per Mac aprire il file APIKeys.cs nella cartella azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers.
+2. In Visual Studio 2019 o Visual Studio per Mac aprire il file APIKeys.cs nella cartella azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers.
 
 3. Copiare il valore di URI dal portale (usando il pulsante di copia) e impostarlo come valore della variabile `CosmosEndpointUrl` in APIKeys.cs.
 

@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 51f6fb8c0dc1450a39173fafb0d71efc9a59a536
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1c07da0121b8e350c55b139901d56cfe2133386d
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649976"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864490"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Creare la prima funzione con Visual Studio
 
 Funzioni di Azure consente di eseguire il codice in un ambiente [senza server](https://azure.microsoft.com/solutions/serverless/), senza dover prima creare una macchina virtuale o pubblicare un'applicazione Web.
 
-Questo articolo spiega come usare gli strumenti di Visual Studio 2017 per Funzioni di Azure per creare e testare una funzione "hello world" in locale. Il codice della funzione verrà quindi pubblicato in Azure. Questi strumenti sono disponibili come parte del carico di lavoro di sviluppo di Azure in Visual Studio 2017.
+Questo articolo spiega come usare gli strumenti di Visual Studio 2019 per Funzioni di Azure per creare e testare una funzione "hello world" in locale. Il codice della funzione verrà quindi pubblicato in Azure. Questi strumenti sono disponibili come parte del carico di lavoro di sviluppo di Azure in Visual Studio 2019.
 
 ![Risposta localhost della funzione nel browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -34,7 +34,7 @@ Questo argomento include [un video](#watch-the-video) che illustra gli stessi pa
 
 Per completare questa esercitazione:
 
-* Installare [Visual Studio 2017](https://azure.microsoft.com/downloads/) e assicurarsi che sia installato anche il carico di lavoro **Sviluppo di Azure**.
+* Installare [Visual Studio 2019](https://azure.microsoft.com/downloads/) e assicurarsi che sia installato anche il carico di lavoro **Sviluppo di Azure**.
 
 * Assicurarsi di avere gli [strumenti di Funzioni di Azure più recenti](functions-develop-vs.md#check-your-tools-version).
 

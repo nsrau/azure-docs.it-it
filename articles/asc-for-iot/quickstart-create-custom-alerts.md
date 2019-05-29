@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f585c496328fef3e3d7dbb300fc4f07167fd55d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192478"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786175"
 ---
-# <a name="quickstart-create-custom-alerts"></a>Avvio rapido: Creare avvisi personalizzati
+# <a name="quickstart-create-custom-alerts"></a>Guida introduttiva: Creare avvisi personalizzati
 
 > [!IMPORTANT]
 > Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
@@ -50,13 +50,12 @@ Usare i gruppi di sicurezza per raggruppare i dispositivi in categorie logiche. 
 ## <a name="customize-an-alert"></a>Personalizzare un avviso
 
 1. Aprire l'hub IoT. 
-2. Selezionare **Sicurezza**, quindi scegliere **Avvisi personalizzati**. 
-3. Scegliere i gruppi di sicurezza a cui si vuole applicare la personalizzazione. 
-4. Fare clic su **Aggiungi un avviso personalizzato**
-5. Immettere un nome per l'avviso (i nomi degli avvisi non possono essere modificati dopo la creazione). 
-6. Selezionare un comportamento dell'avviso personalizzato nell'elenco a discesa. 
-7. Modificare le proprietà necessarie e fare clic su **OK**.
-8. Assicurarsi di fare clic su **SALVA**. Se non si salva il nuovo avviso, l'avviso verrà eliminato la volta successiva che si chiude l'hub IoT.
+2. Fare clic su **Avvisi personalizzati** nella sezione **Sicurezza**. 
+3. Scegliere un gruppo di sicurezza a cui si vuole applicare la personalizzazione. 
+4. Fare clic su **Aggiungi un avviso personalizzato** 
+5. Selezionare un comportamento dell'avviso personalizzato nell'elenco a discesa. 
+6. Modificare le proprietà necessarie e fare clic su **OK**.
+7. Assicurarsi di fare clic su **SALVA**. Se non si salva il nuovo avviso, l'avviso verrà eliminato la volta successiva che si chiude l'hub IoT.
 
  
 ## <a name="alerts-available-for-customization"></a>Avvisi disponibili per la personalizzazione

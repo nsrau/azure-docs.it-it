@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8f8dc8219d65505952f35ad018ef19aeb68d64e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264863"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989773"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Esercitazione: integrazione di Azure Active Directory con iPass SmartConnect
 
@@ -77,11 +77,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con iPass SmartConnect, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di iPass SmartConnect](#configure-ipass-smartconnect-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di iPass SmartConnect](#create-ipass-smartconnect-test-user)**: per avere una controparte di Britta Simon in iPass SmartConnect collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di iPass SmartConnect](#configure-ipass-smartconnect-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di iPass SmartConnect](#create-ipass-smartconnect-test-user)** : per avere una controparte di Britta Simon in iPass SmartConnect collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -215,7 +215,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-ipass-smartconnect-test-user"></a>Creare l'utente di test di iPass SmartConnect
 
-In questa sezione viene creato un utente chiamato Britta Simon in iPass SmartConnect. Rivolgersi al  [team di supporto di iPass SmartConnect](mailto:help@ipass.com)  per aggiungere gli utenti o il dominio necessario per essere inclusi nella piattaforma iPass SmartConnect. Se il dominio viene aggiunto dal team, verrà automaticamente effettuato il provisioning degli utenti per la piattaforma iPass SmartConnect. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in iPass SmartConnect. Rivolgersi al  [team di supporto di iPass SmartConnect](mailto:help@ipass.com)  per aggiungere gli utenti o il dominio che devono essere aggiunti a un elenco di elementi consentiti per la piattaforma iPass SmartConnect. Se il dominio viene aggiunto dal team, verrà automaticamente effettuato il provisioning degli utenti per la piattaforma iPass SmartConnect. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

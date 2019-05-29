@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a80a815d4a1a892b5258aef1c1fc7ef4ab881fe7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149916"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594159"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Esercitazione: nel portale di QnA Maker creare una knowledge base
 
@@ -68,7 +68,7 @@ Questa esercitazione richiede un [servizio QnA Maker](../How-To/set-up-qnamaker-
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Il contenuto delle domande frequenti in tale URL viene formattato con una domanda seguita da una risposta. QnA Maker può interpretare questo formato per estrarre le domande e le risposte associate.|
     |File |_Non usato in questa esercitazione_|Consente di caricare i file per le domande e le risposte. |
-    |Personalità Chit-chat|Gentile|Dà una personalità amichevole e informale alle domande e risposte comuni. È possibile modificare queste domande e risposte in un secondo momento. |
+    |Personalità Chit-chat|Gentile|Dà una [personalità](../Concepts/best-practices.md#chit-chat) amichevole e informale alle domande e risposte comuni. È possibile modificare queste domande e risposte in un secondo momento. |
 
     ![Passaggio 4 del processo di creazione della knowledge base](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 

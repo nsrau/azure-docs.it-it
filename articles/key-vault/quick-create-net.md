@@ -1,22 +1,22 @@
 ---
-title: "Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node - Azure Key Vault | Microsoft Docs"
+title: "Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET - Azure Key Vault | Microsoft Docs"
 description: In questa guida introduttiva si imposta e recupera un segreto da Azure Key Vault usando un'app Web .NET
 services: key-vault
-author: prashanthyv
+author: msmbaldwin
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 346d97e6e3dad6ebacaae6c789137df4f33e2e72
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 132711249ffde4a9c49bc997d8c4ebe4d9c74948
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316388"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872536"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET
 
 In questa guida introduttiva vengono seguiti i passaggi per ottenere un'applicazione Web di Azure per leggere le informazioni da Azure Key Vault usando le identità gestite per le risorse di Azure. L'uso di Key Vault consente di mantere protette le informazioni. Si apprenderà come:
 
@@ -39,7 +39,7 @@ Prima di continuare, leggere i [concetti di base di Key Vault](key-vault-whatis.
 ## <a name="prerequisites"></a>Prerequisiti
 
 * In Windows:
-  * [Visual Studio 2017 versione 15.7.3 o successiva](https://www.microsoft.com/net/download/windows) con i carichi di lavoro seguenti:
+  * [Visual Studio 2019](https://www.microsoft.com/net/download/windows) con i carichi di lavoro seguenti:
     * Sviluppo Web e ASP.NET
     * Sviluppo multipiattaforma .NET Core
   * [.NET Core 2.1 SDK o versione successiva](https://www.microsoft.com/net/download/windows)
@@ -119,14 +119,14 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 Modificare il file program.cs per eseguire l'esempio con il nome dell'insieme di credenziali delle chiavi specifico:
 
 1. Passare alla cartella key-vault-dotnet-core-quickstart.
-2. Aprire il file key-vault-dotnet-core-quickstart.sln in Visual Studio 2017.
+2. Aprire il file key-vault-dotnet-core-quickstart.sln in Visual Studio 2019.
 3. Aprire il file Program.cs e aggiornare il segnaposto *YourKeyVaultName* con il nome dell'insieme di credenziali delle chiavi creato in precedenza.
 
 Questa soluzione usa le librerie NuGet [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
 ## <a name="run-the-app"></a>Esecuzione dell'app
 
-Dal menu principale di Visual Studio 2017 selezionare **Debug** > **Avvia** senza eseguire debug. Quando viene visualizzato il browser, passare alla pagina **Informazioni su**. Viene visualizzato il valore per **AppSecret**.
+Scegliere **Debug** > **Avvia senza eseguire debug** dal menu principale di Visual Studio 2019. Quando viene visualizzato il browser, passare alla pagina **Informazioni su**. Viene visualizzato il valore per **AppSecret**.
 
 ## <a name="publish-the-web-application-to-azure"></a>Pubblicare l'applicazione Web in Azure
 

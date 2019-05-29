@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Rilevare la lingua del testo, Node.js - API Traduzione testuale'
+title: 'Guida introduttiva: Rilevare la lingua del testo, Node.js - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa Guida introduttiva si apprenderà come identificare la lingua del testo fornito con Node.js e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: afd6192969243572134b7a7bb965ad80ff9eb39e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ca05a76520dab673f90f1f5cbf1e60fde2d7d554
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922208"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604237"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Guida introduttiva: Usare l'API Traduzione testuale per rilevare la lingua del testo con Node.js
 
 In questa Guida introduttiva si apprenderà come rilevare la lingua del testo fornito con Node.js e l'API REST Traduzione testuale.
 
@@ -119,7 +119,7 @@ Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio
 
 ## <a name="sample-response"></a>Risposta di esempio
 
-Trovare l'abbreviazione del paese in questo [elenco di lingue](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Trovare l'abbreviazione del paese o dell'area geografica in questo [elenco di lingue](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

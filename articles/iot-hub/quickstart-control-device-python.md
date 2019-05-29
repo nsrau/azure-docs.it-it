@@ -10,14 +10,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/26/2019
-ms.openlocfilehash: 58b4acb3ebfc1ff22c04dafb3063f197d2866311
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 74146242ef4084e5990027117689bb1371c3f272
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005838"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832237"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Avvio rapido: Controllare un dispositivo connesso a un hub IoT (Python)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Python)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in Python. Attualmente gli SDK di Microsoft Azure IoT per Python supportano solo versioni specifiche di Python per ogni piattaforma. Per altre informazioni, vedere il [file Leggimi di Python SDK](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-Questa guida di avvio rapido presuppone che si usi un computer di sviluppo Windows. Per i sistemi Windows è supportato solo [Python 3.6.x](https://www.python.org/downloads/release/python-368/). Il programma di installazione di Python scelto deve essere basato sull'architettura del sistema in uso. Se l'architettura della CPU di sistema è a 32 bit, scaricare il programma di installazione x86, mentre per l'architettura a 64 bit scaricare il programma di installazione x86-64. Assicurarsi inoltre che sia installato [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) per l'architettura in uso (x86 o x64).
+Questa guida di avvio rapido presuppone che si usi un computer di sviluppo Windows. Per i sistemi Windows è supportato solo [Python 3.6.x](https://www.python.org/downloads/release/python-368/). Il programma di installazione di Python scelto deve essere basato sull'architettura del sistema in uso. Se l'architettura della CPU di sistema è a 32 bit, scaricare il programma di installazione x86, mentre per l'architettura a 64 bit scaricare il programma di installazione x86-64. Assicurarsi inoltre che sia installato [Microsoft Visual C++ Redistributable per Visual Studio 2015, 2017 e 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) per l'architettura in uso (x86 o x64).
 
 È possibile scaricare Python per altre piattaforme da [Python.org](https://www.python.org/downloads/).
 

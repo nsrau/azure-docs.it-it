@@ -1,27 +1,27 @@
 ---
-title: "Esercitazione: Instradare il traffico Web in base all'URL - Interfaccia della riga di comando di Azure"
-description: In questa esercitazione viene descritto come instradare il traffico Web, in base all'URL, a pool di server scalabili specifici tramite l'interfaccia della riga di comando di Azure.
+title: Instradare il traffico Web in base all'URL - Interfaccia della riga di comando di Azure
+description: In questo articolo viene descritto come instradare il traffico Web, in base all'URL, a pool di server scalabili specifici tramite l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f0c93c41a468b62baf1ec50d030f235d36a8dd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006485"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955508"
 ---
-# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Esercitazione: Instradare il traffico Web in base all'URL tramite l'interfaccia della riga di comando di Azure
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Instradare il traffico Web in base all'URL tramite l'interfaccia della riga di comando di Azure
 
-Come amministratore IT che gestisce il traffico Web, si vuole aiutare i clienti o gli utenti a ottenere le informazioni loro necessarie nel minor tempo possibile. Un modo per ottimizzare la loro esperienza è quello di indirizzare tipi diversi di traffico Web a risorse server diverse. Questa esercitazione illustra come usare l'interfaccia della riga di comando di Azure per configurare il routing del gateway applicazione per i diversi tipi di traffico generati dall'applicazione. Il routing indirizza quindi il traffico a pool di server diversi in base all'URL.
+Come amministratore IT che gestisce il traffico Web, si vuole aiutare i clienti o gli utenti a ottenere le informazioni loro necessarie nel minor tempo possibile. Un modo per ottimizzare la loro esperienza è quello di indirizzare tipi diversi di traffico Web a risorse server diverse. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per configurare il routing del gateway applicazione per i diversi tipi di traffico generati dall'applicazione. Il routing indirizza quindi il traffico a pool di server diversi in base all'URL.
 
 ![Esempio di routing basato su URL](./media/tutorial-url-route-cli/scenario.png)
 
-In questa esercitazione si apprenderà come:
+In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Creare un gruppo di risorse per le risorse di rete necessarie
@@ -31,13 +31,13 @@ In questa esercitazione si apprenderà come:
 > * Creare un set di scalabilità per ogni pool in modo da consentirne la scalabilità automatica
 > * Eseguire un test per verificare che i diversi tipi di traffico vengano indirizzati al pool corretto
 
-Se si preferisce, è possibile completare questa esercitazione usando [Azure PowerShell](tutorial-url-route-powershell.md) oppure il [portale di Azure](create-url-route-portal.md).
+Se si preferisce, è possibile completare questa procedura usando [Azure PowerShell](tutorial-url-route-powershell.md) oppure il [portale di Azure](create-url-route-portal.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successive. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successive. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -182,7 +182,7 @@ az network application-gateway rule create \
 
 ## <a name="create-vm-scale-sets"></a>Creare set di scalabilità di macchine virtuali
 
-In questa esercitazione si creeranno tre set di scalabilità di macchine virtuali che supportano i tre pool back-end creati. È necessario creare tre set di scalabilità denominati *myvmss1*, *myvmss2* e *myvmss3*. Ogni set di scalabilità contiene due istanze di macchina virtuale in cui è necessario installare NGINX.
+In questo articolo si creeranno tre set di scalabilità di macchine virtuali che supportano i tre pool back-end creati. È necessario creare tre set di scalabilità denominati *myvmss1*, *myvmss2* e *myvmss3*. Ogni set di scalabilità contiene due istanze di macchina virtuale in cui è necessario installare NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -264,5 +264,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Creare un gateway applicazione con reindirizzamento basato su percorsi URL](./tutorial-url-redirect-cli.md)
+* [Creare un gateway applicazione con reindirizzamento basato su percorsi URL](./tutorial-url-redirect-cli.md)

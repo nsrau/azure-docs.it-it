@@ -7,21 +7,21 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8689918bf33b0efdd9bbfabc6d3751672959c6bb
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d9007b3f1d4eee436452a3fa75b2880b9e5be461
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753079"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955693"
 ---
-# <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Esercitazione: Creare un gateway applicazione con la terminazione SSL tramite l'interfaccia della riga di comando di Azure
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Creare un gateway applicazione con la terminazione SSL tramite l'interfaccia della riga di comando di Azure
 
 È possibile usare l'interfaccia della riga di comando di Azure per creare un [gateway applicazione](overview.md) con un certificato per la [terminazione SSL](ssl-overview.md) che usa un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per i server back-end. In questo esempio il set di scalabilità contiene due istanze di macchine virtuali che vengono aggiunte al pool back-end predefinito del gateway applicazione.
 
-In questa esercitazione si apprenderà come:
+In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Creare un certificato autofirmato
@@ -29,17 +29,17 @@ In questa esercitazione si apprenderà come:
 > * Creare un gateway applicazione con il certificato
 > * Creare un set di scalabilità di macchine virtuali con il pool back-end predefinito
 
-Se si preferisce, è possibile completare questa esercitazione usando [Azure PowerShell](tutorial-ssl-powershell.md).
+Se si preferisce, è possibile completare questa procedura usando [Azure PowerShell](tutorial-ssl-powershell.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successive. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successive. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
 
-Per la produzione è necessario importare un certificato valido firmato da un provider attendibile. Per questa esercitazione, creare un certificato autofirmato e un file con estensione pfx tramite il comando openssl.
+Per la produzione è necessario importare un certificato valido firmato da un provider attendibile. Per questo articolo, creare un certificato autofirmato e un file con estensione pfx tramite il comando openssl.
 
 ```azurecli-interactive
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -165,7 +165,7 @@ az network public-ip show \
   --output tsv
 ```
 
-Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. In questo esempio l'URL è **https://52.170.203.149**.
+Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. In questo esempio l'URL è **https://52.170.203.149** .
 
 ![Avviso di sicurezza](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
@@ -183,5 +183,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Creare un gateway applicazione che ospita più siti Web](./tutorial-multiple-sites-cli.md)
+* [Creare un gateway applicazione che ospita più siti Web](./tutorial-multiple-sites-cli.md)

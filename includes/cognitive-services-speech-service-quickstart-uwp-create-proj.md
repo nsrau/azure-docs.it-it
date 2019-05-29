@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: b5c61ecb74c0fcdacc6024a74565f05b036e2ac6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fe2978e176b986164ebb01fddbd29481f8a117bd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65081250"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145408"
 ---
 1. Avviare Visual Studio 2017.
 
@@ -19,11 +19,11 @@ ms.locfileid: "65081250"
 
     In caso contrario, selezionare la casella accanto a **sviluppo multipiattaforma con .NET** e selezionare **Modifica** nell'angolo inferiore destro della finestra di dialogo. L'installazione delle nuove funzionalità richiede qualche secondo.
 
-1. Creare un'app di Windows universale di Visual C# vuota. In primo luogo, scegliere **File** > **Nuovo** > **Progetto** dal menu. Nella finestra di dialogo **Nuovo progetto**, espandere **Installato** > **Visual C#** > **Windows universale** nel riquadro a sinistra. Selezionare quindi **App vuota (Windows universale)**. Per il nome del progetto, immettere *helloworld*.
+1. Creare un'app di Windows universale di Visual C# vuota. In primo luogo, scegliere **File** > **Nuovo** > **Progetto** dal menu. Nella finestra di dialogo **Nuovo progetto**, espandere **Installato** > **Visual C#**  > **Windows universale** nel riquadro a sinistra. Selezionare quindi **App vuota (Windows universale)** . Per il nome del progetto, immettere *helloworld*.
 
     ![Screenshot della finestra di dialogo Nuovo progetto](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. Speed SDK richiede che l'applicazione debba essere compilata per Windows 10 Fall Creators Update o versione successiva. Nella finestra **Nuovo progetto della piattaforma UWP (Universal Windows Platform)** visualizzata scegliere **Windows 10 Fall Creators Update (10.0; Build 16299)** come **Versione minima**. Nella casella **Versione di destinazione**, selezionare questa o qualsiasi versione successiva e quindi fare clic su **OK**.
+1. Speech SDK richiede che l'applicazione debba essere compilata per Windows 10 Fall Creators Update o versione successiva. Nella finestra **Nuovo progetto della piattaforma UWP (Universal Windows Platform)** visualizzata scegliere **Windows 10 Fall Creators Update (10.0; Build 16299)** come **Versione minima**. Nella casella **Versione di destinazione**, selezionare questa o qualsiasi versione successiva e quindi fare clic su **OK**.
 
     ![Screenshot della finestra Nuovo progetto della piattaforma UWP (Universal Windows Platform)](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 

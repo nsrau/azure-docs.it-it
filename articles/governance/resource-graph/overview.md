@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 45d5cf7c4235d10e136cc96364d52aa4319bbf79
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137770"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162070"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Panoramica del servizio Azure Resource Graph
 
@@ -63,9 +63,15 @@ Per usare Resource Graph, è necessario avere i diritti appropriati nel [control
 
 ## <a name="throttling"></a>Limitazione
 
-Come servizio gratuito, le query a Resource Graph sono limitate per offrire l'esperienza e i tempi di risposta migliori per tutti i clienti. Se l'organizzazione vuole usare l'API Resource Graph per le query su larga scala e frequenti, usare i commenti al portale dalla pagina Resource Graph. Assicurarsi di specificare il caso aziendale e selezionare la casella di controllo "Microsoft potrà inviare un messaggio di posta elettronica in merito ai commenti inviati" per essere contattati dal team.
+Come servizio gratuito, le query a Resource Graph sono limitate per offrire l'esperienza e i tempi di risposta migliori per tutti i clienti. Se l'organizzazione vuole usare l'API Resource Graph per le query su larga scala eseguite di frequente, inviare commenti e suggerimenti dalla [pagina del portale Resource Graph](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+Specificare il caso aziendale e selezionare la casella di controllo "Microsoft potrà inviare un messaggio di posta elettronica in merito ai commenti inviati" per essere contattati dal team.
 
-Resource Graph applica limitazioni a livello di tenant. Il servizio esegue l'override e imposta l'intestazione della risposta `x-ms-ratelimit-remaining-tenant-reads` per indicare le query rimanenti disponibili per utente all'interno del tenant. Resource Graph reimposta la quota ogni 5 secondi anziché ogni ora. Per altre informazioni, vedere [Throttling Resource Manager requests (Limitazione delle richieste di Resource Manager)](../../azure-resource-manager/resource-manager-request-limits.md).
+Resource Graph applica limitazioni alle query a livello di utente. La risposta del servizio contiene le intestazioni HTTP seguenti:
+
+- `x-ms-user-quota-remaining` (int): quota di risorse rimanenti per l'utente. Questo valore è associato al conteggio delle query.
+- `x-ms-user-quota-resets-after` (hh:mm:ss): durata temporale fino alla reimpostazione del consumo della quota dell'utente
+
+Per altre informazioni, vedere [Throttling Resource Manager requests (Limitazione delle richieste di Resource Manager)](../../azure-resource-manager/resource-manager-request-limits.md).
 
 ## <a name="running-your-first-query"></a>Esecuzione della prima query
 

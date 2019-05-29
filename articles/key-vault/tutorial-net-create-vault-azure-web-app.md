@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 9a59255097c6cb2a6728a14c3dbe19dbcbb0932a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5129af1f34f8a2604e7b70c9638b370c7cad029a
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236793"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015535"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Esercitazione: Usare Azure Key Vault con un'app Web di Azure in .NET
 
@@ -43,7 +43,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 * Per Mac: [Visual Studio per Mac](https://visualstudio.microsoft.com/vs/mac/)
 * Per Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
-  * Questa esercitazione richiede l'esecuzione dell'interfaccia della riga di comando di Azure nell'ambiente locale. È necessario che sia installata l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
+  * Questa esercitazione richiede l'esecuzione dell'interfaccia della riga di comando di Azure nell'ambiente locale. È necessario che sia installata l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
   * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
 ## <a name="about-managed-service-identity"></a>Informazioni sull'identità del servizio gestito
@@ -191,7 +191,7 @@ Per creare un'app Web .NET Core e pubblicarla in Azure, seguire le istruzioni in
 
 ## <a name="run-the-web-app"></a>Eseguire l'app Web
 
-1. Dal menu principale di Visual Studio 2017 scegliere **Debug** > **Avvia**, con o senza debug. 
+1. Dal menu principale di Visual Studio 2019 scegliere **Debug** > **Avvia**, con o senza debug. 
 1. Nel browser passare alla pagina **Informazioni**.  
     Viene visualizzato il valore per **AppSecret**.
 

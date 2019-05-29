@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un database e un cluster di Esplora dati di Azure tramite C#'
+title: 'Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure tramite C#'
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure tramite C#
 author: oflipman
 ms.author: oflipman
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: 9ae46d623c0525edf93a4f984393060888fcd009
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 719aba498c08617b42d248d3c677499f8eb3e4b2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143018"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900816"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Creare un database e un cluster di Esplora dati di Azure tramite C#
 
@@ -28,7 +28,7 @@ Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se Visual Studio 2017 non è stato installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
+* Se Visual Studio 2019 non è installato, è possibile scaricare e usare l'edizione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

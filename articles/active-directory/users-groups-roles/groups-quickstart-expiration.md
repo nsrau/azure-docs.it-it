@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido ai criteri di scadenza per i gruppi di Office 365 - Azure Active Directory | Microsoft Docs
+title: Guida introduttiva ai criteri di scadenza per i gruppi di Office 365 - Azure Active Directory | Microsoft Docs
 description: Scadenza per i gruppi di Office 365 - Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0573448c753c763e818d641216033dbeacb9e9a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 01cedadc115496fcf00df986b4ad4b9c5aab5139
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199308"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606196"
 ---
-# <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Avvio rapido: Impostare la scadenza dei gruppi di Office 365 in Azure Active Directory
+# <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Guida introduttiva: Impostare la scadenza dei gruppi di Office 365 in Azure Active Directory
 
-In questo argomento di avvio rapido si impostano i criteri di scadenza per i gruppi di Office 365. Quando gli utenti possono configurare gruppi personalizzati, i gruppi inutilizzati possono moltiplicarsi. Un modo per gestire i gruppi inutilizzati consiste nell'impostare la scadenza per tali gruppi, per ridurre le attività di manutenzione legate all'eliminazione manuale dei gruppi.
+In questa guida introduttiva si impostano i criteri di scadenza per i gruppi di Office 365. Quando gli utenti possono configurare gruppi personalizzati, i gruppi inutilizzati possono moltiplicarsi. Un modo per gestire i gruppi inutilizzati consiste nell'impostare la scadenza per tali gruppi, per ridurre le attività di manutenzione legate all'eliminazione manuale dei gruppi.
 
 I criteri di scadenza sono semplici:
 
@@ -35,11 +35,11 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisite"></a>Prerequisito
 
-Per configurare la scadenza del gruppo, è necessario essere un Amministratore globale o un Amministratore utenti nell'organizzazione.
+ Il ruolo con privilegi minimi necessario per configurare la scadenza di un gruppo è quello di Amministratore utenti nell'organizzazione.
 
 ## <a name="turn-on-user-creation-for-groups"></a>Attivare la creazione dei gruppi da parte degli utenti
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account di Amministratore globale o Amministratore utenti dell'organizzazione.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account Amministratore utenti.
 
 2. Selezionare **Gruppi** e quindi selezionare **Generale**.
   
@@ -59,11 +59,11 @@ Per configurare la scadenza del gruppo, è necessario essere un Amministratore g
 
 3. Specificare un indirizzo e-mail per l'invio delle notifiche di scadenza quando un gruppo non ha un proprietario.
 
-4. Per questo avvio rapido, impostare **Abilita scadenza per questi gruppi di Office 365** su **Tutti**.
+4. Per questa guida introduttiva, impostare **Abilita scadenza per questi gruppi di Office 365** su **Tutti**.
 
 5. Al termine, selezionare **Salva** per salvare le impostazioni di scadenza.
 
-L'operazione è terminata. In questo argomento di avvio rapido sono stati impostati criteri di scadenza per i gruppi di Office 365 selezionati.
+L'operazione è terminata. In questa guida introduttiva sono stati impostati criteri di scadenza per i gruppi di Office 365 selezionati.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -80,7 +80,7 @@ L'operazione è terminata. In questo argomento di avvio rapido sono stati impost
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla scadenza, tra cui vincoli tecnici, aggiunta di un elenco di parole bloccate personalizzate ed esperienze degli utenti finali nelle app di Office 365, vedere l'articolo seguente che contiene i dettagli relativi ai criteri di scadenza:
+Per altre informazioni sulla scadenza, incluse le istruzioni di PowerShell e i vincoli tecnici, vedere l'articolo seguente:
 
 > [!div class="nextstepaction"]
-> [Dettagli sui criteri di scadenza](groups-lifecycle.md)
+> [Criteri di scadenza - PowerShell](groups-lifecycle.md)

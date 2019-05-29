@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, Java (Windows, Linux)- Servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, Java (Windows, Linux)- Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si imparerà a creare una semplice applicazione Java per acquisire e trascrivere i contenuti vocali dell'utente dal microfono del computer.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: fmegen
-ms.openlocfilehash: 05475dbfb7dc1ee3f5de1a9b858eaf212b674eac
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3dad2696332f57d9a0dc86927f91caa7352b1d7b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466383"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65884951"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per Java
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Java
 
 Sono disponibili guide di avvio rapido anche per la [traduzione con sintesi vocale](quickstart-translate-speech-java-jre.md) e l'[assistente virtuale voice-first](quickstart-virtual-assistant-java-jre.md).
 
@@ -55,7 +55,7 @@ Se si esegue Linux, assicurarsi che queste dipendenze siano installate prima di 
   ```
 
 Se si esegue Windows (64 bit), assicurarsi di avere installato Microsoft Visual C++ Redistributable per la piattaforma in uso.
-* [Scaricare Microsoft Visual C++ Redistributable per Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+* [Scaricare Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## <a name="create-and-configure-project"></a>Creare e configurare un progetto
 

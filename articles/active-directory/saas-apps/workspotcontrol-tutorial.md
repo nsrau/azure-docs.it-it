@@ -1,251 +1,251 @@
 ---
 title: 'Esercitazione: integrazione di Azure Active Directory con Workspot Control | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Workspot Control.
+description: Informazioni su come configurare l'accesso Single Sign-On per Azure Active Directory e Workspot Control.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 3ea8e4e9-f61f-4f45-b635-b0e306eda3d1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2018
+ms.topic: tutorial
+ms.date: 3/11/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97f375c6f48d3dc497eb59e76f19fc64cf906b56
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 41d8d05cf5f900c7fcd5640f8896c715640ebcab
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098679"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65772807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Esercitazione: integrazione di Azure Active Directory con Workspot Control
 
-Questa esercitazione descrive come integrare Workspot Control con Azure Active Directory (Azure AD).
+Questa esercitazione descrive come integrare Workspot Control con Azure Active Directory (Azure AD). Integrando Workspot Control con Azure AD:
 
-L'integrazione di Workspot Control con Azure AD offre i vantaggi seguenti:
+* È possibile usare Azure AD per controllare chi ha accesso a Workspot Control.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Workspot Control con gli account Azure AD personali.
+* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-- È possibile controllare in Azure AD chi può accedere a Workspot Control.
-- È possibile abilitare gli utenti per l'accesso automatico a Workspot Control (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
-
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Workspot Control, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con Workspot Control, sono necessari i requisiti seguenti:
 
-- Sottoscrizione di Azure AD
-- Sottoscrizione di Workspot Control abilitata per l'accesso Single Sign-On
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
-
-- Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Workspot Control abilitata per l'accesso Single Sign-On.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
-1. Aggiunta di Workspot Control dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+
+> [!Note]
+> Workspot Control supporta il Single Sign-On avviato da SP e avviato da IDP.
+
 
 ## <a name="adding-workspot-control-from-the-gallery"></a>Aggiunta di Workspot Control dalla raccolta
+
 Per configurare l'integrazione di Workspot Control in Azure AD, è necessario aggiungere Workspot Control dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Workspot Control dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel riquadro sinistro del [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory**.
 
-    ![image](./media/workspotcontrol-tutorial/selectazuread.png)
+    ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e selezionare **Tutte le applicazioni**.
 
-    ![image](./media/workspotcontrol-tutorial/a_select_app.png)
-    
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+    ![Riquadro Applicazioni aziendali](common/enterprise-applications.png)
 
-    ![image](./media/workspotcontrol-tutorial/a_new_app.png)
+3. Selezionare **Nuova applicazione** nella parte superiore della finestra.
 
-4. Nella casella di ricerca digitare **Workspot Control**, selezionare **Workspot Control** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+    ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addfromgallery.png)
+4. Nella casella di ricerca immettere **Workspot Control**, selezionare **Workspot Control** nel pannello dei risultati e quindi selezionare **Aggiungi**.
+
+     ![Finestra "Aggiungi dalla raccolta"](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Workspot Control usando un utente di test di nome "Britta Simon".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Workspot Control per un utente di test di nome Britta Simon.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilito un collegamento tra un utente di Azure AD e l'utente correlato in Workspot Control.
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente controparte di Workspot Control corrispondente a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Workspot Control.
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Workspot Control, è necessario completare le attività seguenti:
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Workspot Control, è necessario completare i blocchi predefiniti seguenti:
-
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test di Workspot Control](#create-a-workspot-control-test-user)**: per avere una controparte di Britta Simon in Workspot Control collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+1. [Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on) per consentire agli utenti di usare questa funzionalità.
+2. [Configurare l'accesso Single Sign-On di Workspot Control](#configure-workspot-control-single-sign-on) per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user) per testare l'accesso Single Sign-On di Azure AD per l'utente Britta Simon.
+4. [Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user) per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. [Creare un utente di test di Workspot Control](#create-a-workspot-control-test-user): per stabilire una controparte di Britta Simon in Workspot Control collegata alla rappresentazione di Azure AD dell'utente.
+6. [Testare l'accesso Single Sign-On](#test-single-sign-on) per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Workspot Control.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-**Per configurare Single Sign-On di Azure AD con Workspot Control, seguire questa procedura:**
+Per configurare l'accesso Single Sign-On di Azure AD con Workspot Control, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Workspot Control** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Workspot Control](https://portal.azure.com/) nel **portale di Azure** selezionare **Single Sign-On**.
 
-    ![image](./media/workspotcontrol-tutorial/B1_B2_Select_SSO.png)
+    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML** per abilitare l'accesso Single Sign-On.
+2. Nella finestra **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML** per abilitare l'accesso Single Sign-On.
 
-    ![image](./media/workspotcontrol-tutorial/b1_b2_saml_sso.png)
+    ![Finestra Selezionare un metodo di accesso Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** (la matita) per aprire **Configurazione SAML di base**.
 
-    ![image](./media/workspotcontrol-tutorial/b1-domains_and_urlsedit.png)
+    ![Icona Modifica evidenziata in "Configurazione SAML di base"](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione nella modalità avviata da IDP:
 
-    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Workspot Control](common/idp-intiated.png)
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<INSTANCENAME>-saml.workspot.com/saml/metadata`
+    1. Nella casella di testo **Identificatore** immettere un URL nel formato seguente:<br/>
+    ***https://<<i></i>NOMEISTANZA>-saml.workspot.com/saml/metadata***
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<INSTANCENAME>-saml.workspot.com/saml/assertion`
+    1. Nella casella di testo **URL di risposta** immettere un URL nel formato seguente:<br/>
+    ***https://<<i></i>NOMEISTANZA>-saml.workspot.com/saml/assertion***
 
-    c. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+5. Se si vuole configurare l'applicazione in modalità avviata da SP, selezionare **Impostare URL aggiuntivi**.
 
-     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url1.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Workspot Control](common/metadata-upload-additional-signon.png)
 
-    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<INSTANCENAME>-saml.workspot.com/`
+    Nella casella di testo **URL di accesso** immettere un URL nel formato seguente:<br/>
+    ***https://<<i></i>NOMEISTANZA>-saml.workspot.com/***
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di Workspot Control](mailto:support@workspot.com). 
+    > Poiché questi non sono i valori reali, sostituirli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Workspot Control](mailto:support@workspot.com). È anche possibile fare riferimento ai modelli disponibili nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare il file **Certificato (Base64)** e salvarlo nel computer in uso.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, selezionare **Scarica** per scaricare il file **Certificato (Base64)** dalle opzioni disponibili in base alle esigenze. Salvarlo nel computer.
 
-    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_certficate.png) 
+    ![Collegamento di download del certificato (Base64)](common/certificatebase64.png)
 
-6. Nella sezione **Configura Workspot Control** copiare l'URL appropriato in base alle proprie esigenze.
+7. Nella sezione **Configura Workspot Control** copiare gli URL appropriati in base alle esigenze:
 
-    La descrizione dell'URL potrebbe essere:
+    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    a. URL di accesso
+    - **URL di accesso**
 
-    b. Identificatore Azure AD
+    - **Identificatore Azure AD**
 
-    c. URL di chiusura sessione
+    - **URL di disconnessione**
 
-    ![image](./media/workspotcontrol-tutorial/d1_samlsonfigure.png) 
+### <a name="configure-workspot-control-single-sign-on"></a>Configurare l'accesso Single Sign-On di Workspot Control
 
-7. In un'altra finestra del Web browser accedere a Workspot Control come amministratore della sicurezza.
+1. In un'altra finestra del Web browser accedere a Workspot Control come amministratore della sicurezza.
 
-8. Sulla barra degli strumenti nella parte superiore della pagina fare clic su  **Setup** e quindi passare a  **SAML**.
+2. Sulla barra degli strumenti nella parte superiore della pagina fare clic su **Setup** (Configura) e quindi su **SAML**.
 
-    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
+    ![Opzioni di configurazione](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
-9. Nella pagina **Security Assertion Markup Language Configuration** (Configurazione di Security Assertion Markup Language) seguire questa procedura:
+3. Nella finestra **Security Assertion Markup Language Configuration** (Configurazione di Security Assertion Markup Language) seguire questa procedura:
  
-    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
+    ![Finestra Security Assertion Markup Language Configuration](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
 
-    a. Nella casella di testo **Entity ID** (ID entità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.   
+    1. Nella casella **Entity ID** (ID entità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
-    b. Nella casella di testo **Signon Service URL** (URL del servizio di accesso) incollare il valore di **URL di accesso** copiato dal portale di Azure.
+    1. Nella casella **Signon Service URL** (URL del servizio di accesso) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    c. Nella casella di testo **Logout Service URL** (URL servizio di disconnessione) incollare il valore di **URL disconnessione** copiato dal portale di Azure. 
+    1. Nella casella **Logout Service URL** (URL servizio di disconnessione) incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
 
-    d. Fare clic sul pulsante **Update File** (Aggiorna file) per caricare il certificato codificato in base 64 scaricato dal portale di Azure nel certificato X.509.
+    1. Selezionare **Update File** (Aggiorna file) per caricare nel certificato X.509 il certificato codificato in base 64 scaricato dal portale di Azure.
 
-    e. Fare clic su **Save**.
+    1. Selezionare **Salva**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+In questa sezione viene creato un utente di test nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-    ![image](./media/workspotcontrol-tutorial/d_users_and_groups.png)
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
-2. Selezionare **Nuovo utente** in alto nella schermata.
+2. Selezionare **Nuovo utente** nella parte superiore della finestra.
 
-    ![image](./media/workspotcontrol-tutorial/d_adduser.png)
+    ![Pulsante "Nuovo utente"](common/new-user.png)
 
-3. In Proprietà utente seguire questa procedura.
+3. Nella finestra delle proprietà dell'utente eseguire questa procedura:
 
-    ![image](./media/workspotcontrol-tutorial/d_userproperties.png)
+    ![Finestra delle proprietà dell'utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon**.
+    1. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    1. Nel campo **Nome utente** immettere **brittasimon@* dominioaziendale.estensione***. Ad esempio, immettere **BrittaSimon@contoso.<i></i>com**.
 
-    c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
+    1. Selezionare la casella di controllo **Mostra password**. Prendere quindi nota del valore visualizzato nella casella **Password**.
 
-    d. Selezionare **Create**.
- 
-### <a name="create-a-workspot-control-test-user"></a>Creare un utente di test di Workspot Control
-
-Per consentire agli utenti di Azure AD di accedere a Workspot Control, è necessario effettuarne il provisioning in Workspot Control. Nel caso di Workspot Control il provisioning è un'attività manuale.
-
-**Per eseguire il provisioning di un account utente, seguire questa procedura:**
-
-1. Accedere a Workspot Control come amministratore della sicurezza.
-
-2. Sulla barra degli strumenti nella parte superiore della pagina fare clic su  **Utenti** e quindi passare a  **Aggiungi utente**.
-
-    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
-
-3. Nella pagina **Add a New User** (Aggiungi un nuovo utente) seguire questa procedura:
-
-    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addnewuser.png)
-
-    a. Nella casella di testo **First Name** (Nome) immettere il nome dell'utente, ad esempio **Britta**.
-
-    b. Nella casella di testo **Last name** (Cognome) immettere il cognome dell'utente, ad esempio **Simon**.
-
-    c. Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **Brittasimon\@contoso.com**.
-
-    d. Selezionare il ruolo utente appropriato nell'elenco a discesa **Role** (Ruolo).
-
-    e. Selezionare il gruppo utenti appropriato nell'elenco a discesa **Group** (Gruppo).
-
-    f. Fare clic su **Add User**.
+    1. Selezionare **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Workspot Control.
+In questa sezione viene concesso a Britta Simon l'accesso a Workspot Control per consentirle di usare l'accesso Single Sign-On di Azure.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, **Tutte le applicazioni** e quindi **Workspot Control**.
 
-    ![image](./media/workspotcontrol-tutorial/d_all_applications.png)
+    ![Riquadro Applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni selezionare **Workspot Control**.
+2. Nell'elenco delle applicazioni selezionare **Workspot Control**.
 
-    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_app.png)
+    ![Collegamento a Workspot Control nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-    ![image](./media/workspotcontrol-tutorial/d_leftpaneusers.png)
+    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Selezionare il pulsante **Aggiungi** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Selezionare il pulsante **Aggiungi utente**. Quindi selezionare **Utenti e gruppi** nella finestra **Aggiungi assegnazione**.
 
-    ![image](./media/workspotcontrol-tutorial/d_assign_user.png)
+    ![Finestra "Aggiungi assegnazione"](common/add-assign-user.png)
 
-4. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
+5. Nella finestra **Utenti e gruppi** selezionare **Britta Simon** nell'elenco **Utenti**. Quindi fare clic su **Seleziona**.
 
-5. Nella finestra di dialogo **Aggiungi assegnazione** selezionare il pulsante **Assegna**.
-    
+6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Quindi fare clic su **Seleziona** nella parte inferiore.
+
+7. Nella finestra **Aggiungi assegnazione** selezionare **Assegna**.
+
+### <a name="create-a-workspot-control-test-user"></a>Creare un utente di test di Workspot Control
+
+Per consentire agli utenti di Azure AD di accedere a Workspot Control, è necessario effettuarne il provisioning in Workspot Control. Il provisioning è un'attività manuale.
+
+**Per effettuare il provisioning di un account utente, seguire questa procedura:**
+
+1. Accedere a Workspot Control come amministratore della sicurezza.
+
+2. Sulla barra degli strumenti nella parte superiore della pagina selezionare **Users** (Utenti) e quindi **Add User** (Aggiungi utente).
+
+    ![Opzioni di "Utenti"](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
+
+3. Nella finestra **Add a New User** (Aggiungi nuovo utente) seguire questa procedura:
+
+    ![Finestra "Add a New User"](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addnewuser.png)
+
+    1. Nella casella **First Name** (Nome) immettere il nome dell'utente, ad esempio **Britta**.
+
+    1. Nella casella di testo **Last Name** (Cognome) immettere il cognome dell'utente, ad esempio **Simon**.
+
+    1. Nella casella **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **Brittasimon@contoso.<i></i>com**.
+
+    1. Selezionare il ruolo utente appropriato nell'elenco a discesa **Role** (Ruolo).
+
+    1. Selezionare il gruppo utenti appropriato nell'elenco a discesa **Group** (Gruppo).
+
+    1. Selezionare **Add User** (Aggiungi utente).
+
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD tramite il *pannello di accesso*.
 
-Quando si fa clic sul riquadro Workspot Control nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Workspot Control.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Quando si fa clic sul riquadro di **Workspot Control** nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Workspot Control per cui si è configurato l'accesso Single Sign-On. Per altre informazioni, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+
+- [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

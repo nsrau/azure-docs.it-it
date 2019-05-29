@@ -3,8 +3,8 @@ title: Compilare un'applicazione iOS che si integra con Azure AD per l'accesso e
 description: Informazioni sull'accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS.
 services: active-directory
 documentationcenter: ios
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/21/2019
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d986ccbf92192c1fb7375e9db1fb398ed86a829
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8538a96e1919fbff9f800a785788ccaa41a68392
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879965"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121923"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -76,12 +76,13 @@ Per impostare l'app perché ottenga i token, è necessario registrarla nel tenan
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra in alto selezionare il proprio account. Nell'elenco **Directory** scegliere il tenant di Active Directory in cui si vuole registrare l'applicazione.
 3. Selezionare **Tutti i servizi** nel riquadro di spostamento a sinistra e quindi selezionare **Azure Active Directory**.
-4. Selezionare **Registrazioni per l'app**, quindi scegliere **Aggiungi**.
-5. Seguire le istruzioni e creare una nuova applicazione client **nativa**.
+4. Selezionare **Registrazioni app** e quindi **Nuova registrazione**.
+5. Seguire le istruzioni per creare una nuova applicazione client.
     * **Nome** è il nome dell'applicazione e descrive l'applicazione agli utenti finali.
-    * L'**URI di reindirizzamento** è una combinazione dello schema e della stringa che Azure AD usa per restituire le risposte dei token. Immettere un valore specifico per l'applicazione in base alle informazioni sull'URI di reindirizzamento sopra riportate.
+    * L'**URI di reindirizzamento** è una combinazione dello schema e della stringa che Azure AD usa per restituire le risposte dei token. Immettere un valore specifico per l'applicazione in base alle informazioni sull'URI di reindirizzamento sopra riportate. Selezionare inoltre **Client pubblico (per dispositivi mobili e desktop)** dall'elenco a discesa.
 6. Dopo avere completato la registrazione, Azure AD assegna automaticamente all'app un ID applicazione univoco. Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla scheda dell'applicazione.
-7. Dalla pagina **Impostazioni**, selezionare **Autorizzazioni necessarie > Aggiungi > Microsoft Graph**, quindi in **Autorizzazioni delegate** aggiungere l'autorizzazione **Leggi i dati della directory**. L'autorizzazione imposta l'applicazione in modo che possa eseguire query nell'API Graph di Azure AD per gli utenti.
+7. Nella pagina **Autorizzazioni API** selezionare **Aggiungi un'autorizzazione**. In **Selezionare un'API** selezionare ***Microsoft Graph***.
+8. In **Autorizzazioni delegate** selezionare l'autorizzazione **User.Read** e quindi fare clic su **Aggiungi** per salvare. L'autorizzazione imposta l'applicazione in modo che possa eseguire query nell'API Graph di Azure AD per gli utenti.
 
 ## <a name="step-3-install-and-configure-adal"></a>Passaggio 3: Installare e configurare ADAL
 

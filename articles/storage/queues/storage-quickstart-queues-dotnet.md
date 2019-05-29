@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Usare .NET per creare una coda in Archiviazione di Azure'
+title: 'Guida introduttiva: Usare .NET per creare una coda in Archiviazione di Azure'
 description: Questa guida introduttiva illustra come usare la libreria client di Archiviazione di Azure per .NET per creare una coda e aggiungervi messaggi. Si apprenderà quindi come leggere ed elaborare i messaggi dalla coda.
 services: storage
 author: mhopkins-msft
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: b80ff38e2afb5e9da6227537ea9c483566d03e4d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 41cb37eb9d96752d4732731d2a36d9bc892cbaa5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232590"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159821"
 ---
-# <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Avvio rapido: Usare .NET per creare una coda in Archiviazione di Azure
+# <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Guida introduttiva: Usare .NET per creare una coda in Archiviazione di Azure
 
 Questa guida introduttiva illustra come usare la libreria client di Archiviazione di Azure per .NET per creare una coda e aggiungervi messaggi. Si apprenderà quindi come leggere ed elaborare i messaggi dalla coda. 
 
@@ -257,7 +257,9 @@ Per lo sviluppo .NET con code di Azure, vedere le risorse aggiuntive seguenti:
 
 ### <a name="binaries-and-source-code"></a>File binari e codice sorgente
 
-- Scaricare il pacchetto NuGet per la versione più recente della [libreria client .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) per Archiviazione di Azure. 
+- Scaricare i pacchetti NuGet per la versione più recente della [libreria client di Archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage/client)
+    - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+    - [Code](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Visualizzare il [codice sorgente della libreria client .NET](https://github.com/Azure/azure-storage-net) in GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Informazioni di riferimento ed esempi relativi alla libreria client

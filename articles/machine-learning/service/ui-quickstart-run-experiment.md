@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Preparare e visualizzare dati senza scrivere codice'
+title: 'Guida introduttiva: Preparare e visualizzare dati senza scrivere codice'
 titleSuffix: Azure Machine Learning service
 description: Creare un esperimento di apprendimento automatico per preparare e visualizzare i dati con un'interfaccia utente di trascinamento della selezione.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440943"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545071"
 ---
-# <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Avvio rapido: Preparare e visualizzare dati senza scrivere codice in Azure Machine Learning
+# <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Guida introduttiva: Preparare e visualizzare dati senza scrivere codice in Azure Machine Learning
 
 Preparare e visualizzare i dati nell'interfaccia visiva grafica con trascinamento della selezione (anteprima) per Azure Machine Learning. Il set di dati usato include le voci relative a diverse automobili, nonché informazioni su marca, modello, specifiche tecniche e prezzo.  
 
@@ -66,7 +66,7 @@ Lo strumento dell'interfaccia visiva grafica offre un'area visiva e interattiva 
 
 ## <a name="add-data"></a>Aggiungere dati
 
-Il primo elemento necessario per l'apprendimento automatico è rappresentato dai dati. In questa interfaccia sono disponibili numerosi set di dati di esempio da usare oppure è possibile importare dati da numerose altre origini. Per questo esempio verrà usato il set di dati di esempio **Automobile price data (Raw)**. 
+Il primo elemento necessario per l'apprendimento automatico è rappresentato dai dati. In questa interfaccia sono disponibili numerosi set di dati di esempio da usare oppure è possibile importare dati da numerose altre origini. Per questo esempio verrà usato il set di dati di esempio **Automobile price data (Raw)** . 
 
 1. A sinistra dell'area di disegno dell'esperimento è presente una tavolozza di set di dati e moduli. Selezionare **Saved Datasets** (Set di dati salvati) e quindi **Samples** (Esempi) per visualizzare i set di dati di esempio disponibili.
 
@@ -99,13 +99,13 @@ Selezionare le colonne di dati da usare.  Per iniziare, configurare il modulo in
    
 1. Selezionare il modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati).
 
-1. Nel riquadro **Properties** (Proprietà) a destra dell'area di disegno selezionare **Launch column selector** (Avvia selettore di colonne).
+1. Nel riquadro **Properties** (Proprietà) a destra dell'area di disegno selezionare **Edit columns** (Modifica colonne).
 
     Nella finestra di dialogo **Select columns** (Seleziona colonne) selezionare **ALL COLUMNS** (TUTTE LE COLONNE) e includere **tutte le funzionalità**. La finestra di dialogo dovrebbe essere simile alla seguente:
 
      ![column-selector](./media/ui-quickstart-run-experiment/select-all.png)
 
-1. In basso a destra selezionare il pulsante del segno di spunta (OK) per chiudere il selettore di colonne.
+1. Nell'angolo in basso a destra fare clic su **OK** per chiudere il selettore di colonne.
 
 ## <a name="run-the-experiment"></a>Eseguire l'esperimento
 
@@ -146,13 +146,13 @@ Rimuovere prima completamente la colonna **normalized-losses**.
 
 1. Selezionare il modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati).
 
-1. Nel riquadro **Properties** (Proprietà) a destra dell'area di disegno selezionare **Launch column selector** (Avvia selettore di colonne).
+1. Nel riquadro **Properties** (Proprietà) a destra dell'area di disegno selezionare **Edit columns** (Modifica colonne).
 
     * Lasciare selezionate **With rules** (Con regole) e **ALL COLUMNS** (TUTTE LE COLONNE).
 
     * Negli elenchi a discesa selezionare **Escludi** e **nomi colonna**, quindi fare clic all'interno della casella di testo. Digitare **normalized-losses**.
 
-    * In basso a destra selezionare il pulsante del segno di spunta (OK) per chiudere il selettore di colonne.
+    * Nell'angolo in basso a destra fare clic su **OK** per chiudere il selettore di colonne.
 
     ![Escludere una colonna](./media/ui-quickstart-run-experiment/exclude-column.png)
         

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: API Tabella con Java - Azure Cosmos DB'
+title: 'Guida introduttiva: API Tabella con Java - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e Java
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: b0fda94f3120f1f228836713456d584d33c08a48
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 22d5aea119d71553afc02ee923fab5cf5ead5ce0
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033129"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519039"
 ---
-# <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app dell'API Tabella con Java e Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app dell'API Tabella con Java e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -35,8 +35,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 Eseguire anche queste operazioni: 
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * In Ubuntu eseguire `apt-get install default-jdk` per installare JDK.
+* [Java Development Kit (JDK) 8](https://aka.ms/azure-jdks)
     * Assicurarsi di impostare la variabile di ambiente JAVA_HOME in modo che faccia riferimento alla cartella di installazione di JDK.
 * [Scaricare](https://maven.apache.org/download.cgi) e [installare](https://maven.apache.org/install.html) un archivio binario [Maven](https://maven.apache.org/)
     * In Ubuntu è possibile eseguire `apt-get install maven` per installare Maven.

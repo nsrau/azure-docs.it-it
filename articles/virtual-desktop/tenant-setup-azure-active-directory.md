@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 88b3ffa38eb42eef42c98920b2c3193661b1c0f5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2c9682746201306f1b99a04462819618225caa11
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236086"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164254"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Esercitazione: Creare un tenant nell'anteprima di Desktop virtuale Windows
 
@@ -43,13 +43,13 @@ La concessione di autorizzazioni al servizio Desktop virtuale Windows consente d
 Per concedere le autorizzazioni al servizio:
 
 1. Aprire un browser e connettersi alla [pagina di consenso di Desktop virtuale Windows](https://rdweb.wvd.microsoft.com).
-2. Per **Consent Option (Opzione consenso)** > **Server App (App server)** immettere il nome del tenant di Azure Active Directory o l'ID directory, quindi selezionare **Submit** (Invia).
+2. Per **Consent Option (Opzione consenso)**  > **Server App (App server)** immettere il nome del tenant di Azure Active Directory o l'ID directory, quindi selezionare **Submit** (Invia).
         Per i clienti dei provider di soluzioni cloud, l'ID corrisponde all'ID Microsoft del cliente recuperato dal portale per i partner. Per i clienti aziendali, l'ID si trova in **Azure Active Directory** > **Proprietà** > **ID directory**.
 3. Accedere alla pagina di consenso di Desktop virtuale Windows con un account di amministratore globale. Ad esempio, nell'organizzazione Contoso l'account potrebbe essere admin@contoso.com o admin@contoso.onmicrosoft.com.  
 4. Selezionare **Accetto**.
 5. Attendere un minuto.
 6. Tornare nella [pagina di consenso di Desktop virtuale Windows](https://rdweb.wvd.microsoft.com).
-7. Scegliere **Consent Option (Opzione consenso)** > **Client App (App client)** e immettere lo stesso nome di tenant di Azure Active Directory o ID directory, quindi selezionare **Submit** (Invia).
+7. Scegliere **Consent Option (Opzione consenso)**  > **Client App (App client)** e immettere lo stesso nome di tenant di Azure Active Directory o ID directory, quindi selezionare **Submit** (Invia).
 8. Accedere alla pagina di consenso di Desktop virtuale Windows con un account di amministratore globale come nel passaggio 3.
 9. Selezionare **Accetto**.
 
@@ -114,7 +114,7 @@ Creare quindi un nuovo tenant di Desktop virtuale Windows associato al tenant di
 New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID> -AzureSubscriptionId <SubscriptionID>
 ```
 
-I valori tra parentesi dovranno essere sostituiti con i valori appropriati per l'organizzazione e per il tenant. Ad esempio, per l'utente TenantCreator di Desktop virtuale Windows nell'organizzazione Contoso, il cmdlet da eseguire sarà come questo:
+I valori tra parentesi dovranno essere sostituiti con i valori appropriati per l'organizzazione e per il tenant. Il nome scelto per il nuovo tenant di Desktop virtuale Windows deve essere un nome univoco globale. Ad esempio, per l'utente TenantCreator di Desktop virtuale Windows nell'organizzazione Contoso, il cmdlet da eseguire sarà come questo:
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999

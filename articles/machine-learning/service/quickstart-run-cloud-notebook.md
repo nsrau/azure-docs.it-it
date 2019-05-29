@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire un notebook nel cloud'
+title: 'Guida introduttiva: Eseguire un notebook nel cloud'
 titleSuffix: Azure Machine Learning service
 description: Introduzione al servizio Azure Machine Learning. Usare un server notebook gestito nel cloud per provare l'area di lavoro.  L'area di lavoro rappresenta l'elemento fondamentale nel cloud per eseguire esperimenti, training e distribuzione di modelli di Machine Learning.
 services: machine-learning
@@ -8,24 +8,25 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/02/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510623"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015288"
 ---
-# <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Avvio rapido: Usare un server notebook basato sul cloud per iniziare a usare Azure Machine Learning
+# <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Usare un server notebook basato sul cloud per iniziare a usare Azure Machine Learning
 
-Creare un server notebook basato sul cloud, quindi usarlo.  In questa guida di avvio rapido si esegue codice Python che registra i valori nell'[area di lavoro del servizio Azure Machine Learning](concept-azure-machine-learning-architecture.md). L'area di lavoro rappresenta l'elemento fondamentale nel cloud per eseguire esperimenti, training e distribuzione di modelli di Machine Learning con il servizio Machine Learning. 
+Non è necessaria alcuna installazione.  È possibile iniziare a usare il servizio Azure Machine Learning con un server di notebook gestito nel cloud. Se in alternativa si vuole installare l'SDK nel proprio ambiente Python, vedere [Avvio rapido: Usare il proprio server notebook per iniziare a usare Azure Machine Learning](quickstart-run-local-notebook.md).
 
-Questa guida di avvio rapido illustra come creare una risorsa cloud nell'area di lavoro di Azure Machine Learning configurata con l'ambiente Python necessario per l'esecuzione di Azure Machine Learning. Per usare invece il proprio ambiente, vedere [Avvio rapido: Usare il proprio server notebook per iniziare a usare Azure Machine Learning](quickstart-run-local-notebook.md).  
+Questo argomento di avvio rapido illustra come usare l'[area di lavoro del servizio Azure Machine Learning](concept-azure-machine-learning-architecture.md) per tenere traccia degli esperimenti di Machine Learning.  Si creerà una [macchina virtuale per notebook (anteprima)](how-to-configure-environment.md#notebookvm), una workstation di Azure sicura, basata su cloud, che fornisce un server Jupyter Notebook, JupyterLab e un ambiente di Machine Learning già preparato. Si eseguirà quindi un notebook di Python in questa macchina virtuale per registrare i valori nell'area di lavoro.
 
 In questo argomento di avvio rapido si eseguono le operazioni seguenti:
 
-* Creare un nuovo server notebook basato sul cloud nell'area di lavoro.
+* Creare un'area di lavoro
+* Creare una macchina virtuale per notebook nell'area di lavoro.
 * Avviare l'interfaccia Web di Jupyter.
 * Aprire un notebook che contiene codice per stimare gli errori di pi greco e registra gli errori a ogni iterazione.
 * Eseguire il notebook.
@@ -35,11 +36,11 @@ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito pr
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
-Se è già disponibile un'area di lavoro del servizio Azure Machine Learning, passare alla [sezione successiva](#create-a-cloud-based-notebook-server). Altrimenti crearne una adesso.
+Se è già disponibile un'area di lavoro del servizio Azure Machine Learning, passare alla [sezione successiva](#create-notebook). Altrimenti crearne una adesso.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-a-cloud-based-notebook-server"></a>Creare un server notebook basato sul cloud
+## <a name="create-notebook"></a>Creare una macchina virtuale per notebook
 
  Nell'area di lavoro viene creata una risorsa cloud per iniziare a usare i notebook di Jupyter. Questa risorsa offre una piattaforma basata sul cloud preconfigurata con tutto quanto necessario per eseguire il servizio Azure Machine Learning.
 
@@ -59,6 +60,7 @@ Se è già disponibile un'area di lavoro del servizio Azure Machine Learning, pa
     ![Creare una nuova VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Attendere 4-5 minuti circa, fino a quando lo stato cambia in **In esecuzione**.
+
 
 ## <a name="launch-jupyter-web-interface"></a>Avviare l'interfaccia Web di Jupyter
 
@@ -85,7 +87,7 @@ Eseguire un notebook che stima il pi greco e registra l'errore nell'area di lavo
 1. Fare clic sulla prima cella del codice e selezionare **Run** (Esegui).
 
     > [!NOTE]
-    > Le celle del codice sono precedute da parentesi quadre. Se le parentesi quadre sono vuote (__[  ]__), il codice non è stato eseguito. Durante l'esecuzione del codice, viene visualizzato un asterisco (__[*]__). Al termine dell'esecuzione del codice, viene visualizzato un numero **[1]**,  che indica l'ordine di esecuzione delle celle.
+    > Le celle del codice sono precedute da parentesi quadre. Se le parentesi quadre sono vuote ( __[  ]__ ), il codice non è stato eseguito. Durante l'esecuzione del codice, viene visualizzato un asterisco ( __[*]__ ). Al termine dell'esecuzione del codice, viene visualizzato un numero **[1]** ,  che indica l'ordine di esecuzione delle celle.
     >
     > Usare il tasto di scelta rapida **MAIUSC+INVIO** per eseguire una cella.
 
@@ -95,7 +97,7 @@ Eseguire un notebook che stima il pi greco e registra l'errore nell'area di lavo
 
     ![Autentica](media/quickstart-run-cloud-notebook/authenticate.png)
 
-1. Al termine, viene visualizzato il numero di cella __[2]__.  Se è stato necessario eseguire l'accesso, verrà visualizzato un messaggio di stato di autenticazione riuscita.   Se non è stato necessario eseguire l'accesso, non verrà visualizzato alcun output per questa cella, eccetto il numero che indica che la cella è stata eseguita correttamente.
+1. Al termine, viene visualizzato il numero di cella __[2]__ .  Se è stato necessario eseguire l'accesso, verrà visualizzato un messaggio di stato di autenticazione riuscita.   Se non è stato necessario eseguire l'accesso, non verrà visualizzato alcun output per questa cella, eccetto il numero che indica che la cella è stata eseguita correttamente.
 
     ![Messaggio di operazione riuscita](media/quickstart-run-cloud-notebook/success.png)
 
@@ -143,6 +145,7 @@ Arrestare la macchina virtuale per notebook quando non viene usata per ridurre i
 
 In questa guida di avvio rapido sono state completate le attività seguenti:
 
+* Creare un'area di lavoro
 * Creare una macchina virtuale per notebook.
 * Avviare l'interfaccia Web di Jupyter.
 * Aprire un notebook che contiene codice per stimare gli errori di pi greco e registra gli errori a ogni iterazione.

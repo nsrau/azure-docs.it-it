@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Rilevare la lingua del testo, C# - API Traduzione testuale'
+title: 'Guida introduttiva: Rilevare la lingua del testo, C# - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come rilevare la lingua del testo fornito con .NET Core e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: adc74dbcb943af9ad793dbc3f59a31465f44b6fd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a2e9e47387ae385f943360d5a35bf58daecfb15b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916796"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606213"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con C#
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Guida introduttiva: Usare l'API Traduzione testuale per rilevare la lingua del testo con C#
 
 In questa guida introduttiva si apprenderà come rilevare la lingua del testo fornito con .NET Core e l'API REST Traduzione testuale.
 
@@ -163,7 +163,7 @@ dotnet run
 
 ## <a name="sample-response"></a>Risposta di esempio
 
-Trovare l'abbreviazione del paese in questo [elenco di lingue](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Trovare l'abbreviazione del paese o dell'area geografica in questo [elenco di lingue](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

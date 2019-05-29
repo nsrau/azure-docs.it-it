@@ -10,14 +10,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: fc303a0ab53c80c91bb29c36a1a7e0f04c4a89e6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03c7da3e17e8e606b46c5c5e104a1271e8fbfd33
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006883"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873134"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Python)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Python)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 L'applicazione di esempio eseguita in questa guida di avvio rapido è scritta in Python. Attualmente gli SDK di Microsoft Azure IoT per Python supportano solo versioni specifiche di Python per ogni piattaforma. Per altre informazioni, vedere il [file Leggimi di Python SDK](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-Questa guida di avvio rapido presuppone che si usi un computer di sviluppo Windows. Per i sistemi Windows è supportato solo [Python 3.6.x](https://www.python.org/downloads/release/python-368/). Il programma di installazione di Python scelto deve essere basato sull'architettura del sistema in uso. Se l'architettura della CPU di sistema è a 32 bit, scaricare il programma di installazione x86, mentre per l'architettura a 64 bit scaricare il programma di installazione x86-64. Assicurarsi inoltre che sia installato [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) per l'architettura in uso (x86 o x64).
+Questa guida di avvio rapido presuppone che si usi un computer di sviluppo Windows. Per i sistemi Windows è supportato solo [Python 3.6.x](https://www.python.org/downloads/release/python-368/). Il programma di installazione di Python scelto deve essere basato sull'architettura del sistema in uso. Se l'architettura della CPU di sistema è a 32 bit, scaricare il programma di installazione x86, mentre per l'architettura a 64 bit scaricare il programma di installazione x86-64. Assicurarsi inoltre che sia installato [Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) per l'architettura in uso (x86 o x64).
 
 È possibile scaricare Python per altre piattaforme da [Python.org](https://www.python.org/downloads/).
 
@@ -63,7 +63,7 @@ Scaricare il progetto di esempio di Python da https://github.com/Azure-Samples/a
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
+1. Eseguire il comando seguente in Azure Cloud Shell per creare l'identità del dispositivo.
 
     **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
@@ -73,7 +73,7 @@ Scaricare il progetto di esempio di Python da https://github.com/Azure-Samples/a
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
     ```
 
-1. Eseguire il comando seguente in Azure Cloud Shell per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato.
+1. Eseguire i comandi seguenti in Azure Cloud Shell per ottenere la _stringa di connessione del dispositivo_ per il dispositivo registrato:
 
     **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: da6c9bb6cbd94ab5078641f25e42ad2203ff7a53
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 48bb241a7871d2a209636f66837fb2afd95fd22c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402355"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001806"
 ---
 # <a name="azure-managed-applications-overview"></a>Panoramica delle applicazioni gestite di Azure
 
@@ -33,7 +33,7 @@ Sebbene i clienti distribuiscano le applicazioni gestite nelle proprie sottoscri
 
 Per i team IT, le applicazioni gestite consentono di offrire soluzioni approvate agli utenti dell'organizzazione. Si ha la certezza che tali soluzioni siano conformi agli standard aziendali.
 
-Le applicazioni gestite attualmente non supportano le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Le applicazioni gestite supportano le [identità gestite per le risorse di Azure](./publish-managed-identity.md).
 
 ## <a name="types-of-managed-applications"></a>Tipi di applicazioni gestite
 

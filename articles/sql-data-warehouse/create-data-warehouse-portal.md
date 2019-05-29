@@ -1,23 +1,23 @@
 ---
-title: "Avvio rapido: Creare un'istanza di Azure SQL Data Warehouse ed eseguire query - Portale di Azure | Microsoft Docs"
+title: "Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguire query - Portale di Azure | Microsoft Docs"
 description: Creare un data warehouse ed eseguirvi una query con Azure SQL Data Warehouse nel portale di Azure.
 services: sql-data-warehouse
-author: kevinvngo
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: development
 ms.date: 08/02/2018
-ms.author: kevin
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 053dccb4ba5798fabd4426d5741d9238af579449
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: ee18a78aea67d0270b105f8703259b65c706d2e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732406"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169270"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Avvio rapido: Creare un data warehouse SQL di Azure ed eseguirvi una query nel portale di Azure
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guida introduttiva: Creare un data warehouse SQL di Azure ed eseguirvi una query nel portale di Azure
 
 Creare rapidamente un data warehouse SQL di Azure ed eseguirvi una query usando il portale di Azure.
 
@@ -194,7 +194,7 @@ Seguire questa procedura per pulire le risorse nel modo desiderato.
 
     ![Pulire le risorse](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Per sospendere il calcolo, fare clic sul pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**. Per riprendere il calcolo, fare clic su **Avvia**.
+2. Per sospendere il calcolo, fare clic sul pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Riprendi**. Per riprendere il calcolo, fare clic su **Riprendi**.
 
 3. Per rimuovere il data warehouse in modo da non ricevere addebiti per operazioni di calcolo o archiviazione, fare clic su **Elimina**.
 

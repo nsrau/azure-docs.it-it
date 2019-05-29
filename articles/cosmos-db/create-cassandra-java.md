@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: API Cassandra con Java - Azure Cosmos DB'
+title: 'Guida introduttiva: API Cassandra con Java - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e Java
 ms.service: cosmos-db
 author: SnehaGunda
@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7f6108a5d1e8ee386641c6d1f7c09ea96e12458c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: c3bfcffacee7df8a5abf59676a1c47fa283dee7b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587601"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519031"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con Java SDK e Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app Cassandra con Java SDK e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -34,8 +34,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 È anche necessario:
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * In Ubuntu eseguire `apt-get install default-jdk` per installare JDK.
+* [Java Development Kit (JDK) versione 8](https://aka.ms/azure-jdks)
     * Assicurarsi di impostare la variabile di ambiente JAVA_HOME in modo che faccia riferimento alla cartella di installazione di JDK.
 * [Scaricare](https://maven.apache.org/download.cgi) e [installare](https://maven.apache.org/install.html) un archivio binario [Maven](https://maven.apache.org/)
     * In Ubuntu è possibile eseguire `apt-get install maven` per installare Maven.

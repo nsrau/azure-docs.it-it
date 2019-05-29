@@ -1,6 +1,6 @@
 ---
-title: Connettere Active Directory ad Azure Active Directory. | Microsoft Docs
-description: Azure AD Connect integra le directory locali con Azure Active Directory. Consente di fornire un'identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD.
+title: Che cos'è l'identità ibrida con Azure Active Directory?
+description: Un'identità ibrida consente di avere un'identità utente comune per l'autenticazione e l'autorizzazione sia in locale che nel cloud.
 keywords: introduzione ad Azure AD Connect, panoramica di Azure AD Connect, che cos'è Azure AD Connect, installare active directory
 services: active-directory
 author: billmath
@@ -9,24 +9,26 @@ ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9c43238d44b2309d105ef14e696a5a16848d0b58
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881805"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896822"
 ---
-# <a name="what-is-hybrid-identity"></a>Informazioni sull'identità ibrida
+# <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Che cos'è l'identità ibrida con Azure Active Directory?
 
-Oggi nelle aziende di piccole e grandi dimensioni si ricorre sempre più spesso a una combinazione di applicazioni locali e cloud e  gli utenti devono poter accedere a tali applicazioni sia in locale che nel cloud. Questo requisito comporta la definizione di uno scenario complesso. 
+Oggi nelle aziende di piccole e grandi dimensioni si ricorre sempre più spesso a una combinazione di applicazioni locali e cloud e  gli utenti devono poter accedere a tali applicazioni sia in locale che nel cloud. Per gestire gli utenti sia in locale che nel cloud è necessario affrontare scenari complessi. 
 
 Le soluzioni di gestione delle identità di Microsoft includono sia funzionalità locali che basate sul cloud,  in modo da creare una singola identità utente per l'autenticazione e l'autorizzazione a tutte le risorse, indipendentemente dalla loro posizione. Tale identità costituisce la cosiddetta **identità ibrida**.
 
-Per accedere all'identità ibrida, a seconda degli scenari è possibile uno dei tre metodi di autenticazione   seguenti: 
+Con l'identità ibrida per Azure AD e la gestione delle identità ibride, questi scenari diventano realizzabili.
+
+Per usare l'identità ibrida con Azure AD, a seconda degli scenari è possibile adottare uno dei tre metodi di autenticazione   seguenti: 
 
 - **[Sincronizzazione dell'hash delle password](whatis-phs.md)**  
 - **[Autenticazione pass-through](how-to-connect-pta.md)**  
@@ -60,6 +62,10 @@ Di seguito sono riportati alcuni scenari comuni di gestione di identità ibride 
 >  
 > <sup>4</sup> ADFS può essere integrato con l'infrastruttura a chiave pubblica aziendale per consentire l'accesso usando certificati. Questi certificati possono essere certificati software distribuiti tramite canali di provisioning attendibili, ad esempio i certificati di gestione di dispositivi mobili (MDM) o l'oggetto Criteri di gruppo o smart card (comprese le schede PIV/CAC) o Hello for Business (cert-trust). Per altre informazioni sul supporto dell'autenticazione con smart card, vedere [questo blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
 > 
+
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Requisiti di licenza per l'uso di Azure AD Connect
+
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

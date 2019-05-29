@@ -3,8 +3,8 @@ title: Introduzione a Xamarin per Azure AD | Microsoft Docs
 description: Compilare un'applicazione Xamarin che si integra con Azure AD per l'accesso e chiama le API protette da Azure AD usando OAuth.
 services: active-directory
 documentationcenter: xamarin
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e3470d9220ed471a05792ed5b3bb259e0dcbe0a6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881886"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121906"
 ---
-# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Avvio rapido: Creare un'app Xamarin che si integra con il sistema di accesso Microsoft
+# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Guida introduttiva: Creare un'app Xamarin che si integra con il sistema di accesso Microsoft
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -57,14 +57,14 @@ Per consentire all'app di ottenere i token, sarà prima necessario registrarla n
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra superiore fare clic sull'account. Nell'elenco **Directory** selezionare quindi il tenant di Active Directory in cui si vuole registrare l'app.
 3. Fare clic su **Tutti i servizi** nel riquadro sinistro e quindi selezionare **Azure Active Directory**.
-4. Fare clic su **Registrazioni per l'app** e scegliere **Aggiungi**.
-5. Seguire le istruzioni e creare una nuova **Applicazione client nativa**.
-   * Il **Nome** descrive l'app agli utenti.
+4. Fare clic su **Registrazioni app** e quindi selezionare **Nuova registrazione**.
+5. Per creare una nuova applicazione client, seguire le istruzioni.
+   * Il **nome** descrive l'app agli utenti.
+   * In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
    * L'**URI di reindirizzamento** è una combinazione dello schema e della stringa che Azure AD usa per restituire le risposte dei token. Immettere un valore, ad esempio `http://DirectorySearcher`.
 6. Dopo aver completato la registrazione, Azure AD assegna all'app un ID applicazione univoco. Copiare il valore dalla scheda **Applicazione**, perché sarà necessario in un secondo momento.
-7. Nella pagina **Impostazioni** selezionare **Autorizzazioni necessarie** e selezionare **Aggiungi**.
-8. Selezionare l'API **Microsoft Graph**. In **Autorizzazioni delegate** aggiungere l'autorizzazione **Lettura dati directory**. 
-   Ciò consente all'app di eseguire query nell'API Graph per gli utenti.
+7. Nella pagina **Autorizzazioni API** selezionare **Aggiungi un'autorizzazione**. In **Selezionare un'API** selezionare ***Microsoft Graph***.
+8. In **Autorizzazioni delegate** selezionare l'autorizzazione **User.Read** e quindi fare clic su **Aggiungi** per salvare. L'autorizzazione imposta l'applicazione in modo che possa eseguire query nell'API Graph di Azure AD per gli utenti.
 
 ## <a name="step-3-install-and-configure-adal"></a>Passaggio 3: Installare e configurare ADAL
 

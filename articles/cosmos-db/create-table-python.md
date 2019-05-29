@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: API Tabella con Python - Azure Cosmos DB'
+title: 'Guida introduttiva: API Tabella con Python - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e Python
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: e4664f121601ecec4b8ed52d536e5212b3d0950f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2425d14e43abd98d80bef8ce01e1c1c5f73a78a0
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039300"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833073"
 ---
-# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app dell'API Tabella con Python e Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app dell'API Tabella con Python e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -35,7 +35,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 Eseguire anche queste operazioni:
 
-* Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio selezionare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo di Python**.
+* Se Visual Studio 2019 non è ancora installato, è possibile scaricare e usare l'edizione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio selezionare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo di Python**.
 * Selezionare anche l'opzione Python 2 nel carico di lavoro **Sviluppo di Python** o scaricare Python 2.7 da [python.org](https://www.python.org/downloads/release/python-2712/).
 
 ## <a name="create-a-database-account"></a>Creare un account di database

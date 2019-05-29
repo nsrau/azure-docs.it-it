@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: API Traduzione vocale C#'
+title: 'Guida introduttiva: API Traduzione vocale C#'
 titlesuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare rapidamente l'API Traduzione vocale.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
-ms.date: 3/5/2018
+ms.date: 04/26/2019
 ms.author: v-jaswel
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a76c11341d0e145e6d2e9f86a7300ddb9319f6f5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: b4fe4f651340ef54c2907192f3a96e9a017ab1dd
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673888"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910522"
 ---
-# <a name="quickstart-translator-speech-api-with-c"></a>Avvio rapido: API Traduzione vocale con C#
+# <a name="quickstart-translator-speech-api-with-c"></a>Guida introduttiva: API Traduzione vocale con C#
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -27,7 +27,7 @@ Questo articolo illustra come usare l'API Traduzione vocale per tradurre il test
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire questo codice in Windows è necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/). È possibile usare la versione gratuita Community Edition. Se si usa Mac OS o Linux, è possibile anche usare l'editor di testo [Visual Studio Code](https://code.visualstudio.com/Download) come alternativa.
+Per eseguire questo codice in Windows è necessario [Visual Studio 2019](https://www.visualstudio.com/downloads/). È possibile usare la versione gratuita Community Edition. Se si usa Mac OS o Linux, è possibile anche usare l'editor di testo [Visual Studio Code](https://code.visualstudio.com/Download) come alternativa.
 
 È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono.
 

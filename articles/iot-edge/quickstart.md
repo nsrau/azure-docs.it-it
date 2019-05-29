@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7b4fcf34831d17d35e9f4d8b38455ea22293076f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ce6703c507e955ffe98e71f26feca08f9f37dfe5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148073"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146772"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>Avvio rapido: Distribuire il primo modulo di IoT Edge dal portale di Azure in un dispositivo Windows
+# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>Guida introduttiva: Distribuire il primo modulo di IoT Edge dal portale di Azure in un dispositivo Windows
 
 In questa guida introduttiva viene usata l'interfaccia cloud di Azure IoT Edge per distribuire in modalità remota codice predefinito in un dispositivo IoT Edge. Per eseguire questa attività, prima di tutto creare e configurare una macchina virtuale Windows da usare come dispositivo IoT Edge, quindi è possibile distribuirvi un modulo.
 
@@ -138,6 +138,13 @@ Usare PowerShell per scaricare e installare il runtime IoT Edge. Usare la string
 1. Se non è già stato fatto, seguire i passaggi descritti in [Registrare un nuovo dispositivo Azure IoT Edge](how-to-register-device-portal.md) per registrare il dispositivo e recuperare la stringa di connessione. 
 
 2. Eseguire PowerShell come amministratore.
+
+   >[!NOTE]
+   >Usare una sessione AMD64 di PowerShell per installare IoT Edge, non PowerShell (x86). Se non si conosce il tipo di sessione in uso, eseguire questo comando:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. Il comando **Deploy-IoTEdge** verifica che nel computer Windows sia presente una versione supportata, attiva la funzionalità dei contenitori, scarica il runtime moby e infine scarica il runtime IoT Edge.
 

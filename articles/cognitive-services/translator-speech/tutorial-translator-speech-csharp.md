@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68457367987305b6926f8f885a226cfcedd23873
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900829"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860326"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Esercitazione: Applicazione Traduzione vocale in C#
 
@@ -34,7 +34,7 @@ Questa esercitazione consente di esplorare uno strumento di traduzione vocale in
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per questa esercitazione è necessario disporre di un'edizione qualsiasi di Visual Studio 2017, inclusa la Community Edition.
+Per questa esercitazione è necessario disporre di un'edizione qualsiasi di Visual Studio 2019, inclusa la Community Edition.
 
 La soluzione di Visual Studio crea anche un programma di installazione per l'applicazione. Per il supporto di questa funzionalità sono necessari [WiX Toolset](http://wixtoolset.org/) e l'[estensione di Visual Studio per WiX Toolset](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension).
 

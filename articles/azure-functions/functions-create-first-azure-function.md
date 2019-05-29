@@ -12,23 +12,23 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 1b7efd4f36d5587667010d25f30a3e7945faee4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4a49cb3de2dc36dcd933a0b31b6a55b838eb1336
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997805"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864686"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creare la prima funzione nel portale di Azure
 
-Funzioni di Azure consente di eseguire il codice in un ambiente [senza server](https://azure.microsoft.com/solutions/serverless/), senza dover prima creare una macchina virtuale o pubblicare un'applicazione Web. Questo argomento fornisce informazioni su come usare Funzioni per creare una funzione di benvenuto nel portale di Azure.
+Funzioni di Azure consente di eseguire il codice in un ambiente [senza server](https://azure.microsoft.com/solutions/serverless/), senza dover prima creare una macchina virtuale o pubblicare un'applicazione Web. Questo articolo fornisce informazioni su come usare Funzioni per creare una funzione "hello world" nel portale di Azure.
 
 ![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
-> Gli sviluppatori in C# devono fare riferimento alla pagina relativa alla [creazione della prima funzione Visual Studio 2017](functions-create-your-first-function-visual-studio.md) invece che al portale. 
+> Gli sviluppatori in C# devono fare riferimento alle informazioni relative alla [creazione della prima funzione in Visual Studio 2019](functions-create-your-first-function-visual-studio.md) anziché nel portale. 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
@@ -46,7 +46,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 1. Espandere la nuova app per le funzioni, selezionare il pulsante **+** accanto a to **Funzioni**, scegliere **Nel portale** e quindi selezionare **Continua**.
 
-    ![Scelta della piattaforma in Avvio rapido di Funzioni.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![Avvio rapido di Funzioni per la scelta di una piattaforma.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
 
 1. Scegliere **WebHook e API** e quindi selezionare **Crea**.
 

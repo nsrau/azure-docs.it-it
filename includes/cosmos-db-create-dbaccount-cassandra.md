@@ -5,35 +5,35 @@ services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 09/14/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 3ad250ca2e641ebbf1e280e25aa53ff6f0ad6bd6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6e2b160bde17b7ccd9f65740044b1a71d573d2cf
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38725966"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151505"
 ---
 1. In una nuova finestra del browser accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic su **Crea una risorsa** > **Database** > **Azure Cosmos DB**.
+
+2. Selezionare **Crea una risorsa** > **Database** > **Azure Cosmos DB**.
    
    ![Riquadro Database nel portale di Azure](./media/cosmos-db-create-dbaccount-cassandra/create-nosql-db-databases-json-tutorial-1.png)
 
-3. Nella pagina **Nuovo account** immettere le impostazioni per il nuovo account Azure Cosmos DB. 
+3. Nella pagina **Crea account Cosmos DB** immettere le impostazioni per il nuovo account Azure Cosmos DB. 
  
-    Impostazione|Valore consigliato|DESCRIZIONE
+    Impostazione|Valore|DESCRIZIONE
     ---|---|---
-    ID|*Immettere un nome univoco*|Immettere un nome univoco per identificare l'account Azure Cosmos DB. Poiché alI'ID fornito viene aggiunto *cassandra.cosmosdb.azure.com* per creare il punto di contatto, usare un ID univoco ma facilmente identificabile.<br><br>L'ID può contenere solo lettere minuscole, numeri e il segno meno (-) e deve avere una lunghezza compresa tra 3 e 50 caratteri.
-    API|Cassandra|L'API determina il tipo di account da creare. Azure Cosmos DB offre cinque API per soddisfare le esigenze dell'applicazione, ovvero SQL (database di documenti) Gremlin (grafo), MongoDB, Tabella di Azure e Cassandra, per ognuna delle quali è attualmente necessario un account separato. <br><br>Selezionare **Cassandra** perché in questa guida introduttiva si crea un database a colonne ampie su cui è possibile eseguire query usando la sintassi SQL.<br><br>Se Cassandra (a colonna ampia) non compare nell'elenco, è necessario [fare richiesta di partecipare](../articles/cosmos-db/cassandra-introduction.md#sign-up-now) al programma di anteprima dell'API Cassandra.<br><br> [Altre informazioni sull'API Cassandra](../articles/cosmos-db/cassandra-introduction.md)|
-    Sottoscrizione|*Sottoscrizione in uso*|Selezionare la sottoscrizione di Azure da usare per l'account Azure Cosmos DB. 
-    Gruppo di risorse|Creare un nuovo gruppo di risorse<br><br>*Immettere quindi lo stesso nome univoco specificato sopra in ID*|Selezionare **Crea nuovo**, quindi immettere il nome di un nuovo gruppo di risorse per l'account. Per semplicità si può usare lo stesso nome usato come ID. 
-    Località|*Selezionare l'area più vicina agli utenti*|Selezionare la posizione geografica in cui ospitare l'account Azure Cosmos DB. Usare la località più vicina agli utenti per offrire loro la massima velocità di accesso ai dati.
-    Aggiungi al dashboard | Select | Selezionare questa casella per aggiungere il nuovo account di database al dashboard del portale e accedervi più facilmente.
+    Sottoscrizione|Sottoscrizione in uso|Selezionare la sottoscrizione di Azure da usare per l'account Azure Cosmos DB. 
+    Gruppo di risorse|Creare un nuovo gruppo di risorse<br><br>Immettere quindi lo stesso nome univoco specificato in ID|Selezionare **Crea nuovo**. Immettere quindi il nome di un nuovo gruppo di risorse per l'account. Per semplicità, usare lo stesso nome usato come ID. 
+    Nome account|Immettere un nome univoco|Immettere un nome univoco per identificare l'account Azure Cosmos DB. Poiché all'ID fornito viene aggiunto *documents.azure.com* per creare l'URI, usare un ID univoco.<br><br>L'ID può contenere solo lettere minuscole, numeri e il carattere trattino (-). Deve avere una lunghezza compresa tra 3 e 31 caratteri.
+    API|Cassandra|L'API determina il tipo di account da creare. Azure Cosmos DB offre cinque API: Core (SQL) per i database di documenti, Gremlin per i database a grafo, MongoDB per i database di documenti, Tabella di Azure e Cassandra. Attualmente, è necessario creare un account separato per ogni API. <br><br>Selezionare **Cassandra** poiché in questa guida introduttiva si creerà una tabella che utilizza l'API Cassandra. <br><br>[Altre informazioni sull'API Cassandra](../articles/cosmos-db/cassandra-introduction.md).|
+    Località|Selezionare l'area più vicina agli utenti|Selezionare una posizione geografica in cui ospitare l'account Azure Cosmos DB. Usare la località più vicina agli utenti per offrire loro la massima velocità di accesso ai dati.
 
-    Fare quindi clic su **Crea**.
+    Selezionare **Rivedi+Crea**. È possibile ignorare le sezioni **Rete** e **Tag**. 
 
     ![Pagina del nuovo account per Azure Cosmos DB](./media/cosmos-db-create-dbaccount-cassandra/azure-cosmos-db-create-new-account.png)
 
-4. La creazione dell'account richiede alcuni minuti, Attendere che nel portale venga visualizzata la pagina **Complimenti, l'account Azure Cosmos DB è stato creato**.
+4. La creazione dell'account richiede alcuni minuti, Attendere che nel portale venga visualizzata la pagina con il messaggio  **L'account Azure Cosmos DB è stato creato**.
 

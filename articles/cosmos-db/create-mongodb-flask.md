@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 35159a1630c7f1268119cd55cc6e0ac99dfd7b5f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 07f213de3509ed16af627af5e0583cd985c278f6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119208"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954649"
 ---
-# <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Avvio rapido: Creare un'app Python usando l'API Azure Cosmos DB per MongoDB
+# <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Guida introduttiva: Creare un'app Python usando l'API Azure Cosmos DB per MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -104,7 +104,7 @@ Tutti i frammenti di codice seguenti sono tratti dal file app.py e usano la stri
 
 2. Aprire una finestra del terminale e usare il comando `cd` per accedere alla directory in cui l'app è stata salvata.
 
-3. Impostare quindi la variabile di ambiente per l'app Flask con `set FLASK_APP=app.py` o `export FLASK_APP=app.py` se si usa un Mac.
+3. Impostare quindi la variabile di ambiente per l'app Flask con `set FLASK_APP=app.py`, `$env:FLASK_APP = app.py` per gli editor di PowerShell o `export FLASK_APP=app.py` se si usa un Mac. 
 
 4. Eseguire l'app con `flask run` e passare a [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
@@ -142,7 +142,7 @@ Quando si esegue la distribuzione in Azure, è consigliabile rimuovere le chiavi
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-È quindi necessario aggiungere gli elementi MONGOURL, MONGO_PASSWORD e MONGO_USERNAME alle impostazioni applicazione. È possibile seguire questa [esercitazione](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings) per altre informazioni sulle impostazioni applicazione nelle app Web di Azure.
+È quindi necessario aggiungere gli elementi MONGOURL, MONGO_PASSWORD e MONGO_USERNAME alle impostazioni applicazione. È possibile seguire questa [esercitazione](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings) per altre informazioni sulle impostazioni applicazione nelle app Web di Azure.
 
 Se non si vuole creare un fork di questo repository, è anche possibile fare clic sul pulsante Distribuisci in Azure sotto. Si passerà quindi ad Azure per configurare le impostazioni applicazione con le informazioni dell'account Cosmos DB.
 

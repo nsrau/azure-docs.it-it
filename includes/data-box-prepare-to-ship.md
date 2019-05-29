@@ -2,21 +2,21 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 04/25/2019
 ms.author: alkohli
-ms.openlocfilehash: a8070d25e2606d8ad72ac231a0a208072c612c5c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 1d52117440028c75b249f469f2b3576c2ab1c5c5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737141"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150480"
 ---
 Il passaggio finale consiste nel preparare il dispositivo per la spedizione. In questo passaggio tutte le condivisioni del dispositivo vengono portate offline. Non è possibile accedere alle condivisioni dopo l'avvio del processo.
 
 > [!IMPORTANT]
 > La preparazione per la spedizione è necessaria perché contrassegna i dati non conformi alle convenzioni di denominazione di Azure. Ignorare questo passaggio potrebbe generare potenziali errori di caricamento dei dati, a causa di dati non conformi.
 
-1. Selezionare **Prepara per la spedizione** e fare clic su **Avvia preparazione**. Per impostazione predefinita, i checksum vengono calcolati inline durante la preparazione per la spedizione. Il calcolo dei checksum può richiedere da alcune ore a diversi giorni a seconda delle dimensioni dei dati. 
+1. Selezionare **Prepara per la spedizione** e fare clic su **Avvia preparazione**. Per impostazione predefinita, i checksum vengono calcolati durante la copia dei dati. L'opzione Prepara per la spedizione completa il calcolo dei checksum e crea l'elenco di file (*file BOM*). Il calcolo dei checksum può richiedere da alcune ore a diversi giorni a seconda delle dimensioni dei dati. 
    
     ![Preparare per la spedizione 1](media/data-box-prepare-to-ship/prepare-to-ship1.png)
 
@@ -36,7 +36,7 @@ Il passaggio finale consiste nel preparare il dispositivo per la spedizione. In 
 
     Se si verificano errori in questo passaggio, sarà necessario scaricare il log degli errori e risolverli. Dopo aver risolto gli errori, eseguire **Prepara per la spedizione**.
 
-4. Al termine della preparazione per la spedizione (senza errori), scaricare l'elenco dei file copiati nel processo, denominato anche manifesto. In seguito è possibile usare questo elenco per verificare i file caricati in Azure.
+4. Al termine della preparazione per la spedizione (senza errori), scaricare l'elenco dei file copiati nel processo, denominato anche manifesto. In seguito è possibile usare questo elenco per verificare i file caricati in Azure. Per altre informazioni, vedere [Esaminare i file BOM durante la preparazione per la spedizione](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
         
     ![Preparare per la spedizione 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 

@@ -5,18 +5,18 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 09/05/2018
+ms.date: 05/20/2019
 ms.author: lbosq
-ms.openlocfilehash: 36465c253996e4cecc665b2fd1d59c03adc78a2f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f5d90f8b825b7076a1a5122dbef3c8b2990e216
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110546"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954253"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introduzione ad Azure Cosmos DB: API Gremlin
 
-[Azure Cosmos DB](introduction.md) è il servizio di database multimodello distribuito a livello globale di Microsoft per applicazioni cruciali. Si tratta di un database multimodello che supporta modelli di dati di tipo documento, coppia chiave-valore, grafo e colonna. L'API Gremlin di Azure Cosmos DB consente di archiviare e operare sui dati del grafo. L'API Gremlin supporta la modellazione dei dati di Graph e mette a disposizione le API per attraversare i dati del grafo.
+[Azure Cosmos DB](introduction.md) è il servizio di database multimodello distribuito a livello globale di Microsoft per applicazioni mission-critical. Si tratta di un database multimodello che supporta modelli di dati di tipo documento, coppia chiave-valore, grafo e colonna. L'API Gremlin di Azure Cosmos DB consente di archiviare e operare sui dati del grafo. L'API Gremlin supporta la modellazione dei dati di Graph e mette a disposizione le API per attraversare i dati del grafo.
 
 Questo articolo offre una panoramica dell'API Gremlin di Azure Cosmos DB e spiega come usarla per archiviare grafi di grandi dimensioni con miliardi di vertici e bordi. È possibile eseguire query nei grafi con una latenza di un millisecondo ed evolvere facilmente la struttura e lo schema del grafo. Per eseguire query su Azure Cosmos DB, è possibile usare il linguaggio di attraversamento tramite grafi [Apache TinkerPop](https://tinkerpop.apache.org) oppure [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 

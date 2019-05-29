@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ad7c87161c550c4728978e9c975252cab34f76ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a03707246f27bcba9cc46168ec04893b7bbc4c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389802"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990832"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Esercitazione: Usare una condizione nei modelli di Azure Resource Manager
 
 Informazioni su come distribuire risorse di Azure in base a condizioni.
 
-Nell'esercitazione [Impostare l'ordine di distribuzione delle risorse](./resource-manager-tutorial-create-templates-with-dependent-resources.md) si creano una macchina virtuale, una rete virtuale e alcune altre risorse dipendenti, tra cui un account di archiviazione. Invece di creare ogni volta un nuovo account di archiviazione, si consente agli utenti di scegliere tra creare un nuovo account di archiviazione e usarne uno esistente. Per raggiungere questo obiettivo, si definisce un parametro aggiuntivo. Se il valore del parametro è "new", viene creato un nuovo account di archiviazione.
+Nell'esercitazione [Impostare l'ordine di distribuzione delle risorse](./resource-manager-tutorial-create-templates-with-dependent-resources.md) si creano una macchina virtuale, una rete virtuale e alcune altre risorse dipendenti, tra cui un account di archiviazione. Invece di creare ogni volta un nuovo account di archiviazione, si consente agli utenti di scegliere tra creare un nuovo account di archiviazione e usarne uno esistente. Per raggiungere questo obiettivo, si definisce un parametro aggiuntivo. Se il valore del parametro è "new", viene creato un nuovo account di archiviazione. In caso contrario, viene usato un account di archiviazione esistente con il nome specificato.
 
 ![Diagramma dell'uso di una condizione nel modello di Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
@@ -35,6 +35,13 @@ Questa esercitazione illustra le attività seguenti:
 > * Modificare il modello
 > * Distribuire il modello
 > * Pulire le risorse
+
+Questa esercitazione illustra solo uno scenario di base relativo all'uso delle condizioni. Per altre informazioni, vedere:
+
+* [Struttura del file modello: Condizione](./resource-group-authoring-templates.md#condition).
+* [Distribuire in modo condizionale una risorsa in un modello di Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy.md)
+* [Funzioni di modello: If](./resource-group-template-functions-logical.md#if).
+* [Funzioni di confronto per i modelli di Azure Resource Manager](./resource-group-template-functions-comparison.md)
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -48,6 +55,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault in Distribuzione modelli di Resource Manager](./resource-manager-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
@@ -60,6 +68,7 @@ Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
+
 3. Selezionare **Apri** per aprire il file.
 4. Sono presenti cinque risorse definite dal modello:
 
@@ -82,12 +91,11 @@ Apportare due modifiche al modello esistente:
 Di seguito è riportata la procedura per apportare le modifiche:
 
 1. Aprire **azuredeploy.json** in Visual Studio Code.
-2. Sostituire **variables('storageAccountName')** con **parameters('storageAccountName')** nell'intero modello.  Sono presenti tre occorrenze di **variables('storageAccountName')**.
+2. Sostituire le tre occorrenze di **variables('storageAccountName')** con **parameters('storageAccountName')** nell'intero modello.
 3. Rimuovere la definizione di variabile seguente:
 
-    ```json
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
-    ```
+    ![Diagramma dell'uso di una condizione nel modello di Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+
 4. Aggiungere i due parametri seguenti al modello:
 
     ```json
@@ -95,13 +103,14 @@ Di seguito è riportata la procedura per apportare le modifiche:
       "type": "string"
     },
     "newOrExisting": {
-      "type": "string", 
+      "type": "string",
       "allowedValues": [
-        "new", 
+        "new",
         "existing"
       ]
     },
     ```
+
     La definizione aggiornata dei parametri si presenta come segue:
 
     ![Usare una condizione in Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
@@ -117,7 +126,7 @@ Di seguito è riportata la procedura per apportare le modifiche:
     La definizione aggiornata dell'account di archiviazione si presenta come segue:
 
     ![Usare una condizione in Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Aggiornare **storageUri** con il valore seguente:
+6. Aggiornare la proprietà **storageUri** della definizione di risorsa di macchina virtuale con il valore seguente:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -129,11 +138,7 @@ Di seguito è riportata la procedura per apportare le modifiche:
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Per distribuire il modello, seguire le istruzioni riportate in [Distribuire il modello](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template).
-
-Quando si distribuisce il modello con Azure PowerShell, è necessario specificare un parametro aggiuntivo. Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Vedere [Prerequisiti](#prerequisites).
+Seguire le istruzioni in [Distribuire il modello](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) per aprire Cloud Shell e caricare il modello aggiornato, quindi eseguire lo script di PowerShell seguente per distribuire il modello.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -162,12 +167,12 @@ Provare a ripetere la distribuzione con il parametro **newOrExisting** impostato
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure distribuite eliminando il gruppo di risorse.
+Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure distribuite eliminando il gruppo di risorse. Per eliminare il gruppo di risorse, selezionare **Prova** per aprire Cloud Shell. Per incollare lo script di PowerShell, fare clic con il pulsante destro del mouse sul riquadro della shell e quindi scegliere **Incolla**.
 
-1. Nel portale di Azure selezionare **Gruppo di risorse** nel menu a sinistra.
-2. Immettere il nome del gruppo di risorse nel campo **Filtra per nome**.
-3. Selezionare il nome del gruppo di risorse.  Nel gruppo di risorse verranno visualizzate in totale sei risorse.
-4. Selezionare **Elimina gruppo di risorse** nel menu in alto.
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

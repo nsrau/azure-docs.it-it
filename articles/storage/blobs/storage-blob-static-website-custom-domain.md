@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 4b074c9dee93ba44659b0321ae3eee7fbea1c61f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7320f5cd8d012973139adb099785cddae123f775
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145051"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949611"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Esercitazione: Usare la rete CDN di Azure per abilitare un dominio personalizzato con SSL per un sito Web statico
 
@@ -44,8 +44,9 @@ Accedere al [portale di Azure](https://portal.azure.com/) per iniziare.
 1. Nella sezione **Nuovo endpoint** compilare i campi per creare un nuovo endpoint della rete CDN.
 1. Immettere un nome di endpoint, ad esempio *mystaticwebsiteCDN*.
 1. Immettere il dominio del sito Web come nome host per l'endpoint di rete CDN.
-1. Per il nome host di origine, immettere l'endpoint del sito Web statico. Per individuare l'endpoint del sito Web statico, passare alla sezione **Sito Web statico** per l'account di archiviazione e copiare l'endpoint. 
+1. Per il nome host di origine, immettere l'endpoint del sito Web statico. Per individuare l'endpoint del sito Web statico, passare alla sezione **Sito Web statico** per l'account di archiviazione e copiare l'endpoint (rimuovere il precedente https://)
 1. Testare l'endpoint di rete CDN passando a *mywebsitecdn.azureedge.net* nel browser.
+1. Inoltre, verificare passando a **Nuovo endpoint** in impostazioni, origine, per verificare se il tipo di origine è impostato su *Origine personalizzata* e se il *Nome host dell'origine* visualizza il nome endpoint del sito Web statico.
 
 ## <a name="enable-custom-domain-and-ssl"></a>Abilitare il dominio personalizzato ed SSL
 

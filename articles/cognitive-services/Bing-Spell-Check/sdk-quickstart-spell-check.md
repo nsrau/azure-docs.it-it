@@ -1,32 +1,32 @@
 ---
-title: "Avvio rapido: Controllare l'ortografia con l'SDK Controllo ortografico Bing per C#"
+title: "Guida introduttiva: Controllare l'ortografia con l'SDK Controllo ortografico Bing per C#"
 titlesuffix: Azure Cognitive Services
 description: Introduzione all'uso dell'API REST Controllo ortografico Bing per controllare l'ortografia e la grammatica.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: v-gedod
-ms.openlocfilehash: 3487656f72f315aa15ce003a8dfd279c45d1f992
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aahi
+ms.openlocfilehash: adbb60c7ddbc72b8b7e5cb31c6909117ce3a10cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105744"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798371"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Avvio rapido: Controllare l'ortografia con l'SDK Controllo ortografico Bing per C#
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Guida introduttiva: Controllare l'ortografia con l'SDK Controllo ortografico Bing per C#
 
 Usare questa guida introduttiva per iniziare a eseguire il controllo ortografico con l'SDK Controllo ortografico Bing per C#. Mentre Controllo ortografico Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, l'SDK fornisce un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/SpellCheck).
 
 ## <a name="application-dependencies"></a>Dipendenze dell'applicazione
 
-* Qualsiasi edizione di [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://visualstudio.microsoft.com/downloads/).
 * [Pacchetto NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck) di Controllo ortografico Bing
 
-Per aggiungere l'SDK Controllo ortografico Bing a un progetto, fare cli su `Manage NuGet Packages` in Esplora soluzioni in Visual Studio. Aggiungere il pacchetto `Microsoft.Azure.CognitiveServices.Language.SpellCheck`. Il pacchetto installa anche le dipendenze seguenti:
+Per aggiungere l'SDK di Controllo ortografico Bing a un progetto, selezionare **Gestisci pacchetti NuGet** da **Esplora soluzioni** in Visual Studio. Aggiungere il pacchetto `Microsoft.Azure.CognitiveServices.Language.SpellCheck`. Il pacchetto installa anche le dipendenze seguenti:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure

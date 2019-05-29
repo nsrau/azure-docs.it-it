@@ -4,7 +4,7 @@ description: Informazioni sulle differenze tra Microsoft Authentication Library 
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2576121bfc945b90ce8ec0260ea30ec110e14dd8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138837"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785210"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrazione di applicazioni a MSAL.NET
 
@@ -192,7 +192,7 @@ Questo perché l'API di Resource Manager prevede una barra nell'attestazione dei
 La logica usata da Azure AD è la seguente:
 - Per l'endpoint ADAL (v1.0) con un token di accesso v1.0 (l'unico possibile), aud=resource
 - Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta i token v2.0, aud=resource.AppId
-- Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v1.0 (come nel caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutto ciò che precede l'ultima barra e usandolo come identificatore della risorsa. Di conseguenza, se https://database.windows.net prevede un gruppo di destinatari "https://database.windows.net/", è necessario richiedere un ambito https://database.windows.net//.default. Vedere anche il problema n. [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): se la barra finale dell'URL della risorsa viene omessa, si verifica un errore di autenticazione SQL n. 747
+- Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v1.0 (come nel caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutto ciò che precede l'ultima barra e usandolo come identificatore della risorsa. Di conseguenza, se https:\//database.windows.net prevede un gruppo di destinatari "https://database.windows.net/", è necessario richiedere un ambito di https:\//database.windows.net//.default. Vedere anche il problema n. [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): se la barra finale dell'URL della risorsa viene omessa, si verifica un errore di autenticazione SQL n. 747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a tutte le autorizzazioni di un'applicazione v1.0

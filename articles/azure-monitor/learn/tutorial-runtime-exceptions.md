@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 267e790cec3c915330f8f72053458527ee7bfead
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 19455998ca13b9abf48bb1cb3856e38b5c47ef52
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095569"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595599"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rilevare e diagnosticare le eccezioni di runtime con Azure Application Insights
 
@@ -34,7 +34,7 @@ Azure Application Insights raccoglie i dati di telemetria dall'applicazione per 
 
 Per completare questa esercitazione:
 
-- Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
+- Installare [Visual Studio 2019](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
     - Sviluppo Web e ASP.NET
     - Sviluppo di Azure
 - Scaricare e installare il [debugger di snapshot di Visual Studio](https://aka.ms/snapshotdebugger).
@@ -75,7 +75,7 @@ Application Insights raccoglie gli eventuali errori nell'applicazione e consente
     ![Dettagli eccezione](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Identificare il codice responsabile dell'errore
-Il debugger di snapshot raccoglie gli snapshot delle eccezioni più frequenti nell'applicazione per agevolare la diagnosi della causa radice nell'ambiente di produzione.  È possibile visualizzare gli snapshot di debug nel portale per vedere lo stack di chiamate e ispezionare le variabili in ogni stack frame di chiamate. In un secondo momento è possibile eseguire il debug del codice sorgente scaricando lo snapshot e aprendolo in Visual Studio 2017 Enterprise.
+Il debugger di snapshot raccoglie gli snapshot delle eccezioni più frequenti nell'applicazione per agevolare la diagnosi della causa radice nell'ambiente di produzione.  È possibile visualizzare gli snapshot di debug nel portale per vedere lo stack di chiamate e ispezionare le variabili in ogni stack frame di chiamate. In un secondo momento è possibile eseguire il debug del codice sorgente scaricando lo snapshot e aprendolo in Visual Studio 2019 Enterprise.
 
 1. Nelle proprietà dell'eccezione fare clic su **Apri snapshot di debug**.
 2. Verrà aperto il pannello **Snapshot di debug** con lo stack di chiamate per la richiesta.  Fare clic su uno dei metodi per visualizzare i valori di tutte le variabili locali al momento della richiesta.  A partire dal primo metodo in questo esempio, è possibile vedere le variabili locali che non hanno alcun valore.

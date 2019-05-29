@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Knowledge Store (anteprima) - Ricerca di Azure
+title: Introduzione al knowledge store (anteprima) - Ricerca di Azure
 description: Informazioni sulla procedura per inviare documenti arricchiti creati da pipeline di indicizzazione basate sull'intelligenza artificiale in Ricerca di Azure a un knowledge store nell'account di archiviazione di Azure, da cui è possibile visualizzare, trasformare e utilizzare i documenti arricchiti in Ricerca di Azure e in altre applicazioni.
 manager: cgronlun
 author: HeidiSteen
@@ -8,16 +8,20 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: e7be2dfc811caa087726339846a1de2516f1e2b2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471748"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540735"
 ---
-# <a name="how-to-get-started-with-knowledge-store"></a>Introduzione a Knowledge Store
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Introduzione al knowledge store in Ricerca di Azure
 
-[Knowledge Store](knowledge-store-concept-intro.md) è una nuova funzionalità di anteprima disponibile in Ricerca di Azure che consente di salvare in altre app arricchimenti basati sull'intelligenza artificiale creati in una pipeline di indicizzazione per il knowledge mining. È anche possibile usare gli arricchimenti salvati per comprendere e ottimizzare una pipeline di indicizzazione di Ricerca di Azure.
+> [!Note]
+> Il knowledge store è in anteprima e non ne è previsto l'uso in ambienti di produzione. Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
+>
+
+Il [knowledge store](knowledge-store-concept-intro.md) consente di salvare gli arricchimenti basati sull'intelligenza artificiale creati durante l'indicizzazione nell'account di archiviazione di Azure per il knowledge mining downstream in altre app. È anche possibile usare gli arricchimenti salvati per comprendere e ottimizzare una pipeline di indicizzazione di Ricerca di Azure.
 
 Un knowledge store è definito da una set di competenze. Nei normali scenari di ricerca full-text di Ricerca di Azure si usa un set di competenze per fornire arricchimenti basati sull'intelligenza artificiale e facilitare ulteriormente la ricerca nel contenuto. Negli scenari di knowledge mining si usa invece un set di competenze per creare, popolare e archiviare più strutture dei dati per l'analisi o la modellazione in altre app o altri processi.
 

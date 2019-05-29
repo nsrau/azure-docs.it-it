@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 58fb1d73509ab52551bead4526dfb47588cf1ec6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004585"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965725"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Informazioni sull'anteprima di Desktop virtuale Windows 
 
@@ -54,16 +54,13 @@ Con Desktop virtuale Windows è possibile configurare un ambiente scalabile e fl
 
 Sono necessari alcuni requisiti per configurare Desktop virtuale Windows e collegare correttamente gli utenti ai relativi desktop e applicazioni Windows.
 
-Desktop virtuale Windows supporta attualmente solo i due sistemi operativi seguenti:
-- Windows 10 Enterprise multisessione
-- Windows Server 2016
-
 Si prevede l'aggiunta di supporto per i seguenti sistemi operativi, assicurarsi quindi di avere le [licenze appropriate](https://azure.microsoft.com/pricing/details/virtual-desktop/) per gli utenti in base al desktop e alle app che si prevede di distribuire:
 
 |OS|Licenza richiesta|
 |---|---|
-
-|Windows 10 Enterprise multisessione o Windows 10 Enterprise|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5| |Windows 7 Enterprise |Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5| |Windows Server 2012 R2, 2016, 2019|Licenza CAL Servizi Desktop remoto con Software Assurance|
+|Windows 10 Enterprise multisessione o Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows Server 2012 R2, 2016, 2019|Licenza CAL Servizi Desktop remoto con Software Assurance|
 
 L'infrastruttura richiede quanto segue per supportare Desktop virtuale Windows:
 
@@ -76,9 +73,7 @@ L'infrastruttura richiede quanto segue per supportare Desktop virtuale Windows:
 Le macchine virtuali Azure che create per Desktop virtuale Windows devono essere:
 
 * [Aggiunte a un dominio standard](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) oppure [aggiunte ad AD ibrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Le macchine virtuali non possono essere aggiunte ad Azure AD.
-* Eseguire una delle immagini del sistema operativo supportate seguenti:
-  * Windows 10 Enterprise multisessione
-  * Windows Server 2016
+* In esecuzione su una delle [immagini del sistema operativo supportate](#supported-virtual-machine-os-image) seguenti.
 
 >[!NOTE]
 >Se è necessaria una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita di un mese](https://azure.microsoft.com/free/). Se si usa la versione di valutazione gratuita di Azure, è necessario usare Azure AD Domain Services per mantenere Windows Server Active Directory sincronizzato con Azure Active Directory.
@@ -88,8 +83,23 @@ Desktop virtuale Windows comprende i desktop e le app Windows distribuiti agli u
 Per prestazioni ottimali, assicurarsi che la rete soddisfi i requisiti seguenti:
 
 * La latenza di round trip (RTT) dalla rete del client all'area di Azure in cui sono stati distribuiti i pool di host deve essere inferiore a 150 ms.
-* Il flusso del traffico di rete può avvenire al di fuori dei confini nazionali quando le macchine virtuali che ospitano i desktop e le app si collegano al servizio di gestione.
+* Il flusso del traffico di rete può avvenire al di fuori dei confini del paese o dell'area geografica quando le macchine virtuali che ospitano i desktop e le app si collegano al servizio di gestione.
 * Per ottimizzare le prestazioni della rete, si consiglia di collocare le macchine virtuali dell'host della sessione nella stessa area di Azure del servizio di gestione.
+
+## <a name="supported-remote-desktop-clients"></a>Client Desktop remoto supportati
+
+I seguenti client Desktop remoto supportano Desktop virtuale Windows:
+
+* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
+* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+
+
+## <a name="supported-virtual-machine-os-image"></a>Immagini di sistema operativo supportate per le macchine virtuali
+
+Desktop virtuale Windows supporta le immagini di sistema operativo seguenti:
+
+* Windows 10 Enterprise multisessione
+* Windows Server 2016
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 

@@ -11,14 +11,14 @@ ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori, microservizi e Java in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Java, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: c1c039ba8696baff11abed3930998983647f4356
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 26efa17ee699aed87ecfbbd21e7880e7538de4ea
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425747"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979122"
 ---
-# <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Avvio rapido: Sviluppare con Java in Kubernetes usando Azure Dev Spaces
+# <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Guida introduttiva: Sviluppare con Java in Kubernetes usando Azure Dev Spaces
 
 In questa guida si apprenderà come:
 
@@ -41,7 +41,7 @@ In questa guida si apprenderà come:
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Abilitare Azure Dev Spaces nel cluster del servizio Azure Kubernetes
@@ -113,7 +113,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-Per vedere il servizio in esecuzione, aprire l'URL pubblico, visualizzato nell'output del comando `azds up`. In questo esempio l'URL pubblico è *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
+Per vedere il servizio in esecuzione, aprire l'URL pubblico, visualizzato nell'output del comando `azds up`. In questo esempio l'URL pubblico è *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
 
 Se si arresta il comando `azds up` premendo *CTRL+C*, il servizio continuerà a essere eseguito nel servizio Azure Kubernetes e l'URL pubblico rimarrà disponibile.
 
@@ -122,7 +122,7 @@ Se si arresta il comando `azds up` premendo *CTRL+C*, il servizio continuerà a 
 Per distribuire una versione aggiornata del servizio, è possibile aggiornare qualsiasi file del progetto ed eseguire di nuovo il comando `azds up`. Ad esempio: 
 
 1. Se `azds up` è ancora in esecuzione, premere *CTRL+C*.
-1. Aggiornare la [riga 16 di `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L16) in:
+1. Aggiornare la [riga 19 di `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) in:
     
     ```java
     return "Hello from webfrontend in Azure!";
@@ -178,17 +178,17 @@ Fare clic su *Debug* e quindi su *Arresta debug* per arrestare il debugger.
 
 Avviare il servizio in modalità debug usando *Launch Java Program (AZDS)* (Avvia programma Java AZDS).
 
-Tornare nella visualizzazione *Explorer* facendo clic su *Visualizza* e quindi su *Explorer*. Aprire `src/main/java/com/ms/sample/webfrontend/Application.java` e fare clic in un punto della riga 16 per posizionarvi il cursore. Per impostare un punto di interruzione premere *F9* oppure fare clic su *Debug* e quindi su *Attiva/Disattiva punto di interruzione*.
+Tornare nella visualizzazione *Explorer* facendo clic su *Visualizza* e quindi su *Explorer*. Aprire `src/main/java/com/ms/sample/webfrontend/Application.java` e fare clic in un punto della riga 19 per posizionarvi il cursore. Per impostare un punto di interruzione premere *F9* oppure fare clic su *Debug* e quindi su *Attiva/Disattiva punto di interruzione*.
 
-Aprire il servizio in un browser e notare che non vengono visualizzati messaggi. Tornare in Visual Studio Code e notare che la riga 16 è evidenziata. Il punto di interruzione impostato ha sospeso il servizio in corrispondenza della riga 16. Per riprendere il servizio, premere *F5* oppure fare clic su *Debug* e quindi su *Continua*. Tornare nel browser e notare che ora il messaggio è visualizzato.
+Aprire il servizio in un browser e notare che non vengono visualizzati messaggi. Tornare in Visual Studio Code e notare che la riga 19 è evidenziata. Il punto di interruzione impostato ha sospeso il servizio in corrispondenza della riga 19. Per riprendere il servizio, premere *F5* oppure fare clic su *Debug* e quindi su *Continua*. Tornare nel browser e notare che ora il messaggio è visualizzato.
 
 Durante l'esecuzione del servizio in Kubernetes con un debugger collegato, si ha accesso completo alle informazioni di debug, ad esempio su stack di chiamate, variabili locali ed eccezioni.
 
-Rimuovere il punto di interruzione posizionando il cursore sulla riga 16 di `src/main/java/com/ms/sample/webfrontend/Application.java` e premendo *F9*.
+Rimuovere il punto di interruzione posizionando il cursore sulla riga 19 di `src/main/java/com/ms/sample/webfrontend/Application.java` e premendo *F9*.
 
 ## <a name="update-code-from-visual-studio-code"></a>Aggiornare il codice da Visual Studio Code
 
-Mentre il servizio è in esecuzione in modalità debug, aggiornare la riga 16 di `src/main/java/com/ms/sample/webfrontend/Application.java`. Ad esempio: 
+Mentre il servizio è in esecuzione in modalità debug, aggiornare la riga 19 di `src/main/java/com/ms/sample/webfrontend/Application.java`. Ad esempio: 
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```

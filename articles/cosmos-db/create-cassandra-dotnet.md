@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: API Cassandra con .NET - Azure Cosmos DB'
+title: 'Guida introduttiva: API Cassandra con .NET - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e .NET
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -8,14 +8,14 @@ ms.author: sngun
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e43b2d6f5a127f7f0f81c2dfc2fd3737c9ee787
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1afdc0319ae26fcd6c8cb3ada0b4aa8c31fe1fbb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880263"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861315"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con .NET SDK e Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app Cassandra con .NET SDK e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -33,7 +33,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]In alternativa, è possibile [provare gratuitamente Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure e senza impegno.
 
 È anche necessario: 
-* Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** di [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
+* Se Visual Studio 2019 non è ancora installato, è possibile scaricare e usare l'edizione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
 * Installare [Git](https://www.git-scm.com/) per clonare l'esempio.
 
 <a id="create-account"></a>
@@ -122,7 +122,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     ![Visualizzare e copiare un chiave di accesso dalla pagina Stringa di connessione del portale di Azure](./media/create-cassandra-dotnet/keys.png)
 
-2. In Visual Studio 2017 aprire il file Program.cs. 
+2. In Visual Studio aprire il file Program.cs. 
 
 3. Incollare il valore di NOME UTENTE dal portale su `<FILLME>` nella riga 13.
 

@@ -1,7 +1,7 @@
 ---
-title: 'Avvio rapido: Eseguire il training di un modello ed estrarre dati dai moduli con cURL - Riconoscimento modulo'
+title: 'Guida introduttiva: Eseguire il training di un modello ed estrarre dati dai moduli con cURL - Riconoscimento modulo'
 titleSuffix: Azure Cognitive Services
-description: In questa guida di avvio rapido si userà l'API REST di Riconoscimento modulo con cURL per eseguire il training di un modello ed estrarre dati dai moduli.
+description: In questo argomento di avvio rapido si userà l'API REST di riconoscimento modulo con cURL per eseguire il training di un modello ed estrarre dati dai moduli.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,35 +9,51 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 36f98a8dea2a732a7f8504b160da895637366fc8
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: bd68e2803b3b538011cfa37378890f2cc7b22223
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471894"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65907002"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Avvio rapido: Eseguire il training di un modello di Riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con cURL
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Guida introduttiva: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con cURL
 
-In questa guida di avvio rapido si userà l'API REST di Riconoscimento modulo con cURL per eseguire il training e assegnare punteggi ai moduli in modo da estrarre coppie chiave-valore e tabelle.
+In questo argomento di avvio rapido si userà l'API REST di riconoscimento modulo di Azure con cURL per eseguire il training e assegnare punteggi ai moduli in modo da estrarre coppie chiave-valore e tabelle.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
+Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
+- Accesso all'anteprima dell'API di riconoscimento modulo ad accesso limitato. Per avere accesso all'anteprima, completare e inviare il modulo di [richiesta di accesso al riconoscimento modulo](https://aka.ms/FormRecognizerRequestAccess).
+- [cURL](https://curl.haxx.se/windows/) installato.
+- Un set di almeno cinque moduli dello stesso tipo. Per questa guida di avvio rapido, è possibile usare un [set di dati](https://go.microsoft.com/fwlink/?linkid=2090451) di esempio.
 
-* È necessario avere accesso all'anteprima di Riconoscimento modulo ad accesso limitato. Per ottenere accesso all'anteprima, compilare e inviare il modulo di [richiesta di accesso a Riconoscimento modulo di Servizi cognitivi](https://aka.ms/FormRecognizerRequestAccess). 
-* È necessario avere [cURL](https://curl.haxx.se/windows/).
-* È necessario avere una chiave di sottoscrizione per Riconoscimento modulo. Seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere Riconoscimento modulo e ottenere la chiave.
-* È necessario avere un set minimo di cinque moduli dello stesso tipo. Per questo argomento di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451).
+## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
+
+Quando viene concesso l'accesso per l'uso del riconoscimento modulo, si riceve un messaggio di posta elettronica di benvenuto con più collegamenti e risorse. Usare il collegamento al portale di Azure nel messaggio per aprire il portale di Azure e creare una risorsa di riconoscimento modulo. Nel riquadro **Crea** specificare le informazioni seguenti:
+
+|    |    |
+|--|--|
+| **Nome** | Nome per la risorsa. È consigliabile usare un nome descrittivo, ad esempio *MyNameFormRecognizer*. |
+| **Sottoscrizione** | Selezionare la sottoscrizione di Azure a cui è stato concesso l'accesso. |
+| **Posizione** | Posizione dell'istanza di Servizi cognitivi. Posizioni diverse possono introdurre latenza, ma non hanno alcun impatto sulla disponibilità di runtime della risorsa. |
+| **Piano tariffario** | Il costo della risorsa varia a seconda del piano tariffario selezionato e dell'utilizzo. Per altre informazioni, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) delle API.
+| **Gruppo di risorse** | [Gruppo di risorse di Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) che conterrà la risorsa. È possibile creare un nuovo gruppo o aggiungerla a un gruppo già esistente. |
+
+> [!IMPORTANT]
+> In genere, quando si crea una risorsa di Servizi cognitivi nel portale di Azure, si ha la possibilità di creare una chiave di sottoscrizione multiservizio (usata per più servizi cognitivi) o una chiave di sottoscrizione per singolo servizio (usata solo con un determinato servizio cognitivo). L'API di riconoscimento modulo è tuttavia disponibile in versione di anteprima. Non è quindi inclusa nella sottoscrizione multiservizio e non è possibile creare la sottoscrizione per singolo servizio se non tramite il collegamento riportato nel messaggio di posta elettronica di benvenuto.
+
+Quando la distribuzione della risorsa di riconoscimento modulo è completata, individuarla e selezionarla dall'elenco **Tutte le risorse** nel portale. Selezionare quindi la scheda **Chiavi** per visualizzare le chiavi della sottoscrizione. L'app potrà accedere alla risorsa con una delle due chiavi. Copiare il valore di **CHIAVE 1**, che sarà necessario nella sezione successiva.
 
 ## <a name="train-a-form-recognizer-model"></a>Eseguire il training di un modello di Riconoscimento modulo
 
-Prima di tutto, è necessario avere un set di dati di training. È possibile usare i dati di un BLOB di Azure oppure dati di training locali. È necessario avere almeno cinque moduli di esempio (documenti PDF e/o immagini) dello stesso tipo/struttura dei dati di input principali. In alternativa, è possibile usare un singolo modulo vuoto. Il nome file del modulo include il termine "vuoto".
+Prima di tutto, è necessario avere un set di dati di training. È possibile usare i dati di un BLOB di Azure oppure i dati di training locali. È necessario avere almeno cinque moduli di esempio (documenti PDF e/o immagini) dello stesso tipo/struttura dei dati di input principali. In alternativa, è possibile usare un solo modulo vuoto. Il nome del file del modulo deve includere la parola "empty".
 
-Per eseguire il training di un modello di Riconoscimento modulo usando i documenti del contenitore BLOB di Azure, chiamare l'API **Train** eseguendo il comando cURL seguente. Prima di eseguire il comando, apportare le modifiche seguenti:
+Per eseguire il training di un modello di riconoscimento modulo usando i documenti del contenitore BLOB di Azure, chiamare l'API **Train** eseguendo il comando cURL seguente. Prima di eseguire il comando, apportare queste modifiche:
 
-* Sostituire `<Endpoint>` con l'endpoint ottenuto dalla chiave di sottoscrizione di Riconoscimento modulo, disponibile nella scheda di panoramica della risorsa Riconoscimento modulo.
-* Sostituire `<SAS URL>` con l'URL della firma di accesso condiviso del contenitore di archiviazione BLOB di Azure in cui si trovano i dati di training.  
-* Sostituire `<subscription key>` con la chiave di sottoscrizione.
+1. Sostituire `<Endpoint>` con l'endpoint ottenuto dalla chiave di sottoscrizione di riconoscimento modulo, disponibile nella scheda **Overview** (Panoramica) della risorsa di riconoscimento modulo.
+1. Sostituire `<SAS URL>` con l'URL della firma di accesso condiviso del contenitore di archiviazione BLOB di Azure in cui si trovano i dati di training.  
+1. Sostituire `<subscription key>` con la chiave di sottoscrizione copiata nel passaggio precedente.
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
@@ -84,17 +100,18 @@ Si riceverà una risposta `200 (Success)` con l'output JSON seguente:
 }
 ```
 
-Prendere nota del valore di `"modelId"`, perché sarà necessario nei passaggi successivi.
+Prendere nota del valore di `"modelId"`. Sarà necessario nei passaggi successivi.
   
 ## <a name="extract-key-value-pairs-and-tables-from-forms"></a>Estrarre le coppie chiave-valore e le tabelle dai moduli
 
-Analizzare un documento ed estrarre le coppie chiave-valore e le tabelle. Chiamare l'API **Model - Analyze** eseguendo il comando cURL seguente. Prima di eseguire il comando, apportare le modifiche seguenti:
+A questo punto, si analizzerà un documento e si estrarranno le coppie chiave-valore e le tabelle. Chiamare l'API **Model - Analyze** eseguendo il comando cURL seguente. Prima di eseguire il comando, apportare queste modifiche:
 
-* Sostituire `<Endpoint>` con l'endpoint ottenuto dalla chiave di sottoscrizione di Riconoscimento modulo, disponibile nella scheda **Overview** (panoramica) della risorsa Riconoscimento modulo.
-* Sostituire `<modelID>` con l'ID modello ricevuto nel precedente passaggio di training del modello.
-* Sostituire `<path to your form>` con il percorso del file del modulo.
-* Sostituire `<subscription key>` con la chiave di sottoscrizione.
-* Sostituire `<file type>` con il tipo di file. I tipi supportati sono pdf, immagine/jpeg, immagine/png.
+1. Sostituire `<Endpoint>` con l'endpoint ottenuto dalla chiave di sottoscrizione di riconoscimento modulo, disponibile nella scheda **Overview** (Panoramica) della risorsa di riconoscimento modulo.
+1. Sostituire `<modelID>` con l'ID modello ricevuto nella sezione precedente.
+1. Sostituire `<path to your form>` con il percorso del file del modulo.
+1. Sostituire `<file type>` con il tipo di file. Tipi supportati: pdf, image/jpeg, image/png.
+1. Sostituire `<subscription key>` con la chiave di sottoscrizione.
+
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
@@ -102,7 +119,7 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<mode
 
 ### <a name="examine-the-response"></a>Esaminare i risultati
 
-In JSON viene restituita una risposta di operazione riuscita, che rappresenta le coppie chiave-valore e le tabelle estratte dal modulo.
+Viene restituita una risposta con esito positivo in formato JSON. Rappresenta le coppie chiave-valore e le tabelle estratte dal modulo:
 
 ```bash
 {
@@ -427,7 +444,7 @@ In JSON viene restituita una risposta di operazione riuscita, che rappresenta le
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida sono state usate le API REST di Riconoscimento modulo con cURL per eseguire il training di un modello ed eseguirlo in un caso di esempio. A questo punto, vedere la documentazione di riferimento per esplorare l'API Riconoscimento modulo in maggior dettaglio.
+In questo argomento di avvio rapido è stata usata l'API REST di riconoscimento modulo con cURL per eseguire il training di un modello e quindi eseguire il modello in uno scenario di esempio. A questo punto, vedere la documentazione di riferimento per esplorare l'API di Riconoscimento modulo in maggior dettaglio.
 
 > [!div class="nextstepaction"]
 > [Documentazione di riferimento delle API REST](https://aka.ms/form-recognizer/api)

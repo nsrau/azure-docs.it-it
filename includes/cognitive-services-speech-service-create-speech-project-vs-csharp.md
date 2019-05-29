@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 7a028f65467c517be59be6f0c6d2c45ef9a7685e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: afe6f1493c7fa8272c67f23d6708ad6e4eea9381
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285697"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145494"
 ---
 1. Avviare Visual Studio 2017.
 
@@ -19,7 +19,7 @@ ms.locfileid: "51285697"
 
    ![Abilitare lo sviluppo per desktop .NET](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
-1. A questo punto, creiamo un progetto. Nella barra dei menu selezionare **File > Nuovo > Progetto**. Quando viene visualizzata la finestra di dialogo, nel pannello sinistro espandere queste sezioni **Installati > Visual C# > Windows Desktop** e selezionare **App console (.NET Framework)**. Assegnare a questo progetto il nome *helloworld*.
+1. A questo punto, creiamo un progetto. Nella barra dei menu selezionare **File > Nuovo > Progetto**. Quando viene visualizzata la finestra di dialogo, nel pannello sinistro espandere queste sezioni **Installati > Visual C# > Windows Desktop** e selezionare **App console (.NET Framework)** . Assegnare a questo progetto il nome *helloworld*.
 
     ![Creare App console Visual C# (.NET Framework)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-01-new-console-app.png "Creare App console Visual C# (.NET Framework)")
 

@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Usare l'SDK di Ricerca Web Bing per Python"
+title: "Guida introduttiva: Usare l'SDK di Ricerca Web Bing per Python"
 titleSuffix: Azure Cognitive Services
 description: L'SDK di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Python. In questa guida introduttiva si apprenderà come inviare una richiesta, ricevere una risposta JSON e filtrare e analizzare i risultati.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 273922c8cf48c24ff3b1b55fa44b36b69e061057
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6758fc5434406e42acf65ff3b712227b5cec0f8
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863900"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991629"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Avvio rapido: Usare l'SDK di Ricerca Web Bing per Python
+# <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Guida introduttiva: Usare l'SDK di Ricerca Web Bing per Python
 
 L'SDK di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Python. In questa guida introduttiva si apprenderà come inviare una richiesta, ricevere una risposta JSON e filtrare e analizzare i risultati.
 
@@ -93,8 +93,8 @@ Se la risposta contiene pagine Web, immagini, notizie o video, viene stampato il
     # Replace with your subscription key.
     subscription_key = "YOUR_SUBSCRIPTION_KEY"
 
-    # Instantiate the client.
-    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+    # Instantiate the client and replace with your endpoint.
+    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key), base_url = "YOUR_ENDPOINT")
 
     # Make a request. Replace Yosemite if you'd like.
     web_data = client.web.search(query="Yosemite")
@@ -164,7 +164,9 @@ Se la risposta contiene pagine Web, immagini, notizie o video, viene stampato il
         print("Didn't find any videos...")
     ```
 
-1. Sostituire `subscription_key` con una chiave di sottoscrizione valida.
+1. Sostituire `SUBSCRIPTION_KEY` con una chiave di sottoscrizione valida.
+
+1. Sostituire `YOUR_ENDPOINT` con l'URL dell'endpoint nel portale.
 
 1. Eseguire il programma. Ad esempio: `python your_program.py`.
 

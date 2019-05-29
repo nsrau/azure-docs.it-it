@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 17aaff1a6da2c18e9b1d915f61844635b1ad130b
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231161"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001450"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
@@ -32,7 +32,7 @@ Questo argomento di avvio rapido descrive come implementare l'accesso con Micros
 Al termine di questa guida introduttiva, l'applicazione accetterà gli accessi di account aziendali e dell'istituto di istruzione di organizzazioni integrate con Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> Se è necessario abilitare gli accessi per gli account personali, oltre che per gli account aziendali e dell'istituto di istruzione, è possibile usare l'*[endpoint di Microsoft Identity Platform](azure-ad-endpoint-comparison.md)*. Per altre informazioni, vedere [questa esercitazione su ASP.NET](tutorial-v2-asp-webapp.md) e [questo articolo](active-directory-v2-limitations.md) che illustra le caratteristiche dell'*endpoint di Microsoft Identity Platform*.
+> Se è necessario abilitare gli accessi per gli account personali, oltre che per gli account aziendali e dell'istituto di istruzione, è possibile usare l' *[endpoint di Microsoft Identity Platform](azure-ad-endpoint-comparison.md)* . Per altre informazioni, vedere [questa esercitazione su ASP.NET](tutorial-v2-asp-webapp.md) e [questo articolo](active-directory-v2-limitations.md) che illustra le caratteristiche dell'*endpoint di Microsoft Identity Platform*.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -70,7 +70,7 @@ Se invece si preferisce scaricare questo progetto Visual Studio di esempio, atte
 ## <a name="step-2-create-your-aspnet-project"></a>Passaggio 2: Creare un progetto ASP.NET
 
 1. In Visual Studio passare a **File > Nuovo > Progetto**.
-2. Per **Tipo di progetto** selezionare **Web** e quindi selezionare **Applicazione Web ASP.NET (.NET Framework)**.
+2. Per **Tipo di progetto** selezionare **Web** e quindi selezionare **Applicazione Web ASP.NET (.NET Framework)** .
 3. Assegnare un nome all'applicazione e selezionare **Crea**.
 4. Selezionare **Vuoto** e quindi selezionare **MVC** in **Aggiungi cartelle e riferimenti principali** per aggiungere i riferimenti MVC.
 5. Selezionare **Create**.
@@ -199,14 +199,15 @@ In Visual Studio creare una nuova visualizzazione per mostrare le attestazioni d
 
 ### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Registrare l'applicazione nel portale di Azure, quindi aggiungere le informazioni associate in *web.config*
 
-1. Passare al [portale di Microsoft Azure - Registrazioni per l'app](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) per registrare un'applicazione.
-2. Selezionare **Registrazione nuova applicazione**.
-3. Immettere un nome per l'applicazione.
-4. Incollare l'*URL SSL* del progetto Visual Studio in **URL di accesso**. Questo URL viene anche aggiunto automaticamente all'elenco di URL di risposta per l'applicazione che si sta registrando.
-5. Selezionare **Crea** per registrare l'applicazione. Questa azione consente di tornare all'elenco di applicazioni.
-6. A questo punto, eseguire la ricerca e/o selezionare l'applicazione appena creata per aprirne le relative proprietà.
-7. Copiare il GUID in **ID applicazione** negli Appunti.
-8. Tornare a Visual Studio e in `web.config` sostituire `Enter_the_Application_Id_here` con l'ID applicazione dell'applicazione registrata.
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+2. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
+3. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori.
+4. Selezionare **Nuova registrazione**.
+5. Nella pagina **Registra un'applicazione** visualizzata immettere il nome dell'applicazione.
+6. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
+7. Selezionare la piattaforma **Web** nella sezione **URI di reindirizzamento** e impostare il valore sull'*URL SSL* del progetto di Visual Studio, corrispondente alla posizione in cui Azure AD restituirà i token.
+78. Al termine, selezionare **Registra**. Nella pagina **Panoramica**  dell'app copiare il valore del campo **ID applicazione (client)** .
+9. Tornare a Visual Studio e in `web.config` sostituire `Enter_the_Application_Id_here` con l'ID applicazione dell'applicazione registrata.
 
 > [!TIP]
 > Se l'account è configurato per l'accesso a più directory, assicurarsi di avere selezionato la directory corretta per l'organizzazione per cui si intende registrare l'applicazione facendo clic sul nome account in alto a destra nel portale di Azure e quindi verificando la directory selezionata come indicato:<br/>![Selezione della directory corretta](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
@@ -279,7 +280,7 @@ Quando si è pronti per eseguire il test, usare un account aziendale (Azure AD) 
 
 #### <a name="expected-results"></a>Risultati previsti
 
-Dopo l'accesso, l'utente viene reindirizzato alla home page del sito Web, ovvero all'URL HTTPS specificato nelle informazioni di registrazione dell'applicazione nel portale di registrazione delle applicazioni Microsoft. Nella pagina vengono ora visualizzati *Hello {utente}*, un collegamento per la disconnessione e uno per visualizzare le attestazioni dell'utente, ossia un collegamento al controller Authorize creato in precedenza.
+Dopo l'accesso, l'utente viene reindirizzato alla home page del sito Web, ovvero all'URL HTTPS specificato nelle informazioni di registrazione dell'applicazione nel portale di registrazione delle applicazioni Microsoft. Nella pagina vengono ora visualizzati *Hello {utente}* , un collegamento per la disconnessione e uno per visualizzare le attestazioni dell'utente, ossia un collegamento al controller Authorize creato in precedenza.
 
 ### <a name="see-users-claims"></a>Visualizzare le attestazioni dell'utente
 

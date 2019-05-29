@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 80e5feeccc4acc3e1f3dab6b815c8605332c7c71
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143252"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834335"
 ---
 # <a name="personalizer-settings"></a>Impostazioni di Personalizza esperienze
 
@@ -35,7 +35,7 @@ Creare una risorsa di Personalizza esperienze per ogni ciclo di feedback.
 1. Trovare la risorsa di Personalizza esperienze. 
 1. Nella sezione **Gestione risorse** selezionare **Impostazioni**.
 
-    Prima di uscire dal portale di Azure, copiare una delle chiavi di risorsa dalla pagina **Chiavi**. Tale chiave sarà necessaria per usare [Personalizer SDK](https://aka.ms/personalizer-dotnet-sdk-docs).
+    Prima di uscire dal portale di Azure, copiare una delle chiavi di risorsa dalla pagina **Chiavi**. Tale chiave sarà necessaria per usare [Personalizer SDK](https://go.microsoft.com/fwlink/?linkid=2092353).
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Configurare le impostazioni delle ricompense per il ciclo di feedback in base al caso d'uso
 
@@ -87,4 +87,7 @@ Nella sezione **Model and Policy** (Modello e criteri) di Gestione risorse impor
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Come usare il contenitore di Personalizza esperienze](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+<!--
+[How to use the Personalizer container](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+-->
+[Informazioni sulla disponibilità in base all'area geografica](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

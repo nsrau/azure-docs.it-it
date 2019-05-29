@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8201b4089759fb55fae12820f7495664c502837e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 24c6df6a06d08249f236fc36d64b4204b0103b3c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023639"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540890"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Che cos'è la ricerca cognitiva in Ricerca di Azure?
 
@@ -61,7 +61,7 @@ Internamente, la pipeline genera una raccolta di documenti arricchiti. È possib
 
 L'[API REST del servizio Ricerca api-version=2019-05-06](search-api-preview.md) estende i set di competenze con una definizione di knowledgeStore che fornisce una connessione all'archiviazione di Azure e proiezioni che descrivono la modalità di archiviazione degli arricchimenti. 
 
-L'aggiunta di un knowledge store a un set di competenze consente di proiettare una rappresentazione degli arricchimenti per scenari diversi da quelli della ricerca full-text. Per altre informazioni, vedere [Che cos'è Knowledge Store in Ricerca di Azure?](knowledge-store-concept-intro.md).
+L'aggiunta di un knowledge store a un set di competenze consente di proiettare una rappresentazione degli arricchimenti per scenari diversi da quelli della ricerca full-text. Per altre informazioni, vedere [Che cos'è Knowledge Store](knowledge-store-concept-intro.md).
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Passaggio 3: Indice di ricerca e accesso basato su query
 

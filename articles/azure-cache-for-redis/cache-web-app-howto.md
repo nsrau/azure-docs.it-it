@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bac43ef17116dcb2d6a6bb3dd7c1617d91a010d9
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886370"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864828"
 ---
-# <a name="quickstart-create-an-aspnet-web-app"></a>Avvio rapido: Creare un'app Web ASP.NET 
+# <a name="quickstart-create-an-aspnet-web-app"></a>Guida introduttiva: Creare un'app Web ASP.NET 
 
 ## <a name="introduction"></a>Introduzione
 
-Questa guida introduttiva illustra come creare e distribuire un'applicazione Web ASP.NET in Servizio app di Azure usando Visual Studio 2017. L'applicazione di esempio si connette a Cache Redis di Azure per archiviare e recuperare i dati dalla cache. Al termine della guida introduttiva, si avrà un'app Web in esecuzione, ospitata in Azure, che legge e scrive in Cache Redis di Azure.
+Questo argomento di avvio rapido illustra come creare e distribuire un'applicazione Web ASP.NET in Servizio app di Azure usando Visual Studio 2019. L'applicazione di esempio si connette a Cache Redis di Azure per archiviare e recuperare i dati dalla cache. Al termine della guida introduttiva, si avrà un'app Web in esecuzione, ospitata in Azure, che legge e scrive in Cache Redis di Azure.
 
 ![Test semplice completato in Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -34,7 +34,7 @@ Questa guida introduttiva illustra come creare e distribuire un'applicazione Web
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida introduttiva, è necessario installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con gli ambienti seguenti:
+Per completare questa guida di avvio rapido, è necessario installare [Visual Studio 2019](https://www.visualstudio.com/downloads/) con gli ambienti seguenti:
 * Sviluppo Web e ASP.NET
 * Sviluppo di Azure
 
@@ -46,7 +46,7 @@ Per completare questa guida introduttiva, è necessario installare [Visual Studi
 
     ![Crea progetto](./media/cache-web-app-howto/cache-create-project.png)
 
-    a. Nell'elenco **Modelli** espandere il nodo **Visual C#**.
+    a. Nell'elenco **Modelli** espandere il nodo **Visual C#** .
 
     b. Selezionare **Cloud**.
 
