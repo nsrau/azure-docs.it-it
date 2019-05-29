@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/28/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: aba8f9b2b4e62420ed5d318be40bbc4ada544866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10e5060c06e1ebc591c7245ae588b5352a3328ca
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203154"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302835"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installare ed eseguire contenitori di riconoscimento del testo
 
@@ -55,7 +55,7 @@ La tabella seguente indica i core CPU minimi e consigliati e la memoria da alloc
 |Riconoscimento del testo|1 core, 8 GB di memoria, 0,5 TPS|2 core, 8 GB di memoria, 1 TPS|0.5, 1|
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
-* Programmi di transazione - transazioni al secondo
+* TPS - transazioni al secondo
 
 Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
 
@@ -89,7 +89,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Il comando usa i parametri seguenti:
 
-| Placeholder | Value |
+| Segnaposto | Value |
 |-------------|-------|
 |{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore e sono disponibile in Azure `Cognitive Services` pagina chiavi.  |
 |{BILLING_ENDPOINT_URI} | Valore dell'URI dell'endpoint di fatturazione. L'esempio è: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
@@ -157,7 +157,11 @@ I contenitori Riconoscimento del testo inviano le informazioni di fatturazione a
 
 Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./computer-vision-resource-container-config.md).
 
-## <a name="summary"></a>Summary
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
+
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori di Riconoscimento del testo. In sintesi:
 

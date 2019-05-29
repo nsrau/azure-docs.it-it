@@ -7,14 +7,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: aahi
-ms.openlocfilehash: cc82e091ae4c033bda7f1d91c9aed36bb081de88
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ec32d5de9e3af14abbf14f79f37ab00f3346b1c1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233625"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306989"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installare ed eseguire i contenitori di rilevatore di anomalie
 
@@ -22,7 +22,7 @@ Il rilevatore di anomalie ha contenitore seguente:
 
 |Funzione|Funzionalità|
 |-|-|
-|Rilevatore di anomalie| <li> Rileva le anomalie appena si verificano in tempo reale. <li> Rileva le anomalie in tutto il set di dati come batch. <li> Deduce normale intervallo di dati previsto. <li> Regolazione del tra maiuscole e minuscole rilevamento anomalie supporta per una migliore adatta i dati. |
+|Rilevamento anomalie| <li> Rileva le anomalie appena si verificano in tempo reale. <li> Rileva le anomalie in tutto il set di dati come batch. <li> Deduce normale intervallo di dati previsto. <li> Regolazione del tra maiuscole e minuscole rilevamento anomalie supporta per una migliore adatta i dati. |
 
 Per informazioni dettagliate sulle API, vedere:
 * [Altre informazioni sul servizio API rilevatore di anomalie](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
@@ -57,7 +57,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 La tabella seguente descrive i minimi e consigliati di core CPU e memoria da allocare per il contenitore di rilevatore di anomalie.
 
-| Query al secondo (query al secondo) | Minima | Consigliati |
+| Query al secondo (query al secondo) | Minima | Consigliato |
 |-----------|---------|-------------|
 | 10 QUERY AL SECONDO | 4 core, 1GB di memoria | 8 core 2GB di memoria |
 | 20 QUERY AL SECONDO | 8 core, 2GB di memoria | 16 core 4GB di memoria |
@@ -176,6 +176,10 @@ L'invio di contenitori rilevatore di anomalie, fatturazione di Azure, usando un 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](anomaly-detector-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Riepilogo
 

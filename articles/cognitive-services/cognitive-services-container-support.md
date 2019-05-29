@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 43e35e8074922f45493bc635455d1d176078ce51
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 3d09ee542b98e1c365aceaf86b051d706c7882d4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833543"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304275"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
 
@@ -103,16 +103,7 @@ Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori,
 
 Singoli contenitori possono prevedere anche requisiti specifici, tra cui quelli relativi a server e allocazione di memoria.
 
-## <a name="developer-samples"></a>Esempi per gli sviluppatori
-
-Gli esempi per gli sviluppatori sono disponibili nel [repository GitHub](https://github.com/Azure-Samples/cognitive-services-containers-samples).
-
-## <a name="view-webinar"></a>Visualizza il webinar 
-
-Aggiungere il [webinar](https://info.microsoft.com/AP-AZUREPLAT-WBNR-FY19-03Mar-20-Seamlesslyintegrateapplicationsdataandprocesses-MCW0012283_02OnDemandRegistration-ForminBody.html) conoscere:
-
-* Come distribuire servizi cognitivi in qualsiasi computer tramite Docker
-* Come distribuire servizi cognitivi in AKS
+[!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

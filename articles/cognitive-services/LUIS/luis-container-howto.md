@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: b379ebeeec7d9309cdf150b8b90ddd006e3bcd9a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 02ac7b91622a3c8fe877ea9bcbc7224a67eb0ae5
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240218"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306616"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -367,6 +367,10 @@ Configurazioni dell'app non supportate|Dettagli|
 |Entità non supportate per le impostazioni cultura Inglese (en-US)|Entità [GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) predefinite|
 |Priming del riconoscimento vocale|Le dipendenze esterne non sono supportate nel contenitore.|
 |Analisi del sentiment|Le dipendenze esterne non sono supportate nel contenitore.|
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Riepilogo
 
