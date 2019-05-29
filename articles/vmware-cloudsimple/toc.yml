@@ -6,7 +6,7 @@
         - name: Informazioni sulla soluzione VMware di CloudSimple
           href: cloudsimple-vmware-solutions-overview.md
         - name: Concetti chiave per l'amministrazione
-          href: 'https://docs.azure.cloudsimple.com/key-concepts/'
+          href: key-concepts.md
     - name: Guida introduttiva
       expanded: true
       items:
@@ -21,7 +21,7 @@
     - name: Concetti
       items:
         - name: Service
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-service/'
+          href: cloudsimple-service.md
         - name: Nodi
           href: cloudsimple-node.md
         - name: Cloud privato
@@ -45,13 +45,13 @@
         - name: VMware in cloud privato
           href: vmware-components.md
         - name: Panoramica della sicurezza
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
+          href: cloudsimple-security.md
         - name: Quota di nodi
           href: node-quota.md
         - name: Manutenzione e aggiornamenti
           href: cloudsimple-maintenance-updates.md
         - name: Domande frequenti
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
+          href: cloudsimple-faq.md
     - name: Esercitazioni
       items:
         - name: Abilitare il provider di risorse
