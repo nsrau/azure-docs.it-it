@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/02/2019
+ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466309"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238860"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Esercitazione: Usare Azure Deployment Manager con modelli di Resource Manager (anteprima pubblica)
 
@@ -55,7 +55,6 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
 * Esperienza nello sviluppo di [modelli di Azure Resource Manager](./resource-group-overview.md).
-* Azure Deployment Manager è nella versione di anteprima privata. Per iscriversi e poter usare Azure Deployment Manager, compilare il [modulo di iscrizione](https://aka.ms/admsignup). 
 * Azure PowerShell. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
 * Cmdlet di Deployment Manager. Per installare questi cmdlet in versione non definitiva, è necessaria l'ultima versione di PowerShellGet. Per ottenere l'ultima versione, vedere [Installazione di PowerShellGet](/powershell/gallery/installing-psget). Al termine dell'installazione di PowerShellGet, chiudere la finestra di PowerShell. Aprire una nuova finestra di PowerShell con privilegi elevati e usare il comando seguente:
 
@@ -106,18 +105,18 @@ La cartella ArtifactStore inclusa nel download contiene due cartelle:
 
 Le due versioni (1.0.0.0 e 1.0.0.1) vengono usate per la [distribuzione della revisione](#deploy-the-revision). Nonostante esistano due versioni sia degli artefatti modello che degli artefatti binari, solo gli artefatti binari presentano differenze tra le due versioni. Nella pratica, gli artefatti binari vengono aggiornati con maggiore frequenza rispetto agli artefatti modello.
 
-1. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** in un editor di testo. È un modello di base per la creazione di un account di archiviazione.  
-2. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**. 
+1. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** in un editor di testo. È un modello di base per la creazione di un account di archiviazione.
+2. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**.
 
     ![Esercitazione su Azure Deployment Manager - Modello per la creazione dell'applicazione Web](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
     Il modello chiama un pacchetto di distribuzione contenente i file dell'applicazione Web. In questa esercitazione il pacchetto compresso contiene solo un file index.html.
-3. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**. 
+3. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**.
 
     ![Esercitazione su Azure Deployment Manager - Parametri del modello per la creazione dell'applicazione Web: containerRoot](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
 
     Il valore di deployPackageUri è il percorso del pacchetto di distribuzione. Il parametro contiene una variabile **$containerRoot**. Il valore di $containerRoot viene specificato nel [modello di implementazione](#create-the-rollout-template) concatenando il percorso di firma di accesso condiviso dell'origine degli artefatti, la radice degli artefatti e deployPackageUri.
-4. Aprire **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.  
+4. Aprire **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.
 
     ```html
     <html>
@@ -257,7 +256,7 @@ Lo screenshot seguente mostra la definizione del passaggio di attesa:
 
 ![Esercitazione su Azure Deployment Manager - Risorse del modello di implementazione: passaggio di attesa](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-wait-step.png)
 
-Per la durata viene usato lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (con lettere maiuscole obbligatorie) è un esempio di un'attesa di 1 minuto. 
+Per la durata viene usato lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (con lettere maiuscole obbligatorie) è un esempio di un'attesa di 1 minuto.
 
 Lo screenshot seguente mostra solo alcune parti della definizione dell'implementazione:
 
@@ -292,13 +291,13 @@ Creare un file dei parametri da usare con il modello di implementazione.
 
 ## <a name="deploy-the-templates"></a>Distribuire i modelli
 
-Per distribuire i modelli è possibile usare Azure PowerShell. 
+Per distribuire i modelli è possibile usare Azure PowerShell.
 
 1. Eseguire lo script per distribuire la topologia del servizio.
 
     ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
-    $location = "Central US"  
+    $location = "Central US"
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
 
     # Create a resource group
@@ -429,7 +428,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
     * **&lt;namePrefix>ServiceWUSrg**, che contiene le risorse definite da ServiceWUS.
     * **&lt;namePrefix>ServiceEUSrg**, che contiene le risorse definite da ServiceEUS.
     * Gruppo di risorse per l'identità gestita definita dall'utente.
-3. Selezionare il nome del gruppo di risorse.  
+3. Selezionare il nome del gruppo di risorse.
 4. Selezionare **Elimina gruppo di risorse** nel menu in alto.
 5. Ripetere gli ultimi due passaggi per eliminare gli altri gruppi di risorse creati con questa esercitazione.
 
