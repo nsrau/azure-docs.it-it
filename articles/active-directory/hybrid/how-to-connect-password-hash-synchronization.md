@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66ff1cb57bb3317adc7ab6208ebf5029361b7c54
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348332"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235145"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -64,7 +64,7 @@ La sezione seguente illustra in dettaglio il funzionamento della sincronizzazion
 >L'hash MD4 originale non viene trasmesso ad Azure AD. Viene invece trasmesso l'hash SHA256 dell'hash MD4 originale. Di conseguenza, se si riesce a ottenere l'hash archiviato in Azure AD, questo non può essere usato in un attacco di tipo Pass-the-Hash locale.
 
 ### <a name="how-password-hash-synchronization-works-with-azure-active-directory-domain-services"></a>Funzionamento della sincronizzazione dell'hash delle password con Azure Active Directory Domain Services
-È possibile usare la funzionalità di sincronizzazione dell'hash delle password anche per sincronizzare le password locali con [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). In questo scenario l'istanza di Azure Active Directory Domain Services autentica gli utenti nel cloud con tutti i metodi disponibili nell'istanza di Active Directory locale. L'esperienza di questo scenario è simile all'uso dell'Utilità di migrazione ad Active Directory (ADMT) in un ambiente locale.
+È possibile usare la funzionalità di sincronizzazione dell'hash delle password anche per sincronizzare le password locali con [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). In questo scenario l'istanza di Azure Active Directory Domain Services autentica gli utenti nel cloud con tutti i metodi disponibili nell'istanza di Active Directory locale. L'esperienza di questo scenario è simile all'uso dell'Utilità di migrazione ad Active Directory (ADMT) in un ambiente locale.
 
 ### <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 Quando si sincronizzano le password, la versione in testo normale della password non viene esposta alla funzionalità di sincronizzazione dell'hash delle password, né ad Azure AD o a qualsiasi servizio associato.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 467586fd23332469338dabd2feb6a42ce4b17af5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: cf818756f583974a8a9b53a9a0cce31dd93d042b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471858"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299294"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alcuni dati di telemetria sono mancanti
@@ -25,6 +25,16 @@ ms.locfileid: "65471858"
 
 * Se si visualizza in modo costante la stessa frazione, il problema è probabilmente causato dal [campionamento](../../azure-monitor/app/sampling.md)adattivo. Per verificarlo, aprire Ricerca dal pannello della panoramica ed esaminare l'istanza di una Richiesta o di un altro evento. Nella parte inferiore della sezione Proprietà fare clic su "..." per visualizzare i dettagli completi della proprietà. Se il Conteggio richieste è inferiore a 1, il campionamento è in esecuzione.
 * In caso contrario, è possibile che sia stato raggiunto il [limite di velocità dati](../../azure-monitor/app/pricing.md#limits-summary) per il piano tariffario. Questi limiti vengono applicati per minuto.
+
+*Sto riscontrando una perdita di dati in modo casuale.*
+
+* Controllare se si verificano perdite di dati in [canale di telemetria](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+
+* Verificare la presenza di problemi noti nel canale di telemetria [repository Github](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
+
+*Sto riscontrando una perdita di dati nell'App Console o in un'App Web quando l'app sta per essere arrestato.*
+
+* Canale SDK mantiene i dati di telemetria nel buffer e li invia in batch. Se l'applicazione è in corso l'arresto, occorre chiamare in modo esplicito [Flush ()](api-custom-events-metrics.md#flushing-data). Comportamento della `Flush()` dipende effettivi [canale](telemetry-channels.md#built-in-telemetrychannels) utilizzato.
 
 ## <a name="no-data-from-my-server"></a>Non sono disponibili dati dal server
 *L'app è stata installata nel server Web e ora non vengono visualizzati i dati di telemetria. Nel computer di sviluppo funzionava correttamente.*
@@ -58,7 +68,6 @@ Correzione:
 * Verificare di avere specificato le credenziali di accesso per l'account Azure appropriato.
 * Nel browser, verificare di avere accesso al [portale di Azure](https://portal.azure.com). Aprire le impostazioni e vedere se sono presenti restrizioni.
 * [Aggiungere Application Insights al progetto esistente](../../azure-monitor/app/asp-net.md): In Esplora soluzioni fare clic con il pulsante destro del mouse e scegliere "Aggiungi Application Insights".
-* Se il problema continua a verificarsi, seguire la [procedura manuale](../../azure-monitor/app/windows-services.md) per aggiungere una risorsa al portale e quindi aggiungere l'SDK al progetto.
 
 ## <a name="emptykey"></a>Viene visualizzato l'errore: "La chiave di strumentazione non può essere vuota"
 Sembra che si sia verificato un problema durante l'installazione di Application Insights o forse di un adattatore di registrazione.

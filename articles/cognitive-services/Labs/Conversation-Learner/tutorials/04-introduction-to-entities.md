@@ -3,19 +3,19 @@ title: Come usare le entità con un modello di Conversation Learner - Servizi co
 titleSuffix: Azure
 description: Informazioni su come usare le entità con un modello di Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: a42a2ec36d9ce4fb9c139dfddcde0fe0c188c888
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: 3d9e2498a23ad49eb014cb0f81c819f3f63eef5c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60707796"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387810"
 ---
 # <a name="introduction-to-entities"></a>Introduzione alle entità
 

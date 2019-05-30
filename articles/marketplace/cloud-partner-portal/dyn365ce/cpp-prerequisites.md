@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 0b14180c894977d822aa30ea5f46a2e21e247dc1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dd2e68c820a8c9e503a3539fd50bf3fba68e3949
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942323"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257520"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Prerequisiti di Dynamics 365 for Customer Engagement
 
@@ -24,7 +24,7 @@ Questo articolo descrive i prerequisiti tecnici e aziendali per la pubblicazione
 L'applicazione Dynamics 365 for Customer Engagement deve rispettare le [linee guida per la revisione delle app di Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/AppsourceGuidelines/Microsoft%20AppSource%20app%20review%20guidelines_v5.pdf), che include i requisiti seguenti:
 
 
-|              Requisito             |        DESCRIZIONE           |
+|              Requisito             |        Descrizione           |
 |            ---------------           |      ---------------         |
 | Integrazione di Azure Active Directory   | L'app deve consentire l'accesso Single Sign-On federato di Azure Active Directory (SSO federato di AAD) con il consenso abilitato. Per altre informazioni, vedere [Come ottenere la certificazione AppSource per Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-get-appsource-certified). |
 | Integrazione con servizi Microsoft Cloud (facoltativa) | Se è necessaria questa funzionalità, l'app deve integrarsi con altri servizi Microsoft Cloud come Microsoft Power BI o Microsoft Flow oppure con servizi di Microsoft Azure come apprendimento automatico o Servizi cognitivi. |
@@ -40,7 +40,7 @@ L'applicazione Dynamics 365 for Customer Engagement deve rispettare le [linee gu
 
 I requisiti aziendali includono gli obblighi procedurali, legali e contrattuali riportati di seguito:
 
-* È necessario essere registrati in [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) o essere un editore del Marketplace cloud registrato. Se non si è ancora effettuata la registrazione, seguire la procedura in [Diventare un editore del Marketplace cloud](../../become-publisher.md).  (Per il terzo passaggio, usare invece il [modulo di candidatura a partner di AppSource](https://appsource.microsoft.com/partners/signup)). 
+* È necessario essere registrati in [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) o essere un editore del Marketplace cloud registrato. Se non si è ancora effettuata la registrazione, seguire la procedura in [Diventare un editore del Marketplace cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Per il terzo passaggio, usare invece il [modulo di candidatura a partner di AppSource](https://appsource.microsoft.com/partners/signup)). 
 
     >[!NOTE]
     >Per l'accesso al portale Cloud Partner è consigliabile usare lo stesso account usato per la registrazione a Microsoft Developer Center. È consigliabile utilizzare un solo account Microsoft per le offerte in Azure Marketplace. L’account non deve essere specifico di servizi o offerte singole.

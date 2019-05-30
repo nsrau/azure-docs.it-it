@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5524576ef21830ae13526dad2d8ac8a1d0864cf1
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 907cb598d708bfa26f53d2e43fef5456258c21b1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956884"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393038"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>Single sign-on SAML per applicazioni locali con il Proxy di applicazione (anteprima)
 
@@ -50,14 +50,14 @@ Tenere presente quanto segue quando si sta l'esercitazione:
 1. Selezionare **SAML** come il metodo single sign-on.
 1. Nel **impostata su Single Sign-On con SAML** pagina, modificare il **base SAML Configuration** dati e seguire i passaggi descritti in [configurazione SAML di base immettere](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) configurare basato su SAML autenticazione per l'applicazione.
 
-   * Assicurarsi che il **URL di risposta** corrisponda o sia un percorso all'interno di **URL esterno** per l'applicazione in locale che è stato pubblicato tramite il Proxy di applicazione. 
-   * Se l'applicazione richiede un diverso **URL di risposta** per la configurazione di SAML, aggiungere questo elemento come un **aggiuntive** URL nell'elenco e contrassegnare la casella di controllo accanto al percorso per designarlo come il database primario  **URL di risposta** per inviare le risposte SAML avviato dal provider di identità per.
-   * Per un flusso avviato da SP, assicurarsi che l'applicazione specifica inoltre i valori corretti **URL di risposta** o URL del servizio Consumer di asserzione da usare per ricevere il token di autenticazione.
+   * Assicurarsi che il **URL di risposta** corrisponde alla **URL esterno** per l'applicazione in locale che è pubblicata tramite il Proxy di applicazione o ne è un percorso all'interno di **URL esterno**.
+   * Per un flusso avviata da IDP, in cui l'applicazione richiede un diverso **URL di risposta** per la configurazione di SAML, aggiungere questo elemento come un **aggiuntive** URL nell'elenco e contrassegnare la casella di controllo accanto al percorso per designarlo come il primario **URL di risposta**.
+   * Per un flusso avviato da SP, assicurarsi che l'applicazione back-end specifica i valori corretti **URL di risposta** o URL del servizio Consumer di asserzione da usare per ricevere il token di autenticazione.
 
      ![Immettere i dati di configurazione di base SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
     > [!NOTE]
-    > Se l'applicazione back-end prevede che il **URL di risposta** per essere l'URL interno, è necessario installare le app personali protetta estensione di accesso nei dispositivi degli utenti. Questa estensione verrà reindirizzata automaticamente al servizio Proxy di applicazione appropriato. Per installare l'estensione, vedere [estensione accesso sicuro alle App personali](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
+    > Se l'applicazione back-end prevede che il **URL di risposta** per essere l'URL interno, è necessario usare [domini personalizzati](application-proxy-configure-custom-domain.md) corrispondenti URL interni ed esterni o installare l'estensione App personali protetta Accedi nei dispositivi degli utenti. Questa estensione verrà reindirizzata automaticamente al servizio Proxy di applicazione appropriato. Per installare l'estensione, vedere [estensione accesso sicuro alle App personali](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
 
 ## <a name="test-your-app"></a>Test dell'app
 

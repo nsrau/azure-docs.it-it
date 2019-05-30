@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8b8f9856fe7e0fa591ceb42aab97e92642b6098
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362340"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399358"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali Hyper-V in un sito secondario
 
@@ -55,15 +55,15 @@ Windows Server 2012 R2 | Qualsiasi sistema operativo guest [supportato da Hyper-
 
 **Configurazione** | **Supportato**  
 --- | --- 
-Host - Gruppo NIC | Sì 
-Host - VLAN | Sì 
-Host - IPv4 | Sì 
-Host - IPv6 | No  
+Host - Gruppo NIC | Yes 
+Host - VLAN | Yes 
+Host - IPv4 | Yes 
+Host - IPv6 | No 
 VM guest - Gruppo NIC | No 
-VM guest - IPv4 | Sì
+VM guest - IPv4 | Yes
 VM guest - IPv6 | No 
-VM guest - Windows/Linux - Indirizzo IP statico | Sì
-VM guest - Più NIC | Sì
+VM guest - Windows/Linux - Indirizzo IP statico | Yes
+VM guest - Più NIC | Yes
 
 
 ## <a name="storage"></a>Archiviazione
@@ -73,9 +73,9 @@ VM guest - Più NIC | Sì
 **Archiviazione (host)** | **Supportato**
 --- | --- 
 NFS | N/D
-SMB 3.0 |  Sì
-SAN (iSCSI) | Sì
-Percorsi multipli (MPIO) | Sì
+SMB 3.0 |  Yes
+SAN (iSCSI) | Yes
+Percorsi multipli (MPIO) | Yes
 
 ### <a name="guest-or-physical-server-storage"></a>Archiviazione su server fisico o guest
 
@@ -83,19 +83,19 @@ Percorsi multipli (MPIO) | Sì
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sì (fino a 16 dischi)
-VM di seconda generazione | Sì
+VM di seconda generazione | Yes
 Disco cluster condiviso | No 
 Disco crittografato | No 
 UEFI| N/D
 NFS | No 
 SMB 3.0 | No 
 RDM | N/D
-Disco superiore a 1 TB | Sì
-Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Sì
-Spazi di archiviazione | Sì
+Disco superiore a 1 TB | Yes
+Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Yes
+Spazi di archiviazione | Yes
 Aggiunta/rimozione a caldo disco | No 
-Esclusione disco | Sì
-Percorsi multipli (MPIO) | Sì
+Esclusione disco | Yes
+Percorsi multipli (MPIO) | Yes
 
 ## <a name="vaults"></a>Insiemi di credenziali
 

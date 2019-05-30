@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b808654baded5bbe721866441a8d1115eff7bcaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 842d3146bf1927871e29eb750cde09e9029b7c12
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308897"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242097"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo per le risorse di Azure
 
@@ -121,9 +121,9 @@ Ecco i passaggi di base per iniziare:
 
 1. [Creare un'area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Configurare la soluzione Analisi log attività](../azure-monitor/platform/collect-activity-logs.md#configuration) per la propria area di lavoro.
+1. [Configurare la soluzione Analisi log attività](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) per la propria area di lavoro.
 
-1. [Visualizzare i log attività](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Un modo rapido per passare alla pagina di panoramica della soluzione Analitica Log attività è necessario fare clic sui **Log Analitica** opzione.
+1. [Visualizzare i log attività](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Un modo rapido per passare alla pagina di panoramica della soluzione Analitica Log attività è necessario fare clic sui **Log Analitica** opzione.
 
    ![Opzione log di monitoraggio di Azure nel portale](./media/change-history-report/azure-log-analytics-option.png)
 

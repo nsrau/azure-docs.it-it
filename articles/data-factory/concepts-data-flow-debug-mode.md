@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 1a332dd46cac196c8185ddb12c0d900f5c36e1b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a50778db5fd57202c17f05407045259371912586
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61270979"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239199"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modalità di debug dei flussi di dati di mapping
 
@@ -27,6 +27,9 @@ Quando la modalità di Debug è attivata, verrà compilata in modo interattivo i
 
 Nella maggior parte dei casi, è consigliabile compilare i flussi di dati in modalità di debug in modo da poter convalidare la logica di business e visualizzare le trasformazioni dei dati prima di pubblicare il proprio lavoro in Azure Data Factory. È anche necessario utilizzare il pulsante "Debug" nel Pannello di pipeline per testare il flusso di dati all'interno di una pipeline.
 
+> [!NOTE]
+> Mentre la luce in modalità di debug è verde nella barra degli strumenti di Data Factory, è addebitato alla tariffa di debug del flusso di dati di 8 core/ora di calcolo generale con un minuto 60 time-to-live 
+
 ## <a name="debug-mode-on"></a>Modalità di debug in
 Quando si attiva la modalità di debug, viene visualizzato un pannello laterale che chiede di puntare al cluster di Azure Databricks interattivo e selezionare le opzioni per il campionamento dell'origine. È necessario usare un cluster interattivo di Azure Databricks e selezionare una dimensione di campionamento da ognuna delle trasformazioni origine oppure selezionare un file di testo da usare per i dati di test.
 
@@ -36,12 +39,12 @@ Quando si attiva la modalità di debug, viene visualizzato un pannello laterale 
 >Quando è attiva la modalità di debug nel flusso di dati, i dati non vengono scritti nella trasformazione sink. Una sessione di debug è progettata per fungere da test harness per le trasformazioni. I sink non sono necessari durante il debug e vengono ignorati nel flusso di dati. Se si vuole testare la scrittura di dati nel sink, eseguire il flusso di dati da una pipeline di Azure Data Factory e usare l'esecuzione di debug dalla pipeline.
 
 ## <a name="debug-settings"></a>Impostazioni di debug
-Impostazioni di debug può essere ogni origine dal flusso di dati verrà visualizzato nel pannello laterale e possono anche essere modificate selezionando "impostazioni di origine" sulla barra degli strumenti della finestra di progettazione del flusso di dati. Qui è possibile selezionare i limiti e/o l'origine dei file da usare per ogni trasformazione origine. I limiti di riga in questa impostazione sono solo per la sessione di debug corrente. È inoltre possibile utilizzare l'impostazione di campionamento nell'origine per limitare le righe in transforamtion l'origine.
+Impostazioni di debug può essere ogni origine dal flusso di dati verrà visualizzato nel pannello laterale e possono anche essere modificate selezionando "impostazioni di origine" sulla barra degli strumenti della finestra di progettazione del flusso di dati. Qui è possibile selezionare i limiti e/o l'origine dei file da usare per ogni trasformazione origine. I limiti di riga in questa impostazione sono solo per la sessione di debug corrente. È inoltre possibile utilizzare l'impostazione di campionamento nell'origine per limitare le righe nella trasformazione origine.
 
 ## <a name="cluster-status"></a>Stato del cluster
 Nella parte superiore dell'area di progettazione è presente un indicatore dello stato del cluster che diventa verde quando il cluster è pronto per il debug. Se il cluster è già pronto, l'indicatore verde viene visualizzato quasi immediatamente. Se il cluster non è già in esecuzione quando viene attivata la modalità di debug, è necessario attendere da 5 a 7 minuti prima che il cluster si avvii. L'indicatore luminoso è giallo finché il cluster non è pronto. Quando il cluster è pronto per il debug del flusso di dati, l'indicatore luminoso diventa verde.
 
-Al termine del debug, disattivare l'interruttore Debug in modo da terminare il cluster di Azure Databricks.
+Al termine in fase di debug, disattivare l'opzione di Debug in modo che il cluster Azure Databricks è possibile terminare e non è più avverrà per attività di debug.
 
 <img src="media/data-flow/datapreview.png" width="400">
 

@@ -10,16 +10,16 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1d344f388b03acb3a81fcfde0e214eb7d82dc9b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1eab92dcc9c1890e82f9999e26e54378a3687c6d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578726"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390485"
 ---
 # <a name="how-to-page-through-news-search-results"></a>Come sfogliare i risultati della ricerca notizie
 
-Quando si chiama l'API Ricerca notizie, Bing restituisce un elenco di risultati pertinenti alla query. Per ottenere il numero totale stimato di risultati disponibili, accedere al campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-totalmatches) dell'oggetto risposta.  
+Quando si chiama l'API Ricerca notizie, Bing restituisce un elenco di risultati pertinenti alla query. Per ottenere il numero totale stimato di risultati disponibili, accedere al campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-totalmatches) dell'oggetto risposta.  
   
 L'esempio seguente illustra il campo `totalEstimatedMatches` incluso in una risposta News.  
 
@@ -32,7 +32,7 @@ L'esempio seguente illustra il campo `totalEstimatedMatches` incluso in una risp
 }  
 ```  
   
-Per sfogliare tutti gli articoli disponibili, usare i parametri di query [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) e [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset).  
+Per sfogliare tutti gli articoli disponibili, usare i parametri di query [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) e [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset).  
  
 
 |Parametro  |Descrizione  |

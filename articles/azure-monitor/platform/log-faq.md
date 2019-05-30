@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08e915354df4f4aa1d9a183e78cbad47460b8d37
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394830"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356217"
 ---
 # <a name="log-analytics-faq"></a>Domande frequenti su Log Analytics
 
@@ -35,7 +35,7 @@ R: Sono la stessa cosa. [Log Analytics è una funzionalità integrata in Monitor
 
 ### <a name="q-can-i-still-use-log-search"></a>D: È ancora possibile usare Ricerca log? 
 
-R: Ricerca log attualmente è ancora disponibile nel portale di OMS e nel portale di Azure con il nome **Log (versione classica)**. Il portale di OMS verrà ritirato ufficialmente il 15 gennaio 2019. L'esperienza Log classica nel portale di Azure classico sarà ritirata gradualmente e sostituita con la nuova esperienza Log. 
+R: Ricerca log attualmente è ancora disponibile nel portale di OMS e nel portale di Azure con il nome **Log (versione classica)** . Il portale di OMS verrà ritirato ufficialmente il 15 gennaio 2019. L'esperienza Log classica nel portale di Azure classico sarà ritirata gradualmente e sostituita con la nuova esperienza Log. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>D: È ancora possibile utilizzare il portale di Analisi avanzata? 
 La nuova esperienza Log nel portale di Azure si basa sul portale di analisi avanzato, ma è comunque ancora accessibile dall'esterno del portale di Azure. La roadmap per il ritiro di questo portale esterno sarà annunciata presto.
@@ -84,7 +84,7 @@ R: L'elenco delle viste e delle soluzioni installate è disponibile nel portale 
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>D: Perché non è possibile creare aree di lavoro nella regione Stati Uniti centro-occidentali? 
 
-R: Questa area è al limite della capacità temporanea. Il problema sarà affrontato nella prima metà del 2019.
+R: Questa area è al limite della capacità temporanea. Questo limite è pianificato per essere risolti dalla fine del mese di settembre 2019.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>D: Log Analytics usa lo stesso agente del Centro sicurezza di Azure?

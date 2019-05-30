@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 38b2244d68de25f53d59dd4eb0a6beba03f0e51d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9368abe7d3b6ad6cf6e86b503dca4fca4f18739c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60916683"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388467"
 ---
 # <a name="page-through-the-images-results"></a>Sfogliare i risultati delle immagini
 
-Quando si chiama l'API Ricerca immagini, Bing restituisce un elenco di risultati. L'elenco è un subset del numero totale di risultati pertinenti alla query. Per ottenere il numero totale stimato di risultati disponibili, accedere al campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) dell'oggetto risposta.  
+Quando si chiama l'API Ricerca immagini, Bing restituisce un elenco di risultati. L'elenco è un subset del numero totale di risultati pertinenti alla query. Per ottenere il numero totale stimato di risultati disponibili, accedere al campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#totalestimatedmatches) dell'oggetto risposta.  
 
 L'esempio seguente illustra il campo `totalEstimatedMatches` incluso in una risposta Images.  
 
@@ -34,7 +34,7 @@ L'esempio seguente illustra il campo `totalEstimatedMatches` incluso in una risp
 }  
 ```  
 
-Per sfogliare tutte le immagini disponibili, usare i parametri di query [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#count) e [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offset).  
+Per sfogliare tutte le immagini disponibili, usare i parametri di query [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#count) e [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset).  
 
 Il parametro `count` specifica il numero di risultati da restituire nella risposta. Il numero massimo di risultati che è possibile richiedere nella risposta è 150. Il valore predefinito è 35. Il numero effettivo restituito può essere inferiore a quello richiesto.
 
@@ -58,7 +58,7 @@ Host: api.cognitive.microsoft.com
 
 Si potrebbe pensare che, restituendo una pagina di 35 immagini per volta, il parametro di query `offset` venga impostato su 0 nella prima richiesta e che quindi `offset` venga incrementato di 35 in ogni richiesta successiva. Tuttavia, alcuni dei risultati nella risposta successiva potrebbero essere duplicati della risposta precedente. Ad esempio, le prime due immagini nella risposta possono essere le stesse ultime due immagini della risposta precedente.
 
-Per eliminare i risultati duplicati, usare il campo [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#nextoffset) dell'oggetto `Images`. Il campo `nextOffset` indica l'`offset` da usare per la richiesta successiva. Se ad esempio si vuole restituire una pagina di 30 immagini per volta, impostare `count` su 30 e `offset` su 0 nella prima richiesta. Nella richiesta successiva impostare `count` su 30 e `offset` sul valore dell'elemento `nextOffset` della risposta precedente. Per restituire una pagina di dati precedente, è consigliabile mantenere uno stack degli offset precedenti e prelevare il più recente.
+Per eliminare i risultati duplicati, usare il campo [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#nextoffset) dell'oggetto `Images`. Il campo `nextOffset` indica l'`offset` da usare per la richiesta successiva. Se ad esempio si vuole restituire una pagina di 30 immagini per volta, impostare `count` su 30 e `offset` su 0 nella prima richiesta. Nella richiesta successiva impostare `count` su 30 e `offset` sul valore dell'elemento `nextOffset` della risposta precedente. Per restituire una pagina di dati precedente, è consigliabile mantenere uno stack degli offset precedenti e prelevare il più recente.
 
 > [!NOTE]
 > Il paging si applica solo alla ricerca di immagini (/images/search) e non alle informazioni dettagliate sulle immagini o alle immagini di tendenza (/images/trending).

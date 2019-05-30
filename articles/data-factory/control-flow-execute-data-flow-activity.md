@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: c33219eacb1d3bada5630a7792f98ba33dba824e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153524"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235854"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Eseguire attività del flusso di dati in Azure Data Factory
 Usare l'attività del flusso di dati execute per eseguire il flusso di dati di Azure Data factory in esecuzioni di pipeline debug (sandbox) e nelle esecuzioni di pipeline attivata.
@@ -49,10 +49,6 @@ Usare l'attività del flusso di dati execute per eseguire il flusso di dati di A
 
 ![Eseguire il flusso di dati](media/data-flow/activity-data-flow.png "eseguire il flusso di dati")
 
-### <a name="run-on"></a>Esegui in
-
-Scegliere l'ambiente di calcolo per l'esecuzione del flusso di dati. Il valore predefinito è il Runtime di integrazione predefinita di risoluzione automatica di Azure. Questa scelta verrà eseguito il flusso di dati nell'ambiente di Spark nella stessa area di data factory. Il tipo di calcolo sarà un cluster dei processi, ovvero che l'ambiente di calcolo potrebbe richiedere alcuni minuti per l'avvio.
-
 ### <a name="debugging-pipelines-with-data-flows"></a>Debug di pipeline con i flussi di dati
 
 ![Eseguire il debug sul pulsante](media/data-flow/debugbutton.png "sul pulsante di Debug")
@@ -65,9 +61,14 @@ Si tratta di un campo obbligatorio che definisce quale Runtime di integrazione d
 
 L'impostazione predefinita per le esecuzioni del flusso di dati è 8 core di calcolo generale con un valore TTL di 60 minuti.
 
+Scegliere l'ambiente di calcolo per l'esecuzione del flusso di dati. Il valore predefinito è il Runtime di integrazione predefinita di risoluzione automatica di Azure. Questa scelta verrà eseguito il flusso di dati nell'ambiente di Spark nella stessa area di data factory. Il tipo di calcolo sarà un cluster dei processi, ovvero che l'ambiente di calcolo potrebbe richiedere alcuni minuti per l'avvio.
+
 È possibile controllare l'ambiente di esecuzione di Spark per l'attività flusso di dati. Nel [runtime di integrazione di Azure](concepts-integration-runtime.md) sono le impostazioni per impostare il tipo di calcolo (utilizzo generico, ottimizzate per la memoria e ottimizzate per il calcolo), numero di memorie centrali di lavoro e time-to-live in modo che corrisponda il motore di esecuzione con le risorse di calcolo del flusso di dati requisiti. Inoltre, l'impostazione di durata (TTL) consentirà consente di gestire un cluster a caldo che è immediatamente disponibile per le esecuzioni di processo.
 
 ![Runtime di integrazione di Azure](media/data-flow/ir-new.png "Runtime di integrazione di Azure")
+
+> [!NOTE]
+> La selezione di Runtime di integrazione nell'attività flusso di dati si applica solo ai *attivata esecuzioni* della pipeline. Debug di pipeline con i dati vengono trasmessi con il Debug verrà eseguita nel cluster di Spark predefinito di 8 core.
 
 ### <a name="staging-area"></a>Area di gestione temporanea
 

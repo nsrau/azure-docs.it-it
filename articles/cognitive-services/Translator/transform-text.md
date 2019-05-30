@@ -3,19 +3,19 @@ title: Trasformare il testo - API Traduzione testuale
 titlesuffix: Azure Cognitive Services
 description: Trasformare il testo usando l'API Traduzione testuale.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: 1319b7191d9b192897e1e8ab4900239bd9230bce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-pawal
+ms.openlocfilehash: 4d024fd30a77c011bab4f120c4ef3614aac09998
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60608329"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389693"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Come usare il metodo TransformText
 
@@ -28,10 +28,10 @@ Il metodo è un servizio RESTful che usa GET su HTTP. Supporta la serializzazion
 
 ## <a name="parameters"></a>Parametri
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |:---|:---|
-| Intestazione dell'autorizzazione | **Obbligatorio** intestazione HTTP usata per identificare l'applicazione. Usare chiave: "Authorization" e valore: "Bearer" + " " + access token. Per informazioni dettagliate, vedere qui.|
-| Linguaggio | **Obbligatorio** Una stringa che rappresenta il codice della lingua. Questo parametro supporta solo la lingua inglese con **en** come nome della lingua.|
+| Authorization header (Intestazione dell'autorizzazione) | **Obbligatorio** intestazione HTTP usata per identificare l'applicazione. Usare chiave: "Authorization" e valore: "Bearer" + " " + access token. Per informazioni dettagliate, vedere qui.|
+| language | **Obbligatorio** Una stringa che rappresenta il codice della lingua. Questo parametro supporta solo la lingua inglese con **en** come nome della lingua.|
 | category | **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita **general**.|
 | frase | **Obbligatorio** una frase che si vuole correggere. |
 

@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: aahi
-ms.openlocfilehash: e91f798e6bfae33f8f4c8b5aa2d0f6ddc0047389
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c55e2f8b1685893ecc813c0d5d94e894f66fb186
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798256"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390445"
 ---
 # <a name="web-search-endpoint"></a>Endpoint di Ricerca Web
 
@@ -31,7 +31,7 @@ Per ottenere risultati della ricerca Web tramite l'API Bing, inviare una richies
 GET https://api.cognitive.microsoft.com/bing/v7.0/search
 ```
 
-Endpoint: per i dettagli relativi a intestazioni, parametri, codici di mercato, oggetti di risposta, errori e altro ancora, vedere le informazioni di riferimento sull'[API Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).
+Endpoint: per i dettagli relativi a intestazioni, parametri, codici di mercato, oggetti di risposta, errori e altro ancora, vedere le informazioni di riferimento sull'[API Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
 
 ## <a name="response-json"></a>Risposta JSON
 

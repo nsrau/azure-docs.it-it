@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 8142caf867ffe811726677fb1dcbadc7d1458251
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0582fa8b26bee05e4d2948037cc39a71ed656fce
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793562"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243946"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>What ' s Enterprise Security Package in Azure HDInsight
 
@@ -36,7 +36,7 @@ La protezione perimetrale in HDInsight si raggiunge con l'uso di reti virtuali e
 Un altro livello di protezione perimetrale viene garantito grazie al servizio gateway VPN. Il gateway funge da prima linea di difesa per qualsiasi richiesta in entrata nel cluster HDInsight. Accetta la richiesta, la convalida e, solo a questo punto, consente alla richiesta di passare agli altri nodi nel cluster. In questo modo, il gateway fornisce protezione perimetrale ad altri nomi e nodi di dati nel cluster.
 
 ## <a name="authentication"></a>Authentication
-Un amministratore può creare un cluster HDInsight con ESP in una [rete virtuale](https://azure.microsoft.com/services/virtual-network/). Tutti i nodi del cluster HDInsight vengono aggiunti al dominio gestito dall'azienda. Questo è possibile grazie all'uso di [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
+Un amministratore può creare un cluster HDInsight con ESP in una [rete virtuale](https://azure.microsoft.com/services/virtual-network/). Tutti i nodi del cluster HDInsight vengono aggiunti al dominio gestito dall'azienda. Questo è possibile grazie all'uso di [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). 
 
 Con questa configurazione, i dipendenti dell'organizzazione possono accedere ai nodi del cluster usando le credenziali del dominio. Possono usare le credenziali del dominio anche per eseguire l'autenticazione con altri endpoint approvati, ad esempio visualizzazioni di Apache Ambari, ODBC, JDBC, PowerShell e API REST per l'interazione con il cluster. L'amministratore ha il pieno controllo sulla limitazione del numero di utenti che interagiscono con il cluster tramite questi endpoint.
 

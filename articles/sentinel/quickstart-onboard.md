@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/27/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0061fb7946e4c35f855d1a409cb9bc210c73641a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 891f9fbd26b53b392ac84ed9d420b58558cd20c2
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228291"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258424"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Anteprima di onboarding Sentinel di Azure
 
@@ -41,7 +41,7 @@ Dopo la connessione alle origini dati, è possibile scegliere da una raccolta di
 - Area di lavoro di Analitica di log. Informazioni su come [creare un'area di lavoro di Log Analitica](../log-analytics/log-analytics-quick-create-workspace.md)
 
 -  Per abilitare Azure Sentinel, sono necessarie autorizzazioni di collaboratore alla sottoscrizione in cui si trova l'area di lavoro Azure Sentinel. 
-- Per usare Azure Sentinel, sono necessarie autorizzazioni di collaboratore o Visualizzatore sul gruppo di risorse a cui appartiene l'area di lavoro
+- Per usare Azure Sentinel, sono necessarie autorizzazioni di collaboratore o lettore sul gruppo di risorse a cui appartiene l'area di lavoro
 - Potrebbero essere necessarie autorizzazioni aggiuntive per la connessione a origini dati specifiche
  
 ## Abilitare Azure Sentinel <a name="enable"></a>
@@ -54,7 +54,7 @@ Dopo la connessione alle origini dati, è possibile scegliere da una raccolta di
 1. Fare clic su **+Aggiungi**.
 1. Selezionare l'area di lavoro che si desidera usare o crearne uno nuovo. È possibile eseguire Azure Sentinel in più di un'area di lavoro, ma i dati sono isolati in una singola area di lavoro.
 
-   ![cerca](./media/quickstart-onboard/choose-workspace.png)
+   ![ricerca](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - **Percorso area di lavoro** è importante sapere che tutti i dati di cui si esegue lo streaming da Azure Sentinel sono archiviati nella posizione geografica dell'area di lavoro selezionato.  

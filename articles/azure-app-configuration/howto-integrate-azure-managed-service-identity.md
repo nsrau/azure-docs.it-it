@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408882"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393660"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrazione con identità gestite di Azure
 
@@ -49,7 +49,7 @@ Per completare l'esercitazione, sono necessari:
 
 Per configurare un'identità gestita nel portale, è prima necessario creare un'applicazione come di consueto e quindi abilitare la funzionalità.
 
-1. Creare un'app nel [portale di Azure](https://aka.ms/azconfig/portal) come di consueto. Passare all'app nel portale.
+1. Creare un'app nel [portale di Azure](https://portal.azure.com) come di consueto. Passare all'app nel portale.
 
 2. Scorrere verso il basso fino al gruppo **Impostazioni** nel riquadro a sinistra e selezionare **Identità**.
 
@@ -59,9 +59,9 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
 ## <a name="grant-access-to-app-configuration"></a>Concedere l'accesso a Configurazione app
 
-1. Nel [portale di Azure](https://aka.ms/azconfig/portal) selezionare **Tutte le risorse** e quindi selezionare l'archivio di configurazione app creato nella guida di avvio rapido.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutte le risorse** e quindi selezionare l'archivio di configurazione app creato nella guida di avvio rapido.
 
-2. Selezionare **Controllo di accesso (IAM)**.
+2. Selezionare **Controllo di accesso (IAM)** .
 
 3. Nella scheda **Verifica l'accesso** selezionare **Aggiungi** nell'interfaccia utente della scheda **Aggiungi un'assegnazione di ruolo**.
 

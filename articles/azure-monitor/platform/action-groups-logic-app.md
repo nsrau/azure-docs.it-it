@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234738"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389570"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Come attivare azioni complesse con avvisi di Monitoraggio di Azure
 
@@ -26,7 +26,7 @@ Il processo generale è il seguente:
 
 -   Creare l'app per la logica per il rispettivo tipo di avviso.
 
--   Importare lo schema per il rispettivo tipo di avviso nell'app per la logica.
+-   Importare un payload di esempio per il rispettivo tipo di avviso nell'app per la logica.
 
 -   Definire il comportamento dell'app per la logica.
 
@@ -58,7 +58,7 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
 
     ![Usare un esempio di payload](media/action-groups-logic-app/use-sample-payload-button.png "Usare un esempio di payload")
 
-8.  Copiare e incollare lo schema di esempio seguente nella finestra di dialogo:
+8.  Copiare e incollare il payload di esempio seguente nella finestra di dialogo:
 
     ```json
         {
@@ -140,7 +140,7 @@ Quando un avviso richiama successivamente il gruppo di azioni, viene chiamata l'
 Le voci di integrità dei servizi di Azure fanno parte del log attività. Il processo di creazione dell'avviso è simile alla [creazione di un avviso del log attività](#create-an-activity-log-alert-administrative), ma con alcune differenze:
 
 - I passaggi da 1 a 7 sono gli stessi.
-- Nel passaggio 8 usare lo schema di esempio seguente per il trigger della richiesta HTTP:
+- Passaggio 8, usare il seguente esempio di payload per il trigger di richiesta HTTP:
 
     ```json
     {
@@ -228,7 +228,7 @@ Le voci di integrità dei servizi di Azure fanno parte del log attività. Il pro
 Il processo di creazione di un avviso per la metrica è simile alla [creazione di un avviso del log attività](#create-an-activity-log-alert-administrative), ma con alcune differenze:
 
 - I passaggi da 1 a 7 sono gli stessi.
-- Nel passaggio 8 usare lo schema di esempio seguente per il trigger della richiesta HTTP:
+- Passaggio 8, usare il seguente esempio di payload per il trigger di richiesta HTTP:
 
     ```json
     {

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6e370442c9c359a38025762fb90269119ec0ea6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60463881"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65074116"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità di base dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -94,7 +94,7 @@ spec:
       app: nginx-frontend
 ```
 
-È anche possibile definire una percentuale, ad esempio *60%*, che consente di compensare automaticamente il ridimensionamento del numero di pod nel set di repliche.
+È anche possibile definire una percentuale, ad esempio *60%* , che consente di compensare automaticamente il ridimensionamento del numero di pod nel set di repliche.
 
 È possibile definire un numero massimo di istanze non disponibili in un set di repliche. Anche in questo caso, può essere definita una percentuale per il numero massimo di pod non disponibili. Il manifesto YAML seguente per il budget di interruzione dei pod definisce che non più di due pod nel set di repliche possono essere non disponibili:
 
@@ -126,6 +126,8 @@ Per altre informazioni sull'uso dei budget di interruzione dei pod, vedere [Spec
 
 Il [kube-advisor] [ kube-advisor] lo strumento è un progetto open source AKS associato che esegue l'analisi di un cluster Kubernetes e segnala i problemi rilevati. Un controllo utile consiste nell'identificare i pod che non hanno richieste di risorse e limiti applicati.
 
+Lo strumento di kube-advisor può segnalare su richiesta di risorse e i limiti non presente nelle applicazioni PodSpecs per Windows, nonché le applicazioni di Linux, ma solo lo strumento di kube-advisor deve essere pianificato in un pod di Linux. È possibile pianificare un pod per l'esecuzione in un pool di nodi con un sistema operativo specifico utilizzando un [selettore nodo] [ k8s-node-selector] nella configurazione del pod.
+
 In un cluster servizio Azure Kubernetes che ospita più team di sviluppo e applicazioni può essere difficile tenere traccia dei pod senza questi limiti e richieste di risorse impostati. Come procedura consigliata, eseguire regolarmente `kube-advisor` nei cluster servizio Azure Kubernetes, soprattutto se non si assegnano quote di risorse agli spazi dei nomi.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -147,3 +149,4 @@ Questo articolo ha illustrato le funzionalità di base dell'utilità di pianific
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

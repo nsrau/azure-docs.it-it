@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3e9885466d422a0428311ed3013e2ab34341cd25
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145932"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391313"
 ---
 I dischi del sistema operativo temporanei vengono creati nello spazio di archiviazione macchina virtuale (VM) locali e non persistenti nella risorsa di archiviazione di Azure remoto. I dischi del sistema operativo temporanei funzionano anche per carichi di lavoro senza stati, in cui le applicazioni sono a tolleranza di singoli errori di macchina virtuale, ma sono più interessati a tempo per ricreare l'immagine di singole istanze di VM o il tempo che necessario per le distribuzioni su larga scala. È anche adatto per le applicazioni, distribuite usando il modello di distribuzione classica, spostare il modello di distribuzione Resource Manager. Il disco del sistema operativo temporaneo offre latenza minore per operazioni di lettura/scrittura nel disco del sistema operativo e una ricreazione più rapida delle immagini delle VM. Inoltre, il disco del sistema operativo temporaneo è gratuito, si dovranno sostenere alcun costi di archiviazione per il disco del sistema operativo. 
  
@@ -35,41 +35,9 @@ Differenze principali tra i dischi del sistema operativo permanenti e temporanee
 | Supporto di area              | Tutte le aree                                                                                  | Tutte le aree                              |
 | Persistenza dei dati            | Dati scritti su disco del sistema operativo del disco del sistema operativo vengono archiviati in archiviazione di Azure                                  | I dati scritti su disco del sistema operativo viene archiviati nella risorsa di archiviazione della macchina virtuale locale e non sono persistenti in archiviazione di Azure. |
 | Stato di arresto-deallocazione      | Le macchine virtuali e istanze del set di scalabilità possono essere arrestata-deallocata e riavviate dallo stato di arresto-deallocazione | Le macchine virtuali e istanze del set di scalabilità non possono essere arrestata-deallocata                                  |
-| Supporto di dischi del sistema operativo specializzato | Sì                                                                                          | N.                                                                                 |
+| Supporto di dischi del sistema operativo specializzato | Yes                                                                                          | No                                                                                  |
 | Ridimensionamento del disco del sistema operativo              | Durante la creazione della macchina virtuale e al termine della macchina virtuale di arresto-deallocazione supportati                                | È supportato durante la creazione di una VM solo                                                  |
 | Ridimensionamento di una nuova dimensione di macchina virtuale   | I dati su disco del sistema operativo viene mantenuti                                                                    | I dati sul disco del sistema operativo sono stati eliminati, sistema operativo è di nuovo effettuato il provisioning                                      |
-
-## <a name="register-for-the-preview"></a>Registrarsi per l'anteprima
-
-
-Eseguire la registrazione automatica per l'anteprima di dischi del sistema operativo temporanei utilizzando la versione più recente di Azure o Azure PowerShell.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-Per controllare se sono registrati per l'anteprima:
-
-```azurepowershell-interactive
-Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="cli"></a>Interfaccia della riga di comando
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
-```
-
-Per controllare se sono registrati per l'anteprima:
- 
-```azurecli-interactive
-az provider show --namespace Microsoft.Compute
-```
-
 
 ## <a name="scale-set-deployment"></a>Distribuzione set di scalabilità  
 La procedura per creare un set di scalabilità che usa un disco del sistema operativo temporaneo consiste nell'aggiungere il `diffDiskSettings` proprietà per il `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` tipo di risorsa nel modello. Inoltre, i criteri di memorizzazione nella cache devono essere impostati `ReadOnly` per il disco del sistema operativo temporaneo. 
@@ -196,7 +164,7 @@ R: Sì, è possibile creare macchine virtuali con disco del sistema operativo te
 R: Non supportano i dischi temporanei:
 - Acquisizione di immagini di macchina virtuale
 - Snapshot dei dischi 
-- Crittografia dischi di Azure 
+- Azure Disk Encryption 
 - Backup di Azure
 - Azure Site Recovery  
 - Scambio di dischi del sistema operativo 

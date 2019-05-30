@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: b37a6b6995df6f784b5f1b4a7a3f54d91faafc13
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990183"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299094"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -38,14 +38,14 @@ Le app di Azure per la logica conteggia tutte le azioni eseguite nell'app per la
 
 ## <a name="fixed-pricing-model"></a>Modello di determinazione dei prezzi fissi
 
-Un' [ *ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) consente in modo privato isolato e dedicato per poter creare ed eseguire le App per la logica che possono accedere alle risorse in una rete virtuale di Azure. Nuova App per la logica eseguite all'interno di un'istanza di ISE, pagare un prezzo mensile fisso per i trigger e azioni predefinite, nonché per i connettori Standard.
+Un' [ *ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) consente in modo privato isolato e dedicato per poter creare ed eseguire le App per la logica che possono accedere alle risorse in una rete virtuale di Azure. Nuova App per la logica eseguite all'interno di un'istanza di ISE, si paga una [prezzo mensile fisso](https://azure.microsoft.com/pricing/details/logic-apps) per trigger e azioni predefinite, nonché per i connettori Standard.
 
-L'ISE include anche un connettore Enterprise gratuito, che include il numero di connessioni. Utilizzo per i connettori aziendali aggiuntivi viene addebitato in base al prezzo di consumo dell'organizzazione.
+L'ISE include anche un connettore Enterprise gratuito, che include come molte *connessioni* desiderato. Utilizzo per i connettori aziendali aggiuntivi viene addebitato in base il [prezzo del consumo di Enterprise](https://azure.microsoft.com/pricing/details/logic-apps). In genere disponibili connettori aziendali vengono addebitati solo al prezzo di consumo dell'organizzazione. Connettori aziendali di anteprima pubblica vengono addebitati il [frequenza del connettore Standard](https://azure.microsoft.com/pricing/details/logic-apps).
 
 > [!NOTE]
 > All'interno di un'istanza di ISE, incorporato trigger e azioni di visualizzare il **Core** etichette ed eseguire in ISE stesso come App per la logica. Connettori standard e aziendali che consentono di visualizzare il **ISE** etichetta eseguire in ISE stesso come App per la logica. I connettori che non consentono di visualizzare l'etichetta ISE eseguiti nel servizio App per la logica globale.
 
-L'unità di base di ISE ha corretto la capacità, quindi se è necessaria una velocità effettiva maggiore, è possibile [aggiungere altre unità di scala](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), durante la creazione o in un secondo momento. 
+L'unità di base di ISE ha corretto la capacità, quindi se è necessaria una velocità effettiva maggiore, è possibile [aggiungere altre unità di scala](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), durante la creazione o in un secondo momento. App per la logica che vengono eseguiti in un'istanza di ISE non incorrere in costi di conservazione dei dati.
 
 Per informazioni specifiche sui prezzi, vedere [prezzi di Azure per la logica app](https://azure.microsoft.com/pricing/details/logic-apps).
 
@@ -108,7 +108,7 @@ Per informazioni specifiche sui prezzi, vedere [prezzi di App per la logica di A
 
 ## <a name="data-retention"></a>Conservazione dei dati
 
-Tutti gli input e output che vengono archiviati nella cronologia di esecuzione dell'app per la logica ottenere fatturato in base a un'app per la logica [eseguire il periodo di conservazione](logic-apps-limits-and-config.md#run-duration-retention-limits). Per informazioni specifiche sui prezzi, vedere [prezzi di App per la logica di Azure](https://azure.microsoft.com/pricing/details/logic-apps).
+Fatta eccezione per le App per la logica che esegue in un ambiente del servizio di integrazione (ISE), tutti gli input e output che vengono archiviati nella cronologia di esecuzione dell'app per la logica vengono fatturate basato su un'app per la logica [eseguire il periodo di conservazione](logic-apps-limits-and-config.md#run-duration-retention-limits). App per la logica che vengono eseguiti in un'istanza di ISE non incorrere in costi di conservazione dei dati. Per informazioni specifiche sui prezzi, vedere [prezzi di App per la logica di Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 
 Per monitorare il consumo di memoria dell'app per la logica, è possibile:
 

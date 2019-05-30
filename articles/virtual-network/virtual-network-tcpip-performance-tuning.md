@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ad1a5b69e4ec7b44c0e61a5ddd2c06633464d31a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410053"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234990"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ottimizzazione delle prestazioni per macchine virtuali di Azure
 
@@ -79,7 +79,7 @@ Tenere presente che ad aumentare il valore MTU non crea necessariamente una rete
 
 #### <a name="azure-and-vm-mtu"></a>Azure e il valore MTU macchina virtuale
 
-Il valore predefinito di MTU per macchine virtuali di Azure è di 1.500 byte. Lo stack di rete virtuale di Azure tenterà di frammentazione di un pacchetto in byte 1400. Ma lo stack di rete virtuale consente pacchetti fino a 2,006 byte quando è impostato il bit di Don ' t Fragment nell'intestazione IP.
+Il valore predefinito di MTU per macchine virtuali di Azure è di 1.500 byte. Lo stack di rete virtuale di Azure tenterà di frammentazione di un pacchetto in byte 1400.
 
 Si noti che lo stack di rete virtuale non è intrinsecamente inefficiente, perché frammenti pacchetti a livello 1.400 byte anche se le macchine virtuali hanno un valore MTU di 1.500. Un'alta percentuale di pacchetti di rete sono molto inferiori a 1.400 o 1.500 byte.
 
@@ -264,7 +264,7 @@ La funzionalità rete accelerata fornisce la latenza di rete ultralow coerente t
 
 La funzionalità rete accelerata migliora le prestazioni consentendo il guest macchina virtuale di ignorare l'host e stabilire un percorso dati direttamente con SmartNIC dell'host. Ecco alcuni dei vantaggi della funzionalità rete accelerata:
 
-- **Latenza più bassa / più pacchetti al secondo (pps)**: Rimuovendo il commutatore virtuale dal percorso consente di eliminare il tempo speso per i pacchetti nell'host di elaborazione dei criteri e aumenta il numero di pacchetti che possono essere elaborati nella macchina virtuale.
+- **Latenza più bassa / più pacchetti al secondo (pps)** : Rimuovendo il commutatore virtuale dal percorso consente di eliminare il tempo speso per i pacchetti nell'host di elaborazione dei criteri e aumenta il numero di pacchetti che possono essere elaborati nella macchina virtuale.
 
 - **Instabilità ridotta**: L'elaborazione di commutatore virtuale varia a seconda della quantità di criterio che deve essere applicato e il carico di lavoro della CPU che esegue l'elaborazione. L'applicazione dei criteri all'hardware offload rimuove tale variabilità recapitando i pacchetti direttamente alla macchina virtuale, eliminando la comunicazione host-per-VM e tutte le interruzioni software e i cambi di contesto.
 

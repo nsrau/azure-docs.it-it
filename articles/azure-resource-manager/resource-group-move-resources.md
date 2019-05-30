@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ae1afe103d4c52a2a7d921ef4f34dc030f3c6f7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872648"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225895"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -64,16 +64,16 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Azure Stack - registrazioni
 * Batch
 * Servizi BizTalk
-* Servizio Bot
+* Servizio bot
 * RETE CDN
 * Servizi cloud: vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Servizi cognitivi
 * Registro Container
 * Content Moderator
-* Gestione dei costi
+* Gestione costi
 * Customer Insights
 * Data Catalog
-* Data factory
+* Data Factory
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -98,7 +98,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Power BI - sia Power BI Embedded che Raccolta di aree di lavoro di Power BI
 * IP pubblico: è possibile spostare l'IP pubblico con SKU Basic. L'indirizzo IP pubblico dello SKU Standard non può essere spostato.
 * Insieme di credenziali di Servizi di ripristino: registrarsi in un'[anteprima](#recovery-services-limitations).
-* SAP HANA su Azure
+* SAP HANA in Azure
 * Utilità di pianificazione
 * Ricerca: non è possibile spostare più risorse di Ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
 * Bus di servizio
@@ -211,7 +211,7 @@ Quando si sposta un'app Web _tra sottoscrizioni_, si applicano le limitazioni se
 
 - Il gruppo di risorse di destinazione non deve contenere risorse del servizio app esistenti. Le risorse del servizio app includono:
     - App Web
-    - Piani di Servizio app
+    - Piani di servizio app
     - Certificati SSL importati o caricati
     - Ambienti del servizio app
 - Tutte le risorse del servizio app nel gruppo di risorse devono essere spostate insieme.
@@ -323,7 +323,7 @@ Questa operazione potrebbe richiedere alcuni minuti.
 
 ### <a name="recovery-services-limitations"></a>Limitazioni dei servizi di ripristino
 
- Per spostare un insieme di credenziali di Servizi di ripristino, è necessario essere registrati in un'[anteprima pubblica limitata](../backup/backup-azure-move-recovery-services-vault.md).
+ Per spostare un insieme di credenziali di servizi di ripristino, seguire questa procedura: [Spostare le risorse in un nuovo gruppo di risorse o sottoscrizione](../backup/backup-azure-move-recovery-services-vault.md).
 
 Attualmente, è possibile spostare un solo insieme di credenziali di Servizi di ripristino per ogni area contemporaneamente. Non è possibile spostare insiemi di credenziali di cui eseguire il backup di file di Azure, Sincronizzazione file di Azure o SQL in macchine virtuali IaaS.
 
@@ -467,7 +467,7 @@ Mentre l'operazione è ancora in esecuzione, si continua a ricevere il codice di
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
 ```
 
-## <a name="move-resources"></a>Sposta risorse
+## <a name="move-resources"></a>Spostare le risorse
 
 ### <a name="a-nameuse-portal-by-using-azure-portal"></a><a name="use-portal" />Uso del portale di Azure
 

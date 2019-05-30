@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0af36fa68b2d801eed52e6f081b040fb56929c91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12549bb53a21dd657f51a4a02460ddc82c47bef8
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613655"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386396"
 ---
 # <a name="paging-through-video-search-results"></a>Restituire in più pagine i risultati della ricerca di video
 
@@ -26,7 +26,7 @@ L'API Ricerca video Bing restituisce un subset di tutti i risultati trovati per 
 
 ## <a name="total-estimated-matches"></a>Ottenere la stima totale delle corrispondenze
 
-Per ottenere il numero stimato dei risultati della ricerca trovati, usare il campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) nella risposta JSON.   
+Per ottenere il numero stimato dei risultati della ricerca trovati, usare il campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-totalestimatedmatches) nella risposta JSON.   
   
 ```json  
 {
@@ -39,7 +39,7 @@ Per ottenere il numero stimato dei risultati della ricerca trovati, usare il cam
   
 ## <a name="paging-through-videos"></a>Restituire in più pagine i video
 
-Per restituire in più pagine i video disponibili, usare i parametri di query [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count) e [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) quando si invia la richiesta.  
+Per restituire in più pagine i video disponibili, usare i parametri di query [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count) e [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) quando si invia la richiesta.  
   
 
 |Parametro  |Descrizione  |
@@ -57,7 +57,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```  
 
-Se si usa il valore predefinito per [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count), è sufficiente specificare il parametro di query `offset`, come nell'esempio seguente.  
+Se si usa il valore predefinito per [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count), è sufficiente specificare il parametro di query `offset`, come nell'esempio seguente.  
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
@@ -67,7 +67,7 @@ Host: api.cognitive.microsoft.com
 
 Per restituire pagine di 35 video alla volta, si imposta il parametro di query `offset` su 0 nella prima richiesta e quindi si incrementa `offset` di 35 in ogni richiesta successiva. Alcuni risultati nella risposta successiva possono tuttavia contenere video duplicati della risposta precedente. Ad esempio, i primi due video in una risposta possono corrispondere a quelli che compaiono per ultimi nella risposta precedente.
 
-Per eliminare i risultati duplicati, usare il campo [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-nextoffset) dell'oggetto `Videos`.
+Per eliminare i risultati duplicati, usare il campo [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-nextoffset) dell'oggetto `Videos`.
 
 Se ad esempio si vogliono restituire pagine di 30 video alla volta, impostare `count` su 30 e `offset` su 0 nella prima richiesta. Nella richiesta successiva sarà sufficiente impostare il parametro di query `offset` sul valore `nextOffset`.
 

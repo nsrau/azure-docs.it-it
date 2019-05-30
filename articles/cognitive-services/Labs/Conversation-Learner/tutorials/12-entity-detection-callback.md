@@ -3,19 +3,19 @@ title: Come usare il callback di rilevamento entità con un modello di Conversat
 titleSuffix: Azure
 description: Informazioni su come usare il callback di rilevamento entità con un modello di Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 576dc6bd44360f73c4133907233e59e5f51837b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: ed254ea3db1c8f0e680cba71185e9b4505d8f200
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60707575"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387644"
 ---
 # <a name="how-to-use-entity-detection-callback"></a>Come usare il callback di rilevamento entità
 

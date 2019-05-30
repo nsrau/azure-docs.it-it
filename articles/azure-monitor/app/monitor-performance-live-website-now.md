@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3f4ef7f333525d7408d0345b917102cddb295386
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66130993"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255475"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentare app Web in fase di esecuzione con Application Insights Status Monitor
 
@@ -42,16 +42,16 @@ Status Monitor viene usato per instrumentare un'applicazione .NET ospitata in II
 
 Ecco un riepilogo di ciò che offrono i singoli modi:
 
-|  | Fase di compilazione | Tempo di esecuzione |
+|  | Fase di compilazione | Fase di esecuzione |
 | --- | --- | --- |
-| Richieste ed eccezioni |Sì |Sì |
-| [Eccezioni più dettagliate](../../azure-monitor/app/asp-net-exceptions.md) | |Sì |
+| Richieste ed eccezioni |Yes |Yes |
+| [Eccezioni più dettagliate](../../azure-monitor/app/asp-net-exceptions.md) | |Yes |
 | [Diagnostica delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
-| [Contatori delle prestazioni di sistema](../../azure-monitor/app/performance-counters.md) |Sì |Sì |
-| [API per telemetria personalizzata][api] |Sì |N. |
-| [Integrazione log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) |Sì |N. |
-| [Visualizzazione pagina e dati utente](../../azure-monitor/app/javascript.md) |Sì |N. |
-| Ricompilazione del codice necessaria |Sì | N. |
+| [Contatori delle prestazioni di sistema](../../azure-monitor/app/performance-counters.md) |Yes |Yes |
+| [API per telemetria personalizzata][api] |Yes |No |
+| [Integrazione log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) |Yes |No |
+| [Visualizzazione pagina e dati utente](../../azure-monitor/app/javascript.md) |Yes |No  |
+| Ricompilazione del codice necessaria |Yes | No |
 
 
 
@@ -321,7 +321,6 @@ Visualizzare i dati di telemetria:
 * [Esaminare le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo
 * Per diagnosticare i problemi, vedere [Eventi e log di ricerca][diagnostic]
 * Per informazioni sulle query più avanzate, vedere [Analytics](../../azure-monitor/app/analytics.md)
-* [Creare i dashboard](../../azure-monitor/app/app-insights-dashboards.md)
 
 Aggiungere altri dati di telemetria:
 

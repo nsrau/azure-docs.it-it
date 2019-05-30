@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/06/2019
+ms.date: 05/06/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad90cd66d922c29887aaa8094e798edb28022b27
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: e5c2d987a1556513e36fc0a81e903d9eefdcae68
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015450"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388151"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
 
@@ -437,7 +437,7 @@ Questa sezione vengono fornite le richieste SCIM di esempio generati da client S
 }
 ```
 
-#### <a name="delete-user"></a>Elimina utente
+#### <a name="delete-user"></a>Eliminazione di un utente.
 
 ##### <a name="request"></a>Richiesta
 *Elimina /Users/5171a35d82074e068ce2 HTTP/1.1*
@@ -486,7 +486,7 @@ Questa sezione vengono fornite le richieste SCIM di esempio generati da client S
 }
 ```
 
-#### <a name="get-group"></a>Ottieni gruppo
+#### <a name="get-group"></a>Ottenere un gruppo
 
 ##### <a name="request"></a>Richiesta
 *GET/gruppi/40734ae655284ad3abcc? excludedAttributes = membri protocollo HTTP/1.1*
@@ -594,7 +594,7 @@ Questa sezione vengono fornite le richieste SCIM di esempio generati da client S
 ##### <a name="response"></a>Risposta
 *HTTP/1.1 204 No Content*
 
-#### <a name="delete-group"></a>Elimina gruppo
+#### <a name="delete-group"></a>Eliminare un gruppo
 
 ##### <a name="request"></a>Richiesta
 *Elimina /Groups/cdb1ce18f65944079d37 HTTP/1.1*
@@ -1330,7 +1330,7 @@ Le risorse gruppo sono identificate dall'identificatore dello schema, `urn:ietf:
 | jobTitle |title |
 | mail |emails[type eq "work"].value |
 | mailNickname |externalId |
-| responsabile |manager |
+| manager |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
 | objectId |ID |
 | postalCode |addresses[type eq "work"].postalCode |
@@ -1343,12 +1343,12 @@ Le risorse gruppo sono identificate dall'identificatore dello schema, `urn:ietf:
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabella 2: Mapping predefinito degli attributi dei gruppi
 
-| Gruppo Azure Active Directory | urn:ietf:params:scim:schemas:core:2.0:Group |
+| Gruppo di Azure Active Directory | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |externalId |
 | mail |emails[type eq "work"].value |
 | mailNickname |displayName |
-| membri |membri |
+| Membri di |Membri di |
 | objectId |ID |
 | proxyAddresses |emails[type eq "other"].Value |
 

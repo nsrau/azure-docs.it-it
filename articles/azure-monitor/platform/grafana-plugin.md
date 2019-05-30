@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9a20aba84e79e87f84d63e4bdae3ba1aac062f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396027"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387183"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorare i servizi di Azure in Grafana
 Ora è possibile monitorare i servizi e le applicazioni di Azure da [Grafana](https://grafana.com/) usando il [plug-in dell'origine dati di Monitoraggio di Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). Il plug-in raccoglie i dati sulle prestazioni dell'applicazione ottenuti da Monitoraggio di Azure, tra cui diversi log e metriche. È quindi possibile visualizzare questi dati nel dashboard di Grafana.
@@ -103,7 +103,7 @@ Una volta eseguito l'accesso, si dovrebbe vedere che il plug-di origine dati di 
      > [!NOTE]
      >
      > La query predefinita fornita con il plug-in usa due macro: "$__timeFilter() e $__interval. 
-     > Queste macro consentono a Grafana di calcolare dinamicamente gli intervalli di tempo, quando si fa zoom avanti su parte di un grafico. È possibile rimuovere queste macro e usare un filtro temporale standard, ad esempio *TimeGenerated > ago(1h)*, ma in tal caso il grafico non supporterà la funzionalità di zoom avanti.
+     > Queste macro consentono a Grafana di calcolare dinamicamente gli intervalli di tempo, quando si fa zoom avanti su parte di un grafico. È possibile rimuovere queste macro e usare un filtro temporale standard, ad esempio *TimeGenerated > ago(1h)* , ma in tal caso il grafico non supporterà la funzionalità di zoom avanti.
     
      ![Configurazione del grafico di Grafana per Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
@@ -119,8 +119,6 @@ Una volta eseguito l'accesso, si dovrebbe vedere che il plug-di origine dati di 
 
 Di seguito sono riportati utili articoli di riferimento su come usare Telegraf, InfluxDB, Prometheus e Docker
  - [Come monitorare le metriche di sistema con lo stack TICK in Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
-
- - [Monitorare le metriche delle risorse Docker con Grafana InfluxDB e Telegraf](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
 
  - [Una soluzione di monitoraggio per host, contenitori e servizi in contenitori Docker](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 

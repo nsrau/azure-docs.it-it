@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a46d816c04d9f5629c2ee9538016d42c53f9a331
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713009"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244399"
 ---
 # <a name="azure-devtest-labs-faq"></a>Domande frequenti su Azure DevTest Labs
 Ottenere le risposte ad alcune delle domande più comuni relative ad Azure DevTest Labs.
@@ -280,7 +280,7 @@ Per una spiegazione più approfondita, vedere [confronto tra immagini personaliz
 
 Per automatizzare il processo di caricamento dei file VHD per creare immagini personalizzate, sono disponibili due opzioni:
 
-- Usare [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage) per copiare o caricare i file VHD nell'account di archiviazione associato al lab.
+- Usare [AzCopy](../storage/common/storage-use-azcopy-v10.md) per copiare o caricare i file VHD nell'account di archiviazione associato al lab.
 - Usare [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Storage Explorer è un'app autonoma che è possibile eseguire in Windows, OSX e Linux.
 
 Per trovare l'account di archiviazione di destinazione associato al lab:

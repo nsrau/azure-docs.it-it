@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c80e9953a24504c4ad324ce077b741e60a52b1fb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 215b839c21c2590c08ac2f4250086eaf97914ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65908010"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243718"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite .NET SDK
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione dell'
 
 ## <a name="create-a-net-application"></a>Creare un'applicazione .NET
 1. In Visual Studio, selezionare la **File** dal menu **New**e quindi **progetto**.
-2. Scegli **App Console (.NET Framework)**, quindi selezionare **successivo**.
+2. Scegli **App Console (.NET Framework)** , quindi selezionare **successivo**.
 3. Nelle **nome progetto**, immettere `CreateADLApplication`, quindi selezionare **Create**.
 
 4. Aggiungere i pacchetti NuGet al progetto.
@@ -74,7 +74,7 @@ Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione dell'
 ## <a name="end-user-authentication"></a>Autenticazione dell'utente finale
 Aggiungere questo frammento di codice nell'applicazione client .NET. Sostituire i valori segnaposto con i valori recuperati da un'applicazione nativa Azure AD indicata come prerequisito. Questo frammento di codice consente di autenticare l'applicazione **in modo interattivo** con Data Lake Storage Gen1, ovvero viene chiesto di immettere le credenziali di Azure.
 
-Per semplicità, il frammento seguente usa valori predefiniti per ID client e URI di reindirizzamento validi con qualsiasi sottoscrizione di Azure. Nel frammento seguente è sufficiente fornire il valore per l'ID del tenant. È possibile recuperare l'ID del tenant usando le istruzioni fornite in [ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+Per semplicità, il frammento seguente usa valori predefiniti per ID client e URI di reindirizzamento validi con qualsiasi sottoscrizione di Azure. Nel frammento seguente è sufficiente fornire il valore per l'ID del tenant. È possibile recuperare l'ID del tenant usando le istruzioni fornite in [ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
     
 - Sostituire la funzione Main() con il codice seguente:
 

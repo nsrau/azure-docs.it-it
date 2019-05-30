@@ -2,7 +2,7 @@
 title: Diagnosticare e risolvere i problemi dell'anteprima di Azure Time Series Insights | Microsoft Docs
 description: Informazioni su come diagnosticare e risolvere i problemi con l'anteprima di Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4a63bfd4e82147fe3324e146f2aaff8889da87e
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: d18f8f4808d5ca9dd7eca1561b1ee08c2073f5fa
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472374"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237552"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnosticare e risolvere i problemi
 

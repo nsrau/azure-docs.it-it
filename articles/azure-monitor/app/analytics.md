@@ -12,23 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f5819194e7967b5921f34223cad299752460de30
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574270"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255633"
 ---
 # <a name="analytics-in-application-insights"></a>Analytics in Application Insights
 Analytics è l'efficace strumento di ricerca e query incluso in [Application Insights](app-insights-overview.md). Analytics è uno strumento Web, pertanto non occorre installarlo.
-Se Application Insights è già stato configurato per una delle app, è possibile analizzare i dati dell'app aprendo Analytics dal [pannello Panoramica](app-insights-dashboards.md) dell'app.
+Se si è già configurato Application Insights per una delle App è possibile analizzare i dati dell'app aprendo Analitica dal Pannello di panoramica dell'app.
 
 ![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/analytics/001.png)
 
 È anche possibile usare l'[ambiente di prova di Analytics](https://go.microsoft.com/fwlink/?linkid=859557), ovvero un ambiente dimostrativo gratuito con una grande quantità di dati di esempio.
-<br>
-<br>
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Relazione con i log di Monitoraggio di Azure
 Analytics di Application Insights si basa su [Esplora dati di Azure](/azure/data-explorer) come i log di Monitoraggio di Azure e usa anche il [linguaggio di query Kusto](/azure/kusto/query). Usa lo stesso [portale di analisi dei log](../log-query/get-started-portal.md) usato dai log di Monitoraggio di Azure, sebbene i dati vengano archiviati in una partizione separata.

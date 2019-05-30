@@ -4,14 +4,14 @@ description: Informazioni sulla sintassi SQL, sui concetti relativi ai database 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: bbca0239053b8f3164055a07b376abc597b0348f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 943ed63aed0f64ae6cbd62c52731c6ec73ddd0bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954124"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388476"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Esempi di query SQL per Azure Cosmos DB
 
@@ -550,13 +550,13 @@ La tabella seguente illustra il risultato dei confronti di uguaglianza nell'API 
 
 | **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
-| **Undefined** | Non definita | Non definita | Non definita | Non definita | Non definita | Non definita | Non definita |
-| **Null** | Non definita | **Ok** | Non definita | Non definita | Non definita | Non definita | Non definita |
-| **Boolean** | Non definita | Non definita | **Ok** | Non definita | Non definita | Non definita | Non definita |
-| **Number** | Non definita | Non definita | Non definita | **Ok** | Non definita | Non definita | Non definita |
-| **String** | Non definita | Non definita | Non definita | Non definita | **Ok** | Non definita | Non definita |
-| **Object** | Non definita | Non definita | Non definita | Non definita | Non definita | **Ok** | Non definita |
-| **Array** | Non definita | Non definita | Non definita | Non definita | Non definita | Non definita | **Ok** |
+| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
 
 Per gli operatori di confronto, ad esempio `>`, `>=`, `!=`, `<`, e `<=`, il confronto tra i tipi o tra due oggetti o matrici produce `Undefined`.  
 
@@ -568,27 +568,27 @@ Gli operatori logici funzionano con valori booleani. Le tabelle seguenti illustr
 
 **Operator OR**
 
-| Oppure | True  | Falso | Non definita |
+| Oppure | True  | False | Undefined |
 | --- | --- | --- | --- |
 | True  |True  |True  |True  |
-| Falso |True  |Falso |Non definita |
-| Non definita |True  |Non definita |Non definita |
+| False |True  |False |Undefined |
+| Undefined |True  |Undefined |Undefined |
 
 **Operatore AND**
 
-| AND | True  | Falso | Non definita |
+| AND | True  | False | Undefined |
 | --- | --- | --- | --- |
-| True  |True  |Falso |Non definita |
-| Falso |Falso |Falso |Falso |
-| Non definita |Non definita |Falso |Non definita |
+| True  |True  |False |Undefined |
+| False |False |False |False |
+| Undefined |Undefined |False |Undefined |
 
 **Operatore NOT**
 
 | NOT |  |
 | --- | --- |
-| True  |Falso |
-| Falso |True  |
-| Non definita |Non definita |
+| True  |False |
+| False |True  |
+| Undefined |Undefined |
 
 ## <a name="between-keyword"></a>Parola chiave BETWEEN
 
@@ -756,7 +756,7 @@ Questa query recupera la famiglia `id` in ordine crescente del nome della città
 
 ## <a id="OffsetLimitClause"></a>Clausola OFFSET limite
 
-LIMITE di OFFSET è una clausola facoltativa per ignorare quindi richiedere un numero di valori dalla query. Il numero OFFSET e il conteggio di limite sono necessari nella clausola OFFSET limite.
+LIMITE di OFFSET è una clausola facoltativa per ignorare quindi richiedere un numero di valori dalla query. Il numero OFFSET e il conteggio di limite sono necessari nella clausola OFFSET limite. Attualmente questa clausola è supportata per le query all'interno di una singola partizione, query tra partizioni ancora non supportano questa azione. 
 
 Quando il limite di OFFSET viene utilizzato in combinazione con una clausola ORDER BY, il set di risultati viene generato eseguendo skip e accettano i valori ordinati. Se non esiste una clausola ORDER BY viene utilizzata, si verificherà in un ordine deterministico dei valori.
 
@@ -1294,11 +1294,11 @@ L'API SQL supporta le seguenti funzioni di aggregazione. SUM e AVG SQRT a valori
 
 | Funzione | Descrizione |
 |-------|-------------|
-| NUMERO | Restituisce il numero di elementi nell'espressione. |
+| COUNT | Restituisce il numero di elementi nell'espressione. |
 | SUM   | Restituisce la somma dei valori nell'espressione. |
 | MIN   | Restituisce il valore minimo nell'espressione. |
 | MAX   | Restituisce il valore massimo nell'espressione. |
-| MEDIO   | Restituisce la media dei valori nell'espressione. |
+| MEDIA   | Restituisce la media dei valori nell'espressione. |
 
 È anche possibile aggregare i risultati di un'iterazione della matrice. Per altre informazioni, vedere la [iterazione](#Iteration) sezione.
 
@@ -1986,7 +1986,7 @@ Il provider di query supporta le seguenti espressioni scalari:
 
 - Valori costanti, inclusi i valori costanti dei tipo di dati primitivi al momento della valutazione di query.
   
-- Espressioni di indice di matrice/di proprietà che fanno riferimento alla proprietà di un oggetto o un elemento della matrice. Ad esempio:
+- Espressioni di indice di matrice/di proprietà che fanno riferimento alla proprietà di un oggetto o un elemento della matrice. Ad esempio: 
   
   ```
     family.Id;
@@ -2039,7 +2039,7 @@ Il provider LINQ incluso in SQL .NET SDK supporta gli operatori seguenti:
 
 Gli esempi seguenti illustrano come alcuni degli operatori di query LINQ standard vengono convertite in query di Cosmos DB.
 
-#### <a name="select-operator"></a>Seleziona operatore
+#### <a name="select-operator"></a>Operatore Select
 
 La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
 

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/24/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 33d0e5f92d5de104530882b204b1f196360511b2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826752"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236450"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Trasferimento della proprietà di una sottoscrizione di Azure a un altro account
 
@@ -59,7 +59,7 @@ Trasferire la sottoscrizione a un altro utente nel Centro account per modificare
    ![Prima pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/image4.png)
 
    ![Seconda pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/image5.png)
-1. Operazione riuscita La sottoscrizione è stata trasferita.
+1. Completamento della procedura La sottoscrizione è stata trasferita.
 
 <a id="EA"></a>
 
@@ -102,7 +102,9 @@ Il trasferimento della sottoscrizione in modalità self-service è disponibile p
 
 ### <a name="whoisaa"></a> Chi è l'amministratore account della sottoscrizione?
 
-L'amministratore account è la persona che ha eseguito l'iscrizione o ha acquistato la sottoscrizione di Azure. È autorizzato ad accedere al [Centro account](https://account.azure.com/Subscriptions) ed eseguire diverse attività di gestione, ad esempio creare e annullare sottoscrizioni, modificare la fatturazione per una sottoscrizione oppure modificare l'amministratore del servizio. Se non si conosce l'amministratore account per una sottoscrizione, seguire questa procedura per individuarlo.
+L'amministratore account è la persona che ha eseguito l'iscrizione o ha acquistato la sottoscrizione di Azure. È autorizzato ad accedere al [Centro account](https://account.azure.com/Subscriptions) ed eseguire diverse attività di gestione, ad esempio creare e annullare sottoscrizioni, modificare la fatturazione per una sottoscrizione oppure modificare l'amministratore del servizio. Per altre informazioni sulle autorizzazioni e informazioni sui ruoli di amministratore, vedere [le autorizzazioni del ruolo amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+
+Se non si conosce l'amministratore account per una sottoscrizione, seguire questa procedura per individuarlo.
 
 1. Accedere alla [pagina delle sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Scegliere la sottoscrizione da controllare e quindi controllare la sezione **Impostazioni**.

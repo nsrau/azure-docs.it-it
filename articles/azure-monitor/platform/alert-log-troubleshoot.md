@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1c7712fc2ce55a3d22995bb119a9ee485a064903
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683399"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399193"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Risolvere gli avvisi del log in Monitoraggio di Azure  
 
@@ -38,7 +38,7 @@ Per ridurre ritardi, il sistema attende e riprova la query di avviso più volte 
 
 Come descritto nell'articolo sul [terminologia specifica per gli avvisi del log](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), il periodo di tempo indicato nella configurazione specifica l'intervallo di tempo per la query. La query restituisce solo i record che sono stati creati in questo intervallo. 
 
-Il periodo di tempo limita i dati recuperati per una query di log di evitare abusi e aggira qualsiasi comando ora (ad esempio **fa**) utilizzato in una query di log. Se ad esempio il periodo di tempo è impostato su 60 minuti e la query viene eseguita alle 13.15, solo i record creati tra le 12.15 e le 13.15 vengono usati per la query di log. Se la query di log Usa un comando ora simile **fa (1 giorno)**, la query utilizza ancora solo i dati tra 12.15 e 1 15 PM perché il periodo di tempo è impostato su quell'intervallo.
+Il periodo di tempo limita i dati recuperati per una query di log di evitare abusi e aggira qualsiasi comando ora (ad esempio **fa**) utilizzato in una query di log. Se ad esempio il periodo di tempo è impostato su 60 minuti e la query viene eseguita alle 13.15, solo i record creati tra le 12.15 e le 13.15 vengono usati per la query di log. Se la query di log Usa un comando ora simile **fa (1 giorno)** , la query utilizza ancora solo i dati tra 12.15 e 1 15 PM perché il periodo di tempo è impostato su quell'intervallo.
 
 Verificare che il periodo di tempo nella configurazione corrisponde alla query. Per l'esempio illustrato in precedenza, se la query di log viene utilizzato **fa (1 giorno)** con l'indicatore di colore verde, il periodo di tempo deve essere impostato su 24 ore o 1440 minuti (indicati in rosso). Questa impostazione garantisce che la query viene eseguita come previsto.
 
@@ -181,6 +181,7 @@ L'evento di esempio seguente nel Log attività di Azure è per una regola di avv
 Ogni regola di avviso di log creato nel monitoraggio di Azure come parte della configurazione è necessario specificare una query analitica che verrà eseguito periodicamente il servizio di avvisi. Query analitica potrebbe essere la sintassi corretta al momento della creazione della regola o aggiornamento. Ma in alcuni casi, in un periodo di tempo, può sviluppare problemi di sintassi e causare l'errore di esecuzione regola la query specificata nella regola di avviso di log. Alcuni dei motivi per cui una query analitica fornita in una regola di avviso di log può sviluppare gli errori sono:
 
 - La query viene scritto [eseguito su più risorse](../log-query/cross-workspace-query.md). E uno o più risorse specificate non sono più presenti.
+- [avviso di log di tipo di misura della metrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) configurato dispone di un avviso non è conforme con le norme sintassi query
 - Non si è verificato alcun flusso di dati per la piattaforma analitica. Il [esecuzione di query restituisce un errore](https://dev.loganalytics.io/documentation/Using-the-API/Errors) perché non sono presenti dati per la query specificata.
 - Modifiche nel [linguaggio di query](https://docs.microsoft.com/azure/kusto/query/) includono un formato rivisto per comandi e funzioni. Pertanto, la query specificata in precedenza in una regola di avviso non è più valida.
 

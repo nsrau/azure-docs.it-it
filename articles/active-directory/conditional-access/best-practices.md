@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54cb8c3017b2b0a4c476095ba639985fb9418441
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 67811e03bfa87a991b9eeb6f80ddddd87f781335
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917328"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305748"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
@@ -71,7 +71,7 @@ Tutti i criteri vengono applicati in due fasi:
 
     ![Ordine](./media/best-practices/06.png)
     
-    Poi vengono i provider MFA e le condizioni per l'utilizzo.
+    Poi esterni i provider di autenticazione a più fattori e le condizioni d'uso.
 
 
 

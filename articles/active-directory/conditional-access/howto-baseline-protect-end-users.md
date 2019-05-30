@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cd52fb82e5e4cce759be5dfdd8872f64802459
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 104665774eee885cc2f562e9813cffcf23aa943e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003162"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235512"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Criterio di base: Protezione dell'utente finale (anteprima)
 
@@ -75,11 +75,11 @@ Questo criterio di base offre la possibilità di escludere gli utenti. Prima di 
 
 I criteri **criterio di base: Protezione dell'utente finale (anteprima)** è preconfigurata e verrà visualizzata nella parte superiore quando si passa al pannello di accesso condizionale nel portale di Azure.
 
-Per abilitare questo criterio e proteggere gli amministratori:
+Per abilitare questo criterio e proteggere gli utenti:
 
 1. Accedi per il **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
-1. Nell'elenco dei criteri, selezionare **criterio di base: Protezione dell'utente finale (anteprima)**.
+1. Nell'elenco dei criteri, selezionare **criterio di base: Protezione dell'utente finale (anteprima)** .
 1. Impostare **abilitare i criteri** al **Usa i criteri immediatamente**.
 1. Aggiungere eventuali esclusioni utente facendo clic su **gli utenti** > **selezionare gli utenti esclusi** e scegliendo gli utenti che devono essere escluse. Fare clic su **selezionate** quindi **eseguita**.
 1. Fare clic su **salvare**.

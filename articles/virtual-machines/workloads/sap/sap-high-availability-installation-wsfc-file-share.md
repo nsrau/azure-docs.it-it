@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a20299887de827f25e4c3306f5e78c188c9a8a7f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969395"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357702"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installare la disponibilità elevata di SAP NetWeaver in un cluster di failover Windows e condivisione file per le istanze di SAP ASCS/SCS in Azure
 
@@ -291,7 +291,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Creare un nome host virtuale per l'istanza ASCS/SCS di SAP in cluster
 
-Come descritto in [Creare un nome host virtuale per l'istanza ASCS/SCS di SAP in cluster][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host], creare il nome di rete del cluster SAP ASCS/SCS ad esempio **pr1-ascs [10.0.6.7]**.
+Come descritto in [Creare un nome host virtuale per l'istanza ASCS/SCS di SAP in cluster][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host], creare il nome di rete del cluster SAP ASCS/SCS ad esempio **pr1-ascs [10.0.6.7]** .
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Installare un'istanza ASCS/SCS ed ERS nel cluster
@@ -300,7 +300,7 @@ Come descritto in [Creare un nome host virtuale per l'istanza ASCS/SCS di SAP in
 
 Installare un'istanza di SAP ASCS/SCS nel primo nodo del cluster. Per installare l'istanza, nello strumento di installazione SAP SWPM passare a:
 
-**\<Product >** > **\<DBMS >** > **installazione** > **Server applicazione ABAP** ( oppure **Java**) > **sistema a disponibilità elevata** > **istanza ASCS/SCS** > **primo nodo del cluster**.
+**\<Product >**  >  **\<DBMS >**  > **installazione** > **Server applicazione ABAP** ( oppure **Java**) > **sistema a disponibilità elevata** > **istanza ASCS/SCS** > **primo nodo del cluster**.
 
 ### <a name="add-a-probe-port"></a>Aggiungere una porta probe
 
@@ -310,12 +310,12 @@ Configurare una porta probe SAP-SID-IP della risorsa cluster SAP tramite PowerSh
 
 Installare un'istanza di SAP ASCS/SCS nel secondo nodo del cluster. Per installare l'istanza, nello strumento di installazione SAP SWPM passare a:
 
-**\<Product >** > **\<DBMS >** > **installazione** > **Server applicazione ABAP** ( oppure **Java**) > **sistema a disponibilità elevata** > **istanza ASCS/SCS** > **nodo del cluster aggiuntivo** .
+**\<Product >**  >  **\<DBMS >**  > **installazione** > **Server applicazione ABAP** ( oppure **Java**) > **sistema a disponibilità elevata** > **istanza ASCS/SCS** > **nodo del cluster aggiuntivo** .
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Aggiornare il profilo dell'istanza di SAP ASCS/SCS
 
-Aggiornare i parametri nel profilo dell'istanza di SAP ASCS/SCS \<SID >_ASCS/SCS\<Nr >_\<Host >.
+Aggiornare i parametri nel profilo dell'istanza di SAP ASCS/SCS \<SID >_ASCS/SCS\<Nr >_ \<Host >.
 
 
 | Nome parametro | Valore del parametro |
@@ -324,7 +324,7 @@ Aggiornare i parametri nel profilo dell'istanza di SAP ASCS/SCS \<SID >_ASCS/SCS
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-Riavviare l'istanza di SAP ASCS/SCS. Impostare `KeepAlive` parametri in entrambi i nodi del cluster SAP ASCS/SCS per seguono le istruzioni [impostare le voci del Registro di sistema nei nodi del cluster dell'istanza SAP ASCS/SCS]([high-availability-guide]:high-availability-guide.md). 
+Riavviare l'istanza di SAP ASCS/SCS. Impostare `KeepAlive` parametri in entrambi i nodi del cluster SAP ASCS/SCS per seguono le istruzioni [impostare le voci del Registro di sistema nei nodi del cluster dell'istanza SAP ASCS/SCS][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installare un'istanza di DBMS e i server applicazioni SAP
 

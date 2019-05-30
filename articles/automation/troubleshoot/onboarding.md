@@ -4,16 +4,16 @@ description: Informazioni su come risolvere problemi di onboarding delle soluzio
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8867912d98897a695c1e59ebd4177301230281bb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145158"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399767"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Risoluzione di problemi di onboarding delle soluzioni
 
@@ -42,6 +42,24 @@ Questo errore è causato da autorizzazioni non corrette oppure mancante nella ma
 #### <a name="resolution"></a>Risoluzione
 
 Assicurarsi di disporre delle autorizzazioni corrette per eseguire l'onboarding della macchina virtuale. Verificare quali [autorizzazioni sono necessarie per eseguire l'onboarding delle macchine virtuali](../automation-role-based-access-control.md#onboarding) e ripetere l'operazione. Se viene visualizzato l'errore `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, assicurarsi di aver la `Microsoft.OperationalInsights/workspaces/read` dell'autorizzazione per essere in grado di verificare se la macchina virtuale è caricata in un'area di lavoro.
+
+### <a name="diagnostic-logging"></a>Scenario: Processo di Onboarding ha esito negativo con messaggio: Impossibile configurare l'Account di automazione per la registrazione diagnostica
+
+#### <a name="issue"></a>Problema
+
+Quando si tenta di eseguire l'onboarding di una macchina virtuale in una soluzione, viene visualizzato il messaggio seguente:
+
+```error
+Failed to configure automation account for diagnostic logging
+```
+
+#### <a name="cause"></a>Causa
+
+Questo errore può essere causato se il piano tariffario non corrisponde a modello di fatturazione della sottoscrizione. Per altre informazioni, vedere [monitoraggio dell'utilizzo e costi stimati in Monitoraggio di Azure](http://aka.ms/PricingTierWarning).
+
+#### <a name="resolution"></a>Risoluzione
+
+Creare l'area di lavoro di Log Analitica manualmente e ripetere il processo di onboarding per selezionare l'area di lavoro creata.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 

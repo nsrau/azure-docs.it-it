@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 39ef23d04dc1cf1b48297ecf8f0accfef4935cd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158949"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234011"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -242,7 +242,7 @@ Il contesto di compilazione è a livello di progetto/servizio per impostazione p
 ### <a name="try"></a>Soluzione:
 Quali azioni è necessario eseguire:
 1. Modificare il file _azds.yaml_ per impostare il contesto di compilazione a livello di soluzione.
-2. Modificare il _Dockerfile_ e i file _Dockerfile.develop_ in modo che facciano riferimento ai file di progetto (_.csproj_) in modo corretto, nel rispetto del nuovo contesto di compilazione.
+2. Modificare il _Dockerfile_ e i file _Dockerfile.develop_ in modo che facciano riferimento ai file di progetto ( _.csproj_) in modo corretto, nel rispetto del nuovo contesto di compilazione.
 3. Collocare un file con estensione _.dockerignore_ accanto al file con estensione sln e modificare in base alle esigenze.
 
 È possibile trovare un esempio in https://github.com/sgreenmsft/buildcontextsample
@@ -404,3 +404,8 @@ Creare un controller con un nome alternativo:
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
 ```
+
+## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Abilitazione di spazi di sviluppo esito negativo quando il pool di nodi di Windows viene aggiunti a un cluster del servizio contenitore di AZURE
+
+### <a name="reason"></a>`Reason`
+Attualmente, gli spazi di sviluppo di Azure è destinato all'esecuzione in Linux il POD e solo i nodi. A questo punto, è possibile abilitare spazi di sviluppo di Azure in un cluster del servizio contenitore di AZURE con un pool di nodi Windows.

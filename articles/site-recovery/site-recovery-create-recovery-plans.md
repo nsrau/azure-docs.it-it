@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: d52aa3b39a17c42c0f0e0cb669c69d336b41ba48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 866374df7d3a6973cfc5995afd5cc3c4b0145c48
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61035823"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400010"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Creare e personalizzare piani di ripristino
 
@@ -21,7 +21,7 @@ Questo articolo illustra come creare e personalizzare un piano di ripristino in 
 
 ## <a name="create-a-recovery-plan"></a>Creare un piano di ripristino
 
-1. Nell'insieme di credenziali Servizi di ripristino selezionare **Piani di ripristino (Site Recovery)** > **+Piano di ripristino**.
+1. Nell'insieme di credenziali Servizi di ripristino selezionare **Piani di ripristino (Site Recovery)**  >  **+Piano di ripristino**.
 2. In **Crea piano di ripristino** specificare un nome per il piano.
 3. Scegliere un'origine e una destinazione in base ai computer nel piano e selezionare **Resource Manager** per il modello di distribuzione. Nella posizione di origine devono essere presenti computer abilitati per il failover e il ripristino. 
 
@@ -65,18 +65,21 @@ Questo articolo illustra come creare e personalizzare un piano di ripristino in 
     **Scenario** | **Failover** | **Failback**
     --- | --- | --- 
     Da Azure ad Azure  | Runbook | Runbook
-    Da VMware ad Azure | Runbook | ND 
+    Da VMware ad Azure | Runbook | NA 
     Da Hyper-V con VMM ad Azure | Runbook | Script
-    Da sito Hyper-V ad Azure | Runbook | ND
+    Da sito Hyper-V ad Azure | Runbook | NA
     Da VMM a VMM secondario | Script | Script
 
-1. Nel piano di ripristino fare clic sul passaggio in cui deve essere aggiunta l'azione e specificare quando l'azione deve essere eseguita: a. Se si vuole che l'azione venga eseguita prima dell'avvio dei computer del gruppo dopo il failover, selezionare **Aggiungi pre-azione**.
-    b. Se si vuole che l'azione venga eseguita dopo l'avvio dei computer del gruppo dopo il failover, selezionare **Aggiungi post-azione**. Per spostare l'azione verso l'alto o verso il basso, usare i pulsanti **Sposta su** e **Sposta giù**.
+1. Nel piano di ripristino, fare clic sul passaggio a cui deve essere aggiunta l'azione e specificare quando deve verificarsi l'azione:
+    1. Se si vuole che l'azione venga eseguita prima dell'avvio dei computer del gruppo dopo il failover, selezionare **Aggiungi pre-azione**.
+    1. Se si vuole che l'azione venga eseguita dopo l'avvio dei computer del gruppo dopo il failover, selezionare **Aggiungi post-azione**. Per spostare l'azione verso l'alto o verso il basso, usare i pulsanti **Sposta su** e **Sposta giù**.
 2. In **Inserisci azione** selezionare **Script** o **Azione manuale**.
-3. Se si vuole aggiungere un'azione manuale, eseguire le operazioni seguenti" a. Digitare un nome per l'azione e le istruzioni per l'azione stessa. Queste istruzioni verranno visualizzate dalla persona che esegue il failover.
-    b. Specificare se si vuole aggiungere l'azione manuale per tutti i tipi di failover (test, failover, failover pianificato), se pertinente. Fare quindi clic su **OK**.
-4. Se si vuole aggiungere uno script, eseguire le operazioni seguenti: a. Se si aggiunge uno script VMM, selezionare l'opzione **Failover to VMM script** (Failover nello script VMM) e in **Percorso script** digitare il percorso relativo della condivisione. Se ad esempio la condivisione si trova in: \\<VMMServerName>\MSSCVMMLibrary\RPScripts, specificare il percorso \RPScripts\RPScript.PS1.
-    b. Se si aggiunge un runbook di automazione di Azure, specificare l'**account di Automazione di Azure** in cui si trova il runbook e selezionare lo **script di runbook di Azure** appropriato.
+3. Se si desidera aggiungere un'azione manuale, eseguire le operazioni seguenti:
+    1. Digitare un nome per l'azione e le istruzioni per l'azione stessa. Queste istruzioni verranno visualizzate dalla persona che esegue il failover.
+    1. Specificare se si vuole aggiungere l'azione manuale per tutti i tipi di failover (test, failover, failover pianificato), se pertinente. Fare quindi clic su **OK**.
+4. Se si desidera aggiungere uno script, eseguire le operazioni seguenti:
+    1. Se si aggiunge uno script VMM, selezionare l'opzione **Failover to VMM script** (Failover nello script VMM) e in **Percorso script** digitare il percorso relativo della condivisione. Ad esempio, se la condivisione si trova in \\ \<VMMServerName > \MSSCVMMLibrary\RPScripts, specificare il percorso: \RPScripts\RPScript.PS1.
+    1. Se si aggiunge un runbook di automazione di Azure, specificare l'**account di Automazione di Azure** in cui si trova il runbook e selezionare lo **script di runbook di Azure** appropriato.
 5. Per verificare che lo script funzioni come previsto, eseguire un failover di test del piano di ripristino.
 
 ## <a name="watch-a-video"></a>Guardare un video

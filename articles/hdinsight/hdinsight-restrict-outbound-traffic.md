@@ -7,19 +7,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 05/13/2019
-ms.openlocfilehash: 44b6f099b5b17329976b9fec3c0ac38b5e394221
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: HT
+ms.date: 05/24/2019
+ms.openlocfilehash: c40bae6ac1af2489e4e77d2c280b95cccf8b5603
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978007"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257823"
 ---
 # <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Configura limitazione del traffico di rete in uscita per i cluster HDInsight di Azure (anteprima)
 
 Questo articolo fornisce i passaggi per poter proteggere il traffico in uscita dal cluster HDInsight tramite il Firewall di Azure. I passaggi seguenti presuppongono che si sta configurando un Firewall di Azure per un cluster esistente. Se si distribuisce un nuovo cluster e un firewall, creare innanzitutto il cluster HDInsight e la subnet e quindi seguire i passaggi descritti in questa Guida.
 
-## <a name="background"></a>Sfondo
+## <a name="background"></a>Background
 
 I cluster HDInsight di Azure vengono in genere distribuiti nella propria rete virtuale. Il cluster presenta dipendenze da servizi di fuori di tale rete virtuale che richiedono l'accesso alla rete per funzionare correttamente.
 
@@ -32,38 +32,23 @@ La soluzione per proteggere gli indirizzi in uscita è usare un dispositivo fire
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Configurazione di Firewall di Azure con HDInsight
 
 Un riepilogo dei passaggi per bloccare traffico in uscita da di HDInsight esistente con il Firewall di Azure sono:
-1. Abilitare gli endpoint servizio.
 1. Creare una regola del firewall.
 1. Aggiungere le regole di applicazione al firewall
 1. Aggiungere le regole di rete verso il firewall.
 1. Creare una tabella di routing.
 
-### <a name="enable-service-endpoints"></a>Abilitare gli endpoint servizio
-
-Se si desidera ignorare il firewall (ad esempio, per risparmiare sui costi nel trasferimento dei dati) è quindi possibile abilitare gli endpoint di servizio per SQL e archiviazione nella subnet di HDInsight. Quando si dispone di endpoint servizio abilitato per SQL di Azure, eventuali dipendenze SQL di Azure con il cluster devono essere configurate con anche gli endpoint di servizio.
-
-Per abilitare gli endpoint di servizio corretto, completare i passaggi seguenti:
-
-1. Accedere al portale di Azure e selezionare la rete virtuale che viene distribuito il cluster HDInsight in.
-1. Selezionare **subnet** sotto **impostazioni**.
-1. Selezionare la subnet in cui viene distribuito il cluster.
-1. Nella schermata per modificare le impostazioni di subnet, fare clic su **Microsoft. SQL** e/o **Microsoft. Storage** dal **endpoint di servizio**  >   **Servizi** casella a discesa.
-1. Se si usa un cluster ESP, quindi è necessario selezionare anche il **Microsoft. azureactivedirectory** endpoint del servizio.
-1. Fare clic su **Save**.
-
 ### <a name="create-a-new-firewall-for-your-cluster"></a>Creare un nuovo firewall per il cluster
 
 1. Creare una subnet denominata **AzureFirewallSubnet** nella rete virtuale in cui è presente il cluster. 
 1. Creare una nuova regola del firewall **Test-FW01** usando la procedura in [esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall).
-1. Selezionare il nuovo firewall dal portale di Azure. Fare clic su **regole** sotto **impostazioni** > **raccolta regole applicazione** > **Aggiungi insieme di regole di applicazione**.
-
-    ![Titolo: Aggiungi raccolta regole dell'applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 ### <a name="configure-the-firewall-with-application-rules"></a>Configurare il firewall con le regole di applicazione
 
 Creare una raccolta di regole di applicazione che consente al cluster inviare e ricevere comunicazioni importanti.
 
 Selezionare il nuovo firewall **Test-FW01** dal portale di Azure. Fare clic su **regole** sotto **impostazioni** > **raccolta regole applicazione** > **Aggiungi insieme di regole di applicazione**.
+
+![Titolo: Aggiungere la raccolta di regole dell'applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 Nel **aggiungere la raccolta di regole dell'applicazione** schermata, seguire questa procedura:
 
@@ -75,12 +60,9 @@ Nel **aggiungere la raccolta di regole dell'applicazione** schermata, seguire qu
     1. Una regola per consentire attività di accesso di Windows:
         1. Nel **destinazione FQDN** sezione, fornire un **nome**e impostare **indirizzi di origine** a `*`.
         1. Immettere `https:443` sotto **protocollo: Port** e `login.windows.net` sotto **destinazione FQDN**.
-    1. Una regola per consentire i dati di telemetria SQM:
-        1. Nel **destinazione FQDN** sezione, fornire un **nome**e impostare **indirizzi di origine** a `*`.
-        1. Immettere `https:443` sotto **protocollo: Port** e `sqm.telemetry.microsoft.com` sotto **destinazione FQDN**.
     1. Se il cluster è supportato da WASB e non si usano gli endpoint del servizio precedenti, aggiungere una regola per WASB:
         1. Nel **destinazione FQDN** sezione, fornire un **nome**e impostare **indirizzi di origine** a `*`.
-        1. Immettere `http` [https] a seconda se si usa wasb: / / wasbs o: / / sotto **protocollo: porta** e l'url di account di archiviazione sotto **FQDN destinazione**.
+        1. Immettere `http` o `https` a seconda se si usa wasb: / / wasbs o: / / sotto **protocollo: porta** e l'url di account di archiviazione sotto **destinazione FQDN**.
 1. Fare clic su **Aggiungi**.
 
 ![Titolo: Immettere i dettagli sulla raccolta di regole di applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -88,9 +70,6 @@ Nel **aggiungere la raccolta di regole dell'applicazione** schermata, seguire qu
 ### <a name="configure-the-firewall-with-network-rules"></a>Configurare il firewall con le regole di rete
 
 Creare le regole di rete per configurare correttamente il cluster HDInsight.
-
-> [!Important]
-> È possibile scegliere tra l'uso di tag di servizio SQL nel firewall usando le regole di rete, come descritto in questa sezione, oppure un linguaggio SQL endpoint del servizio come descritto [la sezione relativa agli endpoint di servizio](#enable-service-endpoints). Se si sceglie di usare i tag SQL nelle regole di rete, è possibile accedere e controllare il traffico SQL. Uso di un endpoint del servizio avrà il traffico SQL ignorare il firewall.
 
 1. Selezionare il nuovo firewall **Test-FW01** dal portale di Azure.
 1. Fare clic su **regole** sotto **impostazioni** > **raccolta regole di rete** > **Aggiungi insieme di regole di rete**.
@@ -112,12 +91,7 @@ Creare le regole di rete per configurare correttamente il cluster HDInsight.
         1. Impostare **indirizzi di origine** `*`.
         1. Immettere l'indirizzo IP per l'account di archiviazione nel **gli indirizzi di destinazione**.
         1. Impostare **le porte di destinazione** a `*`.
-    1. Una regola di rete per consentire la comunicazione con la chiave di gestione per Windows attivazione del servizio.
-        1. Nella riga successiva nella **regole** sezione, fornire un **nome** e selezionare **qualsiasi** dal **protocollo** elenco a discesa.
-        1. Impostare **indirizzi di origine** `*`.
-        1. Impostare **gli indirizzi di destinazione** a `*`.
-        1. Impostare **le porte di destinazione** a `1688`.
-    1. Se si usa Log Analitica, quindi creare una regola di rete per consentire la comunicazione con l'area di lavoro di Log Analitica.
+    1. (Facoltativo) Se si usa Log Analitica, quindi creare una regola di rete per consentire la comunicazione con l'area di lavoro di Log Analitica.
         1. Nella riga successiva nella **regole** sezione, fornire un **nome** e selezionare **qualsiasi** dal **protocollo** elenco a discesa.
         1. Impostare **indirizzi di origine** `*`.
         1. Impostare **gli indirizzi di destinazione** a `*`.
@@ -210,7 +184,7 @@ Le istruzioni precedenti consentono di configurare il Firewall di Azure per limi
 
 | **Endpoint** |
 |---|
-| Azure SQL |
+| SQL di Azure |
 | Archiviazione di Azure |
 | Azure Active Directory |
 

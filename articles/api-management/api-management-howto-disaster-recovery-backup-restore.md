@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 0c1efa0e5cfa4bf31e58be64b3fe78075b79b515
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: e0c02829a2fef6e281794fdba6c9fb5d9b8a736b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66141728"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241712"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -63,7 +63,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 6. Immettere un URL di segnaposto, ad esempio `http://resources` per **URI di reindirizzamento**, che è un campo obbligatorio, ma il valore non viene usato in seguito. Selezionare la casella di controllo per salvare l'applicazione.
 7. Fare clic su **Create**(Crea).
 
-### <a name="add-an-application"></a>Aggiungi applicazione
+### <a name="add-an-application"></a>Aggiungere un'applicazione
 
 1. Dopo aver creato l'applicazione, fare clic su **Impostazioni**.
 2. Fare clic su **Autorizzazioni necessarie**.
@@ -72,9 +72,9 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 5. Scegliere **API Gestione dei servizi di** **Windows Azure**.
 6. Fare clic su **Seleziona**.
 
-    ![Aggiungi autorizzazioni](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    ![Aggiungere autorizzazioni](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. Fare clic su **Autorizzazioni delegate** accanto all'applicazione appena aggiunta, selezionare la casella per **Accesso a Gestione dei servizi di Azure (anteprima)**.
+7. Fare clic su **Autorizzazioni delegate** accanto all'applicazione appena aggiunta, selezionare la casella per **Accesso a Gestione dei servizi di Azure (anteprima)** .
 8. Fare clic su **Seleziona**.
 9. Fare clic su **Concedere le autorizzazioni**.
 
@@ -117,14 +117,14 @@ Sostituire `{tenant id}`, `{application id}` e `{redirect uri}` usando le istruz
 
     Dopo avere specificato i valori, l'esempio di codice dovrebbe restituire un token simile all'esempio seguente:
 
-    ![Token][api-management-arm-token]
+    ![token][api-management-arm-token]
 
     > [!NOTE]
     > Il token può scadere dopo un certo periodo. Eseguire nuovamente l'esempio di codice per generare un nuovo token.
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Chiamata delle operazioni di backup e ripristino
 
-Le API REST sono [Api Management Service - Backup](/rest/api/apimanagement/apimanagementservice/backup) (Servizio Gestione API - Backup) e [Api Management Service - Restore](/rest/api/apimanagement/apimanagementservice/restore) (Servizio Gestione API - Ripristino).
+Le API REST sono [Api Management Service - Backup](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) (Servizio Gestione API - Backup) e [Api Management Service - Restore](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore) (Servizio Gestione API - Ripristino).
 
 Prima di chiamare le operazioni di backup e ripristino descritte nelle sezioni seguenti, impostare l'intestazione della richiesta di autorizzazione per la chiamata REST.
 

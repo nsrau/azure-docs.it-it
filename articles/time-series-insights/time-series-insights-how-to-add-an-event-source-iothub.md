@@ -4,19 +4,19 @@ description: Questo articolo descrive come aggiungere un'origine evento connessa
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 258b603b8cd2e0cdfcc72ca17cd3cb0d034caf5b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 79d2062f0e174eeb7550205f90c1650185e1623a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143361"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236980"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Aggiungere un'origine evento di un hub IoT in un ambiente Time Series Insights
 
@@ -73,7 +73,7 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
    [![Nuovo riquadro dell'origine evento - proprietà da impostare nell'IoT Hub Usa dall'opzione sottoscrizioni disponibili](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
 
-   | Proprietà | DESCRIZIONE |
+   | Proprietà | Descrizione |
    | --- | --- |
    | ID sottoscrizione | Selezionare la sottoscrizione in cui l'hub IoT è stato creato.
    | Nome dell'hub IoT | Selezionare il nome dell'hub IoT.
@@ -85,7 +85,7 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
 1. La tabella seguente illustra le proprietà obbligatorie se si seleziona l'opzione **Specificare le impostazioni dell'hub IoT manualmente**:
 
-   | Proprietà | DESCRIZIONE |
+   | Proprietà | Descrizione |
    | --- | --- |
    | ID sottoscrizione | La sottoscrizione in cui l'hub IoT è stata creata.
    | Gruppo di risorse | Il nome del gruppo di risorse in cui è stato creato questo hub IoT.

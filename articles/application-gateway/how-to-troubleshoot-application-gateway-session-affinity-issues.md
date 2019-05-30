@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 07165a497e75934a65719e48a9af7d8d6906ee7b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 66f61b5d6fcb86ed93e4dbae802ae7a80613c83d
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65538323"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397847"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Risolvere i problemi di affinità sessione Gateway applicazione di Azure
 
@@ -86,7 +86,7 @@ Per identificare questo problema, seguire le istruzioni:
 
     ![troubleshoot-session-affinity-issues-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
-        ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
+    ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
 
 L'applicazione continua a tentare di impostare il cookie a ogni richiesta fino a quando non ottiene risposta.
 
@@ -96,7 +96,7 @@ Questo problema si verifica perché Internet Explorer e altri browser non vengan
 
 #### <a name="resolution"></a>Risoluzione
 
-Per risolvere questo problema, è necessario accedere al Gateway applicazione usando un nome di dominio completo. Ad esempio, usare [ http://website.com ](https://website.com/) oppure [ http://appgw.website.com ](http://appgw.website.com/) .
+Per risolvere il problema è necessario accedere al gateway applicazione usando un nome di dominio completo. Ad esempio, usare [ http://website.com ](https://website.com/) oppure [ http://appgw.website.com ](http://appgw.website.com/) .
 
 ## <a name="additional-logs-to-troubleshoot"></a>Log per risolvere i problemi
 
@@ -144,7 +144,7 @@ Abilitare la registrazione tramite il portale di Azure
 - **ClientPort** -questa è la porta di origine dal client che si connette per la richiesta.
 - **RequestQuery** – indica il server di destinazione che viene ricevuta la richiesta.
 - **Server-Routed**: Istanza del pool back-end che viene ricevuta la richiesta.
-- **X-AzureApplicationGateway-LOG-ID**: ID correlazione usato per la richiesta. Può essere usato per risolvere i problemi di traffico nei server back-end. Ad esempio: X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
+- **X-AzureApplicationGateway-LOG-ID**: ID correlazione usato per la richiesta. Può essere usato per risolvere i problemi di traffico nei server back-end. Ad esempio:  X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
 
   - **SERVER-STATUS**: codice di risposta HTTP che il gateway applicazione ha ricevuto dal back-end.
 
@@ -167,23 +167,23 @@ Usare il debugger web di propria scelta. In questo esempio si userà Fiddler per
 
 2. Esegui come amministratore per installare e fare clic con il pulsante destro l'eseguibile di programma di installazione.
 
-            ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
+    ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
 
 3. Quando si apre Fiddler, dovrebbe essere avviato automaticamente l'acquisizione del traffico (si noti che l'acquisizione nell'angolo inferiore sinistro). Premere F12 per avviare o arrestare l'acquisizione del traffico.
 
-        ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
+    ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
 4. È probabile che sarà interessato il traffico HTTPS decrittografato ed è possibile abilitare la decrittografia HTTPS selezionando **degli strumenti** > **Fiddler Options**e selezionare la casella " **decrittografare Il traffico HTTPS**".
 
-        ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
+    ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
 5. È possibile rimuovere le sessioni non correlate precedenti prima di riprodurre il problema facendo **X** (icona) > **Rimuovi tutto** come seguire screenshot: 
 
-        ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
+    ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
 6. Dopo avere riprodotto il problema, salvare il file per la revisione selezionando **File** > **salvare** > **tutte le sessioni...** . 
 
-        ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
+    ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 
 7. Controllare e analizzare i log di sessione per determinare il problema.
 
@@ -194,11 +194,11 @@ Usare il debugger web di propria scelta. In questo esempio si userà Fiddler per
    > [!NOTE]
    > Questo valore ARRAffinity è l'id cookie, che consente di impostare il Gateway applicazione per il client da inviare a un determinato server back-end.
 
-    ![troubleshoot-session-affinity-issues-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
+   ![troubleshoot-session-affinity-issues-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
 - **Esempio b:** Il log della sessione successivo seguita da uno è il client risponde al Gateway applicazione, che ha impostato il ARRAAFFINITY precedente. Se l'id cookie ARRAffinity corrisponde, il pacchetto deve essere inviato allo stesso server back-end che è stato usato in precedenza. Controllare le successive righe diverse della comunicazione http per vedere se il cookie del client ARRAffinity sta cambiando.
 
-    ![troubleshoot-session-affinity-issues-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
+   ![troubleshoot-session-affinity-issues-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
 
 > [!NOTE]
 > Per la stessa sessione di comunicazione, il cookie deve essere non per modificare. Selezionare la casella nella parte destra superiore, selezionare la scheda "Cookie" per verificare se il client usando i cookie e inviare nuovamente il Gateway applicazione. In caso contrario, il browser client non è mantenere e usando il cookie di conversazioni. In alcuni casi, potrebbe cadere al client.

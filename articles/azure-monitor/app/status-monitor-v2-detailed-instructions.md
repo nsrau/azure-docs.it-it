@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 3aca64c7b0f1ad04967782cb3349da302db557a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6eca2b47c2362f34415db8b4f335f3089babc58b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145079"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255872"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Istruzioni dettagliate sullo stato monitoraggio v2
 
@@ -224,7 +224,7 @@ Esaminare le istruzioni riportate sopra quando scrittura degli script di install
 Application Insights SDK dovrà inviare dati di telemetria dell'applicazione per Microsoft. È consigliabile configurare le impostazioni proxy per l'applicazione nel file Web. config. Vedere [Application Insights, domande frequenti: Pass-through proxy](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough) per altre informazioni.
 
 
-## <a name="enable-monitoring"></a>Abilita monitoraggio 
+## <a name="enable-monitoring"></a>Abilitare il monitoraggio 
 
 Cmd: `Enable-ApplicationInsightsMonitoring`
 
@@ -239,7 +239,7 @@ Revisione del nostro [riferimento all'API](status-monitor-v2-api-enable-monitori
 - [Esaminare le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo
 - [Cercare eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi
 - Per informazioni sulle query più avanzate, vedere [Analytics](../../azure-monitor/app/analytics.md)
-- [Creare i dashboard](../../azure-monitor/app/app-insights-dashboards.md)
+- [Creare i dashboard](../../azure-monitor/app/overview-dashboard.md)
 
  Aggiungere altri dati di telemetria:
 

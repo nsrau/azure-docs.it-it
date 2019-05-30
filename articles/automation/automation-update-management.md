@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b92083b78971ab00f87e073ba7f4944a6f828daf
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 885c5266e80114b54007d05d2220fbf5ea5ab84e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991634"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397646"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -262,7 +262,7 @@ Selezionare **Aggiornamenti mancanti** per visualizzare l'elenco di aggiornament
 
 ## <a name="view-update-deployments"></a>Visualizzare le distribuzioni di aggiornamenti
 
-Selezionare la scheda **Distribuzioni di aggiornamenti** per visualizzare l'elenco delle distribuzioni esistenti. Selezionare una delle distribuzioni di aggiornamenti nella tabella per aprire la pagina **Esecuzione di distribuzione aggiornamenti** per quella specifica distribuzione.
+Selezionare la scheda **Distribuzioni di aggiornamenti** per visualizzare l'elenco delle distribuzioni esistenti. Selezionare una delle distribuzioni di aggiornamenti nella tabella per aprire la pagina **Esecuzione di distribuzione aggiornamenti** per quella specifica distribuzione. I log dei processi vengono archiviati per un massimo di 30 giorni.
 
 ![Panoramica dei risultati della distribuzione di aggiornamenti](./media/automation-update-management/update-deployment-run.png)
 

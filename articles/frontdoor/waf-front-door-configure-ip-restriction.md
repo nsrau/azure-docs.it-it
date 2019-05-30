@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 05/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: b129579916330a34a2a78d98f2c7653f129d3319
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: dae2bb8ece9ef56c0999e0f89abbf6f8d8e950e2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523701"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242937"
 ---
 # <a name="configure-an-ip-restriction-rule-with-web-application-firewall-for-azure-front-door-preview"></a>Configurare una regola di restrizione IP con web application firewall per porta principale Azure (anteprima)
  Questo articolo illustra come configurare le regole di restrizione IP nel firewall applicazione web di Azure (WAF) per la porta d'ingresso usando il modello di comando di Azure, Azure PowerShell o Azure Resource Manager.
@@ -157,7 +157,7 @@ Creare una corrispondenza con tutte le regole di condizione
    Usare la [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) comando per definire un'azione e impostare la priorità. Nell'esempio seguente, saranno possibile richieste dal client gli indirizzi IP che corrispondono all'elenco. 
 
 ```powershell
-  $IPAllowRule = New-AzFrontDoorCustomRuleObject `
+  $IPAllowRule = New-AzFrontDoorWafCustomRuleObject `
     -Name "IPAllowRule" `
     -RuleType MatchRule `
     -MatchCondition $IPMatchCondition `
@@ -166,7 +166,7 @@ Creare una corrispondenza con tutte le regole di condizione
 Creare un blocco di tutte le regole IP con priorità più bassa rispetto a regola di assenso l'indirizzo IP precedente.
 
 ```powershell
-  $IPBlockAll = New-AzFrontDoorCustomRuleObject `
+  $IPBlockAll = New-AzFrontDoorWafCustomRuleObject `
     -Name "IPDenyAll" `
     -RuleType MatchRule `
     -MatchCondition $IPMatchALlCondition `

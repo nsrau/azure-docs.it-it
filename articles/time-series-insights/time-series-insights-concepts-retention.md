@@ -4,19 +4,19 @@ description: Questo articolo descrive due impostazioni che consentono di control
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e3336df30873b40d2b8a464d1f866b524f76776d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790421"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237002"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Comprendere la conservazione dei dati in Azure Time Series Insights
 
@@ -42,7 +42,7 @@ Per informazioni su come modificare i comportamenti di assorbimento, vedere [Con
 
 Confrontare il comportamento di conservazione dati:
 
-## <a name="purge-old-data"></a>Elimina dati meno recenti
+## <a name="purge-old-data"></a>Eliminare i dati meno recenti
 
 - Questo comportamento è quello predefinito per gli ambienti Time Series Insights.  
 - Questo comportamento viene preferito quando gli utenti vogliono visualizzare sempre loro *dati più recenti* nel proprio ambiente Time Series Insights.
@@ -63,7 +63,7 @@ Si consideri un ambiente in cui è stato configurato ancora il comportamento di 
 
 Se la velocità in ingresso giornaliera di questo ambiente supera 0,166 GB al giorno, i dati non possono essere archiviati per 180 giorni poiché alcuni di questi vengono eliminati. Si consideri questo stesso ambiente in un intervallo di tempo in cui la velocità in ingresso aumenta. Si supponga che la velocità in ingresso dell'ambiente possa raggiungere in media 0,189 GB al giorno. In tale intervallo di tempo, i dati vengono conservati per circa 158 giorni (30GB/0,189 = 158,73 giorni di conservazione). Questo periodo di tempo è inferiore rispetto all'intervallo di tempo di conservazione dei dati desiderato.
 
-## <a name="pause-ingress"></a>Sospendi dati in ingresso
+## <a name="pause-ingress"></a>Sospendere i dati in ingresso
 
 - Il **sospendere ingress** impostazione è progettata per assicurarsi che i dati non vengono eliminati se prima del periodo di conservazione vengono raggiunti i limiti di dimensione e conteggio.  
 - **Sospendere in ingresso** fornisce ulteriore tempo per gli utenti aumentare la capacità dell'ambiente prima che i dati vengono eliminati perché viene superato il periodo di mantenimento dati

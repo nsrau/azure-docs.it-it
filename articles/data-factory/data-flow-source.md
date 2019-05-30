@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: dc0a6e008c7a1f4fb414f6d8adad3a94abc7a6b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792353"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234553"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Trasformazione di origine per il Mapping del flusso di dati 
 
@@ -92,7 +92,7 @@ Scegliere le impostazioni per gestire i file nell'origine.
 
 Se l'origine è nel Database SQL o SQL Data Warehouse, sono disponibili opzioni aggiuntive per la gestione di file di origine.
 
-* **Query**: Immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella a cui che si è scelto nel set di dati. Si noti che **Order By** clausole non sono supportate in questo caso. Ma è possibile impostare qui un'istruzione SELECT FROM completa.
+* **Query**: Immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella che si è scelto nel set di dati. Si noti che **Order By** clausole non sono supportate in questo caso, ma è possibile impostare un'istruzione SELECT FROM completa. È anche possibile usare funzioni di tabella definito dall'utente. **Selezionare * da udfGetData()** è una funzione definita dall'utente in SQL che restituisce una tabella. Questa query produce una tabella di origine che è possibile usare nel flusso di dati.
 * **Dimensioni batch**: Immettere le dimensioni del batch per suddividere i dati di grandi dimensioni in operazioni di lettura.
 
 > [!NOTE]

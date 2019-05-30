@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: e6bb947503371e379e4d4972ddfc3614e129174b
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 183e2144317bf3f1c9a60443d393bdcb3fd7c04a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835203"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390553"
 ---
 # <a name="generation-2-vms-preview-on-azure"></a>Macchine virtuali di generazione 2 (anteprima) in Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "65835203"
 
 Supporto per le macchine virtuali di generazione 2 (VM) è ora disponibile in anteprima pubblica in Azure. È possibile modificare la generazione di una macchina virtuale dopo averla creata. Pertanto, è consigliabile rivedere le considerazioni [qui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) , nonché le informazioni in questa pagina prima di scegliere una generazione.
 
-Funzionalità chiave di generazione 2 macchine virtuali supporto, ad esempio: maggiore memoria, Intel® Software Guard Extensions (SGX) e virtuale memoria persistente (vPMEM), che non sono supportati nelle macchine virtuali di generazione 1. Le VM Gen 2 hanno alcune funzionalità che non sono ancora supportati in Azure. Per altre informazioni, vedere la [caratteristiche e funzionalità](#features-and-capabilities) sezione. 
+Generazione 2 macchine virtuali di supporto per le funzionalità principali non sono supportate nelle macchine virtuali di generazione 1, ad esempio: maggiore memoria, Intel® Software Guard Extensions (SGX) e virtuale memoria persistente (vPMEM). Le VM di generazione 2 hanno anche alcune funzionalità che non sono ancora supportati in Azure. Per altre informazioni, vedere la [caratteristiche e funzionalità](#features-and-capabilities) sezione.
 
 Le VM Gen 2 usano Visual Studio nuova architettura basata su UEFI Boot l'architettura basata su BIOS utilizzata dalle macchine virtuali di generazione 1. Rispetto alle macchine virtuali di generazione 1, le macchine virtuali di generazione 2 possono evidenziare miglioramenti tempi di avvio e installazione. Per una panoramica delle macchine virtuali di generazione 2 e alcune delle differenze principali tra la generazione 1 e generazione 2, vedere [è necessario creare una macchina virtuale di generazione 1 o 2 in Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
@@ -78,14 +78,14 @@ Azure non supporta attualmente alcune delle funzionalità che supporta Hyper-V o
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funzionalità di generazione 2 di Visual Studio di generazione 1
 
-| Capacità | Prima generazione | Generazione 2 |
+| Funzionalità | Prima generazione | Generazione 2 |
 |------------|--------------|--------------|
 | Disco del sistema operativo > 2 TB                    | :x:                        | :heavy_check_mark: |
 | Sistema operativo di dischi/immagini/Swap personalizzato         | :heavy_check_mark:         | :heavy_check_mark: |
 | Supporto del set di scalabilità di macchine virtuali | :heavy_check_mark:         | :heavy_check_mark: |
 | Azure Site Recovery/Backup                        | :heavy_check_mark:         | :x:                |
-| Raccolta immagini condivisa              | :heavy_check_mark:         | :x:                |
-| Crittografia dischi di Azure             | :heavy_check_mark:         | :x:                |
+| Raccolta di immagini condivise              | :heavy_check_mark:         | :x:                |
+| Azure Disk Encryption             | :heavy_check_mark:         | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>Creazione di una generazione 2 macchina virtuale
 
@@ -113,6 +113,29 @@ Generazione 2 macchine virtuali possono essere create da immagini gestito o un d
 È inoltre possibile creare 2 macchine virtuali usando il set di scalabilità di macchine virtuali della generazione. È possibile creare una generazione 2 macchine virtuali con set di scalabilità di macchine virtuali di Azure tramite la CLI di Azure.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
+
+* **Sono generazione 2 macchine virtuali disponibili in tutte le aree di Azure?**  
+    Sì. Tuttavia, non tutti i [dimensioni delle macchine Virtuali di generazione 2](#generation-2-vm-sizes) sono disponibili in ogni area. La disponibilità di generazione 2 macchine virtuali dipende la disponibilità delle dimensioni della macchina virtuale.
+
+* **È presente una differenza di prezzo tra generazione 1 e generazione 2 macchine virtuali?**  
+    Non vi è alcuna differenza di prezzo tra generazione 1 e macchine virtuali di generazione 2.
+
+* **Come è possibile aumentare le dimensioni del disco del sistema operativo?**  
+  Dischi del sistema operativo di dimensioni superiori a 2 TB sono di nuovi alla generazione 2 macchine virtuali. Per impostazione predefinita, la maggior parte dei dischi del sistema operativo siano inferiori a 2 TB per le macchine virtuali di generazione 2, ma le dimensioni del disco possono essere aumentata a un valore massimo consigliato di 4 TB. È possibile aumentare le dimensioni del disco del sistema operativo tramite la CLI di Azure o il portale di Azure. Per ulteriori informazioni sull'espansione dei dischi a livello di codice, vedere [ridimensionare un disco](expand-disks.md).
+
+  Per aumentare le dimensioni del disco del sistema operativo tramite il portale di Azure:
+
+  * Passare alla pagina delle proprietà della macchina virtuale nel portale di Azure.
+
+  * Arrestare e deallocare la VM usando il **arrestare** pulsante.
+
+  * Nel **dischi** , selezionare il disco del sistema operativo che si vuole aumentare.
+
+  * Selezionare **Configuration** nel **dischi** sezione e aggiornare il **dimensioni** sul valore desiderato.
+  
+  * Tornare alla pagina delle proprietà della macchina virtuale e **avviare** la macchina virtuale.
+
+  È possibile notare un avviso per i dischi del sistema operativo superiori a 2 TB. L'avviso non si applica alle macchine virtuali di generazione 2; Tuttavia, sono di dimensioni del disco del sistema operativo superiori a 4 TB **non consigliato.**
 
 * **Generazione 2 macchine virtuali supportano la rete accelerata?**  
     Sì, il supporto di macchine virtuali di generazione 2 [rete accelerata](../../virtual-network/create-vm-accelerated-networking-cli.md).

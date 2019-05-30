@@ -3,7 +3,7 @@ title: "Azure Active Directory Domain Services: Abilitare la sincronizzazione de
 description: Introduzione ad Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
-ms.author: ergreenl
-ms.openlocfilehash: ad905f93a8c4b03fd6ccc9edb93b52f23bcb2c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 734e4bad970229ea8eb770d586062b098e586353
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417486"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234885"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Abilitare la sincronizzazione dell'hash delle password con Azure Active Directory Domain Services
 Nelle attività precedenti è stato abilitato Azure Active Directory Domain Services per il tenant di Azure Active Directory (Azure AD). L'attività successiva prevede l'abilitazione della sincronizzazione dell'hash delle password, necessaria per l'autenticazione NTLM (NT LAN Manager) e Kerberos ad Azure AD Domain Services. Al termine della configurazione della sincronizzazione dell'hash delle password, gli utenti potranno accedere al dominio gestito con le credenziali aziendali.
@@ -78,10 +78,10 @@ Di seguito sono riportate le istruzioni che è necessario fornire agli utenti fi
 
 Dopo alcuni minuti dalla modifica, la nuova password è utilizzabile in Azure Active Directory Domain Services. Dopo circa 20 minuti, è possibile accedere ai computer aggiunti al dominio gestito usando la password appena modificata.
 
-## <a name="related-content"></a>Contenuti correlati
+## <a name="related-content"></a>Contenuto correlato
 * [Come aggiornare la password](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Introduzione alla gestione delle password in Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Abilitare la sincronizzazione dell'hash delle password in Azure Active Directory Domain Services per un tenant di Azure AD sincronizzato](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-* [Amministrare un dominio gestito di Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)
+* [Gestire un dominio di Azure AD Domain Services](manage-domain.md)
 * [Aggiungere una macchina virtuale Windows a un dominio gestito di Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Aggiungere una macchina virtuale Red Hat Enterprise Linux a un dominio gestito di Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

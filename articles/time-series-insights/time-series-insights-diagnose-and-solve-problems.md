@@ -4,19 +4,19 @@ description: Questo articolo descrive come diagnosticare e risolvere i problemi 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7be2652355e3b9830d4a5198ba71c0f4a78858dd
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 68d46b54bf066724d8f3474f421d2d1f751b75e3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471685"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235053"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticare e risolvere i problemi nell'ambiente Time Series Insights
 
@@ -104,13 +104,13 @@ Verificare che il nome e il valore della proprietà timestamp siano conformi all
 
 Il modo più semplice per garantire l'acquisizione e il corretto funzionamento del nome della proprietà timestamp consiste nell'usare lo strumento di esplorazione di Azure Time Series Insights. All'interno dello strumento di esplorazione di Azure Time Series Insights, usando il grafico, selezionare un periodo di tempo dopo aver specificato il nome della proprietà timestamp. Fare clic con il pulsante destro del mouse sulla selezione e selezionare l'opzione **Esplora eventi**.
 
-L'intestazione della prima colonna deve essere il nome della proprietà timestamp. Accanto alla parola **Timestamp** è visualizzato **($ts)**.
+L'intestazione della prima colonna deve essere il nome della proprietà timestamp. Accanto alla parola **Timestamp** è visualizzato **($ts)** .
 
 Non dovrebbero essere presenti i valori seguenti:
 
-- *(abc)*: indica che Time Series Insights sta leggendo i valori dei dati come stringhe.
+- *(abc)* : indica che Time Series Insights sta leggendo i valori dei dati come stringhe.
 - *Icona calendario*: indica che Time Series Insights sta leggendo i valori dei dati come *datetime*.
-- *#*: indica che Time Series Insights sta leggendo i valori dei dati come valori Integer.
+- *#* : indica che Time Series Insights sta leggendo i valori dei dati come valori Integer.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

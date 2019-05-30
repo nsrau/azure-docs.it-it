@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 07e8fce5fd8db5d2070b8e382a0eba2ae7187b0d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485216"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242783"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gestire lo schema in un'applicazione SaaS che usa più database SQL multi-tenant
 
@@ -31,7 +31,7 @@ Questa esercitazione illustra i due scenari seguenti:
 - Distribuire gli aggiornamenti dei dati di riferimento per tutti i tenant.
 - Ricompilare un indice nella tabella contenente i dati di riferimento.
 
-La funzionalità [Processi elastici](sql-database-elastic-jobs-overview.md) del database SQL di Azure viene usata per eseguire queste operazioni tra i database tenant. I processi funzionano anche sul database tenant "modello". Nell'app di esempio Wingtip Tickets il database modello viene copiato per effettuare il provisioning di un nuovo database tenant.
+La funzionalità [Processi elastici](elastic-jobs-overview.md) del database SQL di Azure viene usata per eseguire queste operazioni tra i database tenant. I processi funzionano anche sul database tenant "modello". Nell'app di esempio Wingtip Tickets il database modello viene copiato per effettuare il provisioning di un nuovo database tenant.
 
 In questa esercitazione si apprenderà come:
 
@@ -57,7 +57,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduzione ai modelli di gestione dello schema SaaS
 
-Il modello di database multi-tenant partizionato usato in questo esempio consente a un database tenant di contenere uno o più tenant. Questo esempio illustra la possibilità di usare una combinazione di database per più tenant e a tenant singolo, che abilita un modello *ibrido* di gestione del tenant. La gestione delle modifiche a questi database può essere complessa. Il servizio [Processi elastici](sql-database-elastic-jobs-overview.md) facilita l'amministrazione e la gestione di un numero elevato di database. I processi consentono di eseguire script Transact-SQL in modo sicuro e affidabile come attività, rispetto a un gruppo di database tenant. Le attività sono indipendenti dall'interazione o dall'input dell'utente. Questo metodo può essere usato per distribuire modifiche dello schema e dei dati di riferimento comuni a tutti i tenant in un'applicazione. Il servizio Processi elastici possono essere usati anche per conservare una copia del modello finale del database. Il modello viene usato per creare nuovi tenant, assicurando che siano sempre in uso lo schema e i dati di riferimento più recenti.
+Il modello di database multi-tenant partizionato usato in questo esempio consente a un database tenant di contenere uno o più tenant. Questo esempio illustra la possibilità di usare una combinazione di database per più tenant e a tenant singolo, che abilita un modello *ibrido* di gestione del tenant. La gestione delle modifiche a questi database può essere complessa. Il servizio [Processi elastici](elastic-jobs-overview.md) facilita l'amministrazione e la gestione di un numero elevato di database. I processi consentono di eseguire script Transact-SQL in modo sicuro e affidabile come attività, rispetto a un gruppo di database tenant. Le attività sono indipendenti dall'interazione o dall'input dell'utente. Questo metodo può essere usato per distribuire modifiche dello schema e dei dati di riferimento comuni a tutti i tenant in un'applicazione. Il servizio Processi elastici possono essere usati anche per conservare una copia del modello finale del database. Il modello viene usato per creare nuovi tenant, assicurando che siano sempre in uso lo schema e i dati di riferimento più recenti.
 
 ![schermata](media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -125,7 +125,7 @@ Osservare gli elementi seguenti nello script *DeployReferenceData.sql*:
     - Un tipo di membro di destinazione del *server*.
         - Si tratta del server *tenants1-mt-&lt;user&gt;* che contiene i database tenant.
         - Includere il server include i database tenant esistenti in fase di esecuzione del processo.
-    - Un tipo di membro di destinazione del *database* per il database modello (*basetenantdb*) presente nel server *catalog-mt-&lt;user&gt;*,
+    - Un tipo di membro di destinazione del *database* per il database modello (*basetenantdb*) presente nel server *catalog-mt-&lt;user&gt;* ,
     - Un tipo di membro di destinazione del *database* per includere il database *adhocreporting* usati in un'esercitazione successiva.
 
 - **sp\_add\_job** crea un processo denominato *Reference Data Deployment* (Distribuzione dati di riferimento).
@@ -134,7 +134,7 @@ Osservare gli elementi seguenti nello script *DeployReferenceData.sql*:
 
 - Le restanti viste nello script consentono di confermare l'esistenza degli oggetti e gestire il monitoraggio dell'esecuzione del processo. Usare queste query per esaminare il valore di stato nella colonna **lifecycle** per determinare quando il processo è stato completato. Il processo aggiorna il database tenant e aggiorna i due database aggiuntivi che contengono la tabella di riferimento.
 
-In SSMS, passare al database tenant nel server *tenants1-mt-&lt;user&gt;*. Eseguire una query nella tabella *VenueTypes* per verificare che *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto) siano ora aggiunti alla tabella. Il conteggio totale dei tipi di eventi deve essere aumentato di due.
+In SSMS, passare al database tenant nel server *tenants1-mt-&lt;user&gt;* . Eseguire una query nella tabella *VenueTypes* per verificare che *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto) siano ora aggiunti alla tabella. Il conteggio totale dei tipi di eventi deve essere aumentato di due.
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Creare un processo per gestire l'indice della tabella di riferimento
 
@@ -161,8 +161,7 @@ Nello script *OnlineReindex.sql* osservare gli elementi seguenti:
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
-* [Gestione dei database cloud con scalabilità orizzontale](sql-database-elastic-jobs-overview.md)
-* [Creare e gestire database SQL di Azure con scalabilità orizzontale](sql-database-elastic-jobs-create-and-manage.md)
+* [Gestione dei database cloud con scalabilità orizzontale](elastic-jobs-overview.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

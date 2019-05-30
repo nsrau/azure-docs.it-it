@@ -3,19 +3,19 @@ title: Supporto per la lingua - API Traduzione testuale
 titleSuffix: Azure Cognitive Services
 description: Elenco di lingue naturali supportate dall'API Traduzione testuale.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: v-pawal
+ms.openlocfilehash: 153fd5a8202ca0d919a2254449d846f8798bd10d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690139"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382502"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
@@ -23,7 +23,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 
 [Altre informazioni sull'uso della traduzione automatica](https://www.microsoft.com/translator/mt.aspx)
 
-## <a name="translation"></a>Traduzione
+## <a name="translation"></a>Conversione
 
 **API Traduzione V2**
 

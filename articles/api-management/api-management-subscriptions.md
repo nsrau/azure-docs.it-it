@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afd43bbf6f52f498ad8f56d5a48b960d45d84137
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60693540"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243251"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Sottoscrizioni in Gestione API di Azure
 
@@ -42,7 +42,7 @@ Le sottoscrizioni possono essere associate a vari ambiti: prodotto, tutte le API
 
 ### <a name="subscriptions-for-a-product"></a>Sottoscrizioni per un prodotto
 
-In genere, le sottoscrizioni in Gestione API sono state sempre associate a un singolo ambito [prodotto API](api-management-terminology.md). L'elenco dei prodotti è disponibile nel portale per sviluppatori. Gli sviluppatori devono quindi inviare le richieste di sottoscrizione per i prodotti che vogliono usare. Dopo l'approvazione di una richiesta di sottoscrizione (automaticamente o dagli editori delle API), lo sviluppatore può usare le chiavi in essa per accedere a tutte le API nel prodotto.
+In genere, le sottoscrizioni in Gestione API sono state sempre associate a un singolo ambito [prodotto API](api-management-terminology.md). L'elenco dei prodotti è disponibile nel portale per sviluppatori. Gli sviluppatori devono quindi inviare le richieste di sottoscrizione per i prodotti che vogliono usare. Dopo l'approvazione di una richiesta di sottoscrizione, automaticamente o dagli editori di API, lo sviluppatore può utilizzare le chiavi in esso per accedere a tutte le API nel prodotto. Al momento, portale per sviluppatori Mostra solo le sottoscrizioni di ambito del prodotto nella sezione profili utente. 
 
 ![Sottoscrizioni prodotto](./media/api-management-subscriptions/product-subscription.png)
 

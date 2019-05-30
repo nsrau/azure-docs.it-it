@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fcc1926d580007750e7e1f5a3de06ef6578e1b5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: c0f8a56df5b41236256115ced0d46a87c5ee91a5
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957466"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400243"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare gli esperimenti di Machine Learning automatizzati in Python
 
@@ -59,6 +59,14 @@ classificazione | Regressione | Previsione in serie temporale
 [Bayesiano naif](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
 [Discesa stocastica del gradiente (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
+Usare la `task` parametro nel `AutoMLConfig` costruttore per specificare il tipo di esperimento.
+
+```python
+from azureml.train.automl import AutoMLConfig
+
+# task can be one of classification, regression, forecasting
+automl_config = AutoMLConfig(task="classification")
+```
 
 ## <a name="data-source-and-format"></a>Origine dati e formato
 Il processo di Machine Learning automatizzato supporta dati presenti nel desktop locale o nel cloud, ad esempio Archiviazione BLOB di Azure. I dati possono essere letti in scikit-learn su formati di dati supportati. È possibile leggere i dati in:
@@ -121,7 +129,7 @@ Chiave | Type | Si escludono a vicenda con    | Descrizione
 ---|---|---|---
 X | Dataframe Pandas o matrice Numpy | data_train, etichetta, colonne |  Tutte le funzionalità per eseguire il training con
 y | Dataframe Pandas o matrice Numpy |   label   | Dati per il training con etichetta. Per la classificazione, deve essere una matrice di interi.
-X_valid | Dataframe Pandas o matrice Numpy   | data_train, etichetta | _Facoltativo_ Tutte le funzionalità con cui convalidare. Se non specificato, X è suddiviso tra training e convalida
+X_valid | Dataframe Pandas o matrice Numpy   | data_train, etichetta | _Facoltativo_ dati che costituisce il set di convalida di funzionalità. Se non specificato, X è suddiviso tra training e convalida
 y_valid |   Dataframe Pandas o matrice Numpy | data_train, etichetta | _Facoltativo_ Tutte le funzionalità con cui convalidare. Se non specificato, y è suddiviso tra training e convalida
 sample_weight | Dataframe Pandas o matrice Numpy |   data_train, etichetta, colonne| _Facoltativo_ un valore di ponderazione per ogni esempio. Utilizzare questa opzione quando si vuole assegnare pesi diversi per i punti dati
 sample_weight_valid | Dataframe Pandas o matrice Numpy | data_train, etichetta, colonne |    _Facoltativo_ un valore di ponderazione per ogni esempio. Se non specificato, sample_weight è suddiviso tra training e convalida
@@ -129,30 +137,6 @@ data_train |    Dataframe Pandas |  X, y, X_valid, y_valid |    Tutti i dati (fu
 label | string  | X, y, X_valid, y_valid |  Quale colonna in data_train rappresenta l'etichetta
 columns | Matrice di stringhe  ||  _Facoltativo_ Elenco elementi consentiti di colonne da utilizzare per le funzionalità
 cv_splits_indices   | Matrice di numeri interi ||  _Facoltativo_ Elenco di indici per dividere i dati per la convalida incrociata
-
-### <a name="load-and-prepare-data-using-data-prep-sdk"></a>Caricare e preparare i dati usando la preparazione dei dati SDK
-Gli esperimenti di apprendimento automatico supporta il caricamento dei dati e alle trasformazioni usando il SDK preparazione dei dati. Questo SDK offre la possibilità di
-
->* Caricamento da numerosi tipi di file con inferenza dei parametri di analisi (codifica, separatore, intestazioni)
->* Conversione del tipo mediante l'inferenza durante il caricamento dei file
->* Supporto delle connessioni per Microsoft SQL Server e Azure Data Lake Storage
->* Aggiungere una colonna tramite un'espressione
->* Attribuire i valori mancanti
->* Derivare le colonne in base a un esempio
->* Filtro
->* Trasformazioni di Python personalizzate
-
-Per informazioni su Data Prep SDK,vedere [Come preparare i dati per la modellazione](how-to-load-data.md).
-Di seguito è riportato un esempio di caricamento dei dati tramite Data Prep SDK.
-```python
-# The data referenced here was pulled from `sklearn.datasets.load_digits()`.
-simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
-X = dprep.auto_read_file(simple_example_data_root + 'X.csv').skip(1)  # Remove the header row.
-# You can use `auto_read_file` which intelligently figures out delimiters and datatypes of a file.
-
-# Here we read a comma delimited file and convert all columns to integers.
-y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelector(term='.*', use_regex = True))
-```
 
 ## <a name="train-and-validation-data"></a>Dati di training e convalida
 
@@ -501,6 +485,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 ![grafico relativo all'importanza delle caratteristiche](./media/how-to-configure-auto-train/feature-importance.png)
+
+Per altre informazioni sul modo in cui una spiegazione del modello e importanza delle caratteristiche possono essere abilitati in altre aree del SDK di fuori di apprendimento automatico, vedere la [concetto](machine-learning-interpretability-explainability.md) articolo sull'interpretazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

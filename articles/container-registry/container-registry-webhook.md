@@ -5,18 +5,18 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 05/24/2019
 ms.author: danlep
-ms.openlocfilehash: 0a3d2d0e858dc052095c0a58287970d10c06f0ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18ac3fcb2797b24c9d5e5f05968eed4bf8732af7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787269"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389443"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Uso dei webhook di Registro Azure Container
 
-Un registro contenitori di Azure archivia e gestisce le immagini dei contenitori Docker private, in modo analogo a come Docker Hub archivia le immagini Docker pubbliche. Inoltre possibile ospitare i repository per [i grafici Helm](container-registry-helm-repos.md) (anteprima), formattare una creazione di pacchetti per distribuire applicazioni in Kubernetes. È possibile usare i webhook per attivare eventi specifici quando in uno dei repository del registro si verificano determinate azioni. I webhook possono rispondere agli eventi a livello di registro oppure possono essere limitati a un tag di repository specifico.
+Un registro contenitori di Azure archivia e gestisce le immagini dei contenitori Docker private, in modo analogo a come Docker Hub archivia le immagini Docker pubbliche. Inoltre possibile ospitare i repository per [i grafici Helm](container-registry-helm-repos.md) (anteprima), formattare una creazione di pacchetti per distribuire applicazioni in Kubernetes. È possibile usare i webhook per attivare eventi specifici quando in uno dei repository del registro si verificano determinate azioni. I webhook possono rispondere agli eventi a livello di registro oppure possono essere limitati a un tag di repository specifico. Con un [replica geografica](container-registry-geo-replication.md) Registro di sistema configuri il webhook per rispondere agli eventi in una replica a livello di area specifico.
 
 Per informazioni dettagliate sulle richieste di webhook, vedere le [informazioni di riferimento sullo schema del webhook di Registro Azure Container](container-registry-webhook-reference.md).
 
@@ -33,9 +33,10 @@ Per informazioni dettagliate sulle richieste di webhook, vedere le [informazioni
 1. Selezionare **Aggiungi** nella barra degli strumenti relativa al webhook.
 1. Completare il modulo *Crea webhook* con le informazioni seguenti:
 
-| Value | DESCRIZIONE |
+| Value | Descrizione |
 |---|---|
-| NOME | Il nome da assegnare al webhook. Può contenere solo lettere e numeri e deve essere la lunghezza di 5-50 caratteri. |
+| Nome del Webhook | Il nome da assegnare al webhook. Può contenere solo lettere e numeri e deve essere la lunghezza di 5-50 caratteri. |
+| Località | Per un [replica geografica](container-registry-geo-replication.md) Registro di sistema, specificare l'area di Azure della replica del Registro di sistema. 
 | URI del servizio | L'URI in cui il webhook deve inviare le notifiche POST. |
 | Intestazioni personalizzate | Le intestazioni che si vuole passare insieme alla richiesta POST. Devono essere nel formato "chiave: valore". |
 | Azioni trigger | Le azioni che attivano il webhook. Le azioni includono push dell'immagine Elimina immagine, push grafico Helm, delete grafico Helm e quarantena immagine. È possibile scegliere una o più azioni per attivare il webhook. |
@@ -104,4 +105,4 @@ Per informazioni dettagliate sul formato e sulle proprietà dei payload degli ev
 
 Oltre agli eventi di webhook del registro nativo descritti in questo articolo, Registro Azure Container può trasmettere eventi a Griglia di eventi:
 
-[Guida introduttiva: Inviare eventi del registro contenitori a Griglia di eventi](container-registry-event-grid-quickstart.md)
+[Avvio rapido: Inviare eventi del registro contenitori a Griglia di eventi](container-registry-event-grid-quickstart.md)

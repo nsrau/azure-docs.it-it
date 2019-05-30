@@ -15,12 +15,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c15e4080308c3e7e2ff54312cd91fa1f3d68668a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 827c42763eee39c717cedc90469ae765cc331272
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602370"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253845"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Configurare gli avvisi di sicurezza per i ruoli delle risorse di Azure in PIM
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genera avvisi quando vengono eseguite operazioni sospette o non sicure nel proprio ambiente. Una volta attivato, un avviso viene visualizzato nella pagina Avvisi. 
@@ -35,9 +35,9 @@ Selezionare un avviso per visualizzare un report che elenca gli utenti o i ruoli
 ## <a name="alerts"></a>Avvisi
 | Avviso | Severity | Trigger | Recommendation |
 | --- | --- | --- | --- |
-| **Troppi proprietari assegnati a una risorsa** |Medi |Troppi utenti hanno il ruolo di proprietario. |Controllare gli utenti nell'elenco e riassegnarne alcuni a ruoli con privilegi meno elevati. |
-| **Troppi proprietari permanenti assegnati a una risorsa** |Medi |Troppi utenti sono assegnati in modo permanente a un ruolo. |Controllare gli utenti nell'elenco e riassegnarne alcuni per richiedere l'attivazione per l'uso dei ruoli. |
-| **È stato creato un ruolo duplicato** |Medi |Più ruoli hanno gli stessi criteri. |Usare solo uno di questi ruoli. |
+| **Troppi proprietari assegnati a una risorsa** |Media |Troppi utenti hanno il ruolo di proprietario. |Controllare gli utenti nell'elenco e riassegnarne alcuni a ruoli con privilegi meno elevati. |
+| **Troppi proprietari permanenti assegnati a una risorsa** |Media |Troppi utenti sono assegnati in modo permanente a un ruolo. |Controllare gli utenti nell'elenco e riassegnarne alcuni per richiedere l'attivazione per l'uso dei ruoli. |
+| **È stato creato un ruolo duplicato** |Media |Più ruoli hanno gli stessi criteri. |Usare solo uno di questi ruoli. |
 
 
 ### <a name="severity"></a>Severity
@@ -54,4 +54,4 @@ Personalizzare le impostazioni per i diversi avvisi adattandole all'ambiente e a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurare gli avvisi di sicurezza per i ruoli delle risorse in PIM](pim-resource-roles-configure-alerts.md)
+- [Configurare le impostazioni dei ruoli delle risorse di Azure in PIM](pim-resource-roles-configure-role-settings.md)

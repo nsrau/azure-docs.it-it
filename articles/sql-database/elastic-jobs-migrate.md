@@ -12,18 +12,18 @@ ms.author: joke
 ms.reviewer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f71fe4ff14e5a6f5fd6b91713970a097e4e56fb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 627b29018afff2adb57b3b8b5c816bea9c421f68
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475797"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236871"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Eseguire la migrazione ai nuovi processi di database elastico
 
 È disponibile una versione aggiornata dei [processi di database elastico](elastic-jobs-overview.md).
 
-Se è disponibile una versione ospitata dal cliente dei [processi di database elastico](sql-database-elastic-jobs-overview.md), vengono forniti cmdlet e script per semplificare la migrazione alla versione più recente.
+Se si dispone di un cliente esistente ospitata versione del servizio processi elastici del Database, i cmdlet di migrazione e vengono forniti gli script per eseguire facilmente la migrazione alla versione più recente.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -32,7 +32,7 @@ La versione aggiornata dei processi di database elastico include un nuovo set di
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installare la versione più recente dei cmdlet per i processi elastici
 
-Se non si ha già una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Se si ha già una sottoscrizione di Azure [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 Installare il modulo **Az.Sql** 1.1.1-preview per ottenere i cmdlet per processi elastici più recenti. Eseguire questi comandi in PowerShell con accesso amministrativo.
 

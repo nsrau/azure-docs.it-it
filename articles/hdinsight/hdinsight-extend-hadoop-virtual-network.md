@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/29/2019
-ms.openlocfilehash: e586ab1bdcca9d6109cf42b6341c333fabb02993
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/28/2019
+ms.openlocfilehash: 9316ca0dfaa2d550ea9a2b89d2c93e0e37230f62
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601673"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388348"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estendere Azure HDInsight usando Rete virtuale di Azure
 
@@ -211,41 +211,39 @@ Per connettersi alle pagine Apache Ambari e ad altre pagine Web tramite la rete 
 
 ## <a id="networktraffic"></a> Controllo del traffico di rete
 
+### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>Il traffico in ingresso per i cluster HDInsight
+
 Il traffico di rete nelle reti virtuali di Azure può essere controllato usando i modi seguenti:
 
 * i **gruppi di sicurezza di rete** (NSG) consentono di filtrare il traffico di rete in ingresso e in uscita. Per altre informazioni, vedere il documento [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 
-    > [!WARNING]  
-    > HDInsight non supporta la limitazione del traffico in uscita. Tutto il traffico in uscita deve essere consentito.
-
-* Le **route definite dall'utente** definiscono il flusso del traffico tra le risorse nella rete. Per altre informazioni, vedere il documento [Route definite dall'utente e inoltro IP](../virtual-network/virtual-networks-udr-overview.md).
-
 * Le **appliance virtuali di rete** replicano le funzionalità di dispositivi come i firewall e i router. Per altre informazioni, vedere il documento relativo alle [Appliance di rete](https://azure.microsoft.com/solutions/network-appliances).
 
-Come servizio gestito, HDInsight richiede l'accesso senza restrizioni per l'integrità di HDInsight e servizi di gestione sia per il traffico in ingresso e in uscita dalla rete virtuale. Quando si usano i gruppi di sicurezza di rete e le route definite dall'utente, è necessario assicurarsi che questi servizi possano ancora comunicare con il cluster HDInsight.
+Come servizio gestito, HDInsight richiede l'accesso senza restrizioni per l'integrità di HDInsight e servizi di gestione sia per il traffico in ingresso e in uscita dalla rete virtuale. Quando si usano gli Nsg, è necessario assicurarsi che questi servizi possano ancora comunicare con il cluster HDInsight.
 
-### <a id="hdinsight-ip"></a>HDInsight con gruppi di sicurezza di rete e route definite dall'utente
+![Diagramma di HDInsight entità create nella rete virtuale personalizzata Azure](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-Se si intende usare **gruppi di sicurezza di rete** o **route definite dall'utente** per controllare il traffico di rete, eseguire le azioni seguenti prima di installare HDInsight:
+### <a id="hdinsight-ip"></a> HDInsight con gruppi di sicurezza di rete
+
+Se si prevede di usare **gruppi di sicurezza di rete** per controllare il traffico di rete, eseguire le azioni seguenti prima di installare HDInsight:
 
 1. Identificare l'area di Azure che si intende usare per HDInsight.
 
 2. Identificare gli indirizzi IP richiesti da HDInsight. Per altre informazioni, vedere la sezione [Indirizzi IP richiesti da HDInsight](#hdinsight-ip).
 
-3. Creare o modificare i gruppi di sicurezza di rete o le route definite dall'utente per la subnet in cui si intende installare HDInsight.
+3. Creare o modificare i gruppi di sicurezza di rete per la subnet che si intende installare HDInsight in.
 
-    * __Gruppi di sicurezza di rete__: consentono il traffico __in ingresso__ sulla porta __443__ dagli indirizzi IP. Ciò garantisce che i servizi di gestione di HDInsight possano raggiungere il cluster dall'esterno della rete virtuale.
-    * __Route definite dall'utente__: se si pianifica di usare delle route definite dall'utente, creare una route per ogni indirizzo IP e impostare __Tipo hop successivo__ su __Internet__. È anche consigliabile consentire altro traffico in uscita dalla rete virtuale senza restrizioni. Ad esempio, è possibile instradare tutto il traffico per il firewall o rete appliance virtuale di Azure (ospitato in Azure) per il monitoraggio, ma il traffico in uscita non deve essere bloccato.
+    * __Gruppi di sicurezza di rete__: consentono il traffico __in ingresso__ sulla porta __443__ dagli indirizzi IP. Ciò garantisce che i servizi di gestione di HDInsight possono raggiungere il cluster dall'esterno della rete virtuale.
 
-Per altre informazioni sui gruppi di sicurezza di rete o sulle route definite dall'utente, vedere la documentazione seguente:
+Per altre informazioni sui gruppi di sicurezza di rete, vedere la [Panoramica di gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 
-* [Gruppo di sicurezza di rete](../virtual-network/security-overview.md)
+### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Controllo del traffico in uscita dai cluster HDInsight
 
-* [Route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md)
+Per altre informazioni su come controllare il traffico in uscita dai cluster HDInsight, vedere [Configura limitazione del traffico di rete in uscita per i cluster Azure HDInsight](hdinsight-restrict-outbound-traffic.md).
 
 #### <a name="forced-tunneling-to-on-premise"></a>Tunneling forzato a un'istanza locale
 
-Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight viene __non__ supporta il tunneling alle reti locali forzato. Se si usa il Firewall di Azure o un'appliance virtuale di rete ospitato in Azure, è possibile utilizzare route definite dall'utente per instradare il traffico a esso per il monitoraggio e consentire tutto il traffico in uscita.
+Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight viene __non__ supporta il tunneling del traffico verso reti locali forzato. 
 
 ## <a id="hdinsight-ip"></a> Indirizzi IP richiesti
 
@@ -258,7 +256,7 @@ Se si usano gruppi di sicurezza di rete, è necessario consentire al traffico da
 
 1. È sempre necessario consentire il traffico dagli indirizzi IP seguenti:
 
-    | Indirizzo IP origine | Destination  | Direction |
+    | Indirizzo IP di origine | Destination  | Direction |
     | ---- | ----- | ----- |
     | 168.61.49.99 | \*:443 | In ingresso |
     | 23.99.5.239 | \*:443 | In ingresso |

@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 80ef63cdd9de8cb2340fe15d761402bb9f00fae9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d077487f85c789bcdfea3d91e29ee0d44ce82de0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795944"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239453"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Architettura di SAP HANA (istanze Large) in Azure
 
@@ -34,7 +34,7 @@ L'architettura complessiva di SAP HANA in Azure (istanze Large) offre una config
 
 L'architettura illustrata è suddivisa in tre sezioni.
 
-- **a destra**: Mostra un'infrastruttura locale che esegue diverse applicazioni nei data center in modo che gli utenti finali possono accedere ai dati LOB applicazioni, ad esempio SAP. In teoria, questa infrastruttura locale viene connessa ad Azure con [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- **a destra**: Mostra un'infrastruttura locale che esegue diverse applicazioni nei data center in modo che gli utenti finali possono accedere ai dati LOB applicazioni, ad esempio SAP. In teoria, questa locale dell'infrastruttura è connessa ad Azure con [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 - **Center**: Mostra ambiente IaaS di Azure e, in questo caso, usare delle macchine virtuali per ospitare SAP o altre applicazioni che usano SAP HANA come sistema DBMS. Le istanze di HANA più piccole che funzionano con la memoria delle VM vengono distribuite nelle VM con il relativo livello applicazione. Per altre informazioni sulle macchine virtuali, vedere [Macchine virtuali](https://azure.microsoft.com/services/virtual-machines/).
 
@@ -45,11 +45,11 @@ L'architettura illustrata è suddivisa in tre sezioni.
   -  [Usare SAP nelle macchine virtuali Windows](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Usare soluzioni SAP nelle macchine virtuali di Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **a sinistra**: Mostra l'hardware con certificazione SAP HANA TDI nel modulo per istanze Large di Azure. Le unità di istanze Large di HANA sono connesse alle reti virtuali della sottoscrizione con la stessa tecnologia usata per la connettività dall'ambiente locale ad Azure.
+- **a sinistra**: Mostra l'hardware con certificazione SAP HANA TDI nel modulo per istanze Large di Azure. Le unità di istanze Large di HANA sono connesse alle reti virtuali della sottoscrizione di Azure usando la stessa tecnologia usata per la connettività da locale ad Azure. A partire da maggio 2019, è stata introdotta un'ottimizzazione che permette di stabilire la comunicazione tra le unità di istanze Large di HANA e macchine virtuali di Azure senza l'intervento del ExpressRoute Gateway. Questa ottimizzazione denominata Fast percorso di ExpressRoute viene visualizzata in questa architettura (linee rosse). 
 
 Il modulo per istanze di grandi dimensioni di Azure include i componenti seguenti:
 
-- **Computing**: Server che si basano su processori Intel Xeon E7-8890v3 o Intel Xeon E7-8890v4 che forniscono la capacità di elaborazione necessaria e sono certificati per SAP HANA.
+- **Computing**: Server basati su diversi generazione di processori Intel Xeon che forniscono la capacità di elaborazione necessaria e sono certificati per SAP HANA.
 - **Network** (Rete): Un'infrastruttura di rete unificata ad alta velocità che collega l'elaborazione, archiviazione e componenti della rete LAN.
 - **Archiviazione**: Un'infrastruttura di archiviazione a cui si accede tramite un'infrastruttura di rete unificata. La capacità di archiviazione fornita dipende dalla specifica configurazione di SAP HANA in Azure (istanze Large) distribuita. Maggiore capacità di archiviazione è disponibile a un costo mensile aggiuntivo.
 

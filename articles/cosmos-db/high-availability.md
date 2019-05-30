@@ -4,15 +4,15 @@ description: In questo articolo viene descritto come Azure Cosmos DB garantisce 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 05/29/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 74e2d7901d127c9dd7edd8509e5bba082c4ad220
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 74eee3d164e7ee3831f292568da9cf0620e576e5
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978979"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399294"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
 
@@ -54,7 +54,49 @@ Interruzioni a livello di area sono abbastanza comuni e Azure Cosmos DB garantis
 
 - È possibile che gli account in area singola perdano disponibilità in caso di interruzione a livello di area. È sempre consigliabile configurare **almeno due aree** (preferibilmente in almeno due scrittura aree) con l'account Cosmos per garantire la disponibilità elevata in qualsiasi momento.
 
-- Anche in un evento estremamente raro e sfortunato quando l'area di Azure è irrecuperabile in modo permanente, non è senza perdita di dati se l'account Cosmos in più aree è configurato con il livello di coerenza predefinito *sicuro*. In caso di un'area di scrittura in modo permanente irreversibile, per gli account Cosmos multiarea configurata con coerenza con obsolescenza associata, la finestra di perdita di dati potenziale è limitata alla finestra di decadimento ristretto (*K* o*T*); per sessione, livelli di coerenza con prefisso coerente e finale, la finestra di perdita di dati potenziale è limitata a un massimo di cinque secondi.
+- Anche in un evento raro e sfortunato quando l'area di Azure è irrecuperabile in modo permanente, non è senza perdita di dati se l'account Cosmos in più aree è configurato con il livello di coerenza predefinito *sicuro*. In caso di un'area di scrittura in modo permanente irreversibile, per gli account Cosmos multiarea configurata con coerenza con obsolescenza associata, la finestra di perdita di dati potenziale è limitata alla finestra di decadimento ristretto (*K* o*T*); per sessione, livelli di coerenza con prefisso coerente e finale, la finestra di perdita di dati potenziale è limitata a un massimo di cinque secondi. 
+
+## <a name="availability-zone-support"></a>Supporto delle Zone di disponibilità
+
+Azure Cosmos DB è un servizio di database multimaster distribuiti a livello globale che offre disponibilità elevata e resilienza durante le interruzioni a livello di area. Inoltre per attraversare la resilienza di area, è ora possibile abilitare **ridondanza della zona** quando si seleziona un'area da associare il database di Azure Cosmos. 
+
+Grazie al supporto di zona di disponibilità, Azure Cosmos DB assicura le repliche vengono posizionate in più zone all'interno di una determinata area per fornire disponibilità elevata e resilienza durante gli errori di zona. Sono state apportate modifiche alla latenza e di altri contratti di servizio in questa configurazione. In caso di errore una singola zona, ridondanza di zona fornisce durabilità completa dei dati con valore RPO pari a 0 e disponibilità con RTO = 0. 
+
+Ridondanza di zona è una *capacità supplementare* per il [replica multimaster](how-to-multi-master.md) funzionalità. Ridondanza di zona da solo non può essere ritenuta affidabile per ottenere la resilienza a livello di area. In caso di interruzioni a livello di area o l'accesso a bassa latenza tra le aree, ad esempio, è consigliabile avere più aree di scrittura oltre alla ridondanza di zona. 
+
+Quando si configurano le scritture tra più aree per l'account Azure Cosmos, è possibile scegliere la ridondanza di zona senza costi aggiuntivi. In caso contrario, vedere la nota sotto riguardanti il piano tariffario per il supporto di ridondanza di zona. È possibile abilitare la ridondanza di zona in un'area esistente dell'account di Azure Cosmos rimuovendo l'area e aggiungerlo nuovamente con la ridondanza della zona abilitata.
+
+Questa funzionalità è disponibile nelle aree di Azure seguenti:
+
+* Regno Unito meridionale
+* Asia sud-orientale 
+
+> [!NOTE] 
+> L'abilitazione di zone di disponibilità per una singola area account di Azure Cosmos comporterà addebiti equivalenti all'aggiunta di aree geografiche aggiuntive all'account. Per altre informazioni sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) e il [costi tra più aree in Azure Cosmos DB](optimize-cost-regions.md) articoli. 
+
+La tabella seguente riepiloga le funzionalità a disponibilità elevata delle varie configurazioni di account: 
+
+|KPI  |Singola area senza zone di disponibilità (Non-AZ)  |Singola area con zone di disponibilità (AZ)  |Più aree con le zone di disponibilità (AZ, 2 aree) – più l'impostazione consigliata |
+|---------|---------|---------|---------|
+|Contratto di servizio con disponibilità di scrittura     |   99,99%      |    99,99%     |  99,999%  |
+|Contratto di servizio con disponibilità in lettura   |   99,99%      |   99,99%      |  99,999%       |
+|Prezzo  |  Tariffa di fatturazione in una singola area |  Tariffa di fatturazione di un'area singola zona di disponibilità |  Tariffa di fatturazione in più aree       |
+|Errori della zona – perdita di dati   |  Perdita di dati  |   Nessuna perdita di dati |   Nessuna perdita di dati  |
+|Errori della zona-disponibilità |  Perdita di disponibilità  | Senza perdita di disponibilità  |  Senza perdita di disponibilità  |
+|Latenza di lettura    |  Tra aree    |   Tra aree   |    Basso  |
+|Latenza di scrittura    |   Tra aree   |  Tra aree    |   Basso   |
+|Interruzione dell'alimentazione locale – perdita di dati    |   Perdita di dati      |  Perdita di dati       |   Perdita di dati <br/><br/> Se uso limitato della coerenza a decadimento ristretto con più aree e multimaster, perdita di dati è limitata al decadimento ristretto configurato per l'account. <br/><br/> Perdita di dati durante l'interruzione dell'alimentazione locale può essere evitata configurando una coerenza assoluta in più aree. Questa opzione include compromessi che influiscono sulle prestazioni e disponibilità.      |
+|Interruzione dell'alimentazione locale-disponibilità  |  Perdita di disponibilità       |  Perdita di disponibilità       |  Senza perdita di disponibilità  |
+|Velocità effettiva    |  Provisioning di UR X della velocità effettiva      |  Provisioning di UR X della velocità effettiva       |  2 x velocità effettiva con provisioning di UR/sec <br/><br/> Questa modalità di configurazione richiede due volte la quantità di velocità effettiva rispetto a una singola area con zone di disponibilità perché sono presenti due aree.   |
+
+Quando si aggiunge un'area per gli account Cosmos Azure nuovi o esistenti, è possibile abilitare la ridondanza di zona. Attualmente, è possibile abilitare solo la ridondanza di zona usando i modelli di Azure Resource Manager o PowerShell. Per abilitare la ridondanza di zona per l'account Cosmos Azure, è consigliabile impostare il `isZoneRedundant` flag per `true` per una località specifica. È possibile impostare questo flag all'interno della proprietà di percorsi. Ad esempio, il frammento di powershell seguente consente la ridondanza di zona per l'area "Asia sud-orientale":
+
+```powershell
+$locations = @( 
+    @{ "locationName"="Southeast Asia"; "failoverPriority"=0; "isZoneRedundant"= "true" }, 
+    @{ "locationName"="East US"; "failoverPriority"=1 } 
+) 
+```
 
 ## <a name="building-highly-available-applications"></a>Compilazione di applicazioni a disponibilità elevata
 
@@ -64,7 +106,7 @@ Interruzioni a livello di area sono abbastanza comuni e Azure Cosmos DB garantis
 
 - Anche se l'account Cosmos è a disponibilità elevata, l'applicazione potrebbe non essere correttamente progettata per garantire disponibilità elevata. Per testare la disponibilità elevata end-to-end dell'applicazione, chiamare periodicamente il [failover manuale tramite il portale di Azure o Azure CLI](how-to-manage-database-account.md#manual-failover), come parte del test dell'applicazione o del ripristino di emergenza (DR) drill.
 
-- All'interno di un ambiente di database distribuito a livello globale sussiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come obiettivo del punto di ripristino (RPO). Per l'obiettivo del punto di ripristino (RPO) e l'obiettivo del tempo di ripristino (RTO) per Azure Cosmos DB, vedere [Livelli di coerenza e durabilità dei dati](consistency-levels-tradeoffs.md#rto)
+- All'interno di un ambiente di database distribuito globalmente, è presente una relazione diretta tra la durabilità di livello e i dati di coerenza in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come obiettivo del punto di ripristino (RPO). Per l'obiettivo del punto di ripristino (RPO) e l'obiettivo del tempo di ripristino (RTO) per Azure Cosmos DB, vedere [Livelli di coerenza e durabilità dei dati](consistency-levels-tradeoffs.md#rto)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

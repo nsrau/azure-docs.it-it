@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452677"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243458"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno
 
@@ -43,7 +43,7 @@ Prima di iniziare, è necessario [creare uno spazio dei nomi di Hub eventi e un 
 * Il numero di unità elaborate consente di aumentare la scala della velocità effettiva per gli hub eventi. Il numero di partizioni consente di parallelizzare il consumo tra molti consumer. Una singola partizione può eseguire fino a 20 Mbps o circa 20.000 messaggi al secondo. A seconda dello strumento che utilizza i dati, può essere supportato o meno il consumo di dati di più partizioni. Se si hanno dubbi sul numero di partizioni da impostare, è consigliabile iniziare con quattro partizioni.
 * È consigliabile impostare il periodo di memorizzazione dei messaggi nell'hub eventi su 7 giorni. Se lo strumento che utilizza i dati diventa inattivo per più di un giorno, questa impostazione assicura che tale strumento riprenderà l'esecuzione dal punto in cui è stata interrotta (per gli eventi degli ultimi 7 giorni).
 * È consigliabile usare il gruppo di consumer predefinito per l'hub eventi. Non è necessario creare altri gruppi di consumer o usare un gruppo di consumer distinto, a meno che non siano previsti due diversi strumenti che utilizzano gli stessi dati dello stesso hub eventi.
-* Per il log attività di Azure si sceglie uno spazio dei nomi di Hub eventi e Monitoraggio di Azure crea un hub eventi all'interno di questo spazio dei nomi, denominato "insights-log-operationallogs". Per altri tipi di log è possibile scegliere un hub eventi esistente (che consente di riutilizzare lo stesso hub eventi insights-log-operationallogs) oppure lasciare che Monitoraggio di Azure crei un hub eventi per ogni categoria di log.
+* Per il log attività di Azure, si sceglie uno spazio dei nomi di hub eventi e monitoraggio di Azure consente di creare un hub eventi nello spazio dei nomi denominato "insights-log-operationallogs". Per altri tipi di log è possibile scegliere un hub eventi esistente (che consente di riutilizzare lo stesso hub eventi insights-log-operationallogs) oppure lasciare che Monitoraggio di Azure crei un hub eventi per ogni categoria di log.
 * In genere, le porte 5671 e 5672 devono essere aperte sulla macchina che utilizza i dati dell'hub eventi.
 
 Vedere anche le [domande frequenti su Hub eventi di Azure](../../event-hubs/event-hubs-faq.md).
@@ -117,8 +117,8 @@ Il routing dei dati di monitoraggio a un hub eventi con Monitoraggio di Azure co
 * **Server Syslog** - Se si vuole trasmettere i dati di Monitoraggio di Azure direttamente a un server syslog, è possibile estrarre [questo repository GitHub](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Fasi successive
-* [Archive the Activity Log to a storage account](../../azure-monitor/platform/archive-activity-log.md) (Archiviare il log attività in un account di archiviazione)
-* Leggere la [panoramica sul log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md)
-* [Set up an alert based on an Activity Log event](../../azure-monitor/platform/alerts-log-webhook.md) (Configurare un avviso in base a un evento del log attività)
+* [Archiviare il log attività a un account di archiviazione](../../azure-monitor/platform/archive-activity-log.md)
+* [Leggere la panoramica del log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md)
+* [Configurare un avviso in base a un evento del log attività](../../azure-monitor/platform/alerts-log-webhook.md)
 
 

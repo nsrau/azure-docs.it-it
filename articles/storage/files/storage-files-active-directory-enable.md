@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: rogarana
-ms.openlocfilehash: d5e2f9dba3afee953d296316e990b58c536cbdae
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 26251ebd3c83f6cd44203e1d3cc5f1b523a0d8d9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602013"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237780"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Abilitare l'autenticazione di Azure Active Directory tramite SMB per File di Azure (anteprima)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -47,13 +47,13 @@ Prima di abilitare Azure AD tramite SMB per File di Azure, verificare che siano 
 
 2.  **Abilitare Azure AD Domain Services nel tenant di Azure AD.**
 
-    Per supportare l'autenticazione con credenziali di Azure AD, è necessario abilitare Azure AD Domain Services per il tenant di Azure AD. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+    Per supportare l'autenticazione con credenziali di Azure AD, è necessario abilitare Azure AD Domain Services per il tenant di Azure AD. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](../../active-directory-domain-services/create-instance.md).
 
     Per completare una distribuzione di Azure AD Domain Services sono richiesti in genere 15 minuti. Verificare che lo stato di integrità di Azure AD Domain Services sia **In esecuzione**, con sincronizzazione dell'hash delle password abilitata, prima di procedere al passaggio successivo.
 
 3.  **Aggiungere una macchina virtuale di Azure a un dominio con Azure AD Domain Services.**
 
-    Per accedere a una condivisione file usando le credenziali di Azure AD da una macchina virtuale, la macchina virtuale deve essere aggiunta a un dominio con Azure AD Domain Services. Per altre informazioni su come aggiungere una macchina virtuale a un dominio, vedere [Aggiungere una macchina virtuale Windows Server a un dominio gestito](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md).
+    Per accedere a una condivisione file usando le credenziali di Azure AD da una macchina virtuale, la macchina virtuale deve essere aggiunta a un dominio con Azure AD Domain Services. Per altre informazioni su come aggiungere una macchina virtuale a un dominio, vedere [Aggiungere una macchina virtuale Windows Server a un dominio gestito](../../active-directory-domain-services/join-windows-vm.md).
 
     > [!NOTE]
     > L'autenticazione di Azure AD tramite SMB con File di Azure è supportata solo nelle macchine virtuali di Azure in esecuzione in versioni del sistema operativo successive a Windows 7 o Windows Server 2008 R2.
@@ -79,7 +79,7 @@ Per abilitare l'autenticazione di Azure AD tramite SMB usando il [portale di Azu
 
 1. Nel portale di Azure passare all'account di archiviazione esistente o [creare un account di archiviazione](../common/storage-quickstart-create-account.md).
 2. Nella sezione **Impostazioni** selezionare **Configurazione**.
-3. Abilitare **Autenticazione di Azure Active Directory per File di Azure (anteprima)**.
+3. Abilitare **Autenticazione di Azure Active Directory per File di Azure (anteprima)** .
 
 L'immagine seguente mostra come abilitare l'autenticazione di Azure AD tramite SMB per l'account di archiviazione.
 
@@ -193,7 +193,7 @@ Il comando seguente di PowerShell consente di creare un ruolo personalizzato bas
 New-AzRoleDefinition -InputFile "<custom-role-def-json-path>"
 ```
 
-#### <a name="cli"></a>Interfaccia della riga di comando 
+#### <a name="cli"></a>CLI 
 
 Il comando seguente dell'interfaccia della riga di comando di Azure consente di creare un ruolo personalizzato basato su uno dei modelli di esempio.
 
@@ -221,7 +221,7 @@ $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/provi
 New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
-#### <a name="cli"></a>Interfaccia della riga di comando
+#### <a name="cli"></a>CLI
   
 Il comando seguente dell'interfaccia della riga di comando 2.0 mostra come visualizzare l'elenco dei ruoli personalizzati disponibili e quindi assegna un il ruolo a un'identità di Azure AD, in base al nome di accesso. Per altre informazioni sull'assegnazione dei ruoli RBAC con l'interfaccia della riga di comando di Azure, vedere [Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure](../../role-based-access-control/role-assignments-cli.md). 
 

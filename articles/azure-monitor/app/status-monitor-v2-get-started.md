@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c20cbf50129247fa01f10f12a99c558bc86492b8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3dcd50c3aa516f2af40c1e28a36a8039773e069c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145168"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255070"
 ---
 # <a name="getting-started-with-status-monitor-v2"></a>Introduzione a Status Monitor v2
 
@@ -51,7 +51,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ``` 
 
-### <a name="enable-monitoring"></a>Abilita monitoraggio
+### <a name="enable-monitoring"></a>Abilitare il monitoraggio
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -70,7 +70,7 @@ $pathToNupkg | rename-item -newname $pathToZip
 $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\Az.ApplicationMonitor"
 Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```
-### <a name="enable-monitoring"></a>Abilita monitoraggio
+### <a name="enable-monitoring"></a>Abilitare il monitoraggio
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
@@ -84,7 +84,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 - [Esaminare le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo
 - [Cercare eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi
 - Per informazioni sulle query più avanzate, vedere [Analytics](../../azure-monitor/app/analytics.md)
-- [Creare i dashboard](../../azure-monitor/app/app-insights-dashboards.md)
+- [Creare i dashboard](../../azure-monitor/app/overview-dashboard.md)
 
  Aggiungere altri dati di telemetria:
 

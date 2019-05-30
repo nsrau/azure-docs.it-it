@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
-ms.openlocfilehash: 7c074d5d25453e2b2a1ddfc32422790235815f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6afaa2f497fa1a23d083c3ddd76359a49105732d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431158"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384850"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilare un client di ricerca app console in C#
 
@@ -38,7 +38,7 @@ Per proseguire con l'esercitazione è necessario:
 
 In Visual Studio creare un progetto con `Ctrl`+`Shift`+`N`.
 
-Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Desktop classico di Windows > App console (.NET Framework)**.
+Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Desktop classico di Windows > App console (.NET Framework)** .
 
 Assegnare all'applicazione il nome **MyConsoleSearchApp** e fare clic su **OK**.
 
@@ -221,7 +221,7 @@ Prima di capire come visualizzare i risultati in ordine classificato, esaminare 
 }
 ```
 
-L'oggetto JSON `rankingResponse` ([documentazione](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) descrive l'ordine di visualizzazione appropriato per i risultati di ricerca. Include uno o più dei gruppi seguenti, in ordine di priorità:
+L'oggetto JSON `rankingResponse` ([documentazione](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) descrive l'ordine di visualizzazione appropriato per i risultati di ricerca. Include uno o più dei gruppi seguenti, in ordine di priorità:
 
 - `pole`: i risultati della ricerca da rendere più visibili (visualizzati ad esempio sopra la riga principale e la barra laterale).
 - `mainline`: I risultati della ricerca da visualizzare nella riga principale.

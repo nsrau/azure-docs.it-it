@@ -11,12 +11,12 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0d40ca0ae6ccd4f709d7d94d52764d4affcc215
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61467921"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244706"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trasformare i dati XML con le mappe in App per la logica di Azure con Enterprise Integration Pack
 
@@ -28,18 +28,18 @@ Per i limiti relativi agli account di integrazione e agli elementi come le mappe
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) in cui archiviare le mappe e gli altri elementi per l'integrazione aziendale e le soluzioni B2B (business-to-business).
 
-* Se la mappa fa riferimento a un assembly esterno, è necessario caricare *sia l'assembly che la mappa* nell'account di integrazione. Assicurarsi di *caricare prima l'assembly* e quindi la mappa che fa riferimento all'assembly.
+* Se la mappa fa riferimento a un assembly esterno, è necessario caricare *sia l'assembly che la mappa* nell'account di integrazione. Assicurarsi di aver [ *caricare l'assembly prima di tutto*](#add-assembly)e quindi caricare la mappa che fa riferimento all'assembly.
 
   Se le dimensioni dell'assembly sono pari a 2 MB o meno, è possibile aggiungere l'assembly all'account di integrazione *direttamente* dal portale di Azure. Se tuttavia le dimensioni dell'assembly o della mappa sono superiori a 2 MB, ma non superano il [limite per gli assembly o le mappe](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), esistono queste opzioni:
 
   * Per gli assembly, sono necessari un contenitore BLOB di Azure, in cui poter caricare l'assembly, e la posizione di tale contenitore. In questo modo, sarà possibile fornire tale posizione in seguito quando si aggiungerà l'assembly all'account di integrazione. 
   For questa attività, sono necessari gli elementi seguenti:
 
-    | Elemento | DESCRIZIONE |
+    | Elemento | Descrizione |
     |------|-------------|
     | [Account di archiviazione di Azure](../storage/common/storage-account-overview.md) | In questo account creare un contenitore BLOB di Azure per l'assembly. Altre informazioni su come [creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md). |
     | Contenitore BLOB | In questo contenitore è possibile caricare l'assembly. È necessaria anche la posizione di questo contenitore quando si aggiunge l'assembly all'account di integrazione. Informazioni su come [creare un contenitore BLOB](../storage/blobs/storage-quickstart-blobs-portal.md). |
@@ -50,9 +50,11 @@ Per i limiti relativi agli account di integrazione e agli elementi come le mappe
 
 Non è necessaria un'app per la logica quando si creano e si aggiungono mappe. Per usare una mappa, tuttavia, l'app per la logica deve essere collegata a un account di integrazione in cui si archivia tale mappa. Informazioni su come [collegare le app per la logica agli account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Se si ha ancora un'app per la logica, vedere l'articolo su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+<a name="add-assembly"></a>
+
 ## <a name="add-referenced-assemblies"></a>Aggiungere gli assembly a cui viene fatto riferimento
 
-1. Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> con le credenziali dell'account Azure.
+1. Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell'account Azure.
 
 1. Per trovare e aprire l'account di integrazione, nel menu principale di Azure selezionare **Tutti i servizi**. 
    Nella casella di ricerca, digitare "account di integrazione". 
@@ -74,6 +76,9 @@ Non è necessaria un'app per la logica quando si creano e si aggiungono mappe. P
 
 In base alle dimensioni del file di assembly, seguire i passaggi per caricare un assembly di dimensioni [pari o inferiori a 2 MB](#smaller-assembly) oppure [comprese tra 2 MB e 8 MB](#larger-assembly).
 Per i limiti delle quantità di assembly negli account di integrazione, vedere [Limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
+
+> [!NOTE]
+> Se si modifica l'assembly, è necessario aggiornare anche la mappa, se la mappa contiene modifiche.
 
 <a name="smaller-assembly"></a>
 
@@ -99,7 +104,7 @@ Per i limiti delle quantità di assembly negli account di integrazione, vedere [
 
 ### <a name="add-assemblies-more-than-2-mb"></a>Aggiungere assembly di dimensioni superiori a 2 MB
 
-Per aggiungere assembly più grandi, è possibile caricare l'assembly in un contenitore BLOB di Azure nell'account di archiviazione di Azure. I passaggi per aggiungere gli assembly sono diversi a seconda che il contenitore BLOB abbia l'accesso in lettura pubblico o meno. Prima di tutto, controllare quindi se il contenitore BLOB abbia l'accesso in lettura pubblico o meno seguendo questa procedura: [Impostare il livello di accesso pubblico per un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Per aggiungere assembly più grandi, è possibile caricare l'assembly in un contenitore BLOB di Azure nell'account di archiviazione di Azure. La procedura per aggiungere gli assembly variano a seconda se il contenitore blob ha accesso in lettura pubblico. Prima di tutto, controllare quindi se il contenitore BLOB abbia l'accesso in lettura pubblico o meno seguendo questa procedura: [Impostare il livello di accesso pubblico per un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Controllare il livello di accesso del contenitore
 
@@ -128,7 +133,7 @@ Per aggiungere assembly più grandi, è possibile caricare l'assembly in un cont
 
 1. Tornare al portale di Azure in cui è aperto il riquadro **Aggiungi assembly**. 
    Immettere un nome per l'assembly. 
-   Scegliere **File grande (dimensioni maggiori di 2 MB)**.
+   Scegliere **File grande (dimensioni maggiori di 2 MB)** .
 
    Verrà ora visualizzata la casella **URI del contenuto**, invece della casella **Assembly**.
 
@@ -153,7 +158,7 @@ Nella pagina **Panoramica** dell'account di integrazione, in **Componenti** il r
 
 1. Tornare al portale di Azure in cui è aperto il riquadro **Aggiungi assembly**. 
    Immettere un nome per l'assembly. 
-   Scegliere **File grande (dimensioni maggiori di 2 MB)**.
+   Scegliere **File grande (dimensioni maggiori di 2 MB)** .
 
    Verrà ora visualizzata la casella **URI del contenuto**, invece della casella **Assembly**.
 
@@ -170,7 +175,7 @@ Per i limiti delle quantità di mappe negli account di integrazione, vedere [Lim
 
 Dopo aver caricato gli assembly a cui la mappa fa riferimento, è possibile caricare la mappa.
 
-1. Se l'accesso non è già stato eseguito, accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> con le credenziali dell'account Azure. 
+1. Se l'accesso non è già stato eseguito, accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell'account Azure. 
 
 1. Se l'account di integrazione non è già aperto, nel menu principale di Azure selezionare **Tutti i servizi**. 
    Nella casella di ricerca, digitare "account di integrazione". 
@@ -310,7 +315,7 @@ the map appears in the **Maps** list.
 
 Per aggiornare una mappa esistente, è necessario caricare un nuovo file di mappa contenente le modifiche desiderate. È tuttavia possibile scaricare prima la mappa esistente e poi modificarla.
 
-1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> trovare e aprire l'account di integrazione, se non è già aperto.
+1. Nel [portale di Azure](https://portal.azure.com) trovare e aprire l'account di integrazione, se non è già aperto.
 
 1. Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca, digitare "account di integrazione". Selezionare **Account di integrazione**.
 
@@ -328,7 +333,7 @@ Per aggiornare una mappa esistente, è necessario caricare un nuovo file di mapp
 
 ## <a name="delete-maps"></a>Eliminare le mappe
 
-1. Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> trovare e aprire l'account di integrazione, se non è già aperto.
+1. Nel [portale di Azure](https://portal.azure.com) trovare e aprire l'account di integrazione, se non è già aperto.
 
 1. Nel menu principale di Azure selezionare **Tutti i servizi**. 
    Nella casella di ricerca, digitare "account di integrazione". 

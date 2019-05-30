@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa6de024758d16b99569261e10d46f9328241427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cf8484cdadcdb368c00351ca68e42652b475a7d4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482990"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305410"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Aggiornare le informazioni di profilo e l'account dal portale App personali
 È possibile usare l'account aziendale o dell'istituto di istruzione con il portale **App personali** basato sul Web per visualizzare e avviare molte delle app dell'organizzazione basate sul cloud, per aggiornare alcune informazioni dell'account e del profilo, per visualizzare le informazioni sui **gruppi** e per eseguire **verifiche di accesso** per le app e i gruppi. Se non si ha accesso al portale **App personali**, è necessario contattare il supporto tecnico per l'autorizzazione.
@@ -57,11 +57,11 @@ Aggiornare e gestire il lavoro o dell'istituto di istruzione informazioni dell'a
 
 - Fornire le informazioni di verifica aggiuntiva di sicurezza.
 
-- Esaminare le condizioni per l'utilizzo della propria organizzazione.
+- Esaminare le condizioni della propria organizzazione d'uso.
 
 - Disconnettersi da qualsiasi posizione.
 
-## <a name="change-your-password"></a>Modifica la password
+## <a name="change-your-password"></a>Modificare la password
 Se si desidera modificare la password per l'account aziendale o dell'istituto di istruzione, è possibile selezionare **Cambia password** dalle **gestire account** area della **profilo** pagina.
 
 ### <a name="to-change-your-password"></a>Per modificare la password

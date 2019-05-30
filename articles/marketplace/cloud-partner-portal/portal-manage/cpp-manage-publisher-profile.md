@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: pabutler
-ms.openlocfilehash: 6ca0eb23dad218262eff5d80543628df273022c9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c97bf10daa8f062cc833c7d7c5f7b0ca4835ca6f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942230"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257547"
 ---
 # <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>Gestisci il tuo profilo di pubblicazione di Azure Marketplace e AppSource
 
@@ -49,7 +49,7 @@ I **profilo** verrà visualizzata una finestra di dialogo.
 > [!NOTE]
 > Registrazione dell'Account Developer Center è obbligatoria per la pubblicazione a pagamento sul Marketplace SKU.
 
-Se non hai un Account di Developer Center, è possibile creare un account come descritto in [registrazione in Dev Center](../../register-dev-center.md).  Aggiungere quindi l'indirizzo di posta elettronica registrato come proprietario nel portale Cloud Partner per l'offerta. Un proprietario può solo aggiungere l'indirizzo di posta elettronica registrato al profilo di pubblicazione dalla sezione **Utente**. Quindi, accedere al portale usando lo stesso indirizzo di posta elettronica e collegare l'account Dev Center.
+Se non hai un Account di Developer Center, è possibile creare un account come descritto in [registrazione in Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center).  Aggiungere quindi l'indirizzo di posta elettronica registrato come proprietario nel portale Cloud Partner per l'offerta. Un proprietario può solo aggiungere l'indirizzo di posta elettronica registrato al profilo di pubblicazione dalla sezione **Utente**. Quindi, accedere al portale usando lo stesso indirizzo di posta elettronica e collegare l'account Dev Center.
 
 ![Dettagli Profilo di pubblicazione - descrizione profilo di pubblicazione](./media/publisherprofiledescription.png)
 

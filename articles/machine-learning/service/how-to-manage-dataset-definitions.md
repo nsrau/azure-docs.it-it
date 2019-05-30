@@ -1,5 +1,5 @@
 ---
-title: Definizione del set di dati e controllo delle versioni con Azure ml-set di dati
+title: Versione e gestire le definizioni dei set di dati con Azure ml-set di dati
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come aggiornare le definizioni dei set di dati e gestire il ciclo di vita delle definizioni
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4476bdd902f054683fa544dc44b548689f3a1881
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146212"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241875"
 ---
-# <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>Aggiornare e gestire il ciclo di vita delle definizioni di set di dati
+# <a name="version-and-manage-your-dataset-definitions"></a>Versione e la gestione delle definizioni di set di dati
 
 Informazioni su come aggiornare e gestire definizioni di set di dati con i set di dati di Azure Machine Learning (anteprima).
 
@@ -37,7 +37,7 @@ In questo esempio, la pipeline esistente continua a usare la versione della defi
 
 Il file di esempio usato negli esempi in questo documento è disponibile all'indirizzo [ https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv ](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv).
 
-## <a name="update-dataset-definitions"></a>Aggiornare le definizioni dei set di dati
+## <a name="create-and-update-definitions"></a>Creare e aggiornare le definizioni
 
 Verrà innanzitutto creato e registrare un set di dati con l'area di lavoro.
 
@@ -344,7 +344,7 @@ Dopo avere recuperato una definizione, è possibile usarlo con modelli di machin
 
 È possibile gestire il ciclo di vita di ogni definizione di set di dati in modo indipendente. Esistono tre fasi del ciclo di vita: attivo, deprecate o archiviato.
 
-### <a name="active"></a>Attive
+### <a name="active"></a>Attivo
 
 Quando viene creata una nuova definizione di set di dati, è attiva per impostazione predefinita. 
 
@@ -362,7 +362,7 @@ ds_def = dataset.get_definition(version_id = 1)
 ds_def.deprecate(deprecate_by_dataset_id=dataset.id, deprecated_by_definition_version=2)
 ```
 
-### <a name="archive"></a>Archivia
+### <a name="archive"></a>Archiviazione
 
 Le definizioni di set di dati possono essere archiviate quando le definizioni non sono considerate da usare per qualsiasi motivo (ad esempio, i dati sottostanti non saranno più disponibili). Quando viene usata una definizione di set di dati archiviata in pipeline di machine learning, con l'errore verrà bloccata l'esecuzione.
 
@@ -372,7 +372,7 @@ ds_def = dataset.get_definition(version_id = 1)
 ds_def.archive()
 ```
 
-### <a name="reactivate"></a>Riattivare
+### <a name="reactivate"></a>Riattiva
 
 È possibile riattivare facilmente qualsiasi definizione di set di dati deprecati o archived.
 

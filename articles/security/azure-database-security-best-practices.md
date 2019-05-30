@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9cd02172af5246c60b93a6e4696988268abed506
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409816"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258675"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedure consigliate per la sicurezza del database di Azure
 Questo articolo descrive le procedure consigliate per la sicurezza del database.
@@ -165,6 +165,10 @@ L'abilitazione di queste funzionalità consente di:
 - Rilevare e rispondere a potenziali minacce.
 
 Il rilevamento delle minacce integra inoltre gli avvisi con il Centro sicurezza di Azure per offrire un punto di vista centralizzato dello stato della sicurezza di tutte le risorse di Azure.
+
+## <a name="enable-feature-restrictions"></a>Abilitare le restrizioni di funzionalità
+
+I dati contenuti nei database possono essere esposti a utenti malintenzionati tramite gli attacchi che sfruttano gli errori di database e tempi di esecuzione di query. Database SQL di Azure fornisce una serie di meccanismi di restrizione di funzionalità per proteggere il database. Per altre informazioni, vedere [limitazioni delle caratteristiche del Database SQL](../sql-database/sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre procedure consigliate per la sicurezza da usare nella progettazione, la distribuzione e la gestione di soluzioni cloud tramite Azure, vedere [Procedure consigliate e modelli per la sicurezza di Azure](security-best-practices-and-patterns.md).

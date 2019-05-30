@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520845"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255272"
 ---
 # <a name="get-started-with-azure-monitor-log-analytics"></a>Introduzione a Azure Monitor Log Analitica
 
@@ -46,7 +46,7 @@ Event | search "error"
 
 Questa query cerca nella tabella _Event_ i record che contengono il termine "error" in qualsiasi proprietà.
 
-Le query possono iniziare con un nome di tabella o un comando **search**. L'esempio precedente inizia con il nome di tabella _Event_, che definisce l'ambito della query. Il carattere di barra verticale, o pipe, (|) separa i comandi, in modo che l'output del primo comando sia l'input del comando successivo. È possibile aggiungere qualsiasi numero di comandi a una singola query.
+Le query possono iniziare con un nome di tabella o un comando **search**. L'esempio precedente inizia con il nome di tabella _Event_, che definisce l'ambito della query. Il carattere di barra verticale (|) consente di separare i comandi, in modo che l'output della prima viene usata come input del comando seguente. È possibile aggiungere qualsiasi numero di comandi a una singola query.
 
 Un altro modo per scrivere la stessa query è il seguente:
 

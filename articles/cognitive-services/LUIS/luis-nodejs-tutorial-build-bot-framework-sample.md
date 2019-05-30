@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bd6a9df9518cb1b2312b525e8876629a2189bd2
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196988"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399608"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot LUIS in Node.js con Bot Framework 3.x e il bot app Web di Azure
 
 Usando Node.js, creare un chat bot integrato con Language Understanding (LUIS). Questo bot chat utilizza il dominio di HomeAutomation precompilato per implementare rapidamente una soluzione di bot. Il bot viene compilato con Bot Framework 3.x e il bot per app Web di Azure.
+
+Oggetto [Bot Framework 4.x con l'esercitazione LUIS](luis-nodejs-tutorial-bf-v4.md) è inoltre disponibile.
 
 ## <a name="prerequisite"></a>Prerequisito
 
@@ -98,7 +100,7 @@ Aprire **Application Settings** (Impostazioni applicazione) nella prima finestra
 
   ![Aggiornare l'ID dell'app LUIS in Azure](./media/luis-tutorial-node-bot/bot-service-app-id.png)
 
-Se non si dispone dell'ID dell'app LUIS, accedere al sito Web [LUIS](luis-reference-regions.md) usando lo stesso account usato per accedere ad Azure. Selezionare **My apps** (App personali). 
+Se non si ha l'ID dell'app LUIS, accedi per il [LUIS](luis-reference-regions.md) sito Web con lo stesso account consente di accedere ad Azure. Selezionare **My apps** (App personali). 
 
 1. Trovare l'app LUIS creata in precedenza che contiene le finalità e le entità del dominio HomeAutomation.
 
@@ -236,7 +238,7 @@ bot.dialog('TurnOff',
 ```
 ## <a name="test-the-bot"></a>Testare il bot
 
-Nel portale di Azure selezionare **Test in Web Chat** (Testa nella chat Web) per testare il bot. Digitare messaggi quali "Turn on the lights" (Accendi le luci) e "turn off my heater" (spegni il riscaldamento) per richiamare le finalità aggiunte.
+Nel portale di Azure, selezionare nella **testare in Chat Web** per testare il bot. Digitare messaggi quali "Turn on the lights" (Accendi le luci) e "turn off my heater" (spegni il riscaldamento) per richiamare le finalità aggiunte.
    ![Testare il bot HomeAutomation nella chat Web](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]

@@ -9,15 +9,15 @@ ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: 34f2ab8f7ccafb8b30e298cd71e09171ad8c87cb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553694"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238583"
 ---
 I limiti seguenti si applicano alle risorse di Azure Log Analitica per ogni sottoscrizione.
 
-| Risorsa | Limite predefinito | Commenti
+| Resource | Limite predefinito | Commenti
 | --- | --- | --- |
 | Numero di aree di lavoro gratuite per sottoscrizione | 10 | Non è possibile aumentare questo limite. |
 | Numero di aree di lavoro a pagamento per sottoscrizione | N/D | Si è limitata dal numero di risorse all'interno di un gruppo di risorse e il numero di gruppi di risorse per ogni sottoscrizione. | 
@@ -37,7 +37,7 @@ I limiti seguenti si applicano a ogni area di lavoro di Log Analitica.
 
 <sup>2</sup>il periodo di conservazione per i piani dei prezzi Per GB, autonomo e OMS può essere aumentato a 730 giorni.
 
-| Categoria | Limiti | Commenti
+| Category | Limiti | Commenti
 | --- | --- | --- |
 | API dell'Agente di raccolta dati | Dimensioni massime per un singolo post sono di 30 MB.<br>Dimensione massima per i valori dei campi è 32 KB. | Dividere i volumi più grandi in più post.<br>I campi con una lunghezza superiore a 32 KB vengono troncati. |
 | API di ricerca | 5000 record restituiti per i dati non aggregate.<br>500.000 record per i dati aggregati. | I dati aggregati sono una ricerca che include il `summarize` comando.

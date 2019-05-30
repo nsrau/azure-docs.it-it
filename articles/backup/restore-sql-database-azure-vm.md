@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1712e46494796e563c26316b4f45d968872c304f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8ade598e4f1b6331367e8bd04ad59951ef5de8f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781808"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242384"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Ripristinare il backup di database SQL Server in macchine virtuali di Azure
 
@@ -41,6 +41,7 @@ Prima di ripristinare un database, tenere presente quanto segue:
     - Solo il nome client specificato può aprire la connessione.
 - Per tutti i database di sistema (modello, master, msdb), arrestare il servizio SQL Server Agent prima di attivare il ripristino.
 - Chiudere tutte le applicazioni tentino di richiedere una connessione a nessuno di questi database.
+- Se si dispone di più istanze in esecuzione in un server, tutte le istanze dovrebbe essere disponibile e in esecuzione in caso contrario, il server non sarà visibile nell'elenco dei server di destinazione per il ripristino di database.
 
 ## <a name="restore-a-database"></a>Per ripristinare un database
 
@@ -152,6 +153,13 @@ Se si è scelto **Completo e differenziale** come tipo di ripristino, eseguire l
 1. Tenere traccia dello stato di ripristino nel **notifiche** area o ne tiene traccia selezionando **processi di ripristino** dal menu di database.
 
     ![Avanzamento del processo di ripristino](./media/backup-azure-sql-database/restore-job-notification.png)
+
+### <a name="restore-databases-with-large-number-of-files"></a>Ripristinare i database con numero elevato di file
+
+Se la dimensione della stringa totale dei file in un database è supera a un [particolare limite](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path), Backup di Azure archivia l'elenco dei file di database in un componente pit diverso modo che non sarà in grado di impostare il percorso di ripristino di destinazione durante il ripristino operazione. I file verranno ripristinati nel percorso predefinito SQL.
+
+  ![Ripristinare i Database con file di grandi dimensioni](./media/backup-azure-sql-database/restore-large-files.jpg)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

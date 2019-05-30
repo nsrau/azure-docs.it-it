@@ -10,16 +10,16 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6bc1431ace55538c489d73e0a62d18f274c06d57
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a8bca6c1e56595e4a7d64f9f388c9daca0b166ac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873766"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242919"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare i dati su Azure SQL Data Warehouse
 
-Questa esercitazione usa PolyBase per caricare il data warehouse WideWorldImportersDW dall'archivio BLOB di Azure ad Azure SQL Data Warehouse. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) per: 
+Questa esercitazione usa PolyBase per caricare il data warehouse WideWorldImportersDW dall'archivio BLOB di Azure ad Azure SQL Data Warehouse. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) per:
 
 > [!div class="checklist"]
 > * Creare data warehouse nel portale di Azure
@@ -37,7 +37,6 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Prima di iniziare questa esercitazione, scaricare e installare la versione più recente di [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
-
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
@@ -150,9 +149,9 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
     | Impostazione      | Valore consigliato | Descrizione | 
     | ------------ | --------------- | ----------- | 
     | Tipo di server | Motore di database | Questo valore è obbligatorio |
-    | Nome del server | Nome completo del server | Ad esempio, **sample-svr.database.windows.net** è un nome di server completo. |
+    | Nome server | Nome completo del server | Ad esempio, **sample-svr.database.windows.net** è un nome di server completo. |
     | Authentication | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
-    | Accedi | Account amministratore del server | Si tratta dell'account specificato al momento della creazione del server. |
+    | Login | Account amministratore del server | Si tratta dell'account specificato al momento della creazione del server. |
     | Password | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
 
     ![connetti al server](media/load-data-wideworldimportersdw/connect-to-server.png)
@@ -1121,7 +1120,7 @@ Sono state eseguite queste operazioni:
 > * È stato visualizzato lo stato di avanzamento dei dati durante il caricamento
 > * Sono state create statistiche sui nuovi dati caricati
 
-Per informazioni su come eseguire la migrazione di un database esistente in SQL Data Warehouse, passare alla panoramica sulla migrazione.
+Passare alla panoramica sullo sviluppo per informazioni su come eseguire la migrazione di un database esistente in SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Informazioni su come eseguire la migrazione di un database esistente in SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Decisioni di progettazione per la migrazione di un database esistente in SQL Data Warehouse](sql-data-warehouse-overview-develop.md)

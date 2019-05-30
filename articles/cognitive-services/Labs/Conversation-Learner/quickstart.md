@@ -3,19 +3,19 @@ title: Come creare un modello dello Strumento di apprendimento di conversazioni 
 titleSuffix: Azure
 description: Informazioni su come creare un modello dello Strumento di apprendimento di conversazioni usando Node.js.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: cc071d59a387c8ae4982eacbce6812526f447788
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708363"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388773"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Creare un modello dello Strumento di apprendimento di conversazioni usando Node.js
 
@@ -47,7 +47,7 @@ Il Progetto Strumento di apprendimento di conversazioni è costituito da un SDK 
 
 - VSCode. Installare da [https://code.visualstudio.com/](https://code.visualstudio.com/). Nota: questo procedimento non è obbligatorio ma è consigliato.
 
-## <a name="quick-start"></a>Guida introduttiva 
+## <a name="quick-start"></a>Avvio rapido 
 
 1. Installare e compilare:
 

@@ -3,19 +3,19 @@ title: Eseguire la migrazione a V3 - API Traduzione testuale
 titlesuffix: Azure Cognitive Services
 description: Informazioni su come eseguire la migrazione dalla versione 2 alla versione 3 dell'API Traduzione testuale.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: fa1733ddd70de3f8ef93452a880094ccf8b9ef56
-ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
+ms.author: v-pawal
+ms.openlocfilehash: 81b2e5c9c659a3811d7417d87b811a86f4350a52
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951465"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382924"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migrazione dell'API Traduzione testuale dalla versione 2 alla versione 3
 
@@ -119,7 +119,7 @@ La traduzione neurale con l'API testuale V3 non supporta l'uso delle categorie s
 | |Endpoint|    Conformità al processore GDPR|  Usare l'Hub di Translator| Usare il traduttore personalizzato (anteprima)|
 |:-----|:-----|:-----|:-----|:-----|
 |API Traduzione testuale versione 2| api.microsofttranslator.com|    No   |Sì    |No |
-|API Traduzione testuale versione 3| api.cognitive.microsofttranslator.com|  Sì|    No | Sì|
+|API Traduzione testuale versione 3| api.cognitive.microsofttranslator.com|  Yes|    No | Yes|
 
 **API Traduzione testuale versione 3**
 * È disponibile a livello generale e completamente supportata.

@@ -2,31 +2,24 @@
 title: Convalidare la velocità effettiva della VPN verso una rete virtuale di Microsoft Azure | Microsoft Docs
 description: Lo scopo di questo documento è quello di consentire a un utente di convalidare la velocità effettiva della rete dalle relative risorse locali a una macchina virtuale di Azure.
 services: vpn-gateway
-documentationcenter: na
-author: chadmath
+author: cherylmc
 manager: jasmc
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 05/29/2019
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1117afcf6254c32ebe0a4e72ad5619606098253
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457570"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388622"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Come convalidare la velocità effettiva della VPN verso una rete virtuale
 
 Una connessione del gateway VPN consente di stabilire una connettività cross-premise sicura tra la rete virtuale in Azure e l'infrastruttura IT locale.
 
-Questo articolo descrive come convalidare la velocità effettiva della rete dalle risorse locali a una macchina virtuale (VM) di Azure. Fornisce inoltre informazioni aggiuntive sulla risoluzione dei problemi.
+Questo articolo descrive come convalidare la velocità effettiva della rete dalle risorse locali a una macchina virtuale (VM) di Azure. Fornisce inoltre informazioni aggiuntive sulla risoluzione dei problemi. 
 
 >[!NOTE]
 >Questo articolo ha lo scopo di semplificare la diagnosi e la risoluzione dei problemi comuni. Se non si riesce a risolvere il problema tramite le informazioni seguenti, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -127,7 +120,7 @@ Eseguire il download di [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-
 - Velocità di lettura/scrittura disco macchina virtuale insufficiente. Per altre informazioni, vedere [Risoluzione dei problemi di Archiviazione di Azure](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interfaccia con connessione rivolta all'esterno del dispositivo locale
-Se l'indirizzo IP per Internet del dispositivo VPN locale è incluso nella definizione della [rete locale](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) in Azure, potrebbe non essere possibile vedere la VPN, potrebbero verificarsi sporadiche disconnessioni o problemi di prestazioni.
+Se il dispositivo VPN locale indirizzo IP con connessione Internet è incluso nel [retelocale](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) definizione dello spazio di indirizzi in Azure, che si verifichi impossibilità di visualizzare la connessione VPN, sporadiche disconnessioni o problemi di prestazioni.
 
 ## <a name="checking-latency"></a>Verifica della latenza
 Usare tracert per tenere traccia del dispositivo perimetrale di Microsoft Azure per determinare se sono presenti eventuali ritardi con oltre 100 ms tra hop.

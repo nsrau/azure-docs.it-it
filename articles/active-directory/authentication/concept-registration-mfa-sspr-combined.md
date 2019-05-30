@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415763"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235597"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registrazione di informazioni di sicurezza combinati (anteprima)
 
@@ -24,7 +24,7 @@ Prima della registrazione combinata, gli utenti registrati metodi di autenticazi
 
 ![Che mostra il profilo registrato info di sicurezza per un utente](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Prima di abilitare la nuova esperienza, esaminare questa documentazione incentrata su amministratore e la documentazione incentrato sull'utente per verificare di che conoscere le funzionalità e l'effetto di questa funzionalità. La formazione su documentazione per l'utente per preparare gli utenti per la nuova esperienza e contribuire a garantire una corretta implementazione di base.
+Prima di abilitare la nuova esperienza, esaminare questa documentazione incentrata su amministratore e la documentazione incentrato sull'utente per verificare di che conoscere le funzionalità e l'effetto di questa funzionalità. Basare la formazione sul [documentazione dell'utente](../user-help/user-help-security-info-overview.md) per preparare gli utenti per la nuova esperienza e consentono di garantire una distribuzione eseguita correttamente.
 
 Azure AD combinare le informazioni di sicurezza registrazione non è attualmente disponibile nei cloud nazionali, ad esempio Azure US Government, Azure Germania o Azure Cina 21Vianet.
 
@@ -46,15 +46,15 @@ Combinare i seguenti metodi di autenticazione supporta la registrazione e le azi
 
 |   | Register | Modifica | Delete |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sì (massimo 5) | No  | Sì |
-| Altre app authenticator | Sì (massimo 5) | No  | Sì |
-| Token hardware | No  | No  | Sì |
-| Telefono | Sì | Sì | Sì |
-| Telefono alternativo | Sì | Sì | Sì |
-| Telefono ufficio | No  | No  | No  |
-| Email | Sì | Sì | Sì |
-| Domande di sicurezza | Sì | No  | Sì |
-| Password dell'app | Sì | No  | Sì |
+| Microsoft Authenticator | Sì (massimo 5) | No  | Yes |
+| Altre app authenticator | Sì (massimo 5) | No | Yes |
+| token hardware | No  | No  | Yes |
+| Telefono | Yes | Sì | Yes |
+| Telefono alternativo | Yes | Sì | Yes |
+| Telefono ufficio | No | No | No  |
+| Email | Yes | Sì | Yes |
+| Domande di sicurezza | Yes | No  | Yes |
+| Password dell'app | Yes | No  | Yes |
 
 > [!NOTE]
 > Le password dell'App sono disponibili solo per gli utenti che sono stati applicati per multi-Factor Authentication. Le password dell'App non sono disponibili agli utenti che sono abilitati per multi-Factor Authentication tramite criteri di accesso condizionale.
@@ -84,20 +84,20 @@ Registrazione combinata rispetta i criteri di multi-Factor Authentication sia SS
 
 Ecco alcuni scenari in cui agli utenti potrebbero essere richiesto di registrare o aggiornare le tue info di sicurezza:
 
-* Registrazione per l'autenticazione a più fattori applicata tramite Identity Protection: Gli utenti vengono richiesto di registrare durante l'accesso. Si registrano i metodi di multi-Factor Authentication e i metodi SSPR (se l'utente è abilitato per SSPR).
-* Registrazione per l'autenticazione a più fattori applicata tramite multi-Factor Authentication per utente: Gli utenti vengono richiesto di registrare durante l'accesso. Si registrano i metodi di multi-Factor Authentication e i metodi SSPR (se l'utente è abilitato per SSPR).
-* Applicato tramite l'accesso condizionale o altri criteri di registrazione per l'autenticazione a più fattori: Gli utenti vengono richiesto di registrare quando usano una risorsa che richiede l'autenticazione a più fattori. Si registrano i metodi di multi-Factor Authentication e i metodi SSPR (se l'utente è abilitato per SSPR).
-* Registrazione SSPR applicata: Gli utenti vengono richiesto di registrare durante l'accesso. Si registrano solo i metodi di reimpostazione.
-* Aggiornamento SSPR applicato: Gli utenti devono verificare le info di sicurezza in base all'intervallo impostato dall'amministratore. Gli utenti vengono visualizzati le relative informazioni e confermare le informazioni attuali o apportare le modifiche necessarie.
+- Registrazione per l'autenticazione a più fattori applicata tramite Identity Protection: Gli utenti vengono richiesto di registrare durante l'accesso. Si registrano i metodi di multi-Factor Authentication e i metodi SSPR (se l'utente è abilitato per SSPR).
+- Registrazione per l'autenticazione a più fattori applicata tramite multi-Factor Authentication per utente: Gli utenti vengono richiesto di registrare durante l'accesso. Si registrano i metodi di multi-Factor Authentication e i metodi SSPR (se l'utente è abilitato per SSPR).
+- Applicato tramite l'accesso condizionale o altri criteri di registrazione per l'autenticazione a più fattori: Gli utenti vengono richiesto di registrare quando usano una risorsa che richiede l'autenticazione a più fattori. Si registrano i metodi di multi-Factor Authentication e i metodi SSPR (se l'utente è abilitato per SSPR).
+- Registrazione SSPR applicata: Gli utenti vengono richiesto di registrare durante l'accesso. Si registrano solo i metodi di reimpostazione.
+- Aggiornamento SSPR applicato: Gli utenti devono verificare le info di sicurezza in base all'intervallo impostato dall'amministratore. Gli utenti vengono visualizzati le relative informazioni e confermare le informazioni attuali o apportare le modifiche necessarie.
 
 Quando viene applicata la registrazione, gli utenti vengono visualizzati il numero minimo di metodi necessari per essere conformi ai criteri multi-Factor Authentication sia SSPR, dal più specifico al meno sicuro.
 
-Ad esempio: 
+Ad esempio:
 
-* Un utente è abilitato per SSPR. I criteri di SSPR necessarie due metodi per reimpostare e telefono, posta elettronica e il codice di app per dispositivi mobili sono state abilitate.
-   * Questo utente deve registrare due metodi.
-      * All'utente viene visualizzato l'app authenticator e telefono, per impostazione predefinita.
-      * L'utente può scegliere di registrare l'indirizzo di posta elettronica anziché l'app authenticator o il telefono.
+- Un utente è abilitato per SSPR. I criteri di SSPR necessarie due metodi per reimpostare e telefono, posta elettronica e il codice di app per dispositivi mobili sono state abilitate.
+   - Questo utente deve registrare due metodi.
+      - All'utente viene visualizzato l'app authenticator e telefono, per impostazione predefinita.
+      - L'utente può scegliere di registrare l'indirizzo di posta elettronica anziché l'app authenticator o il telefono.
 
 Questo diagramma di flusso vengono descritti i metodi che vengono visualizzati per un utente quando interrotta la registrazione durante l'accesso:
 

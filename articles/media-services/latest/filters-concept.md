@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: bfe4bbae7953479f9b5b5ce9653fb3b8d4b2d092
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002372"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225423"
 ---
 # <a name="filters"></a>Filtri
 
-Quando si distribuiscono contenuti ai clienti (eventi di Streaming Live o Video on Demand) il client potrebbe essere necessario una maggiore flessibilità rispetto a quanto descritto nel file manifesto predefinito dell'asset. Servizi multimediali di Azure consente di definire i filtri account e i filtri asset per i propri contenuti. 
+Quando si distribuiscono contenuti ai clienti (eventi di Streaming Live o Video on Demand) il client potrebbe essere necessario una maggiore flessibilità rispetto a quanto descritto nel file manifesto predefinito dell'asset. Servizi multimediali di Azure offre [manifesti dinamici](filters-dynamic-manifest-overview.md) basata su filtri predefiniti. 
 
 I filtri sono regole lato server che consentono ai clienti di eseguire operazioni come: 
 
@@ -32,24 +32,16 @@ I filtri sono regole lato server che consentono ai clienti di eseguire operazion
 - Distribuire solo i rendering specificati e/o le tracce di lingua specificate, se supportate dal dispositivo usato per la riproduzione dei contenuti ("filtro di rendering"). 
 - Regolare la finestra di presentazione (DVR) in modo da ottenere una lunghezza limitata della finestra nel lettore ("regolazione finestra presentazione").
 
-Servizi multimediali offre [manifesti dinamici](filters-dynamic-manifest-overview.md) basati su filtri predefiniti. Dopo aver definito i filtri, è possibile usarli nell'URL di streaming. È possibile applicare filtri ai protocolli di streaming a bitrate adattivo: Apple HLS (HTTP Live Streaming), MPEG-DASH e Smooth Streaming.
+Servizi multimediali consente di creare **filtri dell'Account** e **filtri di Asset** per il contenuto. Inoltre, è possibile associare i filtri creati in precedenza con un **localizzatore di Streaming**.
 
-Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
+## <a name="defining-filters"></a>Definizione di filtri
 
-|Protocol|Esempio|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Per HLS v3, usare: `format=m3u8-aapl-v3`.|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
-## <a name="define-filters"></a>Definire filtri
-
-Sono disponibili due tipi di filtri di asset: 
+Esistono due tipi di filtri: 
 
 * [Filtri account](https://docs.microsoft.com/rest/api/media/accountfilters) (globali): possono essere applicati a qualsiasi asset nell’account di Servizi multimediali di Azure e hanno una durata equivalente a quella dell’account.
 * [Filtri asset](https://docs.microsoft.com/rest/api/media/assetfilters) (locali): possono essere applicati solo a uno degli asset a cui è stato associato il filtro in fase di creazione e hanno una durata equivalente a quella dell’asset. 
 
-I [filtri account](https://docs.microsoft.com/rest/api/media/accountfilters) e i [filtri Asset](https://docs.microsoft.com/rest/api/media/assetfilters) hanno esattamente le stesse proprietà per la definizione/descrizione del filtro. Tranne quando si crea il **filtro asset**, è necessario specificare il nome dell'asset a cui si desidera associare il filtro.
+**I filtri dell'account** e **filtri di Asset** tipi hanno esattamente le stesse proprietà per la definizione/descrizione del filtro. Tranne quando si crea il **filtro asset**, è necessario specificare il nome dell'asset a cui si desidera associare il filtro.
 
 A seconda dello scenario, decidere quale tipo di filtro è più adatto (asset o account). I filtri asset sono più adatti per i profili di dispositivo (filtro di rendering), mentre i filtri asset possono essere usati per tagliare un asset specifico.
 
@@ -145,14 +137,22 @@ L'esempio seguente definisce un filtro di Live Streaming:
 }
 ```
 
-## <a name="associate-filters-with-streaming-locator"></a>Associare i filtri localizzatore di Streaming
+## <a name="associating-filters-with-streaming-locator"></a>Associare i filtri localizzatore di Streaming
 
-È possibile specificare un elenco di [filtri di asset o account](filters-concept.md), che si applicherebbe alle [localizzatore di Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Il [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) si applica questo elenco di filtri insieme a quelli del client specifica l'URL. Questa combinazione genera una [manifesto dinamico](filters-dynamic-manifest-overview.md), basata su filtri nell'URL + filtri è specificare nel localizzatore di Streaming. È consigliabile usare questa funzionalità se si desidera applicare i filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
+È possibile specificare un elenco delle [filtri di asset o account](filters-concept.md) nel [localizzatore di Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Il [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) si applica questo elenco di filtri insieme a quelli del client specifica l'URL. Questa combinazione genera una [manifesto dinamico](filters-dynamic-manifest-overview.md), basata su filtri nell'URL + filtri è specificare al localizzatore di Streaming. 
 
 Vedere gli esempi seguenti:
 
 * [Associare i filtri localizzatore di Streaming - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
 * [Associare i filtri localizzatore di Streaming - CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+
+## <a name="updating-filters"></a>L'aggiornamento di filtri
+ 
+**I localizzatori di streaming** non sono aggiornabili mentre i filtri possono essere aggiornati. 
+
+Non è consigliabile aggiornare la definizione di filtri associata pubblicati attivamente **localizzatore di Streaming**, soprattutto quando la rete CDN è abilitata. Streaming Server e le reti CDN possono avere cache interne che possono comportare dati memorizzati nella cache non aggiornati da restituire. 
+
+Se è necessario modificare la definizione del filtro prendere in considerazione la creazione di un nuovo filtro e aggiungendolo al **localizzatore di Streaming** URL o la pubblicazione di un nuovo **localizzatore di Streaming** che fa riferimento il filtro direttamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

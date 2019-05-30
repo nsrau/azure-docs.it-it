@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e13a4b1c01329bef1ec270af5ba007cd788aa
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464344"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399755"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorare gli avvisi per i backup della macchina virtuale di Azure
 
@@ -70,7 +70,7 @@ Per configurare le notifiche di posta elettronica per gli avvisi
    | Livello avviso | Avvisi inviati |
    | --- | --- |
    | Critico | per errore di backup, errore di ripristino |
-   | Avviso | per i processi di backup completati con avvisi, ad esempio in caso di errore di alcuni writer durante la creazione di uno snapshot |
+   | Avviso | Nessun avviso di avviso è attualmente disponibile per i backup di macchine Virtuali di Azure (ad esempio: errore di alcuni writer durante la creazione di uno snapshot) |
    | Informazioni | attualmente non sono disponibili avvisi informativi per il backup di macchine virtuali di Azure |
 
 ### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Esistono situazioni in cui il messaggio di posta elettronica non viene inviato anche se sono configurate le notifiche

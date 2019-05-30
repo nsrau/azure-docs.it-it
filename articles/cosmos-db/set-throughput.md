@@ -4,14 +4,14 @@ description: Informazioni su come impostare la velocità effettiva con provision
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: 598a1562127a67c78f67cdd02b00d83d4a606739
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953551"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389244"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Effettuare il provisioning della velocità effettiva per contenitori e database
 
@@ -71,9 +71,8 @@ L'immagine seguente mostra in che modo una partizione fisica può ospitare una o
 È possibile combinare i due modelli, effettuando il provisioning della velocità effettiva sia nel database che nel contenitore. L'esempio seguente illustra come effettuare il provisioning della velocità effettiva in un database di Azure Cosmos e in un contenitore:
 
 * È possibile creare un database Cosmos Azure denominato *Z* con velocità effettiva con provisioning del *"K"* UR. 
-* Successivamente, creare cinque contenitori denominati *un'*, *B*, *C*, *1!d*, e *elettronica* all'interno del database.
-* È possibile configurare in modo esplicito *"P"* UR di velocità effettiva con provisioning per il contenitore denominato *B*.
-* Il *"K"* velocità effettiva di UR verrà condivisi tra i quattro contenitori *oggetto*, *C*, *1!d*, e *E*. La quantità esatta di velocità effettiva disponibile per *un'*, *C*, *1!d*, oppure *E* varia. Non sono previsti contratti di servizio per la velocità effettiva di ogni singolo contenitore.
+* Successivamente, creare cinque contenitori denominati *un'* , *B*, *C*, *1!d*, e *elettronica* all'interno del database. Quando si crea contenitore B, assicurarsi di abilitare **velocità effettiva dedicata di effettuare il provisioning per questo contenitore** opzione e configurare in modo esplicito *"P"* UR di velocità effettiva con provisioning in questo contenitore. Si noti che è possibile configurare la velocità effettiva condivisa e dedicata solo quando si crea il contenitore e un database. 
+* Il *"K"* velocità effettiva di UR verrà condivisi tra i quattro contenitori *oggetto*, *C*, *1!d*, e *E*. La quantità esatta di velocità effettiva disponibile per *un'* , *C*, *1!d*, oppure *E* varia. Non sono previsti contratti di servizio per la velocità effettiva di ogni singolo contenitore.
 * Il contenitore denominato *B* sarà il *"P"* velocità effettiva di UR continuamente. ed è supportato da contratti di servizio.
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Velocità effettiva di aggiornamento in un database o un contenitore

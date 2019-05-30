@@ -2,7 +2,7 @@
 title: Effettuare il provisioning e la gestione di Anteprima di Azure Time Series | Microsoft Docs
 description: Informazioni su come effettuare il provisioning e la gestione di Anteprima di Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce24fb8c62432e50fe04de23d2abbee1ec120c6c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 6251df2317ceff9dded92f2d829bfab0503fdf1b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471635"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237599"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Effettuare il provisioning e la gestione di Anteprima di Azure Time Series Insights
 

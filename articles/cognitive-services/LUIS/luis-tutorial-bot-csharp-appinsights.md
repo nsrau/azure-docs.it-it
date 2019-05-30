@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: d546951cf283cf15874b1b6d95da75549a8a93ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56ceb48be9d5cc9d1cdceed7505e2e3e918a7286
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60496769"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399670"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Aggiungere risultati LUIS ad Application Insights con un Bot in C#
 
-Questa esercitazione aggiunge le informazioni relative a risposte LUIS all'archivio dei dati di telemetria di [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando si dispone dei dati, è possibile eseguire query su di essi con il linguaggio Kusto o Power BI per analizzare, aggregare e registrare le finalità e le entità delle espressioni in tempo reale. Questa analisi consente di determinare se è necessario aggiungere o modificare le finalità e le entità dell'app LUIS.
+Questa esercitazione aggiunge le informazioni relative a risposte LUIS all'archivio dei dati di telemetria di [Application Insights](https://azure.microsoft.com/services/application-insights/). Dopo aver creato i dati, è possibile eseguire una query con la lingua di Kusto o Power BI per aggregare, analizzare e creare report sulla finalità ed entità del utterance in tempo reale. Questa analisi consente di determinare se è necessario aggiungere o modificare le finalità e le entità dell'app LUIS.
 
-Il bot viene compilato con Bot Framework 3.x e il bot per app Web di Azure.
+Il bot viene compilato con Bot Framework 3.x e il bot per app Web di Azure. Oggetto [Bot Framework 4.x con l'esercitazione LUIS](luis-csharp-tutorial-bf-v4.md) è inoltre disponibile.
 
 In questa esercitazione si apprenderà come:
 
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Il bot app Web LUIS dell'**[esercitazione precedente](luis-csharp-tutorial-build-bot-framework-sample.md)** con Application Insights è attivato.
+* Il bot app Web LUIS dell' **[esercitazione precedente](luis-csharp-tutorial-build-bot-framework-sample.md)** con Application Insights è attivato.
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) è installato localmente nel computer.
 
 > [!Tip]
@@ -204,7 +204,7 @@ Aprire Application Insights per visualizzare le voci LUIS.
 
 1. Nel portale selezionare **Tutte le risorse** e quindi filtrare il base al nome del bot app Web. Fare clic sulla risorsa con il tipo **Application Insights**. L'icona di Application Insights è una lampadina.
 
-    ![Cercare Application Insights nel portale di Azure](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
+    ![Eseguire la ricerca di Application insights nel portale di Azure](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
 2. Quando la risorsa viene aperta, fare clic sull'icona **Cerca** a forma di lente di ingrandimento nel pannello di destra. Verrà visualizzato un altro pannello a destra. A seconda della quantità di dati di telemetria trovati, la visualizzazione del pannello potrebbe richiedere un attimo. Cercare `LUIS`. L'elenco viene ristretto ai soli risultati delle query LUIS aggiunti in questa esercitazione.
 
@@ -221,7 +221,7 @@ Aprire Application Insights per visualizzare le voci LUIS.
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Eseguire query su Application Insights per finalità, punteggio ed espressione
 
-Application Insights consente di eseguire query sui dati con il linguaggio [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics), oltre che esportare i dati in [PowerBI](https://powerbi.microsoft.com).
+Application Insights ti offre la possibilità di eseguire query sui dati con il [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) Java, nonché di esportazione per [Power BI](https://powerbi.microsoft.com).
 
 1. Fare clic su **Analisi** nella parte superiore dell'elenco di dipendenze, sopra la casella di filtro.
 
@@ -243,7 +243,7 @@ Application Insights consente di eseguire query sui dati con il linguaggio [Kust
 
     ![Report analisi personalizzato](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-2.png)
 
-Leggere altre informazioni sul [linguaggio di query Kusto](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) o su come [esportare i dati in PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi).
+Altre informazioni sul [linguaggio di query Kusto](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) oppure [Esporta i dati in Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi).
 
 ## <a name="learn-more-about-bot-framework"></a>Ulteriori informazioni su Bot Framework
 

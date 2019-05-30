@@ -1,6 +1,6 @@
 ---
 title: Gestire e monitorare l'importanza del carico di lavoro in Azure SQL Data Warehouse | Microsoft Docs
-description: Informazioni su come gestire e monitorare l'importanza a livello di richiesta
+description: Informazioni su come gestire e monitorare l'importanza a livello di richiesta.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 8d6cd80f569be58b520a53faa0d4bda8f86af104
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: a39d71e0f8b8072cab6a3af9a2f0913973f303ee
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003492"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235937"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-sql-data-warehouse"></a>Gestire e monitorare l'importanza del carico di lavoro in Azure SQL Data Warehouse
 

@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9da9c6c438aac2c160a9ec7bc658e5d7b4ea207e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cf1a6ffa61b41af5abd20dac13b85024001d2ed2
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715181"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393985"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creare cluster basati su Linux in HDInsight tramite il portale di Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -42,7 +42,7 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con i 
    
     ![Creare un nuovo cluster nel portale di Azure](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster.png "Creazione di un nuovo cluster nel portale di Azure")
 
-1. Nella pagina **HDInsight** selezionare **Personalizzate (dimensioni, impostazioni, app)**.
+1. Nella pagina **HDInsight** selezionare **Personalizzate (dimensioni, impostazioni, app)** .
 
 1. Selezionare **1 Informazioni di base**. Immettere quindi le informazioni seguenti.
 
@@ -80,7 +80,7 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con i 
 
      ![Configurare le impostazioni di archiviazione](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Creazione di un nuovo cluster nel portale di Azure")
 
-     | Archiviazione                                      | DESCRIZIONE |
+     | Archiviazione                                      | Descrizione |
      |----------------------------------------------|-------------|
      | **BLOB del servizio di archiviazione di Azure come risorsa di archiviazione predefinita**   | <ul><li>Per **Tipo di archiviazione primario** selezionare **Archiviazione di Azure**. Per **Metodo di selezione** scegliere **Sottoscrizioni personali** se si vuole specificare un account di archiviazione che fa parte della sottoscrizione di Azure. Selezionare quindi l'account di archiviazione. In caso contrario, selezionare **Chiave di accesso**. Specificare quindi le informazioni relative all'account di archiviazione che si vuole scegliere all'esterno della sottoscrizione di Azure.</li><li>Per **Contenitore predefinito** scegliere il nome del contenitore predefinito suggerito dal portale oppure specificarne uno personale.</li><li>Se si usa l'archiviazione BLOB di Azure come risorsa di archiviazione predefinita, è anche possibile selezionare **Account di archiviazione aggiuntivi** per specificare gli account di archiviazione aggiuntivi da associare al cluster. Per **Chiavi di archiviazione di Azure** selezionare **Aggiungi una chiave di archiviazione**. È quindi possibile specificare un account di archiviazione dalle sottoscrizioni di Azure o da altre sottoscrizioni. Specificare la chiave di accesso dell'account di archiviazione.</li><li>Se si usa l'archiviazione BLOB come risorsa di archiviazione predefinita, è anche possibile selezionare **Accesso a Data Lake Storage** per specificare Azure Data Lake Storage come risorsa di archiviazione aggiuntiva. Per altre informazioni, vedere [Avvio rapido: Impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)</li></ul> |
      | **Azure Data Lake Storage come risorsa di archiviazione predefinita** | Per **Tipo di archiviazione primario** selezionare **Azure Data Lake Storage Gen1** o **Azure Data Lake Storage Gen2** e quindi fare riferimento all'articolo [Avvio rapido: impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) per le istruzioni. |

@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/02/2017
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61bb102e17d9980d991fdf423174d7110cd5433d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546421"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237875"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ottimizzazione delle prestazioni delle query con Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Quando si esegue una query in Azure Cosmos DB, l'SDK esegue i passaggi logici se
 
 L'SDK offre varie opzioni per l'esecuzione di query. Ad esempio, in .NET queste opzioni sono disponibili nella classe `FeedOptions`. La tabella seguente illustra queste opzioni e il relativo impatto sul tempo di esecuzione delle query. 
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 | ------ | ----------- |
 | `EnableCrossPartitionQuery` | Deve essere impostato su true per qualsiasi query che richiede l'esecuzione in più di una partizione. Si tratta di un flag esplicito che consente di trovare un compromesso adeguato per le prestazioni in fase di sviluppo. |
 | `EnableScanInQuery` | Deve essere impostato su true se è stata rifiutata esplicitamente l'indicizzazione, ma si vuole comunque eseguire la query tramite un'analisi. Applicabile solo se l'indicizzazione per il percorso di filtro richiesto è disabilitata. | 
@@ -124,7 +124,7 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 
 Di seguito sono elencate le principali intestazioni di risposta restituite dalla query:
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 | ------ | ----------- |
 | `x-ms-item-count` | Il numero di elementi restituiti nella risposta. Questo dipende dal valore `x-ms-max-item-count` specificato, dal numero di elementi che possono essere contenuti nella dimensione massima del payload della risposta, dalla velocità effettiva con provisioning e dal tempo di esecuzione della query. |  
 | `x-ms-continuation:` | Il token di continuazione per riprendere l'esecuzione della query, se sono disponibili altri risultati. | 
@@ -237,7 +237,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 ```
 
-| Metrica | Unità | DESCRIZIONE | 
+| Metrica | Unità | Descrizione | 
 | ------ | -----| ----------- |
 | `totalExecutionTimeInMs` | millisecondi | Tempo di esecuzione della query | 
 | `queryCompileTimeInMs` | millisecondi | Tempo di compilazione della query  | 
@@ -259,7 +259,7 @@ L'SDK client può eseguire internamente più operazioni di query per servire la 
 
 Di seguito sono riportate alcune query di esempio, con informazioni su come interpretare alcune delle metriche restituite dall'esecuzione delle query: 
 
-| Query | Metrica di esempio | DESCRIZIONE | 
+| Query | Metrica di esempio | Descrizione | 
 | ------ | -----| ----------- |
 | `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | Il numero di documenti recuperati è 100+1 per la corrispondenza alla clausola TOP. Il tempo della query viene impiegato per lo più in `WriteOutputTime` e `DocumentLoadTime` poiché si tratta di un'analisi. | 
 | `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount è ora superiore (500+1 per la corrispondenza alla clausola TOP). | 

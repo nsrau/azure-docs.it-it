@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 96d4c2c8d6c2dd7722b7377dd7a0ffd42acd3126
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572509"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256138"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Metriche basate su log e metriche preaggregate in Azure Application Insights
 
@@ -34,7 +34,7 @@ Allo stesso tempo, la raccolta di un set completo di eventi può essere svantagg
 
 ## <a name="pre-aggregated-metrics"></a>Metriche preaggregate
 
-Oltre alle metriche basate su log, nell'autunno del 2018 il team di Application Insights ha reso disponibile un'anteprima pubblica di un tipo di metriche che sono archiviate in un repository specializzato ottimizzato per le serie temporali. Le nuove metriche non vengono più mantenute come singoli eventi con un numero elevato di proprietà. Al contrario, vengono archiviate come serie temporali preaggregate e solo con dimensioni di chiave. Questa caratteristica le rende migliori in fase di query: il recupero dei dati avviene molto più rapidamente e richiede meno potenza di calcolo. Di conseguenza, sono possibili nuovi scenari, come la [generazione di avvisi praticamente in tempo reale in base alle dimensioni delle metriche](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), [dashboard](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards) più reattivi e così via.
+Oltre alle metriche basate su log, nell'autunno del 2018 il team di Application Insights ha reso disponibile un'anteprima pubblica di un tipo di metriche che sono archiviate in un repository specializzato ottimizzato per le serie temporali. Le nuove metriche non vengono più mantenute come singoli eventi con un numero elevato di proprietà. Al contrario, vengono archiviate come serie temporali preaggregate e solo con dimensioni di chiave. Questa caratteristica le rende migliori in fase di query: il recupero dei dati avviene molto più rapidamente e richiede meno potenza di calcolo. Di conseguenza, sono possibili nuovi scenari, come la [generazione di avvisi praticamente in tempo reale in base alle dimensioni delle metriche](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), [dashboard](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard) più reattivi e così via.
 
 > [!IMPORTANT]
 > Le metriche basate su log e quelle preaggregate coesistono in Azure Application Insights. Per distinguere tra i due tipi, nell'esperienza utente di Application Insights le metriche preaggregate sono ora denominate "metriche standard (anteprima)", mentre le metriche tradizionali derivate da eventi sono state rinominate "metriche basate su log".

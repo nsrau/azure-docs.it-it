@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec10359c6f684b1d7fb008946b7ceca2ed626ba
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545368"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235241"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipi di applicazioni per la piattaforma delle identità Microsoft
 
@@ -51,7 +51,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>App a singola pagina (JavaScript)
 
-Molte app moderne hanno un front-end dell'app a singola pagina scritto principalmente in JavaScript. Il front-end viene scritto spesso usando un framework come AngularJS, Ember.js o Durandal. L'endpoint di Microsoft identity platform supporta queste App tramite il [flusso implicito OAuth 2.0](v2-oauth2-implicit-grant-flow.md).
+Molte app moderne hanno un front-end dell'app a singola pagina scritto principalmente in JavaScript. Spesso, crearla usando un framework, ad esempio Angular, React o Vue. L'endpoint di Microsoft identity platform supporta queste App tramite il [flusso implicito OAuth 2.0](v2-oauth2-implicit-grant-flow.md).
 
 In questo flusso, l'app riceve i token direttamente da piattaforma delle identità Microsoft autorizza un endpoint, senza eventuali scambi server-to-server. In questo modo, tutta la logica di autenticazione e gestione della sessione avviene interamente nel client JavaScript, senza eseguire reindirizzamenti a pagine aggiuntive.
 

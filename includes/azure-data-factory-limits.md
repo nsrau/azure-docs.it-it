@@ -9,17 +9,17 @@ ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 6d06ac6efd08c14f77fd963ddf2c67de54260959
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733810"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238527"
 ---
 Azure Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefiniti in modo che le sottoscrizioni dei clienti siano protette da ognuno degli altri carichi di lavoro. Per aumentare i limiti fino al valore massimo per la sottoscrizione, contattare il supporto tecnico.
 
 ### <a name="version-2"></a>Versione 2
 
-| Risorsa | Limite predefinito | Limite massimo |
+| Resource | Limite predefinito | Limite massimo |
 | -------- | ------------- | ------------- |
 | Data factory in una sottoscrizione di Azure | 50 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Numero totale di entità, ad esempio le pipeline, set di dati, trigger, servizi collegati e i runtime di integrazione, all'interno di una data factory | 5.000 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |

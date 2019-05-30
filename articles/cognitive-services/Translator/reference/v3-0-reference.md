@@ -3,19 +3,19 @@ title: Riferimenti per l'API Traduzione testuale v3.0
 titlesuffix: Azure Cognitive Services
 description: Documentazione di riferimento per l'API Traduzione testuale v3.0.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796872"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387504"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -55,7 +55,7 @@ La sottoscrizione all'API traduzione testuale oppure [multi-servizio servizi cog
 
 Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizione. Questa tabella spiega come usare ogni intestazione:
 
-|Intestazioni|Descrizione|
+|Headers|Descrizione|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
 |Authorization|*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.|
@@ -67,7 +67,7 @@ La prima opzione consiste nell'eseguire l'autenticazione usando l'intestazione `
 ### <a name="authorization-token"></a>Token di autorizzazione
 In alternativa, è possibile scambiare la chiave privata con un token di accesso. Questo token viene incluso in ogni richiesta come intestazione `Authorization`. Per ottenere un token di autorizzazione, effettuare una richiesta `POST` all'URL seguente:
 
-| Ambiente     | URL servizio di autenticazione                                |
+| Environment     | URL servizio di autenticazione                                |
 |-----------------|-----------------------------------------------------------|
 | Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
@@ -144,7 +144,7 @@ Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 
 | 400036| La lingua di destinazione (campo "To") manca o non è valida.|
 | 400042| Una delle opzioni specificate (campo "Options") non è valida.|
 | 400043| L'ID traccia client (campo ClientTraceId o intestazione X-ClientTraceId) manca o non è valido.|
-| 400050| Il testo di input è troppo lungo.|
+| 400050| Il testo di input è troppo lungo. Vista [limiti di richieste](../request-limits.md).|
 | 400064| Il parametro "translation" manca o non è valido.|
 | 400070| Il numero di script di destinazione (parametro ToScript) non corrisponde al numero di lingue di destinazione (parametro To).|
 | 400071| Il valore non è valido per TextType.|
@@ -152,14 +152,15 @@ Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 
 | 400073| Il parametro script non è valido.|
 | 400074| Il corpo della richiesta non è in formato JSON valido.|
 | 400075| La combinazione di coppia di lingue e categoria non è valida.|
-| 400077| Le dimensioni massime della richiesta sono state superate.|
+| 400077| Le dimensioni massime della richiesta sono state superate. Vista [limiti di richieste](../request-limits.md).|
 | 400079| Il sistema personalizzato richiesto per la traduzione da/verso la lingua non esiste.|
 | 401000| La richiesta non è autorizzata perché le credenziali mancano o non sono valide.|
 | 401015| "Le credenziali specificate si riferiscono a Speech API. Per questa richiesta sono necessarie le credenziali per l'API Testo. Usare una sottoscrizione all'API Traduzione testuale."|
 | 403000| L'operazione non è consentita.|
 | 403001| L'operazione non è consentita perché la sottoscrizione ha superato la quota gratuita.|
 | 405000| Il metodo della richiesta non è supportato per la risorsa richiesta.|
-| 408001| Il sistema di traduzione personalizzato richiesto non è ancora disponibile. Riprovare tra qualche minuto.|
+| 408001| Il sistema di traduzione richiesto è in fase di preparazione. Riprovare tra qualche minuto.|
+| 408002| Timeout della richiesta in attesa di flusso in ingresso. Il client non ha prodotto una richiesta entro l'ora in cui il server è stato preparato in attesa. Il client può ripetere la richiesta senza modifiche in un secondo momento.|
 | 415000| L'intestazione Content-Type manca o non è valida.|
 | 429000, 429001, 429002| Il server ha rifiutato la richiesta perché il client ha superato i limiti di richiesta.|
 | 500000| Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|

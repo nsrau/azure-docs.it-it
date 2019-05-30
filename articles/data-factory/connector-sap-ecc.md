@@ -3,22 +3,21 @@ title: Copiare dati da SAP ECC usando Azure Data Factory | Microsoft Docs
 description: Informazioni su come copiare dati da SAP ECC in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 04/26/2018
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 04/26/2018
+ms.author: jingwang
+ms.openlocfilehash: 7c75793a696137a1d4cc24fa94877a7fb4e4247a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128118"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243911"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copiare dati da SAP ECC usando Azure Data Factory
 
@@ -33,6 +32,9 @@ In particolare, il connettore SAP ECC supporta:
 - La copia di dati da SAP ECC su SAP NetWeaver versione 7.0 e versioni successive. 
 - La copia di dati da oggetti esposti dai servizi OData di SAP ECC (ad esempio viste o tabelle SAP, BAPI, estrattori di dati e così via), o dati/IDOC inviati a SAP PI che possono essere ricevuti come OData tramite i relativi adattatori.
 - La copia di dati usando l'autenticazione di base.
+
+>[!TIP]
+>Per copiare dati da SAP ECC tramite tabella/vista SAP, è possibile usare [tabella SAP](connector-sap-table.md) connettore che è più efficiente e scalabile.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

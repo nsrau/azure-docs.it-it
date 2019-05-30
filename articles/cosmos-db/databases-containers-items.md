@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7d607b4370d51ea2605fae6543bd3336853b0806
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 574dd9fd6189b6d0f1e5d455146d6d083ad7ff77
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954216"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389475"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Lavorare con i database, contenitori e gli elementi in Azure Cosmos DB
 
@@ -39,10 +39,10 @@ L'immagine seguente mostra la gerarchia di entità diversi in un account Azure C
 
 | Operazione | Interfaccia della riga di comando di Azure | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- |
-|Enumerare tutti i database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | NA | NA |
-|Leggere il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | NA | NA |
-|Crea nuovo database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | NA | NA |
-|Aggiornare il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | NA | NA |
+|Enumerare tutti i database| Yes | Yes | Sì (il database è mappato a un keyspace) | Yes | NA | NA |
+|Leggere il database| Yes | Yes | Sì (il database è mappato a un keyspace) | Yes | NA | NA |
+|Creare il nuovo database| Yes | Yes | Sì (il database è mappato a un keyspace) | Yes | NA | NA |
+|Aggiornare il database| Yes | Yes | Sì (il database è mappato a un keyspace) | Yes | NA | NA |
 
 
 ## <a name="azure-cosmos-containers"></a>Contenitori Azure Cosmos DB
@@ -54,6 +54,9 @@ Quando si crea un contenitore di Azure Cosmos, configuri la velocità effettiva 
 * **Modalità di velocità effettiva di provisioning dedicato**: La velocità effettiva di provisioning in un contenitore è riservata esclusivamente per tale contenitore e supportata da contratti di servizio. Per altre informazioni, vedere [come eseguire il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md).
 
 * **Modalità di velocità effettiva con provisioning condiviso**: Questi contenitori condividono la velocità effettiva con provisioning con altri contenitori nello stesso database (a esclusione dei contenitori che sono stati configurati con velocità effettiva di provisioning dedicata). In altre parole, la velocità effettiva con provisioning nel database verrà condivisi tra tutti i contenitori "velocità effettiva condiviso". Per altre informazioni, vedere [come eseguire il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md).
+
+> [!NOTE]
+> È possibile configurare la velocità effettiva condivisa e dedicata solo quando si crea il contenitore e un database. Per passare dalla modalità di velocità effettiva dedicata alla modalità condiviso della velocità effettiva (e viceversa) dopo aver creato il contenitore, è necessario creare un nuovo contenitore e la migrazione dei dati per il nuovo contenitore. È possibile migrare i dati tramite la caratteristica dei feed di modifiche di Azure Cosmos DB.
 
 Un contenitore Cosmos Azure puoi ridimensionare in modo elastico, quando si creano i contenitori usando le modalità di velocità effettiva di provisioning dedicato o condiviso.
 
@@ -79,15 +82,15 @@ Un contenitore Cosmos Azure ha un set di proprietà definito dal sistema. A seco
 
 | Proprietà definita dal sistema | Configurabile dall'utente o generati dal sistema | Scopo | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Generato dal sistema | Identificatore univoco di contenitore | Sì | N. | N. | N. | N. |
-|\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Sì | N. | N. | N. | N. |
-|\_Servizi terminal | Generato dal sistema | Ultimo timestamp aggiornato del contenitore | Sì | N. | N. | N. | N. |
-|\_self | Generato dal sistema | URI indirizzabile del contenitore | Sì | N. | N. | N. | N. |
-|ID | Configurabile dall'utente | Nome univoco definito dall'utente del contenitore | Sì | Sì | Sì | Sì | Sì |
-|indexingPolicy | Configurabile dall'utente | Offre la possibilità di modificare il percorso di indice, tipo di indice e modalità di indicizzazione | Sì | N. | N. | N. | Sì |
-|TimeToLive | Configurabile dall'utente | Offre la possibilità di eliminare automaticamente gli elementi da un contenitore dopo un periodo di tempo prestabilito. Per informazioni dettagliate, vedere [Time to Live](time-to-live.md). | Sì | N. | N. | N. | Sì |
-|changeFeedPolicy | Configurabile dall'utente | Usato per leggere le modifiche apportate a elementi in un contenitore. Per informazioni dettagliate, vedere [feed di modifiche](change-feed.md). | Sì | N. | N. | N. | Sì |
-|uniqueKeyPolicy | Configurabile dall'utente | Usato per garantire l'univocità di uno o più valori in una partizione logica. Per altre informazioni, vedere [vincoli di chiave univoca](unique-keys.md). | Sì | N. | N. | N. | Sì |
+|\_id | Generato dal sistema | Identificatore univoco di contenitore | Yes | No  | No | No  | No  |
+|\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Yes | No  | No  | No  | No  |
+|\_Servizi terminal | Generato dal sistema | Ultimo timestamp aggiornato del contenitore | Yes | No  | No  | No  | No |
+|\_self | Generato dal sistema | URI indirizzabile del contenitore | Yes | No  | No  | No  | No |
+|id | Configurabile dall'utente | Nome univoco definito dall'utente del contenitore | Yes | Sì | Sì | Sì | Yes |
+|indexingPolicy | Configurabile dall'utente | Offre la possibilità di modificare il percorso di indice, tipo di indice e modalità di indicizzazione | Yes | No  | No | No  | Yes |
+|TimeToLive | Configurabile dall'utente | Offre la possibilità di eliminare automaticamente gli elementi da un contenitore dopo un periodo di tempo prestabilito. Per informazioni dettagliate, vedere [Time to Live](time-to-live.md). | Yes | No | No  | No  | Yes |
+|changeFeedPolicy | Configurabile dall'utente | Usato per leggere le modifiche apportate a elementi in un contenitore. Per informazioni dettagliate, vedere [feed di modifiche](change-feed.md). | Yes | No | No  | No | Yes |
+|uniqueKeyPolicy | Configurabile dall'utente | Usato per garantire l'univocità di uno o più valori in una partizione logica. Per altre informazioni, vedere [vincoli di chiave univoca](unique-keys.md). | Yes | No  | No | No  | Yes |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Operazioni su un contenitore Azure Cosmos DB
 
@@ -95,11 +98,11 @@ Quando si usa qualsiasi API Cosmos Azure, un contenitore di Azure Cosmos support
 
 | Operazione | Interfaccia della riga di comando di Azure | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- |
-| Enumerare i contenitori in un database | Sì | Sì | Sì | Sì | NA | NA |
-| Leggere un contenitore | Sì | Sì | Sì | Sì | NA | NA |
-| Crea un nuovo contenitore | Sì | Sì | Sì | Sì | NA | NA |
-| Aggiornare un contenitore | Sì | Sì | Sì | Sì | NA | NA |
-| Eliminare un contenitore | Sì | Sì | Sì | Sì | NA | NA |
+| Enumerare i contenitori in un database | Yes | Sì | Sì | Yes | NA | NA |
+| Leggere un contenitore | Yes | Sì | Sì | Yes | NA | NA |
+| Creare un nuovo contenitore | Yes | Sì | Sì | Yes | NA | NA |
+| Aggiornare un contenitore | Yes | Sì | Sì | Yes | NA | NA |
+| Eliminare un contenitore | Yes | Sì | Sì | Yes | NA | NA |
 
 ## <a name="azure-cosmos-items"></a>Elementi Azure Cosmos DB
 
@@ -115,12 +118,12 @@ Ogni elemento Cosmos Azure sono le seguenti proprietà definite dal sistema. A s
 
 | Proprietà definita dal sistema | Configurabile dall'utente o generati dal sistema| Scopo | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Generato dal sistema | Identificatore univoco dell'elemento | Sì | N. | N. | N. | N. |
-|\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Sì | N. | N. | N. | N. |
-|\_Servizi terminal | Generato dal sistema | Timestamp dell'ultimo aggiornamento dell'elemento | Sì | N. | N. | N. | N. |
-|\_self | Generato dal sistema | URI indirizzabile dell'elemento | Sì | N. | N. | N. | N. |
-|ID | È possibile usare il | Nome definito dall'utente univoco in una partizione logica. Se l'utente non specifica l'ID, il sistema genera automaticamente uno. | Sì | Sì | Sì | Sì | Sì |
-|Proprietà definite dall'utente arbitrarie | Definito dall'utente | Proprietà definite dall'utente rappresentata nella rappresentazione di API native (incluso JSON, BSON e CQL) | Sì | Sì | Sì | Sì | Sì |
+|\_id | Generato dal sistema | Identificatore univoco dell'elemento | Yes | No | No  | No | No  |
+|\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Yes | No  | No  | No  | No  |
+|\_Servizi terminal | Generato dal sistema | Timestamp dell'ultimo aggiornamento dell'elemento | Yes | No  | No  | No  | No  |
+|\_self | Generato dal sistema | URI indirizzabile dell'elemento | Yes | No  | No | No  | No |
+|id | È possibile usare il | Nome definito dall'utente univoco in una partizione logica. Se l'utente non specifica l'ID, il sistema genera automaticamente uno. | Yes | Sì | Sì | Sì | Yes |
+|Proprietà definite dall'utente arbitrarie | Route definite dall'utente | Proprietà definite dall'utente rappresentata nella rappresentazione di API native (incluso JSON, BSON e CQL) | Yes | Sì | Sì | Sì | Yes |
 
 ### <a name="operations-on-items"></a>Operazioni sugli elementi
 
@@ -128,7 +131,7 @@ Gli elementi di Azure Cosmos supportano le operazioni seguenti. È possibile usa
 
 | Operazione | Interfaccia della riga di comando di Azure | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- |
-| Inserire, sostituire, eliminare, eseguire l'upsert, leggere | N. | Sì | Sì | Sì | Sì | Sì |
+| Inserire, sostituire, eliminare, eseguire l'upsert, leggere | No  | Yes | Sì | Sì | Sì | Yes |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

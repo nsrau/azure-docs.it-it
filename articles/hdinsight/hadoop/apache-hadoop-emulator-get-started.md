@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 12/11/2017
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 15152196e45265985c8abb409523982bd4c5d427
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2cb99cfe765e1d3444f362e591812f5088c78c0e
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697413"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393140"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introduzione a una sandbox di Apache Hadoop, un emulatore in una macchina virtuale
 
@@ -24,19 +24,16 @@ Informazioni su come installare l'ambiente sandbox Apache Hadoop da Hortonworks 
 * [Oracle VirtualBox](https://www.virtualbox.org/). Scaricare e installare l'app da [qui](https://www.virtualbox.org/wiki/Downloads).
 
 
-
 ## <a name="download-and-install-the-virtual-machine"></a>Scaricare e installare la macchina virtuale
-1. Passare ai [download di Hortonworks](https://hortonworks.com/downloads/#sandbox).
+1. Selezionare il [download di Cloudera](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
 
-2. Fare clic su **DOWNLOAD FOR VIRTUALBOX** per scaricare la versione più recente di Hortonworks Sandbox in una macchina virtuale. È necessario registrarsi con Hortonworks prima di avviare il download. Il download può richiedere da una a due ore a seconda della velocità della rete.
+2. Fare clic su **VIRTUALBOX** sotto **scegliere il tipo di installazione** per scaricare il più recente di Hortonworks Sandbox in una macchina virtuale. Accedere o completare il modulo di interesse del prodotto.
 
-    ![Immagine di collegamento per scaricare Sandbox di Hortonworks per VirtualBox](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
-3. Nella stessa pagina Web, fare clic sul collegamento **Import on Virtual Box** per scaricare un file PDF contenente le istruzioni di installazione per la macchina virtuale.
+1. Fare clic sul pulsante **SANDBOX HDP (versione più recente)** per avviare il download.
 
-Per scaricare una versione precedente di sandbox HDP, espandere l'archivio:
+Per istruzioni sulla configurazione di sandbox, vedere [Sandbox Guida alla distribuzione e installare](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
 
-![Archivio Hortonworks Sandbox](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
-
+Per scaricare un sandbox di versione HDP meno recenti, vedere i collegamenti nella sezione **le versioni precedenti**.
 
 ## <a name="start-the-virtual-machine"></a>Avviare la macchina virtuale
 
@@ -52,7 +49,7 @@ Per scaricare una versione precedente di sandbox HDP, espandere l'archivio:
 1. Dal passaggio **introduttivo** della pagina di Sandbox di Hortonworks, selezionare **View Advanced Options** (Visualizza opzioni avanzate). Utilizzare le informazioni in questa pagina per accedere alla sandbox con SSH. Utilizzare il nome e la password forniti.
 
    > [!NOTE]
-   > Se non è stato installato un client SSH, è possibile usare l'SSH basato sul Web fornito dalla macchina virtuale all'indirizzo **http://localhost:4200/**.
+   > Se non è stato installato un client SSH, è possibile usare l'SSH basato sul Web fornito dalla macchina virtuale all'indirizzo **http://localhost:4200/** .
 
     Al primo collegamento tramite SSH viene richiesto di cambiare la password per l'account radice. Immettere una nuova password da usare quando si accede tramite SSH.
 

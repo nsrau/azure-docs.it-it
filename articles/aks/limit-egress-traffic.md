@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: de0ba13a527569e446a44c275b7323d4487f53b6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4c2dad687d31597954b023dde9d1b9d69788fe04
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780305"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241399"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Anteprima - limitare il traffico in uscita per i nodi del cluster e controllare l'accesso alle porte necessarie e i servizi in Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ Per impostazione predefinita, i cluster servizio contenitore di AZURE dispongono
 Questo articolo illustra in dettaglio quali porte di rete e i nomi di dominio completo (FQDN) sono obbligatori e facoltativi se si limita il traffico in uscita in un cluster AKS.  Questa funzionalità è attualmente in anteprima.
 
 > [!IMPORTANT]
-> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service e fornire il consenso esplicito. Le anteprime sono fornite per raccogliere commenti e suggerimenti e bug dalla community. Tuttavia, non sono supportati dal supporto tecnico di Azure. Se si crea un cluster o aggiungere queste funzionalità in cluster esistenti, tale cluster non è supportato fino a quando la funzionalità non è più disponibile in anteprima e passano a livello generale (GA).
+> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service, fornire il consenso esplicito. Vengono fornite per raccogliere commenti e suggerimenti e bug dalla community. In fase di anteprima, queste funzionalità non sono destinate all'uso di produzione. Le funzionalità in anteprima pubblica rientrano nel supporto "best effort". Assistenza dai team di supporto tecnico di AKS è disponibile durante le ore lavorative Pacifico (PST) solo timezone. Per altre informazioni, vedere i seguenti articoli di supporto:
 >
-> Se si verificano problemi con funzionalità di anteprima [segnalare un problema nel repository GitHub di AKS] [ aks-github] con il nome della funzionalità Anteprima nel titolo del bug.
+> * [Criteri di supporto servizio contenitore di AZURE][aks-support-policies]
+> * [Domande frequenti sul supporto di Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -68,11 +69,11 @@ Nel servizio contenitore di AZURE, sono disponibili due set di porte e indirizzi
 Le seguenti porte in uscita / regole di rete sono necessarie per un cluster del servizio contenitore di AZURE:
 
 * La porta TCP *443*
-* La porta TCP *9000*
+* La porta TCP *9000* per i pod front tunnel comunicare con la fine del tunnel sul server API.
 
 Il nome FQDN segue le regole di applicazione sono necessari:
 
-| FQDN                      | Port      | Utilizzo      |
+| FQDN                      | Port      | Uso      |
 |---------------------------|-----------|----------|
 | *.azmk8s.io               | HTTPS:443 | Questo indirizzo è l'endpoint server dell'API. |
 | aksrepos.azurecr.io       | HTTPS:443 | Questo indirizzo è obbligatorio per l'accesso immagini nel registro contenitori di Azure (ACR). |
@@ -90,7 +91,7 @@ Le seguenti porte in uscita / regole di rete non sono necessari per i cluster AK
 
 Il nome di dominio completo seguente / regole di applicazione sono consigliate per i cluster servizio contenitore di AZURE funzioni correttamente:
 
-| FQDN                                    | Port      | Utilizzo      |
+| FQDN                                    | Port      | Uso      |
 |-----------------------------------------|-----------|----------|
 | *.ubuntu.com                            | HTTP:80   | Questo indirizzo consente i nodi del cluster Linux di scaricare le patch di sicurezza necessarie e gli aggiornamenti. |
 | packages.microsoft.com                  | HTTPS:443 | Questo indirizzo viene usato il repository di pacchetti Microsoft per memorizzato nella cache *apt-get* operazioni. |
@@ -105,9 +106,6 @@ Il nome di dominio completo seguente / regole di applicazione sono consigliate p
 
 In questo articolo si è appreso quali porte e indirizzi di consentire o meno se si limita il traffico in uscita per il cluster. È anche possibile definire la modalità in cui possono comunicare i POD se stessi e quali restrizioni hanno all'interno del cluster. Per altre informazioni, vedere [proteggere il traffico tra i POD usando i criteri di rete in AKS][network-policy].
 
-<!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -118,3 +116,5 @@ In questo articolo si è appreso quali porte e indirizzi di consentire o meno se
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-upgrade]: upgrade-cluster.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

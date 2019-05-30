@@ -8,12 +8,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 4e28ca15197f89caeaeaca0aabb648755b8235f1
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: b6ef57a3f39c82be30d92aef72c1bbe03b653768
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551549"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236501"
 ---
 # <a name="get-resource-changes"></a>Ottenere le modifiche delle risorse
 
@@ -29,7 +29,7 @@ Rilevamento delle modifiche e dettagli sono utili per gli scenari di esempio seg
 - Mantenere un Database di gestione, noto come un database CMDB, aggiornato. Anziché aggiornare tutte le risorse e i relativi set di proprietà completo in base a una frequenza pianificata, ottenere solo le modifiche apportate.
 - Informazioni su quali altre proprietà sono stati modificati quando una risorsa modificato lo stato di conformità. Valutazione di queste proprietà aggiuntive può offrire informazioni dettagliate sulle altre proprietà che potrebbero dover essere gestito tramite una definizione di criteri di Azure.
 
-Questo articolo illustra come raccogliere tali informazioni tramite SDK di risorsa del grafico. Per visualizzare queste informazioni nel portale di Azure, vedere criteri di Azure [cronologia delle modifiche](../../policy/how-to/determine-non-compliance.md#change-history-preview) Log attività di Azure oppure [cronologia delle modifiche](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
+Questo articolo illustra come raccogliere tali informazioni tramite SDK di risorsa del grafico. Per visualizzare queste informazioni nel portale di Azure, vedere criteri di Azure [cronologia delle modifiche](../../policy/how-to/determine-non-compliance.md#change-history-preview) Log attività di Azure oppure [cronologia delle modifiche](../../../azure-monitor/platform/activity-log-view.md#azure-portal).
 
 > [!NOTE]
 > Dettagli di modifica nella risorsa Graph sono per le proprietà di Resource Manager. Per tenere traccia delle modifiche all'interno di una macchina virtuale, vedere l'automazione di Azure [rilevamento modifiche](../../../automation/automation-change-tracking.md) o criteri di Azure [configurazione Guest per macchine virtuali](../../policy/concepts/guest-configuration.md).
@@ -44,7 +44,7 @@ Il primo passaggio per visualizzare le modifiche apportate in una risorsa è per
 Il **resourceChanges** endpoint richiede due parametri nel corpo della richiesta:
 
 - **resourceId**: La risorsa di Azure per cercare le modifiche.
-- **interval**: Una proprietà con _avviare_ e _finali_ date di cui si vuole verificare la presenza di un evento di modifica utilizzando il **Zulu fuso orario (Z)**.
+- **interval**: Una proprietà con _avviare_ e _finali_ date di cui si vuole verificare la presenza di un evento di modifica utilizzando il **Zulu fuso orario (Z)** .
 
 Corpo della richiesta di esempio:
 

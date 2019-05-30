@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 399f72c7819378ddc1566c2bdde94801b2c71687
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540200"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235310"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: Configurare le condizioni del servizio e informativa sulla privacy per un'app
 
@@ -56,33 +56,20 @@ Esempi: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-statem
 
 Quando le condizioni per l'utilizzo del servizio e l'informativa sulla privacy sono pronte, è possibile aggiungere collegamenti a questi documenti nell'app con uno dei metodi seguenti:
 
-* [Tramite il portale di Azure](#registered-in-azure-portal)
-* [Nel portale di registrazione delle applicazioni, o Dev Center](#registered-in-app-reg-portal)
+* [Tramite il portale di Azure](#azure-portal)
 * [Con il codice JSON dell'oggetto app](#app-object-json)
 * [Con la versione beta dell'API REST MSGraph](#msgraph-beta-rest-api)
 
-### <a name="registered-in-azure-portal"></a>Se l'app è stata registrata nel portale di Azure
-
-Seguire questa procedura se l'app è stata registrata nel portale di Azure.
+### <a name="azure-portal"></a>Nel portale di Azure
+Seguire questi passaggi nel portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Passare alla sezione **Registrazioni per l'app** e selezionare l'app.
-3. Aprire la sezione **Proprietà** dell'app.
+3. Aprire il **Branding** riquadro.
 4. Completare i campi **URL delle condizioni d'uso** e **URL dell'informativa sulla privacy**.
 5. Salvare le modifiche.
 
     ![Sezione delle proprietà dell'app con gli URL delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
-
-### <a name="registered-in-app-reg-portal"></a>Se l'app è stata registrata nel portale di registrazione delle applicazioni
-
-Seguire questa procedura se l'app è stata registrata nel portale di registrazione delle applicazioni o DevCenter.
-
-1. Accedere al [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/).
-2. Selezionare l'app e scorrere fino alla sezione **Profilo**.
-3. Completare i campi **URL delle condizioni d'uso** e **URL dell'informativa sulla privacy**.
-4. Salvare le modifiche.
-
-    ![Sezione del profilo dell'app con gli URL delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Con il codice JSON dell'oggetto app
 

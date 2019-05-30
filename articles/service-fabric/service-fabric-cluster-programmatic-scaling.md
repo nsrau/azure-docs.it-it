@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 128f28d2a8b97feb3d20c34b7468b60c446a78a6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111302"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306924"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Aumentare o ridurre le istanze di un cluster di Service Fabric a livello di codice 
 
@@ -29,16 +29,16 @@ I cluster di Service Fabric in esecuzione in Azure sono basati su set di scalabi
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Gestire le credenziali
-Un problema in fase di scrittura di un servizio per gestire la scalabilità è che il servizio deve essere in grado di accedere alle risorse dei set di scalabilità di macchine virtuali senza un accesso interattivo. L'accesso al cluster Service Fabric è semplice se il servizio di scalabilità sta modificando la propria applicazione Service Fabric, ma sono necessarie le credenziali per accedere al set di scalabilità. Per accedere, è possibile usare un'[entità servizio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creata con l'[interfaccia della riga di comando di Azure](https://github.com/azure/azure-cli).
+Un problema in fase di scrittura di un servizio per gestire la scalabilità è che il servizio deve essere in grado di accedere alle risorse dei set di scalabilità di macchine virtuali senza un accesso interattivo. L'accesso al cluster Service Fabric è semplice se il servizio di scalabilità sta modificando la propria applicazione Service Fabric, ma sono necessarie le credenziali per accedere al set di scalabilità. Per accedere, è possibile usare una [entità servizio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creati con la [Azure CLI](https://github.com/azure/azure-cli).
 
 È possibile creare un'entità servizio con i passaggi seguenti:
 
-1. Accedere all'interfaccia della riga di comando di Azure (`az login`) come utente con accesso al set di scalabilità di macchine virtuali
+1. Accedere al comando di Azure (`az login`) come utente con accesso a scalabilità di macchine virtuali impostato
 2. Creare l'entità servizio con `az ad sp create-for-rbac`
     1. Prendere nota di appId (denominato altrove "ID client"), nome, password e tenant per un uso successivo.
     2. Sarà inoltre necessario l'ID sottoscrizione, che può essere visualizzato con `az account list`
 
-La libreria di calcolo Fluent può eseguire l'accesso usando queste credenziali come indicato di seguito. Si noti che i tipi di Azure fluent principali, ad esempio `IAzure`, sono nel pacchetto [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/):
+La libreria di calcolo fluent può accedere usando queste credenziali come indicato di seguito (si noti che come tipi di Azure fluent principali `IAzure` nella [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) pacchetto):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142649"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235761"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Visualizzare in anteprima: creare e gestire più pool di nodi per un cluster Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ In Azure Kubernetes Service (AKS), i nodi della stessa configurazione sono raggr
 Questo articolo illustra come creare e gestire più pool di nodi in un cluster AKS. Questa funzionalità è attualmente in anteprima.
 
 > [!IMPORTANT]
-> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service e fornire il consenso esplicito. Le anteprime sono fornite per raccogliere commenti e suggerimenti e bug dalla community. Tuttavia, non sono supportati dal supporto tecnico di Azure. Se si crea un cluster o aggiungere queste funzionalità in cluster esistenti, tale cluster non è supportato fino a quando la funzionalità non è più disponibile in anteprima e passano a livello generale (GA).
+> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service, fornire il consenso esplicito. Vengono fornite per raccogliere commenti e suggerimenti e bug dalla community. In fase di anteprima, queste funzionalità non sono destinate all'uso di produzione. Le funzionalità in anteprima pubblica rientrano nel supporto "best effort". Assistenza dai team di supporto tecnico di AKS è disponibile durante le ore lavorative Pacifico (PST) solo timezone. Per altre informazioni, vedere i seguenti articoli di supporto:
 >
-> Se si verificano problemi con funzionalità di anteprima [segnalare un problema nel repository GitHub di AKS] [ aks-github] con il nome della funzionalità Anteprima nel titolo del bug.
+> * [Criteri di supporto servizio contenitore di AZURE][aks-support-policies]
+> * [Domande frequenti sul supporto di Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -72,6 +73,7 @@ Le limitazioni seguenti si applicano quando si creano e gestire i cluster serviz
 * Più pool di nodi sono disponibili solo per i cluster creati dopo aver correttamente registrato il *MultiAgentpoolPreview* e *VMSSPreview* funzionalità per la sottoscrizione. Non è possibile aggiungere o gestire i pool di nodi con un cluster servizio contenitore di AZURE esistente creato prima che queste funzionalità sono state registrate correttamente.
 * È possibile eliminare il primo pool di nodi.
 * Impossibile utilizzare il componente di routing aggiuntivo dell'applicazione HTTP.
+* Non è possibile pool di nodi di aggiunta/aggiornamento/eliminazione usando un modello di Resource Manager esistente come con la maggior parte delle operazioni. Al contrario, [usare un modello di Resource Manager separato](#manage-node-pools-using-a-resource-manager-template) apportare modifiche al pool di nodi in un cluster AKS.
 
 Quando questa funzionalità è disponibile in anteprima, si applicano le limitazioni aggiuntive seguenti:
 
@@ -328,6 +330,95 @@ Events:
 
 È possibile pianificare solo POD che hanno questo aspetto applicato in nodi *gpunodepool*. Eventuali altri pod verrà pianificata nel *nodepool1* pool di nodi. Se si creano pool di nodi aggiuntivi, è possibile usare taints aggiuntive e tali risorse nodo può essere pianificato tolerations per limitare i POD.
 
+## <a name="manage-node-pools-using-a-resource-manager-template"></a>Gestire i pool di nodi usando un modello di Resource Manager
+
+Quando si usa un modello Azure Resource Manager per creare e le risorse gestite, è possibile aggiornare in genere le impostazioni nel modello e ridistribuzione per aggiornare la risorsa. Con nodepools nel servizio contenitore di AZURE, il profilo nodepool iniziale non può essere aggiornato dopo aver creato il cluster AKS. Questo comportamento significa che non è possibile aggiornare un modello di Resource Manager esistente, apportare una modifica per il pool di nodi e ridistribuire. In alternativa, è necessario creare un modello di Resource Manager separato che aggiorna solo i pool di agenti per un cluster servizio contenitore di AZURE esistente.
+
+Creare un modello, ad esempio `aks-agentpools.json` e incollare il seguente esempio di manifesto. Questo modello di esempio consente di configurare le impostazioni seguenti:
+
+* Gli aggiornamenti di *Linux* pool di agenti denominato *myagentpool* per l'esecuzione di tre nodi.
+* Imposta i nodi nel pool di nodi per eseguire una versione di Kubernetes *1.12.8*.
+* Definisce le dimensioni del nodo come *Standard_DS2_v2*.
+
+Modificare questi valori come necessario per l'aggiornamento, aggiunta o eliminazione di pool di nodi in base alle esigenze:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of your existing AKS cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location of your existing AKS cluster."
+      }
+    },
+    "agentPoolName": {
+      "type": "string",
+      "defaultValue": "myagentpool",
+      "metadata": {
+        "description": "The name of the agent pool to create or update."
+      }
+    },
+    "vnetSubnetId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The Vnet subnet resource ID for your existing AKS cluster."
+      }
+    }
+  },
+  "variables": {
+    "apiVersion": {
+      "aks": "2019-04-01"
+    },
+    "agentPoolProfiles": {
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.ContainerService/managedClusters/agentPools",
+      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+            "maxPods": "[variables('agentPoolProfiles').maxPods]",
+            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+            "count": "[variables('agentPoolProfiles').agentCount]",
+            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+            "osType": "[variables('agentPoolProfiles').osType]",
+            "storageProfile": "ManagedDisks",
+      "type": "VirtualMachineScaleSets",
+            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+            "orchestratorVersion": "1.12.8"
+      }
+    }
+  ]
+}
+```
+
+Distribuire questo modello usando il [Crea distribuzione del gruppo di az] [ az-group-deployment-create] comando, come illustrato nell'esempio seguente. Richiesto per il nome del cluster servizio contenitore di AZURE e il percorso esistente:
+
+```azurecli-interactive
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-file aks-agentpools.json
+```
+
+Potrebbero occorrere alcuni minuti per aggiornare il cluster AKS a seconda le impostazioni del pool di nodi e le operazioni definite nel modello di Resource Manager.
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 In questo articolo è stato creato un cluster AKS che include i nodi basati su GPU. Per ridurre i costi non necessari, è possibile eliminare il *gpunodepool*, o l'intero cluster AKS.
@@ -351,7 +442,6 @@ In questo articolo è stato descritto come creare e gestire più pool di nodi in
 Per creare e usare pool di nodi contenitore di Windows Server, vedere [creare un contenitore di Windows Server in AKS][aks-windows].
 
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -379,3 +469,6 @@ Per creare e usare pool di nodi contenitore di Windows Server, vedere [creare un
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

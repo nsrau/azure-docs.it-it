@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2dd397e879dd76cabd119a3cbedff34041be2d13
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989855"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298493"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -24,6 +24,21 @@ Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine 
 + [**SDK di preparazione dei dati**](https://aka.ms/data-prep-sdk) di Azure Machine Learning
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+## <a name="2019-05-28"></a>2019-05-28
+
+### <a name="azure-machine-learning-data-prep-sdk-v114"></a>SDK v1.1.4 della preparazione dei dati di Azure Machine Learning
+
++ **Nuove funzionalità**
+  + È ora possibile usare le seguenti funzioni del linguaggio di espressione per estrarre e analizzare i valori datetime in nuove colonne.
+    + `RegEx.extract_record()` Estrae gli elementi di data/ora in una nuova colonna.
+    + `create_datetime()` Crea gli oggetti datetime dagli elementi di data/ora separato.
+  + Quando si chiama `get_profile()`, è ora possibile vedere che quantile colonne sono etichettate come (stimato) per indicare chiaramente che i valori sono approssimazioni.
+  + È ora possibile usare * * glob durante la lettura dall'archiviazione Blob di Azure.
+    + Ad esempio: `dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
+
++ **Correzioni di bug**
+  + Risolto un bug correlato alla lettura di un file Parquet da un'origine remota (Blob di Azure).
 
 ## <a name="2019-05-14"></a>2019-05-14
 
@@ -332,7 +347,7 @@ Note: SDK Python di preparazione dei dati non sono più installerà `numpy` e `p
     - Istogramma
     - Grafico a barre in pila
     - Box plot
-    - Tracciato a dispersione
+    - Grafico a dispersione
     - Grafico a bolle
 + Il portale a questo punto genera in modo dinamico i report per gli esperimenti. Quando un utente invia un'esecuzione a un esperimento, verrà generato automaticamente un report contenente i grafici e le metriche registrate per consentire il confronto tra diverse esecuzioni. 
 

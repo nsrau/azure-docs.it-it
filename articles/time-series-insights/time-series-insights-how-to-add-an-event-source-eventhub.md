@@ -4,19 +4,19 @@ description: Questo articolo descrive come aggiungere un'origine evento connessa
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 41d3e72d978a210c2d68365ade5d8cb42c24aad5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8040368f4cbd6d264070aa3db0a8e6b07a866480
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147596"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239015"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Aggiungere un'origine evento di un hub eventi all'ambiente Time Series Insights
 
@@ -72,7 +72,7 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
    [![Dettagli dell'hub eventi e sottoscrizione](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
-   | Proprietà | DESCRIZIONE |
+   | Proprietà | Descrizione |
    | --- | --- |
    | ID sottoscrizione | Selezionare la sottoscrizione in cui l'hub eventi è stato creato.
    | Spazio dei nomi del bus di servizio | Selezionare lo spazio dei nomi del bus di servizio di Azure che contiene l'hub eventi.
@@ -85,7 +85,7 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
 1. La tabella seguente descrive le proprietà obbligatorie se si seleziona l'opzione **Specificare le impostazioni dell'hub eventi manualmente**:
 
-   | Proprietà | DESCRIZIONE |
+   | Proprietà | Descrizione |
    | --- | --- |
    | ID sottoscrizione | La sottoscrizione in cui l'hub eventi è stato creato.
    | Gruppo di risorse | Gruppo di risorse in cui è stato creato questo hub eventi.

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2823a33b25812a69ad463433bacd9710655c9176
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733732"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238151"
 ---
 #### <a name="process-automation"></a>Automazione dei processi
 
-| Risorsa | Limite massimo |Note|
+| Resource | Limite massimo |Note|
 | --- | --- |---|
 | Numero massimo di nuovi processi che possono essere inviati ogni 30 secondi per ogni account di automazione di Azure (nonscheduled processi) |100 |Quando viene raggiunto questo limite, le richieste successive per creare un processo esito negativo. Il client riceve una risposta di errore.|
 | Numero massimo di processi in esecuzione simultaneamente alla stessa istanza di tempo per ogni account di automazione (processi nonscheduled) |200 |Quando viene raggiunto questo limite, le richieste successive per creare un processo esito negativo. Il client riceve una risposta di errore.|
@@ -41,7 +41,7 @@ ms.locfileid: "64733732"
 
 <sup>1</sup>una sandbox è un ambiente condiviso che può essere usato da più processi. I processi che usano la stessa funzione di sandbox opera con le limitazioni di risorse di sandbox.
 
-#### <a name="change-tracking-and-inventory"></a>Rilevamento delle modifiche e inventario
+#### <a name="change-tracking-and-inventory"></a>Rilevamento modifiche e inventario
 
 La tabella seguente illustra i limiti di elemento di rilevamento per ogni macchina per il rilevamento delle modifiche.
 
@@ -53,3 +53,11 @@ La tabella seguente illustra i limiti di elemento di rilevamento per ogni macchi
 |Pacchetti Linux|1,250||
 |Servizi|250||
 |Daemon|250||
+
+#### <a name="update-management"></a>Gestione degli aggiornamenti
+
+Nella tabella seguente illustra i limiti per la gestione degli aggiornamenti.
+
+| **Risorsa** | **Limite**| **Note** |
+|---|---|---|
+|Numero di computer per ogni distribuzione degli aggiornamenti|1000||

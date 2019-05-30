@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 1259e755642563a7baad5496bc84ed736d5499f8
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ee901fdcae9717cc6d03d7653bcaacc0c32518e0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849815"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254310"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Panoramica della terminazione SSL e SSL end to end con il Gateway applicazione
 
@@ -50,7 +50,7 @@ Il gateway applicazione supporta i tipi di certificati seguenti:
 Per altre informazioni, vedere [configura la terminazione SSL con il gateway applicazione](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
 ### <a name="size-of-the-certificate"></a>Dimensioni del certificato
-Il file di scambio di informazioni personali (PFX) con le informazioni del certificato SSL non deve essere maggiore di 10 KB.
+Controllare la [limiti del Gateway applicazione](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) sezione per conoscere il numero massimo SSL per le dimensioni supportate del certificato.
 
 ## <a name="end-to-end-ssl-encryption"></a>-To-end della crittografia SSL
 

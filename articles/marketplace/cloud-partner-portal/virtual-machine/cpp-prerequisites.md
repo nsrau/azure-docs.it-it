@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 65ff96ba3aea889ff5b2e2431578f9344f6d840b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 258d21eae5af50b5dc0bed6887618e2999cae45a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938073"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257393"
 ---
 # <a name="virtual-machine-prerequisites"></a>Prerequisiti delle macchine virtuali
 
@@ -36,7 +36,7 @@ I requisiti commerciali includono obblighi procedurali, legali e contrattuali:
 <!-- TD: Aren't most of these business requirements common to all AMP offerings?  If yes, then move to higher level, perhaps to the AMP section "Become a Cloud Marketplace Publisher" -->
 <!-- TD: Need references for remaining docs/business reqs!-->
 
-- È necessario essere un editore di Marketplace cloud registrato.  Se non si è ancora effettuata la registrazione, seguire la procedura nell'articolo [Diventare un editore di Marketplace cloud](../../become-publisher.md).
+- È necessario essere un editore di Marketplace cloud registrato.  Se non si è ancora effettuata la registrazione, seguire la procedura nell'articolo [Diventare un editore di Marketplace cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE]
     > Per l'accesso al [portale Cloud Partner](https://cloudpartner.azure.com) è consigliabile usare lo stesso account usato per la registrazione a Microsoft Developer Center.

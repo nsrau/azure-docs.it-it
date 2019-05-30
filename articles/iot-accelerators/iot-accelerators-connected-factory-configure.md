@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e059762cbbf5de2ac03a8a74397e59c9b3bdb97e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450024"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387110"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurare l'acceleratore di soluzioni Fabbrica connessa
 
@@ -265,7 +265,7 @@ Tutte le proprietà usate nel file di configurazione possono essere raggruppate 
 Le proprietà in questa categoria definiscono l'aspetto visivo del dashboard di Fabbrica connessa. Tra gli esempi sono inclusi:
 
 * NOME
-* DESCRIZIONE
+* Descrizione
 * Image
 * Località
 * Unità
@@ -282,7 +282,7 @@ I valori OEE/KPI per la simulazione di Fabbrica connessa sono parametrizzati in 
 * Valori del nodo OPC UA da includere nel calcolo.
 * Modalità di calcolo del valore dai valori di telemetria.
 
-Fabbrica connessa usa le formule OEE pubblicate su https://www.oeefoundation.org.
+Soluzione di fabbrica connessa Usa le formule OEE pubblicate dal [ http://www.oeefoundation.org ](http://www.oeefoundation.org).
 
 Gli oggetti nodo OPC UA nelle stazioni consentono l'uso di tag nel calcolo dei valori OEE/KPI. La proprietà **Relevance** indica per quale valore OEE/KPI deve essere usato il valore del nodo OPC UA. La proprietà **OpCode** definisce come viene incluso il valore nel calcolo.
 

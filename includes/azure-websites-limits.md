@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: c2db5740d6373c8f6be5dabe0260fe7f99575641
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ce64047fd7490106790ea8bb1ad7963d82a87c24
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553774"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238452"
 ---
-| Risorsa | Gratuito | Condiviso | Basic | Standard | Premium (v2) | Isolato </th> |
+| Resource | Gratuito | Condiviso | Basic | Standard | Premium (v2) | Isolato </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Le app Web, mobili o l'API](https://azure.microsoft.com/services/app-service/) per ogni [piano di servizio App di Azure](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Illimitato<sup>2</sup> |Illimitato<sup>2</sup> |Illimitato<sup>2</sup> |Illimitato<sup>2</sup>|
 | [Piano di servizio app](../articles/app-service/overview-hosting-plans.md) |10 per area |10 per gruppo di risorse. |100 per gruppo di risorse |100 per gruppo di risorse |100 per gruppo di risorse |100 per gruppo di risorse|
@@ -29,7 +29,7 @@ ms.locfileid: "57553774"
 | Domini personalizzati per applicazione</a> |0 (solo sottodominio azurewebsites.net)|500 |500 |500 |500 |500 |
 | Supporto per il dominio personalizzato [SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Non supportato, il certificato con caratteri jolly per *. azurewebsites.net disponibile per impostazione predefinita|Non supportato, il certificato con caratteri jolly per *. azurewebsites.net disponibile per impostazione predefinita|Connessioni SNI SSL senza limiti |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse | Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse|
 | Servizio di bilanciamento del carico integrati | |X |X |X |X |X<sup>9</sup> |
-| [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
+| [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Backup pianificati](../articles/app-service/manage-backup.md) | | | | Backup pianificati ogni 2 ore, massimo 12 backup al giorno (manuale e pianificati) | Backup pianificati ogni ora, un massimo di 50 backup al giorno (manuale e pianificati) | Backup pianificati ogni ora, un massimo di 50 backup al giorno (manuale e pianificati) |
 | [Autoscale](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
 | [Processi Web](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |

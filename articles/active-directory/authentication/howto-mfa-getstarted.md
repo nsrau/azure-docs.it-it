@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ca69fc23d580b61e74fe56b3d0c3524fdfad747
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359352"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235542"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Pianificazione di un server basato su cloud Azure multi-Factor Authentication
+# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Pianificazione di una distribuzione di Azure multi-Factor Authentication basato sul cloud
 
 Gli utenti si connettono a risorse aziendali in scenari sempre più complessi. Gli utenti di connettersi da dispositivi di proprietà dell'organizzazione, personali e pubblici in e connessi alla rete aziendale usando gli Smartphone, Tablet, PC e portatili, spesso su più piattaforme. In questo mondo sempre connesso, multidispositivo e multipiattaforma, la sicurezza degli account utente è più importante che mai. Le password, indipendentemente dalla loro complessità, usati nei dispositivi, reti e piattaforme non sono più sufficienti per garantire la sicurezza dell'account utente, specialmente quando gli utenti tendono a riutilizzare le password degli account. Sofisticati phishing e altri attacchi possono comportare i nomi utente e password viene registrato e venduti attraverso il dark web l'ingegneria sociale.
 
@@ -60,14 +60,12 @@ Azure multi-factor Authentication viene distribuito tramite l'applicazione dei c
 * Dispositivo conforme
 * Dispositivo aggiunto all'identità ibrida di Azure AD
 * Applicazioni client approvate
- 
 
-Usare i modelli di posta elettronica e il poster personalizzabile in [materiali di implementazione di multi-factor authentication] per implementare l'autenticazione a più fattori per l'organizzazione. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+Usare il poster personalizzabile e modelli di posta elettronica [materiali di implementazione di multi-factor authentication](https://www.microsoft.com/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all) per implementare l'autenticazione a più fattori per l'organizzazione.
 
 ## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Abilitare Multi-Factor Authentication con l'accesso condizionale
 
 Criteri di accesso condizionale impongono la registrazione, richiedendo agli utenti di annullare la registrazione completare la registrazione al primo accesso, un aspetto importante della sicurezza.
-
 
 [Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) contribuisce sia un criterio di registrazione per i criteri di rilevamento e correzione rischio automatico per la storia di Azure multi-Factor Authentication. I criteri possono essere creati per forzare le modifiche delle password quando si presenta una minaccia di identità compromessa o richiedere l'autenticazione MFA quando accesso viene considerato rischioso dalle condizioni seguenti [eventi](../reports-monitoring/concept-risk-events.md):
 
@@ -97,7 +95,7 @@ Si consiglia alle organizzazioni di usare l'accesso condizionale per definire la
       2. Specificare gli intervalli IP
    2. Se si usa paesi/aree geografiche
       1. Espandere il menu a discesa e selezionare i paesi o aree geografiche da definire per questa località denominata.
-      2. Decidere se Includi aree sconosciute. Le aree sconosciute sono indirizzi IP di cui non è possibile eseguire il mapping a un paese/area geografica.
+      2. Decidere se Includi aree sconosciute. Aree sconosciute sono indirizzi IP che non possono essere mappati a un paese/area geografica.
 7. Fare clic su **Crea**
 
 ## <a name="plan-authentication-methods"></a>Pianificare i metodi di autenticazione
@@ -145,13 +143,13 @@ Gli amministratori devono determinare come gli utenti verranno registrati i rela
 
 Se l'organizzazione Usa Azure Active Directory Identity Protection [configurare i criteri di registrazione MFA](../identity-protection/howto-mfa-policy.md) per richiedere agli utenti di registrazione al successivo accesso in modo interattivo.
 
-### <a name="registration-without-identity-protection"></a>Registrazione senza identity Protection
+### <a name="registration-without-identity-protection"></a>Registrazione senza Identity Protection
 
 Se l'organizzazione non hanno licenze che abilitare Identity Protection, gli utenti vengono chiesto di registrare la volta successiva che MFA è richiesto al momento dell'accesso. Gli utenti non possono essere registrati per MFA, se non usano le applicazioni protette con MFA. È importante ottenere tutti gli utenti registrati in modo che gli attori dannosi non è possibile indovinare la password di un utente e registrazione a MFA per suo conto, in modo efficace assume il controllo dell'account.
 
 #### <a name="enforcing-registration"></a>Implementazione della registrazione
 
-I passaggi seguenti criteri di accesso condizionale possono imporre agli utenti di registrarsi per multi-Factor Authentication
+Accesso condizionale seguendo questa procedura criteri possono imporre agli utenti di registrarsi per l'autenticazione a più fattori
 
 1. Creare un gruppo, aggiungere tutti gli utenti non attualmente registrati.
 2. Uso dell'accesso condizionale, imporre l'autenticazione a più fattori per questo gruppo per l'accesso a tutte le risorse.
@@ -169,6 +167,72 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Ob
 
 ```PowerShell
 Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName | Sort-Object userprincipalname 
+```
+
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Agli utenti di conversione da MFA per utente all'accesso condizionale con MFA
+
+Se sono stati abilitati gli utenti usando per ogni utente abilitato e imposto Azure multi-Factor Authentication di PowerShell seguenti possono risultare utili per effettuare la conversione per l'accesso condizionale basato su Azure multi-Factor Authentication.
+
+```PowerShell
+# Disable MFA for all users, keeping their MFA methods intact
+Get-MsolUser -All | Disable-MFA -KeepMethods
+
+# Enforce MFA for all users
+Get-MsolUser -All | Set-MfaState -State Enforced
+
+# Wrapper to disable MFA with the option to keep the MFA
+# methods (to avoid having to proof-up again later)
+function Disable-Mfa {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipeline=$True)]
+        $User,
+        [switch] $KeepMethods
+    )
+
+    Process {
+
+        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
+        $User | Set-MfaState -State Disabled
+
+        if ($KeepMethods) {
+            # Restore the MFA methods which got cleared when disabling MFA
+            Set-MsolUser -ObjectId $User.ObjectId `
+                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
+        }
+    }
+}
+
+# Sets the MFA requirement state
+function Set-MfaState {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $ObjectId,
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $UserPrincipalName,
+        [ValidateSet("Disabled","Enabled","Enforced")]
+        $State
+    )
+
+    Process {
+        Write-Verbose ("Setting MFA state for user '{0}' to '{1}'." -f $ObjectId, $State)
+        $Requirements = @()
+        if ($State -ne "Disabled") {
+            $Requirement =
+                [Microsoft.Online.Administration.StrongAuthenticationRequirement]::new()
+            $Requirement.RelyingParty = "*"
+            $Requirement.State = $State
+            $Requirements += $Requirement
+        }
+
+        Set-MsolUser -ObjectId $ObjectId -UserPrincipalName $UserPrincipalName `
+                     -StrongAuthenticationRequirements $Requirements
+    }
+}
+
 ```
 
 ## <a name="plan-conditional-access-policies"></a>Pianificare i criteri di accesso condizionale
@@ -210,7 +274,7 @@ Alcune applicazioni legacy e in locale che non eseguono l'autenticazione diretta
 * Applicazioni di RADIUS in locale, che saranno necessario utilizzare la scheda di autenticazione a più fattori con server NPS.
 * In locale applicazioni di ADFS, che dovranno usare scheda MFA con AD FS 2016.
 
-Possono rendere le applicazioni che l'autenticazione direttamente con Azure AD e l'autenticazione moderna (WS-Fed, SAML, OAuth, OpenID Connect) usare direttamente i criteri di accesso condizionale.
+Le applicazioni che l'autenticazione direttamente con Azure AD e l'autenticazione moderna (WS-Fed, SAML, OAuth, OpenID Connect) possono avvalersi di accesso condizionale direttamente i criteri.
 
 ### <a name="use-azure-mfa-with-azure-ad-application-proxy"></a>Usare Azure MFA con Azure AD Application Proxy
 
@@ -225,11 +289,11 @@ Analogamente, se Azure multi-Factor Authentication viene applicata per tutti gli
 L'estensione di Server dei criteri di rete (NPS) per Azure MFA aggiunge funzionalità MFA basate su cloud per l'infrastruttura di autenticazione usando i server esistenti. Con l'estensione NPS, è possibile aggiungere una telefonata, SMS o verifica app telefonica al flusso di autenticazione esistente. Questa integrazione presenta le limitazioni seguenti:
 
 * Con il protocollo CHAPv2, sono supportati solo notifiche push dell'app authenticator e chiamata vocale.
-* Non è possibile applicare i criteri di accesso condizionale.
+* Non è possibile applicare criteri di accesso condizionale.
 
-L'estensione NPS funge da adattatore tra RADIUS e Azure MFA basato su cloud per fornire un secondo fattore di autenticazione per proteggere [VPN](howto-mfa-nps-extension-vpn.md), [connessioni Gateway Desktop remoto](howto-mfa-nps-extension-rdg.md), o altri RADIUS in grado di supportare applicazioni. Gli utenti che dovrà fornire registrazione per Azure MFA in questo ambiente per tutti i tentativi di autenticazione, la mancanza di mean di criteri di accesso condizionale MFA è sempre obbligatoria.
+L'estensione NPS funge da adattatore tra RADIUS e Azure MFA basato su cloud per fornire un secondo fattore di autenticazione per proteggere [VPN](howto-mfa-nps-extension-vpn.md), [connessioni Gateway Desktop remoto](howto-mfa-nps-extension-rdg.md), o altri RADIUS in grado di supportare applicazioni. Significa che gli utenti che dovrà fornire registrazione per Azure MFA in questo ambiente per tutti i tentativi di autenticazione, la mancanza di criteri di accesso condizionale MFA è sempre obbligatorio.
 
-#### <a name="implementing-your-nps-server"></a>Implementazione di Server dei criteri di rete
+#### <a name="implementing-your-nps-server"></a>Implementazione di server dei criteri di rete
 
 Se si dispone di un'istanza dei criteri di rete distribuita e in uso, fare riferimento a [integrare l'infrastruttura NPS esistente con Azure multi-Factor Authentication](howto-mfa-nps-extension.md). Se si imposta criteri di rete per la prima volta, fare riferimento a [Strumentazione gestione Windows (NPS, Network Policy Server)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) per le istruzioni. Risoluzione dei problemi relativi a informazioni aggiuntive sono reperibili nell'articolo [risolvere i messaggi di errore dall'estensione NPS per Azure multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
@@ -304,7 +368,7 @@ Report per Azure MFA
 
 Azure multi-Factor Authentication fornisce report tramite il portale di Azure:
 
-| Report | Location | DESCRIZIONE |
+| Report | Località | Descrizione |
 | --- | --- | --- |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 384f709bb32f973efec39518eaa895e25136fe23
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765711"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390642"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Distribuzione continua nel servizio app di Azure
 Questo articolo illustra come configurare la distribuzione continua per il [servizio app di Azure](overview.md). Il servizio app consente la distribuzione continua da BitBucket, GitHub e [Azure DevOps Services](https://www.visualstudio.com/team-services/) effettuando il pull degli aggiornamenti più recenti dal repository esistente in uno di questi servizi.
@@ -130,7 +130,7 @@ Nella sezione **Compila** della pagina **Configura**, specificare il framework d
 
 Nella pagina **Test** scegliere se abilitare i test di carico e fare clic su **Continua**.
 
-In base al [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/) del piano di servizio app, è anche possibile visualizzare la pagina **Distribuisci nell'ambiente di staging**. Scegliere se [abilitare gli slot di distribuzione](deploy-staging-slots.md) e fare clic su **Continua**. 
+In base al [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/) del piano di servizio app, è anche possibile visualizzare la pagina **Distribuisci nell'ambiente di staging**. Scegliere se [abilitare gli slot di distribuzione](deploy-staging-slots.md) e fare clic su **Continua**. DevOps non consente la distribuzione continua per lo slot di produzione. Si tratta per impostazione predefinita per evitare distribuzioni accidentali nell'ambiente di produzione. È necessario configurare recapito continuo in uno slot di staging, verificare le modifiche presenti e scambiare gli slot di quando si è pronti.
 
 ### <a name="finish-configuration"></a>Concludere la configurazione
 

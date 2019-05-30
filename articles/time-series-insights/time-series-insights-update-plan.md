@@ -2,7 +2,7 @@
 title: Pianificare un ambiente di anteprima di Azure Time Series Insights | Microsoft Docs
 description: Pianificare un ambiente di anteprima di Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3fab86b2b2f0ad892e02cd089dbd7c45ce601d6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 435e5f2163270672ac5f1f5695ca2fe9be22ee6b
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205764"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388755"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Pianificare un ambiente di anteprima di Azure Time Series Insights
 
-Questo articolo descrive le procedure consigliate per pianificare e iniziare a usare rapidamente l'anteprima di Azure Time Series Insights.
+Questo articolo descrive le procedure consigliate per pianificare e iniziare rapidamente con l'anteprima di Azure ora Series Insights.
 
 > [!NOTE]
-> Visualizzare [pianificare l'ambiente di versione GA di Azure ora Series Insights](time-series-insights-environment-planning.md), per le procedure consigliate pianificare un'istanza di Time Series Insights disponibilità generale.
+> Per le procedure consigliate pianificare un'istanza di Time Series Insights disponibilità a livello generale, vedere [pianificare l'ambiente di disponibilità generale di Azure Time Series Insights](time-series-insights-environment-planning.md).
 
 ## <a name="best-practices-for-planning-and-preparation"></a>Procedure consigliate per la pianificazione e preparazione
 
@@ -45,29 +45,29 @@ Quando si esegue il provisioning di un ambiente di anteprima di Time Series Insi
 
 Per iniziare, sono necessari altri tre elementi:
 
-* Oggetto [modello Time Series](./time-series-insights-update-tsm.md).
-* Un' [origine evento connessa a Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md).
-* [Gli eventi che passano nell'origine evento](./time-series-insights-send-events.md) che sono entrambi mappati al modello e sono in formato JSON valido.
+* Un [Modello Time Series](./time-series-insights-update-tsm.md)
+* Un [origine evento connessa a Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
+* [Eventi che passino nell'origine evento](./time-series-insights-send-events.md) e che siano entrambi mappati al modello e abbiano un formato JSON valido
 
 ## <a name="configure-time-series-ids-and-timestamp-properties"></a>Configurare le proprietà ID serie ora e Timestamp
 
-Per creare un nuovo ambiente Time Series Insights, selezionare una **ID serie ora**. Tale operazione funge da partizione logica per i dati. Come accennato, assicurarsi di disporre dell'ID Time Series a portata di mano.
+Per creare un nuovo ambiente Time Series Insights, selezionare un ID Time Series. Tale operazione funge da partizione logica per i dati. Come accennato, assicurarsi di disporre dell'ID Time Series a portata di mano.
 
 > [!IMPORTANT]
 > Gli ID Time Series sono *immutabili* e *non possono essere modificati in un secondo momento*. Verificare ognuno di essi prima della selezione finale e del primo uso.
 
-È possibile selezionare fino a tre (3) chiavi per distinguere le risorse in modo univoco. Per altre informazioni, leggere [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) (Procedure consigliate per la scelta di un ID Time Series) e [Storage and ingress](./time-series-insights-update-storage-ingress.md) (Archiviazione e ingresso).
+È possibile selezionare fino a tre chiavi per distinguere in modo univoco le risorse. Per altre informazioni, leggere [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) (Procedure consigliate per la scelta di un ID Time Series) e [Storage and ingress](./time-series-insights-update-storage-ingress.md) (Archiviazione e ingresso).
 
 Anche la proprietà Timestamp è importante. È possibile definire questa proprietà quando si aggiungono origini evento. Ogni origine evento include una proprietà Timestamp facoltativa, usata per tenere traccia delle origini evento nel tempo. I valori di Timestamp fanno distinzione tra maiuscole/minuscole e devono essere formattati in base alle singole specifiche di ogni origine evento.
 
 > [!TIP]
 > Verificare i requisiti di formattazione e analisi per le origini evento.
 
-Se lasciato vuoto, come timestamp dell'evento viene usato il tempo di accodamento dell'evento di un origine evento. Se si inviano dati cronologici o eventi in batch, la personalizzazione della proprietà Timestamp è più utile rispetto al tempo di accodamento dell'evento. Per altre informazioni, leggere [How to add event sources in IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) (Procedura di aggiunta di origini evento nell'hub IoT).
+Se lasciato vuoto, come timestamp dell'evento viene usato il tempo di accodamento dell'evento di un origine evento. Se si inviano dati cronologici o eventi in batch, la personalizzazione della proprietà Timestamp è più utile rispetto al tempo di accodamento dell'evento. Per altre informazioni, leggere l'argomento sul [aggiungere le origini eventi nell'IoT Hub Azure](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 ## <a name="understand-the-time-series-model"></a>Comprendere il modello Time Series
 
-È ora possibile configurare il modello Time Series dell'ambiente Time Series Insights. Il nuovo modello semplifica l'individuazione e l'analisi dei dati IoT, consentendo la cura, la manutenzione e l'arricchimento dei dati Time Series e la preparazione di set di dati di livello consumer. Il modello usa **ID Time Series**, che esegue il mapping a un'istanza che associa la risorsa univoca a variabili, note come tipi, e gerarchie. Informazioni sul nuovo [modello Time Series](./time-series-insights-update-tsm.md).
+È ora possibile configurare il modello Time Series dell'ambiente Time Series Insights. Il nuovo modello semplifica l'individuazione e l'analisi dei dati IoT, consentendo la cura, la manutenzione e l'arricchimento dei dati Time Series e la preparazione di set di dati di livello consumer. Il modello Usa gli ID di serie ora, che eseguono il mapping a un'istanza che associa la risorsa univoca a variabili, note come tipi e le gerarchie. Informazioni sul nuovo [modello Time Series](./time-series-insights-update-tsm.md).
 
 Il modello è dinamico, in modo da poter essere compilato in qualsiasi momento. Per iniziare rapidamente, compilarlo e caricarlo prima di eseguire il push dei dati in Time Series Insights. Per compilare il modello, vedere [Use the Time Series Model](./time-series-insights-update-how-to-tsm.md) (Usare il modello Time Series).
 
@@ -79,8 +79,8 @@ Per molti clienti, il modello Time Series esegue il mapping a un modello di riso
 
 Una buona norma:
 
-* Archiviare i metadati del modello Time Series
-* Modalità di serie temporale, i campi di istanza e gli eventi includono solo le informazioni necessarie, ad esempio un **ID serie tempo** oppure **Timestamp**.
+* Store dei metadati del modello Time Series.
+* Modalità di serie temporale, i campi di istanza e gli eventi includono solo le informazioni necessarie, ad esempio un ID serie ora o Timestamp.
 
 Per altre informazioni, vedere [Shape events](./time-series-insights-send-events.md#json) (Dare forma agli eventi).
 
@@ -89,5 +89,4 @@ Per altre informazioni, vedere [Shape events](./time-series-insights-send-events
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni, vedere [in ingresso e in archiviazione](./time-series-insights-update-storage-ingress.md) nell'anteprima del tempo Series Insights.
-
 - Scopri [modellazione dei dati](./time-series-insights-update-tsm.md) nell'anteprima del tempo Series Insights.

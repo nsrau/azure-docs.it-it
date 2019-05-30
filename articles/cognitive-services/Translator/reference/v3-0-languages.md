@@ -3,21 +3,21 @@ title: Metodo Languages dell'API Traduzione testuale
 titlesuffix: Azure Cognitive Services
 description: Usare il metodo Languages dell'API Traduzione testuale.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 6e0342d876db424454526637322d67d55c0432a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 415093610bfbc314e569eeeb658508bdfb021d9c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797287"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389720"
 ---
-# <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Lingue
+# <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Languages
 
 Ottiene il set di lingue attualmente supportate da altre operazioni dell'API Traduzione testuale. 
 
@@ -33,14 +33,14 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
-  <th width="20%">Parametro di query</th>
+  <th width="20%">Query parameter (Parametro di query)</th>
   <th>Descrizione</th>
   <tr>
     <td>api-version</td>
     <td><em>Parametro obbligatorio</em>.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
   </tr>
   <tr>
-    <td>ambito</td>
+    <td>scope</td>
     <td>*Parametro facoltativo*.<br/>Elenco di nomi delimitato da virgole che definisce il gruppo di lingue da restituire. I nomi di gruppi consentiti sono: `translation`, `transliteration` e `dictionary`. Se non viene specificato un ambito, vengono restituiti tutti i gruppi come se venisse passato `scope=translation,transliteration,dictionary`. Per determinare il set di lingue supportate appropriato per uno scenario specifico, vedere la descrizione dell'[oggetto risposta](#response-body).</td>
   </tr>
 </table> 
@@ -48,7 +48,7 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta sono le seguenti:
 
 <table width="100%">
-  <th width="20%">Intestazioni</th>
+  <th width="20%">Headers</th>
   <th>Descrizione</th>
   <tr>
     <td>Accept-Language</td>
@@ -229,7 +229,7 @@ L'elenco delle lingue supportate non subirà spesso modifiche. Per risparmiare l
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Intestazioni</th>
+  <th width="20%">Headers</th>
   <th>Descrizione</th>
   <tr>
     <td>ETag</td>
@@ -251,7 +251,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Riuscite.</td>
+    <td>Completamento della procedura.</td>
   </tr>
   <tr>
     <td>304</td>

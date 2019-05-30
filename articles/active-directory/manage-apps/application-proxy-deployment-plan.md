@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04-04-2019
-ms.author: barbaraselden
+ms.date: 04/04/2019
+ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: d8686b9296c8b1d7c5232e2e46a0e66a9896656b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113016"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388315"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Pianificare una distribuzione di Proxy applicazione Azure AD
 
@@ -92,8 +92,8 @@ Compilare un inventario di tutte le applicazioni nell'ambito che vengono pubblic
 
 | Tipo di informazioni| Informazioni da raccogliere |
 |---|---|
-| Tipo di servizio| Ad esempio: SharePoint, SAP, CRM, applicazioni Web personalizzato, API |
-| Piattaforma applicativa | Ad esempio: Windows IIS, Apache in Linux, Tomcat, NGINX |
+| Tipo di servizio| Ad esempio:  SharePoint, SAP, CRM, applicazioni Web personalizzato, API |
+| Piattaforma applicativa | Ad esempio:  Windows IIS, Apache in Linux, Tomcat, NGINX |
 | Appartenenza al dominio| Nome di dominio completo del server Web (FQDN) |
 | Percorso dell'applicazione | Dove si trova il server web o la farm dell'infrastruttura |
 | Accesso interno | L'URL esatto usato per accedere all'applicazione internamente. <br> Se una farm, il tipo di bilanciamento del carico è in uso? <br> Indica se l'applicazione crea contenuto da origini diverso da se stesso.<br> Determinare se l'applicazione viene eseguita tramite WebSockets. |

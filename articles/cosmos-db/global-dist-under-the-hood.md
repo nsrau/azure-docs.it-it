@@ -4,15 +4,15 @@ description: In questo articolo vengono forniti i dettagli tecnici relativi alla
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 8c916a2fcff606a99e5c567318c1818ff7d5d273
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: c490657eb67a34e79c8dbaea31cb59b49cc6448e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071956"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241104"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuzione globale dei dati con Azure Cosmos DB - informazioni sul funzionamento
 
@@ -68,7 +68,7 @@ Vengono usati orologi con vettori codificati (contenenti l'ID dell'area e la log
 
 Per i database Cosmos configurati con più aree di scrittura, il sistema offre agli sviluppatori una serie di criteri di risoluzione dei conflitti automatica e flessibile, che include: 
 
-- **Last-Write-Wins (LWW)**, che, per impostazione predefinita, Usa una proprietà definita dal sistema timestamp (che è basata sul protocollo-sincronizzazione ora di orologio). Cosmos DB consente anche di specificare qualsiasi altra proprietà numerica personalizzata da usare per la risoluzione dei conflitti.  
+- **Last-Write-Wins (LWW)** , che, per impostazione predefinita, Usa una proprietà definita dal sistema timestamp (che è basata sul protocollo-sincronizzazione ora di orologio). Cosmos DB consente anche di specificare qualsiasi altra proprietà numerica personalizzata da usare per la risoluzione dei conflitti.  
 - **Definito dall'applicazione (personalizzata) in conflitto dei criteri di risoluzione** (espressi tramite le procedure di tipo merge), che è progettato per la riconciliazione di semantica definita dall'applicazione di conflitti. Queste procedure vengono richiamate quando viene rilevato un conflitto tra scrittura e scrittura a cura di una transazione di database, sul lato server. Il sistema fornisce esattamente una volta garantisce che per l'esecuzione di una routine di tipo merge come parte del protocollo dell'impegno. Esistono [diversi esempi di risoluzione in conflitto](how-to-manage-conflicts.md) è possibile provare a usare.  
 
 ## <a name="consistency-models"></a>Modelli di coerenza

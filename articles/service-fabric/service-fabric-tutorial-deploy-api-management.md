@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 92b1e95598da27f0b7d7df30dfa4a82824b4a48c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 970d533424e2e603a96bf7e36317cbcdf5110304
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158202"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306808"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrare Gestione API con Service Fabric in Azure
 
@@ -75,8 +75,8 @@ Creare un servizio Reliable senza stato di base per ASP.NET Core usando il model
 Avviare Visual Studio come Amministratore e creare un servizio ASP.NET Core:
 
  1. In Visual Studio selezionare File -> Nuovo progetto.
- 2. Selezionare il modello Applicazione di Service Fabric nel Cloud e denominarlo **"ApiApplication"**.
- 3. Selezionare il modello di servizio ASP.NET Core senza stato e denominare il progetto **"WebApiService"**.
+ 2. Selezionare il modello Applicazione di Service Fabric nel Cloud e denominarlo **"ApiApplication"** .
+ 3. Selezionare il modello di servizio ASP.NET Core senza stato e denominare il progetto **"WebApiService"** .
  4. Selezionare il modello di progetto Web API ASP.NET Core 2.0.
  5. Una volta creato il progetto, aprire `PackageRoot\ServiceManifest.xml` e rimuovere l'attributo `Port` dalla configurazione delle risorse endpoint:
 
@@ -201,7 +201,7 @@ Specificare un valore per i seguenti parametri vuoti in *apim.parameters.json* p
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|Developer|
+|apimSku|Sviluppatore|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN%6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |

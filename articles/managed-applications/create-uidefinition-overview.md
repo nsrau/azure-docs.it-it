@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: ab777b487159b009bf2cac6086bb09cc71714b0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d0a6d97440404904c041369a4631fdd3fb618b4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587751"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257556"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Creare l'interfaccia utente del portale di Azure per l'applicazione gestita
 Questo documento illustra i concetti di base del file createUiDefinition.json. Il portale di Azure usa questo file per generare l'interfaccia utente per la creazione di un'applicazione gestita.
@@ -48,6 +48,8 @@ Lo schema della proprietà parameters dipende dalla combinazione delle propriet�
 
 L'inclusione di `$schema` è consigliata ma facoltativa. Se specificato, il valore per la proprietà `version` deve corrispondere alla versione nell'URI di `$schema`.
 
+È possibile usare un editor JSON per creare la definizione dell'interfaccia utente oppure è possibile usare l'ambiente Sandbox definizione dell'interfaccia utente per creare e visualizzare in anteprima la definizione dell'interfaccia utente. Per altre informazioni su sandbox, vedere [testare l'interfaccia del portale per le applicazioni gestite di Azure](test-createuidefinition.md).
+
 ## <a name="basics"></a>Nozioni di base
 Il passaggio relativo alle informazioni di base è sempre il primo passaggio della procedura guidata generata quando il portale di Azure analizza il file. Oltre a visualizzare gli elementi specificati in `basics`, il portale inserisce elementi che consentono agli utenti di scegliere la sottoscrizione, il gruppo di risorse e la posizione della distribuzione. In genere gli elementi che eseguono query per parametri a livello di distribuzione, ad esempio il nome di un cluster o le credenziali dell'amministratore, devono essere inseriti in questo passaggio.
 
@@ -72,7 +74,7 @@ Per impostare il nome della risorsa applicazione gestita, è necessario includer
 ```
 
 ## <a name="functions"></a>Funzioni
-Analogamente alle funzioni del modello in Azure Resource Manager, a livello di sintassi e di funzionalità, CreateUiDefinition offre funzioni per l'uso di input e output degli elementi, oltre a funzionalità quali le istruzioni condizionali.
+Analogamente alle funzioni di modello in Azure Resource Manager (sia in funzionalità e sintassi), CreateUiDefinition offre funzioni per l'uso di input e output e le funzionalità, ad esempio istruzioni condizionali degli elementi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Il file createUiDefinition.json è contraddistinto da uno schema semplice ma supporta numerosi elementi e funzioni, illustrati in modo dettagliato nei documenti seguenti:

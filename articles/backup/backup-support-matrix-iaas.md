@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471640"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399682"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 È possibile usare la [servizio Backup di Azure](backup-overview.md) per eseguire il backup di macchine virtuali locali e i carichi di lavoro e macchine virtuali di Azure (VM). Questo articolo riepiloga le impostazioni del supporto e le limitazioni quando si esegue il backup di macchine virtuali di Azure con Backup di Azure.
@@ -40,10 +40,10 @@ Altre informazioni sul backup [usando un server di backup](backup-architecture.m
 
 **Azione** | **Supporto**
 --- | ---
-Abilitazione del backup quando si crea una macchina virtuale di Azure per Windows | Supportata per:  Windows Server 2019 (Datacenter/Datacenter Core), Windows Server 2016 (Core Data Center o di Data Center); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (versione RTM e SP1)
+Abilitazione del backup quando si crea una macchina virtuale di Azure per Windows | Supportata per: <br/><br/> - Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (versione RTM e SP1 Standard)
 Abilitazione del backup quando si crea una macchina virtuale Linux | Supportata per:<br/><br/> - Server Ubuntu: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Eseguire il backup di una macchina virtuale non in linea/arresto della macchina virtuale | Supportato.<br/><br/> Lo snapshot è coerente solo con l'arresto anomalo del sistema, non con l'app.
-Eseguire il backup di dischi, dopo la migrazione a managed disks | Supportato.<br/><br/> Il backup continuerà a funzionare. Non è necessaria alcuna azione.
+Eseguire il backup di dischi, dopo la migrazione a managed disks | Supportato.<br/><br/> Il backup continuerà a funzionare. non è necessaria alcuna azione.
 Backup dei dischi gestiti dopo l'abilitazione del blocco del gruppo di risorse | Non supportati.<br/><br/> Backup di Azure non è possibile eliminare i punti di risorse precedenti e i backup inizieranno a non riuscire quando viene raggiunto il limite massimo di punti di ripristino.
 Modifica dei criteri di backup per una macchina virtuale | Supportato.<br/><br/> La macchina virtuale verrà sottoposti a usando le impostazioni di pianificazione e la conservazione in nuovi criteri. Se le impostazioni di conservazione vengono estese, i punti di ripristino esistenti verranno contrassegnati e mantenuti. Se vengono ridotte, punti di ripristino esistenti verranno eliminati nel processo di pulizia successivo e infine eliminati.
 Annullamento di un processo di backup | Supportata durante il processo di snapshot.<br/><br/> Non supportata quando lo snapshot viene trasferito nell'insieme di credenziali.
@@ -61,7 +61,7 @@ La tabella seguente riepiloga i sistemi operativi supportati per eseguire il bac
 
 **Scenario** | **Supporto del sistema operativo**
 --- | ---
-Backup con l'estensione dell'agente di macchine virtuali di Azure | Client Windows: Non supportate<br/><br/> Windows Server 2019 (Datacenter/Datacenter Core), Windows Server 2016 (Core Data Center o di Data Center); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (versione RTM e SP1)
+Backup con l'estensione dell'agente di macchine virtuali di Azure | Client Windows: Non supportate<br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (versione RTM e SP1 Standard)
 Backup con l'agente di Servizi di ripristino di Microsoft Azure | Sistemi operativi [supportati](backup-support-matrix-mars-agent.md#support-for-direct-backups).
 Eseguire il backup con DPM/MABS | Sistemi operativi supportati per il backup con il [server di Backup di Microsoft Azure](backup-mabs-protection-matrix.md) e [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -94,7 +94,7 @@ Tempo massimo prima della scadenza di un punto di ripristino | Nessun limite.
 Frequenza massima di backup nell'insieme di credenziali (estensione della macchina virtuale di Azure) | Una volta al giorno.
 Frequenza massima di backup nell'insieme di credenziali (agente di Servizi di ripristino di Microsoft Azure) | Tre backup al giorno.
 Frequenza massima di backup in DPM/MABS | Ogni 15 minuti per SQL Server.<br/><br/> Una volta all'ora per altri carichi di lavoro.
-Conservazione del punto di ripristino | Giornaliera, settimanale, mensile e annuale.
+Conservazione dei punti di ripristino | Giornaliera, settimanale, mensile e annuale.
 Periodo massimo di conservazione | Dipende dalla frequenza dei backup.
 Punti di ripristino su disco DPM/MABS | 64 per file server e 448 per i server applicazioni.<br/><br/> I punti di ripristino su nastro sono illimitati per DPM locale.
 
@@ -215,10 +215,10 @@ Sicurezza dei dati:
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Sì][green]
-Macchine virtuali di Azure | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
+Computer Windows locali senza DPM/MABS | ![Yes][green] | ![Yes][green]
+Macchine virtuali di Azure | ![Yes][green] | ![Yes][green]
+Computer locali/VM di Azure con DPM | ![Yes][green] | ![Yes][green]
+Computer locali/VM di Azure con MABS | ![Yes][green] | ![Yes][green]
 
 
 
@@ -231,10 +231,10 @@ Backup supporta la compressione dei backup del traffico, come riepilogato nella 
 
 **Computer** | **Compressione in MABS/DPM (TCP)** | **Comprimere all'insieme di credenziali (HTTPS)**
 --- | --- | ---
-Computer Windows locali senza DPM/MABS | NA | ![Sì][green]
+Computer Windows locali senza DPM/MABS | NA | ![Yes][green]
 Macchine virtuali di Azure | NA | NA
-Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
+Computer locali/VM di Azure con DPM | ![Yes][green] | ![Yes][green]
+Computer locali/VM di Azure con MABS | ![Yes][green] | ![Yes][green]
 
 
 ## <a name="next-steps"></a>Passaggi successivi

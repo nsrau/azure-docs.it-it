@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1defaea3743ebb8ddb688cef28efb7eee8ecb07c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0a503b82c07da62b5c5c768d8e1c92cb19e75aee
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597123"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236470"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Conoscere la macchina virtuale per data science
 
@@ -30,7 +30,7 @@ La macchina virtuale per data science (DSVM) include un elenco completo di strum
 La macchina virtuale data SCIENCE include anche diverse procedure dettagliate ed esempi di codice sotto forma di notebook di Jupyter che possono essere eseguiti in locale. È inoltre disponibile la documentazione per questi esempi per facilitarne la comprensione. 
 
 > [!NOTE]
-> È possibile usare [Azure Notebooks](/azure/notebooks/azure-notebooks-overview.md) per creare, eseguire e condividere notebook di Jupyter nel cloud. È possibile [collegare una macchina virtuale Data Science per Azure Notebooks](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) per espandere la potenza di calcolo disponibili.
+> È possibile usare [Azure Notebooks](/azure/notebooks/azure-notebooks-overview) per creare, eseguire e condividere notebook di Jupyter nel cloud. È possibile [collegare una macchina virtuale Data Science per Azure Notebooks](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) per espandere la potenza di calcolo disponibili.
 
 Gli strumenti, le piattaforme, le utilità e gli esempi inclusi nella macchina virtuale per data science sono organizzati nelle sezioni seguenti:
 

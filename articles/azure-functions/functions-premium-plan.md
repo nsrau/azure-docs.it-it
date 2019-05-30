@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544744"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242297"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Piano Premium di funzioni di Azure (anteprima)
 
@@ -91,7 +91,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 ### <a name="available-instance-skus"></a>SKU delle istanze disponibili
 
-Quando si crea il piano di ridimensionamento, è possibile scegliere tra tre dimensioni di istanza.  Ti verranno fatturate per il numero totale di core e memoria al secondo utilizzate.  Automaticamente l'app è possibile scalare orizzontalmente a più istanze in base alle esigenze.  
+Durante la creazione o il ridimensionamento del piano, è possibile scegliere tra tre dimensioni di istanza.  Ti verranno fatturate per il numero totale di core e memoria al secondo utilizzate.  Automaticamente l'app è possibile scalare orizzontalmente a più istanze in base alle esigenze.  
 
 |SKU|Core|Memoria|Archiviazione|
 |--|--|--|--|
@@ -99,7 +99,7 @@ Quando si crea il piano di ridimensionamento, è possibile scegliere tra tre dim
 |EP2|2|7 GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
-## <a name="regions"></a>Aree
+## <a name="regions"></a>Regioni
 
 Di seguito sono le aree attualmente supportate per l'anteprima pubblica.
 

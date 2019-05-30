@@ -12,33 +12,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2019
-ms.author: v-mohabe
-ms.openlocfilehash: cfe633c5251842257a0bef5237ea6b80aeaf05e9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 05/29/2019
+ms.author: monhaber
+ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968579"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400158"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>Protezione avanzata dei dati per le istanze di SQL Server in IaaS
-Protezione avanzata dei dati per le istanze di SQL Server su IaaS è un pacchetto unificato per la funzionalità di sicurezza avanzate SQL. Include attualmente funzionalità per esporre e mitigazione delle potenziali vulnerabilità del database e rilevare attività anomale che indicano una minaccia al database.
+Protezione avanzata dei dati per istanze di SQL Server in macchine virtuali di Azure è un pacchetto unificato per la funzionalità di sicurezza avanzate SQL. Include attualmente funzionalità per esporre e mitigazione delle potenziali vulnerabilità del database e rilevare attività anomale che indicano una minaccia al database. 
 
-Questa offerta per i server SQL IaaS è basata sulla stessa tecnologia fondamentale utilizzata nel [pacchetto di protezione avanzata dei dati Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
+Questa offerta per i server SQL di Azure le macchine virtuali è basata sulla stessa tecnologia fondamentale utilizzata nel [pacchetto di protezione avanzata dei dati Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
 
 ## <a name="overview"></a>Panoramica
 
-Protezione avanzata dei dati (ADS) fornisce un set di funzionalità di sicurezza SQL avanzate, costituito la valutazione della vulnerabilità e Advanced Threat Protection.
+Protezione avanzata dei dati fornisce un set di funzionalità di sicurezza SQL avanzate, costituito la valutazione della vulnerabilità e Advanced Threat Protection.
 
 * [Valutazione della vulnerabilità](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) è un servizio semplice da configurare che consente di individuare, tenere traccia e risolvere potenziali vulnerabilità del database. Offre visibilità sullo stato di sicurezza e include i passaggi per risolvere i problemi di sicurezza e migliorare fortifications il database.
 * [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei computer SQL server. Viene continuamente monitora il tuo database per le attività sospette e fornisce avvisi di sicurezza orientate alle azioni in modelli di accesso ai database anomali. Questi avvisi forniscono i dettagli delle attività sospette e le azioni consigliate per indagini e mitigare la minaccia.
 
-## <a name="get-started-with-ads-for-iaas"></a>Iniziare a usare gli annunci per IaaS
+## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Iniziare con sicurezza avanzata di dati per SQL in macchine virtuali di Azure
 
-I passaggi seguenti consentono di iniziare con gli annunci per IaaS.
+I passaggi seguenti consentono di iniziare con sicurezza avanzata di dati per SQL in macchine virtuali di Azure.
 
-### <a name="set-up-ads-for-iaas"></a>Configurare gli annunci per IaaS
+### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Configurare sicurezza avanzata di dati per SQL in macchine virtuali di Azure
 
 **Prima di iniziare**: È necessario un'area di lavoro di Log Analitica per archiviare i log di sicurezza che si sta analizzati. Se non è uno, quindi è possibile crearne uno con facilità, come illustrato in [creare un'area di lavoro di Log Analitica nel portale di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -81,7 +81,7 @@ I passaggi seguenti consentono di iniziare con gli annunci per IaaS.
 
     1. Verificare che le colonne vengono visualizzati i **piano tariffario** e **WorkspaceID** colonne. (**Registrare le aree di lavoro di analitica** > **Upravit sloupce**, aggiungere **tariffario** e **WorkspaceID**.)
 
-     ![Modifica colonne](./media/security-center-advanced-iaas-data/edit-columns.png)
+     ![Upravit Sloupce](./media/security-center-advanced-iaas-data/edit-columns.png)
 
     1. Fare clic sull'area di lavoro con i log di avviso.
 
@@ -95,14 +95,14 @@ I passaggi seguenti consentono di iniziare con gli annunci per IaaS.
 
 È possibile impostare un elenco di destinatari per ricevere una notifica di posta elettronica quando vengono generati avvisi di Centro sicurezza di AZURE. Messaggio di posta elettronica contiene un collegamento diretto dell'avviso nel Centro sicurezza di Azure con tutti i relativi dettagli. 
 
-1. Passare a **Centro sicurezza** > **criteri di sicurezza** quindi nella riga della selezione sottoscrizione da usare **modificare le impostazioni >**.
+1. Passare a **Centro sicurezza** > **criteri di sicurezza** quindi nella riga della selezione sottoscrizione da usare **modificare le impostazioni >** .
 
     ![Impostazioni di sottoscrizione](./media/security-center-advanced-iaas-data/subscription-settings.png)
 
 1. Dal **le impostazioni** dal menu **notifiche tramite posta elettronica**. 
 1. Nel **indirizzo di posta elettronica** testo casella, immettere gli indirizzi di posta elettronica per ricevere le notifiche. È possibile immettere più di un indirizzo di posta elettronica, separare gli indirizzi di posta elettronica con una virgola (,).  Ad esempio admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
 
-      ![Impostazioni posta elettronica](./media/security-center-advanced-iaas-data/email-settings.png)
+      ![Impostazioni di posta elettronica](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. Nel **notifica tramite posta elettronica** impostazioni, impostare le opzioni seguenti:
   
@@ -120,7 +120,7 @@ Il dashboard di valutazione della vulnerabilità viene fornita una panoramica de
 
 È possibile visualizzare i risultati della valutazione delle vulnerabilità e i report direttamente dal Log Analitica.
 
-1. Passare all'area di lavoro di Log Analitica con la soluzione ADS.
+1. Passare all'area di lavoro di Log Analitica con la soluzione di protezione dati avanzata.
 1. Passare a **Solutions** e selezionare il **valutazione della vulnerabilità SQL** soluzione.
 1. Nel **Summary** riquadro, fare clic su **Visualizza il riepilogo** e selezionare il **Report di valutazione della vulnerabilità SQL**.
 
@@ -142,7 +142,7 @@ Il dashboard di valutazione della vulnerabilità viene fornita una panoramica de
 
 1. È possibile eseguire qualsiasi query di Log Analitica sui dati dei risultati di valutazione della vulnerabilità, per suddividere e ripartire i dati in base alle esigenze.
 
-## <a name="advanced-threat-protection-for-sql-servers-on-iaas-alerts"></a>Advanced Threat Protection per SQL Server su IaaS avvisi
+## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Advanced Threat Protection per SQL Server in macchine virtuali di Azure gli avvisi
 Gli avvisi vengono generati dai tentativi insoliti e potenzialmente dannosi di accesso o exploit dei server SQL. Questi eventi possono attivare gli avvisi seguenti:
 
 ### <a name="anomalous-access-pattern-alerts"></a>Avvisi di criterio di accesso anomalo

@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 9/25/2018
+ms.date: 05/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d8df9935e935ac8d5a1194cfab103a006cf5546
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b0a9d04fccce7ccbacb700f7af5126c6ae05140a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791342"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357772"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificare la presenza di errori in pool e nodi
 
@@ -84,18 +84,27 @@ Come per qualsiasi attività, l'esito negativo di un'attività di avvio può ess
 
 La proprietà[errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) del nodo indica un errore di download e decompressione di un pacchetto dell'applicazione. Batch imposta lo stato del nodo su **unusable**.
 
+### <a name="container-download-failure"></a>Errore di download di contenitore
+
+È possibile specificare uno o più riferimenti di contenitore in un pool. Batch consente di scaricare i contenitori specificati per ogni nodo. Il nodo [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) segnala un errore durante il download di un contenitore e imposta lo stato del nodo a **inutilizzabile**.
+
 ### <a name="node-in-unusable-state"></a>Nodo in stato inutilizzabile
 
 Azure Batch può impostare lo [stato del nodo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) su **unusable** per diversi motivi. Quando lo stato del nodo è impostato su **unusable**, non è possibile pianificare attività sul nodo, il quale però rimane soggetto ad addebiti.
 
-Batch tenta sempre di recuperare i nodi inutilizzabili, ma l'operazione potrebbe non essere possibile a seconda della causa.
+I nodi in un **unsuable**, ma senza [errori](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) stato significa che Batch è in grado di comunicare con la macchina virtuale. In questo caso, Batch tenta sempre di ripristinare la macchina virtuale. Batch non tenterà automaticamente di ripristinare le macchine virtuali che non è riuscito a installare i pacchetti dell'applicazione o i contenitori anche se il relativo stato è **inutilizzabile**.
 
 Se Batch è in grado di determinare la causa, questa viene indicata nella proprietà [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror).
 
 Altri esempi di cause di nodi inutilizzabili, con stato **unusable**, includono:
 
 - Un'immagine di macchina virtuale personalizzata non è valida. È il caso ad esempio di un'immagine preparata in modo non corretto.
+
 - Una macchina virtuale viene spostata a causa di un errore di infrastruttura o un aggiornamento di basso livello. Batch recupera il nodo.
+
+- È stata distribuita un'immagine di macchina virtuale su un hardware che non la supporta. Ad esempio un'immagine di macchina virtuale "HPC" in esecuzione su hardware non HPC. Ad esempio, il tentativo di eseguire un'immagine HPC CentOS in una [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) della macchina virtuale.
+
+- Le macchine virtuali sono un [rete virtuale di Azure](batch-virtual-network.md), e il traffico è stato bloccato per porte chiave.
 
 ### <a name="node-agent-log-files"></a>File di log dell'agente del nodo
 

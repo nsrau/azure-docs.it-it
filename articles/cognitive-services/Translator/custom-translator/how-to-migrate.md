@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 73fc0d26612d32f2614899c62f680ff9e85d1609
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 901b5312d216c241331b90a6b61d263437ab5c70
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60512779"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389295"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Eseguire la migrazione dell'area di lavoro e dei progetti di Hub in Custom Translator
 
@@ -134,10 +134,10 @@ Questa tabella mette a confronto le funzionalità di Microsoft Translator Hub co
 |:-----|:----:|:----:|
 |Stato delle funzionalità di personalizzazione   | Disponibilità generale  | Disponibilità generale |
 | Versione API per testo  | V2    | V3  |
-| Personalizzazione SMT | Sì   | No  |
-| Personalizzazione NMT | No     | Sì |
-| Personalizzazione dei nuovi servizi voce unificati | No     | Sì |
-| Nessuna traccia | Sì | Sì |
+| Personalizzazione SMT | Yes   | No  |
+| Personalizzazione NMT | No     | Yes |
+| Personalizzazione dei nuovi servizi voce unificati | No     | Yes |
+| Nessuna traccia | Yes | Yes |
 
 ## <a name="new-languages"></a>Nuove lingue
 

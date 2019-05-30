@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: a70a887ccb19d9c1cbdb5f8ebf6aa8d4b25a0dfd
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65161071"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388987"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Attività di DevOps di Azure per dati di Azure Explorer
 
@@ -44,7 +44,7 @@ Creare le cartelle di esempio seguenti (*funzioni*, *criteri*, *tabelle*) nel re
 > [!TIP]
 > Quando si crea il proprio flusso di lavoro, è consigliabile rendere idempotenti il codice. Ad esempio, usare [tabella relative-merge](/azure/kusto/management/tables#create-merge-tables) invece di [tabella relative](/azure/kusto/management/tables#create-table)e usare [relative o alter](/azure/kusto/management/functions#create-or-alter-function) funzione anziché [relative](/azure/kusto/management/functions#create-function) funzione.
 
-## <a name="create-a-release-pipeline"></a>Creare una pipeline di versione
+## <a name="create-a-release-pipeline"></a>Creare una pipeline di rilascio
 
 1. Accedi per i [organizzazione di Azure DevOps](https://dev.azure.com/).
 1. Selezionare **pipeline** > **versioni** dal menu a sinistra e selezionare **nuova pipeline**.
@@ -67,7 +67,7 @@ Creare le cartelle di esempio seguenti (*funzioni*, *criteri*, *tabelle*) nel re
 
     ![Creare una variabile](media/devops/create-variable.png)
 
-    Per trovare le Endpoint_URL, la pagina di panoramica delle **Cluster di Azure Data Explorer** nel portale di Azure, portale contiene l'URI del cluster di Esplora dati di Azure. Costruire l'URI nel formato seguente `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Ad esempio: https://kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    Per trovare le Endpoint_URL, la pagina di panoramica delle **Cluster di Azure Data Explorer** nel portale di Azure, portale contiene l'URI del cluster di Esplora dati di Azure. Costruire l'URI nel formato seguente `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Ad esempio, https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
 
     ![URI del cluster Esplora dati Azure](media/devops/adx-cluster-uri.png)
 
@@ -85,7 +85,7 @@ Creare le cartelle di esempio seguenti (*funzioni*, *criteri*, *tabelle*) nel re
 
 1. Fare clic su **Kusto comando** a sinistra e aggiornare l'attività con le informazioni seguenti:
     * **Nome visualizzato**: Nome dell'attività
-    * **Percorso del file**: Nel **tabelle** attività, specificare */Tables/*.csl poiché i file di creazione della tabella sono nella *tabella* cartella.
+    * **Percorso del file**: Nel **tabelle** attività, specificare */Tables/* .csl poiché i file di creazione della tabella sono nella *tabella* cartella.
     * **URL dell'endpoint**: immettere il `EndPoint URL`variabile creata nel passaggio precedente.
     * Selezionare **Endpoint di servizio di utilizzo** e selezionare **+ nuovo**.
 

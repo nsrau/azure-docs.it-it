@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 9d5e06c3d72d87a87b41a52ed4df369ebc04dccd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977444"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387088"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenario di monitoraggio in Funzioni durevoli - Esempio di watcher per il meteo
 
@@ -42,7 +42,7 @@ Questo esempio monitora le condizioni meteo correnti di una località e avvisa u
 
 Questo esempio prevede l'uso dell'API Weather Underground per controllare le condizioni meteo correnti di una località.
 
-Prima di tutto, è necessario un account Weather Underground. È possibile crearne uno gratuitamente all'indirizzo [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Dopo avere creato l'account, sarà necessario acquisire una chiave API. A questo scopo, visitare [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api), quindi selezionare Key Settings (Impostazioni chiave). Il piano gratuito Stratus Developer è sufficiente per eseguire questo esempio.
+Prima di tutto, è necessario un account Weather Underground. È possibile crearne uno gratuitamente all'indirizzo [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Dopo avere creato l'account, sarà necessario acquisire una chiave API. A questo scopo, visitare [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1), quindi selezionare Key Settings (Impostazioni chiave). Il piano gratuito Stratus Developer è sufficiente per eseguire questo esempio.
 
 Dopo avere acquisito la chiave API, aggiungere l'**impostazione app** seguente all'app per le funzioni.
 

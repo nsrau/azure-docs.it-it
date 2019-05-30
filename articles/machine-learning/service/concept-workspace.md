@@ -1,7 +1,7 @@
 ---
 title: Che cos'è un'area di lavoro
 titleSuffix: Azure Machine Learning service
-description: Informazioni su quali un'area di lavoro e il motivo per cui è necessario uno per il servizio Azure Machine Learning.
+description: L'area di lavoro è la risorsa di primo livello per il servizio Azure Machine Learning. Mantiene una cronologia di tutte le esecuzioni di training, inclusi i log, metriche, output e uno snapshot degli script. Usare queste informazioni per determinare quali Esegui training produce il modello migliore
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 5785bf8f6538f1d91e7a23178e29487ebee14f29
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 3ecdf62cfed7d70873f3dc752bfacd134e367a90
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989841"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388961"
 ---
-# <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro di Azure Machine Learning?
+# <a name="what-is-an-azure-machine-learning-service-workspace"></a>Che cos'è un'area di lavoro del servizio di Azure Machine Learning?
 
-L'area di lavoro è la risorsa di primo livello per il servizio Azure Machine Learning. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati durante l'uso del servizio Azure Machine Learning.
+L'area di lavoro è la risorsa di primo livello per il servizio di Azure Machine Learning, che fornisce una posizione centralizzata per lavorare con tutti gli elementi creati quando si usa il servizio di Azure Machine Learning.  L'area di lavoro mantiene una cronologia di tutte le esecuzioni di training, inclusi i log, metriche, output e uno snapshot degli script. Queste informazioni consentono di determinare il training che produce il modello migliore.  
 
-L'area di lavoro mantiene una cronologia di esecuzioni di training, inclusi i log, metriche, output e uno snapshot degli script. Queste informazioni consentono di determinare il training che produce il modello migliore.  
-
-Dopo aver creato un modello, ad esempio, registrarlo con l'area di lavoro. Si usa il modello registrato e gli script di assegnazione dei punteggi da distribuire in istanze di contenitore di Azure, Azure Kubernetes Service, o in una matrice di campo-programmable gate (FPGA) come un endpoint HTTP basato su REST. È anche possibile distribuire il modello in un dispositivo Azure IoT Edge come modulo.
+Dopo aver creato un modello, ad esempio, registrarlo con l'area di lavoro. Utilizzare quindi il modello registrato e gli script di assegnazione dei punteggi da distribuire in istanze di contenitore di Azure, Azure Kubernetes Service, o in una matrice di campo-programmable gate (FPGA) come un endpoint HTTP basato su REST. È anche possibile distribuire il modello in un dispositivo Azure IoT Edge come modulo.
 
 ## <a name="taxonomy"></a>Tassonomia 
 
@@ -50,7 +48,7 @@ Il diagramma mostra i seguenti componenti di un'area di lavoro:
 È possibile interagire con l'area di lavoro nei modi seguenti:
 
 + Sul web:
-    + Il[portale di Azure](https://azure.portal.com)
+    + Il[portale di Azure](https://portal.azure.com)
     + Il [interfaccia visiva (anteprima)](ui-concept-visual-interface.md)
 + In Python usando Azure Machine Learning [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + Nella riga di comando usando Azure Machine Learning [estensione dell'interfaccia della riga](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
@@ -71,7 +69,7 @@ Attività di Machine learning di lettura e/o scrivere gli elementi nell'area di 
 
 È anche possibile eseguire le attività di gestione dell'area di lavoro seguenti:
 
-| Attività di gestione dell'area di lavoro   | Portale              | SDK        | Interfaccia della riga di comando        |
+| Attività di gestione dell'area di lavoro   | Portale              | SDK        | CLI        |
 |---------------------------|------------------|------------|------------|
 | Creare un'area di lavoro        | **&check;**     | **&check;** | **&check;** |
 | Creare e gestire le risorse di calcolo    | **&check;**   | **&check;** |  **&check;**   |

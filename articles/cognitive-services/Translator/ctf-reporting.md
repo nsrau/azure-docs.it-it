@@ -3,19 +3,19 @@ title: Report di Collaborative Translation Framework (CTF) - API Traduzione test
 titlesuffix: Azure Cognitive Services
 description: Come usare i report di Collaborative Translation Framework (CTF).
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: 178747ffddbadb06751ce0db7d16701c3cea7416
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: v-pawal
+ms.openlocfilehash: 166c152828a91889d7d1d7eb6f8c03dac48172f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712827"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389383"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Come usare i report di Collaborative Translation Framework (CTF)
 
@@ -34,7 +34,7 @@ L'endpoint dell'API di creazione report di CTF è https://api.microsofttranslato
 
 
 ## <a name="methods"></a>Metodi
-| NOME |    DESCRIZIONE|
+| NOME |    Descrizione|
 |:---|:---|
 | Metodo GetUserTranslationCounts | Ottiene i conteggi delle traduzioni create dall'utente. |
 | Metodo GetUserTranslations | Recupera le traduzioni create dall'utente. |
@@ -72,7 +72,7 @@ Questo metodo recupera il conteggio delle traduzioni create dall'utente. Fornisc
 
 **Parameters**
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix | **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
@@ -94,7 +94,7 @@ Questo metodo recupera il conteggio delle traduzioni create dall'utente. Fornisc
 
 Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserTranslationCount presenta gli elementi seguenti:
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 |:---|:---|
 | Conteggio| Numero di risultati recuperati|
 | Da | Lingua di origine|
@@ -143,7 +143,7 @@ Questo metodo recupera le traduzioni create dall'utente. Fornisce le traduzioni 
 
 **Parameters**
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix| **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
@@ -165,7 +165,7 @@ Questo metodo recupera le traduzioni create dall'utente. Fornisce le traduzioni 
 
 Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTranslation presenta gli elementi seguenti:
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 |:---|:---|
 | CreatedDateUtc| Data di creazione della voce mediante AddTranslation()|
 | Da| Lingua di origine|

@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 0da5f503c13ce03854964c0d18edd0031e25bb62
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: fa6ab58de09e26683cdd958ef77b0fa01d88e2e0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235616"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225577"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e Async Java
 
@@ -169,7 +169,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
 Per le altre piattaforme (Red Hat, Windows, Mac e così via), fare riferimento a queste istruzioni https://netty.io/wiki/forked-tomcat-native.html
 
-## <a name="indexing-policy"></a>Criteri di indicizzazione
+## <a name="indexing-policy"></a>Criterio di indicizzazione
  
 1. **Escludere i percorsi non usati dall'indicizzazione per scritture più veloci**
 

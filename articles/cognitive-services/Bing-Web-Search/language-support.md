@@ -10,24 +10,24 @@ ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: e657c4678c76e8ff667c1a3f30409fc157f52d16
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 18b124ca7f6f270488fa8e010d2b1c0404f8e9e2
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798251"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384767"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Lingua e regioni supportate dall'API Ricerca Web Bing
 
 L'API Ricerca Web Bing supporta numerosi paesi o aree, molti dei quali con più di una lingua. Specificando un paese o un'area con una query è possibile perfezionare i risultati della ricerca in base agli interessi relativi a tale paese o area. I risultati possono includere collegamenti a Bing e questi collegamenti possono localizzare l'esperienza utente di Bing in base al paese, all'area o alla lingua specificata.
 
-È possibile specificare un paese o un'area usando il parametro di query `cc`. Quando viene specificato un paese o un'area, è necessario indicare uno o più codici di lingua con l'[intestazione `Accept-Language`](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers). Usare la [tabella Mercati](#markets) per un elenco delle lingue supportate nei singoli mercati.
+È possibile specificare un paese o un'area usando il parametro di query `cc`. Quando viene specificato un paese o un'area, è necessario indicare uno o più codici di lingua con l'[intestazione `Accept-Language`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Usare la [tabella Mercati](#markets) per un elenco delle lingue supportate nei singoli mercati.
 
 In alternativa, è possibile specificare il mercato usando il parametro di query `mkt` e un codice della tabella **Mercati**. Specificando un mercato, vengono contemporaneamente specificati un paese o un'area e una lingua preferita. È possibile impostare in modo esplicito la lingua con il parametro di query `setLang`.
 
 ## <a name="countriesregions"></a>Paesi/aree geografiche
 
-|Paese/area geografica|Codice|
+|Paese/Area geografica|Codice|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -40,13 +40,13 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Finlandia|FI|
 |Francia|VF|
 |Germania|DE|
-|Hong Kong - R.A.S.|HK|
+|RAS di Hong Kong|HK|
 |India|IN|
 |Indonesia|ID|
-|Italia|it|
+|Italia|IT|
 |Giappone|JP|
 |Corea del Sud|KR|
-|Malesia|MY|
+|Malaysia|MY|
 |Messico|MX|
 |Paesi Bassi|NL|
 |Nuova Zelanda|NZ|
@@ -57,7 +57,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Filippine|PH|
 |Russia|RU|
 |Arabia Saudita|SA|
-|Sudafrica|ZA|
+|Sud Africa|ZA|
 |Spagna|ES|
 |Svezia|SE|
 |Svizzera|CH|
@@ -68,7 +68,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 
 ## <a name="markets"></a>Mercati
 
-|Paese/area geografica|Linguaggio|Codice di mercato|
+|Paese/Area geografica|Linguaggio|Codice di mercato|
 |-------|--------|-----------|
 |Argentina|Spagnolo|es-AR|
 |Australia|Inglese|en-AU|
@@ -83,13 +83,13 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Finlandia|Finlandese|fi-FI|
 |Francia|Francese|fr-FR|
 |Germania|Tedesco|de-DE|
-|Hong Kong - R.A.S.|Cinese tradizionale|zh-HK|
+|RAS di Hong Kong|Cinese tradizionale|zh-HK|
 |India|Inglese|en-IN|
 |Indonesia|Inglese|en-ID|
 |Italia|Italiano|it-IT|
 |Giappone|Giapponese|ja-JP|
 |Corea del Sud|Coreano|ko-KR|
-|Malesia|Inglese|en-MY|
+|Malaysia|Inglese|en-MY|
 |Messico|Spagnolo|es-MX|
 |Paesi Bassi|Olandese|nl-NL|
 |Nuova Zelanda|Inglese|en-NZ|
@@ -100,7 +100,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Filippine|Inglese|en-PH|
 |Russia|Russo|ru-RU|
 |Arabia Saudita|Arabo|ar-SA|
-|Sudafrica|Inglese|en-ZA|
+|Sud Africa|Inglese|en-ZA|
 |Spagna|Spagnolo|es-ES|
 |Svezia|Svedese|sv-SE|
 |Svizzera|Francese|fr-CH|

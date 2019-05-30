@@ -1,19 +1,19 @@
 ---
 title: Passare dalla API degli avvisi di Log Analytics a nuova API degli avvisi di Azure
-description: Panoramica di ritiro di savedSearch legacy basata su API di avviso di Log Analytics e processo per passare dalle regole di avviso alla nuova API ScheduledQueryRules, con dettagli in riferimento alle preoccupazioni dei clienti.
+description: Panoramica di savedSearch legacy basato su API di avviso di Log Analitica e processo per passare le regole di avviso alla nuova API ScheduledQueryRules, con dettagli addressing preoccupazioni dei clienti.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1706fc050fecd2e4be3a40725ec3e63a9036b3a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e8cb18b3ea4b01db6b373ebbcb55c1e17614319
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60995984"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399161"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Modificare la preferenza della API degli avvisi di Log Alerts
 
@@ -22,7 +22,7 @@ ms.locfileid: "60995984"
 
 Fino a poco tempo fa le regole degli avvisi venivano gestite nel portale Microsoft Operations Management Suite (OMS). La nuova esperienza avvisi è stata integrata con diversi servizi in Microsoft Azure, tra cui Log Analytics e abbiamo chiesto di [estendere le regole di avviso dal portale OMS ad Azure](alerts-extend.md). Ma per assicurare un'interruzione minima per i clienti, il processo non ha modificato l'interfaccia programmatica per l'uso- [API degli avvisi di Log Analytics](api-alerts.md) basata su SavedSearch.
 
-Ma ora si annuncia una vera alternativa programmatica di Azure per gli utenti degli avvisi di Log Analytics, [Monitoraggio di Azure - API ScheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), anch'esso riportato nella [fatturazione di Azure - per gli avvisi del log](alerts-unified-log.md#pricing-and-billing-of-log-alerts). Per altre informazioni su come gestire gli avvisi di log tramite API, vedere [Gestione degli avvisi del log tramite il modello di risorsa di Azure](alerts-log.md#managing-log-alerts-using-azure-resource-template) e [Gestione degli avvisi del log tramite PowerShell, CLI o API](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api).
+Ma ora si annuncia una vera alternativa programmatica di Azure per gli utenti degli avvisi di Log Analytics, [Monitoraggio di Azure - API ScheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), anch'esso riportato nella [fatturazione di Azure - per gli avvisi del log](alerts-unified-log.md#pricing-and-billing-of-log-alerts). Per altre informazioni su come gestire gli avvisi di log usando l'API, vedere [gestione degli avvisi del log usando il modello di risorse di Azure](alerts-log.md#managing-log-alerts-using-azure-resource-template) e [gestione degli avvisi del log con PowerShell](alerts-log.md#managing-log-alerts-using-powershell).
 
 ## <a name="benefits-of-switching-to-new-azure-api"></a>Vantaggi del passaggio alla nuova API di Azure
 
@@ -33,22 +33,23 @@ Vi sono numerosi vantaggi relativi alla creazione e gestione degli avvisi tramit
 - Gli avvisi di log creati tramite l'[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) possono avere come periodo definito un massimo di 48 ore e recuperare i dati per un periodo più lungo rispetto al passato
 - Creare regole di avviso in un unico passaggio come un'unica risorsa senza la necessità di creare tre livelli di risorse come con [legacy API degli avvisi di Log Analytics](api-alerts.md)
 - Unica interfaccia programmatica per tutte le varianti degli avvisi di log basati su query in Azure - la nuova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) può essere usata per gestire le regole per Log Analytics, oltre che per Application Insights
+- Gestire gli avvisi di log usando [i cmdlet di Powershell](alerts-log.md#managing-log-alerts-using-powershell)
 - Tutte le nuove funzionalità di avviso e il futuro sviluppo dell'avviso del log saranno disponibili solo tramite la nuova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
 ## <a name="process-of-switching-from-legacy-log-alerts-api"></a>Processo di commutazione dall'API legacy degli avvisi relativi ai log
 
-Il processo di estensione degli avvisi da [API legacy degli avvisi di Log Analytics](api-alerts.md) non comporta la modifica della definizione, della query o della configurazione degli avvisi. Le regole di avviso e al monitoraggio sono interessato e gli avvisi non verrà interrotta o essere bloccati, durante o dopo il cambio.
-
-Gli utenti sono liberi di usare [API legacy degli avvisi di Log Analytics](api-alerts.md) o la nuova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Le regole di avviso create per ciascuna API saranno *rese gestibili solo dalla stessa API*, oltre che dal portale di Azure. Per impostazione predefinita, il Monitoraggio di Azure continuerà a usare [API legacy degli avvisi di Log Analytics](api-alerts.md) per la creazione di qualsiasi nuova regola di avviso dal portale di Azure.
+Gli utenti sono liberi di usare [API legacy degli avvisi di Log Analytics](api-alerts.md) o la nuova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Le regole di avviso create per ciascuna API saranno *rese gestibili solo dalla stessa API*, oltre che dal portale di Azure. Per impostazione predefinita, monitoraggio di Azure continuerà a usare [legacy API di avviso di Log Analitica](api-alerts.md) per la creazione di qualsiasi nuova regola di avviso dal portale di Azure per aree di lavoro esistente di Log Analitica. Come [annunciata una nuova area di lavoro di Log creato in corrispondenza o dopo il 1 giugno 2019](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/) -userà automaticamente nuovi [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) , includendo predefinito nel portale di Azure.
 
 Gli effetti della commutazione delle preferenze API scheduledQueryRules sono i seguenti:
 
-- Tutte le interazioni eseguite per la gestione degli avvisi relativi ai log tramite interfacce programmatiche ora devono essere create tramite [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Per altre informazioni, vedere [l'uso di esempio di Modello di risorsa di Azure](alerts-log.md#managing-log-alerts-using-azure-resource-template) e [l'uso di esempio tramite PowerShell o interfaccia della riga di comando di Azure](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api)
+- Tutte le interazioni eseguite per la gestione degli avvisi relativi ai log tramite interfacce programmatiche ora devono essere create tramite [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Per altre informazioni, vedere, [uso di esempio tramite il modello di risorse di Azure](alerts-log.md#managing-log-alerts-using-azure-resource-template) e [uso di esempio tramite PowerShell](alerts-log.md#managing-log-alerts-using-powershell)
 - Le nuove regole degli avvisi relativi ai log create nel portale di Azure verranno create solo tramite [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e consentiranno agli utenti di usare [funzionalità aggiuntive della nuova API](#benefits-of-switching-to-new-azure-api) anche tramite il portale di Azure
 - Livello di gravità per le regole di avviso di log verrà spostato dal: *Critico, avviso e informativi*, in *i valori di gravità di 0, 1 e 2*. Insieme all'opzione per creare o aggiornare le regole di avviso con gravità 4.
 
-> [!CAUTION]
-> Una volta che un utente sceglie per passare una preferenza per il nuovo [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), le regole non è possibile scegliere Indietro o ripristinare l'utilizzo delle versioni precedenti [legacy API degli avvisi di Log Analitica](api-alerts.md).
+Il processo di estensione degli avvisi da [API legacy degli avvisi di Log Analytics](api-alerts.md) non comporta la modifica della definizione, della query o della configurazione degli avvisi. Le regole di avviso e al monitoraggio sono interessato e gli avvisi non verrà interrotta o essere bloccati, durante o dopo il cambio. L'unica modifica è una modifica delle preferenze di API e l'accesso per le regole con una nuova API.
+
+> [!NOTE]
+> Una volta che un utente sceglie per passare una preferenza per il nuovo [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), non è possibile scegliere Indietro o ripristinare l'uso delle versioni precedenti [legacy API degli avvisi di Log Analitica](api-alerts.md).
 
 Qualsiasi cliente che desideri passare volontariamente al nuovo [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e bloccare l'uso dalla [API legacy degli avvisi relativi a Log Analytics](api-alerts.md) può farlo effettuando una chiamata PUT sull'API per cambiare tutte le regole relative agli avvisi associate all'area di lavoro specifica di Log Analytics.
 

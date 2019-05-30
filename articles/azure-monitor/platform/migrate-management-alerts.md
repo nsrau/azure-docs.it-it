@@ -1,26 +1,26 @@
 ---
 title: Eseguire la migrazione di avvisi di Azure su eventi di gestione in avvisi del log attività
 description: A partire dal 1° ottobre verranno rimossi gli avvisi relativi agli eventi di gestione. È necessario quindi prepararsi e migrare gli avvisi esistenti.
-author: johnkemnetz
+author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/14/2017
-ms.author: johnkem
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78519dad85739b6e4d760bc34719837956638f48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255917"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388723"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Eseguire la migrazione di avvisi di Azure su eventi di gestione in avvisi del log attività
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
-> A partire dal 1° ottobre verranno disattivati gli avvisi relativi agli eventi di gestione. Usare le istruzioni seguenti per capire se si hanno questi avvisi ed eventualmente eseguirne la migrazione.
+> Gli avvisi sugli eventi di gestione verranno disattivati a decorrere ottobre 1,2017. Usare le istruzioni seguenti per capire se si hanno questi avvisi ed eventualmente eseguirne la migrazione.
 
 ## <a name="what-is-changing"></a>Cosa cambierà
 

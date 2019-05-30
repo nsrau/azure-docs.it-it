@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: raynew
-ms.openlocfilehash: 593a82221ec94e43d50b7382ba89053d5f68864a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e96aafe61c0d8547ffca9e97bfd9e90c9529155f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805922"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237270"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurare il ripristino di emergenza su vasta scala per VM VMware/server fisici
 
@@ -100,8 +100,8 @@ Che cos'è conforme a mean? Per avviare una VM di Azure, Azure richiede alcuni d
 
 **Computer sia conforme con Azure?** | **Limiti di macchina virtuale di Azure (failover di disco gestito)**
 --- | --- 
-Sì | 2000
-N. | 1000
+Yes | 2000
+No  | 1000
 
 - Limiti presuppongono che minimi che altri processi sono in corso nell'area di destinazione per la sottoscrizione.
 - Alcune aree di Azure sono più piccoli e potrebbero essere leggermente più bassi limiti.
@@ -188,7 +188,7 @@ Dopo che viene avviata la replica per il primo batch di macchine virtuali, avvia
 1. Assegna un amministratore di ripristino di emergenza per monitorare lo stato di integrità delle macchine replicate.
 2. [Monitorare gli eventi](site-recovery-monitor-and-troubleshoot.md) per gli elementi replicati e l'infrastruttura.
 3. [Monitorare l'integrità](vmware-physical-azure-monitor-process-server.md) dei server di elaborazione scale-out.
-4. Iscriviti per ricevere [notifiche tramite posta elettronica](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) per gli eventi, per facilitare il monitoraggio.
+4. Iscriviti per ricevere [notifiche tramite posta elettronica](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) per gli eventi, per facilitare il monitoraggio.
 5. Condurre regular [esercitazioni sul ripristino di emergenza](site-recovery-test-failover-to-azure.md), per assicurare che tutto funzioni come previsto.
 
 

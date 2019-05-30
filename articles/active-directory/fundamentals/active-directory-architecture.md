@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 05/23/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12819bdc20dea57a8a114bb4ff311f828be8b15a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ba36825805ff54165a3e6c4e221550cc30b07d3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249793"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235175"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Che cos'è l'architettura di Azure Active Directory?
 Azure Active Directory (Azure AD) consente di gestire in modo sicuro l'accesso ai servizi e alle risorse di Azure per gli utenti. In Azure AD è inclusa una suite completa di funzionalità di gestione delle identità. Per informazioni sulle funzionalità di Azure AD, vedere [Informazioni su Azure Active Directory](active-directory-whatis.md).
@@ -30,14 +30,14 @@ L'architettura distribuita geograficamente di Azure AD combina funzionalità com
 
 In questo articolo vengono illustrati gli elementi dell'architettura seguenti:
  *  Progettazione dell'architettura del servizio
- *  Usabilità 
+ *  Scalabilità
  *  Disponibilità continua
  *  Data center
 
 ### <a name="service-architecture-design"></a>Progettazione dell'architettura del servizio
 L'approccio più diffuso per la compilazione di un sistema accessibile, utilizzabile e ad alto contenuto di dati consiste nell'usare blocchi predefiniti o unità di scala indipendenti. Per il livello di dati di Azure AD, le unità di scala sono note come *partizioni*. 
 
-Il livello dati ha diversi servizi front-end che forniscono funzionalità di lettura/scrittura. Il diagramma seguente illustra come i componenti di una partizione di directory singola vengono distribuiti in data center distribuiti geograficamente. 
+Il livello dati ha diversi servizi front-end che forniscono funzionalità di lettura/scrittura. Il diagramma seguente illustra come vengono garantiti i componenti di una partizione di directory singola in data center distribuiti geograficamente. 
 
   ![Diagramma di partizione di directory singola](./media/active-directory-architecture/active-directory-architecture.png)
 
@@ -49,7 +49,7 @@ La *replica primaria* riceve tutte le *operazioni di scrittura* per la partizion
 
 **Repliche secondarie**
 
-Tutte le *operazioni di lettura* delle directory vengono gestite dalle *repliche secondarie*, che si trovano in data center situati fisicamente in aree geografiche diverse. Esistono molte repliche secondarie perché i dati vengono replicati in modo asincrono. Le operazioni di lettura delle directory, ad esempio le richieste di autenticazione, vengono gestite da data center vicini ai clienti. Le repliche secondarie sono responsabili della scalabilità delle operazioni di lettura.
+Tutte le directory *legge* vengono gestite dalle *repliche secondarie*, che si trovano in Data Center situati fisicamente in aree geografiche diverse. Esistono molte repliche secondarie perché i dati vengono replicati in modo asincrono. Letture di directory, ad esempio le richieste di autenticazione, vengono gestite dai Data Center vicini ai clienti. Le repliche secondarie sono responsabili della scalabilità delle operazioni di lettura.
 
 ### <a name="scalability"></a>Scalabilità
 
@@ -61,7 +61,7 @@ Le applicazioni directory si connettono ai data center più vicini, migliorando 
 
 ### <a name="continuous-availability"></a>Disponibilità continua
 
-La disponibilità (o tempo di attività) definisce la possibilità per un sistema di funzionare senza interruzioni. La disponibilità elevata di Azure AD si basa sul fatto che i servizi possono spostare rapidamente il traffico tra più data center distribuiti geograficamente. Ogni data center è indipendente e ciò abilita le modalità di errore con annullamento della correlazione.
+La disponibilità (o tempo di attività) definisce la possibilità per un sistema di funzionare senza interruzioni. La chiave per la disponibilità elevata di Azure AD è che i servizi possono spostare rapidamente il traffico tra più Data Center distribuiti geograficamente. Ogni Data Center è indipendente, che consente la modalità di errore di annullamento della correlazione. Tramite questa progettazione a disponibilità elevata, Azure AD non richiede tempi di inattività per attività di manutenzione.
 
 La progettazione delle partizioni di Azure AD è più semplice rispetto alla progettazione aziendale di AD, in quanto viene usata una progettazione a master singolo che include un processo di failover della replica primaria deterministico orchestrato con attenzione.
 
@@ -73,21 +73,21 @@ Le operazioni di lettura (che sono più numerose di quelle di scrittura di diver
 
 **Durabilità dei dati**
 
-Il commit durevole delle operazioni di scrittura viene eseguito in almeno due data center prima che ne venga accertata la ricezione. A questo scopo, viene prima eseguito il commit dell'operazione di scrittura nella replica primaria e immediatamente dopo l'operazione di scrittura viene replicata in almeno un altro data center. L'operazione di scrittura assicura che una possibile perdita irreversibile del data center che ospita la replica primaria non comporti una perdita di dati.
+Un'operazione di scrittura è commit durevole su almeno due Data Center di poterlo riconosciuto. In questo caso il commit prima la scrittura nella replica primaria e quindi replicando immediatamente l'operazione di scrittura in almeno un altro Data Center. Questa azione di scrittura garantisce che un potenziale di perdita irreversibile del Data Center che ospita il database primario non comporta la perdita di dati.
 
 Azure AD ha un [Obiettivo tempo di ripristino ](https://en.wikipedia.org/wiki/Recovery_time_objective) pari a zero per non perdere dati sui failover. Sono inclusi:
 -  Rilascio di token e operazioni di lettura directory
 -  Solo circa 5 minuti obiettivo tempo di ripristino concessi per le operazioni di scrittura nella directory
 
-### <a name="data-centers"></a>Data center
+### <a name="datacenters"></a>Data center
 
-Le repliche di Azure AD vengono archiviate in data center situati in tutto il mondo. Per altre informazioni, vedere [Data center Azure](https://azure.microsoft.com/overview/datacenters).
+Le repliche di Azure AD vengono archiviate in data center situati in tutto il mondo. Per altre informazioni, vedere [infrastruttura globale di Azure](https://azure.microsoft.com/global-infrastructure/).
 
-Azure AD opera nei data center con le caratteristiche seguenti:
+Azure AD opera nei Data Center con le caratteristiche seguenti:
 
- * Autenticazione, Graph e gli altri servizi di AD si trovano dietro il servizio gateway. Il gateway gestisce il bilanciamento del carico di questi servizi. Verrà eseguito il failover automatico se viene rilevato che server non integri usano probe di integrità transazionali. In base a questi probe di integrità, il gateway instrada in modo dinamico il traffico ai data center integri.
- * Per le *operazioni di lettura*, la directory ha repliche secondarie e servizi front-end corrispondenti in una configurazione attiva/attiva che operano in più data center. In caso di errore di un intero data center, il traffico verrà automaticamente instradato a un altro data center.
- *  Per le *operazioni di scrittura*, la directory eseguirà il failover della replica primaria (master) nei data center tramite procedure di failover pianificate (la nuova replica primaria viene sincronizzata con quella precedente) o di emergenza. La durabilità dei dati si ottiene replicando i commit in almeno due data center.
+ * Autenticazione, Graph e gli altri servizi di AD si trovano dietro il servizio gateway. Il gateway gestisce il bilanciamento del carico di questi servizi. Verrà eseguito il failover automatico se viene rilevato che server non integri usano probe di integrità transazionali. Basato su questi probe di integrità, il Gateway instrada in modo dinamico il traffico ai Data Center integri.
+ * Per la *legge*, la directory ha repliche secondarie e servizi front-end corrispondenti in una configurazione attiva-attiva opera in più Data Center. In caso di errore di un intero Data Center, il traffico verrà automaticamente instradato a un altro Data Center.
+ *  Per la *scrive*, la directory verrà eseguito il failover replica primaria (master) nei Data Center tramite pianificato (nuova replica primaria viene sincronizzata con quella precedente) o le procedure di failover di emergenza. Durabilità dei dati avviene tramite la replica di tutti i commit in almeno due Data Center.
 
 **Coerenza dei dati**
 

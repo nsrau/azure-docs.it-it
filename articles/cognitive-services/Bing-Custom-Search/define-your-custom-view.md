@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236251"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390426"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurare un'esperienza API Ricerca personalizzata Bing
 
@@ -74,7 +74,7 @@ Dopo l'aggiunta di sezioni Web agli elenchi **Active** (Elementi attivi), il por
 
 ## <a name="search-for-images-and-videos"></a>Eseguire la ricerca di immagini e video
 
-È possibile cercare immagini e video in modo analogo al contenuto Web usando l'[API Ricerca immagini personalizzata Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) o l'[API Ricerca video personalizzata Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference). È possibile visualizzare questi risultati con [Interfaccia utente ospitata](hosted-ui.md), o con le API. 
+È possibile cercare immagini e video in modo analogo al contenuto Web usando l'[API Ricerca immagini personalizzata Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) o l'[API Ricerca video personalizzata Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). È possibile visualizzare questi risultati con [Interfaccia utente ospitata](hosted-ui.md), o con le API. 
 
 Queste API sono simili alle API non-personalizzate [Ricerca immagini Bing](../Bing-Image-Search/overview.md) e [Ricerca video Bing](../Bing-Video-Search/search-the-web.md), ma effettuano la ricerca nell'intero Web e non richiedono il parametro di query `customConfig`. Consultare questi set di documentazione per altre informazioni sull'uso di immagini e video. 
 
@@ -83,7 +83,7 @@ Queste API sono simili alle API non-personalizzate [Ricerca immagini Bing](../Bi
 È possibile testare l'istanza di ricerca usando il riquadro di anteprima sul lato destro del portale per inviare le query di ricerca e visualizzare i risultati. 
 
 1. Sotto la casella di ricerca, selezionare **My Instance**(Istanza personale). È possibile confrontare i risultati della propria esperienza di ricerca con Bing, selezionando **Bing**. 
-2. Selezionare un filtro di ricerca sicura e il mercato in cui eseguire la ricerca. Vedere [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) (Parametri di query).
+2. Selezionare un filtro di ricerca sicura e il mercato in cui eseguire la ricerca. Vedere [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) (Parametri di query).
 3. Immettere una query e premere INVIO o fare clic sull'icona di ricerca per visualizzare i risultati dalla configurazione corrente. È possibile modificare il tipo di ricerca da eseguire facendo clic su **Web**, **Image**(Immagine), o **Video** per ottenere i risultati corrispondenti. 
 
 <a name="adjustrank"></a>
@@ -94,7 +94,7 @@ Il portale consente di modificare la classificazione di ricerca di contenuto da 
 
 |            |                                                                                                                                                                      |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Blocca      | Sposta il dominio, la pagina secondaria o la pagina Web nell'elenco Blocked (Elementi bloccati). Bing esclude il contenuto dal sito selezionato dalla visualizzazione nei risultati di ricerca.                    |
+| Blocco      | Sposta il dominio, la pagina secondaria o la pagina Web nell'elenco Blocked (Elementi bloccati). Bing esclude il contenuto dal sito selezionato dalla visualizzazione nei risultati di ricerca.                    |
 | Aumento priorità      | Aumenta la priorità del contenuto del dominio o della pagina secondaria nei risultati della ricerca.                                                                                        |
 | Abbassamento di livello     | Abbassa di livello il contenuto del dominio o della pagina secondaria nei risultati della ricerca. Selezionare se si vuole abbassare di livello il contenuto dal dominio o dalla pagina secondaria a cui appartiene la pagina Web. |
 | Aggiungere in alto | Sposta il dominio, la pagina secondaria o la pagina Web nell'elenco **Pinned** (Elementi aggiunti in alto). Questo fa sì che la pagina Web compaia come miglior risultato di ricerca per una data query di ricerca.                   |
@@ -144,7 +144,7 @@ Per modificare l'ordine degli elementi aggiunti, è possibile effettuare il tras
 
 Se più elementi aggiunti in alto soddisfano una condizione di corrispondenza, Ricerca personalizzata Bing userà il più alto dell'elenco.
 
-## <a name="view-statistics"></a>Visualizza statistiche
+## <a name="view-statistics"></a>Visualizzare le statistiche
 
 Se si è sottoscritto il livello appropriato di Ricerca personalizzata (vedere le [pagine sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), viene aggiunta la scheda **Statistics** (Statistiche) per le istanze di produzione. La scheda Statistics (Statistiche) mostra i dettagli sul modo in cui vengono usati gli endpoint di Ricerca personalizzata, inclusi volume delle chiamate, query principali, distribuzione geografica, codici di risposta e ricerca sicura. È possibile filtrare i dettagli con i controlli forniti.
 

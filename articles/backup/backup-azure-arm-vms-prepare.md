@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: 98934216c0860c79575874df26603b1187e35978
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bac61342f39821b6181a6a0e61bf0b11fb311007
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60647634"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239319"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
-Questo articolo descrive come eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di servizi di ripristino, usando il [Backup di Azure](backup-overview.md) servizio. 
+Questo articolo descrive come eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di servizi di ripristino, usando il [Backup di Azure](backup-overview.md) servizio.
 
 In questo articolo viene spiegato come:
 
@@ -47,29 +47,29 @@ Inoltre, esistono un paio di cose che potrebbe essere necessario eseguire operaz
 
 ## <a name="create-a-vault"></a>Creare un insieme di credenziali
 
- Un insieme di credenziali consente di archiviare i backup e i punti di ripristino creati nel corso del tempo, oltre ai criteri di backup associati ai computer sottoposti a backup. Creare un insieme di credenziali nel modo seguente:    
+ Un insieme di credenziali consente di archiviare i backup e i punti di ripristino creati nel corso del tempo, oltre ai criteri di backup associati ai computer sottoposti a backup. Creare un insieme di credenziali nel modo seguente:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).    
-2. Nella ricerca, digitare **servizi di ripristino**. Sotto **Services**, fare clic su **insiemi di credenziali dei servizi di ripristino**.   
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Nella ricerca, digitare **servizi di ripristino**. Sotto **Services**, fare clic su **insiemi di credenziali dei servizi di ripristino**.
 
-     ![Cercare gli insiemi di credenziali di servizi di ripristino](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/> 
+     ![Cercare gli insiemi di credenziali di servizi di ripristino](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
-3. Nelle **insiemi di credenziali dei servizi di ripristino** menu, fare clic su **+ Aggiungi**.    
+3. Nelle **insiemi di credenziali dei servizi di ripristino** menu, fare clic su **+ Aggiungi**.
 
-     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)   
+     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
-4. Nelle **insieme di credenziali dei servizi di ripristino**, digitare un nome descrittivo per identificare l'insieme di credenziali.   
-    - Il nome deve essere univoco per la sottoscrizione di Azure.   
-    - Può contenere da 2 a 50 caratteri.    
-    - Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.   
-5. Selezionare la sottoscrizione di Azure, gruppo di risorse e area geografica in cui deve essere creato l'insieme di credenziali. Fare quindi clic su **Crea**.    
-    - La creazione dell'insieme di credenziali può richiedere alcuni minuti.  
-    - Monitorare le notifiche di stato nell'area superiore destra del portale.   
+4. Nelle **insieme di credenziali dei servizi di ripristino**, digitare un nome descrittivo per identificare l'insieme di credenziali.
+    - Il nome deve essere univoco per la sottoscrizione di Azure.
+    - Può contenere da 2 a 50 caratteri.
+    - Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
+5. Selezionare la sottoscrizione di Azure, gruppo di risorse e area geografica in cui deve essere creato l'insieme di credenziali. Fare quindi clic su **Crea**.
+    - La creazione dell'insieme di credenziali può richiedere alcuni minuti.
+    - Monitorare le notifiche di stato nell'area superiore destra del portale.
 
 
  Dopo aver creato l'insieme di credenziali, viene visualizzato nell'elenco di insiemi di credenziali dei servizi di ripristino. Se non viene visualizzato, selezionare **Aggiorna**.
- 
-![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)    
+
+![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
 ### <a name="modify-storage-replication"></a>Modificare la replica di archiviazione
 
@@ -86,7 +86,7 @@ Modificare il tipo di replica di archiviazione come segue:
 
       ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
 > [!NOTE]
-   > È possibile modificare il tipo di replica di archiviazione dopo che l'insieme di credenziali è configurato e contiene gli elementi di backup. Se si desidera eseguire questa operazione è necessario ricreare l'insieme di credenziali. 
+   > È possibile modificare il tipo di replica di archiviazione dopo che l'insieme di credenziali è configurato e contiene gli elementi di backup. Se si desidera eseguire questa operazione è necessario ricreare l'insieme di credenziali.
 
 ## <a name="apply-a-backup-policy"></a>Applicare un criterio di backup
 
@@ -101,7 +101,7 @@ Configurare un criterio di backup per l'insieme di credenziali.
 
    ![Riquadri Backup e Obiettivo del backup](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
-3. In **Criteri di backup** selezionare i criteri da associare all'insieme di credenziali. 
+3. In **Criteri di backup** selezionare i criteri da associare all'insieme di credenziali.
     - Il criterio predefinito esegue il backup della macchina virtuale una volta al giorno. I backup giornalieri vengono conservati per 30 giorni. Gli snapshot per il ripristino rapido vengono conservati per due giorni.
     - Se non si desidera usare i criteri predefiniti, selezionare **Crea nuovo**e creare un criterio personalizzato come descritto nella procedura successiva.
 
@@ -116,7 +116,7 @@ Configurare un criterio di backup per l'insieme di credenziali.
      ![Riquadro "Seleziona macchine virtuali"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
 5. Nelle **Backup**, fare clic su **Abilita backup**. Questa operazione consente di distribuire i criteri nell'insieme di credenziali e nelle macchine virtuali e installare l'estensione di backup nell'agente di macchine virtuali in esecuzione nella macchina virtuale di Azure.
-     
+
      ![Pulsante Abilita backup](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
 Dopo l'abilitazione del backup:
@@ -126,7 +126,7 @@ Dopo l'abilitazione del backup:
 - Quando eseguire i backup, si noti che:
     - Una macchina virtuale che esegue avere la massima probabilità per l'acquisizione di un punto di ripristino coerenti con l'applicazione.
     - Tuttavia, anche se la macchina virtuale è spenta viene eseguito il backup. Questa macchina virtuale è noto come una macchina virtuale offline. In questo caso, il punto di ripristino sarà coerente con l'arresto anomalo del sistema.
-    
+
 
 ### <a name="create-a-custom-policy"></a>Creare criteri personalizzati
 
@@ -138,7 +138,7 @@ Se si seleziona per creare un nuovo criterio di backup, specificare le impostazi
     - Quando si ripristina, eseguito il backup delle macchine Virtuali vengono copiati i dischi di archiviazione, attraverso la rete per la posizione di archiviazione di ripristino. Con il ripristino immediato, è possibile sfruttare gli snapshot archiviati localmente creati durante un processo di backup, senza tempi di attesa per i dati di backup devono essere trasferiti nell'insieme di credenziali.
     - È possibile mantenere gli snapshot per il ripristino immediato per tra un massimo di cinque giorni. L'impostazione predefinita è pari a due giorni.
 3. Nelle **mantenimento**, specificare quanto tempo si vogliono mantenere i punti di backup giornalieri o settimanali.
-4. Nelle **conservazione del punto di backup mensile**, specificare se si desidera mantenere il backup degli archivi di backup giornaliere o settimanale un frequenza mensile. 
+4. Nelle **conservazione del punto di backup mensile**, specificare se si desidera mantenere il backup degli archivi di backup giornaliere o settimanale un frequenza mensile.
 5. Fare clic su **OK** per salvare il criterio.
 
     ![Nuovi criteri di backup](./media/backup-azure-arm-vms-prepare/new-policy.png)
@@ -156,6 +156,34 @@ Verrà eseguito il backup iniziale in base alla pianificazione, ma è possibile 
 4. Fare clic su **Esegui backup ora**.
 5. Nelle **Esegui Backup ora**, usare il controllo calendario per selezionare l'ultimo giorno che deve essere mantenuto il punto di ripristino. Fare quindi clic su **OK**.
 6. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni della macchina virtuale, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
+
+## <a name="verify-backup-job-status"></a>Verificare lo stato del processo Backup
+
+Illustra in dettaglio il processo di Backup per ogni backup della macchina virtuale è costituito da 2 fasi, il **Snapshot** fase seguita dalle **trasferimento dei dati nell'insieme di credenziali** fase.<br/>
+La fase di snapshot garantisce la disponibilità di un punto di ripristino archiviato insieme i dischi per **Ripristina immediata** e sono disponibili per un massimo di 5 giorni a seconda di conservazione degli snapshot configurato dall'utente. Trasferimento dei dati nell'insieme di credenziali crea un punto di ripristino nell'insieme di credenziali per la conservazione a lungo termine. Trasferire i dati per l'insieme di credenziali viene avviato solo dopo aver completata la fase di snapshot.
+
+  ![Stato del processo di backup](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
+
+Esistono due **sottoattività** in esecuzione con il back-end, uno per processo di backup di front-end che può essere controllato con i **processo di Backup** pannello dettagli come indicato sotto:
+
+  ![Stato del processo di backup](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+
+Il **trasferire dati nell'insieme di credenziali** fase può richiedere più giorni per completare a seconda delle dimensioni dei dischi, varianza per disco e molti altri fattori.
+
+Lo stato del processo può variare a seconda gli scenari seguenti:
+
+**Snapshot** | **Trasferire dati nell'insieme di credenziali** | **Stato del processo**
+--- | --- | ---
+Completi | In corso | In corso
+Completi | Skipped | Completi
+Completi | Completi | Completi
+Completi | Failed | Completato con avviso
+Failed | Failed | Failed
+
+
+Ora questa funzionalità per la macchina virtuale stessa, due backup eseguibili in parallelo, ma in due fasi (snapshot, trasferimento dei dati nell'insieme di credenziali) può essere eseguito solo una sottoattività. In scenari sono stati che ha prodotto un processo di backup in corso il backup del giorno successivo esito negativo verrà evitata con questa separazione di funzionalità. I backup del giorno successivo possono avere snapshot completata durante **trasferire dati nell'insieme di credenziali** ignorato se è in stato di avanzamento processo di backup del giorno precedente.
+Il punto di ripristino incrementali creato nell'insieme di credenziali consente di acquisire tutti la varianza dall'ultimo punto di ripristino creato nell'insieme di credenziali. Non vi è alcun impatto sui costi per l'utente.
+
 
 ## <a name="optional-steps-install-agentallow-outbound"></a>Passaggi facoltativi (installare l'agente/Consenti connessioni in uscita)
 ### <a name="install-the-vm-agent"></a>Installare l'agente di macchine virtuali
@@ -175,8 +203,8 @@ L'estensione di backup in esecuzione nella macchina virtuale richiede accesso in
 - Se si verificano problemi con le macchine virtuali la connessione o se viene visualizzato l'errore **ExtensionSnapshotFailedNoNetwork** quando è stato effettuato un tentativo di connessione, è consigliabile consentire l'accesso in modo esplicito in modo che l'estensione di backup può comunicare con IP pubblico di Azure indirizzi per il traffico di backup. Nella tabella seguente sono riepilogati i metodi di accesso.
 
 
-**Opzione** | **Azione** | **Dettagli** 
---- | --- | --- 
+**Opzione** | **Azione** | **Dettagli**
+--- | --- | ---
 **Configurare le regole del gruppo di sicurezza di rete** | consentire gli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> Invece di consentire e la gestione di ogni intervallo di indirizzi, è possibile aggiungere una regola che consenta l'accesso al servizio Backup di Azure usando un [tag del servizio](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Altre informazioni](../virtual-network/security-overview.md#service-tags) sui tag di servizio.<br/><br/> Tag Services semplifica la gestione degli accessi e non incorrere in costi aggiuntivi.
 **Distribuire un proxy** | Distribuire un server proxy HTTP per eseguire il routing del traffico | Possibilità di accesso a tutto l'ambiente Azure, non solo al servizio di archiviazione.<br/><br/> Possibilità di controllo granulare sugli URL di archiviazione.<br/><br/> Singolo punto di accesso Internet per le macchine virtuali.<br/><br/> Costi aggiuntivi per il proxy.
 **Configurare il Firewall di Azure** | Consentire il traffico attraverso Firewall di Azure nella macchina virtuale usando un tag FQDN per il servizio Backup di Azure | Semplice da usare se si dispone di Firewall di Azure consente di impostare una subnet di rete virtuale.<br/><br/> È possibile creare il proprio tag del nome di dominio completo o modificare gli FQDN in un tag.<br/><br/> Se le macchine virtuali di Azure dispone di dischi gestiti, si potrebbe essere necessario aprire un ulteriore porting (8443) nei firewall.
@@ -200,7 +228,7 @@ Se un gruppo di sicurezza consente di gestire l'accesso alle macchine Virtuali, 
     - Macchina virtuale gestita: 8443
 7. In **Protocollo** selezionare **TCP**.
 8. In **Priorità** specificare un valore di priorità inferiore a tutte le regole di negazione di livello superiore.
-   
+
    Se si dispone di una regola che neghi l'accesso, il nuovo Consenti regola deve essere superiore. Se ad esempio la priorità di una regola **Deny_All** è impostata su 1000, la nuova regola deve essere impostata su un valore minore di 1000.
 9. Specificare un nome e una descrizione per la regola e selezionare **OK**.
 
@@ -254,7 +282,7 @@ Consentire le connessioni in ingresso nelle impostazioni del proxy.
    - Impostare il tipo su **TCP**.
    - Impostare **porte locali** al **porte specifiche**.
    - Impostare **porta remota** al **tutte le porte**.
-  
+
 6. Completare la procedura guidata e specificare un nome per la regola.
 
 ###### <a name="add-an-exception-rule-to-the-nsg-for-the-proxy"></a>Aggiungere una regola al gruppo di sicurezza di rete per il proxy
@@ -282,4 +310,3 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 
 - Risolvere eventuali problemi relativi [Azure VM agents](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) oppure [backup delle macchine Virtuali di Azure](backup-azure-vms-troubleshoot.md).
 - [Ripristinare](backup-azure-arm-restore-vms.md) macchine virtuali di Azure.
-

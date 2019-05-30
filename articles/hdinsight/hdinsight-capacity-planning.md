@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 81be4d5809fe8a3f36f7364b15e19d0046a8b5cd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714003"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237148"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -104,9 +104,9 @@ Per identificare il problema in un cluster locale a singolo nodo, è possibile r
 
 Dopo aver determinato il tipo, la dimensione e la scalabilità della macchina virtuale del cluster di destinazione, è necessario verificare i limiti di capacità di quota della sottoscrizione. Quando si raggiunge un limite di quota, è possibile che non sia più consentito distribuire nuovi cluster o aumentare le istanze dei cluster esistenti aggiungendo più nodi di lavoro. L'unico limite di quota è la quota di core di CPU esistente a livello di area per ogni sottoscrizione. Ad esempio, la sottoscrizione può avere il limite di 30 core nell'area Stati Uniti orientali. Se è necessario richiedere un aumento della quota, eseguire questa procedura:
 
-1. Accedere al portale di Azure.
-1. Fare clic su **Guida e supporto tecnico** nell'angolo in basso a sinistra della pagina.
-1. Fare clic su **Nuova richiesta di supporto**.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Selezionare **Guida e supporto** sul lato inferiore sinistro della pagina.
+1. Selezionare sul **nuova richiesta di supporto**.
 1. Nella pagina **Nuova richiesta di supporto** selezionare le opzioni seguenti nella scheda **Informazioni di base**:
    - **Tipo di problema**: **Limiti del servizio e della sottoscrizione (quote)**
    - **Sottoscrizione**: la sottoscrizione che si vuole modificare
@@ -114,10 +114,10 @@ Dopo aver determinato il tipo, la dimensione e la scalabilità della macchina vi
     
      ![Creare una richiesta di supporto per aumentare la quota di core HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. Fare clic su **Avanti**.
-1. Nella pagina **Dettagli** immettere una descrizione del problema, selezionare la gravità del problema e selezionare la modalità di contatto preferita.
-1. Fare clic su **Avanti: Rivedi e crea**.
-1. Nella pagina **Rivedi e crea** fare clic su **Crea**.
+1. Selezionare **Avanti: Soluzioni >>** .
+1. Nel **dettagli** pagina, immettere una descrizione del problema, selezionare la gravità del problema, il metodo di contatto preferito e gli altri campi necessari.
+1. Selezionare **Avanti: Rivedi e crea >>** .
+1. Nel **revisione + Crea** scheda, seleziona **crea**.
 
 > [!NOTE]  
 > Se occorre aumentare la quota di core HDInsight in un'area privata, [inviare una richiesta di aggiunta all'elenco elementi consentiti](https://aka.ms/canaryintwhitelist).

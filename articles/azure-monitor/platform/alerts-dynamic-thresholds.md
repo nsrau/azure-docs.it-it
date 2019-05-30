@@ -5,17 +5,17 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3773a3e121c3b0162b83ea075601b7386228e4d5
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876203"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067609"
 ---
-# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Avvisi delle metriche con soglie dinamiche in Monitoraggio di Azure (anteprima pubblica)
+# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Avvisi delle metriche con soglie dinamiche in Monitoraggio di Azure
 
 La funzionalità Avviso metrica con rilevamento di soglie dinamiche sfrutta la tecnologia avanzata di Machine Learning (ML) per ottenere informazioni sul comportamento delle metriche nel tempo e identificare modelli e anomalie che indicano possibili problemi del servizio. Offre un'interfaccia utente semplice e supporto per operazioni su larga scala, consentendo agli utenti di configurare regole di avviso tramite l'API di Azure Resource Manager, in modo completamente automatico.
 
@@ -116,7 +116,7 @@ Di seguito sono illustrate le procedure consigliate per configurare gli avvisi p
 
 4. Dopo aver selezionato una risorsa di destinazione, fare clic su **Aggiungi condizione**.
 
-5. Selezionare **"Percentuale CPU"**.
+5. Selezionare **"Percentuale CPU"** .
 
 6. Se si vuole, ridefinire la metrica modificando i valori di **Periodo** e **Aggregazione**. Non è consigliabile usare il tipo di aggregazione "Massima" per questo tipo di metrica perché è meno rappresentativo del comportamento. Per il tipo di aggregazione "Massima" può essere più appropriata la soglia statica.
 
@@ -153,7 +153,7 @@ Di seguito sono illustrate le procedure consigliate per configurare gli avvisi p
 
 4. Dopo aver selezionato una risorsa di destinazione, fare clic su **Aggiungi condizione**.
 
-5. Selezionare il **"tempo di esecuzione delle richieste HTTP"**.
+5. Selezionare il **"tempo di esecuzione delle richieste HTTP"** .
 
 6. Se si vuole, ridefinire la metrica modificando i valori di **Periodo** e **Aggregazione**. Non è consigliabile usare il tipo di aggregazione "Massima" per questo tipo di metrica perché è meno rappresentativo del comportamento. Per il tipo di aggregazione "Massima" può essere più appropriata la soglia statica.
 

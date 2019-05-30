@@ -3,19 +3,19 @@ title: Come usare le chiamate API con un modello di Conversation Learner - Servi
 titleSuffix: Azure
 description: Informazioni su come usare le chiamate API con un modello di Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: aba3c2eb925370704ea52364891502a7a09cc9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: 1f7c7c72703d7c3134dd2acdcc466fc0182fa38a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60635734"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389949"
 ---
 # <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>Come aggiungere le chiamate API a un modello di Conversation Learner
 
@@ -46,7 +46,7 @@ Nell'interfaccia utente Web fare clic su "Import tutorials" (Importa esercitazio
 
 ![](../media/tutorial12_entities.PNG)
 
-### <a name="api-calls"></a>Chiamate API
+### <a name="api-calls"></a>CHIAMATE API
 Il codice per le chiamate API è definito in questo file: `C:\<installedpath>\src\demos\tutorialAPICalls.ts`.
 
 ![](../media/tutorial12_apicalls.PNG)

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/29/2019
 ms.author: juliako
-ms.openlocfilehash: 8f50188480b963d13460c79175ea6972d3e68f6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153071"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385153"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -36,7 +36,21 @@ Per altre informazioni, vedere [Materiale sussidiario sulla migrazione per aggio
 
 ## <a name="may-2019"></a>Maggio 2019
 
+### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS versione 4 e versioni successive supportano nella creazione dinamica dei pacchetti 
+
+Aggiunto HLS (versione 4 o versioni successive) supportano nella creazione dinamica dei pacchetti per le risorse che hanno più tracce audio con più linguaggi e i codec.
+
+Per altre informazioni, vedere [creazione dinamica dei pacchetti](dynamic-packaging-overview.md).
+
+### <a name="korea-regional-pair-is-open-for-media-services"></a>Coppia di aree Corea è aperta per servizi multimediali 
+
+Servizi multimediali è ora disponibili nelle aree Corea centrale e Corea meridionale. 
+
+Per altre informazioni, vedere [cloud e le aree in cui servizi multimediali v3 esiste](azure-clouds-regions.md).
+
 ### <a name="performance-improvements"></a>Miglioramenti delle prestazioni
+
+Aggiunta degli aggiornamenti che sono stati introdotti miglioramenti delle prestazioni di servizi multimediali.
 
 * Le dimensioni massime supportate per l'elaborazione è stata aggiornata. Vedere [quote e limitazioni](limits-quotas-constraints.md).
 * [Miglioramenti di velocità di codifica](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
@@ -52,7 +66,7 @@ Per altre informazioni, vedere [Materiale sussidiario sulla migrazione per aggio
 
 Creazione dinamica dei pacchetti ora supporta Atmos. Dolby Per altre informazioni, vedere [codec Audio supportati dalla creazione dinamica dei pacchetti](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
-È ora possibile specificare un elenco di filtri di asset o account, si applica anche per il localizzatore di Streaming. Per altre informazioni, vedere [associare filtri a localizzatore di Streaming](filters-concept.md#associate-filters-with-streaming-locator).
+È ora possibile specificare un elenco di filtri di asset o account, si applica anche per il localizzatore di Streaming. Per altre informazioni, vedere [associare filtri a localizzatore di Streaming](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Febbraio 2019
 
@@ -215,10 +229,10 @@ Le funzionalità seguenti sono disponibili in .NET SDK:
 
 * Durante l'invio di un processo, è possibile specificare di inserire un video di origine usando gli URL HTTPS, gli URL SAS o i percorsi ai file che si trovano nell'archivio Blob di Azure. Attualmente AMS v3 non supporta la codifica di trasferimenti in blocchi su URL HTTPS.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire commenti e suggerimenti, ottenere gli aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](media-services-overview.md)
+[Panoramica](media-services-overview.md)

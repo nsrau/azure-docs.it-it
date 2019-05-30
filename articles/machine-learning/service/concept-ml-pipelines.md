@@ -1,7 +1,7 @@
 ---
 title: 'Azure Pipelines: ottimizzazione dei flussi di lavoro di machine learning'
 titleSuffix: Azure Machine Learning service
-description: In questo articolo viene illustrata la pipeline di machine learning che è possibile compilare con SDK di Azure Machine Learning per Python e i vantaggi dell'uso di pipeline. Le pipeline di Machine Learning (ML) vengono usate dai data scientist per creare, ottimizzare e gestire i propri flussi di lavoro di Machine Learning.
+description: In questo articolo viene illustrata la pipeline di machine learning che è possibile compilare con SDK di Azure Machine Learning per Python e i vantaggi dell'uso di pipeline. Le pipeline di Machine learning (ML) vengono utilizzate dai data scientist per creare, ottimizzare e gestire i flussi di lavoro di apprendimento automatico.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff693ac34382ea5673989ecb6cbb38e19e176ad3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3e3fe64baca6e61c7eee214b84fd1ccdc88d3629
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65801072"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237812"
 ---
-# <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Creare pipeline di apprendimento automatico con il servizio Azure Machine Learning
+# <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>Creare pipeline di Machine Learning riutilizzabili nel servizio Azure Machine Learning
 
 In questo articolo viene illustrata la pipeline di apprendimento automatico che è possibile compilare con SDK di Azure Machine Learning per Python e i vantaggi dell'uso delle pipeline.
 
@@ -64,7 +64,7 @@ I vantaggi principali della creazione di pipeline per i flussi di lavoro di appr
 
 |Vantaggi principali|Descrizione|
 |:-------:|-----------|
-|**Esecuzione&nbsp;automatica**|Pianificare alcuni passaggi da eseguire in parallelo o in sequenza in modo affidabile e automatico. Dal momento che la preparazione e la modellazione dei dati può durare giorni o settimane, è ora possibile concentrarsi su altre attività mentre è in esecuzione la pipeline. |
+|**Esecuzione&nbsp;automatica**|Pianificare alcuni passaggi per eseguire in parallelo o in sequenza in modo affidabile e automatico. Dal momento che la preparazione e la modellazione dei dati può durare giorni o settimane, è ora possibile concentrarsi su altre attività mentre è in esecuzione la pipeline. |
 |**Risorse di calcolo miste e diverse**|Usare più pipeline che sono coordinate in modo affidabile tra le varie risorse di archiviazione e servizi di calcolo scalabili ed eterogenei. Passaggi di singole pipeline possono essere eseguiti su diverse destinazioni di calcolo, come HDInsight, GPU Data, Science VM e Databricks. Ciò rende efficiente l'uso delle opzioni di calcolo disponibili.|
 |**Riutilizzo**|Le pipeline possono essere impostate come modello per scenari specifici, come la ripetizione del training e assegnazione di punteggio batch. Attivarle da sistemi esterni attraverso semplici chiamate REST.|
 |**Rilevamento e controllo delle versioni**|Invece di tenere traccia manualmente dei dati e dei percorsi dei risultati durante l'iterazione, usare l'SDK delle pipeline per denominare esplicitamente e controllare la versione di origini dati, input e output. È anche possibile gestire gli script e i dati separatamente per una maggiore produttività.|

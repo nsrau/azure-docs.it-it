@@ -17,30 +17,30 @@ ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0d4586df23548854f4acbfefd32081a36906097
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: fd37366697a9c1f5019d2864e6d81a4dcd02e3a2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067910"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235484"
 ---
 # <a name="national-clouds"></a>Cloud nazionali
 
 I cloud nazionali sono isolate fisicamente le istanze di Azure. Queste aree di Azure sono progettate in modo da garantire il rispetto dei requisiti di residenza, sovranità e conformità dei dati all'interno dei confini geografici.
 
-Oltre al cloud globale, il servizio Azure Active Directory è distribuito nei cloud nazionali seguenti:  
+Tra cui il cloud globale, Azure Active Directory (Azure AD) viene distribuito nei cloud nazionali seguenti:  
 
-- Azure per enti pubblici statunitensi
+- Azure Government
 - Azure Germania
 - 21Vianet per Azure Cina
 
-I cloud nazionali sono ambienti univoci e diversi rispetto al cloud Azure globale. Quando si sviluppa un'applicazione per questi ambienti, è quindi importante tenere presenti alcune differenze fondamentali, ad esempio la registrazione delle applicazioni, l'acquisizione dei token e la configurazione degli endpoint.
+I cloud nazionali sono univoci e un ambiente distinto da Azure globale. È importante essere a conoscenza delle differenze principali durante lo sviluppo dell'applicazione per questi ambienti. Le differenze includono la registrazione delle applicazioni, l'acquisizione di token e la configurazione degli endpoint.
 
 ## <a name="app-registration-endpoints"></a>Endpoint di registrazione di app
 
-È un portale di Azure separato per ciascuno dei cloud nazionali. Per integrare le applicazioni con Microsoft Identity Platform in un cloud nazionale, è necessario registrare l'applicazione separatamente in ogni portale di Azure specifico per l'ambiente.
+È un portale di Azure separato per ciascuno dei cloud nazionali. Per integrare applicazioni con la piattaforma delle identità Microsoft in un cloud nazionale, ti viene richiesto di registrare l'applicazione separatamente ogni portale di Azure che è specifico per l'ambiente.
 
-La tabella seguente elenca gli URL di base per gli endpoint di Azure Active Directory (Azure AD) usati per registrare un'applicazione per ogni cloud nazionale.
+La tabella seguente elenca gli URL di base per gli endpoint di Azure AD usati per registrare un'applicazione per ogni cloud nazionali.
 
 | Cloud nazionale | Endpoint del portale di Azure AD |
 |----------------|--------------------------|
@@ -53,7 +53,7 @@ La tabella seguente elenca gli URL di base per gli endpoint di Azure Active Dire
 
 Tutti i cloud nazionali eseguono l'autenticazione degli utenti separatamente in ogni ambiente e hanno endpoint di autenticazione distinti.
 
-La tabella seguente elenca gli URL di base per gli endpoint di Azure Active Directory (Azure AD) usati per acquisire token per ogni cloud nazionale.
+La tabella seguente elenca gli URL di base per gli endpoint di Azure AD usati per acquisire i token per ogni cloud nazionali.
 
 | Cloud nazionale | Endpoint di autenticazione di Azure AD |
 |----------------|-------------------------|
@@ -62,24 +62,24 @@ La tabella seguente elenca gli URL di base per gli endpoint di Azure Active Dire
 | Azure AD Cina gestito da 21Vianet | `https://login.chinacloudapi.cn` |
 | Azure AD (servizio globale)| `https://login.microsoftonline.com` |
 
-- Le richieste agli endpoint di autorizzazione o token di Azure AD possono essere create usando l'URL di base specifico dell'area appropriato. Ad esempio, per Azure Germania:
+È possibile formare richieste per l'autorizzazione di Azure AD o gli endpoint di token usando l'URL di base specifico dell'area geografica appropriata. Ad esempio, per Azure Germania:
 
   - L'endpoint comune di autorizzazione è `https://login.microsoftonline.de/common/oauth2/authorize`.
   - L'endpoint comune di token è `https://login.microsoftonline.de/common/oauth2/token`.
 
-- Per le applicazioni a tenant singolo, sostituire common negli URL precedenti con l'ID o il nome del tenant, ad esempio `https://login.microsoftonline.de/contoso.com`.
+Per le applicazioni a tenant singolo, sostituire "common" nell'URL precedente con l'ID tenant o nome. Un esempio è `https://login.microsoftonline.de/contoso.com`.
 
 > [!NOTE]
-> Gli endpoint di token e [autorizzazione di Azure AD v2.0]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) sono disponibili solo per il servizio globale. Il supporto non è ancora disponibile per le distribuzioni cloud nazionali.
+> Il [autorizzazione di Azure AD v2.0]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) e gli endpoint di token sono disponibili solo per il servizio globale. Siano non tutti supportati per le distribuzioni di cloud nazionali.
 
 ## <a name="microsoft-graph-api"></a>API Microsoft Graph
 
-Per informazioni su come chiamare le API Microsoft Graph nell'ambiente cloud nazionale, vedere [Microsoft Graph nel cloud nazionale](https://developer.microsoft.com/graph/docs/concepts/deployments).
+Per informazioni su come chiamare le API Microsoft Graph in un ambiente cloud nazionale, passare a [Microsoft Graph in distribuzioni cloud nazionali](https://developer.microsoft.com/graph/docs/concepts/deployments).
 
 > [!IMPORTANT]
-> Alcuni servizi e funzionalità presenti in aree specifiche del servizio globale potrebbero non essere disponibili in tutti i cloud nazionali. Per scoprire quali servizi sono disponibili, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
+> Alcuni servizi e le funzionalità che si trovano in aree specifiche del servizio globale potrebbero non essere disponibili in tutti i cloud nazionali. Per scoprire quali servizi sono disponibili, passare a [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
-Seguire questo [esercitazione di Microsoft Authentication Library (MSAL)](msal-national-cloud.md) per imparare a compilare un'applicazione tramite la piattaforma delle identità Microsoft. In particolare, questa app verrà accesso di un utente, ottenere un token di accesso per chiamare l'API Microsoft Graph.
+Per informazioni su come compilare un'applicazione con la piattaforma delle identità Microsoft, seguire le [esercitazione di Microsoft Authentication Library (MSAL)](msal-national-cloud.md). In particolare, questa app sarà un utente di accedere e ottenere un token di accesso per chiamare l'API Microsoft Graph.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

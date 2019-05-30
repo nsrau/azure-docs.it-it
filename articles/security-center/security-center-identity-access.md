@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7cb8d494d32f2a9c192418bfab2d5ca9b679c5fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5517bb59d168ffa8d9339d9e765c385cef6db4ce
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704929"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389482"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorare identità e accesso nel Centro sicurezza di Azure (anteprima)
 Questo articolo illustra come usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso degli utenti.
+
+> [!NOTE]
+> La "visualizzazione *classico* Identity & Access" collegamento verrà ritirato il 31 luglio 2019. Fare clic su [qui](security-center-features-retirement-july2019.md#menu_classicidentity) per informazioni sui servizi alternativi.
 
 > [!NOTE]
 > La funzionalità di monitoraggio dell'identità e dell'accesso è disponibile in anteprima e solo per il livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
@@ -106,7 +109,7 @@ In **Sottoscrizioni** è presente un elenco di sottoscrizioni. La prima colonna 
 ## <a name="recommendations"></a>Consigli
 Usare la tabella seguente come riferimento per comprendere i consigli relativi a Identità e accesso disponibili e gli effetti che producono se si decide di metterli in pratica.
 
-|Tipo di risorsa|Punteggio di sicurezza|Recommendation|DESCRIZIONE|
+|Tipo di risorsa|Punteggio di sicurezza|Recommendation|Descrizione|
 |----|----|----|----|
 |Sottoscrizione|50|Abilitare MFA per gli account dell'app di gestione di Microsoft Azure con autorizzazioni di proprietario per la sottoscrizione|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di amministratore per impedire una violazione degli account o delle risorse.|
 |Sottoscrizione|50|Abilitare il Centro sicurezza le sottoscrizioni |Abilitare il Centro sicurezza in tutte le sottoscrizioni per il rilevamento delle minacce avanzato, JIT, l'inserimento delle applicazioni nell'elenco elementi consentiti e consigli avanzati |
@@ -115,8 +118,8 @@ Usare la tabella seguente come riferimento per comprendere i consigli relativi a
 |Sottoscrizione|30|Remove external accounts with owner permissions from your subscription (Rimuovere gli account esterni con autorizzazioni di proprietario dalla sottoscrizione)|Rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di proprietario in modo da evitare l'accesso non monitorato. |
 |Sottoscrizione|30|Abilitare MFA per gli account dell'app di gestione di Microsoft Azure con autorizzazioni di lettura per la sottoscrizione|Abilitare l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per tutti gli account della sottoscrizione con privilegi di lettura per impedire una violazione degli account o delle risorse.|
 |Sottoscrizione|25|Rimuovere gli account esterni con autorizzazioni di scrittura dalla sottoscrizione|Rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura in modo da evitare l'accesso non monitorato. |
-|Sottoscrizione|20|Rimuovere gli account deprecati con autorizzazioni di proprietario dalla sottoscrizione|Rimuovere gli account deprecati con autorizzazioni di proprietario dalle sottoscrizioni.|
-|Sottoscrizione|5|Rimuovere gli account deprecati dalla sottoscrizione|Rimuovere gli account deprecati dalle sottoscrizioni correnti per consentire l'accesso solo agli utenti connessi. |
+|Sottoscrizione|20|Rimuovere gli account deprecati con autorizzazioni di proprietario dalla sottoscrizione|Rimuovere gli account deprecati con autorizzazioni di proprietario dalle sottoscrizioni. Gli account deprecati sono gli account per cui accesso è stato bloccato in Azure AD.|
+|Sottoscrizione|5|Rimuovere gli account deprecati dalla sottoscrizione|Rimuovere gli account deprecati dalle sottoscrizioni correnti per consentire l'accesso solo agli utenti connessi. Gli account deprecati sono gli account per cui accesso è stato bloccato in Azure AD.|
 |Sottoscrizione|5|Designare più di un proprietario per la sottoscrizione|Designare più di un proprietario di sottoscrizione per assicurare la ridondanza dell'accesso amministratore.|
 |Sottoscrizione|5|Designare fino a 3 proprietari per la sottoscrizione|Designare meno di 3 proprietari di sottoscrizione in modo da ridurre la probabilità di violazione da parte di un proprietario compromesso.|
 |Insieme di credenziali delle chiavi|5|Abilitare i log di diagnostica nell'insieme di credenziali delle chiavi|Abilitare i log e conservarli fino a un anno. Questo consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. |

@@ -8,19 +8,19 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467926"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235815"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Creare flussi di lavoro con il connettore IoT Central in Microsoft Flow
 
 *Questo argomento è rivolto ai responsabili della compilazione e agli amministratori.*
 
 Usare Microsoft Flow per automatizzare i flussi di lavoro nelle molte applicazioni e i vari servizi di cui si servono gli utenti aziendali. Grazie al connettore IoT Central in Microsoft Flow è possibile attivare flussi di lavoro quando una regola viene attivata in IoT Central. In un flusso di lavoro attivato da IoT Central o qualsiasi altra applicazione, è possibile usare le azioni nel connettore IoT Central per:
-- Crea un dispositivo
+- Creare un dispositivo
 - Ottenere le informazioni sul dispositivo
 - Aggiornare le proprietà e le impostazioni di un dispositivo
 - Eseguire un comando in un dispositivo
@@ -41,7 +41,7 @@ Questa sezione illustra come attivare una notifica per dispositivi mobili nell'a
 
     ![Creare una nuova azione di Microsoft Flow](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. Verrà visualizzato un elenco di flussi di lavoro che possono accedere a e sono associati a questa regola IoT Central. Fare clic su **Esplora modelli** oppure **nuovo > Crea da modello** ed è possibile scegliere da uno qualsiasi dei modelli disponibili. 
+1. Verrà visualizzato un elenco dei flussi di lavoro che possono accedere a e sono associati a questa regola IoT Central. Fare clic su **Esplora modelli** oppure **nuovo > Crea da modello** ed è possibile scegliere da uno qualsiasi dei modelli disponibili. 
 
     ![Modelli disponibili di Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates1.png)
 

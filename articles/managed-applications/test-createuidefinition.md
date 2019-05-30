@@ -1,40 +1,58 @@
 ---
 title: Testare la definizione dell'interfaccia utente per le Applicazioni gestite di Azure | Microsoft Docs
 description: Descrizione di come testare l'esperienza utente per la creazione di applicazione gestita di Azure tramite il portale.
-services: managed-applications
-documentationcenter: na
 author: tfitzmac
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/22/2018
+ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: b1392c29881a9077e26baafc8972148800d03d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99ca319910be2cb20214172826eb40361abe72f0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746316"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257636"
 ---
-# <a name="test-azure-portal-interface-for-your-managed-application"></a>Testare l'interfaccia del portale di Azure per l'applicazione gestita
-Dopo la [Creazione del file createuidefinition.json](create-uidefinition-overview.md) per l'applicazione gestita di Azure, è necessario testare l'esperienza dell'utente. Per semplificare il test, usare uno script che consente di caricare il file nel portale. Non è necessario distribuire l'applicazione gestita.
+# <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testare l'interfaccia del portale per le applicazioni gestite di Azure
+
+Dopo aver [creando il file createuidefinition. JSON](create-uidefinition-overview.md) per l'applicazione gestita, è necessario testare l'esperienza dell'utente. Per semplificare il test, usare un ambiente sandbox che carica il file nel portale. Non è necessario distribuire l'applicazione gestita. La sandbox viene visualizzata l'interfaccia utente nell'esperienza del portale corrente e a schermo intero. In alternativa, è possibile usare uno script di PowerShell per il test dell'interfaccia, ma usa una vista precedente del portale. Entrambi gli approcci sono illustrati in questo argomento. La sandbox è il modo consigliato per visualizzare l'anteprima dell'interfaccia.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un file **createUiDefinition.json**. Se non si dispone di questo file, copiare il [file di esempio](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) e salvarlo in locale.
+* Un file **createUiDefinition.json**. Se non si dispone di questo file, copiare il [file di esempio](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="download-test-script"></a>Scaricare gli script di test
+## <a name="use-sandbox"></a>Usare sandbox
+
+1. Aprire il [Sandbox di definizione dell'interfaccia utente di creare](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade).
+
+   ![Sandbox Show](./media/test-createuidefinition/show-sandbox.png)
+
+1. Sostituire la definizione vuota con il contenuto del file createuidefinition. JSON. Selezionare **Preview**.
+
+   ![Selezionare l'anteprima](./media/test-createuidefinition/select-preview.png)
+
+1. Viene visualizzato il modulo che è stato creato. È possibile esaminare l'esperienza utente e immettere i valori.
+
+   ![Visualizzazione del form](./media/test-createuidefinition/show-ui-form.png)
+
+### <a name="troubleshooting"></a>risoluzione dei problemi
+
+Se il modulo non viene visualizzato dopo aver selezionato **Preview**, potrebbe essere un errore di sintassi. Cercare l'indicatore rosso nella barra di scorrimento a destra e spostarsi su di esso.
+
+![Mostra errore di sintassi](./media/test-createuidefinition/show-syntax-error.png)
+
+Se non viene visualizzato il form e invece viene visualizzata un'icona di un cloud con il rilascio di disinstallazione, il form contenga un errore, ad esempio una proprietà mancante. Aprire gli strumenti di sviluppo Web nel browser. La **Console** consente di visualizzare i messaggi importanti relativi all'interfaccia.
+
+![Mostrare l'errore](./media/test-createuidefinition/show-error.png)
+
+## <a name="use-test-script"></a>Usare lo script di test
 
 Per testare l'interfaccia nel portale, copiare uno dei seguenti script nel computer locale:
 
 * [Script di PowerShell sideload](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
 * [Script dell'interfaccia della riga di comando di Azure sideload](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
-
-## <a name="run-script"></a>Eseguire lo script
 
 Per visualizzare il file di interfaccia nel portale, eseguire lo script scaricato. Lo script crea un account di archiviazione nella sottoscrizione di Azure e carica il file createuidefinition.json nell'account di archiviazione. L'account di archiviazione viene creato la prima volta che si esegue lo script o se è stato eliminato. Se l'account di archiviazione esiste già nella sottoscrizione di Azure, lo script lo riutilizza. Lo script apre il portale e carica il file dall'account di archiviazione.
 
@@ -70,19 +88,9 @@ Per l'interfaccia della riga di comando di Azure usare:
 ./sideload-createuidef.sh
 ```
 
-## <a name="test-your-interface"></a>Testare l'interfaccia
-
 Lo script apre una nuova scheda nel browser. Viene visualizzato il portale con l'interfaccia per la creazione dell'applicazione gestita.
 
 ![Visualizzare il portale](./media/test-createuidefinition/view-portal.png)
-
-Prima di compilare i campi, aprire gli Strumenti di sviluppo Web nel browser. La **Console** consente di visualizzare i messaggi importanti relativi all'interfaccia.
-
-![Selezionare la console](./media/test-createuidefinition/select-console.png)
-
-Se la definizione dell'interfaccia presenta un errore, la console ne mostra la descrizione.
-
-![Mostrare l'errore](./media/test-createuidefinition/show-error.png)
 
 Specificare i valori per il campo. Al termine, vengono visualizzati i valori trasmessi al modello.
 
@@ -90,15 +98,7 @@ Specificare i valori per il campo. Al termine, vengono visualizzati i valori tra
 
 È possibile usare questi valori come il file dei parametri per eseguire il test del modello di distribuzione.
 
-## <a name="troubleshooting-the-interface"></a>Risoluzione dei problemi dell'interfaccia
-
-Alcuni errori comuni che potrebbero essere visualizzati sono:
-
-* Il portale non carica l'interfaccia. Visualizza invece un'icona di una nuvola con una goccia. In genere, questa icona viene visualizzata quando si verifica un errore di sintassi nel file. Aprire il file in Visual Studio Code (o in un altro editor JSON con convalida dello schema) e ricercare gli errori di sintassi.
-
-* Il portale si blocca sulla schermata di riepilogo. In genere, questa interruzione si verifica quando è presente un bug nella sezione di output. Ad esempio, è stato fatto riferimento a un controllo che non esiste.
-
-* Un parametro di output è vuoto. Il parametro potrebbe fare riferimento a una proprietà che non esiste. Ad esempio, il riferimento al controllo è valido ma il riferimento alla proprietà non è valido.
+Se il portale si blocca nella schermata di riepilogo, potrebbe esserci un bug nella sezione di output. Ad esempio, è stato fatto riferimento a un controllo che non esiste. Se un parametro di output è vuoto, il parametro potrebbe essere che fanno riferimento a una proprietà che non esiste. Ad esempio, il riferimento al controllo è valido ma il riferimento alla proprietà non è valido.
 
 ## <a name="test-your-solution-files"></a>Testare il file della soluzione
 

@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485415"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234134"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
 
@@ -228,7 +228,7 @@ La sicurezza a livello di riga viene implementata in Transact-SQL: una funzione 
     - Un predicato di BLOCCO impedisce l'inserimento e l'aggiornamento delle righe che non soddisfano le condizioni del filtro.
     - Se SESSION\_CONTEXT non è stato impostato, verrà restituito NULL e non sarà possibile vedere o inserire alcuna riga.
 
-Per abilitare la sicurezza a livello di riga su tutte le partizioni, eseguire l'istruzione T-SQL seguente usando Visual Studio (SSDT), SSMS o lo script di PowerShell incluso nel progetto. Se si usano [processi di database elastici](sql-database-elastic-jobs-overview.md), è possibile automatizzare l'esecuzione di questa istruzione T-SQL in tutte le partizioni.
+Per abilitare la sicurezza a livello di riga su tutte le partizioni, eseguire l'istruzione T-SQL seguente usando Visual Studio (SSDT), SSMS o lo script di PowerShell incluso nel progetto. Se si usano [processi di database elastici](elastic-jobs-overview.md), è possibile automatizzare l'esecuzione di questa istruzione T-SQL in tutte le partizioni.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.

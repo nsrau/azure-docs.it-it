@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b3b3b019df70b6c27833afdd0447ecf32da32ff
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821863"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305002"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
 In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il *ripristino di emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
 
-La funzionalità di ripristino di emergenza geografico è disponibile a livello globale per lo SKU Standard di Hub eventi.
+La funzionalità di ripristino di emergenza geografico è disponibile a livello globale per Standard di hub eventi e lo SKU dedicato. Si noti che è possibile solo spazi dei nomi di associazione geografica attraverso lo stesso livello di SKU. Ad esempio, se si dispone di uno spazio dei nomi in un cluster di cui è disponibile solo nello SKU nostro dedicato, si può solo essere abbinato a uno spazio dei nomi in un altro cluster. 
 
 ## <a name="outages-and-disasters"></a>Emergenze e interruzioni
 

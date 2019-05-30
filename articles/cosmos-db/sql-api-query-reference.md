@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 186e0365ae8aee3b7f92fcc06142e4d0496ffd08
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 70de178df86a4b202298eda63b0f59cb7bc96281
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415448"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237825"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Informazioni di riferimento sul linguaggio SQL per Azure Cosmos DB 
 
@@ -3159,7 +3159,7 @@ GetCurrentDateTime ()
   |AAAA|anno a quattro cifre|
   |MM|mese a due cifre (01 = gennaio, ecc.)|
   |GG|giorno a due cifre del mese (da 01 a 31)|
-  |M|signifier per inizio degli elementi temporali|
+  |T|signifier per inizio degli elementi temporali|
   |hh|ora a 2 cifre (da 00 a 23)|
   |MM|minuti a due cifre (da 00 a 59)|
   |ss|secondi a due cifre (da 00 a 59)|

@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 7a4153dd382a901db21752dd3d55a01803431791
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306564"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388677"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi di riconoscimento vocale
 
-I contenitori di riconoscimento vocale consentono ai clienti di compilare un'architettura delle applicazioni vocale che è ottimizzata per sfruttare i vantaggi di funzionalità del cloud affidabile e la località di edge. I contenitori di riconoscimento due vocale Supportiamo ora siano **per il riconoscimento vocale** e **sintesi vocale**. 
+I contenitori di riconoscimento vocale consentono ai clienti di compilare un'architettura delle applicazioni vocale che è ottimizzata per sfruttare i vantaggi di funzionalità del cloud affidabile e la località di edge. 
 
 I contenitori di riconoscimento due vocale siano **per il riconoscimento vocale** e **sintesi vocale**. 
 
 |Funzione|Funzionalità|Più recente|
 |-|-|--|
-|Riconoscimento vocale| <li>Esegue la trascrizione del parlato continuo in tempo reale in testo.<li>Consente di eseguire trascrizioni batch da registrazioni audio. <li>Supporta risultati intermedi, rilevamento della fine del parlato, formattazione automatica del testo e maschera per il contenuto volgare. <li>Può chiamare [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) per derivare la finalità dell'utente dal parlato trascritto.\*|1.1.1|
-|Sintesi vocale| <li>Converte il testo scritto in un audio che suona naturale. <li>Offre più sessi e/o lingue regionali per numerose lingue supportate. <li>Supporta l'input di testo normale o il linguaggio SSML (Speech Synthesis Markup Language). |1.1.0|
+|Riconoscimento vocale| <li>Trascrive continua in tempo reale vocale o un batch registrazioni audio in testo con i risultati intermedi.|1.1.1|
+|Sintesi vocale| <li>Converte il testo scritto in un audio che suona naturale. con input di testo normale o linguaggio di Markup sintesi della voce (SSML). |1.1.0|
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -180,7 +180,7 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 
 **Durante l'anteprima**, le impostazioni di fatturazione devono essere valide per avviare il contenitore, ma non vengono fatturate per l'utilizzo.
 
-| Segnaposto | Value |
+| Placeholder | Value |
 |-------------|-------|
 |{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore e è disponibile nella pagina chiavi di sintesi vocale del portale di Azure.  |
 |{BILLING_ENDPOINT_URI} | Il valore URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica di sintesi vocale del portale di Azure.|

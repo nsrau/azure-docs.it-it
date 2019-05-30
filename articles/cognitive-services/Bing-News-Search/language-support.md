@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: e8a7f6d20ed36c4b3e900602fb52e31dceefae88
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799339"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384976"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Lingua e regioni supportate dall'API Ricerca notizie Bing
 
@@ -31,7 +31,7 @@ Per l'endpoint `/news/search`, la tabella seguente elenca i valori dei codici di
 
 Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
 
-|Paese/area geografica|Linguaggio|Codice di mercato|  
+|Paese/Area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------|
 |Danimarca|Danese|da-DK|
 |Austria|Tedesco|de-AT|
@@ -43,14 +43,14 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 |Indonesia|Inglese|en-ID|
 |Irlanda|Inglese|en-IE|
 |India|Inglese|en-IN|
-|Malesia|Inglese|en-MY|
+|Malaysia|Inglese|en-MY|
 |Nuova Zelanda|Inglese|en-NZ|
 |Filippine|Inglese|en-PH|
 |Singapore|Inglese|en-SG|
 |Stati Uniti|Inglese|en-US|
 |Inglese|generale|en-WW|
 |Inglese|generale|en-XA|
-|Sudafrica|Inglese|en-ZA|
+|Sud Africa|Inglese|en-ZA|
 |Argentina|Spagnolo|es-AR|
 |Cile|Spagnolo|es-CL|
 |Spagna|Spagnolo|es-ES|
@@ -64,7 +64,7 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 |Svizzera|Francese|fr-CH|
 |Francia|Francese|fr-FR|  
 |Italia|Italiano|it-IT|
-|Hong Kong - R.A.S.|Cinese tradizionale|zh-HK|  
+|RAS di Hong Kong|Cinese tradizionale|zh-HK|  
 |Taiwan|Cinese tradizionale|zh-TW|
 |Giappone|Giapponese|ja-JP|  
 |Corea del Sud|Coreano|ko-KR|  
@@ -80,7 +80,7 @@ Per l'endpoint `/news`, la tabella seguente elenca i valori dei codici di mercat
 
 Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
 
-|Paese/area geografica|Linguaggio|Codice di mercato|  
+|Paese/Area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------|
 |Danimarca|Danese|da-DK|
 |Germania|Tedesco|de-DE|
@@ -103,7 +103,7 @@ Per l'endpoint `/news/trendingtopics`, la tabella seguente elenca i valori dei c
 
 Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
 
-|Paese/area geografica|Linguaggio|Codice di mercato|  
+|Paese/Area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------|
 |Germania|Tedesco|de-DE|
 |Australia|Inglese|en-AU|
@@ -122,7 +122,7 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 
 I seguenti sono i codici di paese/area che è possibile specificare nel parametro di query `cc`. L'elenco è soggetto a variazioni.  
 
-|Paese/Area geografica|Indicativo paese|  
+|Paese/Area geografica|Codice paese|  
 |---------------------|------------------|  
 |Argentina|AR|  
 |Australia|AU|  
@@ -135,13 +135,13 @@ I seguenti sono i codici di paese/area che è possibile specificare nel parametr
 |Finlandia|FI|  
 |Francia|VF|  
 |Germania|DE|  
-|Hong Kong - R.A.S.|HK|  
+|RAS di Hong Kong|HK|  
 |India|IN|  
 |Indonesia|ID|  
-|Italia|it|  
+|Italia|IT|  
 |Giappone|JP|  
 |Corea del Sud|KR|  
-|Malesia|MY|  
+|Malaysia|MY|  
 |Messico|MX|  
 |Paesi Bassi|NL|  
 |Nuova Zelanda|NZ|  
@@ -152,7 +152,7 @@ I seguenti sono i codici di paese/area che è possibile specificare nel parametr
 |Filippine|PH|  
 |Russia|RU|  
 |Arabia Saudita|SA|  
-|Sudafrica|ZA|  
+|Sud Africa|ZA|  
 |Spagna|ES|  
 |Svezia|SE|  
 |Svizzera|CH|  
@@ -162,4 +162,4 @@ I seguenti sono i codici di paese/area che è possibile specificare nel parametr
 |Stati Uniti|Stati Uniti|
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sugli endpoint dell'API Ricerca notizie Bing, vedere [News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) (Informazioni di riferimento sull'API Ricerca notizie v7).
+Per altre informazioni sugli endpoint dell'API Ricerca notizie Bing, vedere [News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) (Informazioni di riferimento sull'API Ricerca notizie v7).

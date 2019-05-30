@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 897f2eef0a52838d6190cb85a6a7f4492250935b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809137"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244847"
 ---
 # <a name="logs-in-azure-monitor"></a>Log in Monitoraggio di Azure
 
@@ -76,23 +76,23 @@ Monitoraggio di Azure può raccogliere dati di logo da un'ampia gamma di origini
 
 ### <a name="azure-tenant-and-subscription"></a>Sottoscrizione e tenant di azure
 
-| Dati | DESCRIZIONE |
+| Dati | Descrizione |
 |:---|:---|
 | Log di controllo di Azure Active Directory | Configurato tramite le impostazioni di diagnostica per ogni directory. Visualizzare [log di integrazione di Azure AD con monitoraggio di Azure log](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
-| Log attività | Archiviati separatamente per impostazione predefinita e può essere usato per quasi in tempo reale gli avvisi. Installare una soluzione Analitica Log attività di scrittura all'area di lavoro di Log Analitica. Visualizzare [raccogliere e analizzare i log attività di Azure in Log Analitica](collect-activity-logs.md). |
+| Log attività | Archiviati separatamente per impostazione predefinita e può essere usato per quasi in tempo reale gli avvisi. Installare il log attività di scrittura all'area di lavoro di Log Analitica soluzione Analitica. Visualizzare [raccogliere e analizzare i log attività di Azure in Log Analitica](activity-log-collect.md). |
 
 ### <a name="azure-resources"></a>Risorse di Azure
 
-| Dati | DESCRIZIONE |
+| Dati | Descrizione |
 |:---|:---|
 | Diagnostica di risorsa | Configurare le impostazioni di diagnostica in cui scrivere i dati di diagnostica, incluse le metriche per un'area di lavoro di Log Analitica. Visualizzare [Stream log di diagnostica di Azure a Log Analitica](diagnostic-logs-stream-log-store.md). |
 | Soluzioni di monitoraggio | Soluzioni di monitoraggio scrivono i dati che raccolti da tali all'area di lavoro di Log Analitica. Visualizzare [informazioni dettagliate sulla raccolta dei dati per le soluzioni di gestione in Azure](../insights/solutions-inventory.md) per un elenco delle soluzioni. Visualizzare [monitoraggio delle soluzioni in Monitoraggio di Azure](../insights/solutions.md) per informazioni dettagliate sull'installazione e utilizzo di soluzioni. |
-| Metriche | Inviare le metriche di piattaforma per le risorse di monitoraggio di Azure a un'area di lavoro di Log Analitica per conservare i dati di log per periodi più lunghi ed eseguire analisi complesse con altri tipi di dati tramite il [linguaggio di query Kusto](/azure/kusto/query/). Visualizzare [Stream log di diagnostica di Azure a Log Analitica](diagnostic-logs-stream-log-store.md). |
+| metrics | Inviare le metriche di piattaforma per le risorse di monitoraggio di Azure a un'area di lavoro di Log Analitica per conservare i dati di log per periodi più lunghi ed eseguire analisi complesse con altri tipi di dati tramite il [linguaggio di query Kusto](/azure/kusto/query/). Visualizzare [Stream log di diagnostica di Azure a Log Analitica](diagnostic-logs-stream-log-store.md). |
 | Archiviazione tabelle di Azure | Raccogliere i dati da archiviazione di Azure in cui scrivere alcune risorse di Azure i dati di monitoraggio. Visualizzare [archiviazione blob di Azure di uso per l'archiviazione di tabelle di Azure e IIS per gli eventi con Log Analitica](azure-storage-iis-table.md). |
 
 ### <a name="virtual-machines"></a>Macchine virtuali
 
-| Dati | DESCRIZIONE |
+| Dati | Descrizione |
 |:---|:---|
 |  Origini dati degli agenti | Origini dei dati raccolti dai [Windows](agent-windows.md) e [Linux](../learn/quick-collect-linux-computer.md) gli agenti includono gli eventi, i dati sulle prestazioni e log personalizzati. Visualizzare [origini dati dell'agente in Monitoraggio di Azure](data-sources.md) per un elenco delle origini dati e informazioni dettagliate sulla configurazione. |
 | Soluzioni di monitoraggio | Soluzioni di monitoraggio scrivono i dati che raccolti dagli agenti all'area di lavoro di Log Analitica. Visualizzare [informazioni dettagliate sulla raccolta dei dati per le soluzioni di gestione in Azure](../insights/solutions-inventory.md) per un elenco delle soluzioni. Visualizzare [monitoraggio delle soluzioni in Monitoraggio di Azure](../insights/solutions.md) per informazioni dettagliate sull'installazione e utilizzo di soluzioni. |
@@ -101,7 +101,7 @@ Monitoraggio di Azure può raccogliere dati di logo da un'ampia gamma di origini
 
 ### <a name="applications"></a>APPLICAZIONI
 
-| Dati | DESCRIZIONE |
+| Dati | Descrizione |
 |:---|:---|
 | Richieste ed eccezioni | Dati dettagliati sulle richieste di applicazioni e le eccezioni sono nel _richieste_, _pageViews_, e _eccezioni_ tabelle. Le chiamate a [componenti esterni](../app/asp-net-dependencies.md) nel _dipendenze_ tabella. |
 | Utilizzo e le prestazioni | Le prestazioni dell'applicazione sono disponibile nel _richieste_, _browserTimings_ e _performanceCounters_ tabelle. I dati per [metriche personalizzate](../app/api-custom-events-metrics.md#trackevent) è la _customMetrics_ tabella.|
@@ -110,21 +110,21 @@ Monitoraggio di Azure può raccogliere dati di logo da un'ampia gamma di origini
 
 ### <a name="insights"></a>Informazioni dettagliate
 
-| Dati | DESCRIZIONE |
+| Dati | Descrizione |
 |:---|:---|
 | Monitoraggio di Azure per contenitori | Dati di inventario e delle prestazioni raccolti da [monitoraggio di Azure per contenitori](../insights/container-insights-overview.md). Visualizzare [dettagli di raccolta dati contenitore](../insights/container-insights-log-search.md#container-records) per un elenco delle tabelle. |
 | Monitoraggio di Azure per le macchine virtuali | Dati della mappa e sulle prestazioni raccolti da [monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md). Visualizzare [come eseguire una query di log da monitoraggio di Azure per le macchine virtuali](../insights/vminsights-log-search.md) per informazioni dettagliate sull'esecuzione di query su questi dati. |
 
-### <a name="custom"></a>Personalizzate 
+### <a name="custom"></a>Personalizzato 
 
-| Dati | DESCRIZIONE |
+| Dati | Descrizione |
 |:---|:---|
 | API REST | Scrivere dati in un'area di lavoro di Log Analitica da qualsiasi client REST. Visualizzare [invio dati di log al monitoraggio di Azure con l'API dell'agente di raccolta dati HTTP](data-collector-api.md) per informazioni dettagliate.
 | App per la logica | Scrivere tutti i dati in un'area di lavoro di Log Analitica da un flusso di lavoro di App per la logica con il **agente di raccolta dati di Azure Log Analitica** azione. |
 
 ### <a name="security"></a>Security
 
-| Dati | DESCRIZIONE |
+| Dati | Descrizione |
 |:---|:---|
 | Centro sicurezza di Azure | [Centro sicurezza di Azure](/azure/security-center/) archivia i dati raccolti in un'area di lavoro di Log Analitica dove possono essere analizzati con gli altri dati di log. Visualizzare [la raccolta dei dati nel Centro sicurezza Azure](../../security-center/security-center-enable-data-collection.md) per informazioni dettagliate sulla configurazione dell'area di lavoro. |
 | Azure Sentinel | [Azure Sentinel](/azure/sentinel/) archivia i dati da origini dati in un'area di lavoro di Log Analitica. Visualizzare [connettere origini dati](/azure/sentinel/connect-data-sources).  |

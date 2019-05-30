@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3167f60cca9997c9713efad0fbb8a51b20def76b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: e57133a750e282484271261d8e4ddb9a12de2a0e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151169"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242418"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Come funziona il servizio Azure Machine Learning: Architettura e concetti
 
@@ -37,6 +37,7 @@ Il flusso di lavoro di machine learning in genere segue questa sequenza:
 Eseguire questi passaggi con una qualsiasi delle operazioni seguenti:
 + [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++ [Estensione di Azure Machine Learning Visual Studio Code](how-to-vscode-tools.md)
 +  Il [interfaccia visiva (anteprima) per il servizio di Azure Machine Learning](ui-concept-visual-interface.md)
 
 > [!NOTE]

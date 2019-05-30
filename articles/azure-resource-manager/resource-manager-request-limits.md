@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791367"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399709"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitazione delle richieste di Resource Manager
 
 Per ogni sottoscrizione e tenant di Azure, Resource Manager consente fino a 12.000 richieste di lettura per ora e 1.200 richieste di scrittura per ora. L'ambito di questi limiti è l'ID dell'entità di sicurezza che effettua le richieste e l'ID sottoscrizione o l'ID tenant. Se le richieste provengono da più di un ID dell'entità di sicurezza, il limite per la sottoscrizione o il tenant è superiore a 12.000 e 1.200 richieste per ora.
 
-Le richieste vengono applicate alla sottoscrizione o al tenant. Le richieste relative alla sottoscrizione sono quelle che comportano il passaggio dell'ID sottoscrizione, ad esempio il recupero dei gruppi di risorse nella sottoscrizione. Le richieste relative al tenant non includono l'ID sottoscrizione, ad esempio il recupero delle posizioni di Azure valide.
+Le richieste vengono applicate alla sottoscrizione o al tenant. Le richieste di sottoscrizione sono quelle che coinvolgono passando l'ID sottoscrizione, ad esempio il recupero di gruppi di risorse nella sottoscrizione. Le richieste relative al tenant non includono l'ID sottoscrizione, ad esempio il recupero delle posizioni di Azure valide.
 
 Questi limiti si applicano a ogni istanza di Azure Resource Manager. Sono presenti più istanze in ogni area di Azure e Azure Resource Manager viene distribuito a tutte le aree di Azure,  quindi nella pratica i limiti sono effettivamente molto superiori a questi, perché le richieste utente vengono in genere gestite da molte istanze diverse.
 

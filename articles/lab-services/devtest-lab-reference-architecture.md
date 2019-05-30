@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 73a3d426e9040525b0c631db273e59c49a6a9eb0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1bfd1b5b4b7febd98499e338fcb62e339867aef4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705875"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244724"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Architettura di riferimento di Azure DevTest Labs per le aziende
 Questo articolo illustra l'architettura di riferimento per la distribuzione di una soluzione basata su Azure DevTest Labs in un'organizzazione. Include quanto segue:
@@ -32,9 +32,9 @@ Questo articolo illustra l'architettura di riferimento per la distribuzione di u
 ## <a name="architecture"></a>Architettura
 Questi sono gli elementi principali dell'architettura di riferimento:
 
-- **Azure Active Directory (Azure AD)**: DevTest Labs Usa il [servizio di Azure AD per la gestione delle identità](../active-directory/fundamentals/active-directory-whatis.md). Quando si concede agli utenti l'accesso a un ambiente basato su DevTest Labs, tenere presente questi due aspetti principali:
+- **Azure Active Directory (Azure AD)** : DevTest Labs Usa il [servizio di Azure AD per la gestione delle identità](../active-directory/fundamentals/active-directory-whatis.md). Quando si concede agli utenti l'accesso a un ambiente basato su DevTest Labs, tenere presente questi due aspetti principali:
     - **Gestione delle risorse**: Fornisce l'accesso al portale di Azure per gestire le risorse (creazione di macchine virtuali; creare ambienti; avviare, arrestare, riavviare, eliminare e applica artefatti; e così via). Gestione delle risorse viene eseguita in Azure usando il controllo di accesso basato sui ruoli (RBAC). Assegnare ruoli agli utenti e impostare le autorizzazioni a livello di accesso e risorse.
-    - **Le macchine virtuali (a livello di rete)**: Nella configurazione predefinita, le macchine virtuali usare un account amministratore locale. Se è disponibile un dominio ([Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md), un dominio locale o un dominio e basato sul cloud), le macchine possono essere aggiunte al dominio. Gli utenti possono quindi usare le proprie identità basati su dominio per la connessione alle macchine virtuali.
+    - **Le macchine virtuali (a livello di rete)** : Nella configurazione predefinita, le macchine virtuali usare un account amministratore locale. Se è disponibile un dominio ([Azure Active Directory Domain Services](../active-directory-domain-services/overview.md), un dominio locale o un dominio e basato sul cloud), le macchine possono essere aggiunte al dominio. Gli utenti possono quindi usare le proprie identità basati su dominio per la connessione alle macchine virtuali.
 - **Connettività locale**: Nel nostro Diagramma architettura [ExpressRoute](../expressroute/expressroute-introduction.md) viene usato. Ma è anche possibile usare una [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md). Anche se ExpressRoute non è necessaria per DevTest Labs, viene usato comunemente nelle aziende. ExpressRoute è obbligatorio solo se è necessario l'accesso alle risorse aziendali. Scenari comuni sono:
     - Sono presenti dati in locale che non possono essere spostati nel cloud.
     - Si vuole aggiungere le macchine virtuali del lab al dominio locale.
@@ -45,13 +45,13 @@ Questi sono gli elementi principali dell'architettura di riferimento:
   - [Indirizzare tutto il traffico RDP in ingresso](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) tramite la connessione VPN ExpressRoute/site-to-site. Questa funzionalità è un fattore comune quando le aziende piano una distribuzione con DevTest Labs.
 - **Servizi (reti virtuali, subnet) di rete**: Il [la rete di Azure](../networking/networking-overview.md) topologia è un altro elemento chiave nell'architettura di DevTest Labs. Controlla se le risorse da lab possono comunicare e avere accesso a internet e in locale. Il diagramma dell'architettura include i modi più comuni che i clienti usano DevTest Labs: Tutti i laboratori si connettono tramite [peering reti virtuali](../virtual-network/virtual-network-peering-overview.md) con un [modello hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) alla connessione ExpressRoute/sito a sito VPN da sito locale. Ma la rete virtuale di Azure DevTest Labs Usa direttamente, in modo che non siano presenti restrizioni di come è configurato l'infrastruttura di rete.
 - **DevTest Labs**:  DevTest Labs è un elemento fondamentale dell'architettura complessiva. Per altre informazioni sul servizio, vedere [su DevTest Labs](devtest-lab-overview.md).
-- **Le macchine virtuali e altre risorse (SaaS, PaaS, IaaS)**:  Le macchine virtuali sono un carico di lavoro principale DevTest Labs supporta con altre risorse di Azure. DevTest Labs consente facile e veloce per un'azienda fornire l'accesso alle risorse di Azure (incluse macchine virtuali e altre risorse di Azure). Altre informazioni sull'accesso ad Azure per [sviluppatori](devtest-lab-developer-lab.md) e [tester](devtest-lab-test-env.md).
+- **Le macchine virtuali e altre risorse (SaaS, PaaS, IaaS)** :  Le macchine virtuali sono un carico di lavoro principale DevTest Labs supporta con altre risorse di Azure. DevTest Labs consente facile e veloce per un'azienda fornire l'accesso alle risorse di Azure (incluse macchine virtuali e altre risorse di Azure). Altre informazioni sull'accesso ad Azure per [sviluppatori](devtest-lab-developer-lab.md) e [tester](devtest-lab-test-env.md).
 
 ## <a name="scalability-considerations"></a>Considerazioni sulla scalabilità
 Sebbene DevTest Labs non dispone di quote predefinite o i limiti, si dispongono di altre risorse di Azure che vengono usate nell'operazione tipica di un lab [le quote a livello di sottoscrizione](../azure-subscription-service-limits.md). Pertanto, in una distribuzione aziendale tipica, è necessario più sottoscrizioni di Azure per coprire una distribuzione di grandi dimensioni di DevTest Labs. Le quote di aziende di raggiungere più di frequente sono:
 
 - **Gruppi di risorse**: Nella configurazione predefinita, DevTest Labs consente di creare un gruppo di risorse per ogni nuova macchina virtuale o l'utente crea un ambiente con il servizio. Le sottoscrizioni possono contenere [980 fino a gruppi di risorse](../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). Pertanto, questo è il limite di ambienti in una sottoscrizione e le macchine virtuali. Esistono due altre configurazioni che è opportuno considerare:
-    - **[Tutte le macchine virtuali passare allo stesso gruppo di risorse](resource-group-control.md)**: Anche se questa configurazione consente di rispettare il limite del gruppo di risorse, riguarda il limite di risorse-tipo-per-resource-group.
+    - **[Tutte le macchine virtuali passare allo stesso gruppo di risorse](resource-group-control.md)** : Anche se questa configurazione consente di rispettare il limite del gruppo di risorse, riguarda il limite di risorse-tipo-per-resource-group.
     - **Utilizzare condivisi gli indirizzi IP pubblici**: Tutte le macchine virtuali della stessa dimensione e area passare nello stesso gruppo di risorse. Questa configurazione è "intermedie" tra le quote di gruppo di risorse e le quote di risorse-tipo-per-resource-group, se le macchine virtuali possono avere indirizzi IP pubblici.
 - **Gruppo di risorse per ogni risorsa per ogni tipo di risorsa**: Il limite predefinito per [risorse per ogni gruppo di risorse per ogni tipo di risorsa è 800](../azure-subscription-service-limits.md#resource-group-limits).  Quando si usa la *tutte le macchine virtuali passare al gruppo di risorse stesso* configurazione, gli utenti hit questa sottoscrizione limitare molto presto, soprattutto se le macchine virtuali presenti molti dischi aggiuntivi.
 - **Account di archiviazione**: Viene fornito un lab in DevTest Labs con un account di archiviazione. La quota di Azure per [numero di account di archiviazione per area per sottoscrizione è 250](../azure-subscription-service-limits.md#storage-limits). Inoltre, il numero massimo di DevTest Labs nella stessa area è 250.

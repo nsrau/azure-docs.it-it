@@ -3,19 +3,19 @@ title: Restituire le N migliori traduzioni - API Traduzione testuale
 titlesuffix: Azure Cognitive Services
 description: Restituire le N migliori traduzioni con l'API Traduzione testuale Microsoft.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: 62992122dc16003078bb80ecd87c2bd3692586dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-pawal
+ms.openlocfilehash: 27138fc82515983bb07df845e1204fe04dff915a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610580"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389663"
 ---
 # <a name="how-to-return-n-best-translations"></a>Procedura per restituire le N migliori traduzioni
 
@@ -35,14 +35,14 @@ La firma è:
 
 **Parameters**
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | text | **Obbligatorio** Una stringa che rappresenta il testo da tradurre. Le dimensioni del testo non devono superare 10.000 caratteri.|
 | from | **Obbligatorio** Una stringa che rappresenta il codice di lingua del testo da tradurre. |
 | to | **Obbligatorio** Una stringa che rappresenta il codice di lingua in cui tradurre il testo. |
 | maxTranslations | **Obbligatorio** Int che rappresenta il numero massimo di traduzioni da restituire. |
-| opzioni | **Facoltativo** Un oggetto TranslateOptions che contiene i valori elencati di seguito. Sono tutti facoltativi e con le impostazioni predefinite più comuni.
+| options | **Facoltativo** Un oggetto TranslateOptions che contiene i valori elencati di seguito. Sono tutti facoltativi e con le impostazioni predefinite più comuni.
 
 * Categoria: l'unica opzione supportata e impostazione predefinita è "general".
 * ContentType: l'unica opzione supportata e l'impostazione predefinita è "text/plain".

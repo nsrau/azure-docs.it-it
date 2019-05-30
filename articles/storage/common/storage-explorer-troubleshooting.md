@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 6ada4a25f24a6dcbb1ebd54daad15b37127f7a21
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 980dc850537b7419e4ee48391acd5ba971fb3fed
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154200"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306723"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di archiviazione di Azure Explorer
 
@@ -30,11 +30,11 @@ Se si verificano problemi di accesso alle risorse di archiviazione tramite RBAC,
 
 Se si è certi che si dispone di autorizzazioni o ruoli appropriati, contattare l'amministratore account Azure.
 
-#### <a name="read-listget-storage-accounts"></a>Lettura: Elenca/ottiene gli account di archiviazione
+#### <a name="read-listget-storage-accounts"></a>Lettura: Elenca/Ottiene gli account di archiviazione
 
 È necessario disporre dell'autorizzazione per elencare gli account di archiviazione. È possibile ottenere questa autorizzazione con l'assegnazione al ruolo "Lettore".
 
-#### <a name="list-storage-account-keys"></a>Elenca chiavi dell'account di archiviazione
+#### <a name="list-storage-account-keys"></a>Elenco chiavi dell'Account di archiviazione
 
 Storage Explorer anche possibile usare le chiavi dell'account per autenticare le richieste. È possibile ottenere l'accesso alle chiavi con i ruoli più potenti, ad esempio il ruolo "Collaboratore".
 
@@ -66,7 +66,7 @@ Non abbiamo ancora una soluzione di RBAC in questo momento. In alternativa, è p
 Gli errori di certificato sono causati da una delle due situazioni seguenti:
 
 1. L'app è connessa tramite un "proxy trasparente": questo significa che un server (ad esempio, un server aziendale) intercetta il traffico HTTPS, ne esegue la decrittografia e la crittografia con un certificato autofirmato.
-2. Viene eseguita un'applicazione che inserisce un certificato SSL autofirmato nei messaggi HTTPS ricevuti. Esempi di applicazioni che inseriscono certificati includono il software antivirus e per l'ispezione del traffico di rete.
+2. Si sta eseguendo un'applicazione che inserisce un certificato SSL autofirmato nei messaggi HTTPS ricevuti. Esempi di applicazioni che inseriscono certificati includono il software antivirus e per l'ispezione del traffico di rete.
 
 In presenza di un certificato autofirmato o non attendibile, Storage Explorer non riesce più a stabilire se il messaggio HTTPS ricevuto è stato modificato. Se è disponibile una copia del certificato autofirmato, è possibile fare in modo che Storage Explorer lo consideri attendibile seguendo questa procedura:
 
@@ -75,26 +75,26 @@ In presenza di un certificato autofirmato o non attendibile, Storage Explorer no
 
 Il problema potrebbe anche essere il risultato di più certificati (radice e intermedi). Per risolvere l'errore, è necessario aggiungere entrambi i certificati.
 
-In caso di dubbi sulla provenienza del certificato, è possibile provare questa procedura:
+Se è certi di provenienza del certificato, è possibile provare questi passaggi per trovarlo:
 
 1. Installare Open SSL
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html), una delle versioni light dovrebbe essere sufficiente
     * Mac e Linux: devono essere inclusi nel sistema operativo
 2. Eseguire Open SSL
-    * Windows: aprire la directory di installazione, fare clic su **/bin/**, quindi fare doppio clic su **openssl.exe**.
+    * Windows: aprire la directory di installazione, fare clic su **/bin/** , quindi fare doppio clic su **openssl.exe**.
     * Mac e Linux: eseguire **openssl** da un terminale.
 3. Eseguire `s_client -showcerts -connect microsoft.com:443`
-4. Cercare i certificati autofirmati. Se si è certi di quali certificati sono autofirmati, verificare ovunque che l'oggetto `("s:")` e l'autorità emittente `("i:")` sono uguali.
+4. Cercare i certificati autofirmati. Se è certi di quali certificati sono autofirmati, verificare ovunque che l'oggetto `("s:")` e l'autorità emittente `("i:")` sono uguali.
 5. Dopo aver trovato i certificati autofirmati, per ognuno di essi, copiare e incollare tutto da e includendo **-----BEGIN CERTIFICATE-----** a **-----END CERTIFICATE-----** in un nuovo file con estensione CER.
 6. Aprire Storage Explorer, fare clic su **Modifica** > **Certificati SSL** > **Importa certificati**, quindi usare la selezione file per trovare, selezionare e aprire i file con estensione CER creati.
 
-Se non è possibile trovare alcun certificato autofirmato seguendo i passaggi precedenti, contattare Microsoft tramite lo strumento di feedback per ricevere assistenza. In alternativa, è possibile scegliere di avviare Storage Explorer dalla riga di comando con il flag `--ignore-certificate-errors`. Quando viene avviato con questo flag, Storage Explorer ignorerà gli errori del certificato.
+Se non è possibile trovare alcun certificato autofirmato seguendo i passaggi precedenti, contattare Microsoft tramite lo strumento di feedback per ricevere assistenza. È anche possibile scegliere di avviare Storage Explorer dalla riga di comando con il `--ignore-certificate-errors` flag. Quando viene avviato con questo flag, Storage Explorer ignorerà gli errori del certificato.
 
 ## <a name="sign-in-issues"></a>Problemi di accesso
 
 ### <a name="blank-sign-in-dialog"></a>Finestra di accesso vuota
 
-Vuoti Accedi le finestre di dialogo sono spesso causati da ad FS che chiede di Storage Explorer per eseguire un reindirizzamento, che non è supportato da Electron. Per aggirare questo problema, è possibile provare a usare il flusso del codice del dispositivo per l'accesso. A questo scopo, seguire questa procedura:
+Vuoti Accedi le finestre di dialogo sono spesso causati da ad FS che chiede di Storage Explorer per eseguire un reindirizzamento, che non è supportato da Electron. Per risolvere questo problema, è possibile tentare di utilizzare flusso del codice di dispositivo per l'accesso. A questo scopo, seguire questa procedura:
 
 1. Menu di scelta: Anteprima -> "Usa dispositivi codice Accedi".
 2. Aprire la finestra di dialogo della connessione (tramite l'icona a forma di spina sulla barra verticale a sinistra o facendo clic su "Aggiungi account" nel pannello dell'account).
@@ -109,15 +109,15 @@ Se ci si ritrova di problemi di accesso all'account di cui che si desidera utili
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Ciclo di riautenticazione o modifica UPN
 
-Se ci si trova in un ciclo di riautenticazione, o se l'UPN di uno degli account è stato modificato, procedere come segue:
+Se si è in un ciclo di riautenticazione o è stati modificati l'UPN di uno degli account, provare i passaggi seguenti:
 
 1. Rimuovere tutti gli account e quindi chiudere Storage Explorer
 2. Eliminare la cartella .IdentityService dal computer. In Windows, la cartella si trova in `C:\users\<username>\AppData\Local`. Per Mac e Linux, è possibile trovare la cartella nella radice della directory dell'utente.
-3. Se si usa Mac o Linux, è necessario anche eliminare la voce Microsoft.Developer.IdentityService dall'archivio chiavi dei sistemi operativi. Su Mac, l'archivio chiavi è l'applicazione "Gnome Keychain". Per Linux, l'applicazione viene in genere chiamata "Keyring", ma il nome può variare a seconda della distribuzione.
+3. Se si usa Mac o Linux, è necessario anche eliminare la voce Microsoft.Developer.IdentityService dall'archivio chiavi di sistemi operativi. Su Mac, l'archivio chiavi è l'applicazione "Gnome Keychain". Per Linux, l'applicazione viene in genere chiamata "Keyring", ma il nome può variare a seconda della distribuzione.
 
 ### <a name="conditional-access"></a>Accesso condizionale
 
-L'accesso condizionale non è supportato quando Storage Explorer è in uso in Windows 10, Linux o macOS. Ciò è dovuto a una limitazione della libreria di AAD usata da Storage Explorer.
+Accesso condizionale non è supportata quando Storage Explorer viene utilizzato in Windows 10, Linux o macOS. Ciò è dovuto a una limitazione della libreria di AAD usata da Storage Explorer.
 
 ## <a name="mac-keychain-errors"></a>Errori di Keychain su Mac
 
@@ -131,7 +131,7 @@ Il Keychain macOS può talvolta andare in uno stato che causa problemi alla libr
     ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
 5. Avviare Azure Storage Explorer.
-6. Dovrebbe essere visualizzato un menu a comparsa per segnalare qualcosa come "L'hub di servizio vuole accedere al keychain". Quando si verifica, immettere la password dell'account amministratore Mac e fare clic su **Consenti sempre** (o **Consenti** se **Consenti sempre** non è disponibile).
+6. Dovrebbe essere visualizzato un menu a comparsa per segnalare qualcosa come "L'hub di servizio vuole accedere al keychain". Quando, immettere la password dell'account amministratore Mac e fare clic su **Consenti sempre** (o **Allow** se **Consenti sempre** non è disponibile).
 7. Provare a effettuare l'accesso.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi di accesso generale
@@ -140,23 +140,23 @@ Il Keychain macOS può talvolta andare in uno stato che causa problemi alla libr
 * Riavviare Storage Explorer
 * Se la finestra di autenticazione è vuota, attendere almeno un minuto prima di chiudere la finestra di dialogo di autenticazione.
 * Verificare che le impostazioni del proxy e dei certificati siano configurate correttamente per il computer e per Storage Explorer.
-* Se si trovano in Windows e hanno accesso a Visual Studio 2017 nello stesso computer e accedere, provare ad accedere a Visual Studio 2017. Dopo aver eseguito correttamente l'accesso a Visual Studio 2017, dovrebbe essere possibile aprire Storage Explorer e visualizzare l'account nel pannello account.
+* Se si usa Windows e hanno accesso a Visual Studio 2019 nella stessa macchina e di accesso, provare ad accedere a Visual Studio 2019. Dopo una corretta Accedi a Visual Studio 2019, è possibile aprire Storage Explorer e visualizza il tuo account nel Pannello di account.
 
 Se nessuno di questi metodi funziona [aprire un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ### <a name="missing-subscriptions-and-broken-tenants"></a>Sottoscrizioni mancanti e tenant interrotti
 
-Se non è possibile recuperare le sottoscrizioni dopo aver eseguito correttamente l'accesso, provare i metodi di risoluzione dei problemi seguenti:
+Se non si riesce a recuperare le sottoscrizioni dopo aver completato l'accesso, provare i metodi di risoluzione dei problemi seguenti:
 
-* Verificare che l'account abbia accesso alle sottoscrizioni previste. È possibile verificare l'accesso effettuando l'accesso al portale per l'ambiente di Azure che si sta tentando di usare.
-* Assicurarsi di aver effettuato l'accesso usando l'ambiente di Azure corretto, ad esempio Azure, Azure Cina 21Vianet, Azure Germania, Azure US Government o un ambiente personalizzato.
-* Se si è protetti da un proxy, assicurarsi che il proxy Storage Explorer sia stato configurato correttamente.
+* Verificare che l'account abbia accesso alle sottoscrizioni previste. È possibile verificare l'accesso effettuando l'accesso al portale per l'ambiente di Azure che si sta provando a usare.
+* Assicurarsi di aver effettuato l'accesso tramite Azure corretto ambiente (Azure, Azure Cina 21Vianet, Azure Germania, Azure US Government o ambiente personalizzato).
+* Se si è protetti da un proxy, assicurarsi di aver configurato correttamente il proxy Storage Explorer.
 * Provare a rimuovere e a aggiungere nuovamente l'account.
-* Se è presente un collegamento "Altre informazioni", esaminare e vedere quali messaggi di errore sono stati segnalati per i tenant con esito negativo. Se non si è certi su che cosa fare con i messaggi di errore visualizzati, è possibile [Segnalare un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* Se è presente un collegamento "Altre informazioni", esaminare e vedere quali messaggi di errore segnalati per i tenant che hanno esito negativo. Se you'ren ' T' che cosa fare con l'errore di messaggi di vedere, quindi è possibile [segnalare un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="cannot-remove-attached-account-or-storage-resource"></a>Non è possibile rimuovere un account o una risorsa di archiviazione collegato
+## <a name="cant-remove-attached-account-or-storage-resource"></a>Non è possibile rimuovere risorse di archiviazione o l'account collegato
 
-Se non si riesce a rimuovere un account o una risorsa di archiviazione collegato tramite l'interfaccia utente, è possibile eliminare manualmente tutte le risorse collegate eliminando le cartelle seguenti:
+Se non si riesce a rimuovere un account associato o una risorsa di archiviazione tramite l'interfaccia utente, è possibile eliminare manualmente tutte le risorse collegate eliminando le cartelle seguenti:
 
 * Windows: `%AppData%/StorageExplorer`
 * macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
@@ -184,7 +184,7 @@ Se si verificano ancora problemi, provare i metodi di risoluzione dei problemi s
 
 * Se è possibile connettersi a Internet senza usare il proxy, verificare che Storage Explorer funzioni senza le impostazioni del proxy abilitate. In questo caso, potrebbe esserci un problema con le impostazioni del proxy. Rivolgersi all'amministratore del proxy per identificare i problemi.
 * Verificare che altre applicazioni che usano il server proxy funzionino come previsto.
-* Verificare che sia possibile connettersi al portale per l'ambiente di Azure che si sta tentando di usare
+* Verificare che sia possibile connettersi al portale per l'ambiente di Azure che si sta provando a usare
 * Verificare di poter ricevere le risposte dagli endpoint del servizio. Immettere uno degli URL dell'endpoint nel browser. Se è possibile connettersi, si dovrebbe ricevere InvalidQueryParameterValue o una risposta XML simile.
 * Se anche altre persone usano Storage Explorer con il server proxy, accertarsi che riescano a connettersi. Se questo non avviene, potrebbe essere necessario contattare l'amministratore del server proxy.
 
@@ -194,7 +194,7 @@ Se si dispone di strumenti di rete, ad esempio Fiddler per Windows, è possibile
 
 * Se si deve usare il proxy, è necessario configurare lo strumento di rete per connettersi tramite il proxy.
 * Controllare il numero della porta usato dallo strumento di rete.
-* Immettere l'URL dell'host locale e il numero della porta dello strumento di rete come impostazioni proxy in Storage Explorer. Quando questa operazione viene eseguita correttamente, lo strumento di rete inizia la registrazione delle richieste di rete effettuate da Storage Explorer agli endpoint di gestione e del servizio. Ad esempio, immettere https://cawablobgrs.blob.core.windows.net/ per l'endpoint BLOB in un browser. Si riceverà una risposta simile alla seguente, che suggerisce che la risorsa è disponibile, anche se non è possibile accedervi.
+* Immettere l'URL dell'host locale e il numero della porta dello strumento di rete come impostazioni proxy in Storage Explorer. Quando questa operazione viene eseguita correttamente, lo strumento di rete inizia la registrazione delle richieste di rete effettuate da Storage Explorer agli endpoint di gestione e del servizio. Ad esempio, immettere https://cawablobgrs.blob.core.windows.net/ per l'endpoint blob in un browser e si riceverà una risposta simile alla seguente, che suggerisce che la risorsa disponibile, anche se è possibile accedervi.
 
 ![esempio di codice](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -203,15 +203,15 @@ Se si dispone di strumenti di rete, ad esempio Fiddler per Windows, è possibile
 Se le impostazioni del proxy sono corrette, è necessario contattare l'amministratore del server proxy e
 
 * Assicurarsi che il proxy non blocchi il traffico agli endpoint di gestione o risorse di Azure.
-* Verificare il protocollo di autenticazione usato dal server proxy. Storage Explorer attualmente non supporta i proxy NTLM.
+* Verificare il protocollo di autenticazione usato dal server proxy. Storage Explorer non supporta attualmente i proxy NTLM.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>Messaggio di errore "Unable to Retrieve Children" (Impossibile recuperare gli elementi figlio)
 
-Se si è connessi ad Azure tramite un proxy, verificare che le impostazioni del proxy siano corrette. Se si dispone dell'accesso a una risorsa dal proprietario della sottoscrizione o dell'account, verificare di avere letto o elencare le autorizzazioni per tale risorsa.
+Se si è connessi ad Azure tramite un proxy, verificare che le impostazioni del proxy siano corrette. Se si ha concesso l'accesso a una risorsa dal proprietario della sottoscrizione o dell'account, verificare di avere letto o elencare le autorizzazioni per tale risorsa.
 
-## <a name="connection-string-does-not-have-complete-configuration-settings"></a>La stringa di connessione non dispone di impostazioni di configurazione complete
+## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Stringa di connessione non hanno completato le impostazioni di configurazione
 
-Se si riceve questo messaggio di errore, è possibile che non si disponga delle autorizzazioni necessarie per ottenere le chiavi dell'account di archiviazione. Per verificare se questo è il caso, passare al portale e individuare l'account di archiviazione. È possibile farlo rapidamente facendo clic sul nodo dell'account di archiviazione e fare clic su "Open in Portal". Al termine dell'operazione, passare al pannello "Chiavi di accesso". Se non si dispone delle autorizzazioni per visualizzare le chiavi, si verrà visualizzata una pagina con il messaggio "Non è l'accesso". Per risolvere questo problema, è possibile ottenere la chiave dell'account da una persona e collegarsi con nome e chiave, oppure è possibile chiedere a un utente per una firma di accesso condiviso per l'account di archiviazione e utilizzarlo per collegare l'account di archiviazione.
+Se si riceve questo messaggio di errore, è possibile che non hai le autorizzazioni necessarie per ottenere le chiavi dell'account di archiviazione. Per verificare se questo è il caso, passare al portale e individuare l'account di archiviazione. È possibile farlo rapidamente facendo clic sul nodo dell'account di archiviazione e fare clic su "Open in Portal". Al termine dell'operazione, passare al pannello "Chiavi di accesso". Se non si dispone delle autorizzazioni per visualizzare le chiavi, si verrà visualizzata una pagina con il messaggio "Non si ha accesso". Per risolvere questo problema, è possibile ottenere la chiave dell'account da una persona e collegarsi con nome e chiave, oppure è possibile chiedere a un utente per una firma di accesso condiviso per l'account di archiviazione e utilizzarlo per collegare l'account di archiviazione.
 
 Se è possibile visualizzare le chiavi dell'account, segnalare un problema in GitHub in modo che possiamo aiutarti a risolvere il problema.
 
@@ -276,7 +276,7 @@ Se si dispone di una versione di .NET Core superiori a 2.0 installato ed eseguon
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Apri In Explorer dal portale di Azure non funziona
 
-Se il pulsante "Apri In Explorer" nel portale di Azure non è accettabile, assicurarsi che si sta utilizzando un browser compatibile. I browser seguenti sono stati testati per garantire la compatibilità.
+Se il pulsante "Apri In Explorer" nel portale di Azure non è accettabile, assicurarsi che si sta usando un browser compatibile. I browser seguenti sono stati testati per garantire la compatibilità.
 * Microsoft Edge
 * Mozilla Firefox
 * Google Chrome

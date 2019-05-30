@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/15/2019
+ms.date: 05/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f14110cec0650927f74dfe3a38f06187c6df39de
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8b8eebd7a7a8933d082741a3086ffcf03a58066f
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792652"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357716"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -36,15 +36,12 @@ Hosting di scenari di carico di lavoro SAP in Azure anche possibile creare i req
 
 ## <a name="latest-changes"></a>Modifiche più recenti
 
+- Introduzione del percorso veloce ExpressRoute e copertura globale per le istanze Large di HANA nel [architettura di rete di SAP HANA (istanze Large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) e documenti correlati
 - Versione di [controllare istanze Large di HANA di Azure tramite il portale di Azure](hana-li-portal.md)
-
 - Versione di [disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure su SUSE Linux Enterprise Server con file di NetApp Azure for SAP Applications](high-availability-guide-suse-netapp-files.md)
-
 - Chiarimenti sui **del sistema operativo Linux parametro net.ipv4.tcp_timestamps** bilanciamento del carico di impostazioni insieme a un'istanza di Azure
 
-- Versione di [configurazioni del carico di lavoro SAP con le zone di disponibilità di Azure](sap-ha-availability-zones.md)
 
-- Pubblicazione di [Elenco di controllo per la pianificazione e la distribuzione di carichi di lavoro SAP](sap-deployment-checklist.md)
 
 
 

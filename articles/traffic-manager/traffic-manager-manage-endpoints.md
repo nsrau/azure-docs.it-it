@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057810fa8030321f9a94085f66bc1ea93dbc3830
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330007"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238933"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Aggiungere, disabilitare, abilitare o eliminare gli endpoint
 
@@ -52,7 +52,7 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 1. Da un browser accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** che si vuole modificare e quindi fare clic su tale profilo nei risultati visualizzati.
 3. Nel pannello **Profilo di Gestione traffico** fare clic su **Endpoint** nella sezione **Impostazioni**. 
-4. Fare clic sull'endpoint da disabilitare e quindi su **Modifica** nel pannello **Endpoint** visualizzato.
+4. Fare clic sull'endpoint che si desidera disabilitare.
 5. Nel pannello **Endpoint** modificare lo stato dell'endpoint impostandolo su **Disabilitato** e quindi fare clic su **Salva**.
 6. I client continuano a inviare traffico all'endpoint per la durata (TTL). È possibile modificare la durata (TTL) nella pagina di configurazione del profilo di Gestione traffico.
 
@@ -61,7 +61,7 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 1. Da un browser accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** che si vuole modificare e quindi fare clic su tale profilo nei risultati visualizzati.
 3. Nel pannello **Profilo di Gestione traffico** fare clic su **Endpoint** nella sezione **Impostazioni**. 
-4. Fare clic sull'endpoint da abilitare e quindi su **Modifica** nel pannello **Endpoint** visualizzato.
+4. Fare clic sull'endpoint che si desidera abilitare.
 5. Nel pannello **Endpoint** modificare lo stato dell'endpoint impostandolo su **Abilitato** e quindi fare clic su **Salva**.
 6. I client continuano a inviare traffico all'endpoint per la durata (TTL). È possibile modificare la durata (TTL) nella pagina di configurazione del profilo di Gestione traffico.
 
@@ -70,8 +70,8 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 1. Da un browser accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** che si vuole modificare e quindi fare clic su tale profilo nei risultati visualizzati.
 3. Nel pannello **Profilo di Gestione traffico** fare clic su **Endpoint** nella sezione **Impostazioni**. 
-4. Fare clic sull'endpoint da abilitare e quindi su **Modifica** nel pannello **Endpoint** visualizzato.
-5. Nel pannello **Endpoint** modificare lo stato dell'endpoint impostandolo su **Abilitato** e quindi fare clic su **Salva**.
+4. Fare clic sull'endpoint che si desidera eliminare.
+5. Nel **Endpoint** pannello, fare clic su **Delete**
 
 
 ## <a name="next-steps"></a>Passaggi successivi

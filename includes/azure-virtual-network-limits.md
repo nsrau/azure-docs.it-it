@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/15/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8cee74696d9636a8ac1d6fcbab493f18184355e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cb586be1a139b331c259a1197cc62e7ca4f25666
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787614"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238386"
 ---
 <a name="virtual-networking-limits-classic"></a>I limiti seguenti si applicano solo per rete le risorse gestite tramite il **classico** modello di distribuzione per ogni sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
@@ -28,9 +28,9 @@ ms.locfileid: "65787614"
 | Regole NSG per NSG |1.000 |1.000 |
 | Tabelle di route definite dall'utente |200 |200 |
 | Route definite dall'utente per ogni tabella di route |400 |400 |
-| Indirizzi IP pubblici (dinamici) |5 |Contatta il supporto tecnico |
-| Indirizzi IP pubblici riservati. |20 |Contatta il supporto tecnico |
-| VIP pubblico per ogni distribuzione |5 |Contatta il supporto tecnico |
+| Indirizzi IP pubblici (dinamici) |5 |Contattare il supporto tecnico |
+| Indirizzi IP pubblici riservati. |20 |Contattare il supporto tecnico |
+| VIP pubblico per ogni distribuzione |5 |Contattare il supporto tecnico |
 | VIP privato (bilanciamento del carico interno) per ogni distribuzione |1 |1 |
 | Elenchi di controllo di accesso di endpoint (ACL) |50 |50 |
 
@@ -70,7 +70,7 @@ I limiti seguenti si applicano solo per le risorse gestite tramite sulla rete **
 | Indirizzi IP pubblici: dinamici | 1.000 per Basic. |Contattare il supporto tecnico. |
 | Indirizzi IP pubblici: statici | 1.000 per Basic. |Contattare il supporto tecnico. |
 | Indirizzi IP pubblici: statici | 200 per il livello Standard.|Contattare il supporto tecnico. |
-| Dimensione del prefisso IP pubblico (anteprima) | /28 | Contattare il supporto tecnico. |
+| Dimensione del prefisso IP pubblico | /28 | Contattare il supporto tecnico. |
 
 #### <a name="load-balancer"></a>Limiti del bilanciamento del carico
 I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure Resource Manager per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).

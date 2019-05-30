@@ -1,18 +1,18 @@
 ---
-title: Creare, visualizzare e gestire gli avvisi del log attività in Monitoraggio di Azure
-description: Come creare avvisi del log attività tramite il portale di Azure, il modello di risorsa e PowerShell.
+title: Creare, visualizzare e gestire attività avvisi del log in Monitoraggio di Azure
+description: Come creare avvisi del log attività usando il portale di Azure, un modello Azure Resource Manager e Azure PowerShell.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130154"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244950"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività in Monitoraggio di Azure  
 
@@ -59,9 +59,9 @@ Utilizzare la procedura seguente:
      **Visualizzazione di esempio di destinazione di avviso**
      ![Seleziona destinazione](media/alerts-activity-log/select-target.png)
 
-   - In **Criteri di destinazione** fare clic su **Aggiungi criteri**. Verranno visualizzati tutti i segnali disponibili per la destinazione, inclusi quelli appartenenti alle varie categorie di **Log attività** con il nome della categoria accodato al nome del **Servizio di monitoraggio**.
+   - Sotto **criteri di destinazione**, fare clic su **Aggiungi criteri** e vengono visualizzati tutti i segnali disponibili per la destinazione, inclusi quelli appartenenti alle varie categorie di **log attività**; con nome della categoria aggiunti in **servizio di monitoraggio** nome.
 
-   - Selezionare il segnale nell'elenco visualizzato delle varie operazioni possibili per il tipo di **Log attività**.
+   - Selezionare nell'elenco visualizzato di varie operazioni possibili per il tipo di segnale **log attività**.
 
      È possibile selezionare la sequenza temporale della cronologia di log e la logica degli avvisi corrispondente per il segnale di destinazione:
 
@@ -97,7 +97,7 @@ Utilizzare la procedura seguente:
     È possibile abilitare, disabilitare, modificare o eliminare una regola. Altre informazioni sulla gestione delle regole del log attività.
 
 
-In alternativa, una semplice analogia per comprendere le condizioni in cui è possibile creare le regole di avviso nel log attività è quella di esplorare o filtrare gli eventi tramite il [Log attività nel portale di Azure](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). In Monitoraggio di Azure - Log attività, un utente può filtrare o trovare l'evento necessario e quindi creare un avviso usando il pulsante **Aggiungi avviso del log attività**, quindi seguire i passaggi dal 4 in poi come indicato in precedenza nell'esercitazione.
+In alternativa, un semplice per le condizioni di comprensione in cui è possibile creare regole di avviso nel log attività, è possibile esplorare o filtrare gli eventi tramite [log attività nel portale di Azure](activity-log-view.md#azure-portal). In Monitoraggio di Azure - log attività, una possibile filtrare o trovare eventi necessaria e quindi creare un avviso utilizzando il **Aggiungi avviso del log attività** pulsante, quindi seguire i passaggi 4 e versioni successive come indicato nell'esercitazione precedente.
     
  ![ Aggiungere un avviso dal log attività](media/alerts-activity-log/add-activity-log.png)
     
@@ -201,7 +201,7 @@ Per usare il JSON di esempio in questa procedura dettagliata, è possibile salva
 > Possono essere necessari fino a 5 minuti prima che una nuova regola di avviso del log attività diventi attiva
 
 ## <a name="rest-api"></a>API REST 
-L'[API degli avvisi dei log attività di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) è un'API REST completamente compatibile con l'API REST di Azure Resource Manager. Può pertanto essere usata con il cmdlet di Resource Manager tramite Powershell e l'interfaccia della riga di comando di Azure.
+[Monitoraggio di Azure - log attività avvisi API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) è un oggetto API REST e completamente compatibile con il REST API di Azure Resource Manager. Può pertanto essere usata con il cmdlet di Resource Manager tramite Powershell e l'interfaccia della riga di comando di Azure.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -216,7 +216,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActi
 
 in cui il sampleActivityLogAlert.parameters.json contiene i valori specificati per i parametri necessari per la creazione della regola di avviso.
 
-### <a name="use-activity-log-powershell-cmdlets"></a>Usare i cmdlet di PowerShell per Log attività
+### <a name="use-activity-log-powershell-cmdlets"></a>Log attività di usare i cmdlet di PowerShell
 
 Per gli avvisi del log attività sono disponibili cmdlet di PowerShell dedicati:
 
@@ -226,7 +226,7 @@ Per gli avvisi del log attività sono disponibili cmdlet di PowerShell dedicati:
 - [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Disabilita un avviso del log attività esistenti e imposta i tag.
 - [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)    : Rimuove un avviso del log attività.
 
-## <a name="cli"></a>Interfaccia della riga di comando
+## <a name="cli"></a>CLI
 
 Per la gestione delle regole di avviso del log attività sono disponibili comandi dedicati dell'interfaccia della riga di comando di Azure nel set [az monitor activity-log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert).
 

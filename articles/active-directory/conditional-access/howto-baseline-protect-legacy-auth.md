@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562214d4bf8fd83f740e114a6d77200b4611649
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: e7eebc68ae8a55d636f3bc85e179bd7d6813be8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003222"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235549"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Criterio di base: Autenticazione legacy di blocco (anteprima)
 
 Per consentire agli utenti di accedere facilmente alle app cloud, Azure Active Directory (Azure AD) supporta una vasta gamma di protocolli di autenticazione, inclusa l'autenticazione legacy. L'autenticazione legacy è un termine che fa riferimento a una richiesta di autenticazione eseguita da:
 
 * Client Office meno recenti che non usano l'autenticazione moderna (ad esempio, i client di Office 2010)
-* Qualsiasi client che Usa protocolli di posta elettronica legacy, ad esempio IMAP o SMPT/POP3
+* Qualsiasi client che Usa protocolli di posta elettronica legacy, ad esempio IMAP o SMTP o POP3
 
 Oggi, maggior parte di tutti i compromessi in termini tentativi di accesso provengono dall'autenticazione legacy. L'autenticazione legacy non supporta l'autenticazione a più fattori (MFA). Anche se si dispone di un criterio di autenticazione a più fattori abilitato nella directory, un attore malintenzionato potrebbe può eseguire l'autenticazione usando un protocollo legacy e ignorare l'autenticazione a più fattori.
 
@@ -74,13 +74,13 @@ Se si usa MacOS, è consigliabile eseguire l'aggiornamento a Office per Mac 2016
 
 Per i client Outlook basata su Windows usare l'autenticazione moderna, Exchange Online deve essere abilitata anche l'autenticazione moderna. Se l'autenticazione moderna è disabilitata per Exchange Online, i client Outlook basata su Windows che supportano l'autenticazione moderna (Outlook 2013 o versione successiva) userà l'autenticazione di base per la connessione alle cassette postali di Exchange Online.
 
-SharePoint Online è abilitato per impostazione predefinita l'autenticazione moderna. Per le directory create dopo il 1 ° agosto 2017, l'autenticazione moderna è abilitata per impostazione predefinita in Exchange Online. Tuttavia, se in precedenza si aveva disabilitata l'autenticazione moderna o si usa una directory creata prima di questa data, seguire i passaggi nell'articolo seguente per [abilitare l'autenticazione moderna in Exchange Online](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+SharePoint Online è abilitato per impostazione predefinita l'autenticazione moderna. Per le directory create dopo il 1 ° agosto 2017, l'autenticazione moderna è abilitata per impostazione predefinita in Exchange Online. Tuttavia, se in precedenza si aveva disabilitata l'autenticazione moderna o si usa una directory creata prima di questa data, seguire i passaggi nell'articolo seguente per [abilitare l'autenticazione moderna in Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### <a name="step-4-skype-for-business"></a>Passaggio 4: Skype for Business Online
 
 Per evitare richieste di autenticazione legacy eseguite da Skype for Business, è necessario abilitare l'autenticazione moderna per Skype for Business Online. Per le directory create dopo il 1 ° agosto 2017, l'autenticazione moderna per Skype for Business è abilitato per impostazione predefinita.
 
-Per abilitare l'autenticazione moderna in Skype for Business, è consigliabile eseguire la transizione a Microsoft Teams, che supporta l'autenticazione moderna per impostazione predefinita. Tuttavia, se non si riesce a tr in questo momento, sarà necessario abilitare l'autenticazione moderna per Skype for Business Online in modo che Skype per i client di Business inizia a usare l'autenticazione moderna. Seguire questi passaggi nell'articolo [Skype per topologie di Business supportate con l'autenticazione moderna](https://docs.microsoft.com/en-us/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), per i passaggi abilitare l'autenticazione moderna per Skype for Business.
+Per abilitare l'autenticazione moderna in Skype for Business, è consigliabile eseguire la transizione a Microsoft Teams, che supporta l'autenticazione moderna per impostazione predefinita. Tuttavia, se non si riesce a tr in questo momento, sarà necessario abilitare l'autenticazione moderna per Skype for Business Online in modo che Skype per i client di Business inizia a usare l'autenticazione moderna. Seguire questi passaggi nell'articolo [Skype per topologie di Business supportate con l'autenticazione moderna](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), per i passaggi abilitare l'autenticazione moderna per Skype for Business.
 
 Oltre ad abilitare l'autenticazione moderna per Skype for Business Online, è consigliabile modern authentication essere abilitato per Exchange Online quando si abilita l'autenticazione moderna per Skype for Business. Questo processo consente di sincronizzare lo stato dell'autenticazione moderna in Exchange Online e Skype for Business online e impedirà più richieste di accesso per Skype per i client di Business.
 
@@ -105,11 +105,11 @@ Passaggi per abilitare l'autenticazione moderna disponibili negli articoli segue
 
 I criteri **criterio di base: L'autenticazione legacy di blocco (anteprima)** è preconfigurata e verrà visualizzata nella parte superiore quando si passa al pannello di accesso condizionale nel portale di Azure.
 
-Per abilitare questo criterio e proteggere gli amministratori:
+Per abilitare questo criterio e proteggere l'organizzazione:
 
 1. Accedi per il **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
-1. Nell'elenco dei criteri, selezionare **criterio di base: L'autenticazione legacy di blocco (anteprima)**.
+1. Nell'elenco dei criteri, selezionare **criterio di base: L'autenticazione legacy di blocco (anteprima)** .
 1. Impostare **abilitare i criteri** al **Usa i criteri immediatamente**.
 1. Aggiungere eventuali esclusioni utente facendo clic su **gli utenti** > **selezionare gli utenti esclusi** e scegliendo gli utenti che devono essere escluse. Fare clic su **selezionate** quindi **eseguita**.
 1. Fare clic su **salvare**.

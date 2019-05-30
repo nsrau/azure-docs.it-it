@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2a30d5a040c2713f04173e83732cea5fa19af3b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576481"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255276"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorare servizi e app Node.js con Application Insights
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitora i componenti e i servizi back-end dopo la distribuzione, per consentire di [individuare e diagnosticare rapidamente i problemi di prestazioni e di altro tipo](../../azure-monitor/app/detect-triage-diagnose.md). È possibile usare Azure Application Insights per i servizi Node.js ospitati nel data center locale, in app Web, in VM di Azure e anche in altri cloud pubblici.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitora i componenti e i servizi back-end dopo la distribuzione, che consentono di individuare e diagnosticare rapidamente le prestazioni e altri problemi. È possibile usare Azure Application Insights per i servizi Node.js ospitati nel data center locale, in app Web, in VM di Azure e anche in altri cloud pubblici.
 
 Per ricevere, archiviare ed esplorare i dati di monitoraggio, includere l'SDK nel codice e quindi configurare una risorsa di Application Insights corrispondente in Azure. L'SDK invia i dati a tale risorsa per ulteriori attività di analisi ed esplorazione.
 
@@ -202,7 +202,7 @@ server.on("listening", () => {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Monitorare i dati di telemetria nel portale](../../azure-monitor/app/app-insights-dashboards.md)
+* [Monitorare i dati di telemetria nel portale](../../azure-monitor/app/overview-dashboard.md)
 * [Presentazione dello strumento Analisi in Application Insights](../../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

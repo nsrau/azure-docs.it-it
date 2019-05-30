@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: c69e925913d4dcb3a8bec34cbf25dac184ea65c5
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595572"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256632"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Installare Application Insights per un sito Web ASP.NET
 
@@ -99,12 +99,10 @@ Nel portale verrà visualizzata la telemetria dell'app.
 
 Per visualizzare altri dettagli nel portale, fare clic su qualsiasi riquadro o grafico.
 
-[Altre informazioni sull'uso di Application Insights nel portale di Azure](../../azure-monitor/app/app-insights-dashboards.md).
-
-## <a name="step-4-publish-your-app"></a>Passaggio 4: Pubblica l'app
+## <a name="step-4-publish-your-app"></a>Passaggio 4: Pubblicare l'app
 Pubblicare l'app nel server IIS o in Azure. Verificare in [Flusso metriche attive](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) che tutto funzioni correttamente.
 
-La telemetria viene creata nel portale di Application Insights, in cui è possibile monitorare le metriche, eseguire ricerche sui dati di telemetria e configurare i [dashboard](../../azure-monitor/app/app-insights-dashboards.md), nonché usare l'avanzato [linguaggio di query Kusto](/azure/kusto/query/) per analizzare l'utilizzo e le prestazioni o trovare eventi specifici.
+Le compilazioni di dati di telemetria backup nel portale di Application Insights, dove è possibile monitorare le metriche, cercare i dati di telemetria. nonché usare l'avanzato [linguaggio di query Kusto](/azure/kusto/query/) per analizzare l'utilizzo e le prestazioni o trovare eventi specifici.
 
 È anche possibile continuare ad analizzare i dati di telemetria in [Visual Studio](../../azure-monitor/app/visual-studio.md) con strumenti come la ricerca diagnostica e le [tendenze](../../azure-monitor/app/visual-studio-trends.md).
 
@@ -138,16 +136,15 @@ Se si è interessati, vedere gli argomenti alternativi seguenti:
 
 ### <a name="more-telemetry"></a>Altri dati di telemetria
 
-* **[Dati sul browser e sul caricamento di pagine](../../azure-monitor/app/javascript.md)**: inserire un frammento di codice nelle pagine Web.
-* **[Ottenere un monitoraggio più dettagliato di dipendenze ed eccezioni](../../azure-monitor/app/monitor-performance-live-website-now.md)**: installare Status Monitor nel server.
-* **[Scrivere codice per gli eventi personalizzati](../../azure-monitor/app/api-custom-events-metrics.md)**: ottenere conteggi, orari o misurazioni delle azioni utente.
-* **[Ottenere dati di log](../../azure-monitor/app/asp-net-trace-logs.md)**: correlare i dati di log con i dati di telemetria.
+* **[Dati sul browser e sul caricamento di pagine](../../azure-monitor/app/javascript.md)** : inserire un frammento di codice nelle pagine Web.
+* **[Ottenere un monitoraggio più dettagliato di dipendenze ed eccezioni](../../azure-monitor/app/monitor-performance-live-website-now.md)** : installare Status Monitor nel server.
+* **[Scrivere codice per gli eventi personalizzati](../../azure-monitor/app/api-custom-events-metrics.md)** : ottenere conteggi, orari o misurazioni delle azioni utente.
+* **[Ottenere dati di log](../../azure-monitor/app/asp-net-trace-logs.md)** : correlare i dati di log con i dati di telemetria.
 
 ### <a name="analysis"></a>Analisi
 
 * **[Uso di Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Include informazioni su debug con telemetria, ricerca diagnostica e drill-through nel codice.
-* **[Uso del portale Application Insights](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Include informazioni su dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria.
-* **[Analytics](../../azure-monitor/log-query/get-started-portal.md)**: linguaggio di query avanzato.
+* **[Analytics](../../azure-monitor/log-query/get-started-portal.md)** : linguaggio di query avanzato.
 
 ### <a name="alerts"></a>Avvisi
 

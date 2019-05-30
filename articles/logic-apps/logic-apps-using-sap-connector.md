@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 05/09/2019
 tags: connectors
-ms.openlocfilehash: 3fb39103fc9cb0f38bca56dcaeea4837ff4dfabe
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: bccefec80ef3afd6d312bb1048d3be5d8e708728
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541111"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258160"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
@@ -119,6 +119,8 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
       Se la proprietà **Tipo di accesso** è impostata su **Gruppo**, sono necessarie le seguenti proprietà (in genere facoltative):
 
       ![Creare una connessione al server di messaggistica SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+
+      Per impostazione predefinita, la tipizzazione forte consente di verificare la presenza di valori non validi eseguendo la convalida di XML rispetto allo schema. Questo comportamento può aiutarti a rilevare i problemi in precedenza. Il **tipizzazione sicura** opzione è disponibile per compatibilità con le versioni precedenti e controlla solo la lunghezza della stringa. Altre informazioni sul [ **sicura digitando** opzione](#safe-typing).
 
    1. Al termine dell'operazione, scegliere **Crea**.
 
@@ -225,6 +227,8 @@ Questo esempio usa un'app per la logica che si attiva quando si riceve un messag
 
       ![Creare una connessione al server di messaggistica SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
+      Per impostazione predefinita, la tipizzazione forte consente di verificare la presenza di valori non validi eseguendo la convalida di XML rispetto allo schema. Questo comportamento può aiutarti a rilevare i problemi in precedenza. Il **tipizzazione sicura** opzione è disponibile per compatibilità con le versioni precedenti e controlla solo la lunghezza della stringa. Altre informazioni sul [ **sicura digitando** opzione](#safe-typing).
+
 1. Specificare i parametri necessari in base alla configurazione del sistema SAP.
 
    È possibile anche specificare una o più azioni di SAP. Questo elenco di azioni consente di specificare i messaggi che riceve il trigger dal server SAP tramite il gateway dati. Un elenco vuoto specifica che il trigger riceve tutti i messaggi. Se l'elenco contiene più di un messaggio, il trigger riceve solo i messaggi specificati nell'elenco. Tutti gli altri messaggi inviati dal server SAP vengono rifiutati dal gateway.
@@ -306,7 +310,11 @@ Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
       ![Creare una connessione al server di messaggistica SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-   1. Al termine dell'operazione, scegliere **Crea**. Le App per la logica configurano ed eseguono il test della connessione, assicurandosi che funzioni correttamente.
+      Per impostazione predefinita, la tipizzazione forte consente di verificare la presenza di valori non validi eseguendo la convalida di XML rispetto allo schema. Questo comportamento può aiutarti a rilevare i problemi in precedenza. Il **tipizzazione sicura** opzione è disponibile per compatibilità con le versioni precedenti e controlla solo la lunghezza della stringa. Altre informazioni sul [ **sicura digitando** opzione](#safe-typing).
+
+   1. Al termine dell'operazione, scegliere **Crea**. 
+   
+      Le App per la logica configurano ed eseguono il test della connessione, assicurandosi che funzioni correttamente.
 
 1. Specificare il percorso dell'artefatto per cui si desidera generare lo schema.
 
@@ -397,11 +405,58 @@ Per abilitare SNC per le richieste da o verso il sistema SAP, selezionare la **U
    | **SNC SSO** | Quando ci si connette tramite SNC, l'identità SNC è in genere utilizzata per l'autenticazione del chiamante. Un'altra opzione consiste nell'eseguire l'override in modo che le informazioni utente e password possono essere usate per l'autenticazione del chiamante, ma la riga è comunque crittografata. |
    | **Mi chiamo SNC** | Nella maggior parte dei casi, questa proprietà può essere omessa. La soluzione SNC installata SA in genere il proprio nome SNC. Solo per le soluzioni che supportano "più identità", si potrebbe essere necessario specificare l'identità da usare per questo server o di destinazione particolare. |
    | **Nome del Partner SNC** | Il nome per il back-end SNC |
-   | **Qualità SNC di protezione** | Qualità del servizio da usare per la comunicazione SNC di questa destinazione/server specifica. Valore predefinito è definito dal sistema back-end. Il valore massimo è definito in base al prodotto di sicurezza utilizzato per SNC. |
+   | **Qualità SNC di protezione** | Qualità del servizio può essere usato per la comunicazione SNC questa particolare/del server di destinazione. Valore predefinito è definito dal sistema back-end. Il valore massimo è definito in base al prodotto di sicurezza utilizzato per SNC. |
    |||
 
    > [!NOTE]
    > Variabili di ambiente SNC_LIB e SNC_LIB_64 non devono essere impostate nel computer in cui si dispone di gateway di dati e libreria SNC. Se impostato, verrebbe hanno la precedenza sul valore libreria SNC passato tramite il connettore.
+
+<a name="safe-typing"></a>
+
+## <a name="safe-typing"></a>Tipizzazione sicura
+
+Per impostazione predefinita, quando si crea la connessione a SAP, la tipizzazione forte consente di verificare la presenza di valori non validi eseguendo la convalida di XML rispetto allo schema. Questo comportamento può aiutarti a rilevare i problemi in precedenza. Il **tipizzazione sicura** opzione è disponibile per compatibilità con le versioni precedenti e controlla solo la lunghezza della stringa. Se si sceglie **tipizzazione sicura**, nel tipo DATS e digitare TIMS SAP vengono trattati come stringhe anziché come gli equivalenti XML `xs:date` e `xs:time` in cui `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Tipizzazione sicura influisce sul comportamento per tutte la generazione dello schema, il messaggio di trasmissione per il payload "stato inviato" e la risposta "ricevuto" sia trigger. 
+
+Quando si usa la tipizzazione forte (**tipizzazione sicura** non abilitata), lo schema esegue il mapping di tipi DATS e TIMS ai tipi più semplici di XML:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true" type="xs:date"/>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
+```
+
+Quando si inviano messaggi usando la tipizzazione forte, la risposta DATS e TIMS è conforme al formato di tipo XML corrisponda:
+
+```xml
+<DATE>9999-12-31</DATE>
+<TIME>23:59:59</TIME>
+```
+
+Quando **tipizzazione sicura** è abilitata, lo schema viene eseguito il mapping di DATS e tipi TIMS in XML, ad esempio i campi con solo le restrizioni di lunghezza stringa:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+```
+
+Durante l'invio di messaggi con **tipizzazione sicura** abilitata, la risposta DATS e TIMS simile all'esempio:
+
+```xml
+<DATE>99991231</DATE>
+<TIME>235959</TIME>
+```
+
 
 ## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
 
