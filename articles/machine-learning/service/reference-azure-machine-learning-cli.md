@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 163b8e1f68b8d5a102465022c67f7d0da57a7215
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 541ffe70ae5198e631568584a58d02ac283e89d3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596969"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298250"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Usare l'estensione dell'interfaccia della riga di comando per il servizio Azure Machine Learning
 
@@ -40,7 +40,7 @@ L'interfaccia della riga di comando non sostituisce Azure Machine Learning SDK. 
 
 Trovare il [completo di documenti di riferimento per l'estensione di azure-cli-ml di Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest).
 
-## <a name="install-the-extension"></a>Installa l'estensione
+## <a name="install-the-extension"></a>Installare l'estensione
 
 Per installare l'estensione dell'interfaccia della riga di comando di Azure Machine Learning, usare il comando seguente:
 
@@ -67,7 +67,7 @@ Per rimuovere l'estensione dell'interfaccia della riga di comando, usare il coma
 az extension remove -n azure-cli-ml
 ```
 
-## <a name="resource-management"></a>Gestione risorse
+## <a name="resource-management"></a>Resource management
 
 I comandi seguenti illustrano come usare l'interfaccia della riga di comando per gestire le risorse usate da Azure Machine Learning.
 
@@ -165,13 +165,11 @@ I comandi seguenti illustrano come registrare un modello con training e quindi d
     Per altre informazioni, vedere [profilo modello ml az](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
 
 + Distribuire il modello al servizio contenitore di AZURE
-
     ```azurecli-interactive
-    az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
+    az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
     ```
-
+    
     Di seguito è riportato un esempio `inferenceconfig.json` documento:
-
     ```json
     {
     "entryScript": "score.py",
@@ -182,6 +180,13 @@ I comandi seguenti illustrano come registrare un modello con training e quindi d
     "enableGpu": false,
     "baseImage": null,
     "baseImageRegistry": null
+    }
+    ```
+    Di seguito è riportato un esempio di documento 'deploymentconfig.json':
+    ```json
+    {
+    "computeType": "aks",
+    "ComputeTarget": "akscomputetarget"
     }
     ```
 

@@ -10,18 +10,26 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 05/29/2019
 ms.author: bwren
-ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130690"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357570"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
 ![Logo di Office 365](media/solution-office-365/icon.png)
+
+
+> [!NOTE]
+> Abilita il metodo consigliato per installare e configurare la soluzione Office 365 le [connettore Office 365](../../sentinel/connect-office-365.md) nelle [Sentinel Azure](../../sentinel/overview.md) invece di usare i passaggi descritti in questo articolo. Si tratta di una versione aggiornata della soluzione Office 365 con un'esperienza di configurazione migliorata. Per connettere i log di Azure AD, usare il [Sentinel Azure Azure AD connector](../../sentinel/connect-azure-active-directory.md), che fornisce dati di log più complessi rispetto ai registri di gestione di Office 365. 
+>
+> Quando si [eseguire l'onboarding Azure Sentinel](../../sentinel/quickstart-onboard.md), specificare l'area di lavoro di Log Analitica che si desidera che la soluzione Office 365 installata. Dopo aver abilitato il connettore, la soluzione sarà disponibile nell'area di lavoro e utilizzato esattamente come qualsiasi altra soluzione di monitoraggio che è stato installato.
+>
+> Gli utenti del cloud Azure per enti pubblici è necessario installare Office 365 usando i passaggi descritti in questo articolo, poiché Azure Sentinel non è ancora disponibile nel cloud per enti pubblici.
 
 La soluzione di gestione di Office 365 consente di monitorare l'ambiente Office 365 in Monitoraggio di Azure.
 
@@ -30,6 +38,7 @@ La soluzione di gestione di Office 365 consente di monitorare l'ambiente Office 
 - Rilevamento e analisi del comportamento utente indesiderato, che può essere personalizzato per esigenze organizzative.
 - Dimostrazione di conformità e controllo. Ad esempio, è possibile monitorare le operazioni di accesso nei file riservati, favorendo così il processo di conformità e controllo.
 - Risoluzione dei problemi operativi usando le [query di log](../log-query/log-query-overview.md) oltre ai dati di attività di Office 365 dell'organizzazione.
+
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

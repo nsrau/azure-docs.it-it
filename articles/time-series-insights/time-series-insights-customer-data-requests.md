@@ -2,19 +2,19 @@
 title: Funzionalità di richiesta dei dati dei clienti in Azure Time Series Insights | Microsoft Docs
 description: Riepilogo delle funzionalità di richiesta dei dati dei clienti in Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.date: 05/08/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 67aea6b3d535eeb0838da4ac6990c50e607617bf
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f99a54f5623100e057e0c02249f5886f46656a21
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546381"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66355936"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
 
@@ -36,7 +36,7 @@ L'amministratore del tenant può eliminare i dati dei clienti tramite il portale
 
 Tuttavia, prima di eliminare i dati dei clienti tramite il portale, è necessario rimuovere i criteri di accesso dell'utente dall'ambiente di Time Series Insights nel portale di Azure. Per altre informazioni, vedere [Concedere l'accesso ai dati in un ambiente Time Series Insights con il portale di Azure](time-series-insights-data-access.md).
 
-È anche possibile eseguire le operazioni di eliminazione dei criteri di accesso usando l'API REST. Per altre informazioni, vedere [Access Policies - Delete](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/delete) (Criteri di accesso - Delete).
+È anche possibile eseguire le operazioni di eliminazione dei criteri di accesso usando l'API REST. Per altre informazioni, vedere [Access Policies - Delete](/rest/api/time-series-insights/management/accesspolicies/delete) (Criteri di accesso - Delete).
 
 Time Series Insights si integra con il pannello Criteri nel portale di Azure. Sia Time Series Insights che il pannello Criteri consentono di visualizzare, esportare ed eliminare i dati utente archiviati all'interno del servizio. Le azioni di eliminazione eseguite nel pannello Criteri del portale di Azure fanno sì che i dati utente vengano eliminati anche in Time Series Insights. Ad esempio, se un utente ha una query personale salvata, tale query viene eliminata definitivamente dallo strumento di esplorazione di Time Series Insights. Se l'utente ha una query condivisa salvata, la query persiste, ma le informazioni sull'utente vengono eliminate definitivamente. La nota seguente contiene le istruzioni su come eseguire queste attività.
 
@@ -48,7 +48,7 @@ Analogamente all'eliminazione dei dati, l'amministratore del tenant può visuali
 
 Se si è un amministratore di tenant, è possibile visualizzare i criteri di accesso ai dati nell'ambiente di Time Series Insights nel portale di Azure. Per altre informazioni, vedere [Concedere l'accesso ai dati in un ambiente Time Series Insights con il portale di Azure](time-series-insights-data-access.md).
 
-È anche possibile eseguire le operazioni di esportazione dei criteri di accesso mediante l'operazione di elenco in base ad ambiente specificata nell'API REST. Per altre informazioni, vedere [Access Policies - List By Environment](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/listbyenvironment) (Criteri di accesso - List By Environment).
+È anche possibile eseguire le operazioni di esportazione dei criteri di accesso mediante l'operazione di elenco in base ad ambiente specificata nell'API REST. Per altre informazioni, vedere [Access Policies - List By Environment](/rest/api/time-series-insights/management/accesspolicies/listbyenvironment) (Criteri di accesso - List By Environment).
 
 ## <a name="to-delete-data-stored-within-time-series-insights"></a>Per eliminare i dati archiviati in Time Series Insights
 

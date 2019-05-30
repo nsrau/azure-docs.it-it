@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: db065c78008e47326155e9e2b3a0f65031ec4cd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e99553afc05fca0250607bfccd2799adaf471e5
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478430"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298169"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrare i log di controllo di Azure Active Directory
 
@@ -28,7 +28,7 @@ Gli eventi di controllo di Azure Active Directory (Azure AD) aiutano i clienti a
 
 
 >[!IMPORTANT]
-> La funzionalità di integrazione dei log di Azure verrà dichiarata deprecata entro il 01/06/2019. Il download di AzLog è stato disabilitato il 27 giugno 2018. Per materiale sussidiario su cosa fare dopo, vedere il post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Usare Monitoraggio di Azure per eseguire l'integrazione con gli strumenti per le informazioni di sicurezza e gestione degli eventi) 
+> La funzionalità di integrazione Log di Azure verrà deprecata entro 15/06/2019. Il download di AzLog è stato disabilitato il 27 giugno 2018. Per materiale sussidiario su cosa fare dopo, vedere il post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Usare Monitoraggio di Azure per eseguire l'integrazione con gli strumenti per le informazioni di sicurezza e gestione degli eventi) 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Passaggi necessari per integrare i log di controllo di Azure Active Directory
 

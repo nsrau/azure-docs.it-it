@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: getroyer
-ms.openlocfilehash: d4321fe60d47bf942e2c413ba81c2c9f54317fd1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: ab3b742d50cc141420f9bffa1961a6e170b99d2a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597867"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234340"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Usare le macchine virtuali di analisi scientifica dei dati di Azure
 
@@ -59,4 +59,4 @@ Quando un progetto viene eseguito in una macchina virtuale, i file vengono monta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni su DSVMs presso [Introduzione a Data Science macchine virtuali di Azure](/machine-learning/data-science-virtual-machine/overview).
+Ulteriori informazioni su DSVMs presso [Introduzione a Data Science macchine virtuali di Azure](/azure/machine-learning/data-science-virtual-machine/overview).

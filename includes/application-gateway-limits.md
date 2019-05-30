@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 3/26/2019
 ms.author: victorh
-ms.openlocfilehash: e35f01cc5479a5d27d92c9ed74a12bc44db673cd
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 65ed28c967164be4d239cd4d59b6b36f06caeced
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65754092"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238745"
 ---
-| Resource | Limite predefinito o massimo | Nota |
+| Resource | Limite predefinito o massimo | Note |
 | --- | --- | --- |
 | Gateway applicazione di Azure |1.000 per ogni sottoscrizione | |
 | Configurazioni IP front-end |2 |1 pubblica e 1 privata |
@@ -23,6 +23,7 @@ ms.locfileid: "65754092"
 | Back-end impostazioni HTTP |100<sup>1</sup> | |
 | Istanze per gateway |32 | |
 | Certificati SSL |100<sup>1</sup> |1 per listener HTTP |
+| Dimensioni massime di certificato SSL |V1 SKU - 10 KB<br>V2 SKU - 25 KB| |
 | Certificati di autenticazione |100 | |
 | Certificati radice trusted |100 | |
 | Timeout della richiesta minima |1 secondo | |

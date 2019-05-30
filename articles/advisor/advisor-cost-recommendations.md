@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 188a79df99a174436808acd3d964abf9357cf4c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fef7b82e6969de16d1815250d2373c99021b0e86
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467937"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254714"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Ridurre i costi del servizio con Azure Advisor
 
@@ -44,6 +44,13 @@ Advisor manda inoltre un avviso di istanze riservate che è necessario che scadr
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Eliminare gli indirizzi IP pubblici non associati per risparmiare denaro
 
 Advisor identifica gli indirizzi IP pubblici che non sono attualmente associati alle risorse di Azure, ad esempio macchine virtuali o servizi di bilanciamento del carico. Questi IP pubblico indirizzi sono dotate di un addebito nominale. Se non si prevede di usarli, eliminarli può produrre risparmi.
+
+## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Eliminare le pipeline di Data Factory di Azure che hanno esito negativo
+
+Azure Advisor rileverà le pipeline di Azure Data Factory che ripetutamente esito negativo e consiglia di risolvere i problemi o se non sono più necessari, eliminare le pipeline di errori. Ti verranno fatturate per queste pipeline anche se tuttavia non collaborano è mentre hanno esito negativo. 
+
+## <a name="use-standard-snapshots-for-managed-disks"></a>Usare gli snapshot Standard per i dischi gestiti
+Per salvare il 60% dei costi, si consiglia di archiviare gli snapshot di archiviazione Standard, indipendentemente dal tipo di archiviazione del disco padre. Questa è l'opzione predefinita per gli snapshot di Managed Disks. Azure Advisor identifica gli snapshot vengono archiviati archiviazione Premium e consiglia la migrazione di snapshot da Premium nell'archiviazione Standard. [Altre informazioni sui prezzi di Managed Disks](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Come accedere ai consigli sui costi in Azure Advisor
 

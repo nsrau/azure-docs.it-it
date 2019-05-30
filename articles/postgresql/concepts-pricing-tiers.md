@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: e2580a57f943ad8da16cfbaeda2ee35d0f4bb691
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: ed534f910fa1e44d3d53ab61ee86378eba788036
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073189"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240391"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Piani tariffari in Database di Azure per PostgreSQL - Server singolo
 
@@ -36,51 +36,9 @@ Per scegliere un piano tariffario, usare la tabella seguente come punto di parte
 
 Dopo aver creato un server, il numero di vCore, la generazione dell'hardware e il piano tariffario (ad eccezione del passaggio da/a Basic) possono essere aumentati o ridotti in pochi secondi. È anche possibile aumentare autonomamente lo spazio di archiviazione e aumentare o ridurre il periodo di conservazione dei backup senza tempi di inattività per le applicazioni. Non è possibile modificare il tipo di archiviazione dei backup dopo aver creato il server. Per altre informazioni, vedere la sezione [Ridimensionare le risorse](#scale-resources).
 
-
 ## <a name="compute-generations-and-vcores"></a>Generazioni di calcolo e vCore
 
-Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. Attualmente, è possibile scegliere tra due generazioni di calcolo: Generazione 4 e Generazione 5. Le CPU logiche Generazione 4 si basano sui processori Intel E5-2673 v3 (Haswell) a 2,4 GHz. Le CPU logiche Generazione 5 si basano sui processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz. Generazione 4 e Generazione 5 sono disponibili nelle aree seguenti ("X" indica la disponibilità). 
-
-| **Area di Azure** | **Generazione 4** | **Generazione 5** |
-|:---|:----------:|:--------------------:|
-| Stati Uniti centrali |  | X |
-| Stati Uniti orientali |  | X |
-| Stati Uniti orientali 2 |  | X |
-| Stati Uniti centro-settentrionali |  | X |
-| Stati Uniti centro-meridionali |  | X |
-| Stati Uniti occidentali |  | X |
-| Stati Uniti occidentali 2 |  | X |
-| Brasile meridionale |  | X |
-| Canada centrale |  | X |
-| Canada orientale |  | X |
-| Europa settentrionale |  | X |
-| Europa occidentale |  | X |
-| Francia centrale |  | X |
-| Regno Unito meridionale |  | X |
-| Regno Unito occidentale |  | X |
-| Asia orientale |  | X |
-| Asia sud-orientale |  | X |
-| Australia orientale |  | X |
-| Australia centrale |  | X |
-| Australia centrale 2 |  | X |
-| Australia sud-orientale |  | X |
-| India centrale |  | X |
-| India meridionale |  | X |
-| India occidentale |  | X |
-| Giappone orientale |  | X |
-| Giappone occidentale |  | X |
-| Corea del Sud centrale |  | X |
-| Corea del Sud meridionale |  | X |
-| Cina orientale 1 | X |  |
-| Cina orientale 2 |  | X |
-| Cina settentrionale 1 | X |  |
-| Cina settentrionale 2 |  | X |
-| Germania centrale |  | X |
-| US DoD (area centrale)  | X |  |
-| US DoD (area orientale)  | X |  |
-| US Gov Arizona |  | X |
-| US Gov Texas |  | X |
-| US Gov Virginia |  | X |
+Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. Cina orientale 1, 1 Nord China, US DoD Central e US DoD East utilizzare CPU logiche generazione 4 basati su Intel E5-2673 v3 processori 2,4 GHz (Haswell). Tutte le altre aree usano CPU logiche generazione 5 basati su Intel E5-2673 v4 (Broadwell) a 2,3GHz processori.
 
 ## <a name="storage"></a>Archiviazione
 
@@ -93,19 +51,27 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo |
 
-È possibile aggiungere capacità di archiviazione durante e dopo la creazione del server. Il piano Basic non offre la garanzia relativa alle operazioni di I/O al secondo. Nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria, la scalabilità delle operazioni di I/O al secondo rispetto allo spazio di archiviazione sottoposto a provisioning è in un rapporto di 3 a 1.
+È possibile aggiungere capacità di archiviazione durante e dopo la creazione del server e consentire al sistema di aumento delle dimensioni di archiviazione automaticamente in base all'utilizzo di archiviazione del carico di lavoro. Il piano Basic non offre la garanzia relativa alle operazioni di I/O al secondo. Nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria, la scalabilità delle operazioni di I/O al secondo rispetto allo spazio di archiviazione sottoposto a provisioning è in un rapporto di 3 a 1.
 
 È possibile monitorare il consumo di I/O nel portale di Azure oppure usando i comandi dell'interfaccia della riga di comando di Azure. Le metriche pertinenti al monitoraggio sono il [limite di archiviazione, la percentuale di archiviazione, lo spazio di archiviazione usato e la percentuale di I/O](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Raggiungimento del limite di archiviazione
 
-Il server viene contrassegnato di sola lettura quando lo spazio di archiviazione disponibile diventa inferiore a 5 GB o al 5% dello spazio di archiviazione sottoposto a provisioning, a seconda di quale dei due valori sia inferiore. Ad esempio, se è stato eseguito il provisioning di 100 GB di spazio di archiviazione e l'utilizzo effettivo supera 95 GB, il server viene contrassegnato come di sola lettura. In alternativa, se è stato eseguito il provisioning di 5 GB di spazio di archiviazione, il server viene contrassegnato come sola lettura quando la risorsa di archiviazione disponibile diventa inferiore a 250 MB.  
+Server con meno di 100 GB effettuato il provisioning di archiviazione vengono contrassegnati in sola lettura se la memoria disponibile è inferiore a 512MB o del 5% le dimensioni di archiviazione con provisioning. I server con più di 100 GB effettuato il provisioning di archiviazione sono contrassegnati lettura solo quando la memoria disponibile è inferiore a 5 GB.
+
+Ad esempio, se è stato effettuato il provisioning di 110 GB di spazio di archiviazione e l'utilizzo effettivo utilizzato supera 105 GB, il server è di sola lettura. In alternativa, se è stato eseguito il provisioning di 5 GB di spazio di archiviazione, il server viene contrassegnato come sola lettura quando lo spazio di archiviazione libero raggiunge almeno 512 MB.
 
 Quando il server è impostato come di sola lettura, tutte le sessioni esistenti vengono disconnesse e viene eseguito il rollback delle transazioni non sottoposte a commit. Eventuali operazioni di scrittura e di esecuzione del commit delle transazioni hanno esito negativo. Tutte le query in lettura funzioneranno senza interruzioni.  
 
 È possibile aumentare lo spazio di archiviazione sottoposto a provisioning per il server o avviare una nuova sessione in modalità lettura/scrittura ed eliminare i dati per recuperare spazio di archiviazione. Se si esegue `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` la sessione corrente viene impostata sulla modalità di lettura/scrittura. Per evitare il danneggiamento dei dati, non eseguire operazioni di scrittura quando il server è ancora in stato di sola lettura.
 
-È consigliabile configurare un avviso per ricevere una notifica quando l'archiviazione server sta per raggiungere la soglia in modo tale da evitare di ottenere lo stato di sola lettura. Per altre informazioni, vedere la documentazione sulla [procedura di configurazione di un avviso](howto-alert-on-metric.md).
+Si consiglia di abilitare archiviazione l'aumento automatico o configurare un avviso per ricevere una notifica quando l'archiviazione server sta per raggiungere la soglia così è possibile evitare di trovarsi nello stato di sola lettura. Per altre informazioni, vedere la documentazione sulla [procedura di configurazione di un avviso](howto-alert-on-metric.md).
+
+### <a name="storage-auto-grow"></a>Archiviazione l'aumento automatico
+
+Se l'aumento automatico di archiviazione è abilitata, lo spazio di archiviazione si espande automaticamente senza conseguenze per il carico di lavoro. Per i server con meno di 100 GB effettuato il provisioning di archiviazione, le dimensioni di archiviazione sottoposte a provisioning vengano aumentata da 5 GB, non appena la memoria disponibile è di sotto di maggiore di 1 GB o 10% dello spazio di archiviazione con provisioning. Per i server con più di 100 GB di spazio di archiviazione, le dimensioni di archiviazione con provisioning aumenta del 5% quando lo spazio di archiviazione disponibile è inferiore al 5% le dimensioni di archiviazione con provisioning. Si applicano i limiti di spazio di archiviazione massimo come specificato in precedenza.
+
+Ad esempio, se è stato effettuato il provisioning di 1000 GB di spazio di archiviazione e l'utilizzo effettivo utilizzato supera 950 GB, le dimensioni di archiviazione di server è stato aumentato a 1050 GB. In alternativa, se è stato eseguito il provisioning di 10 GB di spazio di archiviazione, le dimensioni di archiviazione sono aumenta fino a 15 GB quando minore di 1 GB di spazio di archiviazione è gratuito.
 
 ## <a name="backup"></a>Backup
 

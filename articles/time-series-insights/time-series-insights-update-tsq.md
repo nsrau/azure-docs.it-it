@@ -2,7 +2,7 @@
 title: Esecuzione di query sui dati nell'anteprima di Azure Time Series Insights | Microsoft Docs
 description: Esecuzione di query sui dati nell'anteprima di Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d28cb35b1e8e4eaa86418da632c6fcabb636e643
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: bbf682df2df7a8cdc9fedb36aa4244fc5c0e9488
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205023"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244009"
 ---
 # <a name="data-querying"></a>Esecuzione di query sui dati
 
@@ -25,9 +25,9 @@ In Time Series Insights sono disponibili tre categorie di API principali.
 
 * **API di ambiente**: consentono di eseguire query dell'ambiente Time Series Insights. Esempi di query sono l'elenco di ambienti a cui il chiamante può accedere e i metadati di ambiente.
 
-* **API TSM-Q (Time Series Model-Query)**: consentono di creare, leggere, aggiornare ed eliminare operazioni sui metadati archiviati nella parte di ambiente del modello di serie temporali. Esempi sono costituiti da istanze, tipi e gerarchie.
+* **API TSM-Q (Time Series Model-Query)** : consentono di creare, leggere, aggiornare ed eliminare operazioni sui metadati archiviati nella parte di ambiente del modello di serie temporali. Esempi sono costituiti da istanze, tipi e gerarchie.
 
-* **API TSQ (Time Series Query)**: consentono di recuperare dati di eventi come vengono registrati dal provider di origine. Tali API possono eseguire operazioni per trasformare, combinare ed eseguire calcoli sui dati delle serie temporali.
+* **API TSQ (Time Series Query)** : consentono di recuperare dati di eventi come vengono registrati dal provider di origine. Tali API possono eseguire operazioni per trasformare, combinare ed eseguire calcoli sui dati delle serie temporali.
 
 Il [linguaggio TSX (Time Series Expression)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx) è una quarta categoria potente. Tale linguaggio usa i modelli di serie temporali per abilitare la composizione di calcoli avanzati.
 

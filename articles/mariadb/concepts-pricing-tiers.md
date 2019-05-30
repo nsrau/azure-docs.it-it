@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5eb2ba509983918a55370ae0deafd019e03f53d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a52d05c77d0aeb8ebeba196df60e59f0647fea9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740285"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233926"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Piani tariffari di Database di Azure per MariaDB
 
@@ -51,19 +51,25 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo |
 
-È possibile aggiungere capacità di archiviazione durante e dopo la creazione del server. Il piano Basic non offre la garanzia relativa alle operazioni di I/O al secondo. Nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria, la scalabilità delle operazioni di I/O al secondo rispetto allo spazio di archiviazione sottoposto a provisioning è in un rapporto di 3 a 1.
+È possibile aggiungere capacità di archiviazione durante e dopo la creazione del server e consentire al sistema di aumento delle dimensioni di archiviazione automaticamente in base all'utilizzo di archiviazione del carico di lavoro. Il piano Basic non offre la garanzia relativa alle operazioni di I/O al secondo. Nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria, la scalabilità delle operazioni di I/O al secondo rispetto allo spazio di archiviazione sottoposto a provisioning è in un rapporto di 3 a 1.
 
 È possibile monitorare il consumo di I/O nel portale di Azure oppure usando i comandi dell'interfaccia della riga di comando di Azure. Le metriche pertinenti al monitoraggio sono il [limite di archiviazione, la percentuale di archiviazione, lo spazio di archiviazione usato e la percentuale di I/O](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Raggiungimento del limite di archiviazione
 
-Il server viene contrassegnato di sola lettura quando lo spazio di archiviazione disponibile diventa inferiore a 5 GB o al 5% dello spazio di archiviazione sottoposto a provisioning, a seconda di quale dei due valori sia inferiore. Ad esempio, se è stato eseguito il provisioning di 100 GB di spazio di archiviazione e l'utilizzo effettivo supera 95 GB, il server viene contrassegnato come di sola lettura. In alternativa, se è stato eseguito il provisioning di 5 GB di spazio di archiviazione, il server viene contrassegnato come sola lettura quando la risorsa di archiviazione disponibile diventa inferiore a 250 MB.  
+Server con meno di 100 GB effettuato il provisioning di archiviazione vengono contrassegnati in sola lettura se la memoria disponibile è inferiore a 512MB o del 5% le dimensioni di archiviazione con provisioning. I server con più di 100 GB effettuato il provisioning di archiviazione sono contrassegnati lettura solo quando la memoria disponibile è inferiore a 5 GB.
+
+Ad esempio, se è stato effettuato il provisioning di 110 GB di spazio di archiviazione e l'utilizzo effettivo utilizzato supera 105 GB, il server è di sola lettura. In alternativa, se è stato eseguito il provisioning di 5 GB di spazio di archiviazione, il server viene contrassegnato come sola lettura quando lo spazio di archiviazione libero raggiunge almeno 512 MB.
 
 Mentre il servizio tenta di impostare il server come sola lettura, tutte le nuove richieste di transazione di scrittura vengono bloccate e le transazioni attive esistenti continueranno a essere eseguite. Quando il server è impostato su sola lettura, tutte le operazioni di scrittura e i commit delle transazioni successivi avranno esito negativo. Le query in lettura continueranno a funzionare senza interruzioni. Dopo avere aumentato lo spazio di archiviazione sottoposto a provisioning, il server sarà pronto per accettare nuovamente le transazioni in scrittura.
 
-È consigliabile configurare un avviso per ricevere una notifica quando l'archiviazione server sta per raggiungere la soglia in modo tale da evitare di ottenere lo stato di sola lettura. 
+Si consiglia di abilitare archiviazione l'aumento automatico o configurare un avviso per ricevere una notifica quando l'archiviazione server sta per raggiungere la soglia così è possibile evitare di trovarsi nello stato di sola lettura. Per altre informazioni, vedere la documentazione sulla [procedura di configurazione di un avviso](howto-alert-metric.md).
 
-Per altre informazioni, vedere la documentazione sulla [procedura di configurazione di un avviso](howto-alert-metric.md).
+### <a name="storage-auto-grow"></a>Archiviazione l'aumento automatico
+
+Se l'aumento automatico di archiviazione è abilitata, lo spazio di archiviazione si espande automaticamente senza conseguenze per il carico di lavoro. Per i server con meno di 100 GB effettuato il provisioning di archiviazione, le dimensioni di archiviazione sottoposte a provisioning vengano aumentata da 5 GB, non appena la memoria disponibile è di sotto di maggiore di 1 GB o 10% dello spazio di archiviazione con provisioning. Per i server con più di 100 GB di spazio di archiviazione, le dimensioni di archiviazione con provisioning aumenta del 5% quando lo spazio di archiviazione disponibile è inferiore al 5% le dimensioni di archiviazione con provisioning. Si applicano i limiti di spazio di archiviazione massimo come specificato in precedenza.
+
+Ad esempio, se è stato effettuato il provisioning di 1000 GB di spazio di archiviazione e l'utilizzo effettivo utilizzato supera 950 GB, le dimensioni di archiviazione di server è stato aumentato a 1050 GB. In alternativa, se è stato eseguito il provisioning di 10 GB di spazio di archiviazione, le dimensioni di archiviazione sono aumenta fino a 15 GB quando minore di 1 GB di spazio di archiviazione è gratuito.
 
 ## <a name="backup"></a>Backup
 

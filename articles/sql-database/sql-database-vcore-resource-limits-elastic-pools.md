@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/22/2019
-ms.openlocfilehash: 7f3afec0425033fba174e000195fa26b295aaef1
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/23/2019
+ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507956"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240346"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limiti delle risorse per i pool elastici secondo il modello di acquisto basato su vCore
 
@@ -44,6 +44,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|3|4|5|6|
 |Memoria (GB)|7|14|21|28|35|42|
+|Numero massimo di database per pool|100|200|500|500|500|500|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|512|756|756|1536|1536|1536|
@@ -56,7 +57,6 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) * |210|420|630|840|1050|1260|
 |Numero massimo di accessi simultanei per ogni pool * |210|420|630|840|1050|1260|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
-|Numero massimo di database per pool|100|200|300|500|500|500|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1...3|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...5|0, 0,25, 0,5, 1...6|
 |Numero di repliche|1|1|1|1|1|1|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -72,6 +72,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|168|
+|Numero massimo di database per pool|500|500|500|500|500|500|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|1536|2048|2048|2048|3584|4096|
@@ -84,7 +85,6 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|1470|1680|1890|2100|3360|5040|
 |Pool di numero massimo di accessi simultanei (richieste) *|1470|1680|1890|2100|3360|5040|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
-|Numero massimo di database per pool|200|500|500|500|500|500|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1...7|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...9|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...10, 16|0, 0,25, 0,5, 1...10, 16, 24|
 |Numero di repliche|1|1|1|1|1|1|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -100,6 +100,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|2|4|6|8|10|12|14|
 |Memoria (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
+|Numero massimo di database per pool|100|200|500|500|500|500|500|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|512|756|756|1536|1536|1536|
@@ -112,7 +113,6 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|210|420|630|840|1050|1260|1470|
 |Numero massimo di accessi simultanei per pool (richieste) *|210|420|630|840|1050|1260|1470|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
-|Numero massimo di database per pool|200|500|500|500|500|500|500|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...6|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...12|0, 0,25, 0,5, 1...14|
 |Numero di repliche|1|1|1|1|1|1|1|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -128,6 +128,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|16|18|20|24|32|40|80|
 |Memoria (GB)|81,6|91,8|102|122,4|163,2|204|408|
+|Numero massimo di database per pool|500|500|500|500|500|500|500|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|2048|2048|3072|3072|4096|4096|4096|
@@ -139,7 +140,6 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Registrare i limiti di velocità (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|1680|1890|2100|2520|33600|4200|8400|
 |Numero massimo di accessi simultanei per pool (richieste) *|1680|1890|2100|2520|33600|4200|8400|
-|Numero massimo di database per pool|500|500|500|500|500|500|500|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1...16|0, 0,25, 0,5, 1...18|0, 0,25, 0,5, 1...20|0, 0,25, 0,5, 1...20, 24|0, 0,25, 0,5, 1...20, 24, 32|0, 0,25, 0,5, 1...16, 24, 32, 40|0, 0,25, 0,5, 1...16, 24, 32, 40, 80|
 |Numero di repliche|1|1|1|1|1|1|1|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -157,6 +157,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|3|4|5|6|
 |Memoria (GB)|7|14|21|28|35|42|
+|Numero massimo di database per pool|Sono supportati solo i database singoli per queste dimensioni di calcolo|50|100|100|100|100|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|1|2|3|4|5|6|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
@@ -169,7 +170,6 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|210|420|630|840|1050|1260|
 |Numero massimo di accessi simultanei per pool (richieste) *|210|420|630|840|1050|1260|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
-|Numero massimo di database per pool|Sono supportati solo i database singoli per queste dimensioni di calcolo|50|100|100|100|100|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|N/D|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1...3|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...5|0, 0,25, 0,5, 1...6|
 |Numero di repliche|4|4|4|4|4|4|
 |Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
@@ -185,6 +185,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|7|8|9|10|16|24|
 |Memoria (GB)|81,6|91,8|102|122,4|163,2|204|
+|Numero massimo di database per pool|100|100|100|100|100|100|
 |Supporto per columnstore|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archiviazione OLTP in memoria (GB)|7|8|9,5|11|20|36|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
@@ -197,7 +198,6 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|1470|1680|1890|2100|3360|5040|
 |Numero massimo di accessi simultanei per pool (richieste) *|1470|1680|1890|2100|3360|5040|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
-|Numero massimo di database per pool|100|100|100|100|100|100|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1...7|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...9|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...10, 16|0, 0,25, 0,5, 1...10, 16, 24|
 |Numero di repliche|4|4|4|4|4|4|
 |Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
@@ -213,6 +213,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|2|4|6|8|10|12|14|
 |Memoria (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
+|Numero massimo di database per pool|Sono supportati solo i database singoli per queste dimensioni di calcolo|50|100|100|100|100|100|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|1.571|3.142|4,713|6.284|8,655|11,026|13,397|
 |Dimensioni massime dei dati (GB)|1024|1024|1536|1536|1536|3072|3072|
@@ -225,7 +226,6 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|210|420|630|840|1050|1260|1470|
 |Numero massimo di accessi simultanei per pool (richieste) *|210|420|630|840|1050|1260|1470|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
-|Numero massimo di database per pool|Sono supportati solo i database singoli per queste dimensioni di calcolo|50|100|100|100|100|100|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|N/D|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...6|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...12|0, 0,25, 0,5, 1...14|
 |Numero di repliche|4|4|4|4|4|4|4|
 |Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
@@ -241,6 +241,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|16|18|20|24|32|40|80|
 |Memoria (GB)|81,6|91,8|102|122,4|163,2|204|408|
+|Numero massimo di database per pool|100|100|100|100|100|100|100|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|15.768|18,139|20,51|25.252|37.936|52.22|131.64|
 |Dimensioni massime dei dati (GB)|3072|3072|3072|4096|4096|4096|4096|
@@ -253,7 +254,6 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|1680|1890|2100|2520|3360|4200|8400|
 |Numero massimo di accessi simultanei per pool (richieste) *|1680|1890|2100|2520|3360|4200|8400|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
-|Numero massimo di database per pool|100|100|100|100|100|100|100|
 |Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1...16|0, 0,25, 0,5, 1...18|0, 0,25, 0,5, 1...20|0, 0,25, 0,5, 1...20, 24|0, 0,25, 0,5, 1...20, 24, 32|0, 0,25, 0,5, 1...20, 24, 32, 40|0, 0,25, 0,5, 1...20, 24, 32, 40, 80|
 |Numero di repliche|4|4|4|4|4|4|4|
 |Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|Sì|

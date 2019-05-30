@@ -11,18 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75a02abb6cce332daad12e1feb25fb425f89f7f4
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656670"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393377"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Usa identità gestite in Gestione API di Azure
 
 Questo articolo illustra come creare un'identità gestita per un'istanza del servizio Gestione API e come accedere ad altre risorse. Un'identità gestita generata da Azure Active Directory (Azure AD) consente all'istanza di gestione API semplice e sicuro accedere ad altre risorse di protetto AD Azure, ad esempio Azure Key Vault. Questa identità viene gestita da Azure e non è necessario effettuare il provisioning o ruotare alcun segreto. Per altre informazioni sulle identità gestita, vedere [What ' s identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Creare un'identità gestita per un'istanza di gestione API
 
@@ -242,3 +240,4 @@ Altre informazioni sulle identità gestita per le risorse di Azure:
 
 * [Che cos'è l'identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md)
 * [Modelli di Gestione risorse di Azure](https://github.com/Azure/azure-quickstart-templates)
+* [Eseguire l'autenticazione con un'identità gestita in un criterio](./api-management-authentication-policies.md#ManagedIdentity)

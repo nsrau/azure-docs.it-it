@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: c1006aa21b3009bb7508c7a24ab501d39737261c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 48c59ddc1e203030bd967911d536930cb94761d3
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978234"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356186"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>In modo sicuro eseguire esperimenti e inferenza all'interno di una rete virtuale di Azure
 
@@ -141,7 +141,7 @@ Quando si aggiungono le route definite dall'utente, definire le route per ogni p
 
 ![Esempio route definite dall'utente per un prefisso di indirizzo](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-Per altre informazioni, vedere la [creare un pool di Batch di Azure in una rete virtuale](/azure/batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) articolo.
+Per altre informazioni, vedere la [creare un pool di Batch di Azure in una rete virtuale](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) articolo.
 
 ### <a name="create-machine-learning-compute-in-a-virtual-network"></a>Creare l'ambiente di calcolo di Machine Learning in una rete virtuale
 
@@ -221,7 +221,7 @@ Per usare una macchina virtuale o un cluster Azure HDInsight in una rete virtual
 
     * __Tag del servizio di origine__: selezionare __AzureMachineLearning__.
 
-    * __Intervalli di porte di origine__: Selezionare __*__.
+    * __Intervalli di porte di origine__: Selezionare __*__ .
 
     * __Destinazione__: selezionare __Tutte__.
 
@@ -275,7 +275,7 @@ Per aggiungere il servizio Azure Kubernetes in una rete virtuale nell'area di la
 
     - __Indirizzo IP del servizio DNS Kubernetes__: selezionare l'indirizzo IP del servizio DNS di Kubernetes. Questo indirizzo IP viene assegnato al servizio DNS di Kubernetes. Deve essere compreso nell'intervallo di indirizzi del servizio Kubernetes. Ad esempio: 10.0.0.10.
 
-    - __Indirizzo del bridge Docker__: selezionare l'indirizzo del bridge Docker. Questo indirizzo IP viene assegnato al bridge Docker. Non deve essere compreso in nessun intervallo IP della subnet o nell'intervallo di indirizzi del servizio Kubernetes. Ad esempio: 172.17.0.1/16.
+    - __Indirizzo del bridge Docker__: selezionare l'indirizzo del bridge Docker. Questo indirizzo IP viene assegnato al bridge Docker. Non deve essere compreso in nessun intervallo IP della subnet o nell'intervallo di indirizzi del servizio Kubernetes. Ad esempio:  172.17.0.1/16.
 
    ![Servizio Azure Machine Learning: impostazioni della rete virtuale dell'ambiente di calcolo di Machine Learning](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 

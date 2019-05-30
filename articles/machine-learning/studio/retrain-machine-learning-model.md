@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 395a231fcf43378a51e22427254abb196a46081e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a3f441a0dd7f7b9f402390e853bd1c28f282f653
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709010"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245085"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ripetere il training e distribuire un modello di Machine Learning
 
@@ -59,7 +59,7 @@ In questo esempio si userà il linguaggio C# per creare l'applicazione di ripeti
 
 Usare la procedura seguente per chiamare le API per la ripetizione del training:
 
-1. Creare un'applicazione console C# in Visual Studio: **Nuovo** > **Progetto** > **Visual C#** > **Desktop di Windows classico** > **App console (.NET Framework)**.
+1. Creare un'applicazione console C# in Visual Studio: **Nuovo** > **Progetto** > **Visual C#**  > **Desktop di Windows classico** > **App console (.NET Framework)** .
 1. Accedere al portale dei servizi Web Machine Learning.
 1. Fare clic sul servizio Web usato.
 1. Fare clic su **Consume**(Uso).
@@ -89,7 +89,7 @@ Il codice di esempio BES carica un file da un'unità locale (ad esempio, "C:\tem
 1. Nell'elenco degli account di archiviazione selezionarne uno per l'archiviazione del modello per il quale è stato ripetuto il training.
 1. Nella colonna di spostamento a sinistra fare clic su **Chiavi di accesso**.
 1. Copiare e salvare la **chiave di accesso primaria**.
-1. Nella colonna di spostamento a sinistra fare clic su **Contenitori**.
+1. Nella colonna di spostamento a sinistra, fare clic su **BLOB**.
 1. Selezionare un contenitore esistente oppure crearne uno nuovo e salvare il nome.
 
 Individuare le dichiarazioni *StorageAccountName*, *StorageAccountKey* e *StorageContainerName* e aggiornare i valori salvati dal portale.

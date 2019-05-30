@@ -9,15 +9,15 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: b3788ede23a423bebf96661ea88b227bfb5fdf4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531300"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238453"
 ---
 Nella tabella seguente viene descritto ciascuno dei principali quote, limiti, impostazioni predefinite e limitazioni nell'utilità di pianificazione di Azure.
 
-| Risorsa | Descrizione del limite |
+| Resource | Descrizione del limite |
 | -------- | ----------------- |
 | **Dimensioni del processo** | La dimensione massima del processo è 16.000. Se un'operazione PUT o PATCH determina un processo di dimensioni maggiori rispetto a questo limite, viene restituito un codice di stato 400 di richiesta non valida. | 
 | **Raccolte processi** | Il numero massimo di raccolte processi per ogni sottoscrizione di Azure è 200.000. | 

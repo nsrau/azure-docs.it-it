@@ -1,5 +1,5 @@
 ---
-title: Classi di risorse per la gestione del carico di lavoro - Azure SQL Data Warehouse | Microsoft Docs
+title: Le classi di risorse per la gestione del carico di lavoro in Azure SQL Data Warehouse | Microsoft Docs
 description: Materiale sussidiario per l'uso delle classi di risorse per gestire la concorrenza e le risorse di calcolo per le query in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/22/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 75bd6e8071717ba755b71f51afcd884539049489
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 1c15778eb2ce38efb65e777578008b61e7066d67
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165974"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244514"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestione del carico di lavoro con le classi di risorse in Azure SQL Data Warehouse
 

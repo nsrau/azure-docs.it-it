@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 9ca3cbb1ef46c7fe53b6b16bda40ebef245613f3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 80ef8870bafa00f3debda99db299018a39d42a82
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415639"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245047"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiare dati da Office 365 in Azure usando Azure Data Factory
 
@@ -41,8 +41,8 @@ Prima di copiare dati da Office 365 in Azure, è necessario completare i passagg
 - L'amministratore del tenant di Office 365 deve completare le azioni di onboarding come descritto in [questa pagina](https://docs.microsoft.com/graph/data-connect-get-started).
 - Creare e configurare un'applicazione Web di Azure AD in Azure Active Directory.  Per istruzioni, vedere [Creare un'applicazione Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Prendere nota dei valori seguenti che si useranno per definire il servizio collegato per Office 365:
-    - ID tenant. Per istruzioni, vedere [Ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
-    - ID applicazione e chiave di autenticazione.  Per istruzioni, vedere [Ottenere l'ID applicazione e la chiave di autenticazione](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+    - ID tenant. Per istruzioni, vedere [Ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    - ID applicazione e chiave di autenticazione.  Per istruzioni, vedere [Ottenere l'ID applicazione e la chiave di autenticazione](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 - Aggiungere l'identità utente che effettua la richiesta di accesso ai dati come proprietario dell'applicazione Web di Azure AD (dall'applicazione Web di Azure AD > Impostazioni > Proprietari > Aggiungi proprietario). 
     - L'identità utente deve essere presente nell'organizzazione Office 365 da cui si ottengono i dati e non deve essere un utente guest.
 
@@ -78,12 +78,12 @@ Per il servizio collegato di Office 365 sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Office365** | Sì |
-| office365TenantId | ID tenant di Azure a cui appartiene l'account di Office 365. | Sì |
-| servicePrincipalTenantId | Specificare le informazioni sul tenant in cui si trova l'applicazione Web di Azure AD. | Sì |
+| type | La proprietà type deve essere impostata su: **Office365** | Yes |
+| office365TenantId | ID tenant di Azure a cui appartiene l'account di Office 365. | Yes |
+| servicePrincipalTenantId | Specificare le informazioni sul tenant in cui si trova l'applicazione Web di Azure AD. | Yes |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. | Sì |
-| connectVia | Runtime di integrazione da usare per la connessione all'archivio dati.  Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | N. |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. | Yes |
+| connectVia | Runtime di integrazione da usare per la connessione all'archivio dati.  Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No |
 
 >[!NOTE]
 > Differenza tra **office365TenantId** e **servicePrincipalTenantId** e il valore corrispondente da specificare:
@@ -118,10 +118,10 @@ Per copiare dati da Office 365, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **Office365Table** | Sì |
-| tableName | Nome del set di dati da estrarre da Office 365. Per l'elenco dei set di dati di Office 365 disponibili per l'estrazione, vedere [questo articolo](https://docs.microsoft.com/graph/data-connect-datasets#datasets). | Sì |
-| allowedGroups | Predicato di selezione gruppo.  Utilizzare questa proprietà per selezionare un massimo di 10 gruppi di utenti per i quali verranno recuperati i dati.  Se non vengono specificati gruppi, i dati verranno restituiti per l'intera organizzazione. | N. |
-| userScopeFilterUri | Quando `allowedGroups` proprietà non è specificata, è possibile usare un'espressione del predicato viene applicata per l'intero tenant per filtrare le righe specifiche da estrarre da Office 365. Il formato del predicato deve corrispondere al formato di query dell'API Graph Microsoft, ad esempio `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | N. |
+| type | La proprietà type del set di dati deve essere impostata su: **Office365Table** | Yes |
+| tableName | Nome del set di dati da estrarre da Office 365. Per l'elenco dei set di dati di Office 365 disponibili per l'estrazione, vedere [questo articolo](https://docs.microsoft.com/graph/data-connect-datasets#datasets). | Yes |
+| allowedGroups | Predicato di selezione gruppo.  Utilizzare questa proprietà per selezionare un massimo di 10 gruppi di utenti per i quali verranno recuperati i dati.  Se non vengono specificati gruppi, i dati verranno restituiti per l'intera organizzazione. | No  |
+| userScopeFilterUri | Quando `allowedGroups` proprietà non è specificata, è possibile usare un'espressione del predicato viene applicata per l'intero tenant per filtrare le righe specifiche da estrarre da Office 365. Il formato del predicato deve corrispondere al formato di query dell'API Graph Microsoft, ad esempio `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | No  |
 | dateFilterColumn | Nome della colonna di filtro di data/ora. Utilizzare questa proprietà per limitare l'intervallo di tempo per cui Office 365 vengono estratti i dati. | Sì, se il set di dati contiene uno o più colonne di tipo DateTime. Fare riferimento [qui](https://docs.microsoft.com/graph/data-connect-filtering#filtering) per elenco di set di dati che richiedono questo filtro data/ora. |
 | startTime | Avviare il valore DateTime da filtrare. | Sì se `dateFilterColumn` specificato |
 | endTime | Terminare il valore DateTime da filtrare. | Sì se `dateFilterColumn` specificato |

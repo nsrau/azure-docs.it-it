@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: c72392e46805049703300dd6f60fc7bf08b9053b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9bddb6552b11dd506ee3e2c1c416c15da11048b7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235777"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258746"
 ---
 # <a name="capacity-planning-and-scaling"></a>Pianificazione della capacità e ridimensionamento
 
@@ -71,6 +71,9 @@ Con le proprietà dei nodi e i vincoli di posizionamento dichiarati, eseguire i 
 3. Ridurre di uno il numero di macchine virtuali in quel tipo di nodo. L'istanza di macchina virtuale con il numero più alto verrà rimossa.
 4. Ripetere le fasi da 1 a 3 come necessario, ma non ridurre il numero di istanze nel nodo primario a un valore inferiore a quello garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
+> [!NOTE]
+> È uno scenario supportato per i casi in cui eseguire le operazioni di ridimensionamento verticale: È possibile migrare i Cluster di Service Fabric e dell'applicazione da dischi non gestiti a Managed Disks senza tempi di inattività dell'applicazione. Effettuando il provisioning di una nuova macchina virtuale di set di scalabilità con dischi gestiti ed esecuzione di un aggiornamento dell'applicazione con i vincoli di posizionamento che hanno come destinazione il provisioning della capacità; cluster di Service Fabric è possibile pianificare il carico di lavoro nella capacità del nodo cluster con provisioning che viene implementata dal dominio di aggiornamento senza tempi di inattività dell'applicazione. [Azure SKU Basic di servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) gli endpoint del pool back-end possono essere una macchina virtuale in un unico set di disponibilità o set di scalabilità di macchine virtuali. Ciò significa che non è possibile utilizzare un servizio di bilanciamento del carico dello SKU Basic, se l'applicazione di Service Fabric sistemi si sposta tra i set di scalabilità, senza causare inaccessibilità temporaneo dell'infrastruttura del servizio di gestione endpoint cluster, anche se il cluster e la relativa applicazione sono ancora in esecuzione; comunemente utente eseguire il provisioning di un bilanciamento del carico dello SKU Standard, quando si esegue uno scambio di indirizzo IP (VIP) virtuale tra le risorse di bilanciamento del carico dello SKU Basic e bilanciamento del carico dello SKU Standard, per attenuare eventuali future circa 30 secondi di inaccessibilità necessari per lo scambio VIP.
+
 ## <a name="horizontal-scaling"></a>Scalabilità orizzontale
 
 In Service Fabric il ridimensionamento orizzontale può essere eseguito [in modalità manuale](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) o [a livello di codice](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
@@ -99,7 +102,7 @@ Per scalare orizzontalmente manualmente, aggiornare la capacità nella propriet�
 
 ### <a name="scaling-in"></a>Riduzione
 
-La riduzione del numero di istanze richiede qualche considerazione in più rispetto all'aumento. Ad esempio:
+La riduzione del numero di istanze richiede qualche considerazione in più rispetto all'aumento. Ad esempio: 
 
 * I servizi di sistema di Service Fabric vengono eseguiti nel tipo di nodo primario del cluster. Non arrestare né ridurre mai il numero di istanze in questo tipo di nodo per evitare di avere un numero di istanze inferiore a quello garantito dal livello di affidabilità. 
 * Per un servizio con stato, è necessario che un determinato numero di nodi sia sempre attivo per assicurare la disponibilità e mantenere lo stato del servizio. Come minimo, è necessario un numero di nodi uguale al totale dei set di repliche di destinazione della partizione o del servizio.
@@ -123,7 +126,7 @@ Per ridimensionare manualmente, aggiornare la capacità nella proprietà SKU del
 
 1. Ripetere i passaggi da 1 a 3 fino a completare il provisioning della capacità desiderata. Non ridurre il numero di istanze nei tipi di nodo primari a un valore inferiore a quello garantito dal livello di affidabilità. Per informazioni dettagliate sui livelli di affidabilità e sul numero di istanze necessarie, vedere [Considerazioni sulla pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
-Per la riduzione del numero di istanze a livello di codice, è necessario preparare il nodo per l'arresto. A tale scopo, cercare il nodo da rimuovere, ovvero il nodo dell'istanza con il numero più alto, e disattivarlo. Ad esempio:
+Per la riduzione del numero di istanze a livello di codice, è necessario preparare il nodo per l'arresto. A tale scopo, cercare il nodo da rimuovere, ovvero il nodo dell'istanza con il numero più alto, e disattivarlo. Ad esempio: 
 
 ```c#
 using (var client = new FabricClient())

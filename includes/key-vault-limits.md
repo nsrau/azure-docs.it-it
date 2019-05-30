@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65211991"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238206"
 ---
 #### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transazioni chiave (numero massimo di transazioni consentito entro 10 secondi, per ogni insieme di credenziali per ogni area geografica<sup>1</sup>):
 
-|Tipo di chiave|Chiave protetta tramite HSM<br>CREARE la chiave|Chiave protetta tramite HSM<br>Tutte le altre transazioni|Chiave del software<br>CREARE la chiave|Chiave del software<br>Tutte le altre transazioni|
+|Tipo di chiave|Chiave protetta tramite HSM<br>CREARE la chiave|Chiave protetta tramite HSM<br>Tutte le altre transazioni|Chiave software<br>CREARE la chiave|Chiave software<br>Tutte le altre transazioni|
 |:---|---:|---:|---:|---:|
 |RSA a 2048 bit|5|1.000|10|2.000|
 |RSA 3.072 bit|5|250|10|500|

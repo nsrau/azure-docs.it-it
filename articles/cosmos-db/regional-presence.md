@@ -4,15 +4,15 @@ description: Questo articolo include informazioni sulla presenza a livello di ar
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/23/2019
 ms.author: rimman
 ms.custom: seodec18
-ms.openlocfilehash: 851da72a308b164b9a01b7ccfa3d541fc06810ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 787bcc8f0db60868008ec93fcacdec1283946d2f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926265"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243727"
 ---
 # <a name="regional-presence-with-azure-cosmos-db"></a>Presenza a livello di area con Azure Cosmos DB
 

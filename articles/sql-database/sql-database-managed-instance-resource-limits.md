@@ -9,30 +9,30 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop, sachinp
+ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 05/22/2019
-ms.openlocfilehash: e091ec29c810fce7a39ad5aa5cc8f0ddae711752
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 7ff8405bba39e274c4f9f0cbacb7c295564c877e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016398"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303203"
 ---
-# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse del database SQL di Azure per le istanze gestite
+# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Cenni preliminari su Azure SQL Database managed i limiti delle risorse di istanza
 
-Questo articolo offre una panoramica sui limiti delle risorse del database SQL di Azure per le istanze gestite e fornisce informazioni su come creare richieste per aumentare i limiti delle sottoscrizioni a livello di area predefinite.
+Questo articolo viene fornita una panoramica dei limiti delle risorse per l'istanza gestita di Database SQL di Azure e fornisce informazioni su come richiedere un aumento di questi limiti.
 
 > [!NOTE]
-> Per informazioni su altri limiti delle istanze gestite, vedere [Modello di acquisto basato su vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e [Livelli di servizio di Istanza gestita](sql-database-managed-instance.md#managed-instance-service-tiers). Per informazioni sulle differenze nelle funzionalità e nelle istruzioni T-SQL supportate, vedere [Confronto tra le funzionalità](sql-database-features.md) e [Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server](sql-database-managed-instance-transact-sql-information.md).
+> Per informazioni sulle differenze nelle funzionalità e nelle istruzioni T-SQL supportate, vedere [Confronto tra le funzionalità](sql-database-features.md) e [Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server](sql-database-managed-instance-transact-sql-information.md).
 
 ## <a name="instance-level-resource-limits"></a>Limiti delle risorse a livello di istanza
 
-Istanza gestita ha caratteristiche e limiti delle risorse che dipendono dall'infrastruttura e dall'architettura sottostanti. I limiti dipendono dalla generazione dell'hardware e dal livello di servizio.
+Istanza gestita ha le caratteristiche e i limiti delle risorse che dipendono l'infrastruttura sottostante e architettura. I limiti dipendono dalla generazione dell'hardware e dal livello di servizio.
 
 ### <a name="hardware-generation-characteristics"></a>Caratteristiche delle generazioni dell'hardware
 
-Istanza gestita di database SQL di Azure può essere distribuita in due generazioni hardware (Quarta generazione e Quinta generazione). Le generazioni hardware hanno caratteristiche diverse descritte nella tabella seguente:
+Istanza gestita di Database SQL Azure può essere distribuito in due generazioni di hardware: Gen4 che Gen5. Le generazioni hardware hanno caratteristiche diverse descritte nella tabella seguente:
 
 |   | **Quarta generazione** | **Quinta generazione** |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ Istanza gestita di database SQL di Azure può essere distribuita in due generazi
 
 ### <a name="service-tier-characteristics"></a>Caratteristiche del livello di servizio
 
-Istanza gestita ha due livelli di servizio: per utilizzo generico e business critical. Questi livelli offrono funzionalità diverse, come descritto nella tabella seguente:
+Istanza gestita ha due livelli di servizio - utilizzo generico e Business Critical. Questi livelli offrono funzionalità diverse, come descritto nella tabella seguente:
 
 | **Funzionalità** | **Utilizzo generico** | **Business Critical** |
 | --- | --- | --- |
@@ -60,19 +60,20 @@ Istanza gestita ha due livelli di servizio: per utilizzo generico e business cri
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes). | |
 | Latenza di I/O (approssimativa) | 5-10 ms | 1-2 ms |
 | Dimensioni max di tempDB | 192 - 1.920 GB (24 GB per vCore) | Nessun vincolo; limitato dalla dimensione massima di archiviazione dell'istanza |
+| Numero massimo di sessioni | 30000 | 30000 |
 
 **Note**:
 
 - La dimensione di archiviazione dell'istanza, che viene confrontata con la dimensione massima di archiviazione, include la dimensione dei dati e dei file di log presenti sia nel database utenti che in quello di sistema. Usare la vista di sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> per determinare lo spazio totale usato dai database. I log degli errori non vengono salvati in modo permanente e non sono inclusi nella dimensione. I backup non sono inclusi nella dimensione di archiviazione.
-- Anche IOPS e velocità effettiva dipendono dalle dimensioni pagina che non vengono limitate in modo esplicito dall'Istanza gestita di database SQL di Azure.
+- IOPS e velocità effettiva dipendono anche le dimensioni della pagina che non sono limitata in modo esplicito da istanza gestita.
 
 ## <a name="supported-regions"></a>Aree supportate
 
-Le istanze gestite possono essere create solo in [aree supportate](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Se si vuole creare un'istanza gestita in un'area attualmente non supportata, è possibile [inviare una richiesta di supporto tramite il portale di Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
+Le istanze gestite possono essere create solo in [aree supportate](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Per creare un'istanza gestita in un'area che non è attualmente supportata, è possibile [invia una richiesta di supporto tramite il portale di Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
 
 ## <a name="supported-subscription-types"></a>Tipi di sottoscrizioni supportati
 
-Istanza gestita supporta attualmente solo la distribuzione dei tipi di sottoscrizioni seguenti:
+Istanza gestita supporta attualmente la distribuzione solo nei seguenti tipi di sottoscrizioni:
 
 - [Contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/)
@@ -85,17 +86,17 @@ Istanza gestita supporta attualmente solo la distribuzione dei tipi di sottoscri
 
 ## <a name="regional-resource-limitations"></a>Limiti delle risorse a livello di area
 
-I tipi di sottoscrizioni supportati possono contenere un numero limitato di risorse per area. Istanza gestita ha due limiti predefiniti per area di Azure a seconda del tipo di sottoscrizione:
+I tipi di sottoscrizioni supportati possono contenere un numero limitato di risorse per area. Istanza gestita presenta due limiti predefiniti per ogni area di Azure in base a un tipo di sottoscrizione di tipo:
 
 - **Limite di subnet**: numero massimo di subnet in cui vengono distribuite le istanze gestite in una singola area.
 - **Limite del numero di istanze**: numero massimo di istanze che possono essere distribuite in una singola area.
 
 > [!Note]
-> Questi limiti sono le impostazioni predefinite e limiti tecnici non. I limiti possono essere maggiori su richiesta tramite la creazione di speciali [richiesta di supporto nel portale di Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se sono necessarie altre istanze gestite nell'area corrente. In alternativa, è possibile creare nuove istanze gestite in un'altra area di Azure senza inviare richieste di supporto.
+> Questi limiti sono le impostazioni predefinite e limiti tecnici non. I limiti possono essere maggiori su richiesta tramite la creazione di una speciale [richiesta di supporto nel portale di Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se sono necessarie più istanze gestite nell'area corrente. In alternativa, è possibile creare nuove istanze gestite in un'altra area di Azure senza inviare le richieste di supporto.
 
-La tabella seguente indica i limiti predefiniti a livello di area per le sottoscrizioni supportate:
+La tabella seguente illustra i limiti a livello di area predefinita per le sottoscrizioni supportati:
 
-|Tipo di sottoscrizione| Numero massimo di subnet dell'istanza gestita | Numero massimo di istanze |Numero massimo di istanze gestite GP*|Numero massimo di istanze gestite BC*|
+|Tipo di sottoscrizione| Numero massimo di subnet di istanza gestita | Numero massimo di istanze |Numero massimo di istanze gestite GP*|Numero massimo di istanze gestite BC*|
 | :---| :--- | :--- |:--- |:--- |
 |Pagamento in base al consumo|1*|4*|4*|1*|
 |CSP |1*|4*|4*|1*|
@@ -103,14 +104,13 @@ La tabella seguente indica i limiti predefiniti a livello di area per le sottosc
 |Sviluppo/test Enterprise|1*|4*|4*|1*|
 |Contratto Enterprise|3**|12**|12**|3**|
 
-\* È possibile distribuire 1 istanza business critical (BC) o 4 istanze per utilizzo generico (GP) in una subnet, in modo che il numero totale di "unità di istanza" non sia mai superiore a 4.
+\* È possibile distribuire 1 BC o 4 istanze di criteri di gruppo in una subnet, in modo che il numero totale delle "unità di istanze" nella subnet non superi mai il 4.
 
-** Viene applicato il numero massimo di istanze in un livello di servizio se non sono presenti istanze in un altro livello di servizio. Se si prevede di combinare istanze per utilizzo generico e business critical nella stessa subnet, usare la sezione seguente come riferimento per le combinazioni consentite. Il numero totale di subnet non può essere superiore a 3 e il numero totale di unità di istanza non può essere superiore a 12.
-
+** Viene applicato il numero massimo di istanze in un livello di servizio se non sono presenti istanze in un altro livello di servizio. Se si intende combinare criteri di gruppo e BC istanze all'interno della stessa subnet, usare la sezione seguente come riferimento per le combinazioni consentite. Il numero totale di subnet non può essere superiore a 3 e il numero totale di unità di istanza non può essere superiore a 12.
 
 
 > [!IMPORTANT]
-> Durante la pianificazione delle distribuzioni, tenere presente che un'istanza business critical (BC) (a causa della maggiore ridondanza) generalmente consuma 4 volte la capacità di un'istanza per utilizzo generico (GP). Quindi, ai fini dei calcoli, 1 istanza per utilizzo generico = 1 unità di istanza e 1 istanza business critical = 4 unità di istanza. Per semplificare l'analisi del consumo in base ai limiti predefiniti, riepilogare le unità di istanza in tutte le subnet nell'area in cui vengono distribuite istanze gestite e confrontare i risultati con i limiti di unità di istanza per il tipo di sottoscrizione.
+> Durante la pianificazione delle distribuzioni, tenere presente che un'istanza business critical (BC) (a causa della maggiore ridondanza) generalmente consuma 4 volte la capacità di un'istanza per utilizzo generico (GP). Quindi, ai fini dei calcoli, 1 istanza per utilizzo generico = 1 unità di istanza e 1 istanza business critical = 4 unità di istanza. Per semplificare l'analisi di utilizzo con i limiti predefiniti, riepilogare le unità di istanza tra tutte le subnet nell'area in cui le istanze gestite vengono distribuite e confrontano i risultati con i limiti di unità di istanza per il tipo di sottoscrizione.
 
 ## <a name="strategies-for-deploying-mixed-general-purpose-and-business-critical-instances"></a>Strategie per la distribuzione mista di istanze per utilizzo generico e business critical
 
@@ -130,16 +130,16 @@ Gli esempi seguenti illustrano casi di distribuzione con subnet non vuote e live
 |3|1 BC, 0 GP|1 BC, 0 GP|0 BC, fino a 4 GP|
 |3|1 BC, 0 GP|0 BC, fino a 4 GP|0 BC, fino a 4 GP|
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Come ottenere una quota maggiore per Istanza gestita di SQL
+## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Istanza gestita di ottenere una quota maggiore di quella per SQL
 
-Se servono più istanze gestite nelle aree correnti, è possibile inviare una richiesta di supporto per estendere la quota tramite il portale di Azure.
+Se non è presente più istanze gestite di aree correnti, inviare una richiesta di supporto per estendere la quota tramite il portale di Azure.
 Per avviare il processo di acquisizione di una quota maggiore:
 
 1. Aprire **Guida e supporto** e fare clic su **Nuova richiesta di supporto**.
 
-   ![Guida e supporto tecnico](media/sql-database-managed-instance-resource-limits/help-and-support.png)
+   ![Guida e supporto](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. Nella scheda Generale per la nuova richiesta di supporto:
-   - Per **Tipo di problema** selezionare **Limiti del servizio e della sottoscrizione (quote)**.
+   - Per **Tipo di problema** selezionare **Limiti del servizio e della sottoscrizione (quote)** .
    - In **Sottoscrizione** selezionare la propria sottoscrizione.
    - Per **Tipo di quota** selezionare **Istanza gestita di database SQL**.
    - Per **Piano di supporto** selezionare il piano di supporto in uso.
@@ -166,6 +166,6 @@ Per avviare il processo di acquisizione di una quota maggiore:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni su Istanza gestita, vedere [Informazioni su Istanza gestita](sql-database-managed-instance.md).
-- Per informazioni sui prezzi, vedere [Prezzi di Istanza gestita di database SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).
-- Per informazioni su come creare la prima istanza gestita, vedere [Guida introduttiva](sql-database-managed-instance-get-started.md).
+- Per altre informazioni sull'istanza gestita, vedere [che cos'è un'istanza gestita?](sql-database-managed-instance.md).
+- Per informazioni sui prezzi, vedere [Prezzi dell'istanza gestita di database SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+- Per informazioni su come creare la prima istanza gestita, vedere [la Guida introduttiva](sql-database-managed-instance-get-started.md).

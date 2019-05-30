@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 291ec651061b7a8a3ea3c0645a6bd6581d529ef6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170380"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244991"
 ---
 ## <a name="sign-in-to-azure"></a>Accedi ad Azure 
 
@@ -56,7 +56,6 @@ Creare la definizione dell'immagine della raccolta all'interno della raccolta. I
 1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
 
 
-
 ## <a name="create-an-image-version"></a>Creare una versione di immagine
 
 Creare una versione di immagine da un'immagine gestita. In questo esempio la versione dell'immagine è *1.0.0* e viene replicata nei datacenter degli *Stati Uniti centrali* e degli *Stati Uniti centro-meridionali*. Quando si scelgono le aree di destinazione per la replica, tenere presente che anche necessario includere il *origine* area come destinazione per la replica.
@@ -75,3 +74,20 @@ I caratteri consentiti per le versioni delle immagini sono numeri e punti. I num
 1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
 
 Può richiedere un po' di tempo per replicare l'immagine in tutte le aree di destinazione.
+
+## <a name="share-the-gallery"></a>Condividere la raccolta
+
+È consigliabile che si condivide l'accesso a livello di raccolta di immagini. Di seguito illustra la condivisione della raccolta appena creato.
+
+1. Aprire il [portale di Azure](https://portal.azure.com).
+1. Nel menu a sinistra, selezionare **gruppi di risorse**. 
+1. Nell'elenco dei gruppi di risorse, selezionare **myGalleryRG**. Verrà aperto il pannello del gruppo di risorse.
+1. Nel menu a sinistra del **myGalleryRG** pagina, selezionare **controllo di accesso (IAM)** . 
+1. Sotto **aggiungere un'assegnazione di ruolo**, selezionare **Add**. Il **aggiungere un'assegnazione di ruolo** riquadro viene aperto. 
+1. Sotto **ruolo**, selezionare **lettore**.
+1. Sotto **assegna accesso a**, lasciare il valore predefinito **utente, gruppo o entità servizio Azure AD**.
+1. Sotto **seleziona**, digitare l'indirizzo di posta elettronica della persona che si desidera invitare.
+1. Se l'utente è all'esterno dell'organizzazione, si verrà visualizzato il messaggio **questo utente verrà inviato un messaggio di posta elettronica che consente loro di collaborare con Microsoft.** Selezionare l'utente con l'indirizzo di posta elettronica e quindi fare clic su **salvare**.
+
+Se l'utente è all'esterno dell'organizzazione, si otterrà un invito tramite posta elettronica a unirsi all'organizzazione. L'utente dovrà accettare l'invito, quindi saranno in grado di visualizzare la raccolta e tutte le definizioni di immagini e versioni nei rispettivi elenchi di risorse.
+

@@ -3,7 +3,7 @@ title: Eseguire il binding a un dominio gestito di Azure Active Directory Domain
 description: Eseguire il binding a un dominio gestito di Azure Active Directory Domain Services tramite l'accesso LDAP sicuro (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: ergreenl
-ms.openlocfilehash: 62776408675acba1ee8a57252c794e5a1c840155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417037"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234862"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Eseguire il binding a un dominio gestito di Azure Active Directory Domain Services tramite l'accesso LDAP sicuro (LDAPS)
 
@@ -64,13 +64,13 @@ Il gruppo di sicurezza di rete di esempio, nella tabella seguente, blocca l'acce
 
 
 ## <a name="related-content"></a>Contenuti correlati
-* [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
-* [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
+* [Servizi di dominio Azure AD: introduzione](create-instance.md)
+* [Gestire un dominio di Azure AD Domain Services](manage-domain.md)
 * [Nozioni di base sulle query LDAP](https://technet.microsoft.com/library/aa996205.aspx)
-* [Administer Group Policy on an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-group-policy.md) (Amministrare i Criteri di gruppo in un dominio gestito da Azure AD Domain Services)
+* [Gestire i criteri di gruppo per Azure Active Directory Domain Services](manage-group-policy.md)
 * [Gruppi di sicurezza di rete](../virtual-network/security-overview.md)
 * [Creare un gruppo di sicurezza di rete](../virtual-network/tutorial-filter-network-traffic.md)
 
 
 ## <a name="next-step"></a>Passaggio successivo
-[Risolvere i problemi relativi all'accesso LDAP sicuro per un dominio gestito](active-directory-ds-ldaps-troubleshoot.md)
+[Risolvere i problemi relativi all'accesso LDAP sicuro per un dominio gestito](tshoot-ldaps.md)

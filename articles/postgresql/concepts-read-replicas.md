@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: ce99e03cbd767b5e25871397ea9ae9a301132ab6
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510983"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242286"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leggere le repliche di Database di Azure per PostgreSQL - Server singolo
 
@@ -40,10 +40,9 @@ Il server master deve avere il`azure.replication_support`parametro impostato su 
 
 Quando si avvia il flusso di lavoro per la creazione della replica, viene creato un server di Database di Azure per PostgreSQL vuoto. Il nuovo server viene riempito con i dati presenti nel server master. Il tempo necessario per la creazione dipende dalla quantità di dati nel master e dal tempo trascorso dall'ultimo backup completo settimanale. Il tempo può variare da pochi minuti a diverse ore.
 
-La funzionalità di replica in lettura usa la replica fisica di PostgreSQL e non la replica logica. Lo streaming della replica usando gli slot di replica è la modalità operativa predefinita. Se necessario, viene usato il log shipping per mettersi in pari.
+Ogni replica è abilitata per l'archiviazione [aumento automatico delle dimensioni](concepts-pricing-tiers.md#storage-auto-grow). La funzionalità aumento consente alla replica di allinearsi con i dati replicati ad esso ed evitare un'interruzione della replica causata da errori di memoria insufficiente.
 
-> [!NOTE]
-> Se non si ha un avviso di archiviazione impostato nei server, si consiglia di impostarlo. L'avviso informa l'utente quando un server sta per raggiungere il limite di archiviazione, che influisce sulla replica.
+La funzionalità di replica in lettura usa la replica fisica di PostgreSQL e non la replica logica. Lo streaming della replica usando gli slot di replica è la modalità operativa predefinita. Se necessario, viene usato il log shipping per mettersi in pari.
 
 Informazioni su come [creare una replica di lettura nel portale di Azure](howto-read-replicas-portal.md).
 
@@ -94,7 +93,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 > [!NOTE]
 > In caso di riavvio di un server master o di una replica in lettura, il tempo necessario per il riavvio e per mettersi in pari sarà indicato nella metrica Replica Lag (Ritardo della replica).
 
-## <a name="stop-replication"></a>Arresta replica
+## <a name="stop-replication"></a>Arrestare la replica
 È possibile scegliere di arrestare la replica tra un master e una replica. L'interruzione dell'operazione causa il riavvio della replica e la rimozione delle impostazioni di replica. Dopo l'arresto della replica tra un server master e una replica in lettura, la replica diventa un server autonomo. I dati nel server autonomo sono i dati che erano disponibili nella replica al momento dell'esecuzione del comando di arresto della replica. Il server autonomo non è aggiornato con il server master.
 
 > [!IMPORTANT]

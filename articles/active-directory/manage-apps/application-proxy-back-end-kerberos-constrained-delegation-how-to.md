@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c95eb45d75a54af75fdc8004316bc8bfeeddbd7e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0cfaea53156b78fad024046bb6f55229f8ad6536
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783942"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236275"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Risolvere i problemi di configurazione della delega vincolata Kerberos per Application Proxy
 
@@ -182,4 +182,4 @@ Se il problema persiste, contattare il supporto tecnico Microsoft creando un tic
 - L'autenticazione multihop viene generalmente usata negli scenari con applicazioni a livelli, con un back-end e un front-end che richiedono l'autenticazione, ad esempio SQL Server Reporting Services. Per configurare lo scenario multihop, vedere l'articolo del supporto tecnico [Kerberos Constrained Delegation May Require Protocol Transition in Multi-hop Scenarios](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul) (La delega vincolata Kerberos può richiedere protocolli di transizione negli scenari multihop).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Configurare la delega vincolata Kerberos in un dominio gestito](../../active-directory-domain-services/active-directory-ds-enable-kcd.md).
+[Configurare la delega vincolata Kerberos in un dominio gestito](../../active-directory-domain-services/deploy-kcd.md).

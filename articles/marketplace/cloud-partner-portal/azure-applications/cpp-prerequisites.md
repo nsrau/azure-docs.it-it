@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 64039234a3863332ca19b915fb59a5271625d695
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942891"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258193"
 ---
 # <a name="azure-application-prerequisites"></a>Prerequisiti per un'applicazione Azure
 
@@ -38,7 +38,8 @@ Per altre informazioni, vedere [Creare l'interfaccia utente del portale di Azure
 
 I requisiti aziendali includono gli obblighi procedurali, legali e contrattuali riportati di seguito:
 
-* È necessario essere un editore di Marketplace cloud registrato. Se non viene registrato, seguire i passaggi nell'articolo [diventare un editore di Marketplace Cloud](../../become-publisher.md).
+* È necessario essere un editore di Marketplace cloud registrato. Se non viene registrato, seguire i passaggi nell'articolo [diventare un editore di Marketplace Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher
+).
 
 >[!NOTE]
 >Per l'accesso al portale Cloud Partner è consigliabile usare lo stesso account usato per la registrazione a Microsoft Developer Center. È consigliabile utilizzare un solo account Microsoft per le offerte in Azure Marketplace. L’account non deve essere specifico di servizi o offerte singole.

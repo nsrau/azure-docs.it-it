@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5dbd4fefd5c5e1acd7e12ace547ddb8866b7f081
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1ac3cdecc79cafb9ea2697cca3c87b2ebe083d40
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148581"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254856"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Domande frequenti sul backup di file e cartelle 
 
@@ -101,7 +101,7 @@ Questo avviso possa essere visualizzati anche se è stato configurato un criteri
 La dimensione della cartella della cache determina la quantità di dati sottoposti a backup.
 - I volumi di cartella della cache devono avere spazio libero pari almeno al 5-10% delle dimensioni totali dei dati di backup.
 - Se il volume è inferiore al 5% spazio libero, aumentare le dimensioni del volume, o spostare la cartella della cache in un volume con spazio sufficiente.
-- 
+- Se si esegue il backup dello stato del sistema Windows, è necessario altri 30-35 GB di spazio libero nel volume che contiene la cartella della cache
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Come si modifica il percorso della cache per l'agente MARS?
 
 

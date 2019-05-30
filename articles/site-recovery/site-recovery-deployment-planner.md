@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mayg
-ms.openlocfilehash: a1fbc8a42492b4a9c2254ccea2ddc2909219ad23
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: HT
+ms.openlocfilehash: 42ef6087663c48cad965be768f14920efa777a62
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969355"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244334"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -65,7 +65,7 @@ Lo strumento indica i dettagli seguenti:
 
 | | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Da Hyper-V al sito secondario**|**Da VMware al sito secondario**
 --|--|--|--|--|--
-Scenari supportati |Sì|Sì|N.|Sì*|N.
+Scenari supportati |Yes|Sì|No |Sì*|No 
 Versione supportata | vCenter 6.7, 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
 Configurazione supportata|vCenter, ESXi| Cluster Hyper-V, host Hyper-V|NA|Cluster Hyper-V, host Hyper-V|NA|
 Numero di server che è possibile profilare per ogni istanza in esecuzione di Site Recovery Deployment Planner |Singolo (è possibile profilare le VM appartenenti a un solo server vCenter o a un solo server ESXi alla volta)|Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| NA |Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| NA
@@ -121,7 +121,7 @@ Se si ha una versione precedente di Deployment Planner, eseguire una di queste o
 
 ## <a name="version-history"></a>Cronologia delle versioni
 La versione più recente di Site Recovery Deployment Planner è 2.4.
-Per le correzioni aggiunte in ogni aggiornamento, vedere la pagina della [cronologia delle versioni di Site Recovery Deployment Planner](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-deployment-planner-history).
+Per le correzioni aggiunte in ogni aggiornamento, vedere la pagina della [cronologia delle versioni di Site Recovery Deployment Planner](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Eseguire Site Recovery Deployment Planner](site-recovery-vmware-deployment-planner-run.md)

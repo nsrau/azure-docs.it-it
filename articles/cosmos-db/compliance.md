@@ -4,15 +4,15 @@ description: Questo articolo descrive la copertura di certificazione per le offe
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: bbfc31e5eab2c2beb232a9ec2e0d5e11e4107be5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: af1b3dba0ac73ef30a4be20cab795ce6de595970
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606280"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239710"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Conformità in Azure Cosmos DB 
 
@@ -20,7 +20,7 @@ Azure Cosmos DB è disponibile in tutte le aree di Azure. Microsoft rende dispon
 
 * Cloud **Azure pubblico**, disponibile a livello globale.
 
-* **Azure Cina** è disponibile tramite una speciale collaborazione tra Microsoft e 21Vianet, uno dei principali provider Internet in Cina.
+* **Azure Cina 21Vianet** è disponibile tramite una collaborazione unica tra Microsoft e 21Vianet, uno dei principali provider internet del paese.
 
 * **Azure Germania** fornisce i servizi sulla base di un modello di trustee per i dati, che assicura che i dati dei clienti rimangano in Germania sotto il controllo di T-Systems International GmbH, una filiale di Deutsche Telecom, che funge da trustee per i dati tedesco.
 
@@ -36,15 +36,32 @@ La copertura di certificazione per Azure Cosmos DB è in continua espansione. At
 
 | **Applicabile a livello globale** | **US Government** | **Specifici del settore** | **Specifici di area o paese** |
 | --- | --- | --- | --- |
-| Certificazione CSA STAR<br/><br/>Attestazione CSA STAR<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| DoD SRG livello 2<br/><br/>FedRAMP Moderate<br/><br/>GxP (FDA 21 CFR parte 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>Germania C5<br/><br/>Singapore MTCS livello 3<br/><br/>Spagna ENS High|
+| Certificazione CSA STAR | DoD SRG livello 2 | HIPAA BAA | Australia IRAP Unclassified |
+| Attestazione CSA STAR | FedRAMP Moderate | HITRUST | Germania C5|
+| ISO 20000-1:2011 | GxP (FDA 21 CFR parte 11) | PCI DSS | Singapore MTCS livello 3 |
+| ISO 22301:2012 | | | Spagna ENS High|
+| ISO 27001:2013| | | |
+| ISO 27017:2015 | | | |
+| ISO 27018:2014 | | | |
+| ISO 9001:2015 | | | |
+| SOC 1, 2, 3 | | | |
 
 Per altre informazioni su ognuna di queste offerte di conformità e sui vantaggi offerti, vedere la pagina [Panoramica della conformità di Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
 
 La tabella seguente elenca le certificazioni supportate da Azure Cosmos DB in Azure per enti pubblici:
 
-| **Applicabile a livello globale** | **US Government** | **Specifici del settore** | **Specifici di area o paese** |
+| **Applicabile a livello globale** | **US Government** | **Specifici del settore** | 
 | --- | --- | --- | --- |
-| Certificazione CSA STAR<br/><br/>Attestazione CSA STAR<br/><br/>ISO 20000-1:2011<br/><br/>ISO 9001:2015<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3 | DoD SRG livello 2<br/><br/>DoD SRG livello 5<br/><br/>CJIS<br/><br/>FedRAMP High<br/><br/>IRS 1075<br/><br/>NIST CSF<br/><br/>NIST SP 800-171| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>Germania C5<br/><br/>Singapore MTCS livello 3<br/><br/>Spagna ENS High|
+| Certificazione CSA STAR | CJIS| HIPAA BAA | 
+| Attestazione CSA STAR| DoD SRG livello 2| HITRUST  | 
+| ISO 20000-1:2011 | Livello SRG DoD 4 | PCI DSS | 
+| ISO 9001:2012 | DoD SRG livello 5 | | 
+| ISO 27001:2013 | FedRAMP High | |
+| ISO 9001:2015 | IRS 1075|  |
+| ISO 27017:2014 | NIST CSF | |
+| ISO 27018:2015 | NIST SP 800-171 | |
+| SOC 1, 2, 3 | | |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

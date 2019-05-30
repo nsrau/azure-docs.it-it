@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 4a0dbe736b9727491f77b392c199400003abf8be
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9ef5c9e8b4a46b4bf2bed25027602fb98a09dbf0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779879"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256097"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Developer Analytics: linguaggi, piattaforme e integrazioni
 Di seguito sono riportate implementazioni di [Application Insights](../../azure-monitor/app/app-insights-overview.md) già illustrate, incluse alcune di terze parti.
@@ -31,6 +31,7 @@ Di seguito sono riportate implementazioni di [Application Insights](../../azure-
 
 ## <a name="languages---community-supported"></a>Linguaggi: supportati dalla community
 * [F#](https://safe-stack.github.io/docs/template-azure-ai/)
+* [Go](https://github.com/Microsoft/ApplicationInsights-go)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -44,7 +45,7 @@ Di seguito sono riportate implementazioni di [Application Insights](../../azure-
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Servizio app di Azure](../../azure-monitor/app/azure-web-apps.md)
-* [Servizi cloud di Azure](../../azure-monitor/app/cloudservices.md)&amp;#151;che includono sia i ruoli Web che i ruoli di lavoro
+* [Servizi cloud di Azure](../../azure-monitor/app/cloudservices.md)&#151;che includono sia i ruoli Web che i ruoli di lavoro
 * [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 * [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)

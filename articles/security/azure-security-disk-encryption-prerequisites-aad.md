@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2cc5d953ec412c1c747989d58303beae05f2039c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66118035"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234292"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Prerequisiti di Crittografia dischi di Azure (versione precedente)
 
@@ -73,7 +73,7 @@ Un esempio dei comandi che è possibile usare per montare i dischi dati e creare
 **Criteri di gruppo:**
  - La soluzione Crittografia dischi di Azure usa la protezione con chiave esterna BitLocker per macchine virtuali IaaS Windows. Per le macchine virtuali aggiunte a un dominio, non eseguire il push di criteri di gruppo che applichino protezioni TPM. Per informazioni sui Criteri di gruppo per consentire BitLocker senza un TPM compatibile, vedere [BitLocker Group Policy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup) (Informazioni di riferimento sui Criteri di gruppo BitLocker).
 
--  I criteri di BitLocker nelle macchine virtuali aggiunte a un dominio con criteri di gruppo personalizzati devono includere l'impostazione seguente: [Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). (Configura l'archiviazione utente delle informazioni di ripristino di bitlocker -> Consenti chiave di ripristino a 256 bit). Crittografia dischi di Azure avrà esito negativo quando le impostazioni di Criteri di gruppo personalizzate per BitLocker sono incompatibili. Sulle macchine sprovviste delle corrette impostazioni di criteri, applicare i nuovi criteri, forzare l'aggiornamento dei criteri (gpupdate.exe /force) e, dopodiché, potrebbe essere necessario riavviare.  
+-  I criteri di BitLocker nelle macchine virtuali aggiunte a un dominio con criteri di gruppo personalizzati devono includere l'impostazione seguente: [Configurare l'archivio utente di BitLocker le informazioni di ripristino -> chiave di ripristino consentono a 256 bit](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Crittografia dischi di Azure avrà esito negativo quando le impostazioni di Criteri di gruppo personalizzate per BitLocker sono incompatibili. Sulle macchine sprovviste delle corrette impostazioni di criteri, applicare i nuovi criteri, forzare l'aggiornamento dei criteri (gpupdate.exe /force) e, dopodiché, potrebbe essere necessario riavviare.  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -246,7 +246,7 @@ Seguire i passaggi illustrati nell'articolo [Usare il portale per creare un'appl
 1. [Verificare le autorizzazioni necessarie](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
 2. [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - Quando si crea l'applicazione è possibile usare qualsiasi nome e URL di accesso desiderato.
-3. [Ottenere l'ID applicazione e la chiave di autenticazione](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key). 
+3. [Ottenere l'ID applicazione e la chiave di autenticazione](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in). 
      - La chiave di autenticazione è il segreto client e viene utilizzata come il AadClientSecret per Set-AzVMDiskEncryptionExtension. 
         - La chiave di autenticazione viene usata dall'applicazione come credenziale per accedere ad Azure AD. Nel portale di Azure il segreto è denominato chiave, ma non ha alcuna relazione con gli insiemi di credenziali delle chiavi. Proteggere il segreto in modo appropriato. 
      - L'ID dell'applicazione verrà usato successivamente come il AadClientId per Set-AzVMDiskEncryptionExtension e come ServicePrincipalName per Set-AzKeyVaultAccessPolicy. 

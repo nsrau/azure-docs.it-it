@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/29/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ddaead7a0e616b3138dca0b18a58d64e38a46f9e
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409373"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356420"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
 
@@ -58,7 +58,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
 6.  Per preparare il disco, eseguire il comando seguente. **A seconda delle dimensioni dei dati, l'operazione può richiedere da diverse ore a più giorni.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite /enablecontentmd5 
     ```
     Viene creato un file journal nella stessa cartella in cui è stato eseguito lo strumento. Vengono creati altri due file, un file *XML* (cartella in cui è stato eseguito lo strumento) e un file *drive-manifest.xml* (cartella in cui si trovano i dati).
     
@@ -68,18 +68,18 @@ Per preparare le unità, eseguire le operazioni seguenti.
     |---------|---------|
     |/j:     |Nome del file journal, con estensione jrn. Viene generato un file journal per ogni unità. È consigliabile usare il numero di serie del disco come nome del file journal.         |
     |/id:     |ID sessione. Usare un numero di sessione univoco per ogni istanza del comando.      |
-    |/sk:     |Chiave dell'account di Archiviazione di Azure.         |
     |/t:     |Lettera di unità del disco da spedire. Ad esempio, l'unità `D`.         |
     |/bk:     |Chiave di BitLocker per l'unità. La sua password numerica dall'output di `manage-bde -protectors -get D:`      |
     |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio: `D:\`.         |
     |/dstdir:     |Nome del contenitore di destinazione in Archiviazione di Azure.         |
     |/skipwrite:     |Opzione che specifica che non sono presenti nuovi dati da copiare e che è necessario preparare i dati esistenti nel disco.          |
+    |/enablecontentmd5:     |Se abilitata, l'opzione assicura che MD5 viene calcolato durante il caricamento di BLOB in blocchi in Azure.          |
 7. Ripetere il passaggio precedente per ogni disco che deve essere spedito. Viene creato un file journal con il nome specificato per ogni esecuzione della riga di comando.
     
     > [!IMPORTANT]
     > - Insieme al file journal, viene creato anche un file `<Journal file name>_DriveInfo_<Drive serial ID>.xml` nella stessa cartella in cui si trova lo strumento. Il file XML viene usato al posto del file journal durante la creazione di un processo se il file journal è troppo grande. 
 
-## <a name="step-2-create-an-import-job"></a>Passaggio 2: Crea processo di importazione
+## <a name="step-2-create-an-import-job"></a>Passaggio 2: Creare un processo di importazione
 
 Per creare un processo di importazione nel portale di Azure, eseguire le operazioni seguenti.
 

@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: fb7f238bb5c04bb03ee500b1b953895cc88c0596
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979337"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298931"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
@@ -22,7 +22,7 @@ Quando una risorsa di Azure viene determinata come non conforme a una regola di 
 > - [Dettagli di conformità](#compliance-details)
 > - [Cronologia delle modifiche (anteprima)](#change-history-preview)
 
-## <a name="compliance-details"></a>Dettagli conformità
+## <a name="compliance-details"></a>Dettagli di conformità
 
 Quando si una risorsa è non conformi, i dettagli di conformità per quella risorsa sono disponibili i **conformità ai criteri** pagina. Il riquadro dei dettagli di conformità include le informazioni seguenti:
 
@@ -87,23 +87,27 @@ La matrice seguente esegue il mapping di ogni possibile _motivo_ per il responsa
 
 |`Reason` | Condizione |
 |-|-|
-|Il valore corrente deve contenere il valore di destinazione come chiave. |containsKey oppure **non** notContainsKey |
-|Il valore corrente deve contenere il valore di destinazione. |contiene oppure **non** notContains |
-|Il valore corrente deve essere uguale al valore di destinazione. |è uguale a o **non** notEquals |
-|Il valore corrente deve esistere. |esiste |
-|Il valore corrente deve essere nel valore di destinazione. |in o **non** notIn |
-|Il valore corrente deve essere uguale al valore di destinazione. |ad esempio oppure **non** notLike |
-|Il valore corrente deve corrispondere al valore di destinazione con distinzione tra maiuscole/minuscole. |corrispondenza o **non** notMatch |
-|Il valore corrente deve corrispondere al valore di destinazione senza distinzione tra maiuscole/minuscole. |matchInsensitively oppure **non** notMatchInsensitively |
-|Il valore corrente non deve contenere il valore di destinazione come chiave. |notContainsKey oppure **non** containsKey|
-|Il valore corrente non deve contenere il valore di destinazione. |notContains oppure **non** contiene |
-|Il valore corrente non deve essere uguale al valore di destinazione. |notEquals oppure **non** è uguale a |
-|Il valore corrente non deve esistere. |**non** esiste  |
-|Il valore corrente non deve essere nel valore di destinazione. |notIn oppure **non** in |
-|Il valore corrente non deve essere uguale al valore di destinazione. |notLike oppure **non** , ad esempio |
-|Il valore corrente non deve corrispondere al valore di destinazione con distinzione tra maiuscole/minuscole. |notMatch oppure **non** corrispondono |
-|Il valore corrente non deve corrispondere al valore di destinazione senza distinzione tra maiuscole/minuscole. |notMatchInsensitively oppure **non** matchInsensitively |
-|Non esiste alcuna risorsa correlata corrispondente ai dettagli dell'effetto nella definizione dei criteri. |Una risorsa del tipo definito **then.details.type** correlata alla risorsa definita nel **se** parte della regola dei criteri non esiste. |
+|Valore corrente deve contenere il valore di destinazione come chiave. |containsKey oppure **non** notContainsKey |
+|Valore corrente deve contenere il valore di destinazione. |contiene oppure **non** notContains |
+|Valore corrente deve essere uguale al valore di destinazione. |è uguale a o **non** notEquals |
+|Valore corrente deve essere minore del valore di destinazione. |minore o **non** greaterOrEquals |
+|Valore corrente deve essere maggiore o uguale al valore di destinazione. |greaterOrEquals oppure **non** less |
+|Valore corrente deve essere maggiore del valore di destinazione. |maggiore o **non** lessOrEquals |
+|Valore corrente deve essere minore o uguale al valore di destinazione. |lessOrEquals oppure **non** maggiore |
+|Valore corrente deve essere presente. |exists |
+|Valore corrente deve essere il valore di destinazione. |in o **non** notIn |
+|Valore corrente deve essere, ad esempio il valore di destinazione. |ad esempio oppure **non** notLike |
+|Valore corrente è necessario il valore di destinazione corrispondenza tra maiuscole e minuscole. |corrispondenza o **non** notMatch |
+|Valore corrente deve essere la corrispondenza tra maiuscole e minuscole del valore di destinazione. |matchInsensitively oppure **non** notMatchInsensitively |
+|Valore corrente non deve contenere il valore di destinazione come chiave. |notContainsKey oppure **non** containsKey|
+|Valore corrente non deve contenere il valore di destinazione. |notContains oppure **non** contiene |
+|Valore corrente non deve essere uguale al valore di destinazione. |notEquals oppure **non** è uguale a |
+|Valore corrente non deve esistere. |**non** esiste  |
+|Valore corrente non deve essere il valore di destinazione. |notIn oppure **non** in |
+|Valore corrente non deve essere, ad esempio il valore di destinazione. |notLike oppure **non** , ad esempio |
+|Valore corrente deve corrispondere non distinzione maiuscole/minuscole il valore di destinazione. |notMatch oppure **non** corrispondono |
+|Valore corrente deve essere la corrispondenza tra maiuscole e minuscole non il valore di destinazione. |notMatchInsensitively oppure **non** matchInsensitively |
+|Nessuna risorsa correlata corrispondenza i dettagli dell'effetto nella definizione dei criteri. |Una risorsa del tipo definito **then.details.type** correlata alla risorsa definita nel **se** parte della regola dei criteri non esiste. |
 
 ## <a name="compliance-details-for-guest-configuration"></a>Dettagli di conformità per la configurazione di Guest
 
@@ -128,7 +132,7 @@ Inoltre non si dispone dell'accesso per accedere direttamente alla macchina virt
    - **Tipo di risorsa** - il _guestConfigurationAssignments_ nome completo.
    - **Ultima valutazione** : l'ultima volta il servizio di configurazione Guest riceve una notifica sullo stato della macchina virtuale di destinazione i criteri di Azure.
 
-   ![Visualizzare i dettagli sulla conformità.](../media/determine-non-compliance/guestconfig-assignment-view.png)
+   ![Visualizzare i dettagli di conformità](../media/determine-non-compliance/guestconfig-assignment-view.png)
 
 1. Selezionare il nome dell'assegnazione di configurazione Guest nel **Name** colonna per aprire il **conformità risorsa** pagina.
 
@@ -136,7 +140,7 @@ Inoltre non si dispone dell'accesso per accedere direttamente alla macchina virt
 
 Il **Guest assegnazione** pagina vengono visualizzati tutti i dettagli di conformità disponibili. Ogni riga nella visualizzazione rappresenta una versione di valutazione è stata eseguita all'interno della macchina virtuale. Nel **motivo** colonna, una frase che descrive il motivo per cui l'assegnazione del Guest _Non conforme_ viene visualizzato. Ad esempio, se si sta controllando che le macchine virtuali devono essere unite in join a un dominio, il **motivo** colonna potrebbe visualizzare il testo tra cui l'appartenenza al dominio corrente.
 
-![Visualizzare i dettagli sulla conformità.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+![Visualizzare i dettagli di conformità](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -233,4 +237,4 @@ Dati della cronologia delle modifiche viene forniti da [Graph di Azure Resource]
 - Comprendere come [a livello di codice, creare criteri](programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](getting-compliance-data.md).
 - Informazioni su come [monitora e aggiorna le risorse non conformi](remediate-resources.md).
-- Esaminare un gruppo di gestione riguarda [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).
+- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

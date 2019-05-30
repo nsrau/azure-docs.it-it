@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 16041d2b7a971c9ba479c133261930b38d130792
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692134"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252790"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Porte usate dai servizi Apache Hadoop su HDInsight
 
@@ -28,14 +28,13 @@ Internamente, HDInsight viene implementato da più macchine virtuali di Azure (i
 > [!IMPORTANT]  
 > Se non si specifica una rete virtuale di Azure come opzione di configurazione per HDInsight, se ne crea automaticamente una. Tuttavia, non è possibile aggiungere altri computer (ad esempio altre macchine virtuali di Azure o nel computer di sviluppo client) a questa rete virtuale.
 
-
 Per aggiungere altre macchine alla rete virtuale, creare innanzitutto la rete virtuale e specificarla durante la creazione del cluster HDInsight. Per altre informazioni, vedere [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="public-ports"></a>Porte pubbliche
 
 Tutti i nodi di un cluster HDInsight si trovano all'interno di una rete virtuale Azure e non sono accessibile direttamente da Internet. Un gateway pubblico fornisce accesso a Internet per le porte seguenti, comuni a tutti i tipi di cluster HDInsight.
 
-| Service | Porta | Protocol | DESCRIZIONE |
+| Service | Port | Protocol | Descrizione |
 | --- | --- | --- | --- |
 | sshd |22 |SSH |Connette i client a SSHD sul nodo head primario. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |22 |SSH |Connette i client a sshd sul nodo perimetrale. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
@@ -48,7 +47,7 @@ Tutti i nodi di un cluster HDInsight si trovano all'interno di una rete virtuale
 
 Gli elementi seguenti sono disponibili per tipi di cluster specifici:
 
-| Service | Porta | Protocol | Tipo di cluster | DESCRIZIONE |
+| Service | Port | Protocol | Tipo di cluster | Descrizione |
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |hbase |API REST HBase Vedere [Introduzione all'uso di Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |API REST Spark Vedere [Inviare processi Apache Spark in remoto con Apache LIVY](spark/apache-spark-livy-rest-interface.md) |
@@ -59,7 +58,7 @@ Gli elementi seguenti sono disponibili per tipi di cluster specifici:
 
 Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 
-| Porta | Credenziali |
+| Port | Credenziali |
 | --- | --- |
 | 22 o 23 |Le credenziali utente SSH specificate durante la creazione del cluster |
 | 443 |Il nome di accesso (impostazione predefinita: admin) e la password impostati durante la creazione del cluster |
@@ -74,7 +73,7 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 
 ### <a name="ambari"></a>Ambari
 
-| Service | Nodi | Porta | Percorso URL | Protocol | 
+| Service | Nodi | Port | Percorso URL | Protocol | 
 | --- | --- | --- | --- | --- |
 | Interfaccia utente Web Ambari | Nodi head | 8080 | / | HTTP |
 | API REST Ambari | Nodi head | 8080 | /api/v1 | HTTP |
@@ -85,7 +84,7 @@ Esempi:
 
 ### <a name="hdfs-ports"></a>Porte HDFS
 
-| Service | Nodi | Porta | Protocol | DESCRIZIONE |
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | Interfaccia utente Web NameNode |Nodi head |30070 |HTTPS |Interfaccia utente Web per visualizzare lo stato |
 | Servizio metadati NameNode |Nodi head |8020 |IPC |Metadati del file system |
@@ -96,7 +95,7 @@ Esempi:
 
 ### <a name="yarn-ports"></a>Porte YARN
 
-| Service | Nodi | Porta | Protocol | DESCRIZIONE |
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | Interfaccia utente Web di Resource Manager |Nodi head |8088 |HTTP |Interfaccia utente Web per Resource Manager |
 | Interfaccia utente Web di Resource Manager |Nodi head |8090 |HTTPS |Interfaccia utente Web per Resource Manager |
@@ -104,26 +103,26 @@ Esempi:
 | Utilità di pianificazione di Resource Manager |Nodi head |8030 |HTTP |Interfaccia di amministrazione |
 | Interfaccia dell'applicazione Resource Manager |Nodi head |8050 |HTTP |Indirizzo dell'interfaccia di gestione delle applicazioni |
 | NodeManager |Tutti i nodi di lavoro |30050 |&nbsp; |L'indirizzo del gestore di contenitore |
-| Interfaccia utente Web di NodeManager |Tutti i nodi di lavoro |30060 |HTTP |Interfaccia di Resource Manager |
+| Interfaccia utente Web di NodeManager |Tutti i nodi di lavoro |30060 |HTTP |Interfaccia di gestione risorse |
 | Indirizzo di Timeline |Nodi head |10200 |RPC |Il servizio RPC del servizio Timeline. |
 | Interfaccia utente Web di Timeline |Nodi head |8181 |HTTP |L'interfaccia utente Web del servizio Timeline |
 
 ### <a name="hive-ports"></a>Porte Hive
 
-| Service | Nodi | Porta | Protocol | DESCRIZIONE |
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Nodi head |10001 |Thrift |Servizio per la connessione ad Hive (Thrift/JDBC) |
 | Metastore Hive |Nodi head |9083 |Thrift |Servizio per la connessione ai metadati Hive (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>Porte WebHCat
 
-| Service | Nodi | Porta | Protocol | DESCRIZIONE |
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | Server WebHCat |Nodi head |30111 |HTTP |API Web su HCatalog e su altri servizi Hadoop |
 
 ### <a name="mapreduce-ports"></a>Porte MapReduce
 
-| Service | Nodi | Porta | Protocol | DESCRIZIONE |
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | JobHistory |Nodi head |19888 |HTTP |Interfaccia utente Web di MapReduce JobHistory |
 | JobHistory |Nodi head |10020 |&nbsp; |Server di MapReduce JobHistory |
@@ -131,21 +130,21 @@ Esempi:
 
 ### <a name="oozie"></a>Oozie
 
-| Service | Nodi | Porta | Protocol | DESCRIZIONE |
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | Server di Oozie |Nodi head |11000 |HTTP |URL per il servizio Oozie |
 | Server di Oozie |Nodi head |11001 |HTTP |Porta per l'amministrazione di Oozie |
 
 ### <a name="ambari-metrics"></a>Metriche di Ambari
 
-| Service | Nodi | Porta | Protocol | DESCRIZIONE |
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | TimeLine (cronologia delle applicazioni) |Nodi head |6188 |HTTP |L'interfaccia utente Web del servizio Timeline |
 | TimeLine (cronologia delle applicazioni) |Nodi head |30200 |RPC |L'interfaccia utente Web del servizio Timeline |
 
 ### <a name="hbase-ports"></a>Porte HBase
 
-| Service | Nodi | Porta | Protocol | DESCRIZIONE |
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | HMaster |Nodi head |16000 |&nbsp; |&nbsp; |
 | Interfaccia utente Web informativa di HMaster |Nodi head |16010 |HTTP |La porta per l'interfaccia utente Web Master HBase |
@@ -154,14 +153,14 @@ Esempi:
 
 ### <a name="kafka-ports"></a>Porte Kafka
 
-| Service | Nodi | Porta | Protocol | DESCRIZIONE |
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | Gestore |Nodi di lavoro |9092 |[Protocollo di trasmissione Kafka](https://kafka.apache.org/protocol.html) |Usato per la comunicazione di client |
 | &nbsp; |Nodi Zookeeper |2181 |&nbsp; |La porta usata dai client per connettersi a ZooKeeper |
 
 ### <a name="spark-ports"></a>Porte Spark
 
-| Service | Nodi | Porta | Protocol | Percorso URL | DESCRIZIONE |
+| Service | Nodi | Port | Protocol | Percorso URL | Descrizione |
 | --- | --- | --- | --- | --- | --- |
 | Server Spark Thrift |Nodi head |10002 |Thrift | &nbsp; | Servizio per la connessione a Spark SQL (Thrift/JDBC) |
 | Server Livy | Nodi head | 8998 | HTTP | &nbsp; | Servizio per l'esecuzione di istruzioni, processi e applicazioni |

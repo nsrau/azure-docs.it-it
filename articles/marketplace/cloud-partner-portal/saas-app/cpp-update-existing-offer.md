@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 2195c9a5e1f0d3683ea8cf6564d97cbabd072f81
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 825170be5dc4d1b25980c7d5037d72779169b3cc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834205"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258063"
 ---
 # <a name="update-an-existing-saas-application-offer"></a>Aggiornare un'offerta esistente per un'applicazione SaaS
 
@@ -20,6 +20,7 @@ Sono disponibili diversi aggiornamenti che è possibile eseguire per l'offerta d
 
 > [!IMPORTANT] 
 > SaaS offrono funzionalità viene eseguita la migrazione per la [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Tutti i nuovi server di pubblicazione deve utilizzare Centro per i Partner per la creazione di nuove offerte SaaS e la gestione delle offerte esistenti.  I server di pubblicazione corrente con offerte SaaS batchwise la migrazione dal portale per Cloud Partner per il centro per i Partner.  Il portale Cloud Partner visualizzerà i messaggi di stato per indicare quando specifiche offerte esistenti sono state migrate.
+> Per altre informazioni, vedere [creare una nuova offerta SaaS](../../partner-center-portal/create-new-saas-offer.md).
 
 Esistono diversi motivi per cui è possibile aggiornare l'offerta, ad esempio:
 

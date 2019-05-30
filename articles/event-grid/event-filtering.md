@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187664"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305064"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informazioni sui filtri eventi per le sottoscrizioni di Griglia di eventi
 
@@ -140,8 +140,6 @@ I filtri avanzati presentano le limitazioni seguenti:
 * Cinque filtri avanzati per ogni sottoscrizione di Griglia di eventi
 * 512 caratteri per ogni valore stringa
 * Cinque valori per gli operatori **in** e **not in**
-* L'elemento key può avere solo un livello di annidamento (ad esempio, data.key1)
-* Gli schemi di eventi personalizzati possono essere filtrati solo nei campi di primo livello
 
 È possibile usare l'elemento key in più filtri.
 

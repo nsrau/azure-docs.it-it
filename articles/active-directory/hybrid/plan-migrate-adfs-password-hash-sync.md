@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d522b0740b144c39da81a9838f9d6e259fe62d22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 180464e22b34c7b378643e738ea0c30ee5a4b11e
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455511"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298898"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Eseguire la migrazione dalla federazione alla sincronizzazione degli hash delle password per Azure Active Directory
 
@@ -86,7 +86,7 @@ Per verificare le impostazioni di accesso utente correnti:
 
    * Se **Sincronizzazione dell'hash delle password** è impostato su **Disabilitata**, completare i passaggi elencati in questo articolo per abilitarla.
    * Se **Sincronizzazione dell'hash delle password** è impostato su **Abilitato**, è possibile ignorare la sezione **Passaggio 1: Abilitare la sincronizzazione dell'hash delle password** in questo articolo.
-4. Nella pagina **Verifica della soluzione** scorrere fino a visualizzare **Active Directory Federation Services (AD FS)**.<br />
+4. Nella pagina **Verifica della soluzione** scorrere fino a visualizzare **Active Directory Federation Services (AD FS)** .<br />
 
    * ‎Se in questa sezione viene visualizzata la configurazione di AD FS, si può presupporre con sicurezza che AD FS sia stato originariamente configurato usando Azure AD Connect. È possibile convertire i domini dall'identità federata all'identità gestita usando l'opzione **Cambia l'accesso utente** di Azure AD Connect. Il processo è illustrato in dettaglio nella sezione **Opzione A: Passare dalla federazione alla sincronizzazione degli hash delle password con Azure AD Connect**.
    * Se AD FS non è elencato nelle impostazioni correnti, è necessario convertire manualmente i domini dall'identità federata all'identità gestita usando PowerShell. Per altre informazioni su questo processo, vedere la sezione **Opzione B: Passare dalla federazione alla sincronizzazione degli hash delle password con Azure AD Connect e PowerShell**.
@@ -113,7 +113,7 @@ Per altre informazioni, vedere questi articoli:
 * [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Se **SupportsMfa** è impostato su **True**, si sta usando una soluzione di autenticazione a più fattori locale per inserire una richiesta di verifica come secondo fattore nel flusso di autenticazione utente. Questa configurazione non funziona più per gli scenari di autenticazione di Azure AD. 
+> Se **SupportsMfa** è impostato su **True**, si sta usando una soluzione di autenticazione a più fattori locale per inserire una richiesta di verifica come secondo fattore nel flusso di autenticazione utente. Questa configurazione non è più adatto a scenari di autenticazione AD Azure dopo la conversione di questo dominio da federato a gestito l'autenticazione. Dopo aver disabilitato la federazione, si interrompe la relazione per la federazione locale e sono inclusi gli adapter MFA in locale. 
 >
 > In alternativa, usare il servizio Azure Multi-Factor Authentication basato sul cloud per eseguire la stessa funzione. Valutare attentamente i requisiti di autenticazione a più fattori prima di continuare. Prima di convertire i domini, assicurarsi di comprendere come usare Azure Multi-Factor Authentication, le implicazioni relative alla gestione delle licenze e il processo di registrazione utente.
 

@@ -8,22 +8,22 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 33d0baf10df1882baf212c3e2c2683c8ca072fcc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45d6f8606c665d78783f987c2f2b49a77801639c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487627"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304599"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Installare Micro Focus Enterprise Server 4.0 e gli sviluppatori aziendali 4.0 in Azure
 
 Questo articolo illustra come configurare [Micro messa a fuoco Enterprise Server 4.0](https://www.microfocus.com/documentation/enterprise-developer/es30/) e [Micro messa a fuoco Enterprise Developer 4.0](https://www.microfocus.com/documentation/enterprise-developer/ed_30/) in Azure.
 
-Un carico di lavoro comune in Azure è un ambiente di sviluppo e test perché è in modo conveniente e facile da distribuire e Deconfigurazione. Con Enterprise Server, Micro Focus ha creato una delle più grandi mainframe riallocazione piattaforme disponibili. È possibile eseguire carichi di lavoro z/OS in un x86 meno costoso platform in Azure usando macchine virtuali (VM) Windows o Linux.
+Un carico di lavoro comune in Azure è un ambiente di sviluppo e test. Questo scenario è comune perché è in modo conveniente e facile da distribuire e Deconfigurazione. Con Enterprise Server, Micro Focus ha creato una delle più grandi mainframe riallocazione piattaforme disponibili. È possibile eseguire carichi di lavoro z/OS in un x86 meno costoso platform in Azure usando macchine virtuali (VM) Windows o Linux.
 
 Questa configurazione usa macchine virtuali di Azure che eseguono l'immagine di Windows Server 2016 da Azure Marketplace con Microsoft SQL Server 2017 già installato. Questa impostazione si applica anche ad Azure Stack.
 
-L'ambiente di sviluppo corrispondente per Enterprise Server è Enterprise Developer, eseguita in entrambi Microsoft Visual Studio 2017, Visual Studio Community (gratuita per il download), o Eclipse. Questo articolo illustra come eseguire la distribuzione usando una macchina virtuale Windows Server 2016 che viene fornito con Visual Studio 2017 installato.
+L'ambiente di sviluppo corrispondente per il Server Enterprise è uno sviluppatore aziendale, che viene eseguito in entrambi Microsoft Visual Studio 2017 o versioni successive, Visual Studio Community (gratuita per il download), o Eclipse. Questo articolo illustra come eseguire la distribuzione usando una macchina virtuale Windows Server 2016 che viene fornito con Visual Studio 2017 o versione successiva sia installato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +40,7 @@ Prima di iniziare, consultare questi prerequisiti:
 
 ## <a name="install-enterprise-server"></a>Installare Enterprise Server
 
-1. Per una migliore sicurezza e gestibilità, è consigliabile creare un nuovo gruppo di risorse solo per questo progetto, ad esempio, **RGMicroFocusEntServer**. Per designare il tipo di risorsa per renderlo più facile da trovare in un elenco, usare la prima parte del nome in Azure.
+1. Per una migliore sicurezza e gestibilità, è consigliabile creare un nuovo gruppo di risorse solo per questo progetto, ad esempio, **RGMicroFocusEntServer**. Usare la prima parte del nome in Azure per scegliere il tipo di risorsa per renderlo più facile da trovare in un elenco.
 
 2. Creare una macchina virtuale. Da Azure Marketplace, selezionare la macchina virtuale e sistema operativo desiderato. Ecco una configurazione consigliata:
 
@@ -48,7 +48,7 @@ Prima di iniziare, consultare questi prerequisiti:
 
     - **Gli sviluppatori aziendali**: Selezionare macchina virtuale B2ms (con 2 Vcpu e 8 GB di memoria) con Windows 10 e installato Visual Studio. Questa immagine è disponibile da Azure Marketplace.
 
-3. Nel **nozioni di base** pannello, immettere il nome utente e password. Selezionare il **abbonamento** e **località/area geografica** desiderato da utilizzare per le macchine virtuali. Selezionare **RGMicroFocusEntServer** per il gruppo di risorse.
+3. Nel **nozioni di base** sezione, immettere il nome utente e password. Selezionare il **abbonamento** e **località/area geografica** desiderato da utilizzare per le macchine virtuali. Selezionare **RGMicroFocusEntServer** per il gruppo di risorse.
 
 4. Inserire entrambe le macchine virtuali nella stessa rete virtuale in modo che possano comunicare tra loro.
 
@@ -56,15 +56,15 @@ Prima di iniziare, consultare questi prerequisiti:
 
 6. Quando le macchine virtuali sono state create, aprire porte in ingresso 9003, x86 e 80 per HTTP e 3389 per RDP nel computer Server Enterprise e 3389 sul computer per lo sviluppo.
 
-7. Per accedere alla macchina virtuale Enterprise Server, nel portale di Azure, selezionare la macchina virtuale v3 ES2. Andare alla **Overview** pannello e selezionare **Connect** per avviare una sessione RDP. Accedere con le credenziali create per la macchina virtuale.
+7. Per accedere alla macchina virtuale Enterprise Server, nel portale di Azure, selezionare la macchina virtuale v3 ES2. Andare alla **Overview** della sezione e selezionare **Connect** per avviare una sessione RDP. Accedere usando le credenziali create per la macchina virtuale.
 
-8. Dalla sessione RDP, caricare i due file seguenti. Poiché si tratta di Windows, pertanto è possibile trascinare e rilasciare i file nella sessione RDP:
+8. Dalla sessione RDP, caricare i due file seguenti. Poiché si usa Windows, è possibile trascinare e rilasciare i file nella sessione RDP:
 
     - **es\_40. exe**, file di installazione del Server Enterprise.
 
-    - **mflic**, il file di licenza corrispondenti, Server Enterprise non verrà caricata senza di essa.
+    - **mflic**, il file di licenza corrispondenti, Server Enterprise non viene caricata senza di essa.
 
-9. Fare doppio clic sul file per avviare l'installazione. Nella prima finestra, selezionare il percorso di installazione e accettare il contratto di licenza utente finale.
+9. Fare doppio clic sul file per avviare l'installazione. Nella prima finestra, selezionare il percorso di installazione e accettare il contratto di licenza dell'utente finale.
 
      ![Schermata di messa a fuoco Enterprise Server Setup Micro](media/01-enterprise-server.png)
 
@@ -72,7 +72,7 @@ Prima di iniziare, consultare questi prerequisiti:
 
      ![Schermata di messa a fuoco Enterprise Server Setup Micro](media/02-enterprise-server.png)
 
-### <a name="check-for-updates"></a>Verifica disponibilità aggiornamenti
+### <a name="check-for-updates"></a>Verificare gli aggiornamenti
 
 Dopo l'installazione, assicurarsi di verificare la presenza di eventuali aggiornamenti aggiuntivi dopo un numero di prerequisiti, ad esempio il pacchetto ridistribuibile di Microsoft C++ e .NET Framework vengono installate insieme alla Enterprise Server.
 
@@ -92,7 +92,7 @@ Dopo l'installazione, assicurarsi di verificare la presenza di eventuali aggiorn
 
 1. Selezionare il gruppo di risorse creato in precedenza (ad esempio, **RGMicroFocusEntServer**), quindi selezionare l'immagine per gli sviluppatori.
 
-2. Per accedere alla macchina virtuale, vedere la **Panoramica** pannello e selezionare **Connect**. Verrà avviata una sessione RDP. Accedere con le credenziali create per la macchina virtuale.
+2. Per accedere alla macchina virtuale, vedere il **Panoramica** sezione e selezionare **Connect**. Questo accesso viene avviata una sessione RDP. Accedere usando le credenziali create per la macchina virtuale.
 
 3. Dalla sessione RDP, caricare i due file seguenti (trascinamento della selezione se si desidera):
 
@@ -100,7 +100,7 @@ Dopo l'installazione, assicurarsi di verificare la presenza di eventuali aggiorn
 
     - **mflic**, il corrispondente file di licenza (sviluppatore aziendale non verrà caricata senza di essa).
 
-4. Fare doppio clic il **edvs2017.exe** file per avviare l'installazione. Nella prima finestra, selezionare il percorso di installazione e accettare il contratto di licenza utente finale. Se desidera, scegliere **9.5 Rumba installare** per installare l'emulatore di terminale, sarà probabilmente necessario.
+4. Fare doppio clic il **edvs2017.exe** file per avviare l'installazione. Nella prima finestra, selezionare il percorso di installazione e accettare il contratto di licenza dell'utente finale. Se desidera, scegliere **9.5 Rumba installare** per installare l'emulatore di terminale, sarà probabilmente necessario.
 
      ![Micro messa a fuoco Enterprise Developer per la finestra di dialogo di installazione di Visual Studio 2017](media/04-enterprise-server.png)
 
@@ -112,7 +112,7 @@ Dopo l'installazione, assicurarsi di verificare la presenza di eventuali aggiorn
 
 7. Scegliere il tipo di formato della licenza da caricare: un file di licenza o un codice di licenza di 16 caratteri. Ad esempio, per un file, in **file di licenza**, individuare il **mflic** file caricato in precedenza per la macchina virtuale e selezionare **Installa licenze**.
 
-     ![Micro-finestra di dialogo di amministrazione di contratti messa a fuoco](/edia/07-enterprise-server.png)
+     ![Micro-finestra di dialogo di amministrazione di contratti messa a fuoco](media/07-enterprise-server.png)
 
 Quando viene caricata per gli sviluppatori aziendali, la distribuzione di un ambiente di sviluppo e test di Micro Focus in Azure è stata completata.
 

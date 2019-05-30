@@ -7,18 +7,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 8ed9d84cba7cb9eeca94a1376fc03f1d256afa85
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/29/2019
+ms.openlocfilehash: 6fecd2278ddad4de3a2cff9035d60083101e873e
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779228"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393846"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Novità di servizi di Machine Learning in Azure HDInsight
-
-> [!NOTE]  
-> A settembre 2017, Microsoft R Server è stato rilasciato con il nuovo nome **Microsoft Machine Learning Server** o ML Server. Di conseguenza, il cluster di R Server su HDInsight è ora denominato cluster di **Machine Learning Services** oppure **ML Services** su HDInsight. Per altre informazioni sulla modifica del nome di R Server, vedere [Microsoft R Server is now Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server) (Microsoft R Server è ora Microsoft Machine Learning Server).
 
 Microsoft Machine Learning Server è disponibile come opzione di distribuzione quando si creano i cluster HDInsight in Azure. Il tipo di cluster che offre questa opzione è denominato **ML Services**. Questa funzionalità offre ai data scientist, agli statistici e ai programmatori in R l'accesso su richiesta a metodi di analisi scalabili e distribuiti su HDInsight.
 

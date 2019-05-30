@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 52a9cfa52cd63715addadcbfb367510ded56fd76
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142716"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297099"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connettere un'applicazione a Istanza gestita di database SQL di Azure
 
@@ -56,7 +56,7 @@ Sono disponibili due opzioni per connettersi in locale alla rete virtuale di Azu
 - Connessione VPN da sito a sito ([portale di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Interfaccia della riga di comando di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Connessione [ExpressRoute](../expressroute/expressroute-introduction.md)  
 
-Se è stata stabilita una connessione dall'ambiente locale ad Azure e non è possibile stabilire una connessione all'istanza gestita, controllare se il firewall ha la connessione in uscita aperta sulla porta SQL 1433 e sull'intervallo di porte 11000 12000 per il reindirizzamento.
+Se configurato correttamente in locale alla connessione di Azure e non è possibile stabilire una connessione all'istanza gestita, verificare se il firewall ha aperto la connessione in uscita nella porta SQL 1433 oltre 11000-11999 intervallo di porte per il reindirizzamento.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Connettere un'applicazione nella finestra di sviluppo
 
@@ -96,7 +96,7 @@ Questo scenario è illustrato nel diagramma seguente:
 
 Per la risoluzione dei problemi di connettività, verificare quanto segue:
 
-- Se non si riesce a eseguire la connessione a Istanza gestita da una macchina virtuale Azure all'interno della stessa VNet ma con subnet diversa, verificare se si dispone di un gruppo di sicurezza di rete impostato sulla subnet VM che potrebbe bloccare l'accesso. Inoltre, è necessario aprire la connessione in uscita sulla porta SQL 1433 e sulle porte nell'intervallo 11000-12000, poiché sono necessarie per la connessione tramite reindirizzamento all'interno del confine di Azure.
+- Se non si riesce a connettersi all'istanza gestita da una macchina virtuale di Azure entro la stessa rete virtuale ma una subnet diversa, controllare se si dispone di un gruppo di sicurezza di rete impostato nella subnet VM che potrebbero bloccare l'accesso. Si noti inoltre che è necessario aprire connessioni in uscita nella porta SQL 1433 oltre alle porte nell'intervallo 11000-11999 poiché questi sono necessari per la connessione mediante il reindirizzamento all'interno del limite di Azure.
 - Assicurarsi che la propagazione BGP sia impostata su **Abilitata** per la tabella di route associata alla rete virtuale.
 - Se si utilizza la VPN P2S, controllare la configurazione nel portale Azure per vedere se si vedono i numeri **Ingresso/Uscita**. I numeri diversi da zero indicano che Azure indirizza il traffico da/per un’istanza locale.
 

@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949911"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357319"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione dei database singoli e in pool nel database SQL di Azure
 
@@ -29,6 +29,7 @@ Il passaggio da un ambiente tradizionale, gestito e controllato in autonomia, a 
 
 Questo articolo illustra alcune delle caratteristiche principali del database SQL di Azure come piattaforma immediatamente fruibile quando si lavora con i database singoli e i database in pool in pool elastici. Eccole:
 
+- Monitorare un database usando il portale di Azure
 - Continuità aziendale e ripristino di emergenza (BCDR)
 - Sicurezza e conformità
 - Monitoraggio e manutenzione intelligenti del database
@@ -36,6 +37,25 @@ Questo articolo illustra alcune delle caratteristiche principali del database SQ
 
 > [!NOTE]
 > Questo articolo si applica alle opzioni di distribuzione seguenti nel database SQL di Azure: database singoli e pool elastici. Le informazioni non sono valide per l'opzione di distribuzione dell'istanza gestita nel database SQL.
+
+## <a name="monitor-databases-using-the-azure-portal"></a>Monitorare i database tramite il portale di Azure
+
+Nel [portale di Azure](https://portal.azure.com/), è possibile monitorare un utilizzo di singoli database s selezionandolo e scegliendo il **monitoraggio** grafico. Verrà visualizzata una finestra della **metrica** in cui è possibile apportare modifiche facendo clic su l pulsante **Modifica grafico**. Aggiungere le metriche seguenti
+
+- Percentuale CPU
+- Percentuale di DTU
+- Percentuale di I/O di dati
+- Percentuale di dimensioni del database
+
+Dopo aver aggiunto queste metriche, è possibile continuare a visualizzarle nel grafico **Monitoraggio** con altre informazioni nella finestra **Metrica**. Tutte le quattro metriche mostrano la percentuale media di utilizzo relativa alla **DTU** del database. Per altre informazioni sui livelli di servizio, vedere gli articoli [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).  
+
+![Monitoraggio del livello di servizio delle prestazioni del database.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+È inoltre possibile configurare gli avvisi sulle metriche delle prestazioni. Scegliere il pulsante **Aggiungi avviso** nella finestra **Metrica**. Seguire la procedura guidata per configurare l'avviso. È possibile scegliere di ricevere un avviso se la metrica supera una determinata soglia o scende al di sotto di una determinata soglia.
+
+Ad esempio, se si prevede un aumento del carico di lavoro sul database, è possibile scegliere di configurare un avviso di posta elettronica ogni volta che il database raggiunge l'80% per una qualsiasi delle metriche delle prestazioni. È possibile usarlo come un preavviso per capire quando potrebbe essere necessario passare alle dimensioni di calcolo superiori.
+
+Le metriche delle prestazioni consentono inoltre di determinare se è possibile effettuare il downgrade a dimensioni di calcolo inferiori. Presupporre di utilizzare un database Standard S2 e tutte le metriche delle prestazioni mostrano che il database in media non utilizza più del 10% in un dato momento. È probabile che il database funzioni bene in Standard S1. Tuttavia, prestare attenzione ai picchi o alle fluttuazioni dei carichi di lavoro prima di decidere di passare a dimensioni di calcolo inferiori.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Continuità aziendale e ripristino di emergenza (BCDR)
 
@@ -47,7 +67,7 @@ Non vengono creati backup nel database SQL di Azure, semplicemente perché non s
 
 |Livello di servizio|Periodo di conservazione in giorni|
 |---|:---:|
-|Di base|7|
+|Basic|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -135,7 +155,7 @@ La porta 1433. Il database SQL comunica attraverso questa porta. Per connettersi
 
 Con il database SQL è possibile attivare il controllo per rilevare gli eventi di database. Il servizio di [controllo del database SQL](sql-database-auditing.md) registra gli eventi che si verificano nel database e li registra in un file di log di controllo nell'account di Archiviazione di Azure dell'utente. Il controllo è particolarmente utile se si intende ottenere informazioni su potenziali violazioni in termini di sicurezza e criteri, mantenere la conformità ai requisiti normativi e così via. Consente di definire e configurare determinate categorie di eventi che si ritiene necessitino di controllo e, sulla base di ciò, è possibile ottenere report preconfigurati e un dashboard per avere una panoramica degli eventi che si verificano nel database. È possibile applicare questi criteri di controllo a livello di database o server. Per una guida su come attivare il controllo per il server/database, vedere: [Abilitare il controllo del database SQL](sql-database-security-tutorial.md#enable-security-features).
 
-#### <a name="threat-detection"></a>Rilevamento delle minacce
+#### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce
 
 Con il [rilevamento delle minacce](sql-database-threat-detection.md) è possibile intervenire in modo molto semplice sulle violazioni in termini di sicurezza o criteri individuate con il controllo. Non è necessario essere esperti di sicurezza per risolvere potenziali minacce o violazioni nel sistema. Il rilevamento delle minacce include anche alcune funzionalità incorporate come il rilevamento di attacchi SQL injection. Un attacco SQL injection è un tentativo di modificare o compromettere i dati e un modo molto comune per attaccare in genere un'applicazione di database. Il rilevamento delle minacce esegue vari set di algoritmi che rilevano potenziali vulnerabilità e attacchi SQL injection, nonché modelli anomali di accesso al database (ad esempio, accesso da una posizione insolita o da un'entità di sicurezza sconosciuta). I responsabili della sicurezza o altri amministratori designati ricevono una notifica e-mail se viene rilevata una minaccia nel database. Ogni notifica contiene dettagli sull'attività sospetta e consigli su come eseguire altre indagini e mitigare la minaccia. Per informazioni su come attivare il rilevamento delle minacce, vedere: [Enable threat detection](sql-database-security-tutorial.md#enable-security-features) (Abilitare il rilevamento delle minacce).
 
@@ -152,7 +172,7 @@ Per proteggere i dati sensibili in elaborazione e inattivi, il database SQL incl
 |**Caratteristiche**|**Always Encrypted**|**Transparent Data Encryption**|
 |---|---|---|
 |**Intervallo di crittografia**|End-to-end|Dati inattivi|
-|**Il server di database può accedere ai dati sensibili**|N.|Sì, poiché la crittografia è per i dati inattivi|
+|**Il server di database può accedere ai dati sensibili**|No |Sì, poiché la crittografia è per i dati inattivi|
 |**Operazioni T-SQL consentite**|Confronto delle uguaglianze|L'intera superficie di attacco T-SQL è disponibile|
 |**Modifiche all'app richieste per usare la funzionalità**|Minime|Estremamente minime|
 |**Granularità di crittografia**|A livello di colonna|A livello di database|
@@ -312,8 +332,8 @@ Il database SQL usa alcune tecniche intelligenti che consentono di gestire autom
 
 A tale scopo, è possibile procedere in diversi modi:
 
-- **[Sincronizzazione dei dati](sql-database-sync-data.md)**: questa funzionalità consente di sincronizzare i dati in modo bidirezionale tra più database SQL Server locali e il database SQL. Per eseguire la sincronizzazione con database SQL Server locali, è necessario installare e configurare l'agente di sincronizzazione in un computer locale e aprire la porta TCP in uscita 1433.
-- **[Replica di tipo transazionale](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**: con la replica di tipo transazionale è possibile sincronizzare i dati dal server locale al database SQL di Azure, con il primo come database di pubblicazione e il database SQL di Azure come database sottoscrittore. Per il momento è supportata solo questa configurazione. Per altre informazioni su come eseguire la migrazione dei dati dal database locale al database SQL di Azure con tempi di inattività minimi, vedere: [Usare la replica transazionale](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
+- **[Sincronizzazione dei dati](sql-database-sync-data.md)** : questa funzionalità consente di sincronizzare i dati in modo bidirezionale tra più database SQL Server locali e il database SQL. Per eseguire la sincronizzazione con database SQL Server locali, è necessario installare e configurare l'agente di sincronizzazione in un computer locale e aprire la porta TCP in uscita 1433.
+- **[Replica di tipo transazionale](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** : con la replica di tipo transazionale è possibile sincronizzare i dati dal server locale al database SQL di Azure, con il primo come database di pubblicazione e il database SQL di Azure come database sottoscrittore. Per il momento è supportata solo questa configurazione. Per altre informazioni su come eseguire la migrazione dei dati dal database locale al database SQL di Azure con tempi di inattività minimi, vedere: [Usare la replica transazionale](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

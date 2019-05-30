@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 86ad6fce34f323d94f7b9c318ba81f547360d4df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038520"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237331"
 ---
 # <a name="networking"></a>Rete
 
@@ -71,6 +71,8 @@ Per abilitare la rete accelerata in un cluster esistente è necessario ridimensi
 * Per eseguire carichi di lavoro di contenitori Windows, usare la [modalità di rete aperta](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) per semplificare le comunicazioni tra i servizi.
 
 * Usare un proxy inverso come [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) o il [proxy inverso di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) per esporre le porte delle applicazioni comuni, ad esempio 80 o 443.
+
+* Per i contenitori Windows ospitato su macchine aperta aereo che non è possibile eseguire il pull dei livelli di base da archiviazione di cloud di Azure, l'override del comportamento di livello esterno, usando il [-Consenti-nondistributable-elementi](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) flag nel daemon Docker.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

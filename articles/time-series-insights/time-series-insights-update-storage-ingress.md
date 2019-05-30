@@ -2,7 +2,7 @@
 title: Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights | Microsoft Docs
 description: Informazioni sull'archiviazione e l'ingresso dei dati nella versione di anteprima di Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 8587fb0138309040232b6e0abc0f3eb17cc3093a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951098"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244066"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights
 
@@ -77,7 +77,7 @@ Gli eventi di Time Series Insights vengono mappati al contenuto del file Parquet
 * Tutte le altre proprietà mappate alle colonne terminano con `_string` (stringa), `_bool` (booleano), `_datetime` (datetime) e `_double` (double), a seconda del tipo di proprietà.
 * Si fa riferimento a questo schema di mapping per la prima versione del formato file come **V=1**. Man mano che questa funzionalità cambia, il nome sarà incrementato a **V=2**, **V=3** e così via.
 
-## <a name="partitions"></a>Partizioni
+## <a name="partitions"></a>Partitions
 
 Ogni ambiente di versione di anteprima di tempo Series Insights è necessario un **ID serie tempo** proprietà e una **Timestamp** proprietà che identificano in modo. Time Series ID funge da partizione logica per i dati e fornisce all'ambiente di anteprima di Time Series Insights un limite naturale per la distribuzione dei dati tra le partizioni fisiche. La gestione delle partizioni fisiche viene eseguita dalla versione di anteprima di Time Series Insights in un account di archiviazione di Azure.
 
@@ -156,7 +156,7 @@ La versione di anteprima di tempo Series Insights supporta le stesse origini eve
 
 Alcune origini evento supportate sono:
 
-- Hub IoT di Azure
+- Hub IoT Azure
 - Hub eventi di Azure
   
   > [!NOTE]

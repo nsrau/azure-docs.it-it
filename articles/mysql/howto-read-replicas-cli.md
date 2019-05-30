@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: a9ca34953827c1f94e2696eb4f09163be335d2f4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/28/2019
+ms.openlocfilehash: ba8af55f7467e361136e4b0c57c97b4fa187cec0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510692"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304953"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Come creare e gestire le repliche in lettura in Database di Azure per MySQL con l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra come creare e gestire le repliche in lettura nella stessa area di Azure del master nel servizio Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure.
 
-> [!NOTE]
-> Comando di Azure non supporta ancora la creazione di repliche in un'area diversa dal server master. Per creare una replica tra aree diverse, usare il [portale di Azure]( howto-read-replicas-portal.md) invece.
+> [!IMPORTANT]
+> È possibile creare una replica di lettura nella stessa area del server master o in altre aree di Azure di propria scelta. La replica tra aree è attualmente in anteprima pubblica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,6 +44,12 @@ Il comando `az mysql server replica create` richiede i parametri seguenti:
 | name | mydemoreplicaserver | Nome del nuovo server di replica creato. |
 | source-server | mydemoserver | Nome o ID del server master esistente in base al quale eseguire la replica. |
 
+Per creare una croce area leggere replica, usare il `--location` parametro. L'esempio di riga di comando seguente crea la replica negli Stati Uniti occidentali.
+
+```azurecli-interactive
+az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
+```
+
 > [!NOTE]
 > Le repliche in lettura vengono create con la stessa configurazione server del master. La configurazione del server di replica può essere modificata dopo la creazione. È consigliabile mantenere nella configurazione del server di replica valori maggiori o uguali a quelli del master affinché la replica possa restare al passo con il master.
 
@@ -67,7 +73,7 @@ Il comando `az mysql server replica stop` richiede i parametri seguenti:
 
 ## <a name="delete-a-replica-server"></a>Eliminare un server di replica
 
-L'eliminazione di un server di replica in lettura può essere effettuata eseguendo il comando **[az mysql server delete](/cli/azure/mysql/server)**.
+L'eliminazione di un server di replica in lettura può essere effettuata eseguendo il comando **[az mysql server delete](/cli/azure/mysql/server)** .
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver
@@ -78,7 +84,7 @@ az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserv
 > [!IMPORTANT]
 > Eliminando un server master si arresta la replica in tutti i server di replica, oltre a eliminare il server master stesso. I server di replica diventano server autonomi che supportano sia la lettura che la scrittura.
 
-Per eliminare un server master, è possibile eseguire il comando **[az mysql server delete](/cli/azure/mysql/server)**.
+Per eliminare un server master, è possibile eseguire il comando **[az mysql server delete](/cli/azure/mysql/server)** .
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver

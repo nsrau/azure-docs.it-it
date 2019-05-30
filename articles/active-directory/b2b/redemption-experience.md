@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d00808295d39247729f6e843ac59ad7b23407148
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 99fe386ec75e60a16f3095f22dccc3852883f8aa
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785409"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304522"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Riscatto dell'invito di Collaborazione B2B di Azure Active Directory
 
@@ -56,7 +56,7 @@ Per informazioni sul modo in cui un amministratore del tenant può collegarsi al
 
 ## <a name="terms-of-use"></a>Condizioni per l'utilizzo
 
-È possibile presentare le condizioni per l'utilizzo all'utente guest durante il processo di riscatto iniziale usando la funzionalità Condizioni per l'utilizzo di Azure AD. In Azure Active Directory è possibile accedere a questa funzionalità in **Gestisci** > **Relazioni aziendale** > **Condizioni per l'utilizzo** o in **Sicurezza** > **Accesso condizionale** > **Condizioni per l'utilizzo**. Per altre informazioni, vedere [Funzionalità Condizioni per l'utilizzo di Azure AD](../conditional-access/terms-of-use.md).
+È possibile presentare le condizioni d'uso per l'utente guest durante la procedura di riscatto iniziale utilizzando le condizioni di Azure AD di usare funzionalità. In Azure Active Directory è possibile accedere a questa funzionalità in **Gestisci** > **Relazioni aziendale** > **Condizioni per l'utilizzo** o in **Sicurezza** > **Accesso condizionale** > **Condizioni per l'utilizzo**. Per informazioni dettagliate, vedere [condizioni di Azure AD per l'utilizzo delle funzionalità](../conditional-access/terms-of-use.md).
 
 ![Screenshot che mostra le nuove condizioni per l'utilizzo](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 

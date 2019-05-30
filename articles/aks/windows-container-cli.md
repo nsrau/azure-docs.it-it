@@ -2,17 +2,17 @@
 title: Anteprima - creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS)
 description: Informazioni su come creare un cluster Kubernetes rapidamente, distribuire un'applicazione in un contenitore di Windows Server in Azure Kubernetes Service (AKS) tramite la CLI di Azure.
 services: container-service
-author: zr-msft
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: zarhoads
-ms.openlocfilehash: 328fb9707c7151b8696cfb55e13567db90e45b7f
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.author: twhitney
+ms.openlocfilehash: 5f727cb5c56c31e769edcb365f6d571253174567
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991147"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305295"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima - creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS) tramite la CLI di Azure
 
@@ -35,9 +35,10 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 Dopo aver creato il cluster che può eseguire contenitori Windows Server, è necessario aggiungere un pool di nodi aggiuntivi. Aggiunta di un pool di nodi aggiuntivi viene trattato in un passaggio successivo, ma è innanzitutto necessario abilitare alcune funzionalità di anteprima.
 
 > [!IMPORTANT]
-> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service e fornire il consenso esplicito. Le anteprime sono fornite per raccogliere commenti e suggerimenti e bug dalla community. Tuttavia, non sono supportati dal supporto tecnico di Azure. Se si crea un cluster o aggiungere queste funzionalità in cluster esistenti, tale cluster non è supportato fino a quando la funzionalità non è più disponibile in anteprima e passano a livello generale (GA).
+> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service, fornire il consenso esplicito. Vengono fornite per raccogliere commenti e suggerimenti e bug dalla community. In fase di anteprima, queste funzionalità non sono destinate all'uso di produzione. Le funzionalità in anteprima pubblica rientrano nel supporto "best effort". Assistenza dai team di supporto tecnico di AKS è disponibile durante le ore lavorative Pacifico (PST) solo timezone. Per altre informazioni, vedere i seguenti articoli di supporto:
 >
-> Se si verificano problemi con funzionalità di anteprima [segnalare un problema nel repository GitHub di AKS] [ aks-github] con il nome della funzionalità Anteprima nel titolo del bug.
+> * [Criteri di supporto servizio contenitore di AZURE][aks-support-policies]
+> * [Domande frequenti sul supporto di Azure][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
     
@@ -276,7 +277,7 @@ Per visualizzare l'app di esempio in azione, aprire un web browser all'indirizzo
 
 ![Immagine del passaggio all'applicazione di esempio ASP.NET](media/windows-container/asp-net-sample-app.png)
 
-## <a name="delete-cluster"></a>Elimina il cluster
+## <a name="delete-cluster"></a>Eliminare il cluster
 
 Quando il cluster non è più necessario, usare il comando [az group delete][az-group-delete] per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
 
@@ -302,7 +303,6 @@ Per altre informazioni sul servizio Azure Container e l'analisi del codice compl
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [dotnet-samples]: https://hub.docker.com/_/microsoft-dotnet-framework-samples/
-[aks-github]: https://github.com/azure/aks/issues
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 
 <!-- LINKS - internal -->
@@ -328,3 +328,5 @@ Per altre informazioni sul servizio Azure Container e l'analisi del codice compl
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
 [use-advanced-networking]: configure-advanced-networking.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

@@ -1,20 +1,20 @@
 ---
 title: Integrazione di Azure Active Directory per Azure Red Hat OpenShift | Microsoft Docs
 description: Informazioni su come creare un gruppo di sicurezza di Azure AD e un utente di test delle app nel cluster di Microsoft Azure Red Hat OpenShift.
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.service: openshift
 manager: jeconnoc
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: f6b87748c33c1afd047ae25dfb7df3670a73e7c8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: adc5a601a04936a376d7c69b26c2429940ebdf6e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779692"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306464"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integrazione di Azure Active Directory per Azure Red Hat OpenShift
 
@@ -69,7 +69,7 @@ Se l'organizzazione non ha ancora la registrazione di un'app di Azure Active Dir
 2. Nel **registrare un'applicazione** riquadro, immettere un nome per la registrazione dell'applicazione.
 3. Verificare che in **tipi di account supportati** che **gli account in questa directory dell'organizzazione solo** sia selezionata. Questa è la scelta più sicura.
 4. Si aggiungerà un URI di reindirizzamento in un secondo momento quando si conosce l'URI del cluster. Scegliere il **registrare** pulsante per creare la registrazione dell'applicazione Azure AD.
-5. Nella pagina visualizzata copiare il **ID applicazione (client)**. Si farà riferimento a questo valore come `APPID` nella [creare un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) esercitazione.
+5. Nella pagina visualizzata copiare il **ID applicazione (client)** . Si farà riferimento a questo valore come `APPID` nella [creare un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) esercitazione.
 
 ![Screenshot della pagina di oggetti dell'app](./media/howto-create-tenant/get-app-id.png)
 

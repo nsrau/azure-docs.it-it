@@ -4,15 +4,15 @@ description: Questo articolo descrive le categorie di conflitto e i criteri di r
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98e9f5fff1b74d417ee07ed0056c8046b49baa17
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60892592"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236537"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipi di conflitto e criteri di risoluzione dei conflitti
 
@@ -30,7 +30,7 @@ Per gli account Azure Cosmos configurati con più aree di scrittura, possono ver
 
 Azure Cosmos DB offre un meccanismo basato sui criteri flessibile per risolvere i conflitti di scrittura. È possibile scegliere tra due criteri di risoluzione dei conflitti in un contenitore di Azure Cosmos:
 
-- **Priorità ultima scrittura (LWW)**: questo criterio di risoluzione per impostazione predefinita usa una proprietà Timestamp definita dal sistema. Si basa sul protocollo di sincronizzazione dell'ora dell'orologio. Se si usa l'API SQL, è possibile specificare qualsiasi altra numeriche proprietà personalizzata (ad esempio, il proprio nozione di un timestamp) da utilizzare per la risoluzione dei conflitti. Una proprietà numerica personalizzata è detta anche il *percorso di risoluzione dei conflitti*. 
+- **Priorità ultima scrittura (LWW)** : questo criterio di risoluzione per impostazione predefinita usa una proprietà Timestamp definita dal sistema. Si basa sul protocollo di sincronizzazione dell'ora dell'orologio. Se si usa l'API SQL, è possibile specificare qualsiasi altra numeriche proprietà personalizzata (ad esempio, il proprio nozione di un timestamp) da utilizzare per la risoluzione dei conflitti. Una proprietà numerica personalizzata è detta anche il *percorso di risoluzione dei conflitti*. 
 
   Se due o più elementi sono in conflitto su operazioni di inserimento o sostituzione, l'elemento con il valore massimo per il percorso di risoluzione dei conflitti diventa il vincitore. Il sistema determina il vincitore se più elementi hanno lo stesso valore numerico per il percorso di risoluzione dei conflitti. Tutte le aree convergono sicuramente in un singolo vincitore e si ritrovano con la stessa versione dell'elemento di cui si esegue il commit. Quando sono coinvolti i conflitti di eliminazione, la versione eliminata prevale sempre sui conflitti di inserimento o sostituzione. Questo risultato si verifica indipendentemente dal valore del percorso di risoluzione dei conflitti.
 

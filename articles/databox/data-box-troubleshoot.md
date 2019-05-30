@@ -1,54 +1,36 @@
 ---
-title: Risolvere i problemi in di Azure Data Box | Microsoft Docs
-description: Viene descritto come risolvere gli errori riscontrati in Azure Data Box durante il caricamento dei dati in Azure.
+title: Risolvere i problemi nella casella di dati di Azure, Azure dati casella pesante | Microsoft Docs
+description: Viene descritto come risolvere gli errori riscontrati in Azure Data Box e Azure dati casella elevato quando si copiano dati da questi dispositivi.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 1126002a93419371be3216c55114385c9c600419
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0c454c5f19ebefc7f91df62511448dbedb93dfc4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594006"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257294"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box"></a>Risolvere i problemi relativi a Azure Data Box
+# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Risolvere i problemi relativi a Azure Data Box e Azure dati casella pesante
 
-Questo articolo illustra in dettaglio le informazioni su come risolvere i problemi venga visualizzato quando si usa Azure Data Box.
+Questo articolo illustra in dettaglio le informazioni su come risolvere i problemi venga visualizzato quando si usa Boxn i dati di Azure o Azure dati casella pesanti.
 
 ## <a name="errors-during-data-copy"></a>Errori durante la copia dei dati
 
 Tutti gli errori che sono visibili durante la copia dei dati sono riepilogati nelle sezioni seguenti.
 
-### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH 
-
-**Descrizione dell'errore:** Il nome del contenitore o della condivisione deve avere una lunghezza compresa tra 3 e 63 caratteri.
-
-**Risoluzione suggerita:** La cartella nella condivisione di Data Box (SMB o NFS) a cui sono stati copiati i dati diventa un contenitore di Azure nell'account di archiviazione. 
-
-- Nel **Connetti e copia** pagina dell'interfaccia utente web locale, scaricare ed esaminare i file degli errori per identificare la cartella denomina con problemi di Data Box.
-- Modificare il nome della cartella nella condivisione di Data Box per assicurarsi che:
-
-    - Il nome ha lunghezza compresa tra 3 e 63 caratteri.
-    - I nomi possono contenere solo lettere, numeri e trattini.
-    - I nomi non possono iniziare o terminare con trattini.
-    - I nomi non possono contenere trattini consecutivi.
-    - Esempi di nomi validi: `my-folder-1`, `my-really-extra-long-folder-111`.
-    - Esempi di nomi che non sono validi: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
-
-    Per altre informazioni, vedere le convenzioni di denominazione di Azure per [i nomi dei contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e [condividono nomi](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
-
 ### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
 **Descrizione dell'errore:** Il nome del contenitore o della condivisione deve avere una lunghezza compresa tra 3 e 63 caratteri. 
 
-**Risoluzione suggerita:** La cartella nella condivisione di Data Box (SMB o NFS) a cui sono stati copiati i dati diventa un contenitore di Azure nell'account di archiviazione. 
+**Risoluzione suggerita:** Nella cartella sotto la share(SMB/NFS) ingenti di finestra di dati o Data Box in cui è stato copiato dati diventa un contenitore di Azure nell'account di archiviazione. 
 
-- Nel **Connetti e copia** pagina dell'interfaccia utente web locale, scaricare ed esaminare i file degli errori per identificare la cartella denomina con problemi di Data Box.
-- Modificare il nome della cartella nella condivisione di Data Box per assicurarsi che:
+- Nel **Connetti e copia** pagina l'interfaccia utente web locale dispositivo, scaricare ed esaminare i file degli errori per identificare la cartella denomina con problemi.
+- Modificare il nome della cartella nella condivisione di dati finestra ingenti o Data Box per assicurarsi che:
 
     - Il nome ha lunghezza compresa tra 3 e 63 caratteri.
     - I nomi possono contenere solo lettere, numeri e trattini.
@@ -64,10 +46,10 @@ Tutti gli errori che sono visibili durante la copia dei dati sono riepilogati ne
 
 **Descrizione dell'errore:** Il nome del contenitore o della condivisione deve contenere solo lettere, numeri o trattini.
 
-**Risoluzione suggerita:** La cartella nella condivisione di Data Box (SMB o NFS) a cui sono stati copiati i dati diventa un contenitore di Azure nell'account di archiviazione. 
+**Risoluzione suggerita:** Nella cartella sotto la share(SMB/NFS) ingenti di finestra di dati o Data Box in cui è stato copiato dati diventa un contenitore di Azure nell'account di archiviazione. 
 
-- Nel **Connetti e copia** pagina dell'interfaccia utente web locale, scaricare ed esaminare i file degli errori per identificare la cartella denomina con problemi di Data Box.
-- Modificare il nome della cartella nella condivisione di Data Box per assicurarsi che:
+- Nel **Connetti e copia** pagina l'interfaccia utente web locale dispositivo, scaricare ed esaminare i file degli errori per identificare la cartella denomina con problemi.
+- Modificare il nome della cartella nella condivisione di dati finestra ingenti o Data Box per assicurarsi che:
 
     - Il nome ha lunghezza compresa tra 3 e 63 caratteri.
     - I nomi possono contenere solo lettere, numeri e trattini.
@@ -82,10 +64,10 @@ Tutti gli errori che sono visibili durante la copia dei dati sono riepilogati ne
 
 **Descrizione dell'errore:** I nomi dei contenitori e i nomi delle condivisioni non può iniziare o terminare con trattini e non può contenere trattini consecutivi.
 
-**Risoluzione suggerita:** La cartella nella condivisione di Data Box (SMB o NFS) a cui sono stati copiati i dati diventa un contenitore di Azure nell'account di archiviazione. 
+**Risoluzione suggerita:** Nella cartella sotto la share(SMB/NFS) ingenti di finestra di dati o Data Box in cui è stato copiato dati diventa un contenitore di Azure nell'account di archiviazione. 
 
-- Nel **Connetti e copia** pagina dell'interfaccia utente web locale, scaricare ed esaminare i file degli errori per identificare la cartella denomina con problemi di Data Box.
-- Modificare il nome della cartella nella condivisione di Data Box per assicurarsi che:
+- Nel **Connetti e copia** pagina l'interfaccia utente web locale dispositivo, scaricare ed esaminare i file degli errori per identificare la cartella denomina con problemi.
+- Modificare il nome della cartella nella condivisione di dati finestra ingenti o Data Box per assicurarsi che:
 
     - Il nome ha lunghezza compresa tra 3 e 63 caratteri.
     - I nomi possono contenere solo lettere, numeri e trattini.
@@ -112,7 +94,7 @@ Per altre informazioni, vedere [copia al servizio managed disks](data-box-deploy
 
 **Descrizione dell'errore:** Condivisione file di Azure limita una condivisione di 5 TB di dati. Questo limite ha superato alcune condivisioni.
 
-**Risoluzione suggerita:** Nel **Connetti e copia** pagina della finestra di Data Box interfaccia utente web locale, scaricare ed esaminare i file di errore.
+**Risoluzione suggerita:** Nel **Connetti e copia** pagina del web locale dell'interfaccia utente, scaricare ed esaminare i file di errore.
 
 Identificare le cartelle che hanno questo problema dai log di errore e assicurarsi che i file in tale cartella siano di dimensioni inferiori a 5 TB.
 
@@ -194,7 +176,7 @@ Per altre informazioni, vedere le convenzioni di denominazione di Azure per i no
 
 **Descrizione dell'errore:** Il blob o file è allineato in modo errato.
 
-**Risoluzione suggerita:** La condivisione di blob di pagina nel Data Box solo supporta i file che sono 512 byte allineato (ad esempio, file VHD/VHDX). Tutti i dati copiati nella condivisione di blob di pagina viene caricati in Azure come BLOB di pagine.
+**Risoluzione suggerita:** La condivisione di blob di pagina nel Data Box o elevato di finestra di dati solo supporta i file che sono 512 byte allineato (ad esempio, file VHD/VHDX). Tutti i dati copiati nella condivisione di blob di pagina viene caricati in Azure come BLOB di pagine.
 
 Rimuovere tutti i dati di file VHD/VHDX dalla condivisione di blob di pagina. È possibile usare le condivisioni per blob in blocchi o i file di Azure per dati generici.
 

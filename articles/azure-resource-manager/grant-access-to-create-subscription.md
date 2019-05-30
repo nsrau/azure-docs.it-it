@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 05/23/2019
 ms.author: jureid
 ms.openlocfilehash: 81f3edcfcffad1b9b6d0ab4b49769601196049ad
-ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179857"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238049"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Concedere l'accesso per creare sottoscrizioni di Azure Enterprise (anteprima)
 
@@ -26,7 +26,7 @@ Come cliente di Azure, in [Enterprise Agreement (EA)](https://azure.microsoft.co
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="grant-access"></a>Concedi accesso
+## <a name="grant-access"></a>Concedere l'accesso
 
 Per [creare le sottoscrizioni con un account di registrazione](programmatically-create-subscription.md), gli utenti devono avere la [ruolo RBAC proprietario](../role-based-access-control/built-in-roles.md#owner) su quell'account. È possibile concedere un utente o un gruppo di utenti il ruolo RBAC proprietario in un account di registrazione seguendo questa procedura:
 

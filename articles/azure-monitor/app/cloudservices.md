@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1520b01826de2a80d8baeccf4913fa180d385644
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60903271"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256294"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
 [Application Insights][start] può monitorare le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) in termini di disponibilità, prestazioni, errori e utilizzo combinando i dati degli SDK di Application Insights con i dati di [Diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) provenienti dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
@@ -41,7 +41,7 @@ Questa opzione instrumenta l'app in fase di esecuzione, fornendo tutti i dati di
 
 Se non si hanno altre esigenze, non è necessario eseguire altre operazioni. 
 
-I passaggi successivi prevedono la [visualizzazione delle metriche dall'app](../../azure-monitor/app/metrics-explorer.md), l'[esecuzione di query sui dati con Analytics](../../azure-monitor/app/analytics.md) ed eventualmente la configurazione di un [dashboard](../../azure-monitor/app/app-insights-dashboards.md). 
+I passaggi successivi [metriche dall'app per la visualizzazione](../../azure-monitor/app/metrics-explorer.md), [query dei dati con Analitica](../../azure-monitor/app/analytics.md). 
 
 Per monitorare le prestazioni nel browser, potrebbe essere necessario configurare [test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) e [aggiungere codice alle pagine Web](../../azure-monitor/app/javascript.md).
 
@@ -61,7 +61,7 @@ I dati di telemetria provenienti dall'app vengono archiviati, analizzati e visua
 Ogni risorsa appartiene a un gruppo di risorse. I gruppi di risorse vengono usati per gestire i costi, concedere l'accesso ai membri di un team e distribuire gli aggiornamenti in una singola transazione coordinata. Ad esempio, è possibile [creare uno script per distribuire](../../azure-resource-manager/resource-group-template-deploy.md) un servizio cloud di Azure e le risorse per il monitoraggio con Application Insights in un'unica operazione.
 
 ### <a name="resources-for-components"></a>Risorse per i componenti
-È consigliabile creare una risorsa separata per ogni componente dell'app, ovvero per ogni ruolo Web e ruolo di lavoro. È possibile analizzare ogni componente separatamente, ma anche creare un [dashboard](../../azure-monitor/app/app-insights-dashboards.md) che riunisca i grafici chiave per tutti i componenti, per poterli confrontare e monitorare tutti insieme in un'unica visualizzazione. 
+È consigliabile creare una risorsa separata per ogni componente dell'app, ovvero per ogni ruolo Web e ruolo di lavoro. È possibile analizzare ogni componente separatamente, ma anche creare un [dashboard](../../azure-monitor/app/overview-dashboard.md) che riunisca i grafici chiave per tutti i componenti, per poterli confrontare e monitorare tutti insieme in un'unica visualizzazione. 
 
 Un approccio alternativo prevede l'invio dei dati di telemetria da più di un ruolo alla stessa risorsa, ma anche l'[aggiunta di una proprietà delle dimensioni a ogni elemento della telemetria](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) per identificare il ruolo di origine. In questo approccio i grafici delle metriche, ad esempio le eccezioni, visualizzano in genere un'aggregazione dei conteggi dei diversi ruoli ma, in base alle esigenze, è possibile segmentare il grafico in base all'identificatore di ruolo. Le ricerche possono essere filtrate anche in base alla stessa dimensione. Questa alternativa può rendere un po' più semplice visualizzare tutti gli elementi insieme, ma può anche creare confusione tra i ruoli.
 
@@ -91,7 +91,7 @@ Se si è deciso di creare una risorsa separata per ogni ruolo, ed eventualmente 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurare Diagnostica di Azure per ogni ruolo
 Impostare questa opzione per monitorare l'app con Application Insights. Per i ruoli Web, questa opzione offre monitoraggio delle prestazioni, avvisi, diagnostica e analisi dell'utilizzo. Per gli altri ruoli, è possibile cercare e monitorare i dati di Diagnostica di Azure, ad esempio riavvio, contatori delle prestazioni e chiamate a System.Diagnostics.Trace. 
 
-1. In Esplora soluzioni di Visual Studio aprire le proprietà di ogni ruolo in **\<ServizioCloud>** > **Ruoli**.
+1. In Esplora soluzioni di Visual Studio aprire le proprietà di ogni ruolo in **\<ServizioCloud>**  > **Ruoli**.
 
 1. In **Configurazione** selezionare la casella di controllo **Invia i dati di diagnostica ad Application Insights** e selezionare la risorsa di Application Insights creata in precedenza.
 
@@ -229,7 +229,7 @@ Per ottenere dati di telemetria basati su browser, quali conteggi delle visualiz
 Per assicurarsi che l'applicazione sia disponibile e reattiva, [Configurare i test Web][availability].
 
 ## <a name="display-everything-together"></a>Visualizzare tutti gli elementi contemporaneamente
-Per una panoramica del sistema, è possibile riunire i grafici di monitoraggio principali in un unico [dashboard](../../azure-monitor/app/app-insights-dashboards.md). Ad esempio, è possibile aggiungere i conteggi delle richieste e degli errori di ogni ruolo. 
+Per una panoramica del sistema, è possibile riunire i grafici di monitoraggio principali in un unico [dashboard](../../azure-monitor/app/overview-dashboard.md). Ad esempio, è possibile aggiungere i conteggi delle richieste e degli errori di ogni ruolo. 
 
 Se il sistema usa altri servizi di Azure, ad esempio Analisi di flusso, includere anche i relativi grafici di monitoraggio. 
 

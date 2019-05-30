@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee54d37050991763e60a6feb96c75d80384a42ac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c17835a4155e97395e8ae1b8e9ba6d2a42433f71
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726662"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298736"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch
 
@@ -142,7 +142,7 @@ Fare clic su **Applicazioni** > **Aggiungi**.
 
 La finestra **Nuova applicazione** contiene i campi seguenti per specificare le impostazioni della nuova applicazione e del pacchetto dell'applicazione.
 
-**ID applicazione**
+**ID dell'applicazione**
 
 Questo campo specifica l'ID della nuova applicazione, che è soggetto alle regole standard di convalida dell'ID di Azure Batch. Di seguito sono riportate le regole per fornire un ID applicazione:
 
@@ -176,7 +176,7 @@ Per aggiungere una versione del pacchetto dell'applicazione per un'applicazione 
 
 ![Pannello per aggiungere un pacchetto dell'applicazione nel portale di Azure][8]
 
-Come si può notare, i campi corrispondono a quelli della finestra **Nuova applicazione**, a eccezione della casella **ID applicazione** che è disabilitata. Come è stato fatto per la nuova applicazione, specificare la **versione** del nuovo pacchetto, scegliere il file ZIP del **pacchetto dell'applicazione** e quindi fare clic su **OK** per caricare il pacchetto.
+Come si può notare, i campi corrispondono a quelli del **nuova applicazione** finestra, ma la **ID applicazione** casella è disabilitata. Come è stato fatto per la nuova applicazione, specificare la **versione** del nuovo pacchetto, scegliere il file ZIP del **pacchetto dell'applicazione** e quindi fare clic su **OK** per caricare il pacchetto.
 
 ### <a name="update-or-delete-an-application-package"></a>Aggiornare o eliminare un pacchetto dell'applicazione
 Per aggiornare o eliminare un pacchetto dell'applicazione esistente, aprire i dettagli relativi all'applicazione, fare clic su **Pacchetti**, fare clic sui **puntini di sospensione** nella riga del pacchetto dell'applicazione che si vuole modificare e quindi selezionare l'azione da eseguire.

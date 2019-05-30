@@ -3,22 +3,22 @@ title: Gestire l'utilizzo e i costi per Azure Application Insights | Microsoft D
 description: Gestire volumi di dati di telemetria e monitorare i costi in Application Insights.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: DaleKoetke
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: Dale.Koetke
-ms.date: 12/21/2018
-ms.author: mbullwin
-ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.reviewer: mbullwin
+ms.date: 05/29/2019
+ms.author: dalek
+ms.openlocfilehash: ebcb0922335a2bdc5423ec4e4bfce7c1cd71c46a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254542"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357274"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -35,7 +35,7 @@ I prezzi per [Azure Application Insights][start] dipendono dal volume di dati in
 ### <a name="data-volume-details"></a>Dettagli del volume dei dati
 
 * il quale viene determinato dal numero di byte dei dati di telemetria ricevuti da Application Insights. Il volume de dati viene misurato in base alle dimensioni del pacchetto di dati JSON non compresso inviato dall'applicazione ad Application Insights. Per i [dati tabulari importati in Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), il volume dei dati viene misurato in base alle dimensioni non compresse dei file inviati ad Application Insights.
-* Gli addebiti per il volume dei dati dell'applicazione vengono ora segnalati in un nuovo contatore di fatturazione denominato **Inserimento di dati** a partire da aprile 2018. Questo nuovo contatore viene condiviso tra le tecnologie di monitoraggio, ad esempio Applications Insights e Log Analytics, ed è attualmente chiamato con il nome del servizio **Log Analytics**. 
+* Gli addebiti per il volume dei dati dell'applicazione vengono ora segnalati in un nuovo contatore di fatturazione denominato **Inserimento di dati** a partire da aprile 2018. Questo nuovo contatore sono condivisi tra più tecnologie come Application Insights e Log Analitica di monitoraggio e si trova sotto il nome del servizio **Log Analitica**. 
 * I dati [Live Metrics Stream](../../azure-monitor/app/live-stream.md) non vengono conteggiati ai fini della determinazione del prezzo.
 
 Per i prezzi correnti nella valuta e nell'area locali, consultare [Prezzi di Application Insights][pricing].
@@ -132,57 +132,56 @@ Per individuare la frequenza di campionamento effettiva indipendentemente dal pu
 
 In ogni record conservato, `itemCount` indica il numero di record originali che rappresenta, uguale a 1 + il numero di record precedenti scartati. 
 
-## <a name="automation"></a>Automazione
-
-È possibile scrivere uno script per impostare il piano tariffario tramite Azure Resource Manager. [Informazioni](powershell.md#price).
-
 ## <a name="limits-summary"></a>Riepilogo dei limiti
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
 ## <a name="disable-daily-cap-e-mails"></a>Disabilitare i messaggi di posta elettronica relativi al limite di utilizzo giornaliero
 
-Per disabilitare i messaggi di posta elettronica relativi al limite di utilizzo giornaliero, nella sezione **Configura** della risorsa di Application Insights, dal riquadro **Utilizzo e costi stimati**, selezionare **Limite di utilizzo giornaliero**. Sono disponibili impostazioni per inviare messaggi di posta elettronica quando si raggiunge il limite e anche quando si raggiunge un limite di avviso modificabile. Se si vogliono disabilitare tutti i messaggi di posta elettronica relativi al volume del limite giornaliero, deselezionare entrambe le caselle.
+Per disabilitare i messaggi di posta elettronica relativi al limite di utilizzo giornaliero, nella sezione **Configura** della risorsa di Application Insights, dal riquadro **Utilizzo e costi stimati**, selezionare **Limite di utilizzo giornaliero**. Sono disponibili impostazioni per inviare messaggi di posta elettronica quando si raggiunge il limite e anche quando si raggiunge un limite di avviso modificabile. Se si vuole disabilitare il limite di utilizzo giornaliero tutti correlati al volume di messaggi di posta elettronica deselezionare entrambe le caselle.
 
-## <a name="legacy-enterprise-pricing-plan"></a>Piano tariffario Enterprise precedente
+## <a name="legacy-enterprise-per-node-pricing-tier"></a>Piano tariffario Enterprise legacy (per ogni nodo)
 
-Per chi ha adottato da tempo Azure Application Insights, sono ancora possibili due piani tariffari: Basic ed Enterprise. Il piano tariffario Basic è identico a quello descritto sopra ed è il piano predefinito. Include tutte le funzionalità del piano Enterprise, senza alcun costo aggiuntivo. Nel piano Basic la fatturazione viene effettuata principalmente in base al volume di dati inseriti. 
+Di early Adopter di Azure Application Insights, esistono due livelli di prezzo possibili: Basic ed Enterprise. Il piano tariffario Basic è identico a quello descritto in precedenza e rappresenta il livello predefinito. Include tutte le funzionalità di livello aziendale, senza costi aggiuntivi. Gli effetti del livello Basic principalmente sul volume dei dati inseriti. 
 
-Il piano Enterprise prevede un addebito per nodo e una determinata quantità di dati giornaliera per ogni nodo. Nel piano tariffario Enterprise vengono addebitati i dati inseriti in aggiunta alla quantità inclusa. Se si usa Operations Management Suite, è consigliabile scegliere il piano Enterprise. 
+> [!NOTE]
+> Questi piani tariffari legacy sono stati rinominati. È ora denominata dell'organizzazione a livello di prezzo **singoli nodi** e il piano tariffario Basic è ora denominata **Per GB**. Questi nuovi nomi vengono usati di sotto e nel portale di Azure.  
+
+Il livello Per nodo (in precedenza Enterprise) prevede l'addebito per nodo e ogni nodo riceve una quantità di dati giornaliera. Nel piano tariffario Per nodo, viene addebitato per i dati inseriti oltre il limite previsto. Se si usa Operations Management Suite, è necessario scegliere il livello Per nodo. 
 
 Per i prezzi correnti nella valuta e nell'area locali, vedere i [prezzi di Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
 > [!NOTE]
 > Nel mese di aprile 2018 è stato [introdotto](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nuovo modello di determinazione dei prezzi per Monitoraggio di Azure. Questo modello adotta un semplice modello di "pagamento in base al consumo" per tutto il portfolio dei servizi di monitoraggio. Altre informazioni sul [nuovo modello di determinazione dei prezzi](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), su come [valutare l'impatto del passaggio a questo modello](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) in base ai modelli di uso e su [come acconsentire esplicitamente al nuovo modello](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)
 
-### <a name="enterprise-plan-and-operations-management-suite-subscription-entitlements"></a>Piano Enterprise e diritti della sottoscrizione di Operations Management Suite
+### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Per ogni livello di nodo e diritti della sottoscrizione Operations Management Suite
 
-Come [annunciato di recente](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/), i clienti che acquistano Operations Management Suite E1 ed E2 possono ottenere Application Insights Enterprise come componente aggiuntivo senza sostenere altri costi. Nello specifico, ogni unità di Operations Management Suite E1 ed E2 include il diritto a un nodo del piano Enterprise di Application Insights. Ogni nodo di Application Insights include fino a 200 MB al giorno per l'inserimento di dati, che non comprendono l'inserimento di dati di Log Analytics, con un periodo di conservazione di 90 giorni senza costi aggiuntivi. Questo piano viene descritto in modo più dettagliato più avanti nell'articolo. 
+I clienti che acquistano Operations Management Suite E1 ed E2 possono ottenere Application Insights per ogni nodo come componente aggiuntivo senza alcun costo aggiuntivo come [annunciate in precedenza](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/). In particolare, ogni unità di Operations Management Suite E1 ed E2 include il diritto a un nodo del livello di Application Insights per ogni nodo. Ogni nodo di Application Insights include fino a 200 MB al giorno per l'inserimento di dati, che non comprendono l'inserimento di dati di Log Analytics, con un periodo di conservazione di 90 giorni senza costi aggiuntivi. Il livello è descritta in modo più dettagliato più avanti nell'articolo. 
 
-Poiché tale piano è applicabile solo ai clienti con una sottoscrizione Operations Management Suite, per i clienti che non la possiedono non viene visualizzata alcuna opzione per la selezione di questo piano.
+Poiché questo livello è applicabile solo ai clienti con una sottoscrizione Operations Management Suite, i clienti che non hanno una sottoscrizione Operations Management Suite non visualizzata un'opzione per selezionare questo livello.
 
 > [!NOTE]
-> Per assicurarsi di ottenere questo diritto, le risorse di Application Insights devono essere disponibili nel piano tariffario Enterprise. Questo diritto viene applicato solo ai nodi. Le risorse di Application Insights nel piano Basic non ne traggono alcun vantaggio. Questo diritto non è visibile nei costi stimati indicati nel riquadro **Usage and estimated cost** (Uso e costi stimati). In aggiunta se si sposta una sottoscrizione al nuovo modello di determinazione dei prezzi di Monitoraggio di Azure ad aprile 2018, il piano Basic sarà l'unico piano disponibile. Spostare una sottoscrizione al nuovo modello di determinazione dei prezzi di Monitoraggio di Azure non è consigliabile se si dispone di una sottoscrizione Operations Management Suite.
+> Per assicurarsi di ottenere questo diritto, le risorse di Application Insights devono essere nel piano tariffario Per nodo. Questo diritto viene applicato solo ai nodi. Risorse di Application Insights nel livello Per GB non ne traggono alcun vantaggio. Questo diritto non è visibile nei costi stimati indicati nel riquadro **Usage and estimated cost** (Uso e costi stimati). Inoltre, se si sposta una sottoscrizione al nuovo modello di determinazione prezzi di monitoraggio nel mese di aprile 2018 di Azure, il livello Per GB è l'unico livello disponibile. Spostare una sottoscrizione al nuovo modello di determinazione dei prezzi di Monitoraggio di Azure non è consigliabile se si dispone di una sottoscrizione Operations Management Suite.
 
-### <a name="how-the-enterprise-plan-works"></a>Funzionamento del piano Enterprise
+### <a name="how-the-per-node-tier-works"></a>Come funziona il livello Per nodo
 
-* Si paga per ogni nodo che invia dati di telemetria per le app nel piano Enterprise.
+* Si paga per ogni nodo invia dati di telemetria per le app nel livello per ogni nodo.
   * Un *nodo* è un computer server fisico o virtuale oppure un'istanza del ruolo piattaforma distribuita come servizio che ospita l'app.
   * Computer di sviluppo, browser client e dispositivi mobili non sono conteggiati come nodi.
   * Se l'app ha diversi componenti che inviano dati di telemetria, ad esempio un servizio Web e un ruolo di lavoro back-end, i componenti vengono conteggiati separatamente.
   * I dati [Live Metrics Stream](../../azure-monitor/app/live-stream.md) non vengono conteggiati ai fini della determinazione del prezzo. In una sottoscrizione gli addebiti si applicano per nodo, non per app. Se si hanno cinque nodi che inviano dati di telemetria per 12 app, l'addebito sarà per cinque nodi.
 * Sebbene gli addebiti siano fatturati mensilmente, quelli effettivi hanno luogo solo nelle ore durante le quali un nodo invia dati di telemetria da un'app. La tariffa oraria è la tariffa mensile fatturata divisa per 744 (il numero di ore in un mese di 31 giorni).
 * Viene fornita un'allocazione di volume di dati di 200 MB al giorno per ogni nodo rilevato (con granularità oraria). L'allocazione di dati non usata non viene trasferita al giorno successivo.
-  * Scegliendo il piano tariffario Enterprise, ogni sottoscrizione ottiene una quantità di dati giornaliera inclusa in base al numero di nodi che inviano dati di telemetria alle risorse di Application Insights in quella sottoscrizione. Se si hanno quindi cinque nodi che inviano dati tutto il giorno, sarà applicata una quantità inclusa di 1 GB a tutte le risorse di Application Insights in quella sottoscrizione. Non è importante se determinati nodi inviano più dati di altri, perché i dati inclusi vengono condivisi tra tutti i nodi. Se un determinato giorno le risorse di Application Insights ricevono più dati di quelli inclusi nell'allocazione giornaliera per la sottoscrizione, si applicheranno gli addebiti di dati in eccedenza per GB. 
+  * Se si sceglie il piano tariffario Per nodo, ogni sottoscrizione Ottiene una quantità giornaliera di dati in base al numero di nodi che inviano dati di telemetria alle risorse di Application Insights in quella sottoscrizione. Se si hanno quindi cinque nodi che inviano dati tutto il giorno, sarà applicata una quantità inclusa di 1 GB a tutte le risorse di Application Insights in quella sottoscrizione. Non è importante se determinati nodi inviano più dati di altri, perché i dati inclusi vengono condivisi tra tutti i nodi. Se in un determinato giorno, le risorse di Application Insights ricevono più dati rispetto a quella inclusa nell'allocazione giornaliera per questa sottoscrizione, si applicano i costi di dati in eccedenza per GB. 
   * La quantità di dati giornaliera viene calcolata come numero di ore del giorno (fuso orario UTC) in cui ogni nodo invia dati di telemetria, diviso per 24 e moltiplicato per 200 MB. Se quindi si hanno quattro nodi che inviano dati di telemetria per 15 ore su 24 durante un giorno, i dati inclusi per tale giorno saranno ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Al prezzo di USD 2,30 per GB di eccedenza di dati, l'addebito sarà di USD 1,15 supponendo che i nodi quel giorno inviino 1 GB di dati.
-  * La quantità giornaliera di dati inclusa nel piano Enterprise non viene condivisa con le applicazioni per le quali si sceglie il piano Basic. La quantità non usata non viene trasferita da un giorno all'altro. 
+  * Il limite giornaliero di livello per ogni nodo non viene condivisa con le applicazioni per cui è stato scelto il piano Per GB. La quantità non usata non viene trasferita da un giorno all'altro. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Esempi di come determinare il conteggio di nodi specifico
 
 | Scenario                               | Conteggio giornaliero totale dei nodi |
 |:---------------------------------------|:----------------:|
 | 1 applicazione che usa 3 istanze del Servizio app di Azure e 1 server virtuale | 4 |
-| 3 applicazioni in esecuzione su 2 macchine virtuali. Le risorse di Application Insights per queste applicazioni si trovano nella stessa sottoscrizione e nello stesso piano Enterprise | 2 | 
+| 3 applicazioni in esecuzione su 2 macchine virtuali. le risorse di Application Insights per queste applicazioni sono nella stessa sottoscrizione e il livello per ogni nodo | 2 | 
 | 4 applicazioni le cui risorse di Application Insights si trovano nella stessa sottoscrizione. Ogni applicazione esegue 2 istanze durante 16 ore non di punta e 4 istanze durante 8 ore di punta | 13.33 | 
 | Servizi cloud con ruolo di lavoro 1 e 1 ruolo Web, ognuno dei quali esegue 2 istanze | 4 | 
 | Un cluster di Azure Service Fabric a 5 nodi che esegue 50 microservizi. Ogni microservizio esegue 3 istanze | 5|
@@ -192,6 +191,11 @@ Poiché tale piano è applicabile solo ai clienti con una sottoscrizione Operati
   * Per le versioni precedenti dell'SDK, [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) ha lo stesso comportamento delle nuove versioni dell'SDK, ma [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) segnala solamente un nodo, a prescindere dal numero degli host applicazioni. 
   * Se l'applicazione usa l'SDK per impostare **roleInstance** su un valore personalizzato, per impostazione predefinita viene usato quello stesso valore per determinare il conteggio dei nodi. 
   * Se si usa una nuova versione dell'SDK con un'app eseguita da computer client o dispositivi mobili, il conteggio dei nodi potrebbe restituire un numero molto elevato (a causa del numero elevato di computer client o dispositivi mobili). 
+
+## <a name="automation"></a>Automazione
+
+È possibile scrivere uno script per impostare il piano tariffario tramite Azure Resource Manager. [Informazioni](powershell.md#price).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

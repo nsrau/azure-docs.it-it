@@ -7,17 +7,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 12/28/2018
-ms.openlocfilehash: 02f7bbca127ba33fcfdd15d6f00d1660bf72970c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/24/2019
+ms.openlocfilehash: 0bdcc253a57fb55d610d67acd9b6a50182a699e3
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704950"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257856"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Esercitazione: Elaborare i tweet usando Hub eventi di Azure e Apache Spark in HDInsight
 
-In questa esercitazione si apprenderà come creare un'applicazione di streaming [Apache Spark](https://spark.apache.org/) per inviare tweet a un hub eventi di Azure e creare un'altra applicazione per leggere i tweet dall'hub eventi. Per una spiegazione dettagliata dello streaming Spark, vedere [Apache Spark streaming overview](https://spark.apache.org/docs/latest/streaming-programming-guide.html#overview) (Panoramica dello streaming in Apache Spark). HDInsight offre le stesse funzioni di streaming a un cluster Spark in Azure.
+In questa esercitazione descrive come creare un [Apache Spark](https://spark.apache.org/) lo streaming dell'applicazione per inviare TWEET a hub eventi di Azure e creare un'altra applicazione per leggere TWEET da hub eventi. Per una spiegazione dettagliata dello streaming Spark, vedere [Apache Spark streaming overview](https://spark.apache.org/docs/latest/streaming-programming-guide.html#overview) (Panoramica dello streaming in Apache Spark). HDInsight offre le stesse funzioni di streaming a un cluster Spark in Azure.
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -28,7 +28,11 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Completare l'articolo [Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight](./apache-spark-load-data-run-query.md)**.
+* Un cluster Apache Spark in HDInsight. Vedere [Creare un cluster Apache Spark](./apache-spark-jupyter-spark-sql-use-portal.md).
+
+* Familiarità nell'uso di Jupyter Notebook con Spark in HDInsight. Per altre informazioni, vedere [caricare dati ed eseguire query con Apache Spark in HDInsight](./apache-spark-load-data-run-query.md).
+
+* Oggetto [account Twitter](https://twitter.com/i/flow/signup).
 
 ## <a name="create-a-twitter-application"></a>Creare un'applicazione Twitter
 
@@ -40,10 +44,12 @@ Per ricevere un flusso di tweet, si crea un'applicazione in Twitter. Seguire le 
 
 1. Specificare i valori seguenti:
 
-    - Nome: indicare il nome dell'applicazione. Il valore usato per questa esercitazione è **HDISparkStreamApp0423**. Questo nome deve essere un nome univoco.
-    - Descrizione: fornire una breve descrizione dell'applicazione. Il valore usato per questa esercitazione è **A simple HDInsight Spark streaming application** (Un'applicazione di streaming HDInsight Spark semplice).
-    - Sito Web: indicare il sito Web dell'applicazione. Non è necessario inserire un sito Web valido.  Il valore usato per questa esercitazione è **http://www.contoso.com**.
-    - URL callback: è possibile lasciarlo vuoto.
+    |Proprietà |Valore |
+    |---|---|
+    |NOME|Specificare il nome dell'applicazione. Il valore usato per questa esercitazione è **HDISparkStreamApp0423**. Questo nome deve essere un nome univoco.|
+    |Descrizione|Fornire una breve descrizione dell'applicazione. Il valore usato per questa esercitazione è **A simple HDInsight Spark streaming application** (Un'applicazione di streaming HDInsight Spark semplice).|
+    |Website|Fornire sito Web dell'applicazione. Non è necessario inserire un sito Web valido.  Il valore usato per questa esercitazione è **http://www.contoso.com** .|
+    |Callback URL (URL callback)|È possibile lasciare vuoto.|
 
 1. Selezionare **Sì, ho letto e accetto il contratto per gli sviluppatori di Twitter**, quindi selezionare **Creare un'applicazione Twitter**.
 
@@ -64,30 +70,28 @@ L'hub eventi consente di archiviare tweet.
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 
-1. Nel menu a sinistra selezionare **Tutti i servizi**.  
+2. Nel menu a sinistra selezionare **Tutti i servizi**.  
 
-1. In **INTERNET DELLE COSE** selezionare **Hub eventi**. 
+3. In **INTERNET DELLE COSE** selezionare **Hub eventi**. 
 
     ![Creare un hub eventi per l'esempio di streaming Spark](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Creare un hub eventi per l'esempio di streaming Spark")
 
 4. Selezionare **+ Aggiungi**.
+
 5. Immettere i valori seguenti per il nuovo spazio dei nomi dell'hub eventi:
 
-    - **Nome**: immettere un nome per l'hub eventi.  Il valore usato per questa esercitazione è **myeventhubns20180403**.
+    |Proprietà |Valore |
+    |---|---|
+    |NOME|immettere un nome per l'hub eventi.  Il valore usato per questa esercitazione è **myeventhubns20180403**.|
+    |Piano tariffario|Selezionare **Standard**.|
+    |Sottoscrizione|Selezionare la sottoscrizione appropriata.|
+    |Gruppo di risorse|selezionare un gruppo di risorse esistente dall'elenco a discesa oppure selezionare **Crea nuovo** per creare un nuovo gruppo di risorse.|
+    |Località|selezionare la stessa **Località** del cluster Apache Spark in HDInsight per ridurre i costi e la latenza.|
+    |Abilitare aumento automatico (facoltativo) |Aumento automatico si adatta automaticamente il numero di unità di velocità effettiva assegnata a Namespace di hub eventi quando il traffico supera la capacità delle unità di velocità effettiva assegnata a esso.  |
+    |Unità di velocità effettiva massima aumento automatico (facoltativa)|Questo dispositivo di scorrimento verrà visualizzata solo se si controllano **abilitare la funzionalità aumento automatico**.  |
 
-    - **Piano tariffario**: Selezionare **Standard**.
+    ![Fornire un nome di hub eventi per l'esempio di streaming Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Fornire un nome di hub eventi per l'esempio di streaming Spark")
 
-    - **Sottoscrizione** selezionare la sottoscrizione appropriata.
-
-    - **Gruppo di risorse**: selezionare un gruppo di risorse esistente dall'elenco a discesa oppure selezionare **Crea nuovo** per creare un nuovo gruppo di risorse.
-
-    - **Località**: selezionare la stessa **Località** del cluster Apache Spark in HDInsight per ridurre i costi e la latenza.
-
-    - **Abilita aumento automatico**: (facoltativo) la funzionalità di aumento automatico ridimensiona automaticamente il numero di unità elaborate assegnato allo spazio dei nomi dell'hub eventi quando il traffico supera la capacità di unità elaborate assegnata allo spazio dei nomi stesso.  
-
-    - **Numero massimo di unità elaborate per l'aumento automatico**: (facoltativo) questo dispositivo di scorrimento viene visualizzato solo se l'opzione **Abilita aumento automatico** è selezionata.  
-
-      ![Fornire un nome di hub eventi per l'esempio di streaming Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Fornire un nome di hub eventi per l'esempio di streaming Spark")
 6. Selezionare **Crea** per creare lo spazio dei nomi.  La distribuzione verrà completata in pochi minuti.
 
 ## <a name="create-an-azure-event-hub"></a>Creare un hub eventi di Azure
@@ -134,9 +138,9 @@ Creare un notebook Jupyter e denominarlo **SendTweetsToEventHub**.
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
-2. Eseguire il codice seguente per inviare tweet all'hub eventi:
+2. Modificare il codice seguente sostituendo `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>`, e `<TOKEN SECRET>` con i valori appropriati. Eseguire il codice modificato per inviare TWEET a hub eventi:
 
-    ```
+    ```scala
     import java.util._
     import scala.collection.JavaConverters._
     import java.util.concurrent._
@@ -215,15 +219,16 @@ Creare un altro notebook Jupyter e denominarlo **ReadTweetsFromEventHub**.
     %%configure -f
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0"}}
     ```
-2. Eseguire il codice seguente per leggere tweet dall'hub eventi:
 
-    ```
+2. Modificare il codice seguente sostituendo `<Event hub name>`, e `<Event hub namespace connection string>` con i valori appropriati. Eseguire il codice modificato per leggere TWEET da hub eventi:
+
+    ```scala
     import org.apache.spark.eventhubs._
     // Event hub configurations
     // Replace values below with yours        
     val eventHubName = "<Event hub name>"
     val eventHubNSConnStr = "<Event hub namespace connection string>"
-    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build 
+    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build
     
     val customEventhubParameters = EventHubsConf(connStr).setMaxEventsPerTrigger(5)
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
@@ -253,12 +258,7 @@ Aprire il cluster nel portale di Azure e selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
-
-* Leggere messaggi da un hub eventi.
-Passare al prossimo articolo per vedere che è possibile creare un'applicazione di apprendimento automatico. 
+In questa esercitazione è stato illustrato come creare un'applicazione per inviare TWEET a hub eventi di Azure di streaming Apache Spark e creata un'altra applicazione per leggere TWEET da hub eventi.  Passare al prossimo articolo per vedere che è possibile creare un'applicazione di apprendimento automatico.
 
 > [!div class="nextstepaction"]
 > [Creare un'applicazione di apprendimento automatico](./apache-spark-ipython-notebook-machine-learning.md)
-
-

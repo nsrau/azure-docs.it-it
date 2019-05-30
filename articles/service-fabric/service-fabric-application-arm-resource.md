@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621463"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258671"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gestire applicazioni e servizi come risorse di Azure Resource Manager
 
@@ -258,6 +258,17 @@ Il frammento seguente illustra le diverse tipologie di risorse che è possibile 
    > La proprietà *apiVersion* deve essere impostata su `"2017-07-01-preview"`. Questo modello può essere distribuito anche indipendentemente dal cluster, a condizione che il cluster sia già stato distribuito.
 
 5. Eseguire la distribuzione. 
+
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Rimuovere la risorsa di applicazione del Provider di risorse di Service Fabric
+Di seguito verrà attivato il pacchetto dell'app per essere senza provisioning dal cluster, e ciò consentirà di pulire lo spazio su disco utilizzato:
+```powershell
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+```
+Rimuovendo semplicemente Microsoft.ServiceFabric/clusters/application in base al modello ARM sarà non annullare il provisioning dell'applicazione
+
+>[!NOTE]
+> Una volta completata la rimozione non viene visualizzata la versione del pacchetto in SFX o ARM più. Non è possibile eliminare la risorsa di versione tipo di applicazione che l'applicazione è in esecuzione con; ARM/SFRP verrà evitare questo problema. Se si tenta di annullare il provisioning del pacchetto in esecuzione, runtime di Service Fabric impedirà la.
+
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Gestire un'applicazione esistente tramite Resource Manager
 

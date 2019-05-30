@@ -4,14 +4,14 @@ description: Informazioni su come eseguire la migrazione di tutti i contenitori 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: e8aaee8cb7df794652b2c560c5250921c1a4e060
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8ba9489496a8f9e3703702e344684b4028a002cc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160636"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241933"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Eseguire la migrazione dei contenitori non partizionata a contenitori partizionati
 

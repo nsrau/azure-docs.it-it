@@ -7,56 +7,48 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: danimir
-ms.author: danil
+author: jovanpop-msft
+ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2a7a6ed5bd28bcc83500da6e82b6c4ff48b2989c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cae0fbd450e6b392e1689d4642181f6e5279752b
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719088"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393218"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni
 
-Database SQL di Azure è un servizio di dati flessibile e gestito automaticamente che consente di monitorare l'utilizzo, aggiungere o rimuovere facilmente risorse (CPU, memoria, I/O), trovare indicazioni per migliorare le prestazioni del database o lasciare che il database si adatti al carico di lavoro e ottimizzi automaticamente le prestazioni.
+Risolvere i problemi potenziali di Azure SQL Database consente di monitorare facilmente l'utilizzo, aggiungere o rimuovere risorse (CPU, memoria, i/o) e trovare raccomandazioni utili per migliorare le prestazioni del database. Database SQL di Azure offre numerose funzionalità che consente di correggere automaticamente i problemi dei database se si desidera che i database di adattarsi ai carichi di lavoro e ottimizzi automaticamente le prestazioni. Tuttavia, esistono alcuni problemi personalizzati che potrebbe essere necessario risolvere i problemi. Questo articolo illustra alcune procedure consigliate e strumenti che è possibile usare per risolvere i problemi di prestazioni.
+
+Esistono due attività principali che è necessario eseguire per assicurarsi che tale database è in esecuzione senza problemi:
+- [Monitoraggio delle prestazioni del database](#monitoring-database-performance) per assicurarsi che le risorse assegnate al database possono gestire il carico di lavoro. Se viene visualizzato che si raggiungono i limiti delle risorse, è necessario per identificare le query per consumo di risorse superiore e ottimizzarle o aggiungere altre risorse eseguendo l'aggiornamento a livello di servizio.
+- [Risolvere i problemi di prestazioni](#troubleshoot-performance-issues) allo scopo di identificare il motivo per cui si è verificato un problema potenziale, identificare la causa radice del problema e l'azione che può risolvere il problema.
 
 ## <a name="monitoring-database-performance"></a>Monitoraggio delle prestazioni del database
 
-Il monitoraggio delle prestazioni di un database SQL in Azure inizia con il monitoraggio dell'utilizzo delle risorse rispetto al livello di prestazioni scelto per il database. Database SQL di Azure consente di individuare le opportunità per migliorare e ottimizzare le prestazioni delle query senza modificare le risorse esaminando le [indicazioni per ottimizzare le prestazioni](sql-database-advisor.md). Spesso le prestazioni non ottimali del database sono dovute a indici mancanti e query non ottimizzate correttamente. È possibile applicare queste indicazioni per migliorare le prestazioni del carico di lavoro. È anche possibile impostare il database SQL di Azure in modo che [ottimizzi automaticamente le prestazioni delle query](sql-database-automatic-tuning.md) applicando tutte le indicazioni identificate e verificando l'effettivo miglioramento delle prestazioni del database.
+Il monitoraggio delle prestazioni di un database SQL in Azure inizia con il monitoraggio dell'utilizzo delle risorse rispetto al livello di prestazioni scelto per il database. È necessario monitorare le risorse seguenti:
+ - **Utilizzo della CPU** -è necessario controllare si raggiungono 100% di utilizzo della CPU in un periodo di tempo più lungo. Ciò potrebbe indicare che potrebbe essere necessario aggiornare l'istanza o database o identificare e ottimizzare le query che utilizzano la maggior parte della potenza di calcolo.
+ - **Statistiche relative all'attesa** -è necessario controllare ciò che il motivo per cui le query sono in attesa di alcune risorse. Queriesmig attendere che i dati da recuperare o salvati in file di database, in attesa perché viene raggiunto un limite di risorse e così via.
+ - **Utilizzo di IO** -è necessario controllare si raggiungono i limiti dei / o dell'archiviazione sottostante.
+ - **Utilizzo della memoria** -la quantità di memoria disponibile per il database o l'istanza è proporzionale al numero di Vcore e da verificare è sufficiente per il carico di lavoro. Permanenza presunta della pagina è uno dei parametri che possono indicare sono le pagine rapidamente rimosso dalla memoria.
+
+Database SQL di Azure **offre consigli utili per risolvere i problemi e correggere potenziali problemi di prestazioni**. È possibile identificare facilmente le opportunità per migliorare e ottimizzare le prestazioni delle query senza modificare le risorse esaminando [raccomandazioni sull'ottimizzazione delle prestazioni](sql-database-advisor.md). Spesso le prestazioni non ottimali del database sono dovute a indici mancanti e query non ottimizzate correttamente. È possibile applicare queste indicazioni per migliorare le prestazioni del carico di lavoro. È anche possibile impostare il database SQL di Azure in modo che [ottimizzi automaticamente le prestazioni delle query](sql-database-automatic-tuning.md) applicando tutte le indicazioni identificate e verificando l'effettivo miglioramento delle prestazioni del database.
 
 Per il monitoraggio e la risoluzione dei problemi di prestazioni del database sono disponibili le opzioni seguenti:
 
 - Nel [portale di Azure](https://portal.azure.com) fare clic su **Database SQL**, selezionare il database e quindi usare il grafico di monitoraggio per identificare le risorse che stanno per raggiungere i valori massimi. L'utilizzo di DTU viene visualizzato per impostazione predefinita. Fare clic su **Modifica** per modificare l'intervallo di tempo e i valori indicati.
-- Usare [Informazioni dettagliate prestazioni query](sql-database-query-performance.md) per identificare le query che consumano la maggior parte delle risorse.
-- Usare [Advisor per database SQL ](sql-database-advisor-portal.md) per visualizzare le indicazioni per creare e rimuovere indici, parametrizzare le query e correggere i problemi di schema.
+- Gli strumenti, ad esempio SQL Server Management Studio forniscono numerosi report utili, ad esempio un [Performance Dashboard](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) dove è possibile monitorare l'utilizzo delle risorse e identificare le query per consumo di risorse superiore o [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed)in cui è possibile identificare le query con prestazioni peggiorate.
+- Uso [informazioni dettagliate prestazioni Query](sql-database-query-performance.md) le [portale di Azure](https://portal.azure.com) per identificare le query che consumano la maggior parte delle risorse. Questa funzionalità è disponibile nel Database singolo e pool elastici solo.
+- Usare [Advisor per database SQL ](sql-database-advisor-portal.md) per visualizzare le indicazioni per creare e rimuovere indici, parametrizzare le query e correggere i problemi di schema. Questa funzionalità è disponibile nel Database singolo e pool elastici solo.
 - Usare [Intelligent Insights SQL di Azure](sql-database-intelligent-insights.md) per il monitoraggio automatico delle prestazioni del database. Dopo aver rilevato un problema di prestazioni, viene generato un log di diagnostica con i dettagli e l'analisi della causa radice del problema. Quando possibile viene fornita un'indicazione di miglioramento delle prestazioni.
 - [Abilitare l'ottimizzazione automatica](sql-database-automatic-tuning-enable.md) e consentire al database SQL di Azure di correggere automaticamente i problemi di prestazioni identificati.
 - Usare le [viste a gestione dinamica (DMV)](sql-database-monitoring-with-dmvs.md), gli [eventi estesi](sql-database-xevent-db-diff-from-svr.md) e [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) per la risoluzione più dettagliata dei problemi di prestazioni.
 
 > [!TIP]
 > Vedere le [indicazioni relative alle prestazioni](sql-database-performance-guidance.md) per trovare le tecniche che è possibile usare per migliorare le prestazioni del database SQL di Azure dopo aver identificato il problema di prestazioni con uno o più metodi sopra elencati.
-
-## <a name="monitor-databases-using-the-azure-portal"></a>Monitorare i database tramite il portale di Azure
-
-Nel [portale di Azure](https://portal.azure.com/), è possibile monitorare un utilizzo di singoli database s selezionandolo e scegliendo il **monitoraggio** grafico. Verrà visualizzata una finestra della **metrica** in cui è possibile apportare modifiche facendo clic su l pulsante **Modifica grafico**. Aggiungere le metriche seguenti
-
-- Percentuale CPU
-- Percentuale di DTU
-- Percentuale di I/O di dati
-- Percentuale di dimensioni del database
-
-Dopo aver aggiunto queste metriche, è possibile continuare a visualizzarle nel grafico **Monitoraggio** con altre informazioni nella finestra **Metrica**. Tutte le quattro metriche mostrano la percentuale media di utilizzo relativa alla **DTU** del database. Per altre informazioni sui livelli di servizio, vedere gli articoli [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).  
-
-![Monitoraggio del livello di servizio delle prestazioni del database.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
-
-È inoltre possibile configurare gli avvisi sulle metriche delle prestazioni. Scegliere il pulsante **Aggiungi avviso** nella finestra **Metrica**. Seguire la procedura guidata per configurare l'avviso. È possibile scegliere di ricevere un avviso se la metrica supera una determinata soglia o scende al di sotto di una determinata soglia.
-
-Ad esempio, se si prevede un aumento del carico di lavoro sul database, è possibile scegliere di configurare un avviso di posta elettronica ogni volta che il database raggiunge l'80% per una qualsiasi delle metriche delle prestazioni. È possibile usarlo come un preavviso per capire quando potrebbe essere necessario passare alle dimensioni di calcolo superiori.
-
-Le metriche delle prestazioni consentono inoltre di determinare se è possibile effettuare il downgrade a dimensioni di calcolo inferiori. Presupporre di utilizzare un database Standard S2 e tutte le metriche delle prestazioni mostrano che il database in media non utilizza più del 10% in un dato momento. È probabile che il database funzioni bene in Standard S1. Tuttavia, prestare attenzione ai picchi o alle fluttuazioni dei carichi di lavoro prima di decidere di passare a dimensioni di calcolo inferiori.
 
 ## <a name="troubleshoot-performance-issues"></a>Risolvere i problemi di prestazioni
 
@@ -65,6 +57,18 @@ Per diagnosticare e risolvere i problemi di prestazioni, iniziare analizzando lo
 ![Stati del carico di lavoro](./media/sql-database-monitor-tune-overview/workload-states.png)
 
 Per un carico di lavoro con problemi di prestazioni, il problema di prestazioni potrebbe dipendere da una contesa di CPU (una condizione **correlata all'esecuzione**) o dalle singole query in attesa (condizione **correlata all'attesa**).
+
+Le cause o **correlati esecuzione** problemi potrebbero essere:
+- **Problemi di compilazione** -SQL Query Optimizer potrebbe produrre un piano non ottimale a causa di statistiche non aggiornate, la stima non corretta del numero di righe che verranno elaborati o la stima di memoria necessaria. Se si conosce che tale query è stata eseguita più velocemente in passato o in altra istanza (istanza gestita di SQL Server o istanza), disconnettere i piani di esecuzione effettivi e confrontare possano vedere sono diversi. Si tenta di applicare hint per la query o ricompilazioni statistiche o indici per ottenere il piano migliore. Attivare la correzione automatica del piano nel Database SQL di Azure per mitigare automaticamente questi problemi.
+- **I problemi di esecuzione** : se il piano di query è ottimale quindi probabilmente sta impegnando alcuni limiti di risorse nel database, ad esempio velocità effettiva di scrittura log oppure potrebbe usare deframmentato gli indici che devono essere ricompilati. Un numero elevato di query simultanee che necessiti di risorse potrebbe anche essere la causa dei problemi di esecuzione. **In attesa correlati** problemi sono nella maggior parte dei casi relativi a problemi di esecuzione, perché le query che non sono in esecuzione in modo efficiente probabilmente sono in attesa di alcune risorse.
+
+Le cause o **correlate in attesa** problemi potrebbero essere:
+- **Il blocco** -un'unica query potrebbe essere utilizzato il blocco su alcuni oggetti nel database mentre altri utenti cercano di accedere agli stessi oggetti. È possibile identificare facilmente le query che il blocco tramite DMV o strumenti di monitoraggio.
+- **Problemi dei / o** -potrebbero essere in attesa di query per le pagine in cui scrivere i file di dati o di log. In questo caso si noterà `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, o `PAGEIOLATCH_*` attendere le statistiche nella DMV.
+- **Problemi di TempDB** : se si usa molte delle tabelle temporanee o se viene visualizzato una grande quantità di TempDB distribuisce nei piani di query potrebbe esistere un problema con una velocità effettiva di TempDB. 
+- **Problemi correlati alla memoria** -non si dispone di memoria sufficiente per il carico di lavoro in modo che potrebbe eliminare la permanenza presunta della pagina o le query ottengono meno concessione di memoria quelle necessarie. In alcuni casi, funzionalità di intelligence integrata in Query Optimizer per correggere questi problemi.
+ 
+Nelle sezioni seguenti verrà descritta come identificare e risolvere i problemi di alcuni di questi problemi.
 
 ## <a name="running-related-performance-issues"></a>Problemi di prestazioni correlati all'esecuzione
 
@@ -76,7 +80,7 @@ Come regola generale, se l'utilizzo della CPU è costantemente pari o superiore 
 
 Se si determina che è presente un problema di prestazioni correlato all'esecuzione, l'obiettivo consiste nell'identificare il problema preciso usando uno o più metodi. I metodi più comuni per identificare i problemi di esecuzione sono:
 
-- Usare il [portale di Azure](#monitor-databases-using-the-azure-portal) per monitorare l'utilizzo percentuale della CPU.
+- Usare il [portale di Azure](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) per monitorare l'utilizzo percentuale della CPU.
 - Usare le seguenti [visualizzazioni a gestione dinamica](sql-database-monitoring-with-dmvs.md):
 
   - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) restituisce il consumo di CPU, I/O e memoria per un database SQL di Azure. È presente una riga ogni 15 secondi, anche se non c'è attività di database. I dati cronologici vengono conservati per un'ora.

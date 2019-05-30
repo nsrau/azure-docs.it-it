@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: bbbaef306b9ed2bb415b29bc6d96dcfe649338f9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 95044373800441bdcc04bdb84e8485dce29f11e7
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205936"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357412"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -91,7 +91,7 @@ Per annidare il modello all'interno del modello principale, usare la proprietà 
 > [!NOTE]
 > Per i modelli annidati non è possibile usare i parametri o le variabili definiti all'interno del modello annidato. È possibile usare i parametri e variabili dal modello principale. Nell'esempio precedente `[variables('storageName')]` recupera un valore dal modello principale e non dal modello annidato. Questa restrizione non è valida per i modelli esterni.
 >
-> Per due risorse definiti all'interno di un modello di annidamento e una risorsa dipende l'altro, il valore della dipendenza è semplicemente il nome della risorsa dipendenti:
+> Per due risorse definiti all'interno di un modello annidato e una risorsa dipende l'altro, il valore della dipendenza è semplicemente il nome della risorsa dipendente:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
@@ -554,7 +554,7 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 Gli esempi seguenti mostrano gli usi più frequenti dei modelli collegati.
 
-|Modello principale  |Modello collegato |DESCRIZIONE  |
+|Modello principale  |Modello collegato |Descrizione  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[Modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Restituisce una stringa dal modello collegato. |
 |[Load Balancer con indirizzo IP pubblico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[Modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Restituisce l'indirizzo IP pubblico dal modello collegato e imposta tale valore nel servizio di bilanciamento del carico. |

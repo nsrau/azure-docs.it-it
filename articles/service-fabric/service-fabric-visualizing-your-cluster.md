@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 358ebfa601ff8e4d2fb6ae91e51516cb0a933af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbeb0a8944b35af2a68080a2b2f1bb4436c6e58d
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716575"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306689"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizzare il cluster con Service Fabric Explorer
 
@@ -61,7 +61,7 @@ Per connettersi a un cluster di Service Fabric, è necessario specificare l'endp
 ### <a name="connect-to-a-secure-cluster"></a>Connettersi a un cluster sicuro
 È possibile controllare l'accesso al cluster di Service Fabric con certificati oppure usando Azure Active Directory (AAD).
 
-Se si prova a connettersi a un cluster sicuro, a seconda della configurazione del cluster è necessario presentare un certificato client oppure eseguire l'accesso con AAD.
+Se si prova a connettersi a un cluster protetto, quindi in base alla configurazione del cluster è necessario presentare un certificato client oppure accedere con AAD.
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Comprendere il layout di Service Fabric Explorer
 È possibile spostarsi all'interno di Service Fabric Explorer seguendo la struttura ad albero a sinistra. Nella radice dell'albero, il dashboard del cluster fornisce una panoramica del cluster, inclusi un riepilogo dell'applicazione e l'integrità del nodo.

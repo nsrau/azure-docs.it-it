@@ -4,19 +4,19 @@ description: Questo articolo spiega come usare il portale di Azure per creare un
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d6e38465b46f387092ab457ebe6716a3dcff4768
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 1018b449047e40a67ea843e8506fb43f6e1093a6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205853"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239062"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Creare un nuovo ambiente Time Series Insights nel portale di Azure
 
@@ -42,7 +42,7 @@ Seguire questa procedura per creare un ambiente:
    
    ![Creare il gruppo di risorse Time Series Insights](media/time-series-insights-get-started/2-create-tsi.png)
    
-   Impostazione|Valore consigliato|DESCRIZIONE
+   Impostazione|Valore consigliato|Descrizione
    ---|---|---
    Nome ambiente | Un nome univoco | Questo nome rappresenta l'ambiente nell'[utilità di esplorazione delle serie temporali](https://insights.timeseries.azure.com)
    Sottoscrizione | Sottoscrizione in uso | Se si dispone di più sottoscrizioni, scegliere preferibilmente la sottoscrizione che contiene l'origine evento. Time Series Insights può rilevare automaticamente le risorse di Hub IoT di Azure e di Hub eventi esistenti nella stessa sottoscrizione.

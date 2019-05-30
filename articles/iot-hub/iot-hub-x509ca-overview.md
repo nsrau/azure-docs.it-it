@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615032"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257569"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticazione dei dispositivi con i certificati della CA X.509
 
@@ -40,7 +40,7 @@ Per un ambiente di produzione, è consigliabile acquistare un certificato della 
 
 È anche possibile creare un certificato della CA X.509 autofirmato come prova o per l'uso in reti IoT chiuse.
 
-Indipendentemente dalla modalità di acquisizione del certificato della CA X.509, assicurarsi di non divulgare mai la corrispondente chiave privata.  Ciò è necessario per garantire l'attendibilità del processo di autenticazione della CA X.509.
+Indipendentemente dal modo in cui ottenere il certificato della CA X.509, assicurarsi di mantenere la corrispondente chiave privata e protetta in qualsiasi momento.  Ciò è necessario per garantire l'attendibilità del processo di autenticazione della CA X.509.
 
 Informazioni su come [creare un certificato della CA autofirmato](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) da usare come esempio nella descrizione di questa funzionalità.
 

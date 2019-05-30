@@ -2,7 +2,7 @@
 title: Modello Time Series in Anteprima di Azure Time Series Insights | Microsoft Docs
 description: Informazioni sul modello di serie temporale di Azure Time Series.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9de28c96c2833033a3811835f57cffcccdf4619
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3e6e8ae76c0ae6f688dd4a039b34c52af16b6e0f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190342"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244017"
 ---
 # <a name="time-series-model"></a>Modello Time Series
 
@@ -84,7 +84,7 @@ La matrice seguente funge da legenda per le definizioni delle variabili:
 
 [![Tabella dei tipi di definizione di variabile](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
-| Definizione | DESCRIZIONE |
+| Definizione | Descrizione |
 | --- | ---|
 | Tipologia di variabile |  *Numerico* e *aggregazione* sono supportati tipi |
 | Filtro di variabile | I filtri di variabile specificano una clausola di filtro facoltativa per limitare il numero di righe da tenere in considerazione per il calcolo in base alle condizioni. |

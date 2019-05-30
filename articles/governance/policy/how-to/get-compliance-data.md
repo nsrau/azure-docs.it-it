@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 050f301b55c718e80c1b4157639bd9dce506f6ba
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979396"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237519"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -93,10 +93,10 @@ La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in
 
 | Stato della risorsa | Effetto | Valutazione dei criteri | Stato di conformità |
 | --- | --- | --- | --- |
-| Esiste | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | Non conforme |
-| Esiste | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Conforme |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | Non conforme |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
 | Nuovo | Audit, AuditIfNotExist\* | True  | Non conforme |
-| Nuovo | Audit, AuditIfNotExist\* | Falso | Conforme |
+| Nuovo | Audit, AuditIfNotExist\* | False | Conforme |
 
 \* Gli effetti Append, DeployIfNotExist e AuditIfNotExist richiedono che l'istruzione IF sia TRUE.
 Richiedono inoltre che la condizione di esistenza sia FALSE per lo stato non conforme. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.
@@ -266,7 +266,7 @@ Per brevità, la risposta di esempio seguente è stata tagliata in una singola r
 }
 ```
 
-### <a name="view-events"></a>Visualizza gli eventi
+### <a name="view-events"></a>Visualizzare eventi
 
 Quando si crea o si aggiorna una risorsa, viene generato un risultato di valutazione dei criteri. I risultati sono chiamati _eventi criteri_. Usare l'Uri seguente per visualizzare gli eventi criteri recenti associati alla sottoscrizione.
 
@@ -416,7 +416,8 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-Se si dispone di un [dell'area di lavoro di Log Analitica](../../../log-analytics/log-analytics-overview.md) con `AzureActivity` dal [soluzione Analitica Log attività](../../../azure-monitor/platform/collect-activity-logs.md) associato alla sottoscrizione, è anche possibile visualizzare i risultati di conformità dal ciclo di valutazione usando query Kusto semplici e `AzureActivity` tabella. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
+Se si dispone di un [dell'area di lavoro di Log Analitica](../../../log-analytics/log-analytics-overview.md) con `AzureActivity` dal [soluzione Analitica Log attività](../../../azure-monitor/platform/activity-log-collect.md) associato alla sottoscrizione, è anche possibile visualizzare i risultati di conformità dal ciclo di valutazione usando query Kusto semplici e `AzureActivity` tabella. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
+
 
 ![Conformità di criteri di Azure usando i log di monitoraggio di Azure](../media/getting-compliance-data/compliance-loganalytics.png)
 
@@ -427,4 +428,4 @@ Se si dispone di un [dell'area di lavoro di Log Analitica](../../../log-analytic
 - Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
 - Comprendere come [a livello di codice, creare criteri](programmatically-create.md).
 - Informazioni su come [monitora e aggiorna le risorse non conformi](remediate-resources.md).
-- Esaminare un gruppo di gestione riguarda [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).
+- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2019
+ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0741dda0aa087f21625cabe79e51d0b9e344f7ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962652"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235328"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opzioni di supporto tecnico e assistenza per gli sviluppatori
 
@@ -51,7 +51,7 @@ Dove *{Your Search Terms}* corrisponde alle parole chiave di ricerca.
 
 ## <a name="use-the-development-support-tools"></a>Usare gli strumenti di supporto Microsoft per lo sviluppo
 
-| Tool  | Descrizione  |
+| Strumento  | Descrizione  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Incollare un ID o un token di accesso per decodificare i nomi e i valori di un'attestazione. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Strumento che consente di effettuare richieste e visualizzare le risposte con l'API Microsoft Graph. |
@@ -81,10 +81,10 @@ I post di Stack Overflow seguenti contengono suggerimenti su come porre domande 
 
 In caso di bug o di problema relativo alle librerie Microsoft, segnalare il problema nei repository di GitHub. Le librerie sono open source, quindi gli utenti possono anche inviare anche una richiesta pull.
 
-Per visualizzare un elenco di librerie e i repository corrispondenti in GitHub, vedere gli articoli seguenti (in inglese):
+Per un elenco di librerie e i repository di GitHub, vedere gli argomenti seguenti:
 
 * Librerie [ADAL](active-directory-authentication-libraries.md) e repository di GitHub
-* Librerie [MSAL](reference-v2-libraries.md) e repository di GitHub
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [msal. js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), e [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) librerie e i repository di GitHub
 
 ## <a name="open-a-support-request"></a>Aprire una richiesta di supporto
 

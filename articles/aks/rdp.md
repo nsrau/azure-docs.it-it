@@ -1,0 +1,128 @@
+---
+title: RDP nei nodi di Windows Server cluster Azure Kubernetes Service (AKS)
+description: Informazioni su come creare una connessione RDP con cluster Azure Kubernetes Service (AKS) nodi del Server di Windows per le attività di manutenzione e risoluzione dei problemi.
+services: container-service
+author: tylermsft
+ms.service: container-service
+ms.topic: article
+ms.date: 05/06/2019
+ms.author: twhitney
+ms.openlocfilehash: 6b5ebbab717a3db7c9b50549d2762df61c274131
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307348"
+---
+# <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Connettersi con RDP per Azure Kubernetes Service (AKS) nodi del cluster Windows Server per la manutenzione o risoluzione dei problemi
+
+Nel ciclo di vita del cluster Azure Kubernetes Service (AKS), potrebbe essere necessario accedere a un nodo AKS Windows Server. Questo accesso potrebbe servire per la manutenzione, la raccolta dei registri o altre operazioni di risoluzione dei problemi. È possibile accedere ai nodi AKS Windows Server tramite RDP. In alternativa, se si vuole usare SSH per accedere ai nodi AKS Windows Server ed è possibile utilizzare la stessa coppia di chiavi che è stato usato durante la creazione del cluster, è possibile seguire i passaggi descritti in [SSH in nodi del cluster Azure Kubernetes Service (AKS)] [ssh-steps]. Per motivi di sicurezza, i nodi di servizio Azure Kubernetes non sono esposti in Internet.
+
+Supporto del nodo Windows Server è attualmente in anteprima nel servizio contenitore di AZURE.
+
+Questo articolo illustra come creare una connessione RDP a un nodo AKS usando gli indirizzi IP privati.
+
+## <a name="before-you-begin"></a>Prima di iniziare
+
+Questo articolo presuppone che si dispone di un cluster servizio contenitore di AZURE esistente con un nodo Windows Server. Se è necessario un cluster del servizio contenitore di AZURE, vedere l'articolo sul [creazione di un cluster AKS con un contenitore Windows usando il comando di Azure][aks-windows-cli]. È necessario il nome utente amministratore di Windows e la password per il nodo Windows Server che si desidera risolvere i problemi. Anche necessario un client RDP, ad esempio [Desktop remoto Microsoft][rdp-mac].
+
+Anche necessario la CLI di Azure versione 2.0.61 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+
+## <a name="deploy-a-virtual-machine-to-the-same-subnet-as-your-cluster"></a>Distribuire una macchina virtuale alla stessa subnet del cluster
+
+I nodi del Server di Windows del cluster servizio contenitore di AZURE non sono accessibile dall'esterno degli indirizzi IP. Per stabilire una connessione RDP, è possibile distribuire una macchina virtuale con un indirizzo IP accessibile pubblicamente alla stessa subnet come nodi di Windows Server.
+
+L'esempio seguente crea una macchina virtuale denominata *myVM* nel *myResourceGroup* gruppo di risorse. Sostituire *SUBNET_ID $* con l'ID della subnet usata dal pool di nodi di Windows Server.
+
+```azurecli-interactive
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image win2019datacenter \
+    --admin-username azureuser \
+    --admin-password myP@ssw0rd12 \
+    --subnet $SUBNET_ID \
+    --query publicIpAddress -o tsv
+```
+
+L'output di esempio seguente mostra la macchina virtuale è stata creata correttamente e visualizza l'indirizzo IP pubblico della macchina virtuale.
+
+```console
+13.62.204.18
+```
+
+Registrare l'indirizzo IP pubblico della macchina virtuale. Si userà questo indirizzo in un passaggio successivo.
+
+## <a name="get-the-node-address"></a>Ottenere l'indirizzo del nodo
+
+Per gestire un cluster Kubernetes, usare [kubectl][kubectl], il client da riga di comando di Kubernetes. Se si usa Azure Cloud Shell, `kubectl` è già installato. Per installare `kubectl` in locale, usare il comando [az aks install-cli][az-aks-install-cli]:
+    
+```azurecli-interactive
+az aks install-cli
+```
+
+Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az servizio Azure Kubernetes get-credentials][az-aks-get-credentials]. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
+
+```azurecli-interactive
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+```
+
+Elencare l'indirizzo IP interno dei nodi Windows Server usando il [kubectl get] [ kubectl-get] comando:
+
+```console
+kubectl get nodes -o wide
+```
+
+L'output di esempio seguente mostra gli indirizzi IP interni di tutti i nodi nel cluster, inclusi i nodi di Windows Server.
+
+```console
+$ kubectl get nodes -o wide
+NAME                                STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                    KERNEL-VERSION      CONTAINER-RUNTIME
+aks-nodepool1-42485177-vmss000000   Ready    agent   18h   v1.12.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS          4.15.0-1040-azure   docker://3.0.4
+aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67   <none>        Windows Server Datacenter   10.0.17763.437
+```
+
+Registrare l'indirizzo IP interno del nodo Windows Server che si desidera risolvere i problemi. Si userà questo indirizzo in un passaggio successivo.
+
+## <a name="connect-to-the-virtual-machine-and-node"></a>Connettersi alla macchina virtuale e nodo
+
+Connettersi all'indirizzo IP pubblico della macchina virtuale creata in precedenza tramite, ad esempio un client RDP [Desktop remoto Microsoft][rdp-mac].
+
+![Immagine di connessione alla macchina virtuale usando un client RDP](media/rdp/vm-rdp.png)
+
+Dopo la connessione alla macchina virtuale, la connessione per il *indirizzo IP interno* del nodo Windows Server che si desidera risolvere i problemi con un client RDP all'interno della macchina virtuale.
+
+![Immagine di connessione al nodo Windows Server usando un client RDP](media/rdp/node-rdp.png)
+
+A questo punto si è connessi al nodo Windows Server.
+
+![Immagine della finestra di comando nel nodo Windows Server](media/rdp/node-session.png)
+
+È ora possibile eseguire i comandi sulla risoluzione dei problemi *cmd* finestra. Poiché i nodi di Windows Server usano Windows Server Core, non c'è un'interfaccia utente grafica completa o altri strumenti di interfaccia utente grafica quando ci si connette a un nodo Windows Server tramite RDP.
+
+## <a name="remove-rdp-access"></a>Rimuovere l'accesso RDP
+
+Al termine, chiudere la connessione RDP per il nodo Windows Server, quindi uscire dalla sessione RDP alla macchina virtuale. Dopo avere chiuso entrambe le sessioni RDP, eliminare la macchina virtuale con il [az vm delete] [ az-vm-delete] comando:
+
+```azurecli-interactive
+az vm delete --resource-group myResourceGroup --name myVM
+```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Se sono necessari dati di risoluzione dei problemi aggiuntivi, è possibile [visualizzare i log del nodo master Kubernetes] [ view-master-logs] oppure [monitoraggio di Azure][azure-monitor-containers].
+
+<!-- EXTERNAL LINKS -->
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[rdp-mac]: https://aka.ms/rdmac
+
+<!-- INTERNAL LINKS -->
+[aks-windows-cli]: windows-container-cli.md
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-vm-delete]: /cli/azure/vm#az-vm-delete
+[azure-monitor-containers]: ../azure-monitor/insights/container-insights-overview.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[ssh-steps]: ssh.md
+[view-master-logs]: view-master-logs.md

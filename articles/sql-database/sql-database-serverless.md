@@ -12,16 +12,16 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/20/2019
-ms.openlocfilehash: 57f2c38ce0479f43d7f24de8d1feb554517bcc69
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a9f883a9776f68a7ece471caca5dc1d7af2aec32
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951488"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393533"
 ---
 # <a name="sql-database-serverless-preview"></a>Database SQL serverless (anteprima)
 
-## <a name="what-is-the-serverless-compute-tier"></a>Informazioni sul livello di calcolo serverless
+## <a name="serverless-compute-tier"></a>Livello di elaborazione serverless
 
 Database SQL serverless (anteprima) è un livello di calcolo che addebita le risorse di calcolo usate da un database singolo in base al numero di secondi. Il modello serverless è caratterizzato da un rapporto qualità-prezzo ottimizzato per database singoli con modelli di utilizzo intermittenti e imprevedibili che possono permettersi qualche ritardo all'avvio del calcolo dopo periodi di inattività.
 
@@ -73,7 +73,7 @@ La tabella seguente riepiloga le differenze tra il livello di calcolo serverless
 
 Il database SQL serverless è attualmente supportato solo nel livello per utilizzo generico su hardware di quinta generazione nel modello di acquisto vCore.
 
-## <a name="autoscaling"></a>Ridimensionamento automatico
+## <a name="autoscale"></a>Autoscale
 
 ### <a name="scaling-responsiveness"></a>Tempo di risposta per il ridimensionamento
 
@@ -83,7 +83,7 @@ In generale, i database vengono eseguiti in un computer con capacità sufficient
 
 Memoria per i database senza server viene recuperata più frequente per i database di calcolo sottoposte a provisioning. Questo comportamento è importante per controllare i costi in senza server e può influire sulle prestazioni.
 
-#### <a name="cache-reclaiming"></a>Memorizzare nella cache per reclamare
+#### <a name="cache-reclamation"></a>Recupero della cache
 
 A differenza dei database di calcolo sottoposte a provisioning, della memoria dalla cache del SQL viene recuperata da un database senza server quando l'utilizzo della CPU o della cache è bassa.
 
@@ -115,8 +115,8 @@ La ripresa automatica viene attivata in presenza di una qualsiasi delle condizio
 
 |Funzionalità|Trigger di ripresa automatica|
 |---|---|
-|Autenticazione e autorizzazione|Accedi|
-|Rilevamento delle minacce|Abilitazione/disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o server<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o server|
+|Autenticazione e autorizzazione|Login|
+|Introduzione al rilevamento delle minacce|Abilitazione/disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o server<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o server|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione di criteri di controllo|
 |Maschera dati|Aggiunta, modifica, eliminazione o visualizzazione delle regole di maschera dati|
@@ -145,7 +145,7 @@ Le funzionalità seguenti non supportano la sospensione e la ripresa automatica.
 - Database di sincronizzazione usato nella sincronizzazione dati SQL.
 
 
-## <a name="on-boarding-into-the-serverless-compute-tier"></a>Onboarding nel livello di calcolo serverless
+## <a name="onboarding-into-serverless-compute-tier"></a>Onboarding nel livello di calcolo senza server
 
 La procedura di creazione di un nuovo database o di spostamento di un database esistente in un livello di calcolo serverless è analoga a quella di creazione di un nuovo database nel livello di calcolo con provisioning e prevede i due passaggi seguenti:
 
@@ -167,11 +167,11 @@ La procedura di creazione di un nuovo database o di spostamento di un database e
 > [!NOTE]
 > L'uso di T-SQL per spostare un database esistente in un database serverless o modificarne le dimensioni di calcolo non è attualmente supportato, ma è possibile effettuare queste operazioni tramite il portale di Azure o PowerShell.
 
-### <a name="create-new-database-using-the-azure-portal"></a>Creare il nuovo database con il portale di Azure
+### <a name="create-new-serverless-database-using-azure-portal"></a>Creare nuovi database senza server tramite il portale di Azure
 
 Vedere [Avvio rapido: Creare un database singolo nel database SQL di Azure usando il portale di Azure](sql-database-single-database-get-started.md).
 
-### <a name="create-new-database-using-powershell"></a>Creare il nuovo database con PowerShell
+### <a name="create-new-serverless-database-using-powershell"></a>Creare nuovi database senza server usando PowerShell
 
 Nell'esempio seguente viene creato un nuovo database nel livello di calcolo serverless definito dall'obiettivo di servizio denominato GP_S_Gen5_4 con i valori predefiniti per il numero minimo di vCore e il ritardo di sospensione automatica.
 
@@ -190,7 +190,7 @@ New-AzSqlDatabase `
   -AutoPauseDelay 720
 ```
 
-### <a name="move-existing-database-into-the-serverless-compute-tier"></a>Spostare il database esistente nel livello di calcolo serverless
+### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>Spostare il database di calcolo sottoposte a provisioning a livello di calcolo senza server
 
 Nell'esempio seguente un database singolo esistente viene spostato dal livello di calcolo con provisioning al livello di calcolo serverless. In questo esempio vengono specificati in modo esplicito il numero minimo e massimo di vCore e il ritardo di sospensione automatica.
 
@@ -207,11 +207,11 @@ Set-AzSqlDatabase
   -AutoPauseDelay 1440
 ```
 
-### <a name="move-a-database-out-of-the-serverless-compute-tier"></a>Spostare un database dal livello di calcolo serverless
+### <a name="move-serverless-database-into-provisioned-compute-tier"></a>Spostare database senza server nel livello di calcolo sottoposte a provisioning
 
 La procedura per spostare un database serverless in un livello di calcolo con provisioning è analoga a quella per spostare un database di calcolo con provisioning in un livello di calcolo serverless.
 
-## <a name="modify-serverless-configuration-parameters"></a>Modificare i parametri di configurazione serverless
+## <a name="modifying-serverless-configuration"></a>Modifica della configurazione senza server
 
 ### <a name="maximum-vcores"></a>Numero massimo di vCore
 
@@ -225,7 +225,7 @@ Modifica il numero minimo di Vcore viene eseguita usando il [Set-AzSqlDatabase](
 
 Modifica del ritardo autopause viene eseguita usando il [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando in PowerShell usando il `AutoPauseDelay` argomento.
 
-## <a name="monitor-serverless-database"></a>Monitorare il database serverless
+## <a name="monitoring"></a>Monitoraggio
 
 ### <a name="resources-used-and-billed"></a>Risorse usate e fatturate
 
@@ -237,9 +237,9 @@ Il pacchetto app è il limite più esterno di gestione delle risorse per un data
 
 #### <a name="user-resource-pool"></a>Pool di risorse utente
 
-Il pool di risorse utente è il limite più interno di gestione delle risorse per un database, indipendentemente dal fatto che il database si trovi in un livello di calcolo serverless o con provisioning. Il pool di risorse utente definisce l'ambito della CPU e dell'I/O per il carico di lavoro utente generato da query DDL (ad esempio CREATE, ALTER e così via) e query DML (ad esempio SELECT, INSERT, UPDATE, DELETE e così via). Queste domande rappresentano in genere la percentuale più consistente di utilizzo all'interno del pacchetto dell'app.
+Il pool di risorse utente è il limite più interno di gestione delle risorse per un database, indipendentemente dal fatto che il database si trovi in un livello di calcolo serverless o con provisioning. Utente del pool gli ambiti di risorse della CPU e IO per carico di lavoro utente generato dalle query DDL, ad esempio le query CREATE e ALTER e DML come selezionare, inserire, aggiornare ed eliminare. Queste domande rappresentano in genere la percentuale più consistente di utilizzo all'interno del pacchetto dell'app.
 
-### <a name="metrics"></a>Metriche
+### <a name="metrics"></a>metrics
 
 |Entità|Metrica|Descrizione|Unità|
 |---|---|---|---|
@@ -279,7 +279,7 @@ Per i limiti delle risorse, vedere [Livello di calcolo serverless](sql-database-
 La quantità di risorse di calcolo fatturata corrisponde alla quantità massima di CPU e di memoria usata ogni secondo. Se la quantità di CPU e di memoria usata è inferiore alla quantità minima del provisioning per ognuna, viene fatturata la quantità del provisioning. Per confrontare la quantità di CPU e di memoria ai fini della fatturazione, la memoria viene normalizzata in unità di vCore ridimensionando la quantità di memoria in GB in base a 3 GB per vCore.
 
 - **Risorsa fatturata**: CPU e memoria
-- **Importo fatturato ($)**: prezzo unitario vCore * massimo (numero minimo di vCore, numero di vCore usati, quantità minima di memoria in GB * 1/3, quantità di memoria in GB usata * 1/3) 
+- **Importo fatturato ($)** : prezzo unitario vCore * massimo (numero minimo di vCore, numero di vCore usati, quantità minima di memoria in GB * 1/3, quantità di memoria in GB usata * 1/3) 
 - **Frequenza di fatturazione**: Al secondo
 
 Il prezzo unitario di vCore del costo per ogni vCore al secondo. Per i prezzi unitari in una determinata area, vedere la [pagina dei prezzi del database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/).
@@ -310,7 +310,7 @@ Si supponga che il prezzo delle unità di calcolo sia $0,000073/vCore/secondo. 
 
 ## <a name="available-regions"></a>Aree disponibili
 
-Il livello di calcolo serverless è disponibile in tutte le aree ad eccezione delle seguenti: Australia centrale, Cina orientale, Cina settentrionale, Francia meridionale, Germania centrale, Germania nord-orientale, India occidentale, Corea meridionale, Sudafrica occidentale, Regno Unito settentrionale, Regno Unito meridionale, Regno Unito occidentale e Stati Uniti centro-occidentali
+Il livello di calcolo serverless è disponibile in tutte le aree ad eccezione delle seguenti: Australia centrale, Cina orientale, Cina settentrionale, Francia meridionale, Germania centrale, Germania nord-orientale, India occidentale, Corea meridionale, Sudafrica occidentale, Regno Unito settentrionale, Regno Unito meridionale, Regno Unito occidentale e Stati Uniti centro occidentali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

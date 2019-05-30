@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 28893e0782a7fa928757bbbba42662e6d3fa272c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ddc1f673ffec793bbca643ec1057215067f761a9
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153573"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255139"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig-v021-alpha"></a>API v2 di Status Monitor: Get-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
 
@@ -28,7 +28,7 @@ Questo documento descrive un cmdlet che viene fornito come un membro del [modulo
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [condizioni per l'utilizzo per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-## <a name="description"></a>DESCRIZIONE
+## <a name="description"></a>Descrizione
 
 Ottenere il file di configurazione e visualizzare i valori nella console.
 
@@ -64,7 +64,7 @@ Filters:
  - [Esaminare le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo
 - [Cercare eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi
 - Per informazioni sulle query più avanzate, vedere [Analytics](../../azure-monitor/app/analytics.md)
-- [Creare i dashboard](../../azure-monitor/app/app-insights-dashboards.md)
+- [Creare i dashboard](../../azure-monitor/app/overview-dashboard.md)
  
  Aggiungere altri dati di telemetria:
  - [Creare test web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.

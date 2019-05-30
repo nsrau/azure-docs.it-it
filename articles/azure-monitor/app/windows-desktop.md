@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 95ff8d1a70325357fee4bc24fd96c1a1c7a73845
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567163a5d5ce37eeffb5ef2bc6f9adb7c5b027ec
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371479"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255733"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitoraggio dell'utilizzo e delle prestazioni nelle applicazioni desktop di Windows classiche
 
@@ -37,7 +37,7 @@ Tutte le applicazioni ospitate in locale, in Azure e in altri cloud possono sfru
    
     Se si utilizza Applicationinsights.config, assicurarsi che le proprietà in Esplora soluzione siano impostate su **Build Action = Content, Copy to Output Directory = Copy**.
 5. [Usare l'API](../../azure-monitor/app/api-custom-events-metrics.md) per inviare dati di telemetria.
-6. Eseguire l'app e visualizzare i dati di telemetria nella risorsa creata nel portale di Azure.
+6. Eseguire l'app e visualizzare i dati di telemetria nella risorsa di cui che è stato creato nel portale di Azure.
 
 ## <a name="telemetry"></a>Codice di esempio
 ```csharp
@@ -77,7 +77,7 @@ Tutte le applicazioni ospitate in locale, in Azure e in altri cloud possono sfru
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare un dashboard](../../azure-monitor/app/app-insights-dashboards.md)
+* [Creare un dashboard](../../azure-monitor/app/overview-dashboard.md)
 * [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md)
 * [Esplorare le metriche](../../azure-monitor/app/metrics-explorer.md)
 * [Scrivere query di Analisi](../../azure-monitor/app/analytics.md)

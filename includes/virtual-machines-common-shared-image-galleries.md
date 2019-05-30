@@ -8,19 +8,20 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 7a0e628eed861767d1eeb50b0ded7bb3d8807328
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145882"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271599"
 ---
-Raccolta di immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini di macchine virtuali gestite e personalizzate. Raccolte di immagini condivise fornite:
+Raccolta di immagini condivise è un servizio che consente di compilare una struttura e l'organizzazione per le immagini gestite. Raccolte di immagini condivise fornite:
 
 - Gestire replica globale di immagini.
 - Raggruppamento di immagini per semplificare la gestione e controllo delle versioni.
-- Rendere a disponibilità elevata con gli account di archiviazione con ridondanza della zona (ZRS) le immagini in aree che supportano le zone di disponibilità. ZRS offre una resilienza migliore in caso di errori di zona.
-- La condivisione tra sottoscrizioni e anche tra i tenant, l'uso di RBAC.
+- Immagini a disponibilità elevata con gli account di archiviazione con ridondanza della zona (ZRS) in aree che supportano le zone di disponibilità. ZRS offre una resilienza migliore in caso di errori di zona.
+- La condivisione tra sottoscrizioni e anche tra i tenant di Active Directory (AD), uso di RBAC.
+- Scalabilità delle distribuzioni delle repliche di immagine in ogni area.
 
 Usando una raccolta di immagini condivise è possibile condividere le immagini con utenti diversi, entità servizio o gruppi di Active Directory all'interno dell'organizzazione. Le immagini condivise possono essere replicate in più aree, per un ridimensionamento più rapido delle distribuzioni.
 
@@ -42,14 +43,14 @@ La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
 ![Immagine che mostra in che modo è possibile avere più versioni di un'immagine nella propria raccolta](./media/shared-image-galleries/shared-image-gallery.png)
 
-## <a name="image-definitions"></a>Definizioni immagini
+## <a name="image-definitions"></a>Definizioni di immagini
 
 Le definizioni di immagine sono un raggruppamento logico per le versioni di un'immagine. La definizione dell'immagine contiene informazioni sui motivi per cui è stata creata l'immagine, quale sistema operativo per e informazioni sull'uso dell'immagine. Una definizione dell'immagine è simile a un piano per tutti i dettagli sulla creazione di un'immagine specifica. Non si distribuisce una macchina virtuale da una definizione dell'immagine, ma dalla versione dell'immagine creata dalla definizione.
 
 
 Esistono tre parametri per ogni definizione di immagini che vengono usati in combinazione - **server di pubblicazione**, **offrono** e **SKU**. Questi vengono usati per trovare una definizione di immagine specifico. È possibile avere versioni delle immagini che condividono uno o due, ma non tutti e tre i valori.  Di seguito, un esempio di tre definizioni di immagini con i relativi valori:
 
-|Definizione delle immagini|Pubblicato da|Offerta|Sku|
+|Definizione delle immagini|Editore|Offerta|Sku|
 |---|---|---|---|
 |myImage1|Contoso|Finanza|Back-end|
 |myImage2|Contoso|Finanza|Front-end|
@@ -102,7 +103,26 @@ Per altre informazioni, vedere [controllare l'utilizzo di risorse rispetto ai li
 ## <a name="scaling"></a>Ridimensionamento
 Raccolta di immagini condivise consente di specificare il numero di repliche delle immagini che si desidera vengano conservate da Azure. Questa possibilità è particolarmente utile in scenari di distribuzione di più macchine virtuali, poiché le distribuzioni di macchine virtuali possono essere estese a diverse repliche, riducendo le possibilità che il processo di creazione di istanze venga limitato a causa dell'overload di una singola replica.
 
+
+Con raccolta di immagini condivise, è ora possibile distribuire fino a un 1.000 istanze di macchina virtuale in un set di scalabilità di macchine virtuali (up da 600 con immagini gestite). Le repliche di immagine forniscono per coerenza, affidabilità e prestazioni migliori di distribuzione.  È possibile impostare un numero di repliche diverse in ogni area di destinazione in base alle esigenze di scalabilità per l'area. Poiché ogni replica è una copia completa dell'immagine, ciò consente di ridimensionare le distribuzioni in modo lineare con ciascuna replica aggiuntiva. Anche se ovviamente non sono presenti due immagini o aree geografiche sono uguali, ecco la linea guida generale sull'uso di repliche in un'area:
+
+- Per ogni 20 macchine virtuali che creano contemporaneamente, è consigliabile che mantenere una replica. Ad esempio, se si siano creando 120 macchine virtuali contemporaneamente usando la stessa immagine in un'area, è consigliabile che mantenere almeno 6 repliche dell'immagine. 
+- Per ogni distribuzione di set di scalabilità con le istanze fino a 600, è consigliabile che mantenere almeno una replica. Ad esempio, se si sta creando 5 set di scalabilità contemporaneamente, ognuno con 600 istanze di macchine Virtuali con la stessa immagine in una singola area, è consigliabile che mantenere almeno 5 repliche dell'immagine. 
+
+È sempre consigliabile overprovision del numero di repliche a causa di fattori, ad esempio le dimensioni dell'immagine, contenuto e il tipo del sistema operativo.
+
+
 ![Immagine che mostra come ridimensionare le immagini](./media/shared-image-galleries/scaling.png)
+
+
+
+## <a name="make-your-images-highly-available"></a>Rendere a disponibilità elevata delle immagini
+
+[Azure zona Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) fornisce la resilienza contro un errore di zona di disponibilità nell'area. Grazie alla disponibilità generale della raccolta di immagini condivise, è possibile scegliere di archiviare le immagini di account ZRS in aree con le zone di disponibilità. 
+
+È anche possibile scegliere il tipo di account per ognuna delle aree di destinazione. Il tipo di account di archiviazione predefinito è Standard_LRS, ma è possibile scegliere Standard_ZRS per aree con le zone di disponibilità. Controllare la disponibilità a livello di area del ZRS [qui](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
+
+![Grafico che mostra ZRS](./media/shared-image-galleries/zrs.png)
 
 
 ## <a name="replication"></a>Replica
@@ -115,24 +135,23 @@ Le aree in cui la versione di immagini condivise viene replicata possono essere 
 
 ## <a name="access"></a>Accesso
 
-Poiché la raccolta di immagini condivise, l'immagine condivisa e la versione dell'immagine condivisa sono tutte risorse, possono essere condivise usando i controlli degli accessi in base al ruolo nativi di Azure. Uso di RBAC è possibile condividere queste risorse ad altri utenti, le entità servizio e gruppi. È anche possibile condividere l'accesso a persone all'esterno del tenant che sono stati creati all'interno. Una volta che un utente ha accesso alla versione di immagine condivisi, è possibile distribuire una macchina virtuale o un Set di scalabilità di macchine virtuali.  Di seguito è riportata la matrice di condivisione che consente all'utente di riconoscere a cosa ha accesso:
+Poiché la raccolta di immagini condivise, definizione dell'immagine e versione dell'immagine sono tutte le risorse, può essere condivisa utilizza il programma che controlla native RBAC di Azure. Uso di RBAC è possibile condividere queste risorse ad altri utenti, le entità servizio e gruppi. È anche possibile condividere l'accesso a persone all'esterno del tenant che sono stati creati all'interno. Una volta che un utente ha accesso alla versione di immagine condivisi, è possibile distribuire una macchina virtuale o un Set di scalabilità di macchine virtuali.  Di seguito è riportata la matrice di condivisione che consente all'utente di riconoscere a cosa ha accesso:
 
-| Condivisi con l'utente     | Raccolta immagini condivisa | Immagine condivisa | Versione di immagini condivise |
+| Condivisi con l'utente     | Raccolta di immagini condivise | Definizione delle immagini | Versione dell'immagine |
 |----------------------|----------------------|--------------|----------------------|
-| Raccolta immagini condivisa | Sì                  | Sì          | Sì                  |
-| Immagine condivisa         | N.                   | Sì          | Sì                  |
-| Versione di immagini condivise | N.                   | N.           | Sì                  |
+| Raccolta di immagini condivise | Yes                  | Sì          | Yes                  |
+| Definizione delle immagini     | No                    | Yes          | Yes                  |
 
-È consigliabile la condivisione a livello di raccolta per ottenere risultati ottimali. Per altre informazioni su RBAC, vedere [gestire l'accesso alle risorse di Azure tramite RBAC](../articles/role-based-access-control/role-assignments-portal.md).
+È consigliabile la condivisione a livello di raccolta per ottenere risultati ottimali. Non è consigliabile la condivisione delle versioni delle singole immagini. Per altre informazioni su RBAC, vedere [gestire l'accesso alle risorse di Azure tramite RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
-Le immagini possono anche essere condivise, su larga scala, tra tenant tramite una registrazione di app multi-tenant. Per altre informazioni sulla condivisione di immagini da un tenant, vedere [condividere le immagini di macchina virtuale di raccolta tra i tenant di Azure](../articles/virtual-machines/linux/share-images-across-tenants.md).
+Le immagini possono anche essere condivise, su larga scala, anche tra tenant tramite una registrazione di app multi-tenant. Per altre informazioni sulla condivisione di immagini da un tenant, vedere [condividere le immagini di macchina virtuale di raccolta tra i tenant di Azure](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
 ## <a name="billing"></a>Fatturazione
 Non sono previsti addebiti aggiuntivi per l'uso del servizio Raccolta di immagini condivise. Vengono addebitate le risorse seguenti:
 - Costi di archiviazione per le versioni di immagini condivise. Costo dipende dal numero di repliche della versione dell'immagine e il numero di aree in che della versione viene replicata. Ad esempio, se si dispone di 2 immagini ed entrambi vengono replicate su 3 aree geografiche, quindi verranno modificati per 6 dischi gestiti in base alle dimensioni. Per altre informazioni, vedere [prezzi di Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Addebiti in uscita di rete per la replica della prima versione di immagine dall'area di origine nelle aree replicate. Le repliche successive vengono gestite all'interno dell'area, in modo che non sono previsti addebiti aggiuntivi. 
 
-## <a name="updating-resources"></a>Aggiornamento delle risorse
+## <a name="updating-resources"></a>L'aggiornamento delle risorse
 
 Una volta creato, è possibile apportare alcune modifiche per le risorse della raccolta immagini. Questi sono limitati a:
  
@@ -148,7 +167,7 @@ Definizione delle immagini:
 Versione immagine:
 - Conteggio di repliche a livello di area
 - Aree di destinazione
-- Esclusione dalla versione più recente
+- Escludere dalla versione più recente
 - Data di scadenza
 
 

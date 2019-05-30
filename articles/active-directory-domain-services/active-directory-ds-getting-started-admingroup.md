@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Introduzione | Microsoft Docs'
 description: Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ergreenl
-ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: a4a515f3d669794d5bcdd8fa506a8d3b846db987
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417704"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234947"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 
@@ -44,7 +44,7 @@ La procedura guidata crea automaticamente il gruppo amministrativo nella directo
 
 ## <a name="configure-synchronization"></a>Configurare la sincronizzazione
 
-Azure AD Domain Services consente di scegliere tra la sincronizzazione completa di tutti gli utenti e i gruppi disponibili in Azure AD o la sincronizzazione con ambito per sincronizzare solo gruppi specifici. Se si sceglie la sincronizzazione completa, **non** sarà possibile scegliere la sincronizzazione con ambito in un secondo momento. Per altre informazioni sulla sincronizzazione con ambito, vedere l'[articolo sulla sincronizzazione con ambito in Azure AD Domain Services](active-directory-ds-scoped-synchronization.md).
+Azure AD Domain Services consente di scegliere tra la sincronizzazione completa di tutti gli utenti e i gruppi disponibili in Azure AD o la sincronizzazione con ambito per sincronizzare solo gruppi specifici. Se si sceglie la sincronizzazione completa, **non** sarà possibile scegliere la sincronizzazione con ambito in un secondo momento. Per altre informazioni sulla sincronizzazione con ambito, vedere l'[articolo sulla sincronizzazione con ambito in Azure AD Domain Services](scoped-synchronization.md).
 
 ### <a name="full-synchronization"></a>Sincronizzazione completa
 
@@ -63,7 +63,7 @@ Azure AD Domain Services consente di scegliere tra la sincronizzazione completa 
 
 1. Nella pagina **Riepilogo** della procedura guidata controllare le impostazioni di configurazione per il dominio gestito. Se necessario, è possibile tornare a qualsiasi passaggio precedente della procedura guidata per eseguire le modifiche desiderate. Al termine, fare clic su **OK** per creare il nuovo dominio gestito.
 
-    ![Summary](./media/getting-started/domain-services-blade-summary.png)
+    ![Riepilogo](./media/getting-started/domain-services-blade-summary.png)
 
 2. Viene visualizzata una notifica che mostra lo stato di avanzamento della distribuzione di Azure AD Domain Services. Fare clic sulla notifica per visualizzare lo stato di avanzamento dettagliato del processo di distribuzione.
 
@@ -98,7 +98,7 @@ Il processo di provisioning del dominio gestito può richiedere fino a un'ora.
 
 ## <a name="need-help"></a>Richiesta di assistenza
 
-Eseguire il provisioning di entrambi i controller di dominio del dominio gestito potrebbe richiedere un'ora o due. Se la distribuzione non è riuscita o è bloccata nello stato 'In sospeso' per più di un paio d'ore, [contattare il team del prodotto per assistenza](active-directory-ds-contact-us.md).
+Eseguire il provisioning di entrambi i controller di dominio del dominio gestito potrebbe richiedere un'ora o due. Se la distribuzione non è riuscita o è bloccata nello stato 'In sospeso' per più di un paio d'ore, [contattare il team del prodotto per assistenza](contact-us.md).
 
 ## <a name="next-step"></a>Passaggio successivo
 

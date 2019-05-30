@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.openlocfilehash: be592cb6bb7c041fab0a2f96a338f4f4bb0ff00a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510933"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225368"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -42,8 +42,7 @@ Se un server master non contiene alcun server di replica esistente, il master pr
 
 Quando si avvia il flusso di lavoro di replica create, viene creato un Database di Azure vuoto per il server MySQL. Il nuovo server viene riempito con i dati presenti nel server master. Il tempo necessario per la creazione dipende dalla quantità di dati nel master e dal tempo trascorso dall'ultimo backup completo settimanale. Il tempo può variare da pochi minuti a diverse ore.
 
-> [!NOTE]
-> Se non si ha un avviso di archiviazione impostato nei server, si consiglia di impostarlo. L'avviso informa l'utente quando un server sta per raggiungere il limite di archiviazione, che influisce sulla replica.
+Ogni replica è abilitata per l'archiviazione [aumento automatico delle dimensioni](concepts-pricing-tiers.md#storage-auto-grow). La funzionalità aumento consente alla replica di allinearsi con i dati replicati ad esso ed evitare un'interruzione della replica causata da errori di memoria insufficiente.
 
 Informazioni su come [creare una replica di lettura nel portale di Azure](howto-read-replicas-portal.md).
 
@@ -69,7 +68,7 @@ Questa metrica viene calcolata usando il `seconds_behind_master` metrica disponi
 
 Impostare un avviso per informare l'utente quando l'intervallo di replica raggiunge un valore che non è accettabile per il carico di lavoro.
 
-## <a name="stop-replication"></a>Arresta replica
+## <a name="stop-replication"></a>Arrestare la replica
 
 È possibile scegliere di arrestare la replica tra un master e una replica. Dopo l'arresto della replica tra un server master e una replica in lettura, la replica diventa un server autonomo. I dati nel server autonomo sono i dati che erano disponibili nella replica al momento dell'esecuzione del comando di arresto della replica. Il server autonomo non è aggiornato con il server master.
 
@@ -124,7 +123,7 @@ I seguenti parametri del server sono bloccati nel server master e di replica:
 
 Il [ `event_scheduler` ](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parametro è bloccato nei server di replica. 
 
-### <a name="other"></a>Altro
+### <a name="other"></a>Altri
 
 - Gli identificatori di transazione globale (GTID) non sono supportati.
 - La creazione di una replica di replica non è supportata.

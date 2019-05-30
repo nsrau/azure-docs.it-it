@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: d0a4180a3ea28427b8d82c6f5cf86ef9fa51d580
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e20aef77625fe426526884c3fcee83019afd0c0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785888"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299244"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -30,7 +30,7 @@ Inserire alcune righe di codice nell'applicazione per scoprire come viene usato 
 
 L'API principale è uniforme in tutte le piattaforme, a parte alcune variazioni, ad esempio `GetMetric` (solo .NET).
 
-| Metodo | Utilizzato per |
+| Metodo | Usato per |
 | --- | --- |
 | [`TrackPageView`](#page-views) |Pagine, schermate, pannelli o form. |
 | [`TrackEvent`](#trackevent) |Azioni dell'utente e altri eventi. Usato per tenere traccia del comportamento dell'utente o per monitorare le prestazioni. |
@@ -53,13 +53,13 @@ Se non si ha ancora un riferimento in Application Insights SDK:
   * [Progetto Java](../../azure-monitor/app/java-get-started.md)
   * [Progetto Node.js](../../azure-monitor/app/nodejs.md)
   * [JavaScript in ogni pagina Web](../../azure-monitor/app/javascript.md) 
-* Nel codice del dispositivo o del server Web includere:
+* Nel dispositivo o nel codice del server Web includere:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
     *Visual Basic:* `Imports Microsoft.ApplicationInsights`
 
-    *Java:*`import com.microsoft.applicationinsights.TelemetryClient;`
+    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
     *Node.js:* `var applicationInsights = require("applicationinsights");`
 
@@ -592,7 +592,7 @@ Registrare un evento di diagnostica, ad esempio inserire o rimuovere un metodo.
 Il limite delle dimensioni per `message` è molto superiore al limite per le proprietà.
 Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lunghi nel messaggio. Ad esempio è possibile codificare dati POST.  
 
-È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria è possibile aggiungere valori di proprietà utili per filtrare o cercare set di tracce diversi. Ad esempio:
+È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria è possibile aggiungere valori di proprietà utili per filtrare o cercare set di tracce diversi. Ad esempio: 
 
 *C#*
 
@@ -712,7 +712,7 @@ dependencies
 
 ## <a name="flushing-data"></a>Scaricamento dei dati
 
-In genere l'SDK invia i dati in momenti scelti per ridurre al minimo l'impatto sull'utente. In alcuni casi tuttavia è possibile che si voglia scaricare il buffer, ad esempio se si sta usando l'SDK in un'applicazione che si arresta.
+In genere, il SDK invia dati a intervalli fissi (in genere 30 secondi) o ogni volta che il buffer è pieno (in genere 500 elementi). In alcuni casi tuttavia è possibile che si voglia scaricare il buffer, ad esempio se si sta usando l'SDK in un'applicazione che si arresta.
 
 *C#*
 
@@ -740,7 +740,7 @@ La funzione è asincrona per il [canale di telemetria del server](https://www.nu
 
 In teoria, il metodo Flush () deve essere utilizzato nell'attività di arresto dell'applicazione.
 
-## <a name="authenticated-users"></a>Utenti autenticati
+## <a name="authenticated-users"></a>utenti autenticati
 
 In un'app Web gli utenti sono identificati dai cookie per impostazione predefinita. Un utente può essere conteggiato più volte se accede all'app da un computer o da un browser diverso o se elimina i cookie.
 

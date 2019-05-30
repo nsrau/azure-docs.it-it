@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484896"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252855"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architettura di rete virtuale di Azure HDInsight
 
@@ -22,11 +22,11 @@ Questo articolo illustra le risorse che sono presenti quando si distribuisce un 
 
 I cluster HDInsight di Azure hanno tipi diversi di macchine virtuali o i nodi. Ogni tipo di nodo svolge un ruolo nell'operazione del sistema. La tabella seguente riepiloga questi tipi di nodo e i relativi ruoli del cluster.
 
-| Type | DESCRIZIONE |
+| Type | Descrizione |
 | --- | --- |
 | Nodo head |  Per tutti i tipi di cluster, ad eccezione di Apache Storm, i nodi head ospitano i processi che gestiscono l'esecuzione dell'applicazione distribuita. Il nodo head è anche il nodo che è possibile usare SSH per connettersi ed eseguire applicazioni che vengono quindi coordinate per l'esecuzione tra le risorse del cluster. Il numero di nodi head è fissato a due per tutti i tipi di cluster. |
-| Nodo zooKeeper | Zookeeper coordina le attività tra i nodi che eseguono l'elaborazione dei dati. Inoltre non elezione del nodo head e tiene traccia del nodo head nel quale è in esecuzione uno specifico servizio master. Il numero di nodi ZooKeeper è fissato a due. |
-| Nodo del ruolo di lavoro | Rappresenta i nodi che supportano la funzionalità di elaborazione dei dati. Nodi di lavoro possono essere aggiunti o rimossi dal cluster scalabilità capacità di elaborazione e la gestione dei costi. |
+| Nodo zooKeeper | Zookeeper coordina le attività tra i nodi che eseguono l'elaborazione dei dati. Inoltre non elezione del nodo head e tiene traccia del nodo head nel quale è in esecuzione uno specifico servizio master. Il numero di nodi ZooKeeper è fissato a tre. |
+| Nodo di lavoro | Rappresenta i nodi che supportano la funzionalità di elaborazione dei dati. Nodi di lavoro possono essere aggiunti o rimossi dal cluster scalabilità capacità di elaborazione e la gestione dei costi. |
 | Nodo perimetrale R Server | Il nodo perimetrale R Server rappresenta il nodo è possibile usare SSH per connettersi ed eseguire applicazioni che vengono quindi coordinate per l'esecuzione tra le risorse del cluster. Un nodo perimetrale non partecipa all'analisi dei dati all'interno del cluster. Questo nodo ospita anche Rstudio con R Server, consentendo di eseguire l'applicazione di R usando un browser. |
 | Nodo area | Per il tipo di cluster HBase, il nodo di area (detto anche un nodo di dati) viene eseguito il Server di area. Server di area servono e gestire una parte dei dati gestiti da HBase. I nodi di area possono essere aggiunto o rimosso dal cluster scalabilità capacità di elaborazione e la gestione dei costi.|
 | Nodo nimbus | Per il tipo di cluster Storm, il nodo Nimbus offre funzionalità simili al nodo Head. Il nodo Nimbus Assegna attività agli altri nodi nel cluster tramite Zookeeper, che coordina l'esecuzione di topologie Storm. |
@@ -46,8 +46,8 @@ La tabella seguente riepiloga i nodi del cluster di nove che vengono creati quan
 | --- | --- | --- |
 |Nodo head | two |    |
 |Nodo Zookeeper | three | |
-|Nodo del ruolo di lavoro | two | Questo numero può variare in base alla configurazione del cluster e la scalabilità. Per Apache Kafka, è necessario un minimo di tre nodi di lavoro.  |
-|Nodo del gateway | two | I nodi del gateway sono macchine virtuali di Azure che vengono create in Azure, ma non sono visibili nella sottoscrizione. Contattare il supporto tecnico se è necessario riavviare i nodi. |
+|Nodo di lavoro | two | Questo numero può variare in base alla configurazione del cluster e la scalabilità. Per Apache Kafka, è necessario un minimo di tre nodi di lavoro.  |
+|Nodo gateway | two | I nodi del gateway sono macchine virtuali di Azure che vengono create in Azure, ma non sono visibili nella sottoscrizione. Contattare il supporto tecnico se è necessario riavviare i nodi. |
 
 Le seguenti risorse di rete presenti vengono automaticamente create all'interno della rete virtuale usata con HDInsight:
 

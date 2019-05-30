@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800963"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296822"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -97,7 +97,7 @@ Per abilitare l'utilizzo del cliente attribuzione, quando si progettano le chiam
 ![Esempio di formato GUID](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!Note]
-> Il formato della stringa è importante. Se non è incluso il prefisso **pid-**, non è possibile eseguire query sui dati. Diversi SDK eseguono il rilevamento in modo diverso. Per implementare questo metodo è necessario rivedere il supporto e l'approccio di rilevamento per l'SDK Azure che si preferisce.
+> Il formato della stringa è importante. Se non è incluso il prefisso **pid-** , non è possibile eseguire query sui dati. Diversi SDK eseguono il rilevamento in modo diverso. Per implementare questo metodo è necessario rivedere il supporto e l'approccio di rilevamento per l'SDK Azure che si preferisce.
 
 #### <a name="example-the-python-sdk"></a>Esempio: Python SDK
 
@@ -186,7 +186,7 @@ Dopo aver aggiunto il GUID per il modello o nell'agente utente e registrato il G
 
    ![Selezionare Aggiungi GUID di rilevamento](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
 
-1. Nel riquadro del **GUID di rilevamento** immettere il GUID di rilevamento. Immettere solo il GUID senza il prefisso **pid-**. Nella casella della **descrizione personalizzata**, immettere il nome o la descrizione dell'offerta.
+1. Nel riquadro del **GUID di rilevamento** immettere il GUID di rilevamento. Immettere solo il GUID senza il prefisso **pid-** . Nella casella della **descrizione personalizzata**, immettere il nome o la descrizione dell'offerta.
 
    ![Pagina del profilo](media/marketplace-publishers-guide/guid-dev-center-login.png)
 
@@ -208,7 +208,7 @@ Dopo aver aggiunto il GUID per il modello o nell'agente utente e registrato il G
 
 Dopo aver modificato il modello ed eseguito un test di distribuzione, usare il seguente script di PowerShell per recuperare le risorse che sono state distribuite e a cui sono stati assegnati tag.
 
-È possibile utilizzare lo script per verificare che il GUID sia stato aggiunto correttamente al modello di Resource Manager. Lo script non è applicabile alla distribuzione di API di Resource Manager.
+È possibile utilizzare lo script per verificare che il GUID sia stato aggiunto correttamente al modello di Resource Manager. Lo script non si applica alle distribuzioni di Terraform o API di Resource Manager.
 
 Accedere ad Azure. Selezionare la sottoscrizione con la distribuzione che si desidera verificare prima di eseguire lo script. Eseguire lo script nel contesto della sottoscrizione della distribuzione.
 

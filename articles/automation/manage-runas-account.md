@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/21/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3afe27bf71d112b53c31ab696f71d4e1a0cf6b79
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 140b1263047849e13a44441c368e6357078574d8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002497"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240801"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gestire account RunAs di Automazione di Azure
 
@@ -54,7 +54,7 @@ Per creare o aggiornare un account RunAs, è necessario avere autorizzazioni e p
 |Creare o rimuovere un certificato di Automazione|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Collaboratore nel gruppo di risorse         |Gruppo di risorse account di Automazione|
 |Creare o rimuovere una connessione di Automazione|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Collaboratore nel gruppo di risorse |Gruppo di risorse account di Automazione|
 
-<sup>1</sup> Gli utenti non amministratori nel tenant di Azure AD possono [registrare le applicazioni di AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) se l'opzione **Gli utenti possono registrare applicazioni** del tenant di Azure AD nella pagina **Impostazioni utente** è impostata su **Sì**. Se l'impostazione registrazioni per l'app è impostato su **No**, l'utente che esegue questa azione deve essere un **amministratore globale** in Azure AD.
+<sup>1</sup> Gli utenti non amministratori nel tenant di Azure AD possono [registrare le applicazioni di AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) se l'opzione **Gli utenti possono registrare applicazioni** del tenant di Azure AD nella pagina **Impostazioni utente** è impostata su **Sì**. Se l'impostazione registrazioni per l'app è impostato su **No**, l'utente che esegue questa azione deve essere quello definito nella tabella precedente.
 
 Se non si è un membro dell'istanza di Active Directory della sottoscrizione prima di essere stato aggiunto per il **amministratore globale** ruolo della sottoscrizione, essere stato aggiunto come guest. In questo caso si riceverà un avviso `You do not have permissions to create…` nella pagina **Aggiungi account di Automazione**. Gli utenti che sono stati aggiunti per il **amministratore globale** ruolo prima di tutto può essere rimosso dall'istanza di Active Directory della sottoscrizione e aggiunti nuovamente per renderli utenti completi in Active Directory. Per verificare questa situazione dal riquadro **Azure Active Directory** nel portale di Azure selezionare **Utenti e gruppi**, **Tutti gli utenti** e, dopo avere selezionato l'utente specifico, selezionare **Profilo**. Il valore dell'attributo **Tipo utente** nel profilo utente non deve essere **Guest**.
 
@@ -376,7 +376,7 @@ Nel portale di Azure selezionare **Sottoscrizioni** e scegliere la sottoscrizion
 
 ![Collaboratori della sottoscrizione](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Per aggiungere l'entità servizio a un gruppo di risorse, selezionare il gruppo di risorse nel portale di Azure e selezionare **Controllo di accesso (IAM)**. Selezionare **Aggiungi assegnazione di ruolo** per aprire la pagina **Aggiungi assegnazione di ruolo**. Per **Ruolo**, selezionare **Collaboratore**. Nella casella di testo **Seleziona** digitare il nome dell'entità servizio per l'account RunAs e selezionarlo dall'elenco. È consigliabile fare clic su **Salva** per salvare le modifiche. Eseguire questa procedura per i gruppi di risorse a cui l'entità servizio RunAs di Automazione di Azure deve poter accedere.
+Per aggiungere l'entità servizio a un gruppo di risorse, selezionare il gruppo di risorse nel portale di Azure e selezionare **Controllo di accesso (IAM)** . Selezionare **Aggiungi assegnazione di ruolo** per aprire la pagina **Aggiungi assegnazione di ruolo**. Per **Ruolo**, selezionare **Collaboratore**. Nella casella di testo **Seleziona** digitare il nome dell'entità servizio per l'account RunAs e selezionarlo dall'elenco. È consigliabile fare clic su **Salva** per salvare le modifiche. Eseguire questa procedura per i gruppi di risorse a cui l'entità servizio RunAs di Automazione di Azure deve poter accedere.
 
 ## <a name="misconfiguration"></a>Errore di configurazione
 

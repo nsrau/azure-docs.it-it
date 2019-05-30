@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 1b983c534ab92218759175655bbf396788e4c39d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956489"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243573"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Anteprima - proteggere l'accesso al server API usando autorizzato intervalli di indirizzi IP in Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ In Kubernetes, il server API riceve le richieste per eseguire azioni nel cluster
 Questo articolo illustra come usare gli intervalli di indirizzi IP di server autorizzato di API per limitare le richieste al piano di controllo. Questa funzionalità è attualmente in anteprima.
 
 > [!IMPORTANT]
-> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service e fornire il consenso esplicito. Le anteprime sono fornite per raccogliere commenti e suggerimenti e bug dalla community. Tuttavia, non sono supportati dal supporto tecnico di Azure. Se si crea un cluster o aggiungere queste funzionalità in cluster esistenti, tale cluster non è supportato fino a quando la funzionalità non è più disponibile in anteprima e passano a livello generale (GA).
+> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service, fornire il consenso esplicito. Vengono fornite per raccogliere commenti e suggerimenti e bug dalla community. In fase di anteprima, queste funzionalità non sono destinate all'uso di produzione. Le funzionalità in anteprima pubblica rientrano nel supporto "best effort". Assistenza dai team di supporto tecnico di AKS è disponibile durante le ore lavorative Pacifico (PST) solo timezone. Per altre informazioni, vedere i seguenti articoli di supporto:
 >
-> Se si verificano problemi con funzionalità di anteprima [segnalare un problema nel repository GitHub di AKS] [ aks-github] con il nome della funzionalità Anteprima nel titolo del bug.
+> * [Criteri di supporto servizio contenitore di AZURE][aks-support-policies]
+> * [Domande frequenti sul supporto di Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -242,7 +243,6 @@ In questo articolo è stato abilitato API intervalli di indirizzi IP server auto
 Per altre informazioni, vedere [concetti relativi alla sicurezza per le applicazioni e i cluster di AKS] [ concepts-security] e [procedure consigliate per la sicurezza del cluster e aggiornamenti nel servizio contenitore di AZURE] [ operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
 
 <!-- LINKS - internal -->
@@ -265,3 +265,5 @@ Per altre informazioni, vedere [concetti relativi alla sicurezza per le applicaz
 [az-network-firewall-ip-config-create]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-create
 [az-network-firewall-network-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

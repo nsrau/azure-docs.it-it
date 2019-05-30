@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65de80004dd05e3eb29f3313bc17405c40450d7a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401783"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397132"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Risoluzione dei problemi relativi ai runbook
 
@@ -305,6 +305,8 @@ Questo errore è causato da uno dei problemi seguenti:
 
 4. Il runbook ha tentato di chiamare un file eseguibile o subprocess in un runbook che viene eseguito in una sandbox di Azure. Questo scenario non è supportato nelle sandbox di Azure.
 
+5. Il runbook ha tentato di scrivere una quantità eccessiva dati dell'eccezione nel flusso di output.
+
 #### <a name="resolution"></a>Risoluzione
 
 una qualsiasi delle soluzioni seguenti consente di correggere il problema:
@@ -316,6 +318,8 @@ una qualsiasi delle soluzioni seguenti consente di correggere il problema:
 * Un’altra soluzione consiste nell'eseguire il runbook su un [ruolo di lavoro ibrido per runbook](../automation-hrw-run-runbooks.md). I ruoli di lavoro ibridi non hanno i limiti di memoria e rete che sono invece applicati ai sandbox di Azure.
 
 * Se occorre chiamare un processo (ad esempio .exe o subprocess.call) in un runbook, è necessario eseguire il runbook in un [ruolo di lavoro ibrido per runbook](../automation-hrw-run-runbooks.md).
+
+* È previsto un limite di 1MB nel flusso di output di processo. Assicurarsi che si racchiudono chiamate a un file eseguibile o un processo secondario in un blocco try/catch. Se si genera un'eccezione, scrivere il messaggio di eccezione in una variabile di automazione. Ciò impedirà impedisce la scrittura nel flusso di output di processo.
 
 ### <a name="fails-deserialized-object"></a>Scenario: il runbook ha esito negativo a causa di un oggetto deserializzato
 

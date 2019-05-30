@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: kfollis
 ms.author: kfollis
-ms.date: 03/22/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: bff6fe697912bca0bc55501a74a01a92b1330521
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de04b461d8e2d2dce9a88052a86fbe5d163fafec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551396"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244194"
 ---
 # <a name="azure-portal-overview"></a>Panoramica del portale di Azure
 
@@ -23,6 +23,8 @@ Questo articolo introduce il portale di Azure, identifica gli elementi di pagina
 ## <a name="what-is-the-azure-portal"></a>Che cos'è il portale di Azure?
 
 Il portale di Azure è una console basata sul web e unificata che offre un'alternativa agli strumenti da riga di comando. Nel portale di Azure, è possibile gestire la sottoscrizione di Azure usando un'interfaccia utente grafica. È possibile compilare, gestire e monitorare tutti i dati da semplici App web e le distribuzioni cloud complessi, creare dashboard personalizzati per una vista organizzata delle risorse e configurare le opzioni di accessibilità per risultati ottimali.
+
+Il portale di Azure è progettato per la resilienza e disponibilità continua. Ha una presenza in ogni Data Center di Azure in modo da ottenere resilienti agli errori di singoli Data Center e consente anche di evitare rallentamenti rete deve trovarsi vicino agli utenti. Il portale di Azure vengono aggiornati continuamente e non richiede tempi di inattività per le attività di manutenzione.
 
 ## <a name="azure-home"></a>Azure Home
 
@@ -44,7 +46,7 @@ La figura seguente vengono etichettati gli elementi di base del portale di Azure
 
 ![Screenshot della visualizzazione nel portale a schermo intero e la chiave per gli elementi dell'interfaccia utente](./media/azure-portal-overview/azure-portal-fullscreen-map.png)
 
-|Chiave|DESCRIZIONE
+|Chiave|Descrizione
 |:---:|---|
 |1|Intestazione di pagina. Viene visualizzata nella parte superiore di ogni pagina del portale e contiene gli elementi globali.|
 |2| Ricerca globale. Utilizzare la barra di ricerca per trovare rapidamente una risorsa specifica, un servizio o documentazione.|
@@ -66,7 +68,6 @@ Abbiamo pre-popolato i Preferiti nella barra laterale con collegamenti ai serviz
 
 > [!TIP]
 > Il modo più rapido per trovare una risorsa, servizio o documentazione è usare *ricerca* nell'intestazione globale. Usare i collegamenti di navigazione per tornare alle pagine precedenti.
->
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
