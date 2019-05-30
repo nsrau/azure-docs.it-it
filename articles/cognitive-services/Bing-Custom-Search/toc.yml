@@ -62,13 +62,13 @@
 - name: riferimento
   items:
     - name: Informazioni di riferimento sull'API Suggerimenti automatici personalizzati Bing
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference'
     - name: Informazioni di riferimento sull'API Ricerca immagini personalizzata Bing
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference'
     - name: Informazioni di riferimento sull'API Ricerca personalizzata Bing
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference'
     - name: Informazioni di riferimento sull'API Ricerca video personalizzata Bing
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference'
     - name: Requisiti per l'uso e la visualizzazione delle API di ricerca Bing
       href: ../Bing-Web-Search/use-display-requirements.md
       maintainContext: true

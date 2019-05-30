@@ -47,6 +47,10 @@
       href: concept-point-time-snapshot.md
     - name: Gestione delle funzionalità
       href: concept-feature-management.md
+    - name: Disponibilità elevata
+      items:
+        - name: Resilienza e ripristino di emergenza
+          href: concept-disaster-recovery.md
 - name: Guide alle procedure
   items:
     - name: Integrare l'identità del servizio gestita di Azure
@@ -66,7 +70,7 @@
         - name: Generatore di .NET Framework
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
         - name: Provider Java Spring
-          href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
         - name: .NET Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: REST
@@ -74,8 +78,6 @@
     - name: Gestione delle funzionalità
       items:
         - name: Libreria .NET Core
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
-        - name: Libreria ASP.NET Core
           href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
         - name: Libreria di filtri di .NET Core
           href: 'https://go.microsoft.com/fwlink/?linkid=2091601'

@@ -297,6 +297,8 @@
           items:
             - name: Applicazioni ed entità servizio
               href: app-objects-and-service-principals.md
+            - name: Come e perché le app vengono aggiunte ad Azure AD
+              href: active-directory-how-applications-are-added.md
             - name: App a tenant singolo e multi-tenant
               href: single-and-multi-tenant-apps.md
         - name: Autorizzazioni e consenso

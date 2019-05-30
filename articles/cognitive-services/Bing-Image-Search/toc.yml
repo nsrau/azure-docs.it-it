@@ -67,9 +67,9 @@
 - name: riferimento
   items:
     - name: API Ricerca immagini Bing v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference'
     - name: API Ricerca immagini Bing v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference'
     - name: Informazioni di riferimento su Azure PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
     - name: Informazioni di riferimento sull'interfaccia della riga di comando di Azure

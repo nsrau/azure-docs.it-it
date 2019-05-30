@@ -219,18 +219,18 @@
           href: backup-azure-restore-windows-server.md
         - name: Ripristinare lo stato del sistema Windows Server
           href: backup-azure-restore-system-state.md
-        - name: Monitorare e gestire insiemi di credenziali di Servizi di ripristino
-          href: backup-azure-manage-windows-server.md
     - name: Insieme di credenziali dei servizi di ripristino
       items:
         - name: Panoramica degli insiemi di credenziali di Servizi di ripristino
           href: backup-azure-recovery-services-vault-overview.md
-        - name: Aggiornamento di un insieme di credenziali di backup in un insieme di credenziali di Servizi di ripristino
-          href: backup-azure-upgrade-backup-to-recovery-services.md
+        - name: Creare un insieme di credenziali di Servizi di ripristino
+          href: backup-create-rs-vault.md
         - name: Eliminare un insieme di credenziali dei servizi di ripristino
           href: backup-azure-delete-vault.md
         - name: Creare un insieme di credenziali di Servizi di ripristino
           href: backup-azure-move-recovery-services-vault.md
+        - name: Monitorare e gestire insiemi di credenziali di Servizi di ripristino
+          href: backup-azure-manage-windows-server.md
     - name: Risolvere problemi
       items:
         - name: Macchina virtuale di Azure
