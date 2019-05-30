@@ -101,6 +101,8 @@
       href: event-sources.md
     - name: Gestori eventi
       href: event-handlers.md
+    - name: Ripristino di emergenza geografico
+      href: geo-disaster-recovery.md
 - name: Guide alle procedure
   items:
     - name: Inserire post sull'argomento personalizzato

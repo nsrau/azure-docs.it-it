@@ -223,6 +223,14 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Usare Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
+        - name: Modificare un set di scalabilità
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: Risorse di rete per i set di scalabilità
+          href: virtual-machine-scale-sets-networking.md
+        - name: Aggiornamenti automatici del sistema operativo
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Protezione delle istanze (anteprima)
+          href: virtual-machine-scale-sets-instance-protection.md
         - name: Raccolte di immagini condivise
           items:
             - name: Panoramica
@@ -237,14 +245,8 @@
               href: troubleshooting-shared-images.md
         - name: Ridimensionamento verticale in un set di scalabilità
           href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-        - name: Aggiornamenti automatici del sistema operativo
-          href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Modificare un set di scalabilità
-          href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: Uso di DSC e di set di scalabilità
           href: virtual-machine-scale-sets-dsc.md
-        - name: Risorse di rete per i set di scalabilità
-          href: virtual-machine-scale-sets-networking.md
         - name: Convertire un modello in dischi gestiti
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: Manutenzione pianificata

@@ -13,6 +13,8 @@
       href: view-applications-portal.md
 - name: Esercitazioni
   items:
+    - name: Esercitazioni sulle applicazioni SaaS
+      href: 'https://docs.microsoft.com/azure/active-directory/saas-apps/'
     - name: Configurare l'accesso Single Sign-On - portale
       href: configure-single-sign-on-portal.md
     - name: Aggiungere un'app locale - Portale
@@ -77,19 +79,13 @@
       href: end-user-experiences.md
 - name: Guide alle procedure
   items:
-    - name: Integrazione di app cloud
+    - name: Aggiungere un'app cloud
       items:
-        - name: Aggiunta di un'app
-          items:
-            - name: Scegliere un tipo di app
-              href: choose-application-type.md
-            - name: Problemi comuni - App della raccolta
-              href: adding-gallery-app-common-problems.md
-            - name: Problemi comuni - App non della raccolta
-              href: adding-non-gallery-app-common-problems.md
+        - name: Scegliere un tipo di app
+          href: choose-application-type.md
         - name: Cambiare nome o logo
           href: change-name-or-logo-portal.md
-    - name: Integrazione di app locali
+    - name: Integrare un'app locale
       items:
         - name: Configurare i connettori
           href: application-proxy-configure-connectors-with-proxy-servers.md
@@ -125,7 +121,139 @@
               href: application-proxy-integrate-with-tableau.md
             - name: Integrazione con Qlik
               href: application-proxy-qlik.md
-        - name: Risoluzione dei problemi del proxy dell'applicazione
+    - name: Configura accesso Single Sign-On
+      items:
+        - name: Configurare app non della raccolta
+          href: configure-single-sign-on-non-gallery-applications.md
+        - name: Configurare l'accesso federato - App della raccolta
+          href: configure-federated-single-sign-on-gallery-applications.md
+        - name: Configurare l'accesso federato - App non della raccolta
+          href: configure-federated-single-sign-on-non-gallery-applications.md
+        - name: Configurare la password - App della raccolta
+          href: configure-password-single-sign-on-gallery-applications.md
+        - name: Configurare la password - App non della raccolta
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: Single Sign-On con il proxy di applicazione
+          items:
+            - name: Delega vincolata Kerberos (KCD)
+              href: application-proxy-configure-single-sign-on-with-kcd.md
+            - name: Insieme di credenziali delle password
+              href: application-proxy-configure-single-sign-on-password-vaulting.md
+            - name: Headers
+              href: application-proxy-configure-single-sign-on-with-ping-access.md
+            - name: SAML SSO
+              href: application-proxy-configure-single-sign-on-on-premises-apps.md
+    - name: Configura provisioning utenti
+      items:
+        - name: Tempo richiesto per il provisioning
+          href: application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Configurare il provisioning utenti - App della raccolta
+          href: application-provisioning-config-how-to.md
+        - name: Sincronizzare un attributo per il mapping - App della raccolta
+          href: user-provisioning-sync-attributes-for-mapping.md
+    - name: Assegnare utenti e gestire l'accesso alle app
+      items:
+        - name: Configurare il consenso utente
+          href: configure-user-consent.md
+        - name: Metodi per l'assegnazione di utenti e gruppi a un'app
+          href: methods-for-assigning-users-and-groups.md
+        - name: Assegnare un utente a un'app
+          href: assign-user-or-group-access-portal.md
+        - name: Usare l'accesso alle app self-service
+          href: access-panel-manage-self-service-access.md
+        - name: Metodi per la rimozione dell'accesso di un utente a un'app
+          href: methods-for-removing-user-access.md
+        - name: Rimuovere l'accesso per utenti o gruppi
+          href: remove-user-or-group-access-portal.md
+        - name: Nascondere l'app a un utente
+          href: hide-application-from-user-portal.md
+        - name: Disabilitare l'accesso degli utenti
+          href: disable-user-sign-in-portal.md
+        - name: Configurare l'assegnazione di app self-service
+          href: manage-self-service-access.md
+        - name: Individuazione dell'area di autenticazione principale
+          href: configure-authentication-for-federated-users-portal.md
+    - name: Eseguire la migrazione di app ad Azure AD
+      items:
+        - name: Risorse per la migrazione
+          href: migration-resources.md
+        - name: Eseguire la migrazione di un'app AD FS in Azure
+          href: migrate-adfs-apps-to-azure.md
+    - name: Risolvere problemi
+      items:
+        - name: Risolvere i problemi relativi all'aggiunta di app
+          items:
+            - name: Problemi comuni - App della raccolta
+              href: adding-gallery-app-common-problems.md
+            - name: Problemi comuni - App non della raccolta
+              href: adding-non-gallery-app-common-problems.md
+        - name: Risolvere i problemi di accesso degli utenti
+          items:
+            - name: Richiesta di consenso imprevista
+              href: application-sign-in-unexpected-user-consent-prompt.md
+            - name: Errore di consenso utente
+              href: application-sign-in-unexpected-user-consent-error.md
+            - name: Problemi durante l'accesso dal portale personalizzato
+              href: application-sign-in-other-problem-deeplink.md
+            - name: Problemi durante l'accesso dal pannello di accesso
+              href: application-sign-in-other-problem-access-panel.md
+            - name: Errore della pagina di accesso dell'applicazione
+              href: application-sign-in-problem-application-error.md
+            - name: Problema con accesso Single Sign-On basato su password - App non della raccolta
+              href: application-sign-in-problem-password-sso-non-gallery.md
+            - name: Problema con accesso Single Sign-On basato su password - App della raccolta
+              href: application-sign-in-problem-password-sso-gallery.md
+            - name: Problema durante l'accesso a un'app Microsoft
+              href: application-sign-in-problem-first-party-microsoft.md
+            - name: Problema con accesso Single Sign-On federato - App non della raccolta
+              href: application-sign-in-problem-federated-sso-non-gallery.md
+            - name: Problema con accesso Single Sign-On federato - App della raccolta
+              href: application-sign-in-problem-federated-sso-gallery.md
+            - name: Problema con app sviluppata in modo personalizzato
+              href: application-sign-in-problem-custom-dev.md
+        - name: Risolvere i problemi relativi all'accesso Single Sign-On
+          items:
+            - name: Problemi comuni della configurazione dell'accesso federato - App della raccolta
+              href: configure-federated-single-sign-on-gallery-applications-problems.md
+            - name: Problemi comuni della configurazione dell'accesso federato - App non della raccolta
+              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
+            - name: Problemi comuni della configurazione delle password - App della raccolta
+              href: configure-password-single-sign-on-gallery-applications-problems.md
+            - name: Problemi comuni della configurazione delle password - App non della raccolta
+              href: configure-password-single-sign-on-non-gallery-applications-problems.md
+        - name: Risolvere i problemi del provisioning utenti
+          items:
+            - name: Tempo necessario eccessivo - App della raccolta
+              href: application-provisioning-when-will-provisioning-finish.md
+            - name: Problema durante la configurazione del provisioning utenti - App della raccolta
+              href: application-provisioning-config-problem.md
+            - name: Problema di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti nell'app della raccolta
+              href: application-provisioning-config-problem-storage-limit.md
+            - name: Utenti senza provisioning - App della raccolta
+              href: application-provisioning-config-problem-no-users-provisioned.md
+            - name: Provisioning di utenti errati - App della raccolta
+              href: application-provisioning-config-problem-wrong-users-provisioned.md
+        - name: Risolvere i problemi relativi all'elenco e all'assegnazione di app
+          items:
+            - name: Gestire l'elenco delle applicazioni per il tenant
+              href: application-types.md
+            - name: Utente imprevisto assegnato
+              href: ways-users-get-assigned-to-applications.md
+        - name: Risolvere i problemi relativi al pannello di accesso
+          items:
+            - name: Gestire l'estensione del browser
+              href: manage-access-panel-browser-extension.md
+            - name: App non visualizzate
+              href: access-panel-troubleshoot-application-not-appearing.md
+            - name: Visualizzazione di app impreviste
+              href: access-panel-troubleshoot-unexpected-application.md
+            - name: Accesso non riuscito
+              href: access-panel-troubleshoot-web-sign-in-problem.md
+            - name: Errore durante l'installazione dell'estensione del browser
+              href: access-panel-extension-problem-installing.md
+            - name: Errore durante l'uso dell'accesso alle app self-service
+              href: access-panel-troubleshoot-self-service-access.md
+        - name: Risolvere i problemi del Proxy applicazione
           items:
             - name: Diagramma di flusso per la risoluzione dei problemi dei connettori
               href: application-proxy-debug-connectors.md
@@ -159,124 +287,6 @@
               href: application-proxy-connector-installation-problem.md
             - name: Problema di accesso
               href: application-sign-in-problem-on-premises-application-proxy.md
-    - name: Provisioning utenti
-      items:
-        - name: Tempo necessario
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: Tempo necessario eccessivo - App della raccolta
-          href: application-provisioning-when-will-provisioning-finish.md
-        - name: Configurare il provisioning utenti - App della raccolta
-          href: application-provisioning-config-how-to.md
-        - name: Problema durante la configurazione del provisioning utenti - App della raccolta
-          href: application-provisioning-config-problem.md
-        - name: Problema di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti nell'app della raccolta
-          href: application-provisioning-config-problem-storage-limit.md
-        - name: Sincronizzare un attributo per il mapping - App della raccolta
-          href: user-provisioning-sync-attributes-for-mapping.md
-        - name: Utenti senza provisioning - App della raccolta
-          href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: Provisioning di utenti errati - App della raccolta
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
-    - name: Accesso all'applicazione
-      items:
-        - name: Tipi di applicazioni
-          href: application-types.md
-        - name: Configurare il consenso utente
-          href: configure-user-consent.md
-        - name: Metodi per l'assegnazione di utenti e gruppi a un'app
-          href: methods-for-assigning-users-and-groups.md
-        - name: Assegnare un utente a un'app
-          href: assign-user-or-group-access-portal.md
-        - name: Metodi per la rimozione dell'accesso di un utente a un'app
-          href: methods-for-removing-user-access.md
-        - name: Utente imprevisto assegnato
-          href: ways-users-get-assigned-to-applications.md
-        - name: Rimuovere l'accesso per utenti o gruppi
-          href: remove-user-or-group-access-portal.md
-        - name: Nascondere l'app a un utente
-          href: hide-application-from-user-portal.md
-        - name: Disabilitare l'accesso degli utenti
-          href: disable-user-sign-in-portal.md
-        - name: Configurare l'assegnazione di app self-service
-          href: manage-self-service-access.md
-        - name: Individuazione dell'area di autenticazione principale
-          href: configure-authentication-for-federated-users-portal.md
-    - name: Single sign-on
-      items:
-        - name: Configurare app non della raccolta
-          href: configure-single-sign-on-non-gallery-applications.md
-        - name: Configurare l'accesso federato - App della raccolta
-          href: configure-federated-single-sign-on-gallery-applications.md
-        - name: Problemi comuni della configurazione dell'accesso federato - App della raccolta
-          href: configure-federated-single-sign-on-gallery-applications-problems.md
-        - name: Configurare l'accesso federato - App non della raccolta
-          href: configure-federated-single-sign-on-non-gallery-applications.md
-        - name: Problemi comuni della configurazione dell'accesso federato - App non della raccolta
-          href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: Configurare la password - App della raccolta
-          href: configure-password-single-sign-on-gallery-applications.md
-        - name: Problemi comuni della configurazione delle password - App della raccolta
-          href: configure-password-single-sign-on-gallery-applications-problems.md
-        - name: Configurare la password - App non della raccolta
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Problemi comuni della configurazione delle password - App non della raccolta
-          href: configure-password-single-sign-on-non-gallery-applications-problems.md
-        - name: Proxy dell'applicazione
-          items:
-            - name: Delega vincolata Kerberos (KCD)
-              href: application-proxy-configure-single-sign-on-with-kcd.md
-            - name: Insieme di credenziali delle password
-              href: application-proxy-configure-single-sign-on-password-vaulting.md
-            - name: Headers
-              href: application-proxy-configure-single-sign-on-with-ping-access.md
-            - name: SAML SSO
-              href: application-proxy-configure-single-sign-on-on-premises-apps.md
-    - name: Pannello di accesso
-      items:
-        - name: Gestire l'estensione del browser
-          href: manage-access-panel-browser-extension.md
-        - name: App non visualizzate
-          href: access-panel-troubleshoot-application-not-appearing.md
-        - name: Visualizzazione di app impreviste
-          href: access-panel-troubleshoot-unexpected-application.md
-        - name: Accesso non riuscito
-          href: access-panel-troubleshoot-web-sign-in-problem.md
-        - name: Errore durante l'installazione dell'estensione del browser
-          href: access-panel-extension-problem-installing.md
-        - name: Come usare l'accesso alle app self-service
-          href: access-panel-manage-self-service-access.md
-        - name: Errore durante l'uso dell'accesso alle app self-service
-          href: access-panel-troubleshoot-self-service-access.md
-    - name: Migrazione
-      items:
-        - name: Risorse per la migrazione
-          href: migration-resources.md
-        - name: Eseguire la migrazione di un'app AD FS in Azure
-          href: migrate-adfs-apps-to-azure.md
-    - name: Risolvere i problemi di accesso degli utenti
-      items:
-        - name: Richiesta di consenso imprevista
-          href: application-sign-in-unexpected-user-consent-prompt.md
-        - name: Errore di consenso utente
-          href: application-sign-in-unexpected-user-consent-error.md
-        - name: Problemi durante l'accesso dal portale personalizzato
-          href: application-sign-in-other-problem-deeplink.md
-        - name: Problemi durante l'accesso dal pannello di accesso
-          href: application-sign-in-other-problem-access-panel.md
-        - name: Errore della pagina di accesso dell'applicazione
-          href: application-sign-in-problem-application-error.md
-        - name: Problema con accesso Single Sign-On basato su password - App non della raccolta
-          href: application-sign-in-problem-password-sso-non-gallery.md
-        - name: Problema con accesso Single Sign-On basato su password - App della raccolta
-          href: application-sign-in-problem-password-sso-gallery.md
-        - name: Problema durante l'accesso a un'app Microsoft
-          href: application-sign-in-problem-first-party-microsoft.md
-        - name: Problema con accesso Single Sign-On federato - App non della raccolta
-          href: application-sign-in-problem-federated-sso-non-gallery.md
-        - name: Problema con accesso Single Sign-On federato - App della raccolta
-          href: application-sign-in-problem-federated-sso-gallery.md
-        - name: Problema con app sviluppata in modo personalizzato
-          href: application-sign-in-problem-custom-dev.md
 - name: riferimento
   items:
     - name: Cronologia delle versioni del proxy di applicazione

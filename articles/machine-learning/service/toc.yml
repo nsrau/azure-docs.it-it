@@ -78,6 +78,9 @@
         - name: Prevedere la varianza
           displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
+    - name: Set di dati Open di Azure
+      href: 'https://docs.microsoft.com/azure/open-datasets/samples'
+      maintainContext: true
 - name: Concetti
   items:
     - name: Area di lavoro
@@ -130,6 +133,9 @@
         - name: Abilitazione della registrazione
           displayName: 'troubleshoot, log, files, tracing'
           href: how-to-enable-logging.md
+        - name: Impostare le directory di input e output
+          displayName: 'large data, write, experiment files, size limit'
+          href: how-to-save-write-experiment-files.md
         - name: Usare l'estensione di Visual Studio Code
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md

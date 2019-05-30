@@ -423,7 +423,7 @@
       items:
         - name: Architettura della rete virtuale di HDInsight
           href: ../hdinsight-virtual-network-architecture.md
-        - name: Limitare il traffico in uscita con HDInsight
+        - name: Usare il firewall per limitare il traffico in uscita
           href: ../hdinsight-restrict-outbound-traffic.md
         - name: HDInsight nella rete virtuale di Azure
           href: ../hdinsight-extend-hadoop-virtual-network.md

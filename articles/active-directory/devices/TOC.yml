@@ -22,6 +22,8 @@
   items:
     - name: Accesso SSO alle risorse locali
       href: azuread-join-sso.md
+    - name: Workstation gestite di Azure
+      href: concept-azure-managed-workstation.md
 - name: Guide alle procedure
   expanded: true
   items:
@@ -39,6 +41,8 @@
       href: assign-local-admin.md
     - name: Abilitare Enterprise State Roaming
       href: enterprise-state-roaming-enable.md
+    - name: Distribuire workstation gestite di Azure
+      href: howto-azure-managed-workstation.md
     - name: Risolvere i problemi dei dispositivi Windows correnti aggiunti ad Azure AD ibrido
       href: troubleshoot-hybrid-join-windows-current.md
     - name: Risolvere i problemi dei dispositivi Windows legacy aggiunti ad Azure AD ibrido
