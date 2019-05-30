@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f588115e38ded07b79568c91b8d166949b34a886
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 83e172e61411c7c1c098706b5ff4566f565d6bf1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179179"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253852"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>Informazioni sulla sincronizzazione dell'hash delle password con Azure AD
 La sincronizzazione dell'hash delle password è uno dei metodi di accesso usati per gestire le identità ibride. Azure AD Connect consente di sincronizzare un hash di una password utente da un'istanza di Active Directory locale a un'istanza di Azure AD basata sul cloud.
@@ -47,7 +47,7 @@ Per altre informazioni, vedere [Informazioni sull'identità ibrida](whatis-hybri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sull'identità ibrida](whatis-phs.md)
+- [Informazioni sull'identità ibrida](whatis-hybrid-identity.md)
 - [Informazioni su Azure AD Connect e Connect Health](whatis-azure-ad-connect.md)
 - [Informazioni sull'autenticazione pass-through](how-to-connect-pta.md)
 - [Informazioni sulla federazione](whatis-fed.md)

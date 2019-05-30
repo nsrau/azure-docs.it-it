@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94fbcc1c29c1860642dda0afab6a1f10e719a05a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: e45b3b19821644142176c5c0cc7646c4643fe17c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962195"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235216"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini gestiti
 
@@ -178,7 +178,7 @@ Per completare l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello 
 
 ### <a name="configure-seamless-sso"></a>Configurare l'accesso Seamless SSO
 
-Per completare correttamente l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello inferiore in un dominio gestito che usa Autenticazione pass-through o Sincronizzazione hash password come metodo di autenticazione cloud di Azure Active Directory, è anche necessario [configurare l'accesso Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). Se si verificano problemi durante la configurazione di accesso SSO facile, vedere l'articolo [Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso).
+Per completare correttamente l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello inferiore in un dominio gestito che usa Autenticazione pass-through o Sincronizzazione hash password come metodo di autenticazione cloud di Azure Active Directory, è anche necessario [configurare l'accesso Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). Se si verificano problemi durante la configurazione di accesso SSO facile, vedere l'articolo [Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso).
 
 
 ### <a name="control-windows-down-level-devices"></a>Controllare i dispositivi Windows di livello inferiore 
@@ -188,7 +188,7 @@ Per registrare i dispositivi Windows di livello inferiore, è necessario scarica
 
 ## <a name="verify-the-registration"></a>Verificare la registrazione
 
-Per verificare lo stato di registrazione del dispositivo nel tenant di Azure, è possibile usare il cmdlet **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** nel **[modulo PowerShell di Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Per verificare lo stato di registrazione del dispositivo nel tenant di Azure, è possibile usare il cmdlet **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** nel **[modulo PowerShell di Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0)** .
 
 Quando si usa il cmdlet **Get-MSolDevice** per controllare i dettagli del servizio:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un database e un cluster di Esplora dati di Azure tramite PowerShell'
+title: 'Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure tramite PowerShell'
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure tramite PowerShell
 author: oflipman
 ms.author: oflipman
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: 553564be494b4175cba937b583d49ad84a8d0e66
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 28785bb99dcdb767a64ae977e8326b80130fb135
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526521"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240203"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Creare un database e un cluster di Esplora dati di Azure tramite PowerShell
 
@@ -76,7 +76,7 @@ I passaggi seguenti non sono necessari se si eseguono i comandi in Azure Cloud S
 1. Per verificare se il cluster è stato creato correttamente, eseguire il comando seguente:
 
     ```azurepowershell-interactive
-    Get-AzKustoCluster -Name mykustocluster --ResourceGroupName testrg
+    Get-AzKustoCluster -Name mykustocluster -ResourceGroupName testrg
     ```
 
 Se il risultato contiene `provisioningState` con il valore `Succeeded`, il cluster è stato creato correttamente.
@@ -100,7 +100,7 @@ Se il risultato contiene `provisioningState` con il valore `Succeeded`, il clust
 1. Eseguire il comando seguente per vedere il database creato:
 
     ```azurepowershell-interactive
-    Get-AzKustoDatabase -ClusterName mykustocluster --ResourceGroupName testrg -Name mykustodatabase
+    Get-AzKustoDatabase -ClusterName mykustocluster -ResourceGroupName testrg -Name mykustodatabase
     ```
 
 A questo punto sono disponibili un cluster e un database.

@@ -12,11 +12,11 @@ ms.date: 3/5/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 24014bb06a779c214f18f966dfb1d26d61adee8d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674855"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "60827520"
 ---
 # <a name="what-is-translator-speech-api"></a>Informazioni sull'API Traduzione vocale
 

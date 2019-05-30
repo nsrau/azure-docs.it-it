@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e811d1f7fb84e2539ba9daea3eea13f5e028f997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389560"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241390"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Esercitazione: Creare modelli collegati di Azure Resource Manager
 
@@ -89,7 +89,7 @@ Il modello collegato crea un account di archiviazione. Il modello collegato può
 2. Apportare le modifiche seguenti:
 
     * Rimuovere tutti i parametri tranne **location**.
-    * Aggiungere un parametro denominato **storageAccountName**. 
+    * Aggiungere un parametro denominato **storageAccountName**.
         ```json
         "storageAccountName":{
           "type": "string",
@@ -99,7 +99,7 @@ Il modello collegato crea un account di archiviazione. Il modello collegato può
         },
         ```
         Il nome e la località dell'account di archiviazione vengono passati dal modello principale al modello collegato come parametri.
-        
+
     * Rimuovere l'elemento **variables** e tutte le definizioni delle variabili.
     * Rimuovere tutte le risorse tranne l'account di archiviazione. Si rimuove un totale di quattro risorse.
     * Aggiornare il valore dell'elemento **name** della risorsa dell'account di archiviazione a:
@@ -109,7 +109,7 @@ Il modello collegato crea un account di archiviazione. Il modello collegato può
         ```
 
     * Aggiornare l'elemento **output**, in modo che sia simile a:
-    
+
         ```json
         "outputs": {
           "storageUri": {
@@ -272,7 +272,7 @@ Il modello principale è denominato azuredeploy.json.
     Prestare attenzione ai seguenti dettagli:
 
     * Viene usata una risorsa `Microsoft.Resources/deployments` nel modello principale per collegarsi a un altro modello.
-    * La risorsa `deployments` ha un nome denominato `linkedTemplate`. Questo nome viene usato per la [configurazione della dipendenza](#configure-dependency).  
+    * La risorsa `deployments` ha un nome denominato `linkedTemplate`. Questo nome viene usato per la [configurazione della dipendenza](#configure-dependency).
     * È possibile usare solo la modalità di distribuzione [Incrementale](./deployment-modes.md) quando si chiamano i modelli collegati.
     * `templateLink/uri` contiene l'URI del modello collegato. Aggiornare il valore all'URI che si ottiene quando si carica il modello collegato, ovvero quello con un token di firma di accesso condiviso.
     * Per passare i valori dal modello principale al modello collegato, usare `parameters`.
@@ -305,7 +305,7 @@ Poiché l'account di archiviazione viene ora definito nel modello collegato, è 
 
     ![I modelli collegati di Azure Resource Manager configurano la dipendenza](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    *linkedTemplate* è il nome della risorsa deployments.  
+    *linkedTemplate* è il nome della risorsa deployments.
 3. Aggiornare **properties/diagnosticsProfile/bootDiagnostics/storageUri** come illustrato nello screenshot precedente.
 4. Salvare il modello modificato.
 
@@ -334,4 +334,4 @@ Per migliorare il progetto, effettuare le modifiche aggiuntive seguenti al proge
 In questa esercitazione, si è suddiviso un modello in un modello principale e un modello collegato. Per informazioni su come usare estensioni di macchina virtuale per eseguire le attività post-distribuzione, vedere:
 
 > [!div class="nextstepaction"]
-> [Distribuire estensioni di macchina virtuale](./deployment-manager-tutorial.md)
+> [Distribuire estensioni di macchina virtuale](./resource-manager-tutorial-deploy-vm-extensions.md)

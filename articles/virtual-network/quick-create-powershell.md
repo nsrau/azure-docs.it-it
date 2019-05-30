@@ -14,14 +14,14 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 30b1b08e27eca826a9f882475723913810b3feb4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a040f3895f710f4ebbdcd3f73568775a909aa64c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721860"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258279"
 ---
-# <a name="quickstart-create-a-virtual-network-using-powershell"></a>Avvio rapido: Creare una rete virtuale usando PowerShell
+# <a name="quickstart-create-a-virtual-network-using-powershell"></a>Guida introduttiva: Creare una rete virtuale usando PowerShell
 
 Una rete virtuale consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente tra loro e con Internet. Questa guida introduttiva illustra come creare una rete virtuale. Dopo avere creato una rete virtuale, si distribuiscono due VM nella rete virtuale. Si effettua quindi la connessione alle VM da Internet e si stabilisce una comunicazione privata tramite la rete virtuale.
 
@@ -140,9 +140,6 @@ Aprire un prompt dei comandi nel computer locale. Eseguire il comando `mstsc`. S
 ```cmd
 mstsc /v:<publicIpAddress>
 ```
-
-Un file Remote Desktop Protocol (*.rdp*) viene scaricato sul computer, mentre si apre un Desktop remoto.
-
 1. Quando richiesto, selezionare **Connetti**.
 
 1. Immettere il nome utente e la password specificati al momento della creazione della VM.

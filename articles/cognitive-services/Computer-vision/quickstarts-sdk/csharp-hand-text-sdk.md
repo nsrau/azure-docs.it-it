@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Estrarre testo scritto a mano - SDK, C#'
+title: 'Guida introduttiva: Estrarre testo scritto a mano - SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrae testo da un'immagine usando la libreria client Windows C# di Visione artificiale.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 539d80310f07031f7a92bb5c1d6155e5948c2653
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 656e2519dc814baffa2f1c427d46e66054969e25
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997445"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357162"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Avvio rapido: Estrarre testo scritto a mano usando l'SDK di Visione artificiale per C#
+# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Guida introduttiva: Estrarre testo scritto a mano usando l'SDK di Visione artificiale per C#
 
 In questa guida introduttiva si estrarrà testo scritto a mano o stampato da un'immagine usando l'SDK di Visione artificiale per C#. Se si vuole, è possibile scaricare il codice contenuto in questa guida come app di esempio completa dal repository per [Visione artificiale di Servizi cognitivi e C#](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) in GitHub.
 
@@ -53,10 +53,6 @@ Per eseguire l'esempio, seguire questa procedura:
         {
             // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
             private const string subscriptionKey = "<Subscription key>";
-
-            // For printed text, change to TextRecognitionMode.Printed
-            private const TextRecognitionMode textRecognitionMode =
-                TextRecognitionMode.Handwritten;
 
             // localImagePath = @"C:\Documents\LocalImage.jpg"
             private const string localImagePath = @"<LocalImage>";
@@ -106,7 +102,7 @@ Per eseguire l'esempio, seguire questa procedura:
                 // Start the async process to read the text
                 BatchReadFileHeaders textHeaders =
                     await computerVision.BatchReadFileAsync(
-                        imageUrl, textRecognitionMode);
+                        imageUrl);
 
                 await GetTextAsync(computerVision, textHeaders.OperationLocation);
             }
@@ -127,7 +123,7 @@ Per eseguire l'esempio, seguire questa procedura:
                     // Start the async process to recognize the text
                     BatchReadFileInStreamHeaders textHeaders =
                         await computerVision.BatchReadFileInStreamAsync(
-                            imageStream, textRecognitionMode);
+                            imageStream);
 
                     await GetTextAsync(computerVision, textHeaders.OperationLocation);
                 }
@@ -177,7 +173,6 @@ Per eseguire l'esempio, seguire questa procedura:
 
 1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
 1. Modificare `computerVision.Endpoint` in modo che corrisponda all'area di Azure associata alle chiavi di sottoscrizione, se necessario.
-1. Facoltativamente, impostare `textRecognitionMode` su `TextRecognitionMode.Printed`.
 1. Sostituire `<LocalImage>` con il percorso e il nome del file di un'immagine locale.
 1. Facoltativamente, impostare un'immagine diversa per `remoteImageUrl`.
 1. Eseguire il programma.

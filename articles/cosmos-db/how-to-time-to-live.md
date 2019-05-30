@@ -4,14 +4,14 @@ description: Informazioni su come configurare e gestire la durata (TTL) in Azure
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/14/2018
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: bb5997c2ae8f93068b0ad2a77b5109f6c79b9b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5eb57562dac498c0e5bf2960007f52ad1117ac2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003524"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244762"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurare la durata (TTL) in Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Usare la procedura seguente per abilitare la durata (TTL) in un contenitore senz
 4. Selezionare un contenitore esistente, espanderlo e modificare i valori seguenti:
 
    * Aprire la finestra **Scalabilità e impostazioni**.
-   * In **Impostazione** trovare **Durata (TTL)**.
+   * In **Impostazione** trovare **Durata (TTL)** .
    * Selezionare **Sì (nessun valore predefinito)** oppure selezionare **Sì** e impostare un valore TTL
    * È consigliabile fare clic su **Salva** per salvare le modifiche.
 
@@ -109,7 +109,7 @@ Usare la procedura seguente per abilitare la durata (TTL) in un elemento:
 4. Selezionare un contenitore esistente, espanderlo e modificare i valori seguenti:
 
    * Aprire la finestra **Scalabilità e impostazioni**.
-   * In **Impostazione** trovare **Durata (TTL)**.
+   * In **Impostazione** trovare **Durata (TTL)** .
    * Selezionare **Sì (nessun valore predefinito)** oppure selezionare **Sì** e impostare un valore TTL. 
    * È consigliabile fare clic su **Salva** per salvare le modifiche.
 

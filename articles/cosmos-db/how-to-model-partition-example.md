@@ -4,14 +4,14 @@ description: Informazioni su come modellare e partizionare un esempio reale usan
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 3/27/2019
+ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c98a8187c0365abc8fdb2bedacc5216266cc5cad
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58919894"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240990"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale
 
@@ -140,7 +140,7 @@ Per recuperare un utente si legge l'elemento corrispondente dal contenitore `use
 
 ### <a name="c2-createedit-a-post"></a>[C2] Creare/modificare un post
 
-Analogamente a **[C1]**, occorre solo scrivere nel contenitore `posts`.
+Analogamente a **[C1]** , occorre solo scrivere nel contenitore `posts`.
 
 ![Scrittura di un singolo elemento nel contenitore post](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -199,7 +199,7 @@ Anche se la query principale filtra la chiave di partizione del contenitore, agg
 
 ### <a name="c4-like-a-post"></a>[C4] Aggiungere Mi piace a un post
 
-Come per **[C3]**, basta scrivere l'elemento corrispondente nel contenitore `posts`.
+Come per **[C3]** , basta scrivere l'elemento corrispondente nel contenitore `posts`.
 
 ![Scrittura di un singolo elemento nel contenitore post](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -209,7 +209,7 @@ Come per **[C3]**, basta scrivere l'elemento corrispondente nel contenitore `pos
 
 ### <a name="q5-list-a-posts-likes"></a>[Q5] Elencare i Mi piace ricevuti da un post
 
-Analogamente a **[Q4]**, si esegue una query per i Mi piace ricevuti da tale post, quindi si aggregano i relativi nomi utente.
+Analogamente a **[Q4]** , si esegue una query per i Mi piace ricevuti da tale post, quindi si aggregano i relativi nomi utente.
 
 ![Recupero di tutti i Mi piace ricevuti da un post e aggregazione dei dati aggiuntivi](./media/how-to-model-partition-example/V1-Q5.png)
 
@@ -282,7 +282,7 @@ Si modificano anche i commenti e i Mi piace aggiungendo il nome utente del relat
 
 L'obiettivo in questo caso è incrementare il `commentCount` o il `likeCount` nel post corrispondente ogni volta che si aggiunge un commento o un Mi piace. Dal momento che il contenitore `posts` è partizionato per `postId`, il nuovo elemento (commento o Mi piace) e il post corrispondente si trovano nella medesima partizione logica. Di conseguenza, è possibile usare una [stored procedure](stored-procedures-triggers-udfs.md) per eseguire tale operazione.
 
-A questo punto, quando si crea un commento (**[C3]**), anziché aggiungere solo un nuovo elemento nel contenitore `posts` si chiama la stored procedure seguente in tale contenitore:
+A questo punto, quando si crea un commento ( **[C3]** ), anziché aggiungere solo un nuovo elemento nel contenitore `posts` si chiama la stored procedure seguente in tale contenitore:
 
 ```javascript
 function createComment(postId, comment) {
@@ -396,7 +396,7 @@ La stessa esatta situazione di quando si elencano i Mi piace.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: assicurarsi che tutte le richieste siano scalabili
 
-Esaminando i miglioramenti delle prestazioni complessivi, ci sono ancora due richieste che non sono state ancora completamente ottimizzate: **[Q3]** e **[Q6]**. Si tratta di richieste che prevedono query che non filtrano la chiave di partizione dei contenitori di destinazione.
+Esaminando i miglioramenti delle prestazioni complessivi, ci sono ancora due richieste che non sono state ancora completamente ottimizzate: **[Q3]** e **[Q6]** . Si tratta di richieste che prevedono query che non filtrano la chiave di partizione dei contenitori di destinazione.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Elencare i post di un utente in forma breve
 

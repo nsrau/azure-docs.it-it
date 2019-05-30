@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Estrarre testo scritto a mano - JavaScript'
+title: 'Guida introduttiva: Estrarre testo scritto a mano - JavaScript'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API Visione artificiale con JavaScript.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 969f7dc585e7ca518936636bbdcd859747ff089b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c93271fcd74d1369112a2c5d2bba98fd14ff7c84
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007033"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357201"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-javascript-in-computer-vision"></a>Avvio rapido: Estrarre testo scritto a mano usando l'API REST e JavaScript in Visione artificiale
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-javascript-in-computer-vision"></a>Guida introduttiva: Estrarre testo scritto a mano usando l'API REST e JavaScript in Visione artificiale
 
 In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API REST di Visione artificiale. Con i metodi API [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e API [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) è possibile rilevare il testo scritto a mano in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
 
@@ -74,11 +74,6 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
         var uriBase =
             "https://westus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
 
-        // Request parameter.
-        var params = {
-            "mode": "Handwritten",
-        };
-
         // Display the image.
         var sourceImageUrl = document.getElementById("inputImage").value;
         document.querySelector("#sourceImage").src = sourceImageUrl;
@@ -88,7 +83,7 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
         //
         // Make the first REST API call to submit the image for processing.
         $.ajax({
-            url: uriBase + "?" + $.param(params),
+            url: uriBase,
 
             // Request headers.
             beforeSend: function(jqXHR){

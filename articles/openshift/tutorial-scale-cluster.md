@@ -2,18 +2,18 @@
 title: Esercitazione - Ridimensionare un cluster Azure Red Hat OpenShift | Microsoft Docs
 description: Informazioni su come ridimensionare un cluster Microsoft Azure Red Hat OpenShift usando l'interfaccia della riga di comando di Azure
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
 ms.date: 05/06/2019
-ms.openlocfilehash: f86b60fbe20fc630863d6e177d45f2c1f06a7863
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: b25e17e7064006a1421142dfcd32997cb4426e8e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079396"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305975"
 ---
 # <a name="tutorial-scale-an-azure-red-hat-openshift-cluster"></a>Esercitazione: Ridimensionare un cluster di Azure Red Hat OpenShift
 
@@ -34,7 +34,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 Prima di iniziare questa esercitazione:
 
-* Creare un cluster seguendo l'esercitazione per la [creazione di un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md).
+* Creare un cluster seguendo l'esercitazione [Creare un cluster di Azure Red Hat OpenShift](tutorial-create-cluster.md).
 
 ## <a name="step-1-sign-in-to-azure"></a>Passaggio 1: Accedere ad Azure
 

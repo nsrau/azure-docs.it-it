@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: efc012e496045d3d5d12d6fe756b62e4ae19cc2a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 9999518b81d264cb1e46f3c03ec65379d35aa603
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002134"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242434"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Attivare sottoscrizioni e account di Azure con Cloudyn
 
@@ -64,7 +64,7 @@ Quando si aggiunge una sottoscrizione a un aggiornamento dell'account, si conced
     2. Nel portale di Azure selezionare **Azure Active Directory**.
     3. Per ottenere l'ID tenant selezionare **Proprietà** per il tenanto di Azure AD.
     4. Copiare il GUID ID directory. Questo valore è l'ID tenant.
-    Per altre informazioni, vedere [Ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+    Per altre informazioni, vedere [Ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 3. Se necessario, selezionare l'ID della tariffa. Se non si conosce l'ID della tariffa, seguire questa procedura per trovarlo.
     1. In alto a destra nel portale di Azure fare clic sulle informazioni utente e quindi su **Visualizza fattura**.
     2. In **Account di fatturazione** fare clic su **Sottoscrizioni**.

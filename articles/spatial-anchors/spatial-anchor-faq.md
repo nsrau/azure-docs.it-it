@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: fdde10c9ef7c035ed36b5f823a0b77e7c8b53803
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: cd004e1eb6a40648c52dd3b5aee0ec38bff8f9b3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65964563"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304168"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 
@@ -57,7 +57,7 @@ Per garantire la trasparenza, di seguito è riportata un'immagine di un ambiente
 
 Ancoraggi nello spazio di Azure è conforme alle [Condizioni del contratto del servizio Azure](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9) e all'[Informativa sulla privacy di Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
 
-![Un ambiente e la relativa nuvola di punti rada (spare point cloud) derivata](./media/sparce-point-cloud.png)
+![Un ambiente e la relativa nuvola di punti rada (spare point cloud) derivata](./media/sparse-point-cloud.png)
 *Figura 1: Un ambiente e la relativa nuvola di punti rada (spare point cloud) derivata*
 
 

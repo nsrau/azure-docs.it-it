@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3a307c32d15aa8c7809d728d98220b0819e91c7c
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432108"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357384"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -46,7 +46,7 @@ Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere 
 
 È possibile usare Visione artificiale per estrarre testo da un'immagine in un flusso di caratteri leggibili dal computer con il [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Se necessario, la funzione OCR corregge la rotazione del testo riconosciuto e fornisce le coordinate del frame per ogni parola. La funzione OCR supporta 25 lingue e rileva automaticamente la lingua del testo riconosciuto.
 
-È anche possibile usare l'[API di lettura](concept-recognizing-text.md#read-api) per estrarre testo, scritto a mano o stampato, da immagini e documenti con grandi quantità di testo. L'API di lettura usa modelli aggiornati e funziona per un'ampia varietà di oggetti con diverse superfici e sfondi, ad esempio ricevute, poster, biglietti da visita, lettere e lavagne. Attualmente, l'API di lettura è disponibile in anteprima e l'unica lingua supportata è l'inglese.
+È anche possibile usare l'[API di lettura](concept-recognizing-text.md#read-api) per estrarre testo, scritto a mano o stampato, da immagini e documenti con grandi quantità di testo. L'API di lettura usa modelli aggiornati e funziona per un'ampia varietà di oggetti con diverse superfici e sfondi, ad esempio ricevute, poster, biglietti da visita, lettere e lavagne. Attualmente l'inglese è l'unica lingua supportata.
 
 ## <a name="moderate-content-in-images"></a>Moderare i contenuti nelle immagini
 
