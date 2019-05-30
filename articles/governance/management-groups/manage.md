@@ -2,16 +2,16 @@
 title: Come modificare, eliminare o gestire i gruppi di gestione - Governance di Azure
 description: Informazioni su come visualizzare, gestire, aggiornare ed eliminare la gerarchia dei gruppi di gestione.
 author: rthorn17
-ms.service: azure-resource-manager
-ms.date: 04/04/2019
+ms.service: governance
+ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: b3798ec7578530e04ec9e00086fffaec9a58a7cd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 028b4cbf62bf9ed0b3b38f54d3b787a8c1368da0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950312"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242957"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione
 
@@ -206,10 +206,12 @@ Uno dei motivi per creare un gruppo di gestione è l'accorpamento delle sottoscr
 Per spostare la sottoscrizione, tutte le autorizzazioni RBAC seguenti dovranno essere true:
 
 - Ruolo "Proprietario" sulla sottoscrizione figlio.
-- Ruolo "Proprietario", "Collaboratore" o "Collaboratore del gruppo di gestione" in group.* di gestione padre di destinazione
-- Ruolo "Proprietario", "Collaboratore" o "Collaboratore del gruppo di gestione" in group.* di gestione padre esistente
+- Ruolo "Proprietario", "Collaboratore" o "Collaboratore del gruppo di gestione" per il gruppo di gestione padre di destinazione.
+- Ruolo "Proprietario", "Collaboratore" o "Collaboratore del gruppo di gestione" nel gruppo di gestione padre esistente.
 
-*: A meno che la destinazione o il gruppo di gestione padre esistente sia il gruppo di gestione radice. Poiché il gruppo di gestione radice è il valore predefinito di destinazione spot per tutti i nuovi gruppi di gestione e sottoscrizioni, gli utenti non debbano autorizzazioni su di essa per spostare un elemento.
+Se la destinazione o il gruppo di gestione padre esistente è il gruppo di gestione radice, non si applicano i requisiti di autorizzazione. Poiché il gruppo di gestione radice è il valore predefinito di destinazione spot per tutti i nuovi gruppi di gestione e sottoscrizioni, non occorre autorizzazioni su di essa per spostare un elemento.
+
+Se il ruolo di proprietario della sottoscrizione viene ereditato dal gruppo di gestione corrente, le destinazioni di spostamento sono limitate. È possibile spostare la sottoscrizione solo a un altro gruppo di gestione in cui si dispone del ruolo di proprietario. È possibile spostarla in un gruppo di gestione in cui si è collaborato perché si perderebbe la proprietà della sottoscrizione. Se direttamente viene assegnato il ruolo di proprietario per la sottoscrizione (non ereditato da gruppo di gestione), è possibile spostarlo a qualsiasi gruppo di gestione in cui si è collaborato.
 
 Per controllare quali autorizzazioni sono disponibili nel portale di Azure, seleziona la gestione di gruppo e quindi selezionare **IAM**. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere [Gestire accessi e autorizzazioni con il controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
 
@@ -325,7 +327,7 @@ I gruppi di gestione sono supportati all'interno del [log attività di Azure](..
 
 ![Log attività con i gruppi di gestione](media/al-mg.png)
 
-Quando si esegue una query sui gruppi di gestione all'esterno del portale di Azure, l'ambito di destinazione per tali gruppi sarà simile a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
+Quando si esegue una query sui gruppi di gestione all'esterno del portale di Azure, l'ambito di destinazione per tali gruppi sarà simile a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 
 ## <a name="referencing-management-groups-from-other-resource-providers"></a>Riferimento a gruppi di gestione da altri provider di risorse
 

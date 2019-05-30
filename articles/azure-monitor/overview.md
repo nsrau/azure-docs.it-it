@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c72ac62b55b2b08be5aaad563933bcb2b703cba9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787191"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245072"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
@@ -38,7 +38,7 @@ Tutti i dati raccolti da Monitoraggio di Azure rientrano in uno di due tipi fond
 
 Per molte risorse di Azure, i dati raccolti da Monitoraggio di Azure sono visualizzati a destra nella pagina Panoramica nel portale di Azure. Osservando una qualsiasi macchina virtuale, ad esempio, si vedono diversi grafici che mostrano le metriche delle prestazioni. Fare clic su uno dei grafici per aprire i dati in [Esplora metriche](platform/metrics-charts.md) nel portale di Azure, che consente di rappresentare in un grafico i valori di più metriche nel tempo.  È possibile visualizzare i grafici in modo interattivo o aggiungerli a un dashboard per visualizzarli con altre visualizzazioni.
 
-![Metriche](media/overview/metrics.png)
+![metrics](media/overview/metrics.png)
 
 I dati di log raccolti da Monitoraggio di Azure possono essere analizzati con [query](log-query/log-query-overview.md) per recuperare, consolidare e analizzare rapidamente i dati raccolti.  È possibile creare e testare le query che utilizzano [Log Analitica](log-query/portals.md) nel portale di Azure e quindi analizzare direttamente i dati usando questi strumenti o salvare le query per l'uso con [visualizzazioni](visualizations.md) o [avviso le regole](platform/alerts-overview.md).
 
@@ -55,7 +55,7 @@ Monitoraggio di Azure può raccogliere dati da diverse origini. Il monitoraggio 
 - **Dati di monitoraggio della sottoscrizione di Azure**: dati relativi al funzionamento e alla gestione di una sottoscrizione di Azure e dati relativi all'integrità e al funzionamento di Azure stesso. 
 - **Dati di monitoraggio del tenant di Azure**: dati relativi al funzionamento dei servizi di Azure a livello di tenant, ad esempio Azure Active Directory.
 
-Non appena si crea una sottoscrizione di Azure e si inizia ad aggiungere risorse quali macchine virtuali e app Web, Monitoraggio di Azure avvia la raccolta dei dati.  I [log attività](platform/activity-logs-overview.md) registrano quando vengono create o modificate le risorse. Le [metriche](platform/data-platform.md) indicano le prestazioni della risorsa e quali risorse utilizza. 
+Non appena si crea una sottoscrizione di Azure e si inizia ad aggiungere risorse quali macchine virtuali e app Web, Monitoraggio di Azure avvia la raccolta dei dati.  [I log attività](platform/activity-logs-overview.md) registrare quando le risorse vengono create o modificate. Le [metriche](platform/data-platform.md) indicano le prestazioni della risorsa e quali risorse utilizza. 
 
 Per estendere i dati raccolti all'impiego effettivo delle risorse [abilitare la diagnostica](platform/diagnostic-logs-overview.md) e [aggiungere un agente](platform/agent-windows.md) per calcolare le risorse. In questo modo vengono raccolti i dati di telemetria per il funzionamento interno della risorsa ed è possibile configurare diverse [origini dati](platform/agent-data-sources.md) per raccogliere log e metriche dal sistema operativo guest Windows o Linux. 
 
@@ -117,7 +117,7 @@ I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) consentono di
 ### <a name="views"></a>Visualizzazioni
 Le [visualizzazioni](../log-analytics/log-analytics-view-designer.md) presentano visivamente i dati di log in Monitoraggio di Azure.  Ogni visualizzazione include un riquadro singolo che esegue il drill-down a una combinazione di visualizzazioni quali grafici a barre o a linee, oltre ad elenchi di riepilogo dei dati critici.  Le soluzioni di monitoraggio includono visualizzazioni di riepilogo dei dati per un'applicazione specifica ed è possibile creare visualizzazioni personalizzate per presentare i dati da qualsiasi query di log. Come altri elementi di Monitoraggio di Azure, è possibile aggiungere le viste ai dashboard di Azure.
 
-![Visualizza](media/overview/view.png)
+![visualizzazione](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com) è un servizio di analisi aziendale che fornisce visualizzazioni interattive per un'ampia gamma di origini dati e un metodo efficace per rendere i dati disponibili ad altri utenti all'interno e all'esterno dell'organizzazione. È possibile configurare per Power BI per [importare automaticamente i dati di log da Monitoraggio di Azure](../log-analytics/log-analytics-powerbi.md) per sfruttare i vantaggi di queste visualizzazioni aggiuntive.

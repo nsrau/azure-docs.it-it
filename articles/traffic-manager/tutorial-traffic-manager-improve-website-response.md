@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: allensu
-ms.openlocfilehash: 8f64e3aa7cbe5441df1861b3176cc7e2072afa2a
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: HT
+ms.openlocfilehash: 304beeae02da5836ba88a56d7166fc681e263501
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991983"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258364"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Esercitazione: Migliorare la risposta di un sito Web tramite Gestione traffico
 
@@ -54,7 +54,7 @@ In questa sezione si creano due istanze di sito Web che forniscono due endpoint 
 
 #### <a name="create-vms-for-running-websites"></a>Creare VM per l'esecuzione di siti Web
 
-In questa sezione si creano due VM *myIISVMEastUS* e *myIISVMWEurope* nelle aree di Azure **Stati Uniti orientali** e **Europa occidentale**.
+In questa sezione creare due macchine virtuali *myIISVMEastUS* e *myIISVMWestEurope* nel **Stati Uniti orientali** e **Europa occidentale** aree di Azure.
 
 1. Nell'angolo in alto, angolo sinistro del portale di Azure, selezionare **crea una risorsa** > **calcolo** > **Windows Server Datacenter 2019**.
 2. In **Crea macchina virtuale** digitare o selezionare i valori seguenti nella scheda **Nozioni di base**:
@@ -70,14 +70,14 @@ In questa sezione si creano due VM *myIISVMEastUS* e *myIISVMWEurope* nelle aree
 3. Selezionare il **Management** scheda, oppure selezionare **successiva: Dischi**, quindi **Avanti: Networking**, quindi **successiva: Gestione**. In **Monitoraggio** impostare **Diagnostica di avvio** su **Off**.
 4. Selezionare **Rivedi e crea**.
 5. Rivedere le impostazioni e quindi fare clic su **Create**.  
-6. Seguire i passaggi per creare una seconda macchina virtuale denominata *myIISVMWEurope*, con un **gruppo di risorse** sociale *myResourceGroupTM2*, un **percorso** dei *Europa occidentale*e tutte le altre impostazioni identico *myIISVMEastUS*.
+6. Seguire i passaggi per creare una seconda macchina virtuale denominata *myIISVMWestEurope*, con un **gruppo di risorse** sociale *myResourceGroupTM2*, un **posizione**dei *Europa occidentale*e tutte le altre impostazioni identico *myIISVMEastUS*.
 7. La creazione delle macchine virtuali può richiedere alcuni minuti. Non procedere con i passaggi rimanenti finché non sono state create entrambe le macchine virtuali.
 
    ![Creare una macchina virtuale](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>Installare IIS e personalizzare la pagina Web predefinita
 
-In questa sezione si installa il server IIS nelle due VM, *myIISVMEastUS*  &  *myIISVMWEurope*, e quindi si aggiorna la pagina predefinita del sito Web. La pagina del sito Web personalizzata mostra il nome della VM a cui viene connesso l'utente quando visita il sito Web da un Web browser.
+In questa sezione installare il server IIS nelle macchine virtuali di due *myIISVMEastUS* e *myIISVMWestEurope*e quindi aggiornare la pagina del sito Web predefinito. La pagina del sito Web personalizzata mostra il nome della VM a cui viene connesso l'utente quando visita il sito Web da un Web browser.
 
 1. Selezionare **Tutte le risorse** nel menu a sinistra e quindi nell'elenco delle risorse fare clic su *myIISVMEastUS*, che si trova nel gruppo di risorse *myResourceGroupTM1*.
 2. Nella pagina **Panoramica** fare clic su **Connetti** e quindi selezionare **Scarica file RDP** in **Connetti a macchina virtuale**.
@@ -100,11 +100,11 @@ In questa sezione si installa il server IIS nelle due VM, *myIISVMEastUS*  &  *m
 
      ![Installare IIS e personalizzare la pagina Web](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
 8. Chiudere la connessione RDP con *myIISVMEastUS*.
-9. Ripetere i passaggi da 1 a 8 creando una connessione RDP alla VM *myIISVMWEurope* all'interno del gruppo di risorse *myResourceGroupTM2* per installare IIS e personalizzare la pagina Web predefinita.
+9. Ripetere i passaggi da 1 a 8 con creando una connessione RDP alla macchina virtuale *myIISVMWestEurope* all'interno di *myResourceGroupTM2* gruppo di risorse per installare IIS e personalizzare la pagina web predefinita.
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>Configurare i nomi DNS per le VM che eseguono IIS
 
-Gestione traffico instrada il traffico degli utenti in base al nome DNS degli endpoint di servizio. In questa sezione si configurano i nomi DNS per i server IIS, *myIISVMEastUS* e *myIISVMWEurope*.
+Gestione traffico instrada il traffico degli utenti in base al nome DNS degli endpoint di servizio. In questa sezione si configura i nomi DNS per i server IIS - *myIISVMEastUS* e *myIISVMWestEurope*.
 
 1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi nell'elenco delle risorse selezionare *myIISVMEastUS*, che si trova nel gruppo di risorse *myResourceGroupTM1*.
 2. Nella pagina **Panoramica**, in **Nome DNS**, selezionare **Configura**.
@@ -113,7 +113,7 @@ Gestione traffico instrada il traffico degli utenti in base al nome DNS degli en
 
 ### <a name="create-test-vms"></a>Creare le VM di test
 
-In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area di Azure (**Stati Uniti orientali** ed **Europa occidentale**). Queste VM verranno usate per verificare come Gestione traffico instrada il traffico verso il server IIS più vicino quando si visita il sito Web.
+In questa sezione si crea una macchina virtuale (*myVMEastUS* e *myVMWestEurope*) in ogni area di Azure (**Stati Uniti orientali** e **Europa occidentale**). Queste VM verranno usate per verificare come Gestione traffico instrada il traffico verso il server IIS più vicino quando si visita il sito Web.
 
 1. Nell'angolo in alto, angolo sinistro del portale di Azure, selezionare **crea una risorsa** > **calcolo** > **Windows Server Datacenter 2019**.
 2. In **Crea macchina virtuale** digitare o selezionare i valori seguenti nella scheda **Nozioni di base**:
@@ -152,7 +152,7 @@ Creare un profilo di Gestione traffico che indirizza il traffico degli utenti ve
 
 ## <a name="add-traffic-manager-endpoints"></a>Aggiungere endpoint di Gestione traffico
 
-Aggiungere le due VM che eseguono i server IIS, *myIISVMEastUS*  &  *myIISVMWEurope*, per instradare il traffico degli utenti verso l'endpoint più vicino.
+Aggiungere le due macchine virtuali in esecuzione IIS Server - *myIISVMEastUS* & *myIISVMWestEurope* per instradare il traffico utente all'endpoint più vicino all'utente.
 
 1. Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico creato nella sezione precedente e selezionarlo nei risultati visualizzati.
 2. In **Profilo di Gestione traffico**, nella sezione **Impostazioni**, fare clic su **Endpoint** e quindi su **Aggiungi**.
@@ -160,13 +160,13 @@ Aggiungere le due VM che eseguono i server IIS, *myIISVMEastUS*  &  *myIISVMWEur
 
     | Impostazione                 | Value                                              |
     | ---                     | ---                                                |
-    | Type                    | Endpoint Azure                                   |
+    | Type                    | Endpoint di Azure                                   |
     | NOME           | myEastUSEndpoint                                        |
     | Tipo di risorsa di destinazione           | Indirizzo IP pubblico                          |
     | Risorsa di destinazione          | **Scegliere un indirizzo IP pubblico** per visualizzare l'elenco delle risorse con gli indirizzi IP pubblici inclusi nella stessa sottoscrizione. In **Risorsa** selezionare l'indirizzo IP pubblico denominato *myIISVMEastUS-ip*. Questo è l'indirizzo IP pubblico della VM del server IIS nell'area Stati Uniti orientali.|
     |        |           |
 
-4. Ripetere i passaggi 2 e 3 per aggiungere un altro endpoint denominato *myWestEuropeEndpoint* per l'indirizzo IP pubblico *myIISVMWEurope-ip* associato alla VM del server IIS denominata *myIISVMWEurope*.
+4. Ripetere i passaggi 2 e 3 per aggiungere un altro endpoint denominato *myWestEuropeEndpoint* per l'indirizzo IP pubblico *myIISVMWestEurope-ip* associato con la VM denominata del server IIS  *myIISVMWestEurope*.
 5. Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati in **Profilo di Gestione traffico** insieme al relativo stato di monitoraggio **Online**.
 
     ![Aggiungere un endpoint di Gestione traffico](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-endpoint.png)
@@ -178,7 +178,7 @@ In questa sezione si verifica come Gestione traffico instrada il traffico degli 
 1. Determinare il nome DNS del profilo di Gestione traffico.
 2. Visualizzare Gestione traffico in azione nel modo seguente:
     - Dalla VM di test (*myVMEastUS*) che si trova nell'area **Stati Uniti orientali**, in un Web browser, passare al nome DNS del profilo di Gestione traffico.
-    - Dalla VM di test (*myVMEastUS*) che si trova nell'area **Europa occidentale**, in un Web browser, passare al nome DNS del profilo di Gestione traffico.
+    - Dalla macchina virtuale di test (*myVMWestEurope*) che si trova nel **Europa occidentale** area, in un web browser, passare al nome DNS del profilo di Traffic Manager.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Determinare il nome DNS del profilo di Gestione traffico
 
@@ -205,7 +205,7 @@ In questa sezione è possibile visualizzare Gestione traffico in azione.
 
    ![Testare il profilo di Gestione traffico](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
-2. A questo punto, connettersi alla VM *myVMWestEurope* che si trova in **Europa occidentale** eseguendo i passaggi da 1 a 5 e passare al nome di dominio del profilo di Gestione traffico da questa VM. Dalla VM in **Europa occidentale** si viene ora indirizzati al sito Web ospitato nel server IIS più vicino *myIISVMWEurope* che si trova in **Europa occidentale**.
+2. A questo punto, connettersi alla VM *myVMWestEurope* che si trova in **Europa occidentale** eseguendo i passaggi da 1 a 5 e passare al nome di dominio del profilo di Gestione traffico da questa VM. Poiché la macchina virtuale che si trova **Europa occidentale**, a questo punto si viene indirizzati al sito Web ospitato in più vicino al server IIS *myIISVMWestEurope* che si trova nel **Europa occidentale**.
 
    ![Testare il profilo di Gestione traffico](./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png)
 

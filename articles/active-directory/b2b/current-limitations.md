@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 05/29/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4aae8eb29b9e90bd1cb84949e97e21ed68c04c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d1466614dfeb8fa4d3d095bae070d01c6503c5bb
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812780"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357234"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitazioni di Collaborazione B2B di Azure AD
 Collaborazione B2B di Azure Active Directory (Azure AD) è soggetta alle limitazioni descritte in questo articolo.
@@ -29,6 +29,9 @@ Nei flussi di Collaborazione B2B gli utenti vengono aggiunti alla directory e ag
 
 ## <a name="azure-ad-directories"></a>Directory di Azure AD
 Azure AD B2B è soggetta ai limiti del servizio directory di Azure AD. Per informazioni dettagliate sul numero di directory che un utente può creare e il numero di directory a cui un utente o un utente guest può appartenere, vedere [Restrizioni e limiti del servizio Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+
+## <a name="national-clouds"></a>Cloud nazionali
+[I cloud nazionali](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) sono isolate fisicamente le istanze di Azure. Collaborazione B2B non è supportata nei limiti del cloud nazionale. Ad esempio, se il tenant di Azure si trova nel cloud pubblico e globale, è Impossibile invitare un utente il cui account si trova in un cloud nazionale. Per collaborare con l'utente, chiedere a un altro indirizzo di posta elettronica o creare un account utente membro relativa nella directory.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 98588e0c25439fd4988fe39e06e7042cfa9113cb
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227914"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305670"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual è la condizione della posizione nell'accesso condizionale di Azure Active Directory? 
 
@@ -56,7 +56,7 @@ Una posizione specifica ha le caratteristiche seguenti:
 - **Paesi/aree geografiche**: questa opzione consente di selezionare uno o più paesi o aree geografiche per definire una posizione specifica.
 - **Includi aree sconosciute** -alcuni indirizzi IP non sono mappati a un paese specifico. Questa opzione consente di scegliere se questi indirizzi IP devono essere inclusi nella posizione specifica. Usare questa impostazione quando i criteri che usano la posizione specifica devono essere applicati a posizioni sconosciute.
 
-Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. Le organizzazioni possono configurare fino a 90 posizioni specifiche, ciascuna configurata con intervalli di indirizzi IP di 12000.
+Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. Le organizzazioni possono configurare fino a 90 posizioni specifiche, ciascuna configurata con un massimo di 1200 intervalli IP.
 
 Criteri di accesso condizionale si applicano al traffico IPv4 e IPv6. Località denominate attualmente non consentire gli intervalli IPv6 da configurare. Questa limitazione comporta le situazioni seguenti:
 
@@ -88,24 +88,24 @@ Se entrambi i passaggi danno esito negativo, l'utente non viene più considerato
 
 Quando si configura la condizione per la posizione, è possibile distinguere tra:
 
-- Tutte le località
+- Qualsiasi località
 - Tutte le località attendibili
-- Località selezionate
+- Le località selezionate
 
 ![Configurazione della condizione della posizione](./media/location-condition/01.png)
 
-### <a name="any-location"></a>Tutte le località
+### <a name="any-location"></a>Qualsiasi località
 
 Per impostazione predefinita, la selezione di **Tutte le località** fa in modo che i criteri vengano applicati a tutti gli indirizzi IP, cioè qualsiasi indirizzo su Internet. Questa impostazione non è limitata agli indirizzi IP configurati come posizione specifica. Quando si seleziona **Tutte le località**, è comunque possibile escludere percorsi specifici dai criteri. Ad esempio, è possibile applicare dei criteri a tutte le posizioni tranne che ai percorsi attendibili per impostare l'ambito per tutte le posizioni ad eccezione della rete aziendale.
 
-### <a name="all-trusted-locations"></a>Tutte le posizioni attendibili
+### <a name="all-trusted-locations"></a>Tutte le località attendibili
 
 Questa opzione si applica a:
 
 - Tutte le posizioni che sono state contrassegnate come attendibili
 - Gli **indirizzi IP attendibili MFA** (se configurati)
 
-### <a name="selected-locations"></a>Località selezionate
+### <a name="selected-locations"></a>Le località selezionate
 
 Con questa opzione è possibile selezionare una o più posizioni specifiche. Per applicare criteri con questa impostazione, un utente deve connettersi da una delle posizioni selezionate. Quando si fa clic su **Seleziona**, si apre il controllo di selezione delle reti denominate che mostra l'elenco delle reti denominate. L'elenco indica anche se il percorso di rete è stato contrassegnato come attendibile. La posizione specifica denominata **Indirizzi IP attendibili MFA** viene usata per includere le impostazioni IP che possono essere configurate nella pagina di impostazione del servizio di autenticazione a più fattori.
 

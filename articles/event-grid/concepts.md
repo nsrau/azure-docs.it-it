@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562356"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305267"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concetti di Griglia di eventi di Azure
 
@@ -22,7 +22,8 @@ Questo articolo illustra i concetti principali di Griglia di eventi di Azure.
 
 Un evento è la quantità minima di informazioni che descrive in modo completo qualcosa che si è verificato nel sistema. Ogni evento ha informazioni comuni, come: l'origine dell'evento, l'ora in cui l'evento si è verificato e un identificatore univoco. Ogni evento ha anche informazioni specifiche rilevanti solo per il tipo di evento specifico. Un evento di creazione di un nuovo file in Archiviazione di Azure, ad esempio, contiene i dettagli sul file, quale il valore `lastTimeModified`. In alternativa, un evento di Hub eventi include l'URL del file di acquisizione. 
 
-Ogni evento è limitato a 64 KB di dati.
+Un evento di dimensioni fino a 64 KB è coperto da GA (General Availability) del servizio a livello di contratto. Il supporto per un evento di dimensioni fino a 1 MB è attualmente in anteprima. Gli eventi superiori a 64 KB vengono addebitati in incrementi di 64 KB. 
+
 
 Per le proprietà che vengono inviate in un evento, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
@@ -59,9 +60,6 @@ Per esempi sulla creazione di sottoscrizioni, vedere:
 Per informazioni su come ottenere le attuali sottoscrizioni di Griglia di eventi, vedere [Sottoscrizioni di Griglia di eventi di Azure](query-event-subscriptions.md).
 
 ## <a name="event-subscription-expiration"></a>Scadenza della sottoscrizione di eventi
-
-L'[estensione Griglia di eventi](/cli/azure/azure-cli-extensions-list) per l'interfaccia della riga di comando di Azure consente di impostare la data di scadenza quando si crea una sottoscrizione di eventi. Se si usa l'API REST, usare `api-version=2018-09-15-preview`
-
 La sottoscrizione dell'evento scade automaticamente dopo tale data. Impostare una scadenza per le sottoscrizioni di eventi necessarie solo per un periodo di tempo limitato in modo da non doversi preoccupare della pulizia delle sottoscrizioni. Ad esempio, quando si crea una sottoscrizione di eventi per testare uno scenario, è consigliabile impostare una scadenza. 
 
 Per un esempio di impostazione di una scadenza, vedere [Creare una sottoscrizione con filtri avanzati](how-to-filter-events.md#subscribe-with-advanced-filters).
@@ -82,7 +80,10 @@ Se Griglia di eventi non è in grado di confermare che un evento è stato ricevu
 
 ## <a name="batching"></a>Creazione di batch
 
-Quando si usa un argomento personalizzato, gli eventi devono sempre essere pubblicati in una matrice. Questa può essere un batch per gli scenari con velocità effettiva bassa. Tuttavia, per casi d'uso con volumi elevati, si consiglia di eseguire in batch più eventi contemporaneamente per ogni pubblicazione, per ottenere una maggiore efficienza. Le dimensioni dei batch possono arrivare fino a 1 MB. Ogni evento non dovrebbe comunque superare 64 KB.
+Quando si usa un argomento personalizzato, gli eventi devono sempre essere pubblicati in una matrice. Questa può essere un batch per gli scenari con velocità effettiva bassa. Tuttavia, per casi d'uso con volumi elevati, si consiglia di eseguire in batch più eventi contemporaneamente per ogni pubblicazione, per ottenere una maggiore efficienza. Le dimensioni dei batch possono arrivare fino a 1 MB. Ogni evento ancora non deve essere maggiore di 64 KB (a livello generale) o 1 MB (anteprima).
+
+> [!NOTE]
+> Un evento di dimensioni fino a 64 KB è coperto da GA (General Availability) del servizio a livello di contratto. Il supporto per un evento di dimensioni fino a 1 MB è attualmente in anteprima. Gli eventi superiori a 64 KB vengono addebitati in incrementi di 64 KB. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

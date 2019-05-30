@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 976545f588895421e7c2be7e18b844d7994bc1ff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2adc706c5da4fa53ace2a8a471789e276878c491
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779984"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255853"
 ---
 # <a name="status-monitor-v2"></a>Status Monitor v2
 
@@ -74,7 +74,7 @@ Visualizzare i dati di telemetria:
 * [Esaminare le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo
 * [Cercare eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi
 * Per informazioni sulle query più avanzate, vedere [Analytics](../../azure-monitor/app/analytics.md)
-* [Creare i dashboard](../../azure-monitor/app/app-insights-dashboards.md)
+* [Creare i dashboard](../../azure-monitor/app/overview-dashboard.md)
 
 Aggiungere altri dati di telemetria:
 

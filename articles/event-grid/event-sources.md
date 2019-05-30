@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561546"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257957"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Origini evento di Griglia di eventi di Azure
 
@@ -24,7 +24,7 @@ Questo articolo fornisce i collegamenti al contenuto per ogni origine evento.
 
 Sottoscrivere gli eventi delle sottoscrizioni di Azure per rispondere alle modifiche apportate alle risorse in una sottoscrizione di Azure.
 
-|Title |DESCRIZIONE  |
+|Title |Descrizione  |
 |---------|---------|
 | [Esercitazione: Automazione di Azure con Griglia di eventi e Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Creare una macchina virtuale, che invia un evento. L'evento attiva un runbook di Automazione che contrassegna la macchina virtuale e attiva un messaggio che viene inviato a un canale di Microsoft Teams. |
 | [Come sottoscrivere eventi tramite il portale](subscribe-through-portal.md) | Usare il portale per sottoscrivere eventi per una sottoscrizione di Azure. |
@@ -36,7 +36,7 @@ Sottoscrivere gli eventi delle sottoscrizioni di Azure per rispondere alle modif
 
 Sottoscrivere gli eventi di Registro Azure Container per rispondere alle modifiche delle immagini.
 
-|Title |DESCRIZIONE  |
+|Title |Descrizione  |
 |---------|---------|
 | [Guida introduttiva: inviare eventi del registro contenitori](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare gli eventi di Registro Azure Container. |
 | [Schema di eventi](event-schema-container-registry.md) | Mostrare gli eventi di Registro Azure Container. |
@@ -45,7 +45,7 @@ Sottoscrivere gli eventi di Registro Azure Container per rispondere alle modific
 
 Sottoscrivere argomenti personalizzati per rispondere agli eventi delle applicazioni.
 
-|Title  |DESCRIZIONE  |
+|Title  |Descrizione  |
 |---------|---------|
 | [Guida introduttiva: creare e instradare eventi personalizzati con l'interfaccia della riga di comando di Azure](custom-event-quickstart.md) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare gli eventi personalizzati. |
 | [Guida introduttiva: creare e instradare eventi personalizzati con Azure PowerShell](custom-event-quickstart-powershell.md) | Illustra come usare Azure PowerShell per inviare gli eventi personalizzati. |
@@ -65,7 +65,7 @@ Sottoscrivere argomenti personalizzati per rispondere agli eventi delle applicaz
 
 Sottoscrivere gli eventi di Hub eventi per rispondere agli eventi dei file di Acquisizione. Hub eventi può fungere da gestore dell'evento o da origine evento. I seguenti articoli illustrano come usare Hub eventi come origine.
 
-|Title  |DESCRIZIONE  |
+|Title  |Descrizione  |
 |---------|---------|
 | [Esercitazione: trasmettere Big Data a un data warehouse](event-grid-event-hubs-integration.md) | Quando Hub eventi crea un file di Acquisizione, Griglia di eventi invia un evento a un'app per le funzioni. L'app recupera il file di Acquisizione ed esegue la migrazione dei dati a un data warehouse. |
 | [Schema di eventi](event-schema-event-hubs.md) | Illustra i campi negli eventi di Hub eventi. |
@@ -74,9 +74,9 @@ Per esempi di Hub eventi come gestore, vedere [Gestore di Hub eventi](event-hand
 
 ## <a name="iot-hub"></a>Hub IoT
 
-Eseguire la sottoscrizione di eventi dell'hub IoT per rispondere a eventi correlati a dispositivi creati, eliminati, connessi e disconnessi.
+Sottoscrivere gli eventi di telemetria ed eventi dell'IoT Hub per rispondere a dispositivi creati, eliminati, collegati, disconnesso.
 
-|Title  |DESCRIZIONE  |
+|Title  |Descrizione  |
 |---------|---------|
 | [Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica](publish-iot-hub-events-to-logic-apps.md) | Un'app per la logica invia una notifica tramite posta elettronica ogni volta che un dispositivo viene aggiunto all'hub IoT. |
 | [Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni](../iot-hub/iot-hub-event-grid.md) | Panoramica dell'integrazione dell'hub IoT con Griglia di eventi. |
@@ -87,7 +87,7 @@ Eseguire la sottoscrizione di eventi dell'hub IoT per rispondere a eventi correl
 
 Sottoscrivere gli eventi di Servizi multimediali per rispondere agli eventi dello stato dei processi.
 
-|Title  |DESCRIZIONE  |
+|Title  |Descrizione  |
 |---------|---------|
 | [Panoramica: reazione a eventi di Servizi multimediali](../media-services/latest/reacting-to-media-services-events.md) | Panoramica dell'integrazione di Servizi multimediali con Griglia di eventi. |
 | [Esercitazione: instradare gli eventi di Servizi multimediali di Azure verso un endpoint Web personalizzato tramite l'interfaccia della riga di comando](../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come inviare gli eventi da Servizi multimediali. |
@@ -97,7 +97,7 @@ Sottoscrivere gli eventi di Servizi multimediali per rispondere agli eventi dell
 
 Sottoscrivere gli eventi dei gruppi di risorse per rispondere alle modifiche apportate alle risorse in un gruppo di risorse.
 
-|Title  |DESCRIZIONE  |
+|Title  |Descrizione  |
 |---------|---------|
 | [Esercitazione: monitorare le modifiche alla macchina virtuale con la Griglia di eventi di Azure e le app per la logica](monitor-virtual-machine-changes-event-grid-logic-app.md) | Un'app per la logica monitora le modifiche a una macchina virtuale e invia messaggi di posta elettronica su tali modifiche. |
 | [Interfaccia della riga di comando di Azure: sottoscrivere eventi per un gruppo di risorse](./scripts/event-grid-cli-resource-group.md)| Script di esempio che sottoscrive eventi per un gruppo di risorse. Invia eventi a un webhook. |
@@ -111,7 +111,7 @@ Sottoscrivere gli eventi dei gruppi di risorse per rispondere alle modifiche app
 
 Sottoscrivere gli eventi del bus di servizio per rispondere ai messaggi senza un listener attivo.
 
-|Title  |DESCRIZIONE  |
+|Title  |Descrizione  |
 |---------|---------|
 | [Esercitazione: Esempi dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Griglia di eventi invia i messaggi dall'argomento del bus di servizio all'app per le funzioni e all'app per la logica. |
 | [Panoramica: integrazione del bus di servizio di Azure in Griglia di eventi](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Panoramica dell'integrazione del bus di servizio con Griglia di eventi. |
@@ -121,7 +121,7 @@ Sottoscrivere gli eventi del bus di servizio per rispondere ai messaggi senza un
 
 Sottoscrivere gli eventi di archiviazione BLOB per rispondere agli eventi creati ed eliminati dai BLOB.
 
-|Title  |DESCRIZIONE  |
+|Title  |Descrizione  |
 |---------|---------|
 | [Guida introduttiva: indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato con l'interfaccia della riga di comando di Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare gli eventi di archiviazione BLOB a un webhook. |
 | [Guida introduttiva: indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato con PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare PowerShell per inviare gli eventi di archiviazione BLOB a un webhook. |
@@ -135,7 +135,7 @@ Sottoscrivere gli eventi di archiviazione BLOB per rispondere agli eventi creati
 ## <a name="maps"></a>Mappe
 Eseguire la sottoscrizione agli eventi di Mappe di Azure per rispondere agli eventi di recinto virtuale. Un'applicazione, ad esempio, può recapitare una notifica di posta elettronica ogni volta che un dispositivo entra o esce da un recinto virtuale.
 
-|Title  |DESCRIZIONE  |
+|Title  |Descrizione  |
 |---------|---------|
 | [Reagire agli eventi di Mappe di Azure con Griglia di eventi](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Panoramica dell'integrazione di Mappe di Azure con Griglia di eventi. |
 | [Esercitazione: Configurare un recinto virtuale](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Questa esercitazione illustra i passaggi di base per la configurazione di un recinto virtuale con Mappe di Azure. Si usa Griglia di eventi di Azure per trasmettere i risultati del recinto virtuale e configurare una notifica in base ai risultati del recinto virtuale stesso. |

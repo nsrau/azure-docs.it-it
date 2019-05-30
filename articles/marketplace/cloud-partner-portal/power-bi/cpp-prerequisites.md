@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: c6b9f54d073b671b55f259bfbb2aa70d9eacfdc4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c436522bd5f1a9d52b71d85b7b47ac9a089c0b25
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943303"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258176"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>App Power BI offrono i prerequisiti
 
@@ -29,7 +29,7 @@ Dopo l'applicazione di servizio viene creata e testata in Power BI, è necessari
 
 I requisiti aziendali includono gli obblighi procedurali, legali e contrattuali.  È necessario:
 
-- Essere un server di pubblicazione di marketplace cloud registrato. Se non viene registrato, seguire i passaggi descritti in [diventare un editore di Marketplace Cloud](../../become-publisher.md).
+- Essere un server di pubblicazione di marketplace cloud registrato. Se non viene registrato, seguire i passaggi descritti in [diventare un editore di Marketplace Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE] 
     > Usare lo stesso account di registrazione di Microsoft Developer Center per accedere al [portale Cloud Partner](https://cloudpartner.azure.com). È consigliabile usare un solo account Microsoft per le offerte in AppSource. Gli account non devono essere specifici di singoli servizi o offerte.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
-ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb0f750f4049a1ce652c829f43928a95f30e6973
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621557"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302235"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sicurezza del servizio e dell'applicazione Service Fabric
 Un'architettura di microservizi può apportare [numerosi vantaggi](service-fabric-overview-microservices.md). Gestire la sicurezza dei microservizi, tuttavia, richiede procedure complesse, diverse da quelle necessarie per gestire la sicurezza delle tradizionali applicazioni monolitiche. 
@@ -36,7 +36,7 @@ Il primo passaggio del processo decisionale relativo all'attendibilità a livell
 
 Se è possibile accedere direttamente ai servizi, per autenticare gli utenti è possibile usare un servizio di autenticazione come Azure Active Directory o un microservizio di autenticazione dedicato che svolge la funzione di servizio token di sicurezza. Le decisioni sull'attendibilità vengono condivise tra i servizi tramite cookie o token di sicurezza. 
 
-Per ASP.NET Core, il principale meccanismo di [autenticazione degli utenti](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) è il sistema di appartenenze ASP.NET Core Identity, che archivia le informazioni sugli utenti (inclusi dati di accesso, ruoli e attestazioni) in un archivio dati configurato dallo sviluppatore. ASP.NET Core Identity supporta l'autenticazione a due fattori,  ma anche provider di autenticazione esterni, in modo che gli utenti possano accedere tramite processi di autenticazione esistenti forniti da provider come Microsoft, Google, Facebook o Twitter. 
+Per ASP.NET Core, il principale meccanismo di [autenticazione degli utenti](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) è il sistema di appartenenze ASP.NET Core Identity, che archivia le informazioni sugli utenti (inclusi dati di accesso, ruoli e attestazioni) in un archivio dati configurato dallo sviluppatore. ASP.NET Core Identity supporta l'autenticazione a due fattori,  Provider di autenticazione esterni sono inoltre supportati, in modo che gli utenti possono accedere usando processi di autenticazione esistenti forniti da provider come Microsoft, Google, Facebook o Twitter.
 
 ### <a name="authorization"></a>Authorization
 Dopo l'autenticazione, i servizi devono autorizzare l'accesso utente o determinare cosa può fare un utente. Questo processo, ad esempio, consente a un servizio di rendere le API disponibili per alcuni utenti autenticati, ma non per tutti. L'autorizzazione è ortogonale e indipendente dall'autenticazione, che costituisce invece il processo con cui si accerta l'identità di un utente. L'autenticazione, inoltre, può creare una o più identità per l'utente corrente.
