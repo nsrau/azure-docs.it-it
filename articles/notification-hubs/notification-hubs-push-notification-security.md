@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: 22494984ca45cde7255fb5e1a30548c859bfad68
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2ba3be0d51758cf7afd9f85258403bf79ca8401f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826500"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239406"
 ---
 # <a name="security-model-of-azure-notification-hubs"></a>Modello di sicurezza di Hub di notifica di Azure
 
@@ -45,11 +45,11 @@ Analogamente ad altre entità, le operazioni degli hub di notifica sono consenti
 
 | Attestazione   | Descrizione                                          | Operazioni consentite |
 | ------- | ---------------------------------------------------- | ------------------ |
-| Ascolto  | Creare o aggiornare, leggere ed eliminare singole registrazioni | Creare o aggiornare una registrazione<br><br>Leggere una registrazione<br><br>Leggere tutte le registrazioni per un handle<br><br>Eliminare una registrazione |
-| Invio    | Inviare messaggi all'hub di notifica                | Invia messaggio |
+| Attesa  | Creare o aggiornare, leggere ed eliminare singole registrazioni | Creare o aggiornare una registrazione<br><br>Leggere una registrazione<br><br>Leggere tutte le registrazioni per un handle<br><br>Eliminare una registrazione |
+| Invio    | Inviare messaggi all'hub di notifica                | Send message |
 | Gestisci  | CRUD negli hub di notifica (incluso l'aggiornamento delle credenziali PNS e le chiavi di sicurezza) e lettura delle registrazioni basata sui tag |Hub di notifica di creazione, aggiornamento, lettura ed eliminazione<br><br>Leggere le registrazioni per tag |
 
-Gli hub di notifica accettano attestazioni concesse dai token del Controllo di accesso di Microsoft Azure e dai token di firma generati con chiavi condivise configurate direttamente nell’hub di notifica.
+Notification hub accetta firma i token generati con shared le chiavi configurate direttamente sull'Hub di notifica.
 
 Non è possibile inviare una notifica a più di uno spazio dei nomi. Gli spazi dei nomi sono un contenitore logico per gli hub di notifica e non sono coinvolti con l'invio di notifiche.
 I criteri di accesso a livello dello spazio dei nomi (credenziali) possono essere usati per le operazioni a livello di spazio dei nomi, ad esempio: elenco di hub di notifica, la creazione o eliminazione di hub di notifica, e così via. Solo i criteri di accesso a livello di hub consente di inviare notifiche.
