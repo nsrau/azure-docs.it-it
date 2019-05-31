@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 4cc305e51113e67eb389bde8cb4cd28a3de8e3df
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 59be8e0585f0bedcafc868ee42f5113509c9c4ef
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969306"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417767"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Domande frequenti su VMware per la replica di Azure
 
@@ -113,7 +113,7 @@ Site Recovery replica le macchine virtuali VMware locali e server fisici in disc
 
 ### <a name="can-i-replicate-new-machines-to-storage-accounts"></a>È possibile replicare le macchine di nuovo agli account di archiviazione?
 
- No. Partire da marzo 2019, nel portale di Azure, è possibile eseguire la replica solo in Azure i dischi gestiti.
+No. Partire da marzo 2019, nel portale di Azure, è possibile eseguire la replica solo in Azure i dischi gestiti.
 
 Replica di nuove macchine virtuali a un account di archiviazione è disponibile solo tramite PowerShell o l'API REST (versione 2018-01-10 o 2016-08-10).
 
@@ -132,7 +132,7 @@ Sì, è possibile facilmente [modificare il tipo di disco gestito](https://docs.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>È possibile passare la replica da dischi gestiti a dischi non gestiti?
 
- No. Passa da gestito a codice non gestito non è supportato.
+No. Passa da gestito a codice non gestito non è supportato.
 
 ## <a name="replication"></a>Replica
 
@@ -177,7 +177,7 @@ Per la replica VMware in Azure, è possibile modificare le dimensioni del disco.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>È possibile migrare le macchine locali di un nuovo vCenter Server senza influire sulla replica in corso?
 
- No. Una modifica di VMware Vcenter o migrazione influirà sulla replica in corso. Configurare Site Recovery con il nuovo vCenter Server e abilitare nuovamente la replica per le macchine.
+No. Una modifica di VMware Vcenter o migrazione influirà sulla replica in corso. Configurare Site Recovery con il nuovo vCenter Server e abilitare nuovamente la replica per le macchine.
 
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>È possibile replicare in un account di archiviazione della cache o di destinazione che sia configurata su di esso una rete virtuale (con i firewall di Azure)?
 
@@ -231,7 +231,7 @@ Esaminare i [prerequisiti](vmware-azure-deploy-configuration-server.md#prerequis
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Un server di configurazione può eseguire la replica in più aree?
 
- No. Per la replica in più aree, è necessario un server di configurazione in ogni area.
+No. Per la replica in più aree, è necessario un server di configurazione in ogni area.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>È possibile ospitare un server di configurazione in Azure?
 
@@ -263,15 +263,15 @@ Sì. Scaricare il programma di installazione di MySQL e inserirlo nella cartella
 
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>È possibile usare la macchina virtuale del server di configurazione per altri scopi?
 
- No. Usare la macchina virtuale solo per il server di configurazione.
+No. Usare la macchina virtuale solo per il server di configurazione.
 
 ### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>È possibile clonare un server di configurazione e usarlo per l'orchestrazione?
 
- No. Configurare un server di configurazione aggiornati per evitare problemi di registrazione.
+No. Configurare un server di configurazione aggiornati per evitare problemi di registrazione.
 
 ### <a name="can-i-change-the-vault-in-which-the-configuration-server-is-registered"></a>È possibile modificare l'insieme di credenziali in cui è registrato il server di configurazione?
 
- No. Dopo un insieme di credenziali è associato il server di configurazione, non può essere modificata. [Informazioni su](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) sulla registrazione di un server di configurazione con un insieme di credenziali diverso.
+No. Dopo un insieme di credenziali è associato il server di configurazione, non può essere modificata. [Informazioni su](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) sulla registrazione di un server di configurazione con un insieme di credenziali diverso.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>È possibile usare lo stesso server di configurazione per il ripristino di emergenza di macchine virtuali VMware e server fisici?
 

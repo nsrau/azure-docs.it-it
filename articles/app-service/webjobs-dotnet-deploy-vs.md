@@ -14,12 +14,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 4d375b559019529bdc170ce6bab535481e0569e0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: b8cc628ef7db198c5068bb3917cf41113ba1687a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873013"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417095"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Sviluppare e distribuire processi Web usando Visual Studio - Servizio app di Azure
 
@@ -27,7 +27,7 @@ Questo articolo illustra come usare Visual Studio per distribuire un progetto di
 
 È possibile pubblicare più processi Web in una singola app web. Assicurarsi che ogni processo Web in un'app web ha un nome univoco.
 
-Versione 3.x del [Azure WebJobs SDK](webjobs-sdk-how-to.md) consente sviluppare i processi Web che vengono eseguiti come le app .NET Core, mentre la versione 2.x supporta solo .NET Framework. Il modo in cui che si distribuisce un progetto processi Web è diversi progetti .NET Core rispetto a quelli di .NET Framework.
+Versione 3.x del [Azure WebJobs SDK](webjobs-sdk-how-to.md) consente di sviluppare i processi Web che vengono eseguiti come l'app .NET Core o .NET Framework le app, durante la versione 2.x supporta solo .NET Framework. Il modo in cui che si distribuisce un progetto processi Web è diverso per i progetti .NET Core rispetto a quelli di .NET Framework.
 
 ## <a name="webjobs-as-net-core-console-apps"></a>Processi Web come App console .NET Core
 
@@ -119,7 +119,7 @@ Sono disponibili due opzioni:
 3. Completare la finestra di dialogo [Aggiungi processo Web Azure](#configure) , quindi fare clic su **OK**. 
 
 #### <a id="convertnolink"></a> Abilitare la distribuzione dei processi Web senza un progetto Web
-1. Fare clic con il pulsante destro del mouse sul progetto di applicazione console in **Esplora soluzioni** e quindi scegliere **Pubblica come processo Web Azure...**. 
+1. Fare clic con il pulsante destro del mouse sul progetto di applicazione console in **Esplora soluzioni** e quindi scegliere **Pubblica come processo Web Azure...** . 
    
     ![Pubblica come processo Web Azure](./media/webjobs-dotnet-deploy-vs/paw.png)
    
@@ -144,7 +144,7 @@ Per creare un nuovo progetto abilitato per i processi Web, è possibile usare il
 > 
 
 #### <a id="createnolink"></a> Usare il modello nuovo-progetto di processi Web per un processo Web indipendente
-1. Fare clic su **File** > **Nuovo progetto** e quindi nella finestra di dialogo **Nuovo progetto** fare clic su **Cloud** > **Processo Web Azure (.NET Framework)**.
+1. Fare clic su **File** > **Nuovo progetto** e quindi nella finestra di dialogo **Nuovo progetto** fare clic su **Cloud** > **Processo Web Azure (.NET Framework)** .
    
     ![Finestra di dialogo Nuovo progetto con il modello processo Web](./media/webjobs-dotnet-deploy-vs/np.png)
 2. Seguire le istruzioni illustrate in precedenza per [rendere il progetto di applicazione console un progetto processi Web indipendente](#convertnolink).
@@ -206,7 +206,7 @@ Quando si collega un progetto abilitato per i processi Web a un progetto Web, Vi
 ### <a id="deploy"></a>Distribuire un progetto processi Web
 Un progetto processi Web collegato a un progetto Web viene distribuito automaticamente con il progetto Web. Per informazioni sulla distribuzione dei progetti Web, vedere **Guide alle procedure** > **Distribuzione in Azure** nel riquadro di spostamento a sinistra.
 
-Per distribuire un progetto processi Web indipendente, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**, quindi scegliere **Pubblica come processo Web Azure...**. 
+Per distribuire un progetto processi Web indipendente, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**, quindi scegliere **Pubblica come processo Web Azure...** . 
 
 ![Pubblica come processo Web Azure](./media/webjobs-dotnet-deploy-vs/paw.png)
 
@@ -240,7 +240,7 @@ Le impostazioni seguenti sono supportate dai processi Web:
 | ----------- | --------- | --------------- |
 | `is_in_place` | Tutti | Consente di processo eseguiti sul posto senza prima essere copiati in una cartella temporanea. Per altre informazioni, vedere [directory di lavoro WebJobs](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Continuo | Eseguire solo i processi Web in una singola istanza di aumento del numero. Per altre informazioni, vedere [impostare un processo continuo come singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Attivati | Eseguire il processo Web in una pianificazione basata su CRON. PER altre informazioni, vedere la [articolo di riferimento sui trigger timer](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `schedule` | Attivato | Eseguire il processo Web in una pianificazione basata su CRON. PER altre informazioni, vedere la [articolo di riferimento sui trigger timer](../azure-functions/functions-bindings-timer.md#cron-expressions). |
 | `stopping_wait_time`| Tutti | Consente il controllo del comportamento di arresto. Per altre informazioni, vedere [arresto normale](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/21/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 4685d02fa9a1f08d86bdbe2915b94f177235b864
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 929a4ae2e954933bf00550770ba9d41319dc6241
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016427"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418053"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
@@ -224,7 +224,7 @@ Nella tabella seguente fornisce un esempio di creazione di una configurazione di
 
 | Destinazione del calcolo | Esempio di configurazione di distribuzione |
 | ----- | ----- |
-| Locale | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Istanza di contenitore di Azure | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Servizio Azure Kubernetes | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -235,9 +235,6 @@ Le sezioni seguenti illustrano come creare la configurazione della distribuzione
 ### <a id="local"></a> Distribuzione locale
 
 Per distribuire in locale, è necessario disporre **Docker installato** nel computer locale.
-
-Gli esempi in questa sezione usano [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), che richiede di registrare il modello e l'immagine prima di eseguire una distribuzione. Per altre informazioni su altri metodi di distribuzione, vedere [distribuire](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) e [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-).
-
 
 + **Tramite il SDK**
 

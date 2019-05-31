@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e65f7ca0a01e0ceee6448ea49e1d6d6da696cf6
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468318"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417072"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -338,7 +338,7 @@ Aggiornare le impostazioni dell'utente | Amministratore globale |
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
-Inviare un ticket di supporto | Amministratore del servizio | Amministratore dell'applicazione, amministratore di fatturazione, amministratore applicazione cloud, amministratore di conformità, amministratore di Dynamics 365, amministratore di Desktop Analytics, amministratore di Exchange, amministratore password, amministratore di protezione delle informazioni, amministratore di Intune, amministratore di Skype for Business, amministratore di Power BI, amministratore con privilegi di autenticazione, amministratore di SharePoint, amministratore delle comunicazioni con Teams, amministratore utenti, amministratore di Workplace Analytics
+Inviare un ticket di supporto | Amministratore del servizio | Amministratore dell'applicazione, amministratore di Azure Information Protection, Password dell'amministratore, amministratore applicazione Cloud, conformità, amministratore Dynamics 365, Analitica Desktop, amministratore Exchange, di fatturazione Amministratore, amministratore di Intune, Skype per amministratori di Business, amministratore di Power BI, amministratore con privilegi di autenticazione, l'amministratore di SharePoint, amministratore le comunicazioni del team, i team, Amministratore utenti, Amministratore di Analitica all'area di lavoro
 
 ## <a name="next-steps"></a>Passaggi successivi
 

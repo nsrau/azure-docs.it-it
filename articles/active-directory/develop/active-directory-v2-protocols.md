@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536210922d13f66aaa5a09bd87bd2d92da8d416c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546123"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417659"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocolli di Microsoft identity platform
 
@@ -48,7 +48,7 @@ In quasi tutti i flussi di OAuth 2.0 e OpenID Connect, sono coinvolte nello scam
 È necessario registrare ogni app che deve accettare sia personali e account aziendali o dell'istituto di istruzione tramite il **registrazioni per l'App** un'esperienza nello sviluppo di [portale di Azure](https://aka.ms/appregistrations) prima che può accedere gli utenti tramite OAuth 2.0 oppure OpenID Connect. Il processo di registrazione app raccoglie e assegna all'app alcuni valori:
 
 * Un **ID applicazione** che identifica l'app in modo univoco
-* Un **URI di reindirizzamento** o un **identificatore di pacchetto** che può essere usato per indirizzare le risposte all'app
+* Oggetto **URI di reindirizzamento** (facoltativo) che può essere utilizzato per indirizzare le risposte all'App
 * Altri valori specifici dello scenario
 
 Per altri dettagli, vedere [Azure Active Directory B2C: registrare l'applicazione](quickstart-register-app.md).
@@ -76,7 +76,7 @@ Per informazioni su come interagire con questi endpoint, scegliere un tipo di ap
 > [!TIP]
 > Qualsiasi app registrata in Azure AD possono usare l'endpoint di piattaforma delle identità di Microsoft, anche se non accedono gli account personali.  In questo modo, è possibile migrare le applicazioni esistenti alla piattaforma delle identità Microsoft e [MSAL](reference-v2-libraries.md) senza creare di nuovo l'applicazione.  
 
-## <a name="tokens"></a>Token
+## <a name="tokens"></a>Tokens
 
 L'implementazione di piattaforma di identità di Microsoft di OAuth 2.0 e OpenID Connect usano ampiamente i token di connessione, inclusi quelli rappresentati come Jwt. Un token di connessione è un token di sicurezza leggero che consente al "portatore" di accedere a una risorsa protetta. In questo senso, per "portatore" si intende qualsiasi parte che sia in grado di presentare il token. Anche se un'entità deve prima autenticarsi con la piattaforma di identità di Microsoft per ricevere il token di connessione, se non sono stati eseguiti i passaggi necessari per proteggere il token durante la trasmissione e di archiviazione, può essere intercettato e usato da parti non autorizzate. Molti token di sicurezza hanno meccanismi integrati per prevenire l'uso non autorizzato, ma i token di connessione ne sono sprovvisti e devono essere trasportati su un canale protetto, ad esempio Transport Layer Security (HTTPS). Se un token di connessione viene trasmesso senza protezione, un utente malintenzionato può usare un attacco man-in-the-middle per acquisire il token e usarlo per l'accesso non autorizzato a una risorsa protetta. Gli stessi principi di sicurezza si applicano quando un token di connessione viene archiviato o memorizzato nella cache per un uso futuro. Assicurarsi sempre che l'app trasmetta e archivi i token di connessione in modo sicuro. Per altre considerazioni sulla sicurezza dei token di connessione, vedere la [sezione 5 della specifica RFC 6750](https://tools.ietf.org/html/rfc6750).
 

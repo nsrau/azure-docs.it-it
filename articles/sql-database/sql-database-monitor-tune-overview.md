@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: cae0fbd450e6b392e1689d4642181f6e5279752b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 2fa43fcd48736a3d044deb07ed690af580c3b987
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393218"
+ms.locfileid: "66416282"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni
 
@@ -143,6 +143,24 @@ WHERE
 GROUP BY q.query_hash
 ORDER BY count (distinct p.query_id) DESC
 ```
+### <a name="factors-influencing-query-plan-changes"></a>Fattori che influenzano le modifiche al piano di query
+
+La ricompilazione di un piano di esecuzione query può comportare un piano di query generato è diverso da ciò che è stato originariamente memorizzati nella cache. Esistono vari motivi, motivo per cui un piano esistente originale potrebbe essere ricompilato automaticamente:
+- Modifiche nello schema di cui fa riferimento la query
+- Modifiche ai dati alle tabelle di cui fa riferimento la query 
+- Modifiche alle opzioni del contesto di query 
+
+Un piano compilato potrebbe essere espulso dalla cache per svariati motivi, ad esempio riavvii delle istanze, le modifiche alla configurazione, utilizzo della memoria e richieste esplicitare per cancellare la cache con ambito database. Utilizzando un hint RECOMPILE, inoltre, significa che non verrà memorizzate nella cache di un piano.
+
+Una ricompilazione o nuova compilazione dopo la rimozione della cache, comunque può comportare la generazione di un piano di esecuzione di query identica rispetto a quello originariamente osservato.  Se, tuttavia, esistono modifiche al piano rispetto al piano originale o precedente, ecco le spiegazioni più comuni per il motivo per cui un piano di esecuzione di query modificato:
+
+- **Modificare la progettazione fisica**. Ad esempio, nuovi indici creati che coprono che i requisiti di una query possono essere utilizzati con una nuova compilazione se query optimizer decide che è in modo più efficace più ottimale per sfruttare questo nuovo indice rispetto all'utilizzo la struttura dei dati selezionata originalmente per la prima versione di l'esecuzione della query.  Qualsiasi modifica fisica per gli oggetti di riferimento può comportare una scelta del piano di nuovo in fase di compilazione.
+
+- **Differenze di risorse server**. In uno scenario in cui un unico piano differisce su "sistema" e "sistema B", la disponibilità delle risorse, ad esempio il numero di processori disponibili, possono influenzare il piano generato.  Ad esempio, se un sistema dispone di un numero maggiore di processori, può essere scelto un piano parallelo. 
+
+- **Statistiche diverse**. Le statistiche associate agli oggetti di riferimento modificato o sono sostanzialmente diverse dalle statistiche del sistema originale.  Se le statistiche di modifica e si verifica una ricompilazione, query optimizer userà le statistiche a partire da quel punto specifico nel tempo. Le statistiche riviste possono avere distribuzioni dei dati diverse in modo significativo e frequenze che non sono presenti nella compilazione originale.  Queste modifiche vengono utilizzate per stimare stime della cardinalità (numero di righe previsto per fluire attraverso l'albero della query logica).  Le modifiche alle stime della cardinalità possono portare a scegliere diversi operatori fisici e ordine di operazioni associato.  Alcune modifiche minori anche alle statistiche possono comportare un piano di esecuzione di query modificata.
+
+- **Versione Estimatore cardinalità o un livello di database è stato sostituito compatibilità**.  Le modifiche a livello di compatibilità del database è possono abilitare nuove strategie e le funzionalità che possono comportare un piano di esecuzione di query diversi.  Oltre a livello di compatibilità del database, la disabilitazione o abilitazione di flag di traccia 4199 o la modifica dello stato della configurazione con ambito database QUERY_OPTIMIZER_HOTFIXES possono influenzare anche query scelte di piani di esecuzione in fase di compilazione.  I flag di traccia 9481 (force versione CE legacy) e 2312 (forzare la versione CE predefinita) sono anche ai piani. 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Risolvere le query problematiche o fornire altre risorse
 

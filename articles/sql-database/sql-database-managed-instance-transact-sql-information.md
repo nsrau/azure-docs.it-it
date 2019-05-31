@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852138"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258604"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
@@ -27,6 +27,7 @@ Questo articolo vengono riepilogati e vengono illustrate le differenze nella sin
 - [Sicurezza](#security) include le differenze nei [il controllo](#auditing), [certificati](#certificates), [credenziali](#credential), [cryptographic provider](#cryptographic-providers), [gli account di accesso e utenti](#logins-and-users)e il [chiave di servizio e chiave master del servizio](#service-key-and-service-master-key).
 - [Configuration](#configuration) include le differenze nei [estensione del pool di buffer](#buffer-pool-extension), [regole di confronto](#collation), [i livelli di compatibilità](#compatibility-levels), [il mirroring del database ](#database-mirroring), [opzioni di database](#database-options), [SQL Server Agent](#sql-server-agent), e [Opzioni tabella](#tables).
 - [Le funzionalità](#functionalities) comprende [BULK INSERT o OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [transazioni distribuite](#distributed-transactions), [eventi estesi](#extended-events), [librerie esterne](#external-libraries), [filestream e FileTable](#filestream-and-filetable), [ricerca semantica full-text](#full-text-semantic-search), [server collegati](#linked-servers), [PolyBase](#polybase), [replica](#replication), [RESTORE](#restore-statement), [servizio Broker](#service-broker), [stored procedure, funzioni e trigger](#stored-procedures-functions-and-triggers).
+- [Le impostazioni di ambiente](#Environment) , ad esempio le configurazioni di reti virtuali e subnet.
 - [Le istanze gestite di funzioni che hanno un comportamento diverso in](#Changes).
 - [Problemi noti e limitazioni temporanee](#Issues).
 
@@ -115,7 +116,7 @@ CREATE CERTIFICATE
 WITH PRIVATE KEY (<private_key_options>)
 ```
 
-### <a name="credential"></a>Credenziale
+### <a name="credential"></a>Credenziali
 
 Sono supportati solo l'insieme di credenziali delle chiavi di Azure e le identità `SHARED ACCESS SIGNATURE`. Gli utenti di Windows non sono supportati.
 
@@ -192,7 +193,7 @@ Un'istanza gestita non può accedere a file, in modo che non è possibile creare
 - [Estensione del pool di buffer](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) non è supportato.
 - `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` non è supportata. Vedere [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
-### <a name="collation"></a>Regole di confronto
+### <a name="collation"></a>Collation
 
 Le regole di confronto di istanza predefinita sono `SQL_Latin1_General_CP1_CI_AS` e possono essere specificate come un parametro di creazione. Vedere [Regole di confronto](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
@@ -281,7 +282,7 @@ Per altre informazioni, vedere [ALTER DATABASE](https://docs.microsoft.com/sql/t
   - I processi di replica seguenti sono supportati:
     - Lettore di log delle transazioni
     - Snapshot
-    - Server di distribuzione
+    - Database di distribuzione
   - I passaggi di processo SSIS sono supportati.
   - Non sono attualmente supportati altri tipi di passaggi di processo:
     - Il passaggio di processo di merge della replica non è supportato. 
@@ -454,6 +455,19 @@ Il broker di servizio tra istanze non è supportato:
 - `xp_cmdshell` non è supportata. Vedere [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` non sono supportate, che include `sp_addextendedproc`  e `sp_dropextendedproc`. Visualizzare [stored procedure estese](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db` non sono supportate. Vedere [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
+
+## <a name="Environment"></a>Vincoli Environmet
+
+### <a name="subnet"></a>Subnet
+- Nella subnet sono riservate per l'istanza gestita è possibile inserire qualsiasi altra risorsa (ad esempio macchine virtuali). Queste risorse vengano inserite in altre subnet.
+- Subnet deve essere un numero sufficiente di disponibili [gli indirizzi IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Valore minimo è 16, mentre è consigliato disporre di almeno 32 indirizzi IP nella subnet.
+- [Gli endpoint di servizio non possono essere associati a subnet dell'istanza gestita](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Assicurarsi che l'opzione endpoint di servizio viene disabilitato quando si crea la rete virtuale.
+- Il numero e tipi di istanze che è possibile inserire nella subnet hanno alcune [limiti e vincoli](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- Esistono tuttavia alcuni [regole di sicurezza che devono essere applicate nella subnet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+
+### <a name="vnet"></a>Rete virtuale
+- Rete virtuale può essere distribuita usando il modello di risorse: modello di distribuzione classica per rete virtuale non è supportato.
+- Alcuni servizi, ad esempio ambienti del servizio App, App per la logica e le istanze gestite (usato per la replica geografica, la replica transazionale, o tramite i server collegati) non possono accedere le istanze gestite in aree diverse se le reti virtuali sono connesse tramite [peering globale](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). È possibile connettersi a queste risorse tramite ExpressRoute o della rete virtuale a rete virtuale tramite gateway di rete virtuale.
 
 ## <a name="Changes"></a> Modifiche nel comportamento
 

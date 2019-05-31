@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a1d2cc50b405df2c71d94e74973b3291a4e908cb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393479"
+ms.locfileid: "66417993"
 ---
 # <a name="content-key-policies"></a>Criteri di chiave simmetrica
 
@@ -25,7 +25,7 @@ Con Servizi multimediali è possibile distribuire contenuti live e on demand cri
 
 Per specificare le opzioni di crittografia nel flusso, è necessario creare un [criteri di Streaming](streaming-policy-concept.md) e associalo con i [localizzatore di Streaming](streaming-locators-concept.md). Si crea il [Content Key Policy](https://docs.microsoft.com/rest/api/media/contentkeypolicies) per configurare come la chiave simmetrica (che fornisce l'accesso sicuro per il [asset](assets-concept.md)) sia resa disponibile per i client finali. È necessario impostare i requisiti (restrizioni) in Criteri di chiave simmetrica che devono essere soddisfatte affinché le chiavi con la configurazione specificata possa essere distribuita al client. I criteri questa chiave simmetrica non è necessaria per streaming o il download non crittografato. 
 
-In genere, associano i **criteri di chiave simmetrica** con il **localizzatore di Streaming**. In alternativa, è possibile specificare i criteri di chiave simmetrica all'interno di un criterio di flusso (durante la creazione di un criterio personalizzato di Streaming per scenari avanzati). 
+In genere, associano i **criteri di chiave simmetrica** con il [localizzatore di Streaming](streaming-locators-concept.md). In alternativa, è possibile specificare i criteri di chiave simmetrica all'interno di un [Streaming criteri](streaming-policy-concept.md) (quando la creazione di un criterio personalizzato di Streaming per scenari avanzati). 
 
 È consigliabile per consentire a servizi multimediali di genera automaticamente chiavi simmetriche. In genere, si potrebbe usare una chiave lunga e verificare l'esistenza di criteri con **ottenere**. Per recuperare la chiave, è necessario chiamare un metodo di azione separato per ottenere i segreti o le credenziali. Vedere l'esempio riportato di seguito.
 

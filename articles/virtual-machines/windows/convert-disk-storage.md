@@ -16,16 +16,18 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: abd893c68f2e9cac713e09dd0bdafb7f277ae889
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5687e6d0094083a9ee58455cc72b0b2e4da32d65
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707541"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417143"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Aggiornare il tipo di archiviazione di un disco gestito
 
-Sono disponibili quattro opzioni per Azure managed disks: Archiviazione su disco extra Azure Premium SSD, unità SSD Standard e Standard HDD. È possibile passare tra questi tipi di archiviazione in base alle esigenze di prestazioni con tempi di inattività minimo. Questa funzionalità non è supportata per dischi non gestiti. È possibile eseguire facilmente [convertire un disco non gestito in un disco gestito](convert-unmanaged-to-managed-disks.md) sia in grado di passare tra i tipi di disco.
+Esistono quattro tipi di dischi di Azure i dischi gestiti: SSDs Ultra-Azure (anteprima), premium SSD standard unità SSD e unità disco rigido standard. È possibile spostarsi tra i tre tipi di dischi a livello generale (premium SSD standard unità SSD e HDD standard) in base alle esigenze di prestazioni. Non si è ancora in grado di passare da o in un'unità SSD extra, è necessario distribuire uno nuovo.
+
+Questa funzionalità non è supportata per dischi non gestiti. È possibile eseguire facilmente [convertire un disco non gestito in un disco gestito](convert-unmanaged-to-managed-disks.md) sia in grado di passare tra i tipi di disco.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

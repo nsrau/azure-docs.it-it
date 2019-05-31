@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61276138"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417845"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?
 
@@ -45,7 +45,7 @@ Site Recovery può replicare qualsiasi app in esecuzione in una macchina support
 
 | **Carico di lavoro** |**Replicare le VM di Azure in Azure** |**Replicare le VM Hyper-V in un sito secondario** | **Replicare VM Hyper-V in Azure** | **Replicare VM VMware in un sito secondario** | **Replicare VM VMware in Azure** |
 | --- | --- | --- | --- | --- |---|
-| Active Directory, DNS  |S |S |S |S |S|
+| Active Directory, DNS |S |S |S |S |S|
 | App Web (IIS, SQL) |S |S |S |S |S|
 | System Center Operations Manager |S |S |S |S |S|
 | SharePoint |S |S |S |S |S|
@@ -103,9 +103,9 @@ Servizi Desktop remoto abilita l'uso di un'infrastruttura VDI (Virtual Desktop I
 
 | **SERVIZI DESKTOP REMOTO** |**Replicare le VM di Azure in Azure** | **Replicare le VM Hyper-V in un sito secondario** | **Replicare VM Hyper-V in Azure** | **Replicare VM VMware in un sito secondario** | **Replicare VM VMware in Azure** | **Replicare di server fisici in un sito secondario** | **Replicare i server fisici in Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Desktop virtuale in pool (non gestito)** |No |Sì |No  |Sì |No  |Sì |No  |
-| **Desktop virtuale in pool (gestito e senza UPD)** |No |Sì |No  |Sì |No  |Sì |No  |
-| **Applicazioni remote e le sessioni Desktop (senza UPD)** |Sì|Sì |Sì |Sì |Sì |Sì |Sì |
+| **Desktop virtuale in pool (non gestito)** |No|Sì |No |Sì |No |Sì |No |
+| **Desktop virtuale in pool (gestito e senza UPD)** |No|Sì |No |Sì |No |Sì |No |
+| **Applicazioni remote e le sessioni Desktop (senza UPD)** |Yes|Sì |Sì |Sì |Sì |Sì |Yes |
 
 [Configurare il ripristino di emergenza per Servizi Desktop remoto con Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

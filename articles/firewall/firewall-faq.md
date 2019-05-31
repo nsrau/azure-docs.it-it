@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/3/2019
+ms.date: 5/30/2019
 ms.author: victorh
-ms.openlocfilehash: 84b42654ec472ea2c7c81bed545f56b647158c95
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016013"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384680"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -62,7 +62,7 @@ Firewall di Azure è integrato con Monitoraggio di Azure per la visualizzazione 
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Come funziona Firewall di Azure rispetto ad altri servizi esistenti, come le appliance virtuali di rete, nel marketplace?
 
-Firewall di Azure è un servizio firewall di base che consente di risolvere determinati scenari dei clienti. Si presuppone che ci sia una combinazione di appliance virtuali di rete di terze parti e Firewall di Azure. L'integrazione è una priorità fondamentale.
+Firewall di Azure è un servizio firewall di base che consente di risolvere determinati scenari dei clienti. È previsto che si avrà una combinazione di Appliance virtuali di rete e Firewall di Azure di terze parti. L'integrazione è una priorità fondamentale.
 
 ## <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Qual è la differenza tra la funzionalità Web application firewall del gateway applicazione e Firewall di Azure?
 
@@ -71,6 +71,11 @@ Web application firewall (WAF) è una funzionalità del gateway applicazione che
 ## <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>Qual è la differenza tra i gruppi di sicurezza di rete e Firewall di Azure?
 
 Il servizio Firewall di Azure si integra con la funzionalità dei gruppi sicurezza di rete offrendo una migliore sicurezza di rete con strategie di difesa avanzate. I gruppi di sicurezza di rete forniscono un filtraggio del traffico distribuito a livello di rete per limitare il traffico verso le risorse all'interno delle reti virtuali in ogni sottoscrizione. Firewall di Azure è un firewall di rete centralizzato con stato completo, distribuito come servizio, che fornisce protezione a livello di rete e di applicazione in diverse sottoscrizioni e reti virtuali.
+
+## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Gruppi di sicurezza di rete (Nsg) sono supportati nella subnet del Firewall di Azure?
+
+Firewall di Azure è un servizio gestito con più livelli di protezione, inclusa la protezione della piattaforma con NIC Nsg livello (non visibile).  Livello di subnet Nsg non sono necessari nella subnet del Firewall di Azure e sono disabilitati per evitare possibili interruzioni del servizio.
+
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Come si configura Firewall di Azure con gli endpoint di servizio?
 
@@ -84,7 +89,7 @@ Visualizzare [prezzi di Azure Firewall](https://azure.microsoft.com/pricing/deta
 
 È possibile usare i metodi di *deallocazione* e *allocazione* di Azure PowerShell.
 
-Ad esempio:
+Ad esempio: 
 
 ```azurepowershell
 # Stop an existing firewall
@@ -125,7 +130,7 @@ Il tunneling forzato non è supportato per impostazione predefinita, ma può ess
 
 Connettività diretta al Firewall di Azure. Se AzureFirewallSubnet apprende una route predefinita alla rete locale tramite BGP è necessario sostituirla con una route UDR 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet** per mantenere connettività diretta a Internet. Per impostazione predefinita, Firewall di Azure non supporta il tunneling forzato a una rete locale.
 
-Tuttavia, se la configurazione richiede il tunneling forzato a una rete locale, Microsoft effettuerà assistenza caso per caso. Contattare il supporto tecnico per poter esaminare il caso. Se accettato, la sottoscrizione verrà inserita nell'elenco elementi consentiti e si assicurerà che venga mantenuta la connettività Internet del firewall necessaria.
+Tuttavia, se la configurazione richiede il tunneling forzato a una rete locale, Microsoft effettuerà assistenza caso per caso. Contattare il supporto tecnico per poter esaminare il caso. Se accettato, verrà lascia la propria sottoscrizione e assicurare che venga mantenuta la connettività Internet di firewall necessarie.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Vi sono restrizioni relative al gruppo di risorse del firewall?
 
@@ -137,7 +142,7 @@ Sì. Il firewall, la subnet, la rete virtuale e l'indirizzo IP pubblico devono t
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Come funzionano i caratteri jolly in una nome di dominio completo di destinazione regola applicazione?
 
-Se si configura ***. contoso.com**, consente *anyvalue*. contoso.com, ma non contoso.com (dominio dominio radice). Se si desidera consentire il vertice di dominio, è necessario configurarlo in modo esplicito come un nome di dominio completo di destinazione.
+Se si configura * **. contoso.com**, consente *anyvalue*. contoso.com, ma non contoso.com (dominio dominio radice). Se si desidera consentire il vertice di dominio, è necessario configurarlo in modo esplicito come un nome di dominio completo di destinazione.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Funzionamento di *lo stato di Provisioning: Non è stato possibile* significa?
 

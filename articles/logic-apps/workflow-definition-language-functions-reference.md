@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.openlocfilehash: b42d376be0d26c8ced60344793dbc8f7dd4a3d53
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 24e0a0ae2a6af964d3ed87d1817de6e5f403c9b1
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303772"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416343"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Riferimento alle funzioni per il linguaggio di definizione del flusso di lavoro in App per la logica di Azure e Microsoft Flow
 
@@ -246,7 +246,8 @@ Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabe
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Creare una matrice con i valori corrispondenti a un nome chiave negli ouput di azione *form-data* o *form-encoded*. |
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Restituisce un singolo valore che corrisponde a un nome chiave nell'output *form-data* o *form-encoded* di un'azione. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Quando si trova all'interno di un'azione ripetuta su una matrice, restituisce l'elemento corrente nella matrice durante l'iterazione corrente dell'azione. |
-| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | Quando si trova all'interno di un ciclo for-each o do-until, restituisce l'elemento corrente dal ciclo specificato.|
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | All'interno di un ciclo Foreach o ciclo Until, restituiscono l'elemento corrente dal ciclo specificato.|
+| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | All'interno di un ciclo Until, restituire il valore di indice per l'iterazione corrente. È possibile utilizzare questa funzione all'interno di fino a cicli annidati. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Restituisce l'URL callback che chiama un trigger o un'azione. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Restituisce il corpo per una parte specifica dell'output di un'azione con più parti. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Restituisce il valore per un parametro che è descritti nella definizione del flusso di lavoro. |
@@ -320,7 +321,7 @@ action().outputs.body.<property>
 
 | Valore restituito | Type | Descrizione |
 | ------------ | -----| ----------- |
-| <*action-output*> | String | Output della proprietà o dell'azione corrente |
+| <*action-output*> | string | Output della proprietà o dell'azione corrente |
 ||||
 
 <a name="actionBody"></a>
@@ -389,7 +390,7 @@ actionOutputs('<actionName>')
 
 | Valore restituito | Type | Descrizione |
 | ------------ | -----| ----------- |
-| <*output*> | string | Output dell'azione specificata |
+| <*output*> | String | Output dell'azione specificata |
 ||||
 
 *Esempio*
@@ -457,12 +458,12 @@ actions('<actionName>').outputs.body.<property>
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Yes | String | Nome per l'oggetto azione di cui si vuole ottenere l'output  |
-| <*property*> | No  | String | Nome della proprietà dell'oggetto azione con il valore desiderato: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** e **clientTrackingId**. Nel portale di Azure è possibile trovare queste proprietà esaminando i dettagli di una cronologia di esecuzione specifica. Per altre informazioni, vedere [REST API - Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get) (API REST - Azioni di esecuzione del flusso di lavoro). |
+| <*property*> | No | String | Nome della proprietà dell'oggetto azione con il valore desiderato: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** e **clientTrackingId**. Nel portale di Azure è possibile trovare queste proprietà esaminando i dettagli di una cronologia di esecuzione specifica. Per altre informazioni, vedere [REST API - Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get) (API REST - Azioni di esecuzione del flusso di lavoro). |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | -----| ----------- |
-| <*action-output*> | string | Output dell'azione o della proprietà specificata |
+| <*action-output*> | String | Output dell'azione o della proprietà specificata |
 ||||
 
 *Esempio*
@@ -517,9 +518,9 @@ addDays('<timestamp>', <days>, '<format>'?)
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Yes | string | Stringa contenente il timestamp |
+| <*timestamp*> | Yes | String | Stringa contenente il timestamp |
 | <*days*> | Yes | Integer | Numero positivo o negativo di giorni da aggiungere |
-| <*format*> | No  | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -559,7 +560,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Yes | String | Stringa contenente il timestamp |
+| <*timestamp*> | Yes | string | Stringa contenente il timestamp |
 | <*hours*> | Yes | Integer | Numero positivo o negativo di ore da aggiungere |
 | <*format*> | No | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
@@ -603,12 +604,12 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | Stringa contenente il timestamp |
 | <*minutes*> | Yes | Integer | Numero positivo o negativo di minuti da aggiungere |
-| <*format*> | No  | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | string | Timestamp con l'aggiunta del numero di minuti specificato |
+| <*updated-timestamp*> | String | Timestamp con l'aggiunta del numero di minuti specificato |
 ||||
 
 *Esempio 1*
@@ -644,7 +645,7 @@ addProperty(<object>, '<property>', <value>)
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*object*> | Yes | Object | Oggetto JSON a cui si vuole aggiungere una proprietà |
-| <*property*> | Yes | string | Nome della proprietà da aggiungere |
+| <*property*> | Yes | String | Nome della proprietà da aggiungere |
 | <*value*> | Yes | Qualsiasi | Valore per la proprietà |
 |||||
 
@@ -676,7 +677,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | Stringa contenente il timestamp |
 | <*seconds*> | Yes | Integer | Numero positivo o negativo di secondi da aggiungere |
-| <*format*> | No  | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -717,10 +718,10 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Yes | String | Stringa contenente il timestamp |
+| <*timestamp*> | Yes | string | Stringa contenente il timestamp |
 | <*interval*> | Yes | Integer | Numero di unità di tempo specificate da aggiungere |
-| <*timeUnit*> | Yes | String | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No  | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*timeUnit*> | Yes | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*format*> | No | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -814,7 +815,7 @@ array('<value>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | string | Stringa per la creazione di una matrice |
+| <*value*> | Yes | String | Stringa per la creazione di una matrice |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -849,7 +850,7 @@ base64('<value>')
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*base64-string*> | String | Versione della stringa di input con codifica base64 |
+| <*base64-string*> | string | Versione della stringa di input con codifica base64 |
 ||||
 
 *Esempio*
@@ -874,12 +875,12 @@ base64ToBinary('<value>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | Stringa con codifica base64 da convertire |
+| <*value*> | Yes | string | Stringa con codifica base64 da convertire |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*binary-for-base64-string*> | String | Versione binaria della stringa con codifica base64 |
+| <*binary-for-base64-string*> | string | Versione binaria della stringa con codifica base64 |
 ||||
 
 *Esempio*
@@ -908,12 +909,12 @@ base64ToString('<value>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | string | Stringa con codifica base64 da decodificare |
+| <*value*> | Yes | String | Stringa con codifica base64 da decodificare |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*decoded-base64-string*> | String | Versione stringa di una stringa con codifica base64 |
+| <*decoded-base64-string*> | string | Versione stringa di una stringa con codifica base64 |
 ||||
 
 *Esempio*
@@ -977,7 +978,7 @@ body('<actionName>')
 
 | Valore restituito | Type | Descrizione |
 | ------------ | -----| ----------- |
-| <*action-body-output*> | string | Oggetto `body` di output dell'azione specificata |
+| <*action-body-output*> | String | Oggetto `body` di output dell'azione specificata |
 ||||
 
 *Esempio*
@@ -1093,7 +1094,7 @@ concat('<text1>', '<text2>', ...)
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*text1text2...* > | String | Stringa creata dalle stringhe di input combinate |
+| <*text1text2...* > | string | Stringa creata dalle stringhe di input combinate |
 ||||
 
 *Esempio*
@@ -1166,12 +1167,12 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | Stringa contenente il timestamp |
 | <*destinationTimeZone*> | Yes | String | Nome del fuso orario di destinazione. Per altre informazioni, vedere [Time Zone IDs](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)) (ID dei fusi orari). |
-| <*format*> | No  | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*converted-timestamp*> | string | Timestamp convertito nel fuso orario di destinazione |
+| <*converted-timestamp*> | String | Timestamp convertito nel fuso orario di destinazione |
 ||||
 
 *Esempio 1*
@@ -1209,7 +1210,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp |
 | <*sourceTimeZone*> | Yes | String | Nome del fuso orario di origine. Per altre informazioni, vedere [Time Zone IDs](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)) (ID dei fusi orari). |
 | <*destinationTimeZone*> | Yes | String | Nome del fuso orario di destinazione. Per altre informazioni, vedere [Time Zone IDs](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)) (ID dei fusi orari). |
-| <*format*> | No  | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -1249,9 +1250,9 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Yes | string | Stringa contenente il timestamp |
-| <*sourceTimeZone*> | Yes | string | Nome del fuso orario di origine. Per altre informazioni, vedere [Time Zone IDs](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)) (ID dei fusi orari). |
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*timestamp*> | Yes | String | Stringa contenente il timestamp |
+| <*sourceTimeZone*> | Yes | String | Nome del fuso orario di origine. Per altre informazioni, vedere [Time Zone IDs](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)) (ID dei fusi orari). |
+| <*format*> | No | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -1322,12 +1323,12 @@ dataUri('<value>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | string | Stringa da convertire |
+| <*value*> | Yes | String | Stringa da convertire |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*data-uri*> | String | URI di dati per la stringa di input |
+| <*data-uri*> | string | URI di dati per la stringa di input |
 ||||
 
 *Esempio*
@@ -1354,12 +1355,12 @@ dataUriToBinary('<value>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | URI di dati da convertire |
+| <*value*> | Yes | string | URI di dati da convertire |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*binary-for-data-uri*> | String | Versione binaria dell'URI di dati |
+| <*binary-for-data-uri*> | string | Versione binaria dell'URI di dati |
 ||||
 
 *Esempio*
@@ -1419,7 +1420,7 @@ dayOfMonth('<timestamp>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Yes | String | Stringa contenente il timestamp |
+| <*timestamp*> | Yes | string | Stringa contenente il timestamp |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -1449,7 +1450,7 @@ dayOfWeek('<timestamp>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Yes | String | Stringa contenente il timestamp |
+| <*timestamp*> | Yes | string | Stringa contenente il timestamp |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -1479,7 +1480,7 @@ dayOfYear('<timestamp>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Yes | String | Stringa contenente il timestamp |
+| <*timestamp*> | Yes | string | Stringa contenente il timestamp |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -1543,7 +1544,7 @@ decodeDataUri('<value>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | Stringa dell'URI di dati da decodificare |
+| <*value*> | Yes | string | Stringa dell'URI di dati da decodificare |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -1578,7 +1579,7 @@ decodeUriComponent('<value>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | string | Stringa con i caratteri di escape da decodificare |
+| <*value*> | Yes | String | Stringa con i caratteri di escape da decodificare |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -1712,7 +1713,7 @@ endsWith('<text>', '<searchText>')
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Yes | String | Stringa da verificare |
-| <*searchText*> | Yes | String | Sottostringa finale da trovare |
+| <*searchText*> | Yes | string | Sottostringa finale da trovare |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -1823,7 +1824,7 @@ float('<value>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | Stringa con un numero a virgola mobile valido da convertire |
+| <*value*> | Yes | string | Stringa con un numero a virgola mobile valido da convertire |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -1859,7 +1860,7 @@ formatDateTime('<timestamp>', '<format>'?)
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*reformatted-timestamp*> | String | Timestamp aggiornato nel formato specificato |
+| <*reformatted-timestamp*> | string | Timestamp aggiornato nel formato specificato |
 ||||
 
 *Esempio*
@@ -1884,7 +1885,7 @@ formDataMultiValues('<actionName>', '<key>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Yes | string | Azione il cui output include il valore della chiave desiderato |
+| <*actionName*> | Yes | String | Azione il cui output include il valore della chiave desiderato |
 | <*key*> | Yes | String | Nome della chiave di cui si vuole ottenere il valore |
 |||||
 
@@ -1922,7 +1923,7 @@ formDataValue('<actionName>', '<key>')
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*key-value*> | string | Valore nella chiave specificata  |
+| <*key-value*> | String | Valore nella chiave specificata  |
 ||||
 
 *Esempio*
@@ -1948,7 +1949,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Yes | Integer | Numero di unità di tempo specificate da sottrarre |
-| <*timeUnit*> | Yes | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*timeUnit*> | Yes | String | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | No | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
@@ -1993,7 +1994,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Yes | Integer | Numero di unità di tempo specificate da sottrarre |
 | <*timeUnit*> | Yes | String | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No  | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -2115,7 +2116,7 @@ guid('<format>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | No  | string | [Identificatore di formato](https://msdn.microsoft.com/library/97af8hh4) singolo per il GUID restituito. Per impostazione predefinita, il formato è "D", ma è possibile usare "N", "D", "B", "P" o "X". |
+| <*format*> | No | String | [Identificatore di formato](https://msdn.microsoft.com/library/97af8hh4) singolo per il GUID restituito. Per impostazione predefinita, il formato è "D", ma è possibile usare "N", "D", "B", "P" o "X". |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -2209,7 +2210,7 @@ int('<value>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | string | Stringa da convertire |
+| <*value*> | Yes | String | Stringa da convertire |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -2264,7 +2265,7 @@ items('<loopName>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*loopName*> | Yes | string | Nome del ciclo for-each |
+| <*loopName*> | Yes | String | Nome del ciclo for-each |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -2278,6 +2279,96 @@ Questo esempio ottiene l'elemento corrente dal ciclo for-each specificato:
 
 ```
 items('myForEachLoopName')
+```
+
+<a name="iterationIndexes"></a>
+
+### <a name="iterationindexes"></a>iterationIndexes
+
+Restituisce il valore di indice per l'iterazione corrente all'interno di un ciclo Until. È possibile utilizzare questa funzione all'interno di fino a cicli annidati. 
+
+```
+iterationIndexes('<loopName>')
+```
+
+| Parametro | Obbligatorio | Type | Descrizione | 
+| --------- | -------- | ---- | ----------- | 
+| <*loopName*> | Yes | string | Il nome per il ciclo Until | 
+||||| 
+
+| Valore restituito | Type | Descrizione | 
+| ------------ | ---- | ----------- | 
+| <*index*> | Integer | Il valore di indice per l'iterazione corrente all'interno specificato ciclo Until | 
+|||| 
+
+*Esempio* 
+
+Questo esempio crea una variabile contatore e incrementa variabile da uno durante ogni iterazione in un ciclo Until fino a quando il valore del contatore raggiunge cinque. L'esempio crea anche una variabile che tiene traccia dell'indice corrente per ogni iterazione. Nel ciclo Until, durante ogni iterazione, nell'esempio incrementa il contatore e quindi assegna il valore del contatore al valore di indice corrente e quindi incrementa il contatore. In qualsiasi momento, è possibile determinare il numero di iterazione corrente recuperando il valore di indice corrente.
+
+```
+{
+   "actions": {
+      "Create_counter_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [ 
+               {
+                  "name": "myCounter",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {}
+      },
+      "Create_current_index_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [
+               {
+                  "name": "myCurrentLoopIndex",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {
+            "Create_counter_variable": [ "Succeeded" ]
+         }
+      },
+      "Until": {
+         "type": "Until",
+         "actions": {
+            "Assign_current_index_to_counter": {
+               "type": "SetVariable",
+               "inputs": {
+                  "name": "myCurrentLoopIndex",
+                  "value": "@variables('myCounter')"
+               },
+               "runAfter": {
+                  "Increment_variable": [ "Succeeded" ]
+               }
+            },
+            "Increment_variable": {
+               "type": "IncrementVariable",
+               "inputs": {
+                  "name": "myCounter",
+                  "value": 1
+               },
+               "runAfter": {}
+            }
+         },
+         "expression": "@equals(variables('myCounter'), 5),
+         "limit": {
+            "count": 60,
+            "timeout": "PT1H"
+         },
+         "runAfter": {
+            "Create_current_index_variable": [ "Succeeded" ]
+         }
+      }
+   }
+}
 ```
 
 <a name="json"></a>
@@ -2395,12 +2486,12 @@ join([<collection>], '<delimiter>')
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*collection*> | Yes | Array | Matrice contenente gli elementi da aggiungere |
-| <*delimiter*> | Yes | string | Separatore visualizzato tra ogni carattere nella stringa risultante |
+| <*delimiter*> | Yes | String | Separatore visualizzato tra ogni carattere nella stringa risultante |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | Stringa risultante creata da tutti gli elementi nella matrice specificata |
+| <*char1*><*delimiter*><*char2*><*delimiter*>... | string | Stringa risultante creata da tutti gli elementi nella matrice specificata |
 ||||
 
 *Esempio*
@@ -2461,7 +2552,7 @@ lastIndexOf('<text>', '<searchText>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Yes | string | Stringa che contiene la sottostringa da trovare |
+| <*text*> | Yes | String | Stringa che contiene la sottostringa da trovare |
 | <*searchText*> | Yes | String | Sottostringa da trovare |
 |||||
 
@@ -2759,7 +2850,7 @@ multipartBody('<actionName>', <index>)
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*body*> | string | Corpo per la parte specificata |
+| <*body*> | String | Corpo per la parte specificata |
 ||||
 
 <a name="not"></a>
@@ -3005,7 +3096,7 @@ removeProperty(<object>, '<property>')
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*object*> | Yes | Object | Oggetto JSON da cui si vuole rimuovere una proprietà |
-| <*property*> | Yes | String | Nome della proprietà da rimuovere |
+| <*property*> | Yes | string | Nome della proprietà da rimuovere |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -3035,7 +3126,7 @@ setProperty(<object>, '<property>', <value>)
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*object*> | Yes | Object | Oggetto JSON di cui si vuole impostare la proprietà |
-| <*property*> | Yes | string | Nome per la proprietà nuova o esistente da impostare |
+| <*property*> | Yes | String | Nome per la proprietà nuova o esistente da impostare |
 | <*value*> | Yes | Qualsiasi | Valore da impostare per la proprietà specificata |
 |||||
 
@@ -3096,8 +3187,8 @@ split('<text>', '<delimiter>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Yes | string | Stringa da suddividere in sottostringhe in base al delimitatore specificato nella stringa originale |
-| <*delimiter*> | Yes | string | Carattere nella stringa originale da usare come delimitatore |
+| <*text*> | Yes | String | Stringa da suddividere in sottostringhe in base al delimitatore specificato nella stringa originale |
+| <*delimiter*> | Yes | String | Carattere nella stringa originale da usare come delimitatore |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -3128,12 +3219,12 @@ startOfDay('<timestamp>', '<format>'?)
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp |
-| <*format*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | String | Timestamp specificato, che inizia in corrispondenza della mezzanotte esatta per il giorno |
+| <*updated-timestamp*> | string | Timestamp specificato, che inizia in corrispondenza della mezzanotte esatta per il giorno |
 ||||
 
 *Esempio*
@@ -3158,8 +3249,8 @@ startOfHour('<timestamp>', '<format>'?)
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Yes | String | Stringa contenente il timestamp |
-| <*format*> | No  | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*timestamp*> | Yes | string | Stringa contenente il timestamp |
+| <*format*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -3190,7 +3281,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | Stringa contenente il timestamp |
-| <*format*> | No  | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -3223,7 +3314,7 @@ startsWith('<text>', '<searchText>')
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Yes | String | Stringa da verificare |
-| <*searchText*> | Yes | String | Stringa iniziale da trovare |
+| <*searchText*> | Yes | string | Stringa iniziale da trovare |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -3342,7 +3433,7 @@ substring('<text>', <startIndex>, <length>)
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*substring-result*> | String | Sottostringa con il numero di caratteri specificato, che inizia in corrispondenza della posizione di indice specificata nella stringa di origine |
+| <*substring-result*> | string | Sottostringa con il numero di caratteri specificato, che inizia in corrispondenza della posizione di indice specificata nella stringa di origine |
 ||||
 
 *Esempio*
@@ -3370,13 +3461,13 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp |
 | <*interval*> | Yes | Integer | Numero di unità di tempo specificate da sottrarre |
-| <*timeUnit*> | Yes | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No  | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*timeUnit*> | Yes | String | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*format*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | String | Timestamp meno il numero di unità di tempo specificato |
+| <*updated-timestamp*> | string | Timestamp meno il numero di unità di tempo specificato |
 ||||
 
 *Esempio 1*
@@ -3468,7 +3559,7 @@ toLower('<text>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Yes | string | Stringa da restituire in formato minuscolo |
+| <*text*> | Yes | String | Stringa da restituire in formato minuscolo |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -3498,7 +3589,7 @@ toUpper('<text>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Yes | String | Stringa da restituire in formato maiuscolo |
+| <*text*> | Yes | string | Stringa da restituire in formato maiuscolo |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -3535,7 +3626,7 @@ trigger()
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*trigger-output*> | string | Output di un trigger in fase di esecuzione |
+| <*trigger-output*> | String | Output di un trigger in fase di esecuzione |
 ||||
 
 <a name="triggerBody"></a>
@@ -3552,7 +3643,7 @@ triggerBody()
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*trigger-body-output*> | String | Oggetto `body` di output del trigger |
+| <*trigger-body-output*> | string | Oggetto `body` di output del trigger |
 ||||
 
 <a name="triggerFormDataMultiValues"></a>
@@ -3567,7 +3658,7 @@ triggerFormDataMultiValues('<key>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*key*> | Yes | string | Nome della chiave di cui si vuole ottenere il valore |
+| <*key*> | Yes | String | Nome della chiave di cui si vuole ottenere il valore |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -3633,7 +3724,7 @@ triggerMultipartBody(<index>)
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*body*> | String | Corpo della parte specificata di un output a più parti di un trigger |
+| <*body*> | string | Corpo della parte specificata di un output a più parti di un trigger |
 ||||
 
 <a name="triggerOutputs"></a>
@@ -3650,7 +3741,7 @@ triggerOutputs()
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*trigger-output*> | String | Output di un trigger in fase di esecuzione  |
+| <*trigger-output*> | string | Output di un trigger in fase di esecuzione  |
 ||||
 
 <a name="trim"></a>
@@ -3734,7 +3825,7 @@ uriComponent('<value>')
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*encoded-uri*> | string | Stringa con codifica URI con i caratteri di escape |
+| <*encoded-uri*> | String | Stringa con codifica URI con i caratteri di escape |
 ||||
 
 *Esempio*
@@ -3794,12 +3885,12 @@ uriComponentToString('<value>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | Stringa con codifica URI da decodificare |
+| <*value*> | Yes | string | Stringa con codifica URI da decodificare |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*decoded-uri*> | string | Versione decodificata della stringa con codifica URI |
+| <*decoded-uri*> | String | Versione decodificata della stringa con codifica URI |
 ||||
 
 *Esempio*
@@ -3824,7 +3915,7 @@ uriHost('<uri>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Yes | string | URI di cui restituire il valore `host` |
+| <*uri*> | Yes | String | URI di cui restituire il valore `host` |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -3859,7 +3950,7 @@ uriPath('<uri>')
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*path-value*> | String | Valore `path` per l'URI specificato. Se `path` non ha un valore, viene restituito il carattere "/". |
+| <*path-value*> | string | Valore `path` per l'URI specificato. Se `path` non ha un valore, viene restituito il carattere "/". |
 ||||
 
 *Esempio*
@@ -3944,12 +4035,12 @@ uriQuery('<uri>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Yes | string | URI di cui restituire il valore `query` |
+| <*uri*> | Yes | String | URI di cui restituire il valore `query` |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*query-value*> | string | Valore `query` per l'URI specificato |
+| <*query-value*> | String | Valore `query` per l'URI specificato |
 ||||
 
 *Esempio*
@@ -3974,7 +4065,7 @@ uriScheme('<uri>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Yes | string | URI di cui restituire il valore `scheme` |
+| <*uri*> | Yes | String | URI di cui restituire il valore `scheme` |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -4007,7 +4098,7 @@ Facoltativamente, è possibile specificare un formato diverso con il parametro <
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | No  | String | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -4049,7 +4140,7 @@ variables('<variableName>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*variableName*> | Yes | String | Nome della variabile di cui si vuole ottenere il valore |
+| <*variableName*> | Yes | string | Nome della variabile di cui si vuole ottenere il valore |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -4080,7 +4171,7 @@ workflow().<property>
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | No  | String | Nome della proprietà del flusso di lavoro di cui si vuole ottenere il valore <p>Un oggetto flusso di lavoro ha queste proprietà: **name**, **type**, **id**, **location** e **run**. Il valore della proprietà **run** è anch'esso un oggetto con le proprietà seguenti: **name**, **type** e **id**. |
+| <*property*> | No | String | Nome della proprietà del flusso di lavoro di cui si vuole ottenere il valore <p>Un oggetto flusso di lavoro ha queste proprietà: **name**, **type**, **id**, **location** e **run**. Il valore della proprietà **run** è anch'esso un oggetto con le proprietà seguenti: **name**, **type** e **id**. |
 |||||
 
 *Esempio*
@@ -4103,7 +4194,7 @@ xml('<value>')
 
 | Parametro | Obbligatorio | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | string | Stringa con l'oggetto JSON da convertire <p>L'oggetto JSON deve avere una sola proprietà radice, che non può essere una matrice. <br>Il carattere barra rovesciata (\\) viene usato come carattere di escape per le virgolette doppie ("). |
+| <*value*> | Yes | String | Stringa con l'oggetto JSON da convertire <p>L'oggetto JSON deve avere una sola proprietà radice, che non può essere una matrice. <br>Il carattere barra rovesciata (\\) viene usato come carattere di escape per le virgolette doppie ("). |
 |||||
 
 | Valore restituito | Type | Descrizione |

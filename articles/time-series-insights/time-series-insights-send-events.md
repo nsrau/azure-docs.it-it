@@ -4,7 +4,7 @@ description: Informazioni su come configurare un hub eventi e su come eseguire u
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 48524020940149f6c67f4859f23c03eea140454b
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ae59e8115ca2d1ba69c8a3a099216eb3d98e2658
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991486"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237705"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Inviare eventi a un ambiente Time Series Insights usando un hub eventi
 
@@ -100,7 +100,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 * **Output**: Un evento.
 
-    |ID| timestamp|
+    |id| timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
 
@@ -123,7 +123,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 * **Output**: Due eventi.
 
-    |ID| timestamp|
+    |id| timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
     |device2|2016-01-08T01:17:00Z|
@@ -150,7 +150,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 * **Output**: Due eventi. La proprietà **location** viene copiata in ogni evento.
 
-    |percorso|events.id|events.timestamp|
+    |location|events.id|events.timestamp|
     |--------|---------------|----------------------|
     |WestUs|device1|2016-01-08T01:08:00Z|
     |WestUs|device2|2016-01-08T01:17:00Z|
@@ -191,7 +191,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 * **Output**: Due eventi.
 
-    |percorso|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
+    |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|
     |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|

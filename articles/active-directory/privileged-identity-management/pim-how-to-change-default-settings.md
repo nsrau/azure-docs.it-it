@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 05/31/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cb8944578caf00fac5ca430e411f044a875f6af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bc7d3ffcb56251825bf5f6d760de647938f1ead
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288715"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417883"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>Configurare le impostazioni di ruolo di Azure AD in PIM
 
@@ -72,6 +72,7 @@ Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere ag
 * Gli utenti che dispongono di account Microsoft per i relativi indirizzi di posta elettronica (in genere @outlook.com) non possono eseguire la registrazione per Azure MFA. Se si vuole assegnare ruoli agli utenti con account Microsoft, renderli amministratori permanenti o disabilitare l'autenticazione MFA per il ruolo.
 * Non è possibile disabilitare l'autenticazione MFA per i ruoli con privilegi elevati per Azure AD e Office365. Si tratta di una funzionalità di sicurezza poiché è necessaria una protezione elevata per questi ruoli:  
   
+  * Amministratore di Azure Information Protection
   * Amministratore fatturazione
   * Amministratore applicazione cloud
   * Amministratore di conformità
@@ -81,7 +82,6 @@ Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere ag
   * Writer di directory
   * Amministratore di Exchange
   * Amministratore globale
-  * Amministratore di Information Protection
   * Amministratore del servizio Intune
   * Amministratore del servizio Power BI
   * Amministratore dei ruoli con privilegi

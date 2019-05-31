@@ -8,18 +8,18 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: sajaya
-ms.openlocfilehash: 86efb6b655405500f994a5a5ec7acbd18c645004
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 1400c023e43179a9c8490334e262711486c75a2d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957851"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417936"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su registro contenitori di Azure
 
 Questo articolo affronta domande frequenti e problemi noti sul registro contenitori di Azure.
 
-## <a name="resource-management"></a>Gestione risorse
+## <a name="resource-management"></a>Resource management
 
 - [È possibile creare un registro contenitori di Azure usando un modello di Resource Manager?](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)
 - [È presente una vulnerabilità di sicurezza l'analisi per le immagini nel registro contenitori di AZURE?](#is-there-security-vulnerability-scanning-for-images-in-acr)
@@ -253,10 +253,11 @@ Quarantena immagine è attualmente una funzionalità di anteprima del registro c
 - [Nuove autorizzazioni utente potrebbero non essere valide immediatamente dopo l'aggiornamento](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Informazioni di autenticazione non sono specificate in formato corretto in chiamate API REST dirette](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Il motivo per cui il portale di Azure non è elencate tutte il repository o i tag?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Come si raccolgono le tracce http su Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>pull docker non riesce con errore: net/http: richiesta annullata durante l'attesa di connessione (Client.Timeout superato durante l'attesa di intestazioni)
 
- - Se questo errore è un problema temporaneo, ripetizione dei tentativi avrà esito positivo. 
+ - Se questo errore è un problema temporaneo, ripetizione dei tentativi avrà esito positivo.
  - Se `docker pull` ha esito negativo in modo continuo, potrebbe essersi verificato un problema con il daemon docker. Il problema può essere ridotto a livello generale, riavviare il daemon docker. 
  - Se si continua a visualizzare questo problema dopo il riavvio del daemon docker, il problema potrebbe essere alcuni problemi di connettività di rete con la macchina. Per verificare se generale di rete nel computer è integro, provare a eseguire un comando, ad esempio `ping www.bing.com`.
  - È sempre un meccanismo di ripetizione dei tentativi in tutte le operazioni client docker.
@@ -387,6 +388,28 @@ curl $redirect_url
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Il motivo per cui il portale di Azure non è elencate tutte il repository o i tag? 
 
 Se si usa il browser Microsoft Edge, è possibile visualizzare al massimo 100 repository o i tag elencati. Se il Registro di sistema ha più di 100 repository o i tag, è consigliabile utilizzare il browser Firefox o Chrome per elencarli tutti.
+
+### <a name="how-do-i-collect-http-traces-on-windows"></a>Come si raccolgono le tracce http su Windows?
+
+#### <a name="prerequisites"></a>Prerequisiti
+
+- Abilitare la decrittografia https ed eseguirla in fiddler:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Abilitare Docker per usare un proxy tramite l'interfaccia utente di Docker: <https://docs.docker.com/docker-for-windows/#proxies>
+- Assicurarsi di ripristinare sempre al termine dell'esercitazione.  Docker non funzionerà con questa impostazione attivata e fiddler non in esecuzione.
+
+#### <a name="windows-containers"></a>Contenitori Windows
+
+Configurare il proxy di Docker per 127.0.0.1: 8888
+
+#### <a name="linux-containers"></a>Contenitori Linux
+
+Trovare l'indirizzo ip di Docker commutatore virtuale a macchina virtuale:
+
+```powershell
+(Get-NetIPAddress -InterfaceAlias "*Docker*" -AddressFamily IPv4).IPAddress
+```
+
+Configurare il proxy di Docker per l'output del comando precedente e la porta 8888 (ad esempio 10.0.75.1:8888)
 
 ## <a name="tasks"></a>Attività
 
