@@ -297,12 +297,12 @@ Quando si spostano i dati in MongoDB vengono usati i mapping seguenti dai tipi M
 | --- | --- |
 | Binary |Byte[] |
 | Boolean |Boolean |
-| Data |DateTime |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |string |
-| string |string |
+| ObjectID |String |
+| String |String |
 | UUID |Guid |
 | Object |Rinormalizzato in colonne rese flat con "_" come separatore annidato |
 
