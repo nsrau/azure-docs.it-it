@@ -73,7 +73,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| tipo |Verificare che la proprietà type sia impostata su **OnPremisesFileServer**. |Sì |
+| type |Verificare che la proprietà type sia impostata su **OnPremisesFileServer**. |Sì |
 | host |Specifica il percorso radice della cartella da copiare. Usare il carattere di escape '\' per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere [Servizio collegato di esempio e definizioni del set di dati](#sample-linked-service-and-dataset-definitions) . |Sì |
 | userid |Specificare l'ID dell'utente che ha accesso al server. |No (se si sceglie encryptedCredential) |
 | password |Specificare la password per l'utente (userid). |No (se si sceglie encryptedCredential) |
