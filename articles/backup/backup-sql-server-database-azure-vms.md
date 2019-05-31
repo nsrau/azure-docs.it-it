@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: 0307dc5c83782119f6c10279563b8b9f0a999d28
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65952945"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236874"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -21,7 +21,7 @@ Database di SQL Server sono carichi di lavoro critici che richiedono un obiettiv
 
 Questo articolo illustra come eseguire il backup di un database di SQL Server in esecuzione in una VM di Azure a un insieme di credenziali di servizi di ripristino di Backup di Azure.
 
-In questo articolo si apprenderà come:
+L'articolo spiega come:
 
 > [!div class="checklist"]
 > * Creare e configurare un insieme di credenziali.
@@ -49,7 +49,7 @@ Per tutte le operazioni, una macchina virtuale di SQL Server richiede la connett
 
 Stabilire la connessione usando una delle opzioni seguenti:
 
-- **Consentire gli intervalli di IP del Data Center di Azure**. Questa opzione consente [intervalli di indirizzi IP](https://www.microsoft.com/download/details.aspx?id=41653) nel download. Per accedere a un gruppo di sicurezza di rete (NSG), usare il cmdlet Set-AzureNetworkSecurityRule. Se si è specifico dell'area solo nell'elenco elementi consentiti gli indirizzi IP, si sarà anche necessario all'elenco elementi consentiti di Azure Active Directory (Azure AD) tag del servizio per abilitare l'autenticazione.
+- **Consentire gli intervalli di IP del Data Center di Azure**. Questa opzione consente [intervalli di indirizzi IP](https://www.microsoft.com/download/details.aspx?id=41653) nel download. Per accedere a un gruppo di sicurezza di rete (NSG), usare il cmdlet Set-AzureNetworkSecurityRule. Se si è sicuri destinatari elencare solo gli indirizzi IP specifici dell'area, è necessario anche aggiornare l'elenco destinatari attendibili il tag di servizio di Azure Active Directory (Azure AD) per abilitare l'autenticazione.
 
 - **Consentire l'accesso usando i tag NSG**. Se si usano gli Nsg per limitare la connettività, questa opzione aggiunge una regola per il NSG che consenta l'accesso in uscita con Backup di Azure tramite il tag AzureBackup. Oltre a questo tag, è necessario anche corrispondente [regole](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) per Azure AD e l'archiviazione di Azure per consentire la connettività per il trasferimento di dati e l'autenticazione. Il tag AzureBackup è attualmente disponibile in PowerShell solo. Per creare una regola utilizzando il tag AzureBackup:
 
@@ -68,7 +68,7 @@ Stabilire la connessione usando una delle opzioni seguenti:
   - Salvare il gruppo di sicurezza<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
 - **Consentire l'accesso tramite Firewall Azure tag**. Se si usa il Firewall di Azure, creare una regola dell'applicazione usando il AzureBackup [tag FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags). In questo modo l'accesso in uscita con Backup di Azure.
-- **Distribuire un server proxy HTTP per indirizzare il traffico**. Quando si esegue il backup di un database di SQL Server in una macchina virtuale di Azure, l'estensione di backup nella macchina virtuale Usa le API di HTTPS per inviare comandi di gestione di Backup di Azure e i dati in archiviazione di Azure. L'estensione di backup Usa Azure AD per l'autenticazione. Eseguire il routing del traffico di estensione per il backup di questi tre servizi attraverso il proxy HTTP. Le estensioni sono l'unico componente configurato per l'accesso alla rete internet pubblica.
+- **Distribuire un server proxy HTTP per indirizzare il traffico**. Quando si esegue il backup di un database di SQL Server in una macchina virtuale di Azure, l'estensione di backup nella macchina virtuale Usa le API di HTTPS per inviare comandi di gestione di Backup di Azure e i dati in archiviazione di Azure. L'estensione di backup Usa Azure AD per l'autenticazione. Eseguire il routing del traffico di estensione per il backup di questi tre servizi attraverso il proxy HTTP. Le estensioni sono l'unico componente configurato per l'accesso a Internet pubblico.
 
 Opzioni di connettività includono i seguenti vantaggi e svantaggi:
 
@@ -96,7 +96,8 @@ Evitare di utilizzare i seguenti elementi nei nomi di database:
   * Gli spazi iniziali e finali
   * Finali punti esclamativi (!)
   * Parentesi quadre (])
-  * A partire da F:\
+  * Punto e virgola ';'
+  * Barra '/'
 
 Alias è disponibile per i caratteri non supportati, ma è consigliabile evitarli. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
@@ -162,7 +163,7 @@ Come individuare i database in esecuzione in una macchina virtuale:
 
      * Per proteggere più di 50 database, configurare più backup.
      * Per abilitare [ ](#enable-auto-protection) l'intera istanza o il gruppo di disponibilità Always On. Nel **AUTOPROTECT** elenco a discesa, seleziona **via**, quindi selezionare **OK**.
-     
+
     > [!NOTE]
     > Il [la protezione automatica](#enable-auto-protection) funzionalità non solo Abilita protezione in tutti i database esistenti in una sola volta, ma consente di proteggere automaticamente anche tutti i nuovi database aggiunti a quell'istanza o il gruppo di disponibilità.  
 
@@ -174,7 +175,7 @@ Come individuare i database in esecuzione in una macchina virtuale:
 
    - Selezionare i criteri predefiniti come HourlyLogBackup.
    - Scegliere un criterio di backup creato in precedenza per SQL.
-   - Definire un nuovo criterio basato sull'intervallo di conservazione e RPO.
+   - Definire un nuovo criterio basato sull'obiettivo del punto di ripristino (RPO) e sull'intervallo di conservazione.
 
      ![Selezionare il criterio di backup](./media/backup-azure-sql-database/select-backup-policy.png)
 
@@ -182,7 +183,7 @@ Come individuare i database in esecuzione in una macchina virtuale:
 
     ![Abilitare i criteri di backup scelti](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Tenere traccia dello stato di configurazione nel **notifiche** area del portale.
+7. È possibile monitorare l'avanzamento della configurazione nell'area  **Notifiche**  del portale.
 
     ![Area delle notifiche](./media/backup-azure-sql-database/notifications-area.png)
 
