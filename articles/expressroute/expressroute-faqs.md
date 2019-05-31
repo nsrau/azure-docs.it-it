@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 75c0deaa8bca94349091e3317e4ca70129bb4426
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 1a6f3fbc0160a78fb76f810257d3285725445eba
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991597"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257970"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -288,7 +288,7 @@ Sì. Gli addebiti per ExpressRoute Premium vengono sommati agli addebiti per Exp
 
 ## <a name="expressroute-local"></a>ExpressRoute locale
 ### <a name="what-is-expressroute-local"></a>Che cos'è ExpressRoute locale?
-ExpressRoute locale è un circuito di SKU di ExpressRoute. Una funzionalità chiave di variabile locale è che un circit locale a un circuito ExpressRoute località di peering consente di accedere solo a uno o due aree di Azure in o quasi la stessa area metropolitana. Al contrario, un circuito Standard consente di accedere a livello globale per tutte le aree di Azure in un circuito di Premium per tutte le aree di Azure e un'area geopolitica. 
+ExpressRoute locale è un circuito di SKU di ExpressRoute. Una funzionalità chiave di variabile locale è che un circuito locale a un circuito ExpressRoute località di peering consente di accedere solo a uno o due aree di Azure in o quasi la stessa area metropolitana. Al contrario, un circuito Standard consente di accedere a livello globale per tutte le aree di Azure in un circuito di Premium per tutte le aree di Azure e un'area geopolitica. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Quali sono i vantaggi di ExpressRoute locale?
 Anche se è necessario pagare il trasferimento dei dati in uscita per il circuito ExpressRoute Premium o Standard, non devi pagare il trasferimento dei dati in uscita separatamente il circuito ExpressRoute locale. In altre parole, il prezzo locale di ExpressRoute include tariffe di trasferimento dei dati. ExpressRoute locale è una soluzione più conveniente se hai enormi quantità di dati da trasferire e si può portare i dati tramite una connessione privata a una località di peering di ExpressRoute in prossimità di aree di Azure. 

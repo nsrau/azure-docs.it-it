@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 742f1359d928aa05a8b8d36bde2ccf022db93b79
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564851"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418246"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in un sito secondario
 
@@ -57,15 +57,15 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> CentOs 6.5, 
 
 **Configurazione** | **Supportato**  
 --- | --- 
-Host - Gruppo NIC | Sì 
-Host - VLAN | Sì 
-Host - IPv4 | Sì 
-Host - IPv6 | No  
-VM guest - Gruppo NIC | No 
-VM guest - IPv4 | Sì
-VM guest - IPv6 | No 
-VM guest - Windows/Linux - Indirizzo IP statico | Sì
-VM guest - Più NIC | Sì
+Host - Gruppo NIC | Yes 
+Host - VLAN | Yes 
+Host - IPv4 | Yes 
+Host - IPv6 | No 
+VM guest - Gruppo NIC | No
+VM guest - IPv4 | Yes
+VM guest - IPv6 | No
+VM guest - Windows/Linux - Indirizzo IP statico | Yes
+VM guest - Più NIC | Yes
 
 
 ## <a name="storage"></a>Archiviazione
@@ -74,37 +74,37 @@ VM guest - Più NIC | Sì
 
 **Archiviazione (host)** | **Supportato** 
 --- | --- 
-NFS | Sì 
+NFS | Yes 
 SMB 3.0 | N/D 
-SAN (iSCSI) | Sì 
-Percorsi multipli (MPIO) | Sì 
+SAN (iSCSI) | Yes 
+Percorsi multipli (MPIO) | Yes 
 
 ### <a name="guest-or-physical-server-storage"></a>Archiviazione su server fisico o guest
 
 **Configurazione** | **Supportato** 
 --- | --- 
-VMDK | Sì 
+VMDK | Yes 
 VHD/VHDX | N/D 
 VM di seconda generazione | N/D 
-Disco cluster condiviso | Sì 
-Disco crittografato | No  
-UEFI| Sì 
-NFS | No  
-SMB 3.0 | No  
-RDM | Sì 
-Disco superiore a 1 TB | Sì 
-Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Sì 
-Spazi di archiviazione | No  
-Aggiunta/rimozione a caldo disco | Sì 
-Esclusione disco | Sì 
+Disco cluster condiviso | Yes 
+Disco crittografato | No 
+UEFI| Yes 
+NFS | No 
+SMB 3.0 | No 
+RDM | Yes 
+Disco superiore a 1 TB | Yes 
+Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Yes 
+Spazi di archiviazione | No 
+Aggiunta/rimozione a caldo disco | Yes 
+Esclusione disco | Yes 
 Percorsi multipli (MPIO) | N/D 
 
 ## <a name="vaults"></a>Insiemi di credenziali
 
 **Azione** | **Supportato** 
 --- | --- 
-Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No  
-Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No  
+Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No 
+Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No 
 
 ## <a name="mobility-service-and-updates"></a>Servizio Mobility e aggiornamenti
 

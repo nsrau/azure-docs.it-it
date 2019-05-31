@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949565"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243600"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -26,9 +26,9 @@ Azure Data Lake Storage Gen2 implementa un modello di controllo di accesso che s
 
 RBAC Usa le assegnazioni di ruolo da applicare in modo efficace set di autorizzazioni agli *le entità di sicurezza*. Oggetto *entità di sicurezza* è un oggetto che rappresenta un utente, gruppo, l'entità servizio o identità gestita che viene definito in Azure Active Directory (AD) che richiede l'accesso alle risorse di Azure.
 
-In genere, le risorse di Azure sono vincolate a risorse di primo livello (ad esempio: Account di archiviazione di Azure). Nel caso di Archiviazione di Azure, e di conseguenza di Azure Data Lake Storage Gen2, questo meccanismo è stato esteso alla risorsa del file system.
+In genere, le risorse di Azure sono vincolate a risorse di primo livello (ad esempio: Account di archiviazione di Azure). Nel caso di archiviazione di Azure e, di conseguenza, Azure Data Lake Storage Gen2, questo meccanismo è stato esteso nella risorsa (file system) di contenitore.
 
-Per informazioni su come assegnare i ruoli per le entità di sicurezza nell'ambito dell'account di archiviazione, vedere [autentica l'accesso ad Azure di BLOB e code usando Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Per informazioni su come assegnare i ruoli per le entità di sicurezza nell'ambito dell'account di archiviazione, vedere [concedere l'accesso a Azure blob e Accodamento dei dati con accessi nel portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>L'impatto delle assegnazioni di ruolo sugli elenchi di controllo di accesso a livello di file e directory
 
@@ -49,7 +49,7 @@ I token di firma di accesso condiviso includono le autorizzazioni consentite com
 
 ## <a name="access-control-lists-on-files-and-directories"></a>Elenchi di controllo di accesso per file e directory
 
-È possibile associare un'entità di sicurezza con un livello di accesso per file e directory. Queste associazioni vengono acquisite in un *elenco di controllo di accesso (ACL)*. Ogni file e directory nell'account di archiviazione è un elenco di controllo di accesso.
+È possibile associare un'entità di sicurezza con un livello di accesso per file e directory. Queste associazioni vengono acquisite in un *elenco di controllo di accesso (ACL)* . Ogni file e directory nell'account di archiviazione è un elenco di controllo di accesso.
 
 Se è stato assegnato un ruolo a un'entità di sicurezza a livello di account di archiviazione, è possibile usare gli elenchi di controllo di accesso per concedere a che tale entità di protezione accesso con privilegi elevati per le directory e file specifici.
 
@@ -77,8 +77,6 @@ ACL predefiniti sono modelli di ACL associato a una directory che determinano gl
 
 Sia gli ACL di accesso che gli ACL predefiniti presentano la stessa struttura.
 
-Sia gli ACL di accesso che gli ACL predefiniti presentano la stessa struttura.
-
 > [!NOTE]
 > La modifica dell'ACL predefinito per un elemento padre non influisce sull'ACL di accesso o sull'ACL predefinito degli elementi figlio già esistenti.
 
@@ -91,6 +89,9 @@ Le autorizzazioni per un oggetto del file system sono **Lettura**, **Scrittura**
 | **Lettura (R)** | È possibile leggere il contenuto di un file | Per elencare il contenuto della directory, sono necessarie le autorizzazioni di **Lettura** ed **Esecuzione** |
 | **Scrittura (W)** | È possibile scrivere o aggiungere in un file | Per creare elementi figlio in una directory, sono necessarie le autorizzazioni di **Scrittura** ed **Esecuzione** |
 | **Esecuzione (X)** | Nessun valore nel contesto di Data Lake Storage Gen2 | È necessaria per attraversare gli elementi figlio di una directory |
+
+> [!NOTE]
+> Se si stanno concedendo le autorizzazioni usando solo gli ACL (nessun RBAC), quindi per concedere a un servizio principale accesso in lettura o scrittura in un file, è necessario concedere all'entità servizio **Execute** le autorizzazioni nel file System e a ogni cartella nel gerarchia di cartelle che portano al file.
 
 #### <a name="short-forms-for-permissions"></a>Forme brevi per le autorizzazioni
 

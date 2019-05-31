@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 4c2dad687d31597954b023dde9d1b9d69788fe04
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 13fbb20cde454a0aaab156a74a9fbcbac2d90d07
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241399"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418137"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Anteprima - limitare il traffico in uscita per i nodi del cluster e controllare l'accesso alle porte necessarie e i servizi in Azure Kubernetes Service (AKS)
 
@@ -69,7 +69,7 @@ Nel servizio contenitore di AZURE, sono disponibili due set di porte e indirizzi
 Le seguenti porte in uscita / regole di rete sono necessarie per un cluster del servizio contenitore di AZURE:
 
 * La porta TCP *443*
-* La porta TCP *9000* per i pod front tunnel comunicare con la fine del tunnel sul server API.
+* La porta TCP *9000* e la porta TCP *22* per i pod front tunnel comunicare con la fine del tunnel sul server API.
 
 Il nome FQDN segue le regole di applicazione sono necessari:
 

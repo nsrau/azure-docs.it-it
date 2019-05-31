@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8522b1d0a8f8466870966d3f11ce66f7bf15672b
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: cb7ace20fd0a59dafff3d7f8240f54c3c8e12492
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016376"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226408"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per applicazioni ASP.NET Core
 
@@ -111,7 +111,7 @@ Il [Application Insights SDK (Software Development Kit) per ASP.NET Core](https:
     > [!NOTE]
     > Una chiave di strumentazione specificata nel codice prevale sulla variabile di ambiente `APPINSIGHTS_INSTRUMENTATIONKEY`, quale prevale su altre opzioni.
 
-## <a name="run-your-application"></a>Esegui l'applicazione
+## <a name="run-your-application"></a>Eseguire l'applicazione
 
  Eseguire l'applicazione e inviare richieste a questo. I dati di telemetria deve ora avviino ad Application Insights. I seguenti dati di telemetria vengono raccolti automaticamente da Application Insights SDK.
 
@@ -125,7 +125,7 @@ Il [Application Insights SDK (Software Development Kit) per ASP.NET Core](https:
 |[SDK Client di ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Versione 3.0.0 e versioni successive. |
 |Azure Cosmos DB | Automaticamente registrate solo se viene utilizzato HTTP/HTTPS. La modalità TCP non verrà acquisita da Application Insights. |
 
-### <a name="performance-counters"></a>Contatori di prestazioni
+### <a name="performance-counters"></a>Contatori delle prestazioni
 
 Supporto per [contatori delle prestazioni](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/) in ASP.NET Core è limitata al seguente
 
@@ -138,7 +138,7 @@ Supporto per [contatori delle prestazioni](https://azure.microsoft.com/documenta
 
 [I log di ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger) livello di gravità `Warning` o versioni successive vengono automaticamente acquisite dal SDK versione 2.7.0-beta3 o versione successiva.
 
-### <a name="live-metrics"></a>Metriche attive
+### <a name="live-metrics"></a>Metriche in tempo reale
 
 Potrebbero occorrere alcuni minuti prima che i dati di telemetria prima di venire visualizzati nel portale. Per verificare rapidamente se tutto funziona, è consigliabile usare [Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream), durante la creazione di richieste per l'applicazione in esecuzione.
 
@@ -382,7 +382,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="video"></a>Video
 
-- External video dettagliata sulla [configurazione di Application Insights con .NET Core e Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) da zero.
+- Video esterno dettagliato sulla [configurazione da zero di Application Insights con .NET Core e Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
+- External video dettagliata sulla [configurazione di Application Insights con .NET Core e Visual Studio Code](https://youtu.be/ygGt84GDync) da zero.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Esplorare i flussi degli utenti](../../azure-monitor/app/usage-flows.md) per identificare in che modo gli utenti si sposteranno nell'app.

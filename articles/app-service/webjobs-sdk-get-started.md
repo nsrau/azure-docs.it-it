@@ -13,18 +13,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 20bb8d5380f5a905a827dfb12dcc032e327267e0
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864850"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418235"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
-Questo articolo illustra come usare Visual Studio 2019 per creare un progetto Azure WebJobs SDK, eseguirlo in locale e quindi distribuirlo per [servizio App di Azure](overview.md). Il progetto creato è un'app console .NET Core, che viene usata la versione 3.x di WebJobs SDK. Se si è interessati nella versione 2.x, che usa .NET Framework, vedere [sviluppare e distribuire processi Web usando Visual Studio - servizio App di Azure](webjobs-dotnet-deploy-vs.md).
+Questo articolo illustra come usare Visual Studio 2019 per creare un progetto Azure WebJobs SDK, eseguirlo in locale e quindi distribuirlo per [servizio App di Azure](overview.md). Versione 3.x di WebJobs SDK supporta le app console .NET Core e .NET Framework. Per altre informazioni sull'uso di WebJobs SDK, vedere [come usare Azure WebJobs SDK per l'elaborazione in background basata su eventi](webjobs-sdk-how-to.md).
 
-Per altre informazioni sull'uso di WebJobs SDK, vedere [come usare Azure WebJobs SDK per l'elaborazione in background basata su eventi](webjobs-sdk-how-to.md).
+Questo articolo illustra come distribuire processi Web come un'app console .NET Core. Per distribuire processi Web come un'app console .NET Framework, vedere [App console .NET Framework WebJobs](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Se è interessati a WebJobs SDK versione 2.x, che supporta solo .NET Framework, vedere [sviluppare e distribuire processi Web usando Visual Studio - servizio App di Azure](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,7 +36,7 @@ Per altre informazioni sull'uso di WebJobs SDK, vedere [come usare Azure WebJobs
 
 1. In Visual Studio, selezionare **creare un nuovo progetto**.
 
-2. Selezionare **Console App (.NET Core)**.
+2. Selezionare **Console App (.NET Core)** .
 
 3. Denominare il progetto *WebJobsSDKSample*, quindi selezionare **crea**.
 
@@ -171,7 +171,7 @@ A partire dalla versione 3.x, è necessario installare esplicitamente l'estensio
                     });
     ```
 
-## <a name="create-a-function"></a>Crea una funzione
+## <a name="create-a-function"></a>Creare una funzione
 
 1. Fare clic sul progetto, selezionare **Add** > **nuovo elemento...** , scegliere **classe**, denominare il nuovo C# file di classe *Functions.cs*e selezionare **Add**.
 
@@ -217,7 +217,7 @@ L'emulatore di archiviazione di Azure eseguito in locale non include tutte le fu
 
    ![Creare l'account di archiviazione](./media/webjobs-sdk-get-started/create-storage-account.png)
 
-1. Nel nodo **Archiviazione** in **Esplora server** selezionare il nuovo account di archiviazione. Nella finestra **Proprietà** selezionare i puntini di sospensione (**...**) a destra del campo del valore di **Stringa di connessione**.
+1. Nel nodo **Archiviazione** in **Esplora server** selezionare il nuovo account di archiviazione. Nella finestra **Proprietà** selezionare i puntini di sospensione ( **...** ) a destra del campo del valore di **Stringa di connessione**.
 
    ![Puntini di sospensione di Stringa di connessione](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
@@ -340,7 +340,7 @@ In questa sezione si configura la registrazione in Application Insights prima de
 
    |NOME  |Stringa di connessione  |Tipo di database|
    |---------|---------|------|
-   |AzureWebJobsStorage | {stringa di connessione di archiviazione copiata in precedenza}|Impostazioni personalizzate|
+   |AzureWebJobsStorage | {stringa di connessione di archiviazione copiata in precedenza}|Personalizzato|
 
 1. Se la casella **Impostazioni applicazione** non contiene una chiave di strumentazione di Application Insights, aggiungere quella copiata in precedenza. La presenza o meno della chiave di strumentazione dipende da come è stata creata l'app del servizio app.
 

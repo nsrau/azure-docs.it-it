@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 514aaaf7a274e60a17bbae62b3c62e7cf3668e7a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540596"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237309"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -46,7 +46,7 @@ RAM | 16 GB
 Numero di dischi | 3 dischi<br/><br/> I dischi includono il disco del sistema operativo, il disco della cache del server di elaborazione e l'unità di conservazione per il failback.
 Spazio disponibile su disco | 600 GB di spazio necessario per la cache del server di elaborazione.
 Spazio disponibile su disco | 600 GB di spazio necessario per l'unità di conservazione.
-Sistema operativo  | Windows Server 2012 R2 o Windows Server 2016 |
+Sistema operativo  | Windows Server 2012 R2 o Windows Server 2016 con esperienza Desktop |
 Impostazioni locali del sistema operativo | Inglese (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") non è necessaria per il server di configurazione con le versioni da [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Ruoli di Windows Server | Non abilitare: <br/> - Active Directory Domain Services <br/>- Internet Information Services <br/> - Hyper-V |
@@ -148,77 +148,77 @@ Più schede di interfaccia rete guest/server | Sì.
 
 **Componente** | **Supportato**
 --- | ---
-Azure ExpressRoute | Sì
-ILB | Sì
-ELB | Sì
-Gestione traffico di Azure | Sì
-Più NIC | Sì
-Indirizzo IP riservato | Sì
-IPv4 | Sì
-Conservazione indirizzo IP di origine | Sì
-Endpoint servizio di rete virtuale di Azure<br/> | Sì
-Rete accelerata | N.
+Azure ExpressRoute | Yes
+ILB | Yes
+ELB | Yes
+Gestione traffico di Azure | Yes
+Più NIC | Yes
+Indirizzo IP riservato | Yes
+IPv4 | Yes
+Conservazione indirizzo IP di origine | Yes
+Endpoint servizio di rete virtuale di Azure<br/> | Yes
+Rete accelerata | No 
 
 ## <a name="storage"></a>Archiviazione
 **Componente** | **Supportato**
 --- | ---
 Disco dinamico | Il disco del sistema operativo deve essere un disco di base <br/><br/>I dischi dati possono essere dinamici
-Configurazione dei dischi Docker | N.
+Configurazione dei dischi Docker | No
 NFS host | Sì per VMware<br/><br/> No per server fisici
-Host SAN (iSCSI/FC) | Sì
+Host SAN (iSCSI/FC) | Yes
 Host vSAN | Sì per VMware<br/><br/> N/D per server fisici
 Percorsi multipli (MPIO) | Sì, testato con DSM Microsoft, EMC PowerPath 5.7 SP4, DSM EMC PowerPath per CLARiiON
 Volumi virtuali host | Sì per VMware<br/><br/> N/D per server fisici
-VMDK guest/server | Sì
-Disco cluster condiviso guest/server | N.
-Disco crittografato guest/server | N.
-NFS guest/server | N.
-Guest/server iSCSI | N.
-SMB 3.0 guest/server | N.
-RDM guest/server | Sì<br/><br/> N/D per server fisici
-Disco guest/server > 1 TB | Sì<br/><br/>Fino a 4.095 GB<br/><br/> Le dimensioni del disco non devono superare i 1024 MB.
-Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | Sì
-Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 KB | Sì
-Volume con disco con striping > 4 TB guest/server <br/><br/>Gestione volumi logici (LVM)| Sì
-Guest/server - Spazi di archiviazione | N.
-Disco di aggiunta/rimozione a caldo guest/server | N.
-Guest/server - esclusione disco | Sì
-Percorsi multipli (MPIO) guest/server | N.
+VMDK guest/server | Yes
+Disco cluster condiviso guest/server | No 
+Disco crittografato guest/server | No 
+NFS guest/server | No 
+Guest/server iSCSI | No 
+SMB 3.0 guest/server | No 
+RDM guest/server | Yes<br/><br/> N/D per server fisici
+Disco guest/server > 1 TB | Yes<br/><br/>Fino a 4.095 GB<br/><br/> Le dimensioni del disco non devono superare i 1024 MB.
+Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | Yes
+Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 KB | Yes
+Volume con disco con striping > 4 TB guest/server <br/><br/>Gestione volumi logici (LVM)| Yes
+Guest/server - Spazi di archiviazione | No 
+Disco di aggiunta/rimozione a caldo guest/server | No 
+Guest/server - esclusione disco | Yes
+Percorsi multipli (MPIO) guest/server | No 
 Avvio EFI/UEFI guest/server | Durante la migrazione di macchine virtuali VMware o server fisici che eseguono Windows Server 2012 o versioni successive per Azure è supportato.<br/><br/> È possibile replicare le macchine virtuali solo per la migrazione. Non è supportato il failback in locale.<br/><br/> Il server non deve avere più di quattro partizioni nel disco del sistema operativo.<br/><br/> Richiede il servizio Mobility versione 9.13 o successiva.<br/><br/> È supportato solo NTFS.
 
 ## <a name="replication-channels"></a>Canali di replica
 
 |**Tipo di replica**   |**Supportato**  |
 |---------|---------|
-|Trasferimenti ODX (ODX)    |       N.  |
-|Seeding offline        |   N.      |
-| Azure Data Box | N.
+|Trasferimenti ODX (ODX)    |       No   |
+|Seeding offline        |   No      |
+| Azure Data Box | No 
 
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 
 **Componente** | **Supportato**
 --- | ---
-Archiviazione con ridondanza locale | Sì
-Archiviazione con ridondanza geografica | Sì
-Archiviazione con ridondanza geografica e accesso in lettura | Sì
-Archiviazione ad accesso sporadico | N.
-Archiviazione ad accesso frequente| N.
-BLOB in blocchi | N.
-Crittografia per dati inattivi (servizio di archiviazione di Azure)| Sì
-Archiviazione Premium | Sì
-Servizio di importazione/esportazione | N.
-Firewall di Archiviazione di Azure per reti virtuali configurate in un account di archiviazione di destinazione/archiviazione della cache (usato per l'archiviazione dei dati di replica) | Sì
-Account di archiviazione v2 generico (livelli di accesso frequente e sporadico) | N.
+Archiviazione con ridondanza locale | Yes
+Archiviazione con ridondanza geografica | Yes
+Archiviazione con ridondanza geografica e accesso in lettura | Yes
+Archiviazione ad accesso sporadico | No 
+Archiviazione ad accesso frequente| No 
+BLOB in blocchi | No 
+Crittografia per dati inattivi (servizio di archiviazione di Azure)| Yes
+Archiviazione Premium | Yes
+Servizio di importazione/esportazione | No 
+Firewall di Archiviazione di Azure per reti virtuali configurate in un account di archiviazione di destinazione/archiviazione della cache (usato per l'archiviazione dei dati di replica) | Yes
+Account di archiviazione v2 generico (livelli di accesso frequente e sporadico) | No 
 
 ## <a name="azure-compute"></a>Calcolo di Azure
 
 **Funzionalità** | **Supportato**
 --- | ---
-Set di disponibilità | Sì
-Zone di disponibilità | N.
-HUB | Sì
-Dischi gestiti | Sì
+Set di disponibilità | Yes
+Zone di disponibilità | No
+HUB | Yes
+Dischi gestiti | Yes
 
 ## <a name="azure-vm-requirements"></a>Requisiti per le VM di Azure
 
@@ -263,8 +263,8 @@ Si tratta di numeri medi presupponendo una sovrapposizione I/O del 30%. Site Rec
 
 **Azione** | **Supportato**
 --- | ---
-Spostamento insieme di credenziali tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | N.
-Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | N.
+Spostamento insieme di credenziali tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No
+Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No 
 
 
 ## <a name="download-latest-azure-site-recovery-components"></a>Scaricare i componenti più recenti di Azure Site Recovery

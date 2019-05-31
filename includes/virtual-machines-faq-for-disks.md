@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145905"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66249020"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -141,19 +141,9 @@ Non è possibile rinominare i dischi gestiti. È tuttavia possibile rinominare u
 
 Il partizionamento GPT può essere usato solo nei dischi dati e non nei dischi del sistema operativo. I dischi del sistema operativo devono usare lo stile di partizione MBR.
 
-## <a name="uploading-to-a-managed-disk"></a>Caricare un disco gestito
+**Quali tipi di disco supportano gli snapshot?**
 
-**È possibile caricare i dati in un disco gestito esistente?**
-
-No, il caricamento può essere utilizzato solo durante la creazione di un nuovo disco vuoto con il **ReadyToUpload** dello stato.
-
-**È possibile collegare un disco a una macchina virtuale mentre è in uno stato di caricamento?**
-
- No.
-
-**Posso usare uno snapshot di un disco gestito in uno stato di caricamento?**
-
- No.
+Unità SSD Premium standard unità SSD e unità SSD standard supportano gli snapshot, senza alcun limite di dimensione. Pertanto, è possibile di dischi di grandi dimensioni snapshot (TiB fino a 32). Extra SSDs non supportano gli snapshot.
 
 ## <a name="standard-ssd-disks"></a>Dischi SSD Standard
 
@@ -201,7 +191,7 @@ No, i dischi SSD Standard sono disponibili solo come dischi gestiti.
 **I dischi SSD Standard supportano "contratti di servizio per macchine virtuali a istanza singola"?**
 No, i dischi SSD Standard non supportano contratti di servizio per macchine virtuali a istanza singola. Per i contratti di servizio per macchine virtuali a istanza singola, usare dischi SSD Premium.
 
-## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione al servizio Managed Disks
+## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione a Managed Disks
 
 **La migrazione può avere un impatto sulle prestazioni di Managed Disks?**
 
@@ -237,7 +227,7 @@ Sì. Attualmente, Azure ad Azure Site Recovery alla protezione di Azure per macc
 
 **È possibile eseguire la migrazione di macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-Sì
+Yes
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e crittografia del servizio di archiviazione
 
@@ -274,7 +264,7 @@ Sì. Tutte le immagini e gli snapshot gestiti creati dopo il 9 giugno 2017 vengo
 
 **È possibile convertire macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-Sì
+Yes
 
 **Un disco rigido virtuale esportato da un disco gestito o uno snapshot verrà crittografato?**
 
@@ -353,7 +343,7 @@ Sì.
 
 **Quali sono le dimensioni di disco più grande supportate dal servizio Backup di Azure e Azure Site Recovery?**
 
-La dimensione del disco massima supportata dal Backup di Azure e dal servizio Azure Site Recovery è di 4 TiB. Presto verrà aggiunti il supporto per i dischi di maggiori dimensioni fino a 32 TiB.
+La dimensione del disco massima supportata dal Backup di Azure e dal servizio Azure Site Recovery è di 4 TiB. Supporto per i dischi di maggiori dimensioni fino a 32 TiB non è ancora disponibile.
 
 **Quali sono le VM consigliata di dimensioni per dimensioni del disco maggiori (> 4 TiB) per unità SSD Standard e i dischi HDD Standard per ottenere con ottimizzazione per IOPS e larghezza di banda del disco?**
 

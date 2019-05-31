@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/24/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: f3ba08bc1d557d53bca2421b5052f496c740b185
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 4ff52e737438210296b8f2201d5e66e1d38b7bc9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969335"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418291"
 ---
 # <a name="monitor-the-process-server"></a>Monitorare il server di elaborazione
 
@@ -53,7 +53,7 @@ Il server di elaborazione genera un numero di avvisi di integrità, riepilogati 
 
 **Tipo di avviso** | **Dettagli**
 --- | ---
-![Integra][green] | Server di elaborazione sia connesso e integro.
+![Healthy][green] | Server di elaborazione sia connesso e integro.
 ![Avviso][yellow] | CPU utilizzo > 80% negli ultimi 15 minuti
 ![Avviso][yellow] | Memoria utilizzo > 80% negli ultimi 15 minuti
 ![Avviso][yellow] | Cartella della cache di spazio libero < 30% negli ultimi 15 minuti
