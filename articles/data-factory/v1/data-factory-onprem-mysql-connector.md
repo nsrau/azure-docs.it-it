@@ -73,7 +73,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | database |Nome del database MySQL. |Sì |
 | schema |Nome dello schema nel database. |No  |
 | authenticationType |Tipo di autenticazione usato per connettersi al database MySQL. I valori possibili sono:`Basic`. |Sì |
-| username |Specificare nome utente per la connessione al database MySQL. |Sì |
+| userName |Specificare nome utente per la connessione al database MySQL. |Sì |
 | password |Specificare la password per l'account utente specificato. |Sì |
 | gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database MySQL locale. |Sì |
 
