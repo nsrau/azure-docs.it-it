@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/24/2019
 ms.author: spelluru
-ms.openlocfilehash: 9ad6f82d7b9bd7c4957df1dd37d0f2ddf7462e9e
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 389d467bd9672743d4a086e8a1c505fb0366dba7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410942"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237089"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Abilitare e usare desktop remoto per macchine virtuali Linux in un lab in Azure Lab Services
 Questo articolo illustra come eseguire le attività seguenti:
@@ -31,6 +31,10 @@ Questo articolo illustra come eseguire le attività seguenti:
 Durante la creazione del lab, è possono abilitare gli insegnanti **connessione desktop remoto** per **Linux** immagini. Il **abilitare una connessione Desktop remoto** opzione viene visualizzata quando è selezionata un'immagine Linux per il modello. Quando questa opzione è abilitata, gli insegnanti possono connettersi al modello di macchina virtuale e studente VM tramite RDP (Remote Desktop). 
 
 ![Abilitare connessione desktop remoto per un'immagine Linux](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+
+Nel **abilitare connessione Desktop remoto** finestra di messaggio, seleziona **continua con Desktop remoto**. 
+
+![Abilitare connessione desktop remoto per un'immagine Linux](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
 > [!IMPORTANT] 
 > Abilitazione **connessione desktop remoto** consente di aprire solo le **RDP** porta nei computer Linux. È, i docenti, connettersi al computer Linux tramite SSH per la prima volta e installare i pacchetti RDP e interfaccia utente grafica in modo che sia possibile connettersi al computer Linux usando il protocollo RDP in un secondo momento. Quindi, si **pubblicare** l'immagine in modo che gli studenti possano RDP in per gli studenti le macchine virtuali Linux. 
@@ -54,27 +58,32 @@ Viene visualizzato il **Desktop remoto** opzione sulla home page del lab dopo av
 
 ![Connettersi al modello tramite RDP dopo aver creato il lab](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
 
-Quando si seleziona il **RDP** opzione, scarica un file RDP. Si apre la connessione al computer Linux. 
+Per altre informazioni sulla connessione alla VM usando SSH o RDP, vedere [connettersi tramite SSH o RDP]((#connect-using-ssh-or-rdp). 
 
 ## <a name="teachers-connecting-to-a-student-vm-using-rdp"></a>Docenti la connessione a uno studente VM tramite RDP
-Un proprietario del lab (docente) può connettersi a un macchina virtuale per studenti passando al **macchine virtuali** consente di visualizzare e selezionare il **connettersi** icona. In precedenza, è necessario insegnanti **pubblicare** l'immagine modello con RDP e interfaccia utente grafica di pacchetti installati su di esso. 
+Una docente può connettersi a un macchina virtuale per studenti passando al **macchine virtuali** consente di visualizzare e selezionare il **connettersi** icona. In precedenza, è necessario insegnanti **pubblicare** l'immagine modello con RDP e interfaccia utente grafica di pacchetti installati su di esso. 
 
 ![Insegnanti ci si connette per il macchina virtuale per studenti](../media/how-to-enable-remote-desktop-linux/teacher-connect-to-student-vm.png)
+
+Per altre informazioni sulla connessione alla VM usando SSH o RDP, vedere [connettersi tramite SSH o RDP]((#connect-using-ssh-or-rdp). 
 
 ## <a name="students-connecting-to-the-student-vm"></a>Studenti ci si connette per il macchina virtuale per studenti
 Studente può RDP in per le proprie macchine virtuali di Linux dopo il proprietario del lab (docente) **pubblica** il modello di macchina virtuale con RDP e interfaccia utente grafica pacchetti installato nel computer. Di seguito sono riportati i passaggi necessari: 
 
 1. Quando uno studente esegue l'accesso al portale Labs direttamente (`https://labs.azure.com`) o tramite un collegamento di iscrizione (`https://labs.azure.com/register/<registrationCode>`), viene visualizzato un riquadro per ogni lab lo studente ha accesso a. 
 2. Nel riquadro, selezionare **avviare** se la VM viene arrestata. 
-3. Selezionare **Connessione**. Questa azione Scarica il file RDP al computer. Salvare il file e aprire per connettersi al computer Linux tramite RDP. 
+3. Selezionare **Connessione**. Vengono visualizzate due opzioni per la connessione alla macchina virtuale: **SSH** e **Desktop remoto**.
 
-    ![Scaricare RDP studente una macchina virtuale:](../media/how-to-enable-remote-desktop-linux/student-rdp-download.png)
+    ![VM - opzioni di connessione per studenti](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 
-    È comunque possibile connettersi alla VM Linux tramite SSH. Selezionare **... (puntini di sospensione)**  per visualizzare l'opzione di SSH. 
-    
-    ![Studente una macchina virtuale: SSH](../media/how-to-enable-remote-desktop-linux/student-ssh.png)
+## <a name="connect-using-ssh-or-rdp"></a>Connettersi tramite SSH o RDP
+Se si seleziona il **SSH** opzione, verrà visualizzato quanto segue **Connetti a macchina virtuale** nella finestra di dialogo:  
 
-    Copiare e salvare la stringa di connessione SSH sul **Connetti a macchina virtuale** nella finestra di dialogo. Usare questa stringa di connessione da un terminale SSH, ad esempio [Putty](https://www.putty.org/), per connettersi alla macchina virtuale. 
+![Stringa di connessione SSH](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
+
+Selezionare il **copia** pulsante accanto alla casella di testo per copiarla negli Appunti. Salvare la stringa di connessione SSH. Usare questa stringa di connessione da un terminale SSH, ad esempio [Putty](https://www.putty.org/), per connettersi alla macchina virtuale.
+
+Se si seleziona il **RDP** opzione, un file RDP viene scaricato nel computer. Salvarlo e aprirlo per la connessione alla macchina. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:
