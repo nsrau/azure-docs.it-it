@@ -837,6 +837,8 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: Implementare un'azione dell'app per la logica
                   href: platform/action-groups-logic-app.md
+                - name: Integrare lo schema di avviso comune con App per la logica
+                  href: platform/alerts-common-schema-integrations.md
             - name: Soluzione Gestione avvisi
               href: platform/alert-management-solution.md
             - name: Interfaccia utente degli avvisi

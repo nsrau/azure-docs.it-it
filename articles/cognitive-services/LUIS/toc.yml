@@ -83,7 +83,7 @@
           displayName: roles
         - name: Estrarre dati in formato libero
           href: luis-tutorial-pattern-any.md
-    - name: Usare un bot
+    - name: Usare Bot Framework v4
       items:
         - name: 'Con C#'
           href: luis-csharp-tutorial-bf-v4.md
@@ -198,7 +198,7 @@
           href: luis-tutorial-bing-spellcheck.md
         - name: Con il Servizio riconoscimento vocale
           href: luis-tutorial-speech-to-intent.md
-        - name: Con un bot
+        - name: Usare Bot Framework v3
           items:
             - name: Bot app Web
               items:
@@ -279,6 +279,8 @@
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: Confini
       href: luis-boundaries.md
+    - name: Impostazioni dell'applicazione
+      href: luis-reference-application-settings.md
     - name: Informazioni di riferimento sulle entità predefinite
       items:
         - name: Entità per impostazioni cultura

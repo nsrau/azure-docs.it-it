@@ -2,56 +2,47 @@
 documentType: LandingData
 title: Azure Dev Spaces
 metadata:
-  title: Azure Dev Spaces
+  title: Documentazione di Azure Dev Spaces - Guide di avvio rapido
   meta.description: Rapid Kubernetes development with containers and microservices on Azure.
   services: azure-dev-spaces
   author: zr-msft
   ms.service: azure-dev-spaces
   ms.topic: landing-page
-  ms.date: 08/23/2018
+  ms.date: 04/29/2019
   ms.author: zarhoads
+  manager: jeconnoc
+abstract:
+  description: 'Azure Dev Spaces consente di testare e sviluppare in modo iterativo l''intera applicazione di microservizi in esecuzione nel servizio Azure Kubernetes senza dover replicare o simulare dipendenze. Azure Dev Spaces riduce il carico di lavoro e la complessità della collaborazione con il team in un cluster del servizio Azure Kubernetes condiviso, nonché dell''esecuzione e del debug di contenitori direttamente in tale servizio. Per informazioni su come usare Azure Dev Spaces, leggere queste guide di avvio rapido.'
 sections:
-  - title: Esperienza di sviluppo Kubernetes rapida e iterativa per i team
+  - title: Guide introduttive di 5 minuti
     items:
       - type: paragraph
-        text: 'Con una configurazione minima del computer di sviluppo, è possibile eseguire il codice in maniera iterativa ed eseguire il debug dei contenitori direttamente nel servizio Azure Kubernetes.  È anche possibile collaborare con il team in un cluster Kubernetes condiviso ed eseguire test end-to-end con altri componenti senza replicare o simulare dipendenze. Con Azure Dev Spaces è possibile sviluppare in Windows, Mac o Linux usando strumenti familiari come Visual Studio, Visual Studio Code o la riga di comando.'
-      - type: markdown
-        text: |-
-          > [!IMPORTANT]
-          > Azure Dev Spaces è supportato solo da cluster del servizio Azure Kubernetes nelle aree **Stati Uniti orientali**, **Stati Uniti orientali 2**, **Stati Uniti centrali**, **Stati Uniti occidentali 2**, **Europa settentrionale**, **Europa occidentale**, **Regno Unito meridionale**, **Asia sud-orientale**, **Australia orientale**, **Canada centrale** e **Canada orientale**. Azure Dev Spaces supporta l'uso dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o di [Visual Studio Code](https://code.visualstudio.com/download) con l'[estensione Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) installata in Linux, MacOS oppure Windows 8 o versione successiva per compilare ed eseguire applicazioni nel servizio Azure Kubernetes. Supporta inoltre l'uso di [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) con il carico di lavoro di sviluppo Web e di [Visual Studio Tools per Kubernetes](https://aka.ms/get-vsk8stools) installato in Windows 8 o versione successiva.
-  - title: Guida introduttiva ad Azure Dev Spaces
-    items:
+        text: 'Informazioni su come usare Azure Dev Spaces per la collaborazione in team con il servizio Azure Kubernetes:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Sviluppo in team con l'interfaccia della riga di comando di Azure
+            href: quickstart-team-development.md
       - type: paragraph
-        text: 'Selezionare una guida specifica per il linguaggio per iniziare:'
+        text: 'Informazioni su come sviluppare ed eseguire il debug in modo iterativo nel servizio Azure Kubernetes con Azure Dev Spaces:'
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_java.svg'
-            text: Java
+            text: Sviluppare con Java
             href: quickstart-java.md
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: .NET e Visual Studio Code
+            text: Sviluppare con .NET e VS Code
             href: quickstart-netcore.md
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: .NET e Visual Studio
+            text: Sviluppare con .NET e Visual Studio
             href: quickstart-netcore-visualstudio.md
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
-            text: Node.js
+            text: Sviluppare con Node.js
             href: quickstart-nodejs.md
-  - title: Come Azure Dev Spaces semplifica lo sviluppo in Kubernetes
-    items:
-      - type: paragraph
-        text: 'Azure Dev Spaces aumenta la produttività dei team di sviluppo in Kubernetes nei modi seguenti:'
-      - type: list
-        style: unordered
-        items:
-          - text: 'Riduce al minimo la configurazione del computer di sviluppo locale per ogni membro del team e interagisce direttamente con servizio Azure Kubernetes, un cluster Kubernetes gestito in Azure.'
-          - text: Esegue rapidamente l'iterazione e il debug del codice direttamente in Kubernetes tramite Visual Studio 2017 o Visual Studio Code.
-          - text: Genera asset di configurazione come codice Docker e Kubernetes da usare dallo sviluppo alla produzione.
-          - text: Consente di condividere un cluster Kubernetes gestito con il team e di collaborare. Consente di sviluppare il codice in modalità isolata ed eseguire test end-to-end con altri componenti senza replicare o simulare dipendenze.
-      - type: markdown
-        text: '![](media/azure-dev-spaces/collaborate-graphic.gif)'
