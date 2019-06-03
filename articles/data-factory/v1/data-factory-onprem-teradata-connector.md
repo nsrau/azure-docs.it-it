@@ -67,8 +67,8 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | type |La proprietà type deve essere impostata su: **OnPremisesTeradata** |Sì |
 | server |Nome del server Teradata. |Sì |
 | authenticationType |Tipo di autenticazione usato per connettersi al database Teradata. I valori possibili sono: Anonymous, Basic e Windows. |Sì |
-| username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No  |
-| password |Specificare la password per l'account utente specificato per il nome utente. |No  |
+| username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No |
+| password |Specificare la password per l'account utente specificato per il nome utente. |No |
 | gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database Teradata locale. |Sì |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati

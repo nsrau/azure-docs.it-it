@@ -22,6 +22,8 @@
   items:
     - name: Accesso SSO alle risorse locali
       href: azuread-join-sso.md
+    - name: Token di aggiornamento primari
+      href: concept-primary-refresh-token.md
     - name: Workstation gestite di Azure
       href: concept-azure-managed-workstation.md
 - name: Guide alle procedure
@@ -35,7 +37,7 @@
       href: azureadjoin-plan.md
     - name: Pianificare l'implementazione dell'aggiunta ad Azure AD ibrido
       href: hybrid-azuread-join-plan.md
-    - name: Controllare l'aggiunta dei dispositivi ad Azure AD ibrido
+    - name: Convalida controllata dell'aggiunta ad Azure AD ibrido
       href: hybrid-azuread-join-control.md
     - name: Assegnare gli amministratori locali ai dispositivi aggiunti ad Azure AD
       href: assign-local-admin.md

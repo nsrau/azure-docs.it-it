@@ -61,7 +61,7 @@
               href: storage-blob-scalable-app-create-vm.md
             - name: 2 - Caricare grandi quantità di dati in un account di archiviazione di Azure
               href: storage-blob-scalable-app-upload-files.md
-            - name: 3 - Scaricare grandi quantità di dati da un account di archiviazione di Azure
+            - name: 3- Scaricare dati di grandi dimensioni da un account di archiviazione di Azure
               href: storage-blob-scalable-app-download-files.md
             - name: 4- Verificare le metriche di velocità effettiva e latenza
               href: storage-blob-scalable-app-verify-metrics.md
@@ -275,6 +275,8 @@
           href: storage-blob-event-overview.md
         - name: Funzionalità dei BLOB di pagine
           href: storage-blob-pageblob-overview.md
+        - name: Siti Web statici
+          href: storage-blob-static-website.md
     - name: Procedure
       items:
         - name: Creare e gestire account di archiviazione
@@ -353,7 +355,7 @@
         - name: Impostare e recuperare proprietà e metadati
           href: storage-properties-metadata.md
         - name: Ospitare un sito Web statico
-          href: storage-blob-static-website.md
+          href: storage-blob-static-website-how-to.md
         - name: Eseguire il mapping della rete CDN di Azure con un dominio personalizzato per l'accesso tramite HTTPS
           href: storage-https-custom-domain-cdn.md
         - name: Configurare un dominio personalizzato

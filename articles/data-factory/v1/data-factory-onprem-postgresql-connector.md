@@ -77,10 +77,10 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | type |La proprietà type deve essere impostata su: **OnPremisesPostgreSql** |Sì |
 | server |Nome del server PostgreSQL. |Sì |
 | database |Nome del database PostgreSQL. |Sì |
-| schema |Nome dello schema nel database. Il nome dello schema fa distinzione tra maiuscole e minuscole. |No  |
+| schema |Nome dello schema nel database. Il nome dello schema fa distinzione tra maiuscole e minuscole. |No |
 | authenticationType |Tipo di autenticazione usato per connettersi al database PostgreSQL. I valori possibili sono: Anonymous, Basic e Windows. |Sì |
-| username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No  |
-| password |Specificare la password per l'account utente specificato per il nome utente. |No  |
+| username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No |
+| password |Specificare la password per l'account utente specificato per il nome utente. |No |
 | gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database PostgreSQL locale. |Sì |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
@@ -311,11 +311,11 @@ Quando si spostano i dati in PostgreSQL vengono usati i mapping seguenti dal tip
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String |
 | bit varying [ (n) ] |varbit |Byte[], String |
-| boolean |bool |Boolean |
+| Boolean |bool |Boolean |
 | box | |Byte[], String |
 | bytea | |Byte[], String |
 | character [(n)] |char [(n)] |String |
-| character varying [(n)] |varchar [(n)] |String |
+| variante carattere [(n)] |varchar [(n)] |String |
 | cid | |String |
 | cidr | |String |
 | circle | |Byte[], String |

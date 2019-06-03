@@ -35,9 +35,9 @@ La creazione di un'app è gratuita e non richiede una sottoscrizione di Azure. Q
 
    |Nome impostazione| Valore | Scopo|
    |--|--|--|
-   |NOME|`myEnglishApp`|Nome univoco dell'app LUIS;<br>Obbligatoria|
-   |Impostazioni cultura|**English**|Lingua delle espressioni degli utenti, **en-us**;<br>Obbligatoria|
-   |DESCRIZIONE|`App made with LUIS Portal`|Descrizione dell'app;<br>Facoltativo|
+   |Nome|`myEnglishApp`|Nome univoco dell'app LUIS;<br>obbligatorio|
+   |Impostazioni cultura|**English**|Lingua delle espressioni degli utenti, **en-us**;<br>obbligatorio|
+   |Descrizione|`App made with LUIS Portal`|Descrizione dell'app;<br>facoltativo|
    | | | |
 
    ![Immettere nuove impostazioni app](./media/get-started-portal-build-app/create-new-app-settings.png)
@@ -78,23 +78,23 @@ Aggiungere le 15 espressioni di esempio seguenti alla finalità `FindForm`.
 
 |#|Espressioni di esempio|
 |--|--|
-|1|Looking for hrf-123456|
-|2|Where is the human resources form hrf-234591?|
-|3|hrf-345623, where is it|
-|4|Is it possible to send me hrf-345794|
-|5|Do I need hrf-234695 to apply for an internal job?|
-|6|Does my manager need to know I'm applying for a job with hrf-234091|
-|7|Where do I send hrf-234918? Do I get an email response it was received?|
+|1|Looking for hrf-123456 (Sto cercando hrf-123456)|
+|2|Where is the human resources form hrf-234591? (Dov'è il modulo delle risorse umane hrf-234591?)|
+|3|hrf-345623, where is it (hrf-345623, dov'è)|
+|4|Is it possible to send me hrf-345794 (È possibile inviarmi il modulo hrf-345794)|
+|5|Do I need hrf-234695 to apply for an internal job? (Ho bisogno del modulo hrf-234695 per presentare una candidatura interna?)|
+|6|Does my manager need to know I'm applying for a job with hrf-234091 (Il mio responsabile deve sapere che sto presentando una candidatura con il modulo hrf-234091)|
+|7|Where do I send hrf-234918? (A chi devo inviare il modulo hrf-234918?) Do I get an email response it was received? (Riceverò una conferma di ricezione del messaggio di posta elettronica?)|
 |8|hrf-234555|
-|9|When was hrf-234987 updated?|
-|10|Do I use form hrf-876345 to apply for engineering positions|
-|11|Was a new version of hrf-765234 submitted for my open req?|
-|12|Do I use hrf-234234 for international jobs?|
-|13|hrf-234598 spelling mistake|
-|14|will hrf-234567 be edited for new requirements|
+|9|When was hrf-234987 updated? (Quando è stato aggiornato il modulo hrf-234987)?|
+|10|Do I use form hrf-876345 to apply for engineering positions (Posso usare il modulo hrf-876345 per inviare una candidatura come ingegnere)|
+|11|Was a new version of hrf-765234 submitted for my open req? (Per la mia richiesta aperta è stata inviata una nuova versione del modulo hrf-765234?)|
+|12|Do I use hrf-234234 for international jobs? (Posso usare il modulo hrf-234234 per le candidature internazionali?)|
+|13|hrf-234598 spelling mistake (Errore di ortografia in hrf-234598)|
+|14|will hrf-234567 be edited for new requirements (Il modulo hrf-234567 verrà modificato per nuove richieste)|
 |15|hrf-123456, hrf-123123, hrf-234567|
 
-Queste espressioni di esempio variano secondo la progettazione nei modi seguenti:
+Queste espressioni di esempio variano volutamente nei modi seguenti:
 
 * lunghezza dell'espressione
 * punteggiatura
@@ -130,9 +130,9 @@ Le espressioni di esempio della finalità **None** (Nessuna) devono essere al di
 
    |Espressioni di esempio della finalità None (Nessuna)|
    |--|
-   |Barking dogs are annoying|
-   |Order a pizza for me|
-   |Penguins in the ocean|
+   |Barking dogs are annoying (I cani che abbaiano sono fastidiosi)|
+   |Order a pizza for me (Ordinami una pizza)|
+   |Penguins in the ocean (Pinguini nell'oceano)|
 
    Per questa app di gestione delle risorse umane, queste espressioni di esempio sono al di fuori del dominio. Se il dominio delle risorse umane include animali, cibo o l'oceano, sarà necessario usare espressioni di esempio diverse per la finalità **None** (Nessuna).
 
