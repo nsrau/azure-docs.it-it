@@ -285,12 +285,12 @@ Quando si spostano i dati in Teradata vengono usati i mapping seguenti dal tipo 
 
 | Tipo di database Teradata | Tipo di .NET Framework |
 | --- | --- |
-| Char |string |
-| Clob |string |
-| Graphic |string |
-| VarChar |string |
-| VarGraphic |string |
-| BLOB |Byte[] |
+| Char |String |
+| Clob |String |
+| Graphic |String |
+| VarChar |String |
+| VarGraphic |String |
+| Blob |Byte[] |
 | Byte |Byte[] |
 | VarByte |Byte[] |
 | BigInt |Int64 |
@@ -300,9 +300,9 @@ Quando si spostano i dati in Teradata vengono usati i mapping seguenti dal tipo 
 | Integer |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
-| Data |DateTime |
-| Tempo |TimeSpan |
-| Time With Time Zone |string |
+| Date |DateTime |
+| Time |TimeSpan |
+| Time With Time Zone |String |
 | Timestamp |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
 | Interval Day |TimeSpan |
@@ -311,19 +311,19 @@ Quando si spostano i dati in Teradata vengono usati i mapping seguenti dal tipo 
 | Interval Day To Second |TimeSpan |
 | Interval Hour |TimeSpan |
 | Interval Hour To Minute |TimeSpan |
-| Intervallo - da ora a secondo |TimeSpan |
+| Interval Hour To Second |TimeSpan |
 | Interval Minute |TimeSpan |
 | Interval Minute To Second |TimeSpan |
 | Interval Second |TimeSpan |
-| Interval Year |string |
-| Interval Year To Month |string |
-| Interval Month |string |
-| Period(Date) |string |
-| Period(Time) |string |
-| Period(Time With Time Zone) |string |
-| Period(Timestamp) |string |
-| Period(Timestamp With Time Zone) |string |
-| Xml |string |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Interval Month |String |
+| Period(Date) |String |
+| Period(Time) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
+| Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
