@@ -311,31 +311,31 @@ Quando si spostano i dati in PostgreSQL vengono usati i mapping seguenti dal tip
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String |
 | bit varying [ (n) ] |varbit |Byte[], String |
-| boolean |bool |boolean |
+| boolean |bool |Boolean |
 | box | |Byte[], String |
 | bytea | |Byte[], String |
-| carattere [(n)] |char [(n)] |string |
-| variante carattere [(n)] |varchar [(n)] |string |
-| cid | |string |
-| cidr | |string |
+| character [(n)] |char [(n)] |String |
+| character varying [(n)] |varchar [(n)] |String |
+| cid | |String |
+| cidr | |String |
 | circle | |Byte[], String |
 | date | |Datetime |
-| daterange | |string |
+| daterange | |String |
 | double precision |float8 |Double |
 | inet | |Byte[], String |
-| intarry | |string |
-| int4range | |string |
-| int8range | |string |
-| numero intero |int, int4 |Int32 |
-| intervallo [campi] [(p)] | |TimeSpan |
-| json | |string |
+| intarry | |String |
+| int4range | |String |
+| int8range | |String |
+| integer |int, int4 |Int32 |
+| interval [fields] [(p)] | |Timespan |
+| json | |String |
 | jsonb | |Byte[] |
 | line | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
 | money | |Decimal |
-| numerico [(p, s)] |decimale [(p, s)] |Decimal |
-| numrange | |string |
+| numeric [(p, s)] |decimal [(p, s)] |Decimal |
+| numrange | |String |
 | oid | |Int32 |
 | path | |Byte[], String |
 | pg_lsn | |Int64 |
@@ -345,7 +345,7 @@ Quando si spostano i dati in PostgreSQL vengono usati i mapping seguenti dal tip
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |string |
+| text | |String |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
