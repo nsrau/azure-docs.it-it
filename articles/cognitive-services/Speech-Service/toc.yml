@@ -222,6 +222,8 @@
           displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
         - name: Disponibilità di scenari
           href: scenario-availability.md
+        - name: Spedire un'applicazione
+          href: ship-application.md
         - name: Note sulla versione
           href: releasenotes.md
         - name: C++

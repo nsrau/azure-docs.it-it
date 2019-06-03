@@ -320,12 +320,14 @@
       maintainContext: true
     - name: Accesso alla rete
       items:
+        - name: Architettura della rete virtuale di HDInsight
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Usare il firewall per limitare il traffico in uscita
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: HDInsight nella rete virtuale di Azure
           href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Connettere HDInsight alla rete locale
           href: ../connect-on-premises-network.md
-          maintainContext: true
     - name: Monitoraggio con i log di Monitoraggio di Azure
       items:
         - name: Usare i log di Monitoraggio di Azure

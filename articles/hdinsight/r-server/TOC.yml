@@ -247,6 +247,10 @@
       href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     - name: Accesso alla rete
       items:
+        - name: Architettura della rete virtuale di HDInsight
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Usare il firewall per limitare il traffico in uscita
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: HDInsight nella rete virtuale di Azure
           href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: Connettere HDInsight alla rete locale

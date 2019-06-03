@@ -11,16 +11,20 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: b114b1c3b1c421c6e6944666e3fd928d2aced966
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f922f9c64f182377365192543305b48659c518da
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225867"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417987"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
 Questo articolo contiene risposte alle domande frequenti su LUIS.
+
+## <a name="whats-new"></a>Novità
+
+[Altre informazioni](whats-new.md) sulle nuove funzionalità di Language Understanding Intelligent Service.
 
 <a name="luis-authoring"></a>
 
@@ -64,7 +68,7 @@ Le app Cortana predefinite sono state deprecate nel 2017. Non sono più supporta
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Come si trasferisce la proprietà di un'app LUIS?
 Per trasferire un'app LUIS in un'altra sottoscrizione di Azure, esportare l'app LUIS e importarla usando un nuovo account. Aggiornare l'ID dell'app LUIS nell'applicazione client che la chiama. La nuova app può restituire punteggi LUIS leggermente diversi rispetto all'app originale.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Un'entità predefinita verrà contrassegnata in un utterance esempio invece l'entità personalizzata. Come si risolve il problema? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Un'entità predefinita verrà contrassegnata in un utterance esempio invece l'entità personalizzata. Come risolvere il problema? 
 
 Visualizzare [risoluzione dei problemi relativi a entità predefinite](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
 
@@ -206,7 +210,7 @@ La registrazione è l'unico spazio di archiviazione delle espressioni.
 ### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>Perché un utente potrebbe non desiderare la registrazione di tutte le espressioni degli endpoint?
 Se si usa il log per l'analisi delle stime, non acquisire le espressioni di test nel log.
 
-## <a name="data-management"></a>Gestione dati
+## <a name="data-management"></a>Gestione dei dati
 
 ### <a name="can-i-delete-data-from-luis"></a>È possibile eliminare dati da LUIS?
 

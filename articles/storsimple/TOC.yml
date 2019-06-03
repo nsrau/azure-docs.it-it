@@ -87,14 +87,16 @@
           href: storsimple-ova-web-ui-admin.md
     - name: Note sulla versione
       items:
-        - name: 'Aggiornamento 1.1: versione corrente'
+        - name: Aggiornamento 1.2
+          href: storsimple-virtual-array-update-12-release-notes.md
+        - name: Aggiornamento 1.1
           href: storsimple-virtual-array-update-11-release-notes.md
         - name: Aggiornamento 1
           href: storsimple-virtual-array-update-1-release-notes.md
-        - name: Aggiornamento 0.6
-          href: storsimple-virtual-array-update-06-release-notes.md
         - name: Archiviazione
           items:
+            - name: Aggiornamento 0.6
+              href: storsimple-virtual-array-update-06-release-notes.md
             - name: Aggiornamento 0.5
               href: storsimple-virtual-array-update-05-release-notes.md
             - name: Aggiornamento 0.4
@@ -103,7 +105,7 @@
               href: storsimple-ova-update-03-release-notes.md
             - name: Aggiornamento 0.2 e 0.1
               href: storsimple-ova-update-01-release-notes.md
-- name: StorSimple serie 8000 (portale di Azure)
+- name: StorSimple serie 8000
   items:
     - name: Panoramica
       items:
@@ -151,7 +153,7 @@
               href: storsimple-8000-deployment-walkthrough-gov-u2.md
             - name: Appliance cloud in Azure
               href: storsimple-8000-cloud-appliance-u2.md
-            - name: 'Gestione snapshot StorSimple '
+            - name: Gestione snapshot StorSimple
               href: storsimple-snapshot-manager-deployment.md
             - name: Adattatore StorSimple per SharePoint
               href: storsimple-adapter-for-sharepoint.md
@@ -219,7 +221,7 @@
               items:
                 - name: Gestire il controller del dispositivo
                   href: storsimple-8000-manage-device-controller.md
-                - name: 'Configurare il proxy web '
+                - name: Configurare il proxy web
                   href: storsimple-8000-configure-web-proxy.md
                 - name: Modificare le impostazioni di DATA 0
                   href: storsimple-8000-modify-data-0.md

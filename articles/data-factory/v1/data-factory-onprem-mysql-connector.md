@@ -71,7 +71,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | type |La proprietà type deve essere impostata su: **OnPremisesMySql** |Sì |
 | server |Nome del server MySQL. |Sì |
 | database |Nome del database MySQL. |Sì |
-| schema |Nome dello schema nel database. |No  |
+| schema |Nome dello schema nel database. |No |
 | authenticationType |Tipo di autenticazione usato per connettersi al database MySQL. I valori possibili sono:`Basic`. |Sì |
 | userName |Specificare nome utente per la connessione al database MySQL. |Sì |
 | password |Specificare la password per l'account utente specificato. |Sì |
@@ -333,7 +333,7 @@ Quando si spostano i dati in MySQL vengono usati i mapping seguenti dal tipo MyS
 | smallint |Int16 |
 | text |string |
 | time |TimeSpan |
-|  timestamp |Datetime |
+| timestamp |Datetime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 073166a594088bca04d81883247a5880fcbd1cb7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234504"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425684"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Avvio rapido: Eseguire l'app di esempio Speech SDK di dispositivi in Android
 
@@ -84,7 +84,7 @@ Per convalidare l'installazione del kit di sviluppo, compilare e installare l'ap
 
 1. Aggiungere la chiave di sottoscrizione del riconoscimento vocale per il codice sorgente. Se si vuole provare la funzionalità Riconoscimento finalità, aggiungere anche la chiave di sottoscrizione e l'ID applicazione del [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
-   Per il riconoscimento vocale e LUIS le informazioni entra in mainactivity. Java:
+   Per il riconoscimento vocale e LUIS, le informazioni entra in mainactivity. Java:
 
    ```java
     // Subscription
@@ -95,7 +95,7 @@ Per convalidare l'installazione del kit di sviluppo, compilare e installare l'ap
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Se si usa la trascrizione di conversazione sono necessarie anche le informazioni chiave e l'area di riconoscimento vocale in conversation.java:
+    Se si usa la trascrizione di conversazione, sono necessarie anche le informazioni chiave e l'area di riconoscimento vocale in conversation.java:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -145,7 +145,7 @@ Per convalidare l'installazione del kit di sviluppo, compilare e installare l'ap
 
    ![Applicazione di esempio di Speech Devices SDK e opzioni](media/speech-devices-sdk/qsg-8.png)
 
-1. Aggiunti di recente è la demo di trascrizione di conversazione. Avviare la trascrizione con 'Avvia sessione'. Per impostazione predefinita è tutti gli utenti guest, tuttavia, se si dispone delle firme di voce del partecipante possono essere inserite nel /video/participants.properties file nel dispositivo. Per generare le vocali firma sguardo [trascrivere conversazioni (SDK)](how-to-use-conversation-transcription-service.md).
+1. Prova la demo di trascrizione di conversazione nuova. Avviare la trascrizione con 'Avvia sessione'. Per impostazione predefinita tutti gli utenti è un ospite. Tuttavia, se si dispone delle firme di voce del partecipante è possibile inserire in un file `/video/participants.properties` nel dispositivo. Per generare la firma vocale, esaminare [trascrivere conversazioni (SDK)](how-to-use-conversation-transcription-service.md).
 
    ![Applicazione demo conversazione trascrizione](media/speech-devices-sdk/qsg-15.png)
 
