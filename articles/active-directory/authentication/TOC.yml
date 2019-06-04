@@ -43,8 +43,6 @@
       items:
         - name: Funzionamento di Multi-Factor Authentication
           href: concept-mfa-howitworks.md
-        - name: Informazioni sulla scelta della versione corretta
-          href: concept-mfa-whichversion.md
         - name: Concedere licenze agli utenti
           href: concept-mfa-licensing.md
         - name: Gestire un provider di autenticazione

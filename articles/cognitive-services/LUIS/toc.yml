@@ -5,6 +5,8 @@
   items:
     - name: Informazioni su Language Understanding
       href: what-is-luis.md
+    - name: Novità
+      href: whats-new.md
 - name: Guide introduttive
   items:
     - name: Compilare app di dominio predefinite
@@ -197,8 +199,9 @@
         - name: Con Controllo ortografico Bing v7
           href: luis-tutorial-bing-spellcheck.md
         - name: Con il Servizio riconoscimento vocale
-          href: luis-tutorial-speech-to-intent.md
-        - name: Usare Bot Framework v3
+          maintainContext: true
+          href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
+        - name: Con un bot
           items:
             - name: Bot app Web
               items:
@@ -400,8 +403,6 @@
       href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: Risorse
   items:
-    - name: Novità
-      href: whats-new.md
     - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Supporto di lingua e area geografica

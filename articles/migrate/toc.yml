@@ -20,14 +20,6 @@
       href: concepts-dependency-visualization.md
 - name: Guide alle procedure
   items:
-    - name: Procedure consigliate per la migrazione
-      items:
-        - name: Procedure consigliate per la sicurezza e la gestione dopo la migrazione
-          href: migrate-best-practices-security-management.md
-        - name: Procedure consigliate per le risorse di rete dopo la migrazione
-          href: migrate-best-practices-networking.md
-        - name: Procedure consigliate per i costi e il ridimensionamento dopo la migrazione
-          href: migrate-best-practices-costs.md
     - name: Esempi di migrazione - serie Contoso
       href: contoso-migration-overview.md
     - name: Individuare e valutare un ambiente di grandi dimensioni

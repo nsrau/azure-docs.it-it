@@ -27,6 +27,9 @@
         - name: Azione e contesto delle funzionalità
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: Apprendimento attivo
+          href: concept-active-learning.md
+          displayName: 'active, inactive'
         - name: Ricompense
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
@@ -44,7 +47,7 @@
   items:
     - name: Creare e configurare Personalizza esperienze
       href: how-to-settings.md
-      displayName: 'azure, portal, settings, evaluation, offline, policy'
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model'
     - name: Analizzare
       items:
         - name: Valutazione offline
