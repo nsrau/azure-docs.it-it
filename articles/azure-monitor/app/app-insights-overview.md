@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8648042c114c514df2218249719faa3ff19df5ec
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ec595e23fbbf3ace5bfd0786d88250a88b61453c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669823"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256638"
 ---
 # <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
 Application Insights è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme, che consente di monitorare un'applicazione Web live. Il servizio rileva automaticamente le anomalie nelle prestazioni e include avanzati strumenti di analisi che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti.  Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità. Funziona per le app su un'ampia gamma di piattaforme, tra cui .NET, Node.js e Java EE, ospitate in locale, ibride o in un cloud pubblico. Si integra con il processo DevOps e offre punti di connessione per diversi altri strumenti di sviluppo. Può monitorare e analizzare i dati di telemetria da app per dispositivi mobili grazie all'integrazione con Visual Studio App Center.
@@ -44,7 +44,7 @@ L'impatto sulle prestazioni dell'app è molto ridotto. Le chiamate di rilevament
 
 Application Insights è destinato al team di sviluppo, a cui consente di comprendere le prestazioni e le modalità d'uso dell'app. Esegue il monitoraggio di:
 
-* **Frequenza delle richieste, tempi di risposta e percentuali di errore**: trovare le pagine più visitate, gli orari di visita e la posizione degli utenti.  Vedere quali pagine abbiano prestazioni migliori. Se i tempi di risposta e le percentuali di errore aumentano di pari passo con le richieste, è probabile che ci sia un problema di assegnazione delle risorse. 
+* **Frequenza delle richieste, tempi di risposta e percentuali di errore**: trovare le pagine più visitate, gli orari di visita e la posizione degli utenti. Vedere quali pagine abbiano prestazioni migliori. Se i tempi di risposta e le percentuali di errore aumentano di pari passo con le richieste, è probabile che ci sia un problema di assegnazione delle risorse. 
 * **Tassi di dipendenza, tempi di risposta e percentuali di errore**: trovare quali servizi esterni causino un rallentamento.
 * **Eccezioni**: analizzare le statistiche aggregate o selezionare istanze specifiche e approfondire l'analisi dello stack e le richieste correlate. Vengono segnalate eccezioni di server e browser.
 * **Visualizzazioni pagina e prestazioni di carico**, segnalate dai browser degli utenti.
@@ -67,7 +67,7 @@ Application Insights è destinato al team di sviluppo, a cui consente di compren
 | [**Analisi dell'utilizzo**](../../azure-monitor/app/usage-overview.md)<br/>Analizzare la segmentazione e la conservazione degli utenti.|![Strumento Conservazione](./media/app-insights-overview/retention.png) |
 | [**Ricerca diagnostica dei dati dell'istanza**](../../azure-monitor/app/diagnostic-search.md)<br/>Cercare e filtrare eventi come richieste, eccezioni, chiamate a dipendenze, tracce di log e visualizzazioni di pagina.  |![Ricerca nella telemetria](./media/app-insights-overview/search-tn.png) |
 | [**Esplora metriche per i dati aggregati**](../../azure-monitor/app/metrics-explorer.md)<br/>Esaminare, filtrare e segmentare dati aggregati come frequenza delle richieste, errori, eccezioni, tempi di risposta e tempi di caricamento delle pagine. |![Metriche](./media/app-insights-overview/metrics-tn.png) |
-| [**Dashboard**](../../azure-monitor/app/app-insights-dashboards.md#dashboards)<br/>Combinare dati di più risorse e condividerli con altri utenti. Ideale per le applicazioni multi-componente e per la visualizzazione continua negli spazi del team. |![Esempio di dashboard](./media/app-insights-overview/dashboard-tn.png) |
+| [**Dashboard**](../../azure-monitor/app/overview-dashboard.md)<br/>Combinare dati di più risorse e condividerli con altri utenti. Ideale per le applicazioni multi-componente e per la visualizzazione continua negli spazi del team. |![Esempio di dashboard](./media/app-insights-overview/dashboard-tn.png) |
 | [**Flusso di metriche in tempo reale**](../../azure-monitor/app/live-stream.md)<br/>Quando si distribuisce una nuova build, controllare questi indicatori delle prestazioni in tempo quasi reale per verificare che tutto funzioni come previsto. |![Esempio di metriche live](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Analisi**](../../azure-monitor/app/analytics.md)<br/>Questo avanzato linguaggio di query consente di trovare risposta a domande approfondite sull'utilizzo e sulle prestazioni dell'app. |![Esempio di analisi](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>Vedere i dati sulle prestazioni nel codice. Passare al codice dall'analisi dello stack.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
@@ -81,7 +81,7 @@ Application Insights è destinato al team di sviluppo, a cui consente di compren
 ### <a name="monitor"></a>Monitorare
 Installare Application Insights nell'app, impostare i [test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) e:
 
-* Impostare un [dashboard](../../azure-monitor/app/app-insights-dashboards.md) per la chat team, in modo da controllare carico, velocità di risposta e prestazioni delle dipendenze, caricamenti di pagina e chiamate AJAX.
+* Vedere il [dashboard dell'applicazione](../../azure-monitor/app/overview-dashboard.md) predefinito per la chat team, in modo da controllare carico, velocità di risposta e prestazioni delle dipendenze, caricamenti di pagina e chiamate AJAX.
 * Scoprire quali sono le richieste più lente e con un maggior numero di errori.
 * Guardare [Live Stream](../../azure-monitor/app/live-stream.md) quando si distribuisce una nuova versione, in modo da rendersi immediatamente conto di eventuali riduzioni delle prestazioni.
 
@@ -114,7 +114,7 @@ Application Insights è uno dei molti servizi ospitati in Microsoft Azure e rice
   * [Altre piattaforme](../../azure-monitor/app/platforms.md)
 * **[Instrumentare le pagine Web](../../azure-monitor/app/javascript.md)** per visualizzazione pagina, AJAX e altri dati di telemetria sul lato client.
 * **[Analizzare l'uso di app per dispositivi mobili](../../azure-monitor/learn/mobile-center-quickstart.md)** tramite l'integrazione con Visual Studio App Center.
-* **[Test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)**: effettuare regolarmente il ping del sito Web dai server.
+* **[Test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)** : effettuare regolarmente il ping del sito Web dai server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Introduzione in fase di esecuzione a:
@@ -149,7 +149,6 @@ Introduzione in fase di sviluppo a:
 [azure]: ../../insights-perf-analytics.md
 [client]: ../../azure-monitor/app/javascript.md
 [desktop]: ../../azure-monitor/app/windows-desktop.md
-[detect]: ../../azure-monitor/app/detect-triage-diagnose.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [ios]: ../../azure-monitor/learn/mobile-center-quickstart.md
 [java]: ../../azure-monitor/app/java-get-started.md

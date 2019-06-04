@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
+ms.date: 05/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269298"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225912"
 ---
 # <a name="azure-resource-manager-overview"></a>Panoramica di Gestione risorse di Microsoft Azure
 
@@ -91,7 +91,7 @@ Se l'area del gruppo di risorse è temporaneamente non disponibile, non è possi
 
 Ogni provider di risorse offre una serie di risorse e operazioni per l'uso di tali risorse. Per archiviare chiavi e segreti sarà ad esempio necessario usare il provider di risorse **Microsoft.KeyVault** . Questo provider di risorse offre un tipo di risorsa denominato **vaults** per creare l'insieme di credenziali delle chiavi.
 
-Il nome di un tipo di risorsa è nel formato: **{resource-provider}/{resource-type}**. Il tipo di risorsa per un insieme di credenziali delle chiavi è **Microsoft.KeyVault/vaults**.
+Il nome di un tipo di risorsa è nel formato: **{resource-provider}/{resource-type}** . Il tipo di risorsa per un insieme di credenziali delle chiavi è **Microsoft.KeyVault/vaults**.
 
 Prima di iniziare con la distribuzione delle risorse è necessario comprendere i provider di risorse disponibili. Conoscere i nomi dei provider di risorse e delle risorse consente di definire le risorse da distribuire in Azure. Inoltre, è necessario conoscere le posizioni e le versioni dell'API valide per ogni tipo di risorsa. Per altre informazioni, vedere [Provider e tipi di risorse](resource-manager-supported-services.md).
 
@@ -174,7 +174,21 @@ Dopo aver definito il modello è possibile distribuire le risorse in Azure. Per 
 
 Quando si distribuisce un servizio complesso in Azure, è necessario distribuire il servizio in più aree e verificarne l'integrità prima di procedere al passaggio successivo. Usare [Azure Deployment Manager](deployment-manager-overview.md) per coordinare un'implementazione per fasi del servizio. Con l'implementazione temporanea del servizio, è possibile individuare potenziali problemi prima che il servizio sia distribuito in tutte le aree. Se non sono necessarie queste precauzioni, le operazioni di distribuzione nella sezione precedente sono la scelta migliore.
 
-Deployment Manager è attualmente disponibile nella versione di anteprima privata.
+Deployment Manager è attualmente disponibile nella versione di anteprima pubblica.
+
+## <a name="resiliency-of-azure-resource-manager"></a>Resilienza di Azure Resource Manager
+
+Il servizio Azure Resource Manager è progettato per la resilienza e la disponibilità continua. Le operazioni a livello di Resource Manager e di piano di controllo (richieste inviate a management.azure.com) nell'API REST presentano le caratteristiche seguenti:
+
+* Sono distribuite tra le aree. Alcuni servizi sono disponibili a livello di area.
+
+* Sono distribuite tra le zone di disponibilità (oltre che tra le aree) in località con più zone di disponibilità.
+
+* Non dipendono da un singolo data center logico.
+
+* Non vengono mai disattivate per attività di manutenzione.
+
+Questa resilienza si applica ai servizi che ricevono le richieste tramite Resource Manager. Key Vault, ad esempio, usufruisce di questa resilienza.
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/16/2019
-ms.openlocfilehash: d50794557de00a50790cd4cc661cb9859b231214
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/29/2019
+ms.openlocfilehash: 0bd271dbf173885cbd5f7835c5dc6b672a3e6035
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794195"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298953"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Esercitazione: Eseguire la migrazione online di MongoDB all'API di Azure Cosmos DB per MongoDB con Servizio Migrazione del database
 
@@ -58,10 +58,10 @@ Per completare questa esercitazione, è necessario:
     > * Endpoint di archiviazione
     > * Endpoint bus di servizio
     >
-    > Questa configurazione è necessaria perché Servizio Migrazione del database di Azure non dispone di connettività Internet.
+    > Questa configurazione è necessaria perché il Servizio Migrazione del database di Azure non ha connettività Internet.
 
-* Verificare che le regole del gruppo di sicurezza di rete per la rete virtuale non blocchino le porte di comunicazione in ingresso nel Servizio Migrazione del database di Azure: 443, 53, 9354, 445 e 12000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-* Modificare il firewall del server di origine per consentire a Servizio Migrazione del database di Azure di accedere al server MongoDB di origine, che per impostazione predefinita corrisponde alla porta TCP 27017.
+* Verificare che le regole del gruppo di sicurezza di rete (NSG) per la rete virtuale non blocchino le porte di comunicazione: 53, 443, 445, 9354 e da 10000 a 20000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Aprire Windows Firewall per consentire a Servizio Migrazione del database di Azure di accedere al server MongoDB di origine, per impostazione predefinita attraverso la porta TCP 27017.
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrare il provider di risorse Microsoft.DataMigration
@@ -70,12 +70,12 @@ Per completare questa esercitazione, è necessario:
 
    ![Mostra le sottoscrizioni del portale](media/tutorial-mongodb-to-cosmosdb-online/portal-select-subscription1.png)
 
-2. Selezionare la sottoscrizione in cui si desidera creare l'istanza del Servizio Migrazione del database di Azure e quindi selezionare **Provider di risorse**.
- 
+2. Selezionare la sottoscrizione in cui si vuole creare l'istanza del Servizio Migrazione del database di Azure e quindi selezionare **Provider di risorse**.
+
     ![Visualizzare i provider di risorse](media/tutorial-mongodb-to-cosmosdb-online/portal-select-resource-provider.png)
 
 3. Ricercare la migrazione e quindi a destra del **Microsoft.DataMigration** selezionare **Registro**.
- 
+
     ![Registrare il provider di risorse](media/tutorial-mongodb-to-cosmosdb-online/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Creare un'istanza
@@ -85,18 +85,18 @@ Per completare questa esercitazione, è necessario:
     ![Azure Marketplace](media/tutorial-mongodb-to-cosmosdb-online/portal-marketplace.png)
 
 2. Nella schermata **Servizio Migrazione del database di Azure** selezionare **Crea**.
- 
+
     ![Creare l'istanza del Servizio Migrazione del database di Azure](media/tutorial-mongodb-to-cosmosdb-online/dms-create1.png)
   
 3. Nella schermata **Crea servizio Migrazione** specificare un nome per il servizio, la sottoscrizione e un gruppo di risorse nuovo o esistente.
 
-4. Selezionare la località in cui si vuole creare l'istanza di Servizio Migrazione del database di Azure. 
+4. Selezionare la località in cui si vuole creare l'istanza del Servizio Migrazione del database di Azure.
 
-5. Selezionare una rete virtuale (VNET) esistente o crearne una nuova.
+5. Selezionare una rete virtuale esistente o crearne una nuova.
 
-   La VNet consente al Servizio Migrazione del database di Azure di accedere all'istanza di MongoDB di origine e all'account Azure Cosmos DB di destinazione.
+   La rete virtuale consente a Servizio Migrazione del database di Azure di accedere all'istanza di MongoDB di origine e all'account Azure Cosmos DB di destinazione.
 
-   Per altre informazioni su come creare una VNET nel portale di Azure, vedere l'articolo [Creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
+   Per altre informazioni su come creare una rete virtuale nel portale di Azure, vedere l'articolo [Creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
 
 6. Selezionare uno SKU del piano tariffario Premium.
 
@@ -112,10 +112,10 @@ Per completare questa esercitazione, è necessario:
 Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e creare un nuovo progetto di migrazione.
 
 1. Nel portale di Azure selezionare **Tutti i servizi**, eseguire la ricerca di Servizio Migrazione del database di Azure e quindi selezionare **Servizio Migrazione del database di Azure**.
- 
-    ![Individuare tutte le istanze del Servizio Migrazione del database di Azure](media/tutorial-mongodb-to-cosmosdb-online/dms-search.png)
 
-2. Nella schermata **Servizi Migrazione del database di Azure** cercare il nome dell'istanza Servizio Migrazione del database di Azure appena creata e quindi selezionare l'istanza.
+    ![Individuare tutte le istanze di Servizio Migrazione del database di Azure](media/tutorial-mongodb-to-cosmosdb-online/dms-search.png)
+
+2. Nella schermata **Servizi Migrazione del database di Azure** cercare il nome dell'istanza di Servizio Migrazione del database di Azure appena creata e quindi selezionare l'istanza.
 
     In alternativa, è possibile individuare l'istanza di Servizio Migrazione del database di Azure dal riquadro di ricerca nel portale di Azure.
 
@@ -157,7 +157,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 2. Selezionare **Salva**.
 
    > [!NOTE]
-   > L'indirizzo del server di origine deve essere l'indirizzo dell'elemento primario se l'origine è un set di repliche e il router se l'origine è un cluster MongoDB partizionato. Per un cluster MongoDB partizionato, Servizio Migrazione del database di Azure deve potersi connettere alle singole partizioni nel cluster e questo può richiedere l'apertura del firewall in più computer.          
+   > L'indirizzo del server di origine deve essere l'indirizzo dell'elemento primario se l'origine è un set di repliche e il router se l'origine è un cluster MongoDB partizionato. Per un cluster MongoDB partizionato, Servizio Migrazione del database di Azure deve potersi connettere alle singole partizioni nel cluster e questo può richiedere l'apertura del firewall in più computer.
 
 ## <a name="specify-target-details"></a>Specificare i dettagli della destinazione
 
@@ -171,9 +171,9 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 1. Nella schermata **Map to target databases** (Esegui il mapping nel database di destinazione) eseguire il mapping del database di origine e del database di destinazione per la migrazione.
 
-   Se il database di destinazione contiene lo stesso nome di database del database di origine, Servizio Migrazione del database di Azure seleziona il database di destinazione per impostazione predefinita.
+   Se il database di destinazione contiene lo stesso nome del database di origine, il Servizio Migrazione del database di Azure seleziona il database di destinazione per impostazione predefinita.
 
-   Se accanto al nome del database viene visualizzata la stringa **Create** (Crea), ciò indica che il servizio Migrazione del database di Azure non ha trovato il database di destinazione e provvederà quindi a crearlo.
+   Se accanto al nome del database viene visualizzata la stringa **Create** (Crea), ciò indica che Servizio Migrazione del database di Azure non ha trovato il database di destinazione e provvederà quindi a crearlo.
 
    A questo punto della migrazione, se si vuole la velocità effettiva condivisa per il database, specificare un valore di UR di velocità effettiva. In Cosmos DB è possibile effettuare il provisioning della velocità effettiva a livello di database o di singola raccolta. La velocità effettiva viene misurata in [unità richiesta](https://docs.microsoft.com/azure/cosmos-db/request-units) (UR). Vedere altre informazioni sui [prezzi di Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
@@ -183,9 +183,12 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 3. Nella schermata **Impostazioni raccolta** espandere l'elenco delle raccolte, quindi esaminare le raccolte di cui verrà eseguita la migrazione.
 
-   Si noti che il servizio Migrazione del database di Azure seleziona automaticamente tutte le raccolte esistenti nell'istanza MongoDB di origine che non esistono nell'account Azure Cosmos DB di destinazione. Se si vuole eseguire di nuovo la migrazione di raccolte che già includono dati, è necessario selezionarle esplicitamente in questa schermata.
+   Servizio Migrazione del database di Azure seleziona automaticamente tutte le raccolte esistenti nell'istanza di MongoDB di origine che non esistono nell'account Azure Cosmos DB di destinazione. Se si vuole eseguire di nuovo la migrazione di raccolte che già includono dati, è necessario selezionarle esplicitamente in questa schermata.
 
-   È possibile specificare il numero di UR da usare per le raccolte. Nella maggior parte dei casi dovrebbe essere sufficiente un valore compreso tra 500 (almeno 1000 per le raccolte partizionate) e 4000. Il servizio Migrazione del database di Azure suggerisce le impostazioni predefinite intelligenti in base alle dimensioni della raccolta.
+   È possibile specificare il numero di UR da usare per le raccolte. Nella maggior parte dei casi dovrebbe essere sufficiente un valore compreso tra 500 (almeno 1000 per le raccolte partizionate) e 4000. Servizio Migrazione del database di Azure suggerisce le impostazioni predefinite intelligenti in base alle dimensioni della raccolta.
+
+    > [!NOTE]
+    > Eseguire la migrazione del database e la raccolta in parallelo usando più istanze di Servizio Migrazione del database di Azure, se necessario, per rendere più rapida l'esecuzione.
 
    È anche possibile specificare una chiave di partizione per sfruttare il [partizionamento in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview) per una scalabilità ottimale. Esaminare le [procedure consigliate per la selezione di una chiave di partizione](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). Se non si ha una chiave di partizione, è sempre possibile usare **_id** come chiave di partizione per una migliore velocità effettiva.
 
@@ -220,7 +223,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 2. Connettersi a Cosmos DB per verificare se i dati vengono replicati dal server MongoDB di origine.
 
     ![Stato dell'attività: Riproduzione](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
- 
+
 ## <a name="complete-the-migration"></a>Completare la migrazione
 
 * Quando tutti i documenti dell'origine sono disponibili nella destinazione Cosmos DB, selezionare **Fine** nel menu di scelta rapida dell'attività di migrazione per completare la migrazione.
@@ -231,7 +234,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 ## <a name="post-migration-optimization"></a>Ottimizzazione della post-migrazione
 
-Dopo aver eseguito la migrazione dei dati archiviati nel database MongoDB nell'API per MongoDB di Azure Cosmos DB, è possibile connettersi ad Azure Cosmos DB e gestire i dati. È anche possibile eseguire altre procedure di ottimizzazione della post-migrazione, ad esempio: ottimizzare i criteri di indicizzazione, aggiornare il livello di coerenza predefinito o configurare la distribuzione globale per l'account Azure Cosmos DB. Per altre informazioni, vedere l'articolo [Ottimizzazione della post-migrazione](../cosmos-db/mongodb-post-migration.md). 
+Dopo aver eseguito la migrazione dei dati archiviati nel database MongoDB nell'API per MongoDB di Azure Cosmos DB, è possibile connettersi ad Azure Cosmos DB e gestire i dati. È anche possibile eseguire altre procedure di ottimizzazione della post-migrazione, ad esempio: ottimizzare i criteri di indicizzazione, aggiornare il livello di coerenza predefinito o configurare la distribuzione globale per l'account Azure Cosmos DB. Per altre informazioni, vedere l'articolo [Ottimizzazione della post-migrazione](../cosmos-db/mongodb-post-migration.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 17003864c7bcc5f8be6acf17d40ce2039f031313
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: dfe4f226302b6bb6a010d9d4348fde05b2d31193
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823252"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356948"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure PowerShell
 
@@ -90,6 +90,10 @@ Ora che il modulo di Azure PowerShell è stato aggiunto all'ambiente scelto, è 
 
 Quando la query finale viene eseguita più volte, presupponendo che non vengano apportate modifiche all'ambiente, i risultati restituiti saranno coerenti e, come previsto, ordinati in base alla proprietà **Name**, ma ancora limitati ai primi cinque risultati.
 
+> [!NOTE]
+> Se la query non restituisce risultati da una sottoscrizione a cui si ha già accesso, tenere presente che il cmdlet `Search-AzGraph` è impostato sulle sottoscrizioni nel contesto predefinito. Per visualizzare l'elenco di ID di sottoscrizione che fanno parte del contesto predefinito, eseguire `(Get-AzContext).Account.ExtendedProperties.Subscriptions`. Per eseguire la ricerca in tutte le sottoscrizioni a cui si ha accesso, è possibile impostare PSDefaultParameterValues per `Search-AzGraph' cmdlet by running 
+> `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID }`
+   
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Per rimuovere il modulo di Resource Graph dall'ambiente di Azure PowerShell, è possibile usare il comando seguente:

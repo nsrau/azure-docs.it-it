@@ -5,21 +5,21 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a147d95701af166c650411a91fb24e3448cfec09
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995031"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073823"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Servizio Azure Kubernetes
 
 Il servizio Azure Kubernetes semplifica la distribuzione di un cluster Kubernetes gestito in Azure. servizio Azure Kubernetes riduce la complessità e i costi operativi di gestione di Kubernetes, affidando la maggior parte di queste attività ad Azure. Come servizio Kubernetes ospitato, Azure gestisce attività critiche quali il monitoraggio dell'integrità e la manutenzione per l'utente. I master di Kubernetes sono gestiti da Azure. È necessario solo gestire e mantenere i nodi agente. servizio Azure Kubernetes è gratuito in quanto servizio Kubernetes gestito: si paga solo per i nodi dell'agente all'interno dei cluster e non per i master.
 
-È possibile creare un cluster servizio Azure Kubernetes nel portale di Azure, con l'interfaccia della riga di comando di Azure o mediante opzioni di distribuzione basate su modello come i modelli di Gestione risorse e Terraform. Quando si distribuisce un cluster servizio Azure Kubernetes, il master Kubernetes e tutti i nodi vengono distribuiti e configurati automaticamente. Durante il processo di distribuzione è anche possibile configurare caratteristiche aggiuntive come funzionalità di rete avanzate, integrazione di Azure Active Directory e monitoraggio.
+È possibile creare un cluster servizio Azure Kubernetes nel portale di Azure, con l'interfaccia della riga di comando di Azure o mediante opzioni di distribuzione basate su modello come i modelli di Gestione risorse e Terraform. Quando si distribuisce un cluster servizio Azure Kubernetes, il master Kubernetes e tutti i nodi vengono distribuiti e configurati automaticamente. Durante il processo di distribuzione è anche possibile configurare caratteristiche aggiuntive come funzionalità di rete avanzate, integrazione di Azure Active Directory e monitoraggio. Il supporto per i contenitori Windows Server nel servizio Azure Kubernetes è attualmente in anteprima.
 
 Per altre informazioni sulle nozioni di base di Kubernetes, vedere [Concetti di base di Kubernetes per il servizio Azure Kubernetes][concepts-clusters-workloads].
 
@@ -43,9 +43,9 @@ Per capire come sono le prestazioni del cluster servizio Azure Kubernetes e dell
 
 Per altre informazioni, vedere [Monitorare l'integrità dei contenitori del servizio Azure Kubernetes][container-health].
 
-## <a name="cluster-and-node"></a>Cluster e nodo
+## <a name="clusters-and-nodes"></a>Cluster e nodi
 
-I nodi di servizio Azure Kubernetes sono eseguiti in macchine virtuali di Azure. È possibile connettere una risorsa di archiviazione a nodi e pod, aggiornare i componenti cluster e usare GPU.
+I nodi di servizio Azure Kubernetes sono eseguiti in macchine virtuali di Azure. È possibile connettere una risorsa di archiviazione a nodi e pod, aggiornare i componenti cluster e usare GPU. Il servizio Azure Kubernetes supporta i cluster Kubernetes che eseguono più pool di nodi per supportare sistemi operativi misti e contenitori Windows Server (attualmente in anteprima). I nodi Linux eseguono un'immagine del sistema operativo Ubuntu personalizzata e i nodi Windows Server eseguono un'immagine del sistema operativo Windows Server 2019 personalizzata.
 
 ### <a name="cluster-node-and-pod-scaling"></a>Ridimensionamento dei nodi del cluster e dei pod
 

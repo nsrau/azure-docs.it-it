@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2018
 ms.author: kumud
-ms.openlocfilehash: 44094a38fff17908fd5ea851209130f89a49c988
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 23093cd8bcb5793b9e5b9abc835f64233e666ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707019"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241735"
 ---
 # <a name="what-is-azure-virtual-network"></a>Che cos'è Rete virtuale di Azure?
 
-Rete virtuale di Azure consente a diversi tipi di risorse di Azure, ad esempio Macchine virtuali di Azure, di comunicare in modo sicuro tra di esse, con Internet e con le reti locali. L'ambito di una rete virtuale è una singola area; tuttavia, è possibile connettere più reti virtuali da diverse aree usando il peering di rete virtuale.
+Rete virtuale di Azure consente a diversi tipi di risorse di Azure, ad esempio Macchine virtuali di Azure, di comunicare in modo sicuro tra di esse, con Internet e con le reti locali. In una rete virtuale l'ambito è limitato a una singola area di Azure. Un'[area](https://azure.microsoft.com/global-infrastructure/regions/) di Azure è un set di data center distribuiti entro un perimetro definito dalla latenza e connessi tramite una rete regionale dedicata a bassa latenza. 
+
+Le reti virtuali sono costituite da subnet. Una subnet è un intervallo di indirizzi IP all'interno della rete virtuale. Nelle subnet, come nelle reti virtuali, l'ambito è limitato a una singola area di Azure. 
+
+È possibile connettere più reti virtuali da diverse aree usando il peering di rete virtuale.
 
 Rete virtuale di Azure offre le funzionalità chiave seguenti:
 

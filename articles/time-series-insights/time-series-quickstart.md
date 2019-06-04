@@ -1,44 +1,44 @@
 ---
 title: 'Guida introduttiva: Strumento di esplorazione di Azure Time Series Insights | Microsoft Docs'
-description: In questa guida introduttiva viene illustrato come iniziare a usare lo strumento di esplorazione di Azure Time Series Insights nel Web browser per visualizzare grandi volumi di dati IoT. Esplorare le funzionalità principali in un ambiente demo.
+description: In questo argomento di avvio rapido viene illustrato come iniziare a usare lo strumento di esplorazione di Azure Time Series Insights nel Web browser per visualizzare grandi volumi di dati IoT. Esplorare le funzionalità principali in un ambiente demo.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/22/2019
-ms.openlocfilehash: be663520c9c1afd11ace57cd9dcb8ffb8219b86b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 17aee2555a0d0364ca5eb8e260ae10432a19bce6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696965"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244051"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Guida introduttiva: Esplorare Azure Time Series Insights
 
-Argomento di avvio rapido sull'uso dello strumento di esplorazione di Azure Time Series Insights in un ambiente di dimostrazione gratuito. Si imparerà a usare il Web browser per visualizzare grandi volumi di dati IoT e verranno introdotte le caratteristiche principali attualmente disponibili a livello generale.
+In questo argomento di avvio rapido sullo strumento di esplorazione di Azure Time Series Insights viene illustrato come iniziare a usare Time Series Insights in un ambiente demo gratuito. Si impara a usare il Web browser per visualizzare grandi volumi di dati IoT e vengono introdotte le caratteristiche principali attualmente disponibili a livello generale.
 
-Azure Time Series Insights è un servizio completamente gestito per analisi, archiviazione e visualizzazione, che semplifica l'esplorazione e l'analisi di miliardi di eventi IoT contemporaneamente. Offre una visualizzazione globale dei dati, consentendo di convalidare rapidamente le soluzioni IoT e di evitare così costosi periodi di inattività per i dispositivi di importanza strategica. Con Azure Time Series Insights è possibile individuare tendenze nascoste e anomalie, nonché eseguire analisi della causa radice.
+Azure Time Series Insights è un servizio completamente gestito per analisi, archiviazione e visualizzazione, che semplifica l'esplorazione e l'analisi di miliardi di eventi IoT contemporaneamente. Offre una visualizzazione globale dei dati per poter convalidare rapidamente le soluzioni IoT ed evitare così costosi periodi di inattività per i dispositivi di importanza strategica. Azure Time Series Insights consente di individuare tendenze nascoste e anomalie, nonché di eseguire analisi della causa radice.
 
-Per una maggiore flessibilità, Azure Time Series Insights può essere aggiunto a un'applicazione preesistente mediante le potenti [API REST](./time-series-insights-update-tsq.md) e l'[SDK client](./tutorial-create-tsi-sample-spa.md). Le API consentono di archiviare, eseguire query e utilizzare dati di serie temporali in un'applicazione client di propria scelta. È anche possibile usare l'SDK client per aggiungere componenti dell'interfaccia utente all'applicazione esistente.
+Per una maggiore flessibilità, è possibile aggiungere Azure Time Series Insights a un'applicazione preesistente mediante le potenti [API REST](./time-series-insights-update-tsq.md) e l'[SDK client](./tutorial-create-tsi-sample-spa.md). È possibile usare le API per archiviare, eseguire query e utilizzare dati di serie temporali in un'applicazione client di propria scelta. È anche possibile usare l'SDK client per aggiungere componenti dell'interfaccia utente all'applicazione esistente.
 
-Lo strumento di esplorazione di Time Series InsightsTime è una presentazione guidata delle funzionalità attualmente disponibili a livello generale.
+Questo argomento di avvio rapido sullo strumento di esplorazione di Time Series Insights offre una presentazione guidata delle funzionalità attualmente disponibili a livello generale.
 
 ## <a name="prepare-the-demo-environment"></a>Preparare l'ambiente demo
 
-1. Creare un [account Azure gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) se non ne è ancora stato creato uno.
+1. Se non è già stato creato un account Azure, crearne [uno gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 1. Nel browser passare alla [demo della disponibilità generale](https://insights.timeseries.azure.com/demo).
 
 1. Se viene richiesto, accedere allo strumento di esplorazione di Time Series Insights usando le credenziali dell'account Azure.
 
-1. Viene visualizzata la pagina della demo introduttiva di Time Series Insights. Fare clic su **Next** (Avanti) per iniziare la demo introduttiva.
+1. Viene visualizzata la pagina della demo introduttiva di Time Series Insights. Selezionare **Next** (Avanti) per iniziare la demo introduttiva.
 
-   [![Fare clic su Avanti](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
+   [![Selezionare Next (Avanti)](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
 
 ## <a name="explore-the-demo-environment"></a>Esplorare l'ambiente demo
 
@@ -46,17 +46,17 @@ Lo strumento di esplorazione di Time Series InsightsTime è una presentazione gu
 
    [![Pannello di selezione di data e ora](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
 
-1. Fare clic e trascinare nell'area e quindi fare clic sul pulsante **Search** (Cerca).
+1. Selezionare un intervallo di tempo e trascinarlo nell'area, quindi selezionare **Search** (Cerca).
 
    [![Selezionare un intervallo di tempo](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
 
-   In Time Series Insights viene visualizzato un grafico riferito all'intervallo di tempo specificato. È possibile eseguire diverse operazioni all'interno del grafico a linee, ad esempio applicare filtri, bloccare i dati, ordinarli e impilarli.
+   In Time Series Insights viene visualizzato un grafico riferito all'intervallo di tempo specificato. È possibile eseguire varie azioni all'interno di grafico a linee, ad esempio filtrare, aggiungere, ordinare e distribuire con spaziatura.
 
-   Per tornare al **pannello di selezione di data e ora**, fare clic sulla Freccia GIÙ come illustrato nella figura seguente:
+   Per tornare al **pannello di selezione di data e ora**, selezionare la freccia verso il basso come illustrato nella figura seguente:
 
    [![Grafico](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
 
-1. Fare clic su **Add** (Aggiungi) nel **pannello Terms** (Termini) per aggiungere un nuovo termine di ricerca.
+1. Selezionare **Add** (Aggiungi) nel **pannello Terms** (Termini) per aggiungere un nuovo termine di ricerca.
 
    [![Aggiungere un elemento](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
 
@@ -64,13 +64,13 @@ Lo strumento di esplorazione di Time Series InsightsTime è una presentazione gu
 
    [![Esplorare gli eventi](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
 
-   Verrà visualizzata una griglia di dati non elaborati relativi all'area di riferimento:
+   Verrà visualizzata una griglia di dati non elaborati relativi all'area di riferimento.
 
    [![Visualizzazione griglia](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
 
 ## <a name="select-and-filter-data"></a>Selezionare e filtrare i dati
 
-1. Modificare i termini per modificare i valori nel grafico e aggiungere un altro termine per creare correlazioni incrociate tra tipi diversi di valori:
+1. Modificare i termini per modificare i valori nel grafico. Aggiungere un altro termine per creare correlazioni incrociate tra tipi diversi di valori.
 
    [![Aggiungere un termine](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
 

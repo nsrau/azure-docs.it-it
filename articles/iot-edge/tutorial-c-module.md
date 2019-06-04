@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 63169423e757f3e1e73a95a1523d74c8fc59b2b2
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: dcf15130b1b720277fcb6f551f1e19229a6c5e7c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835117"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239742"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C per dispositivi Linux
 
@@ -314,7 +314,7 @@ Dopo aver applicato il manifesto della distribuzione al dispositivo IoT Edge, il
 
 È possibile visualizzare lo stato del dispositivo IoT Edge tramite la sezione **Azure IoT Hub Devices** (Dispositivi hub IoT di Azure) della finestra di esplorazione di Visual Studio Code. Espandere i dettagli del dispositivo per visualizzare un elenco dei moduli distribuiti e in esecuzione.
 
-1. In Esplora risorse di Visual Studio Code fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge e scegliere **Avvia monitoraggio messaggio D2C**.
+1. In Esplora risorse di Visual Studio Code fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge e scegliere **Start Monitoring Built-in Event Endpoint** (Avvia il monitoraggio dell'endpoint evento predefinito).
 
 2. Visualizzare i messaggi in arrivo nell'hub IoT. L'arrivo dei messaggi potrebbe richiedere del tempo, perché il dispositivo IoT Edge deve ricevere la nuova distribuzione e avviare tutti i moduli. Quindi, a causa delle modifiche apportate, il codice CModule aspetta che la temperatura del computer raggiunga i 25 gradi prima di inviare messaggi. Ai messaggi che indicano il raggiungimento della soglia di temperatura viene inoltre aggiunto il tipo di messaggio **Alert**. 
 

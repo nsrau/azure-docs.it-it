@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: tasharm
-ms.openlocfilehash: 7def77c0b1cf99fcc2cee77a28782dddaf2ac45d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 688887826fa803b616ca737bc8558aa17ed80e37
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992927"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297765"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-ruby-sdk"></a>Guida introduttiva: Chiamare il servizio Analisi del testo usando l'SDK per Ruby
 
@@ -28,18 +28,12 @@ Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+* [Ruby 2.5.5 o versione successiva](https://www.ruby-lang.org/)
+* Text Analytics [SDK per Ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
+ 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 È anche necessario avere la [chiave di accesso e l'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati durante l'iscrizione. 
-
-Scaricare e installare da [qui](https://rubyinstaller.org/downloads/) la versione 2.5.5 di Ruby in base all'architettura di sistema.
-
-> [!Tip]
->  Anche se è possibile chiamare gli [endpoint dell'API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) direttamente con Ruby, l'SDK `Microsoft.Azure.CognitiveServices.TextAnalytics` rappresenta un modo semplice per chiamare il servizio senza serializzare e deserializzare JSON.
->
-> Collegamenti utili:
-> - [Pagina della gem di Ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
-> - [Codice dell'SDK su GitHub](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics/lib/v2.1/generated/azure_cognitiveservices_textanalytics)
 
 <a name="RubyProject"></a>
 
@@ -403,7 +397,7 @@ Document ID: 4
 > [!div class="nextstepaction"]
 > [Analisi del testo con Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
  [Panoramica di Analisi del testo](../overview.md)  
  [Domande frequenti](../text-analytics-resource-faq.md)

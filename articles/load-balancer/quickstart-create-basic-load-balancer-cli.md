@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: a947b5983f4a7d58878fc15785cfbcbcbba7f226
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 698714990b9b34567d918d3b8c536bc3e39d66b8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66156212"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257688"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Guida introduttiva: Creare un servizio di bilanciamento del carico per le macchine virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -146,7 +146,7 @@ Creare una regola del gruppo di sicurezza di rete per consentire il traffico in 
 ```
 ### <a name="create-nics"></a>Creare NIC
 
-Creare tre interfacce di rete con il comando [az network nic create](/cli/azure/network/nic#az-network-nic-create) e associarle all'indirizzo IP pubblico e al gruppo di sicurezza di rete. 
+Creare due interfacce di rete con il comando [az network nic create](/cli/azure/network/nic#az-network-nic-create) e associarle all'indirizzo IP pubblico e al gruppo di sicurezza di rete. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -164,7 +164,7 @@ done
 
 ## <a name="create-backend-servers"></a>Creare i server back-end
 
-In questo esempio vengono create tre macchine virtuali da usare come server back-end per il bilanciamento del carico. Viene inoltre installato NGINX nelle macchine virtuali per verificare l'avvenuta creazione del servizio di bilanciamento del carico.
+In questo esempio vengono create due macchine virtuali da usare come server back-end per il bilanciamento del carico. Viene inoltre installato NGINX nelle macchine virtuali per verificare l'avvenuta creazione del servizio di bilanciamento del carico.
 
 ### <a name="create-an-availability-set"></a>Creare un set di disponibilità
 

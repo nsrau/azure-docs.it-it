@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: overview
-ms.date: 01/28/2019
+ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: ab349018705f173f1b138b854e0773ef3f996f1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4fd03dc6ebada5b665a0c256e9cedbb646cd2fb6
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725852"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297443"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Informazioni su Apache Spark in Azure HDInsight
 
@@ -78,12 +78,14 @@ I cluster Spark in HDInsight consentono gli scenari principali seguenti:
     Apache Spark in HDInsight archivia i dati nell'Archiviazione di Azure o in Azure Data Lake Storage. Gli esperti aziendali e i responsabili decisionali possono analizzare e generare rapporti su dati e usare Microsoft Power BI per creare rapporti dai dati analizzati. Gli analisti possono iniziare a usare dati non strutturati/parzialmente strutturati in una risorsa di archiviazione cluster, definire uno schema per i dati usando notebook e quindi creare modelli di dati usando Microsoft Power BI. I cluster Spark in HDInsight supportano anche alcuni strumenti di business intelligence di terze parti, come Tableau, semplificando il lavoro di analisti di dati, esperti aziendali e decision maker strategici.
 
     [Esercitazione: Visualizzare i dati di Spark usando Power BI](apache-spark-use-bi-tools.md)
+
 - Machine Learning in Spark
 
     Apache Spark include [MLlib](https://spark.apache.org/mllib/), una libreria di Machine Learning basata su Spark, che è possibile usare da un cluster Spark in HDInsight. Il cluster Spark in HDInsight include inoltre Anaconda, una distribuzione di Python con un'ampia gamma di pacchetti per Machine Learning. Aggiungendo il supporto incorporato per notebook Jupyter e Zeppelin si otterrà un ambiente per la creazione di applicazioni di Machine Learning.
 
     [Esercitazione: Prevedere la temperatura dell'edificio con dati HVAC](apache-spark-ipython-notebook-machine-learning.md)  
-    [Esercitazione: Prevedere i risultati di un controllo alimentare](apache-spark-machine-learning-mllib-ipython.md)    
+    [Esercitazione: Prevedere i risultati di un controllo alimentare](apache-spark-machine-learning-mllib-ipython.md)
+
 - Analisi dei dati in tempo reale e streaming in Spark
 
     I cluster Spark in HDInsight offrono un supporto completo per la creazione di soluzioni di analisi in tempo reale. Mentre Spark ha già connettori per acquisire i dati da molte origini, quali socket Kafka, Flume, Twitter, ZeroMQ o TCP, Spark in HDInsight aggiunge un eccellente supporto per l'inserimento di dati da Hub eventi di Azure. Hub eventi è il servizio di accodamento più usato in Azure. La disponibilità di un supporto per Hub eventi rende i cluster Spark in HDInsight la piattaforma ideale per la compilazione della pipeline di analisi in tempo reale.

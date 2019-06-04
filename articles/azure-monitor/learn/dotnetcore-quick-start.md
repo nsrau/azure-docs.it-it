@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: e6afd342a27fa13ae79e037e6e42e582dd9856cc
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: a4bbb43cb00eeb5a9e741016e1648ce915935eb9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015300"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236584"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET Core
 
@@ -102,6 +102,7 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
 ## <a name="video"></a>Video
 
 - Video esterno dettagliato sulla [configurazione da zero di Application Insights con .NET Core e Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
+- Video esterno dettagliato sulla [configurazione da zero di Application Insights con .NET Core e Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Dopo aver completato i test, è possibile eliminare il gruppo di risorse e le risorse correlate. A tale scopo, seguire questa procedura.

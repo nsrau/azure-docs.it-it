@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/02/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: c805d2bc03ad07635b01a5e978822ecab2425457
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ba0975486039546d5be0f704fb617beb1a9e0908
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668841"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306900"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Esercitazione: Distribuire un'applicazione con integrazione continua/distribuzione continua in un cluster di Service Fabric
 
@@ -47,7 +47,7 @@ In questa serie di esercitazioni si apprenderà come:
 Prima di iniziare questa esercitazione:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installare Visual Studio 2017](https://www.visualstudio.com/) e installare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
+* [Installare Visual Studio 2019](https://www.visualstudio.com/) e installare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
 * [Installare Service Fabric SDK](service-fabric-get-started.md)
 * Creare un cluster di Service Fabric per Windows in Azure, ad esempio [eseguendo questa esercitazione](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 * Creare un'[organizzazione di Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). In questo modo è possibile creare un progetto in Azure DevOps e usare Azure Pipelines.
@@ -134,7 +134,7 @@ Per le credenziali di Azure Active Directory aggiungere l'**Identificazione pers
 
 Fare clic su **Aggiungi** per salvare la connessione cluster.
 
-Aggiungere quindi un artefatto alla pipeline in modo da consentire alla pipeline di versione di trovare l'output dalla compilazione. Selezionare **Pipeline** e **Elementi**->**+ Aggiungi**.  In **Origine (definizione di compilazione)** selezionare la pipeline di compilazione creata in precedenza.  Fare clic su **Aggiungi** per salvare l'elemento di compilazione.
+Aggiungere quindi un artefatto alla pipeline in modo da consentire alla pipeline di versione di trovare l'output dalla compilazione. Selezionare **Pipeline** e **Elementi**-> **+ Aggiungi**.  In **Origine (definizione di compilazione)** selezionare la pipeline di compilazione creata in precedenza.  Fare clic su **Aggiungi** per salvare l'elemento di compilazione.
 
 ![Aggiungere un elemento][add-artifact]
 
@@ -191,6 +191,7 @@ Questa esercitazione illustra come:
 > * Distribuire automaticamente e aggiornare un'applicazione
 
 Passare all'esercitazione successiva:
+> [!div class="nextstepaction"]
 > [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->

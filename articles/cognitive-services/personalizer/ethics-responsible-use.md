@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 7b1e972b5516aa79d1754e32e487e17c9e68ac1d
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035432"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239872"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Linee guida per l'implementazione responsabile di Personalizza esperienze
 
@@ -49,7 +49,7 @@ L'implementazione di Personalizza esperienze può essere di grande valore per gl
 
 Usare un servizio che apprende come personalizzare il contenuto e le interfacce utente è utile. Un servizio di questo tipo può tuttavia essere usato in modo improprio se la modalità di personalizzazione genera effetti collaterali negativi nel mondo reale e se gli utenti non sono a conoscenza della personalizzazione del contenuto. 
 
-Gli usi di Personalizza esperienze con elevato potenziale di effetti collaterali negativi o mancanza di trasparenza includono ad esempio gli scenari in cui la "ricompensa" dipende da molti fattori complessi a lungo termine che, se ipersemplificati in una ricompensa immediata, possono avere risultati sfavorevoli per gli utenti. Queste scelte sono in genere considerate "consequenziali", perché comportano un rischio di danno. Ad esempio:  
+Gli usi di Personalizza esperienze con elevato potenziale di effetti collaterali negativi o mancanza di trasparenza includono ad esempio gli scenari in cui la "ricompensa" dipende da molti fattori complessi a lungo termine che, se ipersemplificati in una ricompensa immediata, possono avere risultati sfavorevoli per gli utenti. Queste scelte sono in genere considerate "consequenziali", perché comportano un rischio di danno. Ad esempio: 
 
 
 * **Settore finanziario**: personalizzazione di offerte di prestiti o prodotti finanziari e assicurativi i cui fattori di rischio sono basati su dati che gli utenti non conoscono, non possono ottenere o non possono contestare. 
@@ -128,17 +128,13 @@ Di seguito sono illustrate le aree della progettazione per implementazioni respo
 * Archiviare le informazioni e gli asset usati per il funzionamento di Personalizza esperienze, come modelli, criteri di apprendimento e altri dati, per poter riprodurre i risultati.
 
 ### <a name="transparency"></a>Trasparenza
-*I sistemi di intelligenza artificiale devono essere riconoscibili*. Con Personalizza esperienze
+*I sistemi di intelligenza artificiale devono essere riconoscibili*. Con Personalizza esperienze:
 
-• Offrire agli utenti informazioni sul modo in cui il contenuto è stato personalizzato. Ad esempio, è possibile visualizzare agli utenti un pulsante con l'etichetta "Why These Suggestions?" che mostra le principali caratteristiche dell'utente e le azioni che hanno determinato i risultati di Personalizza esperienze.
-• Assicurarsi di specificare nelle condizioni per l'utilizzo che si useranno le informazioni e il comportamento degli utenti per personalizzare l'esperienza.
-
-
-* *Offrire agli utenti informazioni sul modo in cui il contenuto è stato personalizzato.* Ad esempio, è possibile visualizzare agli utenti un pulsante con l'etichetta `Why These Suggestions?` che mostra le principali caratteristiche dell'utente e le azioni che hanno svolto un ruolo nella personalizzazione.
-* Assicurarsi che le condizioni per l'utilizzo specifichino che si useranno le informazioni sugli utenti per personalizzare l'esperienza.
+* *Offrire agli utenti informazioni sul modo in cui il contenuto è stato personalizzato.* È ad esempio possibile visualizzare agli utenti un pulsante con l'etichetta `Why These Suggestions?` che mostra le principali caratteristiche dell'utente e le azioni che hanno svolto un ruolo nei risultati di Personalizza esperienze.
+* Assicurarsi di specificare nelle condizioni per l'utilizzo che si useranno le informazioni e il comportamento degli utenti per personalizzare l'esperienza.
 
 ### <a name="fairness"></a>Equità
-*I sistemi di intelligenza artificiale devono trattare tutte le persone con equità.
+*I sistemi di intelligenza artificiale devono trattare tutte le persone con equità*.
 
 * Non usare Personalizza esperienze per casi d'uso con risultati a lungo termine, consequenziali o associati a danni reali.
 * Non usare caratteristiche non appropriate per la personalizzazione del contenuto o che potrebbero contribuire a diffondere pregiudizi indesiderati. Ad esempio, a chiunque abbia circostanze finanziarie simili dovrebbero essere visualizzati gli stessi consigli personalizzati di prodotti finanziari.

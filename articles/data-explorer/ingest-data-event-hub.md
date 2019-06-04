@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: d5bd291758d6bb445b757b93fd91a4c2321b97db
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.date: 05/29/2019
+ms.openlocfilehash: 18ce5e9d7cff0d32021e97cd85f1e18c0309f00b
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898931"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357674"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure
 
@@ -118,15 +118,18 @@ A questo punto è possibile connettersi all'hub eventi da Esplora dati di Azure.
 
     Tabella di destinazione:
 
-    Sono disponibili due opzioni per il routing: *statico* e *dinamico*. Per questa guida introduttiva viene usato il routing statico (impostazione predefinita), in cui vengono specificati il nome della tabella, il formato di file e il mapping. Lasciare deselezionato **My data includes routing info** (I miei dati includono le informazioni di routing).
-    È anche possibile usare il routing dinamico, in cui i dati includono le informazioni di routing necessarie.
+    Sono disponibili due opzioni per il routing dei dati inseriti: *statico* e *dinamico*. 
+    Per questo articolo viene usato il routing statico, in cui vengono specificati il nome della tabella, il formato dati e il mapping. Lasciare deselezionato **My data includes routing info** (I miei dati includono le informazioni di routing).
 
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
     | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. |
-    | Mapping di colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**.|
+    | Mapping di colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**. Obbligatorio per JSON, MULTILINE JSON o AVRO e facoltativo per gli altri formati.|
     | | |
+
+    > [!NOTE]
+    > Selezionare **My data includes routing info** (I miei dati includono le informazioni di routing) per usare il routing dinamico, in cui i dati includono le informazioni di routing necessarie come illustrato nei commenti dell'[app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Se vengono impostate proprietà sia statiche che dinamiche, le proprietà dinamiche eseguono l'override di quelle statiche. 
 
 ## <a name="copy-the-connection-string"></a>Copia della stringa di connessione
 

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c814f4bb0cc24350e45400d141c97d1b2eb4998d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864373"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237804"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Usare il proprio server notebook per iniziare a usare Azure Machine Learning
 
@@ -35,12 +35,27 @@ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito pr
 * Un'area di lavoro del servizio Azure Machine Learning
 * Un file di configurazione dell'area di lavoro ( **.azureml/config.json**).
 
-Tutti questi prerequisiti sono ottenibili in [Creare un'area di lavoro del servizio Azure Machine Learning](setup-create-workspace.md#portal).
+Tutti questi prerequisiti sono ottenibili in [Creare un'area di lavoro del servizio Azure Machine Learning](setup-create-workspace.md#sdk).
+
 
 
 ## <a name="use-the-workspace"></a>Usare l'area di lavoro
 
-Creare uno script o avviare un notebook nella stessa directory del file di configurazione dell'area di lavoro. Eseguire questo codice che usa le API di base dell'SDK per tenere traccia delle esecuzioni dell'esperimento.
+Creare uno script o avviare un notebook nella stessa directory del file di configurazione dell'area di lavoro ( **.azureml/config.json**).
+
+### <a name="attach-to-workspace"></a>Creare un collegamento all'area di lavoro
+
+Questo codice legge le informazioni dal file di configurazione da collegare all'area di lavoro.
+
+```
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+### <a name="log-values"></a>Registrare i valori
+
+Eseguire questo codice che usa le API di base dell'SDK per tenere traccia delle esecuzioni dell'esperimento.
 
 1. Creare un esperimento nell'area di lavoro.
 1. Registrare un singolo valore nell'esperimento.

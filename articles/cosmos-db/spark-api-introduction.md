@@ -3,15 +3,15 @@ title: Introduzione all'analisi operativa predefinita in Azure Cosmos DB con Apa
 description: Informazioni su come usare il supporto predefinito di Apache Spark in Azure Cosmos DB per l'esecuzione di analisi operativa e intelligenza artificiale
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/10/2019
+ms.date: 05/23/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: c62639feed7ced9d92e29715e350b952465a94a1
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: b392f7fd6438b25a741aecb86a72f142d785f0e3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517744"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237877"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Analisi operativa predefinita in Azure Cosmos DB con Apache Spark (anteprima) 
 
@@ -67,7 +67,7 @@ A differenza dei tradizionali database analitici, con Azure Cosmos DB i data eng
 
 Poiché i processi Apache Spark vengono eseguiti nelle partizioni dati del database di Azure Cosmos DB, le query disporranno di [cinque opzioni ben definite per la coerenza](consistency-levels.md). Questi modelli di coerenza offrono la flessibilità di scegliere la coerenza assoluta per fornire i risultati più accurati per gli algoritmi di Machine Learning senza compromettere la latenza e la disponibilità elevata. 
 
-### <a name="slas"></a>Contratti di servizio
+### <a name="comprehensive-slas"></a>Contratti di servizio completi
 
 I processi Apache Spark avranno i vantaggi di Azure Cosmos DB, ad esempio [contratti di servizio](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/) completi leader di settore (99,999) senza alcun sovraccarico per la gestione di cluster Apache Spark distinti. Questi contratti di servizio includono velocità effettiva, latenza al 99° percentile, coerenza e disponibilità elevata. 
 
@@ -77,7 +77,7 @@ L'integrazione di Apache Spark in Azure Cosmos DB consente di superare la separa
 
 ## <a name="built-in-jupyter-notebooks-support"></a>Supporto incorporato dei notebook di Jupyter
 
-Azure Cosmos DB supporta i notebook di Jupyter per tutte le API, ad esempio Cassandra, MongoDB, SQL, Gremlin e Tabella. Tali notebook vengono eseguiti all'interno degli account Azure Cosmos DB e migliorano l'esperienza di sviluppo. Il supporto incorporato dei notebook per tutte le API Azure Cosmos DB e i modelli di dati consente di eseguire le query in modo interattivo. È anche possibile eseguire modelli di Machine Learning e analizzare i dati archiviati nei database Azure Cosmos. Sfruttando l'esperienza di notebook di Jupyter, è possibile analizzare i dati archiviati, creare ed eseguire il training per i modelli di Machine Learning, nonché eseguire l'inferenza sui dati nel portale di Azure come mostrato nella figura seguente:
+Azure Cosmos DB supporta i notebook di Jupyter predefiniti per tutte le API, ad esempio Cassandra, MongoDB, SQL, Gremlin e Tabella. Tali notebook vengono eseguiti all'interno degli account Azure Cosmos e migliorano l'esperienza di sviluppo. Il supporto incorporato dei notebook per tutte le API Azure Cosmos DB e i modelli di dati consente di eseguire le query in modo interattivo. È anche possibile eseguire modelli di Machine Learning e analizzare i dati archiviati nei database Azure Cosmos. Sfruttando l'esperienza di notebook di Jupyter, è possibile analizzare i dati archiviati, creare ed eseguire il training per i modelli di Machine Learning, nonché eseguire l'inferenza sui dati nel portale di Azure come mostrato nella figura seguente:
 
 ![Supporto dei notebook di Jupyter in Azure Cosmos DB](./media/spark-api-introduction/jupyter-notebooks-portal.png)
 

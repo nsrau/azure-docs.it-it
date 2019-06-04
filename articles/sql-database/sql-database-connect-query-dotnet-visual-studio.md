@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 3959eb789102cd3d54fc7bab32e585b3c09d897b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7870322746d8cb647547e5c85036579611ac3292
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792147"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303315"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare .NET (C#) e C# in Visual Studio per connettersi a un database SQL di Azure ed eseguire query
 
@@ -43,7 +43,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
   > [!IMPORTANT]
   > Gli script in questo articolo sono scritti in modo da usare il database Adventure Works. Con un'istanza gestita, è necessario importare il database Adventure Works in un database dell'istanza oppure modificare gli script di questo articolo in modo da usare il database Wide World Importers.
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional o Enterprise edition.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional o Enterprise Edition.
 
 ## <a name="get-sql-server-connection-information"></a>Ottenere informazioni di connessione SQL Server
 
@@ -59,7 +59,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 
 1. In Visual Studio selezionare **File** > **Nuovo** > **Progetto**. 
    
-1. Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C#**, quindi **App console (.NET Framework)**.
+1. Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C#** , quindi **App console (.NET Framework)** .
    
 1. Immettere *sqltest* come nome di progetto e quindi selezionare **OK**. Viene creato il nuovo progetto. 
    
@@ -73,7 +73,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
    
 1. Al termine dell'installazione, è possibile chiudere **Gestisci pacchetti NuGet**. 
    
-1. Nell'editor di codice, sostituire i contenuti **Program.cs** con il codice seguente. Sostituire con i valori per `<server>`, `<username>`, `<password>`, e `<database>`.
+1. Nell'editor di codice, sostituire i contenuti **Program.cs** con il codice seguente. Sostituire con i valori per `<server>`, `<username>`, `<password>` e `<database>`.
    
    >[!IMPORTANT]
    >Il codice in questo esempio usa i dati di esempio di AdventureWorksLT, che è possibile scegliere come origine durante la creazione del database. Se il database contiene dati diversi, utilizzare le tabelle del database personale nella query SELECT. 
