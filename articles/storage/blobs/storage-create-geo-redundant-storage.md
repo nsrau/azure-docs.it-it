@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 24869981595cd68eb833f7b176e17a2683127945
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787921"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306763"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB
 
@@ -40,7 +40,7 @@ Per completare questa esercitazione:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
+* Installare [Visual Studio 2019](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
   - **Sviluppo di Azure**
 
   ![Sviluppo di Azure (in Web e cloud)](media/storage-create-geo-redundant-storage/workloads.png)
@@ -82,6 +82,8 @@ Seguire questa procedura per creare un account di archiviazione con ridondanza g
    | **Modello di distribuzione** | Gestione risorse  | Gestione risorse include le funzionalità più recenti.|
    | **Tipo di account** | StorageV2 | Per informazioni dettagliate sui tipi di account, consultare i [tipi di account di archiviazione](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Prestazioni** | Standard | Standard è sufficiente per lo scenario di esempio. |
+   | **Replica**| Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). | Questa impostazione è necessaria ai fini dell'esempio. |
+   |**Sottoscrizione** | sottoscrizione in uso |Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
    | **Replica**| Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). | È necessario ai fini dell'esempio. |
    |**Sottoscrizione** | sottoscrizione in uso |Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.azure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
@@ -139,7 +141,7 @@ Nel portale di Azure passare all'account di archiviazione. Nell'account di archi
 export storageconnectionstring=<yourconnectionstring>
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 setx storageconnectionstring "<yourconnectionstring>"
@@ -158,7 +160,7 @@ export accountname=<youraccountname>
 export accountkey=<youraccountkey>
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 setx accountname "<youraccountname>"
@@ -167,7 +169,7 @@ setx accountkey "<youraccountkey>"
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Questo esempio richiede l'archiviazione sicura del nome e della chiave dell'account di archiviazione. Archiviarli in variabili di ambiente locali nel computer che esegue l'esempio. Eseguire l'esempio per Linux o per Windows, in base al sistema operativo, per creare le variabili di ambiente. In Windows, la variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi** o la shell in uso.
+Questo esempio richiede l'archiviazione sicura del nome e della chiave dell'account di archiviazione. Archiviarli in variabili di ambiente locali nel computer che esegue l'esempio. Eseguire l'esempio per Linux o per Windows, in base al sistema operativo, per creare le variabili di ambiente. In Windows la variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi** o la shell in uso.
 
 ### <a name="linux-example"></a>Esempio per Linux
 
@@ -194,7 +196,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 Per trovare queste informazioni nel portale di Azure, accedere all'account di archiviazione e selezionare **Chiavi di accesso** nella sezione **Impostazioni**.
 
-È necessario installare le dipendenze richieste. A questo scopo, aprire un prompt dei comandi, passare alla cartella dell'esempio e quindi immettere `npm install`.
+Installare le dipendenze richieste. A questo scopo, aprire un prompt dei comandi, passare alla cartella dell'esempio e quindi immettere `npm install`.
 
 ---
 
@@ -231,11 +233,11 @@ Per eseguire l'esempio, usare Maven nella riga di comando.
 
 Questo esempio crea un file di test nella directory predefinita. Per gli utenti di Windows, questa directory si trova nel percorso **AppData\Local\Temp**. Presenta quindi le opzioni di comandi seguenti che è possibile immettere:
 
-- Immettere **P** per eseguire un'operazione put BLOB, che carica un file temporaneo nell'account di archiviazione.
-- Immettere **L** per eseguire un'operazione list BLOB, che elenca i BLOB attualmente presenti nel contenitore.
-- Immettere **G** per eseguire un'operazione get BLOB, che scarica un file dall'account di archiviazione nel computer locale.
-- Immettere **D** per eseguire un'operazione delete BLOB, che elimina il BLOB dall'account di archiviazione.
-- Immettere **E** per chiudere l'esempio, eliminando anche tutte le risorse che ha creato.
+- Immettere **P** per eseguire un'operazione put BLOB. Questo comando carica un file temporaneo nell'account di archiviazione.
+- Immettere **L** per eseguire un'operazione list BLOB. Questo comando elenca i BLOB attualmente presenti nel contenitore.
+- Immettere **G** per eseguire un'operazione get BLOB. Questo comando scarica un file dall'account di archiviazione nel computer locale.
+- Immettere **D** per eseguire un'operazione delete BLOB. Questo comando elimina il BLOB dall'account di archiviazione.
+- Immettere **E** per chiudere l'esempio. Questo comando elimina anche tutte le risorse che ha creato.
 
 Questo esempio mostra l'output se si esegue l'applicazione in Windows.
 

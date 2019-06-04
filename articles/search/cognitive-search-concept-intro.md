@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 24c6df6a06d08249f236fc36d64b4204b0103b3c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8af927bee11d66c473707b603951fa693f6840e3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540890"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299022"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Che cos'è la ricerca cognitiva in Ricerca di Azure?
 
@@ -86,7 +86,7 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 | Elaborazione del linguaggio naturale | Elaborazione di un testo per estrarre informazioni dettagliate e informazioni sugli input di testo. Rilevamento lingua, analisi del sentiment ed estrazione frasi chiave sono competenze che rientrano nell'elaborazione del linguaggio naturale.  | [Competenza di estrazione frasi chiave](cognitive-search-skill-keyphrases.md), [Competenza di rilevamento lingua](cognitive-search-skill-language-detection.md), [Competenza di analisi del sentiment](cognitive-search-skill-sentiment.md) |
 | Individuazione di documenti | Processo di estrazione o creazione di contenuti di testo da origini non testuali durante l'indicizzazione. La funzione di riconoscimento ottico dei caratteri (Optical Character Recognition - OCR) ne è un esempio, ma in genere si fa riferimento alla funzionalità di base dell'indicizzatore, che consente di estrarre contenuti da file dell'applicazione. L'origine dati che fornisce il percorso del file di origine e la definizione dell'indicizzatore che fornisce il mapping dei campi sono entrambi fattori chiave nell'individuazione di documenti. | Vedere [Indicizzatori](search-indexer-overview.md) |
 | Shaping | Consolidare frammenti di testo in una struttura più ampia o viceversa suddividere i blocchi di testo più grandi in blocchi di dimensioni gestibili per un'altra elaborazione a valle. | [Competenza di shaping](cognitive-search-skill-shaper.md), [Competenza di unione testo](cognitive-search-skill-textmerger.md), [Competenze di divisione testo](cognitive-search-skill-textsplit.md) |
-| Documenti arricchiti | Una struttura interna transitoria, non direttamente accessibile nel codice. I documenti arricchiti vengono generati durante l'elaborazione, ma solo gli output finali sono persistenti in un indice di ricerca. Il mapping dei campi determina gli elementi dati aggiunti all'indice. | Vedere [Accessing enriched documents](cognitive-search-tutorial-blob.md#access-enriched-document) (Accesso a documenti arricchiti). |
+| Documenti arricchiti | Struttura interna transitoria, generata durante l'elaborazione, con l'output finale riflesso in un indice di ricerca. Un set di competenze determina i miglioramenti eseguiti. Il mapping dei campi determina gli elementi dati aggiunti all'indice. È facoltativamente possibile creare un knowledge store per rendere persistenti ed esplorare i documenti arricchiti usando strumenti come Storage Explorer, Power BI o qualsiasi altro strumento che si connette ad Archiviazione BLOB di Azure. | Vedere [Knowledge store (anteprima)](knowledge-store-concept-intro.md). |
 | Indexer |  Crawler che estrae dati e metadati che supportano la ricerca da un'origine dati esterna e popola un indice in base a mapping da campo a campo tra l'indice e l'origine dati per l'individuazione dei documenti. Per l'arricchimento della ricerca cognitiva, l'indicizzatore richiama un set di competenze e contiene i mapping dei campi che associano gli output di arricchimento ai campi di destinazione nell'indice. La definizione dell'indicizzatore contiene tutte le istruzioni e i riferimenti per le operazioni della pipeline, che viene a sua volta richiamata quando si esegue l'indicizzatore. | [Indicizzatori](search-indexer-overview.md) |
 | origine dati  | Oggetto usato da un indicizzatore per la connessione a un'origine dati esterna di tipi supportati in Azure. | Vedere [Indicizzatori](search-indexer-overview.md) |
 | Indice | Indice di ricerca persistente in Ricerca di Azure, compilato in base a uno schema dell'indice che definisce la struttura di campo e di utilizzo. | [Indici in Ricerca di Azure](search-what-is-an-index.md) | 
