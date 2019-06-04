@@ -97,7 +97,7 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 | domain_dns_name |
 | domain_netbios_name |
 | e_exp |
-| posta elettronica |
+| email |
 | endpoint |
 | enfpolids |
 | exp |
@@ -105,7 +105,7 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 | grant_type |
 | graph |
 | group_sids |
-| Gruppi |
+| groups |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -156,10 +156,10 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| Risorsa |
-| ruolo |
-| ruoli |
-| ambito |
+| resource |
+| role |
+| roles |
+| scope |
 | scp |
 | sid |
 | signature |
