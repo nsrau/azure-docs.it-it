@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/17/2019
 ms.openlocfilehash: a6a681ace95f9bab3c77e4a0f9982a2281c778b8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/04/2019
 ms.locfileid: "65966436"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Esercitazione: Estrarre, trasformare e caricare dati con Azure Databricks
@@ -143,7 +143,7 @@ In questa sezione viene creato un notebook nell'area di lavoro di Azure Databric
 
     ![Specificare i dettagli per un notebook in Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "Specificare i dettagli per un notebook in Databricks")
 
-4. Selezionare **Create**.
+4. Selezionare **Create** (Crea).
 
 5. Il blocco di codice seguente imposta le credenziali dell'entità servizio predefinita per qualsiasi account di Azure Data Lake Storage Gen 2 a cui si accede nella sessione Spark. Il secondo blocco di codice accoda il nome dell'account all'impostazione per specificare le credenziali per un account di Azure Data Lake Storage Gen 2 specifico.  Copiare e incollare uno dei due blocchi di codice nella prima cella del notebook di Azure Databricks.
 

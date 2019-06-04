@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813904"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473584"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Chiavi di creazione e di endpoint per query di stima in LUIS
 LUIS usa due chiavi: [creazione](#programmatic-key) ed [endpoint](#endpoint-key). La chiave di creazione viene creata automaticamente quando si crea l'account LUIS. Quando si è pronti a pubblicare l'app LUIS, è necessario [creare la chiave endpoint](luis-how-to-azure-subscription.md), [assegnarla](luis-how-to-azure-subscription.md) all'app LUIS e [usarla con la query endpoint](#use-endpoint-key-in-query). 
@@ -49,11 +49,11 @@ Per eseguire **query endpoint di produzione**, creare una risorsa di Azure e ass
 
 Al termine del processo di creazione della risorsa di Azure, [assegnare la chiave](luis-how-to-azure-subscription.md) all'app. 
 
-    * La chiave endpoint consente una quota di accessi endpoint in base al piano di utilizzo specificato durante la creazione della chiave. Per informazioni sui prezzi, vedere [Prezzi dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h).
+* La chiave endpoint consente una quota di accessi endpoint in base al piano di utilizzo specificato durante la creazione della chiave. Per informazioni sui prezzi, vedere [Prezzi dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h).
 
-    * La chiave endpoint può essere usata per tutte le app LUIS o per app LUIS specifiche. 
+* La chiave endpoint può essere usata per tutte le app LUIS o per app LUIS specifiche. 
 
-    * Non usare la chiave endpoint per la creazione di app LUIS. 
+* Non usare la chiave endpoint per la creazione di app LUIS. 
 
 ## <a name="use-endpoint-key-in-query"></a>Usare la chiave endpoint nella query
 L'endpoint LUIS accetta due stili di query, entrambi usano la chiave endpoint, ma in posizioni diverse:

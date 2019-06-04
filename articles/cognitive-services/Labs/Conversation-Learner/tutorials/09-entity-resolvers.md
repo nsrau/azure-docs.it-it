@@ -1,5 +1,5 @@
 ---
-title: Sistemi di risoluzione entità in un modello dello strumento di apprendimento di conversazioni - servizi cognitivi Microsoft | Microsoft Docs
+title: Sistemi di risoluzione entità in un modello di apprendimento di conversazioni - servizi cognitivi di Azure | Microsoft Docs
 titleSuffix: Azure
 description: Informazioni su come usare i resolver di entità in Conversation Learner.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 7b5f5645a8b5d1d993f87d18503fe270f42c5de5
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 51f74f504f0ad70c8c7f73be8ee6a05add685824
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390035"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475747"
 ---
 # <a name="entity-resolvers"></a>Resolver di entità
 
@@ -94,4 +94,4 @@ Per iniziare, passare alla home page nell'interfaccia utente Web.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Input alternativi](./10-alternative-inputs.md)
+> [Entità di enum](./tutorial-enum-set-entity.md)

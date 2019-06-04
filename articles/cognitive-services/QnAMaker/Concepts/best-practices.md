@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 2677c993b759988b0a9906b357bcd352b243b5a7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b599beb6a8d14d0e62d236251fb5f5b1e1a8bcfd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792685"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496933"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 Il [ciclo di vita di sviluppo della knowledge base](../Concepts/development-lifecycle-knowledge-base.md) fornisce informazioni sulla gestione della KB dall'inizio alla fine. Usare queste procedure consigliate per migliorare la knowledge base e fornire risultati migliori per gli utenti finali dell'applicazione/chat bot.
@@ -46,7 +46,7 @@ Chit chat è supportata per diversi personalità predefiniti:
 
 |Personalità |File di set di dati di QnA Maker |
 |---------|-----|
-|Professionale |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|Professional |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
 |Gentile |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
 |Dinamica, in gamba |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
 |Necessario |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
@@ -59,11 +59,11 @@ Esistono alcune domande specifiche per i bot che fanno parte del set di dati chi
 
 È consigliabile rendere le seguenti QnA di chit-chat più specifiche:
 
-* Identificarsi
+* Chi si sta autenticando?
 * Cosa fare
 * Quanti anni hai?
 * Chi ti ha creato?
-* Salve
+* Ciao
    
 
 ## <a name="rankingscoring"></a>Classificazione e assegnazione dei punteggi
@@ -72,10 +72,13 @@ Assicurarsi di usare al meglio le funzionalità di classificazione supportate da
 ### <a name="choosing-a-threshold"></a>Scelta della soglia
 Il punteggio di attendibilità predefinito che viene usato come soglia è 50, ma è possibile modificarlo per la KB in base alle esigenze. Poiché ogni KB è diversa, occorre testare e scegliere la soglia più adatta alla propria KB. Per altre informazioni, vedere il [punteggio di attendibilità](../Concepts/confidence-score.md). 
 
+### <a name="choosing-ranker-type"></a>Scelta del tipo permettendoti
+Per impostazione predefinita, QnA Maker di Cerca con domande e risposte. Se si desidera cercare solo le domande, per generare una risposta, utilizzare il `RankerType=QuestionOnly` nel corpo del POST della richiesta GenerateAnswer.
+
 ### <a name="add-alternate-questions"></a>Aggiungere domande alternative
 Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabilità di una corrispondenza con una query utente. Le domande alternative sono utili quando ci sono più modi per porre la stessa domanda. Ciò può includere modifiche alla struttura della frase e allo stile delle parole.
 
-|Query originale|Query alternative|Cambia| 
+|Query originale|Query alternative|Modifica| 
 |--|--|--|
 |È disponibile il parcheggio?|Si dispone di parcheggio?|struttura della frase|
  |Ciao|Ehi<br>Salve!|stile delle parole o gergo|
@@ -103,7 +106,7 @@ Ad esempio, si potrebbero avere due QnA separate con le domande seguenti:
 |dove si *trova* il parcheggio|
 |dove si *trova* il bancomat|
 
-Poiché queste due QnA sono formulate con parole molto simili, questa analogia potrebbe causare punteggi molto simili per molte query utente che hanno formula *"dove si `<x>` trova"*. Provare invece a differenziare chiaramente con query quali *"dov'è il parcheggio"* e *"dov'è il bancomat"*, evitando parole come "trova" che potrebbe ricorrere in molte domande nella KB. 
+Poiché queste due QnA sono formulate con parole molto simili, questa analogia potrebbe causare punteggi molto simili per molte query utente che hanno formula *"dove si `<x>` trova"* . Provare invece a differenziare chiaramente con query quali *"dov'è il parcheggio"* e *"dov'è il bancomat"* , evitando parole come "trova" che potrebbe ricorrere in molte domande nella KB. 
 
 ## <a name="collaborate"></a>Collaborare
 QnA Maker permette agli utenti di [collaborare](../How-to/collaborate-knowledge-base.md) a una knowledge base. Per accedere alle knowledge base, gli utenti necessitano dell'accesso al gruppo di risorse di QnA Maker in Azure. Alcune organizzazioni potrebbero voler assegnare all'esterno le attività di modifica e manutenzione della knowledge base, mantenendo comunque la possibilità di proteggere l'accesso alle risorse di Azure. Questo modello di approvazione dell'editor di testo può essere ottenuto configurando due [servizi QnA Maker](../How-to/set-up-qnamaker-service-azure.md) identici in diverse sottoscrizioni e se si seleziona uno per il ciclo di test di modifica. Una volta completati i test, il contenuto della knowledge base può essere trasferito con un processo di [importazione-esportazione](../Tutorials/migrate-knowledge-base.md) al servizio QnA Maker del responsabile approvazione che infine pubblicherà la knowledge base e aggiornerà l'endpoint.

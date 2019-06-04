@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-pawal
-ms.openlocfilehash: 153fd5a8202ca0d919a2254449d846f8798bd10d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 1cfe4038ff422ecba68f110707e9535226ccd4a5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382502"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472112"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
@@ -213,6 +213,7 @@ I linguaggi seguenti sono disponibili per la personalizzazione da e verso tramit
 | Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Cinese semplificato      | `zh-Hans`          |
+|Cinese tradizionale|   `zh-Hant`   |
 | Croato      | `hr`          |
 | Ceco      | `cs`          |
 | Danese      | `da`          |

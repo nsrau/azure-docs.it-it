@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.author: tulasim
-ms.openlocfilehash: 2454e07e4fc4600f846acc7afbcc19cc0b677450
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3088d0f161496cfd2e1cb8897cef36365ece9962
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792227"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496946"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta della Knowledge base con l'API di GenerateAnswer e metadati
 
@@ -71,21 +71,22 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 |--|--|--|--|
 |Parametro di route di URL|ID Knowledge base|string|L'identificatore univoco globale della Knowledge Base.|
 |Parametro di route di URL|Host endpoint QnAMaker|string|nome host dell'endpoint distribuito nella sottoscrizione di Azure. È disponibile nella pagina impostazioni dopo la pubblicazione della knowledge base. |
-|Intestazione|Tipo contenuto|string|tipo di supporto del corpo inviato all'API. Valore predefinito è: '|
+|Intestazione|Content-Type|string|tipo di supporto del corpo inviato all'API. Valore predefinito è: '|
 |Intestazione|Authorization|string|la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo della richiesta POST|Oggetto JSON|JSON|La domanda con le impostazioni|
 
 
 Il corpo JSON presenta diverse impostazioni:
 
-|Proprietà del corpo JSON|Obbligatorio|Type|Scopo|
+|Proprietà del corpo JSON|Obbligatoria|Type|Scopo|
 |--|--|--|--|
-|`question`|obbligatorio|string|Una domanda utente da inviare alla knowledge base.|
+|`question`|Obbligatoria|string|Una domanda utente da inviare alla knowledge base.|
 |`top`|facoltativo|integer|numero di risultati classificati da includere nell'output. Il valore predefinito è 1.|
 |`userId`|facoltativo|string|ID univoco per l'identificazione dell'utente. Questo ID verrà registrato nei log di chat.|
 |`scoreThreshold`|facoltativo|integer|Verranno restituite solo le risposte con punteggio di confidenza di sopra di questa soglia. Il valore predefinito è 0.|
-|`isTest`|facoltativo|boolean|Se impostato su true, restituisce risultati da `testkb` indice di ricerca anziché indice pubblicato.|
+|`isTest`|facoltativo|Boolean|Se impostato su true, restituisce risultati da `testkb` indice di ricerca anziché indice pubblicato.|
 |`strictFilters`|facoltativo|string|se specificato, indica a QnA Maker di restituire solo le risposte contenenti i metadati specificati. Usare `none` per indicare risposta non dovrebbe avere alcun filtro di metadati. |
+|`RankerType`|facoltativo|string|Se specificato come `QuestionOnly`, indica a QnA Maker di eseguire la ricerca solo domande. Se non specificato, QnA Maker Cerca domande e risposte.
 
 Un esempio del corpo JSON sarà simile a:
 
@@ -116,10 +117,10 @@ Una risposta con esito positivo restituisce uno stato 200 e una risposta JSON.
 |ID|ID univoco assegnato alla risposta.|
 |Domande|domande fornite dall'utente.|
 |answer|la risposta alla domanda.|
-|una sezione source|nome dell'origine da cui la risposta è stata estratta o salvata nella Knowledge Base.|
-|Metadati|metadati associati alla risposta.|
+|source|nome dell'origine da cui la risposta è stata estratta o salvata nella Knowledge Base.|
+|metadata|metadati associati alla risposta.|
 |Metadata.Name|nome dei metadati. (stringa, lunghezza massima: 100, obbligatorio)|
-|Metadata.Value: valore dei metadati. (stringa, lunghezza massima: 100, obbligatorio)|
+|metadata.value|valore dei metadati. (stringa, lunghezza massima: 100, obbligatorio)|
 
 
 ```json
@@ -172,7 +173,7 @@ Poiché sono richiesti i risultati solo per il ristorante "Paradise", è possibi
 }
 ```
 
-<name="keep-context"></a>
+<a name="keep-context"></a>
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Usare i risultati di domande e risposte per mantenere il contesto conversazione
 
@@ -201,6 +202,21 @@ La risposta per il GenerateAnswer contiene le informazioni sui metadati corrispo
             ]
         }
     ]
+}
+```
+
+## <a name="match-questions-only-by-text"></a>Domande, solo per testo corrispondono
+
+Per impostazione predefinita, QnA Maker di Cerca con domande e risposte. Se si desidera cercare solo le domande, per generare una risposta, utilizzare il `RankerType=QuestionOnly` nel corpo del POST della richiesta GenerateAnswer.
+
+È possibile cercare la Knowledge Base pubblicata, usando `isTest=false`, o nel test kb usando `isTest=true`.
+
+```json
+{
+  "question": "Hi",
+  "top": 30,
+  "isTest": true,
+  "RankerType":"QuestionOnly"
 }
 ```
 

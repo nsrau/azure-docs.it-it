@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956989"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473525"
 ---
 # <a name="collaborating-with-other-authors"></a>Collaborazione con altri autori
 
@@ -31,7 +31,7 @@ Per altre informazioni sugli account utente Active Directory vedere [Tenant di A
 
 ## <a name="luis-app-owner"></a>Proprietario dell'app LUIS
 
-L'account che consente di creare un'app è il proprietario e ogni app ha un solo proprietario. Il proprietario è indicato per l'app **[delle impostazioni](luis-how-to-collaborate.md)** pagina. Il proprietario può eliminare l'app ricevono tramite posta elettronica al 75% del limite mensile di raggiungimento della quota di endpoint. 
+L'account che consente di creare un'app è il proprietario e ogni app ha un solo proprietario. Il proprietario è indicato per l'app **[delle impostazioni](luis-how-to-collaborate.md)** pagina. Il proprietario riceve tramite posta elettronica al 75% del limite mensile di raggiungimento della quota di endpoint. 
 
 ## <a name="authorization-roles"></a>Ruoli di autorizzazione
 LUIS non supporta i diversi ruoli per proprietari e collaboratori, con un'eccezione. L'account proprietario è l'unico che può eliminare l'app.

@@ -518,6 +518,6 @@ In questo esempio si creano i criteri che generano un'attestazione personalizzat
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 Per informazioni su come personalizzare le attestazioni rilasciate nel token SAML tramite il portale di Azure, vedere [come: Personalizzazione delle attestazioni rilasciate nel token SAML per applicazioni aziendali](active-directory-saml-claims-customization.md)
