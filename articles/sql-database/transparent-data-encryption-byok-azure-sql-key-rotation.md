@@ -124,6 +124,6 @@ L'opzione Usa la [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvau
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- In caso di rischio per la sicurezza, consultare Rimuovere una chiave potenzialmente compromessa per informazioni su come rimuovere una protezione TDE potenzialmente compromessa 
+- In caso di rischio per la sicurezza, consultare [Rimuovere una chiave potenzialmente compromessa](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) per informazioni su come rimuovere una protezione TDE potenzialmente compromessa 
 
 - Iniziare a usare l'integrazione di Azure Key Vault e il supporto Bring Your Own Key per TDE: [Abilitare TDE con la propria chiave di Key Vault usando PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)
