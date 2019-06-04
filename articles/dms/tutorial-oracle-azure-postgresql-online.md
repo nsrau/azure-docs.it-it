@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: b73249a9f72e4616f6d36e16f110913278f04590
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/24/2019
+ms.openlocfilehash: 0b3af3d29e6e938f0301d751a79170c7c1964b45
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415613"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243808"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Esercitazione: Eseguire la migrazione online di Oracle a Database di Azure per PostgreSQL usando il Servizio Migrazione del database (anteprima)
 
@@ -24,6 +24,7 @@ ms.locfileid: "65415613"
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
+>
 > * Valutare il lavoro richiesto per la migrazione usando lo strumento ora2pg.
 > * Eseguire la migrazione dello schema di esempio con lo strumento ora2pg.
 > * Creare un'istanza del Servizio Migrazione del database di Azure.
@@ -204,7 +205,7 @@ Per configurare ed eseguire ora2pg per creare un report di valutazione, vedere l
 psql -f [FILENAME] -h [AzurePostgreConnection] -p 5432 -U [AzurePostgreUser] -d database 
 ```
 
-Ad esempio: 
+Ad esempio:
 
 ```
 psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database
@@ -411,5 +412,5 @@ Al termine del caricamento completo iniziale, i database vengono contrassegnati 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulle limitazioni e i problemi noti delle migrazioni online verso il Database di Azure per PostgreSQL, vedere l'articolo sui [problemi noti e soluzioni alternative per le migrazioni online in Database di Azure per PostgreSQL](known-issues-azure-postgresql-online.md).
-* Per informazioni sul Servizio Migrazione del database di Azure, vedere l'articolo [Definizione del Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview).
-* Per informazioni sul Database di Azure per PostgreSQL, vedere l'articolo [Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview).
+* Per informazioni su Servizio Migrazione del database di Azure, vedere l'articolo [Che cos'è il Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview).
+* Per informazioni su Database di Azure per PostgreSQL, vedere l'articolo [Che cos'è Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview).

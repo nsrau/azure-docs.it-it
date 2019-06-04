@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: aljo,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 451cfde133955b987b97bc2447724d2e00010892
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4b3922ea97391a83d729bcf8b25c489a45119046
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667379"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302444"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Service Fabric in un cluster in Azure
 
@@ -44,7 +44,7 @@ In questa serie di esercitazioni si apprenderà come:
 Prima di iniziare questa esercitazione:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Installare Visual Studio 2017](https://www.visualstudio.com/) e installare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
+* [Installare Visual Studio 2019](https://www.visualstudio.com/) e i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
 * [Installare Service Fabric SDK](service-fabric-get-started.md).
 
 ## <a name="download-the-voting-sample-application"></a>Scaricare l'applicazione di voto di esempio
@@ -75,12 +75,12 @@ Il servizio web front-end dell'applicazione di voto è in ascolto su una porta s
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-Prendere nota dell'endpoint di servizio, che sarà necessario in un passaggio successivo.  Se si distribuisce in un cluster esistente, aprire questa porta creando una regola di bilanciamento del carico in Azure e un probe nel bilanciamento del carico di Azure usando uno [script di PowerShell](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) oppure attraverso il servizio di bilanciamento del carico per il cluster nel [portale di Azure](https://portal.azure.com).
+Prendere nota dell'endpoint di servizio, che sarà necessario in un passaggio successivo.  Se si esegue la distribuzione in un cluster esistente, aprire questa porta creando una regola di bilanciamento del carico e un probe nel servizio di bilanciamento del carico di Azure con uno [script di PowerShell](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) oppure tramite il servizio di bilanciamento del carico per il cluster nel [portale di Azure](https://portal.azure.com).
 
 ### <a name="create-a-test-cluster-in-azure"></a>Creare un cluster di test in Azure
 In Esplora soluzioni fare clic con il pulsante destro del mouse su **Voting** e scegliere **Pubblica**.
 
-In **Endpoint connessione** selezionare **Crea un nuovo cluster**.  Se si distribuisce in un cluster esistente, selezionare l'endpoint del cluster dall'elenco.  Viene visualizzata la finestra di dialogo Crea cluster Service Fabric.
+In **Endpoint connessione** selezionare **Crea un nuovo cluster**.  Se si esegue la distribuzione in un cluster esistente, selezionare l'endpoint del cluster nell'elenco.  Viene visualizzata la finestra di dialogo Crea cluster Service Fabric.
 
 Nella scheda **Cluster** immettere il **Nome cluster** (ad esempio, "mytestcluster"), selezionare la propria sottoscrizione, selezionare un'area per il cluster (ad esempio, Stati Uniti centro-meridionali), immettere il numero di nodi del cluster (si consigliano tre nodi per un cluster di test) e infine immettere un gruppo di risorse (ad esempio, "mytestclustergroup"). Fare clic su **Avanti**.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2694d0f22acfb34c07220ad0145b933457961931
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b7d903c8be74e4c0561bb4a857619c9c62f95a9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575926"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239649"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Esercitazione: Distribuire funzioni di Azure come moduli IoT Edge
 
@@ -40,7 +40,7 @@ La funzione di Azure creata in questa esercitazione filtra i dati relativi alla 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo per la creazione di contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando tale esercitazione, saranno soddisfatti i prerequisiti seguenti: 
+Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo per i contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando tale esercitazione, saranno soddisfatti i prerequisiti seguenti: 
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
 * Un [dispositivo Linux che esegue Azure IoT Edge](quickstart-linux.md)
@@ -222,12 +222,11 @@ Visual Studio Code genera un messaggio di conferma quando viene eseguito il push
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 
-È possibile visualizzare tutti i messaggi in arrivo all'hub IoT eseguendo **Azure IoT Hub: Start Monitoring D2C Message** (Hub IoT di Azure: Avvia il monitoraggio del messaggio D2C) nel riquadro comandi.
+È possibile visualizzare tutti i messaggi in arrivo all'hub IoT eseguendo **Azure IoT Hub: Start Monitoring Built-in Event Endpoint (Hub IoT di Azure: Avvia monitoraggio endpoint eventi predefinito)** nel riquadro comandi.
 
-È anche possibile applicare un filtro alla visualizzazione per mostrare tutti i messaggi in arrivo all'hub IoT da un dispositivo specifico. Fare clic con il pulsante destro del mouse sul dispositivo nella sezione **Azure IoT Hub Devices** (Dispositivi dell'Hub IoT di Azure) e scegliere **Start Monitoring D2C Messages** (Avvia il monitoraggio dei messaggi D2C).
+È anche possibile applicare un filtro alla visualizzazione per mostrare tutti i messaggi in arrivo all'hub IoT da un dispositivo specifico. Fare clic con il pulsante destro del mouse sul dispositivo nella sezione **Azure IoT Hub Devices** (Dispositivi dell'hub IoT di Azure) e scegliere **Start Monitoring Built-in Event Endpoint** (Avvia monitoraggio endpoint eventi predefinito).
 
-Per arrestare il monitoraggio dei messaggi, eseguire il comando **hub IoT di Azure: Arrestare il monitoraggio di messaggi D2C** nel riquadro comandi. 
-
+Per arrestare il monitoraggio dei messaggi, eseguire il comando **hub IoT di Azure: Stop Monitoring Built-in Event Endpoint** (Hub IoT di Azure: Arresta monitoraggio endpoint eventi predefinito) nel riquadro comandi. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -245,4 +244,3 @@ Continuare con le esercitazioni successive per ottenere informazioni sugli altri
 
 > [!div class="nextstepaction"]
 > [Trovare le medie usando una finestra mobile in Analisi di flusso di Azure](tutorial-deploy-stream-analytics.md)
-

@@ -10,12 +10,12 @@ ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
 ms.date: 02/08/2019
-ms.openlocfilehash: ce46a6b8d4e2bc57625f9202349718dfbaedc660
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 31246f44be5645715c5c7041d0cf9bcff9c0fa52
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995685"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303293"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Esercitazione: Progettare un database relazionale in un database singolo in Database SQL di Azure con C&#x23; e ADO.NET
 
@@ -23,7 +23,7 @@ Il database SQL di Azure è un database relazionale distribuito come servizio in
 
 > [!div class="checklist"]
 > * Creare un database singolo con il portale di Azure*
-> * Configurare una regola del firewall IP a livello di server con il portale di Azure
+> * Configurare una regola del firewall per gli indirizzi IP a livello di server con il portale di Azure
 > * Connettersi al database con ADO.NET e Visual Studio
 > * Creare tabelle con ADO.NET
 > * Inserire, aggiornare ed eliminare dati con ADO.NET
@@ -33,7 +33,7 @@ Il database SQL di Azure è un database relazionale distribuito come servizio in
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un'installazione di [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+Installazione di [Visual Studio 2019](https://www.visualstudio.com/downloads/) o versioni successive.
 
 ## <a name="create-a-blank-single-database"></a>Creare un database singolo vuoto
 
@@ -96,7 +96,7 @@ Il servizio Database SQL crea un firewall per gli indirizzi IP a livello di serv
 
    ![regola del firewall IP a livello di server](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall IP. Una regola del firewall IP può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
+4. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall per gli indirizzi IP. Una regola del firewall per gli indirizzi IP può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
 
 5. Fare clic su **Save**. Viene creata una regola del firewall IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server di database SQL.
 
