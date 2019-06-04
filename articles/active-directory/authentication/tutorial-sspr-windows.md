@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861523"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253081"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione password self-service di Azure AD dalla schermata di accesso
 
@@ -29,7 +29,7 @@ In questa esercitazione viene descritto come consentire agli utenti di reimposta
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* È necessario eseguire almeno Windows 10, versione aggiornamento di aprile 2018 e i dispositivi devono essere:
+* È necessario eseguire almeno Windows 10, versione aggiornamento di aprile 2018 (v1803) e i dispositivi devono essere:
    * [Aggiunti ad Azure AD](../device-management-azure-portal.md) oppure
    * [Aggiunti ad Azure AD ibrido](../device-management-hybrid-azuread-joined-devices-setup.md), con connettività di rete a un controller di dominio.
 * È necessario abilitare la reimpostazione password self-service di Azure AD.
@@ -122,7 +122,7 @@ Quando si esegue il test di questa funzionalità con Desktop remoto o una sessio
 
 * La reimpostazione della password non è attualmente supportata da Desktop remoto.
 
-Se i criteri richiedono la combinazione Ctrl + Alt + Canc nelle versioni di Windows 10 precedenti alla 1809, **Reimposta password** non funziona.
+Se i criteri richiedono la combinazione Ctrl + Alt + Canc nelle versioni di Windows 10 precedenti alla v1809, **Reimposta password** non funziona.
 
 Se le notifiche della schermata di blocco sono disattivate **Reimposta password** non funziona.
 

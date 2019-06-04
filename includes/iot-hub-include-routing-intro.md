@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 400f12237ae8b8cbaf6d66bda1663ecb680136f3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d0accd01926743d64fa4911dfe56806537170c2d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162613"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271583"
 ---
 Il [routing dei messaggi](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) consente l'invio dei dati di telemetria dai dispositivi IoT agli endpoint compatibili con Hub eventi predefiniti o agli endpoint personalizzati, ad esempio l'archiviazione BLOB, le code del bus di servizio, gli argomenti del bus di servizio e Hub eventi. Per configurare il routing dei messaggi personalizzato, creare [query di routing](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) per personalizzare la route che corrisponde a una determinata condizione. Una volta impostati, i dati in ingresso vengono automaticamente indirizzati agli endpoint dall'hub IoT. Se un messaggio non corrisponde ad alcuna delle query di routing definita, viene indirizzato all'endpoint predefinito.
 
 In questa esercitazione in due parti, si apprenderà come configurare e usare le query di routing personalizzate con l'hub IoT. Si indirizzano i messaggi di routing da un dispositivo IoT a uno degli endpoint multipli, compresa l'archiviazione BLOB e una coda del bus di servizio. I messaggi per la coda del bus di servizio saranno prelevati da un'App per la logica e inviati tramite posta elettronica. I messaggi per cui non è stato definito il routing personalizzato vengono inviati all'endpoint predefinito, selezionati da Analisi di flusso di Azure e visualizzati in una visualizzazione di Power BI.
 
- Per completate le parti 1 e 2 di questa esercitazione, si eseguono le seguenti attività:
+Per completate le parti 1 e 2 di questa esercitazione, sono state eseguite le attività seguenti:
 
 **Parte I: Creare risorse e configurare il routing dei messaggi**
 > [!div class="checklist"]
