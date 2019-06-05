@@ -28,7 +28,7 @@ Questo argomento elenca gli attributi sincronizzati tramite il servizio di sincr
 Gli attributi sono raggruppati in base alle app Azure AD correlate.
 
 ## <a name="attributes-to-synchronize"></a>Attributi da sincronizzare
-Spesso viene chiesto *Qual è l'elenco degli attributi minimi per sincronizzare*. L'approccio predefinito e consigliato consiste nel mantenere gli attributi predefiniti per creare un elenco indirizzi globale completo nel cloud e per ottenere tutte le funzionalità nei carichi di lavoro Office 365. Talvolta l'organizzazione non vuole sincronizzare alcuni attributi con il cloud perché contengono dati sensibili o informazioni personali, come illustrato nell'esempio seguente:   
+Spesso viene chiesto *Qual è l'elenco degli attributi minimi per sincronizzare*. L'approccio predefinito e consigliato consiste nel mantenere gli attributi predefiniti per creare un elenco indirizzi globale completo nel cloud e per ottenere tutte le funzionalità nei carichi di lavoro Office 365. Talvolta l'organizzazione non vuole sincronizzare alcuni attributi con il cloud perché contengono dati sensibili o informazioni personali, come illustrato nell'esempio seguente:  
 ![attributi non validi](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
 In questo caso, partire dal seguente elenco di attributi in questo argomento e individuare gli attributi che potrebbero contenere dati sensibili o informazioni personali e che non possono quindi essere sincronizzati. Deselezionare questi attributi durante l'installazione tramite [Filtro attributi e app di Azure AD](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
