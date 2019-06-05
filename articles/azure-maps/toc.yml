@@ -164,6 +164,8 @@
       items:
         - name: Controllo mappa
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+        - name: Strumenti di disegno
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/'
         - name: Modulo del servizio
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
     - name: Modello di Resource Manager

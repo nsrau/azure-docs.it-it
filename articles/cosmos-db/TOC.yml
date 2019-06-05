@@ -600,6 +600,8 @@
       items:
         - name: Suggerimenti per incrementare le prestazioni
           items:
+            - name: Ottenere le metriche di esecuzione delle query
+              href: profile-sql-api-query.md
             - name: Ottimizzare le prestazioni delle query
               href: sql-api-query-metrics.md
             - name: Suggerimenti sulle prestazioni per .NET SDK

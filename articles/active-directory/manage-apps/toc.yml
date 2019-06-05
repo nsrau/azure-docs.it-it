@@ -74,7 +74,11 @@
         - name: Configurare la crittografia dei token SAML (anteprima)
           href: howto-saml-token-encryption.md
     - name: Single sign-on
-      href: what-is-single-sign-on.md
+      items:
+        - name: Informazioni sull'accesso Single Sign-On
+          href: what-is-single-sign-on.md
+        - name: Pianificare una distribuzione di Single Sign-On
+          href: plan-sso-deployment.md
     - name: Portali degli utenti finali
       href: end-user-experiences.md
 - name: Guide alle procedure
@@ -93,7 +97,9 @@
           href: application-proxy-configure-for-claims-aware-applications.md
         - name: Registrare il connettore - installazione invisibile all'utente
           href: application-proxy-register-connector-powershell.md
-        - name: Configurare app client native
+        - name: Fornire ad app desktop e per dispositivi mobili l'accesso alle API locali
+          href: application-proxy-secure-api-access.md
+        - name: Configurare le app client desktop e per dispositivi mobili
           href: application-proxy-configure-native-client-application.md
         - name: Configurare una home page personalizzata
           href: application-proxy-configure-custom-home-page.md

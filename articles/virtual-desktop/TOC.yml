@@ -64,6 +64,8 @@
       href: troubleshoot-client-connection.md
     - name: PowerShell con Desktop virtuale Windows
       href: troubleshoot-powershell.md
+    - name: Diagnosticare i problemi di prestazioni della grafica
+      href: remotefx-graphics-performance-counters.md
 - name: riferimento
   items:
     - name: PowerShell

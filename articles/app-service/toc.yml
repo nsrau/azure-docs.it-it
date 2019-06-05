@@ -19,6 +19,16 @@
       href: app-service-web-get-started-dotnet-framework.md
     - name: Creare un'app Node.js
       href: app-service-web-get-started-nodejs.md
+    - name: Creare un'app Node.js con Visual Studio Code
+      items:
+        - name: Introduzione
+          href: tutorial-javascript-vscode-get-started.md
+        - name: Creazione dell'applicazione
+          href: tutorial-javascript-vscode-create-app.md
+        - name: Distribuire il sito Web
+          href: tutorial-javascript-vscode-deploy-app.md
+        - name: Visualizzazione dei log
+          href: tutorial-javascript-vscode-tail-logs.md
     - name: Creare un'app PHP
       href: app-service-web-get-started-php.md
     - name: Creare un'app Java
@@ -78,8 +88,12 @@
           href: overview-patch-os-runtime.md
         - name: Attributi di sicurezza
           href: app-service-security-attributes.md
+    - name: Funzionalità di rete
+      href: networking-features.md
     - name: IP in ingresso e in uscita
       href: overview-inbound-outbound-ips.md
+    - name: Integrazione della rete virtuale
+      href: web-sites-integrate-with-vnet.md
     - name: Connessioni ibride
       href: app-service-hybrid-connections.md
     - name: Integrazione di Gestione traffico
@@ -98,8 +112,6 @@
           href: web-sites-php-configure.md
         - name: Configurare Java
           href: configure-language-java.md
-        - name: Connettersi alle risorse locali
-          href: web-sites-integrate-with-vnet.md
     - name: Distribuisci in Azure
       items:
         - name: Distribuire l'app

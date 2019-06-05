@@ -51,6 +51,8 @@
           href: event-hubs-capture-python.md
     - name: Eseguire lo streaming in Hub eventi per Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+    - name: Creare un cluster dedicato
+      href: event-hubs-dedicated-cluster-create-portal.md
 - name: Esercitazioni
   items:
     - name: Visualizzare le anomalie dei dati nei flussi di dati di Hub eventi

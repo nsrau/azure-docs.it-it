@@ -13,6 +13,9 @@
       href: quick-backup-vm-powershell.md
     - name: Eseguire il backup di una macchina virtuale - Interfaccia della riga di comando
       href: quick-backup-vm-cli.md
+    - name: Eseguire il backup di una macchina virtuale - Modello di Resource Manager
+      displayName: ARM
+      href: quick-backup-vm-template.md
 - name: Esercitazioni
   items:
     - name: Eseguire un backup delle macchine virtuali di Azure su larga scala
@@ -249,6 +252,8 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: Stato del sistema
+          href: backup-azure-system-state-troubleshoot.md
     - name: Monitorare i carichi di lavoro di Backup di Azure
       items:
         - name: Uso del portale di Azure

@@ -34,6 +34,8 @@
       href: tutorials/08-pre-trained-entities.md
     - name: Resolver di entità
       href: tutorials/09-entity-resolvers.md
+    - name: Entità Enum
+      href: tutorials/tutorial-enum-set-entity.md
     - name: Input alternativo
       href: tutorials/10-alternative-inputs.md
     - name: Registrare dialoghi

@@ -470,8 +470,12 @@
           href: ./partner-center-portal/manage-account.md
         - name: Trovare o creare un account aziendale della società
           href: ./partner-center-portal/company-work-accounts.md
+        - name: Migrazione degli account dal Cloud Partner Portal al Centro per i partner
+          href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: Creare una nuova offerta
       items:
+        - name: Elenco di controllo per la creazione di offerte
+          href: ./partner-center-portal/offer-creation-checklist.md
         - name: Creare un'offerta SaaS
           href: ./partner-center-portal/create-new-saas-offer.md
         - name: API di evasione ordini SaaS

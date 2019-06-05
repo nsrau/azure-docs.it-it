@@ -43,7 +43,7 @@
       items:
         - name: Filtrare i dati con Funzioni di Azure
           href: tutorial-deploy-function.md
-        - name: Trovare medie con ASA
+        - name: Trovare le medie con Analisi di flusso di Azure
           href: tutorial-deploy-stream-analytics.md
         - name: Assegnare punteggi ai dati con il servizio Azure Machine Learning
           href: tutorial-deploy-machine-learning.md
