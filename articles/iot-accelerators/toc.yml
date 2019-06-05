@@ -147,16 +147,12 @@
       items:
         - name: Architettura di OPC Twin
           href: overview-opc-twin-architecture.md
-        - name: Architettura di Connected Factory
-          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Guide alle procedure
       items:
         - name: Connected Factory
           items:
             - name: Usare il dashboard
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: Distribuire un gateway
-              href: iot-accelerators-connected-factory-gateway-deployment.md
             - name: Usare il modulo di pubblicazione OPC
               href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: Configurare l'acceleratore di soluzioni

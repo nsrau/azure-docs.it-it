@@ -55,11 +55,11 @@
     - name: Esercitazioni
       items:
         - name: Abilitare il provider di risorse
-          href: 'https://docs.azure.cloudsimple.com/enable-cloudsimple-service/'
+          href: enable-cloudsimple-service.md
         - name: Creare il servizio CloudSimple
-          href: 'https://docs.azure.cloudsimple.com/create-cloudsimple-service/'
+          href: create-cloudsimple-service.md
         - name: Accedere al portale di CloudSimple
-          href: 'https://docs.azure.cloudsimple.com/access-cloudsimple-portal/'
+          href: access-cloudsimple-portal.md
         - name: Gestire nodi
           items:
             - name: Acquistare nodi

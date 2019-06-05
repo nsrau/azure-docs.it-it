@@ -123,6 +123,10 @@
           items:
             - name: Informazioni su Data Box Heavy
               href: data-box-heavy-overview.md
+        - name: Guide introduttive
+          items:
+            - name: Configurazione - Portale di Azure
+              href: data-box-heavy-quickstart-portal.md
         - name: Esercitazioni
           items:
             - name: 1 - Ordinare

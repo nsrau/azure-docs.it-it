@@ -15,16 +15,6 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: 'Creare una funzione: Visual Studio Code'
       href: functions-create-first-function-vs-code.md
-    - name: 'Creare una funzione: Node.js con Visual Studio Code'
-      items:
-        - name: Introduzione
-          href: tutorial-javascript-vscode-get-started.md
-        - name: Creazione dell'applicazione
-          href: tutorial-javascript-vscode-create-app.md
-        - name: Eseguire e testare l'app in locale
-          href: tutorial-javascript-vscode-run-app.md
-        - name: Distribuire il sito Web
-          href: tutorial-javascript-vscode-deploy-app.md
     - name: Creare una funzione - Java/Maven
       href: functions-create-first-java-maven.md
     - name: Creare una funzione - Python
