@@ -9,7 +9,7 @@ ms.date: 10/11/2018
 ms.author: iainfou
 ms.openlocfilehash: 6516b11bf5d4d4c4e5406a3e6e0cce3189796d33
 ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2019
 ms.locfileid: "65956409"
@@ -165,7 +165,7 @@ Le domande e le risposte seguenti si applicano alla configurazione delle funzion
 
   L'elenco completo delle proprietà per la rete virtuale e le subnet create durante la creazione del cluster servizio Azure Kubernetes può essere configurato nella pagina di configurazione della rete virtuale standard nel portale di Azure.
 
-* *È possibile usare una subnet diversa all'interno della rete virtuale del cluster per l'***intervallo di indirizzi del servizio Kubernetes**?
+* *È possibile usare una subnet diversa all'interno della rete virtuale del cluster per l'* **intervallo di indirizzi del servizio Kubernetes**?
 
   Non è consigliabile, ma questa configurazione è possibile. L'intervallo di indirizzi del servizio è un set di indirizzi IP virtuali che Kubernetes assegna ai servizi interni nel cluster. La rete di Azure non ha visibilità sull'intervallo di indirizzi IP dei servizi del cluster Kubernetes. A causa di tale mancanza di visibilità, è possibile creare in un secondo momento nella rete virtuale del cluster una nuova subnet sovrapposta all'intervallo di indirizzi del servizio. Se si verifica una sovrapposizione di questo tipo, Kubernetes può assegnare a un servizio un indirizzo IP già usato da un'altra risorsa nella subnet, causando un comportamento imprevedibile o errori. Assicurandosi di usare un intervallo di indirizzi esterno alla rete virtuale del cluster, è possibile evitare il rischio di sovrapposizioni.
 

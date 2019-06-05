@@ -15,7 +15,7 @@ Domain Name System (DNS) consente di individuare elementi su Internet. Se ad ese
 
 Il sistema DNS è basato su *record*. I record associano uno specifico *nome*, come **contoso.com**, a un indirizzo IP o a un altro nome DNS. Quando un'applicazione, ad esempio un Web browser, cerca un nome in DNS, trova il record e usa come indirizzo il valore a cui punta. Se il valore a cui punta è un indirizzo IP, il browser userà questo valore. Se punta a un altro nome DNS, l'applicazione deve risolverlo di nuovo. In ultima analisi, la risoluzione del nome terminerà sempre in un indirizzo IP.
 
-A ogni sito Web di Azure creato verrà automaticamente assegnato un nome DNS. Questo nome avrà il formato **&lt;nomesito&gt;.azurewebsites.net**. Quando si aggiunge il sito Web a un endpoint di Gestione traffico di Azure, il sito Web diventa accessibile tramite il dominio**&lt;profilogestionetraffico&gt;.trafficmanager.net**.
+A ogni sito Web di Azure creato verrà automaticamente assegnato un nome DNS. Questo nome avrà il formato **&lt;nomesito&gt;.azurewebsites.net**. Quando si aggiunge il sito Web a un endpoint di Gestione traffico di Azure, il sito Web diventa accessibile tramite il dominio **&lt;profilogestionetraffico&gt;.trafficmanager.net**.
 
 > [!NOTE]
 > Quando il sito Web è configurato come endpoint di Gestione traffico, si userà l'indirizzo **.trafficmanager.net** per la creazione di record DNS.
