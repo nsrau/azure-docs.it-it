@@ -87,7 +87,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | givenName |X |X | | |
 | homePhone |X |X | | |
 | info |X |X |X |Questo attributo non viene attualmente utilizzato per i gruppi. |
-| Iniziali |X |X | | |
+| Initials |X |X | | |
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
@@ -166,7 +166,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| titolo |X |X | | |
+| title |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |Proprietà meccanica. Paese/area geografica il suo. Usato per l'assegnazione delle licenze. |
 | userCertificate |X |X | | |
@@ -248,7 +248,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| titolo |X |X | | |
+| title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
 | usageLocation |X | | |Proprietà meccanica. Paese/area geografica il suo
@@ -299,7 +299,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| titolo |X |X | | |
+| title |X |X | | |
 | usageLocation |X | | |Proprietà meccanica. Paese/area geografica il suo. Usato per l'assegnazione delle licenze. |
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 | wWWHomePage |X |X | | |
@@ -311,7 +311,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | cn |X | |X |Nome comune o alias. In genere il prefisso del valore [mail]. |
 | displayName |X |X |X |Stringa che rappresenta il nome spesso visualizzato come nome descrittivo (nome cognome). |
 | mail |X |X |X |Indirizzo di posta elettronica completo. |
-| membro | | |X | |
+| member | | |X | |
 | objectSID |X | |X |Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory. |
 | proxyAddresses |X |X |X |Proprietà meccanica. Usata da Azure AD. Contiene tutti gli indirizzi di posta elettronica secondari per l'utente. |
 | pwdLastSet |X | | |Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. |
@@ -365,7 +365,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| titolo |X |X | | |
+| title |X |X | | |
 | usageLocation |X | | |Proprietà meccanica. Paese/area geografica il suo. Usato per l'assegnazione delle licenze. |
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
