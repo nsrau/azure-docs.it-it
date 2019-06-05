@@ -658,7 +658,7 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 | bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
-| DateTime |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
@@ -679,12 +679,12 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 | sql_variant |Object * |
 | text |String, Char[] |
 | time |TimeSpan |
-|  timestamp |Byte[] |
+| timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| xml |Xml |
 
 ## <a name="mapping-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per eseguire il mapping dal set di dati di origine alle colonne del set di dati sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
