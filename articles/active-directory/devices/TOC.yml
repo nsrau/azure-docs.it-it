@@ -1,8 +1,8 @@
-- name: Documentazione sulla gestione dei dispositivi
+- name: Documentazione sulle identità dei dispositivi
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sulla gestione dei dispositivi in Azure AD
+    - name: Informazioni sulle identità dei dispositivi
       href: overview.md
     - name: Informazioni su Enterprise State Roaming
       href: enterprise-state-roaming-overview.md
@@ -29,7 +29,7 @@
 - name: Guide alle procedure
   expanded: true
   items:
-    - name: Gestire i dispositivi tramite il portale di Azure
+    - name: Gestire le identità dei dispositivi
       href: device-management-azure-portal.md
     - name: Gestire i dispositivi non aggiornati
       href: manage-stale-devices.md

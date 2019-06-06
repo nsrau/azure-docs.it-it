@@ -105,6 +105,10 @@
           href: howto-server-parameters.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-configure-server-parameters-cli.md
+    - name: Aumento automatico delle dimensioni di archiviazione
+      items:
+        - name: Portale di Azure
+          href: howto-auto-grow-storage-portal.md
     - name: Accesso ai log server
       items:
         - name: Portale di Azure
