@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Node.js"
+title: "Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Node.js"
 titlesuffix: Azure Cognitive Services
 description: Informazioni su come iniziare rapidamente a suggerire termini di ricerca in tempo reale con l'API Suggerimenti automatici Bing.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: b8f7fbe386400babac033de0efbaaabbe8832397
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: a8782951baccd63d3087ef0628a8fca31b9a4bc1
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010090"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390398"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Node.js
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Node.js
 
 Usare questo argomento di avvio rapido per iniziare a eseguire chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione Node.js invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
@@ -37,7 +37,7 @@ Usare questo argomento di avvio rapido per iniziare a eseguire chiamate all'API 
     let https = require ('https');
     ```
 
-2. Creare variabili per l'host e il percorso dell'endpoint dell'API, la chiave di sottoscrizione, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes) e il termine di ricerca.
+2. Creare variabili per l'host e il percorso dell'endpoint dell'API, la chiave di sottoscrizione, il [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e il termine di ricerca.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -191,4 +191,4 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [Creare app Web a pagina singola](../tutorials/autosuggest.md)
 
 - [Informazioni su Suggerimenti automatici Bing](../get-suggested-search-terms.md)
-- [Riferimento sull'API Suggerimenti automatici Bing versione 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Riferimento sull'API Suggerimenti automatici Bing versione 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

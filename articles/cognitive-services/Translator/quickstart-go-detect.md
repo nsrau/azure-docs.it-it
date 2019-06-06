@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: bb4c6f431be8194cc82cba67d6fa5d454f506c30
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 298d0a2b97df482bb1942146df81d3241b9a6cf2
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602838"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514925"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo con Go
 
@@ -198,7 +198,7 @@ Esaminare i pacchetti Go per le API Servizi cognitivi da [Azure SDK per Go](http
 > [!div class="nextstepaction"]
 > [Esaminare i pacchetti Go su GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 Informazioni su come usare l'API Traduzione testuale per:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Traslitterare un testo, Node.js - API Traduzione testuale'
+title: 'Guida introduttiva: Traslitterare un testo, Node.js - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con Node.js e l'API REST Traduzione testuale. In questo esempio il giapponese è traslitterato per usare l'alfabeto latino.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: db2d9fcf3dbb168061805906dae6ecc3a03e3301
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a76e2c386e9c82b70a7945b4670d60caf9856036
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884405"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515127"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Guida introduttiva: Usare l'API Traduzione testuale per traslitterare un testo con Node.js
 
 In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con Node.js e l'API REST Traduzione testuale. Nell'esempio fornito il giapponese è traslitterato per usare l'alfabeto latino.
 
@@ -140,7 +140,7 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Node.js su GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 Oltre al rilevamento della lingua, scopri come usare l'API Traduzione testuale per:
 

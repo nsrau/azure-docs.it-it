@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Cercare immagini - SDK di Ricerca immagini Bing per Java'
+title: 'Guida introduttiva: Cercare immagini - SDK di Ricerca immagini Bing per Java'
 description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Java invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: dd2bf11781a6dd013f033fc535b068d449dd04d4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 991eae9a83325118caaea5c7e3fdb64c6caa1f16
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238131"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386618"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-java"></a>Avvio rapido: Cercare immagini con l’SDK di Ricerca immagini Bing per Java
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-java"></a>Guida introduttiva: Cercare immagini con l’SDK di Ricerca immagini Bing per Java
 
 Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Java invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 
@@ -99,11 +99,11 @@ else {
 > [!div class="nextstepaction"]
 > [Esercitazione sull'app a singola pagina di Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Provare una demo interattiva online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Ottenere gratuitamente una chiave di accesso per Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
 * [Esempi Java per l'SDK di Servizi cognitivi di Azure](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 * [Documentazione di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

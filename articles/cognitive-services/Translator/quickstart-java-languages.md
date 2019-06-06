@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: c3b80e7aea9add143cf74a21b8023723a1142a9c
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: ba93082d0fc98d18499b5e3154e782d3ffce26ec
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604304"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514793"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Guida introduttiva: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate usando Java
 
@@ -267,7 +267,7 @@ Esaminare il codice di esempio per questa guida introduttiva e per altre, inclus
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Java su GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Tradurre un testo](quickstart-java-translate.md)
 * [Traslitterare testo](quickstart-java-transliterate.md)

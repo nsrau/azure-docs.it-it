@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Convertire uno script di testo, C# - Traduzione testuale'
+title: 'Guida introduttiva: Convertire uno script di testo, C# - Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con .NET Core e l'API REST Traduzione testuale. In questo esempio il giapponese è traslitterato per usare l'alfabeto latino.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: e8da13916fbbf711304f636d9c9ccaf95c48c99a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c1d55e29b15f52fa97e997a4002e77bb935d53d7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864695"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514146"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con C#
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Guida introduttiva: Usare l'API Traduzione testuale per traslitterare un testo con C#
 
 In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con .NET Core (C#) e l'API REST Traduzione testuale. Nell'esempio fornito il giapponese è traslitterato per usare l'alfabeto latino.
 
@@ -175,7 +175,7 @@ Esaminare il codice di esempio per questa guida introduttiva e per altre, inclus
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Tradurre un testo](quickstart-csharp-translate.md)
 * [Identificare la lingua da un input](quickstart-csharp-detect.md)

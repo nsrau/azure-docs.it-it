@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 79f0474950cf1f48f3552b1ae843a29b5d8dbb24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 89b836109818f7a4c1aafdbc9a1b3a72fe806269
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883373"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515035"
 ---
-# <a name="what-is-translator-text-api"></a>Informazioni sull'API Traduzione testuale
+# <a name="what-is-the-translator-text-api"></a>Informazioni sull'API Traduzione testuale
 
 L'API Traduzione testuale è facile da integrare in applicazioni, siti Web, strumenti e soluzioni. Consente di aggiungere esperienze utente multilingue in [oltre 60 lingue](languages.md) e può essere usata in qualsiasi piattaforma hardware con qualsiasi sistema operativo per la traduzione da testo a testo in una lingua.
 

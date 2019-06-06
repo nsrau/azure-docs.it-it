@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Tradurre testo, Python - API Traduzione testuale'
+title: 'Guida introduttiva: Tradurre testo, Python - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva verrà tradotto un testo da una lingua a un'altra usando l'API Traduzione testuale con Python in meno di 10 minuti.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 573c45eb9c48d7b6663b518d4830577f951ec70d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 48e6aa8c098c702095c9e25207f04eef7fd46a4f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899401"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514692"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Avvio rapido: Usare l'API Traduzione testuale per tradurre una stringa con Python
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Guida introduttiva: Usare l'API Traduzione testuale per tradurre una stringa con Python
 
 In questa guida introduttiva si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con Python e l'API REST Traduzione testuale.
 
@@ -159,7 +159,7 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Python su GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 Informazioni su come usare l'API Traduzione testuale per:
 

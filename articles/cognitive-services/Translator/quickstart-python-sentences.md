@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: d6f9ac2d0b7aa2365d0391841e6d6fb0369a9693
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9ab2ebe5556e6850845392fc574c35809730a41a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727044"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515069"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Avvio rapido: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi con Python
 
@@ -151,7 +151,7 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Python su GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 Informazioni su come usare l'API Traduzione testuale per:
 

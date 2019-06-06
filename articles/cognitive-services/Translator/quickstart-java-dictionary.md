@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Cercare le parole con il dizionario bilingue, Java - API Traduzione testuale'
+title: 'Guida introduttiva: Cercare le parole con il dizionario bilingue, Java - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando Java e l'API Traduzione testuale.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 5c2f85e6417c3185df58e757f9831ef171e39add
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 027e895ffbeb3cc0ff5b3348c2d7a8b76b930cf3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181895"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514818"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando Java
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando Java
 
 In questo argomento di avvio rapido verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando Java e l'API Traduzione testuale.
 
@@ -247,7 +247,7 @@ Esaminare il codice di esempio per questa guida introduttiva e per altre, inclus
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Java su GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Tradurre un testo](quickstart-java-translate.md)
 * [Traslitterare testo](quickstart-java-transliterate.md)

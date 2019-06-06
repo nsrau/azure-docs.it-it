@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: b30fa9bb0af8da7b3c72fef7aa2ecd18a8f759e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ac91212ecc43e5aa03ecdd4857b1431ccf82b1c3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862846"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515061"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con Python
 
@@ -149,7 +149,7 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Python su GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 Informazioni su come usare l'API Traduzione testuale per:
 

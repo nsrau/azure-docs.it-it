@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: eseguire una ricerca con Python - API Ricerca Web Bing'
+title: 'Guida introduttiva: eseguire una ricerca con Python - API Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste all'API REST Ricerca Web Bing usando Python e ricevere una risposta JSON
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: c00b805a8a702828f6d6402478ed8d2a79d3966e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2f26392bdac34dd831e04c772e5357f5e41fc746
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862880"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390217"
 ---
-# <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Avvio rapido: usare Python per chiamare l'API Ricerca Web Bing  
+# <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Guida introduttiva: usare Python per chiamare l'API Ricerca Web Bing  
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Python invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
@@ -55,7 +55,7 @@ search_term = "Azure Cognitive Services"
 
 ## <a name="make-a-request"></a>Effettuare una richiesta
 
-Questo blocco usa la libreria `requests` per chiamare l'API Ricerca Web Bing e restituire i risultati come oggetto JSON. La chiave API viene passata nel dizionario `headers`, mentre il termine di ricerca e i parametri della query vengono passati nel dizionario `params`. Vedere la documentazione dell'[API Ricerca Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) per un elenco completo di opzioni e parametri.
+Questo blocco usa la libreria `requests` per chiamare l'API Ricerca Web Bing e restituire i risultati come oggetto JSON. La chiave API viene passata nel dizionario `headers`, mentre il termine di ricerca e i parametri della query vengono passati nel dizionario `params`. Vedere la documentazione dell'[API Ricerca Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) per un elenco completo di opzioni e parametri.
 
 ```python
 import requests

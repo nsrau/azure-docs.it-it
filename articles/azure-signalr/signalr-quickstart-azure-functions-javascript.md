@@ -7,14 +7,14 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b096a6c7bb5b1fedaa5d2963dddae03df9fe6954
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264200"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494046"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Avvio rapido: Creare una chat room con Funzioni di Azure e il servizio SignalR usando JavaScript
+# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Guida introduttiva: Creare una chat room con Funzioni di Azure e il servizio SignalR usando JavaScript
 
 Il servizio Azure SignalR consente di aggiungere facilmente funzionalità in tempo reale all'applicazione. Funzioni di Azure è una piattaforma serverless che consente di eseguire il codice senza gestire alcuna infrastruttura. Questa guida introduttiva fornisce informazioni su come usare il servizio SignalR e le funzioni per creare un'applicazione serverless di chat in tempo reale.
 
@@ -84,4 +84,4 @@ Accedere al portale di Azure all'indirizzo <https://portal.azure.com/> con il pr
 In questo avvio reale è stata creata ed eseguita un'applicazione serverless in tempo reale in VS Code. Successivamente, si riceveranno altre informazioni su come distribuire le funzioni di Azure da VS Code.
 
 > [!div class="nextstepaction"]
-> [Distribuire le funzioni di Azure con VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [Distribuire le funzioni di Azure con VS Code](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started)

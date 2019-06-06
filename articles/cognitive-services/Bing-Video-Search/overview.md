@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2f6be01a3aee4e156b7af184fa2537455fc73f3f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "62124638"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386525"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Che cos'è l'API Ricerca video Bing?
 
@@ -48,8 +48,8 @@ Quando si è pronti per chiamare l'API, creare un [account API servizi cognitivi
 
 Usare la [guida introduttiva](csharp.md) per eseguire rapidamente la prima richiesta API.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
-* La pagina di riferimento per l'[API Ricerca video Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) contiene l'elenco di endpoint, intestazioni e parametri di query da usare per richiedere i risultati di ricerca.
+* La pagina di riferimento per l'[API Ricerca video Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) contiene l'elenco di endpoint, intestazioni e parametri di query da usare per richiedere i risultati di ricerca.
 
 * I [requisiti per l'uso e la visualizzazione di Bing](./useanddisplayrequirements.md) specificano gli usi accettabili dei contenuti e delle informazioni ottenute tramite le API di ricerca di Bing.

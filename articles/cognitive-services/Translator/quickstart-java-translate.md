@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Tradurre un testo, Java - API Traduzione testuale'
+title: 'Guida introduttiva: Tradurre un testo, Java - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con Java e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 2fde25e4d21081d350fb2a7ecf07b66f348e7ab1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fbbe139160a7efd528e63e206aa37ac72b2542df
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736482"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515195"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Avvio rapido: Usare l'API Traduzione testuale per tradurre una stringa con Java
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Guida introduttiva: Usare l'API Traduzione testuale per tradurre una stringa con Java
 
 In questo argomento di avvio rapido si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con Java e l'API REST Traduzione testuale.
 
@@ -208,7 +208,7 @@ Esaminare il codice di esempio per questa guida introduttiva e per altre, inclus
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Java su GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Traslitterare testo](quickstart-java-transliterate.md)
 * [Identificare la lingua da un input](quickstart-java-detect.md)

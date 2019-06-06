@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9c8d1fb234efd5df297082cfc1001f28ca1656
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2b9e4f5208eb1f6abb0d6fd786630c183a04ce50
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990414"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388875"
 ---
 # <a name="tutorial-integrate-workday-with-azure-active-directory"></a>Esercitazione: Integrare Workday con Azure Active Directory
 
@@ -88,7 +88,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di accesso e l'URL di risposta effettivi. L'URL di risposta deve avere un sottodominio, ad esempio www, wd2, wd3, wd3-impl, wd5, wd5-impl.
-    > L'uso di qualcosa di simile a `http://www.myworkday.com` funziona, ma `http://myworkday.com` non funziona. Per ottenere tali valori, contattare il [team di supporto clienti di Workday](https://www.workday.com/partners-services/services/support.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > L'uso di qualcosa di simile a `http://www.myworkday.com` funziona, ma `http://myworkday.com` non funziona. Per ottenere tali valori, contattare il [team di supporto clienti di Workday](https://www.workday.com/en-us/partners-services/services/support.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 6. L'applicazione Workday prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione Workday prevede che **nameidentifier** sia mappato a **user.mail**, **UPN** e così via. Di conseguenza è necessario modificare il mapping degli attributi facendo clic sull'icona **Modifica**.
 
@@ -138,7 +138,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
    > [!NOTE]
    > Il valore dell'attributo Environment è collegato al valore dell'URL del tenant:  
    > -Se il nome di dominio dell'URL tenant di Workday inizia con impl (ad esempio *https:\//impl.workday.com/\<tenant\>/login-saml2.flex*), l'attributo **Environment** deve essere impostato su Implementation.  
-   > -Se il nome di dominio inizia con altro, è necessario contattare il [team di supporto clienti di Workday](https://www.workday.com/partners-services/services/support.html) per ottenere il valore **Environment** corrispondente.
+   > -Se il nome di dominio inizia con altro, è necessario contattare il [team di supporto clienti di Workday](https://www.workday.com/en-us/partners-services/services/support.html) per ottenere il valore **Environment** corrispondente.
 
 4. Nella sezione **SAML Setup** seguire questa procedura:
 

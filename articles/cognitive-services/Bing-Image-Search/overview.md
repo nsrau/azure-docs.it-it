@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fa1e2e6ac6e85c431a759d8eb1c22923e86e40d4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c8213e7d725c7c06d40555176fff24be4cff7607
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60917140"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388668"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Che cos'è l'API Ricerca immagini Bing?
 
@@ -55,11 +55,11 @@ Per iniziare rapidamente con la prima richiesta all'API, vedere le istruzioni re
 * [Inviare query di ricerca a Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/quickstarts/csharp) con l'API REST, oppure
 * [Richiedere e filtrare](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart) le immagini restituite da Bing usando l'SDK.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) delle API Ricerca Bing. 
 
-* La sezione di riferimento dell'[API Ricerca immagini Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) contiene informazioni su endpoint dell'API, intestazioni, risposte dell'API e parametri di query.
+* La sezione di riferimento dell'[API Ricerca immagini Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) contiene informazioni su endpoint dell'API, intestazioni, risposte dell'API e parametri di query.
 
 * I [requisiti per l'uso e la visualizzazione di Bing](./useanddisplayrequirements.md) specificano gli usi accettabili dei contenuti e delle informazioni ottenute tramite le API di ricerca di Bing.
 

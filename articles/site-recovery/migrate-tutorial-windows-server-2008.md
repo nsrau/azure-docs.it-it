@@ -5,16 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5de6ba8ab64797da24039718ca7f2c0b88d1d33d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c449b74a9d6185b0616f62d31926feb6ff218cbb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881342"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400087"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Eseguire la migrazione di server con Windows Server 2008 in Azure
 
@@ -91,7 +90,7 @@ Eseguire le attività riportate di seguito per preparare la sottoscrizione di Az
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
 1. Accedere a [portale di Azure](https://portal.azure.com) > **Servizi di ripristino**.
-2. Fare clic su **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery (OMS)**.
+2. Fare clic su **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery (OMS)** .
 3. In **Nome** specificare il nome descrittivo **W2K8-migration**. Se è disponibile più di una sottoscrizione, selezionare quella appropriata.
 4. Creare un gruppo di risorse **w2k8migrate**.
 5. Specificare un'area di Azure. Per verificare le aree supportate, vedere la sezione relativa alla disponibilità a livello geografico in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -118,7 +117,7 @@ Selezionare e verificare le risorse di destinazione.
 
 ## <a name="set-up-a-replication-policy"></a>Configurare criteri di replica
 
-1. Per creare nuovi criteri di replica, fare clic su **Infrastruttura di Site Recovery** > **Criteri di replica** > **+Criteri di replica**.
+1. Per creare nuovi criteri di replica, fare clic su **Infrastruttura di Site Recovery** > **Criteri di replica** >  **+Criteri di replica**.
 2. In **Creare i criteri di replica** specificare un nome per i criteri.
 3. In **Soglia RPO**, specificare il limite dell'obiettivo del punto di ripristino (RPO). Se il valore RPO della replica supera questo limite, viene generato un avviso.
 4. In **Conservazione del punto di recupero**, specificare la durata in ore dell'intervallo di conservazione per ogni punto di recupero. I server replicati possono essere recuperati in qualsiasi punto di questo intervallo. È supportata la conservazione fino a 24 ore per le macchine replicate in Archiviazione Premium e fino a 72 ore per Archiviazione Standard.

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Convertire uno script di testo, Java - API Traduzione testuale'
+title: 'Guida introduttiva: Convertire uno script di testo, Java - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si apprenderà come traslitterare (convertire) un testo da uno script a un altro con Java e l'API REST Traduzione testuale. In questo esempio il giapponese è traslitterato per usare l'alfabeto latino.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 58821492c6972eeef622f8dc8a777f8da70acdf1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 353d5950372fe9a1255bf2b17dea4f8148d3ee6e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895924"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514781"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con Java
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Guida introduttiva: Usare l'API Traduzione testuale per traslitterare un testo con Java
 
 In questo argomento di avvio rapido si apprenderà come traslitterare (convertire) un testo da uno script a un altro con Java e l'API REST Traduzione testuale. Nell'esempio fornito il giapponese è traslitterato per usare l'alfabeto latino.
 
@@ -197,7 +197,7 @@ Esaminare il codice di esempio per questa guida introduttiva e per altre, inclus
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Java su GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Tradurre un testo](quickstart-java-translate.md)
 * [Identificare la lingua da un input](quickstart-java-detect.md)

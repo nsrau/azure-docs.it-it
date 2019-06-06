@@ -5,15 +5,15 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 29189a5919a01fcb897758fb64ca9e84b9381fb6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 07a5ee6ccdaecc78c9a8e61ae9e64a5264e3a875
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410894"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418348"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparare le risorse di Azure per il ripristino di emergenza di computer locali
 
@@ -55,7 +55,7 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
 1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Archiviazione**  > **Account di archiviazione: BLOB, File, Tabelle, Code**.
 2. In **Crea account di archiviazione** immettere un nome per l'account.  Il nome scelto deve essere univoco in Azure, avere una lunghezza compresa tra 3 e 24 caratteri e contenere solo numeri e lettere minuscole. Per questa esercitazione usare **contosovmsacct1910171607**.
 3. In **Modello di distribuzione** selezionare **Resource Manager**.
-4. In **Tipologia account** selezionare **Archiviazione (utilizzo generico v1)**. Non selezionare l'archivio BLOB.
+4. In **Tipologia account** selezionare **Archiviazione (utilizzo generico v1)** . Non selezionare l'archivio BLOB.
 5. In **Replica** selezionare l'opzione predefinita **Archiviazione con ridondanza geografica e accesso in lettura** per la ridondanza dell'archiviazione. Lasciare disabilitata l'impostazione "Trasferimento sicuro obbligatorio".
 6. In **Prestazioni** selezionare **Standard**. Successivamente, in **Livello di accesso**, selezionare l'opzione predefinita **Accesso frequente**.
 7. In **Sottoscrizione** scegliere la sottoscrizione in cui creare il nuovo account di archiviazione.
@@ -68,7 +68,7 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali dei servizi di ripristino
 
 1. Nel portale di Azure selezionare **+Crea una risorsa** e quindi cercare Servizi di ripristino in Azure Marketplace.
-2. Selezionare **Backup e Site Recovery (OMS)**. Quindi, nella pagina **Backup e Site Recovery**, selezionare **Crea**.
+2. Selezionare **Backup e Site Recovery (OMS)** . Quindi, nella pagina **Backup e Site Recovery**, selezionare **Crea**.
 1. Nell'**insieme di credenziali di Servizi di ripristino > Nome** immettere un nome descrittivo per identificare l'insieme di credenziali. Per questa esercitazione usare **ContosoVMVault**.
 2. In **Gruppo di risorse** selezionare un gruppo di risorse esistente o crearne uno nuovo. Per questa esercitazione usare **contosoRG**.
 3. In **Località** selezionare l'area geografica in cui dovrà essere collocato l'insieme di credenziali. Per questa esercitazione usare **Europa occidentale**.
@@ -89,7 +89,7 @@ Le macchine virtuali di Azure create dall'archiviazione dopo il failover vengono
 5. In **Sottoscrizione** selezionare la sottoscrizione in cui creare la rete.
 6. In **Posizione** scegliere **Europa occidentale**. La rete deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
 7. Lasciare le opzioni predefinite per la protezione di base DDoS, senza endpoint di servizio nella rete.
-8. Selezionare **Create**.
+8. Selezionare **Create** (Crea).
 
 ![Crea rete virtuale](media/tutorial-prepare-azure/create-network.png)
 

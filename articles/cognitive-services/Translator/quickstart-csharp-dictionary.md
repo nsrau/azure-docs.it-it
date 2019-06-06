@@ -1,27 +1,27 @@
 ---
-title: 'Avvio rapido: Cercare le parole con il dizionario bilingue, C# - API Traduzione testuale'
+title: 'Guida introduttiva: Cercare le parole con il dizionario bilingue, C# - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
-description: In questo argomento di avvio rapido verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando .NET Core e l'API Traduzione testuale.
+description: In questa guida introduttiva verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando .NET Core e l'API Traduzione testuale.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: b5a14791b30ef825a136840a81900940c6def16d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a937ac1039d7a7552290257f42dd4bc45c8f0605
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181249"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514973"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando C#
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando C#
 
-In questo argomento di avvio rapido verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando .NET Core e l'API Traduzione testuale.
+In questa guida introduttiva verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando .NET Core e l'API Traduzione testuale.
 
-Per questo argomento di avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -195,12 +195,12 @@ Assicurarsi di rimuovere eventuali informazioni riservate dal codice sorgente de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare il codice di esempio per questo argomento di avvio rapido e per altre, incluse quelle relative alla traslitterazione e all'identificazione della lingua, e anche altri progetti di esempio di Traduzione testuale su GitHub.
+Esaminare il codice di esempio per questa guida introduttiva e per altre, incluse quelle relative alla traslitterazione e all'identificazione della lingua, e anche altri progetti di esempio di Traduzione testuale su GitHub.
 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Tradurre un testo](quickstart-csharp-translate.md)
 * [Traslitterare testo](quickstart-csharp-transliterate.md)

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/28/2019
+ms.date: 05/31/2019
 ms.author: pafarley
-ms.openlocfilehash: f65375bfd826660f8583068875a1fddc545a86d7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 1c9e68f643f27f70190b5847225692d554cc5480
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306539"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475434"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installare ed eseguire i contenitori Riconoscimento modulo
 Riconoscimento modulo applica la tecnologia di Machine Learning per identificare ed estrarre le coppie chiave-valore e le tabelle dai moduli, associando i valori e le voci della tabella e quindi restituendo dati strutturati che includono le relazioni nel file originale. È possibile chiamare il modello Riconoscimento modulo personalizzato usando una semplice API REST per ridurre la complessità e integrarlo facilmente nel processo di automazione del flusso di lavoro o in un'altra applicazione. Sono necessari solo cinque documenti (o un modulo vuoto) per ottenere risultati in modo rapido, accurato e su misura per il contenuto specifico, senza alcun intervento manuale impegnativo né competenze approfondite di data science. Non richiede l'assegnazione di etichette dati né l'annotazione dei dati.
@@ -114,9 +114,9 @@ Sostituire i parametri con i valori personalizzati nel comando `docker run` di e
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
@@ -142,6 +142,8 @@ Eseguire il primo contenitore sulla porta 5000.
 
 ```bash 
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+--mount type=bind,source=c:\input,target=/input  \
+--mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \

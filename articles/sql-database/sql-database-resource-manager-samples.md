@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 1e2f55d334d432544ffc185e5c68dfe4325b2b09
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b967dc872529ec8b045df81542eec4c555b17a6c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59356829"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418444"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Modelli di Azure Resource Manager per Database SQL di Azure
 
@@ -33,7 +33,6 @@ La tabella seguente include collegamenti ai modelli di Azure Resource Manager pe
 | [Server logico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Questo modello di Azure Resource Manager crea un server logico per il database SQL di Azure. |
 | [Pool elastico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Questo modello consente di distribuire un nuovo pool elastico con la nuova istanza di SQL Server e i nuovi database SQL associati da assegnarvi. |
 | [Gruppi di failover](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Questo modello crea due server logici SQL di Azure, un database SQL e un gruppo di failover.|
-| [Advanced Threat Protection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | Questo modello consente di distribuire un server logico SQL di Azure con la funzionalità Advanced Threat Protection abilitata e un database SQL di Azure facoltativo. SQL Advanced Threat Protection è un pacchetto che raccoglie le funzionalità di sicurezza SQL avanzate.|
 | [Rilevamento delle minacce](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Questo modello consente di distribuire un server logico SQL di Azure e di impostare un database SQL di Azure con la funzionalità Rilevamento minacce abilitata, con un indirizzo di posta elettronica per gli avvisi per ogni database. Rilevamento minacce fa parte dell'offerta Advanced Threat Protection (ATP) SQL e fornisce un livello di sicurezza che risponde alle potenziali minacce su server e database SQL.|
 | [Controllo per Archiviazione BLOB di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Questo modello consente di distribuire un server logico SQL di Azure con il controllo abilitato per la scrittura dei log di controllo in un'archiviazione BLOB. Il controllo per il database SQL di Azure consente di tenere traccia degli eventi di database e di registrarli in un log di controllo che può essere inserito nell'account di Archiviazione di Azure, nell'area di lavoro di OMS o in Hub eventi.|
 | [Controllo per Hub eventi di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Questo modello consente di distribuire un server SQL di Azure con il controllo abilitato per la scrittura dei log di controllo in hub eventi esistente. Per inviare gli eventi di controllo all'hub eventi, specificare le impostazioni di controllo con `Enabled` `State` e impostare `IsAzureMonitorTargetEnabled` su `true`. Configurare inoltre le impostazioni di diagnostica con la categoria dei log di diagnostica `SQLSecurityAuditEvents` nel database `master` (per il controllo a livello di server). Il controllo per il database SQL di Azure e SQL Data Warehouse consente di tenere traccia degli eventi di database e di registrarli in un log di controllo che può essere inserito nell'account di archiviazione di Azure, nell'area di lavoro di OMS o in Hub eventi.|

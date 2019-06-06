@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522078"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474693"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Esercitazione: Moderazione di video e trascrizioni
 
@@ -44,15 +44,15 @@ Questa esercitazione illustra come:
 
 Modificare il file `App.config` e aggiungere il nome del tenant di Active Directory, gli endpoint del servizio e le chiavi di sottoscrizione indicate da `#####`. Sono necessarie le informazioni seguenti:
 
-    |Chiave|DESCRIZIONE|
-    |-|-|
-    |`AzureMediaServiceRestApiEndpoint`|Endpoint per l'API Servizi multimediali di Azure (AMS)|
-    |`ClientSecret`|Chiave di sottoscrizione per Servizi multimediali di Azure|
-    |`ClientId`|ID client per Servizi multimediali di Azure|
-    |`AzureAdTenantName`|Nome del tenant di Active Directory che rappresenta l'organizzazione|
-    |`ContentModeratorReviewApiSubscriptionKey`|Chiave di sottoscrizione per l'API di revisione di Content Moderator|
-    |`ContentModeratorApiEndpoint`|Endpoint per l'API Content Moderator|
-    |`ContentModeratorTeamId`|ID team di Content Moderator|
+|Chiave|DESCRIZIONE|
+|-|-|
+|`AzureMediaServiceRestApiEndpoint`|Endpoint per l'API Servizi multimediali di Azure (AMS)|
+|`ClientSecret`|Chiave di sottoscrizione per Servizi multimediali di Azure|
+|`ClientId`|ID client per Servizi multimediali di Azure|
+|`AzureAdTenantName`|Nome del tenant di Active Directory che rappresenta l'organizzazione|
+|`ContentModeratorReviewApiSubscriptionKey`|Chiave di sottoscrizione per l'API di revisione di Content Moderator|
+|`ContentModeratorApiEndpoint`|Endpoint per l'API Content Moderator|
+|`ContentModeratorTeamId`|ID team di Content Moderator|
 
 ## <a name="examine-the-main-code"></a>Esaminare il codice principale
 

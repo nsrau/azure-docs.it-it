@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bd3b9fe80a57a6a0dd824d92ae14a863ced240b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: eaf594286e5ffc101ad2d24e808fcb806998d053
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793533"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471570"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Guida introduttiva: esplorare le API REST di Ricerca di Azure con Postman
 > [!div class="op_single_selector"]
@@ -73,13 +73,13 @@ In Postman formulare una richiesta simile allo screenshot seguente. Scegliere **
 
 In Ricerca di Azure, l'indice viene generalmente creato prima di caricarlo con i dati. Per questa attività viene usata l'[API REST di creazione dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-index). 
 
-L'URL è stato esteso per includere il nome dell'indice `hotel`.
+L'URL è stato esteso per includere il nome dell'indice `hotels`.
 
 Per eseguire questa operazione in Postman:
 
 1. Modificare il verbo in **PUT**.
 
-2. Copiare questo URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`.
+2. Copiare questo URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`.
 
 3. Specificare nel corpo della richiesta la definizione di indice mostrata di seguito.
 
@@ -257,7 +257,7 @@ Per la destinazione, copiare in una versione modificata dell'URL: `https://<YOUR
 
 ### <a name="1---create-an-index"></a>1 - Creare un indice
 
-Modificare il verbo in **PUT**. Copiare una versione modificata dell'URL: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`. Copiare la definizione di indice specificata in precedenza nel corpo della richiesta. La pagina sarà simile alla schermata seguente. Fare clic su **Execute** (Esegui) in alto a destra per inviare la richiesta completata.
+Modificare il verbo in **PUT**. Copiare una versione modificata dell'URL: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`. Copiare la definizione di indice specificata in precedenza nel corpo della richiesta. La pagina sarà simile alla schermata seguente. Fare clic su **Execute** (Esegui) in alto a destra per inviare la richiesta completata.
 
 ![Corpo della richiesta Fiddler][7]
 

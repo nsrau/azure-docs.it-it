@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2deaa0ed8b21d5e091fe5d3b3e6986eaf2340281
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078126"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514718"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Esercitazione: Creare un'app di traduzione con WPF
 
@@ -60,7 +60,7 @@ Prima di continuare, è necessario disporre di quanto segue:
 Prima di tutto, è necessario configurare il progetto in Visual Studio.
 
 1. Aprire Visual Studio. Quindi selezionare **File > Nuovo progetto**.
-2. Nel riquadro sinistro individuare e selezionare **Visual C#**. Quindi selezionare **App WPF (.NET Framework)** nel riquadro centrale.
+2. Nel riquadro sinistro individuare e selezionare **Visual C#** . Quindi selezionare **App WPF (.NET Framework)** nel riquadro centrale.
    ![Creare un'app WPF in Visual Studio](media/create-wpf-project-visual-studio.png)
 3. Assegnare un nome al progetto, impostare la versione del framework su **.NET Framework 4.5.2 o versione successiva**, quindi fare clic su **OK**.
 4. Il progetto è stato creato. Come si può notare, ci sono due schede aperte: `MainWindow.xaml` e `MainWindow.xaml.cs`. Nel corso dell'esercitazione verrà aggiunto codice in questi due file, il primo per l'interfaccia utente dell'app e l'altro per le chiamate a Traduzione testuale e Controllo ortografico Bing.
@@ -79,9 +79,9 @@ Aggiungere gli assembly al progetto per serializzare e deserializzare oggetti, n
 1. Individuare il progetto in Esplora soluzioni di Visual Studio (riquadro destro). Fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Aggiungi > Riferimento** per aprire **Gestione riferimenti**.
    ![Aggiungere riferimenti ad assembly](media/add-assemblies-sample.png)
 2. La scheda Assembly include un elenco di tutti gli assembly .NET Framework a cui fare riferimento. Usare la barra di ricerca nell'angolo in alto a destra dello schermo per cercare questi riferimenti e aggiungerli al progetto:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
 3. Dopo aver aggiunto questi riferimenti al progetto, è possibile fare clic su **OK** per chiudere **Gestione riferimenti**.
 
 > [!NOTE]

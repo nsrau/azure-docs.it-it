@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 53b2c2945062ef348104e24a352895a14eed1a04
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a4889d82ac1c837581771860f2aba86faf7650ee
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314842"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399446"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Failover e failback di macchine virtuali Hyper-V replicate in Azure
 
@@ -73,7 +73,7 @@ Di base, l'operazione di failback è un failover da Azure al sito locale e nella
 
 1. In **Impostazioni** > **Elementi replicati** fare clic sulla macchina virtuale > **Failover pianificato**.
 2. In **Conferma failover pianificato** verificare la direzione di failover (da Azure) e selezionare il percorso di origine e di destinazione.
-3. Selezionare **Sincronizza i dati prima del failover (sincronizza solo modifiche differenziali)**. Questa opzione consente di ridurre al minimo i tempi di inattività della macchina virtuale poiché esegue la sincronizzazione senza arrestarla.
+3. Selezionare **Sincronizza i dati prima del failover (sincronizza solo modifiche differenziali)** . Questa opzione consente di ridurre al minimo i tempi di inattività della macchina virtuale poiché esegue la sincronizzazione senza arrestarla.
 4. Avviare il failover. Nella scheda **Processi** è possibile monitorare l’avanzamento del failover.
 5. Dopo la sincronizzazione iniziale dei dati, quando si è pronti ad arrestare le macchine virtuali di Azure, fare clic su **Processi** > nome del processo di failover pianificato > **Completa failover**. La macchina virtuale di Azure viene arrestata, le modifiche più recenti vengono trasferite in locale e viene avviata la macchina virtuale locale.
 6. Accedere alla macchina virtuale locale per verificare che sia disponibile come previsto.

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6510099f9fb145951cbce1ea168b36dba5f76e07
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: db9424ff4ddd2663ae1342294181dc885c6ed937
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540911"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479549"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure?
 
@@ -84,7 +84,7 @@ In Azure, è possibile specificare un ambito su più livelli: [gruppo di gestion
 
 ![Ambito per un'assegnazione di ruolo](./media/overview/rbac-scope.png)
 
-Quando si concede l'accesso in un ambito padre, tali autorizzazioni vengono ereditate negli ambiti figlio. Ad esempio: 
+Quando si concede l'accesso in un ambito padre, tali autorizzazioni vengono ereditate negli ambiti figlio. Ad esempio:
 
 - Se si assegna il ruolo [Proprietario](built-in-roles.md#owner) a un utente nell'ambito del gruppo di gestione, tale utente può gestire tutto in tutte le sottoscrizioni nel gruppo di gestione.
 - Se si assegna il ruolo [Lettore](built-in-roles.md#reader) a un gruppo nell'ambito di sottoscrizione, i membri di tale gruppo possono visualizzare ogni gruppo di risorse e risorsa nella sottoscrizione.
@@ -132,6 +132,10 @@ Di seguito è indicata la procedura generale seguita dal controllo degli accessi
 1. Se l'utente non ha un ruolo con l'azione nell'ambito richiesto, l'accesso non è consentito. In caso contrario, Azure Resource Manager controlla se si applica un'assegnazione di rifiuto.
 
 1. Se si applica un'assegnazione di rifiuto, l'accesso viene bloccato. In caso contrario, l'accesso viene concesso.
+
+## <a name="license-requirements"></a>Requisiti relativi alle licenze
+
+[!INCLUDE [Azure AD free license](../../includes/active-directory-free-license.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Tradurre un testo, Node.js - API Traduzione testuale'
+title: 'Guida introduttiva: Tradurre un testo, Node.js - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si traduce testo da una lingua a un'altra usando l'API Traduzione testuale con Node.js.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 08dca771050f1b62cd85208a4b8f3d39340fb97d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7c4ec0304211d4ce311d3db2275b065219f37f0f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834291"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514774"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Avvio rapido: Usare l'API Traduzione testuale per tradurre una stringa con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Guida introduttiva: Usare l'API Traduzione testuale per tradurre una stringa con Node.js
 
 In questa guida introduttiva si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con Node.js e l'API REST Traduzione testuale.
 
@@ -77,8 +77,7 @@ let options = {
     url: 'translate',
     qs: {
       'api-version': '3.0',
-      'to': 'it',
-      'to': 'de'
+      'to': ['de', 'it']
     },
     headers: {
       'Ocp-Apim-Subscription-Key': subscriptionKey,
@@ -151,7 +150,7 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Node.js su GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 Oltre al rilevamento della lingua, scopri come usare l'API Traduzione testuale per:
 

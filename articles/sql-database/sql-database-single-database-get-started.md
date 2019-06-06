@@ -12,14 +12,14 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/23/2019
-ms.openlocfilehash: 18dde6b028365cc04343b6d2f461cdb8c1a2bede
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 3a0f3154142dc02a9ab48bc288c543b02fef46ea
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074365"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389080"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Avvio rapido: Creare un database singolo del database SQL di Azure usando il portale di Azure
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Guida introduttiva: Creare un database singolo del database SQL di Azure usando il portale di Azure
 
 La creazione di un [database singolo](sql-database-single-database.md) è l'opzione di distribuzione più semplice e rapida per la creazione di database nel database SQL di Azure. Questa guida introduttiva mostra come creare un database singolo e quindi eseguire query usando il portale di Azure.
 
@@ -69,7 +69,7 @@ Per creare un database singolo contenente i dati di esempio di AdventureWorksLT:
 
         ![Dettagli del database SQL](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - **Usare il pool elastico SQL?**: selezionare l'opzione **No**.
+   - **Usare il pool elastico SQL?** : selezionare l'opzione **No**.
    - **Calcolo e archiviazione**: Selezionare **Configura database** e, per questo argomento di avvio rapido, selezionare **Opzioni di acquisto basate su vCore**
 
      ![Opzioni di acquisto basate su vCore](media/sql-database-get-started-portal/create-database-vcore.png)
@@ -137,4 +137,4 @@ Al termine, sarà possibile eliminare queste risorse come segue:
   - [Connettersi ed eseguire query usando Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Per creare un database singolo nel livello di elaborazione con provisioning usando l'interfaccia della riga di comando di Azure, vedere [Esempi di interfaccia della riga di comando di Azure](sql-database-cli-samples.md).
 - Per creare un database singolo nel livello di elaborazione con provisioning usando Azure PowerShell, vedere [Esempi di Azure PowerShell](sql-database-powershell-samples.md).
-- Per creare un database singolo nel livello di elaborazione serverless con Azure PowerShell, vedere [Creare database serverless con PowerShell](sql-database-serverless.md#create-new-database-using-powershell)
+- Per creare un database singolo nel livello di elaborazione serverless con Azure PowerShell, vedere [Creare database serverless con PowerShell](sql-database-serverless.md#create-new-serverless-database-using-powershell)

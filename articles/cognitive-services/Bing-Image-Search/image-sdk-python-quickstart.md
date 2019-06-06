@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Cercare immagini - SDK di Ricerca immagini Bing per Python'
+title: 'Guida introduttiva: Cercare immagini - SDK di Ricerca immagini Bing per Python'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Python invia una query di ricerca immagine, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: cabf29423123d988b08e002077b4782529e96aa0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 69553c11ed0e9b07370fa1af3acc65b6605d1a8a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095637"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385068"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Avvio rapido: Cercare immagini con l’SDK di Ricerca immagini Bing per Python
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Guida introduttiva: Cercare immagini con l’SDK di Ricerca immagini Bing per Python
 
 Usare questa guida introduttiva per effettuare la prima ricerca di immagini tramite l'SDK di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione Python invia una query di ricerca immagine, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 
@@ -83,11 +83,11 @@ else:
 > [!div class="nextstepaction"]
 > [Esercitazione sull'app a singola pagina di Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Provare una demo interattiva online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Ottenere gratuitamente una chiave di accesso per Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
 * [Esempi Python per SDK di Servizi cognitivi di Azure](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)  
 * [Documentazione di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

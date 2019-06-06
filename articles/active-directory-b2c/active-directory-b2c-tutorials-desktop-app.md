@@ -2,20 +2,20 @@
 title: "Esercitazione: Abilitare l'autenticazione in un'applicazione client nativa - Azure Active Directory B2C | Microsoft Docs"
 description: Esercitazione su come usare Azure Active Directory B2C per consentire l'accesso degli utenti a un'applicazione desktop .NET.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 7ca7a670e8d660efb43861312b2670efbaac6638
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 474aad3b4b2019c9f79f8f1316dd88769e0fabbd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190260"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508208"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Esercitazione: Abilitare l'autenticazione in un'applicazione client nativa usando Azure Active Directory B2C
 
@@ -95,7 +95,7 @@ Premere **F5** per compilare ed eseguire l'esempio.
 Ora l'utente può usare il proprio indirizzo e-mail per accedere e usare l'app desktop.
 
 > [!NOTE]
-> Se si fa clic sul pulsante **Call API (Chiama API)**, sarà visualizzato l'errore "Non autorizzato". L'errore viene visualizzato perché si sta tentando di accedere a una risorsa dal tenant dimostrativo. Poiché il token di accesso è valido solo per il tenant di Azure AD, la chiamata API non è autorizzata. Continuare con l'esercitazione successiva per la creazione di un'API Web protetta per il proprio tenant.
+> Se si fa clic sul pulsante **Call API (Chiama API)** , sarà visualizzato l'errore "Non autorizzato". L'errore viene visualizzato perché si sta tentando di accedere a una risorsa dal tenant dimostrativo. Poiché il token di accesso è valido solo per il tenant di Azure AD, la chiamata API non è autorizzata. Continuare con l'esercitazione successiva per la creazione di un'API Web protetta per il proprio tenant.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

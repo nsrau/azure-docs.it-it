@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Cercare le parole con il dizionario bilingue, Python - API Traduzione testuale'
+title: 'Guida introduttiva: Cercare le parole con il dizionario bilingue, Python - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa Guida introduttiva verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Python e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 55cb9564205c99abc868413ebf43e575999198ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ef72e7f5a4974a9da96d03dc74bc7a8b01ff4d10
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183697"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515090"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando Python
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando Python
 
 In questa Guida introduttiva verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Python e l'API REST Traduzione testuale.
 
@@ -165,7 +165,7 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Python su GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 Informazioni su come usare l'API Traduzione testuale per:
 

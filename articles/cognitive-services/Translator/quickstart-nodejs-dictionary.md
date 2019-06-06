@@ -1,31 +1,31 @@
 ---
-title: 'Avvio rapido: Cercare le parole con il dizionario bilingue, Node.js - API Traduzione testuale'
+title: 'Guida introduttiva: Cercare le parole con il dizionario bilingue, Node.js - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
-description: In questo argomento di avvio rapido verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Node.js e l'API REST Traduzione testuale.
+description: In questa Guida introduttiva verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Node.js e l'API REST Traduzione testuale.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 4b8d26868c3880852e0d2f9c43b06ca1b25d094f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9c1fa5435e8700072a26b1f9b2f00a8db12c20ba
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176379"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514826"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando Node.js
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando Node.js
 
-In questo argomento di avvio rapido verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Node.js e l'API REST Traduzione testuale.
+In questa Guida introduttiva verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Node.js e l'API REST Traduzione testuale.
 
-Per questo argomento di avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo argomento di avvio rapido richiede:
+Questa guida introduttiva richiede:
 
 * [Node 8.12.x o versione successiva](https://nodejs.org/en/)
 * Una chiave di sottoscrizione di Azure per Traduzione testuale
@@ -149,14 +149,14 @@ Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, assicurarsi di rimuoverla al termine di questo argomento di avvio rapido.
+Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, assicurarsi di rimuoverla al termine di questa guida introduttiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Node.js su GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 Oltre al rilevamento della lingua, scopri come usare l'API Traduzione testuale per:
 

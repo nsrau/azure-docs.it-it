@@ -1,31 +1,31 @@
 ---
-title: 'Avvio rapido: Cercare le parole con il dizionario bilingue, Go - API Traduzione testuale'
+title: 'Guida introduttiva: Cercare le parole con il dizionario bilingue, Go - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
-description: In questo argomento di avvio rapido si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Go.
+description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Go.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 356c414d6e3823f927cbb201aeb0a0186e421b5e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 56e67389c59cda70ebcc7705e279b84fcf11cf9d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175534"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514133"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando Go
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando Go
 
 In questo argomento di avvio rapido viene illustrato come trovare traduzioni alternative ed esempi d'uso per un testo specifico usando Go e l'API REST Traduzione testuale.
 
-Per questo argomento di avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo argomento di avvio rapido richiede:
+Questa guida introduttiva richiede:
 
 * [Go](https://golang.org/doc/install)
 * Una chiave di sottoscrizione di Azure per Traduzione testuale
@@ -232,7 +232,7 @@ Esaminare gli esempi Go per le API Servizi cognitivi da [Azure SDK per Go](https
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi Go su GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 Informazioni su come usare l'API Traduzione testuale per:
 

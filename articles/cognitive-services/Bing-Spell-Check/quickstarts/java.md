@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Java"
+title: "Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Java"
 titlesuffix: Azure Cognitive Services
 description: Introduzione all'uso dell'API REST Controllo ortografico Bing per controllare l'ortografia e la grammatica.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: a139d0558565114725c6198f64e139e5a5019c75
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 0d6ea62f1d2c1e15dff13aa45c4923717dd9c2c4
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616696"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390187"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Avvio rapido: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Java
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Java
 
 Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing. Questa semplice applicazione Java invia una richiesta all'API e restituisce un elenco di correzioni suggerite. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
 
@@ -193,4 +193,4 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [Creare app Web a pagina singola](../tutorials/spellcheck.md)
 
 - [Informazioni sull'API Controllo ortografico Bing](../overview.md)
-- [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

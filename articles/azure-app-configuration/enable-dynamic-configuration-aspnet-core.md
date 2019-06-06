@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: ee539b87c08dd00545060cb30d28ac7fcd01e61b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 9cbdfe957587977b01bc46b46818856f789f46d8
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518999"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393623"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Esercitazione: Usare la configurazione dinamica in un'app ASP.NET Core
 
@@ -167,7 +167,7 @@ Per completare questa esercitazione, installare [.NET Core SDK](https://dotnet.m
 
     ![Guida introduttiva: avvio dell'app in locale](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Accedere al [portale di Azure](https://aka.ms/azconfig/portal). Selezionare **Tutte le risorse** e quindi l'istanza di archivio di configurazione app creata nella guida di avvio rapido.
+4. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutte le risorse** e quindi l'istanza di archivio di configurazione app creata nella guida di avvio rapido.
 
 5. Selezionare **Configuration Explorer** e aggiornare i valori delle chiavi seguenti:
 
