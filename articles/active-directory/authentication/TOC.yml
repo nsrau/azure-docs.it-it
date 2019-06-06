@@ -142,10 +142,6 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: Autenticazione basata sui certificati nei dispositivi iOS
               href: active-directory-certificate-based-authentication-ios.md
-    - name: Sviluppo
-      items:
-        - name: Includere Multi-Factor Authentication nelle app personalizzate
-          href: howto-mfa-sdk.md
     - name: Creazione di report
       items:
         - name: Report della reimpostazione della password self-service
