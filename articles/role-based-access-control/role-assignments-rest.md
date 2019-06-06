@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 05/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357071"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472741"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'API REST
 
@@ -52,9 +52,9 @@ Per visualizzare le informazioni sull'accesso nel controllo degli accessi in bas
 
     | Filtro | Descrizione |
     | --- | --- |
-    | `$filter=atScope()` | Elencare le assegnazioni di ruolo solo per l'ambito specificato, senza includere le assegnazioni di ruolo negli ambiti secondari. |
-    | `$filter=principalId%20eq%20'{objectId}'` | Elencare le assegnazioni di ruolo per un utente, un gruppo o un'entità servizio specificata. |
-    | `$filter=assignedTo('{objectId}')` | Elencare le assegnazioni di ruolo per un utente specificato, incluse quelle ereditate dai gruppi. |
+    | `$filter=atScope()` | Elenca le assegnazioni di ruolo per solo l'ambito specificato, senza includere le assegnazioni di ruolo negli ambiti secondari. |
+    | `$filter=principalId%20eq%20'{objectId}'` | Elenca le assegnazioni di ruolo per un utente specificato, gruppo o entità servizio. |
+    | `$filter=assignedTo('{objectId}')` | Elenca le assegnazioni di ruolo per un determinato utente o entità servizio. Se l'utente è membro di un gruppo che dispone di un'assegnazione di ruolo, viene elencato anche tale assegnazione di ruolo. Questo filtro è transitivo per i gruppi che significa che, se l'utente è un membro di un gruppo e tale gruppo è un membro di un altro gruppo che dispone di un'assegnazione di ruolo, viene elencato anche tale assegnazione di ruolo. Questo filtro accetta solo un id di oggetto per un utente o un'entità servizio. È possibile passare un id di oggetto per un gruppo. |
 
 ## <a name="grant-access"></a>Concedere l'accesso
 

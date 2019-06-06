@@ -1,18 +1,18 @@
 ---
-title: 'Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure tramite C#'
+title: Creare un database e un cluster di Esplora dati di Azure tramite C#
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure tramite C#
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 719aba498c08617b42d248d3c677499f8eb3e4b2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: e51551d4ce8061122fce52b05e68e102b71c27a8
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900816"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494603"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Creare un database e un cluster di Esplora dati di Azure tramite C#
 
@@ -24,7 +24,7 @@ ms.locfileid: "65900816"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo argomento di avvio rapido vengono creati un cluster e un database usando C#.
+Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo articolo, si crea un cluster e un database tramite C#.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -112,7 +112,7 @@ A questo punto sono disponibili un cluster e un database.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-* Se si prevede di seguire altre guide introduttive ed esercitazioni, non eliminare le risorse create.
+* Se si prevede di eseguire gli altri articoli, mantenere le risorse create.
 * Per pulire le risorse, eliminare il cluster. Quando si elimina un cluster, vengono eliminati anche tutti i database al suo interno. Usare il comando seguente per eliminare il cluster:
 
     ```C#-interactive
@@ -121,5 +121,4 @@ A questo punto sono disponibili un cluster e un database.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Guida introduttiva: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)](net-standard-ingest-data.md)
+* [Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)](net-standard-ingest-data.md)

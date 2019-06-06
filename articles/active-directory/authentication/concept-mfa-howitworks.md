@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 06/03/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7328fb958774b5e17511d046e914cc5612e8a96d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa25e8a965b89c4e97263e3767a9400079fcad7a
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415830"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496797"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Come funziona: Azure Multi-Factor Authentication
 
@@ -36,10 +36,10 @@ Azure Multi-Factor Authentication consente di proteggere l'accesso ai dati e all
 
 Multi-Factor Authentication è inclusa in quanto parte delle offerte seguenti:
 
-* **Licenze di Azure Active Directory Premium**: utilizzo del servizio Microsoft Azure Multi-Factor Authentication (Cloud) o server Microsoft Azure Multi-Factor Authentication (in locale) con funzionalità complete.
-   * **Servizio Azure MFA (Cloud)** - **Questa opzione è il percorso consigliato per le nuove distribuzioni**. Azure MFA nel cloud non richiede alcuna infrastruttura locale e può essere usato con gli utenti federati o solo cloud.
-   * **Server Azure MFA**: può essere un'opzione se l'organizzazione vuole gestire gli elementi di infrastruttura associati ed è stato distribuito AD FS nell'ambiente locale.
-* **Multi-Factor Authentication per Office 365**: nella sottoscrizione è incluso un subset di funzionalità di autenticazione a più fattori di Azure. Per altre informazioni sull'autenticazione a più fattori per Office 365, vedere l'articolo [Pianificare l'autenticazione a più fattori per le distribuzioni di Office 365](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
+* **Azure Active Directory Premium** oppure **Microsoft 365 Business** -uso di Azure multi-Factor Authentication tramite criteri di accesso condizionale per richiedere l'autenticazione a più fattori con funzionalità complete.
+
+* **Azure AD Free**, **Azure AD Basic**, o autonomo **Office 365** licenze - uso ha creato preventivamente [i criteri di protezione della linea di base di accesso condizionale](../conditional-access/concept-baseline-protection.md) in modo da richiedere multi-factor authentication per gli utenti e amministratori.
+
 * **Amministratori globali di Azure Active Directory**: per proteggere gli account di amministratore globale è disponibile un subset di funzionalità di Azure multi-Factor Authentication.
 
 > [!NOTE]
@@ -51,16 +51,9 @@ Poiché la maggior parte degli utenti è abituata a usare le password solo per l
 
 * Istruire il personale di supporto per le situazioni in cui l'utente non riesce ad accedere perché non ha accesso ai suoi metodi di autenticazione oppure perchè questi ultimi non funzionano correttamente.
    * Usando i criteri di accesso condizionale per il servizio Azure MFA, il personale di supporto può aggiungere un utente a un gruppo che è escluso da un criterio che richiede un'autenticazione a più fattori.
-   * Il personale di supporto è possibile può abilitare un bypass monouso temporaneo per gli utenti di Azure MFA Server per consentire loro di autenticarsi senza la verifica in due passaggi. Il bypass è temporaneo e scade dopo un numero di secondi specificato.   
-* È consigliabile usare indirizzi IP attendibili o posizioni specifiche come metodo per ridurre al minimo le richieste di verifica in due passaggi. Questa funzionalità consente agli amministratori di un tenant gestito o federato di ignorare la verifica in due passaggi per gli utenti che accedono da un percorso di rete affidabile, ad esempio la rete Intranet dell'organizzazione.
+* È consigliabile usare località denominate come un modo per ridurre al minimo la verifica in due passaggi richiede l'accesso condizionale. Con questa funzionalità, gli amministratori possono ignorare la verifica in due passaggi per gli utenti che accedono da una posizione sicura rete attendibile, ad esempio una rete segmento usato per l'onboarding di nuovi utenti.
 * Distribuire [Azure AD Identity Protection](../active-directory-identityprotection.md) e attivare la verifica in due passaggi basata su eventi di rischio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Ottenere un [piano di distribuzione](https://aka.ms/MFADeploymentPlan) guidato per l'autenticazione a più fattori
-
-- Trovare i dettagli sulle [licenze per gli utenti](concept-mfa-licensing.md)
-
-- Ottenere dettagli sulla [versione da distribuire](concept-mfa-whichversion.md)
-
-- Trovare risposte in [Domande frequenti](multi-factor-authentication-faq.md)
+- [Distribuzione passo per passo di Azure multi-Factor Authentication](howto-mfa-getstarted.md)

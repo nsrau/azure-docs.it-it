@@ -2,20 +2,20 @@
 title: Configurare l'accesso con un account Azure Active Directory in Azure Active Directory B2C usando criteri personalizzati | Microsoft Docs
 description: Configurare l'accesso con un account Azure Active Directory in Azure Active Directory B2C usando criteri personalizzati.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9ad4a1a9fff8e011638eb7c532bf7619c87c1996
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8ade695f1930c11f2d2d7ab7e0430910bd6f8705
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785198"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508650"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Azure Active Directory usando criteri personalizzati in Azure Active Directory B2C 
 
@@ -27,7 +27,7 @@ Questo articolo illustra come consentire l'accesso agli utenti di un'organizzazi
 
 Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="register-an-application"></a>Registra un'applicazione
+## <a name="register-an-application"></a>Registrare un'applicazione
 
 Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD, è necessario registrare un'applicazione all'interno del tenant aziendale di Azure AD.
 

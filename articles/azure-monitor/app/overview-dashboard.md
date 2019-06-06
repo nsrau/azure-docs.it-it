@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 47c83e6bc700f972e6dff83e4d067e61218c04bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255661"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497160"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard panoramica di Application Insights
 
@@ -60,9 +60,12 @@ Per tornare all'esperienza panoramica, selezionare:
 
 ![Pulsante Panoramica](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
+## <a name="troubleshooting"></a>risoluzione dei problemi
+
+Se si seleziona **configurare le impostazioni di riquadro** e impostare un intervallo di tempo personalizzato che superano di 31 giorni al dashboard non verrà visualizzati oltre i 31 giorni di dati, anche con la conservazione dei dati predefinita di 90 giorni. Non è attualmente alcuna soluzione alternativa per questo comportamento.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Grafici a imbuto](../../azure-monitor/app/usage-funnels.md)
 - [Conservazione](../../azure-monitor/app/usage-retention.md)
 - [Flussi degli utenti](../../azure-monitor/app/usage-flows.md)
-- [Dashboard](../../azure-monitor/app/app-insights-dashboards.md)

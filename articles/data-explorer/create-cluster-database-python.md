@@ -1,18 +1,18 @@
 ---
-title: 'Avvio rapido: Creare un database e un cluster di Esplora dati di Azure tramite Python'
+title: Creare un database e un cluster di Esplora dati di Azure tramite Python
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure usando Python.
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 408b34db16f0d6d22340f0483b90ce5d72ffa613
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: caac53aec08e234f320ee4278a5a58bbc62bff68
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045202"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494585"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Creare un database e un cluster di Esplora dati di Azure tramite Python
 
@@ -24,7 +24,7 @@ ms.locfileid: "59045202"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo argomento di avvio rapido vengono creati un cluster e un database usando Python.
+Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo articolo, si crea un cluster e un database tramite Python.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -119,7 +119,7 @@ A questo punto sono disponibili un cluster e un database.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-* Se si prevede di seguire altre guide introduttive ed esercitazioni, non eliminare le risorse create.
+* Se si prevede di eseguire gli altri articoli, mantenere le risorse create.
 * Per pulire le risorse, eliminare il cluster. Quando si elimina un cluster, vengono eliminati anche tutti i database al suo interno. Usare il comando seguente per eliminare il cluster:
 
     ```Python
@@ -128,5 +128,4 @@ A questo punto sono disponibili un cluster e un database.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Guida introduttiva: Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)
+* [Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)

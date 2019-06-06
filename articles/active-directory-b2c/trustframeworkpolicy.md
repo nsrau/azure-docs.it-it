@@ -2,20 +2,20 @@
 title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Specificare l'elemento TrustFrameworkPolicy di un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a3382e560287502ae8afccae556bc5f56245904
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1102aee9d7fa5fe3df0e048398cdc8bd71ff0a3c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812953"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512307"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -40,13 +40,13 @@ L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
 
 | Attributo | Obbligatorio | Descrizione |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | Sì | La versione dello schema che deve essere usata per eseguire il criterio. Il valore deve essere `0.3.0.0`. |
-| TenantObjectId | N. | L'identificatore di oggetto univoco del tenant di Azure Active Directory (Azure AD) B2C. |
-| TenantId | Sì | L'identificatore univoco del tenant a cui appartiene questo criterio. |
-| `PolicyId` | Sì | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
-| PublicPolicyUri | Sì | L'URI per il criterio, ovvero la combinazione dell'ID del tenant e l'ID del criterio. |
-| DeploymentMode | N. | I valori possibili sono: `Production`, `Debugging` o `Development`. `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
-| UserJourneyRecorderEndpoint | N. | L'endpoint che viene usata quando **DeploymentMode** è impostato su `Development`. Il valore deve essere `urn:journeyrecorder:applicationinsights`. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
+| PolicySchemaVersion | Yes | La versione dello schema che deve essere usata per eseguire il criterio. Il valore deve essere `0.3.0.0`. |
+| TenantObjectId | No | L'identificatore di oggetto univoco del tenant di Azure Active Directory (Azure AD) B2C. |
+| TenantId | Yes | L'identificatore univoco del tenant a cui appartiene questo criterio. |
+| `PolicyId` | Yes | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
+| PublicPolicyUri | Yes | L'URI per il criterio, ovvero la combinazione dell'ID del tenant e l'ID del criterio. |
+| DeploymentMode | No | I valori possibili sono: `Production`, `Debugging` o `Development`. `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
+| UserJourneyRecorderEndpoint | No | L'endpoint che viene usata quando **DeploymentMode** è impostato su `Development`. Il valore deve essere `urn:journeyrecorder:applicationinsights`. Per altre informazioni, vedere [Raccolta dei log](active-directory-b2c-troubleshoot-custom.md). |
 
 
 Nell'esempio seguente viene illustrato come specificare l'elemento **TrustFrameworkPolicy**:

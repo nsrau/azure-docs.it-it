@@ -2,20 +2,20 @@
 title: Esempi di trasformazione di attestazioni dell'account di social networking per lo Schema del framework dell'esperienza di gestione delle identità di Azure Active Directory B2C | Microsoft Docs
 description: Esempi di trasformazione di attestazioni dell'account di social networking per lo Schema del framework dell'esperienza di gestione delle identità di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f6da199beb292f193d97eee309ca40dd74f81f8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c1a718539259a284e1d48fe48a3741a676bd4040
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697740"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512481"
 ---
 # <a name="social-accounts-claims-transformations"></a>Trasformazioni delle attestazioni degli account social
 

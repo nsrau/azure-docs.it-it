@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 06/04/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d3ab6f53fdb11b0b8d643868d0692667c8672f9
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: c5c45071406c420546a90a71751045fea926804f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545189"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513530"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Flusso del codice di piattaforma delle identità Microsoft e l'autorizzazione di OAuth 2.0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-La concessione del codice di autorizzazione OAuth 2.0 può essere utilizzata nelle app che vengono installate su un dispositivo per ottenere l'accesso alle risorse protette, come l'API web. Tramite l'implementazione di piattaforma di identità di Microsoft di OAuth 2.0, è possibile aggiungere l'accesso e l'API di accesso alle App per dispositivi mobili e desktop. Questa guida, indipendente dal linguaggio, descrive come inviare e ricevere messaggi HTTP senza usare una delle [librerie di autenticazione open source di Azure](active-directory-authentication-libraries.md).
+La concessione del codice di autorizzazione OAuth 2.0 può essere utilizzata nelle app che vengono installate su un dispositivo per ottenere l'accesso alle risorse protette, come l'API web. Tramite l'implementazione di piattaforma di identità di Microsoft di OAuth 2.0, è possibile aggiungere l'accesso e l'API di accesso alle App per dispositivi mobili e desktop. Questa guida, indipendente dal linguaggio, descrive come inviare e ricevere messaggi HTTP senza usare una delle [librerie di autenticazione open source di Azure](reference-v2-libraries.md).
 
 > [!NOTE]
 > Non tutti gli scenari di Azure Active Directory e le funzionalità sono supportate dall'endpoint della piattaforma Microsoft identity. Per determinare se è necessario usare l'endpoint di piattaforma Microsoft identity, a conoscenza [limitazioni della piattaforma di identità Microsoft](active-directory-v2-limitations.md).
@@ -64,11 +64,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametro    | Obbligatorio/Facoltativo | Descrizione |
 |--------------|-------------|--------------|
-| `tenant`    | obbligatorio    | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).  |
-| `client_id`   | obbligatorio    | Il **ID applicazione (client)** che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) esperienza assegnato all'app.  |
-| `response_type` | obbligatorio    | Deve includere `code` per il flusso del codice di autorizzazione.       |
-| `redirect_uri`  | obbligatorio | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Per le app native e le app per dispositivi mobili è necessario usare il valore predefinito `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
-| `scope`  | obbligatorio    | Elenco separato da spazi di [ambiti](v2-permissions-and-consent.md) a cui si vuole che l'utente dia il consenso. |
+| `tenant`    | Obbligatoria    | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).  |
+| `client_id`   | Obbligatoria    | Il **ID applicazione (client)** che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) esperienza assegnato all'app.  |
+| `response_type` | Obbligatoria    | Deve includere `code` per il flusso del codice di autorizzazione.       |
+| `redirect_uri`  | Obbligatoria | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Per le app native e le app per dispositivi mobili è necessario usare il valore predefinito `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
+| `scope`  | Obbligatoria    | Elenco separato da spazi di [ambiti](v2-permissions-and-consent.md) a cui si vuole che l'utente dia il consenso. |
 | `response_mode`   | Consigliato | Specifica il metodo da usare per restituire il token risultante all'app. Può essere uno dei valori seguenti:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` fornisce il codice come parametro della stringa di query nell'URI di reindirizzamento. Se si sta richiedendo un token ID usando il flusso implicito, non è possibile utilizzare `query` come specificato nella [specifica di OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se si sta richiedendo solo il codice, è possibile usare `query`, `fragment` o `form_post`. `form_post` esegue un POST contenente il codice all'URI di reindirizzamento. Per altre informazioni, vedere [Protocollo OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | `state`                 | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per [evitare gli attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Questo valore può essere usato anche per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
 | `prompt`  | facoltativo    | Indica il tipo di interazione obbligatoria dell'utente. Gli unici valori validi al momento sono `login`, `none` e `consent`.<br/><br/>- `prompt=login` forza l'utente a immettere le sue credenziali alla richiesta, negando l'accesso Single Sign-On.<br/>- `prompt=none` è l'opposto: garantisce che l'utente non riceve alcuna richiesta interattiva. Se la richiesta non può essere completata automaticamente tramite single sign-on, l'endpoint di Microsoft identity platform restituirà un `interaction_required` errore.<br/>- `prompt=consent` attiva la finestra di dialogo di consenso di OAuth dopo l'accesso dell'utente, che chiede all'utente di concedere le autorizzazioni all'app. |
@@ -81,7 +81,7 @@ A questo punto, all'utente viene chiesto di immettere le credenziali e completar
 
 Dopo che l'utente esegue l'autenticazione e concesso il consenso, l'endpoint di Microsoft identity platform restituirà una risposta per le app nell'URI `redirect_uri`, usando il metodo specificato nel `response_mode` parametro.
 
-#### <a name="successful-response"></a>Risposta riuscita
+#### <a name="successful-response"></a>Risposta con esito positivo
 
 Una risposta con esito positivo che usa `response_mode=query` ha un aspetto simile al seguente:
 
@@ -151,16 +151,16 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametro  | Obbligatorio/Facoltativo | Descrizione     |
 |------------|-------------------|----------------|
-| `tenant`   | obbligatorio   | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).  |
-| `client_id` | obbligatorio  | ID applicazione (client) che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) pagina assegnato all'app. |
-| `grant_type` | obbligatorio   | Deve essere `authorization_code` per il flusso del codice di autorizzazione.   |
-| `scope`      | obbligatorio   | Elenco di ambiti separati da spazi. Gli ambiti richiesti in questa sezione devono essere equivalenti agli ambiti richiesti nella prima sezione o un sottoinsieme di questi ultimi. Se gli ambiti specificati in questa richiesta si estendono su più server di risorse, l'endpoint di Microsoft identity platform restituirà un token per la risorsa specificata nel primo ambito. Per una spiegazione più dettagliata degli ambiti, fare riferimento all'argomento relativo ad [autorizzazioni, consenso e ambiti](v2-permissions-and-consent.md). |
-| `code`          | obbligatorio  | Codice di autorizzazione acquisito durante la prima sezione del flusso. |
-| `redirect_uri`  | obbligatorio  | Stesso valore redirect_uri usato per acquisire il codice di autorizzazione. |
+| `tenant`   | Obbligatoria   | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).  |
+| `client_id` | Obbligatoria  | ID applicazione (client) che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) pagina assegnato all'app. |
+| `grant_type` | Obbligatoria   | Deve essere `authorization_code` per il flusso del codice di autorizzazione.   |
+| `scope`      | Obbligatoria   | Elenco di ambiti separati da spazi. Gli ambiti richiesti in questa sezione devono essere equivalenti agli ambiti richiesti nella prima sezione o un sottoinsieme di questi ultimi. Se gli ambiti specificati in questa richiesta si estendono su più server di risorse, l'endpoint di Microsoft identity platform restituirà un token per la risorsa specificata nel primo ambito. Per una spiegazione più dettagliata degli ambiti, fare riferimento all'argomento relativo ad [autorizzazioni, consenso e ambiti](v2-permissions-and-consent.md). |
+| `code`          | Obbligatoria  | Codice di autorizzazione acquisito durante la prima sezione del flusso. |
+| `redirect_uri`  | Obbligatoria  | Stesso valore redirect_uri usato per acquisire il codice di autorizzazione. |
 | `client_secret` | Obbligatorio per app Web | Segreto dell'applicazione creato per l'app nel portale di registrazione delle app. È consigliabile non usare il segreto dell'applicazione in un'app nativa perché i segreti client non possono essere archiviati in modo affidabile nei dispositivi. È necessario per le app web e API web, che hanno la possibilità di archiviare il segreto client in modo sicuro sul lato server.  Prima di essere inviato, il segreto client deve essere codificato come URL.  |
 | `code_verifier` | facoltativo  | Stesso code_verifier usato per ottenere il codice di autorizzazione. Obbligatorio se nella richiesta di concessione del codice di autorizzazione è stato usato PKCE. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
-### <a name="successful-response"></a>Risposta riuscita
+### <a name="successful-response"></a>Risposta con esito positivo
 
 Una risposta token con esito positivo ha un aspetto simile al seguente:
 
@@ -264,14 +264,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametro     |                | Descrizione        |
 |---------------|----------------|--------------------|
-| `tenant`        | obbligatorio     | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).   |
-| `client_id`     | obbligatorio    | Il **ID applicazione (client)** che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) esperienza assegnato all'app. |
-| `grant_type`    | obbligatorio    | Deve essere `refresh_token` per questa sezione del flusso del codice di autorizzazione. |
-| `scope`         | obbligatorio    | Elenco di ambiti separati da spazi. Gli ambiti richiesti in questa sezione devono essere equivalenti agli ambiti richiesti nella sezione di richiesta del codice di autorizzazione originale o un sottoinsieme di questi ultimi. Se gli ambiti specificati in questa richiesta si estendono su più server di risorse, l'endpoint di Microsoft identity platform restituirà un token per la risorsa specificata nel primo ambito. Per una spiegazione più dettagliata degli ambiti, fare riferimento all'argomento relativo ad [autorizzazioni, consenso e ambiti](v2-permissions-and-consent.md). |
-| `refresh_token` | obbligatorio    | Token di aggiornamento acquisito durante la seconda sezione del flusso. |
+| `tenant`        | Obbligatoria     | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).   |
+| `client_id`     | Obbligatoria    | Il **ID applicazione (client)** che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) esperienza assegnato all'app. |
+| `grant_type`    | Obbligatoria    | Deve essere `refresh_token` per questa sezione del flusso del codice di autorizzazione. |
+| `scope`         | Obbligatoria    | Elenco di ambiti separati da spazi. Gli ambiti richiesti in questa sezione devono essere equivalenti agli ambiti richiesti nella sezione di richiesta del codice di autorizzazione originale o un sottoinsieme di questi ultimi. Se gli ambiti specificati in questa richiesta si estendono su più server di risorse, l'endpoint di Microsoft identity platform restituirà un token per la risorsa specificata nel primo ambito. Per una spiegazione più dettagliata degli ambiti, fare riferimento all'argomento relativo ad [autorizzazioni, consenso e ambiti](v2-permissions-and-consent.md). |
+| `refresh_token` | Obbligatoria    | Token di aggiornamento acquisito durante la seconda sezione del flusso. |
 | `client_secret` | Obbligatorio per app Web | Segreto dell'applicazione creato per l'app nel portale di registrazione delle app. Consigliabile non usarla in un'app nativa, perché i segreti client non possono essere archiviati in modo affidabile nei dispositivi. È necessario per le app web e API web, che hanno la possibilità di archiviare il segreto client in modo sicuro sul lato server. |
 
-#### <a name="successful-response"></a>Risposta riuscita
+#### <a name="successful-response"></a>Risposta con esito positivo
 
 Una risposta token con esito positivo ha un aspetto simile al seguente:
 

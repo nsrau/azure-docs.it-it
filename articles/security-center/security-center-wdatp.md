@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: 8511f8987368d5746373f71e9f553013e385e0ee
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 15232c92e60d21d759bec59597cb161480b8c2ea
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258548"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743221"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
@@ -44,10 +44,6 @@ Nel Centro sicurezza di Azure sono ora disponibili queste funzionalità:
 - **Analisi dettagliata dei sistemi**: i clienti del Centro sicurezza di Azure possono accedere alla console di Windows Defender ATP per eseguire un'analisi dettagliata allo scopo di individuare l'ambito di una violazione.
 
 ![Il Centro sicurezza di Azure, con un elenco di avvisi e informazioni generali relative a ogni avviso](media/security-center-wdatp/image1.png)
-
-È possibile [analizzare l'avviso](security-center-investigation.md) nel Centro sicurezza di Azure:
-
-![Dashboard per l'analisi degli avvisi nel Centro sicurezza di Azure](media/security-center-wdatp/image2.png)
 
 È possibile eseguire un'analisi più approfondita dell'avviso passando a Windows Defender ATP, in cui sono visualizzate informazioni aggiuntive, ad esempio l'albero dei processi di avviso e il grafico degli eventi imprevisti. È anche possibile visualizzare una sequenza temporale dettagliata che mostra ogni comportamento per un determinato periodo, fino a un massimo di sei mesi.
 

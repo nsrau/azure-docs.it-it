@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602088"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472586"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali (anteprima)
 Monitoraggio di Azure per le macchine virtuali consente prestazioni e metriche relative alla connessione, computer e i dati di inventario di processo e le informazioni sullo stato di integrità e lo inoltra all'area di lavoro di Log Analitica in Monitoraggio di Azure.  Questi dati sono disponibili per [query](../../azure-monitor/log-query/log-query-overview.md) in Monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
@@ -43,8 +43,8 @@ I campi e le convenzioni seguenti si applicano sia VMConnection VMBoundPort:
 
 - Computer: Nome di dominio completo del report di computer 
 - Valore di AgentID: L'identificatore univoco per un computer con l'agente di Log Analitica  
-- Computer: Nome della risorsa di Azure Resource Manager per la macchina esposta da ServiceMap. È nel formato *milioni-{GUID}*, dove *GUID* è lo stesso GUID come valore di AgentID  
-- Processo: Nome della risorsa di Azure Resource Manager per il processo esposto da ServiceMap. È nel formato *p: {stringa esadecimale}*. Processo è univoco all'interno di un ambito di computer e per generare un ID univoco del processo tra più computer, combina i campi di computer e processo. 
+- Computer: Nome della risorsa di Azure Resource Manager per la macchina esposta da ServiceMap. È nel formato *milioni-{GUID}* , dove *GUID* è lo stesso GUID come valore di AgentID  
+- Processo: Nome della risorsa di Azure Resource Manager per il processo esposto da ServiceMap. È nel formato *p: {stringa esadecimale}* . Processo è univoco all'interno di un ambito di computer e per generare un ID univoco del processo tra più computer, combina i campi di computer e processo. 
 - ProcessName: Nome dell'eseguibile del processo di creazione di report.
 - Tutti gli indirizzi IP sono stringhe in formato canonico IPv4, ad esempio *13.107.3.160* 
 
@@ -124,13 +124,6 @@ Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un s
 
 ### <a name="ports"></a>Porte 
 Porte in un computer che attivamente accettano il traffico in ingresso o potenzialmente può accettare il traffico, ma sono inattive durante l'intervallo di tempo di creazione di report, vengono scritte nella tabella VMBoundPort.  
-
->[!NOTE]
->Monitoraggio di Azure per le macchine virtuali non supporta la raccolta e la registrazione di trasferire i dati in un'area di lavoro di Log Analitica nelle aree seguenti:  
->- Stati Uniti orientali  
->- Europa occidentale
->
-> Raccolta dei dati è abilitata in altro [aree supportate](vminsights-enable-overview.md#log-analytics) per monitoraggio di Azure per le macchine virtuali. 
 
 Ogni record presente nel VMBoundPort è identificato dai campi seguenti: 
 

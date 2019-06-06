@@ -7,13 +7,13 @@ ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: f11d1c6b727799f2cc67c6f5012dc4d117556d2e
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+manager: philmea
+ms.openlocfilehash: 533327ca1d202f15376e580d20317ddaf0b1d302
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467822"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693179"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connettività dei dispositivi in Azure IoT Central
 
@@ -139,7 +139,7 @@ I passaggi seguenti descrivono questo processo in modo più dettagliato. I passa
 
 1. Il dispositivo connesso inizialmente visualizzato come un **dispositivi non associati** nel **Device Explorer** pagina. Lo stato di provisioning del dispositivo è **Registrato**. **Associare** il dispositivo per il modello di dispositivo appropriati e approvare il dispositivo di connettersi all'applicazione IoT Central. Il dispositivo può quindi recuperare una stringa di connessione dall'IoT Hub e iniziare a inviare dati. Il provisioning dei dispositivi è ora completato ed è ora lo stato del provisioning **Provisioned**.
 
-## <a name="provisioning-status"></a>Stato provisioning
+## <a name="provisioning-status"></a>Lo stato di provisioning
 
 Quando un dispositivo reale si connette all'applicazione IoT Central, modifiche dello stato di provisioning come indicato di seguito:
 
@@ -173,7 +173,7 @@ Tutte le comunicazioni dei dispositivi con l'hub IoT usano le opzioni di connett
 
 La tabella seguente riepiloga le corrispondenze tra le funzionalità di dispositivo di Azure IoT Central e le funzionalità dell'hub IoT:
 
-| Azure IoT Central | Hub IoT di Azure |
+| Azure IoT Central | Hub IoT Azure |
 | ----------- | ------- |
 | Misura: Telemetria | Messaggistica da dispositivo a cloud |
 | Proprietà dei dispositivi | Proprietà segnalate del dispositivo gemello |

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2018
+ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457477"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475964"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 
@@ -45,7 +45,7 @@ Per risolvere il problema, seguire questa procedura:
 
 2. Verificare che i certificati seguenti siano nel percorso corretto:
 
-    | Certificate | Location |
+    | Certificate | Località |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utente corrente\Personale\Certificati |
     | Azuregateway-*GUID*.cloudapp.net  | Utente corrente\Autorità di certificazione radice attendibili|
@@ -62,7 +62,7 @@ Per altre informazioni su come installare il certificato client, vedere [Generar
 
 ### <a name="symptom"></a>Sintomo
 
-Quando si prova a connettersi a una rete virtuale di Azure di gteway utilizzando IKEv2 in Windows, è visualizzato il messaggio di errore seguente:
+Quando si prova a connettersi a un gateway di rete virtuale di Azure tramite IKEv2 in Windows, è visualizzato il messaggio di errore seguente:
 
 **La connessione di rete tra il computer e il server VPN non è stato possibile stabilire perché il server remoto non risponde**
 
@@ -78,7 +78,7 @@ Per preparare Windows 10 o Server 2016 per IKEv2:
 
 1. Installare l'aggiornamento.
 
-   | Versione del sistema operativo | Data | Numero/collegamento |
+   | Versione del sistema operativo | Date | Numero/collegamento |
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10 versione 1607 | 17 gennaio 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 versione 1703 | 17 gennaio 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
@@ -122,7 +122,7 @@ Quando si cerca di connettersi alla rete virtuale di Azure usando il client VPN,
 
 1. Verificare che i certificati seguenti siano nel percorso corretto:
 
-    | Certificate | Location |
+    | Certificate | Località |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utente corrente\Personale\Certificati |
     | Azuregateway-*GUID*.cloudapp.net  | Utente corrente\Autorità di certificazione radice attendibili|

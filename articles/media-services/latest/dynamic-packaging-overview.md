@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: c25aef76b5559b6d00ccf60675d61ea5ea346773
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299179"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494361"
 ---
 # <a name="dynamic-packaging"></a>Creazione dinamica dei pacchetti
 
@@ -114,10 +114,10 @@ Creazione dinamica dei pacchetti supporta i file MP4, che contengono audio codif
     * DTS Express (dtse)
     * DTS-HD senza perdita di dati (non core) (dtsl)
 
-### <a name="hls-support"></a>Supporto HLS
+### <a name="multi-audio-tracks"></a>Con più tracce audio
 
-Creazione dinamica dei pacchetti supporta HLS (versione 4 o versione successiva) per gli asset con più tracce audio con più linguaggi e i codec.
-
+Quando gli asset con più tracce audio con più linguaggi e i codec di flusso di creazione dinamica dei pacchetti supporta più tracce audio per l'output HLS (versione 4 o versione successiva).
+ 
 ### <a name="not-supported"></a>Non supportate
 
 La creazione dinamica dei pacchetti non supporta file contenenti audio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) perché si tratta di un codec legacy codec.

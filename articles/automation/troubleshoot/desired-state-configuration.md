@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61087269"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514458"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Risolvere i problemi della configurazione dello stato desiderato (DSC)
 
@@ -145,6 +145,25 @@ Usa una credenziale in una configurazione ma non è stato corretto **Configurati
 #### <a name="resolution"></a>Risoluzione
 
 * Assicurarsi di passare in appropriate **ConfigurationData** per impostare **PSDscAllowPlainTextPassword** su true per ogni configurazione nodo che viene indicata nella configurazione. Per altre informazioni, vedere la sezione relativa agli [asset in Automation DSC per Azure](../automation-dsc-compile.md#assets).
+
+### <a name="failure-processing-extension"></a>Scenario: Onboarding da estensione dsc, di errore "Estensione di elaborazione non riuscita"
+
+#### <a name="issue"></a>Problema
+
+Quando si verifica onboarding usando l'estensione DSC, un errore che contiene l'errore:
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
+```
+
+#### <a name="cause"></a>Causa
+
+In genere questo errore si verifica quando il nodo viene assegnato un nome di configurazione nodo che non esiste nel servizio.
+
+#### <a name="resolution"></a>Risoluzione
+
+* Assicurarsi che si sta assegnando il nodo con un nome di configurazione nodo che corrisponda esattamente al nome del servizio.
+* È possibile scegliere di non includere il nome di configurazione nodo, che provocheranno onboarding il nodo ma non assegnare una configurazione nodo
 
 ## <a name="next-steps"></a>Passaggi successivi
 

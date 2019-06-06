@@ -2,20 +2,20 @@
 title: Esempi di trasformazione di attestazioni di stringa per lo schema del framework di gestione delle identità di Azure Active Directory B2C | Microsoft Docs
 description: Esempi di trasformazione di attestazioni di stringa per lo schema del framework di gestione delle identità di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6c6b90cb2b24f6a87504a3a0dbd47f998b67ebc1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a06447aaa6579052285e7e2cd93bf40183ed173f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707470"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512597"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -157,8 +157,8 @@ Determina se un'attestazione di stringa è uguale a un'altra. Il risultato è un
 | inputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
 | inputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
 | InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
-| InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
-| OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
+| InputParameter | ignoreCase | Boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
+| OutputClaim | outputClaim | Boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
 Usare questa trasformazione di attestazioni per verificare se un'attestazione è uguale a un'altra. La trasformazione di attestazioni seguente, ad esempio, controlla se il valore dell'attestazione **email** è uguale a quello dell'attestazione **Verified.Email**.
 
@@ -198,8 +198,8 @@ Determina se un valore di attestazione è uguale al valore del parametro di inpu
 | inputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
 | InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | compareTo | string | Confronto tra le stringhe con valore Ordinal o OrdinalIgnoreCase. |
-| InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
-| OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
+| InputParameter | ignoreCase | Boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
+| OutputClaim | outputClaim | Boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
 È possibile usare questa trasformazione di attestazioni per controllare se un'attestazione è uguale a un valore specificato. La trasformazione di attestazioni seguente, ad esempio, controlla se il valore dell'attestazione **termsOfUseConsentVersion** è uguale a `v1`.
 
@@ -237,7 +237,7 @@ Crea una stringa casuale tramite il generatore di numeri casuali. Se il generato
 | ---- | ----------------------- | --------- | ----- |
 | InputParameter | randomGeneratorType | string | Specifica il valore casuale da generare `GUID` (ID univoco globale) o `INTEGER` (numero). |
 | InputParameter | stringFormat | string | [Facoltativo] Formatta il valore casuale. |
-| InputParameter | base64 | boolean | [Facoltativo] Converte il valore casuale in base 64. Se si applica il formato della stringa, il valore successivo è codificato in formato base64. |
+| InputParameter | base64 | Boolean | [Facoltativo] Converte il valore casuale in base 64. Se si applica il formato della stringa, il valore successivo è codificato in formato base64. |
 | InputParameter | maximumNumber | int | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specificare il numero massimo. |
 | InputParameter | seed  | int | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specifica il valore di inizializzazione per il valore casuale. Nota: uno stesso valore di inizializzazione genera la stessa sequenza di numeri casuali. |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. Valore casuale. |
@@ -412,7 +412,7 @@ Esegue la ricerca di un valore di attestazione da un elenco di valori in base al
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputParameterId | string | Attestazione che contiene il valore di ricerca |
 | InputParameter | |string | Raccolta di elementi inputParameters. |
-| InputParameter | errorOnFailedLookup | boolean | Controlla se viene restituito un errore quando non esiste alcuna ricerca corrispondente. |
+| InputParameter | errorOnFailedLookup | Boolean | Controlla se viene restituito un errore quando non esiste alcuna ricerca corrispondente. |
 | OutputClaim | inputParameterId | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. Valore dell'ID corrispondente. |
 
 L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters. La trasformazione delle attestazioni esegue la ricerca del nome di dominio nell'identificatore e ne restituisce il valore (ID applicazione).
@@ -511,7 +511,7 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
 | InputParameter | stringMatchMsgCode | string | Secondo valore da impostare se le stringhe sono uguali. |
 | OutputClaim | outputClaim1 | string | Se le stringhe sono uguali, l'attestazione di output contiene il valore del parametro di output `stringMatchMsg`. |
 | OutputClaim | outputClaim2 | string | Se le stringhe sono uguali, l'attestazione di output contiene il valore del parametro di output `stringMatchMsgCode`. |
-| OutputClaim | stringCompareResultClaim | boolean | Tipo dell'attestazione di output del risultato del confronto che deve essere impostato come `true` o `false` in base al risultato del confronto. |
+| OutputClaim | stringCompareResultClaim | Boolean | Tipo dell'attestazione di output del risultato del confronto che deve essere impostato come `true` o `false` in base al risultato del confronto. |
 
 È possibile usare questa trasformazione di attestazioni per controllare se un'attestazione è uguale a un valore specificato. La trasformazione di attestazioni seguente, ad esempio, controlla se il valore dell'attestazione **termsOfUseConsentVersion** è uguale a `v1`. In caso affermativo, impostare il valore su `v2`. 
 
@@ -558,7 +558,7 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
 | InputParameter | stringComparison | string | I valori possibili sono: `Ordinal` o `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | string | Valore da impostare se le stringhe sono uguali. |
 | OutputClaim | outputClaim | string | Se le stringhe sono uguali, l'attestazione di output contiene il valore del parametro di output `outputClaimIfMatched`. Se le stringhe non corrispondono, il valore contenuto è null. |
-| OutputClaim | stringCompareResultClaim | boolean | Tipo dell'attestazione di output del risultato del confronto che deve essere impostato come `true` o `false` in base al risultato del confronto. |
+| OutputClaim | stringCompareResultClaim | Boolean | Tipo dell'attestazione di output del risultato del confronto che deve essere impostato come `true` o `false` in base al risultato del confronto. |
 
 La trasformazione di attestazioni seguente, ad esempio, controlla se il valore dell'attestazione **ageGroup** è uguale a `Minor`. In caso affermativo, restituisce il valore a `B2C_V1_90001`. 
 

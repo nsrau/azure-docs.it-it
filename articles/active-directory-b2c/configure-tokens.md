@@ -2,20 +2,20 @@
 title: Configurare i token - Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come configurare le impostazioni di compatibilità e durata token in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69a6284ea7b8905bb5efdb1f4c9f26027bd6f9d9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1163c88a100ebb7500607475ab5740557904137
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689600"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511325"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurare i token in Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ In questo articolo descrive come configurare il [durata e la compatibilità di u
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Assicurarsi che si usa la directory che contiene il tenant di Azure AD B2C. Selezionare il **Directory e sottoscrizione filtro** nel menu in alto e scegliere la directory che contiene il tenant di Azure AD B2C.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-4. Selezionare **flussi utente, criteri,**.
+4. Selezionare **flussi utente, criteri,** .
 5. Aprire il flusso utente creato in precedenza. 
 6. Selezionare **Proprietà**.
 7. Sotto **Token lifetime**, regolare le proprietà seguenti per soddisfare le esigenze dell'applicazione:
@@ -43,7 +43,7 @@ In questo articolo descrive come configurare il [durata e la compatibilità di u
 
 ## <a name="configure-token-compatibility"></a>Configurare la compatibilità del token
 
-1. Selezionare **flussi utente, criteri,**.
+1. Selezionare **flussi utente, criteri,** .
 2. Aprire il flusso utente creato in precedenza. 
 3. Selezionare **Proprietà**.
 4. Sotto **impostazioni di compatibilità dei Token**, regolare le proprietà seguenti per soddisfare le esigenze dell'applicazione:

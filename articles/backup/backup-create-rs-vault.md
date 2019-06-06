@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: sogup
-ms.openlocfilehash: b345f5e7f6f32d7fbb76d4f0227c8f4f925ff884
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 9fba7d679b7d0edb3c99207c99b23f9616c6fa0e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400297"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477577"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -76,7 +76,7 @@ Backup di Azure gestisce automaticamente l'archiviazione per l'insieme di creden
    - Altre informazioni sulle [geografica](../storage/common/storage-redundancy-grs.md) e [locale](../storage/common/storage-redundancy-lrs.md) ridondanza.
 
 > [!NOTE]
-> Dopo aver scelto il **tipo di replica di archiviazione** da **geograficamente ridondante** al **con ridondanza locale**, non sarà possibile tornare indietro.
+> Modificando **tipo di replica archiviazione** (localmente ridondante / geograficamente ridondante) per un ripristino dell'insieme di credenziali di servizi deve essere eseguita prima di configurare i backup nell'insieme di credenziali. Quando si configura il backup, la possibilità di modificare è disabilitata e non è possibile modificare il **tipo di replica archiviazione**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

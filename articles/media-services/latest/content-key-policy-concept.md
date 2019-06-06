@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a597ab3519f4ba1696e111622541bcab89488558
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417993"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425424"
 ---
 # <a name="content-key-policies"></a>Criteri di chiave simmetrica
 
@@ -35,7 +35,7 @@ I **criteri di chiave simmetrica** possono essere aggiornati. Per l'aggiornament
 > * Le proprietà dei **criteri di chiave simmetrica** di tipo Datetime sono sempre in formato UTC.
 > * È necessario progettare un set limitato di criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming ogni volta che si devono usare le stesse opzioni. Per altre informazioni, vedere [Quote e limitazioni](limits-quotas-constraints.md).
 
-## <a name="example"></a>Esempio
+### <a name="example"></a>Esempio
 
 Per ottenere la chiave, usare **GetPolicyPropertiesWithSecretsAsync**, come illustrato nella [ottenere una chiave di firma dai criteri esistenti](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) esempio.
 

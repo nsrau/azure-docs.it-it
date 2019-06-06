@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508412"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497100"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -180,17 +180,18 @@ Sì. Tutte le macchine virtuali e le istanze del ruolo dei servizi cloud distrib
 ## <a name="azure-services-that-connect-to-vnets"></a>Servizi di Azure che si connettono a reti virtuali
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>È possibile usare le app Web del servizio app di Azure con una rete virtuale?
-Sì. È possibile distribuire le app Web all'interno di una rete virtuale tramite un ambiente del servizio app. Se è stata configurata una connessione da punto a sito per la rete virtuale, tutte le app Web possono connettersi in modo sicuro e accedere alle risorse nella rete virtuale. Per altre informazioni, vedere gli articoli seguenti:
+Sì. È possibile distribuire le app Web all'interno di una rete virtuale usando un ambiente del servizio App (ambiente del servizio App), connettersi all'app con gli endpoint di servizio back-end delle App per le reti virtuali con integrazione rete virtuale e per bloccare il traffico in ingresso. Per altre informazioni, vedere gli articoli seguenti:
 
+* [Funzionalità di rete del servizio App](../app-service/networking-features.md)
 * [Creare app Web in un ambiente del servizio app](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Integrare un'app in una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Utilizzo dell’integrazione della rete virtuale e delle connessioni ibride con app Web](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json#hybrid-connections-and-app-service-environments)
+* [Restrizioni di accesso di servizio App](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>È possibile distribuire i servizi cloud con ruolo di lavoro e Web (PaaS) in una rete virtuale?
 Sì. Facoltativamente, è possibile distribuire istanze del ruolo dei servizi cloud all'interno di reti virtuali. A tale scopo, specificare il nome della rete virtuale e i mapping dei ruoli e delle subnet nella sezione di configurazione della rete della configurazione del servizio. Non è necessario aggiornare i file binari.
 
-### <a name="can-i-connect-a-virtual-machine-scale-set-vmss-to-a-vnet"></a>È possibile connettere un set di scalabilità di macchine virtuali (VMSS) a una rete virtuale?
-Sì. È necessario connettere un set di scalabilità di macchine virtuali a una rete virtuale.
+### <a name="can-i-connect-a-virtual-machine-scale-set-to-a-vnet"></a>È possibile connettere un scalabilità di macchine virtuali impostato su una rete virtuale?
+Sì. È necessario connettere un set a una rete virtuale di scalabilità di macchine virtuali.
 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>È disponibile un elenco completo dei servizi di Azure da cui è possibile distribuire le risorse in una rete virtuale?
 Sì. Per informazioni dettagliate, vedere [Integrazione della rete virtuale per i servizi di Azure](virtual-network-for-azure-services.md).
@@ -219,7 +220,7 @@ Sì. Per informazioni dettagliate, vedere [Panoramica della sicurezza di rete di
 ## <a name="apis-schemas-and-tools"></a>API, schemi e strumenti
 
 ### <a name="can-i-manage-vnets-from-code"></a>È possibile gestire le reti virtuali dal codice?
-Sì. È possibile usare le API REST per le reti virtuali nei modelli di distribuzione [Azure Resource Manager](/rest/api/virtual-network) e [classica (Gestione dei servizi)](https://go.microsoft.com/fwlink/?LinkId=296833).
+Sì. È possibile usare le API REST per le reti virtuali nel [Azure Resource Manager](/rest/api/virtual-network) e [classico](https://go.microsoft.com/fwlink/?LinkId=296833) modelli di distribuzione.
 
 ### <a name="is-there-tooling-support-for-vnets"></a>È disponibile il supporto degli strumenti per le reti virtuali?
 Sì. Altre informazioni:
@@ -227,7 +228,7 @@ Sì. Altre informazioni:
 - Uso di PowerShell per gestire reti virtuali distribuite con i modelli di distribuzione [Resource Manager](/powershell/module/az.network) e [classica](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
 - Uso dell'interfaccia della riga di comando di Azure per distribuire e gestire reti virtuali distribuite con i modelli di distribuzione [Resource Manager](/cli/azure/network/vnet) e [classica](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources).  
 
-## <a name="vnet-peering"></a>Peering di rete virtuale
+## <a name="vnet-peering"></a>Peering reti virtuali
 
 ### <a name="what-is-vnet-peering"></a>Che cos'è il peering di reti virtuali?
 Il peering di reti virtuali consente di connettere le reti virtuali. Usando una connessione di peering di reti virtuali è possibile instradare il traffico tra le reti in modo privato tramite indirizzi IPv4. Le macchine virtuali nelle reti virtuali con peering possono comunicare tra loro come se si trovassero nella stessa rete. Queste reti virtuali possono trovarsi in aree geografiche uguali o diverse. In questo secondo caso, si parla di peering di reti virtuali globale. Le connessioni di peering di reti virtuali possono essere create anche tra sottoscrizioni di Azure.
@@ -239,7 +240,7 @@ Sì. Il peering di reti virtuali globale consente di eseguire il peering di reti
 Se le due reti virtuali sono in aree diverse (Peering reti virtuali globale), è possibile connettersi alle risorse che usano Load Balancer Basic. È possibile connettersi alle risorse che usano Load Balancer Standard.
 Le seguenti risorse usano base i bilanciamenti del carico che significa che non è possibile comunicare loro tra Peering reti virtuali:
 - Macchine virtuali dietro a servizi di bilanciamento del carico di base
-- I set di scalabilità di macchine Virtuali con servizi di bilanciamento del carico di base 
+- I set di scalabilità di macchine virtuali con bilanciamento del carico di base 
 - Cache Redis 
 - Application Gateway (v1) SKU
 - Service Fabric
@@ -247,9 +248,9 @@ Le seguenti risorse usano base i bilanciamenti del carico che significa che non 
 - Gestione API
 - Active Directory Domain Service (ADDS)
 - App per la logica
-- HD Insight
+- HDInsight
 -   Azure Batch
-- Servizio Azure Kubernetes
+- servizio Azure Container
 - Ambiente del servizio app
 
 È possibile connettersi a queste risorse tramite ExpressRoute o della rete virtuale a rete virtuale tramite gateway di rete virtuale.
@@ -285,7 +286,7 @@ No. Il peering transitivo non è supportato. Si dovrà eseguire il peering delle
 No. La rete virtuale di peering, sia locale che globale, non impone restrizioni relative alla larghezza di banda. La larghezza di banda è limitata solo dalla macchina virtuale o dalla risorsa di calcolo.
 
 ### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Come è possibile risolvere i problemi di peering reti virtuali?
-Ecco un [Guida alla risoluzione dei problemi] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) è possibile provare.
+Di seguito è riportato un [Guida alla risoluzione dei problemi](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) è possibile provare.
 
 ## <a name="virtual-network-tap"></a>TAP di rete virtuale
 
@@ -395,7 +396,7 @@ Non ci sono limiti per il numero totale di endpoint di servizio di rete virtuale
 |---|---|
 |Servizio di Azure| Limiti per le regole della rete virtuale|
 |Archiviazione di Azure| 100|
-|Azure SQL| 128|
+|SQL di Azure| 128|
 |Azure SQL Data Warehouse|  128|
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|

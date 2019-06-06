@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: be0de7e809565fce4171401760d11ef9de45724e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e408439c4868a9fadfd15ab8ae303b2d881c481e
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236114"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494284"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrizioni di accesso di servizio App di Azure #
 
@@ -50,17 +50,25 @@ L'elenco mostrerà tutte le restrizioni correnti che sono nella tua app. Se si d
 
 È possibile fare clic su **[+] Aggiungi** per aggiungere una nuova regola di restrizione di accesso. Dopo l'aggiunta una regola diventa effettiva immediatamente. Le regole vengono applicate in base alle priorità dal numero più basso al più alto. È presente un nega tutto implicito anche dopo l'aggiunta di una singola regola.
 
+### <a name="adding-ip-address-rules"></a>Aggiunta di regole degli indirizzi IP
+
 ![aggiungere una regola di restrizione di accesso IP](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
 Quando si crea una regola, è necessario selezionare Consenti/Nega e anche il tipo di regola. È inoltre necessario fornire il valore di priorità e ciò che si è limitare l'accesso a.  È possibile aggiungere facoltativamente un nome e descrizione della regola.  
 
-Per impostare un indirizzo IP basata su regole, selezionare un tipo di IPv4 o IPv6. La notazione Indirizzo IP deve essere specificata nella notazione CIDR per gli indirizzi IPv4 e IPv6. Per specificare un indirizzo esatto, è possibile usare un indirizzo simile a 1.2.3.4/32, dove i primi quattro otteti rappresentano l'indirizzo IP e /32 è la maschera. La notazione CIDR IPv4 per tutti gli indirizzi è 0.0.0.0/0. Per ulteriori informazioni sulla notazione CIDR, è possibile leggere [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Per impostare un indirizzo IP basata su regole, selezionare un tipo di IPv4 o IPv6. La notazione Indirizzo IP deve essere specificata nella notazione CIDR per gli indirizzi IPv4 e IPv6. Per specificare un indirizzo esatto, è possibile usare un indirizzo simile a 1.2.3.4/32, dove i primi quattro otteti rappresentano l'indirizzo IP e /32 è la maschera. La notazione CIDR IPv4 per tutti gli indirizzi è 0.0.0.0/0. Per ulteriori informazioni sulla notazione CIDR, è possibile leggere [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+
+### <a name="service-endpoints"></a>Endpoint di servizio
 
 ![aggiungere una regola di restrizione di accesso di rete virtuale](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 Per limitare l'accesso alla subnet selezionata, selezionare un tipo di rete virtuale. Di seguito sarà possibile selezionare la sottoscrizione della rete virtuale e subnet che si desidera consentire o negare l'accesso con. Se gli endpoint di servizio non sono abilitati già con Microsoft. Web per la subnet selezionata, si saranno abilitato automaticamente per l'utente a meno che non si seleziona la casella in cui viene chiesto di non eseguire questa operazione. La situazione in cui si desidera abilitare la funzionalità in app, ma non la subnet è correlata in gran parte se si dispone delle autorizzazioni per abilitare gli endpoint di servizio nella subnet o No. Se è necessario ottenere qualcun altro per abilitare gli endpoint di servizio nella subnet, è possibile selezionare la casella di controllo e delle App configurati per gli endpoint di servizio in attesa di essere abilitato in un secondo momento nella subnet. 
 
 Gli endpoint di servizio non sono utilizzabile per limitare l'accesso alle App che vengono eseguiti in un ambiente del servizio App. Quando l'app è in un ambiente del servizio App, è possibile controllare l'accesso all'App con le regole di accesso IP. 
+
+Con gli endpoint di servizio, è possibile configurare l'app con i gateway applicazione o altri dispositivi WAF. È anche possibile configurare applicazioni multilivello con back-end sicuro. Per altre informazioni su alcune delle possibilità, leggere [funzionalità di rete e del servizio App](networking-features.md).
+
+### <a name="managing-access-restriction-rules"></a>La gestione delle regole di restrizioni di accesso
 
 È possibile fare clic su qualsiasi riga per modificare una regola di restrizione di accesso esistente. Le modifiche diventano effettive immediatamente, incluse le modifiche nell'ordine di priorità.
 
@@ -74,19 +82,19 @@ Per eliminare una regola, fare clic su **...** nella regola e su **rimuovi**.
 
 ![Elimina regola di restrizione di accesso](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-### <a name="scm-site"></a>Sito SCM 
-
-Oltre a essere in grado di controllare l'accesso all'App, è inoltre possibile limitare l'accesso al sito scm usato dall'app. Il sito scm è web distribuire endpoint e anche la console Kudu. Separatamente, è possibile assegnare le restrizioni di accesso al sito scm dall'app o usare lo stesso set per l'app e il sito scm. Quando si seleziona la casella per avere le stesse restrizioni dell'App, tutto ciò che viene visualizzato come vuoto. Se si deseleziona la casella, vengono applicate tutte le impostazioni nel sito scm era in precedenza. 
-
-![restrizioni di accesso di elenco](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
-
-## <a name="blocking-a-single-ip-address"></a>Il blocco di un singolo indirizzo IP ##
+### <a name="blocking-a-single-ip-address"></a>Il blocco di un singolo indirizzo IP ##
 
 Quando si aggiunge la prima regola di restrizione IP, il servizio verrà aggiunto esplicita **nega tutto** regola con una priorità pari a 2147483647. In pratica, l'impostazione esplicita **deny_all** regola sarà l'ultima regola eseguita e verrà bloccato l'accesso a qualsiasi indirizzo IP che non è esplicitamente consentita tramite un **Consenti** regola.
 
 Per lo scenario in cui gli utenti vogliono bloccare in modo esplicito un singolo indirizzo IP o un blocco di indirizzi IP, ma consentire tutti gli elementi altro accesso, è necessario aggiungere l'impostazione esplicita **consentire All** regola.
 
 ![indirizzo ip singolo blocco](media/app-service-ip-restrictions/block-single-address.png)
+
+### <a name="scm-site"></a>Sito SCM 
+
+Oltre a essere in grado di controllare l'accesso all'App, è inoltre possibile limitare l'accesso al sito scm usato dall'app. Il sito scm è web distribuire endpoint e anche la console Kudu. Separatamente, è possibile assegnare le restrizioni di accesso al sito scm dall'app o usare lo stesso set per l'app e il sito scm. Quando si seleziona la casella per avere le stesse restrizioni dell'App, tutto ciò che viene visualizzato come vuoto. Se si deseleziona la casella, vengono applicate tutte le impostazioni nel sito scm era in precedenza. 
+
+![restrizioni di accesso di elenco](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Modifica livello di codice restrizione delle regole di accesso ##
 

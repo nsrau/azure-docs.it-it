@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8a3c9a4fb1b43c1d00d66fee3548ccd10a1e075e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969383"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497553"
 ---
 # <a name="monitor-site-recovery"></a>Monitoraggio di Site Recovery
 
@@ -37,7 +37,7 @@ La sezione Elementi replicati mostra l'integrità di tutte le macchine con la re
 
 **Stato** | **Dettagli**
 --- | ---
-Integra | La replica sta procedendo normalmente. Non sono stati rilevati sintomi di errore o avviso.
+Healthy | La replica sta procedendo normalmente. Non sono stati rilevati sintomi di errore o avviso.
 Avviso | Sono stati rilevati uno o più sintomi di avviso che potrebbero influire sulla replica.
 Critico | Sono stati rilevati uno o più sintomi di errore di replica critici.<br/><br/> Questi sintomi di errore in genere sono indicatori del fatto che la replica è bloccata o non sta procedendo con la stessa frequenza di modifica dei dati.
 Non applicabile | Server di cui attualmente non è prevista la replica. Potrebbe includere le macchine di cui è stato eseguito il failover.
@@ -97,12 +97,12 @@ In **Visualizzazione dell'infrastruttura** vengono mostrati i componenti dell'in
 
     **Scenario** | **Stato**  | **Visualizzazione disponibile?**
     --- |--- | ---
-    **Replica tra siti locali** | Tutti gli stati | N. 
-    **Replica di VM di Azure tra aree di Azure**  | Replica abilitata/replica iniziale in corso | Sì
-    **Replica di VM di Azure tra aree di Azure** | Failover/failback | N.   
-    **Replica VMware in Azure** | Replica abilitata/replica iniziale in corso | Sì     
-    **Replica VMware in Azure** | Failover/failback | N.      
-    **Replica Hyper-V in Azure** | Failover/failback | N.
+    **Replica tra siti locali** | Tutti gli stati | No 
+    **Replica di VM di Azure tra aree di Azure**  | Replica abilitata/replica iniziale in corso | Yes
+    **Replica di VM di Azure tra aree di Azure** | Failover/failback | No   
+    **Replica VMware in Azure** | Replica abilitata/replica iniziale in corso | Yes     
+    **Replica VMware in Azure** | Failover/failback | No      
+    **Replica Hyper-V in Azure** | Failover/failback | No
 
 - Per visualizzare la visualizzazione dell'infrastruttura per una singola macchina di replica, nel menu dell'insieme di credenziali fare clic su **Elementi replicati** e selezionare un server.  
 
@@ -190,7 +190,7 @@ Monitorare i processi come indicato di seguito:
 
 Eseguire la sottoscrizione come indicato di seguito:
 
-Nell'insieme di credenziali > **Monitoraggio e report** fare clic su **Eventi di Site Recovery**.
+Nell'insieme di credenziali > **Monitoring** fare clic su **eventi di Site Recovery**.
 1. Fare clic su **Notifiche tramite posta elettronica**.
 1. In **Notifiche tramite posta elettronica** attivare le notifiche e specificare i destinatari. È possibile inviare le notifiche a tutti gli amministratori della sottoscrizione e facoltativamente a specifici indirizzi di posta elettronica.
 

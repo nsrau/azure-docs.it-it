@@ -2,20 +2,20 @@
 title: Complessità delle password - Azure Active Directory B2C | Microsoft Docs
 description: Come configurare i requisiti di complessità delle password specificate dagli utenti in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5c47a22883de4a3b28a42b390ef78368277e22be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 37f8305d8ed212cf2c6678b35220d823611b9d7a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703732"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509028"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurare i requisiti di complessità delle password in Azure Active Directory B2C
 
@@ -45,11 +45,11 @@ Se si usano criteri personalizzati, è possibile [configurare la complessità de
 
 ### <a name="comparison-chart"></a>Grafico di confronto
 
-| Complessità | DESCRIZIONE |
+| Complessità | Descrizione |
 | --- | --- |
 | Semplice | Una password con un numero di caratteri compreso tra 8 e 64. |
 | Assoluta | Una password con un numero di caratteri compreso tra 8 e 64. Richiede almeno tre dei quattro tipi di carattere seguenti: lettere minuscole, lettere maiuscole, numeri e simboli. |
-| Personalizzate | Questa opzione offre il massimo controllo sulle regole di complessità delle password.  Consente infatti di configurare una lunghezza personalizzata  o di accettare password solo numeriche (PIN). |
+| Personalizzato | Questa opzione offre il massimo controllo sulle regole di complessità delle password.  Consente infatti di configurare una lunghezza personalizzata  o di accettare password solo numeriche (PIN). |
 
 ## <a name="custom-options"></a>Opzioni personalizzate
 

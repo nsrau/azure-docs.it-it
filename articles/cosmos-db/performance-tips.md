@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: feab3ee1a21a52e8b18d59e67e8410fcbeb4ff5e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: c8907f1b1c8069a3a3e92d01a5fa6341c06ec952
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953797"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688796"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 
@@ -137,13 +137,21 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
    <a id="tune-page-size"></a>
 1. **Modificare le dimensioni di pagina per le query o i feed di lettura per ottenere prestazioni migliori**
 
-    Quando si esegue una lettura in blocco di documenti usando la funzionalità dei feed di lettura, ad esempio ReadDocumentFeedAsync, oppure quando si emette una query SQL, i risultati vengono restituiti in modo segmentato se il set di risultati è troppo grande. Per impostazione predefinita, i risultati vengono restituiti in blocchi di 100 elementi o 1 MB, a seconda del limite che viene raggiunto prima.
+   Quando si esegue una lettura in blocco di documenti usando la funzionalità dei feed di lettura, ad esempio ReadDocumentFeedAsync, oppure quando si emette una query SQL, i risultati vengono restituiti in modo segmentato se il set di risultati è troppo grande. Per impostazione predefinita, i risultati vengono restituiti in blocchi di 100 elementi o 1 MB, a seconda del limite che viene raggiunto prima.
 
-    Per ridurre il numero di round trip di rete necessari per recuperare tutti i risultati applicabili, è possibile aumentare le dimensioni di pagina usando l'intestazione di richiesta [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) fino a 1000. Nei casi in cui è necessario visualizzare solo alcuni risultati, ad esempio se l'interfaccia utente o l'API dell'applicazione restituisce solo 10 risultati alla volta, è anche possibile ridurre le dimensioni di pagina a 10 in modo da ridurre la velocità effettiva usata per le letture e le query.
+   Per ridurre il numero di round trip di rete necessari per recuperare tutti i risultati applicabili, è possibile aumentare le dimensioni di pagina usando l'intestazione di richiesta [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) fino a 1000. Nei casi in cui è necessario visualizzare solo alcuni risultati, ad esempio se l'interfaccia utente o l'API dell'applicazione restituisce solo 10 risultati alla volta, è anche possibile ridurre le dimensioni di pagina a 10 in modo da ridurre la velocità effettiva usata per le letture e le query.
 
-    È anche possibile impostare le dimensioni di pagina usando gli SDK di Azure Cosmos DB disponibili.  Ad esempio:
+   > [!NOTE] 
+   > La proprietà maxItemCount non deve essere usata solo per utilizzo generico di paginazione. È l'uso principale per migliorare le prestazioni delle query riducendo il numero massimo di elementi restituiti in una singola pagina.  
 
-        IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+   È anche possibile impostare le dimensioni di pagina usando gli SDK di Azure Cosmos DB disponibili. Il [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) proprietà in feedoptions veniva consente di impostare il numero massimo di elementi da restituire nell'operazione enmuration. Quando si `maxItemCount` è impostato su -1, il SDK rileva automaticamente il valore ottimale a seconda delle dimensioni di documento. Ad esempio:
+    
+   ```csharp
+    IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+   ```
+    
+   Quando viene eseguita una query, i dati risultanti vengono inviati all'interno di un pacchetto TCP. Se si specifica un valore troppo basso per `maxItemCount`, il numero di corse per le richieste per inviare i dati all'interno del pacchetto TCP è elevato, che influisce sulle prestazioni. Pertanto, se non si conosce il valore da impostare per `maxItemCount` proprietà, è consigliabile impostarla su -1 e consentire al SDK di scegliere il valore predefinito. 
+
 10. **Aumentare il numero di thread/attività**
 
     Vedere [Aumentare il numero di thread/attività](#increase-threads) nella sezione Rete.
@@ -160,7 +168,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     - Per le applicazioni Web ASP.NET distribuite in Azure questa operazione può essere eseguita selezionando **Platform as 64-bit** (Piattaforma 64 bit) in **Impostazioni applicazione** nel Portale di Azure.
 
-## <a name="indexing-policy"></a>Criteri di indicizzazione
+## <a name="indexing-policy"></a>Criterio di indicizzazione
  
 1. **Escludere i percorsi non usati dall'indicizzazione per scritture più veloci**
 

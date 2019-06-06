@@ -1,22 +1,22 @@
 ---
-title: 'Avvio rapido: Inserire dati da Logstash in Esplora dati di Azure'
-description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure da Logstash
+title: Inserire dati da Logstash in Esplora dati di Azure
+description: In questo articolo descrive come inserire (caricare) i dati in Esplora dati di Azure da Logstash
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/14/2019
-ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046411"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494532"
 ---
-# <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Avvio rapido: Inserire dati da Logstash in Esplora dati di Azure
+# <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Inserire dati da Logstash in Esplora dati di Azure
 
-[Logstash](https://www.elastic.co/products/logstash) è una pipeline di elaborazione dati lato server e open source che inserisce i dati da più origini contemporaneamente, li trasforma e quindi li invia all'accantonamento preferito. In questa guida introduttiva, i dati vengono inviati a Esplora dati di Azure, un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Inizialmente si creerà una tabella e il mapping dei dati in un cluster di test, quindi si istruirà Logstash a inviare i dati nella tabella e convalidare i risultati.
+[Logstash](https://www.elastic.co/products/logstash) è una pipeline di elaborazione dati lato server e open source che inserisce i dati da più origini contemporaneamente, li trasforma e quindi li invia all'accantonamento preferito. In questo articolo, si saranno inviare i dati a Esplora dati di Azure, che è un servizio di esplorazione dei dati rapido e a scalabilità elevata per dati di log e dati di telemetria. Inizialmente si creerà una tabella e il mapping dei dati in un cluster di test, quindi si istruirà Logstash a inviare i dati nella tabella e convalidare i risultati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -106,7 +106,7 @@ output {
 }
 ```
 
-| Nome parametro | DESCRIZIONE |
+| Nome parametro | Descrizione |
 | --- | --- |
 | **path** | Il plug-in Logstash scrive gli eventi in file temporanei prima di inviarli a Esplora dati di Azure. Questo parametro include un percorso in cui devono essere scritti i file e un'espressione di data per la rotazione dei file per attivare un'operazione di caricamento nel servizio Esplora dati di Azure.|
 | **ingest_url** | Endpoint Kusto per le comunicazioni relative l'inserimento.|
@@ -146,5 +146,4 @@ Eseguire il comando seguente nel database per pulire la tabella `logs`:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Scrivere query](write-queries.md)
+* [Scrivere query](write-queries.md)

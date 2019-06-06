@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6ec85e840f8e61c46e86b0fa8fb947fb763a4265
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 410990ecdca8a94be9c7c3d0b48a5092fcaa6060
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518852"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515897"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
@@ -81,7 +81,7 @@ Queste informazioni possono essere visualizzate nei [portale di Azure](../../aut
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-Per il nome di configurazione del nodo, verificare che si usa il nome del *configurazione del nodo* e non la configurazione.
+Per il nome di configurazione del nodo, assicurarsi che la configurazione del nodo esista nella configurazione dello stato di Azure.  In caso contrario, la distribuzione dell'estensione restituirà un errore.  Assicurarsi anche che si usa il nome del *configurazione del nodo* e non la configurazione.
 Una configurazione è definita in uno script che viene usato [per compilare la configurazione di nodo (file MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 Il nome sarà sempre la configurazione seguita da un punto `.` e il valore `localhost` o un nome di computer specifico.
 
@@ -178,7 +178,7 @@ Per configurare DSC nel portale:
 
 1. Selezionare una macchina virtuale.
 2. In **Impostazioni** selezionare **Estensioni**.
-3. Nella nuova pagina creata selezionare **+ Aggiungi** e quindi **PowerShell DSC (Desired State Configuration)**.
+3. Nella nuova pagina creata selezionare **+ Aggiungi** e quindi **PowerShell DSC (Desired State Configuration)** .
 4. Nella parte inferiore della pagina delle informazioni sulle estensioni, fare clic su **Crea**.
 
 Il portale consente di raccogliere l'input seguente:

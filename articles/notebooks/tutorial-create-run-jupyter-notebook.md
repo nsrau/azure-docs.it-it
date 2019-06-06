@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c593b472326fc373c0b715865b839cca3b6bcf45
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60238153"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480239"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Esercitazione: creare ed eseguire un notebook di Jupyter con Python
 
@@ -34,7 +34,7 @@ Il notebook completato è disponibile in [GitHub - Esempi di Azure Notebooks](ht
 
     ![Collegamento My Projects (Progetti personali) nella parte superiore della finestra del browser](media/quickstarts/my-projects-link.png)
 
-1. Nella pagina **My Projects** (Progetti personali) selezionare **+ New Project** (+ Nuovo progetto) (tasto di scelta rapida: n); se la finestra del browser è di dimensioni ridotte, il pulsante potrebbe essere visualizzato solo come **+**:
+1. Nella pagina **My Projects** (Progetti personali) selezionare **+ New Project** (+ Nuovo progetto) (tasto di scelta rapida: n); se la finestra del browser è di dimensioni ridotte, il pulsante potrebbe essere visualizzato solo come **+** :
 
     ![Comando New Project (Nuovo progetto) nella pagina My Projects (Progetti personali)](media/quickstarts/new-project-command.png)
 
@@ -150,17 +150,17 @@ Jupyter fornisce una presentazione integrata dei principali elementi dell'interf
 
 I gruppi di comandi di menu sono i seguenti:
 
-| Menu | DESCRIZIONE |
+| Menu | Descrizione |
 | --- | --- |
 | File | Comandi per gestire il file del notebook, inclusi i comandi per creare e copiare i notebook, visualizzare un'anteprima di stampa e scaricare il notebook in diversi formati. |
 | Modificare | Normali comandi per tagliare, copiare e incollare celle, trovare e sostituire valori, gestire gli allegati delle celle e inserire immagini.  |
-| Visualizza | Comandi per controllare la visibilità delle diverse parti dell'interfaccia utente di Jupyter. |
+| visualizzazione | Comandi per controllare la visibilità delle diverse parti dell'interfaccia utente di Jupyter. |
 | Inserimento | Comandi per inserire una nuova cella sopra o sotto la cella corrente. Questi comandi vengono usati di frequente durante la creazione di un notebook. |
 | Cell (Cella) | I vari comandi **Run** (Esegui) consentono di eseguire una o più celle in diverse combinazioni. I comandi **Cell Type** (Tipo di cella) consentono di modificare il tipo di una cella tra **Code** (Codice), **Markdown** e **Raw NBConvert** (testo normale). I comandi **Current Outputs** (Output correnti) e **All Outputs** (Tutti gli output) consentono di controllare la visualizzazione dell'output del codice eseguito e includono un comando per cancellare tutto l'output. |
 | Kernel | Comandi per gestire la modalità di esecuzione del codice nel kernel, insieme a **Change kernel** (Cambia kernel) per modificare il linguaggio o la versione di Python usati per eseguire il notebook. |
 | Dati | Comandi per caricare e scaricare i file dal progetto o dalla sessione. Vedere [Lavorare con i file di dati di progetto](work-with-project-data-files.md) |
 | Widgets (Widget) | Comandi per gestire i [widget di Jupyter](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html), che offrono funzionalità aggiuntive per la visualizzazione, il mapping e il tracciato.|
-| Guida | Comandi che consentono di accedere alla Guida e alla documentazione per l'interfaccia di Jupyter. |
+| Help | Comandi che consentono di accedere alla Guida e alla documentazione per l'interfaccia di Jupyter. |
 
 La maggior parte dei comandi sulla barra degli strumenti dispone di comandi di menu equivalenti. L'unica eccezione è rappresentata da **Enter/Edit RISE Slideshow** (Immetti/modifica presentazione RISE), come descritto in [Condividere e presentare i notebook](present-jupyter-notebooks-slideshow.md).
 
@@ -307,7 +307,7 @@ Se si ottengono risultati imprevisti (come è probabile), verificare che ogni ce
 
     With two independent variables you can imagine a three-dimensional plot with a line fitted to the data. At three or more independent variables, however, it's no longer easy to visualize the fit, but you get the idea. In the end, it's all just mathematics, which a computer can handle easily without having to form a mental picture!
 
-    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept`).
+    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept_`).
     ```
 
 1. Cella di codice. Quando viene eseguita, questa cella visualizza l'output `LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,normalize=False)`.
@@ -326,7 +326,7 @@ Se si ottengono risultati imprevisti (come è probabile), verificare che ogni ce
 
     With the regressor in hand, we can predict the test set results using its `predict` method. That method takes a vector of independent variables for which you want predictions.
 
-    Because the regressor is fit to the data by virtue of `coef_` and `intercept_` and `coef_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
+    Because the regressor is fit to the data by virtue of `coef_` and `intercept_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
 
     In the code, the `y_test` matrix (from when we split the set) contains the real observations. `y_pred` assigned here contains the predictions for the same `X_test` inputs. It's not expected that the test or training points exactly fit the regression; the regression is trying to find the model that we can use to make predictions with new observations of the independent variables.
     ```

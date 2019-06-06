@@ -2,20 +2,20 @@
 title: Esempi e definizioni di log di controllo in Azure Active Directory B2C | Microsoft Docs
 description: Guida ed esempi per l'accesso ai log di controllo di Azure AD B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fdc3578fe78e60086a148e4204019a8293030b83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688759"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509646"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -27,13 +27,13 @@ Azure Active Directory B2C (Azure AD B2C) genera log di controllo contenenti inf
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Panoramica delle attività disponibili nella categoria B2C dei log di controllo
 La categoria **B2C** nei log di controllo contiene i tipi di attività seguenti:
 
-|Tipo di attività |DESCRIZIONE  |
+|Tipo di attività |Descrizione  |
 |---------|---------|
 |Authorization |Attività relative all'autorizzazione di un utente ad accedere alle risorse B2C (ad esempio, un amministratore che accede a un elenco di criteri B2C)         |
 |Directory |Attività relative agli attributi della directory recuperati quando un amministratore esegue l'accesso usando il portale di Azure |
 |Applicazione | Operazioni CRUD sulle applicazioni B2C |
 |Chiave |Operazioni CRUD sulle chiavi archiviate nel contenitore di chiavi B2C |
-|Risorsa |Operazioni CRUD sulle risorse B2C (ad esempio, criteri e provider di identità)
+|Resource |Operazioni CRUD sulle risorse B2C (ad esempio, criteri e provider di identità)
 |Authentication |Convalida delle credenziali utente e rilascio dei token|
 
 > [!NOTE]

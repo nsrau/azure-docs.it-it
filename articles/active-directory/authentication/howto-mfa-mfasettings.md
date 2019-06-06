@@ -5,24 +5,24 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 06/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6a74548d0dc965127c5568708155341f60dbc65
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359195"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496754"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
-Questo articolo offre informazioni utili per gestire le impostazioni di Azure Multi-Factor Authentication nel portale di Azure. L'articolo illustra diversi argomenti che permettono di ottenere il massimo da Azure Multi-Factor Authentication. Non tutte le funzionalità sono disponibili in ogni [versione di Azure Multi-Factor Authentication](concept-mfa-whichversion.md#what-features-do-i-need).
+Questo articolo offre informazioni utili per gestire le impostazioni di Azure Multi-Factor Authentication nel portale di Azure. L'articolo illustra diversi argomenti che permettono di ottenere il massimo da Azure Multi-Factor Authentication. Non tutte le funzionalità sono disponibili in ogni versione di Azure multi-Factor Authentication.
 
-Per accedere alle impostazioni relative a Multi-Factor Authentication dal portale di Azure, passare a **Azure Active Directory** > **MFA**.
+È possibile accedere alle impostazioni relative ad Azure multi-Factor Authentication dal portale di Azure, passare a **Azure Active Directory** > **MFA**.
 
 ![Portale di Azure - Impostazioni di Azure AD Multi-Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -30,10 +30,10 @@ Per accedere alle impostazioni relative a Multi-Factor Authentication dal portal
 
 Alcune di queste impostazioni si applicano al server MFA, ad Azure MFA o a entrambi.
 
-| Funzionalità | DESCRIZIONE |
+| Funzionalità | Descrizione |
 | ------- | ----------- |
 | Blocco dell'account | Blocca temporaneamente gli account nel servizio di autenticazione a più fattori se si verificano troppi tentativi di autorizzazione negata di seguito. Questa funzionalità si applica solo agli utenti che effettuano l'autenticazione tramite PIN (server MFA). |
-| [Blocca/Sblocca utenti](#block-and-unblock-users) | Funzionalità usata per impedire a utenti specifici nel server MFA (locale) di ricevere richieste di Multi-Factor Authentication. Eventuali tentativi di autenticazione per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati. |
+| [Blocca/Sblocca utenti](#block-and-unblock-users) | Consente di impedire agli utenti specifici la possibilità di ricevere le richieste di multi-Factor Authentication. Eventuali tentativi di autenticazione per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati. |
 | [Avviso di illecito](#fraud-alert) | Configurare le impostazioni relative alla capacità degli utenti per segnalare le richieste di verifica illecito |
 | Notifiche | Abilita le notifiche degli eventi dal server MFA. |
 | [Token OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Funzionalità usata in ambienti Azure MFA basati sul cloud per gestire i token OATH per gli utenti. |
@@ -44,7 +44,7 @@ Alcune di queste impostazioni si applicano al server MFA, ad Azure MFA o a entra
 
 Le impostazioni in questa sezione sono valide solo per il server MFA.
 
-| Funzionalità | DESCRIZIONE |
+| Funzionalità | Descrizione |
 | ------- | ----------- |
 | Impostazioni del server | Permette di scaricare il server MFA e di generare le credenziali di attivazione per inizializzare l'ambiente |
 | [Bypass monouso](#one-time-bypass) | Permette a un utente di eseguire l'autenticazione senza completare la verifica in due passaggi per un periodo di tempo limitato. |
@@ -89,7 +89,7 @@ Configurare la funzionalità di _avviso di illecito_ in modo che gli utenti poss
 ### <a name="configuration-options"></a>Opzioni di configurazione
 
 * **Blocca utente se viene segnalato un illecito**: se un utente segnala un illecito, il suo account viene bloccato per 90 giorni o finché l'amministratore non lo sblocca. Un amministratore può verificare gli accessi usando il report sugli accessi ed eseguire le azioni necessarie per prevenire illeciti nel futuro. Un amministratore può quindi [sbloccare](#unblock-a-user) l'account dell'utente.
-* **Codice per la segnalazione di illeciti durante il messaggio introduttivo iniziale**: quando gli utenti ricevono una chiamata telefonica per eseguire la verifica in due passaggi, in genere premono **#** per confermare l'accesso. Per segnalare un illecito, l'utente immette un codice prima di premere **#**. Il codice predefinito è **0**, ma è possibile personalizzarlo.
+* **Codice per la segnalazione di illeciti durante il messaggio introduttivo iniziale**: quando gli utenti ricevono una chiamata telefonica per eseguire la verifica in due passaggi, in genere premono **#** per confermare l'accesso. Per segnalare un illecito, l'utente immette un codice prima di premere **#** . Il codice predefinito è **0**, ma è possibile personalizzarlo.
 
    >[!NOTE]
    >I messaggi vocali predefiniti di Microsoft invitano gli utenti a premere **0#** per inviare un avviso di illecito. Se si vuole usare un codice diverso da **0**, registrare e caricare messaggi vocali personalizzati con istruzioni adeguate per l'utente.
@@ -333,7 +333,7 @@ Indipendentemente dal fatto che la funzionalità Indirizzi IP attendibili sia di
 
 Quando gli utenti registrano i propri account per Azure Multi-Factor Authentication, scelgono il metodo di verifica preferito tra le opzioni abilitate. Le linee guida per il processo di registrazione dell'utente sono disponibili in [Configurare l'account per la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-first-time.md).
 
-| Metodo | DESCRIZIONE |
+| Metodo | Descrizione |
 |:--- |:--- |
 | Chiamata al telefono |Invia una chiamata vocale automatizzata. Per l’autenticazione, l'utente risponde alla chiamata e preme # sul tastierino telefonico. Il numero di telefono non viene sincronizzato con Active Directory locale. |
 | SMS al telefono |Invia un messaggio di testo contenente un codice di verifica. All'utente viene richiesto di immettere il codice di verifica nell'interfaccia di accesso. Questo processo è denominato SMS unidirezionale. L'SMS bidirezionale significa che l'utente deve disporre il testo in un codice specifico. L'SMS bidirezionale è deprecato e non è supportato a partire dal 14 novembre 2018. In quella data gli utenti configurati per l'SMS bidirezionale passeranno automaticamente alla verifica _chiamata al telefono_.|

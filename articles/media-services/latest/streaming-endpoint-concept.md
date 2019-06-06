@@ -11,14 +11,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149239"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515734"
 ---
-# <a name="streaming-endpoints-origin"></a>Endpoint di streaming (origine)
+# <a name="streaming-endpoints"></a>Endpoint di streaming 
 
 In servizi multimediali di Microsoft Azure, un [Endpoint di Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) rappresenta un dinamico (just-in-time) creazione di pacchetti e l'origine del servizio che può distribuire contenuti live e on demand direttamente a un'applicazione di lettore client, usando uno del Common supporti protocolli di streaming (HLS o DASH). Inoltre, il **Endpoint di Streaming** fornisce la crittografia dinamica (just-in-time) per soluzioni DRM leader del settore.
 
@@ -41,7 +41,7 @@ Sono disponibili due tipi di **endpoint di streaming**: **Standard** (anteprima)
 
 La tabella seguente descrive i tipi:  
 
-|Type|Unità di scala|DESCRIZIONE|
+|Type|Unità di scala|Descrizione|
 |--------|--------|--------|  
 |**Standard**|0|L'impostazione predefinita l'Endpoint di Streaming è un' **Standard** digitare, può essere modificato nel tipo Premium regolando `scaleUnits`.|
 |**Premium**|>0|**Premium** gli endpoint di Streaming sono adatti per carichi di lavoro avanzati, che fornisce capacità di larghezza di banda dedicata e scalabile. Si sposta in una **Premium** tipo regolando `scaleUnits` (unità di streaming). Il valore `scaleUnits` rappresenta la capacità di uscita dedicata acquistabile in incrementi di 200 Mbps. Quando si usa il tipo **Premium**, ogni unità abilitata fornisce all'applicazione una capacità di larghezza di banda aggiuntiva. |
@@ -55,15 +55,15 @@ Per informazioni di contratto di servizio, vedere [prezzi e contratto di servizi
 
 Funzionalità|Standard|Premium
 ---|---|---
-Liberare i primi 15 giorni <sup>1</sup>| Sì |No 
+Liberare i primi 15 giorni <sup>1</sup>| Yes |No
 Velocità effettiva |Fino a 600 Mbps e possono fornire un'efficace velocità effettiva notevolmente superiore quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire un'efficace velocità effettiva notevolmente superiore quando si usa una rete CDN.
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
-Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
-Crittografia dinamica|Sì|Sì
-creazione dinamica dei pacchetti|Sì|Sì
+Fatturazione con ripartizione proporzionale| Ogni giorno|Ogni giorno
+Crittografia dinamica|Yes|Yes
+creazione dinamica dei pacchetti|Yes|Yes
 Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|Unità di streaming
-Host applicazione di filtri/G20/personalizzato IP <sup>2</sup>|Sì|Sì
-Download progressivo|Sì|Sì
+Host applicazione di filtri/G20/personalizzato IP <sup>2</sup>|Yes|Yes
+Download progressivo|Yes|Yes
 Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale.
 
 <sup>1</sup> la versione di valutazione gratuita si applica solo agli account di servizi multimediali appena creato e il valore predefinito dell'Endpoint di Streaming.<br/>
@@ -156,7 +156,7 @@ L'integrazione della rete CDN è abilitata in tutti i data center di Azure eccet
 
 È possibile determinare se sono state apportate modifiche DNS in un Endpoint di Streaming (il traffico viene indirizzato alla rete CDN di Azure) usando https://www.digwebinterface.com. Se il risultato include i nomi di dominio azureedge.net nei risultati, il traffico a questo punto che puntano alla rete CDN.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire commenti e suggerimenti, ottenere gli aggiornamenti
+## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 

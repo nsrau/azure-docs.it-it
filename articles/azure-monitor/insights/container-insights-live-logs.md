@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2019
+ms.date: 06/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 376a7f3f83cc7fcf7490675d9c0aef1513862e8a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8d4cc5e46066ad2f18d596d0484f62f478b4cc23
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521725"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514316"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Come visualizzare i log ed eventi in tempo reale (anteprima)
 Monitoraggio di Azure per contenitori include una funzionalità, che è attualmente in anteprima, che offre una visualizzazione in tempo reale i log dei contenitori di Azure Kubernetes Service (AKS) (stdout o stderr) e gli eventi senza dover eseguire i comandi di kubectl. Quando si seleziona l'opzione desiderata, un nuovo riquadro viene visualizzato sotto la tabella di dati delle prestazioni nel **i nodi**, **controller**, e **contenitori** visualizzazione. Mostra la registrazione in tempo reale e gli eventi generati dal modulo del contenitore per ulteriore assistenza nella risoluzione dei problemi in tempo reale. 
@@ -27,7 +27,7 @@ Monitoraggio di Azure per contenitori include una funzionalità, che è attualme
 >**Collaboratore** accesso alla risorsa del cluster è necessario per usare questa funzionalità.
 >
 
-I log in tempo reale supportano tre metodi diversi per il controllo dell'accesso ai log:
+I log in tempo reale supportano tre metodi diversi per controllare l'accesso ai log:
 
 1. Servizio Azure Kubernetes senza autorizzazione del controllo degli accessi in base al ruolo di Kubernetes abilitata 
 2. Servizio Azure Kubernetes con autorizzazione del controllo degli accessi in base al ruolo di Kubernetes abilitata
@@ -66,10 +66,13 @@ Se è stata abilitata l'autorizzazione del controllo degli accessi in base al ru
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. Se si sta configurando questa per la prima volta, si crea l'associazione della regola cluster eseguendo il comando seguente: `kubectl create -f LogReaderRBAC.yaml`. Se è abilitato in precedenza il supporto per visualizzare in anteprima in tempo reale dei log prima è stato introdotto in tempo reale i registri eventi, per aggiornare la configurazione, eseguire il comando seguente: `kubectl apply -f LiveLogRBAC.yml`. 
+2. Se si sta configurando, per la prima volta, si crea l'associazione della regola cluster eseguendo il comando seguente: `kubectl create -f LogReaderRBAC.yaml`. Se è abilitato in precedenza il supporto per visualizzare in anteprima in tempo reale dei log prima è stato introdotto in tempo reale i registri eventi, per aggiornare la configurazione, eseguire il comando seguente: `kubectl apply -f LogReaderRBAC.yml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Configurare il servizio Azure Kubernetes con Azure Active Directory
-Il servizio Azure Kubernetes può essere configurato in modo da usare Azure Active Directory (AD) per l'autenticazione utente. Se è la prima volta che si esegue questa configurazione, vedere [Integrare Azure Active Directory con il servizio Azure Kubernetes](../../aks/azure-ad-integration.md). Durante la procedura per creare l'[applicazione client](../../aks/azure-ad-integration.md#create-client-application) e specificare l'**URI di reindirizzamento**, è necessario aggiungere un altro URI all'elenco `https://ininprodeusuxbase.microsoft.com/*`.  
+Il servizio Azure Kubernetes può essere configurato in modo da usare Azure Active Directory (AD) per l'autenticazione utente. Se si sta configurando, per la prima volta, vedere [integrare Azure Active Directory con Azure Kubernetes Service](../../aks/azure-ad-integration.md). Durante la procedura per creare il [applicazione client](../../aks/azure-ad-integration.md#create-client-application), è necessario specificare due **URI di reindirizzamento** voci. I due URI sono:
+
+- https://ininprodeusuxbase.microsoft.com/*
+- https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html  
 
 >[!NOTE]
 >La configurazione dell'autenticazione con Azure Active Directory per il Single Sign-On può essere eseguita solo durante la distribuzione iniziale di un nuovo cluster del servizio Azure Kubernetes. Non è possibile configurare l'accesso Single Sign-On per un cluster del servizio Azure Kubernetes già distribuito. È necessario configurare l'autenticazione dai **registrazione dell'App (legacy)** opzione in Azure AD per supportare l'uso di un carattere jolly dell'URI e mentre viene aggiunta all'elenco, registrarlo come una **native** app.
@@ -77,13 +80,13 @@ Il servizio Azure Kubernetes può essere configurato in modo da usare Azure Acti
 
 ## <a name="view-live-logs-and-events"></a>Visualizzare i log in tempo reale ed eventi
 
-È possibile visualizzare gli eventi del log in tempo reale mentre vengono generati dal motore di contenitore del **i nodi**, **controller**, e **contenitori** visualizzazione. Nel riquadro Proprietà scelto **visualizzare i dati in tempo reale (anteprima)** opzione e un riquadro viene visualizzato sotto la tabella di dati delle prestazioni in cui è possibile visualizzare i log ed eventi in un flusso continuo. 
+È possibile visualizzare gli eventi del log in tempo reale mentre vengono generati dal motore di contenitore del **i nodi**, **controller**, e **contenitori** visualizzazione. Nel riquadro proprietà, si seleziona **visualizzare i dati in tempo reale (anteprima)** opzione e un riquadro viene visualizzato sotto la tabella di dati delle prestazioni in cui è possibile visualizzare i log ed eventi in un flusso continuo. 
 
 ![Opzione di nodo proprietà riquadro Visualizza i log in tempo reale](./media/container-insights-live-logs/node-properties-live-logs-01.png)  
 
 I messaggi di log e degli eventi sono limitati in base a quale tipo di risorsa è selezionato nella visualizzazione.
 
-| Visualizzazione | Tipo di risorsa | Log o un evento | Dati presentati |
+| visualizzazione | Tipo di risorsa | Log o un evento | Dati presentati |
 |------|---------------|--------------|----------------|
 | Nodi | Nodo | Event | Quando si seleziona un nodo gli eventi non vengono filtrati e mostrano gli eventi di Kubernetes a livello di cluster. Il titolo del riquadro mostra il nome del cluster. |
 | Nodi | Pod | Event | Quando viene selezionato un pod vengono filtrati gli eventi per lo spazio dei nomi. Il titolo del riquadro mostra lo spazio dei nomi del pod. | 

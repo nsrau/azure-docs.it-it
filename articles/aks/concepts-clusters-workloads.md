@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65850524"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514535"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -70,7 +70,7 @@ Per eseguire le applicazioni e i servizi di supporto, è necessario un *nodo* Ku
 
 La dimensione della macchina virtuale di Azure per i nodi definisce il numero di CPU, la quantità di memoria e la dimensione e tipo della risorsa di archiviazione disponibile, ad esempio unità SSD a prestazioni elevate o HDD normale. Se si prevede di aver bisogno di applicazioni che richiedono grandi quantità di CPU e memoria o archiviazione a prestazioni elevate, pianificare di conseguenza la dimensione dei nodi. È anche possibile aumentare il numero di nodi del cluster servizio Azure Kubernetes in base alle esigenze.
 
-Nel servizio contenitore di AZURE, l'immagine di macchina virtuale per i nodi del cluster è attualmente basato su Ubuntu Linux o Windows Server 2019. Quando si crea un cluster servizio Azure Kubernetes o si aumenta il numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le configura. Non è presente alcuna configurazione manuale per eseguire.
+Nel servizio contenitore di AZURE, l'immagine di macchina virtuale per i nodi del cluster è attualmente basato su Ubuntu Linux o Windows Server 2019. Quando si crea un cluster servizio Azure Kubernetes o si aumenta il numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le configura. Non è presente alcuna configurazione manuale per eseguire. Nodi agente vengono fatturati come macchine virtuali standard, in modo che gli eventuali sconti avere sulle dimensioni della macchina virtuale in uso (compresi [Azure prenotazioni][reservation-discounts]) vengono applicati automaticamente.
 
 Se è necessario usare un sistema operativo host diverso, un altro runtime del contenitore o includere pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [servizio Azure Kubernetes-engine][aks-engine]. `aks-engine` upstream rilascia funzionalità e offre opzioni di configurazione prima che siano supportate ufficialmente nei cluster del servizio Azure Kubernetes. Ad esempio, se si vuole usare un runtime di contenitore diverso da Moby, è possibile usare `aks-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
 
@@ -270,3 +270,4 @@ Questo articolo tratta alcuni dei componenti principali di Kubernetes descrivend
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md

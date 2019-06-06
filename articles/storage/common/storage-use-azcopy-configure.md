@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a160591ef0a47eed097ce8db373878f32965de9b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 18dc3e224df18c900653e4549badcdd93f0df6ec
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247125"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688015"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi di AzCopy
 
@@ -22,9 +22,9 @@ AzCopy è un'utilità della riga di comando che è possibile usare per copiare B
 > [!NOTE]
 > Se si sta cercando il contenuto che consentono di iniziare con AzCopy, vedere uno degli articoli seguenti:
 > - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
-> - [Trasferire dati con AzCopy e l'archiviazione blob](storage-use-azcopy-blobs.md)
-> - [Trasferire dati con AzCopy e archiviazione file](storage-use-azcopy-files.md)
-> - [Trasferire dati con AzCopy e Amazon S3 bucket](storage-use-azcopy-s3.md)
+> - [Trasferire dati con AzCopy e l'archivio BLOB](storage-use-azcopy-blobs.md)
+> - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
+> - [Trasferire dati con AzCopy e bucket Amazon S3](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>Configurare le impostazioni proxy
 
@@ -52,7 +52,7 @@ Usare il `azcopy env` per controllare il valore corrente di questa variabile.  S
 
 ## <a name="change-the-location-of-the-log-files"></a>Modificare il percorso dei file di log
 
-Per impostazione predefinita, i file di log si trovano nel `%USERPROFILE\\.azcopy` cartella su Windows o nel `$HOME\\.azcopy` cartella nel Mac e Linux. Se è necessario usando questi comandi, è possibile modificare questo percorso.
+Per impostazione predefinita, i file di log si trovano nel `%USERPROFILE\\.azcopy` directory su Windows o nel `$HOME\\.azcopy` directory su Mac e Linux. Se è necessario usando questi comandi, è possibile modificare questo percorso.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -74,7 +74,7 @@ AzCopy crea file di log e piano per ogni processo. È possibile usare i log per 
 
 Il log conterrà lo stato di errore (`UPLOADFAILED`, `COPYFAILED`, e `DOWNLOADFAILED`), il percorso completo e il motivo dell'errore.
 
-Per impostazione predefinita, i file di log e piano si trovano nel `%USERPROFILE\\.azcopy` cartella su Windows o `$HOME\\.azcopy` cartella nel Mac e Linux.
+Per impostazione predefinita, i file di log e piano si trovano nel `%USERPROFILE\\.azcopy` directory su Windows o `$HOME\\.azcopy` directory su Mac e Linux.
 
 > [!IMPORTANT]
 > Quando si invia una richiesta di supporto tecnico Microsoft (o alla risoluzione del problema che interessa di terze parti), condividere la versione con alcune modifiche del comando da eseguire. In questo modo che la firma di accesso condiviso non viene accidentalmente condivise con altri. È possibile trovare la versione con modifiche all'inizio del file di log.

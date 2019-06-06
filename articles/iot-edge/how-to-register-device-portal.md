@@ -4,27 +4,27 @@ description: Usare il portale di Azure per registrare un nuovo dispositivo IoT E
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/03/2019
+ms.date: 06/03/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6414f694296ce1f5a8b65ccab30cceaf2172dee7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 16660fbed465cc70f16cde430024f33b8aa4350e
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126322"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495350"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>Registrare un nuovo dispositivo Azure IoT Edge dal portale di Azure
 
-Per poter usare i dispositivi IoT con Azure IoT Edge, è necessario registrarli nell'hub IoT. Dopo la registrazione di un dispositivo, si riceve una stringa di connessione che può essere usata per configurare il dispositivo per i carichi di lavoro Edge.
+Per poter usare i dispositivi IoT con Azure IoT Edge, è necessario registrarli nell'hub IoT. Dopo avere registrato un dispositivo, si riceve una stringa di connessione che può essere utilizzata per configurare il dispositivo per i carichi di lavoro di IoT Edge.
 
 Questo articolo illustra come registrare un nuovo dispositivo IoT Edge usando il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) nella sottoscrizione di Azure.
+Gratuito per il livello standard [hub IoT](../iot-hub/iot-hub-create-through-portal.md) nella sottoscrizione di Azure.
 
 ## <a name="create-a-device"></a>Creare un dispositivo
 
@@ -33,7 +33,7 @@ Nel portale di Azure i dispositivi IoT Edge vengono creati e gestiti separatamen
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub IoT.
 2. Selezionare **IoT Edge** dal menu.
 3. Selezionare **Aggiungi un dispositivo IoT Edge**.
-4. Specificare un ID descrittivo del dispositivo. Usare le impostazioni predefinite per la generazione automatica delle chiavi di autenticazione e la connessione del nuovo dispositivo all'hub.
+4. Specificare un ID descrittivo del dispositivo. Usare le impostazioni predefinite per generare automaticamente le chiavi di autenticazione e connettersi al nuovo dispositivo all'hub.
 5. Selezionare **Salva**.
 
 ## <a name="view-all-devices"></a>Visualizzare tutti i dispositivi
@@ -44,9 +44,9 @@ Tutti i dispositivi abilitati per Edge che si connettono all'hub IoT sono elenca
 
 Quando si è pronti per configurare il dispositivo, è necessaria la stringa di connessione che collega il dispositivo fisico alla relativa identità nell'hub IoT.
 
-1. Dalla pagina **IoT Edge** nel portale fare clic sull'ID del dispositivo nell'elenco dei dispositivi Edge.
-2. Copiare il valore di **Stringa di connessione (chiave primaria)** o **Stringa di connessione (chiave secondaria)**.
+1. Dal **IoT Edge** pagina nel portale fare clic sull'ID dispositivo dall'elenco dei dispositivi IoT Edge.
+2. Copiare il valore di **Stringa di connessione (chiave primaria)** o **Stringa di connessione (chiave secondaria)** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [distribuire moduli in un dispositivo con il portale di Azure](how-to-deploy-modules-portal.md)
+Informazioni su come [distribuire moduli in un dispositivo con il portale di Azure](how-to-deploy-modules-portal.md).

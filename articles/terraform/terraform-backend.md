@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
-ms.openlocfilehash: 89108f02957990ad1c7eb736f39de89537f06db5
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: a88ad25e335026d5172c7997f62629d5ada46f6e
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297928"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693303"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Archiviare lo stato Terraform in Archiviazione di Azure
 
@@ -102,7 +102,7 @@ A questo punto, inizializzare la configurazione con il comando *init di Terrafor
 
 Quando si usa un BLOB del servizio di archiviazione di Azure per archiviare lo stato, il BLOB viene automaticamente bloccato prima di qualsiasi operazione che scrive lo stato. Questa configurazione impedisce l'esecuzione simultanea di più operazioni sullo stato, che possono causare danni. Per altre informazioni, vedere la sezione relativa al [blocco dello stato][terraform-state-lock] nella documentazione di Terraform.
 
-Il blocco può essere visualizzato quando si esamina il BLOB usando il portale di Azure o altri strumenti di gestione di Azure.
+Il blocco può essere visualizzato quando si esaminano i blob tramite il portale di Azure o altri strumenti di gestione di Azure.
 
 ![BLOB di Azure con blocco](media/terraform-backend/lock.png)
 

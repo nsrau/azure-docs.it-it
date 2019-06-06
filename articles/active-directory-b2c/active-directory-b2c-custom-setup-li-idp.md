@@ -2,20 +2,20 @@
 title: Configurare l'accesso con un account LinkedIn tramite criteri personalizzati - Azure Active Directory B2C | Microsoft Docs
 description: Configurare l'accesso con un account LinkedIn in Azure Active Directory B2C usando criteri personalizzati.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3d927c2bf9344f2dc93cfe992e87457a0747f605
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b336428592a4897319725782c994c3fae26bfae0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190749"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510406"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account LinkedIn usando criteri personalizzati in Azure Active Directory B2C
 

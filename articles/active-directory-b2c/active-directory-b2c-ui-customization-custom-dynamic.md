@@ -2,20 +2,20 @@
 title: Personalizzare l'interfaccia utente di Azure Active Directory B2C in modo dinamico tramite criteri personalizzati | Microsoft Docs
 description: Supportare più esperienze di personalizzazione con contenuto HTML5/CSS che cambia in modo dinamico in fase di esecuzione.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c655a1ed7cefcc7af8a22ed1d869b1a2e8b81715
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1abdfa8bc47f42f7373760370588c0bc41fc1dc
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708886"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507772"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati
 
@@ -39,7 +39,7 @@ Nei criteri personalizzati una definizione del contenuto indica l'URI della pagi
 
 La sezione `ContentDefinitions` contiene una serie di elementi XML `ContentDefinition`. L'attributo ID dell'elemento `ContentDefinition` specifica il tipo di pagina correlato alla definizione del contenuto. Ciò significa che l'elemento definisce il contesto che verrà applicato da un modello HTML5/CSS personalizzato. La tabella seguente descrive il set di ID di definizioni del contenuto, riconosciuti dal motore IEF (Identity Experience Framework, Framework dell'esperienza di gestione delle identità) e i tipi di pagina correlati.
 
-| ID definizione del contenuto | Modello HTML5 predefinito| DESCRIZIONE | 
+| ID definizione del contenuto | Modello HTML5 predefinito| Descrizione | 
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Pagina di selezione del provider di identità**. Questa pagina elenca i provider di identità tra cui gli utenti possono scegliere durante la procedura di accesso. Si tratta in genere di provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali. |
@@ -68,7 +68,7 @@ Questa procedura dettagliata è costituita dai passaggi seguenti:
 
 1. In Visual Studio creare un progetto selezionando **File** > **Nuovo** > **Progetto**.
 
-2. Nella finestra **Nuovo progetto** selezionare **Visual C#** > **Web** > **Applicazione Web ASP.NET Core (.NET Core)**.
+2. Nella finestra **Nuovo progetto** selezionare **Visual C#**  > **Web** > **Applicazione Web ASP.NET Core (.NET Core)** .
 
 3. Assegnare un nome all'applicazione, ad esempio *Contoso.AADB2C.UI*, e quindi selezionare **OK**.
 

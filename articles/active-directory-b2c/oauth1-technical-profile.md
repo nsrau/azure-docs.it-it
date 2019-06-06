@@ -2,20 +2,20 @@
 title: Definire un profilo tecnico OAuth1 nei criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
 description: Definire un profilo tecnico OAuth1 nei criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7b3d579e9d4ceb92ee961778ba6083292461c144
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 993fc8b2e318b59775f61de391ac75fa765485f0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699835"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513124"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth1 in un criterio personalizzato di Azure Active Directory B2C
 
@@ -67,23 +67,23 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| client_id | Sì | L'identificatore dell'attestazione del provider di identità. |
-| ProviderName | No  | Il nome del provider di identità. |
-| request_token_endpoint | Sì | L'URL dell'endpoint del token richiesta come per RFC 5849. |
-| authorization_endpoint | Sì | L'URL dell'endpoint di autorizzazione come per RFC 5849. |
-| access_token_endpoint | Sì | L'URL dell'endpoint token come per RFC 5849. |
-| ClaimsEndpoint | No  | L'URL dell'endpoint di informazioni per l'utente. | 
-| ClaimsResponseFormat | No  | Il formato di risposta delle attestazioni.|
+| client_id | Yes | L'identificatore dell'attestazione del provider di identità. |
+| ProviderName | No | Il nome del provider di identità. |
+| request_token_endpoint | Yes | L'URL dell'endpoint del token richiesta come per RFC 5849. |
+| authorization_endpoint | Yes | L'URL dell'endpoint di autorizzazione come per RFC 5849. |
+| access_token_endpoint | Yes | L'URL dell'endpoint token come per RFC 5849. |
+| ClaimsEndpoint | No | L'URL dell'endpoint di informazioni per l'utente. | 
+| ClaimsResponseFormat | No | Il formato di risposta delle attestazioni.|
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 
 L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| client_secret | Sì | Il segreto client dell'applicazione del provider di identità.   | 
+| client_secret | Yes | Il segreto client dell'applicazione del provider di identità.   | 
 
 ## <a name="redirect-uri"></a>URI di reindirizzamento
 

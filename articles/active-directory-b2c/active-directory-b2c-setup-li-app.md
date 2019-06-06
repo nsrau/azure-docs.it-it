@@ -2,20 +2,20 @@
 title: Configurare l'iscrizione e l'accesso con un account LinkedIn - Azure Active Directory B2C | Microsoft Docs
 description: Consentire l'iscrizione e l'accesso ai clienti con account LinkedIn alle applicazioni da Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9cf75bd8a0fc0c078801887e22468a143154e462
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5ffe75a58a8cfb2409af3a65ff822023d7ccf5d4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703818"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508479"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account LinkedIn tramite Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Per usare un account LinkedIn come [provider di identità](active-directory-b2c-
 
 1. Accedere al [sito Web di sviluppatori LinkedIn](https://www.developer.linkedin.com/) con le credenziali dell'account LinkedIn.
 2. Selezionare **My Apps** (App personali) e quindi **Crea applicazione**.
-3. Immettere **Nome società**, **Nome applicazione**, **Descrizione applicazione**, **Logo applicazione**, **Uso applicazione** , **URL del sito Web**, **Indirizzo di posta elettronica aziendale** e **Telefono (uff.)**.
+3. Immettere **Nome società**, **Nome applicazione**, **Descrizione applicazione**, **Logo applicazione**, **Uso applicazione** , **URL del sito Web**, **Indirizzo di posta elettronica aziendale** e **Telefono (uff.)** .
 4. Accettare il documento **LinkedIn API Terms of Use** (Condizioni d'uso dell'API LinkedIn) e fare clic su **Submit** (Invia).
 5. Copiare i valori **ID client** e **Segreto client**. Si trovano nella sezione **Authentication Keys** (Chiavi di autenticazione) Sono necessari entrambi per configurare LinkedIn come provider di identità nel tenant. **Client Segreto** è un'importante credenziale di sicurezza.
 6. Immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` negli **URL di reindirizzamento autorizzati**. Sostituire `your-tenant-name` con il nome del tenant. È necessario usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C. Fare clic su **Aggiungi** e quindi su **Aggiorna**.

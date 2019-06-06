@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 7c770aced36e4c90f654de8d31c12d55ad80c8d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e932048b41e9af149f14a814a1c92d86bd26f29
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60780122"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479875"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizzare i dati del sensore in tempo reale da IoT Hub di Azure tramite Power BI
 
@@ -25,7 +25,7 @@ ms.locfileid: "60780122"
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 
-Informazioni su come visualizzare i dati del sensore in tempo reale che l'hub IoT di Azure riceve usando Power BI. Se si vuole provare a visualizzare i dati nell'hub IoT con App Web, consultare [Usare App Web di Azure per visualizzare i dati del sensore in tempo reale da Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+Informazioni su come visualizzare i dati del sensore in tempo reale che l'hub IoT di Azure riceve usando Power BI. Se si vuole provare toe visualizzare i dati nell'hub IoT con un'app web, vedere [Usa un'app web per visualizzare i dati del sensore in tempo reale dall'IoT Hub di Azure](iot-hub-live-data-visualization-in-web-apps.md).
 
 ## <a name="what-you-do"></a>Operazioni da fare
 
@@ -179,6 +179,6 @@ Microsoft offre anche le [App per dispositivi mobili di Power BI](https://powerb
 
 Si è utilizzato correttamente Power BI per visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure.
 
-Esiste un modo alternativo per visualizzare i dati dall'hub IoT di Azure. Vedere [Usare App Web di Azure per visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure](iot-hub-live-data-visualization-in-web-apps.md).
+Per un altro modo per visualizzare i dati dall'IoT Hub di Azure, vedere [Usa un'app web per visualizzare i dati del sensore in tempo reale dall'IoT Hub di Azure](iot-hub-live-data-visualization-in-web-apps.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

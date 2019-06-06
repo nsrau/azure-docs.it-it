@@ -2,20 +2,20 @@
 title: Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni sulla personalizzazione di un'interfaccia utente mediante un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/18/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dc60c1fbdbd04653160db4d7794f8887305859d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c3c97e786e2147f043a63b90b886e01eb5944cb4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696894"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507682"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Ecco come funziona: Azure AD B2C esegue il codice nel browser del cliente e usa 
 
 Creare il contenuto HTML con il nome del marchio del prodotto nel titolo.
 
-1. Copiare il frammento di codice HTML seguente. Si tratta di codice HTML5 ben formato con un elemento vuoto denominato *\<div id="api"\>\</div\>* posizionato tra i tag *\<body\>*. Questo elemento indica il punto in cui deve essere inserito il contenuto di Azure AD B2C.
+1. Copiare il frammento di codice HTML seguente. Si tratta di codice HTML5 ben formato con un elemento vuoto denominato *\<div id="api"\>\</div\>* posizionato tra i tag *\<body\>* . Questo elemento indica il punto in cui deve essere inserito il contenuto di Azure AD B2C.
 
    ```html
    <!DOCTYPE html>
@@ -167,7 +167,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 La cartella sample_templates/wingtip contiene i file HTML seguenti:
 
-| Modello HTML5 | DESCRIZIONE |
+| Modello HTML5 | Descrizione |
 |----------------|-------------|
 | *phonefactor.html* | Usare questo file come modello per una pagina di autenticazione a più fattori. |
 | *resetpassword.html* | Usare questo file come modello per una pagina Password dimenticata. |
@@ -177,7 +177,7 @@ La cartella sample_templates/wingtip contiene i file HTML seguenti:
 
 Nella sezione Modificare i criteri personalizzati di iscrizione o di accesso è stata configurata la definizione del contenuto per `api.idpselections`. Il set completo di ID di definizione del contenuto riconosciuti dal framework dell'esperienza di gestione delle identità di AD B2C e le relative descrizioni sono disponibili nella tabella seguente:
 
-| ID definizione del contenuto | DESCRIZIONE | 
+| ID definizione del contenuto | Descrizione | 
 |-----------------------|-------------|
 | *api.error* | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | **Pagina di selezione del provider di identità**. Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di accesso. Si tratta di provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali. |

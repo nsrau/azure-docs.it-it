@@ -2,20 +2,20 @@
 title: Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C | Microsoft Docs
 description: Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 433307791201e3799b3bc9e54aec765d9fbeb4af
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b8bbe540d9e296b0f6a0c11a62d3b861e0115d3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718697"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507437"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C
 
@@ -252,15 +252,15 @@ Il profilo tecnico seguente elimina un account utente social mediante **alternat
 ```
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| Operazione | Sì | L'operazione da eseguire. I valori possibili sono: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. | 
-| RaiseErrorIfClaimsPrincipalDoesNotExist | No  | Genera un errore se l'oggetto utente non esiste nella directory. I possibili valori sono: `true` o `false`. | 
-| UserMessageIfClaimsPrincipalDoesNotExist | No  | Se deve essere generato un errore (vedere la descrizione dell'attributo RaiseErrorIfClaimsPrincipalDoesNotExist), specificare il messaggio da visualizzare all'utente se l'oggetto utente non esiste. Il valore può essere [localizzato](localization.md).| 
-| RaiseErrorIfClaimsPrincipalAlreadyExists | No  | Genera un errore se l'oggetto utente esiste già. I possibili valori sono: `true` o `false`.| 
-| UserMessageIfClaimsPrincipalAlreadyExists | No  | Se deve essere generato un errore (vedere la descrizione dell'attributo RaiseErrorIfClaimsPrincipalAlreadyExists) specificare il messaggio da visualizzare all'utente se l'oggetto utente esiste già. Il valore può essere [localizzato](localization.md).| 
-| ApplicationObjectId | No  | L'identificatore di oggetto dell'applicazione per gli attributi di estensione. Valore: ObjectID di un'applicazione. Per altre informazioni, vedere [Usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
-| ClientId | No  | L'identificatore client per l'accesso ai tenant come terza parte. Per altre informazioni, vedere [Usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) | 
+| Operazione | Yes | L'operazione da eseguire. I valori possibili sono: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. | 
+| RaiseErrorIfClaimsPrincipalDoesNotExist | No | Genera un errore se l'oggetto utente non esiste nella directory. I possibili valori sono: `true` o `false`. | 
+| UserMessageIfClaimsPrincipalDoesNotExist | No | Se deve essere generato un errore (vedere la descrizione dell'attributo RaiseErrorIfClaimsPrincipalDoesNotExist), specificare il messaggio da visualizzare all'utente se l'oggetto utente non esiste. Il valore può essere [localizzato](localization.md).| 
+| RaiseErrorIfClaimsPrincipalAlreadyExists | No | Genera un errore se l'oggetto utente esiste già. I possibili valori sono: `true` o `false`.| 
+| UserMessageIfClaimsPrincipalAlreadyExists | No | Se deve essere generato un errore (vedere la descrizione dell'attributo RaiseErrorIfClaimsPrincipalAlreadyExists) specificare il messaggio da visualizzare all'utente se l'oggetto utente esiste già. Il valore può essere [localizzato](localization.md).| 
+| ApplicationObjectId | No | L'identificatore di oggetto dell'applicazione per gli attributi di estensione. Valore: ObjectID di un'applicazione. Per altre informazioni, vedere [Usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
+| ClientId | No | L'identificatore client per l'accesso ai tenant come terza parte. Per altre informazioni, vedere [Usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) | 
 
 
 

@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: c0bc74ac0fe45f2502064340a0c3ce5b82694b06
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b18c4c039b615c7c88268b6e668df9f7fec9fabf
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245700"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687916"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>Copiare dati da Amazon S3 bucket con AzCopy
 
-AzCopy è un'utilità della riga di comando che è possibile usare per copiare BLOB o file da o verso un account di archiviazione. Questo articolo consente di copiare gli oggetti, cartelle e bucket da Amazon Web Services (AWS) S3 all'archiviazione blob di Azure tramite AzCopy.
+AzCopy è un'utilità della riga di comando che è possibile usare per copiare BLOB o file da o verso un account di archiviazione. Questo articolo consente di copiare gli oggetti, directory e bucket da Amazon Web Services (AWS) S3 all'archiviazione blob di Azure tramite AzCopy.
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>Scegliere come fornire le credenziali di autorizzazione
 
@@ -46,7 +46,7 @@ Raccogliere la chiave di accesso AWS e la chiave di accesso segreta e quindi imp
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
-## <a name="copy-objects-folders-and-buckets"></a>Copiare gli oggetti, cartelle e bucket
+## <a name="copy-objects-directories-and-buckets"></a>Copiare gli oggetti, le directory e bucket
 
 AzCopy Usa il [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, in modo che i dati vengono copiati direttamente tra AWS S3 e server di archiviazione. Queste operazioni di copia non usano la larghezza di banda di rete del computer in uso.
 
@@ -64,12 +64,12 @@ AzCopy Usa il [Put Block From URL](https://docs.microsoft.com/rest/api/storagese
 >
 > Per altre informazioni sull'hosting virtuale di bucket, vedere [virtuale che ospita di bucket]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
 
-### <a name="copy-a-folder"></a>Copia una cartella
+### <a name="copy-a-directory"></a>Copiare una directory
 
 |    |     |
 |--------|-----------|
-| **Sintassi** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<folder-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<folder-name>" --recursive=true` |
-| **Esempio** | `azcopy cp "https://s3.amazonaws.com/mybucket/myfolder" "https://mystorageaccount.blob.core.windows.net/mycontainer/myfolder" --recursive=true` |
+| **Sintassi** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<directory-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>" --recursive=true` |
+| **Esempio** | `azcopy cp "https://s3.amazonaws.com/mybucket/mydirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory" --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>Copiare un bucket
 
@@ -134,8 +134,8 @@ Trovare altri esempi in questi articoli:
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
 
-- [Trasferire dati con AzCopy e l'archiviazione blob](storage-use-azcopy-blobs.md)
+- [Trasferire dati con AzCopy e l'archivio BLOB](storage-use-azcopy-blobs.md)
 
-- [Trasferire dati con AzCopy e archiviazione file](storage-use-azcopy-files.md)
+- [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)

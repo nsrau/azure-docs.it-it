@@ -2,20 +2,20 @@
 title: Abilitare il controllo dell'accesso in base all'età in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come identificare i minori che utilizzano l'applicazione.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 33b379a03c92b81885f7adfc70f7025a85ce9057
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227997"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511673"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Abilitare il controllo dell'accesso in base all'età in Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Il controllo dell'accesso in base all'età prevede due valori: l'età in cui un 
 | BH | Bahrain | Nessuna | 21 |
 | CM | Camerun | Nessuna | 21 |
 | CY | Cipro | 16 | 18 |
-| CZ | Ceca, Repubblica | 16 | 18 |
+| CZ | Repubblica ceca | 16 | 18 |
 | DE | Germania | 16 | 18 |
 | DK | Danimarca | 16 | 18 |
 | EE | Estonia | 16 | 18 |
@@ -53,7 +53,7 @@ Il controllo dell'accesso in base all'età prevede due valori: l'età in cui un 
 | HR | Croazia | 16 | 18 |
 | HU | Ungheria | 16 | 18 |
 | IE | Irlanda | 13 | 18 |
-| it | Italia | 16 | 18 |
+| IT | Italia | 16 | 18 |
 | KR | Repubblica di Corea | 14 | 18 |
 | LT | Lituania | 16 | 18 |
 | LU | Lussemburgo | 16 | 18 |
@@ -68,7 +68,7 @@ Il controllo dell'accesso in base all'età prevede due valori: l'età in cui un 
 | SG | Singapore | Nessuna | 21 |
 | SI | Slovenia | 16 | 18 |
 | SK | Slovacchia | 16 | 18 |
-| TD | Ciad | Nessuna | 21 |
+| TD | Chad | Nessuna | 21 |
 | TH | Thailandia | Nessuna | 20 |
 | TW | Taiwan | Nessuna | 20 | 
 | Stati Uniti | Stati Uniti | 13 | 18 |

@@ -2,20 +2,20 @@
 title: Aggiungere AD FS come provider di identità SAML tramite criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
 description: Impostare AD FS 2016 usando il protocollo SAML e i criteri personalizzati in Azure Active Directory B2C
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: df4acf72a1a6ea134e1192512fda1d8cf1e92f0a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4510074619ff513b7284819d88fdb2532e4ce33a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768000"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510438"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere AD FS come provider di identità SAML tramite criteri personalizzati in Azure Active Directory B2C
 
@@ -144,7 +144,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 Per usare AD FS come provider di identità in Azure AD B2C, è necessario creare un trust della relying party di AD FS con i metadati SAML di Azure AD B2C. L'esempio seguente mostra un indirizzo URL che punta ai metadati SAML di un profilo tecnico di Azure AD B2C:
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Sostituire i valori seguenti:
@@ -170,9 +170,9 @@ Aprire un browser e passare all'URL. Assicurarsi di digitare l'URL corretto e di
     | Attributo LDAP | Tipo di attestazione in uscita |
     | -------------- | ------------------- |
     | User-Principal-Name | userPrincipalName |
-    | Cognome | family_name |
+    | Surname | family_name |
     | Given-Name | given_name |
-    | E-Mail-Address | posta elettronica |
+    | E-Mail-Address | email |
     | Display-Name | name |
     
 12.  In base al tipo di certificato è possibile che sia necessario impostare l'algoritmo HASH. Nella finestra delle proprietà del trust della relying party (B2C Demo) selezionare la scheda **Avanzate** e impostare **Secure hash algorithm** su `SHA-256`, quindi fare clic su **OK**.  

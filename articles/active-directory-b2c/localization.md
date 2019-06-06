@@ -2,20 +2,20 @@
 title: 'Localizzazione: Azure Active Directory B2C | Microsoft Docs'
 description: Specificare l'elemento di localizzazione di un criterio personalizzato di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2291bdd270a15c4932d79b124616400d2667c891
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a02983c5019870e8b17db48184b2f238a82f8a40
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705841"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510588"
 ---
 # <a name="localization"></a>Localizzazione
 
@@ -39,13 +39,13 @@ L'elemento **Localizzazione** consente di supportare più impostazioni locali o 
 
 L'elemento **Localizzazione** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| Enabled | No  | I valori possibili sono: `true` o `false`. |
+| Enabled | No | I valori possibili sono: `true` o `false`. |
 
 L'elemento **Localizazzione**contiene gli elementi XML seguenti
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | SupportedLanguages | 1:n | elenco delle lingue supportate. | 
 | LocalizedResources | 0: n | Elenco delle risorse localizzate. |
@@ -54,16 +54,16 @@ L'elemento **Localizazzione**contiene gli elementi XML seguenti
 
 L'elemento **SupportedLanguages** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| DefaultLanguage | Sì | La lingua predefinita da usare per le risorse localizzate. |
-| MergeBehavior | No  | Un valore di enumerazione dei valori che vengono uniti a qualsiasi ClaimType presente in un criterio padre con lo stesso identificatore. Usare questo attributo quando si sovrascrive un'attestazione specificata nei criteri di base. I valori possibili sono: `Append`, `Prepend` o `ReplaceAll`. Il valore `Append` specifica che la raccolta dei dati presenti deve essere accodata alla fine della raccolta specificata nel criterio padre. Il valore `Prepend` specifica che la raccolta dei dati presenti deve essere accodata alla fine della raccolta specificata nel criterio padre. Il valore `ReplaceAll` specifica che la raccolta di dati definita nel criterio padre deve essere ignorata e di usare i dati definiti nel criterio corrente. |
+| DefaultLanguage | Yes | La lingua predefinita da usare per le risorse localizzate. |
+| MergeBehavior | No | Un valore di enumerazione dei valori che vengono uniti a qualsiasi ClaimType presente in un criterio padre con lo stesso identificatore. Usare questo attributo quando si sovrascrive un'attestazione specificata nei criteri di base. I valori possibili sono: `Append`, `Prepend` o `ReplaceAll`. Il valore `Append` specifica che la raccolta dei dati presenti deve essere accodata alla fine della raccolta specificata nel criterio padre. Il valore `Prepend` specifica che la raccolta dei dati presenti deve essere accodata alla fine della raccolta specificata nel criterio padre. Il valore `ReplaceAll` specifica che la raccolta di dati definita nel criterio padre deve essere ignorata e di usare i dati definiti nel criterio corrente. |
 
 ### <a name="supportedlanguages"></a>SupportedLanguages
 
 L'elemento **SupportedLanguages** contiene gli attributi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | SupportedLanguage | 1:n | Visualizza il contenuto che è conforme a un tag di linguaggio per RFC 5646 - Tag pe l'identificazione delle lingue. | 
 
@@ -71,13 +71,13 @@ L'elemento **SupportedLanguages** contiene gli attributi seguenti:
 
 L'elemento **LocalizedResources** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Identificatore usato per identificare unicamente le risorse localizzate. |
+| ID | Yes | Identificatore usato per identificare unicamente le risorse localizzate. |
 
 L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | LocalizedCollections | 0: n | Definisce le intere raccolte in diverse impostazioni cultura. Una raccolta può avere un numero diverso di elementi e stringhe diverse per diverse impostazioni cultura. Raccolte di esempi include le enumerazioni visualizzate nei tipi di attestazione. Ad esempio, viene visualizzato dall'utente una lista per paese/area geografica in un elenco a discesa. |
 | LocalizedStrings | 0: n | Definisce tutte le stringhe, ad eccezione delle stringhe che vengono visualizzate nelle raccolte, in diverse impostazioni cultura. |
@@ -86,7 +86,7 @@ L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
 L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | LocalizedCollection | 1:n | elenco delle lingue supportate. |
 
@@ -94,24 +94,24 @@ L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
 L'elemento **LocalizedCollection** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ElementType | Sì | Fa riferimento a un elemento ClaimType o un elemento dell'interfaccia utente nel file dei criteri. |
-| ElementId | Sì | Una stringa che contiene un riferimento a un tipo di attestazione già definito nella sezione che viene usata se **ElementType** è impostato su un ClaimType. |
-| TargetCollection | Sì | La raccolta di destinazione. |
+| ElementType | Yes | Fa riferimento a un elemento ClaimType o un elemento dell'interfaccia utente nel file dei criteri. |
+| ElementId | Yes | Una stringa che contiene un riferimento a un tipo di attestazione già definito nella sezione che viene usata se **ElementType** è impostato su un ClaimType. |
+| TargetCollection | Yes | La raccolta di destinazione. |
 
 L'elemento **LocalizedCollection** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | Elemento | 0:n | Definisce un'opzione disponibile per l'utente da selezionare per un'attestazione nell'interfaccia utente, ad esempio, un valore in un elenco a discesa. |
 
 L'elemento **Item** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| Text | Sì | La stringa di visualizzazione intuitiva che deve essere visualizzata dall'utente nell'interfaccia utente per questa opzione. |
-| Value | Sì | Il valore di attestazione della stringa associato alla selezione di questa opzione. |
+| Text | Yes | La stringa di visualizzazione intuitiva che deve essere visualizzata dall'utente nell'interfaccia utente per questa opzione. |
+| Value | Yes | Il valore di attestazione della stringa associato alla selezione di questa opzione. |
 
 L'esempio seguente illustra l'uso dell'elemento **LocalizedCollections**. Contiene due elementi **LocalizedCollection**, uno per l'inglese e un altro per lo spagnolo. Entrambi impostano la raccolta **Restriction** dell'attestazione `Gender` con un elenco di elementi per l'inglese e lo spagnolo.
 
@@ -138,17 +138,17 @@ L'esempio seguente illustra l'uso dell'elemento **LocalizedCollections**. Contie
 
 L'elemento **LocalizedStrings** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | LocalizedString | 1:n | Una stringa localizzata. |
 
 L'elemento **LocalizedString** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ElementType | Sì | Un riferimento a un elemento del tipo di attestazione o a un elemento dell'interfaccia utente nel criterio. I valori possibili sono: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate` o  . Il valore `ClaimType` viene usato per localizzare uno degli attributi di attestazione, come specificato nell'ID stringa. Il valore `UxElement` viene usato per localizzare uno degli elementi dell'interfaccia utente, come specificato nell'ID stringa. Il valore `ErrorMessage` viene usato per localizzare uno dei messaggi di errore del sistema, come specificato nell'ID stringa. Il valore `Predicate` viene usato per localizzare uno dei messaggi di errore del sistema [Predicato](predicates.md), come specificato nell'ID stringa. Il valore `InputValidation` viene usato per localizzare uno dei messaggi di errore del gruppo [PredicateValidation](predicates.md), come specificato nell'ID stringa. |
-| ElementId | Sì | Se **ElementType** è impostato su `ClaimType`, `Predicate` o `InputValidation`, questo elemento contiene un riferimento a un tipo di attestazione già definito nella sezione ClaimsSchema. | 
-| ID stringa | Sì | Se **ElementType** è impostato su `ClaimType`, questo elemento contiene un riferimento a un attributo di un tipo di attestazione. I valori possibili sono: `DisplayName`, `AdminHelpText` o `PatternHelpText`. Il valore`DisplayName` viene usato per impostare il nome visualizzato di attestazione. Il valore `AdminHelpText` viene usato per impostare il nome del testo di istruzioni dell'utente di attestazione. Il valore`PatternHelpText` viene usato per impostare il testo di istruzioni del criterio di attestazione. Se **ElementType** è impostato su `UxElement`, questo elemento contiene un riferimento a un elemento dell'interfaccia utente. Se **ElementType** è impostato su `ErrorMessage`, questo elemento specifica l'identificatore di un messaggio di errore. Visualizzare gli [ID stringa di localizzazione](localization-string-ids.md) per un elenco completo degli `UxElement` identificatori.|
+| ElementType | Yes | Un riferimento a un elemento del tipo di attestazione o a un elemento dell'interfaccia utente nel criterio. I valori possibili sono: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate` o  . Il valore `ClaimType` viene usato per localizzare uno degli attributi di attestazione, come specificato nell'ID stringa. Il valore `UxElement` viene usato per localizzare uno degli elementi dell'interfaccia utente, come specificato nell'ID stringa. Il valore `ErrorMessage` viene usato per localizzare uno dei messaggi di errore del sistema, come specificato nell'ID stringa. Il valore `Predicate` viene usato per localizzare uno dei messaggi di errore del sistema [Predicato](predicates.md), come specificato nell'ID stringa. Il valore `InputValidation` viene usato per localizzare uno dei messaggi di errore del gruppo [PredicateValidation](predicates.md), come specificato nell'ID stringa. |
+| ElementId | Yes | Se **ElementType** è impostato su `ClaimType`, `Predicate` o `InputValidation`, questo elemento contiene un riferimento a un tipo di attestazione già definito nella sezione ClaimsSchema. | 
+| ID stringa | Yes | Se **ElementType** è impostato su `ClaimType`, questo elemento contiene un riferimento a un attributo di un tipo di attestazione. I valori possibili sono: `DisplayName`, `AdminHelpText` o `PatternHelpText`. Il valore`DisplayName` viene usato per impostare il nome visualizzato di attestazione. Il valore `AdminHelpText` viene usato per impostare il nome del testo di istruzioni dell'utente di attestazione. Il valore`PatternHelpText` viene usato per impostare il testo di istruzioni del criterio di attestazione. Se **ElementType** è impostato su `UxElement`, questo elemento contiene un riferimento a un elemento dell'interfaccia utente. Se **ElementType** è impostato su `ErrorMessage`, questo elemento specifica l'identificatore di un messaggio di errore. Visualizzare gli [ID stringa di localizzazione](localization-string-ids.md) per un elenco completo degli `UxElement` identificatori.|
 
 
 L'esempio seguente mostra una pagina di iscrizione localizzata. I primi tre valori**LocalizedString** impostano l'attributo di attestazione. Il terzo modifica il valore del pulsante Continua. L'ultimo modifica il messaggio di errore.

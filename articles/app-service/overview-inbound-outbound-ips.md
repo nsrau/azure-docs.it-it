@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de9ae8e5c0cbf0997811db9624f6c6b92e03a5df
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835295"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742947"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Indirizzi IP in ingresso e in uscita in Servizio app di Azure
 
@@ -35,9 +35,17 @@ Indipendentemente dal numero di istanze cui è applicata scalabilità orizzontal
 - Eliminazione dell'ultima app in un gruppo di risorse _e_ combinazione di aree e sua ricreazione.
 - Eliminazione di un'associazione SSL esistente, ad esempio durante il rinnovo del certificato. Vedere [Rinnovare i certificati](app-service-web-tutorial-custom-ssl.md#renew-certificates).
 
-## <a name="get-static-inbound-ip"></a>Ottenere un indirizzo IP in ingresso statico
+## <a name="find-the-inbound-ip"></a>Trovare l'indirizzo IP in ingresso
 
-A volte è necessario un indirizzo IP statico dedicato per l'app. Per ottenere un indirizzo IP in ingresso statico, è necessario configurare un'[associazione SSL basata su IP](app-service-web-tutorial-custom-ssl.md#bind-your-ssl-certificate). Se la funzionalità SSL non è effettivamente necessaria per proteggere l'app, è anche possibile caricare un certificato autofirmato per questa associazione. In un'associazione SSL basata su IP il certificato è associato all'indirizzo IP stesso e di conseguenza Servizio app di Azure effettua il provisioning di un indirizzo IP statico a questo scopo. 
+Eseguire semplicemente il comando seguente in un terminale locale:
+
+```bash
+nslookup <app-name>.azurewebsites.net
+```
+
+## <a name="get-a-static-inbound-ip"></a>Ottenere un indirizzo IP in ingresso statico
+
+A volte è necessario un indirizzo IP statico dedicato per l'app. Per ottenere un indirizzo IP in ingresso statico, è necessario configurare un'[associazione SSL basata su IP](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain). Se la funzionalità SSL non è effettivamente necessaria per proteggere l'app, è anche possibile caricare un certificato autofirmato per questa associazione. In un'associazione SSL basata su IP il certificato è associato all'indirizzo IP stesso e di conseguenza Servizio app di Azure effettua il provisioning di un indirizzo IP statico a questo scopo. 
 
 ## <a name="when-outbound-ips-change"></a>Casi in cui gli indirizzi IP in uscita cambiano
 

@@ -2,20 +2,20 @@
 title: Predicates e PredicateValidations - Azure Active Directory B2C | Microsoft Docs
 description: Esempi di trasformazione di attestazioni di account di social networking per lo schema del framework dell'esperienza di gestione delle identità di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eff8e2cedd6f9388d811002a622dbcdcd0e7ed6c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714161"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512957"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates e PredicateValidations
 
@@ -33,33 +33,33 @@ L'elemento **Predicate** definisce una convalida di base per controllare il valo
 
 L'elemento **Predicates** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | Predicate | 1:n | Elenco di predicati. | 
 
 L'elemento **Predicate** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Identificatore usato per il predicato. Altri elementi possono usare questo identificatore nei criteri. |
-| Metodo | Sì | Tipo di metodo da usare per la convalida. Valori possibili: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** e **IsDateRange**. Il valore **IsLengthRange** controlla se la lunghezza del valore di un'attestazione di tipo stringa rientra nell'intervallo di parametri minimo e massimo specificato. Il valore **MatchesRegex** controlla se il valore di un'attestazione di tipo stringa corrisponde a un'espressione regolare. Il valore **IncludesCharacters** controlla se il valore di un'attestazione di tipo stringa contiene un set di caratteri. Il valore **IsDateRange** controlla se il valore di un'attestazione di tipo data rientra nell'intervallo di parametri minimo e massimo specificato. |
+| ID | Yes | Identificatore usato per il predicato. Altri elementi possono usare questo identificatore nei criteri. |
+| Metodo | Yes | Tipo di metodo da usare per la convalida. Valori possibili: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** e **IsDateRange**. Il valore **IsLengthRange** controlla se la lunghezza del valore di un'attestazione di tipo stringa rientra nell'intervallo di parametri minimo e massimo specificato. Il valore **MatchesRegex** controlla se il valore di un'attestazione di tipo stringa corrisponde a un'espressione regolare. Il valore **IncludesCharacters** controlla se il valore di un'attestazione di tipo stringa contiene un set di caratteri. Il valore **IsDateRange** controlla se il valore di un'attestazione di tipo data rientra nell'intervallo di parametri minimo e massimo specificato. |
 
 L'elemento **Predicate** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Messaggio di errore per gli utenti se il controllo ha esito negativo. Questa stringa può essere localizzata usando la [funzionalità di personalizzazione della lingua](localization.md). |
 | Parametri | 1:1 | Parametri del tipo di metodo della convalida della stringa. | 
 
 L'elemento **Parameters** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | Parametro | 1:n | Parametri del tipo di metodo della convalida della stringa. | 
 
 L'elemento **Parameter** contiene gli attributi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | ID | 1:1 | Identificatore del parametro. |
 
@@ -132,58 +132,58 @@ Mentre i predicati definiscono la convalida da controllare rispetto a un tipo di
 
 L'elemento **PredicateValidations** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1:n | Elenco di convalida del predicato. | 
 
 L'elemento **PredicateValidation** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Identificatore che viene usato per la convalida del predicato. L'elemento **ClaimType** può usare questo identificatore nei criteri. |
+| ID | Yes | Identificatore che viene usato per la convalida del predicato. L'elemento **ClaimType** può usare questo identificatore nei criteri. |
 
 L'elemento **PredicateValidation** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1:n | Elenco di gruppi di predicati. | 
 
 L'elemento **PredicateGroups** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1:n | Elenco di predicati. | 
 
 L'elemento **PredicateGroup** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Identificatore usato per il gruppo di predicati.  |
+| ID | Yes | Identificatore usato per il gruppo di predicati.  |
 
 L'elemento **PredicateGroup** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  Descrizione del predicato che può essere utile agli utenti per sapere quale valore devono digitare. | 
 | PredicateReferences | 1:n | Elenco di riferimenti del predicato. | 
 
 L'elemento **PredicateReferences** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| MatchAtLeast | No  | Specifica che il valore deve corrispondere almeno a quello di molte definizioni di predicato affinché l'input possa essere accettato. |
+| MatchAtLeast | No | Specifica che il valore deve corrispondere almeno a quello di molte definizioni di predicato affinché l'input possa essere accettato. |
 
 L'elemento **PredicateReferences** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1:n | Riferimento a un predicato. | 
 
 L'elemento **PredicateReference** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Identificatore che viene usato per la convalida del predicato.  |
+| ID | Yes | Identificatore che viene usato per la convalida del predicato.  |
 
 
 ## <a name="configure-password-complexity"></a>Configurare la complessità delle password

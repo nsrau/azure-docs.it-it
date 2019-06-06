@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 06/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 89ba5b9641d156dfb098d51272b8bf8d3fd53f5b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785866"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493762"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Assegnare l’accesso ai dati di Gestione costi
 
@@ -38,7 +38,7 @@ Gestione costi supporta un'ampia gamma di tipi di account di Azure. Per visualiz
 | **Ambito** | **Definito in** | **Accesso richiesto per visualizzare i dati** | **Impostazione prerequisita del Contratto Enterprise** | **Consolida dati in** |
 | --- | --- | --- | --- | --- |
 | Account di fatturazione<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Amministratore aziendale | Nessuna | Tutte le sottoscrizioni del Contratto Enterprise |
-| Reparto | [https://ea.azure.com](https://ea.azure.com/) | Amministratore del reparto | **Visualizzazione addebiti addebitata per gli amministratori di reparto** | Tutte le sottoscrizioni che appartengono a un account di registrazione collegato al reparto |
+| department | [https://ea.azure.com](https://ea.azure.com/) | Amministratore del reparto | **Visualizzazione addebiti addebitata per gli amministratori di reparto** | Tutte le sottoscrizioni che appartengono a un account di registrazione collegato al reparto |
 | Account di registrazione<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Proprietario dell'account | **Visualizzazione addebiti abilitata per i proprietari dell'account** | Tutte le sottoscrizioni dell'account di registrazione |
 | Gruppo di gestione | [https://portal.azure.com](https://portal.azure.com/) | Lettore Gestione costi (o Lettore) | **Visualizzazione addebiti abilitata per i proprietari dell'account** | Tutte le sottoscrizioni incluse nel gruppo di gestione |
 | Sottoscrizione | [https://portal.azure.com](https://portal.azure.com/) | Lettore Gestione costi (o Lettore) | **Visualizzazione addebiti abilitata per i proprietari dell'account** | Tutte le risorse o i gruppi di risorse inclusi nella sottoscrizione |
@@ -170,6 +170,13 @@ Per accedere a un gruppo di risorse è richiesta almeno l'autorizzazione Lettore
 7. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 8. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
 9. Fare clic su **Save**.
+
+## <a name="cross-tenant-authentication-issues"></a>Problemi di autenticazione tra tenant
+
+Attualmente, gestione costi di Azure include supporto limitato per l'autenticazione tra i tenant. In alcuni casi quando si prova a eseguire l'autenticazione tra i tenant, potrebbe ricevere un **accesso negato** errore nell'analisi dei costi. Questo problema può verificarsi se si configura il controllo di accesso basato sui ruoli (RBAC) alla sottoscrizione di un altro tenant e quindi provare a visualizzare i dati di costo.
+
+*Per ovviare al problema*: Dopo aver configurato RBAC tra tenant, attendere un'ora. Quindi, provare a visualizzare i costi di analisi dei costi o concedere l'accesso di gestione dei costi per gli utenti in entrambi i tenant.  
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jnoller
-ms.openlocfilehash: 9c67902f8a6c10552ea60fed145afc24f82b01a1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 9f3a62c5782724f14f10b5875fc8db31dbffe67c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594301"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693396"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizzare CoreDNS con Azure Kubernetes Service
 
@@ -27,7 +27,7 @@ Questo articolo illustra come usare ConfigMaps per le opzioni di personalizzazio
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster del servizio contenitore di AZURE, vedere la Guida introduttiva [si usava la CLI di Azure] [servizio contenitore di Azure-quickstart-cli] o [si usava il portale di Azure] [servizio contenitore di Azure-Guida introduttiva-portale].
+Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
 ## <a name="what-is-supportedunsupported"></a>Che cos'è supportato/non supportato
 
@@ -192,5 +192,7 @@ Per altre informazioni sui concetti di rete principali, vedere [concetti per le 
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [coredns hosts]: https://coredns.io/plugins/hosts/
 
-<!-- LINKS - external -->
+<!-- LINKS - internal -->
 [concepts-network]: concepts-network.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md

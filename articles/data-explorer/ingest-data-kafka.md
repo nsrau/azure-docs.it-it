@@ -1,20 +1,20 @@
 ---
-title: 'Guida introduttiva: Inserire dati da Kafka in Esplora dati di Azure'
-description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure da Kafka.
+title: Inserire dati da Kafka in Esplora dati di Azure
+description: In questo articolo descrive come inserire (caricare) i dati in Esplora dati di Azure da Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901035"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497273"
 ---
-# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Guida introduttiva: Inserire dati da Kafka in Esplora dati di Azure
+# <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Inserire dati da Kafka in Esplora dati di Azure
  
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre l'inserimento (caricamento dei dati) da Kafka. Kafka è una piattaforma di streaming distribuito che consente di creare pipeline di dati in streaming in tempo reale che spostano in modo affidabile i dati tra applicazioni o sistemi.
  
@@ -162,5 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>Passaggi successivi
  
-> [!div class="nextstepaction"]
-> [Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)
+* [Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)

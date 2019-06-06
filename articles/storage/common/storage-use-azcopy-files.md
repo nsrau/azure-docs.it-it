@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 5d11d5c0da350b9abf2e2b06a11a1690cf3f6922
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 69d7136396c3d989e63b8956d3e703cc7f9666c8
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247110"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687939"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Trasferire dati con AzCopy e archiviazione file 
 
@@ -32,13 +32,13 @@ Prima di iniziare, vedere la [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
 
 ## <a name="upload-files"></a>Caricare file
 
-È possibile usare AzCopy `copy` comando per caricare i file e cartelle dal computer locale.
+È possibile usare AzCopy `copy` comando per caricare file e directory nel computer locale.
 
 Questa sezione contiene gli esempi seguenti:
 
 > [!div class="checklist"]
 > * Caricare un file
-> * Caricare una cartella
+> * Caricare una directory
 > * Caricare file usando caratteri jolly
 
 > [!NOTE]
@@ -49,46 +49,46 @@ Questa sezione contiene gli esempi seguenti:
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy cp "<local-file-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-name>?<SAS-token>"` |
-| **Esempio** | `azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
+| **Esempio** | `azcopy copy "C:\myDirectory\myTextFile.txt" "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
-### <a name="upload-a-folder"></a>Caricare una cartella
+### <a name="upload-a-directory"></a>Caricare una directory
 
-Questo esempio copia una cartella (e tutti i file in essa contenute) a una condivisione file. Il risultato è una cartella nella condivisione di file con lo stesso nome.
-
-|    |     |
-|--------|-----------|
-| **Sintassi** | `azcopy copy "<local-folder-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>" --recursive` |
-| **Esempio** | `azcopy copy "C:\myFolder" "https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
-
-Per copiare in una cartella all'interno della condivisione file, è sufficiente specificare il nome della cartella nella stringa di comando.
+Questo esempio copia una directory (e tutti i file in tale directory) in una condivisione file. Il risultato è una directory nella condivisione di file con lo stesso nome.
 
 |    |     |
 |--------|-----------|
-| **Esempio** | `azcopy copy "C:\myFolder" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
+| **Sintassi** | `azcopy copy "<local-directory-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>" --recursive` |
+| **Esempio** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
 
-Se si specifica il nome di una cartella che non esiste nella condivisione file, AzCopy crea una nuova cartella con lo stesso nome.
-
-### <a name="upload-the-contents-of-a-folder"></a>Caricare il contenuto di una cartella
-
-È possibile caricare il contenuto di una cartella senza copiare nella cartella del contenitore usando il carattere jolly asterisco (*).
+Per copiare una directory all'interno della condivisione file, è sufficiente specificare il nome della directory nella stringa di comando.
 
 |    |     |
 |--------|-----------|
-| **Sintassi** | `azcopy copy "<local-folder-path>/*" "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<folder-path>?<SAS-token>` |
-| **Esempio** | `azcopy copy "C:\myFolder\*" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
+| **Esempio** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
+
+Se si specifica il nome di una directory che non esiste nella condivisione file, AzCopy crea una nuova directory con lo stesso nome.
+
+### <a name="upload-the-contents-of-a-directory"></a>Caricare il contenuto di una directory
+
+È possibile caricare il contenuto di una directory senza copiare la directory che lo contiene se stesso tramite il carattere jolly asterisco (*).
+
+|    |     |
+|--------|-----------|
+| **Sintassi** | `azcopy copy "<local-directory-path>/*" "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>` |
+| **Esempio** | `azcopy copy "C:\myDirectory\*" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
 > [!NOTE]
-> Aggiungere il `--recursive` flag per caricare i file in tutte le sottocartelle.
+> Aggiungere il `--recursive` flag per caricare i file in tutte le sottodirectory.
 
 ## <a name="download-files"></a>Download dei file
 
-È possibile usare AzCopy `copy` condivide i comando per scaricare i file, cartelle e file nel computer locale.
+È possibile usare AzCopy `copy` condivide i comando per scaricare i file, directory e file nel computer locale.
 
 Questa sezione contiene gli esempi seguenti:
 
 > [!div class="checklist"]
 > * Scaricare un file
-> * Scaricare una cartella
+> * Download di una directory
 > * Scaricare i file utilizzando caratteri jolly
 
 > [!NOTE]
@@ -99,28 +99,28 @@ Questa sezione contiene gli esempi seguenti:
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>?<SAS-token>" "<local-file-path>"` |
-| **Esempio** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myFolder\myTextFile.txt"` |
+| **Esempio** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory\myTextFile.txt"` |
 
-### <a name="download-a-folder"></a>Scaricare una cartella
-
-|    |     |
-|--------|-----------|
-| **Sintassi** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<folder-path>?<SAS-token>" "<local-folder-path>" --recursive` |
-| **Esempio** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myFolder"  --recursive` |
-
-Questo esempio restituisce in una cartella denominata `C:\myFolder\myFileShareFolder` che contiene tutti i file scaricati.
-
-### <a name="download-the-contents-of-a-folder"></a>Scaricare il contenuto di una cartella
-
-È possibile scaricare il contenuto di una cartella senza copiare nella cartella del contenitore usando il carattere jolly asterisco (*).
+### <a name="download-a-directory"></a>Download di una directory
 
 |    |     |
 |--------|-----------|
-| **Sintassi** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/*?<SAS-token>" "<local-folder-path>/"` |
-| **Esempio** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder/*?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myFolder"` |
+| **Sintassi** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>" "<local-directory-path>" --recursive` |
+| **Esempio** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"  --recursive` |
+
+In questo esempio crea una directory denominata `C:\myDirectory\myFileShareDirectory` che contiene tutti i file scaricati.
+
+### <a name="download-the-contents-of-a-directory"></a>Scaricare il contenuto di una directory
+
+È possibile scaricare il contenuto di una directory senza copiare la directory che lo contiene se stesso tramite il carattere jolly asterisco (*).
+
+|    |     |
+|--------|-----------|
+| **Sintassi** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/*?<SAS-token>" "<local-directory-path>/"` |
+| **Esempio** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory/*?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"` |
 
 > [!NOTE]
-> Aggiungere il `--recursive` flag per scaricare i file in tutte le sottocartelle.
+> Aggiungere il `--recursive` flag per scaricare i file in tutte le sottodirectory.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -128,8 +128,8 @@ Trovare altri esempi in questi articoli:
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
 
-- [Trasferire dati con AzCopy e l'archiviazione blob](storage-use-azcopy-blobs.md)
+- [Trasferire dati con AzCopy e l'archivio BLOB](storage-use-azcopy-blobs.md)
 
-- [Trasferire dati con AzCopy e Amazon S3 bucket](storage-use-azcopy-s3.md)
+- [Trasferire dati con AzCopy e bucket Amazon S3](storage-use-azcopy-s3.md)
 
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)

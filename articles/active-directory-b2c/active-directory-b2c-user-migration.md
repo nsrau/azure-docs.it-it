@@ -2,20 +2,20 @@
 title: Approcci alla migrazione degli utenti in Azure Active Directory B2C | Microsoft Docs
 description: Discutere concetti di base e avanzati sulla migrazione degli utenti usando l'API Graph e, facoltativamente, i criteri personalizzati di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a4195d7c292100712e6d68831443369ab793bb95
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1e913b02f99095afb7ee1a3f2122e3c1fe1a60b5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726124"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507655"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migrazione degli utenti
 Quando si esegue la migrazione del provider di identità ad Azure Active Directory B2C (Azure AD B2C) potrebbe essere necessario eseguire anche la migrazione dell'account utente. Questo articolo spiega come eseguire la migrazione degli account utente esistenti da qualsiasi provider di identità ad Azure AD B2C. Questo articolo non fornisce informazioni prescrittive, ma descrive piuttosto alcuni scenari. Lo sviluppatore è responsabile dell'idoneità di ogni approccio.
@@ -25,7 +25,7 @@ Azure AD B2C consente di eseguire la migrazione degli utenti usando l'[API Graph
 
 - **Pre-migrazione**: questo flusso si applica quando si ha accesso alle credenziali di un utente (nome utente e password) o se le credenziali sono crittografate ma è possibile decrittografarle. Il processo di pre-migrazione include la lettura degli utenti dal vecchio provider di identità e la creazione di nuovi account nella directory di Azure AD B2C.
 
-- **Pre-migrazione e reimpostazione della password**: questo flusso si applica quando la password di un utente non è accessibile. Ad esempio: 
+- **Pre-migrazione e reimpostazione della password**: questo flusso si applica quando la password di un utente non è accessibile. Ad esempio:
    - La password è archiviata in formato HASH.
    - La password è archiviata in un provider di identità a cui non è possibile accedere. Il vecchio provider di identità convalida le credenziali dell'utente chiamando un servizio Web.
 
@@ -238,12 +238,12 @@ Per ottenere il collegamento ai criteri di reimpostazione della password, seguir
 > Per controllare e modificare lo stato di migrazione degli utenti è necessario usare criteri personalizzati. È necessario completare le istruzioni di configurazione illustrate in [Introduzione ai criteri personalizzati][B2C-GetStartedCustom].
 >
 
-Quando gli utenti provano a eseguire l'accesso senza prima reimpostare la password, i criteri dovrebbero restituire un messaggio di errore descrittivo, Ad esempio: 
+Quando gli utenti provano a eseguire l'accesso senza prima reimpostare la password, i criteri dovrebbero restituire un messaggio di errore descrittivo, Ad esempio:
 >*La password è scaduta. Per reimpostarla, selezionare il collegamento Reimposta password.*
 
 Questo passaggio facoltativo richiede l'uso di criteri personalizzati in Azure AD B2C, come descritto nell'articolo [Introduzione ai criteri personalizzati][B2C-GetStartedCustom].
 
-In questa sezione vengono modificati i criteri per controllare lo stato di migrazione dell'utente all'accesso. Se l'utente non ha cambiato la password, verrà restituito un messaggio di errore HTTP 409 in cui si chiede all'utente di selezionare il collegamento **Password dimenticata?**.
+In questa sezione vengono modificati i criteri per controllare lo stato di migrazione dell'utente all'accesso. Se l'utente non ha cambiato la password, verrà restituito un messaggio di errore HTTP 409 in cui si chiede all'utente di selezionare il collegamento **Password dimenticata?** .
 
 Per monitorare il cambio della password, usare una tabella di Azure. L'esecuzione del processo di pre-migrazione con il parametro `2` della riga di comando crea un'entità utente in una tabella di Azure. Il servizio esegue le operazioni seguenti:
 

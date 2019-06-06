@@ -6,12 +6,12 @@ ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277299"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479952"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Mantenere gli indirizzi IP durante il failover
 
@@ -43,7 +43,7 @@ Di seguito viene indicata l'architettura prima del failover.
         - Asia orientale dispone di una rete virtuale (**Rete virtuale di origine**) con spazio degli indirizzi 10.1.0.0/16.
         - Nell'area Asia orientale i carichi di lavoro sono suddivisi tra tre subnet nella rete virtuale:
             - **Subnet 1**: 10.1.1.0/24
-            - **Subnet 2**: 10.1.2.0/24,
+            - **Subnet 2**: 10.1.2.0/24
             - **Subnet 3**: 10.1.3.0/24
     - L'area secondaria (destinazione) è Asia sud-orientale di Azure
         - Asia sud-orientale dispone di una rete virtuale di ripristino (**Rete virtuale di ripristino**) identica alla **Rete virtuale di origine**.
@@ -131,11 +131,11 @@ Di seguito viene indicato l'aspetto dell'architettura di rete prima del failover
 - Asia orientale dispone di una rete virtuale (**Rete virtuale di origine**) con spazio degli indirizzi 10.1.0.0/16.
   - Nell'area Asia orientale i carichi di lavoro sono suddivisi tra tre subnet nella **rete virtuale di origine**:
     - **Subnet 1**: 10.1.1.0/24
-    - **Subnet 2**: 10.1.2.0/24,
-    - **Subnet 3**: 10.1.3.0/24 con uso di una rete virtuale di Azure con spazio degli indirizzi 10.1.0.0/16. Questa rete virtuale è denominata **Rete virtuale di origine**
+    - **Subnet 2**: 10.1.2.0/24
+    - **Subnet 3**: 10.1.3.0/24, utilizzando una rete virtuale di Azure con 10.1.0.0/16 spazio indirizzi. Questa rete virtuale è denominata **Rete virtuale di origine**
       - L'area secondaria (destinazione) è Asia sud-orientale di Azure:
   - Asia sud-orientale dispone di una rete virtuale di ripristino (**Rete virtuale di ripristino**) identica alla **Rete virtuale di origine**.
-- Le macchine virtuali nell'area Asia orientale vengono connesse a un data center locali con Azure ExpressRoute o VPN da sito-a-sito.
+- Le macchine virtuali nell'area Asia orientale vengono connesse a un data center locali con Azure ExpressRoute o VPN site-to-site.
 - Per ridurre l'obiettivo del tempo di ripristino (RTO), la società B effettua il provisioning del gateway nella rete virtuale di ripristino nell'area Asia sud-orientale di Azure prima del failover.
 - La società B assegna/verifica gli indirizzi IP di destinazione per le macchine virtuali replicate. L'indirizzo IP di destinazione è lo stesso indirizzo IP di origine per ogni macchina virtuale.
 

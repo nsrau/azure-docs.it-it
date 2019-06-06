@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 5bb45ff87f558e1142b68af01147ad55386ee28f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37227b7d0ea1b3630a3c2ce991a61543e6a1503d
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749514"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428257"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Introduzione alle richieste HTTP per Connessioni ibride di Inoltro di Azure in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -67,7 +67,7 @@ In Visual Studio scrivere un'applicazione console in C# per inviare messaggi all
 1. Eseguire l'applicazione client. Viene visualizzato `hello!` nella finestra client. Il client ha inviato una richiesta HTTP al server e il server ha risposto con `hello!`. 
 3. A questo punto, per chiudere le finestre della console, premere **INVIO** in entrambe le finestre della console. 
 
-A questo punto è stata creata un'applicazione per le connessioni ibride end-to-end.
+Complimenti, aver creato un'applicazione completa di connessioni ibride.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

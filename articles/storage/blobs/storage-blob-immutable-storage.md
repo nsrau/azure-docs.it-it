@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 60cf37e5f6375d08e73241f6e357ac39ea665e9b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d58c596421cec2e69210dd39a5d4a9708c154b44
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192543"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492763"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Archiviare dati critici in Archiviazione BLOB di Azure
 
@@ -34,9 +34,9 @@ Le applicazioni tipiche includono:
 
 Archiviazione non modificabile supporta quanto segue:
 
-- **[Supporto di criteri di conservazione basati sul tempo](#time-based-retention)**: Gli utenti possono impostare criteri per archiviare i dati per un intervallo specificato. Quando un criterio di conservazione basati sul tempo è impostato, BLOB possono essere creati e leggere, ma non modificati o eliminati. Una volta scaduto il periodo di conservazione, i BLOB possono essere eliminati ma non verrà sovrascritti.
+- **[Supporto di criteri di conservazione basati sul tempo](#time-based-retention)** : Gli utenti possono impostare criteri per archiviare i dati per un intervallo specificato. Quando un criterio di conservazione basati sul tempo è impostato, BLOB possono essere creati e leggere, ma non modificati o eliminati. Una volta scaduto il periodo di conservazione, i BLOB possono essere eliminati ma non verrà sovrascritti.
 
-- **[Supporto dei criteri a fini giudiziari](#legal-holds)**: Se l'intervallo di conservazione non è noto, gli utenti possono impostare giudiziari per archiviare i dati immutably fino a quando non viene cancellata la giudiziari.  Quando è impostato un criterio a fini giudiziari, i BLOB possono da creati e letti, ma non modificare o eliminare. Ogni a fini giudiziari sono associato un tag definito dall'utente alfanumerici (ad esempio un ID case, nome dell'evento e così via) che viene usato come una stringa di identificazione. 
+- **[Supporto dei criteri a fini giudiziari](#legal-holds)** : Se l'intervallo di conservazione non è noto, gli utenti possono impostare giudiziari per archiviare i dati immutably fino a quando non viene cancellata la giudiziari.  Quando è impostato un criterio a fini giudiziari, i BLOB possono da creati e letti, ma non modificare o eliminare. Ogni a fini giudiziari sono associato un tag definito dall'utente alfanumerici (ad esempio un ID case, nome dell'evento e così via) che viene usato come una stringa di identificazione. 
 
 - **Supporto per tutti i livelli di BLOB**: i criteri WORM sono indipendenti dal livello di Archiviazione BLOB di Azure e si applicano a tutti i livelli (ad accesso frequente, ad accesso sporadico e archivio). Gli utenti possono trasferire i dati nel livello con i costi ottimali per i carichi di lavoro, mantenendo al tempo stesso la non modificabilità dei dati.
 
@@ -53,7 +53,7 @@ Eliminazione dell'Account e contenitore inoltre non sono consentiti se sono pres
 ### <a name="time-based-retention"></a>Conservazione basata su tempo
 
 > [!IMPORTANT]
-> I criteri di conservazione basati sul tempo devono essere *bloccati* perché il BLOB sia in uno stato non modificabile (protetto da scrittura ed eliminazione) per la conformità a SEC 17a-4(f) e ad altri requisiti normativi. È consigliabile bloccare i criteri in un periodo di tempo ragionevole, in genere entro 24 ore. Non è consigliabile usare lo stato *sbloccato* per scopi diversi da valutazioni delle funzionalità a breve termine.
+> Deve essere un criterio di conservazione basati sul tempo *bloccato* per il blob in un conforme non modificabili (scrittura ed eliminazione protetta) dello stato per SEC 17a-4(f) e altre esigenze di conformità alle normative. Si consiglia di bloccare i criteri in un periodo ragionevole di tempo, in genere meno di 24 ore. Lo stato iniziale di un criterio di conservazione basati sul tempo applicato sia *sbloccato*, che consente di testare la funzionalità e apportare modifiche ai criteri prima bloccarla. Mentre il *sbloccato* stato fornisce protezione immutabilità, non è consigliabile usare i *sbloccato* dello stato per scopi diversi da versioni di valutazione di funzionalità a breve termine. 
 
 Quando vengono applicati criteri di conservazione basati sul tempo a un contenitore, tutti i BLOB nel contenitore rimangono nello stato non modificabile per la durata del periodo di conservazione *effettivo*. Il periodo di conservazione effettivo per i BLOB esistenti è uguale alla differenza tra l'ora di modifica del blob e il periodo di memorizzazione specificato dall'utente.
 
@@ -65,6 +65,8 @@ Per i nuovi BLOB, il periodo di conservazione effettivo è uguale all'intervallo
 > Il blob esistente in quel contenitore _testblob1_, è stato creato un anno fa. Periodo di memorizzazione effettivo _testblob1_ è quattro anni.
 >
 > Un nuovo blob _testblob2_, viene ora caricato nel contenitore. Il periodo di conservazione effettivo per il nuovo BLOB è di cinque anni.
+
+Un criterio di conservazione basati sul tempo sbloccato è consigliato solo per i test di funzionalità e un criterio deve essere bloccato per essere conformi a SEC 17a-4(f) e altre esigenze di conformità alle normative. Dopo aver bloccato un criterio di conservazione basati sul tempo, il criterio non può essere rimosso e viene consentito un massimo di 5 aumenta per il periodo di conservazione effettivo. Per altre informazioni su come impostare e i criteri di conservazione basati sul tempo di blocco, vedere la [introduttiva](#getting-started) sezione.
 
 ### <a name="legal-holds"></a>Blocchi a fini giudiziari
 
@@ -124,7 +126,7 @@ Le versioni più recenti del [portale di Azure](https://portal.azure.com), [CLI 
 
     Lo stato iniziale del criterio viene sbloccato testare la funzionalità e apportare modifiche ai criteri prima bloccarla. I criteri di blocco sono essenziali per la conformità alle normative, ad esempio SEC 17a-4.
 
-5. Bloccare i criteri. Fare doppio clic sui puntini di sospensione (**...** ), e viene visualizzato il menu seguente con le azioni aggiuntive:
+5. Bloccare i criteri. Fare doppio clic sui puntini di sospensione ( **...** ), e viene visualizzato il menu seguente con le azioni aggiuntive:
 
     ![Comando per il blocco dei criteri nel menu](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
@@ -169,7 +171,7 @@ Le librerie client seguenti supportano l'archiviazione non modificabile per Arch
 
 **È possibile fornire la documentazione di conformità di WORM?**
 
-Sì. Per la conformità di documento, Microsoft mantenuta una società di valutazione indipendente leader specializzata in governance delle informazioni e gestione record, associa Cohasset, per valutare la conformità ai requisiti specifici e non modificabile archiviazione Blob di Azure per il settore dei servizi finanziari. Cohasset convalidare che non modificabile archiviazione Blob di Azure quando viene utilizzata per conservare i BLOB basato sul tempo in uno stato WORM, soddisfi i requisiti di archiviazione rilevanti del CFTC regola 1.31(c)-(d) FINRA regola 4511 e SEC Rule 17a-4. Microsoft come destinazione questo set di regole, poiché tali versioni rappresentano le indicazioni prescrittive più presenti a livello globale per la conservazione dei record per gli istituti finanziari. Il report Cohasset è disponibile nel [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage).
+Sì. Per la conformità di documento, Microsoft mantenuta una società di valutazione indipendente leader specializzata in governance delle informazioni e gestione record, associa Cohasset, per valutare la conformità ai requisiti specifici e non modificabile archiviazione Blob di Azure per il settore dei servizi finanziari. Cohasset convalidare che non modificabile archiviazione Blob di Azure quando viene utilizzata per conservare i BLOB basato sul tempo in uno stato WORM, soddisfi i requisiti di archiviazione rilevanti del CFTC regola 1.31(c)-(d) FINRA regola 4511 e SEC Rule 17a-4. Microsoft come destinazione questo set di regole, poiché tali versioni rappresentano le indicazioni prescrittive più presenti a livello globale per la conservazione dei record per gli istituti finanziari. Il report Cohasset è disponibile nel [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage). Per richiedere una lettera di attestazione da parte di Microsoft relative alla conformità WORM, contattare il supporto tecnico di Azure.
 
 **La funzionalità si applica solo ai BLOB in blocchi o anche ai BLOB di pagine e di aggiunta?**
 
@@ -186,6 +188,10 @@ Sì, un contenitore può avere sia un a fini giudiziari e criteri di conservazio
 **Sono i criteri a fini giudiziari solo per azioni legali o esistono altri scenari di utilizzo?**
 
 No, giudiziari è semplicemente il termine generale utilizzato per un criterio di conservazione non basati sul tempo. Non dovrà essere usato solo per controversia legale proceedings correlati. I criteri di esenzione validi sono utili per la disabilitazione di sovrascrittura e le eliminazioni per la protezione aziendale importanti dati WORM, in cui il periodo di conservazione è sconosciuto. È possibile utilizzarlo come un criterio dell'organizzazione per proteggere i WORM carichi di lavoro cruciali o usarlo come un criterio di gestione temporanea prima di un trigger di evento personalizzato richiede l'uso di un criterio di conservazione basati sul tempo. 
+
+**È possibile rimuovere un *bloccato* criteri di conservazione basati sul tempo o a fini giudiziari?**
+
+Solo i criteri di conservazione basati sul tempo sbloccato possono essere rimosso da un contenitore. Dopo aver bloccato un criterio di conservazione basati sul tempo, non può essere rimosso; periodo di conservazione effettivo delle estensioni sono consentite solo. È possibile eliminare i tag a fini giudiziari. Quando vengono eliminati tutti i tag validi, viene rimosso il giudiziari.
 
 **Che cosa accade se si tenta di eliminare un contenitore con un criterio di conservazione basato sul tempo *bloccato* o un blocco a fini giudiziari?**
 
@@ -375,12 +381,12 @@ $policy = Set-AzRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
 ```
 
-Rimuovere un criterio di immutabilità (aggiungere -Force per ignorare il prompt):
+Rimuovere i criteri di immutabilità sbloccato (Aggiungi - Force per ignorare il prompt dei comandi):
 ```powershell
 # with an immutability policy object
 $policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-Remove-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 # with an account name or container name
 Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `

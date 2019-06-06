@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e57133a750e282484271261d8e4ddb9a12de2a0e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242418"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480065"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Come funziona il servizio Azure Machine Learning: Architettura e concetti
 
@@ -162,6 +162,9 @@ Quando si avvia un'esecuzione in cui la directory di origine è un repository Gi
 ## <a name="snapshot"></a>Snapshot
 
 Quando si invia un'esecuzione, Azure Machine Learning consente di comprimere la directory che contiene lo script come file ZIP e lo invia alla destinazione di calcolo. Il file ZIP viene quindi estratto e lo script eseguito in questa posizione. Azure Machine Learning archivia inoltre il file ZIP come snapshot come parte del record di esecuzione. Chiunque abbia accesso all'area di lavoro può esplorare un record di esecuzione e scaricare lo snapshot.
+
+> [!NOTE]
+> Per impedire che viene incluso nello snapshot di file non necessari, creare un file ignorato (con estensione gitignore o .amlignore). Inserire questo file della cartella Snapshot e aggiungere i nomi di file da ignorare in esso. Il file .amlignore Usa lo stesso [sintassi e i modelli del file con estensione gitignore](https://git-scm.com/docs/gitignore). Se entrambi i file esistono, il file .amlignore ha la precedenza.
 
 ## <a name="activity"></a>Attività
 

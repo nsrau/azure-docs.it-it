@@ -12,20 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 80ef8870bafa00f3debda99db299018a39d42a82
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1a8d622aa280794d9a4d6fe7320ddcc21ac044f4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245047"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475657"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiare dati da Office 365 in Azure usando Azure Data Factory
 
-Azure Data Factory consente di portare in Azure i dati aziendali importanti presenti nel proprio tenant di Office 365 in modo scalabile, di creare applicazioni di analisi e di estrarre informazioni dettagliate basate su questi asset di dati importanti. L'integrazione con Privileged Access Management fornisce un controllo di accesso protetto per i dati importanti in Office 365.  Per altre informazioni sulla connessione dei dati di Microsoft Graph, vedere [questo collegamento](https://docs.microsoft.com/graph/data-connect-concept-overview).
+Data Factory di Azure si integra con [i dati di Microsoft Graph per connettersi](https://docs.microsoft.com/graph/data-connect-concept-overview), consentendo agli utenti di usare le numerose dati aziendali di Office 365 del tenant in Azure in modo scalabile e compilare applicazioni di analitica e di estrarre informazioni approfondite basate questi asset di dati importanti. L'integrazione con Privileged Access Management fornisce un controllo di accesso protetto per i dati importanti in Office 365.  Consultare [questo collegamento](https://docs.microsoft.com/graph/data-connect-concept-overview) per una panoramica sui dati di Microsoft Graph, la connessione e fare riferimento a [questo collegamento](https://docs.microsoft.com/graph/data-connect-policies#licensing) per informazioni sulle licenze.
 
 Questo articolo descrive come usare l'attività di copia in Azure Data Factory per copiare dati da Office 365. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
+Connettore Azure Data factory Office 365 e i dati di Microsoft Graph connettono attiva al momento dell'inserimento di scalabilità di diversi tipi di set di dati dalle cassette postali abilitato posta elettronica di Exchange, tra cui contatti, calendario eventi, messaggi di posta elettronica, le informazioni utente, impostazioni della cassetta postale, e così via.  Fare riferimento [qui](https://docs.microsoft.com/graph/data-connect-datasets) per visualizzare l'elenco completo dei set di dati disponibili.
 
 Per ora, all'interno di una singola attività di copia è solo possibile **copiare i dati da Office 365 in [archivio Blob di Azure](connector-azure-blob-storage.md), [Azure Data Lake archiviazione Gen1](connector-azure-data-lake-store.md), e [Gen2 di archiviazione di Azure Data Lake ](connector-azure-data-lake-storage.md) in formato JSON** (tipo setOfObjects). Se si vuole caricare Office 365 in altri tipi di archivi dati o in altri formati, è possibile concatenare la prima attività di copia con un'attività di copia successiva per caricare ulteriormente i dati in uno qualsiasi degli [archivi di destinazione di ADF supportati](copy-activity-overview.md#supported-data-stores-and-formats). Fare riferimento alla colonna "Supportato come sink" nella tabella "Archivi dati e formati supportati".
 
@@ -120,8 +121,8 @@ Per copiare dati da Office 365, sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **Office365Table** | Yes |
 | tableName | Nome del set di dati da estrarre da Office 365. Per l'elenco dei set di dati di Office 365 disponibili per l'estrazione, vedere [questo articolo](https://docs.microsoft.com/graph/data-connect-datasets#datasets). | Yes |
-| allowedGroups | Predicato di selezione gruppo.  Utilizzare questa proprietà per selezionare un massimo di 10 gruppi di utenti per i quali verranno recuperati i dati.  Se non vengono specificati gruppi, i dati verranno restituiti per l'intera organizzazione. | No  |
-| userScopeFilterUri | Quando `allowedGroups` proprietà non è specificata, è possibile usare un'espressione del predicato viene applicata per l'intero tenant per filtrare le righe specifiche da estrarre da Office 365. Il formato del predicato deve corrispondere al formato di query dell'API Graph Microsoft, ad esempio `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | No  |
+| allowedGroups | Predicato di selezione gruppo.  Utilizzare questa proprietà per selezionare un massimo di 10 gruppi di utenti per i quali verranno recuperati i dati.  Se non vengono specificati gruppi, i dati verranno restituiti per l'intera organizzazione. | No |
+| userScopeFilterUri | Quando `allowedGroups` proprietà non è specificata, è possibile usare un'espressione del predicato viene applicata per l'intero tenant per filtrare le righe specifiche da estrarre da Office 365. Il formato del predicato deve corrispondere al formato di query dell'API Graph Microsoft, ad esempio `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | No |
 | dateFilterColumn | Nome della colonna di filtro di data/ora. Utilizzare questa proprietà per limitare l'intervallo di tempo per cui Office 365 vengono estratti i dati. | Sì, se il set di dati contiene uno o più colonne di tipo DateTime. Fare riferimento [qui](https://docs.microsoft.com/graph/data-connect-filtering#filtering) per elenco di set di dati che richiedono questo filtro data/ora. |
 | startTime | Avviare il valore DateTime da filtrare. | Sì se `dateFilterColumn` specificato |
 | endTime | Terminare il valore DateTime da filtrare. | Sì se `dateFilterColumn` specificato |

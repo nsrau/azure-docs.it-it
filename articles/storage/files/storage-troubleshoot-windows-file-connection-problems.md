@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9658ed46e1a46aa3fc2c7fe251fd73b2ef0a13dd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991373"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480310"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -136,14 +136,13 @@ L'errore 1816 si verifica quando si raggiunge il limite massimo di handle aperti
 
 Chiudere alcuni degli handle aperti simultaneamente per ridurne il numero e quindi riprovare. Per altre informazioni, vedere [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-<a id="accessdeniedportal"></a>
-## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Errore "Accesso negato" durante l'esplorazione di una condivisione file di Azure nel portale
+<a id="authorizationfailureportal"></a>
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Errore "Errore di autorizzazione" durante l'esplorazione di una condivisione file di Azure nel portale
 
 Quando si passa alla condivisione file di Azure nel portale, viene visualizzato il messaggio di errore seguente:
 
-Accesso negato  
-L'utente non è autorizzato ad accedere  
-Non si è autorizzati ad accedere a questo contenuto. Per ottenere l'accesso, contattare il proprietario.  
+Errore di autorizzazione  
+L'utente non è autorizzato ad accedere 
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Causa 1: l'account utente non ha accesso all'account di archiviazione
 

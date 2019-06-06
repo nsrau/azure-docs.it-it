@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0986610007f5c470589eb94d6761b8d31dd79e72
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463487"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513658"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 
@@ -181,6 +181,8 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |500121| Autenticazione non riuscita durante la richiesta di autenticazione avanzata.|
 |500133| L'asserzione non è compresa nell'intervallo di tempo valido. Assicurarsi che il token di accesso non sia scaduto prima di usarlo per l'asserzione utente o richiedere un nuovo token.|
 |530021|Applicazione non soddisfa i requisiti delle app approvata l'accesso condizionale.|
+|7000218|Il corpo della richiesta deve contenere il parametro seguente: 'client_assertion' o 'client_secret'.|
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: Livello di servizio di utilizzo generico - Database SQL di Azure | Microsoft Docs
-description: Informazioni sul livello di utilizzo generico del database SQL di Azure
+title: Livello di servizio per utilizzo generico - Database SQL di Azure | Microsoft Docs
+description: Scopri il livello di Database SQL di Azure per utilizzo generico
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,17 +12,17 @@ ms.author: jovanpop-msft
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: dc379f1ee67174cd806840e4244054701d18f0d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b972ea985a09457d8b6a17a292e18754761f5a6e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709149"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479187"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Livello di servizio di utilizzo generico - Database SQL di Azure
 
 > [!NOTE]
-> Il livello di servizio di utilizzo generico nel modello di acquisto basato su vCore è denominato livello di servizio standard nel modello di acquisto basato su DTU. Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-purchase-models.md).
+> Il livello di servizio per utilizzo generico nel modello di acquisto basato su vCore è chiamato livello di servizio standard nel modello di acquisto basato su DTU. Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-purchase-models.md).
 
 Il database SQL di Azure si basa sull'architettura del motore di database di SQL Server che viene rettificata per l'ambiente cloud al fine di garantire la disponibilità del 99,99% anche in caso di errori dell'infrastruttura. Vengono usati tre livelli di servizio nel database SQL di Azure, ognuno con diversi modelli di architettura. Questi livelli di servizio sono:
 
@@ -30,13 +30,13 @@ Il database SQL di Azure si basa sull'architettura del motore di database di SQL
 - Business Critical
 - Hyperscale
 
-Il modello di architettura per il livello di servizio di utilizzo generico si basa su una separazione tra calcolo e archiviazione. Questo modello di architettura si basa sull'elevata disponibilità e affidabilità di Archiviazione BLOB di Azure che replica i file di database in modo trasparente e impedisce la perdita di dati in caso di un errore dell'infrastruttura sottostante.
+Il modello architettura per il livello di servizio per utilizzo generico è basato su una separazione tra calcolo e archiviazione. Questo modello di architettura si basa sull'elevata disponibilità e affidabilità di Archiviazione BLOB di Azure che replica i file di database in modo trasparente e impedisce la perdita di dati in caso di un errore dell'infrastruttura sottostante.
 
 La figura seguente illustra quattro nodi nel modello dell'architettura standard con i livelli di calcolo e archiviazione separati.
 
 ![Separazione di calcolo e archiviazione](media/sql-database-managed-instance/general-purpose-service-tier.png)
 
-Nel modello di architettura per il livello di servizio di utilizzo generico esistono due livelli:
+Nel modello di architettura per il livello di servizio per utilizzo generico, esistono due livelli:
 
 - Un livello di calcolo senza stato che esegue il processo `sqlserver.exe` e contiene solo i dati temporanei e memorizzati nella cache, ad esempio cache dei piani, pool di buffer, pool dell'archivio colonne. Il nodo di SQL Server senza stato è gestito da Azure Service Fabric che inizializza il processo, controlla l'integrità del nodo e, se necessario, esegue il failover in un'altra posizione.
 - Un livello di dati con stato con i file di database (con estensione mdf/ldf) archiviati in Archiviazione BLOB di Azure. Archiviazione BLOB di Azure garantisce che i dati dei record che si trovano in un file di database non vadano perduti. Archiviazione di Azure è dotato di disponibilità/ridondanza dei dati incorporata che assicura che ogni record nel file di log o pagina nel file di dati verrà conservato anche se si blocca il processo di SQL Server.
@@ -45,10 +45,11 @@ Ogni volta che viene aggiornato il motore di database o il sistema operativo, og
 
 ## <a name="when-to-choose-this-service-tier"></a>Quando scegliere questo livello di servizio
 
-Il livello di servizio per utilizzo generico è un livello di servizio predefinito nel database SQL di Azure progettato per la maggior parte dei carichi di lavoro generici. Se si necessita di un motore di database completamente gestito con contratto di servizio al 99,99%, con una latenza di archiviazione tra 5 e 10 ms che sia conforme all'infrastruttura distribuita come servizio IaaS di SQL di Azure nella maggior parte dei casi, il livello per utilizzo generico è la scelta adatta.
+Il livello di servizio per utilizzo generico è un livello di servizio predefinito nel database SQL di Azure progettato per la maggior parte dei carichi di lavoro generici. Se è necessario un motore di database completamente gestito con contratto di servizio del 99,99% con una latenza di archiviazione tra 5 e 10 ms che corrispondono a IaaS di SQL di Azure nella maggior parte dei casi, livello utilizzo generico è la scelta dell'opzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Trovare le caratteristiche delle risorse (numero di core, IO, memorie) del livello di scopo generale/Standard in [istanza gestita](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)singola del database in [modello basato su vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) oppure [modello basato su DTU](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes), o Pool elastico nel [modello basato su vCore](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) e [modello basato su DTU](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits).
 - Informazioni sui livelli [Business Critical](sql-database-service-tier-business-critical.md) e [Hyperscale](sql-database-service-tier-hyperscale.md).
 - Informazioni su [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Per altre opzioni relative a disponibilità elevata e ripristino di emergenza, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).

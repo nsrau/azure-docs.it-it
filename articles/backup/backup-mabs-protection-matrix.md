@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83cfd2b7ccdf8ec14e828baec1031e11b28c988c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237609"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427358"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matrice di protezione del server di Backup di Azure
 
@@ -82,6 +82,15 @@ Questo articolo elenca i vari server e carichi di lavoro che è possibile proteg
 |VM VMware|VMware vCenter/vSphere ESX/ESXi concesso in licenza versione 5.5/6.0/6.5 |Server fisico, <br/>Macchina virtuale Hyper-V locale, <br/> Macchina virtuale Windows in VMWare|S|S|Macchine virtuali VMware in volumi condivisi cluster (CSV), NFS e archiviazione SAN<br /> Il ripristino a livello di elemento di file e cartelle è disponibile solo per macchine virtuali Windows, mentre VMware vApps non sono supportate.|
 |VM VMware|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Server fisico, <br/>Macchina virtuale Hyper-V locale, <br/> Macchina virtuale Windows in VMWare|S|N|Macchine virtuali VMware in volumi condivisi cluster (CSV), NFS e archiviazione SAN<br /> Il ripristino a livello di elemento di file e cartelle è disponibile solo per macchine virtuali Windows, mentre VMware vApps non sono supportate.|
 |Linux|Linux in esecuzione come guest Hyper-V o VMware|Server fisico, <br/>Macchina virtuale Hyper-V locale, <br/> Macchina virtuale Windows in VMWare|S|S|Hyper-V deve essere in esecuzione in Windows Server 2012 R2 o Windows Server 2016. Protezione: intera macchina virtuale<br /><br />Recupero: intera macchina virtuale <br/><br/> Per un elenco completo delle distribuzioni e versioni Linux supportate, vedere l'articolo [Linux in distribuzioni approvate da Azure](../virtual-machines/linux/endorsed-distros.md).|
+
+## <a name="azure-expressroute-support"></a>Supporto per Azure ExpressRoute
+
+Se Azure ExpressRoute è configurato con peering privato o Microsoft, non può essere usato per eseguire il backup dei dati in Azure.
+
+Se Azure ExpressRoute è configurato con Peering pubblico, può essere utilizzato per eseguire il backup dei dati in Azure.
+
+>[!NOTE]
+>Peering pubblico è deprecato per nuovi circuiti.
 
 ## <a name="cluster-support"></a>Supporto di cluster
 Il server di Backup di Azure può proteggere i dati nelle applicazioni in cluster seguenti:

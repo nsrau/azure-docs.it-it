@@ -2,20 +2,20 @@
 title: Risoluzione dei problemi dei criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni sugli approcci per la risoluzione degli errori quando si lavora con i criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5345069005f9161ff04fffb063fda99b7594ec08
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 552f056a6637b3ebacfbd15eb878c28adbec6b88
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703046"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509965"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Risoluzione dei problemi del framework di esperienza di gestione delle identità e criteri personalizzati di Azure AD B2C
 
@@ -57,8 +57,8 @@ Frammento con errore: `Reason: User is currently logged as a user of 'yourtenant
 
 * Usare `Run Now` e `https://jwt.io` per testare i criteri indipendentemente dall'applicazione Web o per dispositivi mobili. Questo sito Web funziona come un'applicazione relying party. Viene visualizzato il contenuto del token JSON Web (JWT) che viene generato per i criteri di Azure AD B2C. Per creare un'applicazione di test nel framework di esperienza di gestione delle identità usare i seguenti valori:
     * Nome: TestApp
-    * App Web/API Web: No 
-    * Client nativo: No 
+    * App Web/API Web: No
+    * Client nativo: No
 
 * Per tracciare lo scambio di messaggi tra il browser client e Azure AD B2C usare [Fiddler](https://www.telerik.com/fiddler). Consente di ottenere un'indicazione del punto in cui il percorso utente genera errori nei passaggi di orchestrazione.
 

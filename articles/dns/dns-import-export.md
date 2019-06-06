@@ -2,17 +2,16 @@
 title: Importare ed esportare un file di zona del dominio in DNS di Azure usando l'interfaccia della riga di comando di Azure | Microsoft Docs
 description: Informazioni su come importare ed esportare un file di zona DNS in DNS di Azure con l'interfaccia della riga di comando di Azure
 services: dns
-author: WenJason
+author: vhorne
 ms.service: dns
-origin.date: 4/3/2019
-ms.date: 04/15/2019
-ms.author: v-jay
-ms.openlocfilehash: 25445415141372e1f231549c5b8f8575a89363c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 4/3/2019
+ms.author: victorh
+ms.openlocfilehash: 00ff5636f97b24c656ee4e5d8ceb2f6b22524538
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61293077"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515340"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importare ed esportare un file di zona DNS usando l'interfaccia della riga di comando di Azure
 
@@ -115,19 +114,19 @@ Per verificare la zona DNS dopo aver importato il file, è possibile usare uno d
         "nsRecords": [
           {
             "additionalProperties": {},
-            "nsdname": "ns1-03.azure-dns.cn."
+            "nsdname": "ns1-03.azure-dns.com."
           },
           {
             "additionalProperties": {},
-            "nsdname": "ns2-03.azure-dns.cn."
+            "nsdname": "ns2-03.azure-dns.net."
           },
           {
             "additionalProperties": {},
-            "nsdname": "ns3-03.azure-dns.cn."
+            "nsdname": "ns3-03.azure-dns.org."
           },
           {
             "additionalProperties": {},
-            "nsdname": "ns4-03.azure-dns.cn."
+            "nsdname": "ns4-03.azure-dns.info."
           }
         ],
         "resourceGroup": "myresourcegroup",
@@ -138,9 +137,9 @@ Per verificare la zona DNS dopo aver importato il file, è possibile usare uno d
     ```
 
     ```cmd
-    nslookup www.contoso.com ns1-03.azure-dns.cn
+    nslookup www.contoso.com ns1-03.azure-dns.com
 
-        Server: ns1-01.azure-dns.cn
+        Server: ns1-01.azure-dns.com
         Address:  40.90.4.1
 
         Name:www.contoso.com
@@ -154,7 +153,7 @@ Dopo aver verificato che la zona è stata importata correttamente, è necessario
 
 ## <a name="export-a-dns-zone-file-from-azure-dns"></a>Esportare un file di zona DNS da DNS di Azure
 
-Il formato del comando dell'interfaccia della riga di comando di Azure per importare una zona DNS è:
+Il formato del comando di Azure per esportare una zona DNS è:
 
 ```azurecli
 az network dns zone export -g <resource group> -n <zone name> -f <zone file name>

@@ -2,20 +2,20 @@
 title: Limiti di capacità - Azure SQL Data Warehouse | Microsoft Docs
 description: Valori massimi consentiti per vari componenti di SQL Data Warehouse di Azure.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 11/14/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f3c2ecbb4c83132b674b4c296adc1339027f5215
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62213ca1910ff26287bcd398d89fe7f8caf3cfac
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797789"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514689"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limiti di capacità di SQL Data Warehouse
 Valori massimi consentiti per vari componenti di SQL Data Warehouse di Azure.
@@ -25,8 +25,8 @@ Valori massimi consentiti per vari componenti di SQL Data Warehouse di Azure.
 |:--- |:--- |:--- |
 | [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU per un singolo SQL Data Warehouse | Prima generazione: DW6000<br></br>Seconda generazione: DW30000c |
 | [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU predefinita per server |54.000<br></br>Per impostazione predefinita, ogni server SQL, ad esempio myserver.database.windows.net, ha una quota DTU di 54.000 che consente al massimo DW6000c. Questa quota è semplicemente un limite di sicurezza. È possibile aumentare la quota [creando un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) e selezionando *Quota* come tipo di richiesta.  Per calcolare le esigenze in termini di DTU, moltiplicare 7,5 per il valore DWU totale necessario oppure moltiplicare per 9 il totale di DWU a elevato utilizzo di calcolo necessari. Ad esempio:<br></br>DW6000 x 7,5 = 45.000 DTU<br></br>DW6000c x 9 = 54.000 DTU.<br></br>È possibile visualizzare l'utilizzo di DTU attuale nell'opzione SQL Server del portale. I database in pausa e non in pausa vengono conteggiati nella quota di DTU. |
-| Connessione database |Simultanee massime aprire sessioni |1024<br/><br/>Il numero di sessioni simultanee aperte possono variare in base l'impostazione DWU selezionata. DWU600c e versione successiva supportano un massimo di 1024 aprire sessioni. DWU500c e precedenti supportano un limite di durata massima della sessione simultanee aperte di 512. Si noti che vi sono limiti nel numero di query che è possibile eseguire contemporaneamente. Quando si supera il limite di concorrenza, la richiesta viene inviata a una coda interna in cui resta in attesa di elaborazione. |
-| Connessione database |Memoria massima per le istruzioni preparate |20 MB |
+| Connessione del database |Simultanee massime aprire sessioni |1024<br/><br/>Il numero di sessioni simultanee aperte possono variare in base l'impostazione DWU selezionata. DWU600c e versione successiva supportano un massimo di 1024 aprire sessioni. DWU500c e precedenti supportano un limite di durata massima della sessione simultanee aperte di 512. Si noti che vi sono limiti nel numero di query che è possibile eseguire contemporaneamente. Quando si supera il limite di concorrenza, la richiesta viene inviata a una coda interna in cui resta in attesa di elaborazione. |
+| Connessione del database |Memoria massima per le istruzioni preparate |20 MB |
 | [Gestione del carico di lavoro](resource-classes-for-workload-management.md) |Numero massimo di query simultanee |128<br/><br/> SQL Data Warehouse può eseguire un massimo di 128 query simultanee e mette in coda le query rimanenti.<br/><br/>Il numero di query simultanee può diminuire quando gli utenti sono assegnati a classi di risorse superiori o quando SQL Data Warehouse ha un'impostazione di [unità Data Warehouse](memory-and-concurrency-limits.md) inferiore. Per alcune query, come le query DMV, l'esecuzione è sempre consentita e non influisce sul limite di query simultanee. Per altre informazioni sull'esecuzione di query simultanee, vedere l'articolo sui [valori massimi di concorrenza](memory-and-concurrency-limits.md#concurrency-maximums). |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB massimi |399 GB per DW100. Pertanto a DWU1000, tempdb ha le dimensioni di 3,99 TB. |
 
@@ -49,7 +49,7 @@ Valori massimi consentiti per vari componenti di SQL Data Warehouse di Azure.
 | Statistiche |Colonne per oggetto statistiche. |32 |
 | Statistiche |Statistiche create per le colonne per tabella. |30.000 |
 | Stored procedure |Livello massimo di annidamento. |8 |
-| Visualizzazione |Colonne per vista |1.024 |
+| visualizzazione |Colonne per vista |1.024 |
 
 ## <a name="loads"></a>Operazioni di caricamento
 | Category | Descrizione | Massima |
@@ -65,10 +65,10 @@ Valori massimi consentiti per vari componenti di SQL Data Warehouse di Azure.
 | Query |Parametri massimi |2098 |
 | Batch |Dimensione massima |65.536*4096 |
 | Risultati SELECT |Colonne per riga |4096<br/><br/>Nel risultato SELECT non è possibile avere più di 4096 colonne per riga. Non è garantito che si possa avere sempre 4096. Se il piano di query richiede una tabella temporanea, potrebbe venire applicato il valore massimo di 1024 colonne per tabella. |
-| SELEZIONA |Sottoquery nidificate |32<br/><br/>In un'istruzione SELECT non è possibile avere più di 32 sottoquery nidificate. Non è garantito che si possa averne sempre 32. Ad esempio, un JOIN può introdurre una sottoquery nel piano di query. Il numero di sottoquery può essere limitato anche dalla memoria disponibile. |
-| SELEZIONA |Colonne per JOIN |1024 colonne<br/><br/>Nel JOIN non è mai possibile avere più di 1024 colonne. Non è garantito che si possa averne sempre 1024. Se il piano JOIN richiede una tabella temporanea con più colonne del risultato JOIN, il limite di 1024 viene applicato alla tabella temporanea. |
-| SELEZIONA |Byte per le colonne GROUP BY. |8060<br/><br/>Le colonne presenti nella clausola GROUP BY possono avere un massimo di 8060 byte. |
-| SELEZIONA |Byte per le colonne ORDER BY |8060 byte<br/><br/>Le colonne presenti nella clausola ORDER BY possono avere un massimo di 8060 byte. |
+| SELECT |Sottoquery nidificate |32<br/><br/>In un'istruzione SELECT non è possibile avere più di 32 sottoquery nidificate. Non è garantito che si possa averne sempre 32. Ad esempio, un JOIN può introdurre una sottoquery nel piano di query. Il numero di sottoquery può essere limitato anche dalla memoria disponibile. |
+| SELECT |Colonne per JOIN |1024 colonne<br/><br/>Nel JOIN non è mai possibile avere più di 1024 colonne. Non è garantito che si possa averne sempre 1024. Se il piano JOIN richiede una tabella temporanea con più colonne del risultato JOIN, il limite di 1024 viene applicato alla tabella temporanea. |
+| SELECT |Byte per le colonne GROUP BY. |8060<br/><br/>Le colonne presenti nella clausola GROUP BY possono avere un massimo di 8060 byte. |
+| SELECT |Byte per le colonne ORDER BY |8060 byte<br/><br/>Le colonne presenti nella clausola ORDER BY possono avere un massimo di 8060 byte. |
 | Identificatori per istruzione |Numero di identificatori di riferimento |65.535<br/><br/>SQL Data Warehouse limita il numero di identificatori che possono essere contenuti in una singola espressione di una query. Il superamento di questo numero genera un errore 8632 di SQL Server. Per altre informazioni, vedere [Errore interno: è stato raggiunto un limite per i servizi di gestione delle espressioni](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Valori letterali stringa | Numero di valori letterali stringa in un'istruzione | 20.000 <br/><br/>SQL Data Warehouse limita il numero di costanti stringa in una singola espressione di una query. Il superamento di questo numero genera un errore 8632 di SQL Server.|
 
