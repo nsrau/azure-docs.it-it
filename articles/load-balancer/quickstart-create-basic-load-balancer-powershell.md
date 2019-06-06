@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un'istanza di Load Balancer Basic - Azure PowerShell"
+title: "Guida introduttiva: Creare un'istanza di Load Balancer Basic - Azure PowerShell"
 titlesuffix: Azure Load Balancer
 description: In questa guida introduttiva si apprende come creare un'istanza di Load Balancer Basic usando PowerShell
 services: load-balancer
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 31795b0dfb5a9815113ab232a266d9f7f8955068
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b77087557bc4ca1bea3cb4a36a50d787a5edf4d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688374"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729840"
 ---
 # <a name="get-started"></a>Guida introduttiva: Creare un servizio di bilanciamento del carico pubblico con Azure PowerShell
 
@@ -28,7 +28,7 @@ In questa guida introduttiva si apprende come creare un'istanza di Load Balancer
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell 5.4.1 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 

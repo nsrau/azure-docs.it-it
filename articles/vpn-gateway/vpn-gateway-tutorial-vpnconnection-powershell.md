@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: cac68506803cda2c4e537feac84da2a82bc128bd
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b59d58eb2c387e5ba1f71748751110bf932837b9
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444299"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66727114"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Esercitazione: Creare e gestire connessioni VPN da sito a sito con PowerShell
 
@@ -31,7 +31,7 @@ Il diagramma seguente illustra la topologia per questa esercitazione:
 
 ![Diagramma della connessione VPN da sito a sito](./media/vpn-gateway-tutorial-vpnconnection-powershell/site-to-site-diagram.png)
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="requirements"></a>Requisiti
 
@@ -102,7 +102,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1
   -ConnectionType IPsec -SharedKey "Azure@!b2C3"
 ```
 
-Aggiungere la proprietà facoltativa "**-EnableBGP $True**" per abilitare il protocollo BGP per la connessione, se si usa tale protocollo. Questo protocollo è disabilitato per impostazione predefinita.
+Aggiungere la proprietà facoltativa " **-EnableBGP $True**" per abilitare il protocollo BGP per la connessione, se si usa tale protocollo. Questo protocollo è disabilitato per impostazione predefinita.
 
 ## <a name="update-the-vpn-connection-pre-shared-key-bgp-and-ipsecike-policy"></a>Aggiornare la chiave precondivisa, il protocollo BGP e i criteri IPsec/IKE della connessione VPN
 
