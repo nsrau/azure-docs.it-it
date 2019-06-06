@@ -56,7 +56,7 @@ Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per esser
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
 | metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| topic | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 
 Per altre informazioni sullo schema di eventi di Griglia di eventi:
 
