@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 6140a8aea3fe0fe0a8f1c01cd1c97404c41f7a69
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5248b9546ffe931b72123778d0d23574e5238405
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805982"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742421"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>Estendere Azure IoT Central con regole personalizzate che inviano notifiche
 
@@ -40,9 +40,9 @@ Creare un'applicazione IoT Central dal [Azure IoT Central - applicazioni persona
 
 | Impostazione | Value |
 | ------- | ----- |
-| Piano di pagamento | Con pagamento in base al consumo |
-| Modello di applicazione | App Contoso di esempio |
-| Nome applicazione | Accettare il valore predefinito oppure scegliere il proprio nome |
+| Piano di pagamento | Pagamento in base al consumo |
+| Modello di applicazione | Esempio Contoso |
+| Nome dell'applicazione | Accettare il valore predefinito oppure scegliere il proprio nome |
 | URL | Accettare il valore predefinito oppure scegliere il proprio prefisso URL univoco |
 | Directory | Il tenant di Azure Active Directory |
 | Sottoscrizione di Azure | Sottoscrizione di Azure |
@@ -54,30 +54,30 @@ Gli esempi e schermate in questo articolo usano il **Stati Uniti orientali** are
 
 Usare la [portale di Azure per creare un gruppo di risorse](https://portal.azure.com/#create/Microsoft.ResourceGroup) chiamato **DetectStoppedDevices** per contenere le altre risorse create. Creare le risorse di Azure nella stessa posizione dell'applicazione IoT Central.
 
-### <a name="event-hubs-namespace"></a>Spazio dei nomi degli hub eventi
+### <a name="event-hubs-namespace"></a>Spazio dei nomi di Hub eventi
 
 Usare la [portale di Azure per creare uno spazio dei nomi di hub eventi](https://portal.azure.com/#create/Microsoft.EventHub) con le impostazioni seguenti:
 
 | Impostazione | Valore |
 | ------- | ----- |
 | NOME    | Scegliere il nome dello spazio dei nomi |
-| Piano tariffario | Di base |
-| Sottoscrizione | Sottoscrizione |
+| Piano tariffario | Basic |
+| Sottoscrizione | Sottoscrizione in uso |
 | Gruppo di risorse | DetectStoppedDevices |
 | Località | Stati Uniti orientali |
 | Unità elaborate | 1 |
 
-### <a name="stream-analytics-job"></a>Processo di Analisi di flusso
+### <a name="stream-analytics-job"></a>Processo di Stream Analitica
 
 Usare la [portale di Azure per creare un processo di Stream Analitica](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) con le impostazioni seguenti:
 
 | Impostazione | Valore |
 | ------- | ----- |
-| NOME    | Scegliere il nome del processo |
-| Sottoscrizione | Sottoscrizione |
+| Name    | Scegliere il nome del processo |
+| Sottoscrizione | Sottoscrizione in uso |
 | Gruppo di risorse | DetectStoppedDevices |
 | Località | Stati Uniti orientali |
-| Ambiente host | Cloud |
+| Ambiente di hosting | Cloud |
 | Unità di streaming | 3 |
 
 ### <a name="function-app"></a>App per le funzioni
@@ -87,13 +87,13 @@ Usare la [portale di Azure per creare un'app per le funzioni](https://portal.azu
 | Impostazione | Value |
 | ------- | ----- |
 | Nome app    | Scegliere il nome dell'app (funzione) |
-| Sottoscrizione | Sottoscrizione |
+| Sottoscrizione | Sottoscrizione in uso |
 | Gruppo di risorse | DetectStoppedDevices |
 | OS | Windows |
-| Piano di hosting | Piano A consumo |
+| Piano di hosting | Piano a consumo |
 | Località | Stati Uniti orientali |
 | Stack di runtime | .NET |
-| Archiviazione | Crea nuova |
+| Archiviazione | Creare un nuovo gruppo di risorse |
 
 ### <a name="sendgrid-account"></a>Account SendGrid
 
@@ -101,9 +101,9 @@ Usare la [portale di Azure per creare un account SendGrid](https://portal.azure.
 
 | Impostazione | Valore |
 | ------- | ----- |
-| NOME    | Scegliere il nome dell'account SendGrid |
-| Password | Crea una password |
-| Sottoscrizione | Sottoscrizione |
+| Name    | Scegliere il nome dell'account SendGrid |
+| Password | Creare una password |
+| Sottoscrizione | Sottoscrizione in uso |
 | Gruppo di risorse | DetectStoppedDevices |
 | Piano tariffario | F1 Gratuito |
 | Informazioni contatto | Fornisci le informazioni necessarie |
@@ -121,7 +121,7 @@ Dopo aver creato tutte le risorse necessarie, il **DetectStoppedDevices** gruppo
 
 Lo spazio dei nomi di hub eventi è simile alla seguente:
 
-![Spazio dei nomi degli hub eventi](media/howto-create-custom-rules/event-hubs-namespace.png)
+![Spazio dei nomi di Hub eventi](media/howto-create-custom-rules/event-hubs-namespace.png)
 
 ## <a name="get-sendgrid-api-key"></a>Ottenere la chiave API SendGrid
 
@@ -152,7 +152,7 @@ Il portale crea una funzione predefinita denominata **HttpTrigger1**:
 
 Per inviare messaggi di posta elettronica con SendGrid, è necessario configurare i binding per la funzione come indicato di seguito:
 
-1. Selezionare **integra**, scegliere l'output **HTTP ($return)**, quindi selezionare **Elimina**.
+1. Selezionare **integra**, scegliere l'output **HTTP ($return)** , quindi selezionare **Elimina**.
 1. Scegli **+ nuovo Output**, quindi scegliere **SendGrid**, quindi scegliere **selezionare**. Scegli **installare** per installare l'estensione di SendGrid.
 1. Al termine dell'installazione, selezionare **Usa valore restituito della funzione**. Aggiungere un valore valido **all'indirizzo** per ricevere notifiche tramite posta elettronica.  Aggiungere un valore valido **dall'indirizzo** da utilizzare come il mittente del messaggio di posta elettronica.
 1. Selezionare **nuove** accanto a **impostazione dell'App chiave API SendGrid**. Immettere **SendGridAPIKey** come chiave e la chiave API SendGrid annotato in precedenza come valore. Selezionare quindi **Crea**.
@@ -243,7 +243,7 @@ Questa soluzione Usa una query Analitica Stream consente di rilevare quando un d
     | Impostazione | Value |
     | ------- | ----- |
     | Alias di input | centraltelemetry |
-    | Sottoscrizione | Sottoscrizione |
+    | Sottoscrizione | Sottoscrizione in uso |
     | Spazio dei nomi dell'hub eventi | Lo spazio dei nomi di Hub eventi |
     | Nome dell'hub eventi | Usa esistente - **centralexport** |
 
@@ -253,7 +253,7 @@ Questa soluzione Usa una query Analitica Stream consente di rilevare quando un d
     | Impostazione | Value |
     | ------- | ----- |
     | Alias di output | EmailNotification |
-    | Sottoscrizione | Sottoscrizione |
+    | Sottoscrizione | Sottoscrizione in uso |
     | App per le funzioni | App per le funzioni |
     | Funzione  | HttpTrigger1 |
 
@@ -313,10 +313,10 @@ Passare il [applicazione IoT Central](https://aka.ms/iotcentral) creato dal mode
     | Impostazione | Valore |
     | ------- | ----- |
     | Nome visualizzato | Esporta in hub eventi |
-    | Enabled | Attivata |
-    | Spazio dei nomi degli hub eventi | Il nome dello spazio dei nomi di hub eventi |
+    | Enabled | Attivato |
+    | Spazio dei nomi di Hub eventi | Il nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
-    | Misurazioni | Attivata |
+    | Misure | Attivato |
     | Dispositivi | Off |
     | Modelli di dispositivo | Off |
 
@@ -353,4 +353,4 @@ In questa guida procedurale si è appreso come:
 * Creare una query Analitica Stream che consente di rilevare quando un dispositivo ha interrotto l'invio dei dati.
 * Invia una notifica di posta elettronica usando le funzioni di Azure e servizi forniti da SendGrid.
 
-Dopo aver appreso come creare regole personalizzate e le notifiche, il passaggio successivo consigliato consiste informazioni su come [Visualize e analizzare i dati di Azure IoT Central in un dashboard di Power BI](howto-connect-powerbi.md).
+Dopo aver appreso come creare regole personalizzate e le notifiche, il passaggio successivo consigliato consiste informazioni su come [estendere Azure IoT Central con analitica personalizzato](howto-create-custom-analytics.md).

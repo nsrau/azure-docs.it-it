@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5c2d987a1556513e36fc0a81e903d9eefdcae68
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388151"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742466"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
 
@@ -81,7 +81,7 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
    *Figura 3: Configurazione del provisioning nel portale di Azure*
     
 1. Nel campo **URL tenant** immettere l'URL dell'endpoint SCIM dell'applicazione. Esempio: https://api.contoso.com/scim/v2/
-1. Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token segreto** facoltativo. Se questo campo viene lasciato vuoto, Azure AD include un token di connessione OAuth emesso da Azure AD con ogni richiesta. Le app che usano Azure AD come provider di identità possono convalidare il token rilasciato da Azure AD.
+1. Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token segreto** facoltativo. 
 1. Selezionare **Test connessione** avere Azure Active Directory prova a connettersi all'endpoint SCIM. Se il tentativo non riesce, vengono visualizzate informazioni di errore.  
 
     >[!NOTE]
@@ -667,8 +667,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
     
 1. Nel campo **URL tenant** immettere l'URL esposto a Internet e la porta dell'endpoint SCIM. Questa voce sarà simile a http://testmachine.contoso.com:9000 o a http://\<indirizzo-IP>:9000/, dove \<indirizzo-IP> è l'indirizzo IP esposto a Internet. 
 
-1. Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token segreto** facoltativo. Se questo campo viene lasciato vuoto, Azure AD includerà un token di connessione OAuth emesso da Azure AD con ogni richiesta. Le app che usano Azure AD come provider di identità possono convalidare il token rilasciato da Azure AD.
-
+1. Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token segreto** facoltativo. 
 1. Selezionare **Test connessione** avere Azure Active Directory prova a connettersi all'endpoint SCIM. Se il tentativo non riesce, vengono visualizzate informazioni di errore.  
 
     >[!NOTE]
@@ -1330,7 +1329,7 @@ Le risorse gruppo sono identificate dall'identificatore dello schema, `urn:ietf:
 | jobTitle |title |
 | mail |emails[type eq "work"].value |
 | mailNickname |externalId |
-| manager |manager |
+| responsabile |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
 | objectId |ID |
 | postalCode |addresses[type eq "work"].postalCode |

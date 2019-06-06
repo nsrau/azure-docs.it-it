@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 05/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6452e73b2429ab89a466b1c3b59cc892eca31205
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f381090e663923ec9f45fba03d0688c9879ab173
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707308"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427398"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -22,18 +22,18 @@ Gen2 di archiviazione di Azure Data Lake è un servizio di archiviazione cloud d
 
 Data Lake Storage Gen2 è disponibile come opzione di archiviazione per quasi tutti i tipi di cluster HDInsight di Azure come un valore predefinito e un account di archiviazione aggiuntivo. HBase, tuttavia, può avere solo un account Data Lake Storage Gen2.
 
-> [!Note] 
+> [!Note]  
 > Dopo aver selezionato Data Lake Storage Gen2 come le **tipo di archiviazione primario**, non è possibile selezionare un account Data Lake archiviazione Gen1 come risorsa di archiviazione aggiuntiva.
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-portal"></a>Creare un cluster con Data Lake Storage Gen2 tramite il portale di Azure
 
 Per creare un cluster HDInsight che usa Data Lake archiviazione Gen2 per l'archiviazione, seguire questi passaggi per configurare un account Data Lake Storage Gen2.
 
-### <a name="create-a-user-managed-identity"></a>Creare un'identità utente gestito
+### <a name="create-a-user-assigned-managed-identity"></a>Creare un'identità gestita assegnata dall'utente
 
 Creare un'identità gestita assegnata dall'utente, se non è già disponibile. Vedere [Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente mediante il portale di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity). Per altre informazioni sulle attività di identità come gestito in Azure HDInsight, vedere [gestite le identità in Azure HDInsight](hdinsight-managed-identities.md).
 
-![Creare un'identità gestita assegnata dall'utente](./media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
+![Creare un'identità gestita assegnata dall'utente](./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
 ### <a name="create-a-data-lake-storage-gen2-account"></a>Creare un account di Data Lake Storage Gen2
 
@@ -41,7 +41,7 @@ Creare un account di archiviazione di Azure Data Lake Storage Gen2. Assicurarsi 
 
 ![Screenshot che mostra la creazione dell'account di archiviazione nel portale di Azure](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
-### <a name="setup-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Configurare le autorizzazioni per l'identità gestita per l'account Data Lake Storage Gen2
+### <a name="set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Impostare le autorizzazioni per l'identità gestita per l'account Data Lake Storage Gen2
 
 Assegnare l'identità gestita per il **proprietario dei dati Blob di archiviazione** ruolo nell'account di archiviazione. Per altre informazioni, vedere [Gestire i diritti di accesso a dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo (anteprima)](../storage/common/storage-auth-aad-rbac.md).
 

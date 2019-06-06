@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015270"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743309"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordinare gli eventi di connessione dei dispositivi dall'hub IoT di Azure tramite Azure Cosmos DB
 
@@ -36,7 +36,7 @@ In primo luogo creare una stored procedure e impostarlo fino all'esecuzione di u
 
 1. Nell'API SQL di Cosmos DB selezionare **Data Explorer** > **Items** > **New Stored Procedure** (Esplora dati > Elementi > Nuova stored procedure).
 
-   ![Crea stored procedure](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
+   ![Creare la stored procedure](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
 2. Immettere **LatestDeviceConnectionState** per l'ID della stored procedure e incollare il codice seguente nel **corpo di Stored Procedure**. Si noti che questo codice deve sostituire il codice esistente nel corpo della stored procedure. Questo codice mantiene una riga per ogni ID dispositivo e registra lo stato di connessione più recente di tale ID identificando il numero di sequenza più alto.
 
@@ -266,13 +266,13 @@ In questa sezione viene configurato l'hub IoT per la pubblicazione degli eventi 
 
 4. Compilandone **dettagli della sottoscrizione eventi**: fornire un nome descrittivo e selezionare **Schema Griglia di eventi**.
 
-5. Immettere il **tipi di evento** campi. Deselezionare l'opzione **sottoscrivere tutti i tipi di evento** e selezionare **dispositivo connesso** e **dispositivo disconnesso** dal menu di scelta.
+5. Immettere il **tipi di evento** campi. Nell'elenco a discesa, selezionare solo **dispositivo connesso** e **dispositivo disconnesso** dal menu di scelta. Fare clic su qualsiasi altro punto dello schermo per chiudere l'elenco e salvare le selezioni effettuate.
 
    ![Impostare i tipi di evento da cercare](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
 6. Per la **dei dettagli dell'Endpoint**, selezionare il tipo di Endpoint come **Hook Web** e fare clic sull'endpoint select e incollare l'URL copiato dall'app per la logica e confermare la selezione.
 
-   ![Selezionare l'url dell'endpoint](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![Selezionare l'url dell'endpoint](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. Il modulo a questo punto dovrebbe essere simile all'esempio seguente:
 
@@ -302,11 +302,9 @@ Ora che la sottoscrizione dell'evento è configurata, è possibile testare la co
 
    ![ConnectionString per dispositivo](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
-
 ### <a name="start-raspberry-pi-simulator"></a>Avviare il simulatore Raspberry Pi
 
-1. È possibile usare il simulatore Web Raspberry Pi per simulare la connessione del dispositivo.
+È possibile usare il simulatore Web Raspberry Pi per simulare la connessione del dispositivo.
 
 [Avviare il simulatore Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
@@ -340,7 +338,7 @@ Anziché tramite il [portale di Azure](https://portal.azure.com), è possibile e
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Questa esercitazione ha usato risorse che generano addebiti sulla sottoscrizione di Azure. Al termine dell'esercitazione e dopo aver testato i risultati ottenuti, disabilitare o eliminare le risorse che non si vogliono mantenere.
+Questa esercitazione ha usato risorse che generano addebiti sulla sottoscrizione di Azure. Al termine dell'esercitazione e testato i risultati ottenuti, disabilitare o eliminare le risorse che non si vuole mantenere.
 
 Per non perdere il lavoro fatto, è possibile disabilitare l'app per la logica anziché eliminarla.
 

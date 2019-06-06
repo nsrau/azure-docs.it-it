@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d2889af6000e77fba7a91392c0adb227588b5306
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463638"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430787"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory
 
@@ -42,6 +42,7 @@ Prima di poter associare o aggiungere la sottoscrizione, è necessario eseguire 
     - Gli utenti che sono stati assegnati ruoli tramite RBAC perderanno l'accesso
     - Amministratore del servizio e coamministratori perderanno l'accesso
     - Se si dispone di tutti gli insiemi di credenziali chiave, sarà inaccessibile e sarà necessario correggere gli errori dopo l'associazione
+    - Se si dispone di alcuna identità gestita per le risorse, ad esempio le macchine virtuali o App per la logica, sarà necessario riabilitare o crearli di nuovo dopo l'associazione
     - Se si dispone di uno Stack di Azure registrati, sarà necessario registrare nuovamente dopo l'associazione
 
 1. Accedere con un account che:
@@ -76,7 +77,9 @@ Dopo aver associato una sottoscrizione a un'altra directory, potrebbero essere p
 
 1. Se si dispone di tutti gli insiemi di credenziali chiave, è necessario modificare l'ID insieme di credenziali delle chiavi tenant. Per altre informazioni, vedere [modificare l'ID tenant per un insieme di credenziali delle chiavi dopo lo spostamento di una sottoscrizione](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Se è stato registrato usando questa sottoscrizione di Azure Stack, è necessario registrare nuovamente. Per altre informazioni, vedere [registrare Azure Stack con Azure](/azure-stack/operator/azure-stack-registration).
+2. Se si usa identità gestite assegnato dal sistema per le risorse, è necessario abilitare nuovamente questi. Se si usa identità gestite assegnata dall'utente, è necessario ricreare questi. Dopo la riabilitazione o ricreare le identità gestita, è necessario ristabilire le autorizzazioni assegnate alle identità. Per altre informazioni, vedere [What ' s identità gestita per le risorse di Azure?](../managed-identities-azure-resources/overview.md).
+
+3. Se è stato registrato usando questa sottoscrizione di Azure Stack, è necessario registrare nuovamente. Per altre informazioni, vedere [registrare Azure Stack con Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

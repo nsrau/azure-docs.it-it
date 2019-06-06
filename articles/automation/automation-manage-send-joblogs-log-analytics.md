@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e0f2d3491db24ecbb49c189232dbc7f698e09fb1
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65200595"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430779"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Inoltrare lo stato del processo e i flussi del processo da automazione a log di monitoraggio di Azure
 
@@ -96,7 +96,7 @@ La diagnostica di automazione di Azure crea due tipi di record nel log di monito
 | Caller_s |Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati. |
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | JobId_g |Il GUID che rappresenta l'ID del processo del runbook. |
-| ResultType |Lo stato del processo di runbook. I valori possibili sono:<br>- Nuovo<br>- Avviato<br>- Interrotto<br>- Sospeso<br>- Non riuscito<br>- Completato |
+| ResultType |Lo stato del processo di runbook. I valori possibili sono:<br>- Nuovo<br>-Creato<br>- Avviato<br>- Interrotto<br>- Sospeso<br>- Non riuscito<br>- Completato |
 | Category | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs. |
 | OperationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job. |
 | Resource | Nome dell'account di Automazione |

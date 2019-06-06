@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 03a6ea45577b4a4bf57501b1834f91438feb4e2b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399193"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477870"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Risolvere gli avvisi del log in Monitoraggio di Azure  
 
 Questo articolo illustra come risolvere i problemi comuni che possono verificarsi quando si sta configurando gli avvisi del log in Monitoraggio di Azure. Fornisce anche soluzioni ai problemi comuni relativi alla configurazione degli avvisi del log o funzionalità. 
 
-Il termine *gli avvisi del log* descrive gli avvisi che fire basato su una query di log in un [dell'area di lavoro di Azure Log Analitica](../learn/tutorial-viewdata.md) o nella [Azure Application Insights](../../azure-monitor/app/analytics.md). Altre informazioni sulle funzionalità, terminologia e i tipi nella [gli avvisi del Log in Monitoraggio di Azure](../platform/alerts-unified-log.md).
+Il termine *gli avvisi del log* descrivono regole che fire basato su una query di log in un [dell'area di lavoro di Azure Log Analitica](../learn/tutorial-viewdata.md) o nella [Azure Application Insights](../../azure-monitor/app/analytics.md). Altre informazioni sulle funzionalità, terminologia e i tipi nella [gli avvisi del Log in Monitoraggio di Azure](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Questo articolo non considera i casi in cui il portale di Azure Mostra una regola di avviso attivata e una notifica non viene eseguita da un gruppo di azioni associato. Per questi casi, vedere i dettagli nel [creare e gestire gruppi di azione nel portale di Azure](../platform/action-groups.md).

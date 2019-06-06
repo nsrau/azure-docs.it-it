@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620009"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734907"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -33,7 +33,7 @@ Anche se le regole di avviso consentono di definire il gruppo di azione che vien
 
 ## <a name="configuring-an-action-rule"></a>Configurare una regola di azione
 
-È possibile accedere alla funzionalità selezionando **gestire le azioni** dagli avvisi pagina di destinazione in Monitoraggio di Azure. Quindi selezionare **regole di azione (anteprima)**. È possibile accedervi selezionando **regole di azione (anteprima)** dal dashboard della pagina di destinazione per gli avvisi.
+È possibile accedere alla funzionalità selezionando **gestire le azioni** dagli avvisi pagina di destinazione in Monitoraggio di Azure. Quindi selezionare **regole di azione (anteprima)** . È possibile accedervi selezionando **regole di azione (anteprima)** dal dashboard della pagina di destinazione per gli avvisi.
 
 ![Regole di azione dalla pagina di destinazione di monitoraggio di Azure](media/alerts-action-rules/action-rules-landing-page.png)
 
@@ -67,7 +67,7 @@ I filtri disponibili sono:
 * **ID della regola di avviso**: Consente di filtrare le regole di avviso specifiche usando l'ID di Resource Manager della regola di avviso.
 * **Monitorare condizione**: Filtrare le istanze di avviso con "Attivato" o "Risolto" come condizione di monitoraggio.
 * **Descrizione**: Espressione regolare corrispondenza all'interno della descrizione definita come parte della regola di avviso.
-* **Contesto dell'avviso (payload)**: Espressione regolare corrispondenza all'interno di [al contesto dell'avviso](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) campi di un'istanza di avviso.
+* **Contesto dell'avviso (payload)** : Espressione regolare corrispondenza all'interno di [al contesto dell'avviso](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) campi di un'istanza di avviso.
 
 Questi filtri vengono applicati in combinazione tra loro. Ad esempio, se imposta 'Tipo di risorsa' = 'Macchine virtuali' e 'Gravità' = 'Sev0', quindi ho ho filtrato per tutti gli avvisi 'Sev0' su solo delle macchine virtuali. 
 
@@ -80,7 +80,7 @@ Successivamente, configurare la regola di azione per eliminare gli avvisi o il s
 #### <a name="suppression"></a>Eliminazione
 
 Se si seleziona **eliminazione**, configurare la durata per l'eliminazione delle azioni e notifiche. Scegliere una delle operazioni seguenti:
-* **A partire da ora (sempre)**: Elimina tutte le notifiche per un periodo illimitato.
+* **A partire da ora (sempre)** : Elimina tutte le notifiche per un periodo illimitato.
 * **A un'ora pianificata**: Elimina notifiche entro un periodo di tempo limitato.
 * **Con una ricorrenza**: Eliminare una pianificazione ricorrenza, che può essere giornaliera, settimanale o mensile.
 
@@ -98,7 +98,7 @@ Se si seleziona **gruppo di azioni** nell'interruttore, aggiungere un gruppo di 
 ### <a name="action-rule-details"></a>Dettagli azione regola
 
 Infine, configurare i dettagli seguenti per la regola di azione
-* NOME
+* Name
 * Gruppo di risorse in cui verrà salvato
 * Descrizione 
 
@@ -128,12 +128,15 @@ Contoso desidera eliminare le notifiche per tutti i log di avvisi generati per '
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scenario 3: Gruppo di azioni definito in un gruppo di risorse
 
-Contoso ha definito [un avviso delle metriche a livello di sottoscrizione](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), ma si desidera definire le azioni che attivano per gli avvisi separatamente per il proprio gruppo di risorse 'ContosoRG'.
+Contoso ha definito [un avviso delle metriche a livello di sottoscrizione](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), ma si desidera definire le azioni che attivano in modo specifico per gli avvisi generati dal relativo gruppo di risorse 'ContosoRG'.
 
 **Soluzione:** Creare una regola di azione con
 * Scope = 'ContosoRG'
 * Nessun filtro
 * Gruppo di azione impostata su 'ContosoActionGroup'
+
+> [!NOTE]
+> **I gruppi di azioni definite all'interno delle regole di azione e le regole di avviso funzionano in modo indipendente, con alcuna deduplicazione**. Nello scenario descritto in precedenza, se è presente un gruppo di azione definito per la regola di avviso, attiveranno in combinazione con il gruppo di azioni definito nella regola di azione. 
 
 ## <a name="managing-your-action-rules"></a>Gestire le regole di azione
 

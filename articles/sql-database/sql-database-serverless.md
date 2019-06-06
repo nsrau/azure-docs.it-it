@@ -11,19 +11,19 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/20/2019
-ms.openlocfilehash: a9f883a9776f68a7ece471caca5dc1d7af2aec32
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/05/2019
+ms.openlocfilehash: b39d2c839444e3cad60d5ff08e117282ecc04d7a
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393533"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734767"
 ---
 # <a name="sql-database-serverless-preview"></a>Database SQL serverless (anteprima)
 
 ## <a name="serverless-compute-tier"></a>Livello di elaborazione serverless
 
-Database SQL serverless (anteprima) è un livello di calcolo che addebita le risorse di calcolo usate da un database singolo in base al numero di secondi. Il modello serverless è caratterizzato da un rapporto qualità-prezzo ottimizzato per database singoli con modelli di utilizzo intermittenti e imprevedibili che possono permettersi qualche ritardo all'avvio del calcolo dopo periodi di inattività.
+Database SQL senza server (anteprima) è un livello di calcolo database singolo che viene ridimensionato automaticamente di calcolo e prevede la fatturazione per la quantità di calcolo utilizzata al secondo. 
 
 Per definire i parametri di un database nel livello di calcolo serverless, si considerano l'intervallo di calcolo utilizzabile e un ritardo di sospensione automatica.
 
@@ -31,7 +31,7 @@ Per definire i parametri di un database nel livello di calcolo serverless, si co
 
 ### <a name="performance"></a>Prestazioni
 
-- `MinVcore` e `MaxVcore` sono i parametri configurabili che definiscono l'intervallo della capacità di calcolo disponibile per il database. I limiti di memoria e I/O sono proporzionali all'intervallo vCore specificato.  
+- Il numero di Vcore minimo e massimo numero di Vcore è parametri configurabili che definiscono l'intervallo di capacità di calcolo disponibili per il database. I limiti di memoria e I/O sono proporzionali all'intervallo vCore specificato.  
 - Il ritardo di sospensione automatica è un parametro configurabile che definisce il periodo di tempo in cui il database deve rimanere inattivo prima che venga messo in pausa automaticamente. Il database viene ripristinato automaticamente in seguito all'accesso successivo.
 
 ### <a name="pricing"></a>Prezzi
@@ -43,19 +43,19 @@ La fatturazione per le risorse di calcolo si basa sulla quantità di vCore usati
 
 ## <a name="scenarios"></a>Scenari
 
-Il modello serverless è caratterizzato da un rapporto qualità-prezzo ottimizzato per database singoli con modelli di utilizzo intermittenti e imprevedibili che possono permettersi qualche ritardo all'avvio del calcolo dopo periodi di inattività. Al contrario, il livello di calcolo con provisioning è caratterizzato da un rapporto prezzo-prestazioni ottimizzato per database singoli o in pool con un utilizzo medio più elevato che non possono permettersi eventuali ritardi nella fase di avvio del calcolo.
+Il modello serverless è caratterizzato da un rapporto qualità-prezzo ottimizzato per database singoli con modelli di utilizzo intermittenti e imprevedibili che possono permettersi qualche ritardo all'avvio del calcolo dopo periodi di inattività. Al contrario, il livello di calcolo sottoposte a provisioning è rapporto prezzo-prestazioni ottimizzata per i database singoli o più database in pool elastici con un utilizzo medio più elevato che non può permettersi eventuali ritardi nella fase di riscaldamento di calcolo.
 
 ### <a name="scenarios-well-suited-for-serverless-compute"></a>Scenari particolarmente adatti per il calcolo serverless
 
-- Database singoli con modelli di utilizzo intermittente e imprevedibile, intervallati da periodi di inattività, che possono trarre vantaggio dalla fatturazione al secondo e basata sulla quantità di risorse di calcolo usate.
-- Database singoli in cui la richiesta di risorse è difficile da prevedere e clienti che preferiscono delegare al servizio il ridimensionamento delle risorse di calcolo.
-- Database singoli nel livello di elaborazione con provisioning che cambiano spesso livello di prestazioni.
+- I database singoli con modelli di utilizzo imprevedibili, intermittente frammisto con periodi di inattività e a basso utilizzo di calcolo Media nel tempo.
+- Ridimensionamento per il servizio di calcolo singoli database nel livello di calcolo sottoposte a provisioning che spesso vengono ridimensionate e i clienti che preferiscono per delegare.
+- Database singoli nuovo senza la cronologia di utilizzo in cui il ridimensionamento di calcolo è difficile o non è possibile stimare prima della distribuzione nel Database SQL.
 
 ### <a name="scenarios-well-suited-for-provisioned-compute"></a>Scenari particolarmente adatti per il calcolo con provisioning
 
-- Database singoli con un utilizzo delle risorse di calcolo più regolare e costante nel tempo.
+- I database singoli con modelli di utilizzo più regolare e prevedibile e Media superiore utilizzo nel corso del tempo di calcolo.
 - Database che non possono tollerare compromessi delle prestazioni dovuti a blocchi di memoria più frequenti o ritardi nella ripresa automatica da uno stato di sospensione.
-- Più database con modelli di utilizzo intermittenti e imprevedibili che possono essere consolidati in un unico server e usano pool elastici per una migliore ottimizzazione dei prezzi.
+- Più database con modelli di utilizzo di errori intermittenti o imprevedibili che possono essere consolidati in pool elastici per una migliore ottimizzazione di un rapporto prezzo-prestazioni.
 
 ## <a name="comparison-with-provisioned-compute-tier"></a>Confronto con il livello di calcolo con provisioning
 
@@ -63,7 +63,7 @@ La tabella seguente riepiloga le differenze tra il livello di calcolo serverless
 
 | | **Calcolo serverless** | **Calcolo con provisioning** |
 |:---|:---|:---|
-|**Scenario di utilizzo tipico**| Database con utilizzo intermittente e imprevedibile, intervallato da periodo di inattività. | Database o pool elastici caratterizzati da un utilizzo più regolare.|
+|**Modello di utilizzo del database**| Utilizzo di errori intermittente o imprevedibile con basso utilizzo di calcolo Media nel tempo. |  I modelli di utilizzo più regolari con Media superiore utilizzo nel tempo, o tra più database con i pool elastici del calcolo.|
 | **Impegno per la gestione delle prestazioni** |Minore|Maggiore|
 |**Ridimensionamento delle risorse di calcolo**|Automatico|Manuale|
 |**Tempo di risposta per le risorse di calcolo**|Inferiore dopo periodi di inattività|Immediato|
@@ -77,7 +77,7 @@ Il database SQL serverless è attualmente supportato solo nel livello per utiliz
 
 ### <a name="scaling-responsiveness"></a>Tempo di risposta per il ridimensionamento
 
-In generale, i database vengono eseguiti in un computer con capacità sufficiente a soddisfare la richiesta di risorse senza interruzioni per qualsiasi quantità di risorse di calcolo richiesta entro i limiti fissati dal valore `maxVcores`. Di tanto in tanto, viene eseguito automaticamente il bilanciamento del carico se il computer non è in grado di soddisfare la richiesta di risorse entro pochi minuti. Durante il bilanciamento del carico il database rimane online ad eccezione di un breve periodo al termine dell'operazione, quando vengono rilasciate le connessioni.
+In generale, i database senza server vengono eseguiti in un computer con una capacità sufficiente per soddisfare la domanda di risorse senza interruzioni di qualsiasi quantità di calcolo richiesta entro i limiti impostati dal valore di numero massimo di Vcore. Di tanto in tanto, viene eseguito automaticamente il bilanciamento del carico se il computer non è in grado di soddisfare la richiesta di risorse entro pochi minuti. Ad esempio, se la richiesta di risorse è 4 Vcore, ma sono disponibili solo 2 Vcore, quindi potrebbe richiedere fino a qualche minuto per bilanciare il carico prima vengono forniti 4 Vcore per utilizzo. Durante il bilanciamento del carico il database rimane online ad eccezione di un breve periodo al termine dell'operazione, quando vengono rilasciate le connessioni.
 
 ### <a name="memory-management"></a>Gestione della memoria
 
@@ -90,7 +90,7 @@ A differenza dei database di calcolo sottoposte a provisioning, della memoria da
 - L'uso della cache viene considerata bassa quando la dimensione totale più usati di recente sono di voci della cache sotto una soglia per un periodo di tempo.
 - Quando viene attivato il recupero della cache, le dimensioni della cache di destinazione viene ridotta in modo incrementale a una frazione della dimensione precedente e recuperarne continua solo se l'utilizzo rimane basso.
 - Quando si verifica il recupero della cache, i criteri per la selezione di voci della cache per la rimozione sono gli stessi criteri di selezione a quelli di calcolo sottoposte a provisioning database quando l'utilizzo della memoria è elevato.
-- Le dimensioni della cache non viene ridotto mai di sotto di memoria minima in base ai Vcore minimi, che può essere configurato.
+- Le dimensioni della cache non viene ridotto mai inferiore al limite di memoria minimo in base al numero minimo di Vcore che possono essere configurate.
 
 Senza server sia stato eseguito il provisioning nel calcolo i database, le voci possono essere rimosse se viene utilizzata la memoria disponibile tutte le cache.
 
@@ -102,31 +102,41 @@ La cache SQL aumenta man mano che i dati vengono recuperati dal disco nello stes
 
 ### <a name="autopause"></a>Sospensione automatica
 
-La sospensione automatica viene attivata in presenza di tutte le condizioni seguenti per la durata del ritardo di sospensione automatica:
+Autopausing viene attivato se tutte le condizioni seguenti sono true per la durata del ritardo autopause:
 
 - Numero di sessioni = 0
-- CPU = 0 (per il carico di lavoro utente in esecuzione nel pool di utenti)
+- CPU = 0 per carico di lavoro utente in esecuzione nel pool di utente
 
-Se si desidera, è disponibile un'opzione per disabilitare la sospensione automatica.
+È disponibile un'opzione per disabilitare autopausing se lo si desidera.
+
+Le funzionalità seguenti non supportano autopausing.  Vale a dire, se si usano le funzionalità seguenti, il database rimane online indipendentemente dal fatto il periodo di inattività del database:
+
+- Replica geografica (gruppi di active geo-replica e failover automatico).
+- Conservazione backup a lungo termine (conservazione a lungo termine).
+- Database di sincronizzazione usato nella sincronizzazione dati SQL.
+
+Autopausing temporaneamente non è consentita durante la distribuzione di alcuni aggiornamenti dei servizi che richiedono che il database sia online.  In questi casi, autopausing diventa consentita nuovamente dopo aver completato l'aggiornamento del servizio.
 
 ### <a name="autoresume"></a>Ripresa automatica
 
-La ripresa automatica viene attivata in presenza di una qualsiasi delle condizioni seguenti in un qualsiasi momento:
+Autoresuming viene attivato se una delle condizioni seguenti è vera in qualsiasi momento:
 
 |Funzionalità|Trigger di ripresa automatica|
 |---|---|
 |Autenticazione e autorizzazione|Login|
-|Introduzione al rilevamento delle minacce|Abilitazione/disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o server<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o server|
+|Introduzione al rilevamento delle minacce|Abilitazione/disabilitazione impostazioni di rilevamento delle minacce a livello di database o server.<br>Modifica le impostazioni di rilevamento delle minacce a livello di database o server.|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
-|Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione di criteri di controllo|
+|Controllo|Visualizzazione dei record di controllo<br>L'aggiornamento o la visualizzazione di criteri di controllo.|
 |Maschera dati|Aggiunta, modifica, eliminazione o visualizzazione delle regole di maschera dati|
 |Transparent Data Encryption|Visualizzazione dello stato di Transparent Data Encryption|
 |Esecuzione di query sulle prestazioni dell'archivio dati|Modifica o visualizzazione delle impostazioni dell'archivio dati; ottimizzazione automatica|
 |Ottimizzazione automatica|Applicazione e verifica delle indicazioni di ottimizzazione automatica, ad esempio l'indicizzazione automatica|
-|Copia del database|Creazione del database come copia<br>Esportazione in un file BACPAC|
+|Copia del database|Creare database come copia.<br>Esportare in un file BACPAC.|
 |Sincronizzazione dati SQL|Sincronizzazione tra database hub e membro che viene eseguita secondo un calendario configurabile o manualmente|
-|Modifica di alcuni metadati del database|Aggiunta di nuovi tag del database<br>Modifica del numero massimo e minimo di vCore e del ritardo di sospensione automatica|
+|Modifica di alcuni metadati del database|Aggiunta di nuovi tag di database.<br>Modifica numero massimo di Vcore, numero minimo di Vcore o autopause ritardo.|
 |SQL Server Management Studio (SSMS)|Se si usa SSMS versione 18 e si apre una nuova finestra di query per un qualsiasi database nel server verranno ripresi tutti i database sospesi automaticamente nello stesso server. Questo comportamento non si verifica se si usa SSMS versione 17.9.1 con la funzionalità IntelliSense disattivata.|
+
+Autoresuming viene anche attivato durante la distribuzione di alcuni aggiornamenti dei servizi che richiedono che il database sia online.
 
 ### <a name="connectivity"></a>Connettività
 
@@ -134,22 +144,13 @@ Se un database senza server è in pausa, il primo accesso riprendere il database
 
 ### <a name="latency"></a>Latenza
 
-La latenza per la sospensione o la ripresa automatica di un database serverless è in genere nell'ordine di 1 minuto.
-
-### <a name="feature-support"></a>Supporto delle funzionalità
-
-Le funzionalità seguenti non supportano la sospensione e la ripresa automatica. Se quindi si usa una delle funzionalità seguenti, il database rimane online indipendentemente dall'intervallo di inattività:
-
-- Replica geografica (replica geografica attiva e gruppi di failover automatico)
-- Conservazione a lungo termine del backup
-- Database di sincronizzazione usato nella sincronizzazione dati SQL.
-
+La latenza autoresume e autopause un database senza server è in genere ordine pari a 1 minuto a autoresume e 1 a 10 minuti per autopause.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Onboarding nel livello di calcolo senza server
 
 La procedura di creazione di un nuovo database o di spostamento di un database esistente in un livello di calcolo serverless è analoga a quella di creazione di un nuovo database nel livello di calcolo con provisioning e prevede i due passaggi seguenti:
 
-1. Specificare il nome dell'obiettivo di servizio. L'obiettivo di servizio descrive il livello di servizio, la generazione dell'hardware e il numero massimo di vCore. La tabella seguente mostra le opzioni relative all'obiettivo di servizio:
+1. Specificare il nome dell'obiettivo di servizio. L'obiettivo di servizio prevede il livello di servizio, la generazione di hardware e numero massimo di Vcore. La tabella seguente mostra le opzioni relative all'obiettivo di servizio:
 
    |Nome dell'obiettivo di servizio|Livello di servizio|Generazione dell'hardware|Numero massimo di vCore|
    |---|---|---|---|
@@ -157,11 +158,11 @@ La procedura di creazione di un nuovo database o di spostamento di un database e
    |GP_S_Gen5_2|Utilizzo generico|Quinta generazione|2|
    |GP_S_Gen5_4|Utilizzo generico|Quinta generazione|4|
 
-2. Facoltativamente, specificare il numero minimo di vCore e il ritardo di sospensione automatica per modificarne i valori predefiniti. La tabella seguente illustra i valori disponibili per questi parametri.
+2. Facoltativamente, specificare l'intervallo minimo di Vcore e autopause per modificare i valori predefiniti. La tabella seguente illustra i valori disponibili per questi parametri.
 
    |Parametro|Valori disponibili|Valore predefinito|
    |---|---|---|---|
-   |Numero minimo di vCore|Uno qualsiasi tra {0,5, 1, 2, 4} purché non superi il numero massimo di vCore|0,5 vCore|
+   |Numero minimo di Vcore|Uno qualsiasi tra {0,5, 1, 2, 4} purché non superi il numero massimo di vCore|0,5 vCore|
    |Ritardo di sospensione automatica|Min: 360 minuti (6 ore)<br>Max: 10080 minuti (7 giorni)<br>Incrementi: 60 minuti<br>Disabilita la sospensione automatica: -1|360 minuti|
 
 > [!NOTE]
@@ -175,8 +176,6 @@ Vedere [Avvio rapido: Creare un database singolo nel database SQL di Azure usand
 
 Nell'esempio seguente viene creato un nuovo database nel livello di calcolo serverless definito dall'obiettivo di servizio denominato GP_S_Gen5_4 con i valori predefiniti per il numero minimo di vCore e il ritardo di sospensione automatica.
 
-Con il livello serverless è richiesta una versione di PowerShell più recente rispetto a quella attualmente presente nella raccolta, di conseguenza eseguire `Update-Module Az.Sql` per ottenere i cmdlet più recenti abilitati per il livello serverless.
-
 ```powershell
 New-AzSqlDatabase `
   -ResourceGroupName $resourceGroupName `
@@ -187,7 +186,7 @@ New-AzSqlDatabase `
   -ComputeGeneration Gen5 `
   -MinVcore 0.5 `
   -MaxVcore 2 `
-  -AutoPauseDelay 720
+  -AutoPauseDelayInMinutes 720
 ```
 
 ### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>Spostare il database di calcolo sottoposte a provisioning a livello di calcolo senza server
@@ -204,7 +203,7 @@ Set-AzSqlDatabase
   -ComputeGeneration Gen5 `
   -MinVcore 1 `
   -MaxVcore 4 `
-  -AutoPauseDelay 1440
+  -AutoPauseDelayInMinutes 1440
 ```
 
 ### <a name="move-serverless-database-into-provisioned-compute-tier"></a>Spostare database senza server nel livello di calcolo sottoposte a provisioning
@@ -215,7 +214,7 @@ La procedura per spostare un database serverless in un livello di calcolo con pr
 
 ### <a name="maximum-vcores"></a>Numero massimo di vCore
 
-Per modificare il numero massimo di vCore, si usa il comando [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) in PowerShell con l'argomento `MaxVcore`.
+Modifica il numero massimo di Vcore viene eseguita usando il [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando in PowerShell usando il `MaxVcore` argomento.
 
 ### <a name="minimum-vcores"></a>Numero minimo di vCore
 
@@ -223,7 +222,7 @@ Modifica il numero minimo di Vcore viene eseguita usando il [Set-AzSqlDatabase](
 
 ### <a name="autopause-delay"></a>Ritardo di sospensione automatica
 
-Modifica del ritardo autopause viene eseguita usando il [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando in PowerShell usando il `AutoPauseDelay` argomento.
+Modifica del ritardo autopause viene eseguita usando il [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando in PowerShell usando il `AutoPauseDelayInMinutes` argomento.
 
 ## <a name="monitoring"></a>Monitoraggio
 
@@ -279,7 +278,7 @@ Per i limiti delle risorse, vedere [Livello di calcolo serverless](sql-database-
 La quantità di risorse di calcolo fatturata corrisponde alla quantità massima di CPU e di memoria usata ogni secondo. Se la quantità di CPU e di memoria usata è inferiore alla quantità minima del provisioning per ognuna, viene fatturata la quantità del provisioning. Per confrontare la quantità di CPU e di memoria ai fini della fatturazione, la memoria viene normalizzata in unità di vCore ridimensionando la quantità di memoria in GB in base a 3 GB per vCore.
 
 - **Risorsa fatturata**: CPU e memoria
-- **Importo fatturato ($)** : prezzo unitario vCore * massimo (numero minimo di vCore, numero di vCore usati, quantità minima di memoria in GB * 1/3, quantità di memoria in GB usata * 1/3) 
+- **Importo fatturato**: prezzo unitario vCore * max (numero minimo di Vcore, Vcore usato, la memoria minima GB * memoria 1/3 GB usato * 1 o 3) 
 - **Frequenza di fatturazione**: Al secondo
 
 Il prezzo unitario di vCore del costo per ogni vCore al secondo. Per i prezzi unitari in una determinata area, vedere la [pagina dei prezzi del database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/).
@@ -292,25 +291,25 @@ La quantità di risorse di calcolo fatturata è esposta dalla metrica seguente:
 
 Questa quantità viene calcolata ogni secondo e aggregata in un minuto.
 
-Si consideri un database senza server configurati con 1 min vCore e 4 Vcore per utilizzo massimi.  Ciò corrisponde a circa 3 GB di memoria minimo e massimo 12 GB di memoria.  Si supponga che il ritardo di sospensione automatica è impostato su 6 ore e il carico di lavoro di database sia attivo durante le ore 2 prima di un periodo di 24 ore e inattive in caso contrario.    
+Si consideri un database senza server configurati con 1 min vCore e 4 Vcore per utilizzo massimi.  Ciò corrisponde a circa 3 GB di memoria minimo e massimo 12 GB di memoria.  Si supponga che il ritardo di sospensione automatica è impostato su 6 ore e il carico di lavoro di database sia attivo durante le ore 2 prima di un periodo di 24 ore e inattive in caso contrario.    
 
-In questo caso, il database viene fatturato per l'archiviazione e calcolo durante le prime 8 ore.  Anche se il database è inattivo a partire da dopo dalla seconda ora, viene comunque fatturata per il calcolo nelle ore successive 6 basato su attività di calcolo minimo effettuato il provisioning quando il database è online.  Solo archiviazione sarà addebitata fino alla fine del periodo di 24 ore mentre il database è sospeso.
+In questo caso, il database viene fatturato per l'archiviazione e calcolo durante le prime 8 ore.  Anche se il database è inattivo a partire da dopo dalla seconda ora, viene comunque fatturata per il calcolo nelle ore successive 6 basato su attività di calcolo minimo effettuato il provisioning quando il database è online.  Solo archiviazione sarà addebitata fino alla fine del periodo di 24 ore mentre il database è sospeso.
 
 Più precisamente, la fattura di calcolo in questo esempio viene calcolata come segue:
 
 |Intervallo di tempo|numero di Vcore utilizzati ogni secondo|GB utilizzati ogni secondo|Calcolo di dimensione fatturato|secondi di vCore fatturati intervallo di tempo|
 |---|---|---|---|---|
 |0:00-1:00|4|9|numero di Vcore utilizzati|4 Vcore * 3600 secondi = 14.400 secondi di vCore|
-|1:00-2:00|1|12|Memoria utilizzata|12 Gb * 1 o 3 * 3.600 secondi = 14400 vCore secondi|
-|2:00-8:00|0|0|Memoria minima effettuato il provisioning|3 Gb * 1 o 3 * 21600 secondi = 21600 vCore secondi|
+|1:00-2:00|1|12|Memoria utilizzata|12 GB * 1 o 3 * 3.600 secondi = 14400 vCore secondi|
+|2:00-8:00|0|0|Memoria minima effettuato il provisioning|3 GB * 1 o 3 * 21600 secondi = 21600 vCore secondi|
 |8:00-24:00|0|0|Nessun calcolo fatturato mentre in pausa|vCore 0 secondi|
 |Totale vCore secondi fatturati più di 24 ore||||vCore 50400 secondi|
 
-Si supponga che il prezzo delle unità di calcolo sia $0,000073/vCore/secondo.  Le risorse di calcolo addebitate questo periodo di 24 ore è il prodotto dei calcolo unit price vCore secondi e fatturata: $0.000073/vCore/second * 50400 vCore secondi = $3.68
+Si supponga che il prezzo delle unità di calcolo sia $0,000073/vCore/secondo.  Le risorse di calcolo addebitate questo periodo di 24 ore è il prodotto dei calcolo unit price vCore secondi e fatturata: $0.000073/vCore/second * 50400 vCore secondi = $3.68
 
 ## <a name="available-regions"></a>Aree disponibili
 
-Il livello di calcolo serverless è disponibile in tutte le aree ad eccezione delle seguenti: Australia centrale, Cina orientale, Cina settentrionale, Francia meridionale, Germania centrale, Germania nord-orientale, India occidentale, Corea meridionale, Sudafrica occidentale, Regno Unito settentrionale, Regno Unito meridionale, Regno Unito occidentale e Stati Uniti centro occidentali.
+Il livello di calcolo senza server è disponibile in tutto il mondo, ad eccezione delle aree geografiche seguenti: Australia centrale, Cina orientale, Cina settentrionale, Francia meridionale, Germania centrale, Germania nord-orientale, India occidentale, Corea meridionale, Sudafrica occidentale, Regno Unito settentrionale, Regno Unito meridionale, Regno Unito occidentale e Stati Uniti centro occidentali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

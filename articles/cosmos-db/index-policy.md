@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: thweiss
-ms.openlocfilehash: c45beb3ed6f87e95d171e2299c533b4be2827f27
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 4206fba8297672a1a24415169cfd19ff89344038
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954041"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431191"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
 
@@ -57,8 +57,8 @@ Quando un percorso in modo esplicito sia incluso nei criteri di indicizzazione, 
 
 | Tipo di indice | Tipi di dati di destinazione consentiti |
 | --- | --- |
-| Intervallo | Stringa o numero |
-| Spaziale | Point, LineString o poligono |
+| Range | Stringa o numero |
+| Spatial | Point, LineString o poligono |
 
 Ad esempio, è possibile includere il `/headquarters/employees/?` percorso e specificare che un `Range` indice deve essere applicato in tale percorso per entrambi `String` e `Number` valori.
 
@@ -94,7 +94,7 @@ Si consideri l'esempio seguente in cui un indice composto è definito nella prop
 
 | **Indice composto**     | **Esempio `ORDER BY` Query**      | **Supportate in base all'indice?** |
 | ----------------------- | -------------------------------- | -------------- |
-| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
 | ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |

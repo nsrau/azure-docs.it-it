@@ -1,6 +1,6 @@
 ---
 title: Creare, visualizzare e gestire avvisi del log tramite Monitoraggio di Azure | Microsoft Docs
-description: Usare Monitoraggio di Azure per creare, visualizzare e gestire le regole degli avvisi relativi ai log in Azure.
+description: Usare il monitoraggio di Azure per creare, visualizzare e gestire le regole di avviso di log in Azure.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: b7240b38e595fdcf9f9d4f995f71643154ee0f9b
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: f758007a0fa0d7fb619873d94d762e7019077e05
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399162"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427459"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
 

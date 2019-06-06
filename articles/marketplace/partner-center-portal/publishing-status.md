@@ -7,22 +7,34 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 461c9f3f3725ba27410088ca19f1ec050375adf2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806147"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474518"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Controllare lo stato di pubblicazione dell'offerta commerciale Marketplace
 
 È possibile visualizzare correnti **lo stato di pubblicazione** nel **panoramica dell'offerta** scheda della finestra di [portale Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) nel centro per i Partner.
 
+Per ogni offerta deve essere visualizzato uno degli indicatori di stato seguenti.
+
+| **Status**    | **Descrizione**  |
+| :---------- | :-------------------|
+| **Bozza** | Offerta è stata creata ma non è in corso di pubblicazione. |
+| **Pubblicazione in corso** | Piano di offerta/è in modo i passaggi del processo di pubblicazione. |
+| **Attenzione necessita** | Un problema critico è stato rilevato durante la certificazione da Microsoft o i passaggi di pubblicazione. |
+| **Anteprima** | Offerta è stata certificata da Microsoft e a questo punto resta in attesa una verifica finale dal server di pubblicazione. Selezionare go live a rendere l'offerta in tempo reale. |
+| **Offerta pubblicata** | Offerta è disponibile nel marketplace e può essere visualizzata e acquisita da parte dei clienti. |
+| **Origine della vendita arresto in sospeso** | Server di pubblicazione selezionato "stop Selling" in offerta o piano, ma l'azione non è stata ancora completata. |
+| **Non è disponibile nel marketplace** | È stato rimosso un pubblicati in precedenza/piano di offerta nel marketplace. |
+
 ## <a name="automated-validation"></a>Convalida automatizzati
 
 Il primo passaggio nel processo di pubblicazione è una serie di convalide automatizzate. Ogni passaggio di convalida corrisponde a una funzionalità che si è scelto di abilitare la creazione dell'offerta. Se tale funzionalità non è stato abilitato, la convalida passa con il passaggio successivo di pubblicazione. Ogni controllo di convalida deve essere completata prima che lo stato di pubblicazione è stato approvato.
 
-- **Impostazione del flusso di acquisto dell'offerta (> 10 min)**
+- **Impostazione del flusso di acquisto dell'offerta (< 10 min)**
 
 In questo passaggio, si assicura che l'offerta può essere soddisfatta dai clienti tramite il portale di Azure con l'acquisto. Questo passaggio riguarda solo per le offerte da venduti in Microsoft.
 
@@ -34,11 +46,11 @@ In questo passaggio è convalidare i dati fornita nella sezione di configurazion
 
 In questo passaggio, dopo la convalida di dati e le funzionalità di un test dell'unità nel passaggio precedente, abbiamo distribuire e replicare le istanze di un test dell'unità in modo che siano pronti per l'uso dei clienti.  Questo passaggio è applicabile per le offerte solo con una test drive abilitato.
 
-- **Portare la convalida di gestione e la registrazione (> 15 min)**
+- **Portare la convalida di gestione e la registrazione (< 15 min)**
 
 In questo passaggio è verificare che il sistema di gestione lead può ricevere clienti potenziali clienti in base ai dettagli forniti nel programma di installazione offerta. Questo passaggio è applicabile per le offerte solo con la gestione dei Lead abilitata.
 
-## <a name="certification"></a>Certification
+## <a name="certification"></a>Certificazione
 
 Prima di essere pubblicata, devono essere certificate offerte presentate nel Marketplace nel centro per i Partner commerciali. Inviate le offerte vengono sottoposti a test rigorosi, alcune automatizzati e altri manuali, tra cui un controllo a fronte di [criteri di certificazione di Azure Marketplace](https://docs.microsoft.com/legal/marketplace/general-policies). Gli invii devono essere contrassegnati idonei per la certificazione prima di procedere al passaggio successivo nel flusso di pubblicazione dell'offerta.
 

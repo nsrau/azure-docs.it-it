@@ -13,54 +13,49 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 06/04/2019
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9418c72ec9aad02d848d8b40c3f0152f656fdea8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 48f162e5e6eb29e4a658000826ccf25389086342
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571129"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730449"
 ---
-# <a name="how-to-manage-devices-using-the-azure-portal"></a>Come gestire i dispositivi usando il portale di Azure
+# <a name="manage-device-identity-using-the-azure-portal"></a>Gestire le identità dispositivo nel portale di Azure
 
-Tramite la gestione dei dispositivi in Azure Active Directory (Azure AD) è possibile garantire che gli utenti accedano alle risorse da dispositivi che soddisfano gli standard di sicurezza e conformità. 
+Gestione identità dei dispositivi in Azure Active Directory (Azure AD), è possibile garantire che gli utenti sono accedano alle risorse dai dispositivi che soddisfano gli standard di sicurezza e conformità.
 
 Questo articolo:
 
-- Si presuppone che l'utente abbia familiarità con quanto descritto in [Introduzione alla gestione dei dispositivi in Azure Active Directory](overview.md)
+- Si presuppone che abbia familiarità con la [Introduzione alla gestione delle identità di dispositivo in Azure Active Directory](overview.md)
+- Vengono fornite informazioni sulla gestione delle identità di dispositivo usando il portale di Azure AD
 
-- Vengono fornite informazioni sulla gestione dei dispositivi tramite il portale di Azure
+## <a name="manage-device-identities"></a>Gestire le identità dei dispositivi
 
-## <a name="manage-devices"></a>Gestire i dispositivi 
-
-Il portale di Azure consente una gestione centralizzata dei dispositivi. È possibile accedere a questa posizione usando un [collegamento diretto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) o eseguendo la procedura manuale seguente:
+Il portale di Azure AD offre una posizione centrale per gestire le identità dei dispositivi. È possibile accedere a questa posizione usando un [collegamento diretto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) o eseguendo la procedura manuale seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-
 2. Sulla barra di spostamento a sinistra fare clic su **Active Directory**.
 
-    ![Configurare le impostazioni dei dispositivi](./media/device-management-azure-portal/01.png)
+   ![Configurare le impostazioni dei dispositivi](./media/device-management-azure-portal/01.png)
 
 3. Nella sezione **Gestisci** fare clic su **Dispositivi**.
 
-    ![Configurare le impostazioni dei dispositivi](./media/device-management-azure-portal/74.png)
+   ![Configurare le impostazioni dei dispositivi](./media/device-management-azure-portal/74.png)
 
 La pagina **Dispositivi** consente di:
 
-- Configurare le impostazioni di gestione dei dispositivi
-
+- Configurare le impostazioni dei dispositivi
 - Individuare i dispositivi
-
-- Eseguire attività di gestione dei dispositivi
-
-- Esaminare i log di controllo correlati alla gestione dei dispositivi  
+- Eseguire attività di gestione di identità di dispositivo
+- Esaminare i log di controllo relative al dispositivo  
   
 ## <a name="configure-device-settings"></a>Configurare le impostazioni dei dispositivi
 
-Per gestire i dispositivi tramite il portale di Azure, è necessario che i dispositivi siano [registrati o aggiunti](overview.md#getting-devices-under-the-control-of-azure-ad) in Azure AD. Un amministratore può ottimizzare il processo di registrazione e aggiunta dei dispositivi configurando le relative impostazioni. 
+Per gestire le identità dei dispositivi tramite il portale di Azure AD, i dispositivi devono essere [registrati o aggiunti](overview.md) ad Azure AD. Un amministratore può ottimizzare il processo di registrazione e aggiunta dei dispositivi configurando le relative impostazioni.
 
 ![Configurare le impostazioni dei dispositivi](./media/device-management-azure-portal/22.png)
 
@@ -68,15 +63,22 @@ La pagina delle impostazioni dei dispositivi consente di configurare:
 
 ![Gestire un dispositivo Intune](./media/device-management-azure-portal/21.png)
 
-- **Gli utenti possono aggiungere dispositivi ad Azure AD**: questa impostazione consente di selezionare gli utenti che possono [aggiungere dispositivi](overview.md#azure-ad-joined-devices) ad Azure AD. L'impostazione predefinita è **Tutti**. Questa impostazione è applicabile solo all'aggiunta ad Azure AD in Windows 10.
+- **Gli utenti possono aggiungere dispositivi ad Azure AD** -questa impostazione consente di selezionare gli utenti possono registrare i dispositivi come [dispositivi di Azure AD join](overview.md#azure-ad-joined-devices). L'impostazione predefinita è **Tutti**.
+
+>[!NOTE]
+> **Gli utenti possono aggiungere dispositivi ad Azure AD** impostazione è applicabile solo ai aggiunta ad Azure AD in Windows 10.
 
 - **Amministratori locali aggiuntivi su dispositivi aggiunti ad Azure AD**: è possibile selezionare gli utenti a cui vengono concessi i diritti di amministratore locale per un dispositivo. Gli utenti aggiunti in questa posizione vengono aggiunti al ruolo *Amministratori di dispositivi* in Azure AD. Agli amministratori globali di Azure AD e ai proprietari dei dispositivi vengono concessi i diritti di amministratore locale per impostazione predefinita. Questa opzione è una funzionalità dell'edizione Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).
+- **Gli utenti possono registrare i propri dispositivi con Azure AD** -è necessario configurare questa impostazione per consentire ai dispositivi personali, iOS, Android e macOs di Windows 10 sia [registrato](overview.md#azure-ad-registered-devices) con Azure AD. Se si seleziona **None**, i dispositivi non sono consentiti da registrare con Azure AD. L'iscrizione a Microsoft Intune o Gestione dispositivi mobili per Office 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile.
+- **Richiedi Multi-factor Auth per aggiungere i dispositivi**: è possibile scegliere se richiedere agli utenti di fornire un secondo fattore di autenticazione per [aggiungere](overview.md#azure-ad-joined-devices) il dispositivo ad Azure AD. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per altre informazioni sui diversi servizi di autenticazione a più fattori di Azure, vedere [Introduzione ad Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md). 
 
-- **Gli utenti possono registrare i propri dispositivi in Azure AD**: è necessario configurare questa impostazione per consentire la [registrazione](overview.md#azure-ad-registered-devices) dei dispositivi con Azure AD. Se si seleziona **Nessuno**, ai dispositivi non è consentito eseguire la registrazione se non sono aggiunti ad Azure AD o all'identità ibrida di AD Azure. L'iscrizione a Microsoft Intune o Gestione dispositivi mobili per Office 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile.
+>[!NOTE]
+> **Richiedi multi-Factor Auth per aggiungere dispositivi** impostazione non è applicabile ai dispositivi aggiunti ad Azure AD ibrido.
 
-- **Richiedi Multi-factor Auth per aggiungere i dispositivi**: è possibile scegliere se richiedere agli utenti di fornire un secondo fattore di autenticazione per [aggiungere](overview.md#azure-ad-joined-devices) il dispositivo ad Azure AD. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per altre informazioni sui diversi servizi di autenticazione a più fattori di Azure, vedere [Introduzione ad Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md). Questa impostazione non influisce sull'aggiunta ibrida per Windows 10 o Windows 7. È applicabile solo all'aggiunta ad Azure AD in Windows 10 e alla registrazione dei dispositivi BYO per Windows 10, iOS e Android.
+- **Numero massimo di dispositivi per utente**: questa impostazione consente di selezionare il numero massimo di dispositivi che un utente può avere in Azure AD. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. La quota di dispositivi viene conteggiata per tutti i dispositivi aggiunti ad Azure AD o Azure AD registrati oggi stesso. Il valore predefinito è **20**.
 
-- **Numero massimo di dispositivi per utente**: questa impostazione consente di selezionare il numero massimo di dispositivi che un utente può avere in Azure AD. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. La quota dei dispositivi viene calcolata considerando tutti i dispositivi attualmente aggiunti ad Azure AD o registrati in Azure AD. Il valore predefinito è **20**. *Questo limite non si applica ai dispositivi ibrida di Azure AD unita in join.*
+>[!NOTE]
+> **Numero massimo di dispositivi** impostazione non è applicabile ai dispositivi aggiunti ad Azure AD ibrido.
 
 - **Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi**: per impostazione predefinita, il valore di questa opzione è **Nessuno**. Se si selezionano utenti o gruppi specifici oppure l'opzione TUTTI, si consente la sincronizzazione delle impostazioni dell'utente e dei dati delle app tra i dispositivi Windows 10. Leggere altre informazioni sul funzionamento della sincronizzazione in Windows 10.
 Questa opzione è una funzionalità Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).
@@ -87,37 +89,34 @@ Sono disponibili due opzioni per individuare i dispositivi registrati e aggiunti
 
 - **Tutti i dispositivi** nella sezione **Gestisci** della pagina **Dispositivi**  
 
-    ![Tutti i dispositivi](./media/device-management-azure-portal/41.png)
+   ![Tutti i dispositivi](./media/device-management-azure-portal/41.png)
 
 - **Dispositivi** nella sezione **Gestisci** di una pagina **Utente**
 
-    ![Tutti i dispositivi](./media/device-management-azure-portal/43.png)
+   ![Tutti i dispositivi](./media/device-management-azure-portal/43.png)
 
 Con entrambe le opzioni, è possibile ottenere una vista che:
 
 - Consente di cercare i dispositivi usando il nome visualizzato come filtro.
-
 - Fornisce una panoramica dettagliata dei dispositivi registrati e aggiunti
-
 - Consente di eseguire attività comuni di gestione dei dispositivi
 
 ![Tutti i dispositivi](./media/device-management-azure-portal/51.png)
 
-Per alcuni dispositivi iOS, i nomi dei dispositivi contenenti apostrofi possono usare caratteri potenzialmente diversi, simili ad apostrofi. Di conseguenza, la ricerca di tali dispositivi è un po' complessa, pertanto se i risultati di ricerca non vengono visualizzati correttamente, assicurarsi che la stringa di ricerca contenga il carattere apostrofo corrispondente.
+Per alcuni dispositivi iOS, i nomi dei dispositivi contenenti apostrofi possono usare caratteri potenzialmente diversi, simili ad apostrofi. In modo che la ricerca di tali dispositivi è un po' difficoltoso - se non vengono visualizzati i risultati della ricerca in modo corretto, verificare che la stringa di ricerca contenga carattere apostrofo corrispondente.
 
-## <a name="device-management-tasks"></a>Attività di gestione dei dispositivi
+## <a name="device-identity-management-tasks"></a>Attività di gestione di identità di dispositivo
 
 Come amministratore globale o amministratore dispositivo cloud, è possibile gestire i dispositivi registrati o aggiunti. Gli amministratori del servizio Intune possono:
 
 - Aggiornare i dispositivi: esempi sono operazioni quotidiane, quali abilitazione/disabilitazione di dispositivi
-
 - Eliminare i dispositivi: quando un dispositivo viene ritirato e deve essere eliminato in Azure AD
 
-Questa sezione fornisce informazioni sulle attività comuni di gestione dei dispositivi.
+In questa sezione offre informazioni sulle attività comuni di gestione di identità dispositivo.
 
 ### <a name="manage-an-intune-device"></a>Gestire un dispositivo Intune
 
-Un amministratore di Intune può gestire i dispositivi contrassegnati come **Microsoft Intune**. 
+Un amministratore di Intune può gestire i dispositivi contrassegnati come **Microsoft Intune**.
 
 ![Gestire un dispositivo Intune](./media/device-management-azure-portal/31.png)
 
@@ -127,16 +126,16 @@ Per abilitare o disabilitare un dispositivo, le opzioni disponibili sono due:
 
 - Il menu Attività ("...") nella pagina **Tutti i dispositivi**
 
-    ![Gestire un dispositivo Intune](./media/device-management-azure-portal/71.png)
+   ![Gestire un dispositivo Intune](./media/device-management-azure-portal/71.png)
 
 - La barra degli strumenti nella pagina **Dispositivi**
 
-    ![Gestire un dispositivo Intune](./media/device-management-azure-portal/32.png)
+   ![Gestire un dispositivo Intune](./media/device-management-azure-portal/32.png)
 
 **Osservazioni:**
 
 - È necessario essere un amministratore globale o un cloud dell'amministratore del dispositivo in Azure AD per abilitare o disabilitare un dispositivo. 
-- La disabilitazione di un dispositivo impedisce l'autenticazione con Azure AD, impedendo in tal modo al dispositivo di accedere alle risorse di Azure AD che sono protette dall'autorità di certificazione di dispositivo o usando le credenziali WH4B un dispositivo. 
+- La disabilitazione di un dispositivo impedisce l'autenticazione con Azure AD, impedendo in tal modo al dispositivo di accedere alle risorse di Azure AD che sono protette dall'autorità di certificazione di dispositivo o usando le credenziali WH4B un dispositivo.
 
 ### <a name="delete-an-azure-ad-device"></a>Eliminare un dispositivo Azure AD
 
@@ -144,21 +143,21 @@ Per eliminare un dispositivo, le opzioni disponibili sono due:
 
 - Il menu Attività ("...") nella pagina **Tutti i dispositivi**
 
-    ![Gestire un dispositivo Intune](./media/device-management-azure-portal/72.png)
+   ![Gestire un dispositivo Intune](./media/device-management-azure-portal/72.png)
 
 - La barra degli strumenti nella pagina **Dispositivi**
 
-    ![Eliminare un dispositivo](./media/device-management-azure-portal/34.png)
+   ![Eliminare un dispositivo](./media/device-management-azure-portal/34.png)
 
 **Osservazioni:**
 
 - Per eliminare un dispositivo, è necessario essere un amministratore globale o un amministratore di Intune in Azure AD.
 - L'eliminazione di un dispositivo comporta quanto segue:
-   - Impedisce l'accesso del dispositivo alle risorse di Azure AD. 
+   - Impedisce l'accesso del dispositivo alle risorse di Azure AD.
    - Rimuove tutti i dettagli collegati al dispositivo, ad esempio, le chiavi BitLocker per i dispositivi Windows.  
    - È un'attività non reversibile e non è consigliata, a meno che non sia necessaria.
 
-Se un dispositivo è gestito da un'altra autorità di gestione (ad esempio Microsoft Intune), assicurarsi che sia stato cancellato o disattivato prima di eliminarlo in Azure AD.
+Se un dispositivo è gestito da un'altra autorità di gestione (ad esempio, Microsoft Intune), assicurarsi che il dispositivo sia stato cancellato o disattivato prima di eliminare il dispositivo in Azure AD.
 
 ### <a name="view-or-copy-device-id"></a>Visualizzare o copiare l'ID dispositivo
 
@@ -174,23 +173,21 @@ Se un dispositivo è gestito da un'altra autorità di gestione (ad esempio Micro
 
 Per visualizzare o copiare le chiavi BitLocker, è necessario essere il proprietario del dispositivo o un utente con almeno uno dei ruoli seguenti assegnati:
 
-- Amministratori globali
-- Amministratori Helpdesk
-- Amministratori della sicurezza
-- Ruoli con autorizzazioni di lettura per la sicurezza
-- Amministratori del servizio Intune
+- Amministratore globale
+- Amministratore supporto tecnico
+- Amministratore della sicurezza
+- Ruolo con autorizzazioni di lettura per la sicurezza
+- Amministratore del servizio Intune
 
 > [!NOTE]
 > I dispositivi Windows 10 aggiunti ad Azure AD ibrido non hanno un proprietario. Quindi, se si sta cercando un dispositivo in base al proprietario e non lo si trova, eseguire la ricerca in base all'ID del dispositivo.
 
 ## <a name="audit-logs"></a>Log di controllo
 
-Le attività del dispositivo sono disponibili tramite i log attività. I log includono le attività avviate dal servizio di registrazione dispositivo e dagli utenti:
+Le attività del dispositivo sono disponibili tramite i log attività. Questi log includono le attività avviate dal servizio registrazione dispositivo e dagli utenti:
 
 - Creazione di un dispositivo e aggiunta di proprietari/utenti nel dispositivo
-
 - Modifiche alle impostazioni del dispositivo
-
 - Funzionamento del dispositivo, ad esempio eliminazione o aggiornamento
 
 Il punto di ingresso ai dati di controllo è **Log di controllo** nella sezione **Attività** della pagina **Dispositivi**.
@@ -200,11 +197,8 @@ Il punto di ingresso ai dati di controllo è **Log di controllo** nella sezione 
 Un log di controllo è una visualizzazione elenco predefinita che include:
 
 - Data e ora dell'occorrenza
-
 - Destinazioni
-
 - Iniziatore/attore di un'attività (chi)
-
 - Attività (cosa)
 
 ![Log di controllo](./media/device-management-azure-portal/63.png)
@@ -215,7 +209,7 @@ Per personalizzare la visualizzazione elenco, fare clic su **Colonne** nella bar
 
 Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati di controllo usando i campi seguenti:
 
-- Categoria
+- Category
 - Activity resource type (Tipo di risorsa dell'attività)
 - Attività
 - Intervallo di date
@@ -228,4 +222,4 @@ Oltre a usare i filtri, è possibile cercare voci specifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Introduction to device management in Azure Active Directory](overview.md) (Introduzione alla gestione dei dispositivi in Azure Active Directory)
+[Come gestire i dispositivi non aggiornati in Azure AD](manage-stale-devices.md)

@@ -6,40 +6,38 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 455e78c63960103f5facae764aff3d2b3b2a590d
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60924857"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735192"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Come eseguire il debug di funzioni definite dall'utente in Gemelli digitali di Azure
 
-Questo articolo fornisce un riepilogo su come eseguire la diagnosi e il debug delle funzioni definite dall'utente. Quindi identifica alcuni degli scenari più comuni riscontrati quando si esegue il debug di tali funzioni.
+Questo articolo descrive come diagnosticare ed eseguire il debug di funzioni definite dall'utente in dispositivi gemelli digitale di Azure. Quindi identifica alcuni degli scenari più comuni riscontrati quando si esegue il debug di tali funzioni.
 
 >[!TIP]
 > Vedere [Come configurare il monitoraggio in Gemelli digitali di Azure](./how-to-configure-monitoring.md) per altre informazioni su come configurare gli strumenti di debug in Gemelli digitali di Azure mediante log attività, log di diagnostica e Monitoraggio di Azure.
 
 ## <a name="debug-issues"></a>Eseguire il debug dei problemi
 
-Imparare a eseguire la diagnosi degli eventuali problemi che si verificano all'interno dell'istanza di Gemelli digitali di Azure aiuta l'utente a identificare in modo efficace il problema, la relativa causa e una possibile soluzione.
+Che consente di diagnosticare i problemi all'interno di dispositivi gemelli digitale di Azure consente di analizzare i problemi in modo efficace, identificare le cause dei problemi e fornire soluzioni appropriate per tali.
 
-### <a name="enable-log-analytics-for-your-instance"></a>Abilitare Log Analytics per l'istanza in uso
+A tal fine vengono forniti svariati la registrazione analitica e degli strumenti di diagnostica.
 
-Le metriche e i log per l'istanza di Gemelli digitali di Azure vengono visualizzati nel Monitoraggio di Azure. Questa documentazione si presuppone di aver creato un [log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) area di lavoro tramite il [portale di Azure](../azure-monitor/learn/quick-create-workspace.md), tramite [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), o tramite [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+### <a name="enable-logging-for-your-instance"></a>Abilitare la registrazione per l'istanza
 
-> [!NOTE]
-> Quando si inviano eventi nei log di monitoraggio di Azure per la prima volta, si verifichi un ritardo di 5 minuti.
+Gemelli digitali di Azure supporta potenti funzionalità di registrazione, monitoraggio e analisi. Gli sviluppatori di soluzioni possono usare i log, i log di diagnostica, i log attività e altri servizi di monitoraggio di Azure per supportare le complesse esigenze di monitoraggio di un'app IoT. Le opzioni di registrazione possono essere combinate per eseguire query o visualizzare i record in diversi servizi e per fornire una copertura di registrazione granulare per numerosi servizi.
 
-Per configurare il monitoraggio e la registrazione delle risorse di Gemelli digitali di Azure, vedere [Come configurare il monitoraggio in Gemelli digitali di Azure](./how-to-configure-monitoring.md).
+* Per la configurazione della registrazione specifica a dispositivi gemelli digitale di Azure, leggere [come configurare monitoraggio e registrazione](./how-to-configure-monitoring.md).
+* Consultare il il [monitoraggio di Azure](../azure-monitor/overview.md) Panoramica per informazioni sulle impostazioni di log potente abilitate tramite Monitoraggio di Azure.
+* Vedere l'articolo [raccogliere e usare i dati di log dalle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md) per la configurazione delle impostazioni di log di diagnostica in dispositivi gemelli digitale di Azure tramite il portale di Azure, della riga di comando di Azure o PowerShell.
 
-Leggere l'articolo [Raccogliere e usare i dati dei log dalle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md) per configurare le impostazioni dei log di diagnostica in Gemelli digitali di Azure tramite il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell.
-
->[!IMPORTANT]
-> Assicurarsi di selezionare tutte le categorie di log, le metriche e l'area di lavoro Azure Log Analytics.
+Una volta configurato, sarà possibile selezionare tutte le categorie di log, metriche, e usare le aree di lavoro di potenti monitoraggio di Azure log analitica per supportare le operazioni di debug.
 
 ### <a name="trace-sensor-telemetry"></a>Tracciare i dati di telemetria del sensore
 
@@ -47,7 +45,7 @@ Per tracciare i dati di telemetria del sensore, verificare che siano abilitate l
 
 Per associare un messaggio di telemetria del sensore ai rispettivi log, è possibile specificare un ID di correlazione per i dati dell'evento inviati. A tale scopo, impostare la proprietà `x-ms-client-request-id` su un GUID.
 
-Dopo l'invio di dati di telemetria, aprire analitica di log per eseguire query per i log usando il set di ID di correlazione:
+Dopo l'invio di dati di telemetria, aprire log analitica per eseguire query per i log usando il set di ID di correlazione:
 
 ```Kusto
 AzureDiagnostics
@@ -209,4 +207,6 @@ Se si abilitano le impostazioni di diagnostica, è possibile riscontrare queste 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come abilitare il [monitoraggio e i log](../azure-monitor/platform/activity-logs-overview.md) in Gemelli digitali di Azure
+- Informazioni su come abilitare il [monitoraggio e i log](./how-to-configure-monitoring.md) in Gemelli digitali di Azure
+
+- Leggere il [log attività di panoramica di Azure](../azure-monitor/platform/activity-logs-overview.md) articolo per opzioni di registrazione di più Azure.

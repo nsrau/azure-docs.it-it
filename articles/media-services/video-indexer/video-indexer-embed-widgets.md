@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 06/05/2019
 ms.author: juliako
-ms.openlocfilehash: 5acd9b68368f56000a0a32d1ade310cf30143950
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799392"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735080"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporare i widget di Video Indexer nelle applicazioni
 
@@ -37,14 +37,14 @@ Un widget **Cognitive Insights** include tutte le informazioni dettagliate visiv
 
 Un widget **Player** consente di eseguire lo streaming del video a bitrate adattivo. Il widget del lettore supporta i parametri URL facoltativi seguenti:
 
-|NOME|Definizione|Descrizione|
+|Name|Definizione|Descrizione|
 |---|---|---|
 |t|Secondi dall'inizio|Fa partire il lettore dal tempo specificato.<br/>Esempio: t=60|
 |captions|Codice lingua|Recupera i sottotitoli nella lingua specificata durante il caricamento del widget in modo che siano disponibili nel menu dei sottotitoli.<br/>Esempio: captions=it-IT|
 |showCaptions|Valore booleano|Carica il lettore con i sottotitoli già abilitati.<br/>Esempio: showCaptions=true|
-|tipo||Attiva un'interfaccia del lettore audio (la parte video viene rimossa).<br/>Esempio: type=audio|
+|type||Attiva un'interfaccia del lettore audio (la parte video viene rimossa).<br/>Esempio: type=audio|
 |autoplay|Valore booleano|Indica se il lettore deve iniziare la riproduzione del video al caricamento (il valore predefinito è true).<br/>Esempio: autoplay=false|
-|Linguaggio|Codice lingua|Controlla la lingua del lettore (il valore predefinito è en-US)<br/>Esempio: language=de-DE|
+|language|Codice lingua|Controlla la lingua del lettore (il valore predefinito è en-US)<br/>Esempio: language=de-DE|
 
 ## <a name="embedding-public-content"></a>Incorporamento di contenuto pubblico
 
@@ -61,6 +61,9 @@ Un widget **Player** consente di eseguire lo streaming del video a bitrate adatt
 5. Copiare il codice di incorporamento e aggiungerlo all'applicazione. 
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
+
+> [!NOTE]
+> Se hai problemi con gli URL di video di condivisione, provare ad aggiungere il parametro 'location' del collegamento. Il parametro deve essere impostato il [aree di Azure in cui si trova Video Indexer](regions.md). Ad esempio: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## <a name="embedding-private-content"></a>Incorporamento di contenuto privato
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 464d01b7b818b461024737a83d88c78947453c37
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736140"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428492"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Connettersi all'API servizi multimediali di v3 - .NET
 
@@ -27,7 +27,7 @@ Questo articolo illustra come connettersi a .NET SDK di servizi multimediali di 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account servizi multimediali
-- Installare uno strumento che si desidera utilizzare per lo sviluppo .NET. La procedura in questo articolo illustra come usare [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). È possibile usare Visual Studio Code, vedere [utilizzo di C# ](https://code.visualstudio.com/docs/languages/csharp). In alternativa, è possibile usare un editor di codice diverse.
+- Installare uno strumento che si desidera utilizzare per lo sviluppo .NET. La procedura in questo articolo illustra come usare [2019 di Visual Studio Community Edition](https://www.visualstudio.com/downloads/). È possibile usare Visual Studio Code, vedere [utilizzo di C# ](https://code.visualstudio.com/docs/languages/csharp). In alternativa, è possibile usare un editor di codice diverse.
 
 ## <a name="create-a-console-application"></a>Creare un'applicazione console
 
@@ -42,7 +42,7 @@ L'app di esempio in questo argomento, destinato a `netcoreapp2.0`. Il codice Usa
 1. In Visual Studio, selezionare **degli strumenti** > **Gestione pacchetti NuGet** > **Console di gestione NuGet**.
 2. Nel **Console di gestione pacchetti** finestra, utilizzare `Install-Package` comando per aggiungere i pacchetti NuGet seguenti. Ad esempio: `Install-Package Microsoft.Azure.Management.Media`.
 
-|Pacchetto|DESCRIZIONE|
+|Pacchetto|Descrizione|
 |---|---|
 |`Microsoft.Azure.Management.Media`|Azure Media Services SDK. <br/>Per assicurarsi che si usa il pacchetto di servizi multimediali di Azure più recente, controllare [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
 |`Microsoft.Rest.ClientRuntime.Azure.Authentication`|Libreria di autenticazione ADAL per Azure SDK per NET|
@@ -237,6 +237,6 @@ namespace ConsoleApp1
 - [Creare filtri con Servizi multimediali - .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Esempi di video on-demand avanzato di Funzioni di Azure v2 con Servizi multimediali v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Riferimento .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)

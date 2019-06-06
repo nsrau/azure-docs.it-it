@@ -1,6 +1,6 @@
 ---
 title: Applicare criteri di denominazione gruppo sui gruppi di Office 365 - Azure Active Directory | Microsoft Docs
-description: Applicare criteri di denominazione per i gruppi di Office 365 in Azure Active Directory (anteprima)
+description: Come configurare criteri di denominazione per i gruppi di Office 365 in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d21616938978e501cc112fde105be4db4499b2a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 0c13b95028975c5463217455c940bb84c3867899
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605559"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734795"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Applicare un criterio di denominazione dei gruppi di Office 365 in Azure Active Directory
 
@@ -74,30 +74,30 @@ Alcuni amministratori possono essere esentati da questi criteri, in tutti i cari
 - Supporto di livello 1 partner
 - Supporto di livello 2 partner
 - Amministratore utenti
-- Ruolo con autorizzazioni di scrittura nella directory
+- Writer di directory
 
-## <a name="configure-naming-policy-in-azure-portal-preview"></a>Configurare criteri di denominazione nel portale di Azure (anteprima)
+## <a name="configure-naming-policy-in-azure-portal"></a>Configurare criteri di denominazione nel portale di Azure
 
 1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account Amministratore utenti.
-1. Selezionare **gruppi**, quindi selezionare **criteri di denominazione** per aprire la pagina dei criteri di denominazione.
+1. Selezionare **Gruppi** e quindi **Criteri di denominazione** per visualizzare la pagina corrispondente.
 
-    ![Aprire la pagina dei criteri di denominazione nell'interfaccia di amministrazione](./media/groups-naming-policy/policy-preview.png)
+    ![aprire la pagina Criteri di denominazione nell'interfaccia di amministrazione](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Visualizzare o modificare i criteri di denominazione prefisso-suffisso
 
-1. Nel **criteri di denominazione** pagina, selezionare **gruppo di criteri di denominazione**.
-1. È possibile visualizzare o modificare il prefisso corrente o il suffisso di denominazione dei criteri singolarmente selezionando gli attributi o le stringhe da applicare come parte dei criteri di denominazione.
-1. Per rimuovere un prefisso o suffisso nell'elenco, selezionare il prefisso o suffisso, quindi selezionare **Elimina**. È possibile eliminare più elementi contemporaneamente.
+1. Nella pagina **Criteri di denominazione** fare clic su **Criteri di denominazione del gruppo**.
+1. È possibile visualizzare o modificare singolarmente i criteri di denominazione correnti per il prefisso o il suffisso selezionando gli attributi o le stringhe da applicare come parte dei criteri di denominazione.
+1. Per rimuovere un prefisso o un suffisso dall'elenco, selezionare il prefisso o il suffisso desiderato e quindi fare clic su **Elimina**. È possibile eliminare più elementi contemporaneamente.
 1. Salvare le modifiche per i nuovi criteri per renderla effettiva selezionando **salvare**.
 
 ### <a name="edit-custom-blocked-words"></a>Modificare parole bloccate personalizzate
 
-1. Nel **criteri di denominazione** pagina, selezionare **parole bloccate**.
+1. Nella pagina **Criteri di denominazione** fare clic su **Parole bloccate**.
 
-    ![modificare e caricare l'elenco di parole bloccate per criteri di denominazione](./media/groups-naming-policy/blockedwords-preview.png)
+    ![modificare e caricare l'elenco delle parole bloccate per i criteri di denominazione](./media/groups-naming-policy/blockedwords.png)
 
-1. Visualizzare o modificare l'elenco corrente di parole bloccate personalizzate selezionando **scaricare**.
-1. Caricare il nuovo elenco di parole bloccate personalizzate selezionando l'icona di file.
+1. Visualizzare o modificare l'elenco corrente di parole bloccate personalizzate facendo clic su **Scarica**.
+1. Caricare il nuovo elenco di parole bloccate personalizzate facendo clic sull'icona del file.
 1. Salvare le modifiche per i nuovi criteri per renderla effettiva selezionando **salvare**.
 
 ## <a name="install-powershell-cmdlets"></a>Installare i cmdlet di PowerShell
@@ -198,10 +198,10 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## <a name="remove-the-naming-policy"></a>Rimuovere i criteri di denominazione
 
-### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Rimuovere i criteri di denominazione con il portale di Azure (anteprima)
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Rimuovere i criteri di denominazione con il portale di Azure
 
-1. Nel **criteri di denominazione** pagina, selezionare **eliminare criteri**.
-1. Dopo la conferma dell'eliminazione, i criteri di denominazione viene rimosso, inclusi tutti i prefisso-suffisso di denominazione dei criteri e le parole bloccate personalizzate.
+1. Nella pagina **Criteri di denominazione** fare clic su **Elimina criteri**.
+1. Dopo la conferma dell'eliminazione, i criteri di denominazione vengono rimossi, inclusi tutti i criteri di denominazione prefisso-suffisso e le eventuali parole bloccate personalizzate.
 
 ### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Rimuovere i criteri di denominazione con Azure AD PowerShell
 

@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918961"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427106"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza (BCDR): Aree abbinate di Azure
 
@@ -35,7 +35,7 @@ Figura 1: coppie di aree di Azure
 | Canada |Canada centrale |Canada orientale |
 | Cina |Cina settentrionale |Cina orientale|
 | Cina |Cina settentrionale 2 |Cina orientale 2|
-| Europa |Europa settentrionale |Europa occidentale |
+| Europa |Europa settentrionale (Irlanda) |Europa occidentale (Paesi Bassi) |
 | Francia |Francia centrale|Francia meridionale|
 | Germania |Germania centrale |Germania nord-orientale |
 | India |India centrale |India meridionale |
@@ -48,7 +48,7 @@ Figura 1: coppie di aree di Azure
 | America del Nord |Stati Uniti occidentali 2 |Stati Uniti centro-occidentali 
 | Sud Africa | Sudafrica settentrionale | Sudafrica occidentale
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
-| Emirati Arabi Uniti | Emirati Arabi Uniti settentrionali | Emirati Arabi Uniti Center
+| Emirati Arabi Uniti | Emirati Arabi Uniti settentrionali | Emirati Arabi Uniti centrali
 | Dipartimento della difesa degli Stati Uniti |US DoD (area orientale) |US DoD (area centrale) |
 | Governo degli Stati Uniti |US Gov Arizona |US Gov Texas |
 | Governo degli Stati Uniti |Governo degli Stati Uniti - Iowa |Governo degli Stati Uniti - Virginia |
@@ -75,7 +75,7 @@ Figura 2: ipotetica coppia di aree di Azure
 ## <a name="cross-region-activities"></a>Attività tra aree
 Come indicato nella figura 2.
 
-![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Calcolo di Azure (IaaS)**: è necessario eseguire anticipatamente il provisioning di risorse di calcolo aggiuntive per assicurare che siano disponibili in un'altra area in caso di emergenza. Per altre informazioni, vedere [Informazioni tecniche sulla resilienza di Azure](resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Calcolo di Azure (IaaS)** : è necessario eseguire anticipatamente il provisioning di risorse di calcolo aggiuntive per assicurare che siano disponibili in un'altra area in caso di emergenza. Per altre informazioni, vedere [Informazioni tecniche sulla resilienza di Azure](resiliency/resiliency-technical-guidance.md).
 
 ![Archiviazione](./media/best-practices-availability-paired-regions/2Green.png) **Archiviazione di Azure**: per impostazione predefinita, quando si crea un account di archiviazione di Azure viene configurata l'archiviazione con ridondanza geografica. Con questa opzione di replica, i dati vengono replicati per tre volte all'interno dell'area primaria e per tre volte nell'area abbinata. Per altre informazioni, vedere [Opzioni di ridondanza di Archiviazione di Azure](storage/common/storage-redundancy.md).
 

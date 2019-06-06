@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16d20e9ea2203c788a2b7b5eb0507b357350407d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7cb3f7baa38305215a8b8383d25132327327d182
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918486"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472960"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Pianificare il ciclo di vita dell’identità ibrida
 L'identità rappresenta uno degli elementi fondamentali della strategia di mobilità aziendale e di accesso alle applicazioni. Quando si accede a un dispositivo mobile personale o a un'app SaaS, l'identità è la chiave con cui si ottiene l'accesso a tutti i componenti. A livello generale, una soluzione di gestione delle identità prevede il consolidamento e la sincronizzazione degli archivi di identità, che include l'automazione e la centralizzazione del processo di provisioning delle risorse. La soluzione di identità, inoltre, deve essere un'identità centralizzata in locale e nel cloud e ricorrere a una forma di federazione delle identità per gestire l'autenticazione centralizzata e condividere e collaborare con aziende e utenti esterni in modo totalmente sicuro. Le risorse comprendono i sistemi operativi, le applicazioni e gli utenti appartenenti o affiliati a un'azienda. La struttura aziendale, inoltre, può essere modificata per soddisfare determinati criteri o procedure di provisioning.
@@ -48,22 +48,23 @@ Per definire correttamente tali requisiti, assicurarsi che venga fornita una ris
   
   * La soluzione di identità ibrida è in grado di gestire anche la gestione delle licenze?
     * In caso affermativo, quali funzionalità sono disponibili?
-* La soluzione prevede anche la gestione delle licenze basata su gruppo? 
+  * La soluzione prevede anche la gestione delle licenze basata su gruppo? 
   
-      - In caso affermativo, è possibile assegnare ad essa un gruppo di sicurezza? 
-       - In caso affermativo, la directory cloud assegnerebbe automaticamente le licenze a tutti i membri del gruppo? 
-        - Cosa accede se, in seguito, un utente viene aggiunto o rimosso dal gruppo? Anche la licenza verrà assegnata o rimossa, a seconda del caso? 
+    * In caso affermativo, è possibile assegnare ad essa un gruppo di sicurezza? 
+    * In caso affermativo, la directory cloud assegnerebbe automaticamente le licenze a tutti i membri del gruppo? 
+    * Cosa accede se, in seguito, un utente viene aggiunto o rimosso dal gruppo? Anche la licenza verrà assegnata o rimossa, a seconda del caso? 
 * Integrazione con provider di identità di terze parti:
-* È possibile integrare questa soluzione ibrida con provider di identità di terze parti per implementare accessi di tipo Single Sign-On?
-* È possibile consolidare tutti i diversi provider di identità in un sistema di identità coerente?
-* In caso affermativo, che caratteristiche presentano e quali funzionalità offrono?
+  * È possibile integrare questa soluzione ibrida con provider di identità di terze parti per implementare accessi di tipo Single Sign-On?
+  * È possibile consolidare tutti i diversi provider di identità in un sistema di identità coerente?
+  * In caso affermativo, che caratteristiche presentano e quali funzionalità offrono?
 
 ## <a name="synchronization-management"></a>Gestione della sincronizzazione
 Uno dei principali obiettivi della gestione delle identità è quello di raccogliere tutti i provider di identità e mantenerli sincronizzati. Per la sincronizzazione dei dati viene usato un provider di identità autorevole. In uno scenario di identità ibrido, con un modello di gestione sincronizzato, si gestiscono tutte le identità utente e dispositivo in un server locale e, in seguito, si sincronizzano nel cloud gli account ed eventualmente le password. L'utente immette in locale la stessa password usata per il cloud e, al momento dell'accesso, la password viene verificata dalla soluzione di identità. Questo modello usa uno strumento di sincronizzazione di directory.
 
-![sincronizzazione della directory](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) per progettare correttamente la sincronizzazione della propria soluzione di identità ibrida, assicurarsi che le seguenti domande: • quali sono le soluzioni di sincronizzazione disponibili per la soluzione con identità ibrida?
-•    Quali sono le funzionalità di Single Sign-On disponibili?
-•    Quali sono le opzioni per una federazione delle identità tra B2B e B2C?
+![sincronizzazione della directory](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) per progettare correttamente la sincronizzazione della propria soluzione di identità ibrida, assicurarsi che le seguenti domande:
+*    Quali sono le soluzioni di sincronizzazione disponibili per la soluzione con identità ibrida?
+*    Quali sono il single sign-on le funzionalità disponibili?
+*    Quali sono le opzioni per la federazione delle identità tra B2B e B2C?
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Determinare la strategia di adozione di una soluzione per la gestione di un'identità ibrida](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)

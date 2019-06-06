@@ -1,6 +1,6 @@
 ---
-title: Sviluppare applicazioni sicure in Azure | Microsoft Docs
-description: Guida per lo sviluppo di applicazioni più sicure per il cloud.
+title: Sviluppare applicazioni cloud sicure in Azure - Microsoft Azure
+description: Guida per i controlli e domande di sicurezza da considerare in ogni fase del ciclo di vita di sviluppo software durante lo sviluppo di applicazioni per il cloud.
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 4c4c2cc3356a10eacbb5460fae27a0a8a66ddd35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 710d7a12db3b38a6cecffb33ade6b60eb50d03c7
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587683"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428280"
 ---
-# <a name="develop-secure-applications-on-azure"></a>Sviluppare applicazioni sicure in Azure
+# <a name="develop-secure-cloud-applications-on-azure"></a>Sviluppare applicazioni cloud sicure in Azure
 ## <a name="abstract"></a>Sunto
 Questo documento è una guida generale alle domande di sicurezza e ai controlli che è consigliabile tenere in considerazione in ogni fase del ciclo di vita dello sviluppo software delle applicazioni per il cloud. L'implementazione di questi concetti prima di rilasciare il prodotto consente di compilare software più sicuro. Le raccomandazioni presentate in questo articolo derivano dalla nostra esperienza con la sicurezza di Azure e dalle esperienze dei clienti.
 

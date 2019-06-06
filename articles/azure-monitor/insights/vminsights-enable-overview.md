@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 76d18b6a942ed9b8c6871b0ff7cbc1c83917ada4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c84c3eb74d214a5c98aabef7b2e2987dfdf67c0f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66130477"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472598"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Abilitare il monitoraggio di Azure per la panoramica di macchine virtuali (anteprima)
 
@@ -40,6 +40,7 @@ Prima di iniziare, verificare di aver compreso quanto illustrato nelle sezioni s
 Monitoraggio per le macchine virtuali di Azure supporta un'area di lavoro di Log Analitica nelle aree seguenti:
 
 - Stati Uniti centro-occidentali
+- Stati Uniti occidentali 2<sup>1</sup>
 - Stati Uniti orientali
 - Canada Central<sup>1</sup>
 - Regno Unito meridionale<sup>1</sup>
@@ -154,7 +155,7 @@ La tabella seguente descrive le origini connesse supportate dalla funzionalità 
 |:--|:--|:--|
 | Agenti di Windows | Sì | Oltre all'[agente di Log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
 | Agenti Linux | Sì | Oltre all'[agente di Log Analytics per Linux](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
-| Gruppo di gestione di System Center Operations Manager | No  | |
+| Gruppo di gestione di System Center Operations Manager | No | |
 
 È possibile scaricare Dependency Agent dalle posizioni seguenti:
 
@@ -197,8 +198,8 @@ Monitoraggio di Azure per le macchine virtuali consente di configurare un'area d
 |LogicalDisk |Avg. Disk sec/Transfer |
 |LogicalDisk |Avg. Disk sec/Write |
 |LogicalDisk |Byte da/a disco/sec |
-|LogicalDisk |Byte letti da disco/sec  |
-|LogicalDisk |Letture disco/sec  |
+|LogicalDisk |Byte letti da disco/sec |
+|LogicalDisk |Letture disco/sec |
 |LogicalDisk |Disk Transfers/sec |
 |LogicalDisk |Byte scritti su disco/sec |
 |LogicalDisk |Scritture disco/sec |
@@ -213,8 +214,8 @@ Monitoraggio di Azure per le macchine virtuali consente di configurare un'area d
 |Nome dell'oggetto |Nome contatore |
 |------------|-------------|
 |Logical Disk |% Used Space |
-|Logical Disk |Byte letti da disco/sec  |
-|Logical Disk |Letture disco/sec  |
+|Logical Disk |Byte letti da disco/sec |
+|Logical Disk |Letture disco/sec |
 |Logical Disk |Disk Transfers/sec |
 |Logical Disk |Byte scritti su disco/sec |
 |Logical Disk |Scritture disco/sec |

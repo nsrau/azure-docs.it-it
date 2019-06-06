@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: f36442c5e26391f410eeb5e39a7485da7199bdad
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d8a1d261808eb8f97d1e0dab78b767b37ae6802f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243441"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743148"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Risoluzione dei problemi dell'agente di Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -82,7 +82,15 @@ Si consiglia di eseguire la convalida, di seguito prima di iniziare la risoluzio
 Se i backup pianificati non vengono generati automaticamente, mentre i backup manuali funzionano senza problemi, eseguire queste operazioni:
 
 - Assicurarsi di pianificazione di Windows Server backup non in conflitto con Azure pianificazione di backup di file e cartelle.
-- Andare a **Pannello di controllo** > **Strumenti di amministrazione** > **Utilità di pianificazione**. Espandere **Microsoft** e selezionare **Backup online**. Fare doppio clic su **Microsoft-Backup online** e andare alla scheda **Trigger**. Verificare che lo stato sia impostato su **Abilitato**. In caso contrario, selezionare **Modifica**, quindi selezionare la casella di controllo **Abilitata** e fare clic su **OK**. Nella scheda **Generale** passare a **Opzioni di sicurezza** e assicurarsi che l'account utente selezionato per l'esecuzione dell'attività sia **SISTEMA** o il **gruppo Amministratori locali** nel server.
+
+- Verificare che lo stato di Backup in linea è impostato su **abilitare**. Per verificare lo stato di eseguire il seguente:
+
+  - Andare a **Pannello di controllo** > **Strumenti di amministrazione** > **Utilità di pianificazione**.
+    - Espandere **Microsoft** e selezionare **Backup online**.
+  - Fare doppio clic su **Microsoft-Backup online** e andare alla scheda **Trigger**.
+  - Verificare se lo stato è impostato su **abilitato**. In caso contrario, selezionare **Modifica**, quindi selezionare la casella di controllo **Abilitata** e fare clic su **OK**.
+
+- Assicurarsi che l'account utente selezionato per l'esecuzione dell'attività è uno **SYSTEM** oppure **gruppo locale Administrators** nel server. Per verificare l'account utente, passare al **generali** scheda e selezionare il **opzioni di sicurezza**.
 
 - Verificare se PowerShell 3.0 o versione successiva è installato nel server. Per controllare la versione di PowerShell, eseguire il comando seguente e verificare che il numero di versione *principale* sia uguale o maggiore di 3.
 
@@ -97,6 +105,15 @@ Se i backup pianificati non vengono generati automaticamente, mentre i backup ma
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
+
+- Verificare che server è stato riavviato dopo l'installazione dell'agente di backup
+
+- Verificare che vi siano mancanti o danneggiati **PowerShell** modulo **MSonlineBackup**. Nel caso in cui sono presenti eventuali file mancanti o danneggiati, per risolvere il problema, procedere con il seguente:
+
+  - Da un altro computer (Windows 2008 R2) che l'agente di MARS funziona correttamente e copiare la cartella MSOnlineBackup dal *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* percorso.
+  - Incollare questa problematica macchina nello stesso percorso *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* .
+  - Se **MSOnlineBackup** la cartella è già presente nella macchina, Incolla e Sostituisci i file di contenuto all'interno.
+
 
 > [!TIP]
 > Per garantire che le modifiche vengano applicate in modo coerente, riavviare il server dopo aver eseguito i passaggi precedenti.

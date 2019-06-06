@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 06/06/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f37a0c9e4c664ac9631a0a07fa6f114e62939845
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e91d55c29d325301b8ac70ddc63fb408961fbb2c
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852607"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742970"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Come configurare un'applicazione del servizio App per usare l'account di accesso di Facebook
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -30,19 +30,14 @@ Questo argomento descrive come configurare il servizio app di Azure per usare Fa
 Per completare la procedura descritta in questo argomento, è necessario disporre di un account di Facebook con un indirizzo di posta elettronica verificato e un numero di cellulare. Per creare un nuovo account di Facebook, visitare il sito [facebook.com].
 
 ## <a name="register"></a>Registrare l'applicazione con Facebook
-1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l' **URL**. Verrà usato per configurare l'app Facebook.
-2. In un'altra finestra del browser passare al sito Web [Facebook Developers] e accedere con le credenziali dell'account Facebook.
-3. (Facoltativo) Se non è ancora stata effettuata la registrazione, fare clic su **Apps** (App)  > **Register as a Developer** (Registrarsi come sviluppatore), quindi accettare le condizioni e seguire la procedura di registrazione.
-4. Fare clic su **App personali** > **Aggiungi una nuova app**.
+1. Passare al sito Web [Facebook Developers] e accedere con le proprie credenziali dell'account di Facebook.
+3. (Facoltativo) Se non si ha un Facebook per l'account di sviluppatori, fare clic su **iniziare a usare** e seguire la procedura di registrazione.
+4. Fare clic su **alle App personali** > **Aggiungi nuova App**.
 5. In **Nome visualizzato**, digitare un nome univoco per l'app. Inserire anche l'**Indirizzo di posta elettronica di contatto**, quindi fare clic su **Crea ID app** e completare il controllo di sicurezza. Si passerà al dashboard dello sviluppatore per la nuova app di Facebook.
-6. Sotto **Facebook Login** (Account di accesso a Facebook), fare clic su **Setup**, quindi scegliere **Impostazioni** nel riquadro di spostamento a sinistra sotto **Facebook Login** (Account di accesso a Facebook).
-7. Aggiungere l'URI di **Redirect URI** (URI di reindirizzamento) dell'applicazione in **Valid OAuth redirect URIs** (URI di reindirizzamento OAuth validi) e quindi fare clic su **Save Changes** (Salva modifiche).
-   
-   > [!NOTE]
-   > L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso */.auth/login/facebook/callback*. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Assicurarsi che sia in uso lo schema HTTPS.
-   > 
-   > 
-8. Nel riquadro di spostamento a sinistra fare clic su **Impostazioni** > **Basic**. Nel campo **App Secret** (Segreto app) fare clic su **Show** (Mostra), fornire la password se richiesto, quindi prendere nota dei valori di **App ID** (ID app) e **App Secret** (Segreto app). Verranno usati più avanti per configurare l'applicazione in Azure.
+6. Fare clic su **Dashboard** > **account di accesso di Facebook** > **configurare** > **Web**.
+1. Nel riquadro di spostamento a sinistra sotto **account di accesso di Facebook**, fare clic su **impostazioni**.
+1. Nelle **URI di reindirizzamento OAuth validi**, digitare `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback` e sostituire  *\<app-name >* con il nome dell'app del servizio App di Azure. Fare clic su **salvare le modifiche**.
+8. Nel riquadro di spostamento a sinistra fare clic su **Impostazioni** > **Basic**. Nel **segreto App** campo, fare clic su **mostrano**. Copiare i valori **App ID** e **segreto App**. Si usano queste in un secondo momento per configurare l'App del servizio app in Azure.
    
    > [!IMPORTANT]
    > Il segreto dell'app è una credenziale di sicurezza importante. Non condividere questo valore con altri e non distribuirlo all'interno di un'applicazione client.
@@ -51,7 +46,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 9. L'account di Facebook usato per registrare l'applicazione sarà un account di amministratore dell'app. A questo punto, solo gli amministratori potranno effettuare l'accesso a questa applicazione. Per autenticare altri account di Facebook, fare clic su **revisione dell'App** e abilitare **apportare \<your-app-name > Pubblica** per abilitare l'accesso pubblico generale con l'autenticazione di Facebook.
 
 ## <a name="secrets"></a>Aggiungere le informazioni di Facebook all'applicazione
-1. Nel [portale di Azure], passare all'applicazione. Fare clic su **Impostazioni** > **Autenticazione/Autorizzazione**, quindi assicurarsi che l'opzione **Autenticazione servizio app** sia impostata su **Sì**.
+1. Accedi per il [portale di Azure] e passare all'App del servizio app. Fare clic su **Impostazioni** > **Autenticazione/Autorizzazione**, quindi assicurarsi che l'opzione **Autenticazione servizio app** sia impostata su **Sì**.
 2. Fare clic su **Facebook**, incollare i valori di ID app e segreto app i valori ottenuti in precedenza e abilitare facoltativamente tutti gli ambiti richiesti dall'applicazione, quindi fare clic su **OK**.
    
     ![][0]

@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 234fc94a0a2ad3d3bee49853cf1dfc6a805a0166
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: adfc96d2d7abf38c00f32a5d53615bb7c99c320e
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825411"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742376"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Errore nella pagina di un'applicazione dopo l'accesso
 
@@ -67,9 +67,11 @@ Per aggiungere un attributo nella configurazione di Azure AD da inviare nella ri
 
 Al successivo accesso dell'utente all'applicazione, Azure AD invia il nuovo attributo nella risposta SAML.
 
-## <a name="the-application-expects-a-different-user-identifier-value-or-format"></a>L'applicazione prevede un formato o un valore dell'ID utente diverso
+## <a name="the-application-doesnt-identify-the-user"></a>L'applicazione non identifica l'utente
 
-L'accesso all'applicazione non riesce perché nella risposta SAML mancano attributi come i ruoli o perché l'applicazione prevede un formato diverso per l'attributo EntityID.
+L'accesso all'applicazione ha esito negativo perché la risposta SAML mancano attributi come i ruoli o perché l'applicazione prevede un formato diverso o un valore per l'attributo EntityID.
+
+Se si usa [AD Azure il provisioning utenti automatizzato](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) per creare, gestire e rimuovere gli utenti nell'applicazione. Verificare quindi che l'utente sia stato preparato correttamente per l'applicazione SaaS. Per altre informazioni, vedere [gli utenti non sono in corso il provisioning di un'applicazione della raccolta di Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
 
 ## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Aggiungere un attributo nella configurazione dell'applicazione Azure AD:
 

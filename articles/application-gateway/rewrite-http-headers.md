@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000961"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476027"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Riscrivere le intestazioni HTTP con il Gateway applicazione
 
@@ -153,11 +153,11 @@ Ecco i passaggi per la sostituzione del nome host:
 
 ## <a name="limitations"></a>Limitazioni
 
+- Se una risposta dispone di più intestazioni con lo stesso nome, quindi la riscrittura il valore di una di queste intestazioni comporterà eliminando le altre intestazioni della risposta. In genere, ciò può verificarsi con intestazione Set-Cookie poiché è possibile avere più di un'intestazione Set-Cookie in una risposta. Un tale scenario è quando si usa un servizio app con un gateway applicazione e aver configurato l'affinità di sessione basata su cookie sul gateway applicazione. In questo caso la risposta conterrà 2 intestazioni Set-Cookie: uno viene usato dal servizio app, ad esempio, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e l'altro per l'affinità del gateway applicazione, ad esempio, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Riscrittura di una delle intestazioni del Cookie in questo scenario può comportare la rimozione di altri intestazione Set-Cookie dalla risposta.
+
 - Riscrivere le intestazioni Host, aggiornamento e connessione non è attualmente supportata.
 
 - I nomi di intestazione possono contenere caratteri alfanumerici e simboli specifici come definito in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Il carattere di sottolineatura non sono attualmente supportate (\_) caratteri speciali nei nomi di intestazione.
-
-- Se una risposta con intestazioni multiple con lo stesso nome, quindi la riscrittura il valore di una di queste intestazioni comporterà eliminando le altre intestazioni della risposta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

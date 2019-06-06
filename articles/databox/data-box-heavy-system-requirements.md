@@ -8,14 +8,14 @@ ms.subservice: heavy
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd2f96954cde367eb99d89e89bcf672b53dd590
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b9e249885bd0e930773d4b374f85d72e60abdbdc
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247995"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427734"
 ---
-# <a name="azure-data-box-heavy-system-requirements"></a>Azure Data finestra elevati requisiti di sistema
+# <a name="azure-data-box-heavy-system-requirements-preview"></a>Requisiti di sistema elevati di dati finestra Azure (anteprima)
 
 Questo articolo descrive i requisiti di sistema importanti per il dispositivo Azure dati casella pesante e per i client che si connettono al dispositivo. È consigliabile che consultare le informazioni con attenzione prima di distribuire pesante finestra di dati e quindi fare riferimento ad esso in base alle esigenze durante la distribuzione e la successiva operazione.
 

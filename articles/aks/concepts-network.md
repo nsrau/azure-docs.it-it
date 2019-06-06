@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ce3290f7af32b10e1dfbf9b72686e5d30c885bb
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074060"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431326"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes
 
@@ -62,7 +62,7 @@ Si possono creare sia bilanciamenti del carico *interni* che *esterni*. Ai bilan
 Nel servizio Azure Kubernetes è possibile distribuire un cluster che usa uno dei due modelli di rete seguenti:
 
 - Funzionalità di rete *kubenet*: le risorse di rete vengono in genere create e configurate quando viene distribuito il cluster del servizio Azure Kubernetes.
-- Funzionalità di rete *Azure Container Networking Interface (Azure CNI)*: il cluster del servizio Azure Kubernetes viene connesso alle configurazioni e alle risorse di rete virtuale esistenti.
+- Funzionalità di rete *Azure Container Networking Interface (Azure CNI)* : il cluster del servizio Azure Kubernetes viene connesso alle configurazioni e alle risorse di rete virtuale esistenti.
 
 ### <a name="kubenet-basic-networking"></a>Funzionalità di rete kubenet (di base)
 
@@ -99,6 +99,8 @@ I *controller di ingresso* operano sul livello 7 e possono usare regole più int
 Nel servizio Azure Kubernetes è possibile creare una risorsa di ingresso usando uno strumento come NGINX o la funzionalità di routing delle applicazioni HTTP del servizio Azure Kubernetes. Quando si abilita il routing delle applicazioni HTTP per un cluster servizio Azure Kubernetes, la piattaforma Azure crea il controller di ingresso e un controller *DNS esterno*. Quando vengono create le risorse di ingresso in Kubernetes, i record A DNS necessari vengono creati in una zona DNS specifica del cluster. Per altre informazioni, vedere [Routing di applicazioni HTTP][aks-http-routing].
 
 Un'altra funzionalità comune per il traffico in ingresso è la terminazione SSL/TLS. In applicazioni Web di grandi dimensioni a cui si accede tramite HTTPS, la terminazione TLS può essere gestita dalla risorsa di ingresso invece che all'interno dell'applicazione stessa. Per garantire la generazione e la configurazione automatiche della certificazione TLS, è possibile configurare la risorsa di ingresso per l'uso di provider, ad esempio Let's Encrypt. Per altre informazioni sulla configurazione di un controller di ingresso NGINX con Let's Encrypt, vedere [Traffico in ingresso e TLS][aks-ingress-tls].
+
+È anche possibile configurare il controller di ingresso per mantenere l'IP di origine client nelle richieste per i contenitori nel cluster AKS. Quando una richiesta del client viene instradata a un contenitore nel cluster AKS tramite controller di ingresso, l'ip di origine originale di tale richiesta non sarà disponibile per il contenitore di destinazione. Quando si abilita *mantenimento dell'IP di origine client*, l'indirizzo IP di origine per il client è disponibile nell'intestazione della richiesta sotto *X-Forwarded-For*. Se si usa conservazione dell'IP di origine client nel controller di ingresso, è possibile usare pass-through SSL. Conservazione dell'IP di origine client e pass-through SSL utilizzabile con altri servizi, ad esempio la *LoadBalancer* tipo.
 
 ## <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a295dfa1f7f2c58b3e45036212434837ac4bfb4d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235761"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475462"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Visualizzare in anteprima: creare e gestire più pool di nodi per un cluster Azure Kubernetes Service (AKS)
 
@@ -74,6 +74,7 @@ Le limitazioni seguenti si applicano quando si creano e gestire i cluster serviz
 * È possibile eliminare il primo pool di nodi.
 * Impossibile utilizzare il componente di routing aggiuntivo dell'applicazione HTTP.
 * Non è possibile pool di nodi di aggiunta/aggiornamento/eliminazione usando un modello di Resource Manager esistente come con la maggior parte delle operazioni. Al contrario, [usare un modello di Resource Manager separato](#manage-node-pools-using-a-resource-manager-template) apportare modifiche al pool di nodi in un cluster AKS.
+* Impossibile utilizzare il ridimensionamento automatico del cluster (attualmente in anteprima nel servizio contenitore di AZURE).
 
 Quando questa funzionalità è disponibile in anteprima, si applicano le limitazioni aggiuntive seguenti:
 
@@ -222,7 +223,7 @@ Sono necessari alcuni minuti per eliminare i nodi e il pool di nodi.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Specificare una dimensione di macchina virtuale per un pool di nodi
 
-Negli esempi precedenti per creare un pool di nodi, una dimensione di macchina virtuale predefinita è stata usata per i nodi creati nel cluster. Uno scenario più comune è creare pool di nodi con varie dimensioni di VM e funzionalità. Ad esempio, è possibile creare un pool di nodi contenente nodi con grandi quantità di memoria o CPU, o un pool di nodi che fornisce supporto per GPU. Nel passaggio successivo, si [uso taints e tolerations][#schedule-pods-using-taints-and-tolerations] per indicare l'utilità di pianificazione di Kubernetes come limitare l'accesso al POD eseguibili in tali nodi.
+Negli esempi precedenti per creare un pool di nodi, una dimensione di macchina virtuale predefinita è stata usata per i nodi creati nel cluster. Uno scenario più comune è creare pool di nodi con varie dimensioni di VM e funzionalità. Ad esempio, è possibile creare un pool di nodi contenente nodi con grandi quantità di memoria o CPU, o un pool di nodi che fornisce supporto per GPU. Nel passaggio successivo, si [usare taints e tolerations](#schedule-pods-using-taints-and-tolerations) per indicare l'utilità di pianificazione di Kubernetes come limitare l'accesso al POD eseguibili in tali nodi.
 
 Nell'esempio seguente, creare un pool di nodi basate su GPU che usa il *Standard_NC6* dimensioni della macchina virtuale. Queste VM sono basate sulla scheda NVIDIA Tesla K80. Per informazioni sulle dimensioni VM disponibili, vedere [dimensioni delle macchine virtuali Linux in Azure][vm-sizes].
 
@@ -332,7 +333,7 @@ Events:
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Gestire i pool di nodi usando un modello di Resource Manager
 
-Quando si usa un modello Azure Resource Manager per creare e le risorse gestite, è possibile aggiornare in genere le impostazioni nel modello e ridistribuzione per aggiornare la risorsa. Con nodepools nel servizio contenitore di AZURE, il profilo nodepool iniziale non può essere aggiornato dopo aver creato il cluster AKS. Questo comportamento significa che non è possibile aggiornare un modello di Resource Manager esistente, apportare una modifica per il pool di nodi e ridistribuire. In alternativa, è necessario creare un modello di Resource Manager separato che aggiorna solo i pool di agenti per un cluster servizio contenitore di AZURE esistente.
+Quando si usa un modello Azure Resource Manager per creare e le risorse gestite, è possibile aggiornare in genere le impostazioni nel modello e ridistribuzione per aggiornare la risorsa. Con pool di nodi nel servizio contenitore di AZURE, il profilo del pool iniziale di nodi non è possibile aggiornare dopo aver creato il cluster AKS. Questo comportamento significa che non è possibile aggiornare un modello di Resource Manager esistente, apportare una modifica per il pool di nodi e ridistribuire. In alternativa, è necessario creare un modello di Resource Manager separato che aggiorna solo i pool di agenti per un cluster servizio contenitore di AZURE esistente.
 
 Creare un modello, ad esempio `aks-agentpools.json` e incollare il seguente esempio di manifesto. Questo modello di esempio consente di configurare le impostazioni seguenti:
 
@@ -437,7 +438,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato descritto come creare e gestire più pool di nodi in un cluster AKS. Per altre informazioni su come controllare i POD tra pool di nodi, vedere [procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione in AKS][operator-best-practices-advanced-scheduler].
+In questo articolo si appreso come creare e gestire più pool di nodi in un cluster AKS. Per altre informazioni su come controllare i POD tra pool di nodi, vedere [procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione in AKS][operator-best-practices-advanced-scheduler].
 
 Per creare e usare pool di nodi contenitore di Windows Server, vedere [creare un contenitore di Windows Server in AKS][aks-windows].
 

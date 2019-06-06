@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/27/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: efd3ff8a6e7ddf2aa6242cc322d8a6536a6bd26b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921060"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474059"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Che cos'è la gestione dei diritti di Azure AD? (anteprima)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Che cos'è la gestione dei diritti di Azure AD? (Anteprima)
 
 > [!IMPORTANT]
-> Gestione dei diritti di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
+> Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -70,26 +70,17 @@ Ecco i tipi di risorse che è possibile gestire l'accesso a con la gestione dei 
 
 - Gruppi di sicurezza di Azure AD
 - Gruppi di Office 365
-- Applicazioni di Azure AD dell'organizzazione
-- Applicazioni SaaS
-- Applicazioni integrate personalizzate
-- Raccolte siti di SharePoint Online
-- Siti di SharePoint Online
+- Azure AD le applicazioni aziendali, tra cui applicazioni SaaS e le applicazioni integrate personalizzate che supportano la federazione o il provisioning
+- Siti e le raccolte siti di SharePoint Online
 
-## <a name="prerequisites"></a>Prerequisiti
+È inoltre possibile controllare l'accesso ad altre risorse che si basano su gruppi di sicurezza di Azure AD o i gruppi di Office 365.  Ad esempio:
 
-Per usare Gestione dei diritti di Azure AD (anteprima), è necessario disporre delle licenze seguenti:
-
-- Azure AD P2 Premium
-- Licenza di Enterprise Mobility + Security (EMS) E5
-
-Per altre informazioni, vedere [effettuare l'iscrizione per le edizioni di Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) oppure [Enterprise Mobility + Security E5 valutazione](https://aka.ms/emse5trial).
-
-Cloud specializzato, ad esempio Azure per enti pubblici, Azure Germania e Azure Cina 21Vianet, non sono attualmente disponibili per l'uso in questa versione di anteprima.
+- È possibile assegnare licenze agli utenti per Microsoft Office 365 tramite un gruppo di sicurezza di Azure AD in un pacchetto di accesso e configurando [licenze basate su gruppo](../users-groups-roles/licensing-groups-assign.md) per tale gruppo
+- È possibile concedere agli utenti l'accesso per gestire le risorse di Azure usando un gruppo di sicurezza di Azure AD in un pacchetto di accesso e la creazione di un' [assegnazione di ruoli](../../role-based-access-control/role-assignments-portal.md) per tale gruppo
 
 ## <a name="what-are-access-packages-and-policies"></a>Quali sono i pacchetti di accesso e criteri?
 
-Gestione Entitlement introduce il concetto di un' *pacchetto di accesso*. Un pacchetto di accesso è un bundle di tutte le risorse di che un utente deve lavorare a un progetto o svolgere le proprie. Le risorse includono l'accesso a gruppi, applicazioni o siti. I pacchetti di accesso vengono utilizzati per controllare l'accesso per i dipendenti interni e anche gli utenti esterni all'organizzazione. I pacchetti di accesso definiti in contenitori chiamati *cataloghi*.
+Gestione Entitlement introduce il concetto di un' *pacchetto di accesso*. Un pacchetto di accesso è un bundle di tutte le risorse di che un utente deve lavorare a un progetto o svolgere le proprie. Le risorse includono l'accesso a gruppi, applicazioni o siti. I pacchetti di accesso vengono utilizzati per controllare l'accesso per i dipendenti interni e anche gli utenti esterni all'organizzazione. I pacchetti di accesso sono definiti in contenitori denominati *cataloghi*.
 
 I pacchetti di accesso includono inoltre uno o più *criteri*. Un criterio definisce le regole o i confini di un pacchetto di accesso di accesso. L'abilitazione di un criterio impone che solo agli utenti giusti dispone dell'accesso, le risorse corrette e per la giusta quantità di tempo.
 
@@ -130,10 +121,10 @@ Per comprendere meglio la gestione dei diritti e la relativa documentazione, è 
 | pacchetto di accesso | Raccolta di autorizzazioni e i criteri per le risorse che gli utenti possono richiedere. Un pacchetto di accesso è sempre contenuto in un catalogo. |
 | richiesta di accesso | Richiesta di accedere a un pacchetto di accesso. Una richiesta in genere passa attraverso un flusso di lavoro. |
 | criterio | Un set di regole che definisce il ciclo di vita di accesso, ad esempio di come ottengono l'accesso agli utenti autorizzati ad approvare e quanti utenti hanno accesso. Criteri di esempio includono accesso dei dipendenti e l'accesso esterno. |
-| catalogo | Un contenitore di risorse correlate e i pacchetti di accesso. |
+| catalog | Un contenitore di risorse correlate e i pacchetti di accesso. |
 | Catalogo generale | Catalogo predefinito che è sempre disponibile. Per aggiungere risorse al catalogo generale, richiede determinate autorizzazioni. |
-| Risorsa | Un asset o un servizio (ad esempio, un gruppo, applicazione o sito) che un utente può essere concesse le autorizzazioni per. |
-| tipo di risorsa | Il tipo di risorsa, che include i gruppi, applicazioni e siti di SharePoint Online. |
+| resource | Un asset o un servizio (ad esempio, un gruppo, applicazione o sito) che un utente può essere concesse le autorizzazioni per. |
+| Tipo di risorsa | Il tipo di risorsa, che include i gruppi, applicazioni e siti di SharePoint Online. |
 | ruolo per le risorse | Raccolta di autorizzazioni associate a una risorsa. |
 | directory delle risorse | Una directory che ha uno o più risorse per condividerle. |
 | utenti assegnati | Un'assegnazione di un pacchetto di accesso per un utente o gruppo. |
@@ -173,6 +164,12 @@ Nella tabella seguente sono elencate le autorizzazioni per ognuno di questi ruol
 | [Aggiungere o rimuovere risorse da e verso un catalogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Aggiungere i proprietari del catalogo o accedere a strumenti di gestione pacchetti](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Modificare/eliminare un catalogo](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+
+## <a name="license-requirements"></a>Requisiti relativi alle licenze
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Cloud specializzato, ad esempio Azure per enti pubblici, Azure Germania e Azure Cina 21Vianet, non sono attualmente disponibili per l'uso in questa versione di anteprima.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

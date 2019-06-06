@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc5bcdbbe821008f74e85a91889044c8975ce93
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 7c896356b67de185c55396e98aa6bb2e61dd004d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113251"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472908"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gestire l'accesso guest con le verifiche di accesso di Azure AD
 
@@ -41,7 +41,7 @@ Per altre informazioni, vedere [quali gli utenti devono avere le licenze?](acces
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Creare ed eseguire una verifica di accesso per i guest
 
-Innanzitutto, un amministratore globale o un utente amministratore, vedere la [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) per garantire che le verifiche di accesso è pronto per l'organizzazione.
+Innanzitutto, un amministratore globale o un utente amministratore, vedere la [pagina di governance delle identità](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) per garantire che le verifiche di accesso è pronto per l'organizzazione.
 
 Azure AD consente diversi scenari per la verifica degli utenti guest.
 

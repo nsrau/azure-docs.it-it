@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/06/2019
 ms.locfileid: "65150892"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
 ## <a name="overview"></a>Panoramica
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-data-movement-activities.md)
 > * [Versione corrente](copy-activity-overview.md)
 
@@ -136,11 +136,11 @@ Nel modello seguente di un'attività di copia è incluso l'elenco completo delle
 | typeProperties | Un gruppo di proprietà per configurare l'attività di copia. | Sì |
 | source | Specificare il tipo di origine della copia e le proprietà corrispondenti per recuperare i dati.<br/><br/>Vedere la sezione "Proprietà dell'attività di copia" nell'articolo sul connettore elencato in [Archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
 | sink | Specificare il tipo di sink della copia e le proprietà corrispondenti per scrivere i dati.<br/><br/>Vedere la sezione "Proprietà dell'attività di copia" nell'articolo sul connettore elencato in [Archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
-| translator | Specificare il mapping esplicito di colonne da origine a sink. Si applica quando il comportamento di copia predefinito non soddisfa le esigenze.<br/><br/>Vedere [Mapping dello schema e dei tipi di dati](copy-activity-schema-and-type-mapping.md). | No  |
-| dataIntegrationUnits | Specificare l'efficacia del [runtime di integrazione di Azure](concepts-integration-runtime.md) per migliorare la copia dei dati. Precedentemente noto come Unità di spostamento dati cloud. <br/><br/>Altre informazioni disponibili in [Data Integration Units](copy-activity-performance.md#data-integration-units) (Unità di integrazione dei dati). | No  |
-| parallelCopies | Specificare il parallelismo che l'attività di copia deve usare durante la lettura dei dati dall'origine e la scrittura dei dati nel sink.<br/><br/>Vedere [Copia parallela](copy-activity-performance.md#parallel-copy). | No  |
-| enableStaging<br/>stagingSettings | Scegliere di gestire in modo temporaneo i dati provvisori in un archivio blob anziché copiarli direttamente dall'origine al sink.<br/><br/>Informazioni sugli scenari e sui dettagli di configurazione in [Copia di staging](copy-activity-performance.md#staged-copy). | No  |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Scegliere come gestire le righe incompatibili durante la copia di dati dall'origine al sink.<br/><br/>Vedere [Tolleranza di errore](copy-activity-fault-tolerance.md). | No  |
+| translator | Specificare il mapping esplicito di colonne da origine a sink. Si applica quando il comportamento di copia predefinito non soddisfa le esigenze.<br/><br/>Vedere [Mapping dello schema e dei tipi di dati](copy-activity-schema-and-type-mapping.md). | No |
+| dataIntegrationUnits | Specificare l'efficacia del [runtime di integrazione di Azure](concepts-integration-runtime.md) per migliorare la copia dei dati. Precedentemente noto come Unità di spostamento dati cloud. <br/><br/>Altre informazioni disponibili in [Data Integration Units](copy-activity-performance.md#data-integration-units) (Unità di integrazione dei dati). | No |
+| parallelCopies | Specificare il parallelismo che l'attività di copia deve usare durante la lettura dei dati dall'origine e la scrittura dei dati nel sink.<br/><br/>Vedere [Copia parallela](copy-activity-performance.md#parallel-copy). | No |
+| enableStaging<br/>stagingSettings | Scegliere di gestire in modo temporaneo i dati provvisori in un archivio blob anziché copiarli direttamente dall'origine al sink.<br/><br/>Informazioni sugli scenari e sui dettagli di configurazione in [Copia di staging](copy-activity-performance.md#staged-copy). | No |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Scegliere come gestire le righe incompatibili durante la copia di dati dall'origine al sink.<br/><br/>Vedere [Tolleranza di errore](copy-activity-fault-tolerance.md). | No |
 
 ## <a name="monitoring"></a>Monitoraggio
 

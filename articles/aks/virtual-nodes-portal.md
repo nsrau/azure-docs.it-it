@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 4376db8cdfa90b8d29ecd9b210e683848b4c94b4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: a82d9e6e1d5ffa9b97bb0c1a4272375d4a71863c
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072594"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742803"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali nel portale di Azure
 
@@ -69,6 +69,7 @@ Funzionalità di nodi virtuali è dipende in larga misura dal set di funzionalit
 * [Alias dell'host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Gli argomenti](../container-instances/container-instances-exec.md#restrictions) per exec in ACI
 * [Daemonset](concepts-clusters-workloads.md#statefulsets-and-daemonsets) non distribuirà i POD per nodo virtuale
+* [I nodi di Windows Server (attualmente in anteprima nel servizio contenitore di AZURE)](windows-container-cli.md) non sono supportati insieme ai nodi virtuali. È possibile usare i nodi virtuali per pianificare i contenitori di Windows Server senza la necessità di nodi di Windows Server in un cluster AKS.
 
 ## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
@@ -196,7 +197,7 @@ Installare `curl` nel pod usando `apt-get`:
 apt-get update && apt-get install -y curl
 ```
 
-Accedere all'indirizzo del pod usando `curl`, ad esempio *http://10.241.0.4*. Specificare l'indirizzo IP interno visualizzato nel comando `kubectl get pods` precedente:
+Accedere all'indirizzo del pod usando `curl`, ad esempio *http://10.241.0.4* . Specificare l'indirizzo IP interno visualizzato nel comando `kubectl get pods` precedente:
 
 ```azurecli-interactive
 curl -L http://10.241.0.4

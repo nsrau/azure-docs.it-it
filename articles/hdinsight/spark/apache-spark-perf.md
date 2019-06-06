@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dfbbdf3f2414f7b00445b271b667ad761ba93df0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724379"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476095"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Ottimizzare i processi Apache Spark
 
@@ -57,12 +57,12 @@ Il formato migliore per le prestazioni è Parquet con *compressione Snappy*, ovv
 
 Quando si crea un nuovo cluster Spark, è possibile selezionare Archiviazione BLOB di Azure o Azure Data Lake Storage come spazio di archiviazione del cluster predefinito. Entrambe le opzioni offrono il vantaggio di una risorsa di archiviazione a lungo termine per i cluster temporanei; pertanto, i dati non vengono eliminati automaticamente quando si elimina il cluster. È possibile ricreare un cluster temporaneo e accedere comunque ai dati.
 
-| Tipo di store | File system | speed | Temporaneo | Casi di utilizzo |
+| Tipo di store | File system | speed | Temporaneo | Casi d'uso |
 | --- | --- | --- | --- | --- |
-| Archiviazione BLOB di Azure | **wasb [s]:**//url/ | **Standard** | Sì | Cluster temporaneo |
-| Azure Data Lake Store generazione 2| **abfs[s]:**//url/ | **Più rapido** | Sì | Cluster temporaneo |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Più rapido** | Sì | Cluster temporaneo |
-| Hadoop Distributed File System locale | **hdfs:**//url/ | **Il più rapido** | No  | Cluster interattivo 24/7 |
+| Archivio BLOB di Azure | **wasb:** //url/ | **Standard** | Yes | Cluster temporaneo |
+| Azure Data Lake Store generazione 2| **abfs[s]:** //url/ | **Più rapido** | Yes | Cluster temporaneo |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Più rapido** | Yes | Cluster temporaneo |
+| Hadoop Distributed File System locale | **hdfs:** //url/ | **Il più rapido** | No | Cluster interattivo 24/7 |
 
 ## <a name="use-the-cache"></a>Usare la cache
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 185c16e76094fe55a54fb17bef24fcd03d7b54f0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243573"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475149"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Anteprima - proteggere l'accesso al server API usando autorizzato intervalli di indirizzi IP in Azure Kubernetes Service (AKS)
 
@@ -74,8 +74,6 @@ Le limitazioni seguenti si applicano quando si configurano gli intervalli IP di 
 Il server API Kubernetes è come vengono esposte le APIs Kubernetes sottostante. Questo componente fornisce l'interazione per gli strumenti di gestione, ad esempio `kubectl` o il dashboard di Kubernetes. Servizio contenitore di AZURE fornisce un master a tenant singolo cluster, con un server API dedicato. Per impostazione predefinita, il server dell'API viene assegnato un indirizzo IP pubblico e si deve controllare l'accesso usando i controlli di accesso basato sui ruoli (RBAC).
 
 Per proteggere l'accesso al piano di controllo servizio contenitore di AZURE in caso contrario, è accessibile pubblicamente / API del server, è possibile abilitare e usare intervalli di indirizzi IP autorizzati. Questi intervalli IP autorizzati consentono solo definito gli intervalli di indirizzi IP comunicare con il server API. Una richiesta effettuata al server API da un indirizzo IP che non fa parte di questi intervalli IP autorizzati viene bloccata. È consigliabile continuare a usare RBAC quindi autorizzare gli utenti e le azioni che richiedono.
-
-Per usare la funzionalità di intervallo IP autorizzata, un indirizzo IP pubblico viene esposta nel pool di nodi tramite la distribuzione di un servizio di NGINX di base. Il server API comunica con il pool di nodi tramite questo indirizzo IP pubblico autorizzato. È quindi possibile definire intervalli di indirizzi IP aggiuntivi che possono accedere al server API.
 
 Per altre informazioni sul server di API e altri componenti del cluster, vedere [Kubernetes concetti fondamentali per AKS][concepts-clusters-workloads].
 

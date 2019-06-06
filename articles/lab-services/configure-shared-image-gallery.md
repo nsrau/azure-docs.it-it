@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 51b394043f88789865edea5be6376ae536f88848
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: fba969b70ae052c928f33888d3c93eb7683ae9f7
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420439"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455752"
 ---
-# <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurare una raccolta di immagini condivisi in Azure DevTest Labs
-DevTest Labs sono ora supportate le [raccolta di immagini condivise](/virtual-machines/windows/shared-image-galleries.md) funzionalità. Consente agli utenti di lab di accedere alle immagini da un percorso condiviso durante la creazione di risorse lab. Consente inoltre di compilare una struttura e l'organizzazione per le immagini di macchina virtuale gestita personalizzata. Supporta la funzionalità di raccolta di immagini condivise:
+# <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurare una raccolta immagini condivisa in Azure DevTest Labs
+DevTest Labs sono ora supportate le [raccolta di immagini condivise](/virtual-machines/windows/shared-image-galleries.md) funzionalità. Consente agli utenti dei lab di accedere a immagini da una posizione condivisa durante la creazione di risorse del lab. Permette anche di creare la struttura e l'organizzazione per le immagini di macchine virtuali gestite e personalizzate. Supporta la funzionalità di raccolta di immagini condivise:
 
-- Replica globale di immagini gestite
-- Raggruppamento di immagini per semplificare la gestione e controllo delle versioni
-- Rendere a disponibilità elevata con gli account di archiviazione con ridondanza della zona (ZRS) le immagini in aree che supportano le zone di disponibilità. ZRS offre una resilienza migliore in caso di errori di zona.
-- La condivisione tra sottoscrizioni e anche tra tenant, usando il controllo di accesso basato sui ruoli (RBAC).
+- Replica globale gestita delle immagini
+- Controllo delle versioni e raggruppamento delle immagini per una gestione più semplice
+- Disponibilità elevata per le immagini con gli account di archiviazione con ridondanza della zona in aree che supportano le zone di disponibilità. L'archiviazione con ridondanza della zona offre una resilienza migliore in caso di errori specifici di una zona.
+- Condivisione tra sottoscrizioni e addirittura tra tenant con il Controllo degli accessi in base al ruolo.
 
 Per altre informazioni, vedere [documentazione di raccolta di immagini condivise](../virtual-machines/windows/shared-image-galleries.md). 
  
-Se si dispone di un numero elevato di immagini gestite da mantenere e si desidera renderle disponibili in tutta l'azienda, è possibile usare una raccolta di immagini condivise come repository che semplifica l'aggiornamento e la condivisione delle immagini. Come proprietario del lab, è possibile collegare una raccolta di immagini condivise esistenti nel lab. Dopo questa raccolta è collegata, gli utenti del lab è possono creare le macchine da queste immagini più recenti. Dei vantaggi principali di questa funzionalità è che DevTest Labs possono ora sfruttare la condivisione immagini nei laboratori, tra sottoscrizioni e aree. 
+Se si dispone di un numero elevato di immagini gestite da mantenere e si desidera renderle disponibili in tutta l'azienda, è possibile usare una raccolta di immagini condivise come repository che semplifica l'aggiornamento e la condivisione delle immagini. In quanto proprietario di lab, puoi associare una raccolta immagini condivisa esistente al tuo lab. Dopo l'associazione della raccolta, gli utenti del lab possono creare computer usando le immagini più recenti. Un vantaggio essenziale di questa funzionalità consiste nel fatto che DevTest Labs può ora approfittare della condivisione di immagini tra lab, sottoscrizioni e aree geografiche. 
 
 ## <a name="considerations"></a>Considerazioni
 - È possibile collegare solo una raccolta di immagini condivise a un lab alla volta. Se si vuole collegare un'altra raccolta, è necessario un altro di collegamento e scollegamento di quello esistente. 
@@ -46,10 +46,17 @@ Se si dispone di un numero elevato di immagini gestite da mantenere e si desider
 1. Nell'elenco di Lab, selezionare i **lab**.
 1. Selezionare **configurazione e criteri** nel **impostazioni** sezione nel menu a sinistra.
 1. Selezionare **raccolte di immagini condivise** sotto **macchina virtuale si basa** nel menu a sinistra.
+
+    ![Menu di raccolte di immagini condiviso](./media/configure-shared-image-gallery/shared-image-galleries-menu.png)
 1. Collegare una raccolta di immagini condivise esistenti nel lab facendo clic sui **Attach** pulsante e selezionando la raccolta nell'elenco a discesa.
+
+    ![Collegamento](./media/configure-shared-image-gallery/attach-options.png)
 1. Passare alla raccolta associata e configurare la raccolta **Abilita o disabilita** le immagini per la creazione di macchine Virtuali condivise.
+
+    ![Abilitazione o disabilitazione](./media/configure-shared-image-gallery/enable-disable.png)
 1. Gli utenti del lab possono quindi creare una macchina virtuale usando le immagini abilitate facendo clic su **+ Aggiungi** e come trovare l'immagine nel **Scegli la base** pagina.
 
+    ![Utenti del lab](./media/configure-shared-image-gallery/lab-users.png)
 ## <a name="use-azure-resource-manager-template"></a>Usare un modello di Azure Resource Manager
 
 ### <a name="attach-a-shared-image-gallery-to-your-lab"></a>Collegare una raccolta di immagini condivise nel lab

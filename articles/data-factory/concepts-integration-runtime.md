@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232420"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427146"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
@@ -114,11 +114,11 @@ La località del runtime di integrazione definisce la località del calcolo back
 ### <a name="azure-ir-location"></a>Località del runtime di integrazione di Azure
 È possibile impostare una determinata località per un runtime di integrazione di Azure. In questo caso, lo spostamento dei dati o l'invio dell'attività verrà eseguito in quella specifica area. 
 
-Se si sceglie di usare il runtime di integrazione di Azure con risoluzione automatica, ovvero l'impostazione predefinita: 
+Se si sceglie di usare la **runtime di integrazione Azure-risoluzione automatica** che è l'impostazione predefinita, 
 
 - Per l'attività di copia, Azure Data Factory farà del proprio meglio per rilevare automaticamente il sink e l'archivio dati di origine per scegliere la località migliore nella stessa area, se disponibile, o nell'area più vicina nella stessa area geografica, oppure, se non rilevabile, per usare l'area della data factory come alternativa.
 
-- Per l'esecuzione dell'attività Lookup/GetMetadata e l'invio dell'attività di trasformazione, Azure Data Factory userà il runtime di integrazione nell'area della data factory.
+- Per l'esecuzione dell'attività Lookup, GetMetadata ed eliminazione (noto anche come attività di Pipeline), l'attività di trasformazione dell'invio (noto anche come esterna attività) e la creazione di operazioni (test della connessione, elenco Sfoglia cartella ed elenco di tabelle, anteprima dei dati), Azure Data factory verrà utilizzato il runtime di integrazione dell'area di factory di dati.
 
 - Per flusso di dati, Azure Data factory verrà usato il runtime di integrazione dell'area di factory di dati. 
 
@@ -148,7 +148,7 @@ Il diagramma seguente mostra le impostazioni relative alla località di Data Fac
 
 ## <a name="determining-which-ir-to-use"></a>Determinazione del runtime di integrazione da usare
 
-### <a name="copy-activity"></a>Copia attività
+### <a name="copy-activity"></a>Attività di copia
 
 Per l'attività di copia sono necessari i servizi collegati di origine e sink per definire la direzione del flusso di dati. Per determinare l'istanza del runtime di integrazione usata per eseguire la copia, viene usata la logica seguente: 
 

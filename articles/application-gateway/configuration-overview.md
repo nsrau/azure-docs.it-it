@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946819"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431308"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica configurazione del Gateway applicazione
 
@@ -57,7 +57,7 @@ Gruppi di sicurezza di rete (Nsg) sono supportati dal Gateway applicazione. Ma e
 
 - Il traffico dal **AzureLoadBalancer** tag deve essere consentito.
 
-##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>Accesso al Gateway di applicazione di elenco elementi consentiti da alcuni IP di origine
+##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Consentire accesso al Gateway applicazione per alcuni IP di origine
 
 Per questo scenario, usare gli Nsg nella subnet del Gateway applicazione. Inserire le restrizioni seguenti sulla subnet in questo ordine di priorità:
 
@@ -170,7 +170,7 @@ Dopo aver creato un listener, è associarlo a una regola di routing delle richie
 
 Quando si crea un gateway applicazione usando il portale di Azure, si crea una regola predefinita (*rule1*). Questa regola associa il listener predefinito (*appGatewayHttpListener*) con il pool di back-end predefinito (*appGatewayBackendPool*) e le impostazioni HTTP back-end predefinito ( *appGatewayBackendHttpSettings*). Dopo aver creato il gateway, è possibile modificare le impostazioni della regola predefinita o creare nuove regole.
 
-### <a name="rule-type"></a>Tipo regola
+### <a name="rule-type"></a>Tipo di regola
 
 Quando si crea una regola, si sceglie tra [ *base* e *basata sul percorso*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rule).
 
@@ -209,13 +209,13 @@ Per una regola basata sul percorso, aggiungere più impostazioni HTTP back-end c
 
 ### <a name="redirection-setting"></a>Impostazione di reindirizzamento
 
-Se il reindirizzamento è configurato per una regola di base, le richieste sul listener associati vengono reindirizzate alla destinazione. Si tratta *globale* il reindirizzamento. Se il reindirizzamento è configurato per una regola basata sul percorso, vengono reindirizzate solo le richieste in un'area specifica del sito. Un esempio è un'area del carrello acquisti che è identificata da */cart/\**. Si tratta *basata sul percorso* il reindirizzamento.
+Se il reindirizzamento è configurato per una regola di base, le richieste sul listener associati vengono reindirizzate alla destinazione. Si tratta *globale* il reindirizzamento. Se il reindirizzamento è configurato per una regola basata sul percorso, vengono reindirizzate solo le richieste in un'area specifica del sito. Un esempio è un'area del carrello acquisti che è identificata da */cart/\** . Si tratta *basata sul percorso* il reindirizzamento.
 
 Per altre informazioni sul reindirizzamento, vedere [Panoramica del reindirizzamento nel Gateway applicazione](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
 #### <a name="redirection-type"></a>Tipo di reindirizzamento
 
-Scegliere il tipo di reindirizzamento obbligato: *Permanent(301)*, *Temporary(307)*, *Found(302)*, oppure *vedere other(303)*.
+Scegliere il tipo di reindirizzamento obbligato: *Permanent(301)* , *Temporary(307)* , *Found(302)* , oppure *vedere other(303)* .
 
 #### <a name="redirection-target"></a>Destinazione di reindirizzamento
 
@@ -265,7 +265,7 @@ Il Gateway applicazione supporta HTTP e HTTPS per il routing delle richieste per
 
 Questa impostazione è combinato con HTTPS in supporta il listener [SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/ssl-overview). In questo modo è possibile trasmettere in modo sicuro dati sensibili crittografati al back-end. Ogni server back-end nel pool di back-end con SSL end-to-end abilitato deve essere configurato con un certificato per consentire la comunicazione sicura.
 
-### <a name="port"></a>Porta
+### <a name="port"></a>Port
 
 Questa impostazione specifica la porta in cui i server back-end in ascolto per il traffico dal gateway applicazione. È possibile configurare le porte compreso tra 1 e 65535.
 

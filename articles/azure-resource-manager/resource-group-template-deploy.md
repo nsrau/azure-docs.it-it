@@ -4,14 +4,14 @@ description: Usare Azure PowerShell e Azure Resource Manager per distribuire ris
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5203519b1553de54d4e3cd1fafe6fb3d1c18ebd6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 63d729f19b0ef20d0e7a716d6857b4627095856b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779948"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476974"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell
 
@@ -35,6 +35,8 @@ Per distribuire in un **abbonamento**, usare [New-AzDeployment](/powershell/modu
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
+Attualmente, distribuzioni di gruppi di gestione sono supportate solo tramite l'API REST. Visualizzare [distribuire le risorse con modelli di Resource Manager e il REST API di Resource Manager](resource-group-template-deploy-rest.md).
+
 Gli esempi in questo articolo usano distribuzioni di gruppi di risorse. Per altre informazioni sulle distribuzioni di sottoscrizione, vedere [creare i gruppi di risorse e le risorse a livello di sottoscrizione](deploy-to-subscription.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -44,7 +46,7 @@ Gli esempi in questo articolo usano distribuzioni di gruppi di risorse. Per altr
 Se non si usa Azure Cloud shell per distribuire i modelli, è necessario installare Azure PowerShell e connettersi ad Azure:
 
 - **Installare i cmdlet di Azure PowerShell nel computer locale.** Per altre informazioni, vedere [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
-- **Connettersi ad Azure tramite [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Se sono disponibili più sottoscrizioni di Azure, potrebbe anche essere necessario eseguire [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Per altre informazioni, vedere [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps) (Usare più sottoscrizioni di Azure).
+- **Connettersi ad Azure tramite [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Se sono disponibili più sottoscrizioni di Azure, potrebbe anche essere necessario eseguire [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Per altre informazioni, vedere [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps) (Usare più sottoscrizioni di Azure).
 
 ## <a name="deploy-local-template"></a>Distribuire un modello locale
 

@@ -7,27 +7,28 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243335"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455680"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
-Per avviare la creazione di Software come un servizio (SaaS) offre, assicurarsi che si primo [creare un account del centro per i Partner](./create-account.md) e aprire il [dashboard commerciale Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con la **offre** della scheda selezionata. 
+Per avviare la creazione di Software come un servizio (SaaS) offre, assicurarsi che si primo [creare un account del centro per i Partner](./create-account.md) e aprire il [dashboard commerciale Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con la **Panoramica** della scheda selezionata.
 
-![Dashboard del Marketplace nel centro per i Partner commerciali](./media/commercial-marketplace-offers.png)
+![Dashboard del Marketplace nel centro per i Partner commerciali](./media/new-offer-overview.png)
 
 Selezionare il + **creare una nuova...** pulsante e quindi selezionare il **Software come un servizio** voce di menu. 
 
 Se si seleziona uno degli altri tipi di offerta, si verrà reindirizzati a versioni precedenti [portale Cloud Partner](https://cloudpartner.azure.com/).  Solo le offerte SaaS sono disponibili nel portale commerciale Marketplace nel centro per i Partner in questo momento. 
 
-![Creare finestra offerta nel centro per i Partner](./media/new-offer.png)
+![Creare finestra offerta nel centro per i Partner](./media/new-offer-click.png)
 
+Il **nuova offerta** verrà visualizzata la finestra di dialogo. 
 
-Il **nuova offerta** verrà visualizzata la finestra di dialogo. ![Finestra di dialogo nuova offerta](./media/new-offer-popup.png)
+![Finestra di dialogo nuova offerta](./media/new-offer-popup.png)
 
 
 ## <a name="offer-id-and-name"></a>Nome e ID offerta

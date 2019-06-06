@@ -69,7 +69,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '(Anteprima) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Fuso orario configura</a> durante la creazione dell''istanza.'
+          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configurare il fuso orario</a> durante la creazione dell''istanza.'
           - html: 'Creare le istanze con <a href="https://aka.ms/managed-instance-collation">regole di confronto a livello di server di propria scelta</a>.'
           - html: 'Funzionalità di ripristino geografico consente <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">ripristinare un database a un altro data center tramite PowerShell</a>.'
           - html: '(Anteprima) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Ricreare eliminato i database con PowerShell</a>'

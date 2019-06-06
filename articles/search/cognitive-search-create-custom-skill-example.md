@@ -10,36 +10,36 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: efa85491f4b183a044ec5d9e5e6e3d11eebedbe3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023619"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428445"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Esempio: creare una competenza personalizzata usando l'API Traduzione testuale
 
-Questo esempio illustra come creare una competenza personalizzata in formato API Web che accetta il testo in qualsiasi lingua e lo traduce in inglese. L'esempio usa una [funzione di Azure](https://azure.microsoft.com/services/functions/) per eseguire il wrapping dell'[API Traduzione testuale](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) in modo che implementi l'interfaccia della competenza personalizzata.
+In questo esempio, informazioni su come creare una competenza personalizzato di API web. Questa abilità accetterà il testo in qualsiasi linguaggio e lo converte in inglese. L'esempio usa una [funzione di Azure](https://azure.microsoft.com/services/functions/) per eseguire il wrapping dell'[API Traduzione testuale](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) in modo che implementi l'interfaccia della competenza personalizzata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ Leggere l'articolo sull'[interfaccia per le competenze personalizzate](cognitive-search-custom-skill-interface.md) se non si ha familiarità con l'interfaccia di input/output che una competenza personalizzata deve implementare.
++ Conoscenza [interfaccia di competenze personalizzate](cognitive-search-custom-skill-interface.md) articolo se non si ha familiarità con l'interfaccia di input/output che deve implementare una competenza personalizzata.
 
 + [Iscriversi per l'API Traduzione testuale](../cognitive-services/translator/translator-text-how-to-signup.md) e ottenere una chiave API per usarla.
 
-+ [Installare Visual Studio 2017 versione 15.5 o successiva](https://www.visualstudio.com/vs/) con il carico di lavoro Sviluppo di Azure.
++ Installare [Visual Studio 2019](https://www.visualstudio.com/vs/) o versione successiva, compreso il carico di lavoro di sviluppo di Azure.
 
 ## <a name="create-an-azure-function"></a>Creare una funzione di Azure
 
-Questo esempio usa una funzione di Azure per ospitare un'API Web, tuttavia non si tratta di un requisito obbligatorio.  Purché si rispettino i [requisiti di interfaccia per una competenza cognitiva](cognitive-search-custom-skill-interface.md), l'approccio adottato è irrilevante. Funzioni di Azure, tuttavia, rende la creazione di una competenza personalizzata estremamente semplice.
+Sebbene questo esempio Usa una funzione di Azure per ospitare un'API web, non è obbligatorio.  Purché si rispettino i [requisiti di interfaccia per una competenza cognitiva](cognitive-search-custom-skill-interface.md), l'approccio adottato è irrilevante. Funzioni di Azure, tuttavia, rende la creazione di una competenza personalizzata estremamente semplice.
 
 ### <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
 1. In Visual Studio selezionare **Nuovo** > **Progetto** dal menu File.
 
-1. Nella finestra di dialogo Nuovo progetto selezionare **Installato**, espandere **Visual C#** > **Cloud**, selezionare **Funzioni di Azure**, digitare un nome per il progetto e selezionare **OK**. Il nome dell'app per le funzioni deve essere valido come spazio dei nomi C#, quindi non usare caratteri di sottolineatura, trattini o altri caratteri non alfanumerici.
+1. Nella finestra di dialogo Nuovo progetto selezionare **Installato**, espandere **Visual C#**  > **Cloud**, selezionare **Funzioni di Azure**, digitare un nome per il progetto e selezionare **OK**. Il nome dell'app per le funzioni deve essere valido come spazio dei nomi C#, quindi non usare caratteri di sottolineatura, trattini o altri caratteri non alfanumerici.
 
-1. Selezionare **funzioni di Azure v2 (.NET Core)**. È anche possibile usare la versione 1, ma il codice riportato più avanti si basa sul modello della versione 2.
+1. Selezionare **funzioni di Azure v2 (.NET Core)** . È anche possibile usare la versione 1, ma il codice riportato più avanti si basa sul modello della versione 2.
 
 1. Selezionare il tipo **Trigger HTTP**
 
@@ -195,7 +195,7 @@ Questo esempio è un enricher semplice che funziona su un solo record per volta.
 
 ## <a name="test-the-function-from-visual-studio"></a>Testare la funzione da Visual Studio
 
-Premere **F5** per eseguire il programma e testare i comportamenti della funzione. In questo caso viene usata la funzione seguente per tradurre un testo spagnolo in inglese. Usare Postman o Fiddler per eseguire una chiamata simile alla seguente:
+Premere **F5** per eseguire il programma e testare i comportamenti della funzione. In questo caso, si userà la funzione seguente per convertire un testo in spagnolo, inglese. Usare Postman o Fiddler per eseguire una chiamata simile alla seguente:
 
 ```http
 POST https://localhost:7071/api/Translate
@@ -235,13 +235,13 @@ La risposta dovrebbe essere simile all'esempio seguente:
 
 ## <a name="publish-the-function-to-azure"></a>Pubblicare la funzione in Azure
 
-Quando si è soddisfatti del comportamento della funzione, è possibile pubblicarla.
+Quando si è soddisfatti con il comportamento della funzione, è possibile pubblicarlo.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**. Scegliere **Crea nuovo** > **Pubblica**.
 
 1. Se non si è ancora connesso Visual Studio al proprio account di Azure, selezionare **Aggiungi un account**.
 
-1. Seguire le istruzioni visualizzate sullo schermo. Viene chiesto di specificare l'account di Azure, il gruppo di risorse, il piano di hosting e l'account di archiviazione da usare. Se non sono già disponibili, è possibile creare un nuovo gruppo di risorse, un nuovo piano di hosting e un account di archiviazione. Al termine selezionare **Crea**
+1. Seguire le istruzioni visualizzate sullo schermo. Viene richiesto di specificare l'account di Azure, il gruppo di risorse, il piano di hosting e account di archiviazione da usare. Se non sono già disponibili, è possibile creare un nuovo gruppo di risorse, un nuovo piano di hosting e un account di archiviazione. Al termine selezionare **Crea**
 
 1. Dopo aver completato la distribuzione, si noti che l'URL del sito. Questo è l'indirizzo dell'app per le funzioni in Azure. 
 
@@ -270,7 +270,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
 }
 ```
 
-Questo dovrebbe produrre un risultato simile a quello visualizzato in precedenza durante l'esecuzione della funzione nell'ambiente locale.
+In questo esempio dovrebbe produrre un risultato simile a quello che visto in precedenza durante l'esecuzione di funzione nell'ambiente locale.
 
 ## <a name="connect-to-your-pipeline"></a>Connettersi alla pipeline
 A questo punto è possibile aggiungere la competenza personalizzata al proprio set di competenze. L'esempio seguente mostra come chiamare la competenza. Poiché la competenza non gestisce i batch, aggiungere un'istruzione che indichi una dimensione massima dei batch pari a ```1```, per inviare i documenti uno alla volta.
@@ -307,7 +307,7 @@ A questo punto è possibile aggiungere la competenza personalizzata al proprio s
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Congratulazioni! La creazione del primo enricher personalizzato è stata completata. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. 
+Congratulazioni! È stato creato il primo enricher personalizzato. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. 
 
 + [Aggiungere una competenza personalizzata a una pipeline di ricerca cognitiva](cognitive-search-custom-skill-interface.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 3f3b60c3744ce9dea61054b3fa0aaccfea27d784
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: fa6b4d6d0db09f8c4955430d6dc227356416d915
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238705"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735903"
 ---
 Nella tabella seguente sono elencate le quote e i limiti specifici di [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Per informazioni sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -39,11 +39,11 @@ L'offerta dedicato di hub eventi viene fatturato a un prezzo mensile fisso, con 
 | --- | ---|
 | Larghezza di banda |  20 unità di capacità |
 | Spazi dei nomi | 50 per ogni unità di capacità |
-| Hub eventi |  Nessun limite per hub eventi e gli argomenti |
+| Hub eventi |  1000 per ogni spazio dei nomi |
 | Eventi in ingresso | Incluso |
 | Dimensioni del messaggio | 1 milione di byte |
 | Partitions | 2000 per unità di capacità |
 | Gruppi di consumer | Nessun limite per ogni unità di capacità, 1000 per hub eventi |
 | Connessioni negoziate | 100 K incluse |
-| Conservazione dei messaggi | 90 giorni, 10 TB, incluse per ogni unità di capacità |
+| Conservazione dei messaggi | Backup per 7 giorni (durata di 90 giorni di conservazione sarà presto disponibile), 10 TB prevista per ogni unità di capacità |
 | Acquisizione | Incluso |

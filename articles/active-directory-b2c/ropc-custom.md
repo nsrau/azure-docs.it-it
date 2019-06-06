@@ -2,20 +2,20 @@
 title: Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d86caf5e5c6df29e00f17462f6a06602ff1245d8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7a802354f20998c87ac8c2ef1f2c1dbdf47f6930
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688854"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733651"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C usando criteri personalizzati
 
@@ -140,7 +140,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
     </TechnicalProfile>
     ```
 
-    Sostituire il **DefaultValue** del **client_id** e di **resource_id** con l'ID applicazione dell'applicazione ProxyIdentityExperienceFramework creato nell'esercitazione preliminare.
+    Sostituire il **DefaultValue** dei **client_id** con l'ID applicazione dell'applicazione ProxyIdentityExperienceFramework creato nell'esercitazione preliminare. Quindi sostituire **DefaultValue** dei **resource_id** con l'ID applicazione dell'applicazione IdentityExperienceFramework anche creato nell'esercitazione preliminare.  
 
 5. Aggiungere gli elementi **ClaimsProvider** seguenti con i relativi profili tecnici all'elemento **ClaimsProviders**:
 

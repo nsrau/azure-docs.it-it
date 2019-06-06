@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6465fd069e73a571e0671d528f5d0b4da4602dc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb34c3f04302e6a2b5cc307b98bafe93e09fcf2f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499460"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734700"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Asset credenziali in Automazione di Azure
 
@@ -29,7 +29,7 @@ Un asset credenziali di automazione contiene un oggetto che contiene le credenzi
 
 I cmdlet della tabella seguente vengono usati per creare e gestire asset credenziali di automazione con Windows PowerShell.  Sono inclusi come parte del [modulo di Azure PowerShell](/powershell/azure/overview), che è disponibile per l'uso nei runbook di automazione e nelle configurazioni DSC.
 
-| Cmdlets | DESCRIZIONE |
+| Cmdlets | Descrizione |
 |:--- |:--- |
 | [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential) |Recupera informazioni riguardo un asset credenziali. Dall'attività **Get-AutomationPSCredential** è possibile recuperare soltanto le credenziali stesse. |
 | [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Crea nuove credenziali di Automazione. |
@@ -40,18 +40,18 @@ I cmdlet della tabella seguente vengono usati per creare e gestire asset credenz
 
 Per AzureRM, per creare e gestire asset di credenziali di automazione con Windows PowerShell, vengono usati i cmdlet della tabella seguente.  Sono inclusi come parte del [modulo azurerm. Automation](/powershell/azure/overview), che è disponibile per l'uso nei runbook di automazione e nelle configurazioni DSC.
 
-| Cmdlets | DESCRIZIONE |
+| Cmdlets | Descrizione |
 |:--- |:--- |
 | [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential) |Recupera informazioni riguardo un asset credenziali. Questo non restituisce un oggetto PSCredential.  |
 | [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential) |Crea nuove credenziali di Automazione. |
 | [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential) |Rimuove le credenziali di Automazione. |
 | [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential) |Imposta le proprietà per le credenziali di Automazione esistenti. |
 
-## <a name="activities"></a>attività
+## <a name="activities"></a>Attività
 
 Le attività incluse nella tabella seguente vengono usate per accedere alle credenziali in un Runbook o nelle configurazioni DSC.
 
-| attività | DESCRIZIONE |
+| Attività | Descrizione |
 |:--- |:--- |
 | Get-AutomationPSCredential |Ottiene una credenziale da usare in un runbook o in una configurazione DSC. Restituisce un oggetto [System.Management.Automation.PSCredential](/dotnet/api/system.management.automation.pscredential) . |
 
@@ -62,7 +62,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle cred
 
 La funzione nella tabella seguente viene usata per accedere alle credenziali in un runbook Python2.
 
-| Funzione | DESCRIZIONE |
+| Funzione | Descrizione |
 |:---|:---|
 | automationassets.get_automation_credential | Recupera informazioni riguardo un asset credenziali. |
 
@@ -91,7 +91,7 @@ $cred = New-Object –TypeName System.Management.Automation.PSCredential –Argu
 New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
 ```
 
-## <a name="using-a-powershell-credential"></a>Uso di credenziali PowerShell 
+## <a name="using-a-powershell-credential"></a>Uso di credenziali PowerShell
 
 L'attività **Get-AutomationPSCredential** permette di recuperare un asset credenziali in un Runbook o configurazione DSC. Verrà restituito un [PSCredential object](/dotnet/api/system.management.automation.pscredential) da usare con un'attività o un cmdlet che richiede un parametro PSCredential. È anche possibile recuperare le proprietà dell'oggetto credenziali da usare individualmente. L'oggetto ha una proprietà per il nome utente e la password protetta oppure è possibile usare il metodo **GetNetworkCredential** per restituire un oggetto [NetworkCredential](/dotnet/api/system.net.networkcredential) che fornirà una versione non protetta della password.
 
@@ -112,7 +112,7 @@ $password = $myCredential.GetNetworkCredential().Password
 È anche possibile usare una credenziale per l'autenticazione in Azure con [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Nella maggior parte dei casi, è consigliabile usare un [account RunAs](../manage-runas-account.md) e recuperarlo [Get-AutomationConnection](../automation-connections.md).
 
 ```azurepowershell
-$myCred = Get-AutomationPSCredential -Name 'MyCredential`
+$myCred = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCred.UserName
 $securePassword = $myCred.Password
 $password = $myCred.GetNetworkCredential().Password

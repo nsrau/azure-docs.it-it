@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: b55685bc9cfdc8c31e6658050be94cbe49062f89
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869416"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472166"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protezione di asset della rete CDN di Azure con l'autenticazione basata su token
 
@@ -72,7 +72,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
 
       ```rand -hex <key length>```
 
-      Ad esempio: 
+      Ad esempio:
 
       ```OpenSSL> rand -hex 32``` 
 
@@ -96,7 +96,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
       > <table>
       > <tr>
       >   <th>Nome parametro</th> 
-      >   <th>DESCRIZIONE</th>
+      >   <th>Descrizione</th>
       > </tr>
       > <tr>
       >    <td><b>ec_expire</b></td>
@@ -173,17 +173,17 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
 3. In **HTTP Large** (HTTP grande) selezionare **Rules Engine** (Motore regole di business). Il motore di regole di business consente di definire i percorsi per applicare la funzionalità, abilitare la funzionalità di autenticazione basata su token e altre funzionalità correlate all'autenticazione basata su token. Per altre informazioni, vedere [Informazioni di riferimento sul motore regole](cdn-rules-engine-reference.md).
 
    1. Selezionare una regola esistente o crearne una nuova per definire l'asset o il percorso per il quale applicare l'autenticazione basata su token. 
-   2. Per abilitare l'autenticazione basata su token in una regola, selezionare **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** (Autenticazione basata su token) dall'elenco **Features** (Funzionalità) e fare clic su **Abilitato**. Selezionare **Update** (Aggiorna) se si aggiorna una regola o su **Add** (Aggiungi) se si crea una regola.
+   2. Per abilitare l'autenticazione basata su token in una regola, selezionare **[Token Auth](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** (Autenticazione basata su token) dall'elenco **Features** (Funzionalità) e fare clic su **Abilitato**. Selezionare **Update** (Aggiorna) se si aggiorna una regola o su **Add** (Aggiungi) se si crea una regola.
         
       ![Esempio di abilitazione dell'autenticazione basata su token nel motore di regole di business della rete CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. Nel motore di regole di business è anche possibile abilitare altre funzionalità correlate all'autenticazione basata su token. Per abilitare le funzionalità seguenti, selezionarle dall'elenco **Features** (Funzionalità) e fare clic su **Abilitato**.
     
-   - **[Token Auth Denial Code](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: Determina il tipo di risposta che viene restituito a un utente quando una richiesta viene rifiutata. Le regole impostate qui sostituiscono il codice di risposta impostato nella sezione **Custom Denial Handling** (Gestione negazione personalizzata) della pagina di autenticazione basata su token.
+   - **[Token Auth Denial Code](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** : Determina il tipo di risposta che viene restituito a un utente quando una richiesta viene rifiutata. Le regole impostate qui sostituiscono il codice di risposta impostato nella sezione **Custom Denial Handling** (Gestione negazione personalizzata) della pagina di autenticazione basata su token.
 
-   - **[Token Auth Ignore URL Case](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Determina se l'URL usato per convalidare il token è tra maiuscole e minuscole.
+   - **[Token Auth Ignore URL Case](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** : Determina se l'URL usato per convalidare il token è tra maiuscole e minuscole.
 
-   - **[Parametro autenticazione token](cdn-rules-engine-reference-features.md#token-auth-parameter)**: Rinomina il parametro di stringa di query di autenticazione basata su token visualizzato nell'URL richiesto. 
+   - **[Parametro autenticazione token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** : Rinomina il parametro di stringa di query di autenticazione basata su token visualizzato nell'URL richiesto. 
         
      ![Esempio di impostazioni di autenticazione basata su token nel motore di regole di business della rete CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 

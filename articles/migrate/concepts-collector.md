@@ -4,15 +4,15 @@ description: L'articolo contiene informazioni sull'appliance Agente di raccolta 
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/31/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: d00899e0ca358b4e2970caa8c63c98e375ea970c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 865e0679ed05823d115baeb9eea3c01d7fb5f2a5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728017"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428468"
 ---
 # <a name="about-the-collector-appliance"></a>Informazioni sull'appliance Agente di raccolta
 
@@ -96,7 +96,7 @@ Agente di raccolta deve superare alcuni controlli dei prerequisiti per verificar
 
      ![Percorso dell'archivio certificati](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-  6. Selezionare **Place all certificates in the following store (Colloca tutti i certificati nell'archivio seguente)** > **Sfoglia** > **Autori attendibili**. Fare clic su **Fine** per importare il certificato.
+  6. Selezionare **Place all certificates in the following store (Colloca tutti i certificati nell'archivio seguente)**  > **Sfoglia** > **Autori attendibili**. Fare clic su **Fine** per importare il certificato.
 
      ![Archivio certificati](./media/concepts-intercepting-proxy/certificate-store.png)
 
@@ -111,7 +111,7 @@ La verifica della connettività viene eseguita tramite la connessione a un elenc
 --- | --- | ---
 *.portal.azure.com | Applicabile ad Azure Globale. Viene controllata la connettività al servizio Azure e l'ora di sincronizzazione. | Accesso agli URL necessari.<br/><br/> Il controllo dei prerequisiti ha esito negativo se non è disponibile alcuna connettività.
 *.portal.azure.us | Applicabile solo ad Azure per enti pubblici. Viene controllata la connettività al servizio Azure e l'ora di sincronizzazione. | Accesso agli URL necessari.<br/><br/> Il controllo dei prerequisiti ha esito negativo se non è disponibile alcuna connettività.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Usato per scaricare il modulo PowerShell vCenter PowerCLI. | È necessario l'accesso agli URL.<br/><br/> Il controllo dei prerequisiti non riesce.<br/><br/> L'installazione automatica del modulo nella macchina virtuale di Agente di raccolta non riesce. È necessario installare manualmente il modulo in un computer con connettività internet e quindi copiare i moduli per l'appliance. [Per altre informazioni, passare al passaggio 4 in questa Guida alla risoluzione dei problemi](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
+*.oneget.org:443<br/><br/> *.github.com/oneget/oneget<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.azure.microsoft.com<br/><br/> *.azure.microsoft.com/en-us<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443<br/><br/> *.visualstudio.microsoft.com | Usato per scaricare il modulo PowerShell vCenter PowerCLI. | È necessario l'accesso agli URL.<br/><br/> Il controllo dei prerequisiti non riesce.<br/><br/> L'installazione automatica del modulo nella macchina virtuale di Agente di raccolta non riesce. È necessario installare manualmente il modulo in un computer con connettività internet e quindi copiare i moduli per l'appliance. [Per altre informazioni, passare al passaggio 4 in questa Guida alla risoluzione dei problemi](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>Installare manualmente il modulo VMware PowerCLI
@@ -214,7 +214,7 @@ Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Indirizzi IPv
 Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Indirizzi IPv6 | vm.Guest.Net
 Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Megabyte al secondo di velocità effettiva in lettura | net.received.average
 Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Megabyte al secondo di velocità effettiva in scrittura | net.transmitted.average
-Dettagli percorso di inventario | NOME | container.GetType().Name
+Dettagli percorso di inventario | Name | container.GetType().Name
 Dettagli percorso di inventario | Tipo di oggetto figlio | container.ChildType
 Dettagli percorso di inventario | Informazioni di riferimento | container.MoRef
 Dettagli percorso di inventario | Percorso di inventario completo | container.Name con percorso completo

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2de945d2ef1d87b47ea81aac034916466d3c9bda
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 6ddfd90956fde0c57e14083a3704cbf365456c75
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258850"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735153"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Miglioramenti di messaggio per i messaggi da dispositivo a cloud dell'IoT Hub (anteprima)
 
@@ -49,6 +49,8 @@ I messaggi possono provenire da qualsiasi origine dati supportata da [routing de
 
 È possibile aggiungere i miglioramenti per i messaggi che verranno all'endpoint predefinito di un IoT Hub, o che vengono indirizzati a endpoint personalizzati, ad esempio archiviazione Blob di Azure, una coda del Bus di servizio o un argomento del Bus di servizio.
 
+È anche possibile aggiungere i miglioramenti ai messaggi che vengono pubblicati selezionando l'endpoint come griglia di eventi a griglia di eventi. Per altre informazioni, vedere [Iot Hub e griglia di eventi](iot-hub-event-grid.md).
+
 Miglioramenti vengono applicate per ogni endpoint. Se si specificano cinque miglioramenti da aggiungere per un endpoint specifico, tutti i messaggi inviati a tale endpoint sono contrassegnati con i miglioramenti di cinque stesso.
 
 Per informazioni su come provare miglioramenti di messaggio, vedere il [esercitazione miglioramenti di messaggio](tutorial-message-enrichments.md)
@@ -75,7 +77,7 @@ Miglioramenti di messaggio sono disponibili senza alcun costo aggiuntivo. Attual
 
 ## <a name="availability"></a>Disponibilità
 
-Questa funzionalità è disponibile in anteprima ed è disponibile in tutte le aree ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale [Azure per enti pubblici](/azure-government/documentation-government-welcome.md), [Azure Cina 21Vianet](/azure/china/china-welcome.md), e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/).
+Questa funzionalità è disponibile in anteprima ed è disponibile in tutte le aree ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale [Azure per enti pubblici](/azure/azure-government/documentation-government-welcome), [Azure Cina 21Vianet](/azure/china/china-welcome), e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 92a0ba8c0f43e26b7a1bbe82cc52f61d390fc04d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cb9edbb508ddd993dcefbf69eb06b4f0d4156485
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827328"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742557"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installare Office in un'immagine master di disco rigido virtuale
 
@@ -29,7 +29,9 @@ Anche questo articolo presuppone che avere accesso con privilegi elevati nella m
 
 Attivazione di computer condivisi ti permette di distribuire Office 365 ProPlus in un computer dell'organizzazione a cui si accede da più utenti. Per altre informazioni sull'attivazione di computer condivisi, vedere [panoramica dell'attivazione di computer condivisi per Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
 
-Usare la [strumento di distribuzione di Office](https://www.microsoft.com/download/details.aspx?id=49117) per installare Office. Multisessione per Windows 10 Enterprise supporta solo Office 365 ProPlus.
+Usare la [strumento di distribuzione di Office](https://www.microsoft.com/download/details.aspx?id=49117) per installare Office. Multisessione per Windows 10 Enterprise supporta solo le versioni seguenti di Office:
+- Office 365 ProPlus
+- Office 365 Business fornita con una sottoscrizione di Microsoft 365 Business
 
 Lo strumento di distribuzione di Office è necessario un file XML di configurazione. Per personalizzare l'esempio seguente, vedere la [opzioni di configurazione per lo strumento di distribuzione di Office](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
 
@@ -132,7 +134,7 @@ Di seguito viene illustrato come installare OneDrive in modalità per computer:
 
 2. Scaricare OneDriveSetup.exe il percorso di gestione temporaneo con questo collegamento: <https://aka.ms/OneDriveWVD-Installer>
 
-3. Se è installato office con OneDrive omettendo  **\<ExcludeApp ID = "OneDrive" /\>**, disinstallare eventuali installazioni di ogni utente OneDrive esistente da un prompt dei comandi con privilegi elevati eseguendo le operazioni seguenti comando:
+3. Se è installato office con OneDrive omettendo  **\<ExcludeApp ID = "OneDrive" /\>** , disinstallare eventuali installazioni di ogni utente OneDrive esistente da un prompt dei comandi con privilegi elevati eseguendo le operazioni seguenti comando:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

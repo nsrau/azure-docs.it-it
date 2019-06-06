@@ -12,28 +12,22 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/10/2018
+ms.date: 6/05/2019
 ms.author: aljo
-ms.openlocfilehash: e94280f9df1d4ac59856a73f6f6c2b7f7a0b9cc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a75b02b8173507a28204a3ec2030ce7ed9838495
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726588"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729853"
 ---
 # <a name="production-readiness-checklist"></a>Elenco di controllo per l'idoneità per la produzione
 
 L'applicazione e il cluster sono pronti ad accettare il traffico della produzione? L'esecuzione e il test dell'applicazione e del cluster non implicano necessariamente che questi siano pronti per l'uso in produzione. Per assicurare il corretto funzionamento dell'applicazione e del cluster, esaminare le voci dell'elenco di controllo seguente. È altamente consigliabile verificare che tutti i requisti riportati nell'elenco siano soddisfatti. È ovviamente possibile scegliere di usare soluzioni alternative per una determinata voce, ad esempio framework di diagnostica personalizzati.
 
 
-## <a name="pre-requisites-for-production"></a>Prerequisiti per la produzione
-1. Le [procedure consigliate per la sicurezza di Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) sono: 
-1. Usare certificati X.509
-1. Configurare criteri di sicurezza
-1. Configurare l'autenticazione SSL per Azure Service Fabric
-1. Usare l'isolamento e la sicurezza di rete con Azure Service Fabric
-1. Configurare Azure Key Vault per la sicurezza
-1. Microsoft.Network/loadBalancersAssegnare utenti ai ruoli
+## <a name="prerequisites-for-production"></a>Prerequisiti per la produzione
+1. Azure Service Fabric le procedure consigliate: [Progettazione di applicazioni](./service-fabric-best-practices-applications.md), [Security](./service-fabric-best-practices-security.md), [Networking](./service-fabric-best-practices-networking.md), [pianificazione della capacità e scalabilità](./service-fabric-best-practices-capacity-scaling.md), [infrastruttura come codice](./service-fabric-best-practices-infrastructure-as-code.md), e [il monitoraggio e diagnostica](./service-fabric-best-practices-monitoring.md). 
 1. Implementare la configurazione di sicurezza di Reliable Actors, se si usa il modello di programmazione di Actors
 1. Per i cluster con più di 20 core o 10 nodi, creare un tipo di nodo primario dedicato per i servizi di sistema. Aggiungere [vincoli di posizionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) per riservare il tipo di nodo primario ai servizi di sistema.
 1. Per il tipo di nodo primario usare uno SKU D2v2 o superiore. È consigliabile scegliere uno SKU con capacità del disco rigido di almeno 50 GB.

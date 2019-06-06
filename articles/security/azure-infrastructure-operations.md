@@ -1,8 +1,8 @@
 ---
-title: Gestione e funzionamento dell'ambiente di produzione di Azure
-description: Questo articolo descrive in generale la gestione e il funzionamento della rete di produzione di Azure.
+title: Gestione della rete di produzione di Azure - Microsoft Azure
+description: Questo articolo descrive come Microsoft gestisce e opera la rete di produzione di Azure per proteggere il Data Center di Azure.
 services: security
-documentationcenter: na
+documentationcenter: n
 author: TerryLanfear
 manager: barbkess
 editor: TomSh
@@ -12,16 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 515896851c5bf7b9c847416ebadedf1242e0eeb9
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591466"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428274"
 ---
-# <a name="azure-production-operations-and-management"></a>Gestione e funzionamento dell'ambiente di produzione di Azure    
+# <a name="management-and-operation-of-the-azure-production-network"></a>Gestione e l'utilizzo della rete di produzione di Azure    
+Questo articolo descrive come Microsoft gestisce e opera la rete di produzione di Azure per proteggere il Data Center di Azure.
+
+## <a name="monitor-log-and-report"></a>Monitoraggio, log e report
+
 La gestione e il funzionamento della rete di produzione di Azure sono il risultato di una collaborazione coordinata tra i team operativi di Azure e del database SQL di Azure. Nell'ambiente, i team usano vari strumenti di monitoraggio delle prestazioni delle applicazioni e del sistema. E usano strumenti appropriati per il monitoraggio della rete dei dispositivi, dei server e dei processi delle applicazioni.
 
 Per garantire l'esecuzione protetta di servizi in esecuzione nell'ambiente Azure, i team delle operazioni implementano diversi livelli di monitoraggio, registrazione e reporting, incluse le azioni seguenti:

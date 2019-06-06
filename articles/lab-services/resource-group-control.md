@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 06/03/2019
 ms.author: spelluru
-ms.openlocfilehash: 1001e6aec7ba2f6ce62eb267d218149296048bb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 574cc0c41ce645c71302178afcf6e7deaec69d8e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394346"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476091"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Specificare un gruppo di risorse per le macchine virtuali di un lab in Azure DevTest Labs
 
@@ -29,6 +29,9 @@ I proprietari dei lab possono configurare le macchine virtuali del lab da creare
 - Consolidare tutte le risorse di lab all'interno di un singolo gruppo di risorse per semplificare il rilevamento di tali risorse e applicando [criteri](../governance/policy/overview.md) per gestire le risorse a livello di gruppo di risorse.
 
 Con questa funzionalità, è possibile usare uno script per specificare un gruppo di risorse nuovo o esistente nella sottoscrizione di Azure per tutte le macchine virtuali nel lab. Azure DevTest Labs supporta attualmente questa funzionalità tramite un'API.
+
+> [!NOTE]
+> Tutti i limiti della sottoscrizione si applicano quando si crea lab in DevTest Labs. Pensare a un lab come qualsiasi altra risorsa nella sottoscrizione. In caso di gruppi di risorse, è il limite [980 gruppi di risorse per ogni sottoscrizione](../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). 
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure
 Seguire questi passaggi per specificare un gruppo di risorse per tutte le macchine virtuali create nel lab. 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 6d17d5c2c0eaebc694abe820318f6ac0c70b0be8
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 6a2e065466ab4426a6472b64fae19d264ff8dd81
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544599"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734230"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Eseguire il backup e ripristino di database SQL in macchine virtuali di Azure con PowerShell
 
@@ -281,7 +281,7 @@ Uso [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/power
 
 ````powershell
 $startDate = (Get-Date).AddDays(-7).ToUniversalTime()
-$endDate = Get-Date.ToUniversalTime()
+$endDate = (Get-Date).ToUniversalTime()
 Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $targetVault.ID -StartDate $startdate -EndDate $endDate
 ````
 
@@ -491,7 +491,7 @@ Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManag
 
 ### <a name="stop-protection"></a>Arresta protezione
 
-#### <a name="retain-data"></a>Conserva dati
+#### <a name="retain-data"></a>Mantenere i dati
 
 Se l'utente desidera arrestare la protezione dati, è possibile usare la [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) cmdlet di Powershell. Questa operazione interromperà i backup pianificati, ma i dati sottoposti a backup fino a questo punto vengono conservati all'infinito.
 

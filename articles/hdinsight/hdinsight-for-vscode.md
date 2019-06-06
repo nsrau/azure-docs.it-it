@@ -1,20 +1,18 @@
 ---
-title: Strumenti di Azure HDInsight - Usare Visual Studio Code per Hive, LLAP o PySpark | Microsoft Docs
+title: Strumenti di HDInsight di Azure - usare Visual Studio Code per Hive, LLAP o PySpark
 description: Informazioni su come usare gli strumenti di Azure HDInsight per Visual Studio Code per creare e inviare query e script.
-Keywords: Visual Studio Code, gli strumenti di Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, Interactive Query
-documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/30/2019
+ms.openlocfilehash: d114a1e62ae0d28e7d4a3ad453d5d7bd3e1d5b7a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681755"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427682"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usare gli strumenti di Azure HDInsight per Visual Studio Code
 
@@ -71,7 +69,7 @@ Prima di inviare script ai cluster HDInsight da Visual Studio Code, è necessari
 
     ![Accesso agli strumenti HDInsight per Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. Seguire le istruzioni di accesso nel riquadro **OUTPUT**.
+2. Seguire le istruzioni in di accesso di **OUTPUT** riquadro.
     + Per l'ambiente globale di Azure, **HDInsight: Il comando di accesso** attiverà l'azione **Accedere ad Azure** nella finestra di esplorazione di HDInsight e viceversa.
 
         ![Istruzioni di accesso ad Azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
@@ -334,7 +332,7 @@ Inviare un file e osservare che la cartella con estensione vscode viene aggiunta
     | appId | ID applicazione della sessione |  string |
     | appInfo | Informazioni dettagliate sull'applicazione | Mapping della chiave = val |
     | log | Righe di log | elenco di stringhe |
-    | state |   Stato batch | string |
+    | stato |   Stato batch | string |
 
 >[!NOTE]
 >La configurazione di livy assegnata verrà visualizzata nel riquadro di output quando si invia lo script.
@@ -360,7 +358,7 @@ Inviare un file e osservare che la cartella con estensione vscode viene aggiunta
 
 HDInsight per Visual Studio Code supporta le funzionalità seguenti:
 
-- **Completamento automatico di IntelliSense**. Vengono visualizzati suggerimenti per parole chiave, metodi, variabili e così via. Icone diverse rappresentano vari tipi di oggetti.
+- **Completamento automatico IntelliSense**. Vengono visualizzati suggerimenti per parole chiave, metodi, variabili e così via. Icone diverse rappresentano vari tipi di oggetti.
 
     ![Tipi di oggetto IntelliSense degli strumenti di HDInsight per Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 - **Indicatore di errore di IntelliSense**. Il servizio di linguaggio sottolinea gli errori di modifica nello script Hive.     

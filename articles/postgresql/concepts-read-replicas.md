@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/05/2019
+ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242286"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734658"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leggere le repliche di Database di Azure per PostgreSQL - Server singolo
 
@@ -60,17 +60,15 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 Quando richiesto, immettere la password per l'account dell'utente.
 
 ## <a name="monitor-replication"></a>Monitorare la replica
-Il Database di Azure per PostgreSQL offre la metrica **Max Lag Across Replicas (Ritardo massimo tra repliche)** in Monitoraggio di Azure. Questa metrica è disponibile solo nel server master. La metrica indica l'intervallo in byte che intercorre tra il master e la replica più in ritardo. 
+Database di Azure per PostgreSQL offre due metriche di monitoraggio della replica. Le due metriche sono **ritardo massimo tra repliche** e **Replica Lag**. Per informazioni su come visualizzare queste metriche, vedere la **monitorare una replica** sezione il [leggere l'articolo sulle procedure di replica](howto-read-replicas-portal.md).
 
-Il Database di Azure per PostgreSQL offre anche la metrica **Replica Lag (Ritardo della replica)** in Monitoraggio di Azure. Questa metrica è disponibile per solo le repliche. 
+Il **ritardo massimo tra repliche** metrica indica il ritardo in byte tra il master e la replica di massimo ritardo. Questa metrica è disponibile solo nel server master.
 
-La metrica viene calcolata dalla vista `pg_stat_wal_receiver`:
+Il **Lag Replica** metrica Mostra il tempo dal momento dell'ultima riproduzione delle transazioni. Se non sono presenti transazioni sul server master, la metrica riflette questo intervallo di tempo. Questa metrica è disponibile per i server di replica solo. Ritardo di replica viene calcolato dal `pg_stat_wal_receiver` Vista:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
-
-La metrica Replica Lag (Ritardo della replica) indica il tempo trascorso dall'ultima transazione riprodotta. Se non sono presenti transazioni sul server master, la metrica riflette questo intervallo di tempo.
 
 Impostare un avviso per essere informati quando il ritardo di replica raggiunge un valore che non è accettabile per il carico di lavoro. 
 

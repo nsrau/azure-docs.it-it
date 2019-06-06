@@ -1,29 +1,25 @@
 ---
-title: Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP - App per la logica di Azure | Microsoft Docs
+title: Chiamare, attivare o annidare flussi di lavoro con endpoint HTTP - App per la logica di Azure
 description: Configurare endpoint HTTP per chiamare, attivare o annidare flussi di lavoro di app per la logica di Azure
 services: logic-apps
-keywords: flussi di lavoro, endpoint HTTP
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: integration
+author: ecfan
+ms.author: klam; LADocs
+ms.reviewer: jehollan, klam, LADocs
+manager: carmonm
+ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: klam; LADocs
-ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304165"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495046"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare flussi di lavoro con endpoint HTTP nelle App per la logica di Azure
 
 È possibile esporre a livello nativo gli endpoint HTTP sincroni come trigger sulle app per la logica, permettendo in tal modo di attivare o di chiamare le app per la logica tramite un URL. È inoltre possibile annidare i flussi di lavoro nell'app per la logica usando un modello di endpoint richiamabile.
 
@@ -245,7 +241,7 @@ Per alcune richieste che avviano un'app per la logica, può risultare utile risp
 
 Le risposte hanno le seguenti proprietà:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | statusCode |Specifica il codice di stato HTTP per la risposta alla richiesta in ingresso. Può essere qualsiasi codice di stato valido che inizia con 2xx, 4xx o 5xx. I codici di stato 3xx non sono consentiti. |
 | headers |Definisce un numero illimitato di intestazioni da includere nella risposta. |

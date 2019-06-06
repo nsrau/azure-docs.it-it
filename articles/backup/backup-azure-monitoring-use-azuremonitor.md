@@ -7,15 +7,15 @@ manager: shivamg
 keywords: Log Analitica; Backup di Azure; Avvisi Impostazioni di diagnostica. Gruppi di azioni
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190514"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734836"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Monitoraggio su larga scala tramite Monitoraggio di Azure
 
@@ -46,7 +46,7 @@ Una risorsa di Azure Resource Manager, ad esempio credenziali dei servizi di rip
 
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Distribuzione di soluzioni all'area di lavoro di Log Analitica
 
-Una volta che i dati si trova all'interno dell'area di lavoro LA, [distribuire un modello di github](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) nella per visualizzare i dati. Accertarsi di che assegnare lo stesso gruppo di risorse, nome area di lavoro e percorso area di lavoro per identificare in modo corretto l'area di lavoro e quindi installare il modello su di esso.
+Una volta che i dati si trova all'interno dell'area di lavoro LA, [distribuire un modello di GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) nella per visualizzare i dati. Accertarsi di che assegnare lo stesso gruppo di risorse, nome area di lavoro e percorso area di lavoro per identificare in modo corretto l'area di lavoro e quindi installare il modello su di esso.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Visualizzare i dati di Backup di Azure con Log Analitica (LA)
 
@@ -242,13 +242,13 @@ Applicare i filtri visualizzati nella figura seguente per verificare se si ricev
 
 ![Log attività per i backup di macchine Virtuali di Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-È possibile fare clic sul segmento JSON per ottenere altri dettagli e visualizzarli in un editor di testo tramite un'operazione di copia e incolla. Deve visualizzare i dettagli dell'insieme di credenziali e l'elemento che ha attivato l'attività di log, ovvero l'elemento di backup.
+Fare clic sul nome dell'operazione verrà visualizzato l'operazione e i relativi dettagli.
 
-Fare quindi clic su Aggiungi avviso del log attività per generare avvisi per tutti questi log.
+![Nuova regola di avviso](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-È possibile fare clic su "Aggiungi avviso del log attività" illustrato in precedenza e verrà aperta la schermata di creazione degli avvisi che è simile alla schermata di creazione degli avvisi [come descritto in precedenza](#create-alerts-using-log-analytics).
+Fare clic su **nuova regola di avviso** per aprire il **Crea regola** dello schermo, qui è possibile creare avvisi usando i passaggi descritti in questo [articolo](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
-In questo caso la risorsa è l'insieme di credenziali RS stesso e di conseguenza è necessario ripetere la stessa azione per tutti gli insiemi di credenziali in cui si desidera la notifica tramite i log attività. La condizione non sarà possibile qualsiasi soglia, periodo, frequenza poiché si tratta di un avviso basato su eventi. Non appena viene generato il log attività rilevanti, viene generato l'avviso.
+In questo caso la risorsa è l'insieme di credenziali di servizi di ripristino se stesso e di conseguenza è necessario ripetere la stessa azione per tutti gli insiemi di credenziali in cui si desidera la notifica tramite i log attività. La condizione non sarà possibile qualsiasi soglia, periodo, frequenza poiché si tratta di un avviso basato su eventi. Non appena viene generato il log attività rilevanti, viene generato l'avviso.
 
 ## <a name="recommendation"></a>Recommendation
 

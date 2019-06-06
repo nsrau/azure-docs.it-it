@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 32cad7005b2b4da830ac3febf6da847933967a3d
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400018"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471436"
 ---
 # <a name="about-recovery-plans"></a>Informazioni sui piani di ripristino
 
@@ -37,10 +37,10 @@ Un piano di ripristino consente di definire un processo di ripristino sistematic
 
 È possibile pianificare e creare un gruppo di ripristino per acquisire le proprietà specifiche delle app. Considerare, ad esempio, una tipica applicazione a tre livelli, con un back-end SQL, middleware e un front-end Web. In genere, si personalizza il piano di ripristino in modo che i computer in ogni livello si avviino nell'ordine corretto dopo il failover.
 
-    - Il back-end SQL deve essere avviato per primo, seguito dal middleware e successivamente dal front-end Web.
-    - Questo ordine di avvio assicura che l'app sia in funzione nel momento in cui viene avviato l'ultimo computer.
-    - Questo ordine assicura che quando il middleware viene avviato e tenta di connettersi al livello di SQL Server, il livello di SQL Server è già in esecuzione. 
-    - Tale ordine aiuta anche ad assicurare che il server front-end venga avviato per ultimo, in modo che gli utenti finali non si connettano all'URL dell'app prima che tutti i componenti siano operativi e che l'app sia pronta per accettare le richieste.
+- Il back-end SQL deve essere avviato per primo, seguito dal middleware e successivamente dal front-end Web.
+- Questo ordine di avvio assicura che l'app sia in funzione nel momento in cui viene avviato l'ultimo computer.
+- Questo ordine assicura che quando il middleware viene avviato e tenta di connettersi al livello di SQL Server, il livello di SQL Server è già in esecuzione. 
+- Tale ordine aiuta anche ad assicurare che il server front-end venga avviato per ultimo, in modo che gli utenti finali non si connettano all'URL dell'app prima che tutti i componenti siano operativi e che l'app sia pronta per accettare le richieste.
 
 Per creare questo ordine, aggiungere gruppi al gruppo di ripristino e aggiungere computer ai gruppi.
 - Se l'ordine è specificato, viene usata la sequenziazione. Dove appropriato, le azioni vengono eseguite in parallelo, per migliorare l'obiettivo del tempo di ripristino dell'applicazione.
@@ -61,11 +61,11 @@ Con questa personalizzazione, ecco cosa accade quando si esegue un failover per 
 
 Il ripristino di applicazioni di grandi dimensioni può essere un'attività complessa. I passaggi manuali rendono il processo soggetto a errori e la persona che esegue il failover potrebbe non essere a conoscenza di tutti gli aspetti complessi delle app. È possibile usare un piano di ripristino per determinare l'ordine e automatizzare le azioni necessarie in ogni passaggio, usando i runbook di Automazione di Azure per il failover in Azure oppure gli script. Per le attività che non possono essere automatizzate, è possibile inserire pause per le azioni manuali nei piani di ripristino. Ci sono due tipi di attività che è possibile configurare:
 
-* **Attività nella macchina virtuale di Azure dopo il failover**: quando si esegue il failover in Azure, è in genere necessario eseguire azioni in modo da potersi connettere alla macchina virtuale dopo il failover. Ad esempio:  
+* **Attività nella macchina virtuale di Azure dopo il failover**: quando si esegue il failover in Azure, è in genere necessario eseguire azioni in modo da potersi connettere alla macchina virtuale dopo il failover. Ad esempio: 
     * Creare un indirizzo IP pubblico nella macchina virtuale.
     * Assegnare un gruppo di sicurezza di rete alla scheda di rete della macchina virtuale di Azure.
     * Aggiungere un servizio di bilanciamento del carico a un set di disponibilità.
-* **Attività nella macchina virtuale dopo il failover**: queste attività in genere riconfigurano l'app in esecuzione nel computer, in modo che continui a funzionare correttamente nel nuovo ambiente. Ad esempio: 
+* **Attività nella macchina virtuale dopo il failover**: queste attività in genere riconfigurano l'app in esecuzione nel computer, in modo che continui a funzionare correttamente nel nuovo ambiente. Ad esempio:
     * Modificare la stringa di connessione del database all'interno del computer.
     * Modificare la configurazione o le regole del server Web.
 

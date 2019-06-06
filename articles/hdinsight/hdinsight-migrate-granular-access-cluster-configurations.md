@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/26/2019
-ms.openlocfilehash: 8bcb20ec5c85c3cfa2e481a4a5848f404a2fb4eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/03/2019
+ms.openlocfilehash: 9a592533a92ec724c9a332bef5fdfcf385cb7b2c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685450"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730675"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
 
@@ -20,8 +20,8 @@ Sono state introdotte alcune importanti modifiche per supportare ulteriori acces
 
 ## <a name="what-is-changing"></a>Cosa cambierà
 
-In precedenza, i segreti è stato possibile ottenere tramite l'API di HDInsight da parte degli utenti cluster che presenta il proprietario, collaboratore o lettore [ruoli RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles).
-In futuro, questi segreti non saranno accessibili agli utenti con ruolo di lettore. I segreti siano definiti come devono consentire valori che può essere usati per ottenere l'accesso con privilegi più elevato rispetto a un ruolo utente. Sono inclusi i valori, ad esempio cluster gateway HTTP credenziali, chiavi dell'account di archiviazione e le credenziali del database.
+In precedenza, i segreti è stato possibile ottenere tramite l'API di HDInsight da parte degli utenti cluster che presenta il proprietario, collaboratore o lettore [ruoli RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), come fossero disponibili per chiunque abbia il `*/read` è necessaria l'autorizzazione.
+In futuro, l'accesso a questi segreti richiederanno la `Microsoft.HDInsight/clusters/configurations/*` autorizzazione, vale a dire non siano accessibili da parte degli utenti con ruolo di lettore. I segreti siano definiti come devono consentire valori che può essere usati per ottenere l'accesso con privilegi più elevato rispetto a un ruolo utente. Sono inclusi i valori, ad esempio cluster gateway HTTP credenziali, chiavi dell'account di archiviazione e le credenziali del database.
 
 È stato anche introdotto un nuovo [operatore del Cluster Hdinsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) ruolo che sarà in grado di recuperare i segreti senza disporre delle autorizzazioni amministrative di proprietario o collaboratore. Per riepilogare:
 
@@ -41,13 +41,15 @@ Sono interessati le entità e gli scenari seguenti:
 - [API](#api): Gli utenti che usano il `/configurations` o `/configurations/{configurationName}` gli endpoint.
 - [Gli strumenti di Azure HDInsight per Visual Studio Code](#azure-hdinsight-tools-for-visual-studio-code) versione 1.1.1 o versione precedente.
 - [Azure Toolkit for IntelliJ](#azure-toolkit-for-intellij) versione 3.20.0 o versione precedente.
+- [Azure Data Lake e Stream Analitica Tools per Visual Studio](#azure-data-lake-and-stream-analytics-tools-for-visual-studio) versione 2.3.9000.1 precedente.
+- [Azure Toolkit for Eclipse](#azure-toolkit-for-eclipse) versione 3.15.0 o versione precedente.
 - [SDK per .NET](#sdk-for-net)
     - [le versioni 1.x o 2.x](#versions-1x-and-2x): Gli utenti che usano il `GetClusterConfigurations`, `GetConnectivitySettings`, `ConfigureHttpSettings`, `EnableHttp` o `DisableHttp` metodi della classe ConfigurationsOperationsExtensions.
     - [le versioni 3.x e successive](#versions-3x-and-up): Gli utenti che usano il `Get`, `Update`, `EnableHttp`, o `DisableHttp` metodi dal `ConfigurationsOperationsExtensions` classe.
 - [SDK per Python](#sdk-for-python): Gli utenti che usano il `get` oppure `update` metodi dal `ConfigurationsOperations` classe.
 - [SDK per Java](#sdk-for-java): Gli utenti che usano il `update` oppure `get` metodi dal `ConfigurationsInner` classe.
 - [SDK per Go](#sdk-for-go): Gli utenti che usano il `Get` oppure `Update` metodi dal `ConfigurationsClient` struct.
-
+- [Az.HDInsight PowerShell](#azhdinsight-powershell) precedente versione 2.0.0.
 Per informazioni sulla procedura di migrazione per il tuo scenario, vedi le sezioni seguenti o usa i collegamenti indicati in precedenza.
 
 ### <a name="api"></a>API
@@ -66,7 +68,7 @@ Le API seguenti verranno modificate o deprecate:
 
 La sostituzione seguente che sono state aggiunte API:</span>
 
-- [**/Configurations POST**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#list-configurations)
+- [ **/Configurations POST**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#list-configurations)
     - Usare questa API per ottenere tutte le configurazioni, inclusi i segreti.
 - [**POST /getGatewaySettings**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-gateway-settings)
     - Usare questa API per ottenere le impostazioni del gateway.
@@ -80,6 +82,14 @@ Se si usa la versione 1.1.1 o aggiornamento di seguito per il [versione più rec
 ### <a name="azure-toolkit-for-intellij"></a>Toolkit di Azure per IntelliJ
 
 Se si usa la versione 3.20.0 o aggiornamento di seguito per il [versione più recente di Azure Toolkit for IntelliJ plugin](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) per evitare interruzioni.
+
+### <a name="azure-data-lake-and-stream-analytics-tools-for-visual-studio"></a>Azure Data Lake e Stream Analitica Tools per Visual Studio
+
+Aggiornamento alla versione 2.3.9000.1 dello o versione successiva [Stream Analitica Tools per Visual Studio e Azure Data Lake](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview) per evitare interruzioni.  Per informazioni sull'aggiornamento, vedere la documentazione [Update Data Lake Tools per Visual Studio](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started#update-data-lake-tools-for-visual-studio).
+
+### <a name="azure-toolkit-for-eclipse"></a>Toolkit di Azure per Eclipse
+
+Se si usa la versione 3.15.0 o aggiornamento di seguito per il [versione più recente di Azure Toolkit for Eclipse](https://marketplace.eclipse.org/content/azure-toolkit-eclipse) per evitare interruzioni.
 
 ### <a name="sdk-for-net"></a>SDK per .NET
 
@@ -114,7 +124,7 @@ Aggiornamento a [versione 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1
 - [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurations_operations.configurationsoperations?view=azure-python#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) verrà **non venga più restituito parametri sensibili** come chiavi di archiviazione (core-site) o credenziali HTTP (gateway).
     - Per recuperare tutte le configurazioni, inclusi i parametri sensibili, utilizzare [ `ConfigurationsOperations.list` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurations_operations.configurationsoperations?view=azure-python#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) in futuro.  Si noti che gli utenti con il ruolo "Lettore" non saranno in grado di utilizzare questo metodo. Ciò consente un controllo granulare su cui gli utenti possono accedere ai dati sensibili per un cluster. 
     - Per recuperare solo le credenziali del gateway HTTP, usare [ `ConfigurationsOperations.get_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-).
-- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-resource-group-name--cluster-name--tags-none--custom-headers-none--raw-false----operation-config-) è ora deprecata ed è stata sostituita da [ `ClusterOperationsExtensions.update_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-).
+- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-resource-group-name--cluster-name--tags-none--custom-headers-none--raw-false----operation-config-) è ora deprecata ed è stata sostituita da [ `ClusterOperations.update_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-).
 
 ### <a name="sdk-for-java"></a>SDK per Java
 
@@ -122,8 +132,8 @@ Aggiornamento a [versione 1.0.0](https://search.maven.org/artifact/com.microsoft
 
 - [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get) verrà **non venga più restituito parametri sensibili** come chiavi di archiviazione (core-site) o credenziali HTTP (gateway).
     - Per recuperare tutte le configurazioni, inclusi i parametri sensibili, utilizzare [ `ConfigurationsInner.list` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.configurationsinner.list?view=azure-java-stable) in futuro.  Si noti che gli utenti con il ruolo "Lettore" non saranno in grado di utilizzare questo metodo. Ciò consente un controllo granulare su cui gli utenti possono accedere ai dati sensibili per un cluster. 
-    - Per recuperare solo le credenziali del gateway HTTP, usare [ `ConfigurationsOperations.get_gateway_settings` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.getgatewaysettings?view=azure-java-stable).
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) è ora deprecata ed è stata sostituita da [ `ClusterOperationsExtensions.update_gateway_settings` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.updategatewaysettings?view=azure-java-stable).
+    - Per recuperare solo le credenziali del gateway HTTP, usare [ `ClustersInner.getGatewaySettings` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.getgatewaysettings?view=azure-java-stable).
+- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) è ora deprecata ed è stata sostituita da [ `ClustersInner.updateGatewaySettings` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.updategatewaysettings?view=azure-java-stable).
 
 ### <a name="sdk-for-go"></a>SDK per Go
 
@@ -133,6 +143,15 @@ Aggiornamento a [versione 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree
     - Per recuperare tutte le configurazioni, inclusi i parametri sensibili, utilizzare [ `ConfigurationsClient.list` ](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.List) in futuro.  Si noti che gli utenti con il ruolo "Lettore" non saranno in grado di utilizzare questo metodo. Ciò consente un controllo granulare su cui gli utenti possono accedere ai dati sensibili per un cluster. 
     - Per recuperare solo le credenziali del gateway HTTP, usare [ `ClustersClient.get_gateway_settings` ](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.GetGatewaySettings).
 - [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Update) è ora deprecata ed è stata sostituita da [ `ClustersClient.update_gateway_settings` ](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings).
+
+### <a name="azhdinsight-powershell"></a>Az.HDInsight PowerShell
+Aggiornamento a [Az PowerShell versione 2.0.0](https://www.powershellgallery.com/packages/Az) o versione successiva per evitare interruzioni.  Se si usa un metodo interessato da queste modifiche, possono essere necessarie modifiche di codice minima.
+- `Grant-AzHDInsightHttpServicesAccess` è ora deprecata ed è stata sostituita dalla nuova `Set-AzHDInsightGatewayCredential` cmdlet.
+- `Get-AzHDInsightJobOutput` è stato aggiornato per supportare l'accesso in base al ruolo granulare per la chiave di archiviazione.
+    - Gli utenti con ruoli di operatore del Cluster HDInsight, collaboratore o proprietario non influirà.
+    - Saranno necessario specificare gli utenti che dispongono solo il ruolo Lettore di `DefaultStorageAccountKey` parametro in modo esplicito.
+- `Revoke-AzHDInsightHttpServicesAccess` è ora deprecata. HTTP ora è sempre abilitata, in modo che questo cmdlet non è più necessario.
+ Vedere il [az. Guida alla migrazione HDInsight](https://github.com/Azure/azure-powershell/blob/master/documentation/migration-guides/Az.2.0.0-migration-guide.md#azhdinsight) per altri dettagli.
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>Aggiungere l'assegnazione del ruolo operatore del Cluster HDInsight a un utente
 

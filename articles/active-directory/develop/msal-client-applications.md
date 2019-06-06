@@ -17,40 +17,40 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e0300ec0ef4ee67b06acb85514ae898bbd0a830
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 9d09436b9a2ac38e7b07a51f01d65769ed19d08e
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544281"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430818"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Applicazioni client riservati e client pubblici
-Microsoft Authentication Library (MSAL) definisce due tipi di client: i client riservati e client pubblici. I tipi di due client si differenziano per capacità di eseguire l'autenticazione in modo sicuro con il server di autorizzazione e mantenere la riservatezza delle proprie credenziali client.  Al contrario, Azure AD Authentication Library (ADAL) ha il concetto di contesto di autenticazione (che è una connessione ad Azure AD).
+Microsoft Authentication Library (MSAL) definisce due tipi di client: i client riservati e client pubblici. I tipi di due client si differenziano per capacità di eseguire l'autenticazione in modo sicuro con il server di autorizzazione e mantenere la riservatezza delle proprie credenziali client. Al contrario, Azure AD Authentication Library (ADAL) usa il cosiddetto *contesto di autenticazione* (che è una connessione ad Azure AD).
 
-- **Le applicazioni client riservato** sono applicazioni, che vengono eseguite nel server (app Web, API Web o anche le applicazioni di servizio/daemon). Questi sono considerati difficili da accesso e pertanto in grado di mantenere un segreto dell'applicazione. I client riservati sono in grado di contenere configurazione segreti monouso. Ogni istanza del client ha una configurazione di distinct (incluso l'ID client e segreto). Questi valori sono difficili per gli utenti finali per l'estrazione. Un'app web è il più comune client riservato. L'ID client viene esposta tramite il web browser, ma la chiave privata viene passata solo il canale di supporto e mai esposti direttamente.
+- **Le applicazioni client riservato** sono App che eseguono sul server (app web, App per le API Web o anche le app di servizio/daemon). Considerate difficile per l'accesso e per questo motivo in grado di mantenere un segreto dell'applicazione. I client riservati possono contenere i segreti in fase di configurazione. Ogni istanza del client ha una configurazione di distinct (incluso l'ID client e segreto client). Questi valori sono difficili per gli utenti finali per l'estrazione. Un'app web è il più comune client riservato. L'ID client viene esposta tramite il web browser, ma la chiave privata viene passata solo il canale di supporto e mai esposti direttamente.
 
     App client riservato: <BR>
     ![App Web](media/msal-client-applications/web-app.png) ![API Web](media/msal-client-applications/web-api.png) ![Daemon/servizio](media/msal-client-applications/daemon-service.png)
 
-- **Le applicazioni client pubblici** sono applicazioni, che vengono eseguite su dispositivi o computer desktop o in un web browser. Non sono attendibili per mantenere in modo sicuro i segreti dell'applicazione e pertanto è possibile accedere solo le API Web per conto dell'utente (supportano solo flussi client pubblico). I client pubblici non riescono a tenere configurazione segreti monouso e di conseguenza non necessario alcun segreto client.
+- **Le applicazioni client pubblici** sono le app eseguite su dispositivi o computer desktop o in un web browser. Non sono attendibili per mantenere in modo sicuro i segreti dell'applicazione, in modo che accedono solo le API Web per conto dell'utente. (Supportano solo flussi client pubblico). I client pubblici non possono contenere informazioni riservate in fase di configurazione, in modo che non hanno i segreti client.
 
-    Applicazioni client pubblico: <BR>
+    App client pubblico: <BR>
     ![App desktop](media/msal-client-applications/desktop-app.png) ![API Browserless](media/msal-client-applications/browserless-app.png) ![app per dispositivi mobili](media/msal-client-applications/mobile-app.png)
 
 > [!NOTE]
-> In msal. js, non vi è alcuna separazione di App client pubblici e riservati.  Msal. js rappresenta le app client di App basato su agente utente, un client pubblico in cui viene eseguito il codice client in un agente utente, ad esempio un web browser.  Questi client non archiviano i segreti, poiché il contesto del browser è accessibile pubblicamente.
+> In msal. js, non vi è alcuna separazione di App client pubblici e riservati.  Msal. js rappresenta le app client come utente App basate su agente, i client pubblici in cui viene eseguito il codice client in un agente utente, ad esempio un web browser. Questi client non archiviano i segreti in quanto il contesto del browser è accessibile pubblicamente.
 
 ## <a name="comparing-the-client-types"></a>Confronto tra i tipi di client
-Sono disponibili alcuni similitudini e differenze tra client riservati e pubblica applicazioni:
+Di seguito sono alcune analogie e differenze tra client riservati e client pubblici delle App:
 
-- Entrambi i tipi di applicazioni mantengono una cache dei token utente e possono acquisire un token in modo invisibile (nei casi in cui il token è già nella cache dei token). Le applicazioni client riservato hanno anche una cache di token di app per i token, che sono per l'app stessa.
-- Entrambi gestire gli account utente e possono ottenere l'account dalla cache dei token utente, ottenere un account dal relativo identificatore o rimuovere un account.
-- Le applicazioni client pubblico sono disponibili quattro metodi di acquisizione dei token (quattro flussi di autenticazione), mentre le applicazioni client riservati sono tre (ed endpoint di autorizzazione di un metodo per calcolare l'URL del provider di identità). Per altre informazioni, vedere gli scenari e l'acquisizione dei token.
+- Entrambi i tipi di app mantengono una cache dei token utente e possono acquisire un token invisibile all'utente (quando il token è già nella cache dei token). Le app client riservato hanno anche una cache di token di app per i token per l'app stessa.
+- Entrambi i tipi di app gestire gli account utente e possono ottenere un account dalla cache dei token utente, ottenere un account dal relativo identificatore o rimuovere un account.
+- Le app client pubblico hanno quattro modi per acquisire un token (quattro flussi di autenticazione). Le app client riservati esistono tre modi per acquisire un token e un modo per calcolare l'URL del provider di identità endpoint authorize. Per altre informazioni, vedere [acquisizione dei token](msal-acquire-cache-tokens.md).
 
-Se si usa ADAL in precedenza, è possibile notare che, diversamente dal contesto di autenticazione ADAL, in MSAL client ID (denominata anche ID app o ID applicazione) viene passata una sola volta in fase di creazione dell'applicazione e non sarà più deve essere ripetuto l'acquisizione di un token. Ciò avviene sia per le applicazioni client pubblici e riservati. I costruttori delle applicazioni client riservati vengono passati anche le credenziali del client: il segreto che condividono il provider di identità.
+Se si usa ADAL, è possibile notare che, a differenza di contesto di autenticazione ADAL, in MSAL l'ID client (detto anche il *ID applicazione* oppure *ID app*) viene passata una sola volta in fase di creazione dell'applicazione. Non è necessario da passare nuovamente quando l'app acquisisce un token. Questo vale sia per le app client pubblici e riservati. Costruttori di App client riservati vengono passati anche le credenziali del client: il segreto che condividono il provider di identità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vengono fornite informazioni su:
 - [Opzioni di configurazione dell'applicazione client](msal-client-application-configuration.md)
-- [Creazione di applicazioni client tramite MSAL.NET](msal-net-initializing-client-applications.md).
-- [Creazione di applicazioni client usando msal. js](msal-js-initializing-client-applications.md).
+- [Creazione di applicazioni client tramite MSAL.NET](msal-net-initializing-client-applications.md)
+- [Creazione di applicazioni client usando msal. js](msal-js-initializing-client-applications.md)

@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: f7a0269ff22987648d134cb7f4fba8e28e29fd8b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: cc0c3becf21cb54b97a88e9ba35b38308af81a85
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956285"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475415"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usare Virtual Kubelet con il servizio Azure Kubernetes
 
@@ -30,13 +30,13 @@ Quando si usa il provider Virtual Kubelet per Istanze di Azure Container, è pos
 
 Questo documento presuppone che si abbia già un cluster servizio Azure Kubernetes. Se è necessario un cluster del servizio Azure Kubernetes, vedere la [guida introduttiva al servizio Azure Kubernetes][aks-quick-start].
 
-È anche necessaria l'interfaccia della riga di comando di Azure versione **2.0.33**. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+È inoltre necessaria la versione di Azure CLI **2.0.65** o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-Per installare Virtual Kubelet, è anche necessario [Helm](https://docs.helm.sh/using_helm/#installing-helm).
+Per installare Virtual Kubelet, installare e configurare [Helm] [ aks-helm] nel cluster AKS. Assicurarsi che sia di Tiller [configurato per l'uso con Kubernetes RBAC](#for-rbac-enabled-clusters), se necessario.
 
 ### <a name="register-container-instances-feature-provider"></a>Registrare il provider di funzionalità di istanze di contenitore
 
-Se non è stato precedentemente usato il servizio di istanza di contenitore di Azure (ACI), registrare il provider di servizi con la sottoscrizione. È possibile controllare lo stato della registrazione del provider ACI usando il comando di [az-provider-list] [az provider list], come illustrato nell'esempio seguente:
+Se non è stato precedentemente usato il servizio di istanza di contenitore di Azure (ACI), registrare il provider di servizi con la sottoscrizione. È possibile controllare lo status del provider di registrazione di ACI usando il comando [az provider list][az-provider-list], come spiegato nell'esempio seguente:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -44,13 +44,13 @@ az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" 
 
 Il provider *Microsoft.ContainerInstance* deve essere contrassegnato come *Registrato*, come spiegato nell'output di esempio seguente:
 
-```
+```console
 Namespace                    RegistrationState
 ---------------------------  -------------------
 Microsoft.ContainerInstance  Registered
 ```
 
-Se il provider viene visualizzato come *NotRegistered*, registrare il provider con [az provider register] [az-provider-register], come illustrato nell'esempio seguente:
+Se il provider viene visualizzato come *NotRegistered*, registrare il provider usando [az provider register][az-provider-register] come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -83,7 +83,7 @@ subjects:
 
 Applicare l'account del servizio e l'associazione con [kubectl apply][kubectl-apply] e specificare il file *rbac-virtualkubelet.yaml*, come illustrato nell'esempio seguente:
 
-```
+```console
 $ kubectl apply -f rbac-virtual-kubelet.yaml
 
 clusterrolebinding.rbac.authorization.k8s.io/tiller created
@@ -102,37 +102,39 @@ helm init --service-account tiller
 Usare il comando [az servizio Azure Kubernetes install-connector][aks-install-connector] per installare Virtual Kubelet. L'esempio seguente distribuisce il connettore sia Linux che Windows.
 
 ```azurecli-interactive
-az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet --os-type Both
+az aks install-connector \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --connector-name virtual-kubelet \
+    --os-type Both
 ```
 
-Per il comando `aks install-connector` sono disponibili questi argomenti.
+Questi argomenti sono disponibili per il [az aks install-connettore] [ aks-install-connector] comando.
 
 | Argomento: | Descrizione | Obbligatorio |
 |---|---|:---:|
-| `--connector-name` | Nome del connettore di Istanze di contenitore di Azure.| Sì |
-| `--name` `-n` | Nome del cluster gestito. | Sì |
-| `--resource-group` `-g` | Nome del gruppo di risorse. | Sì |
-| `--os-type` | Tipo di sistema operativo delle istanze di contenitore. Valori consentiti: Entrambi, Linux, Windows. Predefinito: Linux. | N. |
-| `--aci-resource-group` | Gruppo di risorse in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | N. |
-| `--location` `-l` | Posizione in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | N. |
-| `--service-principal` | Entità servizio usata per l'autenticazione alle API di Azure. | N. |
-| `--client-secret` | Segreto associato all'entità servizio. | N. |
-| `--chart-url` | URL di un chart Helm che installa il connettore di Istanze di contenitore di Azure. | N. |
-| `--image-tag` | Tag dell'immagine del contenitore Virtual Kubelet. | N. |
+| `--connector-name` | Nome del connettore di Istanze di contenitore di Azure.| Yes |
+| `--name` `-n` | Nome del cluster gestito. | Yes |
+| `--resource-group` `-g` | Nome del gruppo di risorse. | Yes |
+| `--os-type` | Tipo di sistema operativo delle istanze di contenitore. Valori consentiti: Entrambi, Linux, Windows. Predefinito: Linux. | No |
+| `--aci-resource-group` | Gruppo di risorse in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | No |
+| `--location` `-l` | Posizione in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | No |
+| `--service-principal` | Entità servizio usata per l'autenticazione alle API di Azure. | No |
+| `--client-secret` | Segreto associato all'entità servizio. | No |
+| `--chart-url` | URL di un chart Helm che installa il connettore di Istanze di contenitore di Azure. | No |
+| `--image-tag` | Tag dell'immagine del contenitore Virtual Kubelet. | No |
 
 ## <a name="validate-virtual-kubelet"></a>Convalidare Virtual Kubelet
 
-Per convalidare l'installazione di Virtual Kubelet, restituire un elenco di nodi Kubernetes con il comando [kubectl get nodes][kubectl-get].
+Per verificare che sia stato installato Virtual Kubelet, restituire un elenco di nodi Kubernetes usando il [kubectl ottenere i nodi] [ kubectl-get] comando:
 
-```
+```console
 $ kubectl get nodes
 
-NAME                                    STATUS    ROLES     AGE       VERSION
-aks-nodepool1-23443254-0                Ready     agent     16d       v1.9.6
-aks-nodepool1-23443254-1                Ready     agent     16d       v1.9.6
-aks-nodepool1-23443254-2                Ready     agent     16d       v1.9.6
-virtual-kubelet-virtual-kubelet-linux   Ready     agent     4m        v1.8.3
-virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
+NAME                                             STATUS   ROLES   AGE   VERSION
+aks-nodepool1-56577038-0                         Ready    agent   11m   v1.12.8
+virtual-kubelet-virtual-kubelet-linux-eastus     Ready    agent   39s   v1.13.1-vk-v0.9.0-1-g7b92d1ee-dev
+virtual-kubelet-virtual-kubelet-windows-eastus   Ready    agent   37s   v1.13.1-vk-v0.9.0-1-g7b92d1ee-dev
 ```
 
 ## <a name="run-linux-container"></a>Eseguire il contenitore Linux
@@ -178,11 +180,11 @@ kubectl create -f virtual-kubelet-linux.yaml
 
 Usare il comando [kubectl get pods][kubectl-get] con l'argomento `-o wide` per visualizzare un elenco di pod con il nodo pianificato. Si noti che il pod `aci-helloworld` è stato pianificato nel nodo `virtual-kubelet-virtual-kubelet-linux`.
 
-```
+```console
 $ kubectl get pods -o wide
 
-NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
-aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.179.3.180   virtual-kubelet-virtual-kubelet-linux
+NAME                              READY   STATUS    RESTARTS   AGE     IP               NODE
+aci-helloworld-7b9ffbf946-rx87g   1/1     Running   0          22s     52.224.147.210   virtual-kubelet-virtual-kubelet-linux-eastus
 ```
 
 ## <a name="run-windows-container"></a>Eseguire il contenitore Windows
@@ -226,13 +228,13 @@ Eseguire l'applicazione con il comando [kubectl create][kubectl-create].
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
-Usare il comando [kubectl get pods][kubectl-get] con l'argomento `-o wide` per visualizzare un elenco di pod con il nodo pianificato. Si noti che il pod `nanoserver-iis` è stato pianificato nel nodo `virtual-kubelet-virtual-kubelet-win`.
+Usare il comando [kubectl get pods][kubectl-get] con l'argomento `-o wide` per visualizzare un elenco di pod con il nodo pianificato. Si noti che il pod `nanoserver-iis` è stato pianificato nel nodo `virtual-kubelet-virtual-kubelet-windows`.
 
-```
+```console
 $ kubectl get pods -o wide
 
-NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
-nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.91.121.91   virtual-kubelet-virtual-kubelet-win
+NAME                              READY   STATUS    RESTARTS   AGE     IP               NODE
+nanoserver-iis-5d999b87d7-6h8s9   1/1     Running   0          47s     52.224.143.39    virtual-kubelet-virtual-kubelet-windows-eastus
 ```
 
 ## <a name="remove-virtual-kubelet"></a>Rimuovere Virtual Kubelet
@@ -240,7 +242,11 @@ nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.
 Usare il comando [az servizio Azure Kubernetes remove-connector][aks-remove-connector] per rimuovere Virtual Kubelet. Sostituire i valori dell'argomento con il nome del connettore, il cluster servizio Azure Kubernetes e il gruppo di risorse cluster servizio Azure Kubernetes.
 
 ```azurecli-interactive
-az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
+az aks remove-connector \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --connector-name virtual-kubelet \
+    --os-type Both
 ```
 
 > [!NOTE]
@@ -259,6 +265,9 @@ Per altre informazioni su Virtual Kubelet, vedere il [progetto GitHub Virtual Ku
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
 [virtual-nodes-cli]: virtual-nodes-cli.md
 [virtual-nodes-portal]: virtual-nodes-portal.md
+[aks-helm]: kubernetes-helm.md
+[az-provider-list]: /cli/azure/provider#az-provider-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

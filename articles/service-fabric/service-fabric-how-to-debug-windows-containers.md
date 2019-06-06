@@ -1,6 +1,6 @@
 ---
 title: Eseguire il debug di contenitori Windows con Service Fabric e Visual Studio | Microsoft Docs
-description: Informazioni su come eseguire il debug dei contenitori Windows in Azure Service Fabric con Visual Studio 2017.
+description: Informazioni su come eseguire il debug dei contenitori di Windows in Azure Service Fabric usando Visual Studio 2019.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo, mikhegn
-ms.openlocfilehash: 9fe66e40376d9098244a1268fe9884cd416a36c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15f288d5400b49ec05c9ffb936fd2097cc61bae8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482644"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428141"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Procedura: Eseguire il debug dei contenitori Windows in Azure Service Fabric con Visual Studio 2017
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Procedura: Eseguire il debug dei contenitori di Windows in Azure Service Fabric usando Visual Studio 2019
 
-Con Visual Studio 2017 Update 7 (15.7) è possibile eseguire il debug delle applicazioni .NET nei contenitori come servizi di Service Fabric. Questo articolo illustra come configurare l'ambiente ed eseguire il debug di un'applicazione .NET in un contenitore in esecuzione in un cluster di Service Fabric locale.
+Con Visual Studio 2019, è possibile eseguire il debug di applicazioni .NET in contenitori come servizi di Service Fabric. Questo articolo illustra come configurare l'ambiente ed eseguire il debug di un'applicazione .NET in un contenitore in esecuzione in un cluster di Service Fabric locale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,7 +34,7 @@ Con Visual Studio 2017 Update 7 (15.7) è possibile eseguire il debug delle appl
 
 1. Assicurarsi che il servizio Docker per Windows sia in esecuzione prima di procedere con il passaggio successivo.
 
-1. Per supportare la risoluzione DNS tra i contenitori, sarà necessario configurare il cluster di sviluppo locale usando il nome del computer. Questa procedura è necessaria anche per indirizzare i servizi tramite il proxy inverso.
+1. Per supportare la risoluzione DNS tra contenitori, è possibile configurare il cluster di sviluppo locale, usando il nome del computer. Questa procedura è necessaria anche per indirizzare i servizi tramite il proxy inverso.
    1. Aprire PowerShell come amministratore
    2. Passare alla cartella di installazione del cluster SDK, in genere `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
    3. Esecuzione dello script `DevClusterSetup.ps1`
@@ -53,19 +53,19 @@ Con Visual Studio 2017 Update 7 (15.7) è possibile eseguire il debug delle appl
 
 Di seguito sono elencate le limitazioni note per il debug dei contenitori in Service Fabric e le possibili risoluzioni:
 
-* L'uso di localhost per ClusterFQDNorIP non supporta la risoluzione DNS nei contenitori.
+* Utilizzando localhost per ClusterFQDNorIP non supporterà la risoluzione DNS nei contenitori.
     * Risoluzione: configurare il cluster locale usando il nome del computer (vedere sopra)
-* Windows 10 in esecuzione in una macchina virtuale non reinvia la risposta DNS al contenitore.
+* In esecuzione Windows 10 in una macchina virtuale otterranno risposta DNS nel contenitore.
     * Risoluzione: disabilitare l'offload del checksum UDP per IPv4 sulla scheda di interfaccia di rete delle macchine virtuali
-    * Tenere presente che questo influirà negativamente sulle prestazioni di rete del computer.
+    * Che esegue Windows 10 verrà peggiorare le prestazioni di rete nel computer.
     * https://github.com/Azure/service-fabric-issues/issues/1061
-* La risoluzione dei servizi nella stessa applicazione tramite il nome del servizio DNS non funziona in Windows 10, se l'applicazione è stata distribuita tramite Docker Compose.
+* La risoluzione dei servizi nella stessa applicazione con DNS nome del servizio non funziona in Windows 10, se l'applicazione è stata distribuita mediante Docker Compose
     * Risoluzione: usare servicename.applicationname per la risoluzione degli endpoint del servizio
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * Se si usa l'indirizzo IP per ClusterFQDNorIP, la modifica dell'indirizzo IP primario nell'host interromperà la funzionalità DNS.
-    * Risoluzione: ricreare il cluster usando il nuovo indirizzo IP primario nell'host o usare il nome del computer. Si tratta di un comportamento previsto da progettazione.
-* Se il nome FQDN con cui è stato creato il cluster non è risolvibile nella rete, il DNS avrà esito negativo.
-    * Risoluzione: ricreare il cluster locale usando l'indirizzo IP primario dell'host. Si tratta di un comportamento previsto da progettazione.
+    * Risoluzione: ricreare il cluster usando il nuovo indirizzo IP primario nell'host o usare il nome del computer. Questo rottura è per impostazione predefinita.
+* Se il nome di dominio completo è stato creato con il cluster non è risolvibile nella rete, DNS avrà esito negativo.
+    * Risoluzione: ricreare il cluster locale usando l'indirizzo IP primario dell'host. Questo errore è per impostazione predefinita.
 * Durante il debug di un contenitore, i log di Docker saranno disponibili solo nella finestra di output di Visual Studio, non tramite le API di Service Fabric, incluso Service Fabric Explorer
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Eseguire il debug di un'applicazione .NET in esecuzione in contenitori Docker in Service Fabric
@@ -81,4 +81,4 @@ Di seguito sono elencate le limitazioni note per il debug dei contenitori in Ser
     Visual Studio supporta i tipi di progetto console e ASP.NET per .NET e .NET Core.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle funzionalità di Service Fabric e dei contenitori, vedere: [Panoramica dei contenitori di Service Fabric](service-fabric-containers-overview.md).
+Per altre informazioni sulle funzionalità di Service Fabric e contenitori, vedere overview](service-fabric-containers-overview.md) i contenitori di Service Fabric.

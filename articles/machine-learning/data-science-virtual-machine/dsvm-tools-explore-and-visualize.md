@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 693be80e493a0ba259d147f432dc9d6c07ba876d
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502240"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427524"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Strumenti per la visualizzazione e l'esplorazione dei dati nella macchina virtuale per data science
 
-Un passaggio fondamentale del data science consiste nel comprendere i dati. Gli strumenti di visualizzazione ed esplorazione dei dati consentono di velocizzare la comprensione dei dati. Ecco alcuni strumenti offerti dalla macchina virtuale per data science che semplificano questo passaggio fondamentale. 
+Un passaggio fondamentale del data science consiste nel comprendere i dati. Gli strumenti di visualizzazione ed esplorazione dei dati consentono di velocizzare la comprensione dei dati. Ecco alcuni strumenti forniti in DSVM, che semplificano questo passaggio chiave. 
 
 ## <a name="apache-drill"></a>Apache Drill
 |    |           |
@@ -42,7 +42,7 @@ Un passaggio fondamentale del data science consiste nel comprendere i dati. Gli 
 | Che cos'è?   |  Weka è una raccolta di algoritmi per machine learning per attività di data mining. Gli algoritmi possono essere applicati direttamente a un set di dati o chiamati dal codice Java. Weka contiene strumenti per la pre-elaborazione, la classificazione, la regressione, il clustering, le regole di associazione e la visualizzazione dei dati. |
 | Edizioni supportate della macchina virtuale per data science     | Windows, Linux     |
 | Usi tipici      | Strumento ML generale     |
-| Come usarla o eseguirla?      | In Windows cercare Weka nel menu Start. In Linux accedere con X2Go, quindi passare ad Applications (Applicazioni) -> Development (Sviluppo) -> Weka. |
+| Come usarla o eseguirla?      | In Windows cercare Weka nel menu Start. In Linux, accedere con X2Go, quindi passare ad applicazioni -> Development -> Weka. |
 | Collegamenti agli esempi      | [Esempi di Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Strumenti correlati nella macchina virtuale per data science      |LightGBM, Rattle, Xgboost   |
 
@@ -56,12 +56,12 @@ Un passaggio fondamentale del data science consiste nel comprendere i dati. Gli 
 | Collegamenti agli esempi      | [Rattle](https://togaware.com/onepager/) |
 | Strumenti correlati nella macchina virtuale per data science      |LightGBM, Weka, Xgboost   |
 
-## <a name="powerbi-desktop"></a>PowerBI Desktop 
+## <a name="power-bi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Strumento di visualizzazione dei dati interattivo e di BI    |
 | Versioni supportate della macchina virtuale per data science      | Windows  |
 | Usi tipici      |  Visualizzazione dei dati e creazione di dashboard   |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2017, Visual Studio Code, Juno      |
+| Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2019, Visual Studio Code, Juno      |
 

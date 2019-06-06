@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/06/2019
 ms.author: juliako
-ms.openlocfilehash: c025a4c6e2a5a06e12e25ce226a327b099b95306
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550971"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732993"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventi live e output live
 
@@ -79,48 +79,53 @@ Al termine della creazione dell'evento live, è possibile ottenere gli URL di in
 
 È possibile usare URL di non reindirizzamento a microsito o URL di reindirizzamento a microsito. 
 
+> [!NOTE] 
+> Per un URL di inserimento da costituire una previsione, impostare la modalità "personale".
+
 * URL di non reindirizzamento a microsito
 
     L'URL di non reindirizzamento a microsito è la modalità predefinita in AMS v3. È possibile ottenere l'evento live rapidamente, ma l'URL di inserimento è noto solo all'avvio dell'evento live. L'URL verrà modificato se si arresta/avvia l'evento live. <br/>Il non reindirizzamento a microsito è utile negli scenari in cui un utente finale vuole trasmettere usando un'app che vuole ottenere un evento live il prima possibile e la presenza di un URL di inserimento dinamico non costituisce un problema.
 * URL di reindirizzamento a microsito
 
     La modalità di reindirizzamento a microsito è preferita dai responsabili della trasmissione di file multimediali di grandi dimensioni, che usano codificatori di trasmissione hardware e non vogliono riconfigurare i codificatori quando avviano l'evento live, ma vogliono un URL di inserimento predittivo, che non cambia nel tempo.
+    
+    Per specificare questa modalità, impostare `vanityUrl` al `true` al momento della creazione (valore predefinito è `false`). È necessario passare anche il proprio token di accesso (`LiveEventInput.accessToken`) al momento della creazione. Specificare il valore del token per evitare un token casuale nell'URL. Il token di accesso deve essere una stringa GUID valida (con o senza trattini). Dopo aver impostata la modalità non può essere aggiornata.
 
-> [!NOTE] 
-> Perché un URL di inserimento sia predittivo, è necessario usare la modalità di reindirizzamento a microsito e passare il proprio token di accesso (per evitare un token casuale nell'URL).
+    Il token di accesso deve essere univoco nel data center. Se l'applicazione deve usare un URL personalizzato, è consigliabile creare sempre una nuova istanza GUID per il token di accesso (anziché riutilizzare qualsiasi GUID esistente). 
 
 ### <a name="live-ingest-url-naming-rules"></a>Regole di denominazione degli URL di inserimento live
 
 La stringa *casuale* sottostante è un numero esadecimale a 128 bit (costituito da 32 caratteri 0-9 a-f).<br/>
-Il *token di accesso* sottostante è quello da specificare per l'URL fisso ed è ancora un numero esadecimale a 128 bit.
+Il *token di accesso* è ciò che è necessario specificare per l'URL predefinito. È necessario impostare una stringa di token di accesso che è una stringa GUID lunghezza valida. <br/>
+Il *nome del flusso* indica il nome del flusso per una connessione specifica. Il valore del nome di flusso è in genere aggiunti dal codificatore live usare.
 
 #### <a name="non-vanity-url"></a>URL di non reindirizzamento a microsito
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/<access token>`
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/<access token>`
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>URL di reindirizzamento a microsito
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/<access token>`
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/<access token>`
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>URL di anteprima di un evento live
 

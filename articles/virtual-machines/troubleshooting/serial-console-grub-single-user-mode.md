@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2019
 ms.author: alsin
-ms.openlocfilehash: 89cbf220c9ae32c7f63da4941ced1bdbfa1e5293
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 440d917c2ee4a51f2c8ba4b134b50508bdaf4bcb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835034"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735255"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usare la Console seriale per accedere a GRUB e alla modalità utente singolo
 GRUB (GRand Unified Bootloader) è probabilmente la prima funzionalità che viene visualizzata quando si avvia una macchina virtuale. Poiché viene visualizzata prima dell'avvio del sistema operativo, non è accessibile tramite SSH. Da GRUB è possibile, tra le altre cose, modificare la configurazione di avvio per eseguire l'avvio in modalità utente singolo.
@@ -184,7 +184,7 @@ L’accesso GRUB in SLES richiede la configurazione del caricatore di avvio tram
 Si passerà automaticamente alla shell di emergenza se non è possibile avviare normalmente SLES. Per accedere manualmente alla modalità utente singolo, seguire le istruzioni seguenti:
 
 1. Da GRUB, premere “e” per modificare la voce di avvio (la voce di SLES)
-1. Cercare la riga del kernel che verrà avviata con `linux`
+1. Cercare la riga del kernel, verrà avviata con `linux`
 1. Aggiungere `systemd.unit=emergency.target` alla fine della riga
 1. Premere Ctrl + X per riavviare il sistema con queste impostazioni e accedere alla shell di emergenza
    > Si passerà alla shell di emergenza con file system di _sola lettura_. Se si vuole apportare le modifiche ai file, è necessario rimontare il file system con autorizzazioni di lettura/scrittura. A tale scopo, immettere `mount -o remount,rw /` nella shell

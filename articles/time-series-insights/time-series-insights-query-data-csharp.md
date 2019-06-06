@@ -10,18 +10,18 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e91c6fb4949a4902194bb95f98e49327434cdbfd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 250dd691c3ef3146d6768123de52bf0628b10e42
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244102"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728957"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Eseguire query sui dati dall'ambiente Azure ora Series Insights disponibile a livello generale tramiteC#
 
-In questo C# riportato di seguito viene illustrato come eseguire query sui dati dall'ambiente di Azure ora Series Insights disponibile a livello generale. 
+In questo C# riportato di seguito viene illustrato come eseguire query sui dati dall'ambiente di Azure ora Series Insights disponibile a livello generale.
 
 L'esempio mostra alcuni esempi di base relativi all'uso dell'API Query:
 
@@ -31,7 +31,7 @@ L'esempio mostra alcuni esempi di base relativi all'uso dell'API Query:
 1. Come esempio della richiesta di Web Socket, vengono richiesti dati relativi alle aggregazioni di eventi per l'ambiente di interesse. Vengono richiesti dati per l'intero intervallo di tempo di disponibilità.
 
 > [!NOTE]
-> Il codice di esempio è disponibile all'indirizzo [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
+> Il codice di esempio è disponibile all'indirizzo [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Dipendenze progetto
 
