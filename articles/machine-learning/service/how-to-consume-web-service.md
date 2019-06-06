@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4aaf56a00669dbf7e312e2a6f8787ccc664d1190
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8fd7af7c2a075258e337b51c3aaca3da9e3d497f
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023825"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692855"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 
@@ -486,3 +486,11 @@ I risultati restituiti sono simili al seguente documento JSON:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
+
+## <a name="consume-the-service-from-power-bi"></a>Uso del servizio da Power BI
+
+Power BI supporta l'utilizzo dei servizi web di Azure Machine Learning per migliorare i dati in Power BI con le stime. 
+
+Per generare un servizio web che è supportato per l'uso in Power BI, lo schema deve supportare il formato richiesto da Power BI. [Informazioni su come creare uno schema supportato da Power BI](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#Example-script-with-dictionary-input-Support-consumption-from-Power-BI).
+
+Dopo aver distribuito il servizio web, è utilizzabile da flussi di dati di Power BI. [Informazioni su come usare un servizio web di Azure Machine Learning da Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).

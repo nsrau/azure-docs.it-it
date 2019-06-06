@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 06b3a5110bfdea2a2067979c806701011dc16f3d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0a6b48dbba232c06945b00d5107581d8d0c017b0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987685"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472406"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -110,14 +110,13 @@ La funzionalità di crittografia per SMB 3.0 per Linux è stata introdotta nel k
 
 Se il client Linux SMB non supporta la crittografia, montare File di Azure usando SMB 2.1 da una macchina virtuale Linux di Azure presente nello stesso data center della condivisione file. Verificare che l'opzione [Trasferimento sicuro obbligatorio]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione. 
 
-<a id="accessdeniedportal"></a>
-## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Errore "Accesso negato" durante l'esplorazione di una condivisione file di Azure nel portale
+<a id="authorizationfailureportal"></a>
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Errore "Errore di autorizzazione" durante l'esplorazione di una condivisione file di Azure nel portale
 
 Quando si passa alla condivisione file di Azure nel portale, viene visualizzato il messaggio di errore seguente:
 
-Accesso negato  
-L'utente non è autorizzato ad accedere  
-Non si è autorizzati ad accedere a questo contenuto. Per ottenere l'accesso, contattare il proprietario.  
+Errore di autorizzazione  
+L'utente non è autorizzato ad accedere
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Causa 1: l'account utente non ha accesso all'account di archiviazione
 
@@ -140,7 +139,7 @@ Una possibile causa del rallentamento delle prestazioni è la disattivazione del
 
 ### <a name="solution"></a>Soluzione
 
-Per controllare se la memorizzazione nella cache è disattivata, cercare la voce **cache =**. 
+Per controllare se la memorizzazione nella cache è disattivata, cercare la voce **cache =** . 
 
 **cache=none** indica che la memorizzazione nella cache è disattivata. Eseguire nuovamente il montaggio della condivisione usando il comando di montaggio predefinito o aggiungendo esplicitamente l'opzione **cache=strict** al comando di montaggio per assicurarsi che la modalità di memorizzazione nella cache predefinita o "strict" sia attivata.
 

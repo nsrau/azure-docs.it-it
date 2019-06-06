@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: eeb9f5fa91252bbc3c3038ab88bd2d7e802f263f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d8a8a2f005a92988158b3f9c36ce24936fb020b4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786403"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475621"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con il servizio Azure Kubernetes
 
@@ -91,7 +91,7 @@ L'oggetto `--scope` per una risorsa deve essere un ID risorsa completo, ad esemp
 
 Le sezioni seguenti illustrano le deleghe comuni che potrebbe essere necessario creare.
 
-### <a name="azure-container-registry"></a>Registro contenitori di Azure
+### <a name="azure-container-registry"></a>Registro Azure Container
 
 Se si usa Registro Azure Container come archivio di immagini del contenitore, è necessario concedere le autorizzazioni per il cluster servizio Azure Kubernetes per leggere ed eseguire il pull di immagini. All'entità servizio del cluster servizio Azure Kubernetes deve essere delegato il ruolo *Lettore* nel Registro di sistema. Per informazioni dettagliate, vedere [Concedere al servizio Azure Container l'accesso a Registro Azure Container][aks-to-acr].
 
@@ -126,7 +126,7 @@ Quando si usano entità di servizio Azure Kubernetes e di Azure AD, ricordare le
 
 - L'entità servizio per Kubernetes fa parte della configurazione del cluster. Non usare tuttavia l'identità per distribuire il cluster.
 - Per impostazione predefinita, le credenziali dell'entità servizio sono valide per un anno. È possibile [aggiornare o ruotare le credenziali dell'entità servizio] [ update-credentials] in qualsiasi momento.
-- Ogni entità servizio è associata a un'applicazione Azure AD. L'entità servizio per un cluster Kubernetes può essere associata a qualsiasi nome di applicazione Azure AD valido, ad esempio *https://www.contoso.org/example*. L'URL per l'applicazione non deve essere necessariamente un endpoint reale.
+- Ogni entità servizio è associata a un'applicazione Azure AD. L'entità servizio per un cluster Kubernetes può essere associata a qualsiasi nome di applicazione Azure AD valido, ad esempio *https://www.contoso.org/example* . L'URL per l'applicazione non deve essere necessariamente un endpoint reale.
 - Quando si specifica l'**ID client** dell'entità servizio, usare il valore di `appId`.
 - Nel nodo dell'agente VM nel cluster Kubernetes, le credenziali dell'entità servizio vengono archiviate nel file. `/etc/kubernetes/azure.json`
 - Quando si usa il comando [az servizio Azure Kubernetes create][az-aks-create] per generare automaticamente l'entità servizio, le credenziali dell'entità servizio vengono scritte nel file `~/.azure/aksServicePrincipal.json` nel computer utilizzato per eseguire il comando.
@@ -136,6 +136,24 @@ Quando si usano entità di servizio Azure Kubernetes e di Azure AD, ricordare le
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
+
+## <a name="troubleshoot"></a>Risolvere problemi
+
+Le credenziali dell'entità servizio per un cluster AKS vengono memorizzati nella cache dal comando di Azure. Se queste credenziali sono scadute, si verificano errori di distribuzione di cluster di AKS. Il messaggio di errore seguente quando si esegue [az aks create] [ az-aks-create] può indicare un problema con le credenziali dell'entità servizio memorizzato nella cache:
+
+```console
+Operation failed with status: 'Bad Request'.
+Details: The credentials in ServicePrincipalProfile were invalid. Please see https://aka.ms/aks-sp-help for more details.
+(Details: adal: Refresh request failed. Status Code = '401'.
+```
+
+Verificare la validità del file di credenziali usando il comando seguente:
+
+```console
+ls -la $HOME/.azure/aksServicePrincipal.json
+```
+
+L'ora di scadenza predefinito per le credenziali dell'entità servizio è un anno. Se il *aksServicePrincipal.json* meno recenti rispetto a un anno, eliminare il file e provare a distribuire di nuovo un cluster AKS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

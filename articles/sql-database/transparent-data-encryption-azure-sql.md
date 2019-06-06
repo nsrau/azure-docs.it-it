@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 8ed7d144b886cc29592418007b9103b4aa94e8ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b09182ef06c708e9c606173f02b006e7802f29ed
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331078"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477815"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption per il database SQL e Data Warehouse
 
@@ -33,7 +33,7 @@ SQL Server eseguito in una macchina virtuale di Azure può anche usare una chiav
 
 ## <a name="service-managed-transparent-data-encryption"></a>Transparent Data Encryption gestita dal servizio
 
-In Azure, l'impostazione predefinita per TDE prevede che la chiave di crittografia del database sia protetta da un certificato server integrato. Il certificato server integrato è univoco per ogni server. Se un database è in una relazione di replica geografica, il database primario e la replica geografica secondaria sono protetti dalla chiave primaria del server padre del database. Se due database sono connessi allo stesso server, condividono anche lo stesso certificato predefinito. Microsoft ruota automaticamente questi certificati in conformità con i criteri di sicurezza interni e la chiave radice è protetta da un archivio segreti interno di Microsoft.
+In Azure, l'impostazione predefinita per TDE prevede che la chiave di crittografia del database sia protetta da un certificato server integrato. Il certificato server integrato è univoco per ogni server. Se un database è in una relazione di replica geografica, il database primario e la replica geografica secondaria sono protetti dalla chiave primaria del server padre del database. Se due database sono connessi allo stesso server, condividono anche lo stesso certificato predefinito. Microsoft ruota automaticamente questi certificati in conformità con i criteri di sicurezza interni e la chiave radice è protetta da un archivio segreti interno di Microsoft.  I clienti possono verificare la conformità di Database SQL con i criteri di sicurezza interni nel report di audit indipendenti di terze parti disponibile nel [Microsoft Trust Center](https://servicetrust.microsoft.com/).
 
 Microsoft inoltre sposta e gestisce le chiavi senza problemi in base alle esigenze per la replica geografica e ne esegue il ripristino.
 

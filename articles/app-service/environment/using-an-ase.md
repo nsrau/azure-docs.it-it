@@ -11,19 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d536e9d14edfa17e890480c07951eccb70e9eb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228344"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496515"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app #
-
-## <a name="overview"></a>Panoramica ##
 
 Ambiente del servizio app di Azure è una distribuzione di Servizio app di Azure in una subnet nella rete virtuale di Azure. È costituita da:
 
@@ -62,17 +60,14 @@ Per creare un'app in un ambiente del servizio app:
 
 1. Selezionare il sistema operativo. 
 
-    * L'hosting di un'app di Linux in un ambiente del servizio app è una nuova funzionalità di anteprima, pertanto è consigliabile non aggiungere app di Linux in un ambiente del servizio app che esegue attualmente carichi di lavoro di produzione. 
-    * L'aggiunta di un'app di Linux in un ambiente del servizio app determina l'esecuzione dell'ambiente in modalità di anteprima. 
-
 1. Selezionare un piano di servizio app esistente nell'ambiente del servizio app o crearne uno nuovo con la procedura seguente:
 
     a. Selezionare **Crea nuovo**.
 
     b. Immettere un nome per il piano di servizio app.
 
-    c. Selezionare l'ambiente del servizio app nel menu a discesa **Località**. L'hosting di un'app di Linux in un ambiente del servizio app è attualmente abilitato solo in sei aree, ovvero **Stati Uniti occidentali, Stati Uniti orientali, Europa occidentale, Europa settentrionale, Australia orientale, Asia sud-orientale.** 
-
+    c. Selezionare l'ambiente del servizio app nel menu a discesa **Località**. 
+    
     d. Selezionare un piano tariffario **Isolato**. Scegliere **Seleziona**.
 
     e. Selezionare **OK**.

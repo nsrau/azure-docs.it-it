@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: iainfou
-ms.openlocfilehash: c73f2fea808944847fab6a675914ee57e537560b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 20922f0fb6932191b8e522e4640b1ba4fecd5ca4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467154"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514567"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Procedure consigliate per sviluppatori e operatori del cluster per la creazione e la gestione di applicazioni nel servizio Azure Kubernetes
 
@@ -40,7 +40,7 @@ Si consiglia agli operatori di cluster di collaborare con i proprietari di appli
 * [Procedure consigliate per la sicurezza e gli aggiornamenti del cluster](operator-best-practices-cluster-security.md)
     * Protezione dell'accesso al server API, limitazione dell'accesso ai contenitori e gestione degli aggiornamenti e dei riavvii dei nodi.
 * [Procedure consigliate per la gestione e la sicurezza delle immagini del contenitore](operator-best-practices-container-image-management.md)
-    * Protezione di immagini e runtime, uso di registri attendibili e compilazioni automatizzate sugli aggiornamenti dell'immagine di base.
+    * Include la protezione di immagine e di runtime e compilazioni automatizzate negli aggiornamenti di immagine di base.
 * [Procedure consigliate per la sicurezza dei pod](developer-best-practices-pod-security.md)
     * Protezione dell'accesso alle risorse, limitazione dell'esposizione delle credenziali e uso di identità dei pod e insiemi di credenziali delle chiavi digitali.
 

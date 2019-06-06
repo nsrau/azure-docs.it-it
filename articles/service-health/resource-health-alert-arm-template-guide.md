@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 3d9a5ebb2e25cfbabf8cfdbd94c2d1d04ae1bbee
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e552b90a4c98eff7b04cbeaef26aa10749ce672c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788464"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493406"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurare avvisi di integrità risorse di Azure tramite modelli di Gestione risorse
 
@@ -442,5 +442,7 @@ Altre informazioni su Integrità risorse:
 -  [Panoramica su Integrità risorse di Azure](Resource-health-overview.md)
 -  [Tipi di risorse e controlli integrità disponibili in Integrità risorse di Azure](resource-health-checks-resource-types.md)
 
+
 Creare avviso di integrità dei servizi di Azure:
 -  [Configurare gli avvisi per Integrità dei servizi di Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Schema di eventi del Log attività di Azure](../azure-monitor/platform/activity-log-schema.md)

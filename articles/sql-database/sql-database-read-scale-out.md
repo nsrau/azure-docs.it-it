@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/19/2019
-ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.openlocfilehash: 1b452fb0bac91429793f8d55e439c36c70784722
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146120"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492728"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Usare le repliche di sola lettura per i carichi di lavoro di bilanciamento del carico query di sola lettura
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
 
 Durante la [architettura a disponibilità elevata](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), viene automaticamente eseguito il provisioning di ogni database nel livello di servizio Premium, Business Critical o con scalabilità elevatissima con una replica primaria e più repliche secondarie. Le repliche secondarie vengono effettuato il provisioning con le stesse dimensioni di calcolo come replica primaria. Il **scalabilità in lettura** funzionalità consente di bilanciare il carico del Database SQL sola lettura dei carichi di lavoro usando la capacità di una delle repliche di sola lettura invece di condividere la replica di lettura / scrittura. In questo modo i carichi di lavoro di sola lettura verranno isolati dal carico di lavoro principale di lettura/scrittura e non ne comprometteranno le prestazioni. La funzionalità è previsto per le applicazioni che includono logicamente separati da sola lettura i carichi di lavoro, ad esempio analitica. È possibile migliorare le prestazioni usando questa ulteriore capacità senza costi aggiuntivi.
 

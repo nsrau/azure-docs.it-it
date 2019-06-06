@@ -1,5 +1,5 @@
 ---
-title: 'Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per Multi-Geo Capabilities in Office 365 | Microsoft Docs'
+title: 'Azure AD Connect: configurare il percorso dati preferito per le risorse di Office 365'
 description: Descrive come posizionare le risorse utente di Office 365 in prossimità dell'utente con il servizio di sincronizzazione Azure Active Directory Connect.
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348245"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473017"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse di Office 365
 Questo argomento illustra in dettaglio come configurare l'attributo relativo al percorso dati preferito nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Quando qualcuno usa Multi-Geo Capabilities in Office 365, si usa questo attributo per definire la posizione geografica dei dati di Office 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.
@@ -127,7 +127,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
     | Attributo | Value | Dettagli |
     | --- | --- | --- |
     | Name | *Specificare un nome* | Ad esempio, "In entrata da AD - Utente PreferredDataLocation" |
-    | DESCRIZIONE | *Fornire una descrizione personalizzata* |  |
+    | Descrizione | *Fornire una descrizione personalizzata* |  |
     | Connected System | *Selezionare l'istanza di Active Directory Connector locale* |  |
     | Connected System Object Type | **Utente** |  |
     | Metaverse Object Type | **Person** |  |
@@ -137,7 +137,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 5. Lasciare vuoto il campo **Scoping filter** (Filtro di ambito) per includere tutti gli oggetti. Potrebbe essere necessario perfezionare il filtro di ambito in base alla distribuzione di Azure AD Connect.
 6. Passare alla **scheda Trasformazione** e implementare la regola di trasformazione seguente:
 
-    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | `Source` | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
     |Diretto | preferredDataLocation | Selezionare l'attributo di origine | Non selezionato | Aggiornamento |
 
@@ -155,8 +155,8 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
     | Attributo | Value | Dettagli |
     | ----- | ------ | --- |
-    | Name | *Specificare un nome* | Ad esempio, "In uscita verso AAD - Utente PreferredDataLocation" |
-    | DESCRIZIONE | *Inserire una descrizione* ||
+    | NOME | *Specificare un nome* | Ad esempio, "In uscita verso AAD - Utente PreferredDataLocation" |
+    | Descrizione | *Inserire una descrizione* ||
     | Connected System | *Selezionare il connettore di Azure AD* ||
     | Connected System Object Type | **Utente** ||
     | Metaverse Object Type | **Person** ||
@@ -168,13 +168,13 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
     | Attributo | Operator | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utente |
-    | cloudMastered | NOTEQUAL | True  |
+    | cloudMastered | NOTEQUAL | True |
 
     L'ambito del filtro determina a quali oggetti di Azure AD viene applicata la regola di sincronizzazione in uscita. In questo esempio, viene usato lo stesso filtro di ambito della regola di sincronizzazione predefinita" Out to AD – User Identity". Impedisce l'applicazione della regola di sincronizzazione agli oggetti **Utente** non sincronizzati da Active Directory locale. Potrebbe essere necessario perfezionare il filtro di ambito in base alla distribuzione di Azure AD Connect.
 
 6. Passare alla scheda **Trasformazione** e implementare la regola di trasformazione seguente:
 
-    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | `Source` | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
     | Diretto | preferredDataLocation | preferredDataLocation | Non selezionato | Aggiornamento |
 

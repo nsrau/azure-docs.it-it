@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: juliako
-ms.openlocfilehash: 68e09ec6ce4aeb91e00c2a15caa8ec81f40064c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7ee54c852ce3332415b69ca6105b472dab0ab8a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733913"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480266"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Connettersi all'API servizi multimediali di v3 - Java
 
@@ -74,7 +74,7 @@ Quando si esegue il comando, il `pom.xml`, `App.java`, e vengono creati altri fi
      <artifactId>azure-client-authentication</artifactId>
      <version>1.6.6</version>
    </dependency>
-```
+    ```
 
 ## <a name="connect-to-the-java-client"></a>Connettersi a Java client
 
@@ -116,7 +116,7 @@ Quando si esegue il comando, il `pom.xml`, `App.java`, e vengono creati altri fi
    ```
 1. Eseguire l'app.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Concetti relativi ai Servizi multimediali](concepts-overview.md)
 - [SDK per Java](https://aka.ms/ams-v3-java-sdk)

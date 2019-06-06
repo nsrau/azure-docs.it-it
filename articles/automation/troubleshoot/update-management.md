@@ -4,16 +4,16 @@ description: Informazioni su come risolvere i problemi con Gestione aggiornament
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f286877c6a9e787c06a8a846efaf94668c04fc4e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9bcc871ecc9413f02545e6aec4caa6342d563b44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787700"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474584"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -78,19 +78,48 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Scenario: Aggiornare i dati di gestione non vengono visualizzati nel log di monitoraggio di Azure per una macchina
+### <a name="nologs"></a>Scenario: Le macchine non vengono visualizzati nel portale nella gestione degli aggiornamenti
 
 #### <a name="issue"></a>Problema
 
-Si hanno macchine che mostrano come **non valutati** sotto **conformità**, ma vengono visualizzati i dati di heartbeat nei log di monitoraggio di Azure per il lavoro ibrido per Runbook ma non la gestione degli aggiornamenti.
+Può essere eseguito tra gli scenari seguenti:
+
+* Mostra la macchina **non è configurato** dalla vista a Gestione aggiornamento di una macchina virtuale
+
+* Le macchine non sono presenti la vista di gestione degli aggiornamenti dell'Account di automazione
+
+* Si hanno macchine che mostrano come **non valutati** sotto **conformità**, ma vengono visualizzati i dati di heartbeat nei log di monitoraggio di Azure per il lavoro ibrido per Runbook ma non la gestione degli aggiornamenti.
 
 #### <a name="cause"></a>Causa
 
+Ciò può essere causato da potenziali problemi di configurazione locale o da configurati erroneamente la configurazione dell'ambito.
+
 È possibile che il ruolo di lavoro ibrido per runbook debba essere registrato nuovamente e reinstallato.
+
+È stata definita una quota nell'area di lavoro che è stato raggiunti e arresto dei dati dall'archiviazione.
 
 #### <a name="resolution"></a>Risoluzione
 
-Seguire i passi descritti in [Distribuire un ruolo di lavoro ibrido per runbook di Windows](../automation-windows-hrw-install.md) per reinstallare il ruolo di lavoro ibrido per Windows o [Distribuire un ruolo di lavoro ibrido per runbook di Linux](../automation-linux-hrw-install.md) per Linux.
+* Verificare che il computer segnala all'area di lavoro corretta. Verificare quali Invia report a nel computer dell'area di lavoro. Per istruzioni su come effettuare questa verifica, vedere [verificare la connettività dell'agente per Log Analitica](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Quindi, verificare che questo sia l'area di lavoro collegata all'account di automazione di Azure. Per verificarlo, passare all'Account di automazione e fare clic su **dell'area di lavoro collegato** sotto **le risorse correlate**.
+
+* Verificare che i computer visualizzati nell'area di lavoro di Log Analitica. Eseguire la query seguente nell'area di lavoro di Log Analitica che viene collegata all'Account di automazione. Se non è possibile visualizzare i computer nei risultati della query, la macchina non funzione di heartbeat, quindi che è probabile che un problema di configurazione locale. È possibile eseguire la risoluzione dei problemi per [Windows](update-agent-issues.md#troubleshoot-offline) oppure [Linux](update-agent-issues-linux.md#troubleshoot-offline) a seconda del sistema operativo, oppure è possibile [reinstallare l'agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). Se il computer viene visualizzato nei risultati della query, quindi è necessario molto la configurazione dell'ambito specificata al punto seguente.
+
+  ```loganalytics
+  Heartbeat
+  | summarize by Computer, Solutions
+  ```
+
+* Verificare i problemi di configurazione di ambito. [La configurazione dell'ambito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quali macchine attività di configurazione per la soluzione. Se il computer viene visualizzato nell'area di lavoro ma non è visualizzato è necessario configurare la configurazione di ambito per i computer di destinazione. Per informazioni su come eseguire questa operazione, vedere [onboarding nell'area di lavoro](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+
+* Se i passaggi precedenti non risolvono il problema, seguire i passaggi descritti in [distribuire Windows Hybrid Runbook Workers](../automation-windows-hrw-install.md) reinstallare il ruolo di lavoro ibridi per Windows o [distribuire Linux Hybrid Runbook Workers](../automation-linux-hrw-install.md) per Linux.
+
+* Nell'area di lavoro, eseguire la query seguente. Se viene visualizzato il risultato `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` è presente una quota definita sull'area di lavoro che è stato raggiunto ed è stato arrestato i dati non vengono salvate. Nell'area di lavoro, passare a **informazioni sull'utilizzo e costi stimati** > **gestione del volume dati** e controllare la quota o rimuovere la quota è necessario.
+
+  ```loganalytics
+  Operation
+  | where OperationCategory == 'Data Collection Status'
+  | sort by TimeGenerated desc
+  ```
 
 ## <a name="windows"></a>Windows
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 320b8f948d08e46c43085e174dfbe838f44bac79
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720477"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479154"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Confrontare le opzioni di archiviazione per l'uso con i cluster Azure HDInsight
 
@@ -44,16 +44,16 @@ Per altre informazioni sui livelli di accesso di archiviazione di Azure, vedere 
 
 | HDInsight Version | Risorsa di archiviazione primaria | Archiviazione secondaria | Supportato |
 |---|---|---|---|
-| 3.6 & 4.0 | Utilizzo generico V1, utilizzo generico V2 | Utilizzo generico V1, utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
-| 3.6 & 4.0 | Utilizzo generico V1, utilizzo generico V2 | Data Lake Storage Gen2 | No  |
+| 3.6 & 4.0 | Utilizzo generico V1, utilizzo generico V2 | Utilizzo generico V1, utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
+| 3.6 & 4.0 | Utilizzo generico V1, utilizzo generico V2 | Data Lake Storage Gen2 | No |
 | 3.6 & 4.0 | Utilizzo generico V1, utilizzo generico V2 | Data Lake Storage Gen1 | Sì |
 | 3.6 & 4.0 | Data Lake Store Gen2 * | Data Lake Storage Gen2 | Sì |
-| 3.6 & 4.0 | Data Lake Store Gen2 * | Utilizzo generico V1, utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
-| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No  |
+| 3.6 & 4.0 | Data Lake Store Gen2 * | Utilizzo generico V1, utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
+| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sì |
-| 3.6 | Data Lake Storage Gen1 | Utilizzo generico V1, utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No  |
-| 4.0 | Data Lake Storage Gen1 | Qualsiasi | No  |
+| 3.6 | Data Lake Storage Gen1 | Utilizzo generico V1, utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
+| 4.0 | Data Lake Storage Gen1 | Qualsiasi | No |
 
 * = Potrebbe trattarsi di uno o più account Data Lake Storage Gen2,, purché siano tutte le impostazioni da usare la stessa identità gestita per l'accesso del cluster.
 
@@ -137,7 +137,7 @@ HDInsight offre accesso al file system distribuito collegato localmente ai nodi 
 
 Tramite HDInsight è anche possibile accedere ai dati in Archiviazione di Azure. La sintassi è la seguente:
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 Tenere conto delle considerazioni seguenti quando si usa un account di Archiviazione di Azure con cluster HDInsight:
 

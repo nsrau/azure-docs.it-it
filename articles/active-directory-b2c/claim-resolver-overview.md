@@ -2,20 +2,20 @@
 title: Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come vengono usati i resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f4bb5deb0c30ba113f315c69393e92bddfe0d27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a13d4b0b44c51f78a068b1619fe083a08756af6b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703466"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511596"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
 ### <a name="culture"></a>Impostazioni cultura
 
-| Attestazione | DESCRIZIONE | Esempio |
+| Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | Codice ISO di due lettere per la lingua. | en |
 | {Culture:LCID}   | Identificatore LCID del codice della lingua. | 1040 |
@@ -54,7 +54,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
 ### <a name="policy"></a>Policy
 
-| Attestazione | DESCRIZIONE | Esempio |
+| Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | Nome dei criteri della relying party. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | ID del tenant dei criteri della relying party. | your-tenant.onmicrosoft.com |
@@ -63,7 +63,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| Attestazione | DESCRIZIONE | Esempio |
+| Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |Parametro di stringa di query `acr_values`. | N/D |
 | {OIDC:ClientId} |Parametro di stringa di query `client_id`. | 00000000-0000-0000-0000-000000000000 |
@@ -77,7 +77,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
 ### <a name="context"></a>Context
 
-| Attestazione | DESCRIZIONE | Esempio |
+| Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | Versione del framework dell'esperienza di gestione delle identità (numero di build).  | 1.0.507.0 |
 | {Context:CorrelationId} | L'ID di correlazione.  | 00000000-0000-0000-0000-000000000000 |
@@ -90,7 +90,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
 I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappati a un'attestazione nel percorso utente Ad esempio, la richiesta generata dall'applicazione può includere un parametro di stringa di query denominato `app_session`, `loyalty_number` o qualsiasi stringa di query personalizzata.
 
-| Attestazione | DESCRIZIONE | Esempio |
+| Attestazione | Descrizione | Esempio |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | Parametro di stringa di query. | hawaii |
 | {OAUTH-KV:app_session} | Parametro di stringa di query. | A3C5R |
@@ -99,7 +99,7 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 
 ### <a name="oauth2"></a>OAuth2
 
-| Attestazione | DESCRIZIONE | Esempio |
+| Attestazione | Descrizione | Esempio |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | Token di accesso. | N/D |
 

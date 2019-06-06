@@ -2,20 +2,20 @@
 title: Panoramica dei token - Azure Active Directory B2C | Microsoft Docs
 description: Informazioni sui token usati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ac3c2132fc28d9813a9322898f79c7cdfffa12d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681901"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509085"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Panoramica dei token in Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Le attestazioni nei token ID non vengono restituite in un ordine particolare. Po
 
 Nella tabella seguente elenca le attestazioni che è possibile aspettarsi nel token ID e accedere ai token emessi da Azure AD B2C.
 
-| NOME | Attestazione | Valore di esempio | DESCRIZIONE |
+| Name | Attestazione | Valore di esempio | Descrizione |
 | ---- | ----- | ------------- | ----------- |
 | Audience | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica il destinatario del token. Per Azure AD B2C, il destinatario è l'ID applicazione. L'applicazione deve convalidare questo valore e rifiutare il token, se non corrisponde. Audience equivale a risorsa. |
 | Issuer | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token. Identifica, inoltre, la directory in cui è stato autenticato l'utente. L'applicazione deve convalidare l'attestazione dell'autorità di certificazione per assicurarsi che il token provenga all'endpoint appropriato. |
@@ -72,7 +72,7 @@ Nella tabella seguente elenca le attestazioni che è possibile aspettarsi nel to
 
 Le proprietà seguenti vengono usate per [gestire la durata dei token di sicurezza](configure-tokens.md) generati da Azure AD B2C:
 
-- **Durate dei token di accesso e ID (minuti)**: durata del token di connessione OAuth 2.0 usato per ottenere l'accesso a una risorsa protetta. Il valore predefinito è 60 minuti. Il valore minimo (inclusivo) è 5 minuti. Il valore massimo (inclusivo) è 1440 minuti.
+- **Durate dei token di accesso e ID (minuti)** : durata del token di connessione OAuth 2.0 usato per ottenere l'accesso a una risorsa protetta. Il valore predefinito è 60 minuti. Il valore minimo (inclusivo) è 5 minuti. Il valore massimo (inclusivo) è 1440 minuti.
 
 - **Durata del token di aggiornamento (giorni)** : periodo di tempo massimo prima che un token di aggiornamento è utilizzabile per acquisire un nuovo accesso o un token ID. Il periodo di tempo riguarda anche l'acquisizione di un nuovo token di aggiornamento, se l'applicazione è stata concessa la `offline_access` ambito. Il valore predefinito è 14 giorni. Il valore minimo (inclusivo) è un giorno. Il valore massimo (inclusivo) è 90 giorni.
 
@@ -89,9 +89,9 @@ Queste impostazioni non sono disponibili per i flussi utente di reimpostazione d
 
 Le proprietà seguenti vengono usate per [gestire compatibilità dei token](configure-tokens.md):
 
-- **Attestazione autorità di certificazione (iss)**: identifica il tenant di Azure AD B2C che ha emesso il token. Il valore predefinito è `https://<domain>/{B2C tenant GUID}/v2.0/`. Il valore di `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` include gli ID per il tenant di Azure AD B2C e il flusso utente che è stato usato nella richiesta del token. Se l'applicazione o libreria richiede Azure AD B2C è compatibile con il [specifica di OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html), usare questo valore.
+- **Attestazione autorità di certificazione (iss)** : identifica il tenant di Azure AD B2C che ha emesso il token. Il valore predefinito è `https://<domain>/{B2C tenant GUID}/v2.0/`. Il valore di `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` include gli ID per il tenant di Azure AD B2C e il flusso utente che è stato usato nella richiesta del token. Se l'applicazione o libreria richiede Azure AD B2C è compatibile con il [specifica di OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html), usare questo valore.
 
-- **Attestazione soggetto (sub)**: questa proprietà identifica l'entità per cui il token esegue l'asserzione delle informazioni. Il valore predefinito è **ObjectID**, che popola la `sub` attestazione nel token con l'ID oggetto dell'utente. Il valore di **non è supportato** viene fornito solo per motivi di compatibilità. È consigliabile passare al **ObjectID** appena possibile.
+- **Attestazione soggetto (sub)** : questa proprietà identifica l'entità per cui il token esegue l'asserzione delle informazioni. Il valore predefinito è **ObjectID**, che popola la `sub` attestazione nel token con l'ID oggetto dell'utente. Il valore di **non è supportato** viene fornito solo per motivi di compatibilità. È consigliabile passare al **ObjectID** appena possibile.
 
 - **Attestazione che rappresenta l'ID criteri** -questa proprietà identifica il tipo di attestazione in cui viene popolato il nome del criterio usato nella richiesta del token. Il valore predefinito è `tfp`. Il valore di `acr` viene fornito solo per motivi di compatibilità.
 

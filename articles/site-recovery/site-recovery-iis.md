@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61280391"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480301"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello
 
@@ -60,10 +60,10 @@ Ai fini di questo articolo sono state usate macchine virtuali VMware con IIS 7.5
 
 Scenario | In un sito secondario | In Azure
 --- | --- | ---
-Hyper-V | Sì | Sì
-VMware | Sì | Sì
-Server fisico | No  | Sì
-Azure|ND|Sì
+Hyper-V | Yes | Yes
+VMware | Yes | Yes
+Server fisico | No | Yes
+Azure|NA|Yes
 
 ## <a name="replicate-virtual-machines"></a>Replicare le macchine virtuali
 
@@ -109,7 +109,7 @@ Se la stringa di connessione fa riferimento alla macchina virtuale del database 
         </connectionStrings>
         </configuration>
 
-Per aggiornare la stringa di connessione nel livello Web, aggiungere uno [script di aggiornamento della connessione IIS](https://aka.ms/asr-update-webtier-script-classic) dopo il Gruppo 3 nel piano di ripristino.
+Per aggiornare la stringa di connessione nel livello Web, aggiungere uno [script di aggiornamento della connessione IIS](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc) dopo il Gruppo 3 nel piano di ripristino.
 
 #### <a name="site-bindings-for-the-application"></a>Binding del sito per l'applicazione
 Ogni sito è costituito da informazioni di binding. Tali informazioni includono il tipo di binding, l'indirizzo IP in cui il server IIS ascolta le richieste per il sito, il numero di porta e i nomi host per il sito. Durante il failover, potrebbe essere necessario aggiornare questi binding se viene modifico l'indirizzo IP associato.

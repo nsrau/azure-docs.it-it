@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 046b8e75be0247f335bcf1d29117f5900b70aeb6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225895"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477262"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -168,6 +168,7 @@ Non sono ancora supportati gli scenari seguenti:
 * Le macchine virtuali con certificato archiviato in Key Vault possono essere spostate in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non da una sottoscrizione a un'altra.
 * Set di scalabilità di macchine virtuali con Load Balancer Standard SKU o un indirizzo IP pubblico dello SKU Standard non può essere spostato.
 * Non è possibile spostare da un gruppo di risorse o una sottoscrizione a un'altra macchine virtuali create a partire da risorse Marketplace con piani assegnati. Sottoporre a deprovisioning le macchine virtuali nella sottoscrizione in cui si trovano e distribuirle di nuovo nella nuova sottoscrizione.
+* Macchine virtuali in una rete virtuale esistente in cui l'utente non intenda spostare tutte le risorse nella rete virtuale.
 
 Per spostare le macchine virtuali configurate con Backup di Azure, usare la soluzione alternativa seguente:
 

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fe913f057d00fd18b1b163f124d9dd0b83abf0de
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5854a795ba7ceeeb4512f1e2fd16d98826d55dd5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925890"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477981"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -82,9 +82,9 @@ Hub IoT supporta attualmente i servizi di Azure seguenti come endpoint aggiuntiv
 
 Per i limiti sul numero di endpoint che è possibile aggiungere, vedere [Quotas and throttling](iot-hub-devguide-quotas-throttling.md) (Quote e limitazioni).
 
-È possibile usare l'API REST [integrità degli Endpoint ottenere](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere lo stato di integrità degli endpoint. È consigliabile usare la [le metriche dell'IoT Hub](iot-hub-metrics.md) relativi alla latenza di routing di messaggi per identificare e il debug degli errori quando l'integrità dell'endpoint è inattivo o non integro.
+È possibile usare l'API REST [integrità degli Endpoint ottenere](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere lo stato di integrità degli endpoint. È consigliabile usare la [le metriche dell'IoT Hub](iot-hub-metrics.md) relativi alla latenza di routing di messaggi per identificare e il debug degli errori quando l'integrità dell'endpoint è inattivo o non integro, come prevedevamo latenza a essere superiore quando l'endpoint si trova in uno di questi stati.
 
-|Stato integrità|DESCRIZIONE|
+|Stato di integrità|Descrizione|
 |---|---|
 |healthy|L'endpoint accetta i messaggi nel modo previsto.|
 |Tipo non integro|L'endpoint non accetta i messaggi come previsto e nuovo tentativo dell'IoT Hub per inviare dati a questo endpoint. Lo stato di un endpoint integro verrà aggiornato in integro quando l'IoT Hub ha stabilito uno stato di integrità con coerenza finale.|

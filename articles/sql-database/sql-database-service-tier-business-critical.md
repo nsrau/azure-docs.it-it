@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e9f40e749642f2025c5298df74f9d8ff87aec14b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90989a9105405f1784b3be9ab59f55cd3433feaf
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709319"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479218"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Livello Business critical - Servizio di database SQL di Azure
 
@@ -49,6 +49,7 @@ Il livello di servizio Business critical è progettato per le applicazioni che r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Trovare le caratteristiche delle risorse (numero di core, IO, memorie) del livello Business Critical in [istanza gestita](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)singola del database in [modello basato su vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) oppure [modello basato su DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), o elastico pool di applicazioni [modello basato su vCore](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) e [modello basato su DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Informazioni sui livelli [Utilizzo generico](sql-database-service-tier-general-purpose.md) e [Hyperscale](sql-database-service-tier-hyperscale.md).
 - Informazioni su [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Per altre opzioni relative a disponibilità elevata e ripristino di emergenza, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).

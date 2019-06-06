@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 23922ec02f7406b5cbc482c938dbcf6a56cad6d7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234169"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475638"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Anteprima - ridimensionare automaticamente un cluster per soddisfare le esigenze dell'applicazione in Azure Kubernetes Service (AKS)
 
@@ -28,11 +28,11 @@ Questo articolo illustra come abilitare e gestire il componente di scalabilità 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo richiede che sia in esecuzione l'interfaccia della riga di comando di Azure versione 2.0.55 o successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+Questo articolo è necessario eseguire il comando di Azure versione 2.0.65 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
 
-I cluster AKS che supportano il componente di scalabilità automatica del cluster devono usare set di scalabilità di macchine virtuali ed eseguire Kubernetes versione *1.12.4* o successive. Il supporto di questo set di scalabilità è in anteprima. Per acconsentire esplicitamente e creare cluster che usano set di scalabilità, installare prima l'estensione dell'interfaccia della riga di comando di Azure *aks-preview* usando il comando [az extension add][az-extension-add], come illustrato nell'esempio seguente:
+Cluster servizio contenitore di AZURE che supportano il ridimensionamento automatico del cluster devono usare set di scalabilità di macchine virtuali ed eseguono la versione di Kubernetes *1.12.7* o versione successiva. Il supporto di questo set di scalabilità è in anteprima. Per acconsentire esplicitamente e creare cluster che usano set di scalabilità, installare prima l'estensione dell'interfaccia della riga di comando di Azure *aks-preview* usando il comando [az extension add][az-extension-add], come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -63,9 +63,10 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="limitations"></a>Limitazioni
 
-Quando si creano e gestire i cluster servizio contenitore di AZURE che usano set di scalabilità di macchine virtuali, si applicano le limitazioni seguenti:
+Le limitazioni seguenti si applicano quando si creano e gestire i cluster servizio contenitore di AZURE che usano il ridimensionamento automatico del cluster:
 
 * Impossibile utilizzare il componente di routing aggiuntivo dell'applicazione HTTP.
+* Non è attualmente possibile usare più pool di nodi (attualmente in anteprima nel servizio contenitore di AZURE).
 
 ## <a name="about-the-cluster-autoscaler"></a>Informazioni sul componente di scalabilità automatica
 

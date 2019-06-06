@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 4721d87ab932f2e61346af3a48193e7075128622
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 1f430454bf994f9aac4ad6c113937f3798392319
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872722"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492852"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Scrivere codici per Funzioni di Azure e testarle in locale
 
@@ -25,7 +25,7 @@ Benché sia possibile sviluppare e testare Funzioni di Azure nel [portale di Azu
 
 Il modo in cui si sviluppano le funzioni nel computer locale dipende dal [linguaggio](supported-languages.md) e dalle preferenze relative agli strumenti. Gli ambienti nella tabella seguente supportano lo sviluppo locale:
 
-|Ambiente                              |Lingue         |Descrizione|
+|Environment                              |Languages         |Descrizione|
 |-----------------------------------------|------------|---|
 | [Prompt dei comandi o terminal](functions-run-local.md) | [C# (libreria di classi)](functions-dotnet-class-library.md), [Script C# (file con estensione csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Strumenti di base di Funzioni di Azure] offre il runtime di base e i modelli per la creazione di funzioni che consentono lo sviluppo locale. La versione 2.x supporta lo sviluppo in Linux, MacOS e Windows. Tutti gli ambienti si basano su Strumenti di base per il runtime Funzioni di Azure locale. |
 |[Visual Studio Code](functions-create-first-function-vs-code.md)| [C# (libreria di classi)](functions-dotnet-class-library.md), [Script C# (file con estensione csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | L'[estensione di Funzioni di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) aggiunge il supporto di Funzioni di Azure a Visual Studio Code. Richiede gli strumenti di base. Supporta lo sviluppo in Linux, MacOS e Windows quando si usa la versione 2.x degli strumenti di base. Per altre informazioni, vedere [Creare la prima funzione con Visual Studio Code](functions-create-first-function-vs-code.md). |
@@ -39,7 +39,7 @@ Ognuno di questi ambienti di sviluppo locale consente di creare progetti di app 
 ## <a name="next-steps"></a>Passaggi successivi
 
 + Per altre informazioni sullo sviluppo in locale di compilazione C# funzioni che utilizzano Visual Studio 2019, vedere [sviluppare funzioni di Azure usando Visual Studio](functions-develop-vs.md).
-+ Per altre informazioni sullo sviluppo in locale di funzioni con Visual Studio Code in un computer Mac, Linux o Windows, vedere la [documentazione di Visual Studio Code per Funzioni di Azure](https://code.visualstudio.com/tutorials/functions-extension/getting-started).
++ Per altre informazioni sullo sviluppo in locale di funzioni con Visual Studio Code in un computer Mac, Linux o Windows, vedere la [documentazione di Visual Studio Code per Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started).
 + Per altre informazioni sullo sviluppo di funzioni al prompt dei comandi o terminal, vedere la pagina relativa agli [strumenti di base per Funzioni di Azure](functions-run-local.md).
 
 <!-- LINKS -->

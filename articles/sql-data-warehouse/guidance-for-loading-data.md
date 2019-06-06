@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load data
-ms.date: 04/17/2018
+ms.date: 05/31/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: f1bfd6a9f7b5d6b7622b3fc79848b986172ff746
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1b5af710feb743a30ac4a2af94b6e7e8b6c56595
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240850"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479887"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Procedure consigliate per il caricamento dei dati in Azure SQL Data Warehouse
 
@@ -102,7 +102,9 @@ Se nel corso di una giornata si eseguono migliaia di singoli inserimenti o più,
 
 ## <a name="creating-statistics-after-the-load"></a>Creazione di statistiche dopo il caricamento
 
-Per migliorare le prestazioni delle query, è importante creare statistiche su tutte le colonne di tutte le tabelle dopo il primo caricamento o modifiche sostanziali ai dati.  Per una spiegazione dettagliata delle statistiche, vedere [Statistiche](sql-data-warehouse-tables-statistics.md). L'esempio seguente crea statistiche su cinque colonne della tabella Customer_Speed.
+Per migliorare le prestazioni delle query, è importante creare statistiche su tutte le colonne di tutte le tabelle dopo il primo caricamento o modifiche sostanziali ai dati.  Questa operazione può essere eseguita manualmente o è possibile abilitare [crea automaticamente statustics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic).
+
+Per una spiegazione dettagliata delle statistiche, vedere [Statistiche](sql-data-warehouse-tables-statistics.md). Nell'esempio seguente viene illustrato come creare manualmente statistiche su cinque colonne della tabella Customer_Speed.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

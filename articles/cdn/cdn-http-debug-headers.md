@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736973"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475279"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Intestazioni HTTP X-EC-Debug per il motore regole della rete CDN di Azure
 L' intestazione della richiesta di debug della cache, `X-EC-Debug`, fornisce ulteriori informazioni sui criteri della cache applicati all'asset richiesto. Queste intestazioni sono specifiche dei prodotti **Azure CDN Premium di Verizon**.
@@ -27,13 +27,13 @@ L' intestazione della richiesta di debug della cache, `X-EC-Debug`, fornisce ult
 ## <a name="usage"></a>Uso
 La risposta inviata dai server POP a un utente include l'intestazione `X-EC-Debug` solo quando sono soddisfatte le condizioni seguenti:
 
-- Nel motore regole per la richiesta specificata è stata abilitata la [funzionalità relativa alle intestazioni di risposta di debug per la cache](cdn-rules-engine-reference-features.md#debug-cache-response-headers).
+- Nel motore regole per la richiesta specificata è stata abilitata la [funzionalità relativa alle intestazioni di risposta di debug per la cache](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers).
 - La richiesta specificata definisce il set di intestazioni di risposta di debug per la cache che verrà incluso nella risposta.
 
 ## <a name="requesting-debug-cache-information"></a>Richiesta di informazioni di debug per la cache
 Usare le direttive seguenti nella richiesta specificata per definire le informazioni di debug per la cache che verranno incluse nella risposta:
 
-Intestazione della richiesta | DESCRIZIONE |
+Intestazione della richiesta | Descrizione |
 ---------------|-------------|
 X-EC-Debug: x-ec-cache | [Codice di stato della cache](#cache-status-code-information)
 X-EC-Debug: x-ec-cache-remote | [Codice di stato della cache](#cache-status-code-information)
@@ -54,7 +54,7 @@ Le intestazioni di risposta di debug per la cache possono essere richieste inclu
 ## <a name="cache-status-code-information"></a>Informazioni sul codice di stato della cache
 L'intestazione della risposta X-EC-Debug può identificare un server e il modo in cui ha gestito la risposta tramite le direttive seguenti:
 
-Intestazione | DESCRIZIONE
+Intestazione | Descrizione
 -------|------------
 X-EC-Debug: x-ec-cache | Questa intestazione viene segnalata ogni volta che viene eseguito il routing di contenuto attraverso la rete CDN. Identifica il server POP che ha soddisfatto la richiesta.
 X-EC-Debug: x-ec-cache-remote | Questa intestazione viene visualizzata solo quando il contenuto richiesto è stato memorizzato nella cache in un server shield di origine o in un server gateway ADN.
@@ -103,7 +103,7 @@ L'intestazione di risposta `X-EC-Debug` che segnala se la richiesta fosse idonea
 
 Il termine usato nella sintassi dell'intestazione della risposta riportata sopra è definito nel modo seguente:
 
-Value  | DESCRIZIONE
+Value  | Descrizione
 -------| --------
 SÌ    | Indica che il contenuto richiesto era idoneo per la memorizzazione nella cache.
 NO     | Indica che il contenuto richiesto non era idoneo per la memorizzazione nella cache. Questo stato può essere dovuto a una delle cause seguenti: <br /> Configurazione specifici del cliente: Una configurazione specifica dell'account può impedire ai server pop di memorizzazione nella cache un asset. Ad esempio, il motore regole può impedire la memorizzazione di un asset nella cache abilitando la funzionalità Ignora cache per le richieste qualificate.<br /> -Memorizza nella cache le intestazioni di risposta: Le intestazioni Cache-Control ed Expires dell'asset richiesto possono impedire i server POP di memorizzarla nella cache.
@@ -118,7 +118,7 @@ L'intestazione di risposta di esempio seguente indica se il contenuto richiesto 
 ## <a name="cache-key-response-header"></a>Intestazione di risposta Cache-Key
 L'intestazione di risposta `X-EC-Debug: x-ec-cache-key` indica la chiave di cache fisica associata al contenuto richiesto. Una chiave di cache fisica è costituita da un percorso che identifica un asset ai fini della memorizzazione nella cache. In altre parole, i server cercano una versione memorizzata nella cache di un asset in base al relativo percorso, così come definito dalla chiave di cache.
 
-Questa chiave di cache fisica inizia con una doppia barra (//) seguita dal protocollo usato per richiedere il contenuto (HTTP o HTTPS). Questo protocollo è seguito dal percorso relativo dell'asset richiesto, che inizia con il punto di accesso del contenuto (ad esempio _/000001/_).
+Questa chiave di cache fisica inizia con una doppia barra (//) seguita dal protocollo usato per richiedere il contenuto (HTTP o HTTPS). Questo protocollo è seguito dal percorso relativo dell'asset richiesto, che inizia con il punto di accesso del contenuto (ad esempio _/000001/_ ).
 
 Per impostazione predefinita, le piattaforme HTTP sono configurate per l'uso dell'intestazione *standard-cache*, tramite la quale le stringhe di query vengono ignorate dal meccanismo di memorizzazione nella cache. Questo tipo di configurazione impedisce alla chiave di cache di includere dati di stringhe di query.
 
@@ -151,7 +151,7 @@ I termini usati nella sintassi dell'intestazione della risposta riportata sopra 
 
 - MATimePeriod: Converte il valore di max-age (ossia MASeconds) nell'equivalente approssimativo di un'unità superiore (ad esempio giorni). 
 
-- UnixTime: Indica il timestamp della cache del contenuto richiesto in orario Unix (noto anche come formato data/ora POSIX o periodo Unix). Il timestamp della cache indica la data/ora a partire dalla quale verrà calcolato il TTL di un asset. 
+- UnixTime: Indica il timestamp della cache del contenuto richiesto in orario Unix (detto anche POSIX ora o epoca Unix). Il timestamp della cache indica la data/ora a partire dalla quale verrà calcolato il TTL di un asset. 
 
     Se il server di origine non usa un server di memorizzazione nella cache HTTP di terze parti o se tale server non restituisce l'intestazione di risposta Age, il timestamp della cache corrisponderà sempre alla data/ora in cui l'asset è stato recuperato o riconvalidato. In caso contrario, i server POP verranno utilizzato il campo Age per calcolare il TTL dell'asset nel modo seguente: Retrieval/RevalidateDateTime - Age.
 

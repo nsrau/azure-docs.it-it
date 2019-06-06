@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/03/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: ead3122d2040a544c6f09e434f27b7970f0d5840
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8eeb29b2d1fe17ae5581dab81c34d5c2c635a6c2
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417858"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496349"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e costi con i log di monitoraggio di Azure
 
@@ -58,6 +58,9 @@ I costi di Log Analytics vengono addebitati nella fattura di Azure. È possibile
 È possibile configurare un limite giornaliero e limitare l'inserimento giornaliero per l'area di lavoro, tuttavia è necessario tenere presente che l'obiettivo non deve essere quello di raggiungere tale limite.  In caso contrario, si perdono i dati per il resto del giorno, situazione che può influire su altri servizi e soluzioni di Azure la cui funzionalità può dipendere da dati aggiornati disponibili nell'area di lavoro.  Di conseguenza, la possibilità di osservare e ricevere avvisi quando le condizioni di integrità delle risorse che supportano i servizi IT sono interessate.  Il limite massimo giornaliero dovrà essere utilizzato come un modo per gestire l'aumento imprevisto nel volume di dati dalle risorse gestite e rimanere entro il limite, o quando si desidera limitare addebiti non pianificati per l'area di lavoro.  
 
 Quando viene raggiunto il limite giornaliero, la raccolta di tipi di dati fatturabili viene arrestata per il resto del giorno. Nella parte superiore della pagina per l'area di lavoro Log Analytics selezionata viene visualizzato un banner di avviso e viene inviato un evento di tipo operazione alla tabella *Operazione* nella categoria **LogManagement**. La raccolta dati riprende dopo l'ora di ripristino definita in *Daily limit will be set at* (Ora impostazione limite giornaliero). Si consiglia di definire una regola di avviso in base a questo evento operazione, per l'invio di una notifica quando viene raggiunta la soglia dei dati giornaliera. 
+
+> [!NOTE]
+> Il limite massimo giornaliero non arresta la raccolta dei dati dal Centro sicurezza di Azure.
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificare la soglia dei dati giornaliera da definire
 
@@ -105,7 +108,7 @@ La procedura seguente descrive come configurare il periodo di conservazione dei 
 
 ## <a name="legacy-pricing-tiers"></a>Piani tariffari legacy
 
-I clienti con un contratto Enterprise sottoscritto prima del 1 luglio 2018 o che hanno già creato un'area di lavoro Log Analytics in una sottoscrizione potranno comunque accedere al piano *Gratuito*. Se la sottoscrizione non è associata a una registrazione EA esistente, il livello *Gratuito* non è disponibile quando si crea un'area di lavoro in una nuova sottoscrizione dopo il 2 aprile 2018.  I dati sono limitati a conservazione di sette giorni per il *gratuito* livello.  Per legacy *autonomo* oppure *per ogni nodo* livelli, nonché il 2018 unico piano tariffario corrente, i dati raccolti è disponibile per gli ultimi 31 giorni. Il livello *Gratuito* prevede un limite di inserimento giornaliero di 500 MB. Se si supera costantemente il volume consentito, è possibile convertire l'area di lavoro in un altro piano per raccogliere dati oltre questo limite. 
+Le sottoscrizioni che ha un'area di lavoro di Log Analitica o risorsa di Application Insights in esso prima del 2 aprile 2018, o sono collegate a un contratto Enterprise Agreement che ha avviato prima del 1 febbraio 2019, continueranno ad avere accesso a legacy piani tariffari: Gratuito, autonomo (Per GB) e Per nodo (OMS).  Le aree di lavoro nel piano tariffario gratuito avrà l'inserimento di dati giornaliero limitata a 500 MB (tranne i tipi di dati di sicurezza raccolti dal Centro sicurezza di Azure) e la conservazione dei dati è limitato a 7 giorni. Il piano tariffario gratuito è destinato solo a scopo di valutazione. Aree di lavoro di autonomo o per ogni nodo piani tariffari avere accesso alla conservazione dei dati fino al 2 anni. 
 
 > [!NOTE]
 > Per usare i diritti che derivano dall'acquisto di OMS E1 Suite, OMS E2 Suite o un componente aggiuntivo di OMS per System Center, scegliere il piano tariffario *Per nodo* di Log Analytics.
@@ -131,7 +134,9 @@ Se si desidera spostare l'area di lavoro nel piano tariffario corrente, è neces
 
 Se si sta usando il piano tariffario legacy Gratuito e sono stati inviati più di 500 MB di dati in un giorno, la raccolta dati si interrompe per il resto del giorno. Il raggiungimento del limite giornaliero è un motivo comune per cui Log Analytics interrompe la raccolta dei dati o per cui i dati mancano.  Log Analytics crea un evento di tipo operazione quando la raccolta dati si avvia e si arresta. Eseguire la query seguente per verificare se si raggiunge il limite giornaliero e se i dati sono mancanti: 
 
-`Operation | where OperationCategory == 'Data Collection Status'`
+```kusto
+Operation | where OperationCategory == 'Data Collection Status'
+```
 
 Quando la raccolta dei dati si interrompe, OperationStatus è **avviso**. Quando si avvia la raccolta dei dati, OperationStatus è **Succeeded**. La tabella seguente descrive i motivi per cui raccolta dei dati si interrompe e un'azione consigliata per riprendere la raccolta dati:  
 
@@ -153,51 +158,63 @@ Un utilizzo più elevato è dovuto a una o entrambe le cause seguenti:
 
 Per conoscere il numero di computer che segnalano gli heartbeat ogni giorno nell'ultimo mese,
 
-`Heartbeat | where TimeGenerated > startofday(ago(31d))
+```kusto
+Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
-| render timechart`
+| render timechart
+```
 
 Per ottenere un elenco di computer che verranno fatturate come nodi se l'area di lavoro è nel nodo legacy per ogni piano tariffario, cercare i nodi che inviano **tipi di dati fatturati** (alcuni tipi di dati sono gratuite). A questo scopo, usare il `_IsBillable` [proprietà](log-standard-properties.md#_isbillable) e usare il campo più a sinistra del nome di dominio completo. Restituisce l'elenco dei computer con i dati di fatturazione:
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName
+```
 
 Può essere stimato il numero di nodi fatturabili visualizzate come: 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| billableNodes=dcount(computerName)`
+| billableNodes=dcount(computerName)
+```
 
 > [!NOTE]
 > Usare queste query `union withsource = tt *` solo se necessario, poiché le analisi tra tipi di dati sono costose. Questa query sostituisce quello precedente di una query su informazioni per ogni computer con il tipo di dati di utilizzo.  
 
 Un calcolo più accurato di ciò che effettivamente avverrà consiste nell'ottenere il conteggio dei computer che inviano i tipi di dati fatturati ogni ora. (Per le aree di lavoro nel livello di prezzo per ogni nodo legacy, Log Analitica per calcolare il numero di nodi che devono essere fatturate su base oraria.) 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
 
 ## <a name="understanding-ingested-data-volume"></a>Volume di dati inserito conoscenza
 
 Nella pagina **Utilizzo e costi stimati** il grafico *Inserimento dati per soluzione* mostra il volume totale dei dati inviati e la quantità inviata da ogni soluzione. In questo modo è possibile determinare tendenze specifiche, ad esempio se l'utilizzo dei dati complessivo (o da parte di una particolare soluzione) sta aumentando, è stabile o sta diminuendo. La query usata per generare questi dati è
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 Si noti che la clausola "where IsBillable = true" esclude i tipi di dati da determinate soluzioni per le quali non è addebitato alcun inserimento. 
 
 È possibile approfondire ulteriormente l'analisi per visualizzare le tendenze relative a tipi di dati specifici, ad esempio per studiare i dati risultanti dai log di IIS:
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 ### <a name="data-volume-by-computer"></a>Volume dati per computer
 

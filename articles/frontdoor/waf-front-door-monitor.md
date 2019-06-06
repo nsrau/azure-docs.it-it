@@ -8,22 +8,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 05/31/2019
 ms.author: tyao;kumud
-ms.openlocfilehash: 5368ed8d1e60a646366065e2cf617fb2f3735b53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4ba6cca679ce4910ea941d9578939721514b2ec
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459760"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478976"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Firewall applicazione web di Azure di monitoraggio e registrazione 
 
 La registrazione e monitoraggio di Azure web application firewall (WAF) vengono forniti tramite la registrazione e l'integrazione con monitoraggio di Azure e monitoraggio di Azure i log.
-
-> [!IMPORTANT]
-> Il WAF, monitoraggio e la funzionalità di registrazione per l'ingresso principale di Azure è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="azure-monitor"></a>Monitoraggio di Azure
 

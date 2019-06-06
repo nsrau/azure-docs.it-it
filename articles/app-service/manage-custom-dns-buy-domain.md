@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978887"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475240"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
 
@@ -55,7 +55,7 @@ Viene visualizzata la pagina di gestione dell'app del servizio app.
 
 ### <a name="check-the-pricing-tier"></a>Scegliere il piano tariffario
 
-Nel riquadro di spostamento a sinistra della pagina dell'app scorrere fino alla sezione **Impostazioni** e selezionare **Scala verticalmente (piano di servizio app)**.
+Nel riquadro di spostamento a sinistra della pagina dell'app scorrere fino alla sezione **Impostazioni** e selezionare **Scala verticalmente (piano di servizio app)** .
 
 ![Menu di scalabilità verticale](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -118,8 +118,8 @@ Selezionare quindi le opzioni desiderate per il dominio. Vedere la tabella segue
 
 | Impostazione | Valore consigliato | Descrizione |
 |-|-|-|
-|Protezione della privacy | Attiva | Dare il consenso esplicito per l'opzione "Protezione della privacy", inclusa _gratuitamente_ nel prezzo di acquisto. Alcuni domini di primo livello, elencati nella pagina **Protezione della privacy**, sono gestiti da registrar che non supportano la protezione della privacy. |
-| Assegna nomi host predefiniti | **www** e **\@** | Selezionare le associazioni del nome host desiderate, se necessario. Una volta completata l'operazione di acquisto del dominio, l'app è accessibile tramite i nomi host selezionati. Se l'app è nascosta da [Gestione traffico di Microsoft Azure](https://azure.microsoft.com/services/traffic-manager/), non viene visualizzata l'opzione per assegnare il dominio radice (@), perché Gestione traffico non supporta i record A. Al termine dell'acquisto di un dominio, è possibile apportare modifiche alle assegnazioni di nome host. |
+|Protezione della privacy | Abilita | Dare il consenso esplicito per l'opzione "Protezione della privacy", inclusa _gratuitamente_ nel prezzo di acquisto. Alcuni domini di primo livello, elencati nella pagina **Protezione della privacy**, sono gestiti da registrar che non supportano la protezione della privacy. |
+| Assegnare i nomi host predefiniti | **www** e **\@** | Selezionare le associazioni del nome host desiderate, se necessario. Una volta completata l'operazione di acquisto del dominio, l'app è accessibile tramite i nomi host selezionati. Se l'app è nascosta da [Gestione traffico di Microsoft Azure](https://azure.microsoft.com/services/traffic-manager/), non viene visualizzata l'opzione per assegnare il dominio radice (@), perché Gestione traffico non supporta i record A. Al termine dell'acquisto di un dominio, è possibile apportare modifiche alle assegnazioni di nome host. |
 
 ### <a name="accept-terms-and-purchase"></a>Accettare i termini di acquisto
 
@@ -138,13 +138,17 @@ Nella pagina **Dominio di servizio app** fare clic su **OK**. Mentre l'operazion
 
 ### <a name="test-the-hostnames"></a>Verifica dei nomi host
 
-Se sono stati assegnati nomi host predefiniti all'app, è anche possibile visualizzare una notifica di esito positivo per ogni nome host selezionato. 
+Se sono stati assegnati nomi host predefiniti all'app, è anche possibile visualizzare una notifica di esito positivo per ogni nome host selezionato.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-I nomi host selezionati vengono visualizzati nella pagina **Domini personalizzati**, nella sezione **Nomi host personalizzati**. 
+I nomi host selezionati vengono visualizzati nella pagina **Domini personalizzati**, nella sezione **Nomi host personalizzati**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+
+> [!NOTE]
+> Oggetto **nota Secure** etichetta per il dominio personalizzato indica che non è ancora associato a un certificato SSL, e riceve qualsiasi richiesta HTTPS da un browser per il dominio personalizzato e/errore o avviso, in base al browser. Per configurare l'associazione SSL, vedere [acquistare e configurare un certificato SSL per il servizio App di Azure](web-sites-purchase-ssl-web-site.md).
+>
 
 Per verificare i nomi host, navigare nei nomi host elencati dal browser. Nell'esempio nella schermata precedente, provare a passare a _kontoso.net_ e _www\.kontoso.net_.
 
@@ -267,7 +271,7 @@ Nel menu a sinistra del portale di Azure selezionare **Tutti i servizi** > **Dom
 
 Selezionare il dominio che si desidera annullare o eliminare. 
 
-### <a name="delete-hostname-bindings"></a>Elimina associazioni nome host
+### <a name="delete-hostname-bindings"></a>Eliminare associazioni nome host
 
 Nel menu a sinistra del dominio, selezionare **Associazioni nome host**. Le associazioni nome host da tutti i servizi Azure sono elencate di seguito.
 
@@ -275,7 +279,7 @@ Nel menu a sinistra del dominio, selezionare **Associazioni nome host**. Le asso
 
 Non è possibile eliminare il dominio del servizio app finché non vengono eliminate tutte le associazioni nome host.
 
-Eliminare le associazioni nome host selezionando **...** > **Elimina**. Dopo l'eliminazione di tutte le associazioni, selezionare **Salva**.
+Eliminare le associazioni nome host selezionando **...**  > **Elimina**. Dopo l'eliminazione di tutte le associazioni, selezionare **Salva**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 

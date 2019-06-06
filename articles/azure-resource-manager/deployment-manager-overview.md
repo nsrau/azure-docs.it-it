@@ -1,23 +1,18 @@
 ---
 title: Procedure di distribuzione sicure tra aree - Azure Deployment Manager
 description: Descrive come distribuire un servizio in più aree con Azure Deployment Manager. Illustra le procedure di distribuzione sicure per verificare la stabilità della distribuzione prima dell'implementazione in tutte le aree.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/13/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595791"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431161"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Abilitare la procedure di distribuzione sicure con distribuzione di gestione di Azure (anteprima pubblica)
 
@@ -25,7 +20,7 @@ Per distribuire il servizio in più aree e verificare che venga eseguito come pr
 
 Deployment Manager è una funzionalità di Resource Manager. Espande le funzionalità durante la distribuzione. Usare Deployment Manager quando è necessario distribuire un servizio complesso in più aree. Con l'implementazione temporanea del servizio, è possibile individuare potenziali problemi prima che il servizio sia distribuito in tutte le aree. Se le particolari precauzioni di un'implementazione a fasi non sono necessarie, usare le [opzioni di distribuzione](resource-group-template-deploy-portal.md) standard per Resource Manager. Deployment Manager si integra perfettamente con tutti gli strumenti di terze parti esistenti che supportano le distribuzioni di Resource Manager, ad esempio le offerte di integrazione continua e recapito continuo (CI/CD). 
 
-Azure Deployment Manager è nella versione di anteprima privata. Per usare Azure Deployment Manager, completare il [modulo di iscrizione](https://aka.ms/admsignup). È possibile lasciare [commenti e suggerimenti](https://aka.ms/admfeedback) per migliorare la funzionalità.
+Azure Deployment Manager è disponibile in anteprima. Aiutaci a migliorare la funzionalità, fornendo [commenti e suggerimenti](https://aka.ms/admfeedback).
 
 Per usare Deployment Manager, è necessario creare quattro file:
 
@@ -217,7 +212,7 @@ Il passaggio wait sospende la distribuzione prima di continuare. Consente di ver
 
 La proprietà duration usa lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). L'esempio precedente specifica un'attesa di un minuto.
 
-Per altre informazioni sul passaggio di verifica dell'integrità, vedere [introducono implementazione di integrazione dell'integrità di gestione di distribuzione di Azure](./deployment-manager-health-check.md) e [esercitazione: Usare controllo di integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+Per altre informazioni sul passaggio di verifica dell'integrità, vedere [introducono implementazione di integrazione dell'integrità di gestione di distribuzione di Azure](./deployment-manager-health-check.md) e [esercitazione: Usare il controllo integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Per altre informazioni, vedere [steps template reference](/azure/templates/Microsoft.DeploymentManager/steps) (Informazioni di riferimento sul modello steps).
 

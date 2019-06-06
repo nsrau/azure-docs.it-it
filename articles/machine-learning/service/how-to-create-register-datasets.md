@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/21/2019
-ms.openlocfilehash: 949468dfe26b076b5c5cf5cab8bbdc2038c7bd2a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 021b9035b10ad5a08bca1842e8d0714b33c84271
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165890"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492430"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Creare e accedere ai set di dati (anteprima) in Azure Machine Learning
 
@@ -40,7 +40,7 @@ Per creare e lavorare con i set di dati, è necessario:
 
 * Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Un [area di lavoro del servizio Azure Machine Learning di Azure Machine Learning service dell'area di lavoro](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
+* Un [dell'area di lavoro del servizio Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
 
 * Il [Azure Machine Learning SDK per Python installato](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), che include il pacchetto azureml-set di dati.
 

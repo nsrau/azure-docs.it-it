@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e8541b82a1cd38f07684508a96b9789df20e92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb10378d890c2b7156b6764321e177a22ffc538a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359145"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472751"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Accesso tramite telefono senza password con l'app Microsoft Authenticator (anteprima pubblica)
 
@@ -88,6 +88,6 @@ Uno dei prerequisiti per creare queste nuove credenziali sicure è che il dispos
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni sulla registrazione dei dispositivi](../devices/overview.md#getting-devices-under-the-control-of-azure-ad)
+[Informazioni sulla registrazione dei dispositivi](../devices/overview.md#getting-devices-in-azure-ad)
 
 [Informazioni su Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

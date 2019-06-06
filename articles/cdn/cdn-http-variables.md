@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d572da27cee33cf546933e55a59c27dac4c1efd9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709921"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475194"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variabili HTTP per il motore regole della rete CDN di Azure
 Le variabili HTTP forniscono gli strumenti per recuperare i metadati di richiesta e di risposta HTTP. Questi metadati possono essere quindi usati per modificare in modo dinamico una richiesta o una risposta. L'uso di variabili HTTP è limitato alle funzionalità del motore regole seguenti:
 
-- [Cache-Key Rewrite](cdn-rules-engine-reference-features.md#cache-key-rewrite) (Riscrittura chiave cache)
-- [Modify Client Request Header](cdn-rules-engine-reference-features.md#modify-client-request-header) (Modifica intestazione richiesta client)
-- [Modify Client Response Header](cdn-rules-engine-reference-features.md#modify-client-response-header) (Modifica intestazione risposta client)
-- [URL Redirect](cdn-rules-engine-reference-features.md#url-redirect) (Reindirizzamento URL)
-- [URL Rewrite](cdn-rules-engine-reference-features.md#url-rewrite) (Riscrittura URL)
+- [Cache-Key Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite) (Riscrittura chiave cache)
+- [Modify Client Request Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header) (Modifica intestazione richiesta client)
+- [Modify Client Response Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header) (Modifica intestazione risposta client)
+- [URL Redirect](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) (Reindirizzamento URL)
+- [URL Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite) (Riscrittura URL)
 
 ## <a name="definitions"></a>Definizioni
 La tabella seguente descrive le variabili HTTP supportate. Quando i metadati di tipo GEO (ad esempio, il codice postale) non sono disponibili per una particolare richiesta, viene restituito un valore vuoto.
 
 
-| NOME | Variabile | DESCRIZIONE | Valore di esempio |
+| Name | Variabile | Descrizione | Valore di esempio |
 | ---- | -------- | ----------- | ------------ |
 | ASN (Requester) (ASN (richiedente)) | %{geo_asnum} | Indica il numero AS del richiedente. <br /><br />**Deprecata:** %{virt_dst_asnum}. <br />Questa variabile è stata deprecata a favore di %{geo_asnum}. Anche se una regola che usa questa variabile deprecata continuerà a funzionare, è necessario aggiornarla in modo da usare la nuova variabile. | AS15133 |
 | City (Requester) (Città (richiedente)) | %{geo_city} | Indica la città del richiedente. | Los Angeles |
@@ -69,7 +69,7 @@ La tabella seguente descrive le variabili HTTP supportate. Quando i metadati di 
 La tabella seguente descrive la sintassi corretta per specificare una variabile HTTP.
 
 
-| Sintassi | Esempio | DESCRIZIONE |
+| Sintassi | Esempio | Descrizione |
 | ------ | -------- | ---------- |
 | %{&lt;HTTPVariable&gt;} | %{host} | Usare questa sintassi per ottenere il valore intero corrispondente all'oggetto &lt;HTTPVariable&gt; specificato. |
 | %{&lt;HTTPVariableDelimiter&gt;} | %{host,} | Usare questa sintassi per impostare l'opzione maiuscole/minuscole per il valore intero corrispondente all'oggetto &lt;HTTPVariableDelimiter&gt; specificato. |
@@ -92,7 +92,7 @@ I nomi delle variabili HTTP supportano solo caratteri alfabetici e caratteri di 
 
 I delimitatori sono descritti nella tabella seguente.
 
-| Delimitatore | DESCRIZIONE |
+| Delimitatore | Descrizione |
 | --------- | ----------- |
 | := | Indica che un valore predefinito verrà assegnato alla variabile quando è: <br />- mancante <br />- impostata su NULL. |
 | :+ | Indica che un valore predefinito verrà assegnato alla variabile quando a quest'ultima è stato assegnato un valore. |
@@ -110,10 +110,10 @@ I delimitatori sono descritti nella tabella seguente.
 ## <a name="exceptions"></a>Eccezioni
 La tabella seguente descrive le circostanze in cui il testo specificato non è considerato una variabile HTTP.
 
-| Condizione | DESCRIZIONE | Esempio |
+| Condizione | Descrizione | Esempio |
 | --------- | ----------- | --------|
 | Simbolo % con escape | Il simbolo di percentuale può essere preceduto da un carattere di escape usando una barra rovesciata. <br />Il valore di esempio a destra verrà considerato un valore letterale e non una variabile HTTP.| \%{host} |
-| Variabili sconosciute | Per le variabili sconosciute viene sempre restituita una stringa vuota. | %{unknownvariable} |
+| Variabili sconosciute | Per le variabili sconosciute viene sempre restituita una stringa vuota. | %{unknown_variable} |
 | Caratteri o sintassi non valida | Le variabili che contengono caratteri o sintassi non valida vengono trattate come valori letterali. <br /><br />Esempio 1 #: Il valore specificato contiene un carattere non valido (ad esempio,-). <br /><br />Esempio #2: Il valore specificato contiene un set di parentesi graffe doppio. <br /><br />Esempio 3 #: Il valore specificato manca una parentesi graffa di chiusura.<br /> | Esempio 1: %{resp_user-agent} <br /><br />Esempio 2: %{{host}} <br /><br />Esempio 3: %{host |
 | Nome variabile mancante | Quando una variabile non è specificata, viene sempre restituito un valore NULL. | %{} |
 | Caratteri finali | I caratteri di chiusura di una variabile vengono considerati valori letterali. <br />Il valore di esempio a destra contiene una parentesi graffa di chiusura che verrà considerata un valore letterale. | %{host}} |
@@ -125,11 +125,11 @@ Un valore predefinito può essere assegnato a un'intestazione quando risponde a 
 
 La tabella seguente descrive come definire un valore predefinito.
 
-| Condizione | Sintassi | Esempio | DESCRIZIONE |
+| Condizione | Sintassi | Esempio | Descrizione |
 | --------- | ------ | --------| ----------- |
-| Impostare un'intestazione su un valore predefinito quando risponde a una delle condizioni seguenti: <br /><br />- Intestazione mancante <br /><br />- Valore dell'intestazione impostato su NULL.| %{Variable:=Value} | %{http_referer:=unspecified} | L'intestazione Referer verrà impostata solo su *unspecified* quando è mancante o impostata su NULL. Non verrà eseguita alcuna azione se è stata impostata. |
-| Impostare un'intestazione su un valore predefinito quando è mancante. | %{Variable=Value} | %{http_referer=unspecified} | L'intestazione Referer verrà impostata solo su *unspecified* quando è mancante. Non verrà eseguita alcuna azione se è stata impostata. |
-| Impostare l'intestazione su un valore predefinito quando non risponde a una delle condizioni seguenti: <br /><br />- mancante<br /><br /> - impostata su NULL. | %{Variable:+Value} | %{http_referer:+unspecified} | L'intestazione Referer verrà impostata solo su *unspecified* quando è stato assegnato un valore. Non verrà eseguita alcuna azione se è mancante o impostata su NULL. |
+| Impostare un'intestazione su un valore predefinito quando risponde a una delle condizioni seguenti: <br /><br />- Intestazione mancante <br /><br />- Valore dell'intestazione impostato su NULL.| %{Variable:=Value} | %{http_referrer:=unspecified} | L'intestazione Referrer sarà impostata solo *non specificato* quando è mancante o impostato su NULL. Non verrà eseguita alcuna azione se è stata impostata. |
+| Impostare un'intestazione su un valore predefinito quando è mancante. | %{Variable=Value} | %{http_referrer=unspecified} | L'intestazione Referrer sarà impostata solo *non specificato* quando è manca. Non verrà eseguita alcuna azione se è stata impostata. |
+| Impostare l'intestazione su un valore predefinito quando non risponde a una delle condizioni seguenti: <br /><br />- mancante<br /><br /> - impostata su NULL. | %{Variable:+Value} | %{http_referrer:+unspecified} | L'intestazione Referrer sarà impostata solo *non specificato* quando è stato assegnato un valore a esso. Non verrà eseguita alcuna azione se è mancante o impostata su NULL. |
 
 ## <a name="manipulating-variables"></a>Modifica delle variabili
 Le variabili possono essere modificate nei modi seguenti:

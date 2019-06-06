@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1520b01826de2a80d8baeccf4913fa180d385644
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: eb7cbb80be12498242363eb8141a468e08cba73a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256294"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478320"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
 [Application Insights][start] può monitorare le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) in termini di disponibilità, prestazioni, errori e utilizzo combinando i dati degli SDK di Application Insights con i dati di [Diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) provenienti dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
@@ -194,18 +194,18 @@ Per i ruoli di lavoro esistono due modi per tenere traccia delle eccezioni:
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Per impostazione predefinita, vengono raccolti i contatori seguenti:
 
-    * \Process(??APP_WIN32_PROC??)\% Processor Time
-    * \Memory\Available Bytes
-    * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
-    * \Process(??APP_WIN32_PROC??)\Private Bytes
-    * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-    * \Processor(_Total)\% Processor Time
+* \Process(??APP_WIN32_PROC??)\% Processor Time
+* \Memory\Available Bytes
+* \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
+* \Process(??APP_WIN32_PROC??)\Private Bytes
+* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
+* \Processor(_Total)\% Processor Time
 
 Per i ruoli Web vengono raccolti anche i contatori seguenti:
 
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
 È possibile specificare altri contatori delle prestazioni personalizzati o di Windows modificando*ApplicationInsights.config* [come illustrato in questo esempio](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 

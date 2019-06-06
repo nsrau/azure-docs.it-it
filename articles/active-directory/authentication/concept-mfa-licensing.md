@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 06/03/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 765b9aff898cbea763d66a20db91b3390cc48bb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a1ee55dd3aebca869da47bbc994f546aa4fe528
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415685"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496760"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Come ottenere Azure Multi-Factor Authentication
 
@@ -30,11 +30,11 @@ Quando si tratta di proteggere gli account, la verifica in due passaggi dovrebbe
 
 La tabella seguente descrive le differenze tra le tre versioni di Multi-Factor Authentication:
 
-| Version | DESCRIZIONE |
+| Version | Descrizione |
 | --- | --- |
-| Multi-Factor Authentication per Office 365 <br> Microsoft 365 Business |Questa versione funziona solo con le applicazioni di Office 365 e viene gestita dal portale di Office 365 o Microsoft 365. Gli amministratori possono [proteggere le risorse di Office 365 con la verifica in due passaggi](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Questa versione è parte di una sottoscrizione di Office 365 o Microsoft 365 Business. |
-| Multi-Factor Authentication per amministratori di Azure Active Directory | Gli utenti a cui è assegnato il ruolo di amministratori globali di tenant di Azure AD possono abilitare la verifica in due passaggi senza costi aggiuntivi.|
-| Azure Multi-Factor Authentication | Azure Multi-Factor Authentication, definito spesso la versione "completa", offre la più ampia gamma di funzionalità. Offre opzioni di configurazione aggiuntive tramite il [portale di Azure](https://portal.azure.com), segnalazione avanzata e il supporto per una gamma di applicazioni locali e cloud. Azure Multi-Factor Authentication è una funzione di [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) e può essere distribuito nel cloud o localmente. |
+| Multi-Factor Authentication per Office 365 <br> Microsoft 365 Business | Questa versione è gestita dal portale di Office 365 o Microsoft 365. Gli amministratori possono [proteggere le risorse di Office 365 con la verifica in due passaggi](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Questa versione è parte di una sottoscrizione di Office 365 o Microsoft 365 Business. |
+| Multi-Factor Authentication per amministratori di Azure Active Directory | Gli utenti a cui è assegnato il ruolo di amministratori globali di tenant di Azure AD possono abilitare la verifica in due passaggi senza costi aggiuntivi. |
+| Azure Multi-Factor Authentication | Azure Multi-Factor Authentication, definito spesso la versione "completa", offre la più ampia gamma di funzionalità. Offre opzioni di configurazione aggiuntive tramite il [portale di Azure](https://portal.azure.com), segnalazione avanzata e il supporto per una gamma di applicazioni locali e cloud. Azure multi-Factor Authentication è una funzionalità del [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features). |
 
 > [!NOTE]
 > I nuovi clienti non possono più acquistare Azure Multi-Factor Authentication come offerta autonoma valida dal 1 ° settembre 2018. L'autenticazione a più fattori continuerà a essere disponibile come funzionalità nelle licenze di Azure AD Premium.
@@ -55,7 +55,7 @@ La tabella seguente indica un elenco delle funzionalità disponibili nelle varie
 | SMS come secondo fattore |● |● |● |
 | Password di app per i client che non supportano MFA |● |● |● |
 | Controllo amministrativo sui metodi di verifica |● |● |● |
-| Proteggere gli account non amministratore con MFA |● (Solo per le applicazioni di Office 365) | |● |
+| Proteggere gli account non amministratore con MFA |● | |● |
 | Modalità PIN | | |● |
 | Avviso di illecito | | |● |
 | Report MFA | | |● |
@@ -75,17 +75,13 @@ Gli utenti a cui è assegnato il ruolo di amministratori globali di tenant di Az
 
 ## <a name="how-to-purchase-azure-multi-factor-authentication"></a>Come acquistare Azure Multi-Factor Authentication
 
-Se si desidera avere a disposizione tutte le funzionalità di Azure Multi-Factor Authentication, ci sono varie opzioni:
+Acquistare licenze che includono Azure multi-Factor Authentication, ad esempio Azure Active Directory Premium, o un bundle di licenza che include Azure AD Premium o l'accesso condizionale e assegnarle agli utenti in Azure Active Directory.
 
-### <a name="option-1---licenses-that-include-mfa"></a>Opzione 1: licenze che includono MFA
+### <a name="consumption-based-licensing"></a>Licenze in base al consumo
 
-Acquistare licenze che includono Azure Multi-Factor Authentication, ad esempio Azure Active Directory Premium o una licenza in bundle che include Azure AD Premium, e assegnarle agli utenti in Azure Active Directory.
+Gestione delle licenze basate su consumo non è più disponibile per i nuovi clienti efficaci 1 ° settembre 2018.
 
-### <a name="option-2---mfa-consumption-based-model"></a>Opzione 2: modello in base al consumo di MFA
-
-Questa opzione non è più disponibile per i nuovi clienti a partire dal 1° settembre 2018.
-
-A partire dal 1 ° settembre 2018 non sarà più possibile creare nuovi provider di autenticazione. I provider di autenticazione esistenti potranno continuare a essere usati e aggiornato. L'autenticazione a più fattori continuerà a essere una funzionalità disponibile nelle licenze di Azure AD Premium.
+Provider di autenticazione nuova 1 ° settembre 2018 efficace potrebbe non essere più creati. I provider di autenticazione esistenti potranno continuare a essere usati e aggiornato. L'autenticazione a più fattori continuerà a essere una funzionalità disponibile nelle licenze di Azure AD Premium.
 
 Quando si usa un provider di Azure Multi-Factor Authentication, sono disponibili due modelli di uso fatturati tramite la sottoscrizione di Azure:
 

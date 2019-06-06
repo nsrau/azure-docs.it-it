@@ -16,17 +16,17 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96442a9d49581da6841fa7acb8329354ec727f60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918484"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473212"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Scenari comuni nella gestione dei diritti di Azure AD (anteprima)
 
 > [!IMPORTANT]
-> Gestione dei diritti di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
+> Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -50,7 +50,7 @@ Esistono diversi modi, che è possibile configurare la gestione dei diritti per 
 > | **2.** [Aggiungere i ruoli delle risorse per accedere ai pacchetti](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>Gruppi</li><li>APPLICAZIONI</li><li>Siti di SharePoint</li></ul> | ![Aggiungere i ruoli delle risorse](./media/entitlement-management-scenarios/resource-roles.png) |
 > | **3.** [Aggiungere un criterio](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>Per gli utenti della directory</li><li>Richiedi approvazione</li><li>Impostazioni di scadenza</li></ul> | ![Aggiungi criteri](./media/entitlement-management-scenarios/policy.png) |
 
-### <a name="i-want-to-allow-users-from-my-business-partners-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Vuole consentire agli utenti dal mio partner commerciali (inclusi gli utenti non ancora nella directory personale) per richiedere l'accesso a gruppi, applicazioni o siti di SharePoint
+### <a name="i-want-to-allow-users-from-my-business-partners-directory-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Vuole consentire agli utenti dalla directory partner aziendali (inclusi gli utenti non ancora nella directory personale) per richiedere l'accesso a gruppi, applicazioni o siti di SharePoint
 
 > [!div class="mx-tableFixed"]
 > | Passaggi | Esempio |
@@ -91,7 +91,7 @@ Esistono diversi modi, che è possibile configurare la gestione dei diritti per 
 > | Passaggi | Esempio |
 > | --- | --- |
 > | **1.** [Richiesta di apertura nel portale di accesso personale](entitlement-management-request-approve.md#open-request) | [![L'icona del portale di accesso](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **2.** [Approva la richiesta di accesso](entitlement-management-request-approve.md#approve-or-deny-request) | ![Approva accesso](./media/entitlement-management-scenarios/approve-access.png) |
+> | **2.** [Approva la richiesta di accesso](entitlement-management-request-approve.md#approve-or-deny-request) | ![Approvare l'accesso](./media/entitlement-management-scenarios/approve-access.png) |
 
 ## <a name="requestors"></a>Richiedenti
 

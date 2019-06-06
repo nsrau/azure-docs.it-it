@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 90c7e4653b879c2432f08506cea08646e84bb69a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297711"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480424"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapping delle prestazioni di flussi di dati e l'ottimizzazione manuale
 
@@ -29,15 +29,28 @@ Azure Data Factory il Mapping di flusso dei dati forniscono un'interfaccia brows
 
 ![Eseguire il debug sul pulsante](media/data-flow/debugb1.png "eseguire il Debug")
 
+## <a name="monitor-data-flow-performance"></a>Monitorare le prestazioni del flusso di dati
+
+Durante la progettazione dei dati di mapping viene trasmesso nel browser, è possibile unit test del ogni trasformazione singoli facendo clic sulla scheda di anteprima dei dati nel riquadro inferiore delle impostazioni per ogni trasformazione. Il passaggio successivo da eseguire è testare i dati del flusso end-to-end in Progettazione pipeline. Aggiungere un'attività di esecuzione del flusso di dati e usare il pulsante di Debug per testare le prestazioni del flusso di dati. Nel riquadro inferiore della finestra di pipeline, si noterà un'icona di eyeglass in "azioni":
+
+![Monitoraggio del flusso di dati](media/data-flow/mon002.png "monitoraggio 2 del flusso di dati")
+
+Fare clic sull'icona visualizzerà il piano di esecuzione e il profilo di prestazioni successivi del flusso di dati. È possibile usare queste informazioni per valutare le prestazioni del flusso di dati rispetto a origini dati con dimensioni diverse. Si noti che è possibile presupporre 1 minuto della fase di installazione di esecuzione processo cluster nei calcoli sulle prestazioni complessive e se si usa l'impostazione predefinita il Runtime di integrazione di Azure, si potrebbe essere necessario aggiungere 5 minuti di tempo di spin-up del cluster nonché.
+
+![Monitoraggio del flusso di dati](media/data-flow/mon003.png "monitoraggio 3 del flusso di dati")
+
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Ottimizzazione per il Database SQL di Azure e Azure SQL Data Warehouse
 
 ![Parte di origine](media/data-flow/sourcepart2.png "parte dell'origine")
 
-### <a name="you-can-match-spark-data-partitioning-to-your-source-database-partitioning-based-on-a-database-table-column-key-in-the-source-transformation"></a>È possibile far corrispondere il partizionamento dei dati per il partizionamento del database di origine basato su una chiave di colonna nella tabella di database nella trasformazione origine Spark
+### <a name="partition-your-source-data"></a>Partizionare i dati di origine
 
 * Passare a "Optimize" e selezionare "Origine". Impostare una colonna di tabella specifica o un tipo in una query.
 * Se si sceglie "column", quindi selezionare la colonna di partizione.
 * Inoltre, impostare il numero massimo di connessioni per database SQL di Azure. È possibile provare un'impostazione più alta per ottenere connessioni parallele ai database. Tuttavia, alcuni casi possono comportare prestazioni più veloci con un numero limitato di connessioni.
+* Le tabelle di database di origine non sono necessario essere partizionati.
+* L'impostazione di una query nella trasformazione di origine che corrisponde allo schema di partizionamento della tabella di database consentirà il motore di database di origine sfruttare l'eliminazione di partizioni.
+* Se l'origine non è già partizionata, Azure Data Factory continuerà a utilizzare il partizionamento nell'ambiente di trasformazione di Spark in base alla chiave selezionato nella trasformazione origine dei dati.
 
 ### <a name="set-batch-size-and-query-on-source"></a>Impostare le dimensioni del batch ed eseguire una query sull'origine
 
@@ -51,7 +64,7 @@ Azure Data Factory il Mapping di flusso dei dati forniscono un'interfaccia brows
 
 ![Sink](media/data-flow/sink4.png "Sink")
 
-* Per evitare un'elaborazione row-by-row di floes i dati, impostare le "dimensioni del Batch" nelle impostazioni del sink per il database SQL di Azure. In questo modo che Azure Data factory al database di processo scrive in batch in base alla dimensione fornita.
+* Per evitare un'elaborazione row-by-row dei flussi dei dati, impostare le "dimensioni del Batch" nelle impostazioni del sink per il database SQL di Azure. In questo modo che Azure Data factory al database di processo scrive in batch in base alla dimensione fornita.
 
 ### <a name="set-partitioning-options-on-your-sink"></a>Set di opzioni sul sink di partizionamento
 
@@ -84,7 +97,7 @@ Azure Data Factory il Mapping di flusso dei dati forniscono un'interfaccia brows
 
 ### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>Utilizzare Gestione temporanea per caricare dati in blocco tramite Polybase
 
-* Per evitare un'elaborazione row-by-row di floes i dati, impostare l'opzione di "Staging" nelle impostazioni del Sink in modo che Azure Data factory è possibile usare Polybase per evitare gli inserimenti row-by-row in data Warehouse. Ciò indicherà a Azure Data factory per usare Polybase in modo che i dati possono essere caricati in bulk.
+* Per evitare un'elaborazione row-by-row dei flussi dei dati, impostare l'opzione di "Staging" nelle impostazioni del Sink in modo che Azure Data factory è possibile usare Polybase per evitare gli inserimenti row-by-row in data Warehouse. Ciò indicherà a Azure Data factory per usare Polybase in modo che i dati possono essere caricati in bulk.
 * Quando si esegue l'attività del flusso di dati da una pipeline, tramite la gestione temporanea è attivato, sarà necessario selezionare il percorso dell'archivio Blob di staging dati per il caricamento bulk.
 
 ### <a name="increase-the-size-of-your-azure-sql-dw"></a>Aumentare le dimensioni di Azure SQL DW
@@ -113,4 +126,4 @@ Vedere gli altri articoli del flusso di dati:
 
 - [Cenni preliminari sul flusso di dati](concepts-data-flow-overview.md)
 - [Attività del flusso di dati](control-flow-execute-data-flow-activity.md)
-
+- [Monitorare le prestazioni del flusso di dati](concepts-data-flow-monitoring.md)

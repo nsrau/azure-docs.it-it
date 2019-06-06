@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8040368f4cbd6d264070aa3db0a8e6b07a866480
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8b39001481764eb955ab4535e8c6ea1752e0c012
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239015"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475720"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Aggiungere un'origine evento di un hub eventi all'ambiente Time Series Insights
 
 Questo articolo descrive come usare il portale di Azure per aggiungere all'ambiente Azure Time Series Insights un'origine evento che legge dati da Hub eventi di Azure.
 
 > [!NOTE]
-> I passaggi descritti in questo articolo si applicano sia all'ambiente Time Series Insights disponibile a livello generale che all'ambiente Time Series Insights disponibile in anteprima.
+> I passaggi descritti in questo articolo si applicano sia per gli ambienti di versione di anteprima di tempo Series Insights e il tempo Series Insights a livello generale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,7 +34,7 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>Aggiungere un gruppo di consumer all'hub eventi
 
-Le applicazioni usano gruppi di consumer per estrarre i dati da Hub eventi di Azure. Per leggere in modo affidabile i dati dall'hub eventi, specificare un gruppo di consumer dedicato per l'uso esclusivo da parte dell'ambiente Time Series Insights.
+Le applicazioni usano gruppi di consumer per estrarre i dati da Hub eventi di Azure. Per leggere in modo affidabile i dati dall'hub eventi, specificare un gruppo di consumer dedicato che viene usato solo per questo ambiente Time Series Insights.
 
 Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
@@ -64,38 +64,40 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
 1. Selezionare i valori appropriati in **Opzione di importazione**:
    - Se in una delle sottoscrizioni è presente un hub eventi esistente, selezionare **Usare un hub eventi dalle sottoscrizioni disponibili**. Questa opzione rappresenta l'approccio più semplice.
-   - Se l'hub eventi è esterno alle sottoscrizioni o se si vogliono scegliere opzioni avanzate, selezionare **Specificare le impostazioni dell'hub eventi manualmente**.
 
-   [![Nel riquadro dell'origine evento nuovo, immettere i valori per i primi tre parametri](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
+       [![Nel riquadro dell'origine evento nuovo, immettere i valori per i primi tre parametri](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
-1. La tabella seguente descrive le proprietà obbligatorie per l'opzione **Usare un hub eventi dalle sottoscrizione disponibili**:
 
-   [![Dettagli dell'hub eventi e sottoscrizione](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
+       [![Dettagli dell'hub eventi e sottoscrizione](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
-   | Proprietà | Descrizione |
-   | --- | --- |
-   | ID sottoscrizione | Selezionare la sottoscrizione in cui l'hub eventi è stato creato.
-   | Spazio dei nomi del bus di servizio | Selezionare lo spazio dei nomi del bus di servizio di Azure che contiene l'hub eventi.
-   | Nome hub eventi | Selezionare il nome dell'hub eventi.
-   | Nome criteri hub eventi | Selezionare i criteri di accesso condiviso. È possibile creare criteri di accesso condiviso nella scheda **Configura** dell'hub eventi. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. I criteri di accesso condiviso per l'origine evento *devono* disporre di autorizzazioni di **lettura**.
-   | Chiave criteri hub eventi | Il valore della chiave può essere prepopolato.
-   | Gruppo di consumer dell'hub eventi | Gruppo di consumer per la lettura degli eventi dall'hub eventi. È consigliabile usare un gruppo di consumer dedicato per la propria origine evento. |
-   | Formato di serializzazione eventi | Attualmente JSON è l'unico formato di serializzazione disponibile. I messaggi relativi agli eventi devono essere in questo formato. In caso contrario, non è possibile leggere i dati. |
-   | Nome della proprietà Timestamp | Per determinare questo valore, è necessario comprendere il formato dei dati del messaggio inviati all'hub eventi. Questo valore è il **nome** della proprietà evento specifica nei dati del messaggio che si vuole usare come timestamp dell'evento. Il valore fa distinzione tra maiuscole e minuscole. Se lasciato vuoto, come timestamp dell'evento viene usato il **tempo di accodamento dell'evento** nell'origine evento. |
+     La tabella seguente descrive le proprietà obbligatorie per l'opzione **Usare un hub eventi dalle sottoscrizione disponibili**:
 
-1. La tabella seguente descrive le proprietà obbligatorie se si seleziona l'opzione **Specificare le impostazioni dell'hub eventi manualmente**:
+     | Proprietà | Descrizione |
+     | --- | --- |
+     | ID sottoscrizione | Selezionare la sottoscrizione in cui l'hub eventi è stato creato.
+     | Spazio dei nomi del bus di servizio | Selezionare lo spazio dei nomi del bus di servizio di Azure che contiene l'hub eventi.
+     | Nome hub eventi | Selezionare il nome dell'hub eventi.
+     | Nome criteri hub eventi | Selezionare i criteri di accesso condiviso. È possibile creare criteri di accesso condiviso nella scheda **Configura** dell'hub eventi. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. I criteri di accesso condiviso per l'origine evento *devono* disporre di autorizzazioni di **lettura**.
+     | Chiave criteri hub eventi | Il valore della chiave può essere prepopolato.
+     | Gruppo di consumer dell'hub eventi | Gruppo di consumer per la lettura degli eventi dall'hub eventi. È consigliabile usare un gruppo di consumer dedicato per la propria origine evento. |
+     | Formato di serializzazione eventi | Attualmente JSON è l'unico formato di serializzazione disponibile. I messaggi di evento devono essere nel formato o i dati non possono essere letti. |
+     | Nome della proprietà Timestamp | Per determinare questo valore, è necessario comprendere il formato dei dati del messaggio inviati all'hub eventi. Questo valore è il **nome** della proprietà evento specifica nei dati del messaggio che si vuole usare come timestamp dell'evento. Il valore fa distinzione tra maiuscole e minuscole. Se lasciato vuoto, come timestamp dell'evento viene usato il **tempo di accodamento dell'evento** nell'origine evento. |
 
-   | Proprietà | Descrizione |
-   | --- | --- |
-   | ID sottoscrizione | La sottoscrizione in cui l'hub eventi è stato creato.
-   | Gruppo di risorse | Gruppo di risorse in cui è stato creato questo hub eventi.
-   | Spazio dei nomi del bus di servizio | Uno spazio dei nomi Service Bus è un contenitore per un set di entità di messaggistica. Quando si crea un nuovo hub eventi, viene anche creato uno spazio dei nomi del bus di servizio.
-   | Nome hub eventi | Nome dell'hub eventi. Al momento della creazione, all'hub eventi è stato anche assegnato un nome specifico.
-   | Nome criteri hub eventi | Criteri di accesso condiviso. È possibile creare criteri di accesso condiviso nella scheda **Configura** dell'hub eventi. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. I criteri di accesso condiviso per l'origine evento *devono* disporre di autorizzazioni di **lettura**.
-   | Chiave criteri hub eventi | Chiave di accesso condiviso usata per autenticare l'accesso allo spazio dei nomi del bus di servizio di Azure. Immettere qui la chiave primaria o secondaria.
-   | Gruppo di consumer dell'hub eventi | Gruppo di consumer per la lettura degli eventi dall'hub eventi. È consigliabile usare un gruppo di consumer dedicato per la propria origine evento.
-   | Formato di serializzazione eventi | Attualmente JSON è l'unico formato di serializzazione disponibile. I messaggi relativi agli eventi devono essere in questo formato. In caso contrario, non è possibile leggere i dati. |
-   | Nome della proprietà Timestamp | Per determinare questo valore, è necessario comprendere il formato dei dati del messaggio inviati all'hub eventi. Questo valore è il **nome** della proprietà evento specifica nei dati del messaggio che si vuole usare come timestamp dell'evento. Il valore fa distinzione tra maiuscole e minuscole. Se lasciato vuoto, come timestamp dell'evento viene usato il **tempo di accodamento dell'evento** nell'origine evento. |
+    - Se l'hub eventi è esterno alle sottoscrizioni o se si vogliono scegliere opzioni avanzate, selezionare **Specificare le impostazioni dell'hub eventi manualmente**.
+
+      La tabella seguente descrive le proprietà obbligatorie se si seleziona l'opzione **Specificare le impostazioni dell'hub eventi manualmente**:
+ 
+      | Proprietà | Descrizione |
+      | --- | --- |
+      | ID sottoscrizione | La sottoscrizione in cui l'hub eventi è stato creato.
+      | Gruppo di risorse | Gruppo di risorse in cui è stato creato questo hub eventi.
+      | Spazio dei nomi del bus di servizio | Uno spazio dei nomi Service Bus è un contenitore per un set di entità di messaggistica. Quando si crea un nuovo hub eventi, viene anche creato uno spazio dei nomi del bus di servizio.
+      | Nome hub eventi | Nome dell'hub eventi. Al momento della creazione, all'hub eventi è stato anche assegnato un nome specifico.
+      | Nome criteri hub eventi | Criteri di accesso condiviso. È possibile creare criteri di accesso condiviso nella scheda **Configura** dell'hub eventi. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. I criteri di accesso condiviso per l'origine evento *devono* disporre di autorizzazioni di **lettura**.
+      | Chiave criteri hub eventi | Chiave di accesso condiviso usata per autenticare l'accesso allo spazio dei nomi del bus di servizio di Azure. Immettere qui la chiave primaria o secondaria.
+      | Gruppo di consumer dell'hub eventi | Gruppo di consumer per la lettura degli eventi dall'hub eventi. È consigliabile usare un gruppo di consumer dedicato per la propria origine evento.
+      | Formato di serializzazione eventi | Attualmente JSON è l'unico formato di serializzazione disponibile. I messaggi di evento devono essere nel formato o i dati non possono essere letti. |
+      | Nome della proprietà Timestamp | Per determinare questo valore, è necessario comprendere il formato dei dati del messaggio inviati all'hub eventi. Questo valore è il **nome** della proprietà evento specifica nei dati del messaggio che si vuole usare come timestamp dell'evento. Il valore fa distinzione tra maiuscole e minuscole. Se lasciato vuoto, come timestamp dell'evento viene usato il **tempo di accodamento dell'evento** nell'origine evento. |
 
 1. Aggiungere il nome del gruppo di consumer di Time Series Insights dedicato aggiunto all'hub eventi.
 

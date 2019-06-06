@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e491f0c452b7b51eac4e8cccab1cc7ed8430e49
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783437"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473768"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Abilitare l'accesso remoto a SharePoint con il proxy di applicazione di Azure AD
 
@@ -114,8 +114,8 @@ Per configurare la delega vincolata Kerberos, ripetere i passaggi seguenti per o
 
 Dopo aver configurato la delega vincolata Kerberos, è possibile configurare Azure AD Application Proxy.
 
-1. Pubblicare il sito di SharePoint con le impostazioni seguenti. Per istruzioni dettagliate, vedere [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-publish-azure-portal.md).
-   * **URL interno**: URL interno di SharePoint scelto in precedenza, ad esempio **<https://SharePoint/>**.
+1. Pubblicare il sito di SharePoint con le impostazioni seguenti. Per istruzioni dettagliate, vedere [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
+   * **URL interno**: URL interno di SharePoint scelto in precedenza, ad esempio **<https://SharePoint/>** .
    * **Metodo di autenticazione preliminare**: Azure Active Directory
    * **Convertire l'URL nelle intestazioni**: NO
 

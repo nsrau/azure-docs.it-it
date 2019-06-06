@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399682"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743186"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 È possibile usare la [servizio Backup di Azure](backup-overview.md) per eseguire il backup di macchine virtuali locali e i carichi di lavoro e macchine virtuali di Azure (VM). Questo articolo riepiloga le impostazioni del supporto e le limitazioni quando si esegue il backup di macchine virtuali di Azure con Backup di Azure.
@@ -54,6 +54,8 @@ Backup al giorno (tramite DPM o il server di Backup di Microsoft Azure) | Due ba
 Backup mensile/annuale   | Non supportata quando si esegue il backup con l'estensione della macchina virtuale di Azure. È supportato solo il backup giornaliero e settimanale.<br/><br/> È possibile configurare i criteri in modo da conservare i backup giornalieri/settimanali per il periodo di conservazione mensile/annuale.
 Regolazione automatica dell'orologio | Non supportati.<br/><br/> Backup di Azure non viene regolata automaticamente per l'ora legale durante il backup di una macchina virtuale.<br/><br/>  Modificare manualmente i criteri in base alle esigenze.
 [Funzionalità di sicurezza per il backup ibrido](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |  La disabilitazione della funzionalità di sicurezza non è supportata.
+Eseguire il backup della macchina virtuale viene modificato cui ora di computer | Non supportati.<br/><br/> Se l'ora del computer viene modificato in una data-ora futura dopo l'abilitazione del backup per la macchina virtuale; Tuttavia, anche se la modifica dell'ora viene ripristinata, backup corretto non è garantito.  
+
 
 ## <a name="operating-system-support-windows"></a>Supporto dei sistemi operativi (Windows)
 
@@ -146,7 +148,7 @@ Backup di macchine virtuali in [set di disponibilità](https://docs.microsoft.co
 Backup di macchine virtuali in [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview) |  Non supportati.
 Eseguire il backup di macchine virtuali distribuite con [vantaggio Hybrid Use (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Supportato.
 Eseguire il backup di macchine virtuali distribuite in un [set di scalabilità](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |  Non supportati.
-Eseguire il backup di macchine virtuali distribuite dal [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Pubblicata da Microsoft, terze parti) |  Supportato.<br/><br/> È necessario che la macchina virtuale esegua un sistema operativo supportato.<br/><br/> Quando si ripristinano i file nella macchina virtuale, è possibile eseguire il ripristino solo in un sistema operativo compatibile (non in un sistema operativo precedente o successivo).
+Eseguire il backup di macchine virtuali distribuite dal [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Pubblicata da Microsoft, terze parti) |  Supportato.<br/><br/> È necessario che la macchina virtuale esegua un sistema operativo supportato.<br/><br/> Quando si ripristinano i file nella macchina virtuale, è possibile eseguire il ripristino solo in un sistema operativo compatibile (non in un sistema operativo precedente o successivo). Non è ripristinare il backup delle macchine virtuali, come informazioni sull'acquisto di queste esigenze, ma solo come dischi VM di Azure Marketplace.
 Eseguire il backup di macchine virtuali distribuite da un'immagine personalizzata (di terze parti) |   Supportato.<br/><br/> È necessario che la macchina virtuale esegua un sistema operativo supportato.<br/><br/> Quando si ripristinano i file nella macchina virtuale, è possibile eseguire il ripristino solo in un sistema operativo compatibile (non in un sistema operativo precedente o successivo).
 Eseguire il backup di macchine virtuali che vengono migrate in Azure  | Supportato.<br/><br/> Per eseguire il backup della macchina virtuale, l'agente di macchine virtuali deve essere installato nella macchina sottoposta a migrazione.
 Eseguire il backup della coerenza di più macchine Virtuali | Backup di Azure non offre la coerenza dei dati e dell'applicazione tra più macchine virtuali.

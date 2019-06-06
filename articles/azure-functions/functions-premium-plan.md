@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: dab7561db8f223bff87f41ef756605359c3478e4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242297"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492706"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Piano Premium di funzioni di Azure (anteprima)
 
@@ -56,7 +56,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### <a name="private-network-connectivity"></a>Connettività di rete privata
 
-Funzioni di Azure distribuite in un piano Premium consente di sfruttare [nuova integrazione rete virtuale per le app web](../app-service/web-sites-integrate-with-vnet.md#new-vnet-integration).  Quando è configurato, l'app può comunicare con le risorse all'interno della rete virtuale o protetto tramite gli endpoint di servizio.  Le restrizioni IP sono inoltre disponibili nell'app per limitare il traffico in ingresso.
+Funzioni di Azure distribuite in un piano Premium consente di sfruttare [nuova integrazione rete virtuale per le app web](../app-service/web-sites-integrate-with-vnet.md).  Quando è configurato, l'app può comunicare con le risorse all'interno della rete virtuale o protetto tramite gli endpoint di servizio.  Le restrizioni IP sono inoltre disponibili nell'app per limitare il traffico in ingresso.
 
 Quando si assegna una subnet per app per le funzioni in un piano Premium, necessaria una subnet con indirizzi IP sufficienti per ogni istanza potenziali. Anche se il numero massimo di istanze può variare durante l'anteprima, è necessario un blocco IP con indirizzi disponibili almeno 100.
 

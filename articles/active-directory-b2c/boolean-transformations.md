@@ -2,20 +2,20 @@
 title: Esempi di trasformazione di attestazioni booleane per lo schema del framework di gestione delle identità di Azure Active Directory B2C | Microsoft Docs
 description: Esempi di trasformazione di attestazioni booleane per lo schema del framework di gestione delle identità di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8afe530a2194fd8c2137f6d4aa7ac97fa8ed9a53
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0a08849340d19055a03f85ca401757a81cd2c95d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695096"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511733"
 ---
 # <a name="boolean-claims-transformations"></a>Trasformazioni delle attestazioni booleane
 
@@ -29,9 +29,9 @@ Esegue un'operazione And con due inputClaims booleani e imposta l'outputClaim co
 
 | Elemento  | TransformationClaimType  | Tipo di dati  | Note |
 |-------| ------------------------ | ---------- | ----- |
-| InputClaim | inputClaim1 | boolean | Il primo ClaimType da valutare. |
-| InputClaim | inputClaim2  | boolean | Il secondo ClaimType da valutare. |
-|OutputClaim | outputClaim | boolean | I ClaimTypes generati dopo aver richiamato la trasformazione delle attestazioni (true o false). |
+| InputClaim | inputClaim1 | Boolean | Il primo ClaimType da valutare. |
+| InputClaim | inputClaim2  | Boolean | Il secondo ClaimType da valutare. |
+|OutputClaim | outputClaim | Boolean | I ClaimTypes generati dopo aver richiamato la trasformazione delle attestazioni (true o false). |
 
 La trasformazione delle attestazioni seguente mostra come usare due ClaimType booleani: `isEmailNotExist` e `isSocialAccount`. L'attestazione di output `presentEmailSelfAsserted` è impostata su `true` se il valore di entrambe le attestazioni di input è `true`. In una fase di orchestrazione è possibile usare una precondizione per preimpostare una pagina autocertificata, solo se l'e-mail di un account di social networking è vuota.
 
@@ -62,8 +62,8 @@ Verifica che i valori booleani di due attestazioni siano uguali e genera un'ecce
 
 | Elemento | TransformationClaimType  | Tipo di dati  | Note |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | boolean | Il ClaimType da confermare. |
-| InputParameter |valueToCompareTo | boolean | Il valore da confrontare (true o false). |
+| inputClaim | inputClaim | Boolean | Il ClaimType da confermare. |
+| InputParameter |valueToCompareTo | Boolean | Il valore da confrontare (true o false). |
 
 La trasformazione delle attestazioni **AssertBooleanClaimIsEqualToValue** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) che viene chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controllano il messaggio di errore che il profilo tecnico presenta all'utente.
 
@@ -119,8 +119,8 @@ Esegue un'operazione Not dell'inputClaim booleano e imposta l'outputClaim con il
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | boolean | L'attestazione da usare. |
-| OutputClaim | outputClaim | boolean | I ClaimType generati dopo che ClaimsTransformation è stato richiamato (true o false). |
+| InputClaim | inputClaim | Boolean | L'attestazione da usare. |
+| OutputClaim | outputClaim | Boolean | I ClaimType generati dopo che ClaimsTransformation è stato richiamato (true o false). |
 
 Usare questa trasformazione delle attestazioni per eseguire la negazione logica su un'attestazione.
 
@@ -147,9 +147,9 @@ Calcola un'operazione Or di due inputClaims booleani e imposta l'outputClaim con
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | boolean | Il primo ClaimType da valutare. |
-| InputClaim | inputClaim2 | boolean | Il secondo ClaimType da valutare. |
-| OutputClaim | outputClaim | boolean | I ClaimType generati dopo aver richiamato la ClaimsTransformation (true o false). |
+| InputClaim | inputClaim1 | Boolean | Il primo ClaimType da valutare. |
+| InputClaim | inputClaim2 | Boolean | Il secondo ClaimType da valutare. |
+| OutputClaim | outputClaim | Boolean | I ClaimType generati dopo aver richiamato la ClaimsTransformation (true o false). |
 
 La trasformazione delle attestazioni seguente mostra come usare `Or` due ClaimType booleani. In una fase di orchestrazione è possibile usare una precondizione per preimpostare una pagina autocertificata, se il valore di una delle attestazioni è `true`.
 

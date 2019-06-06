@@ -16,12 +16,12 @@ ms.date: 05/22/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae204ec1789f227150adc560d4a292404d23b7e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ec3909ffbb624284f999360140b7454098643062
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113320"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473361"
 ---
 # <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Completare una verifica di accesso dei gruppi o applicazioni in Azure AD le verifiche di accesso
 
@@ -40,7 +40,7 @@ Per altre informazioni, vedere [quali gli utenti devono avere le licenze?](acces
 
 È possibile tenere traccia dello stato di avanzamento verifiche eseguite dai revisori loro.
 
-1. Accedere al portale di Azure e aprire il [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Accedere al portale di Azure e aprire il [pagina di governance delle identità](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. Nel menu a sinistra, fare clic su **verifiche di accesso**.
 

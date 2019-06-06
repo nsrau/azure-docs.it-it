@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 12fb9dc67e8afae3dcb9ade97dd61ab438e0fac5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304404"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475412"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitazioni correnti per il pool di nodi di Windows Server e carichi di lavoro dell'applicazione in Azure Kubernetes Service (AKS)
 
@@ -45,6 +45,7 @@ Le seguenti limitazioni upstream per i contenitori di Windows Server in Kubernet
 Le seguenti limitazioni aggiuntive si applicano al supporto di pool di nodi di Windows Server nel servizio contenitore di AZURE:
 
 - Un cluster AKS contiene sempre un pool di nodi di Linux come il primo pool di nodi. Impossibile eliminare questo primo pool di nodi basati su Linux, a meno che non viene eliminato il cluster di AKS.
+- Servizio contenitore di AZURE supporta attualmente solo il servizio di bilanciamento del carico di base, che consente solo per il pool back-uno end, il pool di nodi di Linux predefinita. Di conseguenza, il traffico in uscita dai POD Windows sarà sempre [convertito in un indirizzo IP pubblico gestito da Azure][azure-outbound-traffic]. Poiché questo indirizzo IP non è configurabile, non è attualmente possibile per consentire il traffico proveniente da POD di Windows. 
 - I cluster AKS devono utilizzare il modello di rete (avanzato) di Azure CNI.
     - Rete Kubenet (basic) non è supportata. È possibile creare un cluster servizio contenitore di AZURE che usa kubenet. Per altre informazioni sulle differenze nei modelli di rete, vedere [concetti per le applicazioni nel servizio contenitore di AZURE di rete][azure-network-models].
     - Il modello di rete di Azure CNI richiede ulteriori informazioni sulla pianificazione e considerazioni per la gestione degli indirizzi IP. Per altre informazioni su come pianificare e implementare CNI di Azure, vedere [networking configurare CNI Azure nel servizio contenitore di AZURE][configure-azure-cni].
@@ -87,3 +88,4 @@ Per iniziare a usare i contenitori di Windows Server nel servizio contenitore di
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat

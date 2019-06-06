@@ -2,20 +2,20 @@
 title: Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati | Microsoft Docs
 description: Informazioni sui criteri personalizzati di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1cd3fa11df9bd9c87b84985f7acad6ba0a5e8838
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7053f5b0211878d2f0b9d810fc3f4c0b9361e6f7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695781"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509596"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati
 
@@ -138,7 +138,7 @@ Per verificare che CORS sia abilitato per la risorsa di archiviazione in cui si 
 
 La tabella seguente descrive lo scopo delle pagine HTML5 precedenti.
 
-| Modello HTML5 | DESCRIZIONE |
+| Modello HTML5 | Descrizione |
 |----------------|-------------|
 | *phonefactor.html* | Questa pagina può essere usata come modello per una pagina di autenticazione a più fattori. |
 | *resetpassword.html* | Questa pagina può essere usata come modello per una pagina Password dimenticata. |
@@ -154,7 +154,7 @@ I modelli HTML5/CSS da usare nel percorso utente devono essere specificati in un
 
 La tabella seguente descrive il set di ID definizione del contenuto riconosciuti dal motore di esperienza di gestione delle identità di Azure AD B2C e il tipo di pagine correlate.
 
-| ID definizione del contenuto | DESCRIZIONE |
+| ID definizione del contenuto | Descrizione |
 |-----------------------|-------------|
 | *api.error* | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | **Pagina di selezione del provider di identità**. Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di accesso. Sono presenti provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali (basati su indirizzo di posta elettronica o nome utente). |

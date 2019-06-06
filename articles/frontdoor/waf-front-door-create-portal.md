@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/8/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 26db3a67c3efbd0ba2a5c58facd0c07175f7ed12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15a80dac0e0601480e22ad960f2827f3d8f290c0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460254"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479037"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Creare un criterio di Web Application firewall per l'ingresso principale di Azure usando il portale di Azure
 
@@ -63,17 +63,19 @@ Per visualizzare Web Application firewall in azione, è possibile modificare le 
 
  ![Modalità dei criteri di modifica Web Application firewall](./media/waf-front-door-create-portal/policy.png)
 
+### <a name="custom-rules"></a>Regole personalizzate
+
+È possibile creare una regola personalizzata selezionando **Aggiungi regola personalizzata** sotto il **regole personalizzate** sezione. Verrà avviata la pagina di configurazione di regola personalizzata. Di seguito è riportato un esempio di configurazione di una regola personalizzata per bloccare una richiesta se la stringa di query contiene **blockme**.
+
+![Modalità dei criteri di modifica Web Application firewall](./media/waf-front-door-create-portal/customquerystring2.png)
+
 ### <a name="default-rule-set-drs"></a>Set di regole predefinite (DRS)
 
 Gestito da Azure Set di regole predefinito è abilitato per impostazione predefinita. Per disabilitare una regola singola all'interno di un gruppo di regole, espandere le regole all'interno di tale gruppo di regole, seleziona la **casella di controllo** davanti il numero di regole e selezionare **disabilitare** nella scheda precedente. Per modificare i tipi di azioni per singole regole all'interno della regola impostata, selezionare la casella di controllo davanti il numero di regole e quindi selezionare il **Modifica azione** scheda riportato sopra.
 
- ![Modificare Set di regole WAF](./media/waf-front-door-create-portal/managed.png)
+ ![Modificare Set di regole WAF](./media/waf-front-door-create-portal/managed2.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Scopri [firewall applicazione web di Azure](waf-overview.md).
 - Altre informazioni sulle [porta d'ingresso Azure](front-door-overview.md).
-
-
-
-

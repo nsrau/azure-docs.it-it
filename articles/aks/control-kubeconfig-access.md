@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: d4d3d9a3ff57a7a388e9703d0d145d8ce6eafd12
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b55cc226cfbb462cdccd73b3b80cfb0d56c10711
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143018"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475605"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Usare il controllo degli accessi in base al ruolo di Azure per definire l'accesso al file di configurazione di Kubernetes nel servizio Azure Kubernetes
 
@@ -24,7 +24,7 @@ Questo articolo illustra come assegnare ruoli di controllo degli accessi in base
 
 Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
-Questo articolo richiede anche che sia in esecuzione l'interfaccia della riga di comando di Azure versione 2.0.53 o successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+Questo articolo richiede anche di eseguire il comando di Azure versione 2.0.65 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="available-cluster-roles-permissions"></a>Autorizzazioni per i ruoli del cluster disponibili
 
@@ -45,9 +45,9 @@ Questi ruoli RBAC possono essere applicati a un utente di Azure Active Directory
 
 ## <a name="assign-role-permissions-to-a-user-or-group"></a>Assegnare le autorizzazioni del ruolo a un utente o gruppo
 
-Per assegnare uno dei ruoli disponibili, è necessario ottenere l'ID risorsa del cluster servizio contenitore di AZURE e l'ID dell'account utente Azure AD o del gruppo. I comandi di esempio seguenti eseguono i passaggi seguenti:
+Per assegnare uno dei ruoli disponibili, è necessario ottenere l'ID risorsa del cluster servizio contenitore di AZURE e l'ID dell'account utente Azure AD o del gruppo. I comandi nell'esempio seguente:
 
-* Ottenere l'ID della risorsa del cluster tramite il comando [az aks show][az-aks-show] per il cluster denominato *myAKSCluster* nel gruppo di risorse *myResourceGroup*. Specificare il nome del cluster e del gruppo di risorse in base alle esigenze.
+* Ottenere l'ID di risorsa cluster con il [show di az aks] [ az-aks-show] comando per il cluster denominato *myAKSCluster* nel *myResourceGroup* gruppo di risorse. Specificare il nome del cluster e del gruppo di risorse in base alle esigenze.
 * Usa il [show account az] [ az-account-show] e [show utente di ad az] [ az-ad-user-show] comandi per ottenere l'ID utente.
 * Infine, assegnare un ruolo tramite il comando [az role assignment create][az-role-assignment-create].
 
@@ -69,7 +69,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Se si desidera assegnare autorizzazioni a un gruppo di Azure AD, aggiornare il `--assignee` parametro con l'ID oggetto per il gruppo piuttosto che un utente come illustrato nell'esempio precedente. Per ottenere l'ID oggetto per un gruppo, usare il [show di gruppo ad az] [ az-ad-group-show] comando. L'esempio seguente ottiene l'ID oggetto per il gruppo di Azure AD denominato *appdev*: `az ad group show --group appdev --query objectId -o tsv`
+> Se si desidera assegnare autorizzazioni a un gruppo di Azure AD, aggiornare il `--assignee` parametro illustrato nell'esempio precedente con l'ID oggetto per il *gruppo* anziché un *utente*. Per ottenere l'ID oggetto per un gruppo, usare il [show di gruppo ad az] [ az-ad-group-show] comando. L'esempio seguente ottiene l'ID oggetto per il gruppo di Azure AD denominato *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 È possibile modificare l'assegnazione precedente specificando il *Ruolo utente del cluster* in base alle esigenze.
 

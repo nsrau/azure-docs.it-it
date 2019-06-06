@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602060"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479996"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installare un server di destinazione master Linux per il failback
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -245,7 +245,7 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 
     ![ID percorsi multipli](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formattare l'unità e quindi creare un file system nella nuova unità: **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**.
+3. Formattare l'unità e quindi creare un file system nella nuova unità: **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>** .
     
     ![File system](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: e4ec13453c204885f38b10272e76245e641fbef9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f54da6e350b2cf9027b6e9e02ace2a90e292e1ce
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203584"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472350"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Binding dell'archiviazione BLOB di Azure per Funzioni di Azure
 
@@ -258,7 +258,7 @@ public void run(
 
 Nelle [librerie di classi](functions-dotnet-class-library.md) usare i seguenti attributi per configurare un trigger di BLOB:
 
-* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs)
+* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
 
   L'attributo del costruttore accetta una stringa di percorso che indica il contenitore per il controllo e, facoltativamente, un [modello di nome per il BLOB](#trigger---blob-name-patterns). Ad esempio:
 
@@ -391,7 +391,7 @@ Se il BLOB è denominato *{20140101}-soundfile.mp3*, il valore della variabile `
 
 Il trigger del BLOB contiene diverse proprietà di metadati. Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Questi valori hanno la stessa semantica del tipo [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet).
 
-|Proprietà  |Type  |DESCRIZIONE  |
+|Proprietà  |Type  |Descrizione  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Percorso del BLOB trigger.|
 |`Uri`|`System.Uri`|L'URI del BLOB per la posizione primaria.|
@@ -420,7 +420,7 @@ Il runtime di Funzioni di Azure verifica che nessuna funzione trigger di BLOB ve
 
 Funzioni di Azure archivia le conferme di BLOB in un contenitore denominato *azure-webjobs-hosts* nell'account di archiviazione di Azure per l'app per le funzioni, specificato dall'impostazione app `AzureWebJobsStorage`. Una conferma di BLOB contiene le seguenti informazioni:
 
-* La funzione attivata, ovvero "*&lt;nome dell'app per le funzioni>*.Functions.*&lt;nome della funzione>*", ad esempio: "MyFunctionApp.Functions.CopyBlob"
+* La funzione attivata, ovvero " *&lt;nome dell'app per le funzioni>* .Functions. *&lt;nome della funzione>* ", ad esempio: "MyFunctionApp.Functions.CopyBlob"
 * Il nome del contenitore
 * Il tipo di BLOB ("BlockBlob" o "PageBlob")
 * Il nome del BLOB
@@ -434,7 +434,7 @@ Se una funzione di trigger del BLOB ha esito negativo per un determinato BLOB, p
 
 Se tutti i 5 tentativi non riescono, Funzioni di Azure aggiunge un messaggio a una coda di archiviazione denominata *webjobs-blobtrigger-poison*. Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
 
-* FunctionId (nel formato *&lt;nome dell'app per le funzioni>*.Functions.*&lt;nome della funzione>*)
+* FunctionId (nel formato *&lt;nome dell'app per le funzioni>* .Functions. *&lt;nome della funzione>* )
 * BlobType ("BlockBlob" o "PageBlob")
 * ContainerName
 * BlobName
@@ -1107,7 +1107,7 @@ In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name 
 
 | Associazione |  Riferimenti |
 |---|---|
-| BLOB | [Codici di errore BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| Blob | [Codici di errore BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Blob, Table, Queue |  [Codici di errore di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, Table, Queue |  [Risoluzione dei problemi](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

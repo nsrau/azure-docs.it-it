@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 365f017fe7d71500c17d0a9ccd9c5a0a26a78b75
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ab08c93662988655154cf300ac4ee3758fbc7872
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989529"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472812"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione e PingAccess
 
@@ -78,7 +78,7 @@ Per pubblicare la propria applicazione in locale:
 1. Se non è stato fatto nell'ultima sezione, accedere al [portale di Azure Active Directory](https://aad.portal.azure.com/) come amministratore dell'applicazione.
 2. Selezionare **applicazioni aziendali** > **nuova applicazione** > **applicazione On-premises**. Il **aggiungere la propria applicazione in locale** verrà visualizzata la pagina.
 
-   ![Aggiungi applicazione locale personalizzata](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
+   ![Aggiungere la propria applicazione in locale](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
 3. Compilare i campi obbligatori con le informazioni relative alla nuova applicazione. Usare le indicazioni fornite di seguito per le impostazioni.
 
    > [!NOTE]
@@ -124,11 +124,11 @@ Infine, configurare l'applicazione in locale in modo che gli utenti hanno access
 
 1. Dal **registrazioni per l'App** nella barra laterale per l'applicazione, selezionare **autorizzazioni delle API** > **aggiungere un'autorizzazione**  >   **Le API di Microsoft** > **Microsoft Graph**. Il **le autorizzazioni API Request** pagina **Microsoft Graph** viene visualizzato, che contiene le API per Windows Azure Active Directory.
 
-   ![Richiedi le autorizzazioni dell'API](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+   ![Richiedere le autorizzazioni API](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 2. Selezionare **autorizzazioni delegate** > **utente** > **User. Read**.
 3. Selezionare **autorizzazioni applicazione** > **applicazione** > **Application.ReadWrite.All**.
 4. Selezionare **aggiungere autorizzazioni**.
-5. Nel **le autorizzazioni API** pagina, selezionare **concedere il consenso dell'amministratore per \<il nome della directory >**.
+5. Nel **le autorizzazioni API** pagina, selezionare **concedere il consenso dell'amministratore per \<il nome della directory >** .
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>Raccogliere informazioni per la procedura PingAccess
 
@@ -150,7 +150,7 @@ Per raccogliere queste informazioni:
 4. Avanti il **ID di Directory (tenant)** di valore, selezionare anche **copia negli Appunti**, quindi copiare e salvare il file. Specificare questo valore in un secondo momento come autorità di certificazione di PingAccess.
 5. Dalla barra laterale del **registrazioni per l'App** per l'applicazione, selezionare **i certificati e i segreti** > **nuovo segreto client**. Il **aggiungere un segreto client** verrà visualizzata la pagina.
 
-   ![Aggiungi un segreto client](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
+   ![Aggiungere un segreto client](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
 6. Nelle **Description**, tipo `PingAccess key`.
 7. Sotto **Expires**, scegliere come impostare la chiave di PingAccess: **Tra 1 anno**, **In 2 anni**, o **Never**.
 8. Selezionare **Aggiungi**. Di PingAccess chiave viene visualizzata nella tabella dei segreti client, con uno casuale che viene inserita automaticamente nella stringa di **valore** campo.
@@ -158,9 +158,9 @@ Per raccogliere queste informazioni:
 
 ### <a name="update-graphapi-to-send-custom-fields-optional"></a>Aggiornare GraphAPI per inviare campi personalizzati (facoltativo)
 
-Per un elenco di token di sicurezza che Azure AD Invia per l'autenticazione, vedere [token ID di Microsoft identity platform](../develop/id-tokens.md). Se necessaria un'attestazione personalizzata che invia altri token, impostare il `acceptMappedClaims` campo applicazione `True`. È possibile usare Graph Explorer o manifesto dell'applicazione del portale di Azure AD per apportare questa modifica.
+Se necessaria un'attestazione personalizzata che invia altri token entro il token di accesso utilizzato da PingAccess, impostare il `acceptMappedClaims` campo applicazione `True`. È possibile usare Graph Explorer o manifesto dell'applicazione del portale di Azure AD per apportare questa modifica.
 
-In questo esempio viene usato Graph Explorer:
+**In questo esempio viene usato Graph Explorer:**
 
 ```
 PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
@@ -170,7 +170,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 
-Questo esempio Usa la [portale di Azure Active Directory](https://aad.portal.azure.com/) per aggiornare il `acceptMappedClaims` campo:
+**Questo esempio Usa la [portale di Azure Active Directory](https://aad.portal.azure.com/) per aggiornare il `acceptMappedClaims` campo:**
 
 1. Accedi per il [portale di Azure Active Directory](https://aad.portal.azure.com/) come amministratore dell'applicazione.
 2. Passare ad **Azure Active Directory** > **Registrazioni per l'app**. Viene visualizzato un elenco delle applicazioni.
@@ -179,7 +179,28 @@ Questo esempio Usa la [portale di Azure Active Directory](https://aad.portal.azu
 5. Cercare il `acceptMappedClaims` campo e modificare il valore in `True`.
 6. Selezionare **Salva**.
 
-### <a name="use-a-custom-claim-optional"></a>Usare un'attestazione personalizzata (facoltativa)
+
+### <a name="use-of-optional-claims-optional"></a>Utilizzo di attestazioni facoltative (facoltative)
+Attestazioni facoltative consente di aggiungere attestazioni standard-but-not-included-by-default contenente tutti gli utenti e tenant. È possibile configurare attestazioni facoltative per l'applicazione modificando il manifesto dell'applicazione. Per altre informazioni, vedere il [comprendere l'articolo del manifesto dell'applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/)
+
+Ad esempio includere indirizzo di posta elettronica nel token di accesso che utilizzano PingAccess:
+```
+    "optionalClaims": {
+        "idToken": [],
+        "accessToken": [
+            {
+                "name": "email",
+                "source": null,
+                "essential": false,
+                "additionalProperties": []
+            }
+        ],
+        "saml2Token": []
+    },
+```
+
+### <a name="use-of-claims-mapping-policy-optional"></a>Uso di criteri (facoltativo) di mapping delle attestazioni
+[Criteri di Mapping (anteprima) di attestazioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) per gli attributi che non esistono in Azure ad. Mapping delle attestazioni consente di migrare le app precedenti dall'ambiente locale al cloud aggiungendo altre attestazioni personalizzate che sono supportate da oggetti di ad FS o un utente
 
 Per rendere l'applicazione usi un'attestazione personalizzata e includa campi aggiuntivi, assicurarsi aver anche [creati criteri di mapping delle attestazioni personalizzate e averlo assegnato all'applicazione](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
@@ -187,6 +208,16 @@ Per rendere l'applicazione usi un'attestazione personalizzata e includa campi ag
 > Per usare un'attestazione personalizzata, è anche necessario avere un criterio personalizzato definito e assegnato all'applicazione. Questo criterio deve includere tutti gli attributi personalizzati necessari.
 >
 > È possibile eseguire la definizione dei criteri e l'assegnazione tramite PowerShell, Azure AD Graph Explorer o Microsoft Graph. Se si sta eseguendo li in PowerShell, potrebbe essere necessario utilizzare innanzitutto `New-AzureADPolicy` e quindi assegnarlo all'applicazione con `Add-AzureADServicePrincipalPolicy`. Per altre informazioni, vedere [assegnazione di criteri di mapping di attestazioni](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+Esempio:
+```powershell
+$pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
+
+Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id 
+```
+
+### <a name="enable-pingaccess-to-use-custom-claims-optional-but-required-if-you-expect-the-application-to-consume-additional-claims"></a>Abilitare PingAccess usare le attestazioni personalizzate (facoltativa, ma obbligatorio se si prevede che l'applicazione di utilizzare le attestazioni aggiuntive)
+Quando si configurerà PingAccess nel passaggio seguente, la sessione Web viene creata (Impostazioni -> accesso -> Web sessioni) deve avere **richieste profilo** deselezionata e **aggiornare gli attributi utente** Impostare su **No**
 
 ## <a name="download-pingaccess-and-configure-your-application"></a>Scaricare PingAccess e configurare l'applicazione
 

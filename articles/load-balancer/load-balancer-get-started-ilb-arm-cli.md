@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: da8433e6c03aec5c5b2ff5d290065804816ac724
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb01aa84201c1e0727414215974a343e8cf3b724
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66122321"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475894"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Creare un servizio di bilanciamento del carico interno per le macchine virtuali mediante l'interfaccia della riga di comando di Azure
 
@@ -60,7 +60,7 @@ Questa sezione descrive dettagliatamente come creare e configurare i componenti 
 
 ### <a name="create-the-load-balancer"></a>Creare il servizio di bilanciamento del carico
 
-Usare il comando [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) per creare un servizio di bilanciamento del carico di base pubblico denominato **myLoadBalancer**, che include una configurazione IP front-end denominata **myFrontEnd** e un pool back-end denominato **myBackEndPool** associato a un indirizzo IP privato **10.0.0.7.
+Creare un servizio di bilanciamento del carico interno con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominate **myLoadBalancer** che include una configurazione IP front-end denominata **myFrontEnd**, un pool di back-end denominato **myBackEndPool** associato a un indirizzo IP privato * * 10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \

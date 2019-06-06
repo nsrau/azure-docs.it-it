@@ -2,20 +2,20 @@
 title: Aggiungere attestazioni e input di personalizzazione dell'esperienza utente tramite criteri personalizzati - Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come personalizzare l'input dell'esperienza utente e aggiungere attestazioni al percorso di accesso o di registrazione in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768004"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507551"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere attestazioni e input di personalizzazione dell'esperienza utente tramite criteri personalizzati in Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ Vengono usati gli elementi seguenti per definire l'attestazione:
 - **UserHelpText**: consente all'utente di identificare i requisiti.
 - **UserInputType**: può essere una casella di testo, una selezione radio, un elenco a discesa o una selezione multipla.
 
-#### <a name="textbox"></a>Casella di testo
+#### <a name="textbox"></a>TextBox
 
 ```xml
 <ClaimType Id="city">
@@ -263,7 +263,7 @@ Vengono usati gli elementi seguenti per definire l'attestazione:
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Assicurarsi di usare la directory contenente il tenant di Azure AD facendo clic sul **filtro per directory e sottoscrizione** nel menu in alto e scegliendo tale directory.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
-4. Selezionare **Identity Experience Framework (anteprima)**.
+4. Selezionare **Identity Experience Framework (anteprima)** .
 5. Selezionare **Carica criteri personalizzati**e caricare i file dei due criteri modificati.
 2. Selezionare il criterio di iscrizione o di accesso che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 3. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.

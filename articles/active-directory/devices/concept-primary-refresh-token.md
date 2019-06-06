@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9ecf6d04056a91f1f9dd62a5238f60177d2bf59
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 16e4a5f63ba80b02a967888ad76fedf165a576c8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420589"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473392"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Che cos'è un Token di aggiornamento primario?
 
@@ -111,8 +111,11 @@ Quando un utente avvia un'interazione di browser, il browser (o l'estensione) ri
 Un PRT possibile ottenere un'attestazione di autenticazione a più fattori (MFA) in scenari specifici. Quando un PRT basato su MFA viene usato per richiedere token per le applicazioni, l'attestazione MFA viene trasferito a tali token dell'app. Questa funzionalità offre un'esperienza senza problemi agli utenti, impedendo la richiesta di autenticazione MFA per ogni app che lo richiede. Un PRT possibile ottenere un'attestazione MFA nei modi seguenti:
 
 * **Accedere con Windows Hello for Business**: Windows Hello for Business consente di sostituire le password e Usa le chiavi crittografiche per fornire l'autenticazione a due fattori avanzata. Windows Hello for Business è specifico di un utente in un dispositivo e di per sé richiede MFA per eseguire il provisioning. Quando un utente accede con Windows Hello for Business, PRT il suo Ottiene un'attestazione di autenticazione a più fattori. Questo scenario si applica anche agli utenti l'accesso con smart card se l'autenticazione della smart card produce un'attestazione MFA da ad FS.
+   * Come Windows Hello for Business è considerata multi-factor authentication, l'attestazione MFA viene aggiornato quando viene aggiornata la PRT stesso, pertanto la durata MFA estenderà continuamente quando gli utenti accedono con WIndows Hello for Business
 * **Autenticazione a più fattori durante l'accesso interattivo WAM in**: Durante una richiesta di token tramite WAM, se un utente viene richiesto di eseguire l'autenticazione a più fattori per accedere all'app, la PRT che viene rinnovata durante questa interazione è adesiva con un'attestazione di autenticazione a più fattori.
+   * In questo caso, l'attestazione di autenticazione a più fattori non viene aggiornato in modo continuo, in modo che la durata MFA è basata sulla durata impostata sulla directory.
 * **Autenticazione a più fattori durante la registrazione del dispositivo**: Se un amministratore ha configurato le impostazioni di dispositivo in Azure AD [richiede l'autenticazione MFA registrare i dispositivi](device-management-azure-portal.md#configure-device-settings), l'utente deve eseguire l'autenticazione a più fattori per completare la registrazione. Durante questo processo, la PRT emesso per l'utente ha l'attestazione MFA ottenuto durante la registrazione. Questa funzionalità si applica solo all'utente che ha eseguito l'operazione di join, non ad altri utenti che accedono a tale dispositivo.
+   * Simile al WAM interattiva di accesso, l'attestazione di autenticazione a più fattori non viene aggiornata in modo continuo, in modo che la durata MFA è basata sulla durata impostata sulla directory.
 
 Windows 10 mantiene un elenco partizionato di PRT per ciascuna credenziale. Pertanto, non sia presente un PRT per ognuno di Windows Hello for Business, password o smart card. Tale partizionamento assicura che le attestazioni di autenticazione a più fattori siano isolate in base alla credenziale usato e non confuse durante le richieste di token.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fa7730247ddc5f30c3d21a32421a6c55ec4ef72e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 9b2630614e549181f4dd2f4e79871c4594d09201
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872756"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496856"
 ---
 # <a name="vpn-gateways-overview"></a>Panoramica del gateway VPN
 
@@ -36,6 +36,8 @@ Casi d'uso per la rete VPN site-to-site includono:
 * Utilizzo di Active Directory in locale come origine delle identità di vCenter.
 * Pratico trasferimento dei modelli di macchina virtuale, le immagini ISO e altri file provenienti dalle risorse locali al server vCenter al cloud privato.
 * Accessibilità dei carichi di lavoro in esecuzione sul cloud privato dalla rete locale.
+
+![Topologia di connessione VPN Site-to-Site](media/cloudsimple-site-to-site-vpn-connection.png)
 
 ### <a name="cryptographic-parameters"></a>Parametri di crittografici
 

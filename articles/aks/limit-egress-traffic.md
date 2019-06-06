@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 13fbb20cde454a0aaab156a74a9fbcbac2d90d07
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: b5a203150906758bde33431a1dab717e090f2e28
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418137"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475583"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Anteprima - limitare il traffico in uscita per i nodi del cluster e controllare l'accesso alle porte necessarie e i servizi in Azure Kubernetes Service (AKS)
 
@@ -75,7 +75,7 @@ Il nome FQDN segue le regole di applicazione sono necessari:
 
 | FQDN                      | Port      | Uso      |
 |---------------------------|-----------|----------|
-| *.azmk8s.io               | HTTPS:443 | Questo indirizzo è l'endpoint server dell'API. |
+| *.azmk8s.io               | HTTPS:443,22,9000 | Questo indirizzo è l'endpoint server dell'API. |
 | aksrepos.azurecr.io       | HTTPS:443 | Questo indirizzo è obbligatorio per l'accesso immagini nel registro contenitori di Azure (ACR). |
 | *.blob.core.windows.net   | HTTPS:443 | Questo indirizzo è l'archivio di back-end per le immagini archiviate nel registro contenitori di AZURE. |
 | mcr.microsoft.com         | HTTPS:443 | Questo indirizzo è obbligatorio per l'accesso immagini nel Registro di sistema contenitore Microsoft (MCR). |

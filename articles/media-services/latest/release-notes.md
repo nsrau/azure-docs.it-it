@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 06/04/2019
 ms.author: juliako
-ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385153"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688658"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -36,11 +36,18 @@ Per altre informazioni, vedere [Materiale sussidiario sulla migrazione per aggio
 
 ## <a name="may-2019"></a>Maggio 2019
 
-### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS versione 4 e versioni successive supportano nella creazione dinamica dei pacchetti 
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Supporto di monitoraggio di Azure per le metriche e log di diagnostica di servizi multimediali
 
-Aggiunto HLS (versione 4 o versioni successive) supportano nella creazione dinamica dei pacchetti per le risorse che hanno più tracce audio con più linguaggi e i codec.
+È ora possibile usare monitoraggio di Azure per visualizzare i dati di telemetria emmited dati da servizi multimediali.
 
-Per altre informazioni, vedere [creazione dinamica dei pacchetti](dynamic-packaging-overview.md).
+* Usare i log di diagnostica di monitoraggio di Azure per monitorare le richieste inviate dall'endpoint di distribuzione delle chiave di servizi multimediali. 
+* Monitorare metriche generate da servizi multimediali [gli endpoint di Streaming](streaming-endpoint-concept.md).   
+
+Per informazioni dettagliate, vedere [log di diagnostica e metriche di servizi multimediali di monitoraggio](media-services-metrics-diagnostic-logs.md).
+
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Con più tracce audio supportano nella creazione dinamica dei pacchetti 
+
+Trasmissione in flusso di risorse con più tracce audio con più linguaggi, e i codec [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) ora supporta più tracce audio per l'output HLS (versione 4 o versione successiva).
 
 ### <a name="korea-regional-pair-is-open-for-media-services"></a>Coppia di aree Corea è aperta per servizi multimediali 
 

@@ -2,20 +2,20 @@
 title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
 description: Specificare l'elemento ContentDefinitions di un criterio personalizzato di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6807ae8d9c8b8458b9ac4552a90119a8f709d330
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d82785a0f833afb6a9c675fc7022ed19e96c7fc0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693350"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511323"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -61,13 +61,13 @@ I metadati del profilo tecnico autocertificato **LocalAccountSignUpWithLogonEmai
 
 L'elemento **ContentDefinition** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Un identificatore per una definizione del contenuto. Il valore è quello specificato nella sezione **ID di definizione del contenuto** più avanti in questa pagina. |
+| ID | Yes | Un identificatore per una definizione del contenuto. Il valore è quello specificato nella sezione **ID di definizione del contenuto** più avanti in questa pagina. |
 
 L'elemento **ContentDefinition** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Una stringa che contiene l'URL della pagina HTML5 per la definizione del contenuto. |
 | RecoveryUri | 0:1 | Una stringa che contiene l'URL della pagina HTML per la visualizzazione di un errore relativo alla definizione del contenuto. | 
@@ -79,7 +79,7 @@ L'elemento **ContentDefinition** contiene gli elementi seguenti:
 
 L'elemento **DataUri** viene usato per specificare l'identificatore della pagina. Azure AD B2C usa l'identificatore di pagina per caricare e avviare gli elementi dell'interfaccia utente e JavaScript lato client. Il formato del valore è `urn:com:microsoft:aad:b2c:elements:page-name:version`.  I seguenti elenchi tabella degli identificatori di pagina che è possibile usare.
 
-| Value |   DESCRIZIONE |
+| Value |   Descrizione |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Viene visualizzata una pagina di errore quando viene rilevata un'eccezione o un errore. |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Elenca i provider di identità tra cui gli utenti possono scegliere durante la procedura di accesso. | 
@@ -93,16 +93,16 @@ L'elemento **DataUri** viene usato per specificare l'identificatore della pagina
 
 L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | DESCRIZIONE |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1:n | Un elenco di riferimenti di risorse localizzate per la definizione del contenuto. | 
 
 L'elemento **LocalizedResources** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| Linguaggio | Sì | Una stringa che contiene una lingua supportata per i criteri per RFC 5646 - Tag per identificare le lingue. |
-| LocalizedResourcesReferenceId | Sì | L'identificatore dell'elemento **LocalizedResources**. |
+| Linguaggio | Yes | Una stringa che contiene una lingua supportata per i criteri per RFC 5646 - Tag per identificare le lingue. |
+| LocalizedResourcesReferenceId | Yes | L'identificatore dell'elemento **LocalizedResources**. |
 
 Nell'esempio seguente viene mostrata una definizione del contenuto di iscrizione o accesso:
 
@@ -141,7 +141,7 @@ Per informazioni su come aggiungere il supporto di localizzazione per le definiz
 
 L'attributo ID dell'elemento **ContentDefinition** specifica il tipo di pagina correlato alla definizione del contenuto. L'elemento definisce il contesto a cui un modello personalizzato HTML5/CSS viene applicato. La tabella seguente descrive il set degli ID definizione del contenuto riconosciuti dal framework di gestione dell'identità e i tipi di pagina correlati. È possibile creare le definizioni del contenuto con un ID arbitrario.
 
-| ID | Modello predefinito | DESCRIZIONE | 
+| ID | Modello predefinito | Descrizione | 
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Pagina di errore**: Viene visualizzata una pagina di errore quando viene rilevata un'eccezione o un errore. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Pagina di selezione del provider di identità** - Elenca i provider di identità tra cui gli utenti possono scegliere durante l'iscrizione. Si tratta in genere di provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali. |

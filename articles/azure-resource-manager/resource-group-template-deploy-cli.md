@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 92476f9ac48c168c3bbe85d4da49b6afe034c117
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cccae343e0a06af88c2e996c37910de72138c60
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730508"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475049"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
@@ -42,6 +42,8 @@ Per distribuire in un **abbonamento**, usare [creare la distribuzione di az](/cl
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
+
+Attualmente, distribuzioni di gruppi di gestione sono supportate solo tramite l'API REST. Visualizzare [distribuire le risorse con modelli di Resource Manager e il REST API di Resource Manager](resource-group-template-deploy-rest.md).
 
 Gli esempi in questo articolo usano distribuzioni di gruppi di risorse. Per altre informazioni sulle distribuzioni di sottoscrizione, vedere [creare i gruppi di risorse e le risorse a livello di sottoscrizione](deploy-to-subscription.md).
 
@@ -102,11 +104,11 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>Eseguire nuovamente la distribuzione se non è riuscita
 
-Questa funzionalità è detta anche *Rollback in caso di errore*. Quando una distribuzione non riesce, è possibile ridistribuire automaticamente una distribuzione precedente con esito positivo dalla cronologia della distribuzione. Per specificare la ridistribuzione, usare il parametro `--rollback-on-error` nel comando di distribuzione. Questa funzionalità è utile se si dispone di uno stato noto soddisfacente per la distribuzione dell'infrastruttura e si vuole che questo è possibile ripristinare. Esistono una serie di avvertenze e limitazioni:
+Questa funzionalità è detta anche *Rollback in caso di errore*. Quando una distribuzione non riesce, è possibile ridistribuire automaticamente una distribuzione precedente con esito positivo dalla cronologia della distribuzione. Per specificare la ridistribuzione, usare il parametro `--rollback-on-error` nel comando di distribuzione. Questa funzionalità è utile se si ha uno stato noto soddisfacente per la distribuzione dell'infrastruttura e vuole ripristinare questo stato. Esistono una serie di avvertenze e limitazioni:
 
-- La ridistribuzione viene eseguita esattamente come è stato eseguito in precedenza con gli stessi parametri. Non è possibile modificare i parametri.
+- La ridistribuzione viene eseguita esattamente come è stato eseguito in precedenza con gli stessi parametri. È possibile modificare i parametri.
 - Viene eseguita la distribuzione precedente usando il [modalità completa](./deployment-modes.md#complete-mode). Vengono eliminate tutte le risorse non incluse nella distribuzione precedente e qualsiasi risorsa di configurazioni è impostata allo stato precedente. Assicurarsi di aver compreso le [modalità di distribuzione](./deployment-modes.md).
-- La ridistribuzione interessa solo le risorse, le modifiche ai dati non sono state interessate.
+- La ridistribuzione interessa solo le risorse, le modifiche ai dati non sono interessate.
 - Questa funzionalità è supportata solo in distribuzioni con configurazione gruppo di risorse, non distribuzioni a livello di sottoscrizione. Per altre informazioni sulla distribuzione a livello di sottoscrizione, vedere [creare i gruppi di risorse e le risorse a livello di sottoscrizione](./deploy-to-subscription.md).
 
 Per usare questa opzione, le distribuzioni devono avere nomi univoci in modo che sia possibile identificarle nella cronologia. Se non si dispone di nomi univoci, la distribuzione non riuscita corrente potrebbe sovrascrivere quella eseguita in modo corretto nella cronologia. È possibile usare questa opzione solo con le distribuzioni a livello di radice. Le distribuzioni di un modello annidato non sono disponibili per la ridistribuzione.

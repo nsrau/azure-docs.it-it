@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f83eb87d2eecb91aa18b1caceb42f9d8bd6c2a0e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cfa94fc1c75bcd1eaa9a076cfe63369f60ce5f1c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939579"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693089"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
@@ -129,6 +129,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 - I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili punto (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
 - L'autenticazione di Azure Active Directory non è supportata.
 - Le tabelle con lo stesso nome ma con schema diverso (ad esempio, dbo.customers e sales.customers) non sono supportate.
+- Non sono supportate le colonne con tipi di dati definiti dall'utente
 
 #### <a name="unsupported-data-types"></a>Tipi di dati non supportati
 
@@ -139,7 +140,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 
 #### <a name="unsupported-column-types"></a>Tipi di colonna non supportati
 
-La sincronizzazione dati non sincronizza le colonne di sola lettura o generate dal sistema. Ad esempio: 
+La sincronizzazione dati non sincronizza le colonne di sola lettura o generate dal sistema. Ad esempio:
 
 - Colonne calcolate.
 - Colonne generate dal sistema per le tabelle temporali.

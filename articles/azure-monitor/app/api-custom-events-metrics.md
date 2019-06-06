@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6e20aef77625fe426526884c3fcee83019afd0c0
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299244"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478411"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 I dati di telemetria sono disponibili nella tabella `customEvents` in [Analytics di Application Insights](analytics.md). Ogni riga rappresenta una chiamata a `trackEvent(..)` nell'app in uso.
 
-Se il [campionamento](../../azure-monitor/app/sampling.md) è attivo, la proprietà itemCount mostra un valore maggiore di 1. Per esempio itemCount==10 indica che su 10 chiamate a trackEvent(), il processo di campionamento ne trasmette solo una. Per ottenere un conteggio corretto degli eventi personalizzati, si consiglia di usare un codice, ad esempio `customEvents | summarize sum(itemCount)`.
+Se il [campionamento](../../azure-monitor/app/sampling.md) è attivo, la proprietà itemCount mostra un valore maggiore di 1. Per esempio itemCount==10 indica che su 10 chiamate a trackEvent(), il processo di campionamento ne trasmette solo una. Per ottenere un conteggio corretto degli eventi personalizzati, si consiglia pertanto di utilizzare codice, ad esempio `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -592,7 +592,7 @@ Registrare un evento di diagnostica, ad esempio inserire o rimuovere un metodo.
 Il limite delle dimensioni per `message` è molto superiore al limite per le proprietà.
 Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lunghi nel messaggio. Ad esempio è possibile codificare dati POST.  
 
-È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria è possibile aggiungere valori di proprietà utili per filtrare o cercare set di tracce diversi. Ad esempio: 
+È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria è possibile aggiungere valori di proprietà utili per filtrare o cercare set di tracce diversi. Ad esempio:
 
 *C#*
 

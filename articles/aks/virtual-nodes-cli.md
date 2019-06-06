@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 7631a2d6aef2efedf30c0b9015913c89949d4c29
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506952"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742780"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -44,7 +44,7 @@ Se il provider viene visualizzato come *NotRegistered*, registrare il provider u
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>Disponibilità a livello di area
+## <a name="regional-availability"></a>Disponibilità internazionale
 
 Per distribuzioni a nodo virtuale sono supportate le aree seguenti:
 
@@ -69,6 +69,7 @@ Funzionalità di nodi virtuali è dipende in larga misura dal set di funzionalit
 * [Alias dell'host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Gli argomenti](../container-instances/container-instances-exec.md#restrictions) per exec in ACI
 * [Daemonset](concepts-clusters-workloads.md#statefulsets-and-daemonsets) non distribuirà i POD per nodo virtuale
+* [I nodi di Windows Server (attualmente in anteprima nel servizio contenitore di AZURE)](windows-container-cli.md) non sono supportati insieme ai nodi virtuali. È possibile usare i nodi virtuali per pianificare i contenitori di Windows Server senza la necessità di nodi di Windows Server in un cluster AKS.
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
@@ -280,7 +281,7 @@ Installare `curl` nel pod usando `apt-get`:
 apt-get update && apt-get install -y curl
 ```
 
-Accedere all'indirizzo del pod usando `curl`, ad esempio *http://10.241.0.4*. Specificare l'indirizzo IP interno visualizzato nel comando `kubectl get pods` precedente:
+Accedere all'indirizzo del pod usando `curl`, ad esempio *http://10.241.0.4* . Specificare l'indirizzo IP interno visualizzato nel comando `kubectl get pods` precedente:
 
 ```console
 curl -L http://10.241.0.4

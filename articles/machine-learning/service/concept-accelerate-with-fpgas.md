@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 9204b0d8513d4adbb9c93be94284d7d46de41e06
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851015"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479572"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>Quali sono le matrici di campo-programmable gate (FPGA)
 
@@ -80,7 +80,7 @@ Per iniziare a distribuire i modelli di rete neurale profonda su cui è stato es
 
 Consultare questi video e blog:
 
-+ [Hyperscale hardware: ML at scale on top of Azure + FPGA: Build 2018 (video)](https://www.youtube.com/watch?v=BMgQAHIx2eY) (Hardware iperscalabile: ML su scala basato su Azure + FPGA: Build 2018)
++ [Hyperscale hardware: ML at scale on top of Azure + FPGA: Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202) (Hardware iperscalabile: ML su scala basato su Azure + FPGA: Build 2018)
 
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063) (Informazioni sul cloud configurabile basato su Microsoft FPGA)
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 52b929d8caa7b855e45ce9ca57d39d1dfcbcb8a1
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: b0dfe69a77d236e7a811ca5c7407428327c62ff3
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66392694"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430992"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso del servizio Azure Kubernetes
 
@@ -41,6 +41,9 @@ Il controller di ingresso deve anche essere pianificato in un nodo Linux. I nodi
 
 > [!TIP]
 > L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse di ingresso denominato *ingress-basic*. Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze. Se il cluster AKS non RBAC abilitato, aggiungere `--set rbac.create=false` ai comandi di Helm.
+
+> [!TIP]
+> Se si vuole abilitare [mantenimento dell'IP di origine client] [ client-source-ip] per le richieste per i contenitori nel cluster, aggiungere `--set controller.service.externalTrafficPolicy=Local` per controllare tutti gli aspetti di comando di installazione. Origine del client IP viene archiviato nell'intestazione della richiesta sotto *X-Forwarded-For*. Quando si usa un controller di ingresso con conservazione dell'IP di origine client abilitata, pass-through SSL non funzionerà.
 
 ```console
 # Create a namespace for your ingress resources
@@ -226,3 +229,4 @@ In questo articolo sono stati inclusi alcuni componenti esterni ad servizio Azur
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-own-tls]: ingress-own-tls.md
+[client-source-ip]: concepts-network.md#ingress-controllers

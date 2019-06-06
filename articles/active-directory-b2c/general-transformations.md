@@ -2,20 +2,20 @@
 title: Esempi di trasformazione di attestazioni generali per lo schema del framework di gestione delle identità di Azure Active Directory B2C | Microsoft Docs
 description: Esempi di trasformazione di attestazioni generali per lo schema del framework di gestione delle identità di Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 831ecf2924ab6c321f69bb50c4a95a4156482585
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a5f8068ea7e97343749c719d2d0800e20701079c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683948"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510995"
 ---
 # <a name="general-claims-transformations"></a>Trasformazioni delle attestazioni generali
 
@@ -30,7 +30,7 @@ Controlla se **inputClaim** esiste o meno e imposta **outputClaim** su true o fa
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |Qualsiasi | L'attestazione di input di cui deve essere verificata l'esistenza. |
-| OutputClaim | outputClaim | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
+| OutputClaim | outputClaim | Boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 Usare questa trasformazione delle attestazioni per verificare se un'attestazione esiste o contiene un valore. Il valore restituito è un valore booleano che indica se l'attestazione esiste. L'esempio controlla se l'indirizzo di posta elettronica esiste.
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 24e0b61dfd9950a5c5990f8341e32d048453c5d6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6e0192029decef95dcaecc0c60dce5fd5b6f99ff
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689574"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479913"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight
 
@@ -29,9 +29,9 @@ Archiviazione di Azure è una soluzione di archiviazione affidabile, con finalit
 
 | Tipologia di account di archiviazione | Servizi supportati | Livelli di prestazioni supportati | Livelli di accesso supportati |
 |----------------------|--------------------|-----------------------------|------------------------|
-| Archiviazione v2 (utilizzo generico V2)  | BLOB     | Standard                    | Accesso frequente, ad accesso sporadico, archivio\*   |
-| Archiviazione (per utilizzo generico v1)   | BLOB     | Standard                    | N/D                    |
-| BlobStorage                    | BLOB     | Standard                    | Accesso frequente, ad accesso sporadico, archivio\*   |
+| Archiviazione v2 (utilizzo generico V2)  | Blob     | Standard                    | Accesso frequente, ad accesso sporadico, archivio\*   |
+| Archiviazione (per utilizzo generico v1)   | Blob     | Standard                    | N/D                    |
+| BlobStorage                    | Blob     | Standard                    | Accesso frequente, ad accesso sporadico, archivio\*   |
 
 Non è consigliabile usare il contenitore BLOB predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il contenitore BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Il contenitore predefinito include log di sistema e applicazioni. Assicurarsi di recuperare i log prima di eliminare il contenitore.
 
@@ -53,7 +53,7 @@ HDInsight offre accesso al file system distribuito collegato localmente ai nodi 
 
 HDInsight consente anche di accedere ai dati archiviati in Archiviazione di Azure. La sintassi è:
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 Di seguito sono riportate alcune considerazioni sull'uso di un account di Archiviazione di Azure con i cluster HDInsight.
 
@@ -96,10 +96,10 @@ Alcuni pacchetti e processi MapReduce possono creare risultati intermedi che non
 Lo schema URI per l'accesso ai file in Archiviazione di Azure da HDInsight è il seguente:
 
 ```config
-wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
+wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 ```
 
-Lo schema URI offre l'accesso non crittografato (con il prefisso *wasb:*) e l'accesso con crittografia SSL (con il prefisso *wasbs*). Se possibile, è consigliabile usare *wasbs* anche per accedere ai dati presenti nella stessa area di Azure.
+Lo schema URI offre l'accesso non crittografato (con il prefisso *wasb:* ) e l'accesso con crittografia SSL (con il prefisso *wasbs*). Se possibile, è consigliabile usare *wasbs* anche per accedere ai dati presenti nella stessa area di Azure.
 
 Il `<BlobStorageContainerName>` identifica il nome del contenitore blob in archiviazione di Azure.
 Il `<StorageAccountName>` identifica il nome di account di archiviazione di Azure. È necessario specificare un nome di dominio completo (FQDN).
