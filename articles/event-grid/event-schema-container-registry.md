@@ -157,7 +157,7 @@ Un evento presenta i seguenti dati di primo livello:
 
 | Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| topic | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
 | eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
@@ -171,10 +171,10 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | id | stringa | L'ID evento. |
-|  timestamp | stringa | L'ora in cui si è verificato l'evento. |
+| timestamp | stringa | L'ora in cui si è verificato l'evento. |
 | action | stringa | L'azione che comprende l'evento specificato. |
 | target | object | L'URL di destinazione dell'evento. |
-| richiesta | object | La richiesta che ha generato l'evento. |
+| request | object | La richiesta che ha generato l'evento. |
 
 Di seguito sono elencate le proprietà dell'oggetto di destinazione:
 
@@ -194,10 +194,10 @@ Di seguito sono elencate le proprietà dell'oggetto della richiesta:
 | Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | id | stringa | ID della richiesta che ha avviato l'evento. |
-| indirizzo | stringa | L'IP o nome host e possibilmente la porta della connessione client che ha avviato l'evento. Questo valore è il RemoteAddr. dalla richiesta http standard. |
+| addr | stringa | L'IP o nome host e possibilmente la porta della connessione client che ha avviato l'evento. Questo valore è il RemoteAddr. dalla richiesta http standard. |
 | host | stringa | Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host http nelle richieste in ingresso. |
-| statico | stringa | Metodo di richiesta che ha generato l'evento. |
-| userAgent | stringa | Intestazione agente utente della richiesta. |
+| method | stringa | Metodo di richiesta che ha generato l'evento. |
+| useragent | stringa | Intestazione agente utente della richiesta. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
