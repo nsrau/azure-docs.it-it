@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
-ms.openlocfilehash: edf4a3e9d9e9b51ac44f839cababa9d14bc0d17a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.date: 05/29/2019
+ms.openlocfilehash: 21209548d1cfe7b6eebb1757e817a12c797e78a9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228058"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688830"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderare il testo dalla console dell'API
 
-Usare l'[API Moderazione testo](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Content Moderator di Azure per analizzare il contenuto di testo. L'operazione esegue l'analisi del contenuto per il contenuto volgare e confronta il contenuto personalizzati e condivisi elenchi elementi non consentiti.
+Usare la [API di moderazione testo](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator per analizzare il contenuto di testo per il contenuto volgare e confrontarla con elenchi personalizzati e condivisi.
 
 ## <a name="get-your-api-key"></a>Ottenere la chiave dell'API
 
@@ -72,7 +72,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>Analizzare la risposta
 
-La risposta seguente mostra le varie informazioni provenienti dall'API. Contiene potenziali contenuti volgari, informazioni personali, classificazione (anteprima) e la versione corretta automaticamente.
+La risposta seguente mostra le varie informazioni provenienti dall'API. Contiene contenuto potenzialmente volgare, i dati personali, classificazione (anteprima) e la versione è stata corretta automaticamente.
 
 > [!NOTE]
 > La funzionalità "Classification" (Classificazione) automatica è disponibile in anteprima e supporta solo la lingua inglese.

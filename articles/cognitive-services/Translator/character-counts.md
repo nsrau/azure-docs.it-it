@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 06/04/2019
 ms.author: v-pawal
-ms.openlocfilehash: 157b809c1f1707cdaa561ab09486cf4886fff4e0
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: eccd0c47c1bfc071f43a6329406cd14f704d019e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389235"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514297"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Modalità di conteggio dei caratteri dell'API Traduzione testuale
 
@@ -35,7 +35,7 @@ Gli elementi importanti sono i seguenti:
 
 Per gli script basati su ideogrammi come quelli del cinese e del giapponese kanji, l'API Traduzione testuale conteggerà comunque il numero degli elementi di codice Unicode, un carattere per ideogramma. Eccezione: I caratteri surrogati Unicode vengono contati come due caratteri.
 
-Il numero di richieste, parole, byte o frasi non è rilevante nel conteggio dei caratteri. 
+Il numero di richieste, parole, byte o frasi non è rilevante nel conteggio dei caratteri.
 
 Le chiamate ai metodi Detect e BreakSentence non vengono conteggiate nel consumo dei caratteri. Tuttavia, è previsto che le chiamate ai metodi Detect e BreakSentence siano in proporzione ragionevole all'uso di altre funzioni che vengono conteggiate. Se il numero di chiamate Detect o BreakSentence effettuate supera di 100 volte il numero di altri metodi conteggiati, Microsoft si riserva il diritto di limitare l'uso dei metodi Detect e BreakSentence.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796900"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514648"
 ---
 # <a name="request-limits-for-translator-text"></a>Limiti delle richieste per Traduzione testuale
 
@@ -29,16 +29,16 @@ La seguente tabella elenchi matrice elemento e il carattere i limiti per ogni op
 
 | Operazione | Dimensione massima dell'elemento di matrice |   Numero massimo di elementi della matrice |  Dimensioni massime di richiesta (caratteri) |
 |:----|:----|:----|:----|
-| Trasla | 5.000 | 100   | 5.000 |
+| Translate | 5.000 | 100   | 5.000 |
 | Transliterate | 5.000 | 10    | 5.000 |
-| Rileva | 10,000 | 100 |   50,000 |
+| Detect | 10,000 | 100 |   50,000 |
 | BreakSentence | 10,000    | 100 | 5,0000 |
 | Ricerca nel dizionario| 100 |  10  | 1.000 |
 | Esempi di dizionari | 100 per il testo e 100 per la conversione (200 totale)| 10|   2.000 |
 
 ## <a name="character-limits-per-hour"></a>Limiti di caratteri all'ora
 
-Il limite di caratteri all'ora si basa sul livello della sottoscrizione di Traduzione testuale. La quota oraria deve essere utilizzata in modo uniforme in tutta l'ora. Se si raggiungono o superano questi limiti o troppo grande di una parte della quota di trasmissione in un breve periodo di tempo, probabilmente si riceverà un timeout della risposta di quota. 
+Il limite di caratteri all'ora si basa sul livello della sottoscrizione di Traduzione testuale. La quota oraria deve essere utilizzata in modo uniforme in tutta l'ora. Se si raggiungono o superano questi limiti o troppo grande di una parte della quota di trasmissione in un breve periodo di tempo, probabilmente si riceverà un timeout della risposta di quota.
 
 | Livello | Limite di caratteri |
 |------|-----------------|
@@ -69,7 +69,7 @@ Quando si usa la funzione [BreakSentence](https://docs.microsoft.com/azure/cogni
 | Portoghese | pt | 290 |
 | Spagnolo | es | 280 |
 | Italiano | it | 280 |
-| Thai | ° | 258 |
+| Thai | th | 258 |
 
 > [!NOTE]
 > Questo limite non si applica alle traduzioni.
