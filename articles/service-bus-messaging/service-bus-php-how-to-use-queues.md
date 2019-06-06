@@ -163,7 +163,7 @@ catch(ServiceException $e){
 }
 ```
 
-I messaggi inviati (e ricevuti dalle) del Bus di servizio coda sono istanze della [BrokeredMessage] [ BrokeredMessage] classe. Gli oggetti [BrokeredMessage][BrokeredMessage] includono un set di proprietà e metodi standard usati per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione.
+I messaggi inviati (e ricevuti dalle) del Bus di servizio coda sono istanze della [BrokeredMessage][BrokeredMessage] classe. Gli oggetti [BrokeredMessage][BrokeredMessage] includono un set di proprietà e metodi standard usati per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione.
 
 Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e pari a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Il limite massimo della dimensione di una coda è di 5 GB.
 
