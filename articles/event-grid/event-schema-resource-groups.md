@@ -236,7 +236,7 @@ Un evento presenta i seguenti dati di primo livello:
 
 | Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| topic | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
@@ -258,7 +258,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | operationName | string | Operazione eseguita. |
 | status | string | Lo stato dell'operazione. |
 | subscriptionId | string | L'ID sottoscrizione della risorsa. |
-| TenantId | string | L'ID tenant della risorsa. |
+| tenantId | string | L'ID tenant della risorsa. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
