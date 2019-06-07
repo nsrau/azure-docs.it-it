@@ -154,6 +154,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/data'
         - name: Servizio di georilevazione
           href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
+        - name: Servizio Mobility
+          href: 'https://docs.microsoft.com/rest/api/maps/mobility'
         - name: Servizio di rendering
           href: 'https://docs.microsoft.com/rest/api/maps/render'
         - name: Servizio di pianificazione percorso

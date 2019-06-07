@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: wellsi
-ms.openlocfilehash: fab23c86ee2e8f654ac4a9619c39d05ee4e9e4c1
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1c91cde45a6a420376af36f70487adf7fe0ee83a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237942"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751804"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Note sulla versione di Speech Devices SDK di Servizi cognitivi
 L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
@@ -49,7 +49,7 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 
 **Modifiche di rilievo** 
 
-*   [Installazione di una parola riattivazione](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) è stato semplificato, fa ora parte dell'app e non richiede installazione separata sul dispositivo.
+*   [Installazione di una parola riattivazione](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) è stato semplificato, fa ora parte dell'app e non richiede installazione separata sul dispositivo.
 *   Il riconoscimento delle parole la riattivazione è stato modificato e sono supportati due eventi.
     - RecognizingKeyword, indica il risultato di riconoscimento vocale contiene testo (parola chiave) (non verificato).
     - RecognizedKeyword, indica che il riconoscimento (parola chiave) completato riconoscendo la parola chiave Data.
