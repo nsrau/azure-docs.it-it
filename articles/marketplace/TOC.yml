@@ -58,8 +58,6 @@
         - name: Vantaggi del Marketplace
           href: ./gtm-your-marketplace-benefits.md
           items:
-            - name: Promuovere la propria attività con Microsoft
-              href: ./gtm-promote-your-business.md
             - name: Soluzioni preferite
               href: ./preferred-solutions.md
             - name: Soluzioni integrate
@@ -328,39 +326,6 @@
               href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
         - name: Offerta di applicazioni SaaS
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
-          items:
-            - name: Prerequisiti
-              href: ./cloud-partner-portal/saas-app/cpp-prerequisites.md
-            - name: Creare un'offerta per un'applicazione SaaS
-              href: ./cloud-partner-portal/saas-app/cpp-create-offer.md
-              items:
-                - name: Scheda Impostazioni dell'offerta
-                  href: ./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md
-                - name: Scheda Technical Info (Informazioni tecniche)
-                  href: ./cloud-partner-portal/saas-app/cpp-technical-info-tab.md
-                - name: Scheda Piani
-                  href: ./cloud-partner-portal/saas-app/cpp-plans-tab.md
-                - name: Scheda Informazioni canale
-                  href: ./cloud-partner-portal/saas-app/cpp-channel-info-tab.md
-                - name: Scheda Test Drive
-                  href: ./cloud-partner-portal/saas-app/cpp-testdrive-tab.md
-                - name: Scheda Dettagli vetrina
-                  href: ./cloud-partner-portal/saas-app/cpp-storefront-tab.md
-                - name: Scheda Contacts (Contatti)
-                  href: ./cloud-partner-portal/saas-app/cpp-contacts-tab.md
-            - name: Pubblicare un'offerta
-              href: ./cloud-partner-portal/saas-app/cpp-publish-offer.md
-            - name: Aggiornare l'offerta esistente
-              href: ./cloud-partner-portal/saas-app/cpp-update-existing-offer.md
-            - name: API di evasione ordini SaaS
-              href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
-              items:
-                - name: Registrare l'applicazione SaaS
-                  href: ./cloud-partner-portal/saas-app/cpp-saas-registration.md
-                - name: API SaaS v1 (deprecata)
-                  href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
-                - name: API SaaS v2
-                  href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
         - name: Offerta di una macchina virtuale
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
           items:

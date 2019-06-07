@@ -61,19 +61,18 @@
       href: security-center-policies-overview.md
     - name: Confrontare le baseline con Monitoraggio dell'integrità dei file
       href: security-center-file-integrity-monitoring-baselines.md
-      items:
-        - name: Raccolta dei dati
-          href: security-center-enable-data-collection.md
-        - name: Criteri di sicurezza predefiniti
-          href: security-center-policy-definitions.md
-        - name: Notifiche tramite posta elettronica
-          href: security-center-provide-security-contact-details.md
-        - name: Piano tariffario
-          href: security-center-pricing.md
-        - name: Configurazioni di sicurezza
-          href: security-center-customize-os-security-config.md
-        - name: Visibilità a livello di tenant
-          href: security-center-management-groups.md
+    - name: Raccolta dei dati
+      href: security-center-enable-data-collection.md
+    - name: Criteri di sicurezza predefiniti
+      href: security-center-policy-definitions.md
+    - name: Notifiche tramite posta elettronica
+      href: security-center-provide-security-contact-details.md
+    - name: Piano tariffario
+      href: security-center-pricing.md
+    - name: Configurazioni di sicurezza
+      href: security-center-customize-os-security-config.md
+    - name: Visibilità a livello di tenant
+      href: security-center-management-groups.md
     - name: Implementare le raccomandazioni sulla sicurezza
       href: security-center-recommendations.md
       items:
