@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 06/06/2019
 ms.author: magoedte
-ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916370"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751974"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Raccogliere dati di log con l'agente di Azure Log Analytics
 
@@ -59,7 +59,8 @@ A partire dalle versioni rilasciate dopo il mese di agosto 2018, al modello di s
 * Non sono supportate le nuove versioni di AMI.  
 * Per impostazione predefinita, sono supportate solo le versioni che eseguono SSL 1.x.
 
-Se si usa una distribuzione o una versione attualmente non supportata e non allineata al modello di supporto, è consigliabile creare una copia tramite fork del repository, nella consapevolezza che il supporto tecnico Microsoft non fornisce assistenza per versioni dell'agente con fork.
+>[!NOTE]
+>Se si usa una distribuzione o una versione attualmente non supportata e non allineata al modello di supporto, è consigliabile creare una copia tramite fork del repository, nella consapevolezza che il supporto tecnico Microsoft non fornisce assistenza per versioni dell'agente con fork.
 
 * Amazon Linux 2017.09 (x64)
 * CentOS Linux 6 (x86/x64) e 7 (x64)  
@@ -72,6 +73,21 @@ Se si usa una distribuzione o una versione attualmente non supportata e non alli
 >[!NOTE]
 >OpenSSL 1.1.0 è supportato solo su piattaforme x86_x64 (64 bit), mentre le versioni di OpenSSL precedenti a 1.x non sono supportate su alcuna piattaforma.
 >
+
+### <a name="agent-prerequisites"></a>Prerequisiti agente
+
+Nella tabella seguente evidenzia i pacchetti necessari per distribuzioni Linux supportate che l'agente verrà installato in.
+
+|Pacchetto necessario |Descrizione |Versione minima |
+|-----------------|------------|----------------|
+|Glibc |    Libreria GNU C | 2.5-12 
+|Openssl    | Librerie OpenSSL | 1.0.x o 1.1.x |
+|Curl | Client Web cURL | 7.15.5 |
+|Python-ctypes | | 
+|PAM | Moduli di autenticazione modulare | | 
+
+>[!NOTE]
+>Per raccogliere i messaggi SysLog, è necessario rsyslog o syslog-ng. Il daemon SysLog predefinito nella versione 5 di Red Hat Enterprise Linux, CentOS e nella versione Oracle Linux (sysklog) non è supportato per la raccolta di eventi SysLog. Per raccogliere i dati di SysLog da questa versione delle distribuzioni, è necessario installare e configurare il daemon rsyslog in modo da sostituire sysklog.
 
 ## <a name="tls-12-protocol"></a>Protocollo TLS 1.2
 Per garantire la sicurezza dei dati in transito per i log di monitoraggio di Azure, si consiglia di configurare l'agente a utilizzare almeno Transport Layer Security (TLS) 1.2. Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**.  Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 

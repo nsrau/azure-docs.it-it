@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 0e3a35c2ceed5f3bb08b2d332f05bbaf416c94b2
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 4ce3ca31163c286f54b9630e5d4779e2e47a032f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743240"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754592"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurare il traffico di rete in uscita per i cluster HDInsight di Azure con Firewall (anteprima)
 
@@ -162,7 +162,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 L'integrazione del Firewall di Azure con i log di monitoraggio di Azure è utile durante il recupero prima di tutto eseguita un'applicazione quando non si è consapevoli di tutte le dipendenze dell'applicazione. Per altre informazioni sui log di Monitoraggio di Azure, vedere [Analizzare i dati di log in Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)
 
 ## <a name="access-to-the-cluster"></a>Accesso al cluster
-Dopo avere completato la configurazione del firewall, è possibile usare l'endpoint interno (https://<clustername>-int.azurehdinsight.net) per accedere la Ambari dall'interno della rete virtuale. Per usare l'endpoint pubblico (https://<clustername>. azurehdinsight.net) o ssh endpoint (<clustername>-ssh.azurehdinsight.net), assicurarsi che hai le route a destra nella tabella di route e impostare le regole NSG per evitare il asymetric routing problema spiegato [qui](https://docs.microsoft.com/azure/firewall/integrate-lb).
+Dopo avere completato la configurazione del firewall, è possibile usare l'endpoint interno (`https://<clustername>-int.azurehdinsight.net`) per accedere la Ambari dall'interno della rete virtuale. Per usare l'endpoint pubblico (`https://<clustername>.azurehdinsight.net`) o ssh endpoint (`<clustername>-ssh.azurehdinsight.net`), assicurarsi che hai le route a destra nella tabella di route e configurare le regole NSG per evitare il problema di routing asymetric illustrato [qui](https://docs.microsoft.com/azure/firewall/integrate-lb).
 
 ## <a name="configure-another-network-virtual-appliance"></a>Configurare un'altra appliance virtuale di rete
 

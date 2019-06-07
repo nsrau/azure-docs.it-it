@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 054aaf6f607bba216f979665a0b0672ec253ba7f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475975"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752960"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurare le destinazioni di calcolo per il training del modello 
 
@@ -37,18 +37,8 @@ Questo articolo illustra come usare diverse destinazioni di calcolo per il train
 
 Il servizio Azure Machine Learning offre un supporto variabile per le diverse destinazioni di calcolo. Un tipico ciclo di vita di sviluppo modello inizia con lo sviluppo e la sperimentazione su una piccola quantità di dati. In questa fase è consigliabile usare un ambiente locale, ad esempio il computer locale o una macchina virtuale basata sul cloud. Quando il training viene eseguito su set di dati più grandi, o quando si esegue il training distribuito, è consigliabile usare l'ambiente di calcolo di Azure Machine Learning per creare un cluster a uno o più nodi che viene ridimensionato automaticamente ogni volta che viene inviata un'esecuzione. È possibile collegare la propria risorsa di calcolo, anche se il supporto per i diversi scenari può variare, come indicato di seguito:
 
+[!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
-|Set di training &nbsp;destinazioni| Supporto per GPU |Funzionalità automatiche di Machine Learning | Pipeline di apprendimento automatico | Interfaccia visiva grafica
-|----|:----:|:----:|:----:|:----:|
-|[Computer locale](#local)| Forse | sì | &nbsp; | &nbsp; |
-|[Ambiente di calcolo di Machine Learning](#amlcompute)| sì | Sì & <br/>degli iperparametri&nbsp;ottimizzazione | sì | sì |
-|[Macchina virtuale remota](#vm) |sì | Sì & <br/>Ottimizzazione degli iperparametri | sì | &nbsp; |
-|[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | sì | sì | &nbsp; |
-|[Azure Data Lake Analytics.](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | sì | &nbsp; |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | sì | &nbsp; |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | sì | &nbsp; |
-
-**Tutte le destinazioni di calcolo possono essere riutilizzate per più processi di training**. Ad esempio, dopo aver collegato una macchina virtuale remota all'area di lavoro, è possibile riutilizzarla per più processi.
 
 > [!NOTE]
 > L'ambiente di calcolo di Azure Machine Learning può essere creato come risorsa permanente o in modo dinamico quando si richiede un'esecuzione. Al termine del training, la creazione basata sull'esecuzione rimuove la destinazione di calcolo. Non è quindi possibile riutilizzare le destinazioni di calcolo create in questo modo.

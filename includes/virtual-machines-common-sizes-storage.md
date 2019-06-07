@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: de998265188b1482be22225bba3c6ab3d58e562b
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420784"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66755597"
 ---
 Le dimensioni delle macchine virtuali ottimizzate per l'archiviazione offrono I/O e velocità effettiva del disco elevati, ideali per i database NoSQL, SQL e Big Data, data warehousing e database transazionali di grandi dimensioni.  Tra gli esempi sono inclusi Cassandra, MongoDB, Cloudera e Redis. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda di rete per ogni dimensione ottimizzata.
 
@@ -57,7 +57,7 @@ Memorizzazione nella cache archiviazione Premium: Non supportato
 - SLES 12 SP2 o versione successiva
 - Versione CentOS o RHEL 6.7 through 6.10, con il pacchetto LIS fornita da Microsoft 4.3.1 (o versione successiva) installato
 - Versione RHEL o CentOS 7.3, con pacchetti fornita da Microsoft LIS 4.2.1 (o versione successiva) installato
-- CentOS o RHEL 7.4 o versione successiva
+- CentOS o RHEL 7.6 o versione successiva
 - Oracle Linux con UEK4 o versione successiva
 - Debian 9 con il kernel, backports Debian 10 o versione successiva
 - CoreOS con un kernel 4.14 o versione successiva

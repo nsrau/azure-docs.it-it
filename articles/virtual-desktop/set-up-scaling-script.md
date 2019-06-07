@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410577"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755140"
 ---
 # <a name="automatically-scale-session-hosts"></a>Ridimensionare automaticamente gli host della sessione
 
@@ -26,7 +26,7 @@ L'ambiente in cui si esegue lo script deve avere le operazioni seguenti:
 
 - Un tenant di Desktop virtuale Windows e account o un'entità servizio con le autorizzazioni per eseguire query sui tenant (ad esempio collaboratore di servizi desktop remoto).
 - Macchine virtuali del pool host sessione configurato e registrato con il servizio di Windows Desktop virtuale.
-- Un'altra macchina virtuale che esegue l'attività pianificata tramite utilità di pianificazione e ha accesso alla rete agli host della sessione. Si sarà tenuti a più avanti nel documento come scaler della macchina virtuale.
+- Un'altra macchina virtuale che esegue l'attività pianificata tramite utilità di pianificazione e ha accesso alla rete agli host della sessione. Questo verrà essere indicato più avanti nel documento come scaler della macchina virtuale.
 - Il [modulo PowerShell di Resource Manager di Microsoft Azure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) installato nella macchina virtuale che esegue l'attività pianificata.
 - Il [modulo di Windows PowerShell di Desktop virtuale](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) installato nella macchina virtuale che esegue l'attività pianificata.
 

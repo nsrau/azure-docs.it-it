@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgan
-ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925678"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753766"
 ---
-# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande frequenti: Ripristino di emergenza di Azure ad Azure
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande frequenti: Ripristino di emergenza da Azure ad Azure
 
 Questo articolo offre risposte alle domande comuni sul ripristino di emergenza di macchine virtuali di Azure in un'altra area di Azure usando [Site Recovery](site-recovery-overview.md). 
 
@@ -59,7 +59,7 @@ Sì, è possibile escludere dischi al momento della protezione tramite PowerShel
 Sì, questa è supportata per le macchine virtuali di Azure con dischi gestiti. Quando si aggiunge un nuovo disco a una macchina virtuale di Azure che è abilitato per la replica, integrità della replica per la macchina virtuale viene visualizzato un avviso, con una nota che specifica che uno o più dischi nella macchina virtuale sono disponibili per la protezione. È possibile abilitare la replica per i dischi aggiunti.
 - Se si abilita la protezione per i dischi aggiunti, l'avviso scompare dopo la replica iniziale.
 - Se si sceglie di non abilitare la replica per il disco, è possibile selezionare per ignorare l'avviso.
-- Quando esegue il failover una macchina virtuale a cui si aggiunge un disco e abilitare la replica, i punti di replica visualizzerà i dischi disponibili per il ripristino. Ad esempio, se una macchina virtuale ha un singolo disco e si aggiunge una nuova, i punti di replica creati prima di aggiungere il disco mostrerà che il punto di replica è costituita da "1 di 2 dischi".
+- Quando esegue il failover una macchina virtuale a cui si aggiunge un disco e abilitare la replica, i punti di replica visualizzerà i dischi disponibili per il ripristino. Ad esempio, se una macchina virtuale ha un singolo disco e ne viene aggiunto uno nuovo, i punti di replica creati prima di aggiungerlo mostreranno che il punto di replica è costituito da "1 di 2 dischi".
 
 Site Recovery non supporta "a caldo rimuovere" di un disco da una macchina virtuale replicata. Se si rimuove un disco di macchina virtuale, è necessario disabilitare e riabilitare la replica per la macchina virtuale.
 
@@ -143,7 +143,7 @@ Sì. Se si aumenta il periodo di conservazione da 24 a 72 ore, Site Recovery sal
 Questo tipo di coerenza implica che il punto di recupero sia coerente in tutte le macchine virtuali replicate.
 Site Recovery offre l'opzione Coerenza tra più macchine virtuali che consente di eseguire la replica di tutte le macchine virtuali presenti in un gruppo di replica appositamente creato.
 Tutte le macchine virtuali condivideranno punti di recupero coerenti con l'arresto anomalo del sistema e con l'app quando saranno sottoposte a failover.
-Per [abilitare la coerenza tra più macchine virtuali](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication), seguire i passaggi nell'esercitazione.
+Per [abilitare la coerenza tra più macchine virtuali](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm), seguire i passaggi nell'esercitazione.
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>È possibile eseguire il failover di una macchina virtuale all'interno di un gruppo di replica per la coerenza tra più macchine virtuali?
 Quando si seleziona l'opzione Coerenza tra più macchine virtuali, si dichiara che l'applicazione ha una dipendenza su tutte le macchine virtuali all'interno di un gruppo. Di conseguenza, il failover di una singola macchina virtuale non è consentito.
@@ -180,7 +180,7 @@ Scopri [mantenimento degli indirizzi IP durante il failover](site-recovery-retai
 Site Recovery tenta di fornire l'indirizzo IP al momento del failover. Se un'altra macchina virtuale richiede tale indirizzo, Site Recovery imposta il successivo indirizzo IP disponibile come destinazione.
 Altre informazioni sulle [impostazione di mapping di rete e gli indirizzi IP per reti virtuali](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
 
-### <a name="what-are-latest-lowest-rpo-recovery-points"></a>Che cosa sono i punti di recupero **più recenti (valore RPO più basso)**?
+### <a name="what-are-latest-lowest-rpo-recovery-points"></a>Che cosa sono i punti di recupero **più recenti (valore RPO più basso)** ?
 L'opzione **Più recente (RPO più basso)** elabora tutti i dati inviati al servizio Site Recovery per creare un punto di recupero per ogni macchina virtuale e quindi esegue il failover in tale punto. Questa opzione offre il valore RPO (Recovery Point Objective) più basso perché la macchina virtuale creata dopo il failover contiene tutti i dati che sono stati replicati in Site Recovery all'attivazione del failover.
 
 ### <a name="do-latest-lowest-rpo-recovery-points-have-an-impact-on-failover-rto"></a>I punti di recupero **più recenti (RPO più basso)** hanno un impatto sul failover RTO (Recovery Time Objective)?

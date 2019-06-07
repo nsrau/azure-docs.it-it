@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 6ab6ec6a88dbba066be9ecf9919be876090cfdff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: edadb369461bb3865dd6894c3329e7079fa9d13f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121502"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752561"
 ---
 # <a name="azure-logging-and-auditing"></a>Registrazione e controllo di Azure
 
@@ -101,7 +101,7 @@ I log di diagnostica di Azure offrono più opzioni di configurazione, tra cui il
 **Servizi supportati, schema per i log di diagnostica e categorie di log supportate per ogni tipo di risorsa**
 
 
-| Service | Schema e documentazione | Tipo di risorsa | Categoria |
+| Service | Schema e documentazione | Tipo di risorsa | Category |
 | ------- | ------------- | ------------- | -------- |
 |Azure Load Balancer| [Log di monitoraggio di Azure per il bilanciamento del carico (anteprima)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
 |Gruppi di sicurezza di rete|[Log di monitoraggio di Azure per i gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
@@ -274,12 +274,12 @@ Application Insights è destinato al team di sviluppo, a cui consente di compren
 
 La tabella seguente elenca e descrive gli scenari di integrazione:
 
-| Scenario di integrazione | DESCRIZIONE |
+| Scenario di integrazione | Descrizione |
 | --------------------- | :---------- |
 |[Mappa delle applicazioni](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|I componenti dell'applicazione, con le metriche e gli avvisi chiave.|
 |[Ricerca diagnostica dei dati dell'istanza](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Cercare e filtrare eventi come richieste, eccezioni, chiamate a dipendenze, tracce di log e visualizzazioni di pagina.|
 |[Esplora metriche per i dati aggregati](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Esaminare, filtrare e segmentare dati aggregati come frequenza delle richieste, errori, eccezioni, tempi di risposta e tempi di caricamento delle pagine.|
-|[Dashboard](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combinare dati di più risorse e condividerli con altri utenti. Ideale per le applicazioni multi-componente e per la visualizzazione continua negli spazi del team.|
+|[Dashboard](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)|Combinare dati di più risorse e condividerli con altri utenti. Ideale per le applicazioni multi-componente e per la visualizzazione continua negli spazi del team.|
 |[Flusso di metriche live](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Quando si distribuisce una nuova build, controllare questi indicatori delle prestazioni in tempo quasi reale per verificare che tutto funzioni come previsto.|
 |[Analisi](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Questo avanzato linguaggio di query consente di trovare risposta a domande approfondite sull'utilizzo e sulle prestazioni dell'app.|
 |[Avvisi automatici e manuali](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Gli avvisi automatici si adattano ai criteri normali di telemetria dell'app e si attivano quando i dati si discostano dal criterio consueto. È anche possibile impostare avvisi su livelli particolari delle metriche standard o personalizzate.|
@@ -330,7 +330,7 @@ Esistono quattro modi per [raccogliere log e metriche per i servizi di Azure](ht
 
 | Service | Tipo di risorsa | Log | Metriche | Soluzione |
 | :------ | :------------ | :--- | :------ | :------- |
-|Gateway applicazione di Azure| Microsoft.Network/<br>applicationGateways|  Diagnostica|Diagnostica|    [Analisi dei ](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)gateway applicazione[ di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Gateway applicazione di Azure| Microsoft.Network/<br>applicationGateways|  Diagnostica|Diagnostica|    [Analisi dei ](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics)gateway applicazione[ di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-analytics-solution-in-azure-monitor)|
 |Application Insights||     Connettore|  Connettore|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)[Connector (Anteprima)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Account di Automazione di Azure| Microsoft.Automation/<br>AutomationAccounts|    Diagnostica||       [Altre informazioni](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Account di Azure Batch|  Microsoft.Batch/<br>batchAccounts|  Diagnostica|    Diagnostica||
@@ -344,7 +344,7 @@ Esistono quattro modi per [raccogliere log e metriche per i servizi di Azure](ht
 |Azure Load Balancer|   Microsoft.Network/<br>loadBalancers|    Diagnostica|||
 |App per la logica di Azure|  Microsoft.Logic/<br>flussi di lavoro|  Diagnostica|    Diagnostica||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Gruppi di sicurezza di rete|   Microsoft.Network/<br>networksecuritygroups|Diagnostica||   [Analisi del gruppo di sicurezza di rete di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Gruppi di sicurezza di rete|   Microsoft.Network/<br>networksecuritygroups|Diagnostica||   [Analisi del gruppo di sicurezza di rete di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-and-network-security-group-analytics)|
 |Insiemi di credenziali di ripristino|   Microsoft.RecoveryServices/<br>insiemi di credenziali|||[Azure Recovery Services Analytics (Anteprima)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Servizi di ricerca|   Microsoft.Search/<br>searchServices|    Diagnostica|    Diagnostica||
 |Spazio dei nomi del bus di servizio| Microsoft.ServiceBus/<br>spazi dei nomi|    Diagnostica|Diagnostica|    [Service Bus Analytics (Anteprima)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
@@ -373,10 +373,10 @@ Integrazione log supporta attualmente l'integrazione dei log attività di Azure,
 
 | Tipo di log | Monitoraggio di Azure registra supporto JSON (Splunk, ArcSight e IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
-|Log di controllo di Azure AD|   Sì|
-|Log attività| Sì|
-|Avvisi del Centro sicurezza |Sì|
-|Log di diagnostica (log di risorse)|  Sì|
+|Log di controllo di Azure AD|   Yes|
+|Log attività| Yes|
+|Avvisi del Centro sicurezza |Yes|
+|Log di diagnostica (log di risorse)|  Yes|
 |Log VM|   Sì, tramite eventi inoltrati e non attraverso JSON|
 
 [Introduzione a Integrazione log di Azure](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): Questa esercitazione illustra come installare Integrazione log di Azure e integrare i log dall'archiviazione di Azure, dai log attività di Azure, dagli avvisi del Centro sicurezza di Azure e dai log di controllo di Azure AD.

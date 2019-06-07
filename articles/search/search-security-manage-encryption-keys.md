@@ -9,17 +9,17 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 567f32cba76aaf2d1657b2476c4d11596d44dec5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523085"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753910"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia di ricerca di Azure con chiavi gestite dal cliente in Azure Key Vault
 
 > [!Note]
-> La crittografia con chiavi gestite dal cliente è in anteprima e non è destinata all'uso in produzione. Il [API REST versione 2019-05-06-Preview](search-api-preview.md) fornisce questa funzionalità. È anche possibile usare la versione di .NET SDK 8.0-preview.
+> La crittografia con chiavi gestite dal cliente è in anteprima e non è destinata all'uso in produzione. Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). È anche possibile usare la versione di .NET SDK 8.0-preview.
 >
 > Questa funzionalità non è disponibile per i servizi gratuiti. È necessario usare un servizio di ricerca fatturabili creato a decorrere 2019-01-01. Non vi è alcun supporto per il portale in questo momento.
 
@@ -227,7 +227,7 @@ Per creare un'applicazione AAD nel portale:
 
 1. [Creare un'applicazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
-1. [Ottenere la chiave di autenticazione e l'ID applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) come quelli sarà necessari per la creazione di un indice crittografato. È necessario fornire i valori includono **ID applicazione** e **chiave di autenticazione**.
+1. [Ottenere la chiave di autenticazione e l'ID applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) come quelli sarà necessari per la creazione di un indice crittografato. È necessario fornire i valori includono **ID applicazione** e **chiave di autenticazione**.
 
 >[!Important]
 > Quando si decide di usare un'applicazione di AAD di autenticazione invece di un'identità gestita, prendere in considerazione il fatto che ricerca di Azure non è autorizzata a gestire l'applicazione di AAD per tuo conto, ed è responsabilità dell'utente per gestire l'applicazione di AAD, ad esempio la rotazione periodica della la chiave di autenticazione dell'applicazione.

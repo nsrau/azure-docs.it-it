@@ -10,12 +10,12 @@ ms.component: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: ddae39b7a2c76b5bb3f7caff1c0d5a8165c9d93a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 3f25d2ab5b2b988725d8f4fdf942854746f404d1
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873822"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754837"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Risoluzione dei problemi di connettività
 
@@ -57,7 +57,7 @@ In caso contrario, rivolgersi all'amministratore IT per verificare che tali oper
 
 ## <a name="check-your-firewall-settings"></a>Controllare le impostazioni del firewall
 
-SQL Data Warehouse comunica attraverso la porta 1433.   Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In tal caso, è possibile connettersi al server di Database SQL di Azure, a meno che il reparto IT non apra la porta 1433. Altre informazioni sulle configurazioni di firewall sono reperibili [qui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json#manage-ip-firewall-rules-using-the-azure-portal).
+SQL Data Warehouse comunica attraverso la porta 1433.   Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In tal caso, è possibile connettersi al server di Database SQL di Azure, a meno che il reparto IT non apra la porta 1433. Altre informazioni sulle configurazioni di firewall sono reperibili [qui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Controllare le impostazioni di Endpoint servizio/rete virtuale
 

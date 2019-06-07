@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1be9d11db9a1c614614e0a4023f84b15588ba5f0
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742943"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753107"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
@@ -92,14 +92,7 @@ Per altre informazioni, vedere la documentazione di riferimento per la [classe M
 
 Di seguito, destinazioni di calcolo o le risorse di calcolo, può essere usato per ospitare la distribuzione del servizio web. 
 
-| Destinazione del calcolo | Uso | Descrizione |
-| ----- | ----- | ----- |
-| [Servizio web locale](#local) | Test/debug | Soluzione idonea per limitate di test e risoluzione dei problemi.
-| [Servizio Azure Kubernetes](#aks) | Inferenza in tempo reale | Soluzione ideale per le distribuzioni di produzione su vasta scala. Fornisce la scalabilità automatica e tempi di risposta rapidi. |
-| [Istanze di Azure Container](#aci) | Test | Soluzione idonea per la scala ridotta, carichi di lavoro basati su CPU. |
-| [Ambiente di calcolo di Machine Learning](how-to-run-batch-predictions.md) | Inferenza del batch | Eseguire l'inferenza del batch nel calcolo senza server. Supporta le macchine virtuali con priorità bassa o normale. |
-| [Azure IoT Edge](#iotedge) | (Anteprima) Modulo di IoT | Distribuire e gestire modelli di Machine Learning nei dispositivi IoT. |
-
+[!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## <a name="prepare-to-deploy"></a>Preparare la distribuzione
 

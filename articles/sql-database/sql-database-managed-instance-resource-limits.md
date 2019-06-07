@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 05/22/2019
-ms.openlocfilehash: 7ff8405bba39e274c4f9f0cbacb7c295564c877e
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: ef431754db222554c6543e12e4cb6cf0431f7b51
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303203"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755055"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Cenni preliminari su Azure SQL Database managed i limiti delle risorse di istanza
 
@@ -38,8 +38,8 @@ Istanza gestita di Database SQL Azure può essere distribuito in due generazioni
 | --- | --- | --- |
 | Hardware | Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico) | Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz, unità SSD NVMe veloce, vCore = 1 LP (hyperthread) |
 | vCore | 8, 16, 24 vCore | 8, 16, 24, 32, 40, 64, 80 vCore |
-| Memoria | 7 GB per vCore | 5,1 GB per vCore |
-| Memoria di OLTP In memoria max | 3 GB per vCore | 2,6 GB per vCore |
+| Memoria (percentuale di memoria/core) | 7 GB per vCore | 5,1 GB per vCore |
+| Memoria di OLTP In memoria max | Limite di istanze: 3 GB per vCore<br/>Limiti del database:<br/> -8 core: 8GB per ogni database<br/> -16 core: 20GB per ogni database<br/> -24 core: 36GB per ogni database | Limite di istanze: 2,5 GB per vCore<br/>Limiti del database:<br/> -8 core: 13GB per ogni database<br/> -16 core: 32GB per ogni database |
 | Archiviazione istanza massimo (generico) |  8 TB | 8 TB |
 | Istanza spazio di archiviazione massimo (Business Critical) | 1 TB | 1 TB, 2 TB o 4 TB in base al numero di core |
 
@@ -50,14 +50,14 @@ Istanza gestita ha due livelli di servizio - utilizzo generico e Business Critic
 | **Funzionalità** | **Utilizzo generico** | **Business Critical** |
 | --- | --- | --- |
 | Numero di vCore\* | Quarta generazione: 8, 16, 24<br/>Quinta generazione: 8, 16, 24, 32, 40, 64, 80 | Quarta generazione: 8, 16, 24, 32 <br/> Quinta generazione: 8, 16, 24, 32, 40, 64, 80 |
-| Memoria | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore) | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore) |
+| Memoria (percentuale di memoria/core) | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore) | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore) |
 | Spazio di archiviazione massimo istanza | 8 TB | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>- 1 TB per 8, 16 vCore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
 | Quantità massima di risorse di archiviazione per database | Determinata dalla dimensione massima di archiviazione per ogni istanza | Determinata dalla dimensione massima di archiviazione per ogni istanza |
 | Numero massimo di database per istanza | 100 | 100 |
 | Numero massimo di file di database per istanza | Fino a 280 | 32.767 file per ogni database |
 | Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes).| 11 K - 110 K (1375/vCore) |
 | Velocità effettiva di log | 3 MB/s per ogni vCore<br/>Max 22 MB/s per ogni istanza | 4 MB al secondo per vCore<br/>Numero massimo 48 MB/s per ogni istanza|
-| Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes). | |
+| Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes). | N/D |
 | Latenza di I/O (approssimativa) | 5-10 ms | 1-2 ms |
 | Dimensioni max di tempDB | 192 - 1.920 GB (24 GB per vCore) | Nessun vincolo; limitato dalla dimensione massima di archiviazione dell'istanza |
 | Numero massimo di sessioni | 30000 | 30000 |

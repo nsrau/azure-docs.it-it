@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
-ms.openlocfilehash: 935d2e1c96705506636c2883113a64bb70c39336
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806192"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752839"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire l'account di Marketplace commerciale nel centro per i Partner 
 
@@ -63,7 +63,7 @@ Nella sezione dei dettagli Account, è possibile visualizzare le informazioni di
 
 Nella sezione gli ID editore, è possibile vedere le **ID del venditore**, **ID MPN**, e **ID editore**. Questi valori vengono assegnati da Microsoft per identificare in modo univoco l'account per sviluppatore e non possono essere modificati.
 
-### <a name="contact-info"></a>Informazioni contatto
+### <a name="contact-info"></a>Informazioni di contatto
 
 Nella sezione informazioni sul contatto, è possibile vedere le **nome visualizzato dell'editore**, **informazioni di contatto per il venditore** (il nome del contatto, indirizzo di posta elettronica, numero di telefono e indirizzo per il venditore della società) e il **aziendale responsabile approvazione** (il nome, indirizzo di posta elettronica e numero di telefono della persona che ha autorità per approvare le decisioni per la società). 
 
@@ -149,7 +149,7 @@ Per altre informazioni, vedere la [dai clienti di Azure di rilevamento con doman
 
 Centro per i partner si avvale [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) per la gestione e accesso all'account multiutente. L'organizzazione AD Azure viene automaticamente associato all'account Partner Center come parte del processo di registrazione. 
 
-## <a name="manage-users"></a>Gestisci utenti
+## <a name="manage-users"></a>Manage Users
 
 Il **gli utenti** sezione del centro per i Partner (sotto **impostazioni Account**) utilizziamo Azure AD per gestire utenti, gruppi e applicazioni di Azure AD che hanno accesso all'account del centro per i Partner. Si noti che per gestire utenti, è necessario accedere con il [account aziendale](./company-work-accounts.md) (tenant di Azure AD associato). Per gestire gli utenti all'interno di un account di lavoro diverso o tenant, sarà necessario disconnettersi e quindi accedere nuovamente come un utente con **Manager** autorizzazioni su tale account di lavoro / tenant. 
 
@@ -223,7 +223,7 @@ Se un utente deve cambiare la password, è possibile farlo autonomamente se è s
 3.  Verrà visualizzata una pagina di conferma che mostra le informazioni di accesso per l'utente, tra cui una password temporanea. Assicurarsi di stampare o copiare queste info e offrirlo all'utente, come sarà possibile accedere alla password temporanea, dopo aver chiuso questa pagina.
 
 
-## <a name="manage-groups"></a>Gestisci gruppi
+## <a name="manage-groups"></a>Gestire i gruppi
 
 I gruppi consentono di controllare più ruoli utente e le autorizzazioni tutti insieme.
 
@@ -279,7 +279,7 @@ Se si desidera concedere l'accesso Partner Center a Azure completamente nuovo ac
 1.  Dal **gli utenti** pagina (sotto **impostazioni Account**), selezionare **aggiungere applicazioni di Azure AD**.
 2.  Nella pagina successiva, selezionare **New Azure AD application**.
 3.  Immettere il **URL di risposta** per la nuova applicazione Azure AD. Si tratta dell'URL in cui gli utenti possono accedere e usare l'applicazione di Azure AD (talvolta noto anche come l'URL dell'App o l'URL Sign-On). Il **URL di risposta** non può superare i 256 caratteri e deve essere univoco all'interno della directory.
-4.  Immettere il **URI ID App** per la nuova applicazione Azure AD. Questo è un identificatore logico per l'applicazione di Azure AD che viene visualizzata quando viene inviata una richiesta single sign-on di Azure ad. Si noti che il **URI ID App** deve essere univoco per ogni applicazione di Azure AD nella directory. Questo ID non può superare i 256 caratteri. Per altre informazioni sull'URI ID App, vedi [integrazione di applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#changing-the-application-registration-to-support-multi-tenant).
+4.  Immettere il **URI ID App** per la nuova applicazione Azure AD. Questo è un identificatore logico per l'applicazione di Azure AD che viene visualizzata quando viene inviata una richiesta single sign-on di Azure ad. Si noti che il **URI ID App** deve essere univoco per ogni applicazione di Azure AD nella directory. Questo ID non può superare i 256 caratteri. Per altre informazioni sull'URI ID App, vedi [integrazione di applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
 5.  Nel **ruoli** sezione, specificare i ruoli o le autorizzazioni personalizzate per l'applicazione Azure AD.
 6.  Selezionare **Salva**.
 
@@ -313,9 +313,9 @@ Si noti come ruoli tenant di Azure Active Directory (AAD) includono amministrato
 |      |• Creare ticket di supporto per il centro per i Partner
 ||• Visualizzare gli accordi sui listini prezzi e offerte
 ||• Visualizzare, creare e gestire gli utenti partner|
-|Supervisore|• Possono accedere a tutte le funzionalità di account Microsoft, ad eccezione delle impostazioni relative a pagamenti e fiscali
+|Manager|• Possono accedere a tutte le funzionalità di account Microsoft, ad eccezione delle impostazioni relative a pagamenti e fiscali
 |      |• È possibile gestire utenti, ruoli e utilizzare account (tenant)|
-|Developer|• Possono caricare pacchetti, inviare le App e componenti aggiuntivi e consente di visualizzare il report di utilizzo per i dettagli di dati di telemetria
+|Sviluppatore|• Possono caricare pacchetti, inviare le App e componenti aggiuntivi e consente di visualizzare il report di utilizzo per i dettagli di dati di telemetria
 |      |• Non è possibile accedere alle impostazioni di account o le informazioni finanziarie|
 |Collaboratore di Business|• È possibile accedere a informazioni finanziarie e impostare i dettagli sui prezzi
 |      |• Non è possibile creare o inviare nuove app e componenti aggiuntivi|
@@ -367,7 +367,7 @@ Quando si rimuove un tenant, tutti gli utenti che sono stati aggiunti all'accoun
 > Se si è attualmente connessi al centro per i Partner con un account nello stesso tenant, è possibile rimuovere un tenant. Per rimuovere un tenant, è necessario accedere al centro per i Partner come un **Manager** un altro tenant di cui è associato all'account. Se è presente un solo tenant associati all'account, i tenant può essere rimossi solo dopo l'accesso con l'account Microsoft che ha aperto l'account.
 
 
-## <a name="agreements"></a>Accordi
+## <a name="agreements"></a>Contratti
 
 Il **contratti** sezione del centro per i Partner (sotto **impostazioni Account**) si è visualizzare un elenco dei contratti di pubblicazione che è stato autorizzato. Questi accordi sono elencati in base al nome e numero di versione, inclusa la data che viene accettata e il nome dell'utente che ha accettato il contratto. 
 

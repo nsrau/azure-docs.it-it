@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236745"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754996"
 ---
 # <a name="azure-storage-account-overview"></a>Panoramica dell'account di archiviazione di Azure
 
@@ -32,7 +32,7 @@ Gli account di archiviazione per utilizzo generico v2 supportano le funzionalit�
 - BLOB (tutti i tipi: in blocchi, di accodamento e di pagine)
 - File
 - Dischi
-- Code
+- Queues
 - Tabelle
 
 > [!NOTE]
@@ -49,7 +49,7 @@ Gli account per utilizzo generico v1 consentono di accedere a tutti i servizi di
 - BLOB (tutti i tipi)
 - File
 - Dischi
-- Code
+- Queues
 - Tabelle
 
 Mentre gli account per utilizzo generico v2 rappresentano la scelta consigliata nella maggior parte dei casi, gli account per utilizzo generico v1 sono particolarmente indicati per questi scenari:
@@ -62,7 +62,11 @@ Mentre gli account per utilizzo generico v2 rappresentano la scelta consigliata 
 
 ### <a name="block-blob-storage-accounts"></a>Account di archiviazione blob di blocco
 
-Un account di archiviazione blob di blocco è un account di archiviazione specializzato per l'archiviazione dei dati non strutturati come BLOB in blocchi o BLOB di Accodamento. Blocco account di archiviazione blob offrono più livelli di accesso per l'archiviazione dei dati in base i modelli di utilizzo. Per altre informazioni, vedere [Livelli di accesso per i dati BLOB in blocchi](#access-tiers-for-block-blob-data).
+Un account di archiviazione blob di blocco è un account di archiviazione specializzato per l'archiviazione dei dati non strutturati come BLOB in blocchi. Questo account di archiviazione digitare supporta BLOB in blocchi e accodare BLOB, ma non i BLOB di pagine, tabelle o code.
+
+Rispetto a per utilizzo generico v2 e account di archiviazione blob, account di archiviazione blob di blocco forniscono coerente e bassa latenza e percentuali di transazione superiore.
+
+Account di archiviazione blob di blocco attualmente non supportano la suddivisione in livelli per accesso frequente, sporadico o archivio i livelli di accesso.
 
 ### <a name="filestorage-preview-storage-accounts"></a>Account di archiviazione FileStorage (anteprima)
 
@@ -75,12 +79,16 @@ Quando si assegna un nome all'account di archiviazione, tenere presenti queste r
 - I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole.
 - Nome dell'account di archiviazione deve essere univoco all'interno di Azure. Due account di archiviazione non possono avere lo stesso nome.
 
-## <a name="general-purpose-performance-tiers"></a>Livelli di prestazioni per utilizzo generico
+## <a name="performance-tiers"></a>Livelli di prestazioni
 
 Gli account di archiviazione per utilizzo generico possono essere configurati per uno dei livelli di prestazioni seguenti:
 
 * Un livello di prestazioni standard per l'archiviazione di BLOB, file, tabelle, code e dischi delle macchine virtuali di Azure.
 * Un livello di prestazioni Premium per l'archiviazione solo dei dischi delle macchine virtuali non gestiti.
+
+Account di archiviazione blob di blocco forniscono un livello di prestazioni premium per l'archiviazione BLOB in blocchi e BLOB di Accodamento.
+
+Gli account di archiviazione FileStorage (anteprima) offrono un livello di prestazioni premium per le condivisioni file di Azure.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Livelli di accesso per i dati BLOB in blocchi
 
@@ -90,7 +98,7 @@ I livelli di accesso disponibili sono i seguenti:
 
 * Il livello ad **accesso frequente**, che è ottimizzato per l'accesso frequente degli oggetti nell'account di archiviazione. L'accesso ai dati nel livello ad accesso frequente è più conveniente, mentre i costi di archiviazione hanno un valore superiori. I nuovi account di archiviazione vengono creati nel livello ad accesso frequente per impostazione predefinita.
 * Il livello ad **accesso sporadico**, che è ottimizzato per l'archiviazione di grandi quantità di dati a cui si accede poco frequentemente e che vengono archiviati per almeno 30 giorni. L'archiviazione dei dati nel livello ad accesso sporadico è più conveniente, ma l'accesso ai dati può risultare più costosa rispetto all'accesso ai dati nel livello ad accesso frequente.
-* Il livello **archivio**, che è disponibile solo per singoli BLOB in blocchi. Il livello archivio è ottimizzato per i dati che possono tollerare alcune ore di latenza di recupero e rimarranno nel livello archivio per almeno 180 giorni. Il livello archivio è l'opzione più conveniente per l'archiviazione dei dati, ma l'accesso ai dati è più costoso rispetto ai livelli ad accesso frequente o ad accesso sporadico.
+* Il livello **archivio**, che è disponibile solo per singoli BLOB in blocchi. Il livello archivio è ottimizzato per i dati che possono tollerare numerose ore di latenza di recupero e rimarranno nel livello archivio per almeno 180 giorni. Il livello archivio è l'opzione più conveniente per l'archiviazione dei dati, ma l'accesso ai dati è più costoso rispetto ai livelli ad accesso frequente o ad accesso sporadico.
 
 Se il modello di utilizzo dei dati cambia, è possibile passare da uno di questi livelli di accesso all'altro in qualsiasi momento. Per altre informazioni sui livelli di accesso, vedere [archiviazione Blob di Azure: accesso frequente, ad accesso sporadico e archivio i livelli di accesso](../blobs/storage-blob-storage-tiers.md).
 
@@ -119,7 +127,7 @@ Ad esempio, se l'account di archiviazione per utilizzo generico si chiama *mysto
 * File di Azure: http://*mystorageaccount*.file.core.windows.net
 
 > [!NOTE]
-> Un account di archiviazione BLOB espone solo l'endpoint di servizio BLOB.
+> Blob in blocchi e gli account di archiviazione blob espongono solo l'endpoint del servizio blob.
 
 L'URL per accedere a un oggetto in un account di archiviazione viene formato aggiungendo la posizione dell'oggetto nell'account di archiviazione all'endpoint. Ad esempio, il formato di un indirizzo è simile al seguente: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
@@ -177,5 +185,6 @@ Se si dispone di una grande quantità di dati da importare nell'account di archi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come creare un account di archiviazione di Azure, vedere [Creare un account di archiviazione](storage-quickstart-create-account.md).
+* Per informazioni su come creare un account di archiviazione di Azure per utilizzo generico, vedere [creare un account di archiviazione](storage-quickstart-create-account.md).
+* Per informazioni su come creare un account di archiviazione blob di blocco, vedere [creare un account di archiviazione blob di blocco](../blobs/storage-blob-create-account-block-blob.md).
 * Per gestire o eliminare un account di archiviazione esistente, vedere [Gestire gli account di archiviazione di Azure](storage-account-manage.md).

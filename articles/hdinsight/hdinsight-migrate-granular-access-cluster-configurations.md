@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9a592533a92ec724c9a332bef5fdfcf385cb7b2c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1ec4786291d6e2e5be6785e52cf3ab5bb5bbc690
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730675"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754546"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
 
@@ -59,10 +59,10 @@ Le API seguenti verranno modificate o deprecate:
 - [**GET /configurations/ {configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (le informazioni riservate rimosse)
     - In precedenza usato per ottenere i tipi di configurazione singoli (inclusi i segreti).
     - Questa chiamata API restituiranno ora i tipi di singola configurazione con segreti omesso. Per ottenere tutte le configurazioni, inclusi i segreti, usare la nuova chiamata /configurations POST. Per ottenere solo le impostazioni del gateway, usare la nuova chiamata /getGatewaySettings POST.
-- [**GET /configurations** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configurations) (deprecata)
+- [**GET /configurations** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (deprecata)
     - Usato in precedenza per ottenere tutte le configurazioni (inclusi i segreti)
     - Questa chiamata all'API non sarà più supportata. Per ottenere tutte le configurazioni in futuro, usare la nuova chiamata /configurations POST. Per ottenere le configurazioni con parametri sensibili omessi, usare la chiamata di /configurations/ {configurationName} GET.
-- [**POST /configurations/ {configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#change-connectivity-settings) (deprecata)
+- [**POST /configurations/ {configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) (deprecata)
     - Usato in precedenza per aggiornare credenziali del gateway.
     - Questa chiamata API verrà deprecata e non è più supportata. In alternativa, usare il nuovo /updateGatewaySettings POST.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 95c6e1f015e519bd1e753fce9a2c6f064a854456
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713777"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754057"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticare la connettività locale tramite i gateway VPN
 
@@ -36,7 +36,7 @@ Si vuole configurare una connessione da sito a sito tra Azure e la rete locale t
 
 1. Gateway di rete virtuale, ovvero il gateway VPN di Azure
 1. Gateway di rete locale, ovvero la rappresentazione del [Gateway VPN (FortiGate) locale](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) nel cloud di Azure
-1. Connessione da sito a sito basata su route, ovvero [connessione tra il Gateway VPN e il router locale](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
+1. Connessione da sito a sito basata su route, ovvero [connessione tra il Gateway VPN e il router locale](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
 1. [Configurazione di FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 È possibile trovare indicazioni passo passo dettagliate per una configurazione da sito a sito visitando la pagina [Creare una rete virtuale con una connessione da sito a sito usando il portale di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
@@ -83,34 +83,34 @@ La funzionalità di risoluzione dei problemi di Azure Network Watcher consente d
 
 | Tipo di errore | `Reason` | Log|
 |---|---|---|
-| NoFault | Non viene rilevato alcun errore. |Sì|
-| GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No |
-| PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione.  |No |
-| UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento. | No  |
-| VipUnResponsive | Non è possibile raggiungere l'istanza primaria del gateway. Ciò si verifica in caso di errore del probe di integrità. | No  |
-| PlatformInActive | Si è verificato un errore con la piattaforma. | No |
-| ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No |
-| NoConnectionsFoundForGateway | Non esistono connessioni sul gateway. Questo è solo un avviso.| No |
-| ConnectionsNotConnected | Nessuna connessione è connessa. Questo è solo un avviso.| Sì|
-| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Sì |
+| NoFault | Non viene rilevato alcun errore. |Yes|
+| GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No|
+| PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione.  |No|
+| UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento. | No |
+| VipUnResponsive | Non è possibile raggiungere l'istanza primaria del gateway. Ciò si verifica in caso di errore del probe di integrità. | No |
+| PlatformInActive | Si è verificato un errore con la piattaforma. | No|
+| ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No|
+| NoConnectionsFoundForGateway | Non esistono connessioni sul gateway. Questo è solo un avviso.| No|
+| ConnectionsNotConnected | Nessuna connessione è connessa. Questo è solo un avviso.| Yes|
+| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Yes |
 
 ### <a name="connection"></a>Connessione
 
 | Tipo di errore | `Reason` | Log|
 |---|---|---|
-| NoFault | Non viene rilevato alcun errore. |Sì|
-| GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No |
-| PlannedMaintenance | L'istanza del gateway è in fase di manutenzione.  |No |
-| UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento.  | No  |
-| VipUnResponsive | Non è possibile raggiungere l'istanza primaria del gateway. Ciò si verifica in caso di errore del probe di integrità. | No  |
-| ConnectionEntityNotFound | La configurazione della connessione non è presente. | No  |
-| ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected". |No |
-| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
-| ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Sì|
-| Authentication | Mancata corrispondenza della chiave precondivisa. | Sì|
-| PeerReachability | Il gateway peer non è raggiungibile. | Sì|
-| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
-| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|
+| NoFault | Non viene rilevato alcun errore. |Yes|
+| GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No|
+| PlannedMaintenance | L'istanza del gateway è in fase di manutenzione.  |No|
+| UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento.  | No |
+| VipUnResponsive | Non è possibile raggiungere l'istanza primaria del gateway. Ciò si verifica in caso di errore del probe di integrità. | No |
+| ConnectionEntityNotFound | La configurazione della connessione non è presente. | No |
+| ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected". |No|
+| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Yes |
+| ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Yes|
+| Authentication | Mancata corrispondenza della chiave precondivisa. | Yes|
+| PeerReachability | Il gateway peer non è raggiungibile. | Yes|
+| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Yes|
+| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Yes|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

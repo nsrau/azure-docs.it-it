@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2018
+ms.date: 06/06/2019
 ms.author: Kumud
-ms.openlocfilehash: 77c3c595994092ff2ca68f3cefa5eb3c8a54bcd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec68038a5b0fe7edca095e0d9b190d5da09c8e82
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735247"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754681"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Metriche e diagnostica dell'integrità per Load Balancer Standard
 
@@ -31,14 +31,14 @@ Questo articolo offre una breve panoramica di queste funzionalità e illustra co
 
 ## <a name = "MultiDimensionalMetrics"></a>Metriche multidimensionali
 
-Azure Load Balancer fornisce le nuove metriche multidimensionali tramite la nuova funzionalità Metriche di Azure (anteprima) nel portale di Azure e consente di ottenere informazioni dettagliate di diagnostica in tempo reale sulle risorse di Load Balancer. 
+Azure Load Balancer offre nuove metriche multidimensionali tramite le nuove metriche di Azure nel portale di Azure, e consente di ottenere approfondite in tempo reale a diagnostica di load balancer risorse. 
 
 Le varie configurazioni Load Balancer Standard forniscono le seguenti metriche:
 
-| Metrica | Tipo di risorsa | DESCRIZIONE | Aggregazione consigliata |
+| Metrica | Tipo di risorsa | Descrizione | Aggregazione consigliata |
 | --- | --- | --- | --- |
-| Disponibilità VIP (disponibilità del percorso dati) | Bilanciamento del carico pubblico | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.| Media |
-| Disponibilità DIP (stato del probe di integrità) |  Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni endpoint dell'istanza nel pool di Load Balancer. In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità. |  Media |
+| Disponibilità del percorso dati (disponibilità VIP)| Bilanciamento del carico pubblico | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.| Media |
+| Stato probe di integrità (disponibilità DIP) |  Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni endpoint dell'istanza nel pool di Load Balancer. In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità. |  Media |
 | Pacchetti SYN (sincronizzazione) |  Bilanciamento del carico pubblico | Load Balancer Standard non termina le connessioni TCP (Transmission Control Protocol), né interagisce con i flussi di pacchetti TCP o UDP. I flussi e i relativi handshake sono sempre tra l'origine e l'istanza VM. Per risolvere meglio i problemi degli scenari del protocollo TCP, è possibile usare contatori di pacchetti SYN per determinare quanti tentativi di connessione TCP vengono eseguiti. La metrica indica il numero di pacchetti SYN TCP ricevuti.| Media |
 | Connessioni SNAT |  Load Balancer pubblico |Load Balancer Standard segnala il numero di flussi in uscita mascherati per il front-end dell'indirizzo IP pubblico. Le porte Source Network Address Translation (SNAT) sono una risorsa esauribile. Questa metrica può indicare l'uso che l'applicazione fa di SNAT per i flussi originati in uscita. Vengono segnalati i contatori per i flussi SNAT con esito positivo e negativo, che è possibile usare per risolvere i problemi e comprendere l'integrità dei flussi in uscita.| Media |
 | Contatori di byte |  Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard restituisce i dati elaborati per ogni front-end.| Media |
@@ -46,18 +46,18 @@ Le varie configurazioni Load Balancer Standard forniscono le seguenti metriche:
 
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Consente di visualizzare le metriche di Load Balancer nel portale di Azure
 
-Il portale di Azure espone le metriche di Load Balancer nella pagina Metriche (anteprima), disponibile sia nella pagina delle risorse di Load Balancer per una specifica risorsa che nella pagina Monitoraggio di Azure. 
+Il portale di Azure espone le metriche del servizio di bilanciamento di carico tramite la pagina metriche, disponibile nella pagina delle risorse di load balancer per una determinata risorsa sia la pagina di monitoraggio di Azure. 
 
 Per visualizzare le metriche delle risorse di Load Balancer Standard:
-1. Accedere alla pagina Metriche (anteprima) ed eseguire una di queste operazioni:
+1. Passare alla pagina metrica ed eseguire una delle operazioni seguenti:
    * Nella pagina delle risorse di Load Balancer, selezionare il tipo di metrica nell'elenco a discesa.
    * Nella pagina Monitoraggio di Azure, selezionare la risorsa di Load Balancer.
 2. Impostare il tipo di aggregazione appropriato.
 3. Facoltativamente, configurare il filtro e il raggruppamento necessari.
 
-![Metriche (anteprima) per Load Balancer Standard](./media/load-balancer-standard-diagnostics/LBMetrics1.png)
+    ![Metriche per Load Balancer Standard](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
-*Figura: metrica relativa a disponibilità DIP e stato del probe di integrità per Load Balancer Standard*
+    *Figura: Metrica di disponibilità del percorso dati per Load Balancer Standard*
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperare le metriche multidimensionali a livello di codice tramite le API
 
@@ -72,15 +72,15 @@ La metrica di disponibilità VIP descrive l’integrità del percorso dei dati a
 - Eseguire un approfondimento e comprendere se la piattaforma in cui viene distribuito il servizio è integra o se il sistema operativo guest o l'istanza dell'applicazione è integra.
 - Isolare se un evento è correlato al servizio o al piano dati sottostante. Non confondere questa metrica con lo stato del probe di integrità ("disponibilità DIP").
 
-Per ottenere la disponibilità VIP per le risorse di Load Balancer Standard:
+Per ottenere la disponibilità del percorso dati per le risorse di Load Balancer Standard:
 1. Assicurarsi che sia selezionata la risorsa di Load Balancer corretta. 
-2. Selezionare **Disponibilità VIP** dall'elenco a discesa **Metrica**. 
+2. Nel **Metric** elenco a discesa, seleziona **disponibilità del percorso dati**. 
 3. Nell’elenco a discesa **Aggregazione**, selezionare **Media**. 
-4. Inoltre, è possibile aggiungere un filtro sull'indirizzo VIP o la porta VIP basato sulla dimensione con l'indirizzo IP front-end o la porta front-end richiesta e quindi procedere al raggruppamento in base alla dimensione selezionata.
+4. Inoltre, aggiungere un filtro in Frontend gli indirizzi IP o porta front-end come dimensione con l'indirizzo IP front-end richiesto porta front-end e quindi raggrupparli in base alla dimensione selezionata.
 
 ![Esecuzione del probe VIP](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Figura: Dettagli dell'esecuzione del probe VIP di Load Balancer*
+*Figura: Dettagli di probe front-end di servizio di bilanciamento del carico*
 
 La metrica viene generata da una misura attiva in banda. Un servizio di esecuzione del probe all'interno della regione genera traffico per la misura. Il servizio viene attivato non appena si crea una distribuzione con un front end pubblico e continua fino a quando non viene rimosso. 
 
@@ -93,7 +93,7 @@ La disponibilità VIP avrà esito negativo per le ragioni seguenti:
 - La distribuzione non ha macchine virtuali integre rimanenti nel pool back-end. 
 - Si è verificata un'interruzione dell'infrastruttura.
 
-È possibile usare la [metrica relativa alla disponibilità VIP insieme allo stato del probe di integrità](#vipavailabilityandhealthprobes) per scopi diagnostici.
+Per motivi di diagnostica, è possibile usare la [metriche di disponibilità del percorso dati e lo stato del probe integrità](#vipavailabilityandhealthprobes).
 
 Usare **Media** come aggregazione per la maggior parte degli scenari.
 
@@ -101,13 +101,9 @@ Usare **Media** come aggregazione per la maggior parte degli scenari.
 
 La metrica relativa allo stato del probe di integrità descrive l'integrità della distribuzione dell'applicazione come configurato dall'utente quando si configura il probe di integrità di Load Balancer. Load Balancer usa lo stato del probe di integrità per determinare dove inviare nuovi flussi. I probe di integrità hanno origine da un indirizzo dell'infrastruttura di Azure e sono visibili all'interno del sistema operativo guest della macchina virtuale.
 
-Per ottenere la disponibilità DIP per le risorse di Load Balancer Standard:
-1. Selezionare la metrica **Disponibilità DIP** con il tipo di aggregazione **Media**. 
-2. Applicare un filtro sull'indirizzo IP o la porta VIP richiesta (o su entrambi).
-
-![Disponibilità DIP](./media/load-balancer-standard-diagnostics/LBMetrics-DIPAvailability.png)
-
-*Figura: Disponibilità VIP per Load Balancer*
+Per ottenere lo stato del probe di integrità per le risorse di Load Balancer Standard:
+1. Selezionare il **lo stato Probe di integrità** delle metriche con **Avg** tipo di aggregazione. 
+2. Applicare un filtro sull'indirizzo richiesto Frontend IP o porta (o entrambi).
 
 I probe di integrità hanno esito negativo per le ragioni seguenti:
 - Se si configura un probe di integrità per una porta che non è in ascolto, che non risponde o che non utilizza il protocollo corretto. Se il servizio usa regole Direct Server Return (DSR o IP mobile), assicurarsi che il servizio sia in ascolto sull'indirizzo IP della configurazione IP della scheda di rete e non soltanto sul loopback configurato con l'indirizzo IP front-end.
@@ -165,13 +161,13 @@ La combinazione delle metriche relative alla disponibilità VIP e ai probe di in
 
 È possibile eseguire un ulteriore passaggio e usare le metriche relative alla disponibilità VIP per ottenere informazioni approfondite sul modo in cui Azure visualizza l'integrità del piano dati sottostante che è responsabile per la specifica distribuzione. Quando si combinano entrambe le metriche, è possibile isolare il punto in cui potrebbe verificarsi l'errore come illustrato in questo esempio:
 
-![Diagnostica VIP](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability.png)
+![La combinazione delle metriche di disponibilità del percorso dati e lo stato Probe di integrità](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
 
-*Figura: Combinazione delle metriche relative alla disponibilità DIP e VIP*
+*Figura: La combinazione delle metriche di disponibilità del percorso dati e lo stato Probe di integrità*
 
 In questo grafico vengono visualizzate le informazioni seguenti:
-- L'infrastruttura di per sé era integra, l'infrastruttura che ospita le macchine virtuali era raggiungibile e più di una macchina virtuale è stata inserita nel back-end. Questa informazione è indicata dalla traccia blu per la disponibilità VIP (100%). 
-- Tuttavia, lo stato del probe di integrità (disponibilità DIP) è allo 0% all'inizio del grafico, come indicato dalla traccia arancione. L'area cerchiata in rosso evidenzia il punto in cui lo stato (disponibilità DIP) è diventato integro e in quale punto la distribuzione del cliente è stata in grado di accettare nuovi flussi.
+- L'infrastruttura che ospita le macchine virtuali era disponibile e percento 0 all'inizio del grafico. In un secondo momento, l'infrastruttura era integra le macchine virtuali erano raggiungibili e più di una macchina virtuale è stata inserita nel back-end. Queste informazioni sono indicate dalla traccia blu per la disponibilità del percorso dati (disponibilità VIP), che è successiva al 100%. 
+- Lo stato del probe integrità (disponibilità DIP), indicato dalla traccia viola, è pari al % 0 all'inizio del grafico. L'area cerchiata in verde evidenzia in cui lo stato del probe di integrità (disponibilità DIP) sono diventato integri, e a questo punto la distribuzione del cliente è stato in grado di accettare nuovi flussi.
 
 Il grafico consente al cliente di risolvere i problemi della distribuzione in modo autonomo senza dover fare supposizioni o contattare il supporto per sapere se si stanno verificando altri problemi. Il servizio non era disponibile perché i probe di integrità hanno avuto esito negativo a causa di una configurazione errata o di un'applicazione non riuscita.
 
@@ -207,7 +203,7 @@ Per visualizzare l'integrità delle risorse della configurazione pubblica di Loa
  
 La tabella seguente elenca i diversi stati di integrità delle risorse e le relative descrizioni: 
 
-| Stato di integrità delle risorse | DESCRIZIONE |
+| Stato di integrità delle risorse | Descrizione |
 | --- | --- |
 | Disponibile | La risorsa della configurazione pubblica di Load Balancer Standard è integra e disponibile. |
 | Non disponibile | La risorsa della configurazione pubblica di Load Balancer Standard non è integra. Diagnosticare l'integrità selezionando **Monitoraggio di Azure** > **Metriche**.<br>(Stato *Non disponibile* potrebbe anche significare che la risorsa non è collegata al Load Balancer Standard pubblico). |

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 5106b22500b73b650742e7fe0f881c2a4c984eff
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937723"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752734"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guida alla pubblicazione dell'offerta di applicazioni SaaS
 
@@ -25,16 +25,16 @@ Le applicazioni SaaS sono disponibili in entrambe le vetrine di Azure. La tabell
 | Vetrina | Elenco | Versione di valutazione/Transazione |  
 | --- | --- | --- |  
 | AppSource | Sì (Contatta) | Sì (Power BI/Dynamics) |
-| Azure Marketplace | No  | Sì (app SaaS) |   
+| Azure Marketplace | No | Sì (app SaaS) |   
 
 **Elenco**:  L'opzione di pubblicazione Elenco consiste in un'offerta di tipo Contattami e viene usata quando non è possibile una partecipazione a livello di valutazione o di transazione. Il vantaggio di questo approccio è dato dall'opportunità offerta agli editori di mettere subito in commercio una soluzione per iniziare a ricevere clienti potenziali che possono trasformarsi in ottimi affari per la crescita della loro azienda.  
 **Versione di valutazione/Transazione**:  il cliente ha la possibilità di acquistare direttamente o richiedere una versione di valutazione della soluzione. Un'esperienza di valutazione aumenta il livello di coinvolgimento offerto ai clienti e consente loro di esaminare la soluzione prima di acquistarla. Offrendo un'esperienza di valutazione, si hanno maggiori opportunità di promozione nelle vetrine e con molta probabilità si riesce a raggiungere un numero più ampio di clienti potenziali grazie a questa occasione di coinvolgimento. Le versioni di valutazione devono includere il supporto gratuito almeno per la durata del periodo di valutazione.  
 
 | Offerta di app SaaS | Requisiti aziendali | Requisiti tecnici |  
 | --- | --- | --- |  
-| **Contatta** | Sì | No  |  
-| **PowerBI/Dynamics** | Sì | Sì (integrazione di Azure AD) |  
-| **App SaaS**| Sì | Sì (integrazione di Azure AD) |     
+| **Contatta** | Yes | No |  
+| **PowerBI/Dynamics** | Yes | Sì (integrazione di Azure AD) |  
+| **App SaaS**| Yes | Sì (integrazione di Azure AD) |     
 
 ## <a name="saas-list"></a>Elenco SaaS
 
@@ -148,4 +148,4 @@ Se non è già stato fatto,
 Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
 
 - [Accedere al portale Cloud Partner](https://cloudpartner.azure.com) per creare o completare l'offerta.
-- Vedere [Offerta di applicazioni SaaS di Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer) per altre informazioni.
+- Vedere [Offerta di applicazioni SaaS di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) per altre informazioni.

@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455680"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751892"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -74,7 +74,7 @@ Per visualizzare un elenco del Software come un servizio (SaaS) offerte del Mark
 
 - L'offerta deve essere compatibile con client di Azure. (Spesso le app SaaS anch sono esse ospitate in Azure per ottimizzare le prestazioni e compatibilità, ma questo non è un requisito.) 
 - È necessario utilizzare l'offerta [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) per la gestione delle identità e autenticazione.
-- È necessario utilizzare l'offerta [API SaaS evasione](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2) per l'integrazione con Azure Marketplace.
+- È necessario utilizzare l'offerta [API SaaS evasione](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) per l'integrazione con Azure Marketplace.
 
 #### <a name="billing-infrastructure-costs"></a>Fatturazione dei costi per l'infrastruttura
 Per le offerte SaaS, come server di pubblicazione, tenere in considerazione per spese di utilizzo dell'infrastruttura di Azure e i costi di licenza software come un elemento di costo singolo. Questo costo è rappresentato come una tariffa mensile fissa al cliente. Utilizzo dell'infrastruttura di Azure gestito e fatturata all'utente, il partner, direttamente. I costi effettivi di utilizzo dell'infrastruttura di Azure non sono visibili al cliente. Gli editori scelgono in genere di accorpare i costi di utilizzo dell'infrastruttura di Azure nei prezzi di licenza software. 

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: e692b0dc1089804b1d68b79c1a6f438f30554602
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e29ef2616a43223ec582575ca6363f78b26e5f22
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146287"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753053"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Esplorare e preparare i dati con la classe di set di dati (anteprima)
 
@@ -122,15 +122,15 @@ dataset.get_profile()
 ID|FieldType.INTEGER|1.04986e+07|1.05351e + 07|10,0|0.0|10,0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e + 07|1.05259e+07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
 Case Number|FieldType.STRING|HZ239907|HZ278872|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
-Blocca|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Blocco|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10,0|0.0|10,0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 Tipo principale|FieldType.STRING|PROCEDURE CONSIGLIATE INGANNEVOLI|FURTO|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 Descrizione|FieldType.STRING|CONTROLLO FITTIZIO|SU 500 DOLLARI|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 Descrizione della posizione|FieldType.STRING||ISTITUTO DI ISTRUZIONE, PUBBLICA, CREAZIONE|10,0|0.0|10,0|0.0|0.0|1.0||||||||||||||
-Arresto|FieldType.BOOLEAN|Falso|Falso|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
-Nazionale|FieldType.BOOLEAN|Falso|Falso|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Arresto|FieldType.BOOLEAN|False|False|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Nazionale|FieldType.BOOLEAN|False|False|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 Beat|FieldType.INTEGER|531|2433|10,0|0.0|10,0|0.0|0.0|0.0|531|531|531|614|1318.5|1911|2433|2433|2433|1371.1|692.094|478994|0.105418|-1.60684
-Distretto|FieldType.INTEGER|5|24|10,0|0.0|10,0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13,5|6.94822|48.2778|0.0930109|-1.62325
+Quartiere|FieldType.INTEGER|5|24|10,0|0.0|10,0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13,5|6.94822|48.2778|0.0930109|-1.62325
 Corsia|FieldType.INTEGER|1|48|10,0|0.0|10,0|0.0|0.0|0.0|1|5|1|9|22,5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
 Area della community|FieldType.INTEGER|4|77|10,0|0.0|10,0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
 Codice FBI|FieldType.INTEGER|6|11|10,0|0.0|10,0|0.0|0.0|0.0|6|6|6|6|11|11|11|11|11|9.4|2.36643|5.6|-0.702685|-1.59582
@@ -138,7 +138,7 @@ Coordinata X|FieldType.INTEGER|1.16309e + 06|1.18336e+06|10,0|7.0|3.0|0.7|0.0|0.
 Coordinata Y|FieldType.INTEGER|1.8315e + 06|1.908e+06|10,0|7.0|3.0|0.7|0.0|0.0|1.8315e + 06|1.8315e + 06|1.8315e + 06|1.83614e+06|1.85005e + 06|1.89352e+06|1.908e+06|1.908e+06|1.908e+06|1.86319e + 06|39905.2|1.59243e+09|0.293465|-2.33333
 Year|FieldType.INTEGER|2016|2016|10,0|0.0|10,0|0.0|0.0|0.0|2016|2016|2016|2016|2016|2016|2016|2016|2016|2016|0|0|NaN|NaN
 Aggiornato il|FieldType.DATE|2016-05-11 15:48:00+00:00|2016-05-27 15:45:00+00:00|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
-Latitudine|FieldType.DECIMAL|41.6928|41.9032|10,0|7.0|3.0|0.7|0.0|0.0|41.6928|41.6928|41.6928|41.7057|41.7441|41.8634|41.9032|41.9032|41.9032|41.78|0.109695|0.012033|0.292478|-2.33333
+Latitude|FieldType.DECIMAL|41.6928|41.9032|10,0|7.0|3.0|0.7|0.0|0.0|41.6928|41.6928|41.6928|41.7057|41.7441|41.8634|41.9032|41.9032|41.9032|41.78|0.109695|0.012033|0.292478|-2.33333
 Longitudine|FieldType.DECIMAL|-87.6764|-87.6043|10,0|7.0|3.0|0.7|0.0|0.0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
 Località|FieldType.STRING||(41.903206037, -87.676361925)|10,0|0.0|10,0|0.0|0.0|7.0||||||||||||||
 
@@ -148,7 +148,7 @@ Nei set di dati, i valori null, NaN e i valori che non contengono contenuto sono
 
 Dal profilo del set di dati generato nella sezione precedente, è possibile vedere che `Latitude` e `Longitude` colonne hanno una percentuale elevata di valori mancanti. In questo esempio, si calcola la media e attribuire valori mancanti per le due colonne.
 
-Innanzitutto, ottenere l'ultima definizione del set di dati con [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) e ridurre la quantità di dati con [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), pertanto è visualizzare solo le colonne che si desidera all'indirizzo.
+Innanzitutto, ottenere l'ultima definizione del set di dati con [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) e ridurre la quantità di dati con [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#keep-columns-columns--multicolumnselection--validate-column-exists--bool---false-----azureml-dataprep-api-dataflow-dataflow), pertanto è visualizzare solo le colonne che si desidera all'indirizzo.
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -164,9 +164,9 @@ ds_def.head(3)
 
 ||ID|Arresto| Latitude|Longitudine|
 -|---------|-----|---------|----------|
-|0|10498554|Falso|41.692834|-87.604319|
-|1|10516598|Falso| 41.744107 |-87.664494|
-|2|10519196|Falso| NaN|NaN|
+|0|10498554|False|41.692834|-87.604319|
+|1|10516598|False| 41.744107 |-87.664494|
+|2|10519196|False| NaN|NaN|
 
 Successivamente, controllare la `MEAN` valore dell'oggetto colonna latitudine utilizzando i [ `summarize()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) (funzione). Questa funzione accetta una matrice di colonne nel parametro `group_by_columns` per specificare il livello di aggregazione. Il `summary_columns` parametro accetta il `SummaryColumnsValue` funzione, che specifica il nome della colonna corrente, il nome del nuovo campo calcolato e il `SummaryFunction` eseguire.
 
@@ -181,7 +181,7 @@ lat_mean.head(1)
 
 ||Arresto|Latitude_MEAN|
 --|-----|--------|
-|0|Falso|41.780049|
+|0|False|41.780049|
 
 Dopo la verifica i valori per l'attribuzione, usare [ `ImputeMissingValuesBuilder` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) per informazioni su un'espressione di tipo fissa che imputa le colonne con un calcolato `MIN`, `MAX`, `MEAN` valore, o un `CUSTOM` valore. Quando `group_by_columns` viene specificato, verranno attribuiti i valori mancanti dal gruppo con `MIN`, `MAX` e `MEAN` calcolati per ogni gruppo.
 
@@ -217,9 +217,9 @@ Come illustrato nella tabella di output seguente, la latitudine manca è stata a
 
 ||ID|Arresto|Latitude|Longitudine
 -|---------|-----|---------|----------
-0|10498554|Falso|41.692834|-87.604319
-1|10516598|Falso|41.744107|-87.664494
-2|10519196|Falso|41.780049|-87.000000
+0|10498554|False|41.692834|-87.604319
+1|10516598|False|41.744107|-87.664494
+2|10519196|False|41.780049|-87.000000
 
 Aggiornare la definizione del set di dati, con [ `update_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) per mantenere la procedura di trasformazione eseguita.
 
@@ -230,9 +230,9 @@ dataset.head(3)
 
 ||ID|Arresto|Latitude|Longitudine
 -|---------|-----|---------|----------
-0|10498554|Falso|41.692834|-87.604319
-1|10516598|Falso|41.744107|-87.664494
-2|10519196|Falso|41.780049|-87.000000
+0|10498554|False|41.692834|-87.604319
+1|10516598|False|41.744107|-87.664494
+2|10519196|False|41.780049|-87.000000
 
 ## <a name="create-assertion-rules"></a>Creare regole di asserzione
 
@@ -259,8 +259,8 @@ ds_def.get_profile()
 ||Type|Min|Max|Conteggio|Totale mancanti|Totale non mancanti|Percentuale mancanti|Totale errori|Totale vuoti|Quantile 0,1%|Quantile 1%|Quantile 5%|Quantile 25%|Quantile 50%|Quantile 75%|Quantile 95%|Quantile 99%|Quantile 99,9%|Media|Deviazione standard|Variance|Asimmetria|Curtosi
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e+07|1.05351e + 07|10,0|0.0|10,0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e + 07|1.05259e+07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
-Arresto|FieldType.BOOLEAN|Falso|Falso|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
-Latitudine|FieldType.DECIMAL|41.6928|41.9032|10,0|0.0|10,0|0.0|0.0|0.0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1,05
+Arresto|FieldType.BOOLEAN|False|False|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Latitude|FieldType.DECIMAL|41.6928|41.9032|10,0|0.0|10,0|0.0|0.0|0.0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1,05
 Longitudine|FieldType.INTEGER|-87|-87|10,0|0.0|10,0|0.0|3.0|0.0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
 
 Dal profilo, noterete che il `Error Count` per il `Longitude` colonna è 3. Il codice seguente filtra il set di dati, consente di recuperare l'errore e visualizza il valore causa l'esito negativo dell'asserzione. A questo punto, modificare il codice e pulire i dati in modo appropriato.
@@ -288,13 +288,13 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 dataset.head(3)
 ```
 
-||ID|Case Number|Data|Blocca|...|
+||ID|Case Number|Data|Blocco|...|
 -|---------|-----|---------|----|---
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|...
 
-Ad esempio è necessario trasformare il formato di data e ora per ' 2016-04-04 PM di 10 ore 00:00-'. Nel [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) argomento, vengono forniti esempi di output desiderato nel `example_data` parametro nel formato seguente: *(output originale, output desiderato)*.
+Ad esempio è necessario trasformare il formato di data e ora per ' 2016-04-04 PM di 10 ore 00:00-'. Nel [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) argomento, vengono forniti esempi di output desiderato nel `example_data` parametro nel formato seguente: *(output originale, output desiderato)* .
 
 Il codice seguente vengono forniti due esempi di output desiderato ("2016-04-04-23:56:00", "2016-04-04 10 PM-12 AM") e ("2016-04-15 17:00:00", "2016-04-15 4 PM - 6 PM")
 

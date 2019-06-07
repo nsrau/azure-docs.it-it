@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: f369f899d4a383205ad124e4fcd8dabf9f92f63f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480065"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753183"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Come funziona il servizio Azure Machine Learning: Architettura e concetti
 
@@ -27,7 +27,7 @@ Informazioni sui concetti, architettura e flusso di lavoro per il servizio di Az
 
 Il flusso di lavoro di machine learning in genere segue questa sequenza:
 
-1. Sviluppare script di training per l'apprendimento automatico in **Python**.
+1. Sviluppare script di training di apprendimento **Python** o con l'interfaccia visiva.
 1. Creare e configurare una **destinazione di calcolo**.
 1. **Inviare gli script** alla destinazione di calcolo configurata per l'esecuzione in tale ambiente. Durante il training, gli script possono leggere o scrivere nell'**archivio dati**. I record di esecuzione inoltre vengono salvati come **esecuzioni** nell'**area di lavoro** e raggruppati negli **esperimenti**.
 1. **Eseguire una query sull'esperimento** per le metriche registrate dalle esecuzioni correnti e precedenti. Se le metriche non indicano un risultato desiderato, tornare al passaggio 1 ed eseguire l'iterazione sugli script.
@@ -107,34 +107,7 @@ Usare l'API di Python SDK o l'interfaccia della riga di comando di Azure Machine
 
 ## <a name="compute-target"></a>Destinazione del calcolo
 
-Una destinazione di calcolo è la risorsa di calcolo usata per eseguire lo script di training o per ospitare la distribuzione del servizio. Le destinazioni di calcolo supportate sono:
-
-| Destinazione del calcolo | Formazione | Distribuzione |
-| ---- |:----:|:----:|
-| Il computer locale | ✓ | &nbsp; |
-| Ambiente di calcolo di Azure Machine Learning | ✓ | &nbsp; |
-| Una VM Linux in Azure</br>(ad esempio, Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; |
-| Azure Data Lake Analytics. | ✓ | &nbsp; |
-| Apache Spark per HDInsight | ✓ | &nbsp; |
-| Istanze di Azure Container | &nbsp; | ✓ |
-| Servizio Azure Kubernetes | &nbsp; | ✓ |
-| Azure IoT Edge | &nbsp; | ✓ |
-| Field-programmable Gate Array (FPGA) | &nbsp; | ✓ |
-
-Le destinazioni di calcolo sono allegate a un'area di lavoro. Le destinazioni di calcolo diverse dal computer locale vengono condivise dagli utenti dell'area di lavoro.
-
-### <a name="managed-and-unmanaged-compute-targets"></a>Destinazioni di calcolo gestite e non gestite
-
-* **Gestite**: destinazioni di calcolo create e gestite dal servizio Azure Machine Learning. Queste destinazioni sono ottimizzate per i carichi di lavoro di apprendimento automatico. L'ambiente di calcolo di Azure Machine Learning è l'unica destinazione di calcolo gestita alla data di questo documento (4 dicembre 2018). È possibile che in futuro vengano aggiunte altre destinazioni di calcolo gestite.
-
-    È possibile creare istanze dell'ambiente di calcolo di apprendimento automatico direttamente tramite l'area di lavoro usando il portale di Azure, l'SDK di Azure Machine Learning o l'interfaccia della riga di comando di Azure. Tutte le altre destinazioni di calcolo devono essere create al di fuori dell'area di lavoro e quindi collegate a tale area.
-
-* **Non gestite**: destinazioni di calcolo *non* gestite dal servizio Azure Machine Learning. Può essere necessario crearle all'esterno di Azure Machine Learning e quindi collegarle all'area di lavoro prima dell'uso. Le destinazioni di calcolo non gestite possono richiedere passaggi aggiuntivi per mantenere o migliorare le prestazioni per i carichi di lavoro di apprendimento automatico.
-
-Per informazioni sulla selezione di una destinazione di calcolo per il training, vedere [Selezionare e usare una destinazione di calcolo per eseguire il training del modello](how-to-set-up-training-targets.md).
-
-Per informazioni sulla selezione di una destinazione di calcolo per la distribuzione, vedere [Distribuire modelli con il servizio Azure Machine Learning](how-to-deploy-and-where.md).
+Oggetto [destinazione di calcolo](concept-compute-target.md) ti permette di specificare la risorsa di calcolo in cui si esegue lo script di training o di un host la distribuzione del servizio. Questo percorso può essere nel computer locale o una risorsa di calcolo basati sul cloud. Le destinazioni di calcolo rendono più semplice modificare l'ambiente di calcolo senza modificare il codice. 
 
 ## <a name="training-script"></a>Script di training
 

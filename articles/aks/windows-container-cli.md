@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/06/2019
 ms.author: twhitney
-ms.openlocfilehash: 5f727cb5c56c31e769edcb365f6d571253174567
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305295"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752383"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima - creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS) tramite la CLI di Azure
 
@@ -86,7 +86,6 @@ Quando questa funzionalità è disponibile in anteprima, si applicano le limitaz
 * Il cluster AKS può avere un massimo di otto pool di nodi.
 * Il cluster AKS può avere un massimo di 400 nodi tra tali pool di otto nodi.
 * Il nome del pool di nodi Windows Server ha un limite di 6 caratteri.
-* Pool di nodi di Windows Server non sono disponibili nelle aree di Canada in questo momento.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

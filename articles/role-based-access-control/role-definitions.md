@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2019
+ms.date: 06/06/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 04ceac3b06972687ef6cdeac4dad1f07fea611cb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950001"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754900"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Informazioni sulle definizioni del ruolo per le risorse di Azure
 
@@ -157,7 +157,7 @@ Per altre informazioni sulla gestione e sulla sicurezza del piano dati per l'arc
 
 Per visualizzare ed eseguire le operazioni sui dati, è necessario disporre delle versioni corrette degli strumenti o degli SDK:
 
-| Tool  | Version  |
+| Strumento  | Version  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 o versione successiva |
 | [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) | 2.0.30 o successiva |
@@ -216,7 +216,7 @@ L'autorizzazione `NotDataActions` specifica le operazioni sui dati che sono escl
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-La proprietà `AssignableScopes` specifica gli ambiti (sottoscrizioni, gruppi di risorse o risorse) in cui il ruolo è disponibile per l'assegnazione. È possibile rendere disponibile il ruolo per l'assegnazione solo nelle sottoscrizioni o nei gruppi di risorse che lo richiedono, in modo da non complicare l'esperienza utente per le altre sottoscrizioni o gli altri gruppi di risorse. È necessario usare almeno una sottoscrizione, un gruppo di risorse o un ID della risorsa.
+Il `AssignableScopes` proprietà consente di specificare gli ambiti (sottoscrizioni, gruppi di risorse o risorse) che hanno questa definizione di ruolo disponibile. È possibile rendere disponibili per l'assegnazione del ruolo in solo le sottoscrizioni o i gruppi di risorse che lo richiedono e non complicare l'esperienza utente per il resto sottoscrizioni o gruppi di risorse. È necessario usare almeno una sottoscrizione, un gruppo di risorse o un ID della risorsa.
 
 Per i ruoli predefiniti, `AssignableScopes` è impostato sull'ambito radice (`"/"`), per indicare che il ruolo è disponibile per l'assegnazione in tutti gli ambiti. Ecco alcuni esempi di ambiti assegnabili validi:
 
