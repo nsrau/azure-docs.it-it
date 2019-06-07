@@ -2,20 +2,20 @@
 title: ID della stringa di localizzazione - Azure Active Directory B2C | Microsoft Docs
 description: Specificare gli ID per una definizione del contenuto con un ID api.signuporsignin nei criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c6cabcc89e66e9fbf153f2931bfe8b9b70c5f426
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41a72013f1538b0a857c76bc949a7109e1cd54b4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682712"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510917"
 ---
 # <a name="localization-string-ids"></a>ID della stringa di localizzazione
 
@@ -33,7 +33,7 @@ Gli ID seguenti vengono usati per una definizione del contenuto con un ID `api.s
 | **logonIdentifier_email** | Indirizzo di posta elettronica |
 | **requiredField_email** | Immettere l'indirizzo di posta elettronica |
 | **invalid_email** | Immettere un indirizzo di posta elettronica valido |
-| **email_pattern** | ^ [a-zA-Z0-9.. & $% & "*c++ /CLI =? ^ _\`{\|} ~-]+@[a-zA-Z0-9-]+ (?:\\. [ un-zA-Z0 - 9-] +)*$ |
+| **email_pattern** | ^ [a-zA-Z0-9.. & $% & "*c++ /CLI =? ^ _\`{\|} ~-]+@[a-zA-Z0-9-]+ (?:\\. [ un-zA-Z0 - 9-] +)* $ |
 | **local_intro_username** | Accesso con il nome utente |
 | **logonIdentifier_username** | Username |
 | **requiredField_username** | Immettere il nome utente |
@@ -120,7 +120,7 @@ Di seguito sono riportati gli ID per una definizione del contenuto con ID `api.l
 | **ver_incorrect_format** | Il formato non è corretto. |
 | **ver_but_edit** | Cambiare l'indirizzo di posta elettronica |
 | **ver_but_verify** | Verificare il codice |
-| **alert_no** | No  |
+| **alert_no** | No |
 | **ver_info_msg** | Il codice di verifica è stato inviato alla Posta in arrivo. Copiarlo nella casella di input qui di seguito. |
 | **giorno** | Giorno |
 | **ver_fail_throttled** | Sono state effettuate troppe richieste di verifica di questo indirizzo di posta elettronica. Attendere qualche minuto e riprovare. |
