@@ -2,20 +2,20 @@
 title: Configurare il comportamento di sessione - Azure Active Directory B2C | Microsoft Docs
 description: Configurare il comportamento di sessione in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7bfa34f44ca8ba53b89e4218303a7cd77cd0add9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3167a63be46e0d777fbec0c6a3301684fb7636bd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700993"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512558"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurare il comportamento di sessione in Azure Active Directory B2C
 
@@ -30,11 +30,11 @@ Azure AD B2C supporta il [protocollo di autenticazione OpenID Connect](active-di
 
 ## <a name="session-behavior-properties"></a>Proprietà del comportamento della sessione
 
-- **Durata della sessione dell'app Web (minuti)**: durata del cookie della sessione di Azure AD B2C archiviato nel browser dell'utente dopo un'autenticazione corretta.
+- **Durata della sessione dell'app Web (minuti)** : durata del cookie della sessione di Azure AD B2C archiviato nel browser dell'utente dopo un'autenticazione corretta.
     - Impostazione predefinita: 1440 minuti.
     - Valore minimo (inclusivo): 15 minuti.
     - Valore massimo (inclusivo): 1440 minuti.
-- **Timeout della sessione dell'app Web**: se questa opzione è impostata su **Assoluto**, l'utente dovrà ripetere l'autenticazione dopo la scadenza del periodo di tempo specificato da **Durata della sessione dell'app Web (minuti)**. Se l'opzione è impostata su **Continuo** (impostazione predefinita), l'utente rimane connesso, purché sia continuamente attivo nell'applicazione Web.
+- **Timeout della sessione dell'app Web**: se questa opzione è impostata su **Assoluto**, l'utente dovrà ripetere l'autenticazione dopo la scadenza del periodo di tempo specificato da **Durata della sessione dell'app Web (minuti)** . Se l'opzione è impostata su **Continuo** (impostazione predefinita), l'utente rimane connesso, purché sia continuamente attivo nell'applicazione Web.
 - **Configurazione dell'accesso Single sign-on** se si dispone di più applicazioni e i flussi degli utenti nel tenant di B2C, è possibile gestire le interazioni degli utenti tra di essi utilizzando il **configurazione dell'accesso Single sign-on** proprietà. È possibile impostare la proprietà su uno dei valori seguenti:
     - **Tenant**: questa è l'impostazione predefinita. L'uso di questa impostazione consente a più applicazioni e flussi utente del tenant di B2C di condividere la stessa sessione utente. Ad esempio, quando un utente accede a un'applicazione, può accedere contemporaneamente anche a un'altra applicazione, Contoso Pharmacy, senza alcun problema.
     - **Applicazione**: questa impostazione consente di mantenere una sessione utente esclusivamente per un'applicazione, indipendentemente dalle altre applicazioni. Ad esempio, un utente può accedere a Contoso Pharmacy, usando le stesse credenziali, anche se ha già eseguito l'accesso a Contoso Shopping, un'altra applicazione nello stesso tenant di B2C. 
@@ -51,7 +51,7 @@ I seguenti casi d'uso sono abilitati usando queste proprietà:
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C facendo clic sul **filtro per directory e sottoscrizione** nel menu in alto e scegliendo tale directory.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-4. Selezionare **flussi utente, criteri,**.
+4. Selezionare **flussi utente, criteri,** .
 5. Aprire il flusso utente creato in precedenza. 
 6. Selezionare **Proprietà**.
 7. Configurare **durata della sessione (minuti) dell'app Web**, **timeout della sessione dell'app Web**, **configurazione dell'accesso Single sign-on**, e **Richiedi Token ID nelle richieste di disconnessione**  in base alle esigenze.

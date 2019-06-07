@@ -1,6 +1,6 @@
 ---
-title: "Riferimento all'API di v2 monitoraggio dello stato di Azure: Ottenere la configurazione | Microsoft Docs"
-description: Stato monitoraggio v2 API riferimento Get-ApplicationInsightsMonitoringConfig. Monitorare le prestazioni di siti Web senza ridistribuire il sito Web. Questa funzionalità può essere usata con app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
+title: "Azure riferimento all'API v2 Status Monitor: Ottenere la configurazione | Microsoft Docs"
+description: Riferimento API v2 di monitoraggio dello stato. Get-ApplicationInsightsMonitoringConfig. Monitorare le prestazioni di siti Web senza ridistribuire il sito Web. Funziona con le app web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,25 +12,25 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: ddc1f673ffec793bbca643ec1057215067f761a9
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 1f7061c9823ddc8ff7f8f42976041f1c9ff68fc0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66255139"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514392"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig-v021-alpha"></a>API v2 di Status Monitor: Get-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
 
-Questo documento descrive un cmdlet che viene fornito come un membro del [modulo di Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Questo articolo descrive un cmdlet che è un membro del [modulo di Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Stato monitoraggio v2 è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [condizioni per l'utilizzo per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate e alcune potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Descrizione
 
-Ottenere il file di configurazione e visualizzare i valori nella console.
+Ottiene il file di configurazione e vengono stampati i valori nella console.
 
 > [!IMPORTANT] 
 > Questo cmdlet richiede una sessione di PowerShell con autorizzazioni di amministratore.
@@ -41,9 +41,9 @@ Ottenere il file di configurazione e visualizzare i valori nella console.
 PS C:\> Get-ApplicationInsightsMonitoringConfig
 ```
 
-## <a name="parameters"></a>Parametri 
+## <a name="parameters"></a>Parametri
 
-(Nessun parametri richiesti)
+Nessun parametro obbligato.
 
 ## <a name="output"></a>Output
 
@@ -61,16 +61,16 @@ Filters:
 ## <a name="next-steps"></a>Passaggi successivi
 
   Visualizzare i dati di telemetria:
- - [Esaminare le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo
-- [Cercare eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi
-- Per informazioni sulle query più avanzate, vedere [Analytics](../../azure-monitor/app/analytics.md)
-- [Creare i dashboard](../../azure-monitor/app/overview-dashboard.md)
+ - [Esplorare le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e utilizzo.
+- [Cercare eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
+- Uso [analitica](../../azure-monitor/app/analytics.md) per più query avanzate.
+- [Creare dashboard](../../azure-monitor/app/overview-dashboard.md).
  
  Aggiungere altri dati di telemetria:
  - [Creare test web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
-- [Aggiungere dati di telemetria client web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina web e per consentire di inserire chiamate di traccia.
-- [Aggiungere Application Insights SDK al codice](../../azure-monitor/app/asp-net.md) in modo che è possibile inserire una traccia e registrare le chiamate
+- [Aggiungere dati di telemetria client web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina web e per consentire le chiamate di traccia.
+- [Aggiungere Application Insights SDK al codice](../../azure-monitor/app/asp-net.md) in modo che è possibile inserire una traccia e registrare le chiamate.
  
  Altri vantaggi v2 Status Monitor:
- - Usare la Guida alla [risoluzione dei problemi](status-monitor-v2-troubleshoot.md) v2 Status Monitor.
- - Apportare modifiche a questa configurazione usando il [impostare la configurazione di](status-monitor-v2-api-set-config.md) cmdlet.
+ - Usare la Guida alla [risolvere i problemi di](status-monitor-v2-troubleshoot.md) v2 Status Monitor.
+ - Apportare modifiche al file di configurazione usando il [impostare la configurazione di](status-monitor-v2-api-set-config.md) cmdlet.

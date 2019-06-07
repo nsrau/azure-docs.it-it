@@ -2,20 +2,20 @@
 title: Definire un profilo tecnico di OpenId Connect in un criterio personalizzato in Azure Active Directory B2C | Microsoft Docs
 description: Definire un profilo tecnico di OpenId Connect in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9ec323d4596c866da33c4a8ff5499bf2ad92a8bd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d16415aa5111388ec2d2a1009ff477574ae42c5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710320"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512906"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di OpenId Connect in un criterio personalizzato di Azure Active Directory B2C
 
@@ -73,28 +73,28 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| client_id | Sì | L'identificatore dell'attestazione del provider di identità. |
-| IdTokenAudience | No  | I destinatari dell'id_token. Se specificato, Azure AD B2C controlla se il token è in un'attestazione restituita dal provider di identità ed è uguale a quello specificato. |
-| METADATI | Sì | Un URL che punta a un documento di configurazione JSON formattato in base alla specifica di OpenID Connect Discovery, noto anche come un endpoint di configurazione openid. |
-| ProviderName | No  | Il nome del provider di identità. |
-| response_types | No  | Il tipo di risposta in base alla specifica di OpenID Connect Core 1.0. I valori possibili sono: `id_token`, `code` o `token`. |
-| response_mode | No  | Il metodo che usa il provider di identità per restituire il risultato ad Azure AD B2C. I valori possibili sono: `query`, `form_post` (impostazione predefinita), o `fragment`. |
-| scope | No  | L'ambito della richiesta che viene definita secondo la specifica di OpenID Connect Core 1.0. Ad esempio `openid`, `profile`, e `email`. |
-| HttpBinding | No  | L'associazione HTTP prevista per il token di accesso e per gli endpoint del token delle attestazioni. I possibili valori sono: `GET` o `POST`.  |
-| ValidTokenIssuerPrefixes | No  | Una chiave che può essere usata per accedere ai tenant quando si usa un provider di identità multi-tenant, ad esempio Azure Active Directory. |
-| UsePolicyInRedirectUri | No  | Indica se usare un criterio durante la costruzione dell'URI di reindirizzamento. Quando si configura l'applicazione nel provider di identità, è necessario specificare l'URI di reindirizzamento. L'URI di reindirizzamento punta a Azure AD B2C, `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com può cambiare con il tenant-name.b2clogin.com).  Se si specifica `false`, è necessario aggiungere un URI di reindirizzamento per ogni criterio usato. Ad esempio: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
-| MarkAsFailureOnStatusCode5xx | No  | Indica se una richiesta a un servizio esterno deve essere contrassegnata come non riuscita se il codice di stato http è compreso nell'intervallo 5xx. Il valore predefinito è `false`. |
-| DiscoverMetadataByTokenIssuer | No  | Indica se i metadati OIDC devono essere individuati tramite l'autorità di certificazione nel token JWT. |
+| client_id | Yes | L'identificatore dell'attestazione del provider di identità. |
+| IdTokenAudience | No | I destinatari dell'id_token. Se specificato, Azure AD B2C controlla se il token è in un'attestazione restituita dal provider di identità ed è uguale a quello specificato. |
+| METADATI | Yes | Un URL che punta a un documento di configurazione JSON formattato in base alla specifica di OpenID Connect Discovery, noto anche come un endpoint di configurazione openid. |
+| ProviderName | No | Il nome del provider di identità. |
+| response_types | No | Il tipo di risposta in base alla specifica di OpenID Connect Core 1.0. I valori possibili sono: `id_token`, `code` o `token`. |
+| response_mode | No | Il metodo che usa il provider di identità per restituire il risultato ad Azure AD B2C. I valori possibili sono: `query`, `form_post` (impostazione predefinita), o `fragment`. |
+| scope | No | L'ambito della richiesta che viene definita secondo la specifica di OpenID Connect Core 1.0. Ad esempio `openid`, `profile`, e `email`. |
+| HttpBinding | No | L'associazione HTTP prevista per il token di accesso e per gli endpoint del token delle attestazioni. I possibili valori sono: `GET` o `POST`.  |
+| ValidTokenIssuerPrefixes | No | Una chiave che può essere usata per accedere ai tenant quando si usa un provider di identità multi-tenant, ad esempio Azure Active Directory. |
+| UsePolicyInRedirectUri | No | Indica se usare un criterio durante la costruzione dell'URI di reindirizzamento. Quando si configura l'applicazione nel provider di identità, è necessario specificare l'URI di reindirizzamento. L'URI di reindirizzamento punta a Azure AD B2C, `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com può cambiare con il tenant-name.b2clogin.com).  Se si specifica `false`, è necessario aggiungere un URI di reindirizzamento per ogni criterio usato. Ad esempio: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
+| MarkAsFailureOnStatusCode5xx | No | Indica se una richiesta a un servizio esterno deve essere contrassegnata come non riuscita se il codice di stato http è compreso nell'intervallo 5xx. Il valore predefinito è `false`. |
+| DiscoverMetadataByTokenIssuer | No | Indica se i metadati OIDC devono essere individuati tramite l'autorità di certificazione nel token JWT. |
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 
 L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| client_secret | Sì | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token` è possibile omettere la chiave di crittografia.  |  
+| client_secret | Yes | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token` è possibile omettere la chiave di crittografia.  |  
 
 ## <a name="redirect-uri"></a>Uri di reindirizzamento
  

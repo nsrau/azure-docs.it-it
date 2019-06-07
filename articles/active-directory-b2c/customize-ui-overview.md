@@ -2,26 +2,26 @@
 title: Informazioni sulla personalizzazione dell'interfaccia utente in Azure Active Directory B2C | Microsoft Docs
 description: Come personalizzare l'interfaccia utente per le applicazioni che usano Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 26dea1b636fce9e7f5defddd5cf4bc4c7d78d5da
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6c9109cf4d6d67d3d8001a9de1d54e24622a9286
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682011"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511185"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Informazioni sulla personalizzazione dell'interfaccia utente in Azure Active Directory B2C
 
 La possibilità di personalizzare e applicare un marchio all'interfaccia utente che Azure Active Directory (Azure AD) B2C serve alle applicazioni è importante per garantire un'esperienza uniforme al cliente. Queste esperienze includono iscrizione, accesso, modifica del profilo e reimpostazione della password. Questo articolo fornisce informazioni su come personalizzare l'interfaccia utente delle applicazioni.
 
-L'interfaccia utente dell'applicazione si personalizza in modo diverso in base alle proprie esigenze rispetto a queste esperienze. Ad esempio: 
+L'interfaccia utente dell'applicazione si personalizza in modo diverso in base alle proprie esigenze rispetto a queste esperienze. Ad esempio:
 
 - Se si usano [flussi utente](active-directory-b2c-reference-policies.md) per fornire esperienze di iscrizione, accesso, reimpostazione della password o modifica del profilo all'interno dell'applicazione, si usa il [portale di Azure per personalizzare l'interfaccia utente](tutorial-customize-ui.md).
 - Se si usa un flusso utente v2, è possibile usare un [modello di layout di pagina](#page-layout-templates) per modificare l'aspetto delle pagine del flusso utente senza un'ulteriore personalizzazione. È ad esempio possibile applicare un tema di colore blu oltremare o grigio ardesia a tutte le pagine nel flusso utente.
@@ -48,7 +48,7 @@ Quando si usano file HTML e CSS per personalizzare l'interfaccia utente, consult
 
 Per i flussi utente v2, è possibile scegliere un modello predefinito che offre un aspetto migliore delle pagine predefinite e viene usato come base ottimale per la personalizzazione.
 
-Nel menu a sinistra, in **Personalizza**, selezionare **Layout di pagina**. Selezionare quindi **Modello (anteprima)**.
+Nel menu a sinistra, in **Personalizza**, selezionare **Layout di pagina**. Selezionare quindi **Modello (anteprima)** .
 
 ![Scegliere un modello di layout di pagina](media/customize-ui-overview/template.png)
 
