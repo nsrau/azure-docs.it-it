@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b993b34f81298b40c8849084380b2d1770708351
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249020"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482247"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -51,7 +51,7 @@ Sì.
 
 **È possibile usare un file di disco rigido virtuale in un account di archiviazione di Azure per creare un disco gestito in un'area geografica diversa?**
 
- No.
+No.
 
 **Ci sono limitazioni di scalabilità per i clienti che usano dischi gestiti?**
 
@@ -59,11 +59,11 @@ Managed Disks elimina i limiti legati agli account di archiviazione. Tuttavia, i
 
 **È possibile fare uno snapshot incrementale di un disco gestito?**
 
- No. La funzionalità snapshot corrente crea una copia completa di un disco gestito.
+No. La funzionalità snapshot corrente crea una copia completa di un disco gestito.
 
 **Le macchine virtuali in un set di disponibilità possono essere composte da una combinazione di dischi gestiti e non gestiti?**
 
- No. No, i dischi nelle macchine virtuali in un set di disponibilità devono essere o tutti gestiti o tutti non gestiti. Quando si crea un set di disponibilità, è possibile scegliere il tipo di dischi da usare.
+No. No, i dischi nelle macchine virtuali in un set di disponibilità devono essere o tutti gestiti o tutti non gestiti. Quando si crea un set di disponibilità, è possibile scegliere il tipo di dischi da usare.
 
 **Managed Disks è l'opzione predefinita nel portale di Azure?**
 
@@ -103,7 +103,7 @@ Sì, sono supportati sia i dischi non gestiti che quelli gestiti. È consigliabi
 
 **È possibile condividere il percorso dei dischi gestiti e non gestiti nella stessa macchina virtuale?**
 
- No.
+No.
 
 **Se crea un disco da 128 GB e si aumentano le dimensioni a 130 gibibyte (GiB), verrà addebitato per le dimensioni del disco successiva (256 GiB)?**
 
@@ -115,15 +115,15 @@ Attualmente Azure Managed Disks supporta solo dischi gestiti per l'archiviazione
 
 **È possibile ridurre/ridimensionare i dischi gestiti?**
 
- No. Questa funzionalità non è attualmente supportata.
+No. Questa funzionalità non è attualmente supportata.
 
 **È possibile interrompe un lease sul disco?**
 
- No. Questa funzionalità non è supportata attualmente in quanto è presente un lease per impedire l'eliminazione accidentale quando il disco è in uso.
+No. Questa funzionalità non è supportata attualmente in quanto è presente un lease per impedire l'eliminazione accidentale quando il disco è in uso.
 
 **È possibile modificare la proprietà del nome del computer quando si usa un disco del sistema operativo specializzato (non preparato con Utilità preparazione sistema o generalizzato) per il provisioning di una VM?**
 
- No. Non è possibile aggiornare la proprietà del nome del computer. La nuova VM eredita la proprietà dalla VM padre usata per creare il disco del sistema operativo. 
+No. Non è possibile aggiornare la proprietà del nome del computer. La nuova VM eredita la proprietà dalla VM padre usata per creare il disco del sistema operativo. 
 
 **Dove si possono trovare modelli di Azure Resource Manager di esempio per creare macchine virtuali con dischi gestiti?**
 * [Elenco di modelli che usano Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
@@ -143,7 +143,7 @@ Il partizionamento GPT può essere usato solo nei dischi dati e non nei dischi d
 
 **Quali tipi di disco supportano gli snapshot?**
 
-Unità SSD Premium standard unità SSD e unità SSD standard supportano gli snapshot, senza alcun limite di dimensione. Pertanto, è possibile di dischi di grandi dimensioni snapshot (TiB fino a 32). Extra SSDs non supportano gli snapshot.
+Unità SSD Premium standard unità SSD e HDD standard supportano gli snapshot. Per questi tipi di tre dischi, sono supportati gli snapshot per tutte le dimensioni di disco (inclusi i dischi di un massimo di 32 TiB di dimensioni). Extra SSDs non supportano gli snapshot.
 
 ## <a name="standard-ssd-disks"></a>Dischi SSD Standard
 
@@ -211,11 +211,11 @@ Non sono necessarie modifiche.
 
 **Migrazione automatica di una scalabilità di macchine virtuali impostata da dischi non gestiti a Managed Disks è supportata?**
 
- No. È possibile creare un nuovo set di scalabilità di macchine virtuali con Managed Disks usando l'immagine dal vecchio set di scalabilità con dischi non gestiti.
+No. È possibile creare un nuovo set di scalabilità di macchine virtuali con Managed Disks usando l'immagine dal vecchio set di scalabilità con dischi non gestiti.
 
 **È possibile creare un disco gestito da uno snapshot di BLOB di pagine eseguito prima della migrazione a Managed Disks?**
 
- No. È possibile esportare uno snapshot di BLOB di pagine come BLOB di pagine e quindi creare un disco gestito dal BLOB di pagine esportato.
+No. È possibile esportare uno snapshot di BLOB di pagine come BLOB di pagine e quindi creare un disco gestito dal BLOB di pagine esportato.
 
 **È possibile eseguire il failover su macchine virtuali locali protette da Azure Site Recovery in una macchina virtuale con Managed Disks?**
 
@@ -241,11 +241,11 @@ Le chiavi di crittografia sono gestite da Microsoft.
 
 **È possibile disabilitare la crittografia del servizio di archiviazione per i dischi gestiti?**
 
- No.
+No.
 
 **La crittografia del servizio di archiviazione è disponibile solo in aree specifiche?**
 
- No. È disponibile in tutte le aree in cui è disponibile Managed Disks. Managed Disks è disponibile in tutte le aree pubbliche e in Germania. È disponibile anche in Cina, ma solo per le chiavi gestite da Microsoft e non per quelle gestite dal cliente.
+No. È disponibile in tutte le aree in cui è disponibile Managed Disks. Managed Disks è disponibile in tutte le aree pubbliche e in Germania. È disponibile anche in Cina, ma solo per le chiavi gestite da Microsoft e non per quelle gestite dal cliente.
 
 **Come si può determinare se un disco gestito è crittografato?**
 
@@ -268,7 +268,7 @@ Yes
 
 **Un disco rigido virtuale esportato da un disco gestito o uno snapshot verrà crittografato?**
 
- No. Se però si esporta un disco rigido virtuale da un disco gestito o uno snapshot crittografato a un account di archiviazione crittografato, verrà crittografato. 
+No. Se però si esporta un disco rigido virtuale da un disco gestito o uno snapshot crittografato a un account di archiviazione crittografato, verrà crittografato. 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Dischi Premium: gestiti e non gestiti
 
@@ -278,7 +278,7 @@ Sì.
 
 **È possibile collegare dischi dati sia Premium che Standard a una serie di dimensioni che non supporta dischi SSD Premium, come le serie D, Dv2, G o F?**
 
- No. È possibile collegare solo dischi dati Standard alle macchine virtuali che non usano una serie di dimensioni con supporto di dischi SSD Premium.
+No. È possibile collegare solo dischi dati Standard alle macchine virtuali che non usano una serie di dimensioni con supporto di dischi SSD Premium.
 
 **Se si crea un disco dati Premium da un disco rigido virtuale esistente da 80 GB, qual è il costo?**
 

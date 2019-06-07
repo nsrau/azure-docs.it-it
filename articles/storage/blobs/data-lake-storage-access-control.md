@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 72a72e385217178cb6afee237cc3a3e5c5d1248b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243600"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751646"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -53,7 +53,7 @@ I token di firma di accesso condiviso includono le autorizzazioni consentite com
 
 Se è stato assegnato un ruolo a un'entità di sicurezza a livello di account di archiviazione, è possibile usare gli elenchi di controllo di accesso per concedere a che tale entità di protezione accesso con privilegi elevati per le directory e file specifici.
 
-È possibile utilizzare gli elenchi di controllo di accesso per fornire un livello di accesso inferiore rispetto a un livello concesso da un'assegnazione di ruolo. Ad esempio, se si assegna il [collaboratore ai dati Blob di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview) negli elenchi del ruolo a un'entità, quindi non è possibile usare il controllo di accesso di sicurezza per impedire la scrittura in una directory di tale entità di sicurezza.
+È possibile utilizzare gli elenchi di controllo di accesso per fornire un livello di accesso inferiore rispetto a un livello concesso da un'assegnazione di ruolo. Ad esempio, se si assegna il [collaboratore ai dati Blob di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) negli elenchi del ruolo a un'entità, quindi non è possibile usare il controllo di accesso di sicurezza per impedire la scrittura in una directory di tale entità di sicurezza.
 
 ### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Set di file e directory le autorizzazioni a livello tramite elenchi di controllo di accesso
 
@@ -270,7 +270,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>È necessario abilitare il supporto per gli ACL?
 
- No. Controllo di accesso tramite ACL è abilitato per un account di archiviazione, purché la gerarchica Namespace (HNS) funzionalità è attivata.
+No. Controllo di accesso tramite ACL è abilitato per un account di archiviazione, purché la gerarchica Namespace (HNS) funzionalità è attivata.
 
 Se lo spazio dei nomi gerarchico è disattivato, vengono applicate le regole di autorizzazione del controllo degli accessi in base al ruolo Azure.
 
@@ -334,6 +334,6 @@ Gli elenchi di controllo di accesso non ereditano. Gli ACL predefiniti tuttavia 
 * [ACL POSIX in Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Using Access Control Lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso di elenchi di controllo di accesso in Linux)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Panoramica di Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

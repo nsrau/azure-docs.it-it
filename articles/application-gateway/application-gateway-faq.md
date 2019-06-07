@@ -6,18 +6,20 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 25779cd62f70df41a7734d2f8097504923dcb3a3
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947078"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430878"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul Gateway applicazione
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Di seguito sono comuni alle domande frequenti sul Gateway applicazione di Azure.
 
 ## <a name="general"></a>Generale
 
@@ -103,7 +105,7 @@ Le distribuzioni che usano lo SKU di versione 2 possono richiedere fino a 6 minu
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>È possibile usare Exchange Server come un back-end con il Gateway applicazione?
 
- No. Il Gateway applicazione non supporta i protocolli di messaggio di posta elettronica quali SMTP, IMAP e POP3. 
+No. Il Gateway applicazione non supporta i protocolli di messaggio di posta elettronica quali SMTP, IMAP e POP3. 
 
 ## <a name="performance"></a>Prestazioni
 
@@ -123,7 +125,7 @@ Sì, lo SKU versione 2 del gateway applicazione supporta la scalabilità automat
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>Esegue manuale aumento o riduzione delle prestazioni a causa dei tempi di inattività?
 
- No. Le istanze vengono distribuite tra domini di aggiornamento e domini di errore.
+No. Le istanze vengono distribuite tra domini di aggiornamento e domini di errore.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Il gateway applicazione supporta l'esaurimento delle connessioni?
 
@@ -145,7 +147,7 @@ Purché si disponga di connettività tramite indirizzo IP, il Gateway applicazio
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>È possibile distribuire altri elementi nella subnet del gateway applicazione?
 
- No. Ma è possibile distribuire altri gateway applicazione nella subnet.
+No. Ma è possibile distribuire altri gateway applicazione nella subnet.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Gruppi di sicurezza di rete sono supportati nella subnet del gateway applicazione?
 
@@ -177,7 +179,7 @@ Architettura di Microservizi è supportata. Per il probe su porte diverse, è ne
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>I probe personalizzati supportano caratteri jolly o regex nei dati di risposta?
 
- No. 
+No. 
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Come vengono elaborate le regole di routine nel Gateway applicazione?
 
@@ -187,13 +189,18 @@ Visualizzare [ordine di elaborazione delle regole](https://docs.microsoft.com/az
 
 Il campo Host specifica il nome di inviare il probe dopo avere configurato multisito nel Gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della macchina virtuale. Il formato è \<protocol\>://\<host\>:\<porta\>\<percorso\>.
 
-### <a name="can-i-whitelist-application-gateway-access-to-only-a-few-source-ips"></a>È possibile consentire l'accesso al Gateway applicazione per solo alcuni indirizzi IP di origine?
+### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Si può consentire accesso al Gateway applicazione per solo alcuni indirizzi IP di origine?
 
-Sì. Visualizzare [limitare l'accesso a specifici indirizzi IP di origine](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips).
+Sì. Visualizzare [limitare l'accesso a specifici indirizzi IP di origine](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>È possibile usare la stessa porta per il listener sia pubblico che privato rivolte?
 
- No.
+No.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>È disponibile materiale sussidiario disponibile per eseguire la migrazione da SKU v1 per lo SKU di versione 2?
+
+Sì. Per informazioni dettagliate, vedere [eseguire la migrazione di Gateway applicazione di Azure e Web Application Firewall da v1 a v2](migrate-v1-v2.md).
+
 
 ## <a name="configuration---ssl"></a>Configurazione di SSL:
 
@@ -289,7 +296,7 @@ Monitoraggio WAF tramite la registrazione diagnostica. Per altre informazioni, v
 
 ### <a name="does-detection-mode-block-traffic"></a>La modalità di rilevamento blocca il traffico?
 
- No. Modalità di rilevamento registra solo il traffico che attiva una regola WAF.
+No. Modalità di rilevamento registra solo il traffico che attiva una regola WAF.
 
 ### <a name="can-i-customize-waf-rules"></a>È possibile personalizzare le regole del Web application firewall (WAF)?
 
@@ -312,6 +319,10 @@ Per altre informazioni, vedere [vulnerabilità top 10 OWASP](https://www.owasp.o
 ### <a name="does-waf-support-ddos-protection"></a>Web Application firewall supporta la protezione DDoS?
 
 Sì. È possibile abilitare protezione DDoS nella rete virtuale in cui viene distribuito il gateway applicazione. Questa impostazione garantisce che il servizio protezione DDoS di Azure protegge anche l'applicazione gateway indirizzo IP virtuale (VIP).
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>È disponibile materiale sussidiario disponibile per eseguire la migrazione da SKU v1 per lo SKU di versione 2?
+
+Sì. Per informazioni dettagliate, vedere [eseguire la migrazione di Gateway applicazione di Azure e Web Application Firewall da v1 a v2](migrate-v1-v2.md).
 
 ## <a name="diagnostics-and-logging"></a>Diagnostica e registrazione
 

@@ -18,6 +18,10 @@
       href: tutorial-phs-backup.md
 - name: Concetti
   items:
+    - name: Soluzione ibrida di gestione delle identità
+      items:
+        - name: Gestione regolamentata sul cloud per carichi di lavoro locali
+          href: cloud-governed-management-for-on-premises.md
     - name: Azure AD Connect e Connect Health
       items:
         - name: Informazioni su Azure AD Connect e Connect Health
@@ -184,11 +188,11 @@
           href: how-to-connect-sync-recycle-bin.md
         - name: Configurare l'account del connettore di Active Directory Domain Services
           href: how-to-connect-configure-ad-ds-connector-account.md
-        - name: Cambiare la password dell'account del servizio Azure AD Sync
+        - name: Modificare la password dell'account del servizio Azure AD Sync
           href: how-to-connect-sync-change-serviceacct-pass.md
         - name: Cambiare la password dell'account del connettore di Azure AD
           href: how-to-connect-azureadaccount.md
-        - name: Cambiare la password dell'account del connettore di Active Directory Domain Services
+        - name: Modificare la password dell'account del connettore di Active Directory Domain Services
           href: how-to-connect-sync-change-addsacct-pass.md
     - name: Gestire l'autenticazione pass-through
       items:

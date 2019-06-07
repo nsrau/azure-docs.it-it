@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5044567396d832d3c3b2b46e3c3e90e053834595
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: d31bde1a33d622c2c0b7aa716cbbbfbc8ef42ecf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417889"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514583"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -407,7 +407,7 @@ Può eseguire attività comuni relative alla fatturazione, ad esempio aggiornare
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="desktop-analytics-administrator"></a>Amministratore di Desktop Analytics
-Può accedere a servizi e strumenti di gestione desktop, ad esempio Intune, e gestirli.
+Può gestire Analitica Desktop e personalizzazione di Office & criteri di servizi. Per Desktop Analitica, ciò include la possibilità di visualizzare l'inventario di asset, creare piani di distribuzione, visualizzare lo stato di distribuzione e l'integrità. Per il servizio criteri & di personalizzazione di Office, questo ruolo consente agli utenti di gestire i criteri di Office.
 
   > [!NOTE]
   > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.

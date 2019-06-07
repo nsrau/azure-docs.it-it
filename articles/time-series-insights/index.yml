@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/23/2019
+  ms.date: 06/03/2019
   ms.author: anshan
 abstract:
   description: 'Introduzione ad Azure Time Series Insights. Azure Time Series Insights fornisce strumenti avanzati per l''esplorazione dei dati e la telemetria per contribuire a migliorare l''analisi operativa. La documentazione descrive il servizio e illustra come iniziare a usare le numerose funzionalità, l''SDK client e le API avanzate di Time Series Insights. Vengono presentate informazioni per le due versioni, una con disponibilità generale (Time Series Insights disponibile a livello generale) e una in anteprima (Anteprima di Time Series Insights).'
@@ -46,9 +46,9 @@ sections:
         className: cardsD
         items:
           - title: Azure Time Series Insights disponibile a livello generale
-            html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">Creare un ambiente</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">Creare app Web a pagina singola</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">Esplorare la libreria client JavaScript</a></p>
+            html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">Creare un ambiente Azure Time Series Insights</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">Creare app Web a pagina singola</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">Esplorare la libreria client JavaScript</a></p>
           - title: Anteprima di Time Series Insights
-            html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">Esercitazione sull'anteprima</a></p>
+            html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">Configurare un ambiente di anteprima di Azure Time Series Insights</a></p>
   - title: riferimento
     items:
       - type: list
@@ -56,6 +56,8 @@ sections:
         className: cardsD
         items:
           - title: API di Time Series Insights disponibili a livello generale
-            html: <p><a href="/rest/api/time-series-insights-management">API Gestione risorse</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">API di query</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Sintassi delle query</a></p>
+            html: <p><a href="rest/api/time-series-insights/ga">Accesso ai dati</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">API di query</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Sintassi delle query</a></p>
           - title: API dell'Anteprima di Time Series Insights
             html: <p><a href="/rest/api/time-series-insights/preview-query">API di query</a></p> <p><a href="/rest/api/time-series-insights/preview-model">API di modelli</a></p> <p><a href="/rest/api/time-series-insights/preview-env">API di ambienti</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">API di espressioni di Time Series</a></p>
+          - title: Client SDK
+            html: '<p><a href="https://github.com/microsoft/tsiclient/blob/master/docs/API.md">Client SDK JavaScript</a></p>'

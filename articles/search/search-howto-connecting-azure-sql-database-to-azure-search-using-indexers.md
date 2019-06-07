@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025348"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755105"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Effettuare la connessione a e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori di Ricerca di Azure
 
@@ -158,23 +158,7 @@ Sono disponibili informazioni aggiuntive relative alla risposta [Ottenere lo sta
 
 È richiesto il parametro **interval** . L'intervallo fa riferimento al tempo tra l'inizio di due esecuzioni consecutive dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` ogni 15 minuti, `PT2H` ogni due ore.
 
-Il valore facoltativo **startTime** indica quando devono essere avviate le esecuzioni pianificate. Se viene omesso, verrà usata l'ora UTC corrente. Può trattarsi di un'ora del passato, caso in cui la prima esecuzione viene pianificata come se l'indicizzatore fosse stato continuamente in funzione sin dall'ora di inizio.  
-
-È possibile effettuare solo l'esecuzione di un indicizzatore specificato per volta. Se un indicizzatore è in uso quando viene pianificata l'esecuzione, l'esecuzione viene rimandata fino al successivo orario pianificato.
-
-Ecco un esempio per rendere il discorso più concreto. Si supponga che sia configurata la seguente pianificazione oraria:
-
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
-
-Di seguito è illustrato ciò che accade:
-
-1. L’esecuzione del primo indicizzatore comincia il 1 marzo 2015 alle 12:00 UTC più o meno.
-2. Si supponga che l'esecuzione richieda 20 minuti (o un tempo qualsiasi inferiore a 1 ora).
-3. La seconda esecuzione inizia il 1 marzo 2015 alle 13.00, più o meno
-4. Si supponga ora che l'esecuzione richieda più di un'ora, ad esempio 70 minuti, e che venga completata alle 02:10 circa.
-5. Ora sono le 02:00, l’ora dell’inizio della terza esecuzione. Poiché la seconda esecuzione della 01.00 è ancora in esecuzione, la terza esecuzione viene saltata. La terza esecuzione inizia alle 03:00.
-
-È possibile aggiungere, modificare o eliminare una pianificazione per un indicizzatore esistente utilizzando una richiesta di **indicizzatore PUT** .
+Per altre informazioni sulla definizione delle pianificazioni di indicizzatore, vedere [come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 
@@ -328,7 +312,7 @@ Non direttamente. La connessione diretta non è consigliata né supportata, in q
 
 **D: Posso usare l'indicizzatore di Azure SQL con database diversi da SQL Server in esecuzione in IaaS in Azure?**
 
- No. Questo scenario non è supportato, in quanto non è stato eseguito il test dell'indicizzatore con database diversi da SQL Server.  
+No. Questo scenario non è supportato, in quanto non è stato eseguito il test dell'indicizzatore con database diversi da SQL Server.  
 
 **D: Posso creare più indicizzatori in esecuzione in una pianificazione?**
 

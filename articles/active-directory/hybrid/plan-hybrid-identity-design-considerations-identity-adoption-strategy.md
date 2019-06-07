@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c55dc0cbc175542d0b208bbe72566a0adb55a371
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919110"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496731"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definire una strategia di adozione della soluzione ibrida di gestione delle identità
 In questa attività viene definita la strategia di adozione della soluzione ibrida di gestione delle identità in modo che soddisfi i requisiti aziendali definiti in:
@@ -54,9 +54,9 @@ La tabella seguente consente di determinare i vantaggi e gli svantaggi di ognuna
 
 | Strategia | Vantaggi | Svantaggi: |
 | --- | --- | --- |
-| **Identità cloud** |Più facile da gestire per le organizzazioni di piccole dimensioni. <br> Non ci sono componenti da installare in locale. Non è necessario alcun hardware aggiuntivo.<br> Facile da disabilitare se l'utente lascia la società |Gli utenti devono eseguire l'accesso per usare i carichi di lavoro nel cloud <br>  Le password per le identità cloud e locale possono essere uguali oppure no |
-| **Identità sincronizzate** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br>  Più facile da gestire |Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
-| **Federato** |Gli utenti possono usufruire dell'accesso Single Sign-On  <br>Se un utente cessa di lavorare in azienda, l'account viene disabilitato immediatamente e l'accesso revocato,<br> Supporta scenari avanzati che non sono disponibili con le identità sincronizzate |Altri passaggi di configurazione <br> Manutenzioni superiori <br> Può richiedere hardware aggiuntivo per l'infrastruttura del servizio token di sicurezza <br> Può richiedere hardware aggiuntivo per installare il server federativo. Se si usa AD FS, è necessario software aggiuntivo <br> È richiesta una configurazione estesa per SSO <br> Punto critico di errore se il server federativo è inattivo, gli utenti non potranno eseguire l'autenticazione |
+| **Identità cloud** |Più facile da gestire per le organizzazioni di piccole dimensioni. <br> Non ci sono componenti da installare in locale. Non è necessario alcun hardware aggiuntivo.<br>Facile da disabilitare se l'utente lascia la società |Gli utenti devono eseguire l'accesso per usare i carichi di lavoro nel cloud <br> Le password per le identità cloud e locale possono essere uguali oppure no |
+| **Identità sincronizzate** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br> Più facile da gestire |Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
+| **Federato** |Gli utenti possono usufruire dell'accesso Single Sign-On <br>Se un utente cessa di lavorare in azienda, l'account viene disabilitato immediatamente e l'accesso revocato,<br> Supporta scenari avanzati che non sono disponibili con le identità sincronizzate |Altri passaggi di configurazione <br> Manutenzioni superiori <br> Può richiedere hardware aggiuntivo per l'infrastruttura del servizio token di sicurezza <br> Può richiedere hardware aggiuntivo per installare il server federativo. Se si usa AD FS, è necessario software aggiuntivo <br> È richiesta una configurazione estesa per SSO <br> Punto critico di errore se il server federativo è inattivo, gli utenti non potranno eseguire l'autenticazione |
 
 ### <a name="client-experience"></a>Esperienza client
 La strategia scelta determinerà l'esperienza di accesso per gli utenti.  Le tabelle seguenti forniscono informazioni su ciò che gli utenti dovranno aspettarsi dall'esperienza di accesso.  Non tutti i provider di identità federate supportano l'accesso Single Sign-On in tutti gli scenari.
@@ -182,11 +182,11 @@ Opzioni di progettazione per l'autenticazione a più fattori:
 
 | Asset da proteggere | Autenticazione a più fattori nel cloud | MFA in locale |
 | --- | --- | --- |
-| App Microsoft |Sì |Sì |
-| App SaaS nella Raccolta di app |Sì |Sì |
-| Le applicazioni IIS pubblicate tramite proxy app per Azure AD |Sì |Sì |
-| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD |no |Sì |
-| Accesso remoto, ad esempio VPN, Gateway Desktop remoto |no |Sì |
+| App Microsoft |sì |sì |
+| App SaaS nella Raccolta di app |sì |sì |
+| Le applicazioni IIS pubblicate tramite proxy app per Azure AD |sì |sì |
+| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD |no |sì |
+| Accesso remoto, ad esempio VPN, Gateway Desktop remoto |no |sì |
 
 Anche se è già stata scelta una soluzione per la strategia, è comunque necessario riesaminare la valutazione riportata in precedenza a seconda di dove risiedono gli utenti  ed eventualmente cambiare il tipo di soluzione.  A questo scopo, usare la tabella seguente:
 
@@ -199,8 +199,7 @@ Anche se è già stata scelta una soluzione per la strategia, è comunque necess
 | Active Directory locale |Server Multi-Factor Authentication |
 
 > [!NOTE]
-> È anche necessario assicurarsi che l'opzione di progettazione per l'autenticazione a più fattori selezionata supporti le funzionalità richieste.  Per altre informazioni, leggere [Scegliere la soluzione di sicurezza a più fattori più adatta](../authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
-> 
+> È anche necessario assicurarsi che l'opzione di progettazione per l'autenticazione a più fattori selezionata supporti le funzionalità richieste.  Per altre informazioni, leggere [Scegliere la soluzione di sicurezza a più fattori più adatta](../authentication/concept-mfa-howitworks.md).
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Provider di Multi-Factor Authentication
@@ -214,6 +213,6 @@ La modalità Multi-Factor Authentication è disponibile per impostazione predefi
 ## <a name="next-steps"></a>Passaggi successivi
 [Determinare i requisiti di protezione dati](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](plan-hybrid-identity-design-considerations-overview.md)
 

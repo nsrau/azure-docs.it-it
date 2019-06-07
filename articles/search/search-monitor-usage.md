@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797386"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755068"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorare l'utilizzo delle risorse e l'attività di query in ricerca di Azure
 
@@ -58,7 +58,7 @@ Ricerca di Azure non archivia dati, oltre agli oggetti gestiti, e questo signifi
 
 La tabella seguente confronta le opzioni per l'archiviazione dei log e l'aggiunta di funzionalità di monitoraggio approfondite per le operazioni del servizio e i carichi di lavoro di query tramite Application Insights.
 
-| Resource | Utilizzato per |
+| Resource | Usato per |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Gli eventi registrati e le metriche di query, gli schemi seguenti, in base riconducibili a eventi utente nell'app. Questa è l'unica soluzione che tiene conto delle azioni o dei segnali degli utenti, con mapping degli eventi dalla ricerca avviata dall'utente, invece di filtrare le richieste inviate dal codice dell'applicazione. Per usare questo approccio, copiare e incollare il codice di strumentazione nei file di origine per indirizzare le informazioni sulle richieste ad Application Insights. Per altre informazioni, vedere [Analisi del traffico di ricerca](search-traffic-analytics.md). |
 | [Log di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Gli eventi registrati e le metriche di query, basate su schemi riportato di seguito. Gli eventi vengono registrati per un'area di lavoro di Log Analitica. È possibile eseguire query su un'area di lavoro per restituire informazioni dettagliate dal log. Per altre informazioni, vedere [iniziare con i log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
@@ -111,21 +111,21 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>Schema del log
 I BLOB che contengono i log del traffico del servizio di ricerca sono strutturati come descritto in questa sezione. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log. Ogni BLOB contiene record su tutte le operazioni eseguite nell'arco della stessa ora.
 
-| NOME | Type | Esempio | Note |
+| Name | Type | Esempio | Note |
 | --- | --- | --- | --- |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
 | operationName |string |"Query.Search" |Nome dell'operazione |
 | operationVersion |string |"2019-05-06" |api-version usata |
 | category |string |"OperationLogs" |costante |
 | resultType |string |"Esito positivo" |Valori possibili: Esito positivo o negativo |
 | resultSignature |int |200 |Codice risultato HTTP |
 | durationMS |int |50 |Durata dell'operazione in millisecondi |
-| properties |oggetto |Vedere la tabella seguente |Oggetto contenente dati specifici dell'operazione |
+| properties |object |Vedere la tabella seguente |Oggetto contenente dati specifici dell'operazione |
 
 **Schema delle proprietà**
 
-| NOME | Type | Esempio | Note |
+| Name | Type | Esempio | Note |
 | --- | --- | --- | --- |
 | Descrizione |string |"GET /indexes('content')/docs" |Endpoint dell'operazione |
 | Query |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Parametri della query |
@@ -138,14 +138,14 @@ Vengono acquisite metriche per le richieste di query.
 
 | NOME | Type | Esempio | Note |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa in uso |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa in uso |
 | metricName |string |"Latenza" |Nome della metrica |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
-| media |int |64 |Valore medio degli esempi non elaborati nell'intervallo di tempo della metrica |
+| average |int |64 |Valore medio degli esempi non elaborati nell'intervallo di tempo della metrica |
 | minimum |int |37 |Valore minimo degli esempi non elaborati nell'intervallo di tempo della metrica |
 | maximum |int |78 |Valore massimo degli esempi non elaborati nell'intervallo di tempo della metrica |
-| totale |int |258 |Valore totale degli esempi non elaborati nell'intervallo di tempo della metrica |
-| Conteggio |int |4 |Numero degli esempi non elaborati usati per generare la metrica |
+| total |int |258 |Valore totale degli esempi non elaborati nell'intervallo di tempo della metrica |
+| count |int |4 |Numero degli esempi non elaborati usati per generare la metrica |
 | timegrain |string |"PT1M" |Intervallo di tempo della metrica nel formato ISO 8601 |
 
 Tutte le metriche vengono segnalate in intervalli di un minuto. Ogni metrica espone i valori minimi, massimi e medi al minuto.
@@ -175,7 +175,7 @@ Sia l'API REST di Ricerca di Azure che .NET SDK consentono l'accesso a livello d
 * [Conteggio documenti](/rest/api/searchservice/count-documents)
 * [Ottenere lo stato dell'indicizzatore](/rest/api/searchservice/get-indexer-status)
 
-Per abilitare il monitoraggio tramite PowerShell o l'interfaccia della riga di comando di Azure, vedere la documentazione [qui](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+Per abilitare il monitoraggio tramite PowerShell o l'interfaccia della riga di comando di Azure, vedere la documentazione [qui](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

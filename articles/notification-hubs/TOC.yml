@@ -38,10 +38,6 @@
       items:
         - name: Eseguire il push di notifiche usando il push cloud Baidu
           href: notification-hubs-baidu-china-android-notifications-get-started.md
-    - name: Chrome
-      items:
-        - name: Inviare notifiche push ad app Chrome
-          href: notification-hubs-chrome-push-notifications-get-started.md
     - name: iOS
       items:
         - name: Inviare notifiche push ad app iOS
@@ -68,7 +64,7 @@
           href: notification-hubs-windows-mobile-push-notifications-mpns.md
         - name: Inviare notifiche push a specifici dispositivi
           href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-    - name: ' Windows'
+    - name: Windows
       items:
         - name: Inviare notifiche push ad app della piattaforma UWP (Universal Windows Platform)
           href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
