@@ -60,7 +60,7 @@ L'esempio seguente illustra le sezioni che compongono la struttura di base di un
 | description |Yes |Descrizione dell'elemento visualizzato nel lab. |
 | iconUri |No  |URI dell'icona visualizzata nel lab. |
 | targetOsType |Yes |Sistema operativo della macchina virtuale in cui è installato l'elemento. Le opzioni supportate sono Windows e Linux. |
-| Parametri |No  |Valori forniti quando viene eseguito il comando di installazione dell'elemento in un computer. Questi valori consentono di personalizzare l'elemento. |
+| parameters |No  |Valori forniti quando viene eseguito il comando di installazione dell'elemento in un computer. Questi valori consentono di personalizzare l'elemento. |
 | runCommand |Yes |Il comando di installazione dell’elemento che viene eseguito in una macchina virtuale. |
 
 ### <a name="artifact-parameters"></a>Parametri dell'elemento
