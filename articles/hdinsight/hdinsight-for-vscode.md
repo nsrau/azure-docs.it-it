@@ -310,16 +310,16 @@ Inviare un file e osservare che la cartella con estensione vscode viene aggiunta
     | proxyUser | Utente da rappresentare durante l'esecuzione del processo | string | 
     | className | Classe principale Java/Spark dell'applicazione | string |
     | args | Argomenti della riga di comando per l'applicazione | elenco di stringhe | 
-    | file JAR | file JAR da usare in questa sessione | Elenco di stringhe | 
+    | jars | file JAR da usare in questa sessione | Elenco di stringhe | 
     | pyFiles | File di Python da usare in questa sessione | Elenco di stringhe |
-    | input | file da usare in questa sessione | Elenco di stringhe |
+    | files | file da usare in questa sessione | Elenco di stringhe |
     | driverMemory | Quantità di memoria da usare per il processo del driver | string |
     | driverCores | Numero di core da usare per il processo del driver | int |
     | executorMemory | Quantità di memoria da usare per ogni processo executor | string |
     | executorCores | Numero di core da usare per ogni executor | int |
     | numExecutors | Numero di executor da avviare per questa sessione | int |
     | archives | Archivi da usare in questa sessione | Elenco di stringhe |
-    | coda | Nome della coda a cui YARN viene effettuato l'invio | string |
+    | queue | Nome della coda a cui YARN viene effettuato l'invio | string |
     | name | Nome della sessione | string |
     | conf | Proprietà di configurazione di Spark | Mapping della chiave = val |
 
@@ -332,7 +332,7 @@ Inviare un file e osservare che la cartella con estensione vscode viene aggiunta
     | appId | ID applicazione della sessione |  string |
     | appInfo | Informazioni dettagliate sull'applicazione | Mapping della chiave = val |
     | log | Righe di log | elenco di stringhe |
-    | stato |   Stato batch | string |
+    | state |   Stato batch | string |
 
 >[!NOTE]
 >La configurazione di livy assegnata verrà visualizzata nel riquadro di output quando si invia lo script.
