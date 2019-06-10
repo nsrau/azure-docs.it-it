@@ -163,25 +163,29 @@
       items:
         - name: Panoramica degli indicizzatori
           href: search-indexer-overview.md
-        - name: Indicizzatore per l'archivio BLOB
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Indicizzatore per l'archivio tabelle
+        - name: Indicizzatore dell'archiviazione tabelle di Azure
           href: search-howto-indexing-azure-tables.md
-        - name: Indicizzatore per il database SQL
+        - name: Indicizzatore del database SQL di Azure
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Indicizzatore di Cosmos DB
+        - name: Indicizzatore di Azure Cosmos DB
           href: search-howto-index-cosmosdb.md
-        - name: Indicizzazione BLOB uno-a-molti
-          href: search-howto-index-one-to-many-blobs.md
-        - name: Indicizzatore per BLOB CSV
-          href: search-howto-index-csv-blobs.md
-        - name: Indicizzatore per BLOB JSON
-          href: search-howto-index-json-blobs.md
+        - name: Indicizzatore di Archiviazione BLOB di Azure
+          items:
+            - name: Configurare un indicizzatore BLOB
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: Indicizzare BLOB uno-a-molti
+              href: search-howto-index-one-to-many-blobs.md
+            - name: Indicizzare i BLOB CSV
+              href: search-howto-index-csv-blobs.md
+            - name: Indicizzare i BLOB JSON
+              href: search-howto-index-json-blobs.md
+        - name: Pianificare gli indicizzatori
+          href: search-howto-schedule-indexers.md
+        - name: Eseguire il mapping dei campi
+          href: search-indexer-field-mappings.md
         - name: Connettersi a macchine virtuali di SQL Server
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: Mapping dei campi
-          href: search-indexer-field-mappings.md
-        - name: Risoluzione dei problemi comuni
+        - name: Risolvere i problemi comuni
           href: search-indexer-troubleshooting.md
     - name: Arricchimenti di intelligenza artificiale
       items:

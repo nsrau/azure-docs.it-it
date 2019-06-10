@@ -1,0 +1,30 @@
+- name: Documentazione di HPC (High Performance Computing)
+  items:
+    - name: Panoramica
+      href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+    - name: Configurazione
+      items:
+        - name: Ottimizzazione per Linux
+          href: configure.md
+        - name: Abilitare Infiniband
+          href: enable-infiniband.md
+    - name: Configurare MPI
+      href: setup-mpi.md
+    - name: Ridimensionamento delle applicazioni
+      href: compiling-scaling-applications.md
+    - name: Macchine virtuali
+      items:
+        - name: Serie HB
+          items:
+            - name: Panoramica
+              href: hb-series-overview.md
+            - name: Prestazioni
+              href: hb-series-performance.md
+        - name: Serie HC
+          items:
+            - name: Panoramica
+              href: hc-series-overview.md
+            - name: Prestazioni
+              href: hc-series-performance.md
+        - name: Problemi noti relativi alle macchine virtuali delle serie HB e HC
+          href: hb-hc-known-issues.md

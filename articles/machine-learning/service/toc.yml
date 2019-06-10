@@ -86,24 +86,27 @@
     - name: Area di lavoro
       displayName: concept definitions architecture
       href: concept-workspace.md
+    - name: Destinazione del calcolo
+      displayName: concept definitions architecture
+      href: concept-compute-target.md
     - name: Interfaccia visiva grafica
       displayName: concept
       href: ui-concept-visual-interface.md
-    - name: Funzionalità automatizzate di Machine Learning
+    - name: Funzionalità automatiche di Machine Learning
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
     - name: Gestione modelli (MLOps)
       displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
+    - name: Pipeline riutilizzabili di Machine Learning
+      href: concept-ml-pipelines.md
     - name: Interpretabilità dei modelli
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: Accelerazione con FPGA
+    - name: Panoramica sui chip FPGA
       href: concept-accelerate-with-fpgas.md
-    - name: Ottimizzare con ONNX e ONNX Runtime
+    - name: ONNX e ONNX Runtime
       href: concept-onnx.md
-    - name: Pipeline di apprendimento automatico
-      href: concept-ml-pipelines.md
     - name: Security
       items:
         - name: Enterprise Security Package

@@ -533,8 +533,8 @@
           href: how-to-sql-subquery.md
     - name: Feed di modifiche
       items:
-        - name: Log del trigger di Azure Cosmos DB
-          href: how-to-configure-cosmos-db-trigger-logs.md
+        - name: Criteri di connessione dei trigger di Azure Cosmos DB
+          href: how-to-configure-cosmos-db-trigger-connection-policy.md
         - name: Più trigger di Azure Cosmos DB
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Risolvere i problemi dei trigger di Azure Cosmos DB
