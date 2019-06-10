@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 7e9c12c7da701fb627c51373e57f870d3fc77ac5
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 14cf500cff9f1f7f8b1573862c3060326e6518fa
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551289"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688850"
 ---
 # <a name="what-is-azure-content-moderator"></a>Che cos'è Azure Content Moderator?
 
@@ -25,11 +25,14 @@ L'API Content Moderator di Azure è un servizio cognitivo che consente di contro
 
 Ecco alcuni scenari in cui uno sviluppatore di software o un team potrebbe scegliere di usare Content Moderator:
 
-- Marketplace online che sottopongono a moderazione i cataloghi dei prodotti e altro contenuto generato dagli utenti
-- Aziende produttrici di giochi che sottopongono a moderazione gli artefatti di gioco generati dagli utenti e le chat room
-- Piattaforme di messaggistica di social networking che eseguono la moderazione di immagini, testo e video aggiunti dagli utenti
-- Grandi aziende nel settore dei media che implementano la moderazione centralizzata del contenuto
-- Provider di soluzioni didattiche per scuola primaria e secondaria che filtrano il contenuto non appropriato per studenti e docenti
+- Marketplace online che sottopongono a moderazione i cataloghi prodotti e altro contenuto generato dagli utenti.
+- Aziende produttrici di giochi che sottopongono a moderazione gli artefatti di gioco generati dagli utenti e le chat room.
+- Piattaforme di messaggistica di social networking che sottopongono a moderazione le immagini, il testo e i video aggiunti dagli utenti.
+- Grandi aziende nel settore dei media che implementano la moderazione centralizzata del contenuto.
+- Provider di soluzioni didattiche per scuola primaria e secondaria che filtrano il contenuto non appropriato per studenti e docenti.
+
+> [!NOTE]
+> Non è possibile usare Content Moderator per filtrare immagini correlate allo sfruttamento illegale di minori. Tuttavia, organizzazioni qualificate possono usare il [servizio cloud PhotoDNA](https://www.microsoft.com/photodna "Servizio cloud Microsoft PhotoDNA") per filtrare questo tipo di contenuto.
 
 ## <a name="what-it-includes"></a>Cosa include
 

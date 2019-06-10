@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: b29798bb87b7c5c677e7d80e552e45e8d1290541
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b7dbc7dbc0b670de81a3f4603b0d52bce7559af8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787069"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428310"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Rispondere agli eventi del bus di servizio di Azure ricevuti tramite Griglia di eventi di Azure usando Funzioni di Azure e App per la logica di Azure
 Questa esercitazione descrive come rispondere agli eventi del bus di servizio di Azure ricevuti tramite Griglia di eventi di Azure usando Funzioni di Azure e App per la logica di Azure. Verranno eseguiti i passaggi seguenti:
@@ -280,13 +280,12 @@ Connettere un'app per la logica al bus di servizio di Azure e a Griglia di event
     3. Per **Nome risorsa** selezionare lo spazio dei nomi del bus di servizio. 
     4. Selezionare **Aggiungi nuovo parametro** e quindi **Filtro per suffisso**. 
     5. Per **Filtro per suffisso** immettere il nome della seconda sottoscrizione dell'argomento del bus di servizio. 
-
         ![Progettazione app per la logica - configurazione dell'evento](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. Selezionare **+ Nuovo passaggio** nella finestra di progettazione e seguire la procedura seguente:
     1. Cercare **Bus di servizio**.
     2. Selezionare **Bus di servizio** nell'elenco. 
     3. Selezionare **Recupera messaggi** nell'elenco **Azioni**. 
-    4. Selezionare **Recupera i messaggi dalla sottoscrizione dell'argomento (blocco visualizzazione)**. 
+    4. Selezionare **Recupera i messaggi dalla sottoscrizione dell'argomento (blocco visualizzazione)** . 
 
         ![Progettazione app per la logica - recupero dell'azione per i messaggi](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
     5. Immettere un **nome per la connessione**. Ad esempio:  **Recuperare i messaggi della sottoscrizione dell'argomento** e selezionare lo spazio dei nomi del bus di servizio. 
@@ -295,7 +294,7 @@ Connettere un'app per la logica al bus di servizio di Azure e a Griglia di event
     6. Selezionare **RootManageSharedAccessKey**.
 
         ![Progettazione app per la logica - selezione della chiave di accesso condiviso](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
-    7. Selezionare **Create**. 
+    7. Selezionare **Create** (Crea). 
     8. Selezionare l'argomento e la sottoscrizione. 
     
         ![Progettazione app per la logica - selezione dell'argomento e della sottoscrizione del bus di servizio](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)

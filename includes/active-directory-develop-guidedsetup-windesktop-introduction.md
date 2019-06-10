@@ -14,27 +14,27 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: f0cc888eaf3724737e9c868c69a641094a19348c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ae17ef749a353cd60227e31ba4dadf328b1dc935
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121632"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482228"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Chiamare l'API Microsoft Graph da un'app Windows Desktop
 
-Questa guida dimostra come un'applicazione .NET per Windows Desktop (XAML) nativa può ottenere un token di accesso e chiamare l'API Microsoft Graph o altre API che richiedono token di accesso da un endpoint di Microsoft Identity Platform per sviluppatori v2.0 (in precedenza denominato Azure AD).
+Questa guida illustra come un'applicazione .NET per Windows Desktop (XAML) nativa usa un token di accesso per chiamare l'API Microsoft Graph. L'app può accedere anche ad altre API che richiedono token di accesso da un endpoint di Microsoft Identity Platform per sviluppatori v2.0, la piattaforma in precedenza denominata Azure AD.
 
 Dopo aver completato la Guida, l'applicazione sarà in grado di chiamare un'API protetta che usa account personali (inclusi outlook.com, live.com e altri). L'applicazione userà anche account di lavoro e di formazione da qualsiasi società o organizzazione che usa Azure Active Directory.  
 
 > [!NOTE]
-> La guida richiede Visual Studio 2015 Update 3 o Visual Studio 2017. Non si dispone di nessuna di queste versioni? [Scaricare Visual Studio 2017 gratuitamente](https://www.visualstudio.com/downloads/).
+> La guida richiede Visual Studio 2015 Update 3 o Visual Studio 2019. Non si dispone di nessuna di queste versioni? [Scaricare gratuitamente Visual Studio 2019](https://www.visualstudio.com/downloads/).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funzionamento dell'app di esempio generata da questa guida
 
-![Illustra come funziona l'app di esempio generata da queste esercitazioni](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.svg)
+![Illustra come funziona l'app di esempio generata da questa esercitazione](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.svg)
 
-L'applicazione di esempio creata in questa guida consente a un'applicazione per Windows Desktop di eseguire query nell'API Microsoft Graph o in un'API Web che accetta token dall'endpoint di Microsoft Identity Platform. Per questo scenario, viene aggiunto un token a richieste HTTP tramite l'intestazione di autorizzazione. L'acquisizione e il rinnovo del token vengono gestiti da Microsoft Authentication Library (MSAL).
+L'applicazione di esempio creata in questa guida consente a un'applicazione per Windows Desktop di eseguire query sull'API Microsoft Graph o su un'API Web che accetta token da un endpoint di Microsoft Identity Platform. Per questo scenario, viene aggiunto un token a richieste HTTP tramite l'intestazione di autorizzazione. L'acquisizione e il rinnovo del token vengono gestiti da Microsoft Authentication Library (MSAL).
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Gestione dell'acquisizione di token per l'accesso ad API Web protette
 

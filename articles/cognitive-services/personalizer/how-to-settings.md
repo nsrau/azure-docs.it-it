@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 80e5feeccc4acc3e1f3dab6b815c8605332c7c71
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834335"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478587"
 ---
 # <a name="personalizer-settings"></a>Impostazioni di Personalizza esperienze
 
@@ -63,7 +63,9 @@ Dopo aver cambiato questa impostazione, assicurarsi di selezionare **Salva**.
 
 ### <a name="model-update-frequency"></a>Model update frequency (Frequenza di aggiornamento del modello)
 
-**Model update frequency** imposta la frequenza con cui viene ripetuto il training di un nuovo modello di Personalizza esperienze. 
+Il modello più recente, sottoposto a training dalle chiamate all'API per le ricompense da tutti gli eventi attivi, non viene usato automaticamente dalla chiamata a Classifica di Personalizza esperienze. **Frequenza di aggiornamento del modello** imposta la frequenza con cui viene aggiornato il modello usato dalla chiamata a Classifica. 
+
+Frequenze di aggiornamento del modello elevate sono utili nelle situazioni in cui si vuole tenere accuratamente traccia delle modifiche nei comportamenti degli utenti, ad esempio nei siti basati su notizie live, contenuto virale oppure offerte su prodotti in tempo reale. In questi scenari si può usare una frequenza di 15 minuti. Nella maggior parte dei casi d'uso, una frequenza di aggiornamento inferiore è efficace. Frequenze di aggiornamento di un minuto sono utili durante il debug del codice di un'applicazione con Personalizza esperienze, l'esecuzione di demo o i test interattivi di aspetti di Machine Learning.
 
 ![Model update frequency imposta la frequenza con cui viene ripetuto il training di un nuovo modello di Personalizza esperienze.](media/settings/configure-model-update-frequency-settings.png)
 
@@ -77,7 +79,7 @@ Dopo aver cambiato questa impostazione, assicurarsi di selezionare **Salva**.
 
 ## <a name="export-the-personalizer-model"></a>Esportare il modello di Personalizza esperienze
 
-Nella sezione **Model and Policy** (Modello e criteri) di Gestione risorse esaminare la data di creazione e dell'ultimo aggiornamento del modello ed esportare il modello corrente.
+Nella sezione **Model and Policy** (Modello e criteri) di Gestione risorse esaminare la data di creazione e dell'ultimo aggiornamento del modello ed esportare il modello corrente. È possibile usare il portale di Azure o le API di Personalizza esperienze per esportare un file di modello a scopo di archiviazione. 
 
 ![Esportare il modello corrente di Personalizza esperienze](media/settings/export-current-personalizer-model.png)
 

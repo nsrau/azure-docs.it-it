@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 351cb7ba2d7a55300a0ace999792a498cf72ebbb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235598"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475276"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Guida introduttiva: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con cURL
 
@@ -26,7 +26,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 - Accesso all'anteprima dell'API di riconoscimento modulo ad accesso limitato. Per avere accesso all'anteprima, completare e inviare il modulo di [richiesta di accesso al riconoscimento modulo](https://aka.ms/FormRecognizerRequestAccess).
 - [cURL](https://curl.haxx.se/windows/) installato.
-- Un set di almeno cinque moduli dello stesso tipo. Per questa guida di avvio rapido, è possibile usare un [set di dati](https://go.microsoft.com/fwlink/?linkid=2090451) di esempio.
+- Un set di almeno cinque moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello. Per questa guida di avvio rapido, è possibile usare un [set di dati](https://go.microsoft.com/fwlink/?linkid=2090451) di esempio. Caricare i dati nella radice di un account di archiviazione BLOB di Azure.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 
@@ -47,7 +47,7 @@ Quando la distribuzione della risorsa di riconoscimento modulo è completata, in
 
 ## <a name="train-a-form-recognizer-model"></a>Eseguire il training di un modello di Riconoscimento modulo
 
-Prima di tutto, è necessario avere un set di dati di training. È possibile usare i dati di un BLOB di Azure oppure i dati di training locali. È necessario avere almeno cinque moduli di esempio (documenti PDF e/o immagini) dello stesso tipo/struttura dei dati di input principali. In alternativa, è possibile usare un solo modulo vuoto. Il nome del file del modulo deve includere la parola "empty".
+È prima di tutto necessario un set di dati di training in un BLOB del servizio di archiviazione di Azure. È necessario avere almeno cinque moduli di esempio (documenti PDF e/o immagini) dello stesso tipo/struttura dei dati di input principali. In alternativa, è possibile usare un singolo modulo vuoto con due moduli compilati. Il nome file del modulo vuoto deve includere la parola "empty".
 
 Per eseguire il training di un modello di riconoscimento modulo usando i documenti del contenitore BLOB di Azure, chiamare l'API **Train** eseguendo il comando cURL seguente. Prima di eseguire il comando, apportare queste modifiche:
 

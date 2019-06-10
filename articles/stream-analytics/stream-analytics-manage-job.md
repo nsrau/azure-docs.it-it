@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: seodec18
-ms.date: 12/07/2018
-ms.openlocfilehash: 056e5a0f56e1a8998288e6a78f448f0f91777e1d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.custom: mvc
+ms.date: 06/03/2019
+ms.openlocfilehash: f78555b37cc82c1e97a6f51ec504bc47937ee8c4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969292"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493421"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analizzare i dati delle telefonate con Analisi di flusso di Azure e visualizzare i risultati in una dashboard Power BI
 
-Questa esercitazione spiega come analizzare i dati delle telefonate con Analisi di flusso di Azure. I dati delle telefonate, generati da un'applicazione client, contengono alcune chiamate fraudolente che verranno filtrate tramite un processo di Analisi di flusso.
+Questa esercitazione spiega come analizzare i dati delle telefonate con Analisi di flusso di Azure. I dati delle telefonate, generati da un'applicazione client, contengono alcune chiamate fraudolente che verranno filtrate dal processo di Analisi di flusso.
 
 In questa esercitazione si apprenderà come:
 
@@ -32,10 +32,10 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, verificare di disporre degli elementi seguenti:
+Prima di iniziare, eseguire queste azioni:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).
-* Accedere al [Portale di Azure](https://portal.azure.com/).
+* Accedere al [portale di Azure](https://portal.azure.com/).
 * Scaricare l'app generatore eventi di telefonata [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) dall'Area download Microsoft oppure ottenere il codice sorgente da [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * Sarà necessario un account Power BI.
 
@@ -45,7 +45,7 @@ Per consentire ad Analisi di flusso di analizzare il flusso di dati delle chiama
 
 Per creare un nuovo hub eventi e inviare i dati delle chiamate, seguire la procedura seguente:
 
-1. Accedere al [Portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Selezionare **Crea una risorsa** > **Internet delle cose** > **Hub eventi**.
 
    ![Creare un Hub eventi di Azure nel portale](media/stream-analytics-manage-job/find-event-hub-resource.png)
@@ -71,7 +71,7 @@ Per creare un nuovo hub eventi e inviare i dati delle chiamate, seguire la proce
 
 Affinché un'applicazione possa inviare dati ad Hub eventi di Azure, è necessario che l'hub eventi abbia criteri che consentono l'accesso appropriato. I criteri di accesso generano una stringa di connessione che include informazioni di autorizzazione.
 
-1. Passare all'hub eventi *MyEventHub* creato nel passaggio precedente. Selezionare **Criteri di accesso condivisi** in **Impostazioni** e quindi selezionare **+ Aggiungi**.
+1. Passare all'hub eventi MyEventHub creato nel passaggio precedente. Selezionare **Criteri di accesso condivisi** in **Impostazioni** e quindi selezionare **+ Aggiungi**.
 
 2. Assegnare al criterio il nome **MyPolicy** e assicurarsi che **Gestisci** sia selezionato. Selezionare quindi **Crea**.
 
@@ -248,7 +248,7 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
 
 4. Nell'area di lavoro di Power BI selezionare **+ Crea** per creare un nuovo dashboard denominato *Fraudulent Calls*.
 
-5. Nella parte superiore della finestra selezionare **Aggiungi riquadro**. Selezionare quindi **Dati in streaming personalizzati** e **Avanti**. Scegliere **ASAdataset** in **Set di dati personali**. Selezionare **Scheda** nell'elenco a discesa **Tipo di visualizzazione** e aggiungere **fraudulentcalls** a **Campi**. Selezionare **Avanti** per immettere un nome per il riquadro e quindi selezionare **Applica** per creare il riquadro.
+5. Nella parte superiore della finestra selezionare **Aggiungi riquadro**. Selezionare quindi **Dati in streaming personalizzati** e **Avanti**. Scegliere **ASAdataset** in **Set di dati personali**. Selezionare **Scheda** nell'elenco a discesa **Tipo di visualizzazione** e aggiungere **fraudulent calls** a **Campi**. Selezionare **Avanti** per immettere un nome per il riquadro e quindi selezionare **Applica** per creare il riquadro.
 
    ![Creare i riquadri della dashboard di Power BI](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
 
@@ -262,14 +262,14 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
 
    ![Visualizzare i risultati nella dashboard di Power BI](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
 
-## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>Incorporamento del dashboard di Power BI in un'applicazione Web
+## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>Incorporamento del dashboard di Power BI in un'applicazione Web
 
-Per questa parte dell'esercitazione, si userà un'applicazione Web [ASP.NET](https://asp.net/) di esempio creata dal team di Power BI per incorporare il dashboard. Per altre informazioni sull'incorporamento di dashboard, vedere l'articolo [Incorporamento con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
+Per questa parte dell'esercitazione si userà un'applicazione Web [ASP.NET](https://asp.net/) di esempio creata dal team di Power BI per incorporare il dashboard. Per altre informazioni sull'incorporamento di dashboard, vedere l'articolo [Incorporamento con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
 Per configurare l'applicazione, passare al repository GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) e seguire le istruzioni nella sezione **User Owns Data** (Utente proprietario dei dati). Usare gli URL di reindirizzamento e della home page nella sottosezione **integrate-dashboard-web-app**. Dal momento che si sta usando l'esempio relativo al dashboard, usare il codice di esempio **integrate-dashboard-web-app** disponibile nel [repository GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Una volta che l'applicazione è in esecuzione nel browser, seguire questa procedura per incorporare il dashboard creato in precedenza nella pagina Web:
 
-1. Selezionare **Accedi a Power BI**, per concedere all'applicazione l'accesso ai dashboard nell'account di PowerBI.
+1. Selezionare **Accedi a Power BI**, per concedere all'applicazione l'accesso ai dashboard nell'account Power BI.
 
 2. Fare clic sul pulsante **Get Dashboards** (Ottieni dashboard), per visualizzare i dashboard dell'account in una tabella. Individuare il nome del dashboard creato in precedenza, ovvero **powerbi-embedded-dashboard** e copiare il valore di **EmbedUrl** corrispondente.
 

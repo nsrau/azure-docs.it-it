@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d99b10598b9f16da2cf202330f0b5bac9219699f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686526"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476824"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Esercitazione: Preparare la distribuzione di Azure Data Box Gateway
 
@@ -51,7 +51,11 @@ Di seguito sono elencati i prerequisiti di configurazione per la risorsa Data Bo
 Prima di iniziare, verificare che:
 
 - La sottoscrizione di Microsoft Azure sia supportata per la risorsa Data Box Gateway. Le sottoscrizioni con pagamento in base al consumo non sono supportate.
-- Si abbia accesso alla sottoscrizione come proprietario o collaboratore.
+- Si abbia accesso di tipo Proprietario o Collaboratore a livello di gruppo di risorse per le risorse Data Box Edge/Data Box Gateway, hub IoT e Archiviazione di Azure.
+
+    - Per creare qualsiasi risorsa Data Box Edge/Data Box Gateway, è necessario disporre di autorizzazioni di Collaboratore o superiori con ambito a livello di gruppo di risorse. È anche necessario assicurarsi che il provider `Microsoft.DataBoxEdge` sia registrato. Per informazioni sulla registrazione, vedere [Registrare i provider di risorse](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Per creare qualsiasi risorsa hub IoT, assicurarsi che il provider Microsoft.Devices sia registrato. Per informazioni sulla registrazione, vedere [Registrare i provider di risorse](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Per creare una risorsa account di archiviazione, è ugualmente necessario l'accesso di tipo Collaboratore o superiore con ambito a livello di gruppo di risorse. Archiviazione di Azure è un provider di risorse registrato per impostazione predefinita.
 - Si abbia accesso all'API Graph di Azure Active Directory Graph come utente o amministratore. Per altre informazioni, vedere [API Graph di Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
 
@@ -90,7 +94,7 @@ Per creare una risorsa Data Box Gateway, seguire questa procedura nel portale di
     - Portale di Azure all'URL [https://portal.azure.com](https://portal.azure.com).
     - Portale di Azure per enti pubblici all'URL [https://portal.azure.us](https://portal.azure.us). Per altri dettagli, vedere l'articolo su come [connettersi ad Azure per enti pubblici con il portale](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
-2. Nel riquadro sinistro selezionare **Crea una risorsa**. Cercare **Data Box Edge/Data Box Gateway**. Selezionare Data Box Edge/Data Box Gateway. Selezionare **Create**.
+2. Nel riquadro sinistro selezionare **Crea una risorsa**. Cercare **Data Box Edge/Data Box Gateway**. Selezionare Data Box Edge/Data Box Gateway. Selezionare **Create** (Crea).
 3. Selezionare la sottoscrizione da usare per il dispositivo Data Box Gateway. Selezionare l'area in cui si vuole distribuire la risorsa Data Box Gateway. Per questa versione sono disponibili le aree Stati Uniti orientali, Asia sud-orientale ed Europa occidentale. Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo. Nell'opzione **Data Box Gateway** selezionare **Crea**.
 
     ![Cercare nel servizio Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
@@ -113,7 +117,7 @@ Per creare una risorsa Data Box Gateway, seguire questa procedura nel portale di
     
 6. Selezionare **Rivedi e crea**.
  
-7. Nella scheda **Rivedi e crea** esaminare i **dettagli sui prezzi**, le **condizioni per l'utilizzo** e i dettagli della risorsa. Selezionare **Create**.
+7. Nella scheda **Rivedi e crea** esaminare i **dettagli sui prezzi**, le **condizioni per l'utilizzo** e i dettagli della risorsa. Selezionare **Create** (Crea).
 
     ![Esaminare i dettagli della risorsa Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource1.png)
 

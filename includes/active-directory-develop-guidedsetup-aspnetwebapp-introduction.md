@@ -14,26 +14,26 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 86113246fab399e8364653198e9a6971317e3f2c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 46247d42837f8ac181d33216d2b93d28e2533c09
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121755"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482436"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
 Questa guida illustra come implementare l'accesso con Microsoft usando una soluzione ASP.NET MVC con un'applicazione tradizionale basata su Web browser tramite OpenID Connect.
 
-Al termine di questa guida, l'applicazione sarà in grado di accettare accessi sia di account personali (ad esempio, outlook.com, live.com e altri) sia di account aziendali o di istituti di istruzione di proprietà di aziende od organizzazioni con Azure Active Directory integrato.
+Al termine di questa guida, l'applicazione potrà accettare accessi di account personali, ad esempio outlook.com, live.com e di altro tipo. Tali account includono anche account aziendali o dell'istituto di istruzione di qualsiasi organizzazione o azienda che abbia eseguito l'integrazione con Azure Active Directory.
 
-> Questa guida richiede Visual Studio 2017.  Se non lo si ha, è possibile  [scaricare Visual Studio 2017 gratuitamente](https://www.visualstudio.com/downloads/)
+> Questa guida richiede Visual Studio 2019.  Se non lo si ha, è possibile  [scaricare Visual Studio 2019 gratuitamente](https://www.visualstudio.com/downloads/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funzionamento dell'app di esempio generata da questa guida
 
-![Illustra come funziona l'app di esempio generata da queste esercitazioni](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
+![Illustra come funziona l'app di esempio generata da questa esercitazione](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
 
-L'applicazione di esempio creata in questa guida si basa su uno scenario in cui l'utente usa un browser per accedere a un sito Web ASP.NET in cui viene chiesto di eseguire l'autenticazione tramite un pulsante di accesso. In questo scenario, la maggior parte delle operazioni necessarie per il rendering della pagina Web viene eseguita sul lato server.
+L'applicazione di esempio creata è basata su uno scenario in cui si usa il browser per accedere a un sito Web ASP.NET che richiede all'utente di eseguire l'autenticazione tramite un pulsante di accesso. In questo scenario, la maggior parte delle operazioni necessarie per il rendering della pagina Web viene eseguita sul lato server.
 
 ## <a name="libraries"></a>Librerie
 

@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: efeb37baed3bb57234996938683e0cc230cc82dc
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 323308b52874064658f65cf34abe18cc5ef208ff
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861759"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393456"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Guida introduttiva ad Azure Dev Spaces con .NET Core
 
@@ -55,7 +55,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Creare un cluster Kubernetes abilitato per Azure Dev Spaces
 
-Al prompt dei comandi creare il gruppo di risorse in un'[area che supporti Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+Al prompt dei comandi creare il gruppo di risorse in un'[area che supporta Azure Dev Spaces][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -232,3 +232,6 @@ Aggiornare l'app Web nel browser e passare alla pagina delle informazioni. Nell'
 
 > [!div class="nextstepaction"]
 > [Informazioni sullo sviluppo multiservizio](multi-service-netcore.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

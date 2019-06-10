@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 139c0c29033dc45d07fd0987c2eee92308512329
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ebed76c82b647d11e34a17ae94edf208929f8c56
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906976"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475245"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Guida introduttiva: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con Python
 
@@ -26,7 +26,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 - Accesso all'anteprima dell'API di riconoscimento modulo ad accesso limitato. Per avere accesso all'anteprima, completare e inviare il modulo di [richiesta di accesso al riconoscimento modulo](https://aka.ms/FormRecognizerRequestAccess).
 - [Python](https://www.python.org/downloads/) installato, se si vuole eseguire l'esempio in locale.
-- Un set di almeno cinque moduli dello stesso tipo. Per questa guida di avvio rapido, è possibile usare un [set di dati](https://go.microsoft.com/fwlink/?linkid=2090451) di esempio.
+- Un set di almeno cinque moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello. Per questa guida di avvio rapido, è possibile usare un [set di dati](https://go.microsoft.com/fwlink/?linkid=2090451) di esempio. Caricare i dati nella radice di un account di archiviazione BLOB di Azure.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 
@@ -45,9 +45,12 @@ Quando viene concesso l'accesso per l'uso del riconoscimento modulo, si riceve u
 
 Quando la distribuzione della risorsa di riconoscimento modulo è completata, individuarla e selezionarla dall'elenco **Tutte le risorse** nel portale. Selezionare quindi la scheda **Chiavi** per visualizzare le chiavi della sottoscrizione. L'app potrà accedere alla risorsa con una delle due chiavi. Copiare il valore di **CHIAVE 1**, che sarà necessario nella sezione successiva.
 
-## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
+## <a name="train-a-form-recognizer-model"></a>Eseguire il training di un modello di Riconoscimento modulo
 
-Per creare ed eseguire l'esempio, apportare queste modifiche al frammento di codice seguente:
+È prima di tutto necessario un set di dati di training in un BLOB del servizio di archiviazione di Azure. È necessario avere almeno cinque moduli di esempio (documenti PDF e/o immagini) dello stesso tipo/struttura dei dati di input principali. In alternativa, è possibile usare un singolo modulo vuoto con due moduli compilati. Il nome file del modulo vuoto deve includere la parola "empty".
+
+Per eseguire il training di un modello di Riconoscimento modulo usando i documenti del contenitore BLOB di Azure, chiamare l'API **Train** eseguendo il codice Python seguente. Prima di eseguire il codice, apportare queste modifiche:
+
 1. Sostituire `<Endpoint>` con l'URL dell'endpoint per la risorsa di riconoscimento modulo nell'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
 1. Sostituire `<SAS URL>` con l'URL della firma di accesso condiviso del contenitore di archiviazione BLOB di Azure in cui si trovano i dati di training.  
 1. Sostituire `<Subscription key>` con la chiave di sottoscrizione copiata nel passaggio precedente.

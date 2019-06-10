@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/08/2019
 ms.author: edjez
-ms.openlocfilehash: b0dc8fbbb80a4d03b2cb64d09ffe9a36883c5bf9
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: a7f6c6fe25bf9dff2f102080f93fc1e0024ac660
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521380"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478607"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Guida introduttiva: Personalizzare il contenuto con C# 
 
@@ -40,7 +40,9 @@ L'introduzione a Personalizza esperienze include i passaggi seguenti:
 
 ## <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
 
-Nella risorsa Personalizza esperienze del portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e consentirà di visualizzare le modifiche principali delle azioni per ogni iterazione.
+Nella risorsa Personalizza esperienze del portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. In questo modo il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
+
+Quando viene creata per la prima volta un'istanza di un ciclo di Personalizza esperienze, non è disponibile alcun modello perché non sono state effettuate chiamate all'API per le ricompense da cui eseguire il training. Le chiamate a Classifica restituiranno uguali probabilità per ogni elemento. L'applicazione dovrà sempre classificare il contenuto usando l'output di RewardActionId.
 
 ![Modificare la frequenza di aggiornamento del modello](./media/settings/configure-model-update-frequency-settings.png)
 

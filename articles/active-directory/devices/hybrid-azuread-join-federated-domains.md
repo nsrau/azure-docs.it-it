@@ -2,31 +2,25 @@
 title: Configurare l'aggiunta ad Azure Active Directory ibrido per i domini federati | Microsoft Docs
 description: Informazioni su come configurare l'aggiunta ad Azure Active Directory ibrido per i domini federati.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/20/2019
+ms.date: 05/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d737be389666590d32e9f1b887db57dacce543e2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: ae4b57d86461526b285e77aa408373b5d7f5aedf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517183"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513371"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Esercitazione: configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini federati
 
-Analogamente agli utenti, i dispositivi stanno diventando un'altra identità da proteggere e da usare per proteggere le risorse in qualsiasi momento e ovunque. Questo obiettivo si raggiunge trasferendo le identità dei dispositivi in Azure AD usando uno dei metodi seguenti:
+Analogamente agli utenti, i dispositivi sono un'altra identità di base da proteggere e da usare per proteggere le risorse ovunque e in qualsiasi momento. È possibile raggiungere questo obiettivo trasferendo e gestendo le identità dei dispositivi in Azure AD con uno dei metodi seguenti:
 
 - Aggiunta ad Azure AD
 - Aggiunta ad Azure AD ibrido
@@ -34,7 +28,11 @@ Analogamente agli utenti, i dispositivi stanno diventando un'altra identità da 
 
 Con il trasferimento dei dispositivi in Azure AD si ottimizza la produttività degli utenti tramite il Single Sign-On (SSO) in tutte le risorse locali e nel cloud. Analogamente, è possibile proteggere l'accesso alle risorse locali e nel cloud con l'[accesso condizionale](../active-directory-conditional-access-azure-portal.md).
 
-Questa esercitazione illustra come configurare l'aggiunta ad Azure AD ibrido per dispositivi federati usando Active Directory Federation Services.
+Questa esercitazione illustra come configurare l'aggiunta ad Azure AD ibrido per i dispositivi di computer aggiunti a un dominio di AD in un ambiente federato con AD FS.
+
+> [!NOTE]
+> Se l'ambiente federato usa un provider di identità diverso da AD FS, è necessario verificare che il provider di identità supporti il protocollo WS-Trust. WS-Trust è necessario per l'autenticazione con Azure AD degli attuali dispositivi Windows aggiunti ad Azure AD ibrido. Se è necessario aggiungere ad Azure AD ibrido dispositivi Windows di livello inferiore, inoltre, il provider di identità dovrà supportare l'attestazione WIAORMULTIAUTHN. 
+
 
 > [!div class="checklist"]
 > * Configurare l'aggiunta ad Azure AD ibrido
@@ -42,180 +40,141 @@ Questa esercitazione illustra come configurare l'aggiunta ad Azure AD ibrido per
 > * Verificare la registrazione
 > * Risolvere problemi
 
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione presuppone che l'utente abbia familiarità con:
 
--  [Introduction to device management in Azure Active Directory](../device-management-introduction.md) (Introduzione alla gestione dei dispositivi in Azure Active Directory)
-
--  [Come pianificare l'implementazione dell'aggiunta all'identità ibrida di Azure Active Directory](hybrid-azuread-join-plan.md)
-
--  [Come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD](hybrid-azuread-join-control.md)
-
-
+- [Introduzione alla gestione delle identità dei dispositivi in Azure Active Directory](../device-management-introduction.md)
+- [Come pianificare l'implementazione dell'aggiunta all'identità ibrida di Azure Active Directory](hybrid-azuread-join-plan.md)
+- [Come eseguire la convalida controllata dell'aggiunta ad Azure AD ibrido](hybrid-azuread-join-control.md)
 
 Per configurare lo scenario in questa esercitazione, sono necessari gli elementi seguenti:
 
 - Windows Server 2012 R2 con AD FS
-
-- [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) versione 1.1.819.0 o successiva. 
- 
+- [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) versione 1.1.819.0 o successiva.
 
 A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedura guidata per configurare l'aggiunta ad Azure AD ibrido che semplifica in modo significativo il processo di configurazione. La procedura guidata correlata:
 
 - configura i punti di connessione del servizio (SCP) per la registrazione dei dispositivi;
-
 - esegue il backup del trust della relying party esistente di Azure AD;
-
 - aggiorna le regole attestazioni nel trust di Azure AD.
 
-I passaggi di configurazione descritti in questo articolo si basano su questa procedura guidata. Se si dispone di una versione precedente di Azure AD Connect installata, è necessario aggiornarla alla versione 1.1.819 o successive. Se non è possibile installare la versione più recente di Azure AD Connect, vedere [come configurare manualmente la registrazione del dispositivo](../device-management-hybrid-azuread-joined-devices-setup.md).
+I passaggi di configurazione descritti in questo articolo si basano su questa procedura guidata. Se si dispone di una versione precedente di Azure AD Connect installata, è necessario aggiornarla alla versione 1.1.819 o successive. Se non è possibile installare l'ultima versione di Azure AD Connect, vedere [Come configurare manualmente l'aggiunta ad Azure AD ibrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual).
 
 Per l'aggiunta ad Azure AD ibrido i dispositivi devono avere accesso alle risorse Microsoft seguenti dalla rete dell'organizzazione:  
 
-- https\://enterpriseregistration.windows.net
-- https\://login.microsoftonline.com
-- https\://device.login.microsoftonline.com
+- `https://enterpriseregistration.windows.net`
+- `https://login.microsoftonline.com`
+- `https://device.login.microsoftonline.com`
 - Servizio token di sicurezza dell'organizzazione (domini federati)
-- https\://autologon.microsoftazuread-sso.com (Se si usa o si pensa di usare Seamless SSO)
+- [https://autologon.microsoftazuread-sso.com](`https://autologon.microsoftazuread-sso.com`) (Se si usa o si pensa di usare Seamless SSO)
 
-A partire da Windows 10 1803, se l'aggiunta istantanea ad Azure AD ibrido per un dominio federato come AD FS non riesce, ci si affida ad Azure AD Connect per sincronizzare l'oggetto computer in Azure AD che verrà successivamente usato per completare la registrazione del dispositivo per l'aggiunta ad Azure AD ibrido.
+A partire da Windows 10 1803, se l'aggiunta istantanea ad Azure AD ibrido per un ambiente federato con AD FS non riesce, si usa Azure AD Connect per sincronizzare l'oggetto computer in Azure AD che verrà successivamente usato per completare la registrazione del dispositivo per l'aggiunta ad Azure AD ibrido. Verificare che Azure AD Connect abbia sincronizzato gli oggetti computer dei dispositivi che devono essere aggiunti ad Azure AD ibrido. Se gli oggetti computer appartengono a unità organizzative specifiche, queste unità organizzative devono essere configurate per la sincronizzazione anche in Azure AD Connect. Per altre informazioni sulla sincronizzazione di oggetti computer con Azure AD Connect, vedere l'articolo su come [configurare il filtro con Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering#organizational-unitbased-filtering).
 
-Se l'organizzazione richiede l'accesso a Internet attraverso un proxy in uscita, a partire da Windows 10 1709 è possibile [configurare le impostazioni proxy nel computer usando un oggetto Criteri di gruppo (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). Se nel computer è in esecuzione una versione precedente a Windows 10 1709, è necessario implementare Web Proxy Auto-Discovery (WPAD) per consentire ai computer Windows 10 di registrare i dispositivi con Azure AD. 
+Se l'organizzazione deve accedere a Internet tramite un proxy in uscita, è consigliabile [implementare WPAD (Web Proxy Auto-Discovery)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) per consentire ai computer Windows 10 di eseguire la registrazione di dispositivi con Azure AD. In caso di problemi nella configurazione e nella gestione di WPAD, vedere [Risoluzione dei problemi di rilevamento automatico](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10). 
 
-Se l'organizzazione richiede l'accesso a Internet attraverso un proxy in uscita autenticato, è necessario assicurarsi che i computer Windows 10 possano eseguire l'autenticazione al proxy in uscita. Poiché i computer Windows 10 eseguono la registrazione dei dispositivi usando il contesto del computer, è necessario configurare l'autenticazione del proxy in uscita usando il contesto del computer. Per i requisiti di configurazione, contattare il provider del proxy in uscita. 
+Se non si usa WPAD ed è necessario configurare le impostazioni del proxy sul computer in uso, a partire da Windows 10 1709 è possibile [configurare le impostazioni WinHTTP usando un oggetto Criteri di gruppo](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
+> [!NOTE]
+> Se si configurano le impostazioni del proxy sul computer usando le impostazioni WinHTTP, i computer che non possono connettersi al proxy configurato non riusciranno a connettersi a Internet.
+
+Se l'organizzazione richiede l'accesso a Internet attraverso un proxy in uscita autenticato, è necessario assicurarsi che i computer Windows 10 possano eseguire l'autenticazione al proxy in uscita. Poiché i computer Windows 10 eseguono la registrazione dei dispositivi usando il contesto del computer, è necessario configurare l'autenticazione del proxy in uscita usando il contesto del computer. Per i requisiti di configurazione, contattare il provider del proxy in uscita.
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Configurare l'aggiunta ad Azure AD ibrido
 
 Per configurare un'aggiunta ad Azure AD ibrido con Azure AD Connect, è necessario disporre degli elementi seguenti:
 
 - Credenziali di un amministratore globale per il tenant di Azure AD.  
-
 - Credenziali di amministratore dell'organizzazione per ognuna delle foreste.
-
-- Credenziali dell'amministratore AD FS. 
-
+- Credenziali dell'amministratore AD FS.
 
 **Per configurare un'aggiunta ad Azure AD ibrido con Azure AD Connect:**
 
 1. Avviare Azure AD Connect, quindi fare clic su **Configura**.
 
-    ![Schermata iniziale](./media/hybrid-azuread-join-federated-domains/11.png)
+   ![Schermata iniziale](./media/hybrid-azuread-join-federated-domains/11.png)
 
-2. Nella pagina **Attività aggiuntive** selezionare **Configura le opzioni del dispositivo**, quindi fare clic su **Avanti**. 
+1. Nella pagina **Attività aggiuntive** selezionare **Configura le opzioni del dispositivo**, quindi fare clic su **Avanti**.
 
-    ![Attività aggiuntive](./media/hybrid-azuread-join-federated-domains/12.png)
+   ![Attività aggiuntive](./media/hybrid-azuread-join-federated-domains/12.png)
 
-3. Nella pagina **Panoramica** fare clic su **Avanti**. 
+1. Nella pagina **Panoramica** fare clic su **Avanti**.
 
-    ![Panoramica](./media/hybrid-azuread-join-federated-domains/13.png)
+   ![Panoramica](./media/hybrid-azuread-join-federated-domains/13.png)
 
-4. Nella pagina **Connessione ad Azure AD** immettere le credenziali di amministratore globale per il tenant di Azure AD, quindi fare clic su **Avanti**.   
+1. Nella pagina **Connessione ad Azure AD** immettere le credenziali di amministratore globale per il tenant di Azure AD, quindi fare clic su **Avanti**.
 
-    ![Connessione ad Azure AD](./media/hybrid-azuread-join-federated-domains/14.png)
+   ![Connessione ad Azure AD](./media/hybrid-azuread-join-federated-domains/14.png)
 
-5. Nella pagina **Opzioni dispositivo** selezionare **Configura l'aggiunta ad Azure AD ibrido**, quindi fare clic su **Avanti**. 
+1. Nella pagina **Opzioni dispositivo** selezionare **Configura l'aggiunta ad Azure AD ibrido**, quindi fare clic su **Avanti**.
 
-    ![Opzioni del dispositivo](./media/hybrid-azuread-join-federated-domains/15.png)
+   ![Opzioni del dispositivo](./media/hybrid-azuread-join-federated-domains/15.png)
 
-6. Nella pagina **SCP** eseguire la procedura seguente, quindi fare clic su **Avanti**: 
+1. Nella pagina **SCP** eseguire la procedura seguente, quindi fare clic su **Avanti**:
 
-    ![SCP](./media/hybrid-azuread-join-federated-domains/16.png)
+   ![SCP](./media/hybrid-azuread-join-federated-domains/16.png)
 
-    a. Selezionare la foresta.
+   1. Selezionare la foresta.
+   1. Selezionare il servizio di autenticazione. È necessario selezionare il server AD FS, a meno che all'interno dell'organizzazione non siano presenti esclusivamente client Windows 10 e non sia stata configurata la sincronizzazione computer/dispositivo o non si usi SeamlessSSO.
+   1. Fare clic su **Aggiungi** per immettere le credenziali di amministratore aziendale.
 
-    b. Selezionare il servizio di autenticazione. È necessario selezionare il server AD FS, a meno che all'interno dell'organizzazione non siano presenti esclusivamente client Windows 10 e non sia stata configurata la sincronizzazione computer/dispositivo o non si usi SeamlessSSO.
+1. Nella pagina **Sistemi operativi del dispositivo** selezionare i sistemi operativi usati dai dispositivi nell'ambiente Active Directory, quindi fare clic su **Avanti**.
 
-    c. Fare clic su **Aggiungi** per immettere le credenziali di amministratore aziendale.
+   ![Sistema operativo del dispositivo](./media/hybrid-azuread-join-federated-domains/17.png)
 
+1. Nella pagina **Configurazione della federazione** immettere le credenziali di amministratore AD FS, quindi fare clic su **Avanti**.
 
-7. Nella pagina **Sistemi operativi del dispositivo** selezionare i sistemi operativi usati dai dispositivi nell'ambiente Active Directory, quindi fare clic su **Avanti**. 
+   ![Configurazione della federazione](./media/hybrid-azuread-join-federated-domains/18.png)
 
-    ![Sistema operativo del dispositivo](./media/hybrid-azuread-join-federated-domains/17.png)
+1. Nella pagina **Pronto per la configurazione** fare clic su **Configura**.
 
-8. Nella pagina **Configurazione della federazione** immettere le credenziali di amministratore AD FS, quindi fare clic su **Avanti**. 
+   ![Pronto per la configurazione](./media/hybrid-azuread-join-federated-domains/19.png)
 
-    ![Configurazione della federazione](./media/hybrid-azuread-join-federated-domains/18.png)
+1. Nella pagina **Configurazione completata** fare clic su **Esci**.
 
-9. Nella pagina **Pronto per la configurazione** fare clic su **Configura**. 
-
-    ![Pronto per la configurazione](./media/hybrid-azuread-join-federated-domains/19.png)
-
-10. Nella pagina **Configurazione completata** fare clic su **Esci**. 
-
-    ![Configurazione completata](./media/hybrid-azuread-join-federated-domains/20.png)
-
-
-
+   ![Configurazione completata](./media/hybrid-azuread-join-federated-domains/20.png)
 
 ## <a name="enable-windows-down-level-devices"></a>Abilitare dispositivi Windows di livello inferiore
 
 Se alcuni dei dispositivi aggiunti a un dominio sono dispositivi di livello inferiore di Windows, è necessario:
 
-- Aggiornare le impostazioni dei dispositivi
- 
 - Configurare le impostazioni intranet locali per la registrazione dei dispositivi
-
-- Controllare i dispositivi Windows di livello inferiore 
-
-
-### <a name="update-device-settings"></a>Aggiornare le impostazioni dei dispositivi 
-
-Per registrare i dispositivi Windows di livello inferiore, è necessario assicurarsi che le impostazioni dei dispositivi che consentono agli utenti di registrare i dispositivi in Azure AD siano configurate. Nel portale di Azure queste impostazioni sono disponibili in:
-
-`Home > [Name of your tenant] > Devices - Device settings`  
-
-
-    
-Il criterio seguente deve essere impostato su **Tutti**: **Gli utenti possono registrare i dispositivi con Azure AD**
-
-![Registrare i dispositivi](./media/hybrid-azuread-join-federated-domains/23.png)
-
+- Installare Microsoft Workplace Join per i computer Windows di livello inferiore
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurare le impostazioni intranet locali per la registrazione dei dispositivi
 
 Per completare l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello inferiore e per evitare le richieste dei certificati quando i dispositivi vengano autenticati in Azure AD, è possibile eseguire il push di criteri nei dispositivi aggiunti al dominio per aggiungere gli URL seguenti all'area Intranet locale in Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
-
 - Servizio Token di sicurezza dell'organizzazione (STS - domini federati)
-
 - `https://autologon.microsoftazuread-sso.com` (per Seamless SSO).
 
 È inoltre necessario abilitare **Consenti aggiornamenti barra di stato tramite script** nell'area Intranet locale dell'utente.
 
+### <a name="install-microsoft-workplace-join-for-windows-down-level-computers"></a>Installare Microsoft Workplace Join per i computer Windows di livello inferiore
 
+Per registrare i dispositivi Windows di livello inferiore, le organizzazioni devono installare [Microsoft Workplace Join per computer non Windows 10](https://www.microsoft.com/download/details.aspx?id=53554), disponibile nell'Area download Microsoft.
 
-### <a name="control-windows-down-level-devices"></a>Controllare i dispositivi Windows di livello inferiore 
+È possibile distribuire il pacchetto usando un sistema di distribuzione software come  [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Il pacchetto supporta le opzioni standard di installazione invisibile all'utente con il parametro quiet. Configuration Manager Current Branch offre vantaggi aggiuntivi rispetto alle versioni precedenti, come la possibilità di tenere traccia delle registrazioni completate.
 
-Per registrare i dispositivi Windows di livello inferiore, è necessario scaricare e installare un pacchetto di Windows Installer (con estensione msi) dall'Area download. Per altre informazioni, fare clic [qui](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+Il programma di installazione crea nel sistema un'attività pianificata che viene eseguita nel contesto utente. L'attività viene attivata quando l'utente esegue un accesso a Windows. L'attività aggiunge automaticamente il dispositivo con Azure AD con le credenziali dell'utente dopo l'autenticazione con Azure AD.
 
 ## <a name="verify-the-registration"></a>Verificare la registrazione
 
-Per verificare lo stato di registrazione del dispositivo nel tenant di Azure, è possibile usare il cmdlet **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** nel **[modulo PowerShell di Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Per verificare lo stato di registrazione del dispositivo nel tenant di Azure, è possibile usare il cmdlet **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** nel **[modulo PowerShell di Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0)** .
 
 Quando si usa il cmdlet **Get-MSolDevice** per controllare i dettagli del servizio:
 
 - Deve essere presente un oggetto con **ID dispositivo** corrispondente all'ID nel client Windows.
 - Il valore di **DeviceTrustType** deve essere **Aggiunto a un dominio**. Questo valore equivale allo stato **Aggiunto ad Azure AD ibrido** nella pagina dei dispositivi nel portale di Azure AD.
-- Per i dispositivi usati nell'accesso condizionale, il valore **Abilitato** deve essere **True** e **DeviceTrustLevel** deve essere **Gestito**. 
-
+- Per i dispositivi usati nell'accesso condizionale, il valore **Abilitato** deve essere **True** e **DeviceTrustLevel** deve essere **Gestito**.
 
 **Per controllare i dettagli del servizio:**
 
 1. Aprire **Windows PowerShell** come amministratore.
-
-2. Digitare `Connect-MsolService` per eseguire la connessione al tenant di Azure desiderato.  
-
-3. Digitare `get-msoldevice -deviceId <deviceId>`.
-
-6. Verificare che **Abilitato** sia impostato su **True**.
-
-
-
-
+1. Digitare `Connect-MsolService` per eseguire la connessione al tenant di Azure desiderato.  
+1. Digitare `get-msoldevice -deviceId <deviceId>`.
+1. Verificare che **Abilitato** sia impostato su **True**.
 
 ## <a name="troubleshoot-your-implementation"></a>Risolvere i problemi di implementazione
 
@@ -224,16 +183,9 @@ Se si verificano problemi durante il completamento dell'aggiunta ad Azure AD ibr
 - [Risoluzione dei problemi relativi all'aggiunta ad Azure AD ibrido per dispositivi Windows correnti](troubleshoot-hybrid-join-windows-current.md)
 - [Risoluzione dei problemi relativi all'aggiunta ad Azure AD ibrido per dispositivi Windows di livello inferiore](troubleshoot-hybrid-join-windows-legacy.md)
 
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Configurare l'aggiunta ad Azure Active Directory ibrido per i domini gestiti](hybrid-azuread-join-managed-domains.md)
-> [Configurare manualmente l'aggiunta ad Azure Active Directory ibrido](hybrid-azuread-join-manual.md)
-
-
-
+- Per altre informazioni sulla gestione delle identità dei dispositivi nel portale di Azure AD, vedere [Gestione delle identità dei dispositivi con il portale di Azure](device-management-azure-portal.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png

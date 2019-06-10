@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: fe2978e176b986164ebb01fddbd29481f8a117bd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: faa93b75bde3a14e48baa7d27a3eb6439a137e44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145408"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482378"
 ---
-1. Avviare Visual Studio 2017.
+1. Avviare Visual Studio 2019.
 
 1. Assicurarsi che il carico di lavoro dello **sviluppo di Universal Windows Platform** sia disponibile. Scegliere **Strumenti** > **Ottieni strumenti e funzionalità** dalla barra dei menu di Visual Studio per aprire il programma di installazione di Visual Studio. Se questo carico di lavoro è già attivato, chiudere la finestra di dialogo.
 
@@ -23,7 +23,7 @@ ms.locfileid: "66145408"
 
     ![Screenshot della finestra di dialogo Nuovo progetto](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. Speech SDK richiede che l'applicazione debba essere compilata per Windows 10 Fall Creators Update o versione successiva. Nella finestra **Nuovo progetto della piattaforma UWP (Universal Windows Platform)** visualizzata scegliere **Windows 10 Fall Creators Update (10.0; Build 16299)** come **Versione minima**. Nella casella **Versione di destinazione**, selezionare questa o qualsiasi versione successiva e quindi fare clic su **OK**.
+1. Speech SDK richiede che l'applicazione sia compilata per Windows 10 Fall Creators Update o versioni successive. Nella finestra **Nuovo progetto della piattaforma UWP (Universal Windows Platform)** visualizzata scegliere **Windows 10 Fall Creators Update (10.0; Build 16299)** come **Versione minima**. Nella casella **Versione di destinazione** selezionare questa o qualsiasi versione successiva e quindi fare clic su **OK**.
 
     ![Screenshot della finestra Nuovo progetto della piattaforma UWP (Universal Windows Platform)](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 

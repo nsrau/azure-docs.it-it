@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 90ffebf5f3375e94545f82a95f5c240ad845bd94
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4ceff7d59443fe78fb8cf7164e5f31cf1acc189a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162183"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66420701"
 ---
 1. Accedere alla [console di Firebase](https://firebase.google.com/console/). Creare un nuovo progetto Firebase se non è già disponibile.
 2. Dopo aver creato il progetto, selezionare **Add Firebase to your Android app** (Aggiungi Firebase all'app Android). 
@@ -36,4 +36,4 @@ ms.locfileid: "66162183"
     ![Selezionare Project Settings (Impostazioni progetto)](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. Se non è stato scaricato il file **google-services.json**, è possibile scaricarlo da questa pagina. 
 5. Passare alla scheda **Cloud Messaging** in alto. 
-6. Copiare e salvare il valore di **Chiave server** per un uso successivo. Questo valore verrà usato per configurare l'hub di notifica.
+6. Copiare e salvare la **chiave del server legacy** per un uso successivo. Questo valore verrà usato per configurare l'hub di notifica.
