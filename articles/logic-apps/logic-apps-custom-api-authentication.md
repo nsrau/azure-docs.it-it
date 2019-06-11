@@ -193,8 +193,8 @@ Aprire la definizione dell'app per la logica nella visualizzazione Codice, passa
 | tenant | Sì | Il GUID per il tenant di Azure AD | 
 | audience | Sì | GUID per la risorsa di destinazione cui si vuole accedere, che è l'ID client dall'identità di applicazione per l'app Web o l'app per le API | 
 | clientId | Sì | GUID per il client che richiede l'accesso, che è l'ID client dall'identità di applicazione per l'app per la logica | 
-| privata | Sì | La chiave o la password dall'identità di applicazione per il client che richiede il token di accesso | 
-| tipo | Sì | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
+| secret | Sì | La chiave o la password dall'identità di applicazione per il client che richiede il token di accesso | 
+| type | Sì | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
 |||| 
 
 Ad esempio:
@@ -236,7 +236,7 @@ Includere questa riga nella sezione dell'**autorizzazione**:
 
 | Elemento | Obbligatorio | Descrizione | 
 | ------- | -------- | ----------- | 
-| tipo | Sì | Il tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. | 
+| type | Sì | Il tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. | 
 | password | Sì | La password per accedere al certificato client (file PFX) | 
 | pfx | Sì | Contenuti del certificato client con codifica Base64 (file PFX) | 
 |||| 
@@ -253,7 +253,7 @@ Includere questa riga nella sezione dell'**autorizzazione**:
 
 | Elemento | Obbligatorio | Descrizione | 
 | ------- | -------- | ----------- | 
-| tipo | Sì | Tipo di autenticazione che si vuole usare. Per l'autenticazione di base il valore deve essere `Basic`. | 
+| type | Sì | Tipo di autenticazione che si vuole usare. Per l'autenticazione di base il valore deve essere `Basic`. | 
 | username | Sì | Nome utente che si vuole usare per l'autenticazione | 
 | password | Sì | Password che si vuole usare per l'autenticazione | 
 |||| 
