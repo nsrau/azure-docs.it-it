@@ -128,7 +128,7 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
    | Campo intestazione della risposta dell'endpoint | Type | Obbligatorio | DESCRIZIONE |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | No  | Dimensioni del blocco suggerite in byte |
-   | **Posizione** | String | No  | Percorso URL a cui inviare i messaggi HTTP PATCH |
+   | **Location** | String | No  | Percorso URL a cui inviare i messaggi HTTP PATCH |
    ||||
 
 3. L'app per la logica crea e invia messaggi HTTP PATCH di follow-up, ognuno contenente le informazioni seguenti:
