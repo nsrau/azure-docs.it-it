@@ -59,7 +59,7 @@ Questo articolo fornisce un codice personalizzato che è possibile usare nei liv
 | Proprietà | Type | DESCRIZIONE |
 | --- | --- | --- |
 | sourceType |   | Tipo dell'origine dell'esecuzione. I valori consentiti sono **Microsoft.Logic/workflows** e **custom**. Obbligatoria |
-| `Source` |   | Se il tipo di origine è **Microsoft.Logic/workflows**, le informazioni dell'origine devono seguire questo schema. Se il tipo di origine è **custom**, lo schema è JToken. Obbligatoria |
+| source |   | Se il tipo di origine è **Microsoft.Logic/workflows**, le informazioni dell'origine devono seguire questo schema. Se il tipo di origine è **custom**, lo schema è JToken. Obbligatoria |
 | systemId | string | ID di sistema dell'app per la logica. Obbligatoria |
 | runId | string | ID di esecuzione dell'app per la logica. Obbligatoria |
 | operationName | string | Nome dell'operazione, ad esempio azione o trigger. Obbligatoria |
