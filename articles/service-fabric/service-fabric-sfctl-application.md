@@ -43,7 +43,7 @@ Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni
 | type | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric che corrispondono esattamente al nome specificato. |
 | type-list | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric. |
 | unprovision | Rimuove o annulla la registrazione di un tipo di applicazione di Service Fabric dal cluster. |
-| Aggiornamento | Avvia l'aggiornamento di un'applicazione nel cluster di Service Fabric. |
+| upgrade | Avvia l'aggiornamento di un'applicazione nel cluster di Service Fabric. |
 | upgrade-resume | Riprende l'aggiornamento di un'applicazione nel cluster di Service Fabric. |
 | upgrade-rollback | Avvia il rollback dell'aggiornamento attualmente in corso di un'applicazione nel cluster di Service Fabric. |
 | upgrade-status | Mostra i dettagli dell'aggiornamento più recente eseguito sull'applicazione. |
