@@ -17,12 +17,12 @@ ms.date: 06/04/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f91ff65d0e11ed2e9f923f94c740314c9136d99
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: faabc65a78626c053aecfac81b560b4731e40b95
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688677"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730000"
 ---
 # <a name="what-is-a-device-identity"></a>Informazioni sulle identità dei dispositivi
 
@@ -155,5 +155,5 @@ Come regola generale, è consigliabile usare:
 - Per configurare:
    - Dispositivi Windows 10 registrati in Azure Active Directory, vedere [Come configurare dispositivi Windows 10 registrati in Azure Active Directory](../user-help/device-management-azuread-registered-devices-windows10-setup.md).
    - Dispositivi aggiunti ad Azure Active Directory, vedere [Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD](azureadjoin-plan.md).
-   - Dispositivi aggiunti all'identità ibrida di Azure AD, vedere [Come pianificare l'implementazione dell'aggiunta all'identità ibrida di Azure Active Directory](hybrid-azuread-join-plan.md).   
+   - Dispositivi aggiunti all'identità ibrida di Azure AD, vedere [Come pianificare l'implementazione dell'aggiunta all'identità ibrida di Azure Active Directory](hybrid-azuread-join-plan.md).
 - Per altre informazioni sull'accesso condizionale basato su dispositivo, vedere [Configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory](../conditional-access/require-managed-devices.md).
