@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione:  Integrare una singola foresta Active Directory in Azure con la sincronizzazione degli hash delle password | Microsoft Docs'
+title: "Esercitazione:  Integrare una singola foresta di AD mediante la sincronizzazione dell'hash delle password"
 description: Viene illustrato come configurare un ambiente ibrido di gestione delle identità usando la sincronizzazione degli hash delle password.
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45379f8f955c50e2598ebcebd34e971c29b2c81c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103231"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474010"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Esercitazione:  Integrare una singola foresta di AD mediante la sincronizzazione dell'hash delle password
 
@@ -183,7 +183,7 @@ A questo punto è necessario creare un tenant di Azure Active Directory in modo 
 1. Selezionare il [portale di Azure](https://portal.azure.com) e accedere con un account che dispone di una sottoscrizione di Azure.
 2. Selezionare l'**icona +** e cercare **Azure Active Directory**.
 3. Selezionare **Azure Active Directory** dai risultati della ricerca.
-4. Selezionare **Create**.</br>
+4. Selezionare **Create** (Crea).</br>
 ![Creare](media/tutorial-password-hash-sync/create1.png)</br>
 5. Specificare un **nome per l'organizzazione** e il **nome di dominio iniziale**. Selezionare quindi **Crea**. Verrà così creata la directory.
 6. A questo punto, selezionare il collegamento **qui** per gestire la directory.

@@ -1,21 +1,21 @@
 ---
-title: 'Avvio rapido: API Gremlin con PHP - Azure Cosmos DB'
+title: 'Guida introduttiva: API Gremlin con PHP - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Gremlin di Azure Cosmos DB per creare un'applicazione console con il portale di Azure e PHP
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 01/05/2018
+ms.date: 01/05/2019
 ms.author: lbosq
-ms.openlocfilehash: aace9b61ae7625f1d3bbed5181fd88e367ea8f12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15d312ff4dfdb789cb0d9ee85941ea8760ddb08f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082756"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480610"
 ---
-# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Avvio rapido: Creare un database a grafo in Azure Cosmos DB usando PHP e il portale di Azure
+# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Guida introduttiva: Creare un database a grafo in Azure Cosmos DB usando PHP e il portale di Azure
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -196,7 +196,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
    ![Creare nuovi documenti in Esplora dati nel portale di Azure](./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png)
 
-2. Nell'elenco **Risultati** verificare i nuovi utenti aggiunti al grafo. Selezionare **ben**. Come si può notare, è connesso a robin. È possibile spostare i vertici intorno mediante trascinamento della selezione, applicare lo zoom mediante lo scorrimento della rotellina del mouse ed espandere le dimensioni del grafo usando la doppia freccia. 
+2. Nell'elenco **Risultati** verificare i nuovi utenti aggiunti al grafo. Selezionare **ben**. Come si può notare sono connessi a robin. È possibile spostare i vertici intorno mediante trascinamento della selezione, applicare lo zoom mediante lo scorrimento della rotellina del mouse ed espandere le dimensioni del grafo usando la doppia freccia. 
 
    ![Nuovi vertici nel grafo in Esplora dati nel portale di Azure](./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png)
 

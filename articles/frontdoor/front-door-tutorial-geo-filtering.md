@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: c04a9dff55794a3e48146e8effc3627452b3db14
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f2b5a2bc3248c9f2ee0eb49e993fd55c7714367a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950175"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389160"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Come configurare un criterio web application firewall di filtro geografico per Frontdoor
 Questa esercitazione mostra come usare Azure PowerShell per creare un criterio di filtro geografico di esempio e associarlo all'host front-end esistente di Frontdoor. Questo criterio di filtro geografico di esempio bloccherà le richieste provenienti da tutti i paesi/aree tranne gli Stati Uniti.
@@ -110,6 +110,5 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 > È sufficiente impostare la proprietà WebApplicationFirewallPolicyLink una sola volta per collegare un criterio web application firewall a un host front-end di Frontdoor. Gli aggiornamenti successivi del criterio vengono applicati automaticamente all'host front-end.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Informazioni sulla [sicurezza del livello dell'applicazione con Frontdoor](front-door-application-security.md).
+- Informazioni sul [web application firewall di Azure](waf-overview.md).
 - Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).

@@ -15,14 +15,14 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: aebc308f6bfaddbe8e9b430096cb6698d7dd06c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d7c0f19d6680eef7492faaaab0d45e0c70011f01
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099070"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428086"
 ---
-# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Avvio rapido: Distribuire un'applicazione Reliable Services .NET su Service Fabric
+# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Guida introduttiva: Distribuire un'applicazione Reliable Services .NET su Service Fabric
 
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili.
 
@@ -43,7 +43,7 @@ Usando questa applicazione, si apprenderà come:
 
 Per completare questa guida introduttiva:
 
-1. [Installare Visual Studio 2017](https://www.visualstudio.com/) con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
+1. [Installare Visual Studio 2019](https://www.visualstudio.com/) con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
 2. [Installare Git](https://git-scm.com/)
 3. [Installare Microsoft Azure Service Fabric SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. Eseguire il comando seguente per consentire a Visual Studio di eseguire la distribuzione nel cluster Service Fabric locale:
@@ -87,7 +87,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="run-the-application-locally"></a>Eseguire l'applicazione in locale
 
-Fare clic con il pulsante destro del mouse sull'icona di Visual Studio nel menu Start e scegliere **Esegui come amministratore**. Per connettere il debugger ai servizi, è necessario eseguire Visual Studio come amministratore.
+Fare clic con il pulsante destro del mouse sull'icona di Visual Studio nel menu Start e scegliere **Esegui come amministratore**. Per collegare il debugger ai servizi, è necessario eseguire Visual Studio come amministratore.
 
 Aprire la soluzione di Visual Studio **Voting.sln** dal repository che è stato clonato.
 
@@ -113,7 +113,7 @@ L'applicazione di voto è costituita da due servizi:
 
 ![Diagramma dell'applicazione](./media/service-fabric-quickstart-dotnet/application-diagram.png)
 
-Quando l'utente vota nell'applicazione, si verificano gli eventi seguenti:
+Quando si vota nell'applicazione, si verificano gli eventi seguenti:
 
 1. JavaScript invia la richiesta di voto all'API Web nel servizio front-end Web come una richiesta HTTP PUT.
 
@@ -123,7 +123,7 @@ Quando l'utente vota nell'applicazione, si verificano gli eventi seguenti:
 
 ## <a name="debug-in-visual-studio"></a>Eseguire il debug in Visual Studio
 
-L'applicazione dovrebbe essere correttamente in esecuzione, ma è possibile usare il debugger per verificare il funzionamento delle parti principali dell'applicazione. Durante il debug dell'applicazione in Visual Studio, viene usato un cluster di sviluppo locale di Service Fabric. È possibile modificare l'esperienza di debug in base allo specifico scenario. In questa applicazione i dati vengono archiviati nel servizio back-end tramite un dizionario Reliable. Visual Studio rimuove l'applicazione per impostazione predefinita quando si arresta il debugger. La rimozione dell'applicazione determina la rimozione anche dei dati nel servizio back-end. Per rendere persistenti i dati tra le sessioni di debug, è possibile modificare la proprietà **Modalità di debug applicazione** del progetto **Voting** in Visual Studio.
+L'applicazione dovrebbe essere correttamente in esecuzione, ma è possibile usare il debugger per verificare il funzionamento delle parti principali dell'applicazione. Durante il debug dell'applicazione in Visual Studio viene usato un cluster di sviluppo locale di Service Fabric. È possibile modificare l'esperienza di debug in base allo specifico scenario. In questa applicazione i dati vengono archiviati nel servizio back-end tramite un dizionario Reliable. Visual Studio rimuove l'applicazione per impostazione predefinita quando si arresta il debugger. La rimozione dell'applicazione determina la rimozione anche dei dati nel servizio back-end. Per rendere persistenti i dati tra le sessioni di debug, è possibile modificare la proprietà **Modalità di debug applicazione** del progetto **Voting** in Visual Studio.
 
 Per osservare che cosa avviene nel codice, completare la procedura seguente:
 
@@ -132,23 +132,23 @@ Per osservare che cosa avviene nel codice, completare la procedura seguente:
 2. Aprire il file **/VotingData/Controllers/VoteDataController.cs** e impostare un punto di interruzione nel metodo **Put** dell'API Web (riga 54).
 
 3. Tornare al browser e fare clic su un'opzione di voto oppure aggiungere una nuova opzione di voto. È stato raggiunto il primo punto di interruzione nel controller API del front-end Web.
-   * In questa posizione, il codice JavaScript nel browser invia una richiesta al controller API Web nel servizio front-end.
+   * In questo passaggio il codice JavaScript nel browser invia una richiesta al controller API Web nel servizio front-end.
 
      ![Aggiungere il servizio front-end di voto](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-   * Prima di tutto, costruire l'URL di ReverseProxy per il servizio back-end **(1)**.
-   * Inviare quindi la richiesta PUT HTTP a ReverseProxy **(2)**.
-   * Infine, restituire la risposta dal servizio back-end al client **(3)**.
+   * Prima di tutto, costruire l'URL di ReverseProxy per il servizio back-end **(1)** .
+   * Inviare quindi la richiesta PUT HTTP a ReverseProxy **(2)** .
+   * Infine, restituire la risposta dal servizio back-end al client **(3)** .
 
 4. Premere **F5** per continuare.
    - Se richiesto dal browser, assegnare al gruppo ServiceFabricAllowedUsers le autorizzazioni di lettura ed esecuzione per Modalità di debug.
-   - Ora ci troviamo al punto di interruzione nel servizio back-end.
+   - Ora ci troviamo in corrispondenza del punto di interruzione nel servizio back-end.
 
      ![Aggiungere il servizio back-end di voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
    - Nella prima riga del metodo **(1)** `StateManager` viene usato per ottenere o aggiungere un dizionario Reliable denominato `counts`.
-   - Tutte le interazioni con i valori in un oggetto Reliable Dictionary richiedono una transazione, che viene creata dall'istruzione using **(2)**.
-   - Nella transazione aggiornare il valore della chiave pertinente per l'opzione di voto ed eseguire il commit dell'operazione **(3)**. Dopo la restituzione del metodo Commit, i dati vengono aggiornati nel dizionario e replicati negli altri nodi del cluster. A questo punto, i dati sono archiviati in modo sicuro nel cluster e il servizio back-end può eseguire il failover in altri nodi, rendendo comunque disponibili i dati.
+   - Tutte le interazioni con i valori in un oggetto Reliable Dictionary richiedono una transazione, che viene creata dall'istruzione using **(2)** .
+   - Nella transazione aggiornare il valore della chiave pertinente per l'opzione di voto ed eseguire il commit dell'operazione **(3)** . Dopo la restituzione del metodo Commit, i dati vengono aggiornati nel dizionario e replicati negli altri nodi del cluster. A questo punto, i dati sono archiviati in modo sicuro nel cluster e il servizio back-end può eseguire il failover in altri nodi, rendendo comunque disponibili i dati.
 5. Premere **F5** per continuare.
 
 Per interrompere la sessione di debug, premere **MAIUSC+F5**.
@@ -177,7 +177,7 @@ Per aggiornare l'applicazione, eseguire le operazioni seguenti:
 
     Durante l'esecuzione dell'aggiornamento, è comunque possibile usare l'applicazione. Poiché nel cluster sono in esecuzione due istanze del servizio, alcune delle richieste potrebbero ottenere la versione aggiornata dell'applicazione, mentre altre potrebbero ancora ottenere la versione precedente.
 
-11. Aprire il browser e passare all'indirizzo del cluster sulla porta 19080. Ad esempio, `http://localhost:19080/`.
+11. Aprire il browser e passare all'indirizzo del cluster sulla porta 19080. Ad esempio: `http://localhost:19080/`.
 12. Fare clic sul nodo **Applicazioni** nella visualizzazione ad albero, quindi su **Upgrades in Progress** (Aggiornamenti in corso) nel riquadro destro. È possibile osservare che l'aggiornamento viene distribuito attraverso i domini di aggiornamento del cluster, verificando l'integrità di ogni dominio prima di procedere a quello successivo. Nell'indicatore di stato viene visualizzato in verde un dominio di aggiornamento dopo aver verificato l'integrità di dominio.
     ![Visualizzazione dell'aggiornamento in Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 

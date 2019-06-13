@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 05/31/2019
 ms.author: helohr
-ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 296ea271e88dfbbd91b901dc1b24d49fc31c139e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965725"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476721"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Informazioni sull'anteprima di Desktop virtuale Windows 
 
@@ -26,6 +26,12 @@ Di seguito è riportato cosa si può fare quando si esegue Desktop virtuale Wind
 * Portare i desktop e le app esistenti di Servizi Desktop remoto e Windows Server in qualsiasi computer
 * Virtualizzare sia i desktop che le app
 * Gestire i desktop e le app di Windows 10, Windows Server e Windows 7 con un'esperienza di gestione unificata
+
+## <a name="introductory-video"></a>Video introduttivo
+
+Nel video seguente Scott Manchester illustra alcune delle funzionalità di Desktop virtuale Windows:
+
+<br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="key-capabilities"></a>Funzionalità principali
 
@@ -92,7 +98,6 @@ I seguenti client Desktop remoto supportano Desktop virtuale Windows:
 
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
-
 
 ## <a name="supported-virtual-machine-os-image"></a>Immagini di sistema operativo supportate per le macchine virtuali
 

@@ -55,12 +55,12 @@ L'esempio seguente illustra le sezioni che compongono la struttura di base di un
 
 | Nome dell'elemento | Obbligatorio? | Descrizione |
 | --- | --- | --- |
-| $schema |No  |Posizione del file di schema JSON. Il file di schema JSON aiuta a testare la validità del file di definizione. |
+| $schema |No |Posizione del file di schema JSON. Il file di schema JSON aiuta a testare la validità del file di definizione. |
 | title |Yes |Nome dell'elemento visualizzato nel lab. |
 | description |Yes |Descrizione dell'elemento visualizzato nel lab. |
-| iconUri |No  |URI dell'icona visualizzata nel lab. |
+| iconUri |No |URI dell'icona visualizzata nel lab. |
 | targetOsType |Yes |Sistema operativo della macchina virtuale in cui è installato l'elemento. Le opzioni supportate sono Windows e Linux. |
-| parameters |No  |Valori forniti quando viene eseguito il comando di installazione dell'elemento in un computer. Questi valori consentono di personalizzare l'elemento. |
+| parameters |No |Valori forniti quando viene eseguito il comando di installazione dell'elemento in un computer. Questi valori consentono di personalizzare l'elemento. |
 | runCommand |Yes |Il comando di installazione dell’elemento che viene eseguito in una macchina virtuale. |
 
 ### <a name="artifact-parameters"></a>Parametri dell'elemento

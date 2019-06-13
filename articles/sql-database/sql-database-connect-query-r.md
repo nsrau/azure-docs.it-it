@@ -12,15 +12,15 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
-ms.date: 04/11/2019
-ms.openlocfilehash: 2b1206e3087b0573736174d4eed502653d76f7a5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 05/29/2019
+ms.openlocfilehash: 1d4b17cf1e0349bf877c676cb4e591fc20ad4113
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001187"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416356"
 ---
-# <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>Avvio rapido: Usare R per eseguire query su un database SQL di Azure (anteprima)
+# <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>Guida introduttiva: Usare R per eseguire query su un database SQL di Azure (anteprima)
 
  Questo Avvio rapido illustra come usare [R](https://www.r-project.org/) con Machine Learning Services per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati. Machine Learning Services è una funzionalità del database SQL di Azure, usata per l'esecuzione di script R nel database. Per altre informazioni, vedere [Machine Learning Services (con R) nel database SQL di Azure](sql-database-machine-learning-services-overview.md).
 
@@ -32,14 +32,35 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
 
 - un database SQL di Azure. Per creare e quindi configurare un database in Database SQL di Azure è possibile usare una di queste guide introduttive:
 
-  || Database singolo | Istanza gestita |
+<!-- Managed instance is not supported during the preview
+  || Single database | Managed instance |
   |:--- |:--- |:---|
-  | Create| [Portale](sql-database-single-database-get-started.md) | [Portale](sql-database-managed-instance-get-started.md) |
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurare | [Regola del firewall per gli indirizzi IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
-  |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md) | [Connectivity from a VM](sql-database-managed-instance-configure-vm.md) |
+  ||| [Connectivity from on-site](sql-database-managed-instance-configure-p2s.md) |
+  | Load data | Adventure Works loaded per quickstart | [Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md) |
+  ||| Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) |
   |||
+-->
+
+  || Database singolo |
+  |:--- |:--- |
+  | Create| [Portale](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md) |
+  | Caricare i dati | Adventure Works caricato in base alla guida introduttiva |
+  |||
+
+  > [!NOTE]
+  > Durante l'anteprima di Machine Learning Services del database SQL di Azure con R, l'opzione di distribuzione di istanze gestite non è supportata.
+
+<!-- Managed instance is not supported during the preview
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
+-->
 
 - Machine Learning Services (con R) abilitati. Durante l'anteprima pubblica, Microsoft eseguirà l'onboarding e l'abilitazione dell'apprendimento automatico per il database nuovo o esistente. Seguire la procedura descritta in [Iscriversi per l'anteprima](sql-database-machine-learning-services-overview.md#signup).
 
@@ -64,6 +85,9 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 1. Passare lo script R completo alla stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 
    Lo script viene passato tramite l'argomento `@script`. Tutto il contenuto all'interno dell'argomento `@script` deve essere codice R valido.
+   
+   >[!IMPORTANT]
+   >Il codice in questo esempio usa i dati di esempio di AdventureWorksLT, che è possibile scegliere come origine durante la creazione del database. Se il database contiene dati diversi, utilizzare le tabelle del database personale nella query SELECT. 
 
     ```sql
     EXECUTE sp_execute_external_script

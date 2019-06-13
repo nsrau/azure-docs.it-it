@@ -1,222 +1,134 @@
 ---
-title: Creare un app Web Java - Servizio app di Azure
-description: Informazioni su come eseguire app Web nel servizio app mediante la distribuzione di un'app Java di base.
+title: Creare un app Web Java in Windows - Servizio app di Azure
+description: Questo argomento di avvio rapido spiega come distribuire la prima app Java Hello World nel servizio app di Azure in Windows in pochi minuti.
+keywords: azure, servizio app, web app, windows, java, maven, avvio rapido
 services: app-service\web
 documentationcenter: ''
-author: rmcmurray
-manager: routlaw
+author: msangapu-msft
+manager: jeconnoc
 editor: ''
-ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
+ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: java
+ms.devlang: Java
 ms.topic: quickstart
-ms.date: 04/23/2019
-ms.author: cephalin;robmcm
-ms.custom: seodec18
-ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/29/2019
+ms.author: jasonfreeberg
+ms.custom: mvc
+ms.openlocfilehash: c77f7afe3941395a156896135043710252637ef3
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706143"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393231"
 ---
-# <a name="create-your-first-java-web-app-in-azure"></a>Creare la prima app Web Java in Azure
+# <a name="quickstart-create-a-java-app-in-app-service"></a>Guida introduttiva: Creare un'app Java nel servizio app
 
-Il Servizio app di Azure offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Questa guida introduttiva illustra come distribuire un'app Web Java nel servizio app usando Eclipse IDE for Java EE Developers.
+> [!NOTE]
+> Questo articolo consente di distribuire un'app nel servizio app in Windows. Per la distribuzione nel servizio app in _Linux_, vedere [Creare un'app Web Java in Linux](./containers/quickstart-java.md).
+>
 
-> [!IMPORTANT]
-> Servizio app di Azure in Linux rappresenta anche un'opzione per l'hosting nativo di app Web Java su Linux mediante offerte gestite Tomcat, Java SE e WildFly. Se si è interessati alle attività iniziali con il Servizio app in Linux, vedere [Avvio rapido: Creare un'app Java nel Servizio app in Linux](containers/quickstart-java.md).
+[Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione.  Questo Avvio rapido illustra come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con il [plug-in Maven per il Servizio app di Azure (anteprima)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) per distribuire un file di archivio Web Java (WAR).
 
-Al termine di questa guida introduttiva, l'applicazione visualizzata in un Web browser avrà un aspetto simile al seguente:
-
-![App Web di esempio "Hello Azure" app Web di esempio](./media/app-service-web-get-started-java/browse-web-app-1.png)
+> [!NOTE]
+> La stessa operazione può essere eseguita anche con gli IDE più comuni come Eclipse e IntelliJ. Consultare i documenti simili in [Avvio rapido di Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) oppure in [Avvio rapido di Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+>
+![App di esempio in esecuzione in Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
->
-> I passaggi descritti in questa guida introduttiva illustrano come usare l'IDE di Eclipse per pubblicare un'app Web Java nel servizio app, ma è possibile usare IntelliJ IDEA Ultimate Edition o Community Edition. Per altre informazioni, vedere [Creare un'app Web Hello World per Azure con IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app).
->
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="create-a-java-app"></a>Creare un'app Java
 
-Per completare questa guida introduttiva, installare:
+Eseguire il comando Maven seguente nel prompt di Cloud Shell per creare una nuova app denominata `helloworld`:
 
-* Lo strumento gratuito <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. In questa guida introduttiva viene usato Eclipse Neon.
-* <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit for Eclipse</a>.
-
-> [!NOTE]
->
-> È necessario accedere al proprio account di Azure con Azure Toolkit per Eclipse per completare i passaggi descritti in questa guida introduttiva. Per eseguire questa operazione, vedere [Istruzioni di accesso ad Azure per il Toolkit di Azure per Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions).
->
-
-## <a name="create-a-dynamic-web-project-in-eclipse"></a>Creare un progetto Web dinamico in Eclipse
-
-In Eclipse selezionare **File** > **Nuovo** > **Dynamic Web Project** (Progetto Web dinamico).
-
-Nella finestra di dialogo **New Dynamic Web Project** (Nuovo progetto Web dinamico) assegnare al progetto il nome **MyFirstJavaOnAzureWebApp** e selezionare **Fine**.
-   
-![Finestra di dialogo New Dynamic Web Project (Nuovo progetto Web dinamico)](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
-
-### <a name="add-a-jsp-page"></a>Aggiungere una pagina JSP
-
-Se Esplora progetti non viene visualizzato, è necessario ripristinarlo.
-
-![Area di lavoro Java EE per Eclipse](./media/app-service-web-get-started-java/pe.png)
-
-In Esplora progetti espandere il progetto **MyFirstJavaOnAzureWebApp**.
-Fare doppio clic su **WebContent** e quindi selezionare **Nuovo** > **JSP File** (File JSP).
-
-![Menu per un nuovo file JSP in Esplora progetti](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
-
-Nella finestra di dialogo **New JSP File** (Nuovo file JSP):
-
-* Assegnare al file il nome **index.jsp**.
-* Selezionare **Fine**.
-
-  ![Finestra di dialogo New JSP File (Nuovo file JSP)](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
-
-Nel file index.jsp sostituire l'elemento `<body></body>` con il markup seguente:
-
-```jsp
-<body>
-<h1><% out.println("Hello Azure!"); %></h1>
-</body>
+```bash
+mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
 ```
 
-Salvare le modifiche.
+## <a name="configure-the-maven-plugin"></a>Configurare il plug-in Maven
 
-> [!NOTE]
->
-> Se nella riga 1 viene visualizzato un errore che fa riferimento a una classe servlet Java mancante, è possibile ignorarlo.
-> 
-> ![Errore di servlet Java non dannoso](./media/app-service-web-get-started-java/java-servlet-benign-error.png)
->
+Per eseguire la distribuzione da Maven, utilizzare l'editor di codice nella Cloud Shell per aprire il file `pom.xml` del progetto nella directory `helloworld`. 
 
-## <a name="publish-the-web-app-to-azure"></a>Pubblicare l'app Web in Azure
-
-In Esplora progetti fare clic con il pulsante destro del mouse sul progetto e quindi selezionare **Azure** > **Publish as Azure Web App** (Pubblica come app Web di Azure).
-
-![Menu di scelta rapida Publish as Azure Web App (Pubblica come app Web di Azure)](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
-
-Se viene visualizzata la finestra di dialogo di **accesso ad Azure**, è necessario seguire i passaggi riportati nell'articolo [Istruzioni di accesso ad Azure per il Toolkit di Azure per Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions) per immettere le credenziali.
-
-### <a name="deploy-web-app-dialog-box"></a>Finestra di dialogo Distribuisci app Web
-
-Dopo avere effettuato l'accesso all'account Azure, verrà visualizzata la finestra di dialogo **Distribuisci app Web**.
-
-Selezionare **Create**.
-
-![Finestra di dialogo Distribuisci app Web](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
-
-### <a name="create-app-service-dialog-box"></a>Finestra di dialogo Crea servizio app
-
-Viene visualizzata la finestra di dialogo **Crea servizio app** con i valori predefiniti. Il numero **170602185241** illustrato nell'immagine seguente è diverso da quello visualizzato nella finestra di dialogo reale.
-
-![Finestra di dialogo Crea servizio app](./media/app-service-web-get-started-java/cas1.png)
-
-Nella finestra di dialogo **Crea servizio app**:
-
-* Immettere un nome univoco per l'app Web o mantenere il nome generato. Il nome deve essere univoco in Azure ed è incluso nell'indirizzo URL relativo all'app Web. Se, ad esempio, il nome dell'app Web è **MyJavaWebApp**, l'URL è *myjavawebapp.azurewebsites.net*.
-* Per questa guida introduttiva, mantenere il contenitore Web predefinito.
-* Selezionare una sottoscrizione di Azure.
-* Nella scheda **Piano di servizio app**:
-
-  * **Crea nuovo**: mantenere il valore predefinito, ovvero il nome del piano di servizio app.
-  * **Località**: selezionare **Europa occidentale** o un'area geografica nelle vicinanze.
-  * **Piano tariffario**: Selezionare l'opzione gratuita. Per le funzionalità, vedere [Prezzi di Servizio app](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-    ![Finestra di dialogo Crea servizio app](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
-
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-### <a name="resource-group-tab"></a>Scheda Gruppo di risorse
-
-Selezionare la scheda **Gruppo di risorse**. Mantenere il valore predefinito generato per il gruppo di risorse.
-
-![Scheda Gruppo di risorse](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
-
-[!INCLUDE [resource-group](../../includes/resource-group.md)]
-
-Selezionare **Create**.
-
-<!--
-### The JDK tab
-
-Select the **JDK** tab. Keep the default, and then select **Create**.
-
-![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
--->
-
-Azure Toolkit crea l'app Web e visualizza una finestra di dialogo di avanzamento.
-
-![Finestra di dialogo di avanzamento Crea servizio app](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
-
-### <a name="deploy-web-app-dialog-box"></a>Finestra di dialogo Distribuisci app Web
-
-Nella finestra di dialogo **Distribuisci app Web** selezionare **Deploy to root** (Distribuisci nella radice). Se si ha un servizio app all'indirizzo *wingtiptoys.azurewebsites.net* e non si esegue la distribuzione nella radice, l'app Web denominata **MyFirstJavaOnAzureWebApp** verrà distribuita in *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
-
-![Finestra di dialogo Distribuisci app Web](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
-
-Nella finestra di dialogo vengono visualizzate le selezioni del contenitore Web, di Azure e di JDK.
-
-Selezionare **Distribuisci** per pubblicare l'app Web in Azure.
-
-Al termine del processo di pubblicazione, selezionare il collegamento **Pubblicato** nella finestra di dialogo **Log attività di Azure**.
-
-![Finestra di dialogo Log attività di Azure](./media/app-service-web-get-started-java/aal.png)
-
-Congratulazioni! L'app Web è stata distribuita in Azure. 
-
-![App Web di esempio "Hello Azure" app Web di esempio](./media/app-service-web-get-started-java/browse-web-app-1.png)
-
-## <a name="update-the-web-app"></a>Aggiornare l'app Web
-
-Modificare il codice JSP di esempio in un messaggio diverso.
-
-```jsp
-<body>
-<h1><% out.println("Hello again Azure!"); %></h1>
-</body>
+```bash
+code pom.xml
 ```
 
-Salvare le modifiche.
+Quindi aggiungere la definizione di plug-in seguente all'interno dell'elemento `<build>` del file `pom.xml`.
 
-In Esplora progetti fare clic con il pulsante destro del mouse sul progetto e quindi selezionare **Azure** > **Publish as Azure Web App** (Pubblica come app Web di Azure).
+```xml
+<plugins>
+    <!--*************************************************-->
+    <!-- Deploy to Tomcat in App Service Windows         -->
+    <!--*************************************************-->
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.5.4</version>
+        <configuration>
+            <!-- Specify v2 schema -->
+            <schemaVersion>v2</schemaVersion>
+            <!-- App information -->
+            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
+            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+            <appName>${WEBAPP_NAME}</appName>
+            <region>${REGION}</region>
+            <!-- Java Runtime Stack for App Service on Windows-->
+            <runtime>
+                <os>windows</os>
+                <javaVersion>1.8</javaVersion>
+                <webContainer>tomcat 9.0</webContainer>
+            </runtime>
+            <deployment>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/target</directory>
+                        <includes>
+                            <include>*.war</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </deployment>
+        </configuration>
+    </plugin>
+</plugins>
+```
 
-Viene visualizzata la finestra di dialogo **Distribuisci app Web** in cui viene illustrato il servizio app creato in precedenza. 
+> [!NOTE]
+> In questo articolo vengono usate solo app Java in pacchetto con file WAR. Il plug-in supporta anche le applicazioni Web JAR. Vedere [Distribuire un file JAR Java SE nel servizio app di Azure in Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per provarlo.
 
-> [!NOTE] 
-> Selezionare **Deploy to root** (Distribuisci nella radice) ogni volta che si esegue una pubblicazione. 
-> 
 
-Selezionare l'app Web e fare clic su **Distribuisci** per pubblicare le modifiche.
+Aggiornare i segnaposto seguenti nella configurazione del plug-in:
 
-Quando viene visualizzato il collegamento **Pubblicazione**, selezionarlo per passare all'app Web e visualizzare le modifiche.
+| Placeholder | DESCRIZIONE |
+| ----------- | ----------- |
+| `SUBSCRIPTION_ID` | ID univoco della sottoscrizione in cui si vuole distribuire l'app. È possibile trovare l'ID predefinito della sottoscrizione nel Cloud Shell o con l'interfaccia della riga di comando usando il comando `az account show`. Per tutte le sottoscrizioni disponibili, usare il comando `az account list`.|
+| `RESOURCEGROUP_NAME` | Nome del nuovo gruppo di risorse in cui creare l'app. Inserendo tutte le risorse per un'app in un gruppo è possibile gestirle insieme. Ad esempio, eliminando il gruppo di risorse si eliminano tutte le risorse associate all'app. Aggiornare questo valore con un nuovo nome univoco di gruppo di risorse, ad esempio *TestResources*. Questo nome di gruppo di risorse verrà usato per pulire tutte le risorse di Azure in una sezione successiva. |
+| `WEBAPP_NAME` | Il nome dell'app sarà incluso nel nome host dell'app durante la distribuzione in Azure (WEBAPP_NAME.azurewebsites.net). Aggiornare questo valore con un nome univoco per la nuova app del servizio app, che ospiterà l'app Java, ad esempio *contoso*. |
+| `REGION` | Area di Azure in cui è ospitata l'app, ad esempio `westus2`. È possibile ottenere un elenco di aree da Cloud Shell o dall’interfaccia della riga di comando utilizzando il comando `az account list-locations`. |
 
-## <a name="manage-the-web-app"></a>Gestire l'app Web
+## <a name="deploy-the-app"></a>Distribuire l'app
 
-Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per visualizzare l'app Web creata.
+Per distribuire l'app Java in Azure, usare il comando seguente:
 
-Nel menu di sinistra selezionare **Gruppi di risorse**.
+```bash
+mvn package azure-webapp:deploy
+```
 
-![Accesso ai gruppi di risorse nel portale](media/app-service-web-get-started-java/rg.png)
+Al termine della distribuzione, passare all'applicazione distribuita usando l'URL seguente nel Web browser, ad esempio `http://<webapp>.azurewebsites.net/`.
 
-Selezionare il gruppo di risorse. Nella pagina vengono visualizzate le risorse create in questa guida introduttiva.
+![App di esempio in esecuzione in Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
-![Gruppo di risorse](media/app-service-web-get-started-java/rg2.png)
+**Congratulazioni** La distribuzione della prima app Java nel servizio app in Windows è stata completata.
 
-Selezionare l'app Web (**webapp 170602193915** nell'immagine precedente).
-
-Viene visualizzata la pagina **Panoramica**, che offre una visualizzazione dello stato dell'app. Qui è possibile eseguire attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app. Le schede sul lato sinistro della pagina mostrano le diverse configurazioni che è possibile aprire. 
-
-![Pagina del servizio app nel portale di Azure](media/app-service-web-get-started-java/web-app-blade.png)
-
-[!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Risorse Azure per sviluppatori Java](/java/azure/)
 
 > [!div class="nextstepaction"]
 > [Eseguire il mapping di un dominio personalizzato](app-service-web-tutorial-custom-domain.md)

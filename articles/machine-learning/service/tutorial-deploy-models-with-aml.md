@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f2984ed9a7edd36b166c0dff9aa87d86c6d2ab45
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9709d18b00d65578ca3a63fe5044e0b9f7b52d58
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800727"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515589"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Esercitazione: Distribuire un modello di classificazione delle immagini in Istanze di Azure Container
 
@@ -35,7 +35,7 @@ In questa parte dell'esercitazione si usa il servizio Azure Machine Learning per
 Istanze di Container è un'ottima soluzione per testare e comprendere il flusso di lavoro. Per le distribuzioni di produzione scalabili, è consigliabile usare il servizio Azure Kubernetes. Per altre informazioni, vedere l'articolo su [come e dove eseguire la distribuzione](how-to-deploy-and-where.md).
 
 >[!NOTE]
-> Il codice di questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.8.
+> Il codice di questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.41.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Andare alla sezione [Configurare l'ambiente di sviluppo](#start) per leggere la procedura relativa al notebook.  

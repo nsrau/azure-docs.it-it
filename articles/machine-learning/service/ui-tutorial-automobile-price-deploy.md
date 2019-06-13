@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: fe26417c6e3a9f159e884c19d7bd7c9dc7569229
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787825"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389213"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Esercitazione: Distribuire un modello di Machine Learning con l'interfaccia visiva grafica
 
@@ -95,7 +95,7 @@ I dati dell'input utente vengono immessi nel modello distribuito tramite il modu
 
 È possibile testare un servizio Web nell'apposita scheda dell'interfaccia visiva grafica.
 
-1. Passare alla sezione del servizio Web. Verrà visualizzato il servizio Web distribuito con il nome **Tutorial - Predict Automobile Price[Predictive Exp]**.
+1. Passare alla sezione del servizio Web. Verrà visualizzato il servizio Web distribuito con il nome **Tutorial - Predict Automobile Price[Predictive Exp]** .
 
      ![Screenshot della scheda del servizio Web con il servizio Web creato di recente evidenziato](./media/ui-tutorial-automobile-price-deploy/web-services.png)
 
@@ -107,7 +107,7 @@ I dati dell'input utente vengono immessi nel modello distribuito tramite il modu
 
     ![Screenshot della pagina di test del servizio Web](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Immettere i dati di test oppure usare i dati di esempio compilati automaticamente e selezionare **Test** nella parte inferiore. La richiesta di test viene inviata al servizio Web e i risultati vengono visualizzati nella pagina.
+1. Immettere i dati di test oppure usare i dati di esempio compilati automaticamente e selezionare **Test** nella parte inferiore. La richiesta di test viene inviata al servizio Web e i risultati vengono visualizzati nella pagina. Anche se generato, il valore di prezzo per i dati di input non viene usato per generare il valore della stima.
 
 ## <a name="manage-the-web-service"></a>Gestire il servizio Web
 

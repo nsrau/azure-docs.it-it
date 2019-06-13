@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: c593b472326fc373c0b715865b839cca3b6bcf45
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 09d4038e705fb3bc4ff2c82daf5dc4c07f346f94
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480239"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751766"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Esercitazione: creare ed eseguire un notebook di Jupyter con Python
 
@@ -49,7 +49,7 @@ Il notebook completato è disponibile in [GitHub - Esempi di Azure Notebooks](ht
 
 ## <a name="create-the-data-file"></a>Creare il file di dati
 
-Il modello di regressione lineare creato nel notebook recupera i dati da un file nel progetto denominato *cricket_chirps.csv*. È possibile creare questo file copiando dalla [GitHub - esempi di notebook Azure](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), oppure immettendo i dati direttamente. Le sezioni seguenti descrivono entrambi gli approcci.
+Il modello di regressione lineare creato nel notebook recupera i dati da un file nel progetto denominato *cricket_chirps.csv*. È possibile creare questo file copiandolo da [GitHub - Esempi di Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps) oppure immettendo direttamente i dati. Le sezioni seguenti descrivono entrambi gli approcci.
 
 ### <a name="upload-the-data-file"></a>Caricare il file di dati
 
@@ -150,17 +150,17 @@ Jupyter fornisce una presentazione integrata dei principali elementi dell'interf
 
 I gruppi di comandi di menu sono i seguenti:
 
-| Menu | Descrizione |
+| Menu | DESCRIZIONE |
 | --- | --- |
 | File | Comandi per gestire il file del notebook, inclusi i comandi per creare e copiare i notebook, visualizzare un'anteprima di stampa e scaricare il notebook in diversi formati. |
 | Modificare | Normali comandi per tagliare, copiare e incollare celle, trovare e sostituire valori, gestire gli allegati delle celle e inserire immagini.  |
-| visualizzazione | Comandi per controllare la visibilità delle diverse parti dell'interfaccia utente di Jupyter. |
+| Visualizza | Comandi per controllare la visibilità delle diverse parti dell'interfaccia utente di Jupyter. |
 | Inserimento | Comandi per inserire una nuova cella sopra o sotto la cella corrente. Questi comandi vengono usati di frequente durante la creazione di un notebook. |
 | Cell (Cella) | I vari comandi **Run** (Esegui) consentono di eseguire una o più celle in diverse combinazioni. I comandi **Cell Type** (Tipo di cella) consentono di modificare il tipo di una cella tra **Code** (Codice), **Markdown** e **Raw NBConvert** (testo normale). I comandi **Current Outputs** (Output correnti) e **All Outputs** (Tutti gli output) consentono di controllare la visualizzazione dell'output del codice eseguito e includono un comando per cancellare tutto l'output. |
 | Kernel | Comandi per gestire la modalità di esecuzione del codice nel kernel, insieme a **Change kernel** (Cambia kernel) per modificare il linguaggio o la versione di Python usati per eseguire il notebook. |
 | Dati | Comandi per caricare e scaricare i file dal progetto o dalla sessione. Vedere [Lavorare con i file di dati di progetto](work-with-project-data-files.md) |
 | Widgets (Widget) | Comandi per gestire i [widget di Jupyter](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html), che offrono funzionalità aggiuntive per la visualizzazione, il mapping e il tracciato.|
-| Help | Comandi che consentono di accedere alla Guida e alla documentazione per l'interfaccia di Jupyter. |
+| Guida | Comandi che consentono di accedere alla Guida e alla documentazione per l'interfaccia di Jupyter. |
 
 La maggior parte dei comandi sulla barra degli strumenti dispone di comandi di menu equivalenti. L'unica eccezione è rappresentata da **Enter/Edit RISE Slideshow** (Immetti/modifica presentazione RISE), come descritto in [Condividere e presentare i notebook](present-jupyter-notebooks-slideshow.md).
 

@@ -5,19 +5,19 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 51775c5534a13fb2515fafa182658beafd38c1eb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5cb236dc38ae41b202004b7e4806d8129378cfdb
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029939"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417505"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Avvio rapido: Creare un servizio Azure Blockchain con il portale di Azure
+# <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Guida introduttiva: Creare un servizio Azure Blockchain con il portale di Azure
 
 Il servizio Azure Blockchain è una piattaforma per blockchain che consente di eseguire la logica di business in un contratto intelligente. Questa guida di avvio rapido illustra come iniziare a creare un libro mastro gestito con il portale di Azure.
 
@@ -40,11 +40,12 @@ Il servizio Azure Blockchain viene creato con un set definito di risorse di calc
     Sottoscrizione | Selezionare la sottoscrizione di Azure da usare per il servizio. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
     Gruppo di risorse | Nuovo nome di gruppo di risorse o uno esistente nella sottoscrizione.
     Region | La località deve essere la stessa per tutti i membri del consorzio.
-    Member account password (Password dell'account del membro) | Specificare una nuova password per l'account del membro. Viene usata per eseguire l'autenticazione all'endpoint pubblico del membro della blockchain usando l'autenticazione di base.
+    Member account password (Password dell'account del membro) | La password dell'account del membro viene usata per crittografare la chiave privata per l'account Ethereum creato per il membro. L'account del membro account e la password dell'account del membro si usano per la gestione del consorzio.
     Nome del consorzio | Immettere un nome univoco per un nuovo consorzio. Se si accede a un consorzio tramite invito, il valore da immettere è il consorzio a cui si sta accedendo.
     DESCRIZIONE | Descrizione del consorzio.
     Protocollo |  La versione di anteprima supporta il protocollo Quorum.
     Prezzi | Configurazione del nodo per il nuovo servizio. Selezionare **Standard**. L'impostazione predefinita prevede 2 nodi di convalida e 1 nodo della transazione.
+    Password del nodo della transazione | La password per il nodo della transazione predefinito del membro. Usare la password per l'autenticazione di base quando ci si connette all'endpoint pubblico del nodo della transazione predefinito per il membro della blockchain.
 
 1. Selezionare **Create** (Crea) per effettuare il provisioning del servizio. Il provisioning richiede circa 10 minuti.
 1. Per monitorare il processo di distribuzione, selezionare **Notifications** (Notifiche) sulla barra degli strumenti.

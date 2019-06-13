@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: f183fd9c9aca3e1c8ed5e2e31d2a451fae92e0a4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 05eac7e673ad01e9d3e0fb25f261444fd7bc4e6d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304490"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475507"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Esercitazione: Aggiornare un'applicazione nel servizio Azure Kubernetes
 
@@ -85,7 +85,10 @@ Usare [docker tag][docker-tag] per assegnare il tag all'immagine. Sostituire `<a
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Usare ora [docker push][docker-push] per caricare l'immagine nel registro. Sostituire `<acrLoginServer>` con il nome del server di accesso di Registro Azure Container. In caso di problemi nell'esecuzione del push nella propria istanza di Registro contenitori di Azure, verificare di aver eseguito il comando [az acr login][az-acr-login].
+Usare ora [docker push][docker-push] per caricare l'immagine nel registro. Sostituire `<acrLoginServer>` con il nome del server di accesso di Registro Azure Container.
+
+> [!NOTE]
+> In caso di problemi durante l'esecuzione del push nell'istanza di Registro Azure Container, assicurarsi di essere ancora connessi. Eseguire il comando [az acr login][az-acr-login] con il nome del Registro Azure Container creato nel passaggio [Creare un Registro Azure Container](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry). Ad esempio: `az acr login --name <azure container registry name>`.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2

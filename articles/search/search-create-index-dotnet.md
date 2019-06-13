@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/16/2019
-ms.openlocfilehash: 8d186ae83e1016de9c4548d4b1c39303025a5270
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0392cc6334aaf383f43d55134fa65f82c44270c3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795807"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428396"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Guida introduttiva: 1 - Creare un indice di Ricerca di Azure in C#
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "65795807"
 > * [Postman](search-fiddler.md)
 >*
 
-Questo articolo illustra il processo di creazione di un [indice di Ricerca di Azure](search-what-is-an-index.md) mediante C# e [.NET SDK](https://aka.ms/search-sdk). Questa è la prima lezione di un esercizio in tre parti per la creazione e il caricamento di un indice e l'esecuzione di query su tale indice. Per creare un indice, è necessario eseguire queste attività:
+Questo articolo illustra il processo di creazione di un [indice di Ricerca di Azure](search-what-is-an-index.md) mediante C# e [.NET SDK](https://aka.ms/search-sdk). Questa guida di avvio rapido è la prima lezione di un esercizio in tre parti per la creazione e il caricamento di un indice e l'esecuzione di query su tale indice. Per creare un indice, è necessario eseguire queste attività:
 
 > [!div class="checklist"]
 > * Creare un oggetto [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) da connettere a un servizio di ricerca.
@@ -39,7 +39,7 @@ In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati 
 
 + [Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido.
 
-+ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), qualsiasi edizione. Il codice di esempio e le istruzioni sono stati testati nell'edizione Community Edition gratuita.
+[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), qualsiasi edizione. Il codice di esempio e le istruzioni sono stati testati nell'edizione Community Edition gratuita.
 
 + [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) fornisce la soluzione di esempio, un'applicazione console .NET Core scritta in C#, disponibile nel repository GitHub di esempi di Azure. Scaricare ed estrarre la soluzione. Per impostazione predefinita, le soluzioni sono di sola lettura. Fare clic con il pulsante destro del mouse sulla soluzione e deselezionare l'attributo di sola lettura in modo che sia possibile modificare i file. I dati sono inclusi nella soluzione.
 
@@ -61,15 +61,13 @@ Per ogni richiesta inviata al servizio è necessario specificare una chiave API.
 
 1. In appsettings.json sostituire il contenuto predefinito con l'esempio seguente e quindi specificare il nome del servizio e la chiave API amministratore per il servizio. 
 
-
    ```json
    {
        "SearchServiceName": "Put your search service name here (not the full URL)",
        "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
     }
    ```
-
-  Per il nome del servizio, è sufficiente il nome stesso. Se ad esempio l'URL è https://mydemo.search.windows.net, aggiungere `mydemo` al file JSON.
+   Per il nome del servizio, è sufficiente il nome stesso. Se ad esempio l'URL è https://mydemo.search.windows.net, aggiungere `mydemo` al file JSON.
 
 1. Premere F5 per compilare la soluzione ed eseguire l'app console. I passaggi rimanenti di questo esercizio e quelli che seguono illustrano il funzionamento di questo codice. 
 
@@ -108,7 +106,7 @@ Una singola chiamata al metodo `Indexes.Create` consente di creare un indice. Qu
 
 1. Impostare la proprietà `Name` dell'oggetto `Index` sul nome dell'indice.
 
-2. Impostare la proprietà `Fields` dell'oggetto `Index` su un array di oggetti `Field`. Il modo più semplice per creare gli oggetti `Field` consiste nel chiamare il metodo `FieldBuilder.BuildForType` passando una classe modello per il parametro di tipo. Una classe modello dispone di proprietà corrispondenti ai campi dell'indice. Questo consente di associare documenti dell'indice di ricerca a istanze della classe modello.
+2. Impostare la proprietà `Fields` dell'oggetto `Index` su un array di oggetti `Field`. Il modo più semplice per creare gli oggetti `Field` consiste nel chiamare il metodo `FieldBuilder.BuildForType` passando una classe modello per il parametro di tipo. Una classe modello dispone di proprietà corrispondenti ai campi dell'indice. Questo mapping consente di associare documenti dell'indice di ricerca a istanze della classe modello.
 
 > [!NOTE]
 > Se non si prevede di usare una classe modello, è comunque possibile definire l'indice mediante la creazione diretta di oggetti `Field`. È possibile fornire il nome del campo al costruttore, insieme al tipo di dati (o all'analizzatore per i campi stringa). È inoltre possibile impostare altre proprietà, come ad esempio `IsSearchable` e `IsFilterable`.
@@ -184,7 +182,7 @@ La definizione di indice precedente usa un analizzatore della lingua per il camp
 > 
 > 
 
-Dopo aver definito una classe modello, è possibile creare una definizione di indice in modo molto semplice:
+Dopo aver definito una classe modello, è possibile creare facilmente una definizione di indice:
 
 ```csharp
 var definition = new Index()
@@ -203,7 +201,7 @@ serviceClient.Indexes.Create(definition);
 
 Se la richiesta è corretta, il metodo restituirà un valore regolare. Se si verifica un problema con la richiesta, ad esempio un parametro non valido, il metodo genererà `CloudException`.
 
-Dopo aver usato un indice, se si vuole eliminarlo chiamare il metodo `Indexes.Delete` in `SearchServiceClient`. Ad esempio: 
+Dopo aver usato un indice, se si vuole eliminarlo chiamare il metodo `Indexes.Delete` in `SearchServiceClient`. Ad esempio:
 
 ```csharp
 serviceClient.Indexes.Delete("hotels");

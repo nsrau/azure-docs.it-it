@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/20/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: b96c1ada1ebb1bc53f7f55311c69a3cdc04f7574
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b99ee8e6a379a1e86eaf37bb232176c3ca13c0d9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956426"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687958"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes tramite l'interfaccia della riga di comando di Azure
 
@@ -251,11 +251,11 @@ Verranno visualizzati i contenitori *azure-vote-back* e *azure-vote-front*, come
 
 ![Visualizzare l'integrità dei contenitori in esecuzione nel servizio Azure Kubernetes](media/kubernetes-walkthrough/monitor-containers.png)
 
-Per visualizzare i log per il pod `azure-vote-front`, selezionare l'opzione **Visualizza in Analisi** e quindi **Visualizza log contenitori** a destra dell'elenco dei contenitori. Questi log includono i flussi *stdout* e *stderr* del contenitore.
+Per visualizzare i log per il pod `azure-vote-back`, scegliere l'opzione **Visualizza in Analisi** e quindi **Visualizza log contenitori** a destra dell'elenco dei contenitori. Questi log includono i flussi *stdout* e *stderr* del contenitore.
 
 ![Visualizzare i log dei contenitori nel servizio Azure Kubernetes](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## <a name="delete-cluster"></a>Eliminare il cluster
+## <a name="delete-the-cluster"></a>Eliminare il cluster
 
 Quando il cluster non è più necessario, usare il comando [az group delete][az-group-delete] per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
 

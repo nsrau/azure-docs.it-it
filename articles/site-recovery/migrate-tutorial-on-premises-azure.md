@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: df4f89bd1b2e3c0423f5d758cfa637e4da9e04d0
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357984"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66396531"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Eseguire la migrazione di computer locali ad Azure
 
@@ -54,7 +54,7 @@ Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 3. In **Protection goal** (Obiettivo di protezione) selezionare ciò che si intende migrare.
     - **VMware**: Selezionare **In Azure** > **Sì, con VMWare vSphere Hypervisor**.
     - **Computer fisico**: Selezionare **In Azure** > **Non virtualizzato/Altro**.
-    - **Hyper-V**: Selezionare **In Azure** > **,** . Se le macchine virtuali Hyper-V sono gestite da VMM, selezionare **Sì**.
+    - **Hyper-V**: Selezionare **In Azure** >  **,** . Se le macchine virtuali Hyper-V sono gestite da VMM, selezionare **Sì**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
@@ -118,7 +118,7 @@ Eseguire un failover per i computer di cui si vuole eseguire la migrazione.
 > [!WARNING]
 > **Non annullare un failover in corso**: Prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.
 
-In alcuni scenari il failover richiede un'ulteriore elaborazione il cui completamento richiede da 8 a 10 minuti. L'esecuzione del failover di test potrebbe richiedere più tempo per server fisici, computer Linux VMware, macchine virtuali VMware per cui non è abilitato il servizio DHCP e macchine virtuali VMware che non hanno i driver di avvio seguenti: storvsc, vmbus, storflt, intelide, atapi.
+In alcuni scenari il failover richiede un'altra elaborazione il cui completamento richiede da 8 a 10 minuti. L'esecuzione del failover di test potrebbe richiedere più tempo per server fisici, computer Linux VMware, macchine virtuali VMware per cui non è abilitato il servizio DHCP e macchine virtuali VMware che non hanno i driver di avvio seguenti: storvsc, vmbus, storflt, intelide, atapi.
 
 ## <a name="after-migration"></a>Dopo la migrazione
 

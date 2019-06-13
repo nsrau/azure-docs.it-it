@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 5/16/2019
-ms.openlocfilehash: 20eb5a59e98c06d7bce4623a6a8facd998d3be4c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 94988f4f287730c69b51e44bcbfa4e3d63d139fa
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069171"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515717"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Esercitazione: Progettare un'istanza del database di Azure per server singolo PostgreSQL usando il portale di Azure
 
@@ -42,7 +42,7 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
 
 3. Selezionare l'opzione di distribuzione **Server singolo**.
 
-   ![Selezionare l'opzione di distribuzione istanza di server singolo Database di Azure per PostgreSQL](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
+   ![Selezionare l'opzione di distribuzione Database di Azure per PostgreSQL - Server singolo](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
 
 4. Compilare il modulo **Informazioni di base** con le informazioni seguenti:
 
@@ -54,7 +54,7 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
     Gruppo di risorse|*myresourcegroup*| Nuovo nome di gruppo di risorse o uno esistente nella sottoscrizione.
     Nome server |*mydemoserver*|Nome univoco per identificare il database di Azure per il server PostgreSQL. Al nome del server specificato viene aggiunto il nome di dominio *postgres.database.azure.com*. Il server può contenere solo lettere minuscole, numeri e il segno meno (-). Deve contenere almeno da 3 a 63 caratteri.
     Origine dati | *Nessuno* | Selezionare *Nessuno* per creare un nuovo server da zero. Si selezionerebbe *Backup* se si stesse creando un server da un backup geografico di un server Database di Azure per PostgreSQL esistente.
-    Nome utente amministratore |*myadmin*| Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** o **public**. Non può iniziare con **pg_**.
+    Nome utente amministratore |*myadmin*| Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** o **public**. Non può iniziare con **pg_** .
     Password |Password| Nuova password per l'account amministratore del server. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre di queste categorie: lettere maiuscole, lettere minuscole, numeri (da 0 a 9) e caratteri non alfanumerici (!, $, #, % e così via).
     Località|Area più vicina ai propri utenti| Località più vicina agli utenti.
     Versione|La versione principale più recente| La versione principale più recente di PostgreSQL, a meno che non si abbiano requisiti specifici diversi.
@@ -65,6 +65,9 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
    > 
 
     ![Riquadro "Piano tariffario"](./media/quickstart-create-database-portal/2-pricing-tier.png)
+
+    > [!TIP]
+    > Quando l'opzione per l'**aumento automatico** è abilitata, il server aumenta lo spazio di archiviazione disponibile quando si sta per raggiungere il limite allocato, senza alcun impatto sul carico di lavoro.
 
 5. Selezionare **Revisione e creazione** per rivedere le selezioni effettuate. Selezionare **Crea** per effettuare il provisioning del server. Questa operazione può richiedere qualche minuto.
 

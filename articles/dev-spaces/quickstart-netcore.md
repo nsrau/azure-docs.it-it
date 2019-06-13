@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 1ffb3f0071409e148f394913d4bda5ba73319e3e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 3f502b84145b81153d5e39a03cca104d4285c581
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861638"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393436"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Guida introduttiva: Sviluppare con .NET Core in Kubernetes con Azure Dev Spaces (Visual Studio Code)
 
@@ -35,7 +35,7 @@ In questa guida si apprenderà come:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creare un cluster del servizio Azure Kubernetes
 
-È necessario creare un cluster del servizio Azure Kubernetes in un'[area supportata](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). I comandi seguenti creano un gruppo di risorse denominato *MyResourceGroup* e un cluster del servizio Azure Kubernetes denominato *MyAKS*.
+È necessario creare un cluster del servizio Azure Kubernetes in un'[area supportata][supported-regions]. I comandi seguenti creano un gruppo di risorse denominato *MyResourceGroup* e un cluster del servizio Azure Kubernetes denominato *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -115,13 +115,13 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-Per vedere il servizio in esecuzione, aprire l'URL pubblico, visualizzato nell'output del comando `azds up`. In questo esempio l'URL pubblico è *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
+Per vedere il servizio in esecuzione, aprire l'URL pubblico, visualizzato nell'output del comando `azds up`. In questo esempio l'URL pubblico è *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
 
 Se si arresta il comando `azds up` premendo *CTRL+C*, il servizio continuerà a essere eseguito nel servizio Azure Kubernetes e l'URL pubblico rimarrà disponibile.
 
 ## <a name="update-code"></a>Aggiornare il codice
 
-Per distribuire una versione aggiornata del servizio, è possibile aggiornare qualsiasi file del progetto ed eseguire di nuovo il comando `azds up`. Ad esempio: 
+Per distribuire una versione aggiornata del servizio, è possibile aggiornare qualsiasi file del progetto ed eseguire di nuovo il comando `azds up`. Ad esempio:
 
 1. Se `azds up` è ancora in esecuzione, premere *CTRL+C*.
 1. Aggiornare la [riga 20 di `Controllers/HomeController.cs`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L20) in:
@@ -183,7 +183,7 @@ Rimuovere il punto di interruzione posizionando il cursore sulla riga 20 di `Con
 
 ## <a name="update-code-from-visual-studio-code"></a>Aggiornare il codice da Visual Studio Code
 
-Mentre il servizio è in esecuzione in modalità debug, aggiornare la riga 20 in `Controllers/HomeController.cs`. Ad esempio: 
+Mentre il servizio è in esecuzione in modalità debug, aggiornare la riga 20 in `Controllers/HomeController.cs`. Ad esempio:
 
 ```csharp
 ViewData["Message"] = "Your application description page in Azure while debugging!";
@@ -209,3 +209,6 @@ Informazioni su come Azure Dev Spaces consente di sviluppare applicazioni più c
 
 > [!div class="nextstepaction"]
 > [Uso di più contenitori e sviluppo in team](multi-service-netcore.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

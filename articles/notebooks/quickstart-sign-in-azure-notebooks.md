@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a9ba6fcc0c8b74664f5c4b32e54530fb4aaa2881
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237876"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751732"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Avvio rapido: Accedere e impostare un ID utente
 
@@ -35,7 +35,7 @@ Sebbene sia sempre possibile visualizzare Azure Notebooks senza eseguire l'acces
     ![Comando Crea un nuovo account Microsoft nel prompt di accesso](media/accounts/create-new-microsoft-account.png)
 
     > [!Tip]
-    > Se si prova a creare un nuovo account con un indirizzo di posta elettronica che è già associato un account, si può vedere il messaggio "non è possibile effettuare l'iscrizione qui con un lavoro o dell'istituto di istruzione indirizzo di posta elettronica. Usare un indirizzo e-mail personale, ad esempio Gmail o Yahoo!, oppure ottenere un nuovo indirizzo e-mail Outlook". In tal caso, provare ad accedere con l'indirizzo di posta elettronica di lavoro senza creare un nuovo account.
+    > Se si tenta di creare un nuovo account con un indirizzo di posta elettronica a cui è già associato un account, potrebbe essere visualizzato il messaggio "Non puoi accedere qui con un indirizzo e-mail aziendale o dell'istituto di istruzione. Usa un indirizzo e-mail personale, ad esempio Gmail o Yahoo!, oppure crea un nuovo indirizzo e-mail di Outlook." In tal caso, provare ad accedere con l'indirizzo di posta elettronica aziendale senza creare un nuovo account.
 
 1. Immettere la password quando viene richiesto.
 
@@ -56,7 +56,7 @@ Sebbene sia sempre possibile visualizzare Azure Notebooks senza eseguire l'acces
     ![Vista iniziale di una pagina del profilo Azure Notebooks](media/accounts/profile-page-new.png)
 
 > [!NOTE]
-> Se viene visualizzato il messaggio, "ID utente è già in uso," provare un altro ID. Gli ID utente sono univoci per tutti gli account Azure Notebooks e Azure Notebooks riserva anche determinati gli ID utente, ad esempio nomi di marchi di Microsoft.
+> Se viene visualizzato un messaggio che indica che l'ID utente già in uso, provare con un altro ID. Gli ID utente sono univoci per tutti gli account Azure Notebooks e determinati ID utente in Azure Notebooks sono riservati, ad esempio i nomi dei marchi Microsoft.
 
 ## <a name="sign-out"></a>Disconnessione
 

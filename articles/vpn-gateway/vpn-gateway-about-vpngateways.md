@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 05/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 79697d44ea3e5126d43169f36c550046af3bc366
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 0d4bba41170408b640b4e8d3809c77b7a6443c6a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170569"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480045"
 ---
 # <a name="what-is-vpn-gateway"></a>Che cos'è un Gateway VPN?
 
@@ -23,7 +23,9 @@ Un gateway VPN è un tipo specifico di gateway di rete virtuale, usato per invia
 
 Un gateway di rete virtuale è costituito da due o più macchine virtuali distribuite in una subnet specifica creata, denominata *subnet del gateway*. Le macchine virtuali presenti nella subnet del gateway vengono create nel momento in cui si crea il gateway di rete virtuale. Le macchine virtuali del gateway di rete virtuale sono configurate per contenere tabelle di routing e servizi specifici del gateway. Non è possibile configurare direttamente le macchine virtuali che fanno parte del gateway di rete virtuale e non si devono mai distribuire risorse aggiuntive nella subnet del gateway.
 
-La creazione di un gateway di rete virtuale può richiedere fino a 45 minuti. Quando si crea un gateway VPN, le macchine virtuali del gateway vengono distribuite nella subnet del gateway e configurate con le impostazioni specificate. Una delle impostazioni configurate è il tipo di gateway. Il tipo del gateway 'vpn' specifica che il tipo di gateway di rete virtuale creato è un gateway VPN. Dopo aver creato un gateway VPN, è possibile creare una connessione con tunnel VPN IPsec/IKE tra il gateway VPN creato e un altro gateway VPN (tra reti virtuali) o creare una connessione con tunnel VPN IPsec/IKE cross-premise tra il gateway VPN e un dispositivo VPN locale (da sito a sito). È anche possibile creare una connessione VPN da punto a sito (VPN su IKEv2 o SSTP), che consente di connettersi alla rete virtuale da una posizione remota, ad esempio in una conferenza o da casa.
+I gateway VPN possono essere distribuiti nelle zone di disponibilità di Azure. In questo modo, i gateway di rete virtuale ottengono maggiore disponibilità, scalabilità e resilienza. La distribuzione di gateway in zone di disponibilità di Azure separa fisicamente e logicamente i gateway all'interno di un'area e consente, al contempo, di proteggere la connettività di rete locale ad Azure da errori a livello di zona. Vedere [Informazioni sui gateway di rete virtuale con ridondanza della zona in zone di disponibilità di Azure](about-zone-redundant-vnet-gateways.md)
+
+La creazione di un gateway di rete virtuale può richiedere fino a 45 minuti. Quando si crea un gateway VPN, le macchine virtuali del gateway vengono distribuite nella subnet del gateway e configurate con le impostazioni specificate. Una delle impostazioni configurate è il tipo di gateway. Il tipo del gateway 'vpn' specifica che il tipo di gateway di rete virtuale creato è un gateway VPN. Dopo aver creato un gateway VPN, è possibile creare una connessione con tunnel VPN IPsec/IKE tra il gateway VPN creato e un altro gateway VPN (tra reti virtuali) o creare una connessione con tunnel VPN IPsec/IKE cross-premise tra il gateway VPN e un dispositivo VPN locale (da sito a sito). È anche possibile creare una connessione VPN da punto a sito (VPN su OpenVPN, IKEv2 o SSTP), che consente di connettersi alla rete virtuale da una posizione remota, ad esempio in una conferenza o da casa.
 
 ## <a name="configuring"></a>Configurazione di un gateway VPN
 
@@ -83,7 +85,7 @@ Questo tipo di connessione è una variante della connessione da sito a sito. È 
 
 [!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="P2S"></a>Da punto a sito (VPN su IKEv2 o SSTP)
+## <a name="P2S"></a>VPN da punto a sito
 
 Una connessione gateway VPN da punto a sito (P2S) consente di creare una connessione sicura alla rete virtuale da un singolo computer client. Una connessione da punto a sito viene stabilita avviandola dal computer client. Questa soluzione è utile per i telelavoratori che intendono connettersi alle reti virtuali di Azure da una posizione remota, ad esempio da casa o durante una riunione. Una VPN da punto a sito è anche una soluzione utile da usare al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale.
 

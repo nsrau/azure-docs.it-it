@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 52b5291e4b56b5065b9dddd5b8908ade0c1a8387
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e37e99323c92adad0b9e897af8c276a8ac153371
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66019830"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515640"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Esercitazione: Stimare il prezzo delle automobili con l'interfaccia visiva grafica
 
@@ -33,7 +33,7 @@ Nella [seconda parte](ui-tutorial-automobile-price-deploy.md) della serie di ese
 
 > [!NOTE]
 > Una versione completa dell'esercitazione è disponibile come esperimento di esempio.
-> Nella pagina Experiments (Esperimenti) passare a **Add New (Aggiungi nuovo)** > **Sample 1 - Regression: Automobile Price Prediction(Basic)**
+> Nella pagina Experiments (Esperimenti) passare a **Add New (Aggiungi nuovo)**  > **Sample 1 - Regression: Automobile Price Prediction(Basic)**
 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
@@ -78,13 +78,13 @@ Se è stato riutilizzato l'esperimento della guida di avvio rapido, passare alla
 
 Se la guida di avvio rapido non è stata completata, seguire questi passaggi per creare rapidamente un nuovo esperimento che importa e pulisce il set di dati delle automobili.
 
-1. Creare un nuovo esperimento selezionando **+NEW** (NUOVO) nella parte inferiore della finestra dell'interfaccia visiva grafica.
+1. Per creare un nuovo esperimento, selezionare **+NEW** (NUOVO) nella parte inferiore della finestra dell'interfaccia visiva grafica.
 
-1. Selezionare **EXPERIMENT (ESPERIMENTO)** >  **Blank Experiment** (Esperimento vuoto).
+1. Selezionare **Experiments** >  **Blank Experiment** (Esperimenti > Esperimento vuoto).
 
 1. Selezionare il nome predefinito dell'esperimento, **"Experiment Created on**" (Esperimento creato in data) nella parte superiore dell'area di disegno e cambiarlo con un nome significativo, ad esempio **Automobile price prediction**. Il nome non deve essere univoco.
 
-1. A sinistra dell'area di disegno dell'esperimento è presente una tavolozza di set di dati e moduli. Per trovare i moduli, usare la casella di ricerca nella parte superiore della tavolozza. Digitare **automobile** nella casella di ricerca per trovare il set di dati denominato **Automobile price data (Raw)**. Trascinare il set di dati nell'area di disegno dell'esperimento.
+1. A sinistra dell'area di disegno dell'esperimento è presente una tavolozza di set di dati e moduli. Per trovare i moduli, usare la casella di ricerca nella parte superiore della tavolozza. Digitare **automobile** nella casella di ricerca per trovare il set di dati denominato **Automobile price data (Raw)** . Trascinare il set di dati nell'area di disegno dell'esperimento.
 
     ![Screenshot che mostra come trovare il set di dati dei prezzi delle automobili](./media/ui-tutorial-automobile-price-train-score/automobile-dataset.png)
 
@@ -167,7 +167,7 @@ Dopo aver eseguito il training del modello usando il 70% dei dati, è possibile 
 
 1. Digitare **score model** nella casella di ricerca per trovare il modulo **Score Model** (Punteggio del modello) e trascinarlo nell'area di disegno dell'esperimento. Connettere l'output del modulo **Train Model** alla porta di input sinistra del modulo **Score Model**. Connettere l'output dei dati di test (porta destra) del modulo **Split Data** alla porta di input destra di **Score Model**.
 
-1. Digitare **evaluate** nella casella di ricerca per trovare il modulo **Evaluate Model** (Valutazione del modello) e trascinarlo nell'area di disegno dell'esperimento. Connettere l'output del modulo **Score Model** all'input sinistro di **Evaluate Model**. L'esperimento dovrebbe avere un aspetto simile al seguente:
+1. Digitare **evaluate** nella casella di ricerca per trovare il modulo **Evaluate Model** (Valutazione del modello) e trascinarlo nel canvas dell'esperimento. Connettere l'output del modulo **Score Model** all'input sinistro di **Evaluate Model**. L'esperimento dovrebbe avere un aspetto simile al seguente:
 
     ![Screenshot della configurazione finale corretta dell'esperimento](./media/ui-tutorial-automobile-price-train-score/final-graph.png)
 

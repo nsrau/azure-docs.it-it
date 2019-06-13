@@ -6,19 +6,19 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 3/29/2019
+ms.date: 6/5/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 7f313af75e78db8a60fe6864c41cd8e6c5a3ad9b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b1763e7c24ea75a698c3718ab5e205dcc3e0c8c4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60193021"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495795"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
-Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure. È un firewall con stato completo come servizio con disponibilità elevata incorporata e scalabilità del cloud senza restrizioni. 
+Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure. È un firewall con stato completo distribuito come servizio con disponibilità elevata e scalabilità cloud senza limiti. 
 
 ![Panoramica del firewall](media/overview/firewall-threat.png)
 
@@ -50,7 +50,7 @@ I tag FQDN rendono più semplice consentire il traffico di rete noto del servizi
 
 ### <a name="service-tags"></a>Tag di servizio
 
-Un tag di servizio rappresenta un gruppo di prefissi di indirizzo IP che consente di ridurre al minimo la complessità nella creazione di regole di sicurezza. Non è possibile creare tag di servizio personalizzati, né specificare gli indirizzi IP inclusi in un tag. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che aggiorna automaticamente il tag in caso di modifica degli indirizzi.
+Un tag di servizio rappresenta un gruppo di prefissi di indirizzo IP che consente di ridurre al minimo la complessità nella creazione di regole di sicurezza. Non è possibile creare tag di servizio personalizzati, né specificare gli indirizzi IP da includere in un tag. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che aggiorna automaticamente il tag in caso di modifica degli indirizzi.
 
 ### <a name="threat-intelligence"></a>Intelligence per le minacce
 
@@ -74,14 +74,16 @@ Il Firewall di Azure presenta i problemi noti seguenti:
 
 |Problema  |DESCRIZIONE  |Mitigazione  |
 |---------|---------|---------|
-|Conflitto con la funzionalità JIT (Just-in-Time) del Centro sicurezza di Azure|Se per accedere a una macchina virtuale che si trova in una subnet con una route definita dall'utente che punta a Firewall di Azure come gateway predefinito viene usata la funzionalità JIT del Centro sicurezza di Azure, questa non funziona. Ciò è dovuto al routing asimmetrico, ovvero un pacchetto viene ricevuto tramite l'indirizzo IP della macchina virtuale (accesso aperto da JIT), ma il percorso di ritorno è tramite il firewall, che elimina il pacchetto perché nel firewall non è stata stabilita alcuna sessione.|Per risolvere questo problema, posizionare le macchine virtuali JIT in una subnet separata che non contenga una route definita dall'utente al firewall.|
+|Conflitto con la funzionalità JIT (Just-in-Time) del Centro sicurezza di Azure|Se per accedere a una macchina virtuale che si trova in una subnet con una route definita dall'utente che punta a Firewall di Azure come gateway predefinito viene usata la funzionalità JIT del Centro sicurezza di Azure, questa non funziona. Ciò è dovuto al routing asimmetrico, ovvero un pacchetto viene ricevuto tramite l'IP pubblico della macchina virtuale (accesso aperto da JIT), ma il percorso di ritorno è tramite il firewall, che elimina il pacchetto perché nel firewall non è stata stabilita alcuna sessione.|Per risolvere questo problema, posizionare le macchine virtuali JIT in una subnet separata che non contenga una route definita dall'utente al firewall.|
 Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non funzionano per il traffico associato a Internet|Le regole di filtro di rete per i protocolli non TCP/UDP non funzionano con SNAT per l'indirizzo IP pubblico. I protocolli non TCP/UDP sono supportati tra le subnet spoke e le reti virtuali.|Firewall di Azure usa Load Balancer Standard, [che attualmente non supporta SNAT per i protocolli IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Sono in fase di studio opzioni per supportare questo scenario in una versione futura.|
-|Supporto di PowerShell e CLI mancante per ICMP|Azure PowerShell e CLI non supportano ICMP come protocollo valido nelle regole di rete.|È comunque possibile usare ICMP come protocollo tramite il portale e l'API REST. A breve ICMP sarà aggiunto anche in PowerShell e CLI.|
+|Supporto di PowerShell e CLI mancante per ICMP|Azure PowerShell e CLI non supportano ICMP come protocollo valido nelle regole di rete.|È comunque possibile usare ICMP come protocollo tramite il portale e l'API REST. A breve ICMP sarà aggiunto anche in PowerShell e nell'interfaccia della riga di comando.|
 |I tag FQDN richiedono l'impostazione di protocol:port|Le regole di applicazione con tag FQDN richiedono la definizione port:protocol.|È possibile usare **https** come valore port:protocol. A breve questo campo sarà reso facoltativo quando vengono usati i tag FQDN.|
-|Lo spostamento di un firewall in un altro gruppo di risorse o sottoscrizione non è supportato|Lo spostamento di un firewall in un altro gruppo di risorse o sottoscrizione non è supportato.|Il supporto di questa funzionalità è previsto per il futuro. Per spostare un firewall in un altro gruppo di risorse o sottoscrizione, è necessario eliminare l'istanza corrente e ricrearla nel nuovo gruppo di risorse o sottoscrizione.|
-|Intervallo di porte nelle regole di rete e dell'applicazione|Il numero di porte è limitato a 64.000 perché le porte con numeri elevati sono riservate ai probe di gestione e integrità. |Microsoft si sta adoperando per ovviare a questa limitazione.|
+|Lo spostamento di un firewall in un altro gruppo di risorse o un'altra sottoscrizione non è supportato|Lo spostamento di un firewall in un altro gruppo di risorse o un'altra sottoscrizione non è supportato.|Il supporto di questa funzionalità è previsto per il futuro. Per spostare un firewall in un altro gruppo di risorse o sottoscrizione, è necessario eliminare l'istanza corrente e ricrearla nel nuovo gruppo di risorse o sottoscrizione.|
+|Intervallo di porte nelle regole di rete e dell'applicazione|Il numero di porte è limitato a 64.000 perché le porte con numeri elevati sono riservate ai probe di gestione e integrità. |Microsoft sta lavorando per ovviare a questa limitazione.|
 |Gli avvisi dell'intelligence per le minacce possono essere mascherati|Le regole di rete con destinazione 80/443 per i filtri in uscita mascherano gli avvisi di intelligence quando sono configurati in modalità di solo avviso.|Creare filtri in uscita per 80/443 usando le regole dell'applicazione. Oppure impostare la modalità di intelligence per le minacce su **Alert and Deny** (Avviso e rifiuto).|
-|Il firewall di Azure usa DNS di Azure solo per la risoluzione dei nomi|Il firewall di Azure risolve i nomi di dominio completo usando solo DNS di Azure. Non è supportato un server DNS personalizzato. Non influisce in alcun modo sulla risoluzione DNS in altre subnet.|Microsoft si sta adoperando per ovviare a questa limitazione.
+|Il firewall di Azure usa DNS di Azure solo per la risoluzione dei nomi|Il firewall di Azure risolve i nomi di dominio completo usando solo DNS di Azure. Non è supportato un server DNS personalizzato. Questo non influisce in alcun modo sulla risoluzione DNS in altre subnet.|Microsoft sta lavorando per ovviare a questa limitazione.|
+|La modalità SNAT/DNAT del Firewall di Azure non funziona per le destinazioni IP private|Il supporto di SNAT/DNAT del Firewall di Azure è limitato al traffico in uscita/in ingresso su Internet. La modalità SNAT/DNAT attualmente non funziona per le destinazioni IP private, ad esempio da spoke a spoke.|Il problema è in fase di analisi.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure](tutorial-firewall-deploy-portal.md)

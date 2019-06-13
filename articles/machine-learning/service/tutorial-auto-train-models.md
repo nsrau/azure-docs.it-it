@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 907383c057c0c1eebee6550a0d1e9c75dd88513c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035467"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417300"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per creare il proprio modello di regressione
 
@@ -38,7 +38,7 @@ In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
 Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
 >[!NOTE]
-> Il codice di questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.0.
+> Il codice di questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.39.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -655,7 +655,7 @@ Definire le impostazioni del modello e dei parametri dell'esperimento per la gen
 |**iteration_timeout_minutes**|10|Limite di tempo in minuti per ogni iterazione. Ridurre questo valore per diminuire il runtime totale.|
 |**iterations**|30|Numero di iterazioni. In ogni iterazione, viene eseguito il training di un nuovo modello di machine learning con i dati. Questo è il valore principale che influisce sul runtime totale.|
 |**primary_metric**| spearman_correlation | Metrica che si vuole ottimizzare. Verrà scelto il modello più appropriato in base a questa metrica.|
-|**preprocess**| True  | Usando **True**, l'esperimento può pre-elaborare i dati di input (gestendo i dati mancanti, convertendo il testo in valori numerici, e così via)|
+|**preprocess**| True | Usando **True**, l'esperimento può pre-elaborare i dati di input (gestendo i dati mancanti, convertendo il testo in valori numerici, e così via)|
 |**verbosity**| logging.INFO | Controlla il livello di dettaglio della registrazione.|
 |**n_cross_validations**|5|Numero di divisioni di convalida incrociata da eseguire quando i dati di convalida non sono specificati.|
 

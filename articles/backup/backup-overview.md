@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9e926ca2625f98522652ae7e7d245ecf2ed576c4
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714292"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688723"
 ---
 # <a name="what-is-azure-backup"></a>Informazioni su Backup di Azure
 
@@ -32,7 +32,7 @@ Backup di Azure offre i vantaggi principali seguenti:
     - Se si esegue un backup iniziale offline con il servizio Importazione/esportazione di Azure per importare grandi quantità di dati, viene applicato un costo per i dati in ingresso.  [Altre informazioni](backup-azure-backup-import-export.md)
 - **Sicurezza dei dati**: Backup di Azure offre soluzioni per la protezione dei dati in transito e inattivi.
 - **Backup coerenti con le app**: i backup coerenti con le applicazioni implicano che un punto di ripristino ha tutti i dati necessari per ripristinare la copia di backup. Backup di Azure offre backup coerenti con l'applicazione, che eliminano la necessità di correzioni aggiuntive per ripristinare i dati. Il ripristino di dati coerenti con l'applicazione riduce il tempo di ripristino e consente quindi di tornare rapidamente allo stato operativo.
-- **Conservazione a breve e a lungo termine**: è possibile usare gli insiemi di credenziali di Servizi di ripristino per la conservazione dei dati a breve termine e a lungo termine. Azure non limita la durata della conservazione dei dati in un insieme di credenziali di dei Servizi di ripristino. È possibile conservare i dati per il tempo desiderato. Backup di Azure ha un limite di 9999 punti di ripristino per ogni istanza protetta. [Altre informazioni](backup-introduction-to-azure-backup.md#backup-and-retention) sull'effetto di questo limite sulle esigenze di backup.
+- **Conservazione a breve e a lungo termine**: è possibile usare gli insiemi di credenziali di Servizi di ripristino per la conservazione dei dati a breve termine e a lungo termine. Azure non limita la durata della conservazione dei dati in un insieme di credenziali di dei Servizi di ripristino. È possibile conservare i dati per il tempo desiderato. Backup di Azure ha un limite di 9999 punti di ripristino per ogni istanza protetta. 
 - **Gestione automatica dell'archiviazione**. Gli ambienti ibridi richiedono spesso un'archiviazione eterogenea, in parte in locale e in parte nel cloud. Con Backup di Azure non sono previsti costi per l'uso di dispositivi di archiviazione locale. Backup di Azure alloca e gestisce automaticamente le risorse di archiviazione di backup e usa un modello di pagamento in base al consumo in modo che si pagano solo le risorse di archiviazione effettivamente usate. [Altre informazioni](https://azure.microsoft.com/pricing/details/backup) sui prezzi.
 - **Più opzioni di archiviazione**: Backup di Azure offre due tipi di replica per garantire la disponibilità elevata delle risorse di archiviazione e/o dei dati.
     - L'[archiviazione con ridondanza locale](../storage/common/storage-redundancy-lrs.md) replica i dati tre volte (crea tre copie dei dati) in un'unità di scala di archiviazione in un data center. Tutte le copie dei dati si trovano nella stessa area geografica. L'archiviazione con ridondanza locale è un'opzione a costo contenuto per la protezione dei dati da errori hardware locali.
@@ -109,6 +109,25 @@ Altre informazioni sul [funzionamento del backup](backup-architecture.md#archite
 **Si vuole eseguire il backup di app in esecuzione in locale** | Per i backup con riconoscimento delle app, i computer devono essere protetti da DPM o dal server di Backup di Microsoft Azure.
 **Si vogliono impostazioni di backup e ripristino granulari e flessibile per le macchine virtuali di Azure** | Proteggere le macchine virtuali di Azure con DPM o il server di Backup di Microsoft Azure in esecuzione in Azure per una maggiore flessibilità per la pianificazione dei backup e per la massima flessibilità per la protezione e il ripristino di file, cartelle, volumi, app e stato del sistema.
 
+## <a name="backup-and-retention"></a>Backup e conservazione
+
+Backup di Azure ha un limite di 9999 punti di ripristino, noti anche come copie di backup o snapshot, per ogni *istanza protetta*.
+
+- Un'istanza protetta è un computer, un server (fisico o virtuale) o un carico di lavoro configurato per eseguire il backup dei dati in Azure. Un'istanza è protetta dopo il salvataggio di una copia di backup dei dati.
+- La protezione è data dalla copia di backup dei dati. Se i dati di origine sono andati persi o danneggiati, la copia di backup può ripristinare i dati di origine.
+
+La tabella seguente illustra la frequenza massima di backup per ogni componente. La configurazione dei criteri di backup determina la rapidità con cui si utilizzano i punti di ripristino. Ad esempio, se si crea un punto di ripristino ogni giorno, è possibile mantenere i punti di ripristino per 27 anni prima di eseguirli. Se si gestisce un punto di ripristino mensile, è possibile mantenere i punti di ripristino per 833 anni prima di eseguirli. Il servizio Backup non imposta un limite di tempo di scadenza su un punto di ripristino.
+
+|  | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
+| --- | --- | --- | --- | --- |
+| Frequenza di backup<br/> (nell'insieme di credenziali di Servizi di ripristino) |3 backup al giorno |2 backup al giorno |2 backup al giorno |1 backup al giorno |
+| Frequenza di backup<br/> (nel disco) |Non applicabile |Ogni 15 minuti per SQL Server<br/><br/> Ogni ora per altri carichi di lavoro |Ogni 15 minuti per SQL Server<br/><br/> Ogni ora per altri carichi di lavoro |Non applicabile |
+| Opzioni di conservazione |Giornaliera, settimanale, mensile, annuale |Giornaliera, settimanale, mensile, annuale |Giornaliera, settimanale, mensile, annuale |Giornaliera, settimanale, mensile, annuale |
+| Punti di ripristino massimo per ogni istanza protetta |9999|9999|9999|9999|
+| Periodo massimo di conservazione |Dipende dalla frequenza dei backup |Dipende dalla frequenza dei backup |Dipende dalla frequenza dei backup |Dipende dalla frequenza dei backup |
+| Punti di ripristino nel disco locale |Non applicabile | 64 per i file server<br/><br/> 448 per i server applicazioni | 64 per i file server<br/><br/> 448 per i server applicazioni |Non applicabile |
+| Punti di ripristino su nastro |Non applicabile |Illimitato |Non applicabile |Non applicabile |
+
 ## <a name="how-does-azure-backup-work-with-encryption"></a>Come funziona Backup di Azure con la crittografia?
 
 **Crittografia** | **Backup in locale** | **Eseguire un backup delle VM di Azure** | **Backup di SQL nelle VM di Azure**
@@ -119,7 +138,7 @@ Crittografia in transito<br/> (Crittografia dei dati durante lo spostamento da u
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esaminare](backup-architecture.md) l'architettura e i componenti per diversi scenari di backup.
-- [Verificare](backup-support-matrix.md) le funzionalità e le impostazioni supportate per il backup.
+- [Verificare](backup-support-matrix.md) i requisiti di supporto e le limitazioni per il backup e per il [backup di macchine Virtuali di Azure](backup-support-matrix-iaas.md).
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

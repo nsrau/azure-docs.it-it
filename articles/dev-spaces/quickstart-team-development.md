@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Sviluppo in team in Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 94083639ca769d12b04c4dc316a9f9867e4209b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e9f9198f8e086bee6c6b02b67ae7dd9cf523416c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765234"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480369"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Guida introduttiva: Sviluppo in team in Kubernetes tramite Azure Dev Spaces
 
@@ -35,7 +35,7 @@ In questa guida si apprenderà come:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creare un cluster del servizio Azure Kubernetes
 
-È necessario creare un cluster del servizio Azure Kubernetes in un'[area supportata](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). I comandi seguenti creano un gruppo di risorse denominato *MyResourceGroup* e un cluster del servizio Azure Kubernetes denominato *MyAKS*.
+È necessario creare un cluster del servizio Azure Kubernetes in un'[area supportata][supported-regions]. I comandi seguenti creano un gruppo di risorse denominato *MyResourceGroup* e un cluster del servizio Azure Kubernetes denominato *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -92,6 +92,8 @@ cd charts/
 helm init --wait
 helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
 ```
+> [!Note]
+> **Se si usa un cluster abilitato per il controllo degli accessi in base al ruolo**, è necessario configurare un [account del servizio per Tiller](https://helm.sh/docs/using_helm/#role-based-access-control). In caso contrario i comandi `helm` non funzionano.
 
 Il completamento del comando `helm install` può richiedere alcuni minuti. L'output del comando mostra lo stato di tutti i servizi che ha distribuito nel cluster una volta completato:
 
@@ -232,3 +234,6 @@ Informazioni su come Azure Dev Spaces consente di sviluppare app più complesse 
 
 > [!div class="nextstepaction"]
 > [Uso di più contenitori e sviluppo in team](multi-service-nodejs.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 42f5d3abda715d83d58b0d341aed784de639e460
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239895"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751789"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Avvio rapido: Creare e condividere un notebook
 
@@ -28,7 +28,7 @@ ms.locfileid: "60239895"
 
     ![Collegamento My Projects (Progetti personali) nella parte superiore della finestra del browser](media/quickstarts/my-projects-link.png)
 
-1. Nella pagina **My Projects** (Progetti personali) selezionare **+ New Project** (+ Nuovo progetto) (tasto di scelta rapida: n); se la finestra del browser è di dimensioni ridotte, il pulsante potrebbe essere visualizzato solo come **+**:
+1. Nella pagina **My Projects** (Progetti personali) selezionare **+ New Project** (+ Nuovo progetto) (tasto di scelta rapida: n); se la finestra del browser è di dimensioni ridotte, il pulsante potrebbe essere visualizzato solo come **+** :
 
     ![Comando New Project (Nuovo progetto) nella pagina My Projects (Progetti personali)](media/quickstarts/new-project-command.png)
 
@@ -41,11 +41,11 @@ ms.locfileid: "60239895"
 
      ![Finestra popup New Project (Nuovo progetto) con i dettagli inseriti](media/quickstarts/new-project-popup.png)
 
-1. Dopo qualche istante, Azure Notebooks passa al nuovo progetto. Per aggiungere un notebook al progetto, selezionare l'elenco a discesa **+ New** (+ Nuovo) (che potrebbe essere visualizzato solo come **+**) e quindi selezionare **Notebook**:
+1. Dopo qualche istante, Azure Notebooks passa al nuovo progetto. Per aggiungere un notebook al progetto, selezionare l'elenco a discesa **+ New** (+ Nuovo) (che potrebbe essere visualizzato solo come **+** ) e quindi selezionare **Notebook**:
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "Un nuovo progetto vuoto e il comando per aggiungere un notebook")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
-1. Nella finestra popup **Create New Notebook** (Crea nuovo notebook) visualizzata immettere un nome file per il notebook, ad esempio *HelloWorldInPython.ipynb* (*.ipynb* significa notebook IronPython - Jupyter) e selezionare **Python 3.6** per la lingua (chiamato anche il *kernel*):
+1. Nella finestra popup **Create New Notebook** (Crea nuovo notebook) visualizzata immettere un nome file per il notebook, ad esempio *HelloWorldInPython.ipynb* ( *.ipynb* significa notebook IronPython - Jupyter) e selezionare **Python 3.6** per la lingua (chiamato anche il *kernel*):
 
     ![Finestra popup per la creazione di un nuovo notebook](media/quickstarts/new-notebook-popup.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "60239895"
 
     ![Icona di salvataggio nella barra degli strumenti del notebook di Jupyter](media/quickstarts/hello-results-save-icon.png)
 
-1. Selezionare il **File** > **Chiudi e Interrompi** comando di menu per arrestare il server e chiudere la finestra del browser.
+1. Selezionare il comando di menu **File** > **Close and Halt** (File > Chiudi e interrompi) per arrestare il server e chiudere la finestra del browser.
 
 ## <a name="share-the-notebook"></a>Condividere il notebook
 

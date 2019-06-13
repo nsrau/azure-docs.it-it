@@ -9,12 +9,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: e40a0b35cd99565bec4e26862c938f6228bf9836
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 193c00354b6222152e26476d0b06cfb1555c207e
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393739"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754870"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Esercitazione: Migrare dati locali in una risorsa di archiviazione cloud tramite AzCopy
 
@@ -79,7 +79,7 @@ Verrà visualizzata una finestra di accesso. In tale finestra accedere al propri
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>Caricare il contenuto di una cartella nell'archiviazione BLOB
 
-È possibile usare AzCopy per caricare tutti i file di una cartella nell'archiviazione BLOB di [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) o [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download). Per caricare tutti i BLOB di una cartella, immettere il comando AzCopy seguente:
+È possibile usare AzCopy per caricare tutti i file di una cartella nell'archiviazione BLOB di [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) o [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux). Per caricare tutti i BLOB di una cartella, immettere il comando AzCopy seguente:
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true

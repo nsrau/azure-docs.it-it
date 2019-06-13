@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2a4bdaba45c466b7f1f6fb8e91033f9a7665e034
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253081"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730540"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione password self-service di Azure AD dalla schermata di accesso
 
@@ -113,6 +113,8 @@ Il log di controllo di Azure AD includerà informazioni sull'indirizzo IP e sul 
 Quando gli utenti reimpostano la password dalla schermata di accesso di un dispositivo Windows 10, viene creato un account temporaneo con privilegi limitati chiamato "defaultuser1". Questo account viene usato per proteggere il processo di reimpostazione della password. Lo stesso account ha una password generata casualmente, non viene visualizzato per l'accesso al dispositivo e verrà rimosso automaticamente dopo che l'utente avrà reimpostato la password. Possono esistere più profili "defaultuser", ma è possibile tranquillamente ignorarli.
 
 ## <a name="limitations"></a>Limitazioni
+
+Lo sblocco dell'account, la notifica dell'app per dispositivi mobili e il codice app per dispositivi mobili non sono supportati dalla funzionalità di reimpostazione della password self-service per Windows 10.
 
 Durante il test di questa funzionalità con Hyper-V, il collegamento "Reimposta password" non viene visualizzato.
 

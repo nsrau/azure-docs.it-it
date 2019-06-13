@@ -1,21 +1,17 @@
 ---
 title: Panoramica delle applicazioni gestite di Azure | Microsoft Docs
 description: Illustra i concetti relativi alle applicazioni gestite di Azure
-services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 48bb241a7871d2a209636f66837fb2afd95fd22c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001806"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479817"
 ---
 # <a name="azure-managed-applications-overview"></a>Panoramica delle applicazioni gestite di Azure
 
@@ -55,7 +51,9 @@ Per informazioni sulla pubblicazione di applicazioni gestite in Azure Marketplac
 
 ## <a name="resource-groups-for-managed-applications"></a>Gruppi di risorse per le applicazioni gestite
 
-Le risorse per un'applicazione gestita si trovano in genere in due gruppi di risorse. Il consumer gestisce un gruppo di risorse, mentre l'entità di pubblicazione ne gestisce un altro. Quando si definisce l'applicazione gestita, l'entità di pubblicazione specifica i livelli di accesso. La limitazione dell'accesso per [operazioni sui dati](../role-based-access-control/role-definitions.md) non è attualmente supportata per tutti i provider di dati in Azure.
+Le risorse per un'applicazione gestita si trovano in genere in due gruppi di risorse. Il consumer gestisce un gruppo di risorse, mentre l'entità di pubblicazione ne gestisce un altro. Quando si definisce l'applicazione gestita, l'entità di pubblicazione specifica i livelli di accesso. L'entità di pubblicazione può richiedere l'assegnazione di un ruolo permanente oppure l'[accesso JIT](request-just-in-time-access.md) per un'assegnazione vincolata a un periodo di tempo.
+
+La limitazione dell'accesso per [operazioni sui dati](../role-based-access-control/role-definitions.md) non è attualmente supportata per tutti i provider di dati in Azure.
 
 La figura seguente illustra uno scenario in cui l'entità di pubblicazione richiede il ruolo di proprietario per il gruppo di risorse gestite. L'entità di pubblicazione ha inserito un blocco di sola lettura in questo gruppo di risorse per il consumer. Le identità dell'entità di pubblicazione a cui è concesso l'accesso al gruppo di risorse gestite sono esenti dal blocco.
 
@@ -69,7 +67,7 @@ Il consumer ha accesso completo al gruppo di risorse e lo usa per gestire il cic
 
 ### <a name="managed-resource-group"></a>Gruppo di risorse gestite
 
-Questo gruppo di risorse contiene tutte le risorse richieste dall'applicazione gestita. Ad esempio, le macchine virtuali, gli account di archiviazione e le reti virtuali per la soluzione. Il consumer ha accesso limitato al gruppo di risorse perché non gestisce le singole risorse per l'applicazione gestita. L'accesso al gruppo di risorse dell'entità di pubblicazione corrisponde al ruolo specificato nella definizione dell'applicazione gestita. Ad esempio, l'entità di pubblicazione potrebbe richiedere il ruolo di proprietario o di collaboratore per il gruppo di risorse.
+Questo gruppo di risorse contiene tutte le risorse richieste dall'applicazione gestita. Ad esempio, le macchine virtuali, gli account di archiviazione e le reti virtuali per la soluzione. Il consumer ha accesso limitato al gruppo di risorse perché non gestisce le singole risorse per l'applicazione gestita. L'accesso al gruppo di risorse dell'entità di pubblicazione corrisponde al ruolo specificato nella definizione dell'applicazione gestita. Ad esempio, l'entità di pubblicazione potrebbe richiedere il ruolo di proprietario o di collaboratore per il gruppo di risorse. L'accesso è permanente o limitato a un periodo di tempo.
 
 Quando il consumer elimina l'applicazione gestita, viene eliminato anche il gruppo di risorse gestite.
 

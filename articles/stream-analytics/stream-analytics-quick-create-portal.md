@@ -4,18 +4,18 @@ description: Questa guida introduttiva descrive come iniziare a creare un proces
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 11/21/2018
+ms.date: 06/03/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311926"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493367"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guida introduttiva: Creare un processo di Analisi di flusso di Azure tramite il portale di Azure
+# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guida introduttiva: Creare un processo di Analisi di flusso tramite il portale di Azure
 
 Questa guida introduttiva descrive come iniziare a creare un processo di Analisi di flusso. In questa guida introduttiva si definirà un processo di Analisi di flusso che legge dati di streaming in tempo reale e filtra i messaggi con una temperatura maggiore di 27. Il processo di Analisi di flusso leggerà i dati da un dispositivo hub IoT, li trasformerà e quindi li scriverà in un contenitore nell'archiviazione BLOB. I dati di input usati in questa guida introduttiva sono generati da un simulatore online Raspberry Pi. 
 
@@ -82,7 +82,7 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
 
 2. Selezionare **Crea risorsa** nell'angolo superiore sinistro del portale di Azure.  
 
-3. Selezionare **Dati e analisi** > **Processo di Analisi di flusso** nell'elenco dei risultati.  
+3. Selezionare **Analisi** > **Processo di Analisi di flusso** nell'elenco risultati.  
 
 4. Compilare la pagina del processo di Analisi di flusso con le informazioni seguenti:
 
@@ -99,7 +99,7 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
 
 5. Selezionare la casella **Aggiungi al dashboard** per inserire il processo nel dashboard e quindi selezionare **Crea**.  
 
-6. In alto a destra nella finestra del browser verrà visualizzata la notifica *Distribuzione in corso...*. 
+6. In alto a destra nella finestra del browser verrà visualizzata la notifica *Distribuzione in corso...* . 
 
 ## <a name="configure-job-input"></a>Configurare l'input del processo
 
@@ -187,7 +187,7 @@ Quando non sono più necessari, eliminare il gruppo di risorse, il processo di s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato distribuito un semplice processo di Analisi di flusso con il portale di Azure. È anche possibile distribuire processi di Analisi di flusso usando [PowerShell](stream-analytics-quick-create-powershell.md) e [Visual Studio](stream-analytics-quick-create-vs.md).
+In questa guida introduttiva è stato distribuito un semplice processo di Analisi di flusso con il portale di Azure. È anche possibile distribuire processi di Analisi di flusso usando [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md) e [Visual Studio Code](quick-create-vs-code.md).
 
 Per informazioni sulla configurazione di altre origini di input e sull'esecuzione del rilevamento in tempo reale, continuare con l'articolo seguente:
 

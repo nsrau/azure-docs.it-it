@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 03/12/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3121c7e4b1b1adfb079368aa86c272e9ea473ead
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 907d12464156f551930098f6bd6a6a24596307cb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855215"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479929"
 ---
 # <a name="about-site-recovery"></a>Informazioni su Site Recovery
 
@@ -56,7 +56,7 @@ Site Recovery può gestire la replica per:
 
 **Supportato** | **Dettagli**
 --- | ---
-**Scenari di replica** | Replica di VM di Azure da un'area di Azure a un'altra.<br/><br/>  Replica di VM VMware locali, VM Hyper-V, server fisici (Windows e Linux), VM Azure Stack in Azure.<br/><br/> Replica di VM VMware, VM Hyper-V gestite da System Center VMM e server fisici in un sito secondario.
+**Scenari di replica** | Replica di VM di Azure da un'area di Azure a un'altra.<br/><br/>  Replica di VM VMware locali, VM Hyper-V, server fisici (Windows e Linux), VM Azure Stack in Azure.<br/><br/> <br/><br/> Replica di istanze Windows per AWS in Azure.<br/><br/> Replica di VM VMware, VM Hyper-V gestite da System Center VMM e server fisici in un sito secondario.
 **Aree** | Vedere le [aree supportate](https://azure.microsoft.com/regions/services/) per Site Recovery. |
 **Computer replicati** | Esaminare i requisiti per la replica di [VM di Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems), [server fisici e VM VMware locali](vmware-physical-azure-support-matrix.md#replicated-machines) e [VM Hyper-V locali](hyper-v-azure-support-matrix.md#replicated-vms).
 **Carichi di lavoro** | È possibile replicare qualsiasi carico di lavoro in esecuzione in un computer supportato per la replica. Inoltre, il team di Site Recovery ha eseguito test specifici dell'applicazione per un certo [numero di app](site-recovery-workload.md#workload-summary).

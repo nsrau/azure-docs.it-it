@@ -9,18 +9,22 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 481f7a7589a58baac922001d230f95198ed45eb7
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002273"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417937"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Esempio: Come rilevare la lingua con Analisi del testo
 
-L'[API Rilevamento lingua](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) valuta il testo di input e per ogni documento restituisce gli identificatori della lingua con un punteggio indicante il livello di attendibilità dell'analisi. Analisi del testo riconosce fino a 120 lingue.
+La funzionalità [Rilevamento lingua](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) dell'API valuta il testo di input e per ogni documento restituisce gli identificatori della lingua con un punteggio indicante il livello di attendibilità dell'analisi.
 
 Questa funzionalità è utile per gli archivi di contenuto che includono testo arbitrario, in cui la lingua è sconosciuta. È possibile analizzare i risultati di questa analisi per determinare la lingua usata nel documento di input. La risposta restituisce inoltre un punteggio che riflette il livello di attendibilità del modello (un valore compreso tra 0 e 1).
+
+L'elenco esatto delle lingue per questa funzionalità non viene pubblicato, ma è in grado di rilevare un'ampia gamma di lingue, varianti, dialetti e alcune lingue regionali/culturali. 
+
+Se si ha contenuto espresso in un lingua usata con minore frequenza, si può provare Rilevamento lingua per vedere se viene restituito un codice. La risposta per le lingue che non è possibile rilevare è `unknown`.
 
 > [!TIP]
 > Analisi del testo offre anche un'immagine del contenitore Docker basata su Linux per il rilevamento della lingua, di conseguenza è possibile [installare ed eseguire il contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) vicino ai dati.
@@ -206,12 +210,12 @@ L'output risultante è costituito dalla lingua prevalente, con un punteggio infe
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il rilevamento della lingua tramite Analisi del testo in Servizi cognitivi. Di seguito è riportata una rapida sintesi dei punti principali illustrati in precedenza:
 
-+ L'[API Rilevamento lingua](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) è disponibile per 120 lingue.
++ [Rilevamento lingua](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) è disponibile per un'ampia gamma di lingue, varianti, dialetti e alcune lingue regionali/culturali.
 + I documenti JSON nel corpo della richiesta includono un ID e il testo.
 + La richiesta POST è a un endpoint `/languages`, usando [una chiave di accesso e un endpoint](text-analytics-how-to-access-key.md) personalizzati validi per la sottoscrizione.
 + L'output di risposta, costituito da identificatori di lingua per ogni ID documento, può essere trasmesso a qualsiasi app che accetta JSON, tra cui Excel e Power BI, per citarne alcune.
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
  [Panoramica di Analisi del testo](../overview.md)  
  [Domande frequenti (FAQ)](../text-analytics-resource-faq.md)</br>

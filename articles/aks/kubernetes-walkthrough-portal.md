@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 5/31/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c43375afe7965475e84793ddcd54a38a2e9bd3cd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58f89ddcf4480df14689541ec99b6c9b2526721a
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073735"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688092"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes usando il portale di Azure
 
@@ -31,27 +31,28 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
-Nell'angolo in alto a sinistra nel portale di Azure, selezionare **+ Crea una risorsa** > **Servizio Kubernetes**.
+Nell'angolo in alto a sinistra nel portale di Azure, selezionare **+ Crea una risorsa** > **Contenitori** >  **Servizio Kubernetes**.
 
 Per creare un cluster del servizio Azure Kubernetes, seguire questa procedura:
 
-1. **Informazioni di base** - Configurare le opzioni seguenti:
+1. Nella pagina **Informazioni di base** configurare le opzioni seguenti:
    - *DETTAGLI DEL PROGETTO*: Selezionare una sottoscrizione di Azure, quindi selezionare o creare un gruppo di risorse di Azure, ad esempio *myResourceGroup*. Immettere un **nome cluster Kubernetes**, ad esempio *myAKSCluster*.
    - *DETTAGLI DEI CLUSTER*: Selezionare un'area, una versione di Kubernetes e il prefisso di nome DNS per il cluster del servizio Azure Kubernetes.
-   - *SCALABILITÀ*: Selezionare le dimensioni di macchina virtuale per i nodi del servizio Azure Kubernetes. Le dimensioni della macchina virtuale **non possono** essere modificate dopo che un cluster del servizio Azure Container è stato distribuito.
+   - **POOL DI NODI PRIMARIO**: selezionare una dimensione di macchina virtuale per i nodi del servizio Azure Kubernetes. Le dimensioni della macchina virtuale **non possono** essere modificate dopo che un cluster del servizio Azure Container è stato distribuito. 
        - Selezionare il numero di nodi da distribuire nel cluster. Per questa guida introduttiva, impostare **Numero di nodi** su *1*. Il numero di nodi **può** essere modificato dopo che il cluster è stato distribuito.
     
      ![Creare un cluster del servizio Azure Kubernetes - fornire informazioni di base](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Selezionare **Avanti: Autenticazione** al termine.
+     Selezionare **Avanti: Scala** al termine.
 
-1. **Autenticazione**: Configurare le opzioni seguenti:
-   - Creare una nuova entità servizio o *configurare* l'uso di un'entità esistente. Quando si usa un nome dell'entità servizio esistente, è necessario specificarne l'ID client e il segreto.
+2. Nella pagina **Scala** mantenere le opzioni predefinite. Nella parte inferiore dello schermo fare clic su **Avanti: Autenticazione**.
+3. Nella pagina **Autenticazione** configurare le opzioni seguenti:
+   - Creare una nuova entità servizio lasciando il campo **Entità servizio** impostato su **(novità) entità servizio predefinita**. In alternativa, si può scegliere *Configura entità servizio* per usarne una esistente. Se si usa un'entità servizio esistente, è necessario specificarne l'ID client e il segreto.
    - Abilitare l'opzione per il controllo degli accessi in base al ruolo di Kubernetes, per ottenere un controllo più capillare sull'accesso alle risorse Kubernetes distribuite nel cluster del servizio Azure Kubernetes.
 
-     Per impostazione predefinita, viene usata la rete di livello *Basic* e Monitoraggio di Azure per i contenitori è abilitato. Selezionare **Rivedi e crea** e quindi **Crea**.
+    Per impostazione predefinita, viene usata la rete di livello *Basic* e Monitoraggio di Azure per i contenitori è abilitato. Una volta completata la convalida, selezionare **Rivedi e crea** e quindi **Crea**.
 
-Sono necessari alcuni minuti perché il cluster del servizio Azure Kubernetes venga creato e sia pronto per l'uso. Al termine, individuare il gruppo di risorse del cluster del servizio Azure Kubernetes, ad esempio *myResourceGroup*, quindi selezionare la risorsa del servizio Azure Kubernetes, ad esempio *myAKSCluster*. Viene visualizzato il dashboard del cluster del servizio Azure Kubernetes, come nello screenshot seguente:
+La creazione del cluster del servizio Azure Kubernetes richiede alcuni minuti. Al termine della distribuzione, fare clic su **Vai alla risorsa** oppure individuare il gruppo di risorse cluster del servizio Azure Kubernetes, ad esempio *myResourceGroup*, quindi selezionare la risorsa del servizio Azure Kubernetes, ad esempio *myAKSCluster*. Viene visualizzato il dashboard del cluster del servizio Azure Kubernetes, come in questo esempio:
 
 ![Esempio di dashboard del servizio Azure Kubernetes nel portale di Azure](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -59,7 +60,7 @@ Sono necessari alcuni minuti perché il cluster del servizio Azure Kubernetes ve
 
 Per gestire un cluster Kubernetes, usare [kubectl][kubectl], il client da riga di comando di Kubernetes. Il client `kubectl` è preinstallato in Azure Cloud Shell.
 
-Aprire Cloud Shell usando il pulsante nell'angolo in alto a destra del portale di Azure.
+Aprire Cloud Shell usando il pulsante `>_` nella parte superiore del portale di Azure.
 
 ![Aprire Azure Cloud Shell nel portale](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 

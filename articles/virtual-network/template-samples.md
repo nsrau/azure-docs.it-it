@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: c4d0c65cfae0bb323978f4143b0058071562ddb6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c553e3f2de963abb4a3c23a4114eecfa33d0aa61
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682513"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735338"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>Esempi di modelli di Azure Resource Manager per la rete virtuale
 
@@ -29,7 +29,7 @@ La tabella seguente include collegamenti agli esempi dei modelli di Azure Resour
 Per la sintassi e le proprietà JSON da usare nei modelli, vedere i [tipi di risorsa Microsoft.Network](/azure/templates/microsoft.network/allversions).
 
 
-| | |
+| Attività | DESCRIZIONE |
 |----|----|
 |[Creare una rete virtuale con due subnet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)| Crea una rete virtuale con due subnet.|
 |[Instradare il traffico attraverso un'appliance virtuale di rete](https://github.com/Azure/azure-quickstart-templates/tree/master/201-userdefined-routes-appliance)| Crea una rete virtuale con tre subnet. Distribuisce una macchina virtuale in ogni subnet. Crea una tabella di route contenente route per l'indirizzamento del traffico da una subnet a un'altra tramite la macchina virtuale nella terza subnet. Associa la tabella di route a una delle subnet.|

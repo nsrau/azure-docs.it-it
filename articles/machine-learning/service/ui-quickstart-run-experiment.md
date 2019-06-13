@@ -9,18 +9,18 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 07b86138a95853673b5d54e272b40af41d58f418
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545071"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475953"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Guida introduttiva: Preparare e visualizzare dati senza scrivere codice in Azure Machine Learning
 
-Preparare e visualizzare i dati nell'interfaccia visiva grafica con trascinamento della selezione (anteprima) per Azure Machine Learning. Il set di dati usato include le voci relative a diverse automobili, nonché informazioni su marca, modello, specifiche tecniche e prezzo.  
+Preparare e visualizzare i dati nell'interfaccia visiva grafica con trascinamento della selezione (anteprima) per Azure Machine Learning. Il set di dati usato include le voci relative a diverse automobili, nonché informazioni su marca, modello, specifiche tecniche e prezzo. Una volta completata questa guida di avvio rapido, è possibile usare questi dati per stimare il prezzo di un'automobile. 
 
-In questa guida di avvio rapido si esploreranno e si prepareranno i dati:
+Prima di eseguire il training di un modello di Machine Learning è importante comprendere e preparare i dati.  Questa guida di avvio rapido spiega come:
 
 - Creare il primo esperimento per aggiungere e visualizzare l'anteprima dei dati
 - Preparare i dati rimuovendo i valori mancanti
@@ -131,7 +131,7 @@ Ora che è stato eseguito l'esperimento iniziale, è possibile visualizzare i da
 
      ![Visualizzare l'anteprima dei dati](./media/ui-quickstart-run-experiment/preview-data.gif)
 
-1. Fare clic su ogni colonna per visualizzare maggiori informazioni sul set di dati.
+1. Fare clic su ogni colonna per ottenere altre informazioni sul set di dati e stabilire se queste colonne saranno utili per stimare il prezzo di un'automobile.
 
 ## <a name="prepare-data"></a>Preparazione dei dati
 
@@ -176,7 +176,7 @@ Rimuovere prima completamente la colonna **normalized-losses**.
 
 ### <a name="clean-missing-data"></a>Pulire i dati mancanti
 
-Aggiungere ora un altro modulo che rimuove tutte le righe rimanenti con dati mancanti.
+Quando si esegue il training di un modello, occorre fare qualcosa in merito ai dati mancanti.  In questo caso si aggiungerà un modulo per rimuovere eventuali righe in cui mancano dei dati.  
 
 1. Digitare **Clean** (Pulizia) nella casella di ricerca per trovare il modulo **Clean Missing Data** (Pulisci dati mancanti).
 
@@ -216,7 +216,7 @@ Poiché sono state apportate modifiche ai moduli nell'esperimento, lo stato è c
 
     Sono ora presenti 193 righe e 25 colonne.
 
-    Quando si fa clic su **num-of-doors**, è possibile notare che sono ancora presenti 2 valori univoci, ma 0 valori mancanti.  
+    Quando si fa clic su **num-of-doors**, è possibile notare che sono ancora presenti 2 valori univoci, ma 0 valori mancanti. Fare clic sulle colonne restanti per verificare che nel set di dati non siamo rimasti valori vuoti. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -228,7 +228,7 @@ In questa guida introduttiva si è appreso come:
 
 - Creare il primo esperimento per aggiungere e visualizzare l'anteprima dei dati
 - Preparare i dati rimuovendo i valori mancanti
-- Visualizzare i dati risultanti
+- Visualizzare i dati preparati
 
 Passare all'esercitazione per usare questi dati per stimare il prezzo di un'automobile.
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 05/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dd8af0ed016dca5ab9c14b117a2673ca214e08c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 554a4c63c8492d69ad0899176cdc58895c5146f5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688101"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Esercitazione: Integrazione di Azure Active Directory con JIRA SAML SSO by Microsoft
 
@@ -44,13 +44,13 @@ Usare l'account di Microsoft Azure Active Directory con il server Atlassian JIRA
 Per configurare l'integrazione di Azure AD con JIRA SAML SSO by Microsoft sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- JIRA Core e Software versioni da 6.0 a 7.12 o JIRA Service Desk versioni da 3.0 a 3.5 deve essere installato e configurato nella versione di Windows a 64 bit
+- JIRA Core e Software versioni da 6.4 a 8.0 o JIRA Service Desk versioni da 3.0 a 3.5 deve essere installato e configurato nella versione di Windows a 64 bit
 - Server JIRA abilitato per HTTPS
 - Si noti che le versioni supportate per il plug-in JIRA sono indicate nella sezione seguente.
 - Il server JIRA deve essere raggiungibile da Internet, in particolare per l'autenticazione nella pagina di accesso di Azure AD e deve essere in grado di ricevere il token da Azure AD
 - Credenziali di amministratore configurate in JIRA
 - WebSudo disabilitato in JIRA
-- Utente test creato nell'applicazione server JIRA
+- utente di test creato nell'applicazione server JIRA
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione JIRA per testare i passaggi di questa esercitazione. Testare prima di tutto l'integrazione nell'ambiente di sviluppo o di gestione temporanea dell'applicazione e poi usare l'ambiente di produzione.
@@ -62,7 +62,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 ## <a name="supported-versions-of-jira"></a>Versioni di JIRA supportate
 
-* JIRA Core e Software: da 6.0 a 7.12
+* JIRA Core e Software: da 6.4 a 8.0
 * JIRA Service Desk: da 3.0.0 a 3.5.0
 * JIRA supporta anche la versione 5.2. Per altre informazioni, fare clic su [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
@@ -107,7 +107,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con JIRA SAML SSO
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di JIRA SAML SSO by Microsoft](#configure-jira-saml-sso-by-microsoft-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di JIRA SAML SSO by Microsoft](#create-jira-saml-sso-by-microsoft-test-user)** : per avere una controparte di Britta Simon in JIRA SAML SSO by Microsoft collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -179,38 +179,44 @@ Per configurare l'accesso Single Sign-On di Azure AD con JIRA SAML SSO by Micros
 
 6. Seguire questa procedura nella pagina di configurazione:
 
-    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon52.png)
+    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon53.png)
 
     > [!TIP]
     > Assicurarsi che esista un solo certificato mappato per l'app in modo che non si verifichino errori durante la risoluzione dei metadati. Se sono presenti più certificati, durante la risoluzione dei metadati, l'amministratore riceve un errore.
 
-    a. Nella casella di testo **Metadata URL** (URL dei metadati) incollare il valore dell'**URL dei metadati di federazione dell'app** copiato dal portale di Azure e fare clic sul pulsante **Resolve** (Risolvi). Viene letto l'URL dei metadati IdP e vengono compilate tutte le informazioni dei campi.
+    1. Nella casella di testo **Metadata URL** (URL dei metadati) incollare il valore dell'**URL dei metadati di federazione dell'app** copiato dal portale di Azure e fare clic sul pulsante **Resolve** (Risolvi). Viene letto l'URL dei metadati IdP e vengono compilate tutte le informazioni dei campi.
 
-    b. Copiare i valori di **identificatore, URL di risposta e URL di accesso** e incollarli rispettivamente nelle caselle **Identificatore, URL di risposta e URL di accesso** nella sezione **JIRA SAML SSO by Microsoft Domain and URLs** (URL e dominio di JIRA SAML SSO by Microsoft) nel portale di Azure.
+    1. Copiare i valori di **identificatore, URL di risposta e URL di accesso** e incollarli rispettivamente nelle caselle **Identificatore, URL di risposta e URL di accesso** nella sezione **JIRA SAML SSO by Microsoft Domain and URLs** (URL e dominio di JIRA SAML SSO by Microsoft) nel portale di Azure.
 
-    c. In **Login Button Name** (Nome pulsante di accesso) digitare il nome del pulsante che l'organizzazione vuole mostrare agli utenti nella schermata di accesso.
+    1. In **Login Button Name** (Nome pulsante di accesso) digitare il nome del pulsante che l'organizzazione vuole mostrare agli utenti nella schermata di accesso.
 
-    d. In **SAML User ID Locations** (Posizioni ID utente SAML) selezionare **User ID is in the NameIdentifier element of the Subject statement** (ID utente nell'elemento NameIdentifier dell'istruzione Subject) oppure **User ID is in an Attribute element** (ID utente in un elemento Attribute).  Questo ID deve essere l'ID utente di JIRA. Se non viene trovata una corrispondenza per l'ID utente, il sistema non consentirà agli utenti di accedere.
+    1. In **SAML User ID Locations** (Posizioni ID utente SAML) selezionare **User ID is in the NameIdentifier element of the Subject statement** (ID utente nell'elemento NameIdentifier dell'istruzione Subject) oppure **User ID is in an Attribute element** (ID utente in un elemento Attribute).  Questo ID deve essere l'ID utente di JIRA. Se non viene trovata una corrispondenza per l'ID utente, il sistema non consentirà agli utenti di accedere.
 
-    > [!Note]
-    > La posizione predefinita dell'ID utente SAML è nell'identificatore del nome. È possibile sostituirlo con un attributo e immettere il nome dell'attributo appropriato.
+       > [!Note]
+       > La posizione predefinita dell'ID utente SAML è nell'identificatore del nome. È possibile sostituirlo con un attributo e immettere il nome dell'attributo appropriato.
 
-    e. Se si seleziona l'opzione **User ID is in an Attribute element** (ID utente in un elemento Attribute), nella casella di testo **Attribute name** (Nome attributo) digitare il nome dell'attributo per cui è previsto l'ID utente.
+    1. Se si seleziona l'opzione **User ID is in an Attribute element** (ID utente in un elemento Attribute), nella casella di testo **Attribute name** (Nome attributo) digitare il nome dell'attributo per cui è previsto l'ID utente.
 
-    f. Se si usa un dominio federato, come AD FS o altri, con Azure AD fare clic sull'opzione **Enable Home Realm Discovery** (Abilita individuazione area di autenticazione principale) e configurare **Domain Name** (Nome dominio).
+    1. Se si usa un dominio federato, come AD FS o altri, con Azure AD fare clic sull'opzione **Enable Home Realm Discovery** (Abilita individuazione area di autenticazione principale) e configurare **Domain Name** (Nome dominio).
 
-    g. In **Domain Name** (Nome dominio) digitare il nome del dominio in caso di accesso basato su AD FS.
+    1. In **Domain Name** (Nome dominio) digitare il nome del dominio in caso di accesso basato su AD FS.
 
-    h. Selezionare **Enable Single Sign out** (Abilita Single Sign-Out) per impostare la disconnessione da Azure AD quando un utente si disconnette da JIRA.
+    1. Selezionare **Enable Single Sign out** (Abilita Single Sign-Out) per impostare la disconnessione da Azure AD quando un utente si disconnette da JIRA.
+    
+    1. Abilitare la casella di controllo **Force Azure Login** (Forza accesso ad Azure) se si vuole accedere solo con le credenziali di Azure AD.
+    
+       > [!Note]
+       > Per abilitare il modulo di accesso predefinito per gli amministratori nella pagina di accesso quando è abilitata l'impostazione per forzare l'accesso ad Azure, aggiungere il parametro query nell'URL del browser.
+       > `https://<domain:port>/login.action?force_azure_login=false`
 
-    i. Fare clic sul pulsante **Save** (Salva) per salvare le impostazioni.
+    1. Fare clic sul pulsante **Save** (Salva) per salvare le impostazioni.
 
-    > [!NOTE]
-    > Per altre informazioni sull'installazione e la risoluzione dei problemi, vedere [MS JIRA SSO Connector Admin Guide](../ms-confluence-jira-plugin-adminguide.md) (Guida all'amministrazione dei connettori Microsoft per SSO in JIRA), che contiene anche una sezione di [domande frequenti](../ms-confluence-jira-plugin-faq.md) per informazioni utili
+       > [!NOTE]
+       > Per altre informazioni sull'installazione e la risoluzione dei problemi, vedere la [guida all'amministrazione dei connettori Microsoft per SSO in JIRA](../ms-confluence-jira-plugin-adminguide.md). Per altre informazioni, è possibile consultare anche il documento delle [domande frequenti](../ms-confluence-jira-plugin-faq.md).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -232,7 +238,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure AD concedendole l'accesso a JIRA SAML SSO by Microsoft.
 

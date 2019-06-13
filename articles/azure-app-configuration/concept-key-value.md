@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b25cc8c04aed8cd333ff4de5b12db6674323787d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408732"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393595"
 ---
 # <a name="keys-and-values"></a>Chiavi e valori
 
@@ -27,7 +27,7 @@ Configurazione app di Azure archivia i dati di configurazione sotto forma di cop
 
 La chiavi fungono da nome per le coppie chiave-valore e vengono usate per archiviare e recuperare i valori corrispondenti. In genere le chiavi vengono organizzate in uno spazio dei nomi gerarchico usando un delimitatore di caratteri, ad esempio `/` o `:`. Usare la convenzione più indicata per l'applicazione. Configurazione app tratta le chiavi come un insieme. Non analizza le chiavi per individuare come sono strutturati i relativi nomi, né applica alcuna regola.
 
-L'utilizzo dell'archivio di configurazione all'interno dei framework applicazione potrebbe imporre schemi di denominazione specifici per le coppie chiave-valore. Ad esempio, il framework Spring Cloud di Java definisce che le risorse `Environment` che forniscono le impostazioni per un'applicazione Spring vengano parametrizzate da variabili che includono il *nome dell'applicazione* e il *profilo*. Le chiavi per Spring Cloud relative ai dati di configurazione iniziano in genere con questi due elementi, separati da un delimitatore.
+L'utilizzo dei dati configurazione all'interno dei framework applicazione potrebbe imporre schemi di denominazione specifici per le coppie chiave-valore. Ad esempio, il framework Spring Cloud di Java definisce che le risorse `Environment` che forniscono le impostazioni per un'applicazione Spring vengano parametrizzate da variabili che includono il *nome dell'applicazione* e il *profilo*. Le chiavi per Spring Cloud relative ai dati di configurazione iniziano in genere con questi due elementi, separati da un delimitatore.
 
 Le chiavi archiviate in Configurazione sono stringhe basate su Unicode con distinzione tra maiuscole e minuscole. Le chiavi *app1* e *App1* sono distinte in un archivio di configurazione app. Tenere presente questo aspetto quando si usano le impostazioni di configurazione all'interno di un'applicazione, perché alcuni framework gestiscono le chiavi di configurazione senza fare distinzione tra maiuscole e minuscole. Ad esempio, il sistema di configurazione ASP.NET Core tratta le chiavi come stringhe senza distinzione tra maiuscole e minuscole. Per evitare comportamenti imprevedibili quando si eseguono query su Configurazione app all'interno di un'applicazione ASP.NET Core, non usare chiavi che differiscono solo per quanto riguarda l'uso di maiuscole e minuscole.
 

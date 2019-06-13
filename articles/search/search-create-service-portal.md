@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 05/29/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 650dfa7284b41407e9b128a2096548d7acfc1567
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471610"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393785"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creare un servizio di Ricerca di Azure nel portale
 
@@ -69,11 +69,14 @@ Se si combinano le risorse in un singolo gruppo o se i gruppi di risorse esisten
 
 ## <a name="select-a-location"></a>Selezionare una località
 
-Ricerca di Azure, in qualità di servizio di Azure, può essere ospitato nei data center di tutto il mondo. I [prezzi possono variare](https://azure.microsoft.com/pricing/details/search/) in base all'area geografica.
+Ricerca di Azure, in qualità di servizio di Azure, può essere ospitato nei data center di tutto il mondo. L'elenco delle aree supportate è disponibile nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/search/). 
 
-Se si esegue l'indicizzazione dei dati forniti da un altro servizio di Azure (Archiviazione di Azure, Azure Cosmos DB, database SQL di Azure), creare il servizio Ricerca di Azure nella stessa area per evitare i costi relativi alla larghezza di banda. Non sono previsti addebiti per i dati in uscita quando i servizi si trovano nella stessa area.
+Se si esegue l'indicizzazione dei dati forniti da un altro servizio di Azure (Archiviazione di Azure, Azure Cosmos DB, database SQL di Azure), è consigliabile creare il servizio Ricerca di Azure nella stessa area per evitare i costi relativi alla larghezza di banda. Non sono previsti addebiti per i dati in uscita quando i servizi si trovano nella stessa area.
 
 Se si usano arricchimenti con intelligenza artificiale per la ricerca cognitiva, creare il servizio nella stessa area della risorsa di Servizi cognitivi. La condivisione del percorso dei servizi è un requisito degli arricchimenti con intelligenza artificiale.
+
+> [!Note]
+> L'area India centrale no n è attualmente disponibile per i nuovi servizi. Per i servizi già in India centrale, è possibile aumentare le prestazioni senza alcuna restrizione e il servizio è completamente supportato in tale area. La restrizione in quest'area è temporanea e, quando non sarà più valida, questa nota verrà rimossa.
 
 ## <a name="select-a-pricing-tier-sku"></a>Selezionare un piano tariffario (SKU)
 

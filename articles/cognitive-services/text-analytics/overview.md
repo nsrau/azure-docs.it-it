@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: ae1d8f18705b1058c10d4720c64f624ed0ef4a3d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7d52585b51af09c430130141c3680b5630f7b95e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60829532"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417279"
 ---
 # <a name="what-is-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
@@ -34,7 +34,7 @@ Usare l'[analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis
 [Estrae frasi chiave](how-tos/text-analytics-how-to-keyword-extraction.md) in modo automatico per identificare rapidamente i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso". È possibile usare qui l'API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
 ## <a name="language-detection"></a>Rilevamento lingua
-È possibile [rilevare la lingua in cui è stato scritto il testo di input](how-tos/text-analytics-how-to-language-detection.md) e indicare un singolo codice lingua per ogni documento inviato nella richiesta, per un massimo di 120 lingue. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. È possibile usare l'API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+È possibile [rilevare la lingua in cui è stato scritto il testo di input](how-tos/text-analytics-how-to-language-detection.md) e indicare un singolo codice lingua per ogni documento inviato nella richiesta in un'ampia varietà di lingue, varianti, dialetti e alcune lingue regionali/culturali. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. È possibile usare l'API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
 ## <a name="named-entity-recognition"></a>Riconoscimento di entità denominate
 [Identificare e classificare le entità](how-tos/text-analytics-how-to-entity-linking.md) nel testo, come persone, luoghi, organizzazioni, data/ora, quantità, percentuali, valute e altro ancora. Le entità più note vengono anche riconosciute e collegate ad altre informazioni sul Web. È possibile usare l'API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634).

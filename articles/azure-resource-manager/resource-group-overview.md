@@ -2,22 +2,18 @@
 title: Panoramica di Azure Resource Manager | Documentazione Microsoft
 description: Viene descritto come utilizzare Gestione risorse di Azure per la distribuzione, la gestione e il controllo dell’accesso delle risorse in Azure.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/24/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ad87c776bbbab9959f7c90a8d006ae7f62bde79
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225912"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514349"
 ---
 # <a name="azure-resource-manager-overview"></a>Panoramica di Gestione risorse di Microsoft Azure
 
@@ -51,13 +47,15 @@ Gestione risorse offre numerosi vantaggi:
 * È possibile applicare tag alle risorse per organizzare in modo logico tutte le risorse nella sottoscrizione.
 * È possibile ottenere informazioni dettagliate sulla fatturazione per l'organizzazione visualizzando i costi di un gruppo di risorse che condividono lo stesso tag.
 
-## <a name="understand-management-scope"></a>Informazioni sull'ambito di gestione
+## <a name="understand-scope"></a>Informazioni sull'ambito
 
-Azure offre quattro livelli relativi all'ambito di gestione: [gruppi di gestione](../governance/management-groups/index.md), sottoscrizioni, [gruppi di risorse](#resource-groups) e risorse. Nella figura seguente viene illustrato un esempio di questi livelli.
+Azure offre quattro livelli relativi all'ambito: [gruppi di gestione](../governance/management-groups/index.md), sottoscrizioni, [gruppi di risorse](#resource-groups) e risorse. Nella figura seguente viene illustrato un esempio di questi livelli.
 
 ![Scope](./media/resource-group-overview/scope-levels.png)
 
 Le impostazioni di gestione possono essere applicate a qualsiasi di questi livelli di ambito. Il livello selezionato determina l'estensione con cui viene applicata l'impostazione. I livelli inferiori ereditano le impostazioni dai livelli superiori. Ad esempio, quando si applicano [criteri](../governance/policy/overview.md) alla sottoscrizione, tali criteri vengono applicati a tutti i gruppi di risorse e le risorse nella sottoscrizione. Quando si applicano criteri al gruppo di risorse, tali criteri vengono applicati al gruppo di risorse e a tutte le risorse che contiene. Tuttavia, un altro gruppo di risorse non disporrà di tale assegnazione di criteri.
+
+È possibile distribuire i modelli a gruppi di gestione, sottoscrizioni o gruppi di risorse.
 
 ## <a name="guidance"></a>Materiale sussidiario
 
@@ -85,7 +83,7 @@ Esistono alcuni fattori importanti da considerare quando si definisce il gruppo 
 
 Quando si crea un gruppo di risorse è necessario specificarne il percorso. Perché un gruppo di risorse necessita di un percorso? E se le risorse possono avere percorsi diversi rispetto al gruppo di risorse, perché il percorso del gruppo di risorse è importante? Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un percorso per il gruppo di risorse, si specifica il percorso di archiviazione dei metadati. Per motivi di conformità potrebbe essere necessario assicurarsi che i dati siano archiviati in una determinata area.
 
-Se l'area del gruppo di risorse è temporaneamente non disponibile, non è possibile aggiornare le risorse nel gruppo di risorse perché i metadati non sono disponibili. Le risorse in altre aree continueranno a funzionare come previsto, ma non è possibile aggiornarle. Per ridurre il rischio, collocare il gruppo di risorse e le risorse nella stessa area.
+Se l'area del gruppo di risorse è temporaneamente non disponibile, non è possibile aggiornare le risorse nel gruppo di risorse perché i metadati non sono disponibili. Le risorse in altre aree continueranno a funzionare come previsto, ma non è possibile aggiornarle. Per altre informazioni su come creare applicazioni affidabili, vedere [Progettazione di applicazioni Azure affidabili](/azure/architecture/reliability/).
 
 ## <a name="resource-providers"></a>Provider di risorse
 

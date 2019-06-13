@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: bb18aa35c89657f01319512eac6c15096174891f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dd4fe4f7b105fd7aa2d2cf7ee568f85a7ad98ecb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265730"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734798"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Esercitazione: Integrazione di Azure Active Directory con ExcelityGlobal
 
@@ -75,11 +75,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con ExcelityGlobal, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di ExcelityGlobal](#configure-excelityglobal-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di ExcelityGlobal](#create-excelityglobal-test-user)**: per avere una controparte di Britta Simon in ExcelityGlobal collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di ExcelityGlobal](#configure-excelityglobal-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di ExcelityGlobal](#create-excelityglobal-test-user)** : per avere una controparte di Britta Simon in ExcelityGlobal collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -140,7 +140,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ADP ExcelityGlobal, seg
 
 ### <a name="configure-excelityglobal-single-sign-on"></a>Configurare il Single Sign-On di ExcelityGlobal
 
-Per configurare l'accesso Single Sign-On sul lato **ExcelityGlobal**, è necessario inviare il **valore di identificazione personale** e gli URL appropriati copiati dal portale di Azure al [team di supporto di ExcelityGlobal](https://www.excelityglobal.com/contact-us/our-locations/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **ExcelityGlobal**, è necessario inviare il **valore di identificazione personale** e gli URL appropriati copiati dal portale di Azure al [team di supporto di ExcelityGlobal](https://www.excelityglobal.com/contact-us). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -195,7 +195,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-excelityglobal-test-user"></a>Creare l'utente di test di ExcelityGlobal
 
-In questa sezione viene creato un utente chiamato Britta Simon in ExcelityGlobal. Collaborare con il  [team di supporto di ExcelityGlobal](https://www.excelityglobal.com/contact-us/our-locations/) per aggiungere gli utenti alla piattaforma ExcelityGlobal. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in ExcelityGlobal. Collaborare con il  [team di supporto di ExcelityGlobal](https://www.excelityglobal.com/contact-us) per aggiungere gli utenti alla piattaforma ExcelityGlobal. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

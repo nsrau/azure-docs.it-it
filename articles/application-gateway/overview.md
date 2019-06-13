@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/30/2019
+ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 78dd4b31991a15d3d946c47c5394f64bb3afea95
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947261"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418122"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -29,9 +29,9 @@ Questo tipo di routing è detto bilanciamento del carico a livello di applicazio
 
 Il gateway applicazione di Azure offre le funzionalità seguenti:
 
-## <a name="secure-sockets-layer-ssl-termination"></a>Terminazione di Secure Sockets Layer (SSL)
+## <a name="secure-sockets-layer-ssltls-termination"></a>Terminazione Secure Sockets Layer (SSL/TLS)
 
-Il gateway applicazione supporta la terminazione SSL nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. Questa funzionalità consente ai server Web di non gestire il costoso carico di crittografia e decrittografia. In alcuni casi, tuttavia, le comunicazioni non crittografate verso i server non rappresentano un'opzione accettabile. Questo può dipendere dai requisiti di sicurezza e conformità o dal fatto che l'applicazione può accettare solo connessioni sicure. Per queste applicazioni, il gateway applicazione supporta la crittografia SSL end-to-end.
+Il gateway applicazione supporta la terminazione SSL/TLS nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. Questa funzionalità consente ai server Web di non gestire il costoso carico di crittografia e decrittografia. In alcuni casi, tuttavia, le comunicazioni non crittografate verso i server non rappresentano un'opzione accettabile. Questo può dipendere dai requisiti di sicurezza e conformità o dal fatto che l'applicazione può accettare solo connessioni sicure. Per queste applicazioni, il gateway applicazione supporta la crittografia SSL/TLS end-to-end.
 
 ## <a name="autoscaling"></a>Scalabilità automatica
 

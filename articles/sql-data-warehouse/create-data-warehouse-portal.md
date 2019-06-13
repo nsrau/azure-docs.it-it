@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: development
-ms.date: 08/02/2018
+ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ee18a78aea67d0270b105f8703259b65c706d2e7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.custom: sqlfreshmay19
+ms.openlocfilehash: 9072caf29be0ebf47207266b7313e989034c3a18
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66169270"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428038"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guida introduttiva: Creare un data warehouse SQL di Azure ed eseguirvi una query nel portale di Azure
 
@@ -81,7 +82,7 @@ Seguire questa procedura per creare un data warehouse SQL contenente i dati dell
 
 8. Fare clic su **Apply**.
 
-9. Dopo aver completato il modulo di SQL Data Warehouse, fare clic su **Crea** per effettuare il provisioning del database. Il provisioning richiede alcuni minuti. 
+9. Dopo aver completato il modulo di SQL Data Warehouse, fare clic su **Crea** per effettuare il provisioning del database. Il provisioning richiede alcuni minuti.
 
     ![fare clic su Crea](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -91,31 +92,30 @@ Seguire questa procedura per creare un data warehouse SQL contenente i dati dell
 
 ## <a name="create-a-server-level-firewall-rule"></a>Creare una regola del firewall a livello di server
 
-Il servizio SQL Data Warehouse crea un firewall a livello di server che impedisce alle applicazioni e agli strumenti esterni di connettersi al server o ai database sul server. Per abilitare la connettività, è possibile aggiungere regole del firewall per aprire il firewall a indirizzi IP specifici. Seguire questa procedura per creare una [regola del firewall a livello di server](../sql-database/sql-database-firewall-configure.md) per l'indirizzo IP del client. 
+Il servizio SQL Data Warehouse crea un firewall a livello di server. Questo firewall impedisce ad applicazioni e strumenti esterni di connettersi al server o a qualsiasi database nel server. Per abilitare la connettività, è possibile aggiungere regole del firewall per aprire il firewall a indirizzi IP specifici. Seguire questa procedura per creare una [regola del firewall a livello di server](../sql-database/sql-database-firewall-configure.md) per l'indirizzo IP del client.
 
 > [!NOTE]
 > SQL Data Warehouse comunica attraverso la porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server di database SQL di Azure, a meno che il reparto IT non apra la porta 1433.
 
-1. Al termine della distribuzione, scegliere **SQL Data Warehouse** dal menu a sinistra e fare clic su **mySampleDatabase** nella pagina **DSQL Data Warehouse**. Viene visualizzata la pagina di panoramica per il database che mostra il nome completo del server, ad esempio **mynewserver-20180430.database.windows.net**, e offre altre opzioni per la configurazione. 
+1. Al termine della distribuzione, selezionare **Tutti i servizi** dal menu a sinistra. Selezionare **Database** e quindi selezionare la stella accanto a **SQL Data Warehouse** per aggiungere i SQL Data Warehouse ai Preferiti.
+1. Scegliere **SQL Data Warehouse** dal menu a sinistra, quindi fare clic su **mySampleDatabase** nella pagina **SQL Data Warehouse**. Viene visualizzata la pagina di panoramica per il database che mostra il nome completo del server, ad esempio **mynewserver-20180430.database.windows.net**, e offre altre opzioni per la configurazione.
+1. Copiare il nome completo del server da usare per connettersi al server e ai relativi database in questa e in altre guide di avvio rapido. Per aprire le impostazioni del server, fare clic sul nome del server.
 
-2. Copiare il nome completo del server per connettersi al server e ai relativi database nelle guide introduttive successive. Per aprire le impostazioni del server, fare clic sul nome del server.
+   ![trovare il nome del server](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
-   ![trovare il nome del server](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
+1. Fare clic su **Mostra impostazioni firewall**.
 
-3. Per aprire le impostazioni del server, 
-4. fare clic sul nome del server.
+   ![impostazioni del server](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
-   ![impostazioni del server](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
+1. Si apre la pagina **Impostazioni del firewall** per il server di database SQL.
 
-5. Fare clic su **Mostra impostazioni firewall**. Si apre la pagina **Impostazioni del firewall** per il server di database SQL. 
+   ![Regola del firewall del server](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
 
-   ![Regola del firewall del server](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
+1. Per aggiungere l'indirizzo IP corrente a una nuova regola del firewall, fare clic su **Aggiungi IP client** sulla barra degli strumenti. Una regola del firewall può aprire la porta 1433 per un indirizzo IP singolo o un intervallo di indirizzi IP.
 
-4. Per aggiungere l'indirizzo IP corrente a una nuova regola del firewall, fare clic su **Aggiungi IP client** sulla barra degli strumenti. Una regola del firewall può aprire la porta 1433 per un indirizzo IP singolo o un intervallo di indirizzi IP.
+1. Fare clic su **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
 
-5. Fare clic su **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
-
-6. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
+1. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
 
 È ora possibile connettersi al server SQL e ai relativi data warehouse usando questo indirizzo IP. La connessione funziona da SQL Server Management Studio o un altro strumento di propria scelta. Quando ci si connette, usare l'account ServerAdmin creato in precedenza.
 
@@ -127,8 +127,8 @@ Il servizio SQL Data Warehouse crea un firewall a livello di server che impedisc
 Ottenere il nome completo del server SQL nel portale di Azure. Questo nome verrà usato nei passaggi successivi per la connessione al server.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Scegliere **SQL Data Warehouse** dal menu a sinistra, quindi fare clic sul data warehouse nella pagina **SQL Data Warehouse**. 
-3. Nel riquadro **Informazioni di base** della pagina del portale di Azure per il database individuare e quindi copiare il **Nome server**. In questo esempio il nome completo è mynewserver-20180430.database.windows.net. 
+2. Scegliere **SQL Data Warehouse** dal menu a sinistra, quindi fare clic sul data warehouse nella pagina **SQL Data Warehouse**.
+3. Nel riquadro **Informazioni di base** della pagina del portale di Azure per il database individuare e quindi copiare il **Nome server**. In questo esempio il nome completo è mynewserver-20180430.database.windows.net.
 
     ![informazioni di connessione](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
@@ -145,8 +145,8 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
    | Tipo di server | Motore di database | Questo valore è obbligatorio |
    | Nome server | Nome completo del server | Di seguito è riportato un esempio: **mynewserver-20180430.database.windows.net**. |
    | Authentication | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
-   | Login | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
-   | Password | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
+   | Login | Account amministratore del server | Account specificato quando è stato creato il server. |
+   | Password | Password per l'account amministratore del server | Password specificata quando è stato creato il server. |
    ||||
 
     ![connetti al server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -183,12 +183,12 @@ SQL Data Warehouse usa T-SQL come linguaggio di query. Per aprire una finestra d
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per le unità del data warehouse e i dati archiviati vengono addebitati costi. Le risorse di calcolo e archiviazione vengono fatturate separatamente. 
+Per le unità del data warehouse e i dati archiviati vengono addebitati dei costi. Le risorse di calcolo e archiviazione vengono fatturate separatamente.
 
-- Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il data warehouse non è in uso. In questo modo, vengono addebitati solo i costi per l'archiviazione dei dati. È possibile riprendere il calcolo ogni volta che si è pronti a utilizzare i dati.
-- Per evitare di ricevere addebiti in futuro, è possibile eliminare il data warehouse. 
+- Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il data warehouse non è in uso. In questo modo, vengono addebitati solo i costi per l'archiviazione dei dati. È possibile riprendere il calcolo ogni volta che si è pronti a lavorare con i dati.
+- Per evitare di ricevere addebiti in futuro, è possibile eliminare il data warehouse.
 
-Seguire questa procedura per pulire le risorse nel modo desiderato.
+Seguire questa procedura per pulire le risorse non più necessarie.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic sul data warehouse.
 

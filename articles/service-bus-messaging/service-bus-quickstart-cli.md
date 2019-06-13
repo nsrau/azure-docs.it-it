@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: 076e3b41a50681e453c1a07575ac6cb7071d97d2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992022"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400253"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Guida introduttiva: Usare l'interfaccia della riga di comando di Azure per creare una coda del bus di servizio
 Questa guida introduttiva descrive come inviare e ricevere messaggi con il bus di servizio, usando l'interfaccia della riga di comando di Azure e la libreria Java del bus di servizio. Per dettagli più tecnici, è [vedere la spiegazione](#understand-the-sample-code) degli elementi chiave del codice di esempio.
@@ -22,7 +22,7 @@ Questa guida introduttiva descrive come inviare e ricevere messaggi con il bus d
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
-Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito][] prima di iniziare.
+Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito][free account] prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -377,7 +377,7 @@ In questo articolo sono stati creati uno spazio dei nomi del bus di servizio e a
 > [!div class="nextstepaction"]
 > [Inviare e ricevere messaggi](service-bus-dotnet-get-started-with-queues.md)
 
-[account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create
