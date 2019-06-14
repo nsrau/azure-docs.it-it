@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457865"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061604"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Invio di notifiche push con Hub di notifica di Azure e Node.js
 
@@ -96,7 +96,7 @@ L'oggetto `NotificationHubService` espone le istanze seguenti dell'oggetto per l
 - **Android**: usare l'oggetto `GcmService`, disponibile in `notificationHubService.gcm`
 - **iOS**: usare l'oggetto `ApnsService`, accessibile in `notificationHubService.apns`
 - **Windows Phone**: usare l'oggetto `MpnsService`, disponibile in `notificationHubService.mpns`
-- **Piattaforma UWP (Universal Windows Platform)**: usare l'oggetto `WnsService`, disponibile in `notificationHubService.wns`
+- **Piattaforma UWP (Universal Windows Platform)** : usare l'oggetto `WnsService`, disponibile in `notificationHubService.wns`
 
 ### <a name="how-to-send-push-notifications-to-android-applications"></a>Procedura: Inviare notifiche push ad applicazioni Android
 
@@ -106,7 +106,7 @@ L'oggetto `GcmService` specifica un metodo `send` che è possibile usare per inv
 - **Payload** : il payload JSON o la stringa non elaborata del messaggio.
 - **Callback** : la funzione di richiamata.
 
-Per altre informazioni sul formato di payload, vedere la sezione **Payload** del documento relativo all' [implementazione del server GCM](https://developer.android.com/google/gcm/server.html#payload) .
+Per altre informazioni sul formato di payload, vedere la sezione **Payload** del documento relativo all' [implementazione del server GCM](https://developers.google.com/cloud-messaging/) .
 
 Nel codice seguente viene usata l'istanza di `GcmService` esposta da `NotificationHubService` per inviare una notifica push a tutti i client registrati.
 

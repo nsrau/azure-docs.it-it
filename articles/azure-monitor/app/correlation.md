@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 030259f7773435760c09afd25ca674b63bb1b3ca
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901120"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073248"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -35,7 +35,7 @@ Ogni operazione in uscita, ad esempio una chiamata HTTP a un altro componente, �
 
 È possibile creare una visualizzazione dell'operazione logica distribuita usando `operation_Id`, `operation_parentId` e `request.id` con `dependency.id`. Questi campi definiscono anche l'ordine della causalità delle chiamate di telemetria.
 
-In un ambiente di microservizi, le tracce dai componenti possono finire in elementi di archiviazione diversi. Ogni componente può avere la propria chiave di strumentazione in Application Insights. Per ottenere i dati di telemetria per l'operazione logica, è necessario eseguire query sui dati da ogni elemento di archiviazione. Quando il numero di elementi di archiviazione è molto elevato, sarà necessario un hint per sapere dove cercare dopo. Per risolvere questo problema, nel modello di dati di Application Insights sono definiti due campi: `request.source` e `dependency.target`. Il primo campo definisce il componente che ha avviato la richiesta di dipendenza, mentre il secondo identifica quale componente ha restituito la risposta alla chiamata di dipendenza.
+In un ambiente di microservizi, le tracce dai componenti possono finire in elementi di archiviazione diversi. Ogni componente può avere la propria chiave di strumentazione in Application Insights. Per ottenere i dati di telemetria per l'operazione logica, esperienza utente Application Insights esegue query sui dati di tutti gli elementi di archiviazione. Quando il numero di elementi di archiviazione è molto elevato, sarà necessario un hint per sapere dove cercare dopo. Per risolvere questo problema, nel modello di dati di Application Insights sono definiti due campi: `request.source` e `dependency.target`. Il primo campo definisce il componente che ha avviato la richiesta di dipendenza, mentre il secondo identifica quale componente ha restituito la risposta alla chiamata di dipendenza.
 
 ## <a name="example"></a>Esempio
 
@@ -55,7 +55,7 @@ Nei risultati tutti gli elementi di telemetria condividono l'elemento `operation
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Pagina Stock                |              | STYz               | STYz         |
 | dipendenza | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
-| richiesta    | GET /Home/Stock            | KqKwlrSt9PA = | qJSXU              | STYz         |
+| request    | GET /Home/Stock            | KqKwlrSt9PA = | qJSXU              | STYz         |
 | dipendenza | GET /api/stock/value      | bBrf2L7mm2g = | KqKwlrSt9PA =       | STYz         |
 
 Quando la chiamata `GET /api/stock/value` viene effettuata a un servizio esterno, si vuole conoscere l'identità del relativo server per poter impostare correttamente il campo `dependency.target`. Quando il servizio esterno non supporta il monitoraggio, `target` è impostato sul nome host del servizio (ad esempio, `stock-prices-api.com`). Se tuttavia il servizio identifica se stesso restituendo un'intestazione HTTP predefinita, `target` contiene l'identità del servizio che consente ad Application Insights di creare una traccia distribuita eseguendo query sui dati di telemetria di quel servizio.

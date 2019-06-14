@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
 ms.openlocfilehash: d39ebf993498cea3ede11e07c5e71628287b81ac
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938541"
 ---
 # <a name="cloud-solution-providers"></a>Cloud Solution Provider
@@ -26,11 +26,11 @@ La tabella seguente illustra i tipi di offerta e modelli di prezzi che possono o
 
 | **Tipo di offerta**    | **BYOL**  |  **Free** | **PAYG**   |
 | :---------------- | :---------|:----------|:-----------|
-| VM  | Sì | Sì | Sì |
-| Contenitori | N/D | Sì | N/D |
-| Modelli di soluzioni | N/D | Sì | N/D |
-| Applicazioni gestite | N/D | Sì | Sì |
-| Soluzione IT SaaS (per ogni sito di prezzo) | N/D | Sì | Sì |
+| VM  | Yes | Sì | Yes |
+| Contenitori | N/D | Yes | N/D |
+| Modelli di soluzione | N/D | Yes | N/D |
+| Applicazioni gestite | N/D | Yes | Yes |
+| Soluzione IT SaaS (per ogni sito di prezzo) | N/D | Yes | Yes |
 |   |   |   |
 
 ## <a name="how-to-opt-in"></a>Come acconsentire esplicitamente

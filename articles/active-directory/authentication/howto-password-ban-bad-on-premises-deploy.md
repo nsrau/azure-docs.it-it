@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 4c22c9c202e6de3b31b99803dce4a07d38287a92
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506868"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057294"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
@@ -36,6 +36,7 @@ Dopo la funzionalità di esecuzione in modalità di controllo per un periodo di 
 
 ## <a name="deployment-requirements"></a>Requisiti di distribuzione
 
+* Requisiti di licenza per la protezione con password Azure AD è disponibili nell'articolo [eliminare le password non valide all'interno dell'organizzazione](concept-password-ban-bad.md#license-requirements).
 * Tutti i controller di dominio che ottiene l'agente controller di dominio del servizio per la protezione con password Azure AD installata deve eseguire Windows Server 2012 o versione successiva. Questo requisito non implica che il dominio di Active Directory o un insieme di strutture devono essere anche a livello funzionale di Windows Server 2012 dominio o foresta. Come indicato nella [principi di progettazione](concept-password-ban-bad-on-premises.md#design-principles), non sono funzionalità del dominio minimo o FFL necessaria per entrambi i controller di dominio agente o un proxy software per l'esecuzione.
 * Tutti i computer che ottengono installato il servizio agente controller di dominio devono avere installato .NET 4.5.
 * Tutte le macchine che ottengono il proxy di servizio per la protezione con password Azure AD installata deve eseguire Windows Server 2012 R2 o versione successiva.

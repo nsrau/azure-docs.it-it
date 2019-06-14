@@ -17,10 +17,10 @@ ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b6f069489738e9dceeee350a36aa2b45715a314
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825037"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo
@@ -35,7 +35,7 @@ L'estensione Pannello di accesso è disponibile per [Chrome](https://go.microsof
 * Per modificare l'oggetto Criteri di gruppo è necessaria l'autorizzazione "Modifica impostazione". Per impostazione predefinita, i membri dei gruppi di sicurezza seguenti hanno questa autorizzazione: Amministratori di dominio, Amministratori dell'organizzazione e Proprietari autori criteri di gruppo. [Altre informazioni.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>Passaggio 1: Creare il punto di distribuzione
-Per prima cosa, salvare il pacchetto del programma di installazione in un percorso di rete a cui possono accedere i computer in cui si vuole installare l'estensione in modalità remota. A questo scopo, seguire questa procedura:
+Per prima cosa, salvare il pacchetto del programma di installazione in un percorso di rete a cui possono accedere i computer in cui si vuole installare l'estensione in modalità remota. A tale scopo, effettuare le operazioni seguenti:
 
 1. Eseguire l'accesso al server come amministratore
 2. Nella finestra **Server Manager** passare a **Servizi file e archiviazione**.
@@ -104,7 +104,7 @@ Dopo aver eseguito il programma di installazione, è necessario abilitare in mod
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
 2. Fare clic con il pulsante destro del mouse su **Elenco componenti aggiuntivi** e scegliere **Modifica**.
     ![Modifica dell'elenco componenti aggiuntivi.](./media/deploy-access-panel-browser-extension/edit-add-on-list.png)
-3. Nella finestra **Elenco componenti aggiuntivi** selezionare **Abilitati**. Nella sezione **Opzioni** fare clic su **Mostra...**.
+3. Nella finestra **Elenco componenti aggiuntivi** selezionare **Abilitati**. Nella sezione **Opzioni** fare clic su **Mostra...** .
    
     ![Fare clic su Abilita e quindi su Mostra...](./media/deploy-access-panel-browser-extension/edit-add-on-list-window.png)
 4. Nella finestra **Visualizzazione contenuto** seguire questa procedura:

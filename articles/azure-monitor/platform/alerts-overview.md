@@ -9,10 +9,10 @@ ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
 ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347450"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
@@ -77,7 +77,7 @@ Nelle versioni precedenti, per le metriche di Monitoraggio di Azure, Application
 
 Sono supportati i tipi di avviso seguenti.
 
-| Stato | DESCRIZIONE |
+| Stato | Descrizione |
 |:---|:---|
 | Nuovo | Il problema è appena stato rilevato e non è ancora stato esaminato. |
 | Confermato | Un amministratore ha esaminato l'avviso e ha iniziato a lavorare a esso. |
@@ -100,7 +100,7 @@ Non vengono visualizzati o monitorati gli [avvisi classici](#classic-alerts) del
 
 È possibile filtrare questa visualizzazione selezionando i valori nei menu a discesa nella parte superiore della pagina.
 
-| Colonna | DESCRIZIONE |
+| Colonna | Descrizione |
 |:---|:---|
 | Sottoscrizione | Selezionare fino a cinque sottoscrizioni di Azure. Sono inclusi nella visualizzazione solo gli avvisi delle sottoscrizioni selezionate. |
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
@@ -108,7 +108,7 @@ Non vengono visualizzati o monitorati gli [avvisi classici](#classic-alerts) del
 
 Selezionare i valori seguenti nella parte superiore della pagina Avvisi per aprire un'altra pagina.
 
-| Value | DESCRIZIONE |
+| Value | Descrizione |
 |:---|:---|
 | Totale avvisi | Numero totale di avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire la visualizzazione Tutti gli avvisi senza filtri. |
 | Gruppi intelligenti | Numero totale di gruppi intelligenti creati dagli avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire l'elenco dei gruppi intelligenti nella visualizzazione Tutti gli avvisi.
@@ -143,13 +143,13 @@ Fare clic su Totale avvisi per visualizzare la pagina Tutti gli avvisi. In quest
 
 È possibile filtrare la visualizzazione selezionando i valori seguenti nei menu a discesa nella parte superiore della pagina.
 
-| Colonna | DESCRIZIONE |
+| Colonna | Descrizione |
 |:---|:---|
 | Sottoscrizione | Selezionare fino a cinque sottoscrizioni di Azure. Sono inclusi nella visualizzazione solo gli avvisi delle sottoscrizioni selezionate. |
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
 | Tipo di risorsa | Selezionare uno o più tipi di risorsa. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni del tipo selezionato. Questa colonna risulta disponibile solo dopo che è stato specificato un gruppo di risorse. |
-| Risorsa | Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un tipo di risorsa. |
-| Gravità | Selezionare un livello di gravità degli avvisi oppure *Tutti* per includere gli avvisi di tutti i livelli di gravità. |
+| Resource | Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un tipo di risorsa. |
+| Severity | Selezionare un livello di gravità degli avvisi oppure *Tutti* per includere gli avvisi di tutti i livelli di gravità. |
 | Condizione di monitoraggio | Selezionare una condizione di monitoraggio oppure *Tutti* per includere gli avvisi di tutte le condizioni. |
 | Stato dell'avviso | Selezionare uno stato dell'avviso oppure *Tutti* per includere gli avvisi di tutti gli stati. |
 | Servizio di monitoraggio | Selezionare un servizio oppure *Tutti* per includere tutti i servizi. Sono inclusi solo gli avvisi creati da regole che usano tale servizio come destinazione. |
@@ -164,7 +164,7 @@ La pagina dei dettagli dell'avviso viene visualizzata quando si seleziona un avv
 
 La pagina dei dettagli dell'avviso include le sezioni seguenti.
 
-| Sezione | DESCRIZIONE |
+| `Section` | Descrizione |
 |:---|:---|
 | Informazioni di base | Mostra le proprietà e altre informazioni significative sull'avviso. |
 | Cronologia | Elenca tutte le azioni eseguite dall'avviso e tutte le modifiche apportate all'avviso. Questa opzione è attualmente limitata alle modifiche di stato. |

@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 02a863a4ddf59fb36c5f2ae7f3092896d2e1d860
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b166f70186b063782fb2c2245e351d6dfca6f978
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072151"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creare manualmente e usare un volume con i dischi di Azure nel servizio Azure Kubernetes
@@ -41,12 +41,12 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-A questo punto creare un disco con il comando [az disk create][az-disk-create]. Specificare il nome del gruppo di risorse del nodo ottenuto nel comando precedente e quindi un nome per la risorsa disco, ad esempio *myAKSDisk*. L'esempio seguente crea un disco da *20* GiB e invia l'ID del disco dopo la creazione:
+A questo punto creare un disco con il comando [az disk create][az-disk-create]. Specificare il nome del gruppo di risorse del nodo ottenuto nel comando precedente e quindi un nome per la risorsa disco, ad esempio *myAKSDisk*. L'esempio seguente crea una *20*disco GiB e gli output l'ID del disco dopo la creazione. Se è necessario creare un disco per l'uso con i contenitori di Windows Server (attualmente in anteprima nel servizio contenitore di AZURE), aggiungere il `--os-type windows` parametro per formattare correttamente il disco.
 
 ```azurecli-interactive
 az disk create \
   --resource-group MC_myResourceGroup_myAKSCluster_eastus \
-  --name myAKSDisk  \
+  --name myAKSDisk \
   --size-gb 20 \
   --query id --output tsv
 ```
@@ -62,7 +62,7 @@ L'ID risorsa del disco viene visualizzato dopo aver completato correttamente il 
 
 ## <a name="mount-disk-as-volume"></a>Montare il disco come volume
 
-Per montare il disco di Azure nel pod, configurare il volume nella specifica del contenitore. Creare un nuovo file denominato `azure-disk-pod.yaml` con il contenuto seguente. Aggiornare `diskName` con il nome del disco creato nel passaggio precedente e `diskURI` con l'ID del disco visualizzato nell'output del comando di creazione del disco. Se lo si desidera, annotare `mountPath`, che è il percorso in cui il disco di Azure viene montato nel pod.
+Per montare il disco di Azure nel pod, configurare il volume nella specifica del contenitore. Creare un nuovo file denominato `azure-disk-pod.yaml` con il contenuto seguente. Aggiornare `diskName` con il nome del disco creato nel passaggio precedente e `diskURI` con l'ID del disco visualizzato nell'output del comando di creazione del disco. Se lo si desidera, annotare `mountPath`, che è il percorso in cui il disco di Azure viene montato nel pod. Per Windows Server i contenitori (attualmente in anteprima nel servizio contenitore di AZURE), specificare una *mountPath* usando la convenzione di percorso di Windows, ad esempio *'Unità d:'* .
 
 ```yaml
 apiVersion: v1

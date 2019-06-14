@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65594027"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
@@ -73,7 +73,7 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per gli event
 | Report | Minima | Media | Massima |
 | :-- | --- | --- | --- |
 | Accessi da indirizzi IP anonimi |5 minuti |15 minuti |2 ore |
-| Accessi da posizioni insolite |5 minuti |15 minuti |2 ore |
+| Accessi da posizioni non note |5 minuti |15 minuti |2 ore |
 | Utenti con credenziali perse |2 ore |4 ore |8 ore |
 | Trasferimento impossibile a posizioni atipiche |5 minuti |1 ora |8 ore  |
 | Accessi da dispositivi infetti |2 ore |4 ore |8 ore  |

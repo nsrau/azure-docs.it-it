@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: de24b64ecd95eec79d7508f978acda9f0ae5a8d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097520"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Aggiungere notifiche push all'app Xamarin.iOS
@@ -147,7 +147,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
    > [!NOTE]
    > È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
+2. Nell'app digitare un'attività e fare clic sull'icona con il segno più ( **+** ).
 3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
 4. Ripetere il passaggio 2 e chiudere immediatamente l'app, quindi verificare che venga visualizzata una notifica push.
 

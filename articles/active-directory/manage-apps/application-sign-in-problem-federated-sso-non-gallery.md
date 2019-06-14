@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825446"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemi di accesso a un'applicazione non nella raccolta configurata per il Single Sign-On federato
@@ -264,7 +264,7 @@ Eliminare gli URL di risposta inutilizzati configurati per l'applicazione.
 
 6.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
 
-7.  Dopo il caricamento dell'applicazione, aprire **Configurazione SAML di base**. Nel **Reply URL (Assertion Consumer Service URL)**, delete inutilizzati o gli URL di risposta predefinito creato dal sistema. Ad esempio: `https://127.0.0.1:444/applications/default.aspx`.
+7.  Dopo il caricamento dell'applicazione, aprire **Configurazione SAML di base**. Nel **Reply URL (Assertion Consumer Service URL)** , delete inutilizzati o gli URL di risposta predefinito creato dal sistema. Ad esempio: `https://127.0.0.1:444/applications/default.aspx`.
 
 
 

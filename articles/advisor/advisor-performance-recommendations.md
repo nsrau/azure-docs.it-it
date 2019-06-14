@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
 ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254659"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Migliorare le prestazioni delle applicazioni di Azure con Azure Advisor
@@ -106,7 +106,7 @@ Advisor rileverà gli account Azure Cosmos DB che include il traffico da un'area
 
 Azure Advisor identifica i contenitori di Cosmos DB che stanno usando i criteri di indicizzazione predefiniti, ma possono trarre vantaggio da un criterio di indicizzazione personalizzato basato sul modello di carico di lavoro. I criteri di indicizzazione predefiniti indicizzano tutte le proprietà, ma usando un criterio di indicizzazione personalizzato con percorsi espliciti inclusi o esclusi nei filtri di query può ridurre le UR e spazio di archiviazione usato per l'indicizzazione. [Altre informazioni sulla modifica dei criteri di indice](https://aka.ms/cosmosdb/modify-index-policy)
 
-## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Configurare le dimensioni di pagina di query di Azure Cosmos DB (MaxItemCount) su -1 
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Configurare le dimensioni della pagina di query di Azure Cosmos DB (MaxItemCount) su -1 
 
 Azure Advisor identifica i contenitori di Azure Cosmos DB che usano le dimensioni della pagina query pari a 100 e consiglia di usare una dimensione di pagina pari a -1 per analisi più veloci. [Altre informazioni sul numero massimo di elementi](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 

@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1985b7bbcfdaab2aa303f67a9b1d090c85eedd5d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825202"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemi di accesso a un'applicazione della raccolta configurata per il Single Sign-On federato
@@ -61,7 +61,7 @@ Verificare che il `Issuer` attributo nella richiesta SAML corrisponde al valore 
 
 
 
-## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L'indirizzo per la risposta non corrisponde agli indirizzi per le risposte configurati per l'applicazione
+## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L'indirizzo di risposta non corrisponde agli indirizzi di risposta configurati per l'applicazione
 
 *Error AADSTS50011: L'indirizzo di risposta ' https:\//contoso.com' non corrisponde agli indirizzi di risposta configurati per l'applicazione*
 
@@ -263,7 +263,7 @@ Eliminare gli URL di risposta inutilizzati configurati per l'applicazione.
 
 6.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
 
-7.  Dopo il caricamento dell'applicazione, aprire **Configurazione SAML di base**. Nel **Reply URL (Assertion Consumer Service URL)**, delete inutilizzati o gli URL di risposta predefinito creato dal sistema. Ad esempio: `https://127.0.0.1:444/applications/default.aspx`.
+7.  Dopo il caricamento dell'applicazione, aprire **Configurazione SAML di base**. Nel **Reply URL (Assertion Consumer Service URL)** , delete inutilizzati o gli URL di risposta predefinito creato dal sistema. Ad esempio: `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema di personalizzazione delle attestazioni SAML inviate a un'applicazione
 

@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64692385"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Informazioni sulla gestione del tempo in Analisi di flusso di Azure
@@ -128,7 +128,7 @@ I processi di Analisi di flusso offrono diverse opzioni di **Ordinamento eventi*
 
 È possibile osservare diversi effetti delle tolleranze di ordinamento temporale degli eventi tramite le [metriche dei processi di Analisi di flusso](stream-analytics-monitoring.md). Le metriche seguenti sono rilevanti:
 
-|Metrica  | DESCRIZIONE  |
+|Metrica  | Descrizione  |
 |---------|---------|
 | **Eventi non in ordine** | Indica il numero di eventi ricevuti non in ordine, che sono stati eliminati o a cui è stato assegnato un timestamp modificato. Questa metrica è interessata direttamente dalla configurazione dell'impostazione **Eventi non in ordine** nella pagina **Ordinamento eventi** del processo nel portale di Azure. |
 | **Ultimi eventi di input** | Indica il numero di eventi arrivati in ritardo dall'origine. Questa metrica include gli eventi che sono stati eliminati o di cui è stato modificato il timestamp. È interessata direttamente dalla configurazione dell'impostazione **Eventi pervenuti in ritardo** nella pagina **Ordinamento eventi** del processo nel portale di Azure. |

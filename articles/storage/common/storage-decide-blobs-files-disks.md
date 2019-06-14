@@ -9,10 +9,10 @@ ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 30c7c1c50e59162817d7cfab0d852d8e034457d0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969413"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure
@@ -46,7 +46,7 @@ La tabella seguente confronta File di Azure e BLOB di Azure.
 |Velocità effettiva|Fino a 60 MiB/s per BLOB in blocchi|Fino a 60 MiB/s per condivisione|  
 |Dimensioni oggetto|Fino a circa 4,75 TiB per BLOB in blocchi|Fino a 1 TiB per file|  
 |Capacità fatturata|In base ai byte scritti|In base alle dimensioni di file|  
-|Librerie client|Lingue multiple|Lingue multiple|  
+|Librerie client|Supporto di più lingue|Supporto di più lingue|  
   
 ## <a name="comparison-files-and-disks"></a>Confronto: file e dischi
 
@@ -58,12 +58,12 @@ La tabella seguente confronta File di Azure e Dischi di Azure.
 |-|-|-|  
 |**Attributo**|**Dischi di Azure**|**File di Azure**|  
 |`Scope`|Esclusivo per una singola macchina virtuale|Accesso condiviso tra più macchine virtuali|  
-|Snapshot e Copia|Sì|Sì|  
+|Snapshot e Copia|Yes|Yes|  
 |Configurazione|Connesso all'avvio della macchina virtuale|Connesso dopo l'avvio della macchina virtuale|  
 |Authentication|Predefinito|Impostato con comando net use|  
 |Accesso tramite REST|Non è possibile accedere ai file all'interno del disco rigido virtuale|È possibile accedere ai file archiviati in una condivisione|  
 |Dimensioni massime|32 dischi TiB|Condivisione file da 5 TiB e file da 1 TiB nella condivisione|  
-|Operazioni di I/O al secondo max|20.000 IOps|1000 IOps|  
+|Operazioni di I/O al secondo max|20\.000 IOps|1000 IOps|  
 |Velocità effettiva|Fino a 900 MiB/s per disco|L'obiettivo è 60 MiB/s per condivisione file (può essere superiore per dimensioni di I/O più elevate)|  
 
 ## <a name="next-steps"></a>Passaggi successivi

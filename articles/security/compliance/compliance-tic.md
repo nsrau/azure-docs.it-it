@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608095"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Indicazioni su Trusted Internet Connections
@@ -247,27 +247,27 @@ Le reti nelle aree monitorate da Network Watcher possono eseguire test di hop su
 
 ## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>Appendice: Modelli TIC per carichi di lavoro comuni
 
-| Categoria | Carico di lavoro | IaaS | PaaS dedicato/Integrazione di rete virtuale  | Endpoint di servizio  |
+| Category | Carico di lavoro | IaaS | PaaS dedicato/Integrazione di rete virtuale  | Endpoint di servizio  |
 |---------|---------|---------|---------|--------|
-| Calcolo | Macchine virtuali Linux in Azure | Sì | | |
-| Calcolo | Macchine virtuali Windows in Azure | Sì | | |
-| Calcolo | set di scalabilità di macchine virtuali | Sì | | |
+| Calcolo | Macchine virtuali Linux in Azure | Yes | | |
+| Calcolo | Macchine virtuali Windows in Azure | Yes | | |
+| Calcolo | set di scalabilità di macchine virtuali | Yes | | |
 | Calcolo | Funzioni di Azure | | Ambiente del servizio app | |
 | Web e dispositivi mobili | Applicazione Web interna | | Ambiente del servizio app| |
 | Web e dispositivi mobili | Applicazione mobile interna | | Ambiente del servizio app | |
 | Web e dispositivi mobili | Applicazioni per le API | | Ambiente del servizio app | |
-| Contenitori | Servizio Azure Container | | | Sì |
-| Contenitori | Servizio Azure Kubernetes \* | | | Sì |
+| Contenitori | Servizio Azure Container | | | Yes |
+| Contenitori | Servizio Azure Kubernetes \* | | | Yes |
 | Database | Database SQL di Azure | | Istanza gestita di database SQL di Azure \* | SQL di Azure |
-| Database | Database di Azure per MySQL | | | Sì |
-| Database | Database di Azure per PostgreSQL | | | Sì |
-| Database | Azure SQL Data Warehouse | | | Sì |
-| Database | Azure Cosmos DB | | | Sì |
-| Database | Cache Redis di Azure | | Sì | |
-| Archiviazione | Archivio BLOB di Azure | Sì | | |
-| Archiviazione | File di Azure | Sì | | |
-| Archiviazione | Archiviazione code di Azure | Sì | | |
-| Archiviazione | Archiviazione tabelle di Azure | Sì | | |
-| Archiviazione | Archiviazione su disco di Azure | Sì | | |
+| Database | Database di Azure per MySQL | | | Yes |
+| Database | Database di Azure per PostgreSQL | | | Yes |
+| Database | Azure SQL Data Warehouse | | | Yes |
+| Database | Azure Cosmos DB | | | Yes |
+| Database | Cache Redis di Azure | | Yes | |
+| Archiviazione | Archivio BLOB di Azure | Yes | | |
+| Archiviazione | File di Azure | Yes | | |
+| Archiviazione | Archiviazione code di Azure | Yes | | |
+| Archiviazione | Archiviazione tabelle di Azure | Yes | | |
+| Archiviazione | Archiviazione su disco di Azure | Yes | | |
 
 \* Anteprima pubblica in Azure per enti pubblici, a partire da maggio 2018.

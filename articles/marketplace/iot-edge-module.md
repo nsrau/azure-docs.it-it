@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/22/2018
 ms.author: qianw211
 ms.openlocfilehash: c734461f1a57c100b4a00ab5c309659f8b0e903a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964013"
 ---
 # <a name="iot-edge-modules"></a>Moduli di IoT Edge
@@ -45,7 +45,7 @@ I moduli Azure IoT Edge vengono pubblicati solo in Azure Marketplace, AppSource 
  
 **Opzioni di fatturazione**
 
-Per i moduli Azure IoT Edge il marketplace supporta attualmente le opzioni di fatturazione **Gratuito** e **BYOL (Bring Your Own License)**.
+Per i moduli Azure IoT Edge il marketplace supporta attualmente le opzioni di fatturazione **Gratuito** e **BYOL (Bring Your Own License)** .
  
 **Opzioni di pubblicazione**
 

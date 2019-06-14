@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: 5319b0ac06c4ddf1a7627a4e7fe0bfb2694f79f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706596"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di Zscaler One per il provisioning utenti automatico
@@ -103,7 +103,7 @@ Questa sezione descrive i passaggi per configurare il servizio di provisioning d
 
 5. Sotto il **credenziali di amministratore** sezione, compilare il **URL Tenant** e **Token segreto** caselle con le impostazioni di Zscaler One account come descritto nel passaggio 6.
 
-6. Per il tenant di URL e il token segreto, visitare **Administration** > **le impostazioni di autenticazione** nel portale dell'interfaccia utente di Zscaler One. Sotto **tipo di autenticazione**, selezionare **SAML**.
+6. Per il tenant di URL e il token segreto, visitare **Administration** > **le impostazioni di autenticazione** nel portale dell'interfaccia utente di Zscaler One. In **Authentication Type** (Tipo di autenticazione) selezionare **SAML**.
 
     ![Impostazioni di autenticazione di Zscaler One](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 

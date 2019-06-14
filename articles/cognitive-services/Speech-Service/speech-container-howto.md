@@ -3,19 +3,19 @@ title: Installare i contenitori di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Installare ed eseguire i contenitori di riconoscimento vocale. Riconoscimento vocale trascrive in tempo reale flussi audio in testo da usare o visualizzare in applicazioni, dispositivi o strumenti. Sintesi vocale converte il testo di input in una voce sintetizzata simile a quella di un essere umano.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 763e7bc9298eee1ab602968360bbc79a58243e5b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 93ae5dd00a7be929f7aa4ac8c35a30b856f0b3ad
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752435"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072480"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi di riconoscimento vocale
 
@@ -23,7 +23,7 @@ I contenitori di riconoscimento vocale consentono ai clienti di compilare un'arc
 
 I contenitori di riconoscimento due vocale siano **per il riconoscimento vocale** e **sintesi vocale**. 
 
-|Funzione|Funzionalità|Più recente|
+|Funzione|Funzionalità|più recente|
 |-|-|--|
 |Riconoscimento vocale| <li>Trascrive continua in tempo reale vocale o un batch registrazioni audio in testo con i risultati intermedi.|1.1.1|
 |Sintesi vocale| <li>Converte il testo scritto in un audio che suona naturale. con input di testo normale o linguaggio di Markup sintesi della voce (SSML). |1.1.0|
@@ -71,14 +71,13 @@ La tabella seguente descrive i minimi e consigliati di core CPU e memoria da all
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
 
-
 Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
 
 **Nota**; Di fuori dei limiti di Docker, si basano i minimi e consigliati *non* risorse del computer host. Ad esempio, parti mappa di memoria dei contenitori per il riconoscimento vocale di un modello di lingua di grandi dimensioni che è _consigliato_ che l'intero file rientra nella memoria, ossia 4 a 6 GB aggiuntivo. Inoltre, la prima esecuzione dei contenitori potrebbe richiedere più tempo, poiché i modelli sono il paging nella memoria.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Ottenere l'immagine del contenitore con `docker pull`
 
-Sono disponibili le immagini del contenitore per il riconoscimento vocale. 
+Sono disponibili le immagini del contenitore per il riconoscimento vocale.
 
 | Contenitore | Repository |
 |-----------|------------|
@@ -89,7 +88,7 @@ Sono disponibili le immagini del contenitore per il riconoscimento vocale.
 
 ### <a name="language-locale-is-in-container-tag"></a>Impostazioni locali della lingua sono nel tag contenitore
 
-Il `latest` tag pull il `en-us` delle impostazioni locali e `jessarus` vocali. 
+Il `latest` tag pull il `en-us` delle impostazioni locali e `jessarus` vocali.
 
 #### <a name="speech-to-text-locales"></a>Riconoscimento vocale alle impostazioni internazionali di testo
 
@@ -118,7 +117,6 @@ La tabella seguente elenca le impostazioni locali supportate per **vocale-** in 
 |Coreano|`ko-kr`|
 |Portoghese|`pt-br`|
 |Spagnolo|`es-es`<br>`es-mx`|
-
 
 #### <a name="text-to-speech-locales"></a>Impostazioni locali di sintesi vocale
 
@@ -171,8 +169,8 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), seguire questa procedura per usare il contenitore.
 
-1. [Eseguire il contenitore](#run-the-container-with-docker-run), con le impostazioni di fatturazione necessarie, ma non usate. Sono disponibili altri [esempi](speech-container-configuration.md#example-docker-run-commands) del comando `docker run`. 
-1. [Eseguire le query sull'endpoint di stima del contenitore](#query-the-containers-prediction-endpoint). 
+1. [Eseguire il contenitore](#run-the-container-with-docker-run), con le impostazioni di fatturazione necessarie, ma non usate. Sono disponibili altri [esempi](speech-container-configuration.md#example-docker-run-commands) del comando `docker run`.
+1. [Eseguire le query sull'endpoint di stima del contenitore](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
 
@@ -194,7 +192,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 ### <a name="speech-to-text"></a>Riconoscimento vocale
@@ -204,7 +202,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 Questo comando:
@@ -212,7 +210,7 @@ Questo comando:
 * Esegue un contenitore di riconoscimento vocale dall'immagine del contenitore
 * Alloca 2 core CPU e 2 gigabyte (GB) di memoria
 * Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore
-* Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host. 
+* Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
@@ -241,7 +239,9 @@ var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRe
 a questa chiamata che usa l'endpoint del contenitore:
 
 ```C#
-var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1", "YourSubscriptionKey");
+var config = SpeechConfig.FromEndpoint(
+    new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
+    "YourSubscriptionKey");
 ```
 
 #### <a name="for-python"></a>Per Python
@@ -262,9 +262,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 Il contenitore fornisce endpoint REST API che possono essere recuperate [Ecco](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) e sono disponibili esempi [qui](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
-
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
-
 
 ## <a name="stop-the-container"></a>Arrestare il contenitore
 
@@ -272,11 +270,11 @@ Il contenitore fornisce endpoint REST API che possono essere recuperate [Ecco](h
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Quando si esegue il contenitore, questo usa **stdout** e **stderr** per generare informazioni utili per risolvere i problemi che si verificano durante l'avvio o l'esecuzione del contenitore. 
+Quando si esegue il contenitore, questo usa **stdout** e **stderr** per generare informazioni utili per risolvere i problemi che si verificano durante l'avvio o l'esecuzione del contenitore.
 
 ## <a name="billing"></a>Fatturazione
 
-L'invio di contenitori vocale fatturazione in Azure, usando un _vocale_ risorse nell'account Azure. 
+L'invio di contenitori vocale fatturazione in Azure, usando un _vocale_ risorse nell'account Azure.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

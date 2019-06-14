@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f57d80adc7c77f2d874d13a68214cd638a2ac2a0
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f22cb620bf8cf56110bec60a4dd809066393a8ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957298"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067653"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizzare i report personalizzati con i dati di Azure Application Insights
 
@@ -92,7 +92,7 @@ availabilityResults
 
    ![Screenshot della creazione di una nuova funzione](./media/automate-custom-reports/function-app-03.png)
 
-5. Selezionare il **_modello digest pianificato di Application Insights_**.
+5. Selezionare il **_modello digest pianificato di Application Insights_** .
 
      > [!NOTE]
      > Per impostazione predefinita, App per le funzioni vengono creati con la versione 2.x. È necessario [versione di runtime di funzioni di Azure di destinazione](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x a usare Application Insights pianificata modello digest.
@@ -120,7 +120,7 @@ availabilityResults
      > [!NOTE]
      > Se non si dispone già di un account SendGrid, crearne uno. La documentazione di SendGrid per Funzioni di Azure è disponibile [qui ](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Per una spiegazione di base su come impostare SendGrid e generare una chiave API, leggere le informazioni in fondo a questo articolo. 
 
-9. Selezionare **Integra** e in Output fare clic su **SendGrid ($return)**.
+9. Selezionare **Integra** e in Output fare clic su **SendGrid ($return)** .
 
      ![Screenshot dell'output](./media/automate-custom-reports/function-app-09.png)
 

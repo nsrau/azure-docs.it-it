@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b481030c5d2d8e7d5e7061cdf256a202e08d6cbf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113116"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108794"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilità rilevate da Azure Active Directory Identity Protection
 
@@ -32,16 +32,16 @@ Questa vulnerabilità consente di valutare la distribuzione di Azure multi-Facto
 
 Azure multi-Factor Authentication fornisce un secondo livello di sicurezza per l'autenticazione dell'utente. Consente di proteggere l'accesso ai dati e alle applicazioni dell'utente, garantendo al tempo stesso una procedura di accesso semplice. Azure multi-Factor Authentication offre le opzioni di verifica facile da usare, ad esempio:
 
-* Telefonata
+* Chiamata telefonica
 * SMS
 * Notifica dell'app per dispositivi mobili
 * Codice di verifica OTP
 
-È consigliabile richiedere l'autenticazione a più fattori di Azure per l'accesso degli utenti. L'autenticazione a più fattori svolge un ruolo chiave nei criteri di accesso condizionale basati sul rischio disponibili tramite Identity Protection.
+È consigliabile richiedere l'autenticazione a più fattori di Azure per l'accesso degli utenti. Autenticazione a più fattori svolge un ruolo chiave nei criteri di accesso condizionale basati sul rischio disponibili tramite Identity Protection.
 
 Per altre informazioni, vedere [Informazioni su Azure Multi-Factor Authentication](../authentication/multi-factor-authentication.md).
 
-## <a name="unmanaged-cloud-apps"></a>App cloud non gestite
+## <a name="unmanaged-cloud-apps"></a>App per cloud non gestite
 
 Questa vulnerabilità consente di identificare le app per cloud non gestite all'interno dell'organizzazione.
 
@@ -51,7 +51,7 @@ IL personale IT spesso non sono consapevoli di tutte le applicazioni cloud nell'
 
 Per altre informazioni, vedere [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
-## <a name="security-alerts-from-privileged-identity-management"></a>Avvisi di sicurezza da Privileged Identity Management
+## <a name="security-alerts-from-privileged-identity-management"></a>Avvisi di sicurezza di Privileged Identity Management
 
 Questa vulnerabilità permette di identificare e risolvere gli avvisi sulle identità con privilegi all'interno dell'organizzazione.  
 
@@ -61,6 +61,6 @@ Si consiglia alle organizzazioni di usare Azure AD Privileged Identity Managemen
 
 Per altre informazioni, vedere [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)

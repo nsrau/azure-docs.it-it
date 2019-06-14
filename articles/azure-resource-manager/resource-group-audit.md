@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7ff45be4eea5c6e8ab83093847164ede0e94579a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606622"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visualizzare i log attività per monitorare le azioni sulle risorse
@@ -53,7 +53,7 @@ I log attività vengono conservati per 90 giorni. È possibile eseguire query pe
 
 1. Si noti che i filtri sono stati modificati per concentrarsi sugli errori di distribuzione nelle ultime 24 ore. Vengono visualizzate solo le operazioni che corrispondono ai filtri.
 
-    ![Visualizza filtri](./media/resource-group-audit/view-filters.png)
+    ![Filtri di visualizzazione](./media/resource-group-audit/view-filters.png)
 
 1. Per concentrare l'attenzione su operazioni specifiche, modificare i filtri o applicarne di nuovi. Ad esempio, l'immagine seguente mostra un nuovo valore per l'**intervallo di tempo** e il **tipo di risorsa** è impostato su account di archiviazione. 
 
@@ -73,7 +73,7 @@ I log attività vengono conservati per 90 giorni. È possibile eseguire query pe
 
 1. Dal portale, è possibile visualizzare le modifiche apportate a una risorsa. Passare il valore predefinito consente di visualizzare in Monitoraggio e selezionare un'operazione che per la modifica di una risorsa.
 
-    ![Seleziona operazione](./media/resource-group-audit/select-operation.png)
+    ![Operazione di selezione](./media/resource-group-audit/select-operation.png)
 
 1. Selezionare **cronologia revisioni (anteprima)** e selezionare una delle operazioni disponibili.
 

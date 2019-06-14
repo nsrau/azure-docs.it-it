@@ -1,19 +1,19 @@
 ---
 title: Trasmettere i dati di monitoraggio di Azure a Hub eventi
 description: Informazioni su come trasmettere i dati di monitoraggio di Azure a un hub eventi per ottenere i dati in un partner SIEM o lo strumento di analitica.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: johnkem
+ms.author: nikiest
 ms.subservice: ''
-ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8a4de244d0fa07bfc162625f577015317fca7e6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243458"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069325"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno
 
@@ -43,8 +43,8 @@ Prima di iniziare, è necessario [creare uno spazio dei nomi di Hub eventi e un 
 * Il numero di unità elaborate consente di aumentare la scala della velocità effettiva per gli hub eventi. Il numero di partizioni consente di parallelizzare il consumo tra molti consumer. Una singola partizione può eseguire fino a 20 Mbps o circa 20.000 messaggi al secondo. A seconda dello strumento che utilizza i dati, può essere supportato o meno il consumo di dati di più partizioni. Se si hanno dubbi sul numero di partizioni da impostare, è consigliabile iniziare con quattro partizioni.
 * È consigliabile impostare il periodo di memorizzazione dei messaggi nell'hub eventi su 7 giorni. Se lo strumento che utilizza i dati diventa inattivo per più di un giorno, questa impostazione assicura che tale strumento riprenderà l'esecuzione dal punto in cui è stata interrotta (per gli eventi degli ultimi 7 giorni).
 * È consigliabile usare il gruppo di consumer predefinito per l'hub eventi. Non è necessario creare altri gruppi di consumer o usare un gruppo di consumer distinto, a meno che non siano previsti due diversi strumenti che utilizzano gli stessi dati dello stesso hub eventi.
-* Per il log attività di Azure, si sceglie uno spazio dei nomi di hub eventi e monitoraggio di Azure consente di creare un hub eventi nello spazio dei nomi denominato "insights-log-operationallogs". Per altri tipi di log è possibile scegliere un hub eventi esistente (che consente di riutilizzare lo stesso hub eventi insights-log-operationallogs) oppure lasciare che Monitoraggio di Azure crei un hub eventi per ogni categoria di log.
-* In genere, le porte 5671 e 5672 devono essere aperte sulla macchina che utilizza i dati dell'hub eventi.
+* Per il log attività di Azure, si sceglie uno spazio dei nomi di hub eventi e monitoraggio di Azure consente di creare un hub eventi nello spazio dei nomi denominato 'insights-log-operational-logs.' Per altri tipi di log, è possibile scegliere un hub eventi esistente (consentendo di riutilizzare lo stesso hub eventi insights-log-operational-logs) o monitoraggio di Azure creare un hub eventi per ogni categoria di log.
+* In genere, è necessario aprire porte in uscita 5671 e 5672 nel computer o rete virtuale che utilizza dati dall'hub eventi.
 
 Vedere anche le [domande frequenti su Hub eventi di Azure](../../event-hubs/event-hubs-faq.md).
 

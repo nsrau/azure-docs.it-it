@@ -12,10 +12,10 @@ ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 5d410e1015b751743c171adabda1d5bcbe68b491
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540992"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Aggiungere chit chat a una knowledge base
@@ -31,7 +31,7 @@ Per la query dell'utente di `When is your birthday?`, ogni personalità dispone 
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |Personalità|Esempio|
 |--|--|
-|Professionale|Durata non è applicabile all'utente.|
+|Professional|Durata non è applicabile all'utente.|
 |Gentile|Non è realmente necessario un'età.|
 |Dinamica, in gamba|Sono privi di età.|
 |Necessario|Non ho un'età.|
@@ -73,6 +73,6 @@ Selezionare la KB e passare alla pagina **Impostazioni**. L'origine di una chit 
 > [!div class="nextstepaction"]
 > [Importare una knowledge base](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
 [Panoramica di QnA Maker](../Overview/overview.md)

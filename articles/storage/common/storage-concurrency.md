@@ -10,10 +10,10 @@ ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
 ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64728309"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestione della concorrenza nell'archiviazione di Microsoft Azure
@@ -86,15 +86,15 @@ Nella tabella seguente sono riepilogate le operazioni contenitore che accettano 
 
 | Operazione | Restituisce il valore ETag del contenitore | Accetta intestazioni condizionali |
 |:--- |:--- |:--- |
-| Create Container |Sì |No  |
-| Get Container Properties |Sì |No  |
-| Get Container Metadata |Sì |No  |
-| Set Container Metadata |Sì |Sì |
-| Get Container ACL |Sì |No  |
-| Set Container ACL |Sì |Sì (*) |
-| Delete Container |No  |Sì |
-| Lease Container |Sì |Sì |
-| List Blobs |No  |No  |
+| Create Container |Yes |No |
+| Get Container Properties |Yes |No |
+| Get Container Metadata |Yes |No |
+| Set Container Metadata |Yes |Yes |
+| Get Container ACL |Yes |No |
+| Set Container ACL |Yes |Sì (*) |
+| Delete Container |No |Yes |
+| Lease Container |Yes |Yes |
+| List Blobs |No |No |
 
 (*) Le autorizzazioni definite da SetContainerACL sono memorizzate nella cache e la propagazione degli aggiornamenti a queste autorizzazioni richiede 30 secondi durante i quali la coerenza degli aggiornamenti non è garantita.  
 
@@ -102,22 +102,22 @@ Nella tabella seguente sono riepilogate le operazioni BLOB che accettano intesta
 
 | Operazione | Restituisce il valore ETag | Accetta intestazioni condizionali |
 |:--- |:--- |:--- |
-| Put Blob |Sì |Sì |
-| Get Blob |Sì |Sì |
-| Get Blob Properties |Sì |Sì |
-| Set Blob Properties |Sì |Sì |
-| Get Blob Metadata |Sì |Sì |
-| Set Blob Metadata |Sì |Sì |
-| Lease Blob (*) |Sì |Sì |
-| Snapshot Blob |Sì |Sì |
-| Copy Blob |Sì |Sì (per il BLOB di origine e destinazione) |
-| Abort Copy Blob |No  |No  |
-| Delete Blob |No  |Sì |
-| Put Block |No  |No  |
-| Put Block List |Sì |Sì |
-| Get Block List |Sì |No  |
-| Put Page |Sì |Sì |
-| Get Page Ranges |Sì |Sì |
+| Put Blob |Yes |Yes |
+| Get Blob |Yes |Yes |
+| Get Blob Properties |Yes |Yes |
+| Set Blob Properties |Yes |Yes |
+| Get Blob Metadata |Yes |Yes |
+| Set Blob Metadata |Yes |Yes |
+| Lease Blob (*) |Yes |Yes |
+| Snapshot Blob |Yes |Yes |
+| Copy Blob |Yes |Sì (per il BLOB di origine e destinazione) |
+| Abort Copy Blob |No |No |
+| Delete Blob |No |Yes |
+| Put Block |No |No |
+| Put Block List |Yes |Yes |
+| Get Block List |Yes |No |
+| Put Page |Yes |Yes |
+| Get Page Ranges |Yes |Yes |
 
 (*) Lease Blob non modifica l'ETag in un BLOB.  
 
@@ -237,13 +237,13 @@ Nella tabella seguente sono riepilogate le modalità in cui le operazioni delle 
 
 | Operazione | Restituisce il valore ETag | Richiede l'intestazione della richiesta If-Match |
 |:--- |:--- |:--- |
-| Query Entities |Sì |No  |
-| Insert Entity |Sì |No  |
-| Update Entity |Sì |Sì |
-| Merge Entity |Sì |Sì |
-| Delete Entity |No  |Sì |
-| Insert or Replace Entity |Sì |No  |
-| Insert or Merge Entity |Sì |No  |
+| Query Entities |Yes |No |
+| Insert Entity |Yes |No |
+| Update Entity |Yes |Yes |
+| Merge Entity |Yes |Yes |
+| Delete Entity |No |Yes |
+| Insert or Replace Entity |Yes |No |
+| Insert or Merge Entity |Yes |No |
 
 SI noti che le operazioni **Insert or Replace Entity** e **Insert or Merge Entity** *non* eseguono alcun controllo di concorrenza perché non inviano un valore ETag al servizio tabelle.  
 

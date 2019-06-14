@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9ccb6944227208cee8601751cf43a53c111c09c6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65021631"
 ---
 # <a name="add-scoring-profiles-to-an-azure-search-index"></a>Aggiungere profili di punteggio a un indice di Ricerca di Azure
@@ -232,7 +232,7 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 > [!NOTE]  
 >  La funzione di assegnazione del punteggio può essere applicata solo ai campi filtrabili.  
 
-|Attributo|DESCRIZIONE|  
+|Attributo|Descrizione|  
 |---------------|-----------------|  
 |`Name`|Richiesto. Nome del profilo di punteggio. Segue le stesse convenzioni di denominazione di un campo. Deve iniziare con una lettera, non può contenere punti, punti e virgole o simboli @ e non può iniziare con la frase "azureSearch" (distinzione tra maiuscole e minuscole applicata).|  
 |`Text`|Contiene la proprietà Weights.|  
@@ -284,7 +284,7 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 
  Per altri esempi, vedere [XML Schema: Datatypes (W3.org web site)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) (XML Schema: tipi di dati - Sito Web W3.org).  
 
-## <a name="see-also"></a>Vedere anche   
+## <a name="see-also"></a>Vedere anche  
  [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)  (REST per il servizio Ricerca di Azure)  
  [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  (Creare l'indice - API REST per il servizio Ricerca di Azure)  
  [Ricerca di Azure .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

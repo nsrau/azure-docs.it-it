@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: fd5a16334fff0319d7993fb2403a48d1777f6bce
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0691c35661a6d185a6aa5ed3383ad600653359d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955332"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058588"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>Per i log di .NET Core ILogger ApplicationInsightsLoggerProvider
 
@@ -106,6 +106,9 @@ public class ValuesController : ControllerBase
 ```
 
 ### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>Acquisire i log di ILogger da Startup.cs e Program.cs nelle App ASP.NET Core
+
+> [!NOTE]
+> In ASP.NET Core 3.0 e versioni successive, non è più possibile inserire `ILogger` in Startup.cs e Program.cs. Per informazioni dettagliate, vedere https://github.com/aspnet/Announcements/issues/353.
 
 Il nuovo ApplicationInsightsLoggerProvider possibile acquisire log da nelle prime fasi della pipeline di avvio dell'applicazione. Sebbene ApplicationInsightsLoggerProvider viene abilitata automaticamente in Application Insights (partire dalla versione 2.7.0-beta3), non presenta una chiave di strumentazione impostata fino non in un secondo momento nella pipeline. Pertanto, solo i log da **Controller**/ altre classi verranno acquisite. Per ogni log a partire da acquisire **Program.cs** e **Startup.cs** stesso, è necessario abilitare esplicitamente una chiave di strumentazione per ApplicationInsightsLoggerProvider. È inoltre *TelemetryConfiguration* non è completamente configurato quando si accede da **Program.cs** oppure **Startup.cs** stesso. Pertanto, tali log avrà una configurazione minima che non usa InMemoryChannel, nessun campionamento e gli inizializzatori di telemetria standard o processori.
 
@@ -450,7 +453,7 @@ Se si preferisce inviare sempre TraceTelemetry, usare questo frammento di codice
 
 L'estensione Application Insights nell'App Web di Azure Usa il vecchio provider. È possibile modificare le regole di filtro nel *appSettings. JSON* file dell'applicazione. Per sfruttare i vantaggi del nuovo provider, utilizzare la strumentazione in fase di compilazione tramite l'aggiunta di una dipendenza NuGet di SDK. Questo articolo verrà aggiornato quando l'estensione passa all'uso di provider di nuovo.
 
-### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>Con il pacchetto autonomo Microsoft.Extensions.Logging.ApplicationInsights e abilitazione di provider di Application Insights chiamando **generatore. AddApplicationInsights("ikey")**. È disponibile un'opzione per ottenere una chiave di strumentazione dalla configurazione?
+### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>Con il pacchetto autonomo Microsoft.Extensions.Logging.ApplicationInsights e abilitazione di provider di Application Insights chiamando **generatore. AddApplicationInsights("ikey")** . È disponibile un'opzione per ottenere una chiave di strumentazione dalla configurazione?
 
 
 Modificare Program.cs e appSettings. JSON come segue:

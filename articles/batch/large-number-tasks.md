@@ -16,10 +16,10 @@ ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
 ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60549666"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Inviare un numero elevato di attività a un processo di Batch
@@ -65,7 +65,7 @@ L'aggiunta di un numero elevato di attività a un processo può richiedere del t
 
 I frammenti di codice C# seguenti mostrano le impostazioni di configurazione per l'aggiunta di un numero elevato di attività usando l'API .NET di Batch.
 
-Per migliorare la velocità effettiva delle attività, aumentare il valore della proprietà [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) dell'oggetto [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Ad esempio: 
+Per migliorare la velocità effettiva delle attività, aumentare il valore della proprietà [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) dell'oggetto [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Ad esempio:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -75,7 +75,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 Aggiungere una raccolta di attività al processo usando l'overload appropriato del metodo [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) o [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-). Ad esempio: 
+). Ad esempio:
 
 ```csharp
 // Add a list of tasks as a collection
@@ -145,7 +145,7 @@ client = batch.BatchExtensionsClient(base_url=BATCH_ACCOUNT_URL, resource_group=
 ...
 ```
 
-Creare una raccolta di attività da aggiungere a un processo. Ad esempio: 
+Creare una raccolta di attività da aggiungere a un processo. Ad esempio:
 
 
 ```python

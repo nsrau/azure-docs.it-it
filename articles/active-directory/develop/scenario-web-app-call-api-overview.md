@@ -16,13 +16,13 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce45f11a697b72ebdd0fe01166a70e7b47aa8e9f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65076301"
 ---
-# <a name="scenario-web-app-that-calls-web-apis"></a>Scenario: App Web che chiama l'API web
+# <a name="scenario-web-app-that-calls-web-apis"></a>Scenario: App Web che chiama le API Web
 
 Informazioni su come compilare un'app web di accesso di utenti nella piattaforma delle identità Microsoft e che chiama le API web per conto dell'utente connesso.
 
@@ -39,7 +39,7 @@ Questo scenario supposes che aver esaminato lo scenario seguente:
 
 Verrà aggiunta l'autenticazione all'App Web, che possono pertanto accedere gli utenti e chiama un'API web per conto dell'utente connesso.
 
-![App Web che chiama l'API web](./media/scenario-webapp/web-app.svg)
+![App Web che chiama le API Web](./media/scenario-webapp/web-app.svg)
 
 Le app Web che chiama le API web:
 

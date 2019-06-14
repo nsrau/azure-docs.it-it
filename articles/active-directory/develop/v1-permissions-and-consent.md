@@ -19,10 +19,10 @@ ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545202"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory
@@ -66,8 +66,8 @@ Le autorizzazioni in Azure AD hanno diverse proprietà che aiutano utenti, ammin
 | `ID` | Valore GUID che identifica in modo univoco l'autorizzazione. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
 | `IsEnabled` | Indica se l'autorizzazione è disponibile per l'uso. | true |
 | `Type` | Indica se l'autorizzazione richiede il consenso dell'utente o dell'amministratore. | Utente |
-| `AdminConsentDescription` | Descrizione che viene visualizzata per gli amministratori durante l'esperienza di consenso dell'amministratore. | Consente all'app di leggere i messaggi di posta elettronica nelle cassette postali di un utente. |
-| `AdminConsentDisplayName` | Nome descrittivo visualizzato per gli amministratori durante l'esperienza di consenso dell'amministratore. | Legge i messaggi di posta elettronica dell'utente |
+| `AdminConsentDescription` | Descrizione che viene visualizzata per gli amministratori durante l'esperienza di consenso dell'amministratore. | Consente all'app di leggere i messaggi di posta elettronica nelle cassette postali degli utenti. |
+| `AdminConsentDisplayName` | Nome descrittivo visualizzato per gli amministratori durante l'esperienza di consenso dell'amministratore. | Leggi i messaggi di un altro utente |
 | `UserConsentDescription` | Descrizione che viene visualizzata per gli utenti durante l'esperienza di consenso dell'utente. |  Consente all'app di leggere i messaggi di posta elettronica nella cassetta postale personale. |
 | `UserConsentDisplayName` | Nome descrittivo visualizzato per gli utenti durante l'esperienza di consenso dell'utente. | Lettura dei messaggi |
 | `Value` | Stringa usata per identificare l'autorizzazione durante i flussi di autorizzazione OAuth 2.0. `Value` può anche essere combinata con la stringa dell'URI ID app per formare un nome di autorizzazione completo. | `Mail.Read` |

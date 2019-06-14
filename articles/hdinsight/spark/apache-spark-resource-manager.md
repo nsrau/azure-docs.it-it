@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
 ms.openlocfilehash: dfd926f3e091f4516685fd73f3a6b87949330afb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706360"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gestire le risorse del cluster Apache Spark in Azure HDInsight 
@@ -150,7 +150,7 @@ Avviare l'interfaccia utente di Yarn, come illustrato all'inizio dell'articolo. 
 
     ![Terminare App2](./media/apache-spark-resource-manager/kill-app2.png "Terminare App2")
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](apache-spark-job-debugging.md)
 
 ### <a name="for-data-analysts"></a>Per gli analisti dei dati

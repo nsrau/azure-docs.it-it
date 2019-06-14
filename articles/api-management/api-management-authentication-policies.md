@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708786"
 ---
 # <a name="api-management-authentication-policies"></a>Criteri di autenticazione di Gestione API di Azure
@@ -49,16 +49,16 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|NOME|DESCRIZIONE|Obbligatoria|  
+|Name|Descrizione|Obbligatorio|  
 |----------|-----------------|--------------|  
-|authentication-basic|Elemento radice.|Sì|  
+|authentication-basic|Elemento radice.|Yes|  
   
 ### <a name="attributes"></a>Attributi  
   
-|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
+|Name|Descrizione|Obbligatorio|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|username|Specifica il nome utente della credenziale di base.|Sì|N/D|  
-|password|Specifica la password della credenziale di base.|Sì|N/D|  
+|username|Specifica il nome utente della credenziale di base.|Yes|N/D|  
+|password|Specifica la password della credenziale di base.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -89,13 +89,13 @@ In questo esempio il certificato client è identificato dal nome di risorsa.
 
 ### <a name="elements"></a>Elementi  
   
-|NOME|DESCRIZIONE|Obbligatoria|  
+|Name|Descrizione|Obbligatorio|  
 |----------|-----------------|--------------|  
-|authentication-certificate|Elemento radice.|Sì|  
+|authentication-certificate|Elemento radice.|Yes|  
   
 ### <a name="attributes"></a>Attributi  
   
-|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
+|Name|Descrizione|Obbligatorio|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|Identificazione personale del certificato client.|Sia `thumbprint` o `certificate-id` deve essere presente.|N/D|  
 |certificate-id|Nome della risorsa certificato.|Sia `thumbprint` o `certificate-id` deve essere presente.|N/D|  
@@ -124,17 +124,17 @@ In questo esempio il certificato client è identificato dal nome di risorsa.
   
 ### <a name="elements"></a>Elementi  
   
-|NOME|DESCRIZIONE|Obbligatoria|  
+|Name|Descrizione|Obbligatorio|  
 |----------|-----------------|--------------|  
-|authentication-managed-identity |Elemento radice.|Sì|  
+|authentication-managed-identity |Elemento radice.|Yes|  
   
 ### <a name="attributes"></a>Attributi  
   
-|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
+|Name|Descrizione|Obbligatorio|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|resource|Stringa. L'URI ID App dell'API (risorsa protetta) web destinazione in Azure Active Directory.|Sì|N/D|  
-|output-token-variable-name|Stringa. Nome della variabile di contesto che riceverà il valore token come un tipo di oggetto `string`.|No |N/D|  
-|ignore-error|Booleano. Se impostato su `true`, la pipeline di criterio continuerà a essere eseguita anche se non viene ottenuto un token di accesso.|No |false|  
+|resource|Stringa. L'URI ID App dell'API (risorsa protetta) web destinazione in Azure Active Directory.|Yes|N/D|  
+|output-token-variable-name|Stringa. Nome della variabile di contesto che riceverà il valore token come un tipo di oggetto `string`.|No|N/D|  
+|ignore-error|Booleano. Se impostato su `true`, la pipeline di criterio continuerà a essere eseguita anche se non viene ottenuto un token di accesso.|No|false|  
   
 ### <a name="usage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  

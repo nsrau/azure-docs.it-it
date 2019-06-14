@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0eb3e52dfd02bd7948f1b5ffd908ac1255118008
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65782910"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Creare uno script di installazione automatica per il connettore del proxy di applicazione di Azure AD
@@ -53,7 +53,7 @@ Esistono due metodi da usare per registrare il connettore:
 * Registrare il connettore con un token creato offline
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registrare il connettore con un oggetto credenziali di Windows PowerShell
-1. Creare un oggetto credenziali di Windows PowerShell `$cred` che contiene un nome utente e una password di amministratore per la directory. Eseguire il comando seguente sostituendo *\<username\>* e *\<password\>*:
+1. Creare un oggetto credenziali di Windows PowerShell `$cred` che contiene un nome utente e una password di amministratore per la directory. Eseguire il comando seguente sostituendo *\<username\>* e *\<password\>* :
    
         $User = "<username>"
         $PlainPassword = '<password>'

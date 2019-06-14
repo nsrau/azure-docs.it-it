@@ -9,21 +9,21 @@ ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148968"
 ---
-| Resource | Di base | Standard | Premium |
+| Resource | Basic | Standard | Premium |
 |---|---|---|---|
 | Archiviazione<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
 | Dimensioni dell'immagine massimo livello | 200 GiB | 200 GiB | 200 GiB |
-| Operazioni di lettura al minuto<sup>2, 3</sup> | 1.000 | 3,000 | 10,000 |
-| Operazioni di scrittura al minuto<sup>2, 4</sup> | 100 | 500 | 2.000 |
+| Operazioni di lettura al minuto<sup>2, 3</sup> | 1\.000 | 3,000 | 10,000 |
+| Operazioni di scrittura al minuto<sup>2, 4</sup> | 100 | 500 | 2\.000 |
 | MBps di larghezza di banda per il download<sup>2</sup> | 30 | 60 | 100 |
 | MBps di larghezza di banda per l'upload<sup>2</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
+| Webhook | 2 | 10 | 100 |
 | Replica geografica | N/D | N/D | [Supportato][geo-replication] |
 | Attendibilità del contenuto | N/D | N/D | [Supportato][content-trust] |
 

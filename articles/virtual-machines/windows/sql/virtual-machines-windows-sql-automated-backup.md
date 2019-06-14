@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 99439c2b6bd4fdd271dda7a49850c5b6f44330b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d30d044a26e6a092eba267f223be9b10c3a238b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165569"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075849"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup automatico per macchine virtuali SQL Server 2014 (Resource Manager)
 
@@ -77,21 +77,19 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 
 Usare il portale di Azure per configurare il backup automatico quando si crea una nuova macchina virtuale di SQL Server 2014 nel modello di distribuzione di Resource Manager.
 
-Nel riquadro **Impostazioni di SQL Server** selezionare **Backup automatico**. Nella seguente schermata del portale di Azure vengono mostrate le impostazioni del **Backup automatico di SQL**.
+Nel **impostazioni di SQL Server** scheda, scorrere verso il basso **backup automatico** e selezionare **abilitare**. È anche possibile specificare il periodo di conservazione e account di archiviazione, nonché abilitare la crittografia, backup dei database di sistema e la configurazione di una pianificazione di backup.  Nella seguente schermata del portale di Azure vengono mostrate le impostazioni del **Backup automatico di SQL**.
 
 ![Configurazione del backup automatico di SQL nel Portale di Azure](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
 ## <a name="configure-existing-vms"></a>Configurare le macchine virtuali esistenti
 
-Per le macchine virtuali SQL Server esistenti, selezionare la macchina virtuale SQL Server. Quindi selezionare la sezione **Configurazione di SQL Server** delle **Impostazioni** della macchina virtuale.
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+Per le macchine virtuali SQL Server esistente, passare al [risorse di macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) e quindi selezionare **backup**. 
 
 ![Backup automatico di SQL per le VM esistenti](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
-Nel riquadro **Configurazione di SQL Server** fare clic sul pulsante **Modifica** nella sezione del backup automatico.
-
-![Configurare il backup automatico di SQL per le VM esistenti](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-configuration.png)
-
-Al termine, fare clic sul pulsante **OK** in fondo alle impostazioni di **Configurazione di SQL Server** per salvare le modifiche.
+Al termine, selezionare il **applica** pulsante in fondo il **backup** pagina per salvare le modifiche.
 
 Se si intende abilitare il backup automatico per la prima volta, Azure configura l'agente IaaS di SQL Server in background. Durante questo periodo, nel portale di Azure potrebbe non essere visualizzata l'informazione relativa alla configurazione del backup automatico. Attendere alcuni minuti per l'installazione e la configurazione dell'agente. A questo punto, nel portale di Azure verranno visualizzate le nuove impostazioni.
 
@@ -119,7 +117,7 @@ $resourcegroupname = "resourcegroupname"
 
 Se l'estensione Agente IaaS di SQL Server è installata, verrà visualizzata come "SqlIaaSAgent" o "SQLIaaSExtension". La proprietà **ProvisioningState** per l'estensione deve inoltre mostrare lo stato "Succeeded".
 
-Nel caso in cui l'estensione non sia installata o non ne sia stato eseguito il provisioning, è possibile installarla con il comando seguente. Oltre al nome della macchina virtuale e al gruppo di risorse, è necessario anche specificare l'area (**$region**) in cui si trova la macchina virtuale.
+Nel caso in cui l'estensione non sia installata o non ne sia stato eseguito il provisioning, è possibile installarla con il comando seguente. Oltre al nome della macchina virtuale e al gruppo di risorse, è necessario anche specificare l'area ( **$region**) in cui si trova la macchina virtuale.
 
 ```powershell
 $region = "EASTUS2"

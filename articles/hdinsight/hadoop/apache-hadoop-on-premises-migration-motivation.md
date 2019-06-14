@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: b45fb5cbfbef334b40ccadecd32f65fa9a59a610
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a03a778b2a057235b31d02e90e5ce87e9559b38a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685659"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058568"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Motivazione e vantaggi
 
@@ -21,7 +21,7 @@ Questo articolo è il primo di una serie sulle procedure consigliate per la migr
 
 ## <a name="why-to-migrate-to-azure-hdinsight"></a>Perché eseguire la migrazione ad Azure HDInsight
 
-Azure HDInsight è una distribuzione cloud dei componenti Hadoop di  [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/). Azure HDInsight rende semplice, rapida ed economicamente conveniente l'elaborazione di grandi quantità di dati. HDInsight include i framework open source più diffusi, ad esempio:
+Azure HDInsight è una distribuzione cloud dei componenti di Hadoop. Azure HDInsight rende semplice, rapida ed economicamente conveniente l'elaborazione di grandi quantità di dati. HDInsight include i framework open source più diffusi, ad esempio:
 
 - Apache Hadoop
 - Apache Spark
@@ -58,7 +58,7 @@ Azure HDInsight è una distribuzione cloud dei componenti Hadoop di  [Hortonwor
 - **Integrazione con altri servizi di Azure** - HDInsight può essere integrato facilmente con altri popolari servizi di Azure, tra cui:
 
     - Azure Data Factory
-    - Archiviazione BLOB di Azure
+    - Archivio BLOB di Azure
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
     - Database SQL di Azure
@@ -90,19 +90,18 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 | **Domanda** | **Esempio** | **Risposta** |
 |---|---|---|
 |**Argomento**: **Environment**|||
-|Tipo di distribuzione cluster|Hortonworks, Cloudera, MapR| |
 |Versione di distribuzione cluster|HDP 2.6.5, CDH 5.7|
 |Componenti dell'ecosistema di Big Data|Hadoop Distributed File System, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Tipi di cluster|Hadoop, Spark, Confluent Kafka, Storm, Solr|
 |Numero di cluster|4|
 |Numero di nodi master|2|
-|Numero di nodi del ruolo di lavoro|100|
+|Numero di nodi di lavoro|100|
 |Numero di nodi perimetrali| 5|
 |Spazio totale su disco|100 TB|
 |Configurazione del nodo master|m/y, cpu, disco, ecc.|
 |Configurazione dei nodi dati|m/y, cpu, disco, ecc.|
 |Configurazione dei nodi perimetrali|m/y, cpu, disco, ecc.|
-|Crittografia Hadoop Distributed File System?|Sì|
+|Crittografia Hadoop Distributed File System?|Yes|
 |Disponibilità elevata|Disponibilità elevata Hadoop Distributed File System, disponibilità elevata metastore|
 |Ripristino di emergenza/backup|Cluster di backup?|  
 |Sistemi che dipendono dal cluster|SQL Server, Teradata, Power BI, MongoDB|
@@ -138,10 +137,10 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |Destinazioni dei dati|Hadoop Distributed File System, RDBMS, Kafka, MPP ||
 |**Argomento**: **Metadati**|||
 |Tipo di database Hive|MySQL, Postgres||
-| No. di metastore Hive|2||
-| No. di tabelle Hive|100||
-| No. di criteri di Ranger|20||
-| No. di flussi di lavoro Oozie|100||
+|No. di metastore Hive|2||
+|No. di tabelle Hive|100||
+|No. di criteri di Ranger|20||
+|No. di flussi di lavoro Oozie|100||
 |**Argomento**: **Ridimensionare**|||
 |Volume di dati, inclusa la replica|100 TB||
 |Volume di inserimento giornaliero|50 GB||
@@ -153,11 +152,11 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |Spazio su disco usato|75%||
 |% media rete usata|25%
 |**Argomento**: **Staff**|||
-| No. di amministratori|2||
-| No. di sviluppatori|10||
-| No. di utenti finali|100||
+|No. di amministratori|2||
+|No. di sviluppatori|10||
+|No. di utenti finali|100||
 |Competenze|Hadoop, Spark||
-| No. di risorse disponibili per le iniziative di migrazione|2||
+|No. di risorse disponibili per le iniziative di migrazione|2||
 |**Argomento**: **Limitazioni**|||
 |Limitazioni correnti|Latenza elevata||
 |Sfide correnti|Problema di concorrenza||
@@ -168,8 +167,8 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |---|---|---|
 |**Domanda**|**Esempio**|**Risposta**|
 | Area preferita|Stati Uniti orientali||
-|Rete virtuale preferita?|Sì||
-|Disponibilità elevata/ripristino di emergenza necessari?|Sì||
+|Rete virtuale preferita?|Yes||
+|Disponibilità elevata/ripristino di emergenza necessari?|Yes||
 |Integrazione con altri servizi cloud?|File di definizione dell'applicazione (ADF), CosmosDB||
 |**Argomento**:   **Spostamento dei dati**  |||
 |Preferenza di caricamento iniziale|DistCp, Data Box, ADF, WANDisco||
@@ -178,28 +177,27 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |**Argomento**:   **monitoraggio e invio di avvisi** |||
 |Uso di Monitoraggio di Azure e invio di avvisi/integrazione del monitoraggio di terze parti|Uso di Monitoraggio di Azure e invio di avvisi||
 |**Argomento**:   **preferenze relative alla sicurezza** |||
-|Pipeline di dati privata e protetta?|Sì||
-|Cluster aggiunto a un dominio (ESP)?|     Sì||
-|Sincronizzazione da AD locale al cloud?|     Sì||
-| No. di utenti di Active Directory da sincronizzare?|          100||
-|OK sincronizzare le password nel cloud?|    Sì||
-|Utenti solo cloud?|                 Sì||
-|MFA necessaria?|                       No || 
-|Requisiti di autorizzazione dei dati?|  Sì||
-|Controllo degli accessi in base al ruolo?|        Sì||
-|Controllo necessario?|                  Sì||
-|Crittografia dei dati inattivi?|          Sì||
-|Crittografia dei dati in movimento?|       Sì||
+|Pipeline di dati privata e protetta?|Yes||
+|Cluster aggiunto a un dominio (ESP)?|     Yes||
+|Sincronizzazione da AD locale al cloud?|     Yes||
+|No. di utenti di Active Directory da sincronizzare?|          100||
+|OK sincronizzare le password nel cloud?|    Yes||
+|Utenti solo cloud?|                 Yes||
+|MFA necessaria?|                       No|| 
+|Requisiti di autorizzazione dei dati?|  Yes||
+|Controllo degli accessi in base al ruolo?|        Yes||
+|Controllo necessario?|                  Yes||
+|Crittografia dei dati inattivi?|          Yes||
+|Crittografia dei dati in movimento?|       Yes||
 |**Argomento**:   **preferenze di riprogettazione** |||
 |Tipi di cluster singoli o specifici|Tipi di cluster specifici||
 |Archiviazione remota o con percorso condiviso?|Archiviazione remota||
 |Dimensioni del cluster ridotte man mano che i dati vengono archiviati in remoto?|Dimensioni del cluster ridotte||
 |Uso di più cluster ridotti anziché di un unico cluster di grandi dimensioni?|Uso di più cluster ridotti||
-|Uso di un metastore remoto?|Sì||
-|Condivisione di metastore tra diversi cluster?|Sì||
+|Uso di un metastore remoto?|Yes||
+|Condivisione di metastore tra diversi cluster?|Yes||
 |Decostruzione dei carichi di lavoro?|Sostituzione di processi Hive con processi Spark||
-|Uso del file di definizione dell'applicazione (ADF) per l'orchestrazione dei dati?|No ||
-|HDInsight o piattaforma di dati Hortonworks su IaaS?|HDInsight||
+|Uso del file di definizione dell'applicazione (ADF) per l'orchestrazione dei dati?|No||
 
 ## <a name="next-steps"></a>Passaggi successivi
 

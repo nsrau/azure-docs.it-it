@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 4fffc54428b152a060594a5c107d3ac08457aaaa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154618"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuire Azure Blockchain Workbench
@@ -70,7 +70,7 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
 
     ![Creare Azure Blockchain Workbench](media/deploy/blockchain-workbench-settings-basic.png)
 
-    | Impostazione | DESCRIZIONE  |
+    | Impostazione | Descrizione  |
     |---------|--------------|
     | Prefisso della risorsa | Identificatore univoco breve della distribuzione. Questo valore viene usato come base per la denominazione delle risorse. |
     | Nome utente macchina virtuale | Nome utente usato come amministratore per tutte le macchine virtuali (VM). |
@@ -93,7 +93,7 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
 
     ![Impostazioni avanzate per la nuova rete blockchain](media/deploy/advanced-blockchain-settings-new.png)
 
-    | Impostazione | DESCRIZIONE  |
+    | Impostazione | Descrizione  |
     |---------|--------------|
     | Azure Blockchain Service piano tariffario | Scegli **base** oppure **Standard** livello di servizio di Blockchain di Azure che viene usato per la Blockchain Workbench |
     | Impostazioni di Azure Active Directory | Scegliere **Add Later** (Aggiungi in seguito).</br>Note: se si sceglie di [pre-configurare Azure AD](#azure-ad-configuration) o si sta eseguendo una ridistribuzione, scegliere *Add Now* (Aggiungi adesso). |
@@ -112,7 +112,7 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
 
      ![Impostazioni avanzate per la rete blockchain esistente](media/deploy/advanced-blockchain-settings-existing.png)
 
-     | Impostazione | DESCRIZIONE  |
+     | Impostazione | Descrizione  |
      |---------|--------------|
      | Endpoint RPC Ethereum | Fornire l'endpoint RPC di una rete blockchain PoA esistente. L'endpoint inizia con https:// o http:// e termina con un numero di porta. Ad esempio: `http<s>://<network-url>:<port>` |
      | Impostazioni di Azure Active Directory | Scegliere **Add Later** (Aggiungi in seguito).</br>Note: se si sceglie di [pre-configurare Azure AD](#azure-ad-configuration) o si sta eseguendo una ridistribuzione, scegliere *Add Now* (Aggiungi adesso). |
@@ -200,7 +200,7 @@ Per la distribuzione di Blockchain Workbench, è necessaria la registrazione di 
 
     |Impostazione  | Valore  |
     |---------|---------|
-    |NOME | `Blockchain API` |
+    |Name | `Blockchain API` |
     |Tipo di applicazione |App Web/API|
     |URL di accesso | `https://blockchainapi` |
 

@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ecadb499d140ccfc993820080cae0b749977fc61
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824737"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gestione di certificati per accesso Single Sign-On federato in Azure Active Directory
@@ -34,7 +34,7 @@ Quando si aggiunge una nuova applicazione dalla raccolta e si configura un sign-
 
 ![Attiva firmare opzioni di download certificato SAML](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
-È anche possibile scaricare un certificato attivo o inattivo, selezionando il **certificato di firma SAML** dell'intestazione **Edit** icona (una matita), che consente di visualizzare il **certificatodifirmaSAML** pagina. Selezionare i puntini di sospensione (**...** ) accanto al certificato che si desidera scaricare e quindi scegliere il formato di certificato desiderato. È presente l'opzione aggiuntiva per scaricare il certificato nel formato di posta elettronica sulla privacy avanzata (con estensione PEM). Questo formato è identico in Base64, ma con un **PEM** estensione nome file, che non viene riconosciuto nel Windows come formato di certificato.
+È anche possibile scaricare un certificato attivo o inattivo, selezionando il **certificato di firma SAML** dell'intestazione **Edit** icona (una matita), che consente di visualizzare il **certificatodifirmaSAML** pagina. Selezionare i puntini di sospensione ( **...** ) accanto al certificato che si desidera scaricare e quindi scegliere il formato di certificato desiderato. È presente l'opzione aggiuntiva per scaricare il certificato nel formato di posta elettronica sulla privacy avanzata (con estensione PEM). Questo formato è identico in Base64, ma con un **PEM** estensione nome file, che non viene riconosciuto nel Windows come formato di certificato.
 
 ![Opzioni di download di certificati (attive e inattive) di firma SAML](./media/manage-certificates-for-federated-single-sign-on/all-certificate-download-options.png)
 
@@ -50,7 +50,7 @@ Per impostazione predefinita, Azure configura un certificato per far scadere dop
 
 Le due sezioni seguenti consentono di eseguire questi passaggi.
 
-### <a name="create-a-new-certificate"></a>Crea un nuovo certificato
+### <a name="create-a-new-certificate"></a>Creare un nuovo certificato
 
 In primo luogo, creare e salvare di nuovo certificato con una data di scadenza diversa:
 
@@ -88,7 +88,7 @@ Successivamente, scaricare il nuovo certificato in formato corretto, caricarlo p
 
 3. Seguire le istruzioni di [certificato generato automaticamente per le applicazioni incluse e non inclusa nella raccolta](#auto-generated-certificate-for-gallery-and-non-gallery-applications) sezione in precedenza. Questo passaggio consente di scaricare il certificato nel formato di codifica per il caricamento richiesto dall'applicazione.
 
-4. Quando si desidera eseguire il rollover al nuovo certificato, tornare indietro per la **certificato di firma SAML** pagina e nella riga certificato appena salvato, selezionare i puntini di sospensione (**...** ) e selezionare **Rendi attivo il certificato**. Lo stato del nuovo certificato diventa **Active**, e il certificato precedentemente attivo viene modificato in uno stato **Inactive**.
+4. Quando si desidera eseguire il rollover al nuovo certificato, tornare indietro per la **certificato di firma SAML** pagina e nella riga certificato appena salvato, selezionare i puntini di sospensione ( **...** ) e selezionare **Rendi attivo il certificato**. Lo stato del nuovo certificato diventa **Active**, e il certificato precedentemente attivo viene modificato in uno stato **Inactive**.
 
 5. Continuare segue le istruzioni di configurazione dell'accesso sign-on SAML dell'applicazione visualizzato in precedenza, in modo che è possibile caricare la firma di SAML del certificato nel formato di codifica corretto.
 
@@ -116,7 +116,7 @@ Se un certificato sta per scadere, è possibile rinnovarlo tramite una procedura
 
 2. Se l'applicazione può automaticamente il rollover un certificato, impostare il nuovo certificato come attivo seguendo questa procedura:
    1. Tornare al **certificato di firma SAML** pagina.
-   2. Nella riga certificato appena salvato, selezionare i puntini di sospensione (**...** ) e quindi selezionare **Rendi attivo il certificato**.
+   2. Nella riga certificato appena salvato, selezionare i puntini di sospensione ( **...** ) e quindi selezionare **Rendi attivo il certificato**.
    3. Ignorare i due passaggi successivi.
 
 3. Se l'app può gestire solo un certificato alla volta, selezionare un intervallo di tempo di inattività per eseguire il passaggio successivo. (In caso contrario, se l'applicazione non rilevano automaticamente il nuovo certificato, ma può gestire più di un certificato di firma, è possibile eseguire il passaggio successivo in qualsiasi momento.)

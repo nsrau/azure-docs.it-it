@@ -2,17 +2,16 @@
 title: Protezione delle zone e dei record DNS di Azure
 description: Come proteggere le zone e i set di record in DNS di Microsoft Azure.
 services: dns
-author: WenJason
+author: vhorne
 ms.service: dns
 ms.topic: article
-origin.date: 12/4/2018
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 12/4/2018
+ms.author: victorh
 ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121419"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Come proteggere le zone e i record DNS
@@ -118,7 +117,8 @@ L'esempio seguente illustra la definizione di un ruolo personalizzato per gestir
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read"
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
     ],
     "NotActions": [
     ],
@@ -156,7 +156,7 @@ Il ruolo può quindi essere assegnato come avviene per i ruoli predefiniti, come
 
 Per altre informazioni su come creare, gestire e assegnare ruoli personalizzati, vedere [Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md).
 
-## <a name="resource-locks"></a>Blocchi delle risorse
+## <a name="resource-locks"></a>Blocchi risorse
 
 Oltre al Controllo degli accessi in base al ruolo, Azure Resource Manager supporta un altro tipo di controllo di sicurezza, ovvero la possibilità di bloccare le risorse. Le regole del Controllo degli accessi in base al ruolo di Azure consentono di controllare le azioni di utenti e gruppi specifici,mentre i blocchi risorse vengono applicati alla risorsa e hanno effetto su tutti gli utenti e i ruoli. Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](../azure-resource-manager/resource-group-lock-resources.md).
 

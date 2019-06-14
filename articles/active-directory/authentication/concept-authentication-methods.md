@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119360"
 ---
 # <a name="what-are-authentication-methods"></a>Cosa si intende per metodi di autenticazione?
@@ -30,10 +30,10 @@ Si consiglia agli amministratori di consentire agli utenti la selezione di un nu
 | --- | --- |
 | Password | Autenticazione a più fattori e SSPR |
 | Domande di sicurezza | Solo SSPR |
-| Indirizzo e-mail | Solo SSPR |
+| Indirizzo di posta elettronica | Solo SSPR |
 | App Microsoft Authenticator | Autenticazione a più fattori e anteprima pubblica per SSPR |
 | Token hardware OATH | Anteprima pubblica per autenticazione a più fattori e SSPR |
-| SMS | Autenticazione a più fattori e SSPR |
+| sms | Autenticazione a più fattori e SSPR |
 | Chiamata vocale | Autenticazione a più fattori e SSPR |
 | Password dell'app | Autenticazione a più fattori solo in alcuni casi |
 
@@ -60,15 +60,15 @@ Se vengono usate le domande di sicurezza, è consigliabile combinare questo meto
 
 ### <a name="predefined-questions"></a>Domande predefinite
 
-* Città in cui si è incontrato il coniuge/partner
+* In quale città hai incontrato tuo marito o il tuo partner?
 * In quale città si sono incontrati i tuoi genitori?
 * In quale città vive tuo fratello/sorella più vicino/a?
 * In quale città è nato tuo padre?
 * In quale città hai avuto il tuo primo lavoro?
 * In quale città è nata tua madre?
-* Città in cui si è trascorso il Capodanno del 2000
-* Cognome dell'insegnante preferito delle scuole superiori
-* Nome di un'università a cui si è inviata una richiesta di iscrizione ma che non si è frequentata
+* In quale città hai trascorso il Capodanno del 2000?
+* Qual è il cognome del tuo insegnante preferito delle scuole superiori?
+* Qual è il nome di una delle università a cui hai inviato una richiesta di iscrizione ma che non hai frequentato?
 * In quale luogo si è tenuto il tuo primo ricevimento di matrimonio?
 * Qual è il secondo nome di tuo padre?
 * Qual è il tuo piatto preferito?
@@ -94,7 +94,7 @@ Se vengono usate le domande di sicurezza, è consigliabile combinare questo meto
 * Qual è stato il tuo primo lavoro?
 * Quali erano le ultime quattro cifre del tuo numero di telefono quando eri bambino/a?
 * Cosa volevi fare da grande quando eri piccolo?
-* Persona più famosa mai incontrata
+* Qual è la persona più famosa che hai mai incontrato?
 
 Tutte le domande di sicurezza predefinite sono tradotte e localizzate nel set completo delle lingue di Office 365 in base alle impostazioni locali del browser dell'utente.
 
@@ -113,7 +113,7 @@ La lunghezza massima di una domanda di sicurezza personalizzata è di 200 caratt
 * È possibile usare qualsiasi set di caratteri per definire domande e risposte, compresi i caratteri Unicode.
 * Il numero di domande definite deve essere maggiore o uguale al numero di domande necessarie per la registrazione.
 
-## <a name="email-address"></a>Indirizzo e-mail
+## <a name="email-address"></a>Indirizzo di posta elettronica
 
 L'indirizzo di posta elettronica è disponibile **solo per la reimpostazione della password di Azure AD in modalità self-service**.
 
@@ -129,7 +129,7 @@ L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.
 > Gli utenti non avranno la possibilità di registrare l'app per dispositivi mobili quando ci si registra per la reimpostazione della password in modalità self-service. Al contrario, gli utenti possono registrare l'app per dispositivi mobili al link [https://aka.ms/mfasetup](https://aka.ms/mfasetup) o nell'anteprima di registrazione delle informazioni di sicurezza alla pagina [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 >
 
-### <a name="notification-through-mobile-app"></a>Notifica tramite l'app per dispositivi mobili
+### <a name="notification-through-mobile-app"></a>Notifica tramite app per dispositivi mobili
 
 L'app Microsoft Authenticator consente di impedire l'accesso non autorizzato agli account e di arrestare le transazioni illecite eseguendo il push di una notifica allo smartphone o al tablet dell'utente. Gli utenti visualizzano la notifica e, se legittima, selezionano Verifica. In caso contrario, è possibile selezionare Nega.
 
@@ -197,7 +197,7 @@ Per garantirne il corretto funzionamento, i numeri di telefono devono essere nel
 
 Viene inviato un SMS contenente un codice di verifica al numero di telefono cellulare. Immettere il codice di verifica fornito nell'interfaccia di accesso per continuare.
 
-### <a name="phone-call"></a>Telefonata
+### <a name="phone-call"></a>Chiamata telefonica
 
 Viene inviata una chiamata vocale automatizzata al numero di telefono fornito. Per l'autenticazione, rispondere alla chiamata e premere # sul tastierino telefonico
 

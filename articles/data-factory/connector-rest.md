@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: jingwang
 ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60546642"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint REST tramite Azure Data Factory
@@ -55,11 +55,11 @@ Per il servizio collegato REST sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | Il **tipo** proprietà deve essere impostata su **RestService**. | Sì |
-| url | URL di base del servizio REST. | Sì |
-| enableServerCertificateValidation | Specifica se convalidare il certificato SSL sul lato server durante la connessione all'endpoint. | No <br /> (il valore predefinito è **true**) |
-| authenticationType | Tipo di autenticazione usato per connettersi al servizio REST. I valori consentiti sono **Anonymous**, **Basic**, **AadServicePrincipal** e **ManagedServiceIdentity**. Per altre proprietà ed esempi su ogni valore, vedere le sezioni corrispondenti di seguito. | Sì |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non è specificata, questa proprietà usa il tipo Azure Integration Runtime predefinito. |No  |
+| type | Il **tipo** proprietà deve essere impostata su **RestService**. | Yes |
+| url | URL di base del servizio REST. | Yes |
+| enableServerCertificateValidation | Specifica se convalidare il certificato SSL sul lato server durante la connessione all'endpoint. | No<br /> (il valore predefinito è **true**) |
+| authenticationType | Tipo di autenticazione usato per connettersi al servizio REST. I valori consentiti sono **Anonymous**, **Basic**, **AadServicePrincipal** e **ManagedServiceIdentity**. Per altre proprietà ed esempi su ogni valore, vedere le sezioni corrispondenti di seguito. | Yes |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non è specificata, questa proprietà usa il tipo Azure Integration Runtime predefinito. |No |
 
 ### <a name="use-basic-authentication"></a>Usare l'autenticazione di base
 
@@ -67,7 +67,7 @@ Impostare la proprietà **authenticationType** su **Basic**. Oltre alle propriet
 
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| userName | Nome utente da usare per accedere all'endpoint REST. | Sì |
+| userName | Nome utente da usare per accedere all'endpoint REST. | Yes |
 | password | Password per l'utente (valore di **userName**). Contrassegnare questo campo come tipo **SecureString** per archiviare la password in modo sicuro in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 
 **Esempio**
@@ -100,10 +100,10 @@ Impostare la proprietà **authenticationType** su **AadServicePrincipal**. Oltre
 
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| servicePrincipalId | Specificare l'ID client. dell'applicazione Azure Active Directory. | Sì |
+| servicePrincipalId | Specificare l'ID client. dell'applicazione Azure Active Directory. | Yes |
 | servicePrincipalKey | Specificare la chiave dell'applicazione Azure Active Directory. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
-| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione, ad esempio `https://management.core.windows.net`.| Sì |
+| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Yes |
+| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione, ad esempio `https://management.core.windows.net`.| Yes |
 
 **Esempio**
 
@@ -137,7 +137,7 @@ Impostare la proprietà **authenticationType** su **ManagedServiceIdentity**. Ol
 
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione, ad esempio `https://management.core.windows.net`.| Sì |
+| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione, ad esempio `https://management.core.windows.net`.| Yes |
 
 **Esempio**
 
@@ -169,12 +169,12 @@ Per copiare dati da REST, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del set di dati deve essere impostata su **RestResource**. | Sì |
-| relativeUrl | URL relativo della risorsa che contiene i dati. Quando questa proprietà non è specificata, viene usato solo l'URL indicato nella definizione del servizio collegato. | No  |
-| requestMethod | Metodo HTTP. I valori consentiti sono **Get** (predefinito) e **Post**. | No  |
-| additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No  |
-| requestBody | Corpo della richiesta HTTP. | No  |
-| paginationRules | Regole di paginazione per comporre le richieste di pagina successive. Per informazioni dettagliate, vedere la sezione [Supporto della paginazione](#pagination-support). | No  |
+| type | La proprietà **type** del set di dati deve essere impostata su **RestResource**. | Yes |
+| relativeUrl | URL relativo della risorsa che contiene i dati. Quando questa proprietà non è specificata, viene usato solo l'URL indicato nella definizione del servizio collegato. | N. |
+| requestMethod | Metodo HTTP. I valori consentiti sono **Get** (predefinito) e **Post**. | N. |
+| additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | N. |
+| requestBody | Corpo della richiesta HTTP. | No |
+| paginationRules | Regole di paginazione per comporre le richieste di pagina successive. Per informazioni dettagliate, vedere la sezione [Supporto della paginazione](#pagination-support). | No |
 
 **Esempio 1: Uso del metodo Get con la paginazione**
 
@@ -232,9 +232,9 @@ Nella sezione **origine** dell'attività di copia sono supportate le proprietà 
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **RestSource**. | Sì |
-| httpRequestTimeout | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. Il valore predefinito è **00:01:40**.  | No  |
-| requestInterval | Periodo di attesa prima di inviare la richiesta per la pagina successiva. Il valore predefinito è **00:00:01** |  No  |
+| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **RestSource**. | Yes |
+| httpRequestTimeout | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. Il valore predefinito è **00:01:40**.  | No |
+| requestInterval | Periodo di attesa prima di inviare la richiesta per la pagina successiva. Il valore predefinito è **00:00:01** |  No |
 
 **Esempio**
 
@@ -285,15 +285,15 @@ Le **regole di paginazione** sono definite come un dizionario nel set di dati ch
 
 **Chiavi supportate** nelle regole di paginazione:
 
-| Chiave | DESCRIZIONE |
+| Chiave | Descrizione |
 |:--- |:--- |
 | AbsoluteUrl | Indica l'URL per l'invio della richiesta successiva. Può essere **URL assoluto o relativo URL**. |
-| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | Il valore di "parametro_query_richiesta" è definito dall'utente e fa riferimento al nome di un parametro di query nell'URL della richiesta HTTP successiva. |
+| QueryParameters.*parametro_query_richiesta* o QueryParameters['parametro_query_richiesta'] | Il valore di "parametro_query_richiesta" è definito dall'utente e fa riferimento al nome di un parametro di query nell'URL della richiesta HTTP successiva. |
 | Headers.*request_header* OR Headers['request_header'] | Il valore di "intestazione_richiesta" è definito dall'utente e fa riferimento a un nome di intestazione nella richiesta HTTP successiva. |
 
 **Valori supportati** nelle regole di paginazione:
 
-| Value | DESCRIZIONE |
+| Value | Descrizione |
 |:--- |:--- |
 | Headers.*intestazione_risposta* o Headers['intestazione_risposta'] | Il valore di "intestazione_risposta" è definito dall'utente e fa riferimento a un nome di intestazione nella risposta HTTP corrente, il cui valore verrà usato per inviare la richiesta successiva. |
 | Espressione JSONPath che inizia con "$" (che rappresenta la radice del corpo della risposta) | Il corpo della risposta deve contenere un solo oggetto JSON. L'espressione JSONPath deve restituire un singolo valore primitivo, che verrà usato per inviare la richiesta successiva. |

@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 08/17/2018
 ms.author: diberry
 ms.openlocfilehash: a65b075e89180441eecfb420130bfd1e47b277a5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123560"
 ---
 Per ottenere una previsione di Language Understanding Intelligent Service (LUIS) in un chatbot o in un'altra applicazione client, è necessario pubblicare l'app nell'endpoint. 

@@ -16,10 +16,10 @@ ms.date: 06/26/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75867242358881c963ab4470bdb7963d0ea4671c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60440182"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante chiamate dell'API REST
@@ -32,7 +32,7 @@ Questo articolo spiega come creare, elencare ed eliminare un'identità gestita a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-it-work)**.
+- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-it-work)** .
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 - Se si usa Windows, installare il [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) oppure usare [Azure Cloud Shell](../../cloud-shell/overview.md) nel portale di Azure.
 - Se si usa il [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) o una [distribuzione Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [installare la console locale di interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
@@ -60,14 +60,14 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **Intestazioni della richiesta**
 
-|Intestazione della richiesta  |DESCRIZIONE  |
+|Intestazione della richiesta  |Descrizione  |
 |---------|---------|
 |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
+|*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
 
 **Corpo della richiesta**
 
-|Name  |DESCRIZIONE  |
+|NOME  |Descrizione  |
 |---------|---------|
 |location     | Richiesto. Percorso della risorsa.        |
 
@@ -83,10 +83,10 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
 ```
 
-|Intestazione della richiesta  |DESCRIZIONE  |
+|Intestazione della richiesta  |Descrizione  |
 |---------|---------|
 |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
+|*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminare un'identità gestita assegnata dall'utente
 
@@ -103,10 +103,10 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ```HTTP
 DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
 ```
-|Intestazione della richiesta  |DESCRIZIONE  |
+|Intestazione della richiesta  |Descrizione  |
 |---------|---------|
 |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
+|*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

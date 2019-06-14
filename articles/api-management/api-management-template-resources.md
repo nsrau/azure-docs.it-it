@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557886"
 ---
 # <a name="azure-api-management-template-resources"></a>Risorse del modello Gestione API di Azure
@@ -112,13 +112,13 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |PageTitleApis|API|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Application preview (Anteprima dell'applicazione)|  
 |WebApplicationsRequirementsHeader|Requisiti|  
@@ -132,7 +132,7 @@ Sono supportate le seguenti opzioni di localizzazione:
 |WebDevelopersAppDeleteConfirmation|Are you sure that you want to remove application? (Rimuovere l'applicazione?)|  
 |WebDevelopersAppNotPublished|Not published (Non pubblicata)|  
 |WebDevelopersAppNotSubmitted|Not submitted (Non inviata)|  
-|WebDevelopersAppTableCategoryHeader|Categoria|  
+|WebDevelopersAppTableCategoryHeader|Category|  
 |WebDevelopersAppTableNameHeader|NOME|  
 |WebDevelopersAppTableStateHeader|Stato|  
 |WebDevelopersEditLink|Modificare|  
@@ -143,13 +143,13 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |WebApplicationsHeader|APPLICAZIONI|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |NoItemsToDisplay|No results found. (Nessun risultato trovato.)|  
 |GeneralExceptionMessage|Something is not right. (Si è verificato un problema.) It could be a temporary glitch or a bug. (Potrebbe trattarsi di un problema temporaneo o di un bug.) Please, try again. (Riprovare.)|  
@@ -160,7 +160,7 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |ButtonLabelCancel|Annulla|  
 |ButtonLabelSave|Salva|  
@@ -184,7 +184,7 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 ###  <a name="Documentation"></a> Documentazione  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Intestazione "{0}" non valida|  
 |WebDocumentationInvalidRequestErrorMessage|Invalid Request URL (URL della richiesta non valido)|  
@@ -326,13 +326,13 @@ Sono supportate le seguenti opzioni di localizzazione:
 |SectionHeadingRequestUrl|URL richiesta|  
 |SectionHeadingResponse|Risposta|  
 |SectionHeadingRequestHeaders|Intestazioni della richiesta|  
-|FormLabelSubtextOptional|Facoltativo|  
+|FormLabelSubtextOptional|facoltativo|  
 |SectionHeadingCodeSamples|Esempi di codice|  
 |TextblockOpenidConnectHeaderDescription|ID token OpenID Connect ottenuto da <i\>{0}< /i\>. Tipi di concessione supportati: <i\>{1}</i\>.|  
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |LinkLabelBack|Indietro|  
 |LinkLabelHomePage|home page|  
@@ -350,7 +350,7 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problemi|  
 |WebIssuesNoActiveSubscriptions|Non si dispone di sottoscrizioni attive. You need to subscribe for a product to report an issue. (È necessario disporre della sottoscrizione al prodotto per segnalare un problema.)|  
@@ -361,7 +361,7 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |LinkLabelHomePage|home page|  
 |LinkLabelSendUsEmail|Inviare un messaggio di posta elettronica|  
@@ -376,7 +376,7 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |WebProductsAgreement|Con la sottoscrizione al Prodotto {0}, accetto il `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Condizioni per l'utilizzo|  
@@ -398,13 +398,13 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |PageTitleProducts|Prodotti|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|Sign in is disabled by the administrators at the moment. (L'accesso è al momento disabilitato dagli amministratori.)|  
 |TextboxExternalIdentitiesSigninInvitation|Alternatively, sign in with (In alternativa, accedere con)|  
@@ -412,7 +412,7 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |PrincipalNotFound|Principal is not found or signature is invalid (Entità non trovata o firma non valida)|  
 |ErrorSsoAuthenticationFailed|SSO authentication failed (Autenticazione SSO non riuscita)|  
@@ -508,7 +508,7 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Password dimenticata?|  
 |WebAuthenticationIfAdministrator|If you are an Administrator you must sign in `<a href="{0}"\>here</a\>`. (Gli amministratori devono accedere da `<a href="{0}"\>here</a\>`.)|  
@@ -520,7 +520,7 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |PageTitleSignup|Iscrizione|  
 |WebAuthenticationAlreadyAMember|Already a member? (Si è già membri?)|  
@@ -530,7 +530,7 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Are you sure that you want to cancel this subscription? (Annullare la sottoscrizione?)|  
 |SubscriptionRenewConfirmation|Are you sure that you want to renew this subscription? (Rinnovare la sottoscrizione?)|  
@@ -564,7 +564,7 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|NOME|Text|  
+|Name|Text|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Update profile (Aggiorna profilo)|  
 |PageTitleUpdateProfile|Update account information (Aggiorna informazioni sull'account)|  

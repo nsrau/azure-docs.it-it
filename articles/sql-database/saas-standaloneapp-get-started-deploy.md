@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304150"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione autonoma a singolo tenant che usa il database SQL di Azure
@@ -76,16 +76,16 @@ L'app illustra le sedi che ospitano gli eventi.  Le sedi sono i tenant dell'appl
 
 1. Aprire la pagina degli eventi per ognuno dei tre tenant in schede separate del browser:
 
-   - http://events.contosoconcerthall.&lt;utente&gt;.trafficmanager.net
-   - http://events.dogwooddojo.&lt;utente&gt;.trafficmanager.net
-   - http://events.fabrikamjazzclub.&lt;utente&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt ;utente&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt ;utente&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt ;utente&gt;.trafficmanager.net
 
      In ogni URL sostituire &lt;user&gt; con il valore relativo all'utente della distribuzione specifica.
 
    ![Eventi](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Per controllare la distribuzione delle richieste in ingresso, l'app usa [*Gestione traffico di Microsoft Azure*](../traffic-manager/traffic-manager-overview.md). Ogni istanza dell'app specifica del tenant include il nome del tenant come parte del nome di dominio nell'URL. Gli URL di tutti i tenant includono valori di **User** specifici. Gli URL hanno il formato seguente:
-- http://events.&lt;nomeluogo&gt;.&lt;utente&gt;.trafficmanager.net
+- http://events.&lt ;nomeluogo&gt;.&lt; utente&gt;.trafficmanager.net
 
 La **posizione** del database di ogni tenant è inclusa nelle impostazioni dell'app distribuita corrispondente.
 

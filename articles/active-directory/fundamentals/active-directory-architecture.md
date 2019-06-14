@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ba36825805ff54165a3e6c4e221550cc30b07d3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: aed332f32fa9fdc154c72e45914e642a9dad4993
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235175"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055703"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Che cos'è l'architettura di Azure Active Directory?
 Azure Active Directory (Azure AD) consente di gestire in modo sicuro l'accesso ai servizi e alle risorse di Azure per gli utenti. In Azure AD è inclusa una suite completa di funzionalità di gestione delle identità. Per informazioni sulle funzionalità di Azure AD, vedere [Informazioni su Azure Active Directory](active-directory-whatis.md).
@@ -95,7 +95,7 @@ Il modello della directory si basa sulla coerenza finale. Un problema tipico dei
 
 Azure AD offre la coerenza in lettura/scrittura per le applicazioni che specificano come destinazione una replica secondaria instradandone le operazioni di scrittura alla replica primaria ed effettuando di nuovo il pull sincrono delle operazioni di scrittura alla replica secondaria.
 
-Per le operazioni di scrittura delle applicazioni che usano l'API Graph di Azure AD non è necessario mantenere l'affinità con la replica di una directory per la coerenza in lettura/scrittura. Il servizio Graph di Azure AD gestisce una sessione logica, che è affine a una replica secondaria usata per le operazioni di lettura. L'affinità viene acquisita in un "token di replica" che il servizio Graph memorizza usando una cache distribuita. Questo token viene quindi usato per le operazioni successive nella stessa sessione logica. 
+Per le operazioni di scrittura delle applicazioni che usano l'API Graph di Azure AD non è necessario mantenere l'affinità con la replica di una directory per la coerenza in lettura/scrittura. Il servizio Graph di Azure AD gestisce una sessione logica, che presenta affinità a una replica secondaria usata per le letture; affinità viene acquisita in un "token di replica" che il servizio graph memorizza usando una cache distribuita nel Data Center di replica secondaria. Questo token viene quindi usato per le operazioni successive nella stessa sessione logica. Per continuare a usare la stessa sessione logica, le richieste successive devono essere indirizzate a stesso Data Center di Azure AD. Non è possibile continuare a una sessione logica se il client richiede vengano indirizzate alle più Data Center di Azure AD; In questo caso il client dispone di diverse sessioni logiche che sono indipendenti drastica di lettura / scrittura.
 
  >[!NOTE]
  >Le operazioni di scrittura vengono immediatamente replicate nella replica secondaria in cui sono state rilasciate le operazioni di lettura della sessione logica.

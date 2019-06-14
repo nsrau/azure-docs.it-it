@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66169287"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gestione di asset di Servizi multimediali su più account di archiviazione  
@@ -67,7 +67,7 @@ Per collegare account di archiviazione all'account Servizi multimediali di Micro
 Attualmente, se si desidera aggiungere un account di archiviazione offline sicura all'account Servizi multimediali di Azure (AMS), l'account di archiviazione deve essere di tipo BLOB ed essere impostato come non principale.
 
 ## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Per gestire asset di Servizi multimediali su più account di archiviazione
-Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali per eseguire le attività seguenti: 
+Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali per eseguire le attività seguenti:
 
 1. Visualizzare tutti gli account di archiviazione associati all'account di Servizi multimediali specificato.
 2. Recuperare il nome dell'account di archiviazione predefinito.

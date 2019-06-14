@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784436"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Errore durante l'aggiunta di un'applicazione della raccolta di Azure AD
@@ -89,7 +89,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
   -   Esempio: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
-- **Timestamp (UTC)**: il timestamp in cui si è verificata la notifica, basato sul sistema UTC
+- **Timestamp (UTC)** : il timestamp in cui si è verificata la notifica, basato sul sistema UTC
 
   -   Esempio: **2017-03-23T19:50:43.7583681Z**
 

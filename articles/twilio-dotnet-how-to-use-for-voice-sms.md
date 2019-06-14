@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 3b8b21de9664a969e8b1ce5699034aa9ab41d0f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60329489"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Come usare Twilio per le funzionalità voce ed SMS da Azure
@@ -40,7 +40,7 @@ L'API Twilio è un'API RESTful che fornisce funzionalità voce ed SMS per le app
 I concetti principali dell'API Twilio sono costituiti dai verbi Twilio e dal linguaggio di markup Twilio (Twilio Markup Language, TwiML).
 
 ### <a id="Verbs"></a>Verbi Twilio
-Nell'API vengono usati i verbi di Twilio: il verbo **&lt;Say&gt;**, ad esempio, indica a Twilio di recapitare un messaggio acustico in una chiamata.
+Nell'API vengono usati i verbi di Twilio: il verbo **&lt;Say&gt;** , ad esempio, indica a Twilio di recapitare un messaggio acustico in una chiamata.
 
 Di seguito è riportato un elenco dei verbi Twilio.  Per altre informazioni su altri verbi e funzionalità, vedere la [documentazione relativa a Twilio Markup Language](https://www.twilio.com/docs/api/twiml).
 
@@ -85,7 +85,7 @@ Twilio fornisce un set di librerie helper .NET che copre vari aspetti di Twilio 
 
 Twilio offre cinque librerie per sviluppatori .NET:
 
-| Libreria | DESCRIZIONE |
+| Libreria | Descrizione |
 | --- | --- |
 | Twilio.API | La libreria Twilio di base che include l'API REST Twilio in una libreria .NET intuitiva. Questa libreria è disponibile per .NET, Silverlight e Windows Phone 7. |
 | Twilio.TwiML | Fornisce un modo intuitivo per generare il markup TwiML in .NET. |
@@ -143,7 +143,7 @@ var call = CallResource.Create(
 
 Per altre informazioni sui parametri passati al metodo **CallResource.Create**, vedere [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
-Come indicato in precedenza, questo codice utilizza un sito fornito da Twilio per restituire la risposta TwiML. Per fornire la risposta TwiML, è tuttavia possibile utilizzare il proprio sito. Per ulteriori informazioni, consultare [Come Fornire risposte TwiML dal proprio sito Web](#howto_provide_twiml_responses).
+Come indicato in precedenza, questo codice utilizza un sito fornito da Twilio per restituire la risposta TwiML. Per fornire la risposta TwiML, è tuttavia possibile utilizzare il proprio sito. Per altre informazioni, vedere [Procedura: Fornire risposte TwiML dal proprio sito Web](#howto_provide_twiml_responses).
 
 ## <a id="howto_send_sms"></a>Procedura: Inviare un messaggio SMS
 Nella schermata seguente è illustrato come inviare un messaggio SMS tramite la classe **MessageResource**. Il numero in **from** per l'invio di messaggi SMS con gli account di valutazione è fornito da Twilio. Il numero in **to** deve essere verificato per l'account Twilio prima di eseguire il codice.
@@ -176,7 +176,7 @@ catch (TwilioException ex)
 Quando l'applicazione avvia una chiamata all'API Twilio, ad esempio tramite il metodo **CallResource.Create**, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. L'esempio in [Procedura: Effettuare una chiamata in uscita](#howto_make_call) usa l'URL fornito da Twilio [https://twimlets.com/message][twimlet_message_url] per restituire la risposta.
 
 > [!NOTE]
-> Poiché TwiML è progettato per essere utilizzato da servizi Web, è possibile visualizzare il codice TwiML nel browser. Ad esempio, fare clic su [https://twimlets.com/message][twimlet_message_url] per visualizzare un elemento `<Response>` vuoto; come altro esempio, fare clic su [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) per visualizzare un elemento `<Response>` contenente un elemento &lt;Say&gt;.
+> Poiché TwiML è progettato per essere utilizzato da servizi Web, è possibile visualizzare il codice TwiML nel browser. Ad esempio, fare clic su [https://twimlets.com/message][twimlet_message_url] per visualizzare un elemento `<Response>` vuoto; come altro esempio, fare clic su [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) per visualizzare un elemento `<Response>` contenente un elemento &lt; Say&gt;.
 >
 
 Anziché utilizzare l'URL fornito da Twilio, è possibile creare un sito Web personalizzato che restituisce risposte HTTP. Il sito può essere creato in un linguaggio qualsiasi purché restituisca risposte HTTP. In questo argomento si presuppone che l'URL verrà ospitato da un gestore generico ASP.NET.

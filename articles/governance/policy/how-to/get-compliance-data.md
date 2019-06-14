@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237519"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
@@ -93,9 +93,9 @@ La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in
 
 | Stato della risorsa | Effetto | Valutazione dei criteri | Stato di conformità |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | Non conforme |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non conforme |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
-| Nuovo | Audit, AuditIfNotExist\* | True  | Non conforme |
+| Nuovo | Audit, AuditIfNotExist\* | True | Non conforme |
 | Nuovo | Audit, AuditIfNotExist\* | False | Conforme |
 
 \* Gli effetti Append, DeployIfNotExist e AuditIfNotExist richiedono che l'istruzione IF sia TRUE.

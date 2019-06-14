@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304367"
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
@@ -156,7 +156,7 @@ Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membr
 |System.Security.Cryptography.SymmetricAlgorithm|Tutti|
 |System.Security.Cryptography.X509Certificates.PublicKey|Tutti|
 |System.Security.Cryptography.X509Certificates.RSACertificateExtensions|Tutti|
-|System.Security.Cryptography.X509Certificates.X500DistinguishedName|NOME|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Name|
 |System.Security.Cryptography.X509Certificates.X509Certificate|Tutti|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|Tutti|
 |System.Security.Cryptography.X509Certificates.X509ContentType|Tutti|

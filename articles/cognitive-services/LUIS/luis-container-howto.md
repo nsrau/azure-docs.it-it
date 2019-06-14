@@ -3,20 +3,20 @@ title: Contenitori Docker
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Il contenitore LUIS carica un'app sottoposta a training o pubblicata in un contenitore Docker e fornisce l'accesso alle stime di query dagli endpoint dell'API del contenitore.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 02ac7b91622a3c8fe877ea9bcbc7224a67eb0ae5
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 68ff6a156e0d159816b184452f1f945cbce65216
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306616"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052040"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -109,7 +109,7 @@ La directory di montaggio di input può contenere contemporaneamente le versioni
 |Tipo di pacchetto|API endpoint di query|Disponibilità query|Formato nome file pacchetto|
 |--|--|--|--|
 |Con training|Get, Post|Solo contenitore|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|Gestione temporanea|Get, Post|Azure e contenitore|`{APPLICATION_ID}_STAGING.gz`|
+|Staging|Get, Post|Azure e contenitore|`{APPLICATION_ID}_STAGING.gz`|
 |Produzione|Get, Post|Azure e contenitore|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Segnaposto | Value |
+| Placeholder | Value |
 |-------------|-------|
 |{APPLICATION_ID} | ID applicazione dell'app LUIS pubblicata. |
 |{APPLICATION_ENVIRONMENT} | Ambiente dell'app LUIS pubblicata. Usare uno dei valori seguenti:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -196,7 +196,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Segnaposto | Value |
+| Placeholder | Value |
 |-------------|-------|
 |{APPLICATION_ID} | ID dell'applicazione LUIS sottoposta a training. |
 |{APPLICATION_VERSION} | Versione dell'applicazione LUIS sottoposta a training. |
@@ -218,7 +218,7 @@ In caso di esito positivo, la risposta è un file di pacchetto LUIS. Salvare il 
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Il comando usa i parametri seguenti:
 
-| Segnaposto | Value |
+| Placeholder | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | Questa chiave viene usata per avviare il contenitore. Non usare la chiave di avvio. |
 |{BILLING_ENDPOINT} | Il valore dell'endpoint fatturazione è disponibile nel portale di Azure `Cognitive Services` pagina Panoramica. È necessario aggiungere il `luis/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
@@ -277,10 +277,10 @@ Usare l'host, `https://localhost:5000`, per le API del contenitore.
 
 I parametri di query specificano la modalità e i contenuti restituiti nella risposta della query:
 
-|Parametro di query|Type|Scopo|
+|Query parameter (Parametro di query)|Type|Scopo|
 |--|--|--|
 |`q`|string|Espressione dell'utente.|
-|`timezoneOffset`|numero|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
+|`timezoneOffset`|number|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
 |`verbose`|boolean|Se l'impostazione è true, restituisce tutte le finalità e i relativi punteggi. Il valore predefinito è false, che restituisce solo la finalità principale.|
 |`staging`|boolean|Se l'impostazione è true, restituisce i risultati della query dall'ambiente di gestione temporanea. |
 |`log`|boolean|Registra le query, che successivamente possono essere usate per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md). Il valore predefinito è true.|

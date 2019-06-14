@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65916931"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Come usare i criteri di allocazione personalizzati
@@ -46,7 +46,7 @@ In questo articolo si eseguiranno i seguenti passaggi:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Completamento della guida introduttiva per [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o versione successiva con il [' sviluppo di applicazioni Desktop con C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) carico di lavoro abilitato.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o versione successiva con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -102,7 +102,7 @@ In questa sezione si creerà un nuovo gruppo di registrazioni che usa i criteri 
 
     **Genera chiavi automaticamente**: questa casella di controllo dovrebbe essere già selezionata.
 
-    **Selezionare la modalità di assegnazione dei dispositivi agli hub**: selezionare **Personalizzata (usa funzione di Azure)**.
+    **Selezionare la modalità di assegnazione dei dispositivi agli hub**: selezionare **Personalizzata (usa funzione di Azure)** .
 
     ![Aggiungere il gruppo di registrazioni dell'allocazione personalizzata per l'attestazione con chiave simmetrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -404,7 +404,7 @@ In questa sezione si aggiornerà un esempio di provisioning denominato **prov\_d
 
 Questo codice di esempio simula una sequenza di avvio di dispositivo che invia la richiesta di provisioning all'istanza del servizio Device Provisioning. La sequenza di avvio riconoscerà il dispositivo toaster e lo assegnerà all'hub IoT usando i criteri di allocazione personalizzati.
 
-1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_**.
+1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_** .
 
     ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal pannello del portale](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -508,7 +508,7 @@ La tabella seguente illustra gli scenari previsti e i codici di errore dei risul
 
 | Scenario | Risultato della registrazione dal servizio di provisioning | Effettuare il provisioning dei risultati SDK |
 | -------- | --------------------------------------------- | ------------------------ |
-| Il webhook restituisce 200 OK con 'iotHubHostName' impostato su un nome host dell'hub IoT valido | Stato del risultato: Assegnata  | L'SDK restituisce PROV_DEVICE_RESULT_OK insieme alle informazioni dell'hub |
+| Il webhook restituisce 200 OK con 'iotHubHostName' impostato su un nome host dell'hub IoT valido | Stato del risultato: Assegnato  | L'SDK restituisce PROV_DEVICE_RESULT_OK insieme alle informazioni dell'hub |
 | Il webhook restituisce 200 OK con 'iotHubHostName' incluso nella risposta ma impostato su una stringa vuota o Null | Stato del risultato: Failed<br><br> Codice errore: CustomAllocationIotHubNotSpecified (400208) | L'SDK restituisce PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | Il webhook restituisce 401 - Non autorizzato | Stato del risultato: Failed<br><br>Codice errore: CustomAllocationUnauthorizedAccess (400209) | L'SDK restituisce PROV_DEVICE_RESULT_UNAUTHORIZED |
 | È stata creata una registrazione singola per disabilitare il dispositivo | Stato del risultato: Disabled | L'SDK restituisce PROV_DEVICE_RESULT_DISABLED |

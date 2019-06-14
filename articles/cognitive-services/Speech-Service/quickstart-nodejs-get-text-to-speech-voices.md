@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 62187ddbe587a81038f8424b079e3c0c313d1ae2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08936ca0fe2fe10c332df146edd541c75df325e0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620261"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067566"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Avvio rapido: Ottiene l'elenco di voci di sintesi vocale con Node. js
 
@@ -39,7 +39,7 @@ Creare un nuovo progetto Node.js con l'IDE o l'editor preferito. Copiare quindi 
 // Requires request and request-promise for HTTP requests
 // e.g. npm install request request-promise
 const rp = require('request-promise');
-// Requires fs to write the list of languagesto a file
+// Requires fs to write the list of languages to a file
 const fs = require('fs');
 ```
 
@@ -148,7 +148,7 @@ Assicurarsi di rimuovere eventuali informazioni riservate dal codice sorgente de
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Node.js su GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NodeJS)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni di riferimento sull'API Sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Creazione di caratteri voce personalizzati](how-to-customize-voice-font.md)

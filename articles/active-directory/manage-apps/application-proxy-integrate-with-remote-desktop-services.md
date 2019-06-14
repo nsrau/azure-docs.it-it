@@ -16,12 +16,12 @@ ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 621ca9a7a55f86a92f0c809b6e220245f47dfd39
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233717"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108471"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Pubblicare Desktop remoto con il proxy applicazione di Azure AD
 
@@ -29,7 +29,7 @@ Servizi Desktop remoto e il proxy di applicazione di Azure AD si integrano per m
 
 I destinatari di questo articolo sono:
 - Attuali clienti del proxy di applicazione di Azure AD che vogliono offrire un maggior numero di applicazioni ai propri utenti finali tramite la pubblicazione di applicazioni locali attraverso Servizi Desktop remoto.
-- I clienti attuali di Servizi Desktop remoto che vogliono ridurre la superficie di attacco della propria distribuzione usando il proxy applicazione di AD Azure. Questo scenario fornisce un set limitato di controlli di verifica in due passaggi e di controlli di accesso condizionale per Servizi Desktop remoto.
+- I clienti attuali di Servizi Desktop remoto che vogliono ridurre la superficie di attacco della propria distribuzione usando il proxy applicazione di AD Azure. Questo scenario fornisce un set limitato di verifica in due passaggi e i controlli di accesso condizionale per Servizi Desktop remoto.
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Ruolo del proxy applicazione nella distribuzione standard di Servizi Desktop remoto
 
@@ -58,6 +58,8 @@ In una distribuzione di Servizi Desktop remoto, il ruolo di Web Desktop remoto e
 
 - In Internet Explorer abilitare il componente aggiuntivo ActiveX di Servizi Desktop remoto.
 
+- Per il flusso di pre-autenticazione di Azure AD, gli utenti possono connettersi solo alle risorse pubblicate per loro nel **RemoteApp e desktop** riquadro. Gli utenti non possono connettersi a un desktop con il **Connetti a un computer remoto** riquadro.
+
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Distribuire lo scenario di Servizi desktop remoto e proxy applicazione congiunti
 
 Dopo avere configurato Servizi Desktop remoto e il proxy applicazione di Azure AD per l'ambiente in uso, seguire questa procedura per combinare le due soluzioni. Questa procedura descrive come pubblicare i due endpoint di Servizi Desktop remoto per il Web (Web Desktop remoto e Gateway Desktop remoto) come applicazioni e quindi come indirizzare il traffico su Servizi Desktop remoto attraverso il proxy applicazione.
@@ -68,7 +70,7 @@ Dopo avere configurato Servizi Desktop remoto e il proxy applicazione di Azure A
    - URL interno: `https://\<rdhost\>.com/`, dove `\<rdhost\>` è la radice comune condivisa da Web Desktop Remoto e Gateway Desktop remoto.
    - URL esterno: questo campo viene completato automaticamente in base al nome dell'applicazione, ma è possibile modificarlo. Gli utenti passeranno a questo URL quando accedono a Servizi Desktop remoto.
    - Metodo di autenticazione preliminare: Azure Active Directory
-   - Convertire l'URL nelle intestazioni: No 
+   - Convertire l'URL nelle intestazioni: No
 2. Assegnare utenti all'applicazione di Desktop remoto pubblicata. Assicurarsi che tutti gli utenti abbiano accesso anche a Servizi Desktop remoto.
 3. Lasciare il metodo Single Sign-On per l'applicazione come **Single Sign-On di Azure AD disabilitato**. Agli utenti viene richiesto di eseguire l'autenticazione una volta in Azure AD e una volta in Web Desktop remoto, ma dispongono dell'accesso Single Sign-On a Gateway Desktop remoto.
 4. Selezionare **Azure Active Directory**e quindi **registrazioni per l'App**. Scegliere l'app dall'elenco.
@@ -127,7 +129,7 @@ La configurazione descritta in questo articolo è rivolta agli utenti di Windows
 | Pre-autenticazione    | Windows 7/10 con Internet Explorer + componente aggiuntivo ActiveX di Servizi Desktop remoto |
 | Pass-through | Qualsiasi altro sistema operativo che supporta l'applicazione Desktop remoto Microsoft |
 
-Il flusso di pre-autenticazione offre più vantaggi in termini di protezione rispetto al flusso di pass-through. Con la pre-autenticazione è possibile usare le funzionalità di autenticazione di Azure AD, tra cui Single Sign-On, l'accesso condizionale e la verifica in due passaggi per le risorse locali. È anche possibile garantire che solo il traffico autenticato raggiunga la rete.
+Il flusso di pre-autenticazione offre più vantaggi in termini di protezione rispetto al flusso di pass-through. Con la preautenticazione è possibile usare le funzionalità di autenticazione di Azure AD, ad esempio single sign-on, l'accesso condizionale e in due passaggi di verifica per le risorse locali. È anche possibile garantire che solo il traffico autenticato raggiunga la rete.
 
 Per usare l'autenticazione pass-through, sono necessarie solo due modifiche ai passaggi descritti in questo articolo:
 1. Nel passaggio 1 [Pubblicare l'endpoint host di Desktop remoto](#publish-the-rd-host-endpoint) impostare il metodo di preautenticazione su **Pass-through**.

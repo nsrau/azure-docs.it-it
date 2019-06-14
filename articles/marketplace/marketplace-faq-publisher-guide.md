@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
 ms.openlocfilehash: 152be044b5696a0d9017729d731e080ed9163828
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964059"
 ---
 # <a name="marketplace-faqs"></a>Domande frequenti su Marketplace
@@ -36,7 +36,7 @@ Azure Marketplace offre soluzioni tecniche e servizi di Microsoft e dei partner 
 
 * sistemi operativi di base
 * database
-* sicurezza
+* security
 * identity
 * networking
 * blockchain
@@ -216,7 +216,7 @@ Sì. I crediti della sottoscrizione o i fondi dell'impegno monetario di Azure di
 
 Le informazioni sull'utilizzo stimato sono disponibili nel [portale di gestione di Microsoft Azure](https://portal.azure.com/). Queste informazioni possono non includere le attività recenti e possono essere basate sulle proiezioni derivate da dati sull'uso relativi a periodi precedenti. Durante l'anteprima pubblica questa funzionalità potrebbe non essere disponibile per tutti gli acquisti e variare in base al tipo di prodotto.
 
-### <a name="customer-support"></a>Supporto tecnico
+### <a name="customer-support"></a>Assistenza clienti
 
 **Chi è possibile contattare per problemi di supporto generali relativi ad Azure Marketplace?**
 
@@ -400,7 +400,7 @@ App di Office 365
 1.  Accedere a [https://sellerdashboard.microsoft.com](https://sellerdashboard.microsoft.com) con un account per sviluppatori.
 1.  Revocare il componente aggiuntivo.
 
-NOTA: l'app verrà eliminata dall'inserzione esistente dopo 90 giorni.
+NOTA:  l'app verrà eliminata dall'inserzione esistente dopo 90 giorni.
 
 App di Power BI
 * Contattare: [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).

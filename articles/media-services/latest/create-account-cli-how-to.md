@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.date: 05/19/2019
 ms.author: juliako
 ms.openlocfilehash: f2cb2e2ee6393a59125ee879f2058516eb50d6b1
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956727"
 ---
 # <a name="create-an-azure-media-services-account"></a>Creare un account di Servizi multimediali di Azure
@@ -50,7 +50,7 @@ az account set --subscription mySubscriptionId
 * [Eseguire lo streaming di un file](stream-files-dotnet-quickstart.md)
 * [Collegare una risorsa di archiviazione secondario a un account servizi multimediali](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 

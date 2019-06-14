@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60383261"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect
@@ -235,7 +235,7 @@ Per risolvere i problemi per cui nessuna password viene sincronizzata per un ute
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
 
-   Ad esempio: 
+   Ad esempio:
 
    ```powershell
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
@@ -351,9 +351,9 @@ Se invece si è usata l'installazione personalizzata, impostare manualmente le a
 
 I valori possibili per la colonna dello stato sono i seguenti:
 
-| Stato | DESCRIZIONE |
+| Stato | Descrizione |
 | --- | --- |
-| Success |La password è stata sincronizzata. |
+| Riuscito |La password è stata sincronizzata. |
 | FilteredByTarget |La password è impostata su **Richiedi modifica della password all'accesso successivo**. La password non è stata sincronizzata. |
 | NoTargetConnection |Nessun oggetto in metaverse o nello spazio connettore di Azure AD |
 | SourceConnectorNotPresent |Nessun oggetto trovato nello spazio connettore di Active Directory locale. |

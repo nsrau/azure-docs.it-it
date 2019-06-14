@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 04/24/2019
 ms.author: helohr
 ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145995"
 ---
 # <a name="connect-from-windows-10-or-windows-7"></a>Connettersi da Windows 10 o Windows 7
 
-> Si applica a: Windows 7 e Windows 10.
+> Si applica a Windows 7 e Windows 10.
 
 È disponibile un client scaricabile che consente di accedere alle risorse di anteprima di Desktop virtuale Windows da dispositivi che eseguono Windows 7 e Windows 10.
 
@@ -51,7 +51,7 @@ Dopo aver sottoscritto un feed, il contenuto del feed viene aggiornato automatic
 
 Dopo la sottoscrizione, è possibile visualizzare informazioni aggiuntive relative al feed accedendo il riquadro dei dettagli.
 
-1. Pagina principale del client, selezionare i puntini di sospensione (**...** ) a destra del nome del feed.
+1. Pagina principale del client, selezionare i puntini di sospensione ( **...** ) a destra del nome del feed.
 1. Nel menu a discesa, selezionare **dettagli**.
 1. Il riquadro dei dettagli viene visualizzato a destra del client.
 
@@ -68,7 +68,7 @@ Se necessario, è possibile avviare un aggiornamento manuale facendo clic sulla 
 
 In questa sezione viene illustrato come annullare la sottoscrizione da un feed. È possibile annullare la sottoscrizione per riattivare la sottoscrizione con un account diverso o rimuovere le risorse dal sistema.
 
-1. Pagina principale del client, selezionare i puntini di sospensione (**...** ) a destra del nome del feed.
+1. Pagina principale del client, selezionare i puntini di sospensione ( **...** ) a destra del nome del feed.
 1. Nel menu a discesa, selezionare **Unsubscribe**.
 1. Esaminare e selezionare **continuazione** dalla finestra di dialogo.
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2447aac825874779a543d25b0a70c339dcbf1473
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6d3fa8e71df3d1184956e1802d1b6b72411b6449
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768451"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113043"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali
 
@@ -63,7 +63,7 @@ Il diagramma seguente offre una panoramica generale del funzionamento combinato 
 
 È possibile gestire gli oggetti utente B2B locali tramite i criteri di gestione del ciclo di vita. Ad esempio:
 
-- È possibile impostare criteri di autenticazione a più fattori (MFA) per l'utente guest in modo che l'autenticazione a più fattori venga usata durante l'autenticazione di Application Proxy. Per altre informazioni, vedere [Accesso condizionale per gli utenti di Collaborazione B2B](conditional-access.md).
+- È possibile impostare criteri di autenticazione a più fattori (MFA) per l'utente guest in modo che l'autenticazione a più fattori venga usata durante l'autenticazione di Application Proxy. Per altre informazioni, vedere [accesso condizionale per gli utenti di collaborazione B2B](conditional-access.md).
 - Qualsiasi sponsorizzazione, verifica di accesso, verifica dell'account e così via eseguita per l'utente B2B cloud si applica agli utenti locali. Se, ad esempio, l'utente cloud viene eliminato tramite i criteri di gestione del ciclo di vita, anche l'utente locale viene eliminato mediante la sincronizzazione MIM oppure la sincronizzazione di Azure AD Connect. Per altre informazioni, vedere [Gestire l'accesso guest con le verifiche di accesso di Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
 ### <a name="create-b2b-guest-user-objects-through-mim"></a>Creare oggetti utente guest B2B con MIM

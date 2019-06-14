@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop; kumud
 ms.openlocfilehash: e0d27b92b4f0b7da8f96e4b1cc9695537db0e643
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851136"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
@@ -60,9 +60,9 @@ Azure aggiunge route di sistema predefinite per diverse funzionalità di Azure, 
 
 |`Source`                 |Prefissi degli indirizzi                       |Tipo hop successivo|Subnet nella rete virtuale alla quale viene aggiunta la route|
 |-----                  |----                                   |---------                    |--------|
-|Predefinito                |Univoco per la rete virtuale, ad esempio: 10.1.0.0/16|Peering di rete virtuale                 |Tutti|
+|Predefinito                |Univoco per la rete virtuale, ad esempio: 10.1.0.0/16|Peering reti virtuali                 |Tutti|
 |Gateway di rete virtuale|Prefissi annunciati dall'ambiente locale tramite BGP o configurati nel gateway di rete locale     |Gateway di rete virtuale      |Tutti|
-|Predefinito                |Più posizioni                               |VirtualNetworkServiceEndpoint|Solo la subnet per la quale è abilitato un endpoint di servizio.|
+|Predefinito                |Multipli                               |VirtualNetworkServiceEndpoint|Solo la subnet per la quale è abilitato un endpoint di servizio.|
 
 * **Peering di rete virtuale**: quando si crea un peering di rete virtuale tra due reti virtuali, viene aggiunta una route per ogni intervallo di indirizzi nello spazio degli indirizzi di ogni rete virtuale per la quale viene creato un peering. Vedere altre informazioni sul [peering di rete virtuale](virtual-network-peering-overview.md).<br>
 * **Gateway di rete virtuale**: vengono aggiunte una o più route con *Gateway di rete virtuale* elencato come tipo di hop successivo quando si aggiunge un gateway di rete virtuale a una rete virtuale. Anche l'origine è *Gateway di rete virtuale*, perché il gateway aggiunge le route alla subnet. Se il gateway di rete locale scambia route con un gateway di rete virtuale di Azure tramite Border Gateway Protocol [(BGP)](#border-gateway-protocol), viene aggiunta una route per ogni route propagata dal gateway di rete locale. È consigliabile sintetizzare le route locali negli intervalli di indirizzi più ampi possibile, in modo che venga propagato il minor numero possibile di route a un gateway di rete virtuale di Azure. Il numero di route che possono essere propagate a un gateway di rete virtuale di Azure è limitato. Per informazioni dettagliate, vedere [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).<br>
@@ -110,7 +110,7 @@ Il nome visualizzato e a cui si fa riferimento per i tipi di hop successivi è d
 |Internet                        |Internet                                        |Internet (non disponibile nell'interfaccia della riga di comando classica in modalità asm)|
 |Appliance virtuale               |VirtualAppliance                                |VirtualAppliance|
 |Nessuna                            |Nessuna                                            |Null (non disponibile nell'interfaccia della riga di comando classica in modalità asm)|
-|Peering di rete virtuale         |Peering di rete virtuale                                    |Non applicabile|
+|Peering di rete virtuale         |Peering reti virtuali                                    |Non applicabile|
 |Endpoint servizio di rete virtuale|VirtualNetworkServiceEndpoint                   |Non applicabile|
 
 ### <a name="border-gateway-protocol"></a>Border Gateway Protocol
@@ -204,7 +204,7 @@ La figura seguente illustra un'implementazione tramite il modello di distribuzio
 
 Le frecce indicano il flusso del traffico. 
 
-### <a name="route-tables"></a>Tabelle route
+### <a name="route-tables"></a>Tabelle di route
 
 #### <a name="subnet1"></a>Subnet1
 
@@ -213,17 +213,17 @@ La tabella di route per *Subnet1* rappresentata nell'immagine contiene le route 
 |ID  |`Source` |Stato  |Prefissi degli indirizzi    |Tipo hop successivo          |Indirizzo IP hop successivo|Nome route definita dall'utente| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Predefinito|Non valido|10.0.0.0/16         |Rete virtuale        |                   |              |
-|2   |Utente   |Attive |10.0.0.0/16         |Appliance virtuale      |10.0.100.4         |Within-VNet1  |
-|3   |Utente   |Attive |10.0.0.0/24         |Rete virtuale        |                   |Within-Subnet1|
-|4   |Predefinito|Non valido|10.1.0.0/16         |Peering di rete virtuale           |                   |              |
-|5   |Predefinito|Non valido|10.2.0.0/16         |Peering di rete virtuale           |                   |              |
-|6   |Utente   |Attive |10.1.0.0/16         |Nessuna                   |                   |ToVNet2-1-Drop|
-|7   |Utente   |Attive |10.2.0.0/16         |Nessuna                   |                   |ToVNet2-2-Drop|
+|2   |Utente   |Attivo |10.0.0.0/16         |Appliance virtuale      |10.0.100.4         |Within-VNet1  |
+|3   |Utente   |Attivo |10.0.0.0/24         |Rete virtuale        |                   |Within-Subnet1|
+|4   |Predefinito|Non valido|10.1.0.0/16         |Peering reti virtuali           |                   |              |
+|5   |Predefinito|Non valido|10.2.0.0/16         |Peering reti virtuali           |                   |              |
+|6   |Utente   |Attivo |10.1.0.0/16         |Nessuna                   |                   |ToVNet2-1-Drop|
+|7   |Utente   |Attivo |10.2.0.0/16         |Nessuna                   |                   |ToVNet2-2-Drop|
 |8   |Predefinito|Non valido|10.10.0.0/16        |Gateway di rete virtuale|[X.X.X.X]          |              |
-|9   |Utente   |Attive |10.10.0.0/16        |Appliance virtuale      |10.0.100.4         |To-On-Prem    |
-|10  |Predefinito|Attive |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
+|9   |Utente   |Attivo |10.10.0.0/16        |Appliance virtuale      |10.0.100.4         |To-On-Prem    |
+|10  |Predefinito|Attivo |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
 |11  |Predefinito|Non valido|0.0.0.0/0           |Internet               |                   |              |
-|12  |Utente   |Attive |0.0.0.0/0           |Appliance virtuale      |10.0.100.4         |Default-NVA   |
+|12  |Utente   |Attivo |0.0.0.0/0           |Appliance virtuale      |10.0.100.4         |Default-NVA   |
 
 Di seguito è riportata la spiegazione di ogni ID route:
 
@@ -246,15 +246,15 @@ La tabella di route per *Subnet2* rappresentata nell'immagine contiene le route 
 
 |`Source`  |Stato  |Prefissi degli indirizzi    |Tipo hop successivo             |Indirizzo IP hop successivo|
 |------- |-------|------              |-------                   |--------           
-|Predefinito |Attive |10.0.0.0/16         |Rete virtuale           |                   |
-|Predefinito |Attive |10.1.0.0/16         |Peering di rete virtuale              |                   |
-|Predefinito |Attive |10.2.0.0/16         |Peering di rete virtuale              |                   |
-|Predefinito |Attive |10.10.0.0/16        |Gateway di rete virtuale   |[X.X.X.X]          |
-|Predefinito |Attive |0.0.0.0/0           |Internet                  |                   |
-|Predefinito |Attive |10.0.0.0/8          |Nessuna                      |                   |
-|Predefinito |Attive |100.64.0.0/10       |Nessuna                      |                   |
-|Predefinito |Attive |172.16.0.0/12       |Nessuna                      |                   |
-|Predefinito |Attive |192.168.0.0/16      |Nessuna                      |                   |
+|Predefinito |Attivo |10.0.0.0/16         |Rete virtuale           |                   |
+|Predefinito |Attivo |10.1.0.0/16         |Peering reti virtuali              |                   |
+|Predefinito |Attivo |10.2.0.0/16         |Peering reti virtuali              |                   |
+|Predefinito |Attivo |10.10.0.0/16        |Gateway di rete virtuale   |[X.X.X.X]          |
+|Predefinito |Attivo |0.0.0.0/0           |Internet                  |                   |
+|Predefinito |Attivo |10.0.0.0/8          |Nessuna                      |                   |
+|Predefinito |Attivo |100.64.0.0/10       |Nessuna                      |                   |
+|Predefinito |Attivo |172.16.0.0/12       |Nessuna                      |                   |
+|Predefinito |Attivo |192.168.0.0/16      |Nessuna                      |                   |
 
 La tabella di route per *Subnet2* contiene tutte le route predefinite create da Azure, il peering di rete virtuale facoltativo e le route facoltative del gateway di rete virtuale. Azure ha aggiunto le route facoltative a tutte le subnet della virtuale di rete quando sono stati aggiunti il gateway e il peering alla rete virtuale. Azure ha rimosso le route per i prefissi degli indirizzi 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 e 100.64.0.0/10 dalla tabella di route *Subnet1* quando la route definita dall'utente per il prefisso degli indirizzi 0.0.0.0/0 è stata aggiunta a *Subnet1*.  
 

@@ -1,20 +1,19 @@
 ---
 title: Scheda Ottimizza per i flussi di dati di mapping di Azure Data Factory
-description: Ottimizzare i flussi di dati di mapping di Azure Data Factory con le impostazioni di partizionamento nella scheda Ottimizza
+description: Ottimizzare Azure Data Factory il Mapping di flusso dei dati usando la scheda ottimizzare con le impostazioni della partizione
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 3802a8475d8a39a2f275dbc7fcf21ce69892a117
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 372922fff600aaa12fddfeeb86ff4522eca3e602
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075091"
 ---
-# <a name="mapping-data-flow-transformation-optimize-tab"></a>Scheda Ottimizza per la trasformazione dei flussi di dati di mapping
+# <a name="mapping-data-flow-transformation-optimize-tab"></a>Mapping dei dati di trasformazione del flusso di ottimizzare scheda
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -51,3 +50,8 @@ Questa opzione usa intervalli dinamici di Spark in base alle colonne o alle espr
 ### <a name="key"></a>Chiave
 
 Se si ha una buona comprensione della cardinalità dei dati, il partizionamento con chiavi può essere una buona strategia di partizionamento. Il partizionamento con chiavi crea partizioni per ogni valore univoco nella colonna. Non è possibile impostare il numero di partizioni, perché questo numero è basato su valori univoci nei dati.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Guida alle prestazioni del flusso di dati di mapping](concepts-data-flow-performance.md)
+[del flusso di dati di monitoraggio](concepts-data-flow-monitoring.md)

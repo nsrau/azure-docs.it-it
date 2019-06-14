@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: c7f5fda405ca0e5ba9cf1dd0ed44c47cd3ee74b1
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65949870"
 ---
 #   <a name="text-split-cognitive-skill"></a>Competenza cognitiva Divisione del testo
@@ -80,7 +80,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 }
 ```
 
-##  <a name="sample-input"></a>Campiona input
+##  <a name="sample-input"></a>Input di esempio
 
 ```json
 {
@@ -133,7 +133,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ## <a name="error-cases"></a>Casi di errore
 Se una lingua non è supportata, viene generato un avviso e il testo viene suddiviso in base ai limiti di carattere.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

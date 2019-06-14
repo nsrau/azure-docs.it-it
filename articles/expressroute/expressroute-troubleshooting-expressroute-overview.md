@@ -9,16 +9,16 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 888f4dedf2fda0f54297d42a5f813abf73ded748
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117808"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
 Questo articolo fornisce informazioni sulla verifica e la risoluzione dei problemi di connettività di ExpressRoute. ExpressRoute, che consente di estendere una rete locale nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività, coinvolge le tre diverse aree di rete seguenti:
 
--   Rete cliente
+-   Rete del cliente
 -   Rete del provider
 -   Datacenter Microsoft
 

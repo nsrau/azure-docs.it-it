@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ebc0ca718ab8edf5ef644993c71b0353861265b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c97ccd82a9c09e10572733040e238443cbf777da
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334880"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696605"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Suggerimenti per la risoluzione dei problemi della ricerca cognitiva
 
@@ -84,7 +84,7 @@ Aggiungere un campo ```enriched``` come parte della definizione di indice per sc
 
 Il contenuto mancante potrebbe essere il risultato di documenti eliminati durante l'indicizzazione. I livelli gratuiti e di base hanno un limite basso per quanto riguarda le dimensioni del documento. Qualsiasi file che superi il limite viene eliminato durante l'indicizzazione. È possibile controllare i documenti eliminati nel portale di Azure. Nel dashboard del servizio di ricerca, fare doppio clic sul riquadro degli indicizzatori. Esaminare la percentuale di esiti positivi dei documenti indicizzati. Se non è al 100%, è possibile selezionare la percentuale per ottenere maggiori dettagli. 
 
-Se il problema è correlato alle dimensioni del file, è possibile che venga visualizzato un errore simile al seguente: "Il BLOB <nome-file>" presenta le dimensioni di <dimensioni-file-> byte, le quali superano le dimensioni massime per l'estrazione del documento del livello del servizio attuale." Per ulteriori informazioni sui limiti degli indicizzatori, vedere i [Limiti del servizio](search-limits-quotas-capacity.md).
+Se il problema è correlato alle dimensioni del file, è possibile che venga visualizzato un errore simile al seguente: "Il blob \<file-name >" abbia le dimensioni di \<delle dimensioni del file > byte, che supera le dimensioni massime per l'estrazione dei documenti per il livello di servizio corrente. " Per ulteriori informazioni sui limiti degli indicizzatori, vedere i [Limiti del servizio](search-limits-quotas-capacity.md).
 
 Una secondo motivo per cui il contenuto non viene visualizzato potrebbe risiedere negli errori di mapping di input/output correlati. Ad esempio, il nome di destinazione di output è "Persone" ma il nome del campo indice è in minuscolo, "persone". Il sistema potrebbe restituire messaggi di operazione riuscita 201 per l'intera pipeline, pertanto si potrebbe ritenere che l'indicizzazione ha avuto esito positivo, quando in realtà un campo è vuoto. 
 
@@ -103,7 +103,7 @@ Per l’indicizzazione basata sul portale (come descritto nella Guida introdutti
 Per [indicizzazione parallela](search-howto-large-index.md), inserire i dati in più contenitori o più cartelle virtuali all'interno dello stesso contenitore. Creare quindi più coppie di origine dati e di indicizzatori. Tutti gli indicizzatori possono utilizzare lo stesso insieme di competenze e scrivere nello stesso indice di ricerca di destinazione, in modo che l'app per la ricerca non debba necessariamente essere a conoscenza di tale partizionamento.
 Per altre informazioni, vedere [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 + [Avvio rapido: Creare una pipeline di ricerca cognitiva nel portale](cognitive-search-quickstart-blob.md)
 + [Esercitazione: Informazioni sull'API REST di ricerca cognitiva](cognitive-search-tutorial-blob.md)
 + [Specificare le credenziali dell'origine dati](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485600"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
@@ -98,7 +98,7 @@ L'app di database multi-tenant Wingtip Tickets è un'app SaaS e il carico di lav
 
 Per monitorare l'utilizzo delle risorse risultante dal carico applicato, aprire il portale per il database multi-tenant, **tenants1**, che contiene i tenant:
 
-1. Aprire il [portale di Azure](https://portal.azure.com) e passare al server *tenants1-mt-&lt;UTENTE&gt;*.
+1. Aprire il [portale di Azure](https://portal.azure.com) e passare al server *tenants1-mt-&lt;UTENTE&gt;* .
 1. Scorrere verso il basso per individuare i database e fare clic su **tenants1**. Questo database multi-tenant partizionato contiene tutti i tenant creati finora.
 
 ![grafico dei database](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)
@@ -109,7 +109,7 @@ Osservare il grafico **DTU**.
 
 Impostare un avviso per il database da attivare quando l'utilizzo raggiunge il \>75%, come indicato di seguito:
 
-1. Aprire il database *tenants1* (sul server *tenants1-mt-&lt;UTENTE&gt;*) nel [portale di Azure](https://portal.azure.com).
+1. Aprire il database *tenants1* (sul server *tenants1-mt-&lt;UTENTE&gt;* ) nel [portale di Azure](https://portal.azure.com).
 1. Fare clic su **Regole di avviso** e quindi fare clic su **+ Aggiungi avviso**:
 
    ![aggiungere un avviso](media/saas-multitenantdb-performance-monitoring/add-alert.png)
@@ -155,7 +155,7 @@ Il modello multi-tenant partizionato consente di scegliere se effettuare il prov
 Se si è già effettuato il provisioning di un nuovo tenant in un database autonomo, ignorare i passaggi successivi.
 
 1. In **PowerShell ISE**, aprire …\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*. 
-1. Modificare **$TenantName = "Salix Salsa"** e **$VenueType = "dance"**.
+1. Modificare **$TenantName = "Salix Salsa"** e **$VenueType = "dance"** .
 1. Impostare **$Scenario** = **2**, _Effettuare il provisioning di un tenant in un nuovo database a tenant singolo_.
 1. Premere **F5** per eseguire lo script.
 

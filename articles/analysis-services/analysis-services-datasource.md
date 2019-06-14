@@ -9,10 +9,10 @@ ms.date: 05/22/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142551"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
@@ -23,14 +23,14 @@ Le origini dati e i connettori visualizzati in Get Data (Recupera dati) o Import
 
 |Origine dati  |In memoria  |DirectQuery  |
 |---------|---------|---------|
-|Database SQL di Azure<sup>[2](#azsqlmanaged)</sup>     |   Sì      |    Sì      |
-|Azure SQL Data Warehouse     |   Sì      |   Sì       |
-|Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   Sì       |    N.      |
-|Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   Sì       |    N.      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sì        |  N.        |
-|Azure Data Lake Store (Gen 1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sì       |    N.      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sì     |   N.       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sì       |   N.       |
+|Database SQL di Azure<sup>[2](#azsqlmanaged)</sup>     |   Yes      |    Yes      |
+|Azure SQL Data Warehouse     |   Yes      |   Yes       |
+|Archiviazione BLOB di Azure<sup>[1](#tab1400a)</sup>     |   Yes       |    No      |
+|Archiviazione tabelle di Azure<sup>[1](#tab1400a)</sup>    |   Yes       |    No      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Yes        |  No        |
+|Azure Data Lake Store (Gen 1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Yes       |    No      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Yes     |   No       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Yes       |   No       |
 ||||
 
 <a name="tab1400a">1</a> - Solo modelli tabulari 1400 e superiori.   
@@ -72,7 +72,7 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
 |Documento JSON<sup>[1](#tab1400b)</sup>     |  
 |Righe da file binario<sup>[1](#tab1400b)</sup>     | 
-|Database MySQL     | 
+|MySQL Database     | 
 |Feed OData<sup>[1](#tab1400b)</sup>     |  
 |Query ODBC     | 
 |OLE DB     |   
@@ -92,7 +92,7 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 
 ## <a name="specifying-a-different-provider"></a>Specificare un provider diverso
 
-Durante la connessione a particolari origini dati, i modelli di dati di Azure Analysis Services possono richiedere provider di dati differenti. In alcuni casi, i modelli tabulari che si connettono alle origini dati usando provider nativi quali SQL Server Native Client (SQLNCLI11) possono restituire un errore. Se si usano provider nativi diversi da SQLOLEDB, è possibile che venga visualizzato un messaggio di errore simile al seguente: **Il provider 'SQLNCLI11.1' non è registrato**. Se invece si dispone di un modello DirectQuery che si connette a origini dati locali e si usano provider nativi, è possibile che venga visualizzato un messaggio di errore simile al seguente: **Errore durante la creazione del set di righe OLE DB. Sintassi errata vicino a 'LIMIT'**.
+Durante la connessione a particolari origini dati, i modelli di dati di Azure Analysis Services possono richiedere provider di dati differenti. In alcuni casi, i modelli tabulari che si connettono alle origini dati usando provider nativi quali SQL Server Native Client (SQLNCLI11) possono restituire un errore. Se si usano provider nativi diversi da SQLOLEDB, è possibile che venga visualizzato un messaggio di errore simile al seguente: **Il provider 'SQLNCLI11.1' non è registrato**. Se invece si dispone di un modello DirectQuery che si connette a origini dati locali e si usano provider nativi, è possibile che venga visualizzato un messaggio di errore simile al seguente: **Errore durante la creazione del set di righe OLE DB. Sintassi errata vicino a 'LIMIT'** .
 
 Durante la migrazione di un modello tabulare SQL Server Analysis Services locale in Azure Analysis Services, può essere necessario modificare il provider.
 

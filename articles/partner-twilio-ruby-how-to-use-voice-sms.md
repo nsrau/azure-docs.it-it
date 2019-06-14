@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 40b633c4e51a34e6640a9557be49bbe30543daf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457652"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Come usare Twilio per le funzionalità voce ed SMS in Ruby
@@ -48,20 +48,20 @@ Ad esempio, il codice TwiML seguente effettua la sintesi vocale del testo **Hell
 Tutti i documenti TwiML dispongono di un elemento radice `<Response>`, da cui è possibile utilizzare i verbi Twilio per definire il comportamento dell'applicazione.
 
 ### <a id="Verbs"></a>Verbi TwiML
-I verbi Twilio sono tag XML che indicano a Twilio le **azioni da eseguire**. Il verbo **&lt;Say&gt;**, ad esempio, indica a Twilio di recapitare un messaggio acustico in una chiamata. 
+I verbi Twilio sono tag XML che indicano a Twilio le **azioni da eseguire**. Il verbo **&lt;Say&gt;** , ad esempio, indica a Twilio di recapitare un messaggio acustico in una chiamata. 
 
 Di seguito è riportato un elenco dei verbi Twilio.
 
-* **&lt;Dial&gt;**: connette il chiamante a un altro telefono.
-* **&lt;Gather&gt;**: raccoglie i numeri digitati sulla tastiera del telefono.
-* **&lt;Hangup&gt;**: termina una chiamata.
-* **&lt;Play&gt;**: riproduce un file audio.
-* **&lt;Pause&gt;**: attende in modo silenzioso per un numero di secondi specificato.
-* **&lt;Record&gt;**: registra la voce del chiamante e restituisce l'URL di un file contenente la registrazione.
-* **&lt;Redirect&gt;**: trasferisce il controllo di una chiamata o di un SMS al codice TwiML presso un URL diverso.
-* **&lt;Reject&gt;**: rifiuta una chiamata in arrivo al numero Twilio senza alcun addebito.
-* **&lt;Say&gt;**: effettua la sintesi vocale del testo durante una chiamata.
-* **&lt;Sms&gt;**: invia un SMS.
+* **&lt;Dial&gt;** : connette il chiamante a un altro telefono.
+* **&lt;Gather&gt;** : raccoglie i numeri digitati sulla tastiera del telefono.
+* **&lt;Hangup&gt;** : termina una chiamata.
+* **&lt;Play&gt;** : riproduce un file audio.
+* **&lt;Pause&gt;** : attende in modo silenzioso per un numero di secondi specificato.
+* **&lt;Record&gt;** : registra la voce del chiamante e restituisce l'URL di un file contenente la registrazione.
+* **&lt;Redirect&gt;** : trasferisce il controllo di una chiamata o di un SMS al codice TwiML presso un URL diverso.
+* **&lt;Reject&gt;** : rifiuta una chiamata in arrivo al numero Twilio senza alcun addebito.
+* **&lt;Say&gt;** : effettua la sintesi vocale del testo durante una chiamata.
+* **&lt;Sms&gt;** : invia un SMS.
 
 Per altre informazioni sui verbi Twilio, i relativi attributi e il codice TwiML, vedere [TwiML][twiml]. Per altre informazioni sull'API Twilio, vedere [Twilio API][twilio_api] (API Twilio).
 

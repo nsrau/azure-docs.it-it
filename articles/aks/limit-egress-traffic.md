@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: iainfou
 ms.openlocfilehash: 43ba7593336372bbbd7a3a4bb9821665a42bbf29
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752188"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Anteprima - limitare il traffico in uscita per i nodi del cluster e controllare l'accesso alle porte necessarie e i servizi in Azure Kubernetes Service (AKS)

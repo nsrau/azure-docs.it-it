@@ -18,10 +18,10 @@ ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 118c6ecb16d325a384246a0b3d9e685f6f6f04ee
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870118"
 ---
 # <a name="training-guide-app-registrations-in-the-azure-portal"></a>Guida alla formazione: Registrazioni per l'app nel portale di Azure  
@@ -34,7 +34,7 @@ ms.locfileid: "64870118"
 - Le app di esperienza legacy supportato che l'accesso dell'organizzazione () account di Azure AD solo. Le app sono state registrate come a tenant singolo (supportano gli account aziendali solo dalla directory dell'app è stata registrata in) e può essere modificato per essere multi-tenant (supportano tutti gli account dell'organizzazione). La nuova esperienza consente di registrare le app che possono supportare entrambe queste opzioni, nonché una terza opzione: tutti gli account aziendali, nonché gli account Microsoft personali.
 - L'esperienza legacy solo era disponibile durante l'accesso a portale di Azure usando un account aziendale. Con la nuova esperienza, è possibile usare gli account Microsoft personali che non sono associati a una directory.
 
-## <a name="list-of-applications"></a>Elenco di applicazioni
+## <a name="list-of-applications"></a>Elenco delle applicazioni
 
 - Il nuovo elenco di app Mostra le applicazioni che sono state registrate tramite l'app legacy registrazioni per l'esperienza nel portale di Azure (app che consentono l'accesso nell'account Azure AD), nonché le app registrate tramite il [portale di registrazione applicazione](https://apps.dev.microsoft.com/) (le app che consentono l'accesso in Azure AD e gli account Microsoft personali).
 - Il nuovo elenco di app non ha un **tipo di applicazione** colonna (dato che una registrazione singola app può essere tipi diversi) e dispone di due colonne aggiuntive: un **creato in** colonna e un **certificati & segreti** colonna che mostra lo stato (corrente, scadenza imminente o avvenuta) delle credenziali che sono state registrate nell'app.

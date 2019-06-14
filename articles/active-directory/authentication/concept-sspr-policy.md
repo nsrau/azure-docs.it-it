@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65823399"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
@@ -39,18 +39,18 @@ Il criterio a due gate richiede tre tipi di dati di autenticazione, ad esempio u
   * Amministratore di Exchange
   * Amministratore di Skype for Business
   * Amministratore utenti
-  * Ruolo con autorizzazioni di scrittura nella directory
+  * Writer di directory
   * Amministratore globale o amministratore aziendale
   * Amministratore di SharePoint
   * Amministratore di conformità
-  * Amministratore applicazione
+  * Amministratore di applicazioni
   * Amministratore della sicurezza
-  * Amministratore ruolo con privilegi
+  * Amministratore dei ruoli con privilegi
   * Amministratore di Intune
   * Amministratore del servizio proxy di applicazione
-  * Amministratore di Dynamics 365
+  * Amministrazione di Dynamics 365
   * Amministratore del servizio Power BI
-  * Amministratore autenticazione
+  * Amministratore di autenticazione
   * Amministratore con privilegi di autenticazione
 
 * Se sono trascorsi 30 giorni per una sottoscrizione di valutazione o

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e020cbc9c18db2142ee7f52cdac22a3518683fce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82e08a8eeeb86d407be61c299656abe79a6f90f4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695815"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078334"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Eseguire query Apache Hive con Apache Hadoop in HDInsight tramite REST
 
@@ -24,9 +24,6 @@ Informazioni su come usare l'API REST WebHCat per eseguire query Apache Hive con
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster Hadoop basato su Linux in HDInsight versione 3.4 o successiva.
-
-  > [!IMPORTANT]  
-  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un client REST. Questo documento usa esempi di Windows PowerShell e [Curl](https://curl.haxx.se/).
 
@@ -141,7 +138,7 @@ Questo documento usa anche Windows PowerShell e [Jq](https://stedolan.github.io/
 
    * `ROW FORMAT`: indica il modo in cui sono formattati i dati. I campi in ogni log sono separati da uno spazio.
    * `STORED AS TEXTFILE LOCATION`: indica la posizione in cui sono archiviati i dati (la directory example/data) e che sono archiviati come testo.
-   * `SELECT`: seleziona un conteggio di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. L'istruzione dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
+   * `SELECT`: seleziona un conteggio di tutte le righe in cui la colonna **t4** include il valore **[ERROR]** . L'istruzione dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
 
      > [!NOTE]  
      > Si noti che gli spazi tra le istruzioni HiveQL vengono sostituiti dal carattere `+` se è in uso Curl. I valori tra virgolette che contengono uno spazio, ad esempio il delimitatore, non devono essere sostituiti da `+`.

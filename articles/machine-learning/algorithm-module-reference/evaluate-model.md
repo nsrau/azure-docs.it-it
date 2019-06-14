@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 40a8247c22da1f7a057e222565ffb2ec4c6b7fb3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65028741"
 ---
 # <a name="evaluate-model-module"></a>Valutare il modulo di modello
@@ -81,7 +81,7 @@ Ad esempio, l'immagine seguente rappresenta un confronto dei risultati di due mo
 
 Poiché si tratta di un modello di clustering, i risultati della valutazione sono diversi rispetto a se confrontare i punteggi di due modelli di regressione o confrontare due modelli di classificazione. Tuttavia, la presentazione generale è lo stesso. 
 
-## <a name="metrics"></a>Metriche
+## <a name="metrics"></a>metrics
 
 In questa sezione illustra le metriche restituite per i tipi specifici di modelli supportati per l'uso con **Evaluate Model**:
 

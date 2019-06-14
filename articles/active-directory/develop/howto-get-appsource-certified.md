@@ -19,10 +19,10 @@ ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b820068f7bd59941346c8d2a3e8ede15252d58b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540276"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Come ottenere la certificazione AppSource per Azure Active Directory
@@ -40,7 +40,7 @@ Per informazioni su come integrare l'applicazione con Azure AD usando OpenID Con
 Un'*applicazione multi-tenant* è un'applicazione che accetta l'accesso degli utenti da qualsiasi società o organizzazione con Azure AD senza richiedere un'istanza, una configurazione o una distribuzione separata. AppSource consiglia che le applicazioni implementino la multi-tenancy per abilitare l'esperienza di valutazione gratuita con un *unico clic*.
 
 Per abilitare la multi-tenancy nell'applicazione, seguire questi passaggi:
-1. Impostare `Multi-Tenanted` proprietà `Yes` sulle informazioni di registrazione dell'applicazione nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Per impostazione predefinita, le applicazioni create nel portale di Azure sono configurate come  *[a tenant singolo](#single-tenant-applications)*.
+1. Impostare `Multi-Tenanted` proprietà `Yes` sulle informazioni di registrazione dell'applicazione nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Per impostazione predefinita, le applicazioni create nel portale di Azure sono configurate come  *[a tenant singolo](#single-tenant-applications)* .
 1. Aggiornare il codice per l'invio delle richieste all'`common`endpoint. A tale scopo, aggiornare l'endpoint da `https://login.microsoftonline.com/{yourtenant}` a `https://login.microsoftonline.com/common*`.
 1. Per alcune piattaforme, ad esempio ASP .NET, è anche necessario aggiornare il codice per accettare più emittenti.
 

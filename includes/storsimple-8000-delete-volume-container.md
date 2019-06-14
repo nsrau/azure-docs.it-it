@@ -9,10 +9,10 @@ ms.date: 06/08/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: e683d17422321b780a1c01b3011292f2e2c631cb
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156105"
 ---
 Per eliminare un contenitore di volumi, è necessario
@@ -32,7 +32,7 @@ Quando al contenitore di volumi non sono associati volumi, criteri di backup e s
 
 3. Se a un contenitore di volumi non sono associati volumi, criteri di backup e snapshot cloud, è possibile eliminarlo. Quando viene richiesta la conferma, rivedere e selezionare la casella di controllo indicante l'impatto dell'eliminazione del contenitore del volume. Fare clic su **Elimina** per eliminare il contenitore del volume.
 
-    ![Conferma eliminazione](./media/storsimple-8000-delete-volume-container/deletevolumecontainer2.png)
+    ![Confermare l'eliminazione](./media/storsimple-8000-delete-volume-container/deletevolumecontainer2.png)
 
 L'elenco di contenitori dei volumi viene aggiornato per rispecchiare l'eliminazione del contenitore del volume.
 

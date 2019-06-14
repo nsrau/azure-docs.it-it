@@ -14,14 +14,14 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4aba7aadbe92b6c4f0ab417785e230bb6a6823df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486584"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Spostare dati da un server FTP usando Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](data-factory-ftp-connector.md)
 > * [Versione 2 (corrente)](../connector-ftp.md)
 
@@ -68,13 +68,13 @@ La tabella seguente descrive gli elementi JSON specifici di un servizio collegat
 | type |Impostare su FtpServer. |Sì |&nbsp; |
 | host |Specificare il nome o indirizzo IP del server FTP. |Sì |&nbsp; |
 | authenticationType |Specificare il tipo di autenticazione. |Sì |Di base, anonimo |
-| username |Specificare l'utente che ha accesso al server FTP. |No  |&nbsp; |
-| password |Specificare la password per l'utente (nome utente). |No  |&nbsp; |
-| encryptedCredential |Specificare le credenziali crittografate per accedere al server FTP. |No  |&nbsp; |
-| gatewayName |Specificare il nome del gateway in Gateway di gestione dati per connettersi a un server FTP locale. |No  |&nbsp; |
-| port |Specificare la porta su cui è in ascolto il server FTP. |No  |21 |
-| enableSsl |Specificare se usare FTP su un canale SSL/TLS. |No  |true |
-| enableServerCertificateValidation |Specificare se abilitare la convalida del certificato SSL del server quando si usa FTP sul canale SSL/TLS. |No  |true |
+| username |Specificare l'utente che ha accesso al server FTP. |No |&nbsp; |
+| password |Specificare la password per l'utente (nome utente). |No |&nbsp; |
+| encryptedCredential |Specificare le credenziali crittografate per accedere al server FTP. |No |&nbsp; |
+| gatewayName |Specificare il nome del gateway in Gateway di gestione dati per connettersi a un server FTP locale. |No |&nbsp; |
+| port |Specificare la porta su cui è in ascolto il server FTP. |No |21 |
+| enableSsl |Specificare se usare FTP su un canale SSL/TLS. |No |true |
+| enableServerCertificateValidation |Specificare se abilitare la convalida del certificato SSL del server quando si usa FTP sul canale SSL/TLS. |No |true |
 
 >[!NOTE]
 >Il connettore FTP supporta l'accesso al server FTP senza crittografia o con crittografia SSL/TLS esplicita; non supporta la crittografia SSL/TLS implicita.
@@ -156,12 +156,12 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati. Fornisce 
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere Servizio collegato di esempio e definizioni del set di dati.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio e fine delle sezioni. |Sì |
-| fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando **fileName** non viene specificato per un set di dati di output, il formato del nome del file generato è il seguente: <br/><br/>`Data.<Guid>.txt` (Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No  |
-| fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in **folderPath** anziché tutti i file.<br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempio 1: `"fileFilter": "*.log"`<br/>Esempio 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** è applicabile per un set di dati di input FileShare. Questa proprietà non è supportata con Hadoop Distributed File System (HDFS). |No  |
-| partitionedBy |Usata per specificare una proprietà **folderPath** e **fileName** dinamica per i dati della serie temporale. È ad esempio possibile specificare un **folderPath** contenente i parametri per ogni ora di dati. |No  |
-| format | Sono supportati i formati di file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato AVRO](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato OCR](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per copiare i file così come sono tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No  |
-| compression | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**, mentre i livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No  |
-| useBinaryTransfer |Specificare se usare la modalità di trasferimento binario. I valori sono true per la modalità binaria (valore predefinito) e false per ASCII. Questa proprietà può essere usata solo quando il tipo di servizio collegato associato è FtpServer. |No  |
+| fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando **fileName** non viene specificato per un set di dati di output, il formato del nome del file generato è il seguente: <br/><br/>`Data.<Guid>.txt` (Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |N. |
+| fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in **folderPath** anziché tutti i file.<br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempio 1: `"fileFilter": "*.log"`<br/>Esempio 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** è applicabile per un set di dati di input FileShare. Questa proprietà non è supportata con Hadoop Distributed File System (HDFS). |No |
+| partitionedBy |Usata per specificare una proprietà **folderPath** e **fileName** dinamica per i dati della serie temporale. È ad esempio possibile specificare un **folderPath** contenente i parametri per ogni ora di dati. |No |
+| format | Sono supportati i formati di file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato AVRO](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato OCR](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per copiare i file così come sono tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
+| compression | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**, mentre i livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| useBinaryTransfer |Specificare se usare la modalità di trasferimento binario. I valori sono true per la modalità binaria (valore predefinito) e false per ASCII. Questa proprietà può essere usata solo quando il tipo di servizio collegato associato è FtpServer. |No |
 
 > [!NOTE]
 > **fileName** e **fileFilter** non possono essere usati contemporaneamente.
@@ -206,7 +206,7 @@ Nell'attività di copia con origine di tipo **FileSystemSource**, nella sezione 
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| recursive |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No  |
+| recursive |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Esempio di JSON: Copiare dati da un server FTP a BLOB di Azure
 Questo esempio illustra come copiare dati dal server FTP in Archiviazione BLOB di Azure. I dati possono tuttavia essere copiati direttamente in uno qualsiasi dei sink indicati nella sezione [Archivi dati e formati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats), usando l'attività di copia in Data Factory.

@@ -10,12 +10,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: d527c4fed9c43e62d815078c049d4d8e6f8a46b7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 04c19c9a8603fee46914eb94b50c4f97e34e9c42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787706"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070223"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione di Database SQL
 
@@ -29,10 +29,9 @@ Questo articolo elenca le nuove funzionalità e miglioramenti nel servizio Datab
 |Numero approssimativo di Distinct|Per informazioni, vedere [approssimativo Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Modalità batch a Rowstore (con il livello di compatibilità 150)|Per informazioni, vedere [la modalità Batch a Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
 | Individuazione dati e classificazione  |Per informazioni, vedere [Database SQL di Azure e SQL Data Warehouse individuazione dati e classificazione](sql-database-data-discovery-and-classification.md).|
-| Processi di database elastico | Per informazioni, vedere [crea, configurare e gestire processi elastici](elastic-jobs-overview.md). |
+| Processi di database elastici | Per informazioni, vedere [crea, configurare e gestire processi elastici](elastic-jobs-overview.md). |
 | Query elastiche | Per informazioni, vedere [panoramica delle query elastiche](sql-database-elastic-query-overview.md). |
 | Transazioni elastiche | [Le transazioni distribuite tra database cloud](sql-database-elastic-transactions-overview.md). |
-| Regole di confronto di istanza con istanze gestite |Per informazioni, vedere [uso di PowerShell con modelli Azure Resource Manager per creare un'istanza gestita di Database SQL di Azure](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
 |Feedback delle concessioni di memoria (modalità riga) (con il livello di compatibilità 150)|Per informazioni, vedere [Feedback delle concessioni di memoria (modalità riga)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Editor di query nel portale di Azure |Per informazioni, vedere [utilizzare l'editor di query SQL del portale di Azure per connettersi ed eseguire query sui dati](sql-database-connect-query-portal.md).|
 | R services / machine learning con i database singoli e pool elastici |Per informazioni, vedere [servizi di Machine Learning in Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
@@ -42,9 +41,20 @@ Questo articolo elenca le nuove funzionalità e miglioramenti nel servizio Datab
 |Analitica SQL|Per informazioni, vedere [Analitica SQL di Azure](../azure-monitor/insights/azure-sql.md).|
 |Tabella variabili posticipata compilazione (con il livello di compatibilità 150)|Per informazioni, vedere [compilazione posticipata variabili tabella](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | Rilevamento delle minacce con le istanze gestite |Per informazioni, vedere [istanza gestita di configurare il rilevamento delle minacce nel Database SQL di Azure](sql-database-managed-instance-threat-detection.md).|
-| Supporto del fuso orario per le istanze gestite|Per altre informazioni, vedere [fuso orario in istanza gestita di Azure SQL Database](sql-database-managed-instance-timezone.md).|
 | Transparent data encryption (TDE) con Bring Your Own Key (BYOK) con le istanze gestite |Per informazioni, vedere [Azure SQL Transparent Data Encryption con chiavi gestite dal cliente in Azure Key Vault: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).|
 | &nbsp; |
+
+## <a name="june-2019"></a>Giugno 2019
+
+### <a name="service-improvements"></a>Miglioramenti al servizio
+
+| Miglioramenti al servizio | Dettagli |
+| --- | --- |
+| 4 Vcore di istanza gestita nella generazione di hardware Gen5| Per altre informazioni, vedere https://aka.ms/four-cores-sql-mi-update. |
+| Istanza gestita: supporto per le sottoscrizioni con carta di credito Azure mensile per sottoscrittori di Visual Studio | Per altre informazioni, vedere https://aka.ms/sql-mi-visual-studio-subscribers. |
+|Maggiori limiti a livello di area per l'istanza gestita| Per altre informazioni, vedere [limitazioni delle risorse a livello di area](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
+| &nbsp; |
+
 
 ## <a name="may-2019"></a>Maggio 2019
 
@@ -54,6 +64,8 @@ Questo articolo elenca le nuove funzionalità e miglioramenti nel servizio Datab
 | --- | --- |
 |Livello di servizio su scala molto vasta rilasciato per la disponibilità generale| Per altre informazioni, vedere [livello di servizio con Iperscalabilità per fino a 100 TB](sql-database-service-tier-hyperscale.md) e [ottenere scalabilità per i carichi di lavoro per database di Azure con Iperscalabilità ad alte prestazioni](https://azure.microsoft.com/blog/get-high-performance-scaling-for-your-azure-database-workloads-with-hyperscale/).|
 |Livello di calcolo senza server rilasciato per l'anteprima pubblica | Per altre informazioni, vedere [Database SQL senza server (anteprima)](sql-database-serverless.md).|
+|Supporto del fuso orario per le istanze gestite rilasciato per la disponibilità generale |Per altre informazioni, vedere [fuso orario in istanza gestita di Azure SQL Database](sql-database-managed-instance-timezone.md).|
+|Regole di confronto di istanza con istanze gestite rilasciato per la disponibilità generale |Per informazioni, vedere [uso di PowerShell con modelli Azure Resource Manager per creare un'istanza gestita di Database SQL di Azure](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
 | Frequenza di log delle transazioni e di destinazione IOPS aumentata per i database utilizzando il modello di acquisto basato su vCore| Per altre informazioni, vedere [limiti delle risorse per i database singoli con il modello di acquisto basato su vCore](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) e [limiti delle risorse per i database singoli con il modello di acquisto basato su DTU](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases).
 | &nbsp; |
 

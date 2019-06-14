@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1bd06507bd8a20cf504c1ff4cd9fe7e3b9196a3c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5bdd5049b7ddeaac4425734aa6f4d633b08cd3b4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687774"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057481"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'infrastruttura
 
@@ -36,7 +36,7 @@ Vedere [Configurazione del nodo predefinito e dimensioni della macchina virtuale
 
 ## <a name="check-hadoop-components-availability-in-hdinsight"></a>Verificare la disponibilità dei componenti Hadoop in HDInsight
 
-Ogni versione di HDInsight è una distribuzione cloud di una versione di Hortonworks Data Platform (HDP) ed è costituita da un set di componenti dell'ecosistema Hadoop. Vedere l'articolo su [controllo delle versioni dei componenti HDInsight](../hdinsight-component-versioning.md) per informazioni dettagliate su tutti i componenti HDInsight e sulle versioni correnti.
+Ogni versione di HDInsight è una distribuzione cloud di un set di componenti di sistema di Hadoop. Vedere l'articolo su [controllo delle versioni dei componenti HDInsight](../hdinsight-component-versioning.md) per informazioni dettagliate su tutti i componenti HDInsight e sulle versioni correnti.
 
 È anche possibile usare l'interfaccia utente Apache Ambari o l'API REST Ambari per controllare i componenti Hadoop e le versioni in HDInsight.
 

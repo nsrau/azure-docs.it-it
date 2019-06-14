@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: f9dd8a48da08f00cea1219f72940dd84dd3a97ac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64725516"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Guida alla migrazione e note sulla versione .NET 2.0 per l'insieme di credenziali delle chiavi di Azure
@@ -60,11 +60,11 @@ I certificati Key Vault gestiscono i certificati x509 e supportano i comportamen
 
 * *KeyVaultClientException* viene modificato in *KeyVaultErrorException*
 * L'errore del servizio è stato modificato da *exception.Error* in *exception.Body.Error.Message*.
-* Le informazioni aggiuntive sono rimosse dal messaggio di errore per **[JsonExtensionData]**.
+* Le informazioni aggiuntive sono rimosse dal messaggio di errore per **[JsonExtensionData]** .
 
 ## <a name="constructors"></a>Costruttori
 
-* Invece di accettare *HttpClient* come argomento del costruttore, il costruttore accetta solo *HttpClientHandler* o *DelegatingHandler[]*.
+* Invece di accettare *HttpClient* come argomento del costruttore, il costruttore accetta solo *HttpClientHandler* o *DelegatingHandler[]* .
 
 ## <a name="downloaded-packages"></a>Pacchetti scaricati
 

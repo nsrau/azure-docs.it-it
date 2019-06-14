@@ -9,10 +9,10 @@ ms.date: 12/20/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: 7e4760990229433b2ea40fadd0d17de0b52fcb36
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66162120"
 ---
 La tabella seguente descrive i ruoli disponibili in Gemelli digitali di Azure:
@@ -21,7 +21,7 @@ La tabella seguente descrive i ruoli disponibili in Gemelli digitali di Azure:
 | --- | --- | --- |
 | Amministratore dello spazio | Autorizzazioni di *CREAZIONE*, *LETTURA*, *AGGIORNAMENTO* ed *ELIMINAZIONE* per lo spazio specificato e tutti i nodi sottostanti. Autorizzazione globale. | 98e44ad7-28d4-4007-853b-b9968ad132d1 |
 | Amministratore utenti| Autorizzazioni di *CREAZIONE*, *LETTURA*, *AGGIORNAMENTO* ed *ELIMINAZIONE* per gli utenti e gli oggetti correlati agli utenti. Autorizzazione di *LETTURA* per gli spazi. | dfaac54c-f583-4dd2-b45d-8d4bbc0aa1ac |
-| Amministratore dispositivo | Autorizzazioni di *CREAZIONE*, *LETTURA*, *AGGIORNAMENTO* ed *ELIMINAZIONE* per i dispositivi e gli oggetti correlati ai dispositivi. Autorizzazione di *LETTURA* per gli spazi. | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
+| Amministratore del dispositivo | Autorizzazioni di *CREAZIONE*, *LETTURA*, *AGGIORNAMENTO* ed *ELIMINAZIONE* per i dispositivi e gli oggetti correlati ai dispositivi. Autorizzazione di *LETTURA* per gli spazi. | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
 | Amministratore delle chiavi | Autorizzazioni di *CREAZIONE*, *LETTURA*, *AGGIORNAMENTO* ed *ELIMINAZIONE* per le chiavi di accesso. Autorizzazione di *LETTURA* per gli spazi. | 5a0b1afc-e118-4068-969f-b50efb8e5da6 |
 | Amministratore dei token |  Autorizzazioni di *LETTURA* e *AGGIORNAMENTO* per le chiavi di accesso. Autorizzazione di *LETTURA* per gli spazi. | 38a3bb21-5424-43b4-b0bf-78ee228840c3 |
 | Utente |  Autorizzazione di *LETTURA* per gli spazi, i sensori e gli utenti, inclusi gli oggetti correlati corrispondenti. | b1ffdb77-c635-4e7e-ad25-948237d85b30 |

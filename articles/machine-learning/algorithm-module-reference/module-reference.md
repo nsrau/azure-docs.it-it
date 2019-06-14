@@ -10,10 +10,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ms.openlocfilehash: 8825f1dc3b66a5c4981ba25a90813aec63975b1f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145141"
 ---
 # <a name="algorithm--module-reference-overview"></a>Cenni preliminari di riferimento su algoritmi e moduli
@@ -29,7 +29,7 @@ Ogni modulo rappresenta un set di codice che può eseguire in modo indipendente 
 
 I moduli sono organizzati per funzionalità:
 
-| Funzionalità | DESCRIZIONE | Modulo |
+| Funzionalità | Descrizione | Modulo |
 | --- |--- | ---- |
 | Conversioni dei formati di dati | Convertire i dati tra diversi formati di file usati in machine learning, | [Converti in CSV](convert-to-csv.md) |
 | Dati di input e output | Spostare dati da origini cloud nell'esperimento. Scrivere i dati intermedi o risultati in archiviazione di Azure, un database SQL o Hive, durante l'esecuzione di un esperimento o usare l'archiviazione cloud di scambiare dati tra gli esperimenti.  | [Importazione dei dati](import-data.md)<br/>[Esportazione dei dati](export-data.md)<br/>[Immettere manualmente i dati](enter-data-manually.md) |
@@ -41,7 +41,7 @@ I moduli sono organizzati per funzionalità:
 | Regressione | Stimare un valore. | [Regressione lineare](linear-regression.md)  <br/> [Regressione rete neurale](neural-network-regression.md)  <br/> [Regressione tramite foresta delle decisioni](decision-forest-regression.md)  <br/> [Boosted&nbsp;decisione&nbsp;albero&nbsp;regressione](boosted-decision-tree-regression.md)
 |  | **Compilare e valutare i modelli**: | |
 | Eseguire il training   | Dati tramite l'algoritmo di esecuzione. | [Train Model](train-model.md)  <br/> [Train Clustering Model](train-clustering-model.md)    |
-| Valutazione del modello | Misurare l'accuratezza del modello con training. |  [Valutazione del modello](evaluate-model.md)
+| Valutare il modello | Misurare l'accuratezza del modello con training. |  [Valutazione del modello](evaluate-model.md)
 | Score | Ottenere le stime dal modello che appena sottoposto a training. | [Applicare la trasformazione](apply-transformation.md)<br/>[Assegnare&nbsp;Data&nbsp;a&nbsp;cluster](assign-data-to-clusters.md) <br/>[Score Model](score-model.md)
 
 ## <a name="error-messages"></a>messaggi di errore

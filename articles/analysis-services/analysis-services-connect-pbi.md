@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: cb93c29ae4cb8d365cd128c52ee726c10c94bc19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023575"
 ---
 # <a name="connect-with-power-bi"></a>Connettersi con Power BI
@@ -47,7 +47,7 @@ Dopo aver creato un server in Azure e aver distribuito un modello tabulare nel s
 1. Creare un file di Power BI Desktop che dispone di una connessione dinamica al modello sul server.
 2. In [Power BI](https://powerbi.microsoft.com) fare clic su **Recupera dati** > **File** e quindi individuare e selezionare il file con estensione pbix.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 [Connettersi ad Azure Analysis Services](analysis-services-connect.md)   
 [Librerie client](analysis-services-data-providers.md)
 

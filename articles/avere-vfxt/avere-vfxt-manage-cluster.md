@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409739"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gestire il cluster Avere vFXT
@@ -23,14 +23,14 @@ Questa tabella offre una panoramica degli strumenti utilizzabili per ogni attivi
 
 | Azione | Pannello di controllo di Avere | vfxt.py  | Portale di Azure |
 | --- | --- | --- | --- |
-| Aggiungere nodi del cluster | no | Sì | no |
-| Rimuovere nodi del cluster | Sì | no | no |
+| Aggiungere nodi del cluster | no | sì | no |
+| Rimuovere nodi del cluster | sì | no | no |
 | Interrompere un nodo del cluster | sì (è anche possibile riavviare i servizi o riavviare il cluster) | no | lo spegnimento di un macchina virtuale del nodo dal portale viene interpretato come un errore del nodo |
-| Avviare un nodo interrotto | no | no | Sì |
-| Eliminare definitivamente un singolo nodo del cluster | no | no | Sì |
+| Avviare un nodo interrotto | no | no | sì |
+| Eliminare definitivamente un singolo nodo del cluster | no | no | sì |
 | Riavviare il cluster |  |  |  |
-| Arrestare o interrompere il cluster in modo sicuro | Sì | Sì | no |
-| Eliminare definitivamente il cluster  | no | Sì | sì, ma non è garantita l'integrità dei dati |
+| Arrestare o interrompere il cluster in modo sicuro | sì | sì | no |
+| Eliminare definitivamente il cluster  | no | sì | sì, ma non è garantita l'integrità dei dati |
 
 Di seguito vengono fornite istruzioni dettagliate per ogni strumento.
 

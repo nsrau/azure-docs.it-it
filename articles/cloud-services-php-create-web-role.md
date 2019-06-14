@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.openlocfilehash: 83834104dd73e4381947903196ad35c3497b64a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337562"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Creare ruoli Web e di lavoro PHP
@@ -26,7 +26,7 @@ ms.locfileid: "60337562"
 
 Questa guida illustrerà come creare ruoli Web o di lavoro PHP in un ambiente di sviluppo Windows, scegliere una versione specifica di PHP tra le versioni incorporate disponibili, modificare la configurazione di PHP, abilitare le estensioni e, infine, eseguire la distribuzione in Azure. Verrà inoltre descritto come configurare un ruolo Web o di lavoro per l'uso del runtime PHP (con configurazione ed estensioni personalizzate) fornito dall'utente.
 
-Azure offre tre modelli di calcolo per l'esecuzione di applicazioni: Servizio App di Azure, macchine virtuali di Azure e servizi Cloud di Azure. Tutti e tre i modelli supportano PHP. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia *PaaS (Platform as a Service)*. In un servizio cloud un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato per ospitare applicazioni Web front-end. Un ruolo di lavoro può eseguire attività asincrone, con esecuzione prolungata o perpetue indipendenti dall'interazione o dall'input dell'utente.
+Azure offre tre modelli di calcolo per l'esecuzione di applicazioni: Servizio App di Azure, macchine virtuali di Azure e servizi Cloud di Azure. Tutti e tre i modelli supportano PHP. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia *PaaS (Platform as a Service)* . In un servizio cloud un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato per ospitare applicazioni Web front-end. Un ruolo di lavoro può eseguire attività asincrone, con esecuzione prolungata o perpetue indipendenti dall'interazione o dall'input dell'utente.
 
 Per altre informazioni su queste opzioni, vedere [Opzioni di hosting di calcolo fornite da Azure](cloud-services/cloud-services-choose-me.md).
 

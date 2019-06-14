@@ -10,10 +10,10 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae9db483e15197e6cdaaaa5981410630184cc6ca
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957233"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Raccogliere tracce distribuite da Python (anteprima)
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 Accedere al [portale di Azure](https://portal.azure.com/).
 
-## <a name="create-application-insights-resource"></a>Crea risorsa di Application Insights
+## <a name="create-application-insights-resource"></a>Creare una risorsa di Application Insights
 
 Prima di tutto, è necessario creare una risorsa di Application Insights, che genererà una chiave di strumentazione (iKey). La chiave di strumentazione viene quindi usata per configurare l'agente d'inoltro locale per inviare tracce distribuite dall'applicazione OpenCensus instrumentata ad Application Insights.   
 

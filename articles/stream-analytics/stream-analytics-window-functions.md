@@ -2,24 +2,24 @@
 title: Introduzione alle funzioni delle finestre di Analisi di flusso di Azure
 description: Questo articolo descrive le quattro funzioni delle finestre (a cascata, salto, temporale scorrevole, sessione) usate nei processi di Analisi di flusso di Azure.
 services: stream-analytics
-author: lingliw
-ms.author: v-lingwu
-manager: digimobile
+author: jseb225
+ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/21/19
-ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 56b6f11d226f25e3094a90d8646fa13860ee306e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844719"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066753"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduzione alle funzioni delle finestre di Analisi di flusso
+
 Negli scenari di flusso tempo eseguire operazioni solo sui dati contenuti in finestre temporali è un modello comune. Analisi di flusso offre supporto nativo per le funzioni delle finestre, consentendo agli sviluppatori di creare processi di elaborazione dei flussi complessi con il minimo sforzo.
 
-Esistono quattro tipi di finestre temporali tra cui scegliere: [**a cascata**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [**di salto**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**scorrevoli**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) e [**della sessione**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics).  Usare le funzioni delle finestre nella clausola [ **GROUP BY** ](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) della sintassi di query nei processi di Flusso Analitica.
+Esistono quattro tipi di finestre temporali tra cui scegliere: [**a cascata**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [**di salto**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**scorrevoli**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) e [**della sessione**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics).  Usare le funzioni delle finestre nella clausola [ **GROUP BY** ](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) della sintassi di query nei processi di Flusso Analitica. È anche possibile aggregare eventi su più finestre utilizzando il [ **Windows()** funzione](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
 
 Tutte le operazioni delle [finestre](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) restituiscono i risultati alla **fine** della finestra. L'output della finestra sarà un singolo evento basato sulla funzione di aggregazione usata. All'evento di output sarà associato il timestamp di fine della finestra e tutte le funzioni finestra sono definite con una lunghezza fissa. 
 
@@ -51,6 +51,7 @@ Se continuano a verificarsi eventi entro il timeout specificato, la finestra del
 
 Quando viene fornita una chiave di partizione, gli eventi vengono raggruppati tramite la chiave e la finestra della sessione viene applicata indipendentemente a ogni gruppo. Questo partizionamento è utile nei casi in cui sono necessarie finestre sessione diverse per utenti o dispositivi diversi.
 
+
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
@@ -58,4 +59,3 @@ Quando viene fornita una chiave di partizione, gli eventi vengono raggruppati tr
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->

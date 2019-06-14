@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 9a026d205d3ab855ecbb51048e7464df6fb4a094
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510759"
 ---
 # <a name="json-claims-transformations"></a>Trasformazioni delle attestazioni JSON
@@ -66,7 +66,7 @@ Consente di ottenere un elenco di elementi specificati dai dati Json.
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | string | I ClaimType usati dalla trasformazione delle attestazioni per ottenere le attestazioni. |
-| InputParameter | errorOnMissingClaims | Boolean | Specifica se generare un errore quando manca una delle attestazioni. |
+| InputParameter | errorOnMissingClaims | boolean | Specifica se generare un errore quando manca una delle attestazioni. |
 | InputParameter | includeEmptyClaims | string | Specifica se includere attestazioni vuote. |
 | InputParameter | jsonSourceKeyName | string | Nome della chiave dell'elemento |
 | InputParameter | jsonSourceValueName | string | Nome del valore dell'elemento |

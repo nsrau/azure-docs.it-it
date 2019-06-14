@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: evansma
 ms.openlocfilehash: abe499c081c73d42e712d5872e121262a1a50197
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66259165"
 ---
 # <a name="register-a-saas-application"></a>Registrare un'applicazione SaaS
@@ -78,7 +78,7 @@ Metodo HTTP
 
 |  **Nome parametro**  | **Obbligatorio**  | **Descrizione**                               |
 |  ------------------  | ------------- | --------------------------------------------- |
-| TenantId             | True           | ID tenant dell'applicazione AAD registrata   |
+| TenantId             | True          | ID tenant dell'applicazione AAD registrata   |
 |  |  |  |
 
 
@@ -86,7 +86,7 @@ Metodo HTTP
 
 |  **Nome dell'intestazione**  | **Obbligatorio** |  **Descrizione**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | True          | Tipo di contenuto associato alla richiesta. Il valore predefinito è `application/x-www-form-urlencoded`.  |
+|  Content-Type     | True         | Tipo di contenuto associato alla richiesta. Il valore predefinito è `application/x-www-form-urlencoded`.  |
 |  |  |  |
 
 
@@ -94,10 +94,10 @@ Metodo HTTP
 
 | **Nome proprietà**   | **Obbligatorio** |  **Descrizione**                                                          |
 | -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | True          | Tipo di concessione. Il valore predefinito è `client_credentials`.                    |
-|  Client_id          | True          |  Identificatore del client/app associato all'app di Azure AD.                  |
-|  client_secret      | True          |  Password associata all'app di Azure AD.                               |
-|  Resource           | True          |  Risorsa di destinazione per cui è richiesto il token. Il valore predefinito è `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
+|  Grant_type         | True         | Tipo di concessione. Il valore predefinito è `client_credentials`.                    |
+|  Client_id          | True         |  Identificatore del client/app associato all'app di Azure AD.                  |
+|  client_secret      | True         |  Password associata all'app di Azure AD.                               |
+|  Resource           | True         |  Risorsa di destinazione per cui è richiesto il token. Il valore predefinito è `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
 |  |  |  |
 
 

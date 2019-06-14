@@ -13,10 +13,10 @@ ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485983"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Effettuare il provisioning di nuovi tenant e catalogarli in un'applicazione SaaS con un database SQL di Azure partizionato multi-tenant
@@ -161,7 +161,7 @@ Per comprendere in che modo l'app Wingtip implementi il nuovo provisioning di te
    - **$VenueType** = **blues**, uno dei tipi di sede predefiniti: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (in minuscolo e senza spazi).
    - **$DemoScenario** = **1** per eseguire il provisioning di un tenant in un database condiviso con altri tenant.
 
-2. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi della riga 38 contenente il testo: *New-Tenant `*, quindi premere **F9**.
+2. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi della riga 38 contenente il testo: *New-Tenant `* , quindi premere **F9**.
 
    ![punto di interruzione](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 

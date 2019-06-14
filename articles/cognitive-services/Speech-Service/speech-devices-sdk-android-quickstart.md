@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 5bebdd77afb9e9c77624ea4266ca217567dbf143
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425684"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072385"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Avvio rapido: Eseguire l'app di esempio Speech SDK di dispositivi in Android
 
@@ -37,7 +37,7 @@ Prima di iniziare a usare il SDK di dispositivi di riconoscimento vocale, è nec
 
 * Per ottenere un [chiave di sottoscrizione di Azure per servizi di riconoscimento vocale](get-started.md)
 
-* Se si prevede di usare la trascrizione di conversazione è necessario utilizzare un [microfono circolare](get-speech-devices-sdk.md) e il servizio è attualmente disponibile solo per "en-US" e "zh-CN" in aree geografiche, "centralus" e "Asia orientale". È necessario disporre una chiave di riconoscimento vocale in una di queste aree per usare la trascrizione di conversazione.
+* Se si prevede di usare la trascrizione di conversazione è necessario utilizzare un [microfono circolare](get-speech-devices-sdk.md) e questa funzionalità è attualmente disponibile solo per "en-US" e "zh-CN" in aree geografiche, "centralus" e "Asia orientale". È necessario disporre una chiave di riconoscimento vocale in una di queste aree per usare la trascrizione di conversazione.
 
 * Se si prevede di usare i servizi di riconoscimento vocale per identificare gli Intent (o azioni) da espressioni di utente, è necessario un [servizio LUIS (Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) sottoscrizione. Per altre informazioni su LUIS e riconoscimento delle intenzioni tramite, vedere [riconosce gli Intent di riconoscimento vocale con LUIS, C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 

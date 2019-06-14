@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400644"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintassi query per il routing dei messaggi di hub IoT
@@ -51,12 +51,12 @@ L'hub IoT definisce un [formato comune](iot-hub-devguide-messages-construct.md) 
 
 Le proprietà di sistema identificano contenuto e origine dei messaggi. 
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| contentType | stringa | L'utente specifica il tipo di contenuto del messaggio. Per consentire query sul corpo del messaggio, questo valore deve essere impostato su application/JSON. |
-| contentEncoding | stringa | L'utente specifica il tipo di codifica del messaggio. Valori consentiti sono UTF-8, UTF-16, UTF-32 Se il contentType è impostato su application/JSON. |
-| iothub-connection-device-id | stringa | Questo valore viene impostato dall'hub IoT e identifica l'ID del dispositivo. Per la query, usare `$connectionDeviceId`. |
-| iothub-enqueuedtime | stringa | Questo valore viene impostato dall'hub IoT e rappresenta l'ora effettiva di inserimento in coda del messaggio in UTC. Per la query, usare `enqueuedTime`. |
+| contentType | string | L'utente specifica il tipo di contenuto del messaggio. Per consentire query sul corpo del messaggio, questo valore deve essere impostato su application/JSON. |
+| contentEncoding | string | L'utente specifica il tipo di codifica del messaggio. Valori consentiti sono UTF-8, UTF-16, UTF-32 Se il contentType è impostato su application/JSON. |
+| iothub-connection-device-id | string | Questo valore viene impostato dall'hub IoT e identifica l'ID del dispositivo. Per la query, usare `$connectionDeviceId`. |
+| iothub-enqueuedtime | string | Questo valore viene impostato dall'hub IoT e rappresenta l'ora effettiva di inserimento in coda del messaggio in UTC. Per la query, usare `enqueuedTime`. |
 
 Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre a **contentType**, **contentEncoding** e **enqueuedTime**, è possibile sottoporre a query anche **connectionDeviceId** e **connectionModuleId**.
 
@@ -66,7 +66,7 @@ Le proprietà dell'applicazione sono stringhe definite dall'utente che è possib
 
 ### <a name="query-expressions"></a>Espressioni di query
 
-Una query sulle proprietà di sistema del messaggio richiede come prefisso il simbolo `$`. Viene eseguito l'accesso alle query sulle proprietà dell'applicazione con il relativo nome e non devono essere precedute da `$`simbolo. Se un nome di proprietà dell'applicazione inizia con `$`, allora l'hub IoT lo cercherà tra le proprietà del sistema e se non viene trovato, lo cercherà nelle proprietà dell'applicazione. Ad esempio:  
+Una query sulle proprietà di sistema del messaggio richiede come prefisso il simbolo `$`. Viene eseguito l'accesso alle query sulle proprietà dell'applicazione con il relativo nome e non devono essere precedute da `$`simbolo. Se un nome di proprietà dell'applicazione inizia con `$`, allora l'hub IoT lo cercherà tra le proprietà del sistema e se non viene trovato, lo cercherà nelle proprietà dell'applicazione. Ad esempio: 
 
 Per eseguire una query su una proprietà di sistema contentEncoding 
 

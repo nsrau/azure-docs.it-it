@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 915d1284d66438219fc9aba893512e5f6a5b02b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 6093e1017af2fb8c54eaf1c3192f937172567982
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305035"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080546"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gestori eventi di Griglia di eventi di Azure
 
@@ -78,9 +78,45 @@ Usare il Bus di servizio come gestore eventi per instradare gli eventi in grigli
 
 Si noti che, durante il Bus di servizio come un gestore di è in anteprima pubblica, è necessario installare l'estensione della riga di comando o PowerShell quando si utilizza tali credenziali per creare le sottoscrizioni di eventi.
 
-### <a name="using-cli"></a>Uso dell'interfaccia della riga di comando
+### <a name="install-extension-for-azure-cli"></a>Installare l'estensione per l'interfaccia della riga di comando di Azure
 
-Riga di comando di Azure, nell'esempio seguente sottoscrive una si connette e l'argomento di griglia di eventi da una coda del Bus di servizio:
+Per l'interfaccia della riga di comando di Azure, è necessaria l'[estensione Griglia di eventi](/cli/azure/azure-cli-extensions-list).
+
+In [CloudShell](/azure/cloud-shell/quickstart):
+
+* Se è stata installata l'estensione in precedenza, aggiornarlo con `az extension update -n eventgrid`.
+* Se è stata installata l'estensione in precedenza, installarlo usando `az extension add -n eventgrid`.
+
+Per un'installazione locale:
+
+1. [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) Assicurarsi di avere la versione più recente, verificando `az --version`.
+1. Disinstallare le versioni precedenti dell'estensione con `az extension remove -n eventgrid`.
+1. Installare il `eventgrid` estensione con `az extension add -n eventgrid`.
+
+### <a name="install-module-for-powershell"></a>Installare il modulo per PowerShell
+
+Per PowerShell, è necessario il [modulo AzureRM.EventGrid](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
+
+In [CloudShell](/azure/cloud-shell/quickstart-powershell):
+
+* Installare il modulo con `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+Per un'installazione locale:
+
+1. Aprire la console PowerShell come amministratore.
+1. Installare il modulo con `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+Se il parametro `-AllowPrerelease` non è disponibile, seguire questa procedura:
+
+1. Eseguire `Install-Module PowerShellGet -Force`.
+1. Eseguire `Update-Module PowerShellGet`.
+1. Chiudere la console di PowerShell.
+1. Riavviare PowerShell come amministratore.
+1. Installare il modulo `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+### <a name="using-cli-to-add-a-service-bus-handler"></a>Uso della riga di comando per aggiungere un gestore del Bus di servizio
+
+Riga di comando di Azure, nell'esempio seguente sottoscrive e si connette a un argomento di griglia di eventi a una coda del Bus di servizio:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.

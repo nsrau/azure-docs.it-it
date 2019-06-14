@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550499"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limiti di Database di Azure per MariaDB
@@ -21,8 +21,8 @@ Di seguito è indicato il numero massimo di connessioni per ogni piano tariffari
 
 |**Piano tariffario**|**vCore**| **Numero massimo di connessioni**|
 |---|---|---|
-|Di base| 1| 50|
-|Di base| 2| 100|
+|Basic| 1| 50|
+|Basic| 2| 100|
 |Utilizzo generico| 2| 300|
 |Utilizzo generico| 4| 625|
 |Utilizzo generico| 8| 1250|
@@ -77,13 +77,13 @@ Quando le connessioni superano il limite, è possibile che venga visualizzato l'
 - Quando si usa la funzionalità di ripristino temporizzato, il nuovo server viene creato con le stesse configurazioni del server su cui si basa.
 - Il ripristino di un server eliminato non è supportato.
 
-### <a name="subscription-management"></a>Gestione della sottoscrizione
+### <a name="subscription-management"></a>Gestione sottoscrizioni
 - Lo spostamento dinamico di server creati in precedenza tra le sottoscrizioni e il gruppo di risorse non è attualmente supportato.
 
 ### <a name="vnet-service-endpoints"></a>Endpoint del servizio di rete virtuale
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
 
-### <a name="storage-size"></a>Dimensioni archiviazione
+### <a name="storage-size"></a>Dimensioni della risorsa di archiviazione
 - Consultare [sui piani tariffari](concepts-pricing-tiers.md) per i limiti delle dimensioni di archiviazione per ogni piano tariffario.
 
 ## <a name="current-known-issues"></a>Problemi attualmente noti

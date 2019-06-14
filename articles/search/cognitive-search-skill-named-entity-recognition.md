@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: b7af4d0a48f002f7523def971a306d1fa2077c70
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952041"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Competenza cognitiva di Riconoscimento di entità denominate
@@ -43,13 +43,13 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 | Nome parametro     | Descrizione |
 |--------------------|-------------|
-| categorie    | Matrice di categorie che devono essere estratte.  Possibili tipologie di categorie: `"Person"`, `"Location"`, `"Organization"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
+| Categorie    | Matrice di categorie che devono essere estratte.  Possibili tipologie di categorie: `"Person"`, `"Location"`, `"Organization"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
 |defaultLanguageCode |  Codice lingua del testo di input. Sono supportate le lingue seguenti: `de, en, es, fr, it`|
 | minimumPrecision  | Un numero compreso tra 0 e 1. Se la precisione è inferiore a questo valore, non viene restituita l'entità. Il valore predefinito è 0.|
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome di input      | Descrizione                   |
+| Nome input      | Descrizione                   |
 |---------------|-------------------------------|
 | languageCode  | facoltativo. Il valore predefinito è `"en"`.  |
 | text          | Testo da analizzare.          |
@@ -59,7 +59,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 | Nome output     | Descrizione                   |
 |---------------|-------------------------------|
 | persons      | Una matrice di stringhe in cui ogni stringa rappresenta il nome di una persona. |
-| località  | Una matrice di stringhe in cui ogni stringa rappresenta il nome una posizione. |
+| locations  | Una matrice di stringhe in cui ogni stringa rappresenta il nome una posizione. |
 | organizations  | Una matrice di stringhe in cui ogni stringa rappresenta un'organizzazione. |
 | entities | Una matrice di tipi complessi. Ogni tipo complesso include i campi seguenti: <ul><li>category (`"person"`, `"organization"` o `"location"`)</li> <li>value (nome entità effettivo)</li><li>offset (percorso in cui è stato trovato nel testo)</li><li>confidence (un valore compreso tra 0 e 1 che rappresenta l'attendibilità che il valore sia di un'entità effettiva)</li></ul> |
 
@@ -156,7 +156,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ## <a name="error-cases"></a>Casi di errore
 Se il codice della lingua per il documento non è supportato, viene restituito un errore e non vengono estratte entità.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

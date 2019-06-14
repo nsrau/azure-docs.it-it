@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393486"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analisi degli eventi e la visualizzazione con i log di monitoraggio di Azure
@@ -43,7 +43,7 @@ Dopo la ricezione dei dati per i log di monitoraggio di Azure, Azure dispone di 
 
 Nel [portale di Azure](https://portal.azure.com), passare al gruppo di risorse in cui è stata creata la soluzione Service Fabric Analitica.
 
-Selezionare la risorsa **ServiceFabric\<nomeareadilavoroOMS\>**.
+Selezionare la risorsa **ServiceFabric\<nomeareadilavoroOMS\>** .
 
 In `Summary` vengono visualizzati riquadri sotto forma di grafo per ogni soluzione abilitata, tra cui uno per Service Fabric. Fare clic sul grafo **Service Fabric** per passare alla soluzione Analisi Service Fabric.
 

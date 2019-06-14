@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 25ff618045c65371b1bddd8aeb32166b3e168a93
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 7fc634b064a2b5ac844e60341fedb94c14a62749
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497207"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061074"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 
@@ -26,7 +26,7 @@ Questo articolo illustra come usare le funzionalità di rete di *Azure CNI* per 
 
 * La rete virtuale per il cluster servizio Azure Kubernetes deve consentire la connettività Internet in uscita.
 * Non creare più di un cluster servizio Azure Kubernetes nella stessa subnet.
-* I cluster servizio Azure Kubernetes non possono usare `169.254.0.0/16`, `172.30.0.0/16` o `172.31.0.0/16` per l'intervallo di indirizzi del servizio Kubernetes.
+* Non è possono usare i cluster AKS `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, o `192.0.2.0/24` per Kubernetes l'intervallo di indirizzi del servizio.
 * L'entità servizio usata dal cluster servizio Azure Kubernetes deve avere almeno autorizzazioni di [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) per la subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -100,7 +100,7 @@ Quando si crea un cluster servizio Azure Kubernetes, per la rete Azure CNI i par
 * Non deve essere compreso nell'intervallo di indirizzi IP della rete virtuale del cluster
 * Non deve sovrapporsi ad altre reti virtuali con cui la rete virtuale del cluster effettua il peering
 * Non deve sovrapporsi ad altri IP locali
-* Non deve essere compreso negli intervalli `169.254.0.0/16`, `172.30.0.0/16` o `172.31.0.0/16`
+* Non deve essere compreso negli intervalli `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, o `192.0.2.0/24`
 
 Sebbene sia tecnicamente possibile specificare un intervallo di indirizzi del servizio all'interno della stessa rete virtuale del cluster, tale operazione non è consigliata. Se vengono usati intervalli IP che si sovrappongono, si può verificare un comportamento imprevedibile. Per altre informazioni, vedere la sezione [Domande frequenti](#frequently-asked-questions) di questo articolo. Per altre informazioni sui servizi Kubernetes, vedere [Services][services] (Servizi) nella documentazione di Kubernetes.
 

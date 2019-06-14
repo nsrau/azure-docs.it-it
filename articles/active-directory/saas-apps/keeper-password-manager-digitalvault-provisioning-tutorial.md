@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: 445579eb780b49f536ef1a9e13e5ca43db6f98f6
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508505"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Esercitazione: Configura Keeper Password Manager & Digital Vault per il provisioning utenti automatico
@@ -45,7 +45,7 @@ Prima configurazione di Keeper Password Manager & Digital Vault per il provision
 
 **Per aggiungere Keeper Password Manager & Digital Vault dalla raccolta di applicazioni di Azure AD, seguire i passaggi seguenti:**
 
-1. Nel  **[portale di Azure](https://portal.azure.com)**, nel riquadro di spostamento sinistro, selezionare **Azure Active Directory**.
+1. Nel  **[portale di Azure](https://portal.azure.com)** , nel riquadro di spostamento sinistro, selezionare **Azure Active Directory**.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
@@ -124,7 +124,7 @@ Questa sezione descrive i passaggi per configurare il provisioning di Azure AD d
 
 8. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
-    ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
+    ![Notifica tramite posta elettronica](common/provisioning-notification-email.png)
 
 9. Fare clic su **Save**.
 

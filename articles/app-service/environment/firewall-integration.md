@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 06/11/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dae2d40650b9fdb8df2d3bdb74b2df78639dc11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766535"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058055"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blocco di un ambiente del servizio app
 
@@ -30,6 +30,21 @@ Esistono numerose dipendenze in ingresso per un ambiente del servizio app. Il tr
 Le dipendenze in uscita dell'ambiente del servizio app sono quasi interamente definite con nomi di dominio completo, senza indirizzi statici sottostanti. La mancanza di indirizzi statici significa i gruppi di sicurezza di rete (NSG) non possono essere usati per bloccare il traffico in uscita da un ambiente del servizio app. Gli indirizzi cambiano con una frequenza tale, che non è possibile configurare le regole in base alla risoluzione corrente e usarla per creare gruppi di sicurezza di rete. 
 
 La soluzione per proteggere gli indirizzi in uscita consiste nell'usare un dispositivo firewall che può controllare il traffico in uscita in base ai nomi di dominio. Firewall di Azure può limitare il traffico HTTP e HTTPS in uscita in base all'FQDN della destinazione.  
+
+## <a name="system-architecture"></a>Architettura di sistema
+
+Distribuzione di un ambiente del servizio App con traffico in uscita che passa attraverso un dispositivo firewall, è necessario modificare le route della subnet di ambiente del servizio app. Le route operano a livello IP. Se non si presta attenzione nella definizione di route, è possibile forzare il traffico di risposta TCP al codice sorgente da un altro indirizzo. Si tratta del routing asimmetrico e verrà interrotto TCP.
+
+Deve esserci route definite in modo che il traffico in ingresso per l'ambiente del servizio App può rispondere nuovamente che allo stesso modo il traffico è stato ricevuto. Questo vale per le richieste di gestione in ingresso ed ed è applicabile per le richieste in ingresso dell'applicazione.
+
+Il traffico da e verso un ambiente del servizio app deve rispettare le convenzioni seguenti
+
+* Il traffico verso Azure SQL, archiviazione e Hub eventi non sono supportati a seconda dell'uso di un dispositivo firewall. Il traffico deve essere inviato direttamente a tali servizi. Il modo per assicurarsi che si verificano consiste nel configurare gli endpoint servizio per i tre servizi. 
+* È necessario definire le regole nella tabella di route che inviano il traffico di gestione in ingresso dal punto di entrata.
+* È necessario definire le regole nella tabella di route che inviano il traffico in ingresso dell'applicazione dal punto di entrata. 
+* Tutto il restante traffico di uscire dall'ambiente del servizio App può essere inviato al tuo dispositivo firewall con una regola della tabella di route.
+
+![Flusso di connessioni tra l'ambiente del servizio app e Firewall di Azure][5]
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configurazione di Firewall di Azure con l'ambiente del servizio app 
 
@@ -68,8 +83,6 @@ I passaggi precedenti consentiranno all'ambiente del servizio app di operare sen
 Se le applicazioni hanno dipendenze, devono essere aggiunte a Firewall di Azure. Creare regole per le applicazioni per consentire il traffico HTTP/HTTPS e regole di rete per tutto il resto. 
 
 Se si conosce l'intervallo di indirizzi da cui proverrà il traffico di richieste delle applicazioni, è possibile aggiungerlo alla tabella di route assegnata alla subnet dell'ambiente del servizio app. Se l'intervallo di indirizzi è grande o non specificato, è possibile usare un'appliance di rete, ad esempio il gateway applicazione, per fornire un indirizzo da aggiungere alla tabella di route. Per informazioni dettagliate sulla configurazione di un gateway applicazione con l'ambiente del servizio app con bilanciamento del carico interno, vedere [Integrazione dell'ambiente del servizio app con bilanciamento del carico interno con un gateway applicazione](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
-
-![Flusso di connessioni tra l'ambiente del servizio app e Firewall di Azure][5]
 
 Questo uso del gateway applicazione è solo un esempio di come configurare il sistema. Se si è seguito questo percorso, è necessario aggiungere una route alla tabella di route della subnet dell'ambiente del servizio app in modo che il traffico di risposta inviato al gateway applicazione passi direttamente. 
 

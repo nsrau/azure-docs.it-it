@@ -9,10 +9,10 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113397"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Criteri: Per gli utenti della directory
@@ -115,7 +115,7 @@ Nella sezione scadenza, si specifica in cui scade l'assegnazione dell'utente per
 
     ![Pacchetto di accesso - impostazioni di scadenza dei criteri:](./media/active-directory-entitlement-management-policy/policy-expiration.png)
 
-### <a name="policy-enable-policy"></a>Criteri: Attiva criterio
+### <a name="policy-enable-policy"></a>Criteri: Abilitare i criteri
 
 1. Se si desidera che il pacchetto di accesso da rendere immediatamente disponibili per gli utenti nei criteri, fare clic su **Sì** per abilitare i criteri.
 

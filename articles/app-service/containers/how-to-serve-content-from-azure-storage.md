@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
 ms.openlocfilehash: 6b4e145a693aabbf1a00d732e2fd602e7c887a03
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956018"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Rendere disponibile contenuto di Archiviazione di Azure nel servizio app in Linux
@@ -62,7 +62,7 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 
 È consigliabile eseguire questa operazione per tutte le altre directory che si vogliono collegare a un account di archiviazione.
 
-## <a name="verify"></a>Esegui verifica
+## <a name="verify"></a>Verificare
 
 Dopo aver collegato un contenitore di archiviazione a un'app Web, è possibile verificare il collegamento eseguendo il comando seguente:
 

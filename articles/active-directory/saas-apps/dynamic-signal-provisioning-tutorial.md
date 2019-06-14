@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: f79bc083105f997b08f7cfa6f8e08a8f4f455455
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470599"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Esercitazione: Configurare Dynamic Signal per il provisioning utenti automatico
@@ -45,7 +45,7 @@ Prima di configurare Dynamic Signal per provisioning utenti automatico con Azure
 
 **Per aggiungere Dynamic Signal dalla raccolta di applicazioni di Azure AD, seguire i passaggi seguenti:**
 
-1. Nel  **[portale di Azure](https://portal.azure.com)**, nel riquadro di spostamento sinistro, selezionare **Azure Active Directory**.
+1. Nel  **[portale di Azure](https://portal.azure.com)** , nel riquadro di spostamento sinistro, selezionare **Azure Active Directory**.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
@@ -116,7 +116,7 @@ Questa sezione descrive i passaggi per configurare il provisioning di Azure AD d
 
 8. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
-    ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
+    ![Notifica tramite posta elettronica](common/provisioning-notification-email.png)
 
 9. Fare clic su **Save**.
 

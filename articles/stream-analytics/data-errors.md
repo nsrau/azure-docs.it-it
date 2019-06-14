@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.openlocfilehash: b00eb12092838746f4bfe16f00eac55df9224b09
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65607229"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Errori di Azure Stream Analitica dei dati
@@ -43,7 +43,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="inputdeserializererrorinvalidcompressiontype"></a>InputDeserializerError.InvalidCompressionType
 
 * Causa: Il tipo di compressione di input selezionato non corrisponde ai dati.
-* Nelle notifiche del portale fornite: Sì
+* Nelle notifiche del portale fornite: Yes
 * Livello di log di diagnostica: Avviso
 * Dettagli del log
    * Identificatore del messaggio di input. Per l'Hub eventi, l'identificatore è il PartitionId, Offset e numero di sequenza.
@@ -57,7 +57,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="inputdeserializererrorinvalidheader"></a>InputDeserializerError.InvalidHeader
 
 * Causa: L'intestazione di dati di input non è valido. Ad esempio, un file CSV include colonne con nomi duplicati.
-* Nelle notifiche del portale fornite: Sì
+* Nelle notifiche del portale fornite: Yes
 * Livello di log di diagnostica: Avviso
 * Dettagli del log
    * Identificatore del messaggio di input. 
@@ -72,7 +72,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="inputdeserializererrormissingcolumns"></a>InputDeserializerError.MissingColumns
 
 * Causa: Le colonne di input definite con CREATE TABLE o tramite TIMESTAMP BY non esiste.
-* Nelle notifiche del portale fornite: Sì
+* Nelle notifiche del portale fornite: Yes
 * Livello di log di diagnostica: Avviso
 * Dettagli del log
    * Identificatore del messaggio di input. 
@@ -92,7 +92,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="inputdeserializererrortypeconversionerror"></a>InputDeserializerError.TypeConversionError
 
 * Causa: Impossibile convertire l'input nel tipo specificato nell'istruzione CREATE TABLE.
-* Nelle notifiche del portale fornite: Sì
+* Nelle notifiche del portale fornite: Yes
 * Livello di log di diagnostica: Avviso
 * Dettagli del log
    * Identificatore del messaggio di input. 
@@ -111,7 +111,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="inputdeserializererrorinvaliddata"></a>InputDeserializerError.InvalidData
 
 * Causa: I dati di input non sono nel formato corretto. Ad esempio, l'input non è un oggetto JSON valido.
-* Nelle notifiche del portale fornite: Sì
+* Nelle notifiche del portale fornite: Yes
 * Livello di log di diagnostica: Avviso
 * Dettagli del log
    * Identificatore del messaggio di input. 
@@ -130,7 +130,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="invalidinputtimestamp"></a>InvalidInputTimeStamp
 
 * Causa: Il valore dell'espressione TIMESTAMP BY non può essere convertito in datetime.
-* Nelle notifiche del portale fornite: Sì
+* Nelle notifiche del portale fornite: Yes
 * Livello di log di diagnostica: Avviso
 * Dettagli del log
    * Identificatore del messaggio di input. 
@@ -146,7 +146,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="invalidinputtimestampkey"></a>InvalidInputTimeStampKey
 
 * Causa: Il valore di TIMESTAMP BY OVER timestampColumn è NULL.
-* Nelle notifiche del portale fornite: Sì
+* Nelle notifiche del portale fornite: Yes
 * Livello di log di diagnostica: Avviso
 * Dettagli del log
    * Il payload effettivo fino a pochi kilobyte.
@@ -160,7 +160,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="lateinputevent"></a>LateInputEvent
 
 * Causa: La differenza tra ora di arrivo e tempo applicazione è maggiore di finestra di tolleranza per arrivo in ritardo.
-* Nelle notifiche del portale fornite: N.
+* Nelle notifiche del portale fornite: No
 * Livello di log di diagnostica: Informazioni
 * Dettagli del log
    * Tempo applicazione e l'ora di arrivo. 
@@ -175,7 +175,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="earlyinputevent"></a>EarlyInputEvent
 
 * Causa: La differenza tra ora di arrivo e tempo applicazione è maggiore di 5 minuti.
-* Nelle notifiche del portale fornite: N.
+* Nelle notifiche del portale fornite: No
 * Livello di log di diagnostica: Informazioni
 * Dettagli del log
    * Tempo applicazione e l'ora di arrivo. 
@@ -190,7 +190,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="outoforderevent"></a>OutOfOrderEvent
 
 * Causa: Evento è considerato ordinato in base alla finestra di tolleranza definita.
-* Nelle notifiche del portale fornite: N.
+* Nelle notifiche del portale fornite: No
 * Livello di log di diagnostica: Informazioni
 * Dettagli del log
    * Payload effettivo fino a pochi kilobyte.
@@ -206,7 +206,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 
 * Causa: La colonna necessaria per l'output non esiste. Ad esempio, esiste una colonna definita come does't PartitionKey tabella di Azure.
-* Nelle notifiche del portale fornite: Sì
+* Nelle notifiche del portale fornite: Yes
 * Livello di log di diagnostica: Avviso
 * Dettagli del log
    * Nome della colonna e l'identificatore del record o parte del record.
@@ -220,7 +220,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="outputdataconversionerrorcolumnnameinvalid"></a>OutputDataConversionError.ColumnNameInvalid
 
 * Causa: Il valore della colonna non sono conformi con l'output. Ad esempio, il nome della colonna non è una colonna della tabella di Azure valida.
-* Nelle notifiche del portale fornite: Sì
+* Nelle notifiche del portale fornite: Yes
 * Livello di log di diagnostica: Avviso
 * Dettagli del log
    * Nome della colonna e l'identificatore del record o parte del record.
@@ -234,7 +234,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="outputdataconversionerrortypeconversionerror"></a>OutputDataConversionError.TypeConversionError
 
 * Causa: Una colonna non può essere convertita in un tipo valido nell'output. Ad esempio, il valore della colonna è incompatibile con i vincoli o tipo definito nella tabella SQL.
-* Nelle notifiche del portale fornite: Sì
+* Nelle notifiche del portale fornite: Yes
 * Livello di log di diagnostica: Avviso
 * Dettagli del log
    * Nome della colonna.
@@ -249,7 +249,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="outputdataconversionerrorrecordexceededsizelimit"></a>OutputDataConversionError.RecordExceededSizeLimit
 
 * Causa: Il valore del messaggio è maggiore delle dimensioni di output supportati. Ad esempio, un record è superiore a 1 MB per un output di Hub eventi.
-* Nelle notifiche del portale fornite: Sì
+* Nelle notifiche del portale fornite: Yes
 * Livello di log di diagnostica: Avviso
 * Dettagli del log
    * Identificatore del record o parte del record.
@@ -263,7 +263,7 @@ Visualizzare [risolvere i problemi di Analitica Stream di Azure usando i log di 
 ### <a name="outputdataconversionerrorduplicatekey"></a>OutputDataConversionError.DuplicateKey
 
 * Causa: Un record contiene già una colonna con lo stesso nome di una colonna di sistema. Output di COSMOS DB con una colonna, ad esempio, denominato ID quando colonna ID per una colonna diversa.
-* Nelle notifiche del portale fornite: Sì
+* Nelle notifiche del portale fornite: Yes
 * Livello di log di diagnostica: Avviso
 * Dettagli del log
    * Nome della colonna.

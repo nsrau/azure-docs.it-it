@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11dda7fc3760f468c094fb4cf4484a27895f83b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65812679"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Ambiente di collaborazione B2B esterni e la gestione di utenti autorizzati a invitare utenti guest
@@ -48,7 +48,7 @@ Per impostazione predefinita, tutti gli utenti, inclusi gli utenti Guest, posson
    - **Gli amministratori e gli utenti nel ruolo mittente dell'invito guest possono invitare**: Per consentire agli amministratori e utenti al ruolo "Mittente dell'invito Guest" per invitare utenti Guest, impostare questo criterio **Sì**.
    - **I membri possono invitare**: Per consentire ai membri senza privilegi di amministratore della directory invitare utenti Guest, impostare questo criterio **Sì**.
    - **Gli utenti guest possono invitare**: Per consentire agli utenti guest di invitare altri utenti Guest, impostare questo criterio **Sì**.
-   - **Abilitare i Passcode monouso tramite posta elettronica per gli utenti guest (anteprima)**: Per altre informazioni sulla funzionalità di passcode monouso, vedere [autenticazione di passcode monouso inviato tramite posta elettronica (anteprima)](one-time-passcode.md).
+   - **Abilitare i Passcode monouso tramite posta elettronica per gli utenti guest (anteprima)** : Per altre informazioni sulla funzionalità di passcode monouso, vedere [autenticazione di passcode monouso inviato tramite posta elettronica (anteprima)](one-time-passcode.md).
    - **Restrizioni di collaborazione**: Per altre informazioni per consentire o bloccare gli inviti ai domini specifici, vedere [bloccare gli inviti agli utenti B2B da organizzazioni specifiche](allow-deny-list.md).
 
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Assegnare il ruolo mittente dell'invito Guest a un utente

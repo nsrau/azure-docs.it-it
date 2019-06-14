@@ -13,10 +13,10 @@ ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
 ms.openlocfilehash: 4bf97c0c447bfabc1454959d457bbd50f3490299
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242791"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analisi su più tenant con dati estratti in un'app multi-tenant
@@ -170,7 +170,7 @@ I dati nella tabella dello schema star includono tutti i dati relativi alle vend
 Seguire questa procedura per connettersi a Power BI e importare le viste create in precedenza:
 
 1. Avviare Power BI Desktop.
-2. Nella barra multifunzione Home selezionare **Recupera dati** e scegliere **Altro**  dal menu.
+2. Nella barra multifunzione Home selezionare **Recupera dati** e scegliere **Altro** dal menu.
 3. Nella finestra **Recupera dati** selezionare il database SQL di Azure.
 4. Nella finestra di accesso al database immettere il nome del server, ossia catalog-mt-\<Utente\>.database.windows.net. Selezionare **Importa** come **Modalità Connettività dati** e quindi fare clic su OK. 
 

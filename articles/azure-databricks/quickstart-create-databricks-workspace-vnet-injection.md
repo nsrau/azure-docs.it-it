@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 295b64b10f9f78ca6224d60fb84c6d1310aaa42e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770607"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Avvio rapido: Creare un'area di lavoro Azure Databricks in una rete virtuale
@@ -84,7 +84,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Tornare al servizio Azure Databricks e selezionare **avvia area di lavoro** nel **Panoramica** pagina.
 
-2. Selezionare **cluster** > **+ crea Cluster**. Creare quindi un nome del cluster, ad esempio *databricks-Guida introduttiva-cluster*e accettare le impostazioni predefinite rimanenti. Selezionare **Crea cluster**.
+2. Selezionare **cluster** >  **+ crea Cluster**. Creare quindi un nome del cluster, ad esempio *databricks-Guida introduttiva-cluster*e accettare le impostazioni predefinite rimanenti. Selezionare **Crea cluster**.
 
     ![Creare cluster Azure Databricks](./media/quickstart-create-databricks-workspace-vnet-injection/create-cluster.png)
 

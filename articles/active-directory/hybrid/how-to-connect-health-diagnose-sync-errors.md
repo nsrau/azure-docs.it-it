@@ -15,10 +15,10 @@ ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60349982"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticare e correggere gli errori di sincronizzazione di attributi duplicati
@@ -108,7 +108,7 @@ Per lo **scenario con oggetto orfano**, solo l'utente singolo **Luca Milanesi** 
 La domanda mira a stabilire se l'utente in conflitto in ingresso e l'oggetto utente esistente in Azure AD appartengono allo stesso utente.  
 1. L'oggetto in conflitto è stato appena sincronizzato in Azure Active Directory. Confrontare gli attributi degli oggetti:  
    - Nome visualizzato
-   - Nome dell'entità utente
+   - Nome entità utente
    - ID oggetto
 2. Se Azure AD non riesce a confrontarli, assicurarsi che Active Directory includa oggetti con i valori **UserPrincipalName** specificati. Rispondere **No** se vengono trovati entrambi.
 

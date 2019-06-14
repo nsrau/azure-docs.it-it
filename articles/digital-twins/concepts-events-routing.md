@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: b7ace0718ea0fad0b746a40c90acff487ae314d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dfda00aca403f7f95f0c56d1db28c3c609bebd2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926299"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080649"
 ---
 # <a name="routing-events-and-messages"></a>Routing di eventi e messaggi
 
@@ -21,7 +21,7 @@ Le soluzioni IoT spesso riuniscono diversi potenti servizi, tra cui archiviazion
 
 ## <a name="route-types"></a>Tipi di routing  
 
-Gemelli digitali di Azure offre due metodi per integrare gli eventi IoT in altri servizi di Azure o applicazioni aziendali:
+Gemelli digitale di Azure offre due modi per connettere gli eventi IoT con altri servizi di Azure o applicazioni aziendali:
 
 * **Routing di eventi di Gemelli digitali di Azure**: un oggetto nel grafico spaziale che cambia, dati di telemetria che vengono ricevuti o una funzione definita dall'utente che crea una notifica in base a condizioni predefinite possono attivare eventi di Gemelli digitali di Azure. Gli utenti possono inviare questi eventi a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [argomenti del bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) o [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/) per l'ulteriore elaborazione.
 

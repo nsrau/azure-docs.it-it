@@ -4,17 +4,16 @@ description: Informazioni su come aggiungere un riquadro markdown a un dashboard
 services: azure-portal
 keywords: ''
 author: kfollis
-ms.author: v-biyu
-origin.date: 01/25/2019
-ms.date: 03/04/2019
+ms.author: kfollis
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551589"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Usare un riquadro markdown nei dashboard di Azure per visualizzare il contenuto personalizzato
@@ -29,7 +28,7 @@ ms.locfileid: "60551589"
 
 2. Nella **Raccolta riquadri** individuare il riquadro denominato **Markdown** e fare clic su **Aggiungi**. Il riquadro viene aggiunto al dashboard e si apre il riquadro **Modifica markdown**.
 
-3. Modificare i campi **Titolo**, **Sottotitolo** e **Contenuto** per personalizzare il riquadro. Nell'esempio illustrato di seguito il riquadro markdown è stato modificato per visualizzare le informazioni personalizzate sull'help desk.
+1. Modificare i campi **Titolo**, **Sottotitolo** e **Contenuto** per personalizzare il riquadro. Nell'esempio illustrato di seguito il riquadro markdown è stato modificato per visualizzare le informazioni personalizzate sull'help desk.
 
    ![Screenshot con la modifica della visualizzazione del riquadro markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 

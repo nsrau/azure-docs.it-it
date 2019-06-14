@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 5dbcf446a609adcd0f1902fcca2ac19ad87f17b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779661"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure
@@ -42,7 +42,7 @@ Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il n
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Ridimensionare le Media Reserved Units (S1/S2/S3) - Interfaccia della riga di comando](media-reserved-units-cli-how-to.md)
 - [Creare un account di Servizi multimediali - Interfaccia della riga di comando](create-account-cli-how-to.md) 

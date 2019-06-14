@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
 ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955826"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
@@ -46,7 +46,7 @@ Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione 
 
 2. Nel riquadro di spostamento a sinistra, scegliere l'opzione **Slot di distribuzione (anteprima)** e quindi fare clic su **Aggiungi slot**.
    
-    ![Aggiungi un nuovo slot di distribuzione](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
+    ![Aggiungi nuovo slot di distribuzione](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
    > Se l'app non è già in esecuzione nel piano **Standard**, **Premium** o **Isolato**, si riceverà un messaggio di errore che indica i piani supportati per l'abilitazione della pubblicazione di gestione temporanea. A questo punto è possibile selezionare **Aggiorna** e spostarsi alla scheda **Scalabilità** dell'app prima di continuare.
@@ -54,11 +54,11 @@ Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione 
 
 3. Nella finestra di dialogo **Aggiungi uno slot** assegnare un nome allo slot e selezionare se clonare la configurazione dell'app da uno slot di distribuzione esistente. Fare clic su **Aggiungi** per continuare.
    
-    ![Origine configurazione](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+    ![Origine della configurazione](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
     È possibile clonare la configurazione da uno slot esistente. Le impostazioni che possono essere clonate includono le impostazioni dell'app, le stringhe di connessione, le versioni di framework del linguaggio, i Web Socket, la versione HTTP e il numero di bit della piattaforma.
 
-4. Dopo aver aggiunto lo slot, fare clic su **Chiudi** per chiudere la finestra di dialogo. Il nuovo slot è ora visualizzato nella pagina **Slot di distribuzione (anteprima)**. Per impostazione predefinita, l'opzione **% traffico** è impostata su 0 per il nuovo slot, con tutto il traffico dei clienti instradato verso lo slot di produzione.
+4. Dopo aver aggiunto lo slot, fare clic su **Chiudi** per chiudere la finestra di dialogo. Il nuovo slot è ora visualizzato nella pagina **Slot di distribuzione (anteprima)** . Per impostazione predefinita, l'opzione **% traffico** è impostata su 0 per il nuovo slot, con tutto il traffico dei clienti instradato verso lo slot di produzione.
 
 5. Fare clic sul nuovo slot di distribuzione per aprire la pagina delle risorse di tale slot.
    
@@ -96,10 +96,10 @@ Funzionalità contrassegnate con un * è pianificata per essere reso permanente 
 * Endpoint di pubblicazione
 * Nomi di dominio personalizzati
 * Certificati privati e associazioni SSL
-* Impostazioni scalabilità
+* Impostazioni di scalabilità
 * Utilità di pianificazione WebJobs
 * Restrizioni IP
-* Sempre online
+* Always On
 * Le impostazioni del protocollo (HTTP**S**, versione di TLS, certificati client)
 * Impostazioni di log di diagnostica
 * CORS
@@ -115,7 +115,7 @@ Per configurare un'impostazione app o una stringa di connessione in modo che rim
 ## <a name="swap-two-slots"></a>Scambiare due slot 
 È possibile scambiare gli slot di distribuzione nella pagina **Slot di distribuzione (anteprima)** dell'app. 
 
-È anche possibile scambiare gli slot dalle pagine **Panoramica** e **Slot di distribuzione**, ma attualmente si ottiene l'esperienza precedente. Questa guida mostra come usare la nuova interfaccia utente nella pagina **Slot di distribuzione (anteprima)**.
+È anche possibile scambiare gli slot dalle pagine **Panoramica** e **Slot di distribuzione**, ma attualmente si ottiene l'esperienza precedente. Questa guida mostra come usare la nuova interfaccia utente nella pagina **Slot di distribuzione (anteprima)** .
 
 > [!IMPORTANT]
 > Prima di scambiare un'app da uno slot di distribuzione alla produzione, accertarsi che tutte le impostazioni siano configurate esattamente nel modo desiderato nello slot di destinazione.
@@ -132,7 +132,7 @@ Per scambiare gli slot di distribuzione, seguire questa procedura:
 
 2. Selezionare gli slot desiderati in **Origine** e **Destinazione**. In genere, la destinazione è lo slot di produzione. Inoltre, fare clic sulle schede **Modifiche dell'origine** e **Modifiche della destinazione** e verificare che le modifiche della configurazione siano quelle previste. Al termine, è possibile effettuare immediatamente lo scambio degli slot facendo clic su **Scambia**.
 
-    ![Completa scambio](./media/web-sites-staged-publishing/SwapImmediately.png)
+    ![Scambio completo](./media/web-sites-staged-publishing/SwapImmediately.png)
 
     Per verificare il funzionamento dello slot di destinazione con le nuove impostazioni prima di eseguire effettivamente lo scambio, non fare clic su **Scambia**, ma seguire le istruzioni in [Scambio con anteprima](#Multi-Phase).
 
@@ -195,7 +195,7 @@ Lo scambio automatico semplifica gli scenari DevOps nei quali si vuole distribui
 
 Per configurare lo scambio automatico, seguire questa procedura:
 
-1. Passare alla pagina delle risorse dell'app. Selezionare **Slot di distribuzione (anteprima)** > *\<slot di origine desiderato>* > **Impostazioni applicazione**.
+1. Passare alla pagina delle risorse dell'app. Selezionare **Slot di distribuzione (anteprima)**  >  *\<slot di origine desiderato>*  > **Impostazioni applicazione**.
    
 2. In **Scambio automatico** selezionare **Sì** e quindi selezionare lo slot di destinazione desiderato in **Slot scambio automatico**, quindi fare clic su **Salva** nella barra dei comandi. 
    
@@ -238,7 +238,7 @@ Per impostazione predefinita, tutte le richieste client all'URL di produzione de
 
 Per indirizzare automaticamente il traffico di produzione, seguire questa procedura:
 
-1. Passare alla pagina delle risorse dell'app e selezionare **Slot di distribuzione (anteprima)**.
+1. Passare alla pagina delle risorse dell'app e selezionare **Slot di distribuzione (anteprima)** .
 
 2. Nella colonna **% traffico** dello slot di destinazione dell'indirizzamento, specificare una percentuale (compresa tra 0 e 100) per rappresentare la quantità di traffico totale da indirizzare. Fare clic su **Save**.
 
@@ -272,7 +272,7 @@ Per impostazione predefinita, gli slot di nuovo vengono assegnati a una regola d
 
 ## <a name="delete-slot"></a>Eliminare uno slot
 
-Passare alla pagina delle risorse dell'app. Selezionare **Slot di distribuzione (anteprima)** > *\<slot da eliminare >* > **Panoramica**. Fare clic su **Elimina** sulla barra dei comandi.  
+Passare alla pagina delle risorse dell'app. Selezionare **Slot di distribuzione (anteprima)**  >  *\<slot da eliminare >*  > **Panoramica**. Fare clic su **Elimina** sulla barra dei comandi.  
 
 ![Per eliminare uno slot di distribuzione](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

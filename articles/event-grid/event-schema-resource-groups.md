@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 6cbfc06f380d7c4818ca82e858c23bb18849fb7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60561694"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Schema di eventi di Griglia di eventi di Azure per i gruppi di risorse
@@ -258,7 +258,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | operationName | string | Operazione eseguita. |
 | status | string | Lo stato dell'operazione. |
 | subscriptionId | string | L'ID sottoscrizione della risorsa. |
-| tenantId | string | L'ID tenant della risorsa. |
+| TenantId | string | L'ID tenant della risorsa. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

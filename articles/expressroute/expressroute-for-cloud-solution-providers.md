@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: richcar
 ms.custom: seodec18
 ms.openlocfilehash: a03ab7bbdadad2728f54127583583c22bd2ec07a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367547"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute per Cloud Solution Provider (CSP)
@@ -62,7 +62,7 @@ La scelta tra queste due opzioni si basa sulle esigenze del cliente e sulla prop
 
 * **Controllo degli accessi in base al ruolo** : il controllo degli accessi in base al ruolo si basa su Azure Active Directory.  Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, vedere [qui](../role-based-access-control/role-assignments-portal.md).
 * **Rete** : include diversi argomenti sulla rete in Microsoft Azure.
-* **Azure Active Directory (Azure AD)**: Azure AD consente la gestione delle identità per Microsoft Azure e applicazioni SaaS di terze parti. Per altre informazioni su Azure AD, vedere [qui](https://azure.microsoft.com/documentation/services/active-directory/).  
+* **Azure Active Directory (Azure AD)** : Azure AD consente la gestione delle identità per Microsoft Azure e applicazioni SaaS di terze parti. Per altre informazioni su Azure AD, vedere [qui](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## <a name="network-speeds"></a>Velocità di rete
 ExpressRoute supporta le velocità di rete comprese tra 50 MB/s e 10 GB/s. Ciò consente ai clienti di acquistare la quantità di larghezza di banda di rete necessaria per un ambiente univoco.

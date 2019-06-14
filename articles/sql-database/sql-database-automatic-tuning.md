@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
 ms.openlocfilehash: 6e818da29b7ee0d17ebe4f8e523648146973fa63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61415765"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ottimizzazione automatica nel database SQL di Azure
@@ -68,9 +68,9 @@ Le opzioni di ottimizzazione automatica disponibili nel database SQL di Azure so
 
 | Opzione di ottimizzazione automatica | Supporto dei database singoli e in pool | Supporto dell'istanza del database |
 | :----------------------------- | ----- | ----- |
-| **CREATE INDEX** -identifica gli indici che potrebbero migliorare le prestazioni del carico di lavoro, consente di creare indici e verifica automaticamente che sono migliorate le prestazioni delle query. | Sì | No  | 
-| **DROP INDEX** -identifica gli indici ridondanti e duplicati ogni giorno, ad eccezione di indici univoci e gli indici non utilizzati per molto tempo (> 90 giorni). Si noti che al momento l'opzione non è compatibile con le applicazioni che usano hint di indice e cambi di partizione. | Sì | No  |
-| **IMPOSIZIONE dell'ultimo piano valido** (correzione automatica dei piani) - query SQL identifica tramite piano di esecuzione che è più lento rispetto al precedente piano valido e di query con l'ultimo piano valido noto anziché il piano con regressione. | Sì | Sì |
+| **CREATE INDEX** -identifica gli indici che potrebbero migliorare le prestazioni del carico di lavoro, consente di creare indici e verifica automaticamente che sono migliorate le prestazioni delle query. | Yes | No | 
+| **DROP INDEX** -identifica gli indici ridondanti e duplicati ogni giorno, ad eccezione di indici univoci e gli indici non utilizzati per molto tempo (> 90 giorni). Si noti che al momento l'opzione non è compatibile con le applicazioni che usano hint di indice e cambi di partizione. | Yes | No |
+| **IMPOSIZIONE dell'ultimo piano valido** (correzione automatica dei piani) - query SQL identifica tramite piano di esecuzione che è più lento rispetto al precedente piano valido e di query con l'ultimo piano valido noto anziché il piano con regressione. | Yes | Yes |
 
 L'ottimizzazione automatica identifica le opzioni **CREATE INDEX** (Crea indice), **DROP INDEX** (Elimina indice) e **FORCE LAST GOOD PLAN** (Forza piano valido più recente) che consentono di ottimizzare le prestazioni del database, di visualizzarle nel [portale di Azure](sql-database-advisor-portal.md) e di esporle tramite [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e l'[API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Per altre informazioni sull'imposizione dell'ultimo piano valido e configurare le opzioni di ottimizzazione automatica tramite T-SQL, vedere [ottimizzazione automatica introduce la correzione automatica del piano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 

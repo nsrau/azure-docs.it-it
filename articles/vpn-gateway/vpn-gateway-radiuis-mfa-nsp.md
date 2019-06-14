@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 4e11b1bc16f874f892288f9677a71023f483de7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60458129"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrare l'autenticazione RADIUS del gateway VPN di Azure con server NPS per l'autenticazione a più fattori 
@@ -55,7 +55,7 @@ Per abilitare l'autenticazione a più fattori, gli utenti devono usare Azure Act
 2. Aprire la console NSP, fare clic con il tasto destro del mouse su **Client RADIUS**, quindi selezionare **Nuovo**. Creare il client RADIUS specificando le impostazioni seguenti:
 
     - **Nome descrittivo**: Digitare un nome qualsiasi.
-    - **Indirizzo (IP o DNS)**: Digitare la subnet del gateway creata nel passaggio 1.
+    - **Indirizzo (IP o DNS)** : Digitare la subnet del gateway creata nel passaggio 1.
     - **Segreto condiviso**: digitare qualsiasi chiave privata e annotarla per un uso successivo.
 
       ![Immagine delle impostazioni del client RADIUS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)

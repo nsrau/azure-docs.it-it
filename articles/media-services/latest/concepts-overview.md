@@ -13,10 +13,10 @@ ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762301"
 ---
 # <a name="media-services-concepts"></a>Concetti relativi a servizi multimediali
@@ -32,7 +32,7 @@ Prima di iniziare lo sviluppo, è consigliabile esaminare i concetti fondamental
 
 In questa sezione illustra alcuni termini di settore common mapping all'API servizi multimediali v3.
 
-### <a name="live-event"></a>Evento live
+### <a name="live-event"></a>Evento Live
 
 Oggetto **evento Live** rappresenta una pipeline per l'inserimento, la transcodifica (facoltativamente) e l'assemblaggio di flussi in tempo reale dei metadati video, audio e in tempo reale.
 
@@ -62,7 +62,7 @@ Per eseguire la codifica con servizi multimediali v3, è necessario creare **tra
 - [Trasformazioni e processi](transforms-jobs-concept.md)
 - [Codifica con servizi multimediali](encoding-concept.md)
 
-## <a name="media-analytics"></a>Analisi Servizi multimediali
+## <a name="media-analytics"></a>Analisi di contenuti multimediali
 
 Per analizzare i file audio e video, è anche necessario creare **trasforma** e **processi**.
 
@@ -114,7 +114,7 @@ L'immagine seguente illustra il flusso di lavoro di tipo pass-through:
 
 ## <a name="monitoring"></a>Monitoraggio
 
-### <a name="event-grid"></a>Griglia eventi
+### <a name="event-grid"></a>Griglia di eventi
 
 Per visualizzare lo stato di avanzamento del processo, è consigliabile usare **griglia di eventi**. Servizi multimediali genera anche i tipi di eventi in tempo reale. Con Griglia di eventi, le app possono rimanere in ascolto e reagire agli eventi praticamente da tutti i servizi di Azure, oltre che da origini personalizzate. 
 

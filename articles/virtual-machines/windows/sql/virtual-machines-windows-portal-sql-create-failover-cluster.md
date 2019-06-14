@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
 ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591546"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
@@ -158,7 +158,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
 
 1. Dopo aver creato le macchine virtuali di Azure, connettersi a ognuna con RDP.
 
-   Quando ci si connette per la prima volta a una macchina virtuale con RDP, il computer chiede se si vuole rendere il PC individuabile sulla rete. Fare clic su **Sì**.
+   Quando ci si connette per la prima volta a una macchina virtuale con RDP, il computer chiede se si vuole rendere il PC individuabile sulla rete. Scegliere **Sì**.
 
 1. Se si usa un'immagine di macchina virtuale basata su SQL Server, rimuovere l'istanza di SQL Server.
 
@@ -416,12 +416,12 @@ Per creare il servizio di bilanciamento del carico:
    - **Nome**: un nome per le regole di bilanciamento del carico.
    - **Indirizzo IP front-end**: usare l'indirizzo IP per la risorsa di rete cluster dell'istanza del cluster di failover di SQL Server.
    - **Porta**: impostare la porta TCP dell'istanza del cluster di failover di SQL Server. La porta predefinita dell'istanza è 1433.
-   - **Porta back-end**: viene usata la stessa porta specificata nel campo **Porta** quando si abilita **IP mobile (Direct Server Return)**.
+   - **Porta back-end**: viene usata la stessa porta specificata nel campo **Porta** quando si abilita **IP mobile (Direct Server Return)** .
    - **Pool back-end**: usare il nome del pool back-end configurato in precedenza.
    - **Probe di integrità**: usare il probe di integrità configurato in precedenza.
    - **Salvataggio permanente sessione**: No.
-   - **Timeout di inattività (minuti)**: 4.
-   - **IP mobile (Direct Server Return)**: Enabled
+   - **Timeout di inattività (minuti)** : 4.
+   - **IP mobile (Direct Server Return)** : Enabled
 
 1. Fare clic su **OK**.
 

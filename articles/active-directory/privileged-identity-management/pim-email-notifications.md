@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289192"
 ---
 # <a name="email-notifications-in-pim"></a>Notifiche tramite posta elettronica in PIM
@@ -50,9 +50,9 @@ I destinatari di questi messaggi di posta elettronica per i ruoli di Azure AD va
 
 | Utente | Attivazione del ruolo in attesa di approvazione | Richiesta di attivazione del ruolo completata | PIM è abilitato |
 | --- | --- | --- | --- |
-| Amministratore dei ruoli con privilegi</br>(Attivato/Idoneo) | Sì</br>(solo se non è specificato nessun responsabile approvazione esplicito) | Sì* | Sì |
-| Amministratore della sicurezza</br>(Attivato/Idoneo) | No  | Sì* | Sì |
-| Amministratore globale</br>(Attivato/Idoneo) | No  | Sì* | Sì |
+| Amministratore dei ruoli con privilegi</br>(Attivato/Idoneo) | Yes</br>(solo se non è specificato nessun responsabile approvazione esplicito) | Sì* | Yes |
+| Amministratore della sicurezza</br>(Attivato/Idoneo) | No | Sì* | Yes |
+| Amministratore globale</br>(Attivato/Idoneo) | No | Sì* | Yes |
 
 \* Se l'impostazione di [**Notifiche**](pim-how-to-change-default-settings.md#notifications) è **Abilita**.
 
@@ -68,7 +68,7 @@ Un messaggio di posta elettronica riepilogativo PIM settimanale per i ruoli di A
 
 Il messaggio di posta elettronica include quattro sezioni:
 
-| Riquadro | DESCRIZIONE |
+| Riquadro | Descrizione |
 | --- | --- |
 | **Users activated** (Utenti attivati) | Numero di volte per cui gli utenti hanno attivato il proprio ruolo idoneo nel tenant. |
 | **Users made permanent** (Utenti resi permanenti) | Numero di volte per cui un utente con un'assegnazione idonea viene reso permanente. |

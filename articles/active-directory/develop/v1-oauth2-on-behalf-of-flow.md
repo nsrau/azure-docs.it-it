@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f4ab484b76bb536dd4e9d3c4fff2c85d93e4a41
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bc352c6867779fd8f4487acdb1d11c0fabe4b9f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235203"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110986"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chiamate da servizio a servizio tramite l'identità utente delegato nel flusso on-behalf-of
 
@@ -213,7 +213,7 @@ L'esempio seguente mostra una risposta corretta a una richiesta di token di acce
 
 ### <a name="error-response-example"></a>Esempio di risposta con errore
 
-L'endpoint del token di Azure AD restituisce una risposta di errore quando tenta di acquisire un token di accesso per un'API downstream impostato con un criterio di accesso condizionale (ad esempio, l'autenticazione a più fattori). Il servizio di livello intermedio dovrebbe segnalare l'errore all'applicazione client in modo che questa possa fornire l'interazione dell'utente per soddisfare i criteri di accesso condizionale.
+L'endpoint di token di Azure AD restituisce una risposta di errore quando tenta di acquisire un token di accesso per un'API downstream impostato con un criterio di accesso condizionale (ad esempio, l'autenticazione a più fattori). Il servizio di livello intermedio dovrebbe segnalare l'errore all'applicazione client in modo che l'applicazione client può fornire l'interazione dell'utente per soddisfare i criteri di accesso condizionale.
 
 ```
 {

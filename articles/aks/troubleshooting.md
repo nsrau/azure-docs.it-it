@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
 ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966388"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
@@ -78,8 +78,8 @@ Assicurarsi che il gruppo di sicurezza di rete predefinito non è stato modifica
 Questo errore si verifica quando i cluster di entrano in uno stato non riuscito per diversi motivi. Attenersi alla procedura seguente per risolvere lo stato del cluster non riuscito prima di ritentare l'operazione non riuscita in precedenza:
 
 1. Fino a quando il cluster si trova fuori `failed` stato `upgrade` e `scale` operazioni non riescono. Le risoluzioni e i problemi radice comuni includono:
-    * Scalandola **quota di calcolo sufficienti (CRP)**. Per risolvere, prima di tutto ridimensionare il cluster tornato a uno stato stabile obiettivo entro la quota. Quindi seguire queste [aumenta la seguente procedura per richiedere una quota di calcolo](../azure-supportability/resource-manager-core-quotas-request.md) prima di provare ad aumentare le prestazioni oltre nuovamente i limiti di quota iniziale.
-    * Ridimensionamento di un cluster con una rete avanzata e **le risorse della subnet insufficiente (rete)**. Per risolvere, prima di tutto ridimensionare il cluster tornato a uno stato stabile obiettivo entro la quota. Segui [aumenta la procedura seguente per richiedere una quota di risorse](../azure-resource-manager/resource-manager-quota-errors.md#solution) prima di provare ad aumentare le prestazioni oltre nuovamente i limiti di quota iniziale.
+    * Scalandola **quota di calcolo sufficienti (CRP)** . Per risolvere, prima di tutto ridimensionare il cluster tornato a uno stato stabile obiettivo entro la quota. Quindi seguire queste [aumenta la seguente procedura per richiedere una quota di calcolo](../azure-supportability/resource-manager-core-quotas-request.md) prima di provare ad aumentare le prestazioni oltre nuovamente i limiti di quota iniziale.
+    * Ridimensionamento di un cluster con una rete avanzata e **le risorse della subnet insufficiente (rete)** . Per risolvere, prima di tutto ridimensionare il cluster tornato a uno stato stabile obiettivo entro la quota. Segui [aumenta la procedura seguente per richiedere una quota di risorse](../azure-resource-manager/resource-manager-quota-errors.md#solution) prima di provare ad aumentare le prestazioni oltre nuovamente i limiti di quota iniziale.
 2. Dopo avere risolta la causa principale dell'errore di aggiornamento, il cluster deve essere nello stato riuscito. Una volta verificato uno stato completato, ripetere l'operazione originale.
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Si verificano errori durante il tentativo di eseguire l'aggiornamento o la scala che indicano il cluster è in corso attualmente in corso aggiornato o dispone di aggiornamento non riuscito

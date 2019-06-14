@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b670b5aeffcd699226a088d8db21a12dbaf40042
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242807"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Aggiungere analizzatori personalizzati a un indice di Ricerca di Azure
@@ -213,7 +213,7 @@ Per gli analizzatori, gli attributi dell'indice variano a seconda che si usino g
 
 |||  
 |-|-|  
-|NOME|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
+|Name|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
 |Type|Tipo di analizzatore dall'elenco di analizzatori supportati. Vedere più avanti la colonna **analyzer_type** nella tabella [Analizzatori](#AnalyzerTable).|  
 |Opzioni|Devono essere opzioni valide di un analizzatore predefinito elencato più avanti nella tabella [Analizzatori](#AnalyzerTable).|  
 
@@ -221,7 +221,7 @@ Per gli analizzatori, gli attributi dell'indice variano a seconda che si usino g
 
 |||  
 |-|-|  
-|NOME|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
+|Name|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
 |Type|Deve essere "#Microsoft.Azure.Search.CustomAnalyzer".|  
 |CharFilters|Impostarlo su uno dei filtri di caratteri predefiniti elencati nella tabella [Filtri di caratteri](#char-filters-reference) o su un filtro di caratteri specificato nella definizione dell'indice.|  
 |Tokenizer|Richiesto. Impostarlo su uno dei tokenizer predefiniti elencati più avanti nella tabella [Tokenizer](#Tokenizers) o su un tokenizer personalizzato specificato nella definizione dell'indice.|  
@@ -262,7 +262,7 @@ In un analizzatore personalizzato possono essere presenti più filtri di token. 
 
 |||  
 |-|-|  
-|NOME|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
+|Name|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
 |Type|Nome del filtro di token incluso nell'elenco di filtri di token supportati. Vedere più avanti la colonna **token_filter_type** nella tabella [Filtri di token](#TokenFilters).|  
 |Opzioni|Devono essere [filtri di token](#TokenFilters) di un determinato tipo di filtro di token.|  
 
@@ -382,7 +382,7 @@ Nella tabella seguente i filtri di token che vengono implementati usando Apache 
  <sup>1</sup> I tipi di filtri di token presentano sempre il prefisso "#Microsoft.Azure.Search" nel codice, ad esempio "ArabicNormalizationTokenFilter" verrà di fatto specificato come "#Microsoft.Azure.Search.ArabicNormalizationTokenFilter".  Il prefisso è stato rimosso per ridurre la larghezza della tabella, ma si ricordi di includerlo nel codice.  
 
 
-## <a name="see-also"></a>Vedere anche   
+## <a name="see-also"></a>Vedere anche  
  [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)  (REST per il servizio Ricerca di Azure)  
  [Analyzers in Azure Search > Examples](search-analyzers.md#examples)   (Analizzatori in Ricerca di Azure > Esempi)  
  [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creare l'indice - API REST per il servizio Ricerca di Azure)  

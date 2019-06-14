@@ -7,14 +7,14 @@ author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 06/11/2019
 ms.author: garye
-ms.openlocfilehash: 831f1d22c4da215bed3ed55b659332aa3b57472b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1149cc6bd4fa41514056342a06d31016123eb88c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145949"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062150"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Avvio rapido: Creare un account di Servizi cognitivi nel portale di Azure
 
@@ -100,9 +100,9 @@ Prendere nota della posizione e le chiavi. È possibile ottenere le chiavi selez
 > [!div class="nextstepaction"]
 > [Autenticare le richieste a Servizi cognitivi di Azure](authentication.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Avvio rapido: Estrarre testo scritto a mano da un'immagine](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
 * [Esercitazione: Creare un'app per rilevare e incorniciare i visi in un'immagine](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial)
 * [Compilare una pagina Web di ricerca personalizzata](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)
-* [Integrare Language Understanding (LUIS) con un bot usando Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample)
+* [Integrare Language Understanding (LUIS) con un bot usando Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-bf-v4)

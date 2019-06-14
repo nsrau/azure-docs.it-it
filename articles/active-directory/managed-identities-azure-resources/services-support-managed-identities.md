@@ -11,10 +11,10 @@ ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0809423472bde0240145d43f4c28d9594b517928
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518697"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
@@ -168,7 +168,7 @@ Vedere l'elenco seguente per configurare l'accesso ad Azure Resource Manager:
 | Azure Germania | `https://management.microsoftazure.de/` | Disponibile |
 | 21Vianet per Azure Cina | `https://management.chinacloudapi.cn` | Disponibile |
 
-### <a name="azure-key-vault"></a>Insieme di credenziali delle chiavi di Azure
+### <a name="azure-key-vault"></a>Azure Key Vault
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|--------|
@@ -186,7 +186,7 @@ Vedere l'elenco seguente per configurare l'accesso ad Azure Resource Manager:
 | Azure Germania |   | Non disponibile |
 | 21Vianet per Azure Cina |  | Non disponibile |
 
-### <a name="azure-sql"></a>Azure SQL 
+### <a name="azure-sql"></a>SQL di Azure 
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|--------|

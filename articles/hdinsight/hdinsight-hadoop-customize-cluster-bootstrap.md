@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65203714"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizzare cluster HDInsight tramite Bootstrap
@@ -132,7 +132,7 @@ Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-
 
 ![HDInsight Hadoop personalizzare cluster bootstrap modello di Azure Resource Manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Creare cluster Apache Hadoop in HDInsight][hdinsight-provision-cluster] fornisce istruzioni relative alla creazione di un cluster HDInsight tramite l'uso di altre opzioni personalizzate.
 * [Sviluppare script di Azione script per HDInsight][hdinsight-write-script]
 * [Installare e usare Apache Spark in cluster HDInsight][hdinsight-install-spark]

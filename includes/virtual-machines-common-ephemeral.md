@@ -9,10 +9,10 @@ ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 3e9885466d422a0428311ed3013e2ab34341cd25
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66391313"
 ---
 I dischi del sistema operativo temporanei vengono creati nello spazio di archiviazione macchina virtuale (VM) locali e non persistenti nella risorsa di archiviazione di Azure remoto. I dischi del sistema operativo temporanei funzionano anche per carichi di lavoro senza stati, in cui le applicazioni sono a tolleranza di singoli errori di macchina virtuale, ma sono più interessati a tempo per ricreare l'immagine di singole istanze di VM o il tempo che necessario per le distribuzioni su larga scala. È anche adatto per le applicazioni, distribuite usando il modello di distribuzione classica, spostare il modello di distribuzione Resource Manager. Il disco del sistema operativo temporaneo offre latenza minore per operazioni di lettura/scrittura nel disco del sistema operativo e una ricreazione più rapida delle immagini delle VM. Inoltre, il disco del sistema operativo temporaneo è gratuito, si dovranno sostenere alcun costi di archiviazione per il disco del sistema operativo. 
@@ -35,7 +35,7 @@ Differenze principali tra i dischi del sistema operativo permanenti e temporanee
 | Supporto di area              | Tutte le aree                                                                                  | Tutte le aree                              |
 | Persistenza dei dati            | Dati scritti su disco del sistema operativo del disco del sistema operativo vengono archiviati in archiviazione di Azure                                  | I dati scritti su disco del sistema operativo viene archiviati nella risorsa di archiviazione della macchina virtuale locale e non sono persistenti in archiviazione di Azure. |
 | Stato di arresto-deallocazione      | Le macchine virtuali e istanze del set di scalabilità possono essere arrestata-deallocata e riavviate dallo stato di arresto-deallocazione | Le macchine virtuali e istanze del set di scalabilità non possono essere arrestata-deallocata                                  |
-| Supporto di dischi del sistema operativo specializzato | Yes                                                                                          | No                                                                                  |
+| Supporto di dischi del sistema operativo specializzato | Yes                                                                                          | No                                                                                 |
 | Ridimensionamento del disco del sistema operativo              | Durante la creazione della macchina virtuale e al termine della macchina virtuale di arresto-deallocazione supportati                                | È supportato durante la creazione di una VM solo                                                  |
 | Ridimensionamento di una nuova dimensione di macchina virtuale   | I dati su disco del sistema operativo viene mantenuti                                                                    | I dati sul disco del sistema operativo sono stati eliminati, sistema operativo è di nuovo effettuato il provisioning                                      |
 

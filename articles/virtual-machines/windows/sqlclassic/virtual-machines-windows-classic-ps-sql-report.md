@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609947"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa
@@ -120,12 +120,12 @@ Un certificato autofirmato viene creato nella macchina virtuale quando viene ese
    
    1. Nel portale di Azure selezionare la macchina virtuale e fare clic su Connetti. A seconda della configurazione del browser, potrebbe essere richiesto di salvare un file con estensione rdp per la connessione alla macchina virtuale.
       
-       ![connettersi alla macchina virtuale di azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Usare il nome della macchina virtuale, il nome utente e la password configurati durante la creazione della macchina virtuale. 
+       ![connettersi alla macchina virtuale di azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Usare il nome della macchina virtuale, il nome utente e la password configurati durante la creazione della macchina virtuale. 
       
        Nella figura seguente, ad esempio, il nome della macchina virtuale è **ssrsnativecloud** e il nome utente è **testuser**.
       
        ![account di accesso include il nome della macchina virtuale](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-   2. Eseguire mmc.exe. Per ulteriori informazioni, consultare [Come Visualizzare i certificati con lo snap-in MMC](https://msdn.microsoft.com/library/ms788967.aspx).
+   2. Eseguire mmc.exe. Per altre informazioni, vedere [Procedura: Visualizzare i certificati con lo snap-in MMC](https://msdn.microsoft.com/library/ms788967.aspx).
    3. Nel menu **File** dell'applicazione console aggiungere lo snap-in **Certificati**, selezionare **Account computer** quando richiesto e quindi fare clic su **Avanti**.
    4. Selezionare il **computer locale** da gestire e quindi fare clic su **Fine**.
    5. Fare clic su **OK**, espandere i nodi **Certificati - Personale** e quindi fare clic su **Certificati**. Il nome del certificato è costituito dal nome DNS della macchina virtuale e termina con **cloudapp.net**. Fare clic con il pulsante destro del mouse sul nome del certificato e scegliere **Copia**.
@@ -156,7 +156,7 @@ Per usare lo script di Windows PowerShell per configurare il server di report, c
 
 1. Nel portale di Azure selezionare la macchina virtuale e fare clic su Connetti. A seconda della configurazione del browser, potrebbe essere richiesto di salvare un file con estensione rdp per la connessione alla macchina virtuale.
    
-    ![connettersi alla macchina virtuale di azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Usare il nome della macchina virtuale, il nome utente e la password configurati durante la creazione della macchina virtuale. 
+    ![connettersi alla macchina virtuale di azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Usare il nome della macchina virtuale, il nome utente e la password configurati durante la creazione della macchina virtuale. 
    
     Nella figura seguente, ad esempio, il nome della macchina virtuale è **ssrsnativecloud** e il nome utente è **testuser**.
    
@@ -290,7 +290,7 @@ Per usare Windows PowerShell per configurare il server di report, completare i p
 
 1. Nel portale di Azure selezionare la macchina virtuale e fare clic su Connetti. A seconda della configurazione del browser, potrebbe essere richiesto di salvare un file con estensione rdp per la connessione alla macchina virtuale.
    
-    ![connettersi alla macchina virtuale di azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Usare il nome della macchina virtuale, il nome utente e la password configurati durante la creazione della macchina virtuale. 
+    ![connettersi alla macchina virtuale di azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Usare il nome della macchina virtuale, il nome utente e la password configurati durante la creazione della macchina virtuale. 
    
     Nella figura seguente, ad esempio, il nome della macchina virtuale è **ssrsnativecloud** e il nome utente è **testuser**.
    
@@ -564,7 +564,7 @@ Per verificare che la funzionalità di base del server di report funzioni, aprir
         https://ssrsnativecloud.cloudapp.net/ReportServer
 
 ## <a name="create-users-and-assign-roles"></a>Creare utenti e assegnare ruoli
-Dopo aver configurato e verificato il server di report, un'attività amministrativa comune consiste nel creare uno o più utenti e assegnare agli utenti i ruoli di Reporting Services. Per altre informazioni, vedere gli argomenti seguenti: 
+Dopo aver configurato e verificato il server di report, un'attività amministrativa comune consiste nel creare uno o più utenti e assegnare agli utenti i ruoli di Reporting Services. Per ulteriori informazioni, vedere quanto segue:
 
 * [Creare un account utente locale](https://technet.microsoft.com/library/cc770642.aspx)
 * [Concedere l'accesso utente a un server di report (Gestione report)](https://msdn.microsoft.com/library/ms156034.aspx)
@@ -582,7 +582,7 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
      Per altre informazioni, vedere [Installazione, disinstallazione e supporto di Generatore report](https://technet.microsoft.com/library/dd207038.aspx).
 * **SQL Server Data Tools - Macchina virtuale**:  se la macchina virtuale è stata creata con SQL Server 2012, SQL Server Data Tools è installato nella macchina virtuale e può essere usato per creare **progetti server di report** e report nella macchina virtuale. SQL Server Data Tools è in grado di pubblicare i report nel server di report sulla macchina virtuale.
   
-    Se la macchina virtuale è stata creata con SQL server 2014, è possibile installare SQL Server Data Tools - Business Intelligence per Visual Studio. Per altre informazioni, vedere gli argomenti seguenti: 
+    Se la macchina virtuale è stata creata con SQL server 2014, è possibile installare SQL Server Data Tools - Business Intelligence per Visual Studio. Per ulteriori informazioni, vedere quanto segue:
   
   * [Microsoft SQL Server Data Tools - Business Intelligence per Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Business Intelligence per Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)

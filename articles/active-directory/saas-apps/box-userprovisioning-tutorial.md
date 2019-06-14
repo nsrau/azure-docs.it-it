@@ -16,10 +16,10 @@ ms.date: 01/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd7826455624ca4a84d668455f522cbde411ac8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60431757"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Esercitazione: Configurare Box per il provisioning utenti automatico
@@ -107,7 +107,7 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
    
     ![Enable automatic user provisioning](./media/box-userprovisioning-tutorial/IC769549.png "Enable automatic user provisioning")
 
-8. Nel portale di Azure fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app Box. Se la connessione non riesce, verificare che l'account di Box abbia autorizzazioni di amministratore di team e ripetere il passaggio **"Autorizza"**.
+8. Nel portale di Azure fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app Box. Se la connessione non riesce, verificare che l'account di Box abbia autorizzazioni di amministratore di team e ripetere il passaggio **"Autorizza"** .
 
 9. Immettere l'indirizzo e-mail di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo.
 

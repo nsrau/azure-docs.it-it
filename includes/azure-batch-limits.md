@@ -5,31 +5,25 @@ services: batch
 author: laurenhughes
 ms.service: batch
 ms.topic: include
-ms.date: 10/11/2018
+ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: 9ffb02fce41e8805dfccf1dfd6e982cf107039ec
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 22bfc3c86605f4c2eed4c022919b3643f394ea95
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66127552"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080913"
 ---
 | **Risorsa** | **Limite predefinito** | **Limite massimo** |
 | --- | --- | --- |
 | Account Azure Batch per area per sottoscrizione | 1-3 |50 |
-| Core dedicati per account Batch | 10-100 | N/D<sup>1</sup> |
-| Core a bassa priorità per account Batch | 10-100 | N/A<sup>2</sup> |
-| I processi attivi e le pianificazioni dei processi<sup>3</sup> per account Batch | 100-300 | 1,000<sup>4</sup> |
-| Pool per account Batch | 20-100 | 500<sup>4</sup> |
+| Core dedicati per account Batch | 90-900 | Contattare il supporto tecnico |
+| Core a bassa priorità per account Batch | 10-100 | Contattare il supporto tecnico |
+| **[Active](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)**  processi e le pianificazioni dei processi per account Batch (**completato** processi non hanno nessun limite) | 100-300 | 1,000<sup>1</sup> |
+| Pool per account Batch | 20-100 | 500<sup>1</sup> |
 
 > [!NOTE]
-> I limiti predefiniti variano a seconda del tipo di sottoscrizione usata per creare un account Batch. Le quote di core indicate sono per gli account in modalità servizio Batch. [Visualizzare le quote nell'account Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
+> I limiti predefiniti variano a seconda del tipo di sottoscrizione usata per creare un account Batch. Le quote di core indicate sono per gli account in modalità servizio Batch. [Visualizzare le quote nell'account Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
-<sup>1</sup>il numero di core dedicati per account Batch può essere aumentato, ma il numero massimo è specificato. Per discutere le opzioni di aumento, contattare il supporto di Azure.
-
-<sup>2</sup>il numero di core a bassa priorità per account Batch può essere aumentato, ma il numero massimo è specificato. Per discutere le opzioni di aumento, contattare il supporto di Azure.
-
-<sup>3</sup>i processi completati e le pianificazioni dei processi non sono limitate.
-
-<sup>4</sup>per richiedere un aumento oltre questo limite, contattare il supporto tecnico di Azure.
+<sup>1</sup>per richiedere un aumento oltre questo limite, contattare il supporto tecnico di Azure.

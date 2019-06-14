@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550079"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usare i modelli di progetto di Visual Studio per avviare rapidamente le soluzioni Batch
@@ -191,7 +191,7 @@ I codici di uscita e le eccezioni forniscono un meccanismo per determinare il ri
 
 Un'attività del gestore di processi implementata con il modello Job Manager (Gestore di processi) può restituire tre possibili codici di uscita:
 
-| Codice | DESCRIZIONE |
+| Codice | Descrizione |
 | --- | --- |
 | 0 |Il gestore di processi è stato completato. Il codice del componente di suddivisione dei processi è stato eseguito fino al completamento e tutte le attività sono state aggiunte al processo. |
 | 1 |L'attività del gestore di processi non è riuscita con un'eccezione in una parte "prevista" del programma. L'eccezione è stata convertita in JobManagerException con informazioni di diagnostica e, dove possibile, suggerimenti per la risoluzione dell'errore. |
@@ -369,7 +369,7 @@ I codici di uscita e le eccezioni forniscono un meccanismo per determinare il ri
 
 Un'attività dell'elaboratore di attività implementata con il modello Task Processor (Elaboratore di attività) può restituire tre possibili codici di uscita:
 
-| Codice | DESCRIZIONE |
+| Codice | Descrizione |
 | --- | --- |
 | [Process.ExitCode][process_exitcode] |L'elaboratore di attività è stato eseguito fino al completamento. Si noti che questo non significa che il programma richiamato ha avuto esito positivo, ma solo che l'elaboratore di attività lo ha richiamato correttamente e ha eseguito le operazioni di post-elaborazione senza eccezioni. Il significato del codice di uscita dipende dal programma richiamato: in genere il codice di uscita 0 indica che il programma ha avuto esito positivo, mentre gli altri codici di uscita indicano che il programma ha avuto esito negativo. |
 | 1 |L'elaboratore di attività non è riuscito con un'eccezione in una parte "prevista" del programma. L'eccezione è stata convertita in `TaskProcessorException` con informazioni di diagnostica e, dove possibile, suggerimenti per la risoluzione dell'errore. |

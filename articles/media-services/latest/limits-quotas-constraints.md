@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: juliako
 ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824446"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quote e limitazioni in Servizi multimediali di Azure v3
@@ -24,14 +24,14 @@ Questo articolo descrive le quote e le limitazioni in Servizi multimediali di Az
 
 | Resource | Limite predefinito | 
 | --- | --- | 
-| Asset per ogni account di Servizi multimediali di Azure | 1.000.000|
+| Asset per ogni account di Servizi multimediali di Azure | 1\.000.000|
 | Filtri manifesto dinamico|100|
 | JobInput per ogni processo | 50 (fisso)|
 | JobOutput per ogni processo | 20 (fisso) |
 | TransformOutputs in una forma Trasforma | 20 (fisso) |
 | File per ogni JobInput|10 (fisso)|
-| Dimensione file| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>(1)</sup> |
-| Job per ogni account di Servizi multimediali | 500.000 <sup>(2)</sup> (fisso)|
+| Dimensioni complete| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>(1)</sup> |
+| Job per ogni account di Servizi multimediali | 500\.000 <sup>(2)</sup> (fisso)|
 | Elenco di trasformazioni|Impaginare la risposta, con 1000 trasformazioni per ogni pagina|
 | Elenco di processi|Impaginare la risposta, con 500 processi per ogni pagina|
 | Eventi live per ogni account di Servizi multimediali |5|

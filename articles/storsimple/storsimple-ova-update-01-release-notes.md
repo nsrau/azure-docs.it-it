@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
 ms.openlocfilehash: aad60024187ca180c002f119f4b975e8f69796e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629289"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Note sulla versione dell'Aggiornamento 0.2 e 0.1 per l'array virtuale StorSimple
@@ -54,7 +54,7 @@ L'aggiornamento 0.1 contiene le correzioni di bug e i miglioramenti seguenti.
 ## <a name="issues-fixed-in-the-update-01"></a>Problemi risolti nell'aggiornamento 0.1
 La tabella seguente fornisce un riepilogo dei problemi risolti in questa versione.
 
-|  No. | Funzionalità | Problema |
+| No. | Funzionalità | Problema |
 | --- | --- | --- |
 | 1 |VMDK |In alcune versioni di VMware, il disco del sistema operativo era considerato come sparse che generava avvisi e interrompeva le normali operazioni. Questo bug è stato risolto in questa versione. |
 | 2 |Server iSCSI |Nell'ultima versione, all'utente veniva richiesto di specificare un gateway per ogni interfaccia di rete abilitata del dispositivo virtuale StorSimple. Questo comportamento è stato modificato in questa versione in modo che l'utente debba configurare almeno un gateway per tutte le interfacce di rete abilitate. |
@@ -65,14 +65,14 @@ La tabella seguente fornisce un riepilogo dei problemi risolti in questa version
 ## <a name="known-issues-in-the-update-01"></a>Problemi noti nell'aggiornamento 0.1
 La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale StorSimple e include i problemi delle versioni precedenti. **I problemi della versione corrente sono contrassegnati con un asterisco. Quasi tutti i problemi descritti in questo elenco sono riportati dalla versione di disponibilità generale dell'array virtuale StorSimple.**
 
-|  No. | Funzionalità | Problema | Soluzione alternativa/commenti |
+| No. | Funzionalità | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 | **1.** |Aggiornamenti |È impossibile aggiornare i dispositivi virtuali creati nella versione di anteprima in una versione supportata di disponibilità generale. |Questi dispositivi virtuali devono essere sottoposti a failover per la versione di disponibilità generale tramite un flusso di lavoro di ripristino di emergenza. |
 | **2.** |Disco dati sottoposto a provisioning |Dopo il provisioning di un disco dati di una determinata dimensione specificata e la creazione di un dispositivo virtuale StorSimple corrispondente, non si deve espandere o compattare il disco dati. Il tentativo di eseguire questa operazione comporta la perdita di tutti i dati nei livelli locali del dispositivo. | |
 | **3.** |Criteri di gruppo |Nei dispositivi aggiunti a un dominio, l'applicazione di criteri di gruppo può influire negativamente sul funzionamento dei dispositivi. |Assicurarsi che l'array virtuale sia nella propria unità organizzativa (OU) per Active Directory e che ad esso non siano applicati oggetti Criteri di gruppo (GPO). |
 | **4.** |Interfaccia utente Web locale |Se sono abilitate le funzionalità di sicurezza avanzate di Internet Explorer, alcune pagine dell'interfaccia utente Web locale come Risoluzione dei problemi o Manutenzione potrebbero non funzionare correttamente. Anche i pulsanti di queste pagine potrebbero non funzionare. |Disattivare le funzionalità di protezione avanzata di Internet Explorer. |
 | **5.** |Interfaccia utente Web locale |In una macchina virtuale Hyper-V, le interfacce di rete nell'interfaccia utente Web vengono visualizzate come interfacce da 10 Gbps. |Questo comportamento è una reflection di Hyper-V. Hyper-V visualizza sempre 10 Gbps per le schede di rete virtuale. |
-| **6.** |Volumi o condivisioni a livelli |Il blocco dell'intervallo di byte per le applicazioni che operano con i volumi a livelli di StorSimple non è supportato. Se il blocco dell'intervallo di byte è abilitato, la suddivisione in livelli di StorSimple non funziona. |Tra le misure consigliate:  <br></br>Disattivare il blocco dell'intervallo di byte nella logica dell'applicazione.<br></br>Scegliere di inserire dati per questa applicazione in volumi aggiunti in locale invece di volumi a più livelli.<br></br>*Avvertenza*: Se il blocco di intervalli di byte è abilitato in locale usano volumi aggiunti, tenere presente che il volume aggiunto in locale può risultare online ancora prima del ripristino. In questi casi, se è in corso un ripristino, è necessario attenderne il completamento. |
+| **6.** |Volumi o condivisioni a livelli |Il blocco dell'intervallo di byte per le applicazioni che operano con i volumi a livelli di StorSimple non è supportato. Se il blocco dell'intervallo di byte è abilitato, la suddivisione in livelli di StorSimple non funziona. |Tra le misure consigliate: <br></br>Disattivare il blocco dell'intervallo di byte nella logica dell'applicazione.<br></br>Scegliere di inserire dati per questa applicazione in volumi aggiunti in locale invece di volumi a più livelli.<br></br>*Avvertenza*: Se il blocco di intervalli di byte è abilitato in locale usano volumi aggiunti, tenere presente che il volume aggiunto in locale può risultare online ancora prima del ripristino. In questi casi, se è in corso un ripristino, è necessario attenderne il completamento. |
 | **7.** |Condivisioni a livelli |Lavorare con file di grandi dimensioni può comportare una suddivisione in livelli lenta. |Durante l'uso di file di grandi dimensioni, è consigliabile che il file più grande sia più piccolo del 3% rispetto alle dimensioni della condivisione. |
 | **8.** |Capacità usata per le condivisioni |È possibile riscontrare il consumo di condivisioni in assenza di dati nella condivisione. Questo accade perché la capacità usata per le condivisioni include i metadati. | |
 | **9.** |Ripristino di emergenza |È possibile eseguire solo il ripristino di emergenza di un file server nello stesso dominio del dispositivo di origine. Il ripristino di emergenza su un dispositivo di destinazione in un dominio diverso non è supportato in questa versione. |Questo aspetto sarà implementato in una versione successiva. |

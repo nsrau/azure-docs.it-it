@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
 ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132456"
 ---
 ## <a name="trigger"></a>Trigger
@@ -22,7 +22,7 @@ Ogni istanza di una funzione attivata di eventi è supportata da un unico [Event
 Si consideri ad esempio un Hub eventi come quello indicato di seguito:
 
 * 10 partizioni
-* 1.000 eventi distribuiti uniformemente tra tutte le partizioni, con 100 messaggi in ogni partizione
+* 1\.000 eventi distribuiti uniformemente tra tutte le partizioni, con 100 messaggi in ogni partizione
 
 Quando la funzione viene abilitata per la prima volta, è presente solo un'istanza della funzione. È possibile chiamare la prima istanza di funzione `Function_0`. Il `Function_0` funzione dispone di una singola istanza di [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) che contiene un lease in tutte le partizioni di dieci. Questa istanza legge gli eventi dalle partizioni da 0 a 9. A partire da questo punto potranno verificarsi una delle condizioni seguenti:
 

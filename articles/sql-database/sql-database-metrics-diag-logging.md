@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791950"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
@@ -64,15 +64,15 @@ Abilitare le metriche e la registrazione diagnostica nei database SQL, visto che
 
 | Dati di telemetria di monitoraggio per database | Supporto dei database singoli e in pool | Supporto dell'istanza del database |
 | :------------------- | ----- | ----- |
-| [Le metriche di base](#basic-metrics): Contiene la percentuale DTU/CPU, il limite DTU/CPU, la percentuale di lettura dati fisici, la percentuale di scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, la percentuale delle sessioni, la percentuale dei ruoli di lavoro, la risorsa di archiviazione, la percentuale di archiviazione, la percentuale di archiviazione XTP. | Sì | No  |
+| [Le metriche di base](#basic-metrics): Contiene la percentuale DTU/CPU, il limite DTU/CPU, la percentuale di lettura dati fisici, la percentuale di scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, la percentuale delle sessioni, la percentuale dei ruoli di lavoro, la risorsa di archiviazione, la percentuale di archiviazione, la percentuale di archiviazione XTP. | Sì | No |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contiene le informazioni sulle statistiche di runtime delle query, ad esempio l'uso della CPU e le statistiche sulla durata delle query. | Sì | Sì |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Contiene informazioni sulle statistiche di attesa delle query (cosa hanno atteso le query) quelle della CPU, di LOG e il blocco. | Sì | Sì |
 | [Errori](#errors-dataset): Contiene informazioni sugli errori di SQL in un database. | Sì | Sì |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contiene informazioni sulla quantità di tempo impiegato per un database in attesa di diversi tipi di attesa. | Sì | No  |
-| [Timeout](#time-outs-dataset): Contiene informazioni sui timeout su un database. | Sì | No  |
-| [Blocchi](#blockings-dataset): Contiene informazioni sugli eventi in un database di blocco. | Sì | No  |
-| [I deadlock](#deadlocks-dataset): Contiene informazioni sugli eventi di deadlock in un database. | Sì | No  |
-| [AutomaticTuning](#automatic-tuning-dataset): Contiene informazioni sui suggerimenti di ottimizzazione automatica per un database. | Sì | No  |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contiene informazioni sulla quantità di tempo impiegato per un database in attesa di diversi tipi di attesa. | Sì | No |
+| [Timeout](#time-outs-dataset): Contiene informazioni sui timeout su un database. | Sì | No |
+| [Blocchi](#blockings-dataset): Contiene informazioni sugli eventi in un database di blocco. | Sì | No |
+| [I deadlock](#deadlocks-dataset): Contiene informazioni sugli eventi di deadlock in un database. | Sì | No |
+| [AutomaticTuning](#automatic-tuning-dataset): Contiene informazioni sui suggerimenti di ottimizzazione automatica per un database. | Sì | No |
 | [SQLInsights](#intelligent-insights-dataset): Contiene Intelligent Insights sulle prestazioni per un database. Per altre informazioni, vedere [Intelligent Insights](sql-database-intelligent-insights.md). | Sì | Sì |
 
 > [!IMPORTANT]

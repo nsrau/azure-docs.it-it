@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: ce059e542ee7bfa67e899b4923e3410e13e4930e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389244"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067513"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Effettuare il provisioning della velocità effettiva per contenitori e database
 
@@ -87,19 +87,19 @@ Dopo aver creato un contenitore Cosmos Azure o in un database, è possibile aggi
 
 Quando si usa .NET SDK, il [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) metodo consente di recuperare la velocità effettiva minima di un contenitore o un database. 
 
-È possibile ridimensionare la velocità effettiva con provisioning di un contenitore o un database in qualsiasi momento. 
+È possibile ridimensionare la velocità effettiva con provisioning di un contenitore o un database in qualsiasi momento. Quando viene eseguita un'operazione di ridimensionamento per aumentare la velocità effettiva, può richiedere tempi più lunghi a causa di attività di sistema per eseguire il provisioning delle risorse necessarie. È possibile controllare lo stato dell'operazione di ridimensionamento nel portale di Azure o a livello di programmazione tramite gli SDK. Quando si usa .net SDK, è possibile ottenere lo stato dell'operazione di ridimensionamento tramite il `DocumentClient.ReadOfferAsync` (metodo).
 
 ## <a name="comparison-of-models"></a>Confronto tra modelli
 
 |**Parametro**  |**Velocità effettiva con provisioning in un database**  |**Velocità effettiva con provisioning in un contenitore**|
 |---------|---------|---------|
-|UR minime |400. Dopo i primi quattro contenitori, ogni contenitore aggiuntivo richiede almeno 100 UR al secondo. |400|
+|UR minime |400\. Dopo i primi quattro contenitori, ogni contenitore aggiuntivo richiede almeno 100 UR al secondo. |400|
 |UR minime per contenitore|100|400|
 |UR minime richieste per usare 1 GB di spazio di archiviazione|40|40|
 |UR massime|Illimitate, nel database.|Illimitate, nel contenitore.|
 |UR assegnate o disponibili per un contenitore specifico|Nessuna garanzia. Le UR assegnate a un determinato contenitore dipendono dalle proprietà. Le proprietà possono essere, a scelta, le chiavi di partizione dei contenitori che condividono la velocità effettiva, la distribuzione del carico di lavoro e il numero di contenitori. |Tutte le UR configurate nel contenitore sono riservate esclusivamente per il contenitore.|
 |Archiviazione massima per un contenitore|Senza limiti.|Senza limiti.|
-|Velocità effettiva massima per partizione logica di un contenitore|10.000 UR|10.000 UR|
+|Velocità effettiva massima per partizione logica di un contenitore|10\.000 UR|10\.000 UR|
 |Spazio di archiviazione massimo (data + indice) per partizione logica di un contenitore|10 GB|10 GB|
 
 ## <a name="next-steps"></a>Passaggi successivi

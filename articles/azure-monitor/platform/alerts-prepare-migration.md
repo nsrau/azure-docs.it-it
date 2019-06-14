@@ -8,10 +8,10 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015616"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparare l'App per la logica e i runbook per la migrazione delle regole di avviso classiche
@@ -51,7 +51,7 @@ Usare la tabella seguente per eseguire il mapping i campi di payload di webhook 
 | Nome regola di avviso | **context.name** | **data.context.name** |
 | Descrizione della regola di avviso | **context.description** | **data.context.description** |
 | Condizione di regola di avviso | **context.condition** | **data.context.condition** |
-| Nome della metrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| Nome metrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
 | Aggregazione temporale (come la metrica viene aggregata nell'intervallo di valutazione)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
 | Periodo di valutazione | **context.condition.windowSize** | **data.context.condition.windowSize** |
 | Operatore (come il valore della metrica aggregato viene confrontato con la soglia di) | **context.condition.operator** | **data.context.condition.operator** |

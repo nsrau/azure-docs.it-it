@@ -17,10 +17,10 @@ ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f96a7ad1c67fab9354daaafa129d15dfbff12064
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64729385"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomi dei prodotti e identificatori dei piani di servizio per le licenze
@@ -31,7 +31,7 @@ Quando si gestiscono le licenze [portale di Azure](https://portal.azure.com/#bla
 - **ID stringa**: usato dai cmdlet di PowerShell v 1.0 quando si eseguono operazioni sulle licenze
 - **GUID**: GUID usato da Azure AD Graph e Microsoft Graph
 - **Piani di servizio inclusi**: un elenco di piani di servizio all'interno del prodotto che corrispondono all'ID stringa e al GUID
-- **Piani di servizio inclusi (nomi descrittivi)**: Un elenco di piani di servizio (nomi descrittivi) all'interno del prodotto che corrispondono ai GUID e ID stringa
+- **Piani di servizio inclusi (nomi descrittivi)** : Un elenco di piani di servizio (nomi descrittivi) all'interno del prodotto che corrispondono ai GUID e ID stringa
 
 >[!NOTE]
 >Queste informazioni sono accurate a partire dal 15 aprile 2019.

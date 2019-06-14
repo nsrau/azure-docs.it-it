@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: yushwang
 ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388861"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Informazioni sui dispositivi VPN e sui parametri IPsec/IKE per connessioni del Gateway VPN da sito a sito
@@ -133,7 +133,7 @@ Nelle tabelle seguenti:
 | Diffie-Hellman Group  |Gruppo 2 (1024 bit) |Gruppo 2 (1024 bit) |
 | Metodo di autenticazione |Chiave precondivisa     |Chiave precondivisa     |
 | Algoritmi di crittografia e di hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
-| Durata dell'associazione di sicurezza           |28.800 secondi     |28.800 secondi     |
+| Durata dell'associazione di sicurezza           |28\.800 secondi     |28\.800 secondi     |
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parametri della Fase 2 di IKE (Modalità rapida)
 
@@ -141,8 +141,8 @@ Nelle tabelle seguenti:
 | ---                           | ---           | ---                                         |
 | Versione IKE                   |IKEv1          |IKEv2                                        |
 | Algoritmi di crittografia e di hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Offerte per associazioni di sicurezza QM basate su route](#RouteBasedOffers) |
-| Durata dell'associazione di sicurezza (tempo)            |3.600 secondi  |27.000 secondi                                |
-| Durata dell'associazione di sicurezza (byte)           |102.400.000 KB | -                                           |
+| Durata dell'associazione di sicurezza (tempo)            |3\.600 secondi  |27\.000 secondi                                |
+| Durata dell'associazione di sicurezza (byte)           |102\.400.000 KB | -                                           |
 | Perfect Forward Secrecy (PFS) |No             |[Offerte per associazioni di sicurezza QM basate su route](#RouteBasedOffers) |
 | Rilevamento peer inattivo     |Non supportate  |Supportato                                    |
 

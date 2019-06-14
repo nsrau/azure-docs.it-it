@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61388593"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
@@ -104,7 +104,7 @@ L'app di database per tenant SaaS Wingtip Tickets è un'app SaaS e il carico di 
 
 Per monitorare l'utilizzo delle risorse risultante dal carico applicato, aprire il portale per il pool che contiene i database tenant:
 
-1. Aprire il [portale di Azure](https://portal.azure.com) e passare al server *tenants1-dpt-&lt;UTENTE&gt;*.
+1. Aprire il [portale di Azure](https://portal.azure.com) e passare al server *tenants1-dpt-&lt;UTENTE&gt;* .
 1. Scorrere verso il basso e individuare i pool elastici, quindi fare clic su **Pool1**. Questo pool contiene tutti i database tenant creati finora.
 
 Osservare i grafici **Monitoraggio pool elastico** e **Monitoraggio database elastico**.
@@ -122,7 +122,7 @@ Dato che il pool include altri database oltre ai primi cinque, l'utilizzo del po
 
 Impostare un avviso per il pool da attivare quando l'utilizzo è \>75%, come indicato di seguito:
 
-1. Aprire *Pool1*, nel server *tenants1-dpt-\<utente\>*, nel [portale di Azure](https://portal.azure.com).
+1. Aprire *Pool1*, nel server *tenants1-dpt-\<utente\>* , nel [portale di Azure](https://portal.azure.com).
 1. Fare clic su **Regole di avviso** e quindi fare clic su **+ Aggiungi avviso**:
 
    ![aggiungere un avviso](media/saas-dbpertenant-performance-monitoring/add-alert.png)
@@ -167,7 +167,7 @@ I database rimango online e pienamente disponibili durante l'intero processo. Al
 
 In alternativa al potenziamento del pool, è possibile creare un secondo pool e spostare database in questo pool per bilanciare il carico tra i due. A questo scopo, il nuovo pool deve essere creato nello stesso server del primo.
 
-1. Nel [portale di Azure](https://portal.azure.com) aprire il server **tenants1-dpt-&lt;UTENTE&gt;**.
+1. Nel [portale di Azure](https://portal.azure.com) aprire il server **tenants1-dpt-&lt;UTENTE&gt;** .
 1. Fare clic su **+ Nuovo pool** per creare un pool nel server corrente.
 1. Nel modello **Pool elastici**:
 
@@ -185,7 +185,7 @@ In alternativa al potenziamento del pool, è possibile creare un secondo pool e 
 
 La creazione del pool e lo spostamento dei database richiedono alcuni minuti. Quando i database vengono spostati, rimangono online e completamente accessibili fino all'ultimo momento, quando viene chiusa qualsiasi connessione aperta. Purché esista una logica per i tentativi, i client si connetteranno quindi al database nel nuovo pool.
 
-Passare a **Pool2**, nel server *tenants1-dpt-\<utente\>*, per aprire il pool e monitorarne le prestazioni. Se non viene visualizzato, attendere il completamento del provisioning del nuovo pool.
+Passare a **Pool2**, nel server *tenants1-dpt-\<utente\>* , per aprire il pool e monitorarne le prestazioni. Se non viene visualizzato, attendere il completamento del provisioning del nuovo pool.
 
 Si nota ora una riduzione dell'utilizzo delle risorse di *Pool1* e un carico simile per *Pool2*.
 
@@ -201,7 +201,7 @@ Questo esercizio simula l'effetto di un carico elevato per Contoso Concert Hall 
 1. Eseguire lo script con **F5**.
 
 
-1. Nel [portale di Azure](https://portal.azure.com) passare all'elenco di database nel server *tenants1-dpt-\<user\>*. 
+1. Nel [portale di Azure](https://portal.azure.com) passare all'elenco di database nel server *tenants1-dpt-\<user\>* . 
 1. Fare clic sul database **contosoconcerthall**.
 1. Fare clic sul pool in cui si trova **contosoconcerthall**. Individuare il pool nella sezione **Pool elastici**.
 

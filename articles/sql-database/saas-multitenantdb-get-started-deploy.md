@@ -13,10 +13,10 @@ ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
 ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978533"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuire ed esplorare un'applicazione multi-tenant partizionata
@@ -58,7 +58,7 @@ Per completare questa esercitazione, verificare che i prerequisiti seguenti sian
 ### <a name="plan-the-names"></a>Pianificare i nomi
 
 Nei passaggi di questa sezione si forniscono un valore *utente* usato per assicurare che i nomi delle risorse siano univoci a livello globale e un nome per il *gruppo di risorse* contenente tutte le risorse create da una distribuzione dell'app. Per un utente di nome *Ann Finley* si consiglia:
-- *Utente:* **af1***(le proprie iniziali, oltre a una cifra.   Usare un valore diverso, ad esempio af2, se si distribuisce l'app una seconda volta.*
+- *Utente:* **af1** *(le proprie iniziali, oltre a una cifra. Usare un valore diverso, ad esempio af2, se si distribuisce l'app una seconda volta.*
 - *Gruppo di risorse:* **wingtip-mt-af1** *: wingtip-mt indica che si tratta dell'app multi-tenant partizionata. L'aggiunta del nome utente af1 correla il nome del gruppo di risorse con i nomi delle risorse in esso contenute.*
 
 Scegliere ora i nomi e annotarli. 
@@ -104,7 +104,7 @@ Durante la distribuzione dell'applicazione, scaricare gli script di gestione e i
 6. Fare clic su **OK**.
 7. Estrarre i file.
 
-Gli script si trovano nella cartella *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\*.
+Gli script si trovano nella cartella *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\* .
 
 ## <a name="update-the-configuration-file-for-this-deployment"></a>Aggiornare il file di configurazione per la distribuzione
 
@@ -125,7 +125,7 @@ Ogni sede è associata a un'app Web personalizzata in cui sono elencati i relati
 In una pagina Web centrale **Events Hub** (Hub eventi) sono elencati i collegamenti ai tenant nella distribuzione specifica. Attenersi alla seguente procedura per provare la pagina Web **Events Hub** (Hub eventi) e un'app Web singola:
 
 1. Aprire la pagina **Events Hub** (Hub eventi) nel Web browser:
-   - http://events.wingtip-mt.&lt;utente&gt;.trafficmanager.net &nbsp;  *Sostituire &lt;utente&gt; con il valore corrispondente all'utente della distribuzione.*
+   - http://events.wingtip-mt.&lt ;utente&gt;.trafficmanager.net &nbsp;  *Sostituire &lt; utente&gt; con il valore corrispondente all'utente della distribuzione.*
 
      ![Hub eventi](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -137,7 +137,7 @@ In una pagina Web centrale **Events Hub** (Hub eventi) sono elencati i collegame
 
 Per controllare la distribuzione delle richieste in ingresso, l'app usa [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). La pagina degli eventi per ogni tenant include il nome del tenant nell'URL. Ogni URL include anche il valore di utente specifico. Ogni URL rispetta il formato indicato usando la procedura seguente:
 
-- http://events.wingtip-mt.&lt;utente&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt ;utente&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. L'app degli eventi analizza il nome del tenant nell'URL. Il nome del tenant è *fabrikamjazzclub* nell'URL di esempio precedente.
 2. L'app esegue quindi l'hash del nome del tenant per creare una chiave di accesso a un catalogo usando il [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
@@ -212,7 +212,7 @@ Ora si esamineranno alcune delle risorse distribuite:
 
    ![gruppo di risorse](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Fare clic sul server **catalog-mt&lt;utente&gt;**. Il server di catalogo contiene due database denominati *tenantcatalog* e *basetenantdb*. Il database *basetenantdb* è un database modello vuoto. Viene copiato per creare un nuovo database, da usare per più tenant o per uno solo.
+2. Fare clic sul server **catalog-mt&lt;utente&gt;** . Il server di catalogo contiene due database denominati *tenantcatalog* e *basetenantdb*. Il database *basetenantdb* è un database modello vuoto. Viene copiato per creare un nuovo database, da usare per più tenant o per uno solo.
 
    ![server di catalogo](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 

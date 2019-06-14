@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
 ms.openlocfilehash: e4906bf9f2aead69c315ddb7b2e3b10489378d87
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66259075"
 ---
 # <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>Esercitazione: Con i miglioramenti di messaggi dell'IoT Hub di Azure (anteprima)
@@ -69,7 +69,7 @@ Se non già stato fatto, aprire una [la finestra Cloud Shell di Bash.](https://s
 
 Ecco le risorse create dallo script. **Sono stati arricchiti** significa che risorse sia per i messaggi con miglioramenti. **Originale** significa che per i messaggi che non vengono aggiunte risorse.
 
-| NOME | Value |
+| Name | Value |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | Nome del contenitore | Originale  |
@@ -250,7 +250,7 @@ A questo punto, le risorse sono tutti i set di backup e il routing è configurat
 
 2. Aggiungere questi valori all'elenco per l'endpoint ContosoStorageEndpointEnriched.
 
-   | NOME | Value | Endpoint (elenco a discesa) |
+   | Name | Value | Endpoint (elenco a discesa) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | Posizione dispositivo | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |

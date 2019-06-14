@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
 ms.openlocfilehash: 70593bffbf30b3a0c0978e56c2af1a856a22f2ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563020"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montare un volume gitRepo in Istanze di Azure Container
@@ -27,11 +27,11 @@ Il volume *gitRepo* monta una directory e clona il repository Git specificato al
 
 Quando si monta un volume *gitRepo*, è possibile impostare tre proprietà per configurare il volume:
 
-| Proprietà | Obbligatorio | DESCRIZIONE |
+| Proprietà | Obbligatorio | Descrizione |
 | -------- | -------- | ----------- |
-| `repository` | Sì | URL completo, incluso `http://` o `https://`, del repository Git da clonare.|
-| `directory` | No  | Directory in cui clonare il repository. Il percorso non deve contenere né iniziare con "`..`".  Se si specifica "`.`", il repository viene clonato nella directory del volume. In caso contrario il repository Git viene clonato in una sottodirectory del nome dato all'interno della directory del volume. |
-| `revision` | No  | Hash commit della revisione da clonare. Se non specificato, la revisione `HEAD` viene clonata. |
+| `repository` | Yes | URL completo, incluso `http://` o `https://`, del repository Git da clonare.|
+| `directory` | No | Directory in cui clonare il repository. Il percorso non deve contenere né iniziare con "`..`".  Se si specifica "`.`", il repository viene clonato nella directory del volume. In caso contrario il repository Git viene clonato in una sottodirectory del nome dato all'interno della directory del volume. |
+| `revision` | No | Hash commit della revisione da clonare. Se non specificato, la revisione `HEAD` viene clonata. |
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>Montare un volume gitRepo: Interfaccia della riga di comando di Azure
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
 ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233092"
 ---
 # <a name="configure-prerequisites"></a>Configurazione dei prerequisiti
@@ -90,7 +90,7 @@ Immettere i valori per i parametri di input e fare clic su **OK**.
 | Rete virtuale nuova o esistente | Creare una nuova rete virtuale (impostazione predefinita) o usare una rete virtuale esistente |
 | Scegli impostazioni CIDR predefinite o personalizzale intervallo IP (CIDR) | Accettare gli intervalli CIDR predefinito o selezionare **intervallo di indirizzi IP personalizzati** e immettere le informazioni personalizzate CIDR.  Le impostazioni predefinite creerà vNet con CIDR di 10.0.0.0/14, subnet master con 10.1.0.0/16, infrastrutture-subnet con 10.2.0.0/16 e una subnet di calcolo e di nomi comuni con 10.3.0.0/16 |
 | Nome gruppo di risorse dell'insieme di credenziali chiave | Il nome del gruppo di risorse che contiene l'insieme di credenziali chiave |
-| Nome insieme di credenziali delle chiavi | Il nome dell'insieme di credenziali chiave che contiene la chiave privata con il ssh chiave privata.  Sono consentiti solo caratteri alfanumerici e trattini ed essere compresa tra 3 e 24 caratteri |
+| Nome dell'insieme di credenziali delle chiavi | Il nome dell'insieme di credenziali chiave che contiene la chiave privata con il ssh chiave privata.  Sono consentiti solo caratteri alfanumerici e trattini ed essere compresa tra 3 e 24 caratteri |
 | Nome del segreto | Il nome del segreto che contiene il ssh chiave privata.  Sono consentiti solo caratteri alfanumerici e trattini |
 
    ![Pannello infrastruttura di offerta](media/openshift-marketplace-self-managed/ocp-inframain.png)  

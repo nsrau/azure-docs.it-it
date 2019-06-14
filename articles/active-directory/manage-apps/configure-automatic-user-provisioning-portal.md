@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963583"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
@@ -56,7 +56,7 @@ Il **Provisioning** riquadro inizia con un **modalità** menu che mostra le moda
 
 Selezionare il **automatica** opzione per specificare le impostazioni per la sincronizzazione, i mapping, avvio e arresto e le credenziali di amministratore.
 
-### <a name="admin-credentials"></a>Credenziali amministratore
+### <a name="admin-credentials"></a>Credenziali di amministratore
 
 Espandere **credenziali amministratore** per immettere le credenziali necessarie per Azure AD per la connessione all'API di gestione utente dell'applicazione. L'input necessario dipende dall'applicazione. Per informazioni sui tipi di credenziali e sui requisiti per applicazioni specifiche, vedere l' [esercitazione sulla configurazione per l'applicazione specifica](user-provisioning.md).
 

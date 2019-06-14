@@ -17,10 +17,10 @@ ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
 ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65594272"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
@@ -95,7 +95,7 @@ Se la distribuzione in GIT non riesce per l'app Web di Linux, scegliere una dell
 
    Se si verifica un errore che indica l'impossibilità di trovare il comando `curl`, assicurarsi di installare curl tramite `apt-get install curl` prima di eseguire il comando `curl` precedente.
 
-## <a name="language-support"></a>Supporto per la lingua
+## <a name="language-support"></a>Supporto per le lingue
 
 **Esistono impostazioni speciali o configurazioni specifiche da impostare se si vogliono usare Web Socket nell'applicazione Node.js?**
 

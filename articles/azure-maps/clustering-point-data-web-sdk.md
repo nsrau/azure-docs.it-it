@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957327"
 ---
 # <a name="clustering-point-data"></a>Clustering dei punti dati
@@ -88,7 +88,7 @@ Quando si verificano gli eventi del mouse su un livello che contengono punti dat
 |---------------|------|-------------|
 | cluster | boolean | Indica se funzionalità rappresenta un cluster. |
 | cluster_id | string | Un ID univoco per il cluster che può essere usato con l'origine dati `getClusterExpansionZoom`, `getClusterChildren`, e `getClusterLeaves` metodi. |
-| point_count | numero | Il numero di punti contenuti nel cluster. |
+| point_count | number | Il numero di punti contenuti nel cluster. |
 | point_count_abbreviated | string | Stringa che abbrevia il `point_count` valore se è long. (ad esempio, 4.000 diventa 4K) |
 
 L'esempio seguente accetta un livello bolle che esegue il rendering dei punti di cluster e aggiunge un evento click che quando viene attivato, calcolare, e lo zoom sulla mappa per il livello di zoom avanti in corrispondenza del quale il cluster verrà interrotta distanti tra loro usando il `getClusterExpansionZoom` metodo del `DataSource` classe e il `cluster_id` proprietà dell'oggetto selezionato in cluster punto dati. 

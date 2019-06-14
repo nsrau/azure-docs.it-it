@@ -9,10 +9,10 @@ ms.date: 02/07/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 9e5d842cece316bc9c53e1e8583f40a0f222b91d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66151949"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gestire IoT Central dal comando di Azure
@@ -53,11 +53,11 @@ Questi comandi prima di tutto creano un gruppo di risorse nell'area orientale ar
 | Parametro         | Descrizione |
 | ----------------- | ----------- |
 | resource-group    | Gruppo di risorse che contiene l'applicazione. Questo gruppo di risorse deve già esistere nella sottoscrizione. |
-| percorso          | Per impostazione predefinita, questo comando Usa il percorso dal gruppo di risorse. Attualmente è possibile creare un'applicazione IoT Central nelle aree **Stati Uniti orientali**, **Stati Uniti occidentali**, **Europa settentrionale** ed **Europa occidentale**. |
+| location          | Per impostazione predefinita, questo comando Usa il percorso dal gruppo di risorse. Attualmente è possibile creare un'applicazione IoT Central nelle aree **Stati Uniti orientali**, **Stati Uniti occidentali**, **Europa settentrionale** ed **Europa occidentale**. |
 | name              | Nome dell'applicazione nel portale di Azure. |
 | subdomain         | Sottodominio nell'URL dell'applicazione. In questo esempio l'URL dell'applicazione è https://mysubdomain.azureiotcentral.com. |
 | sku               | L'unico valore attualmente disponibile è **S1** (livello standard). Vedere [Prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
-| modello          | Modello di applicazione da usare. Per altre informazioni, vedere la tabella seguente: |
+| template          | Modello di applicazione da usare. Per altre informazioni, vedere la tabella seguente: |
 | display-name      | Nome dell'applicazione visualizzato nell'interfaccia utente. |
 
 **Modelli di applicazione**

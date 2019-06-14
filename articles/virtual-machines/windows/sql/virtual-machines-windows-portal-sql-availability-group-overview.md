@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.openlocfilehash: b9977965dc076ec36aa90680a1732b6640b1e41a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325808"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Panoramica sui gruppi di disponibilità AlwaysOn di SQL Server in macchine virtuali di Azure #
@@ -38,10 +38,10 @@ Inoltre, in un cluster di failover guest VM IaaS di Azure, è consigliabile una 
 
 |  | Versione di Windows Server | Versione di SQL Server | Edizione di SQL Server | Configurazione del Quorum WSFC | Ripristino di emergenza con più aree | Supporto di più subnet | Supporto per un'istanza di AD esistente | Ripristino di emergenza con più zone stessa area | Supporto Dist-AG senza dominio AD | Supporto Dist-AG con alcun cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [INTERFACCIA DELLA RIGA DI COMANDO DI SQL MACCHINA VIRTUALE](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | Cloud di controllo | No  | Sì | Sì | Sì | No  | No  |
-| [Modelli di avvio rapido](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | Cloud di controllo | No  | Sì | Sì | Sì | No  | No  |
-| [Modello del portale](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | Condivisione file | No  | No  | No  | No  | No  | No  |
-| [Manuale](virtual-machines-windows-portal-sql-availability-group-prereq.md) | Tutti | Tutti | Tutti | Tutti | Sì | Sì | Sì | Sì | Sì | Sì |
+| [INTERFACCIA DELLA RIGA DI COMANDO DI SQL MACCHINA VIRTUALE](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | Cloud di controllo | No | Yes | Sì | Sì | No | No |
+| [Modelli di avvio rapido](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | Cloud di controllo | No | Yes | Sì | Sì | No | No |
+| [Modello del portale](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | Condivisione file | No | No | No | No | No | No |
+| [Manuale](virtual-machines-windows-portal-sql-availability-group-prereq.md) | Tutti | Tutti | Tutti | Tutti | Yes | Sì | Sì | Sì | Sì | Yes |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 
 Per compilare un gruppo di disponibilità di SQL Server in macchine virtuali di Azure, vedere le esercitazioni indicate di seguito.

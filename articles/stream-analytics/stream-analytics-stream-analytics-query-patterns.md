@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65761961"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Esempi di query per modelli di uso comune di Analisi di flusso
@@ -238,7 +238,7 @@ GROUP BY
 ```
 
 
-**Spiegazione:**
+**Spiegazione:** 
 **COUNT(DISTINCT Make)** restituisce il numero di valori distinct della colonna **Casa automobilistica** all'interno di una finestra temporale.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Esempio di query: determinare la potenziale variazione di un valore
@@ -424,12 +424,12 @@ Ad esempio, 2 automobili consecutive della stessa casa automobilistica hanno att
 
 | Utente | Funzionalità | Event | Time |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Inizio |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |Termina |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |Inizia |2015-01-01T00:00:01.0000000Z |
+| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
 
 **Output**:  
 
-| Utente | Funzionalità | Durata |
+| Utente | Funzionalità | Duration |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -443,7 +443,7 @@ Ad esempio, 2 automobili consecutive della stessa casa automobilistica hanno att
         Event = 'end'
 ```
 
-**Spiegazione**: usare la funzione **LAST** per recuperare l'ultimo valore di **TIME** se il tipo di evento corrisponde a **Start**. La funzione **LAST** usa **PARTITION BY [user]** per indicare che il risultato viene calcolato per utente univoco. La query dispone di una soglia massima di 1 ora per la differenza di tempo tra gli eventi **Start** e **Stop**, ma è configurabile in base alle esigenze: **(LIMIT DURATION(hour, 1)**.
+**Spiegazione**: usare la funzione **LAST** per recuperare l'ultimo valore di **TIME** se il tipo di evento corrisponde a **Start**. La funzione **LAST** usa **PARTITION BY [user]** per indicare che il risultato viene calcolato per utente univoco. La query dispone di una soglia massima di 1 ora per la differenza di tempo tra gli eventi **Start** e **Stop**, ma è configurabile in base alle esigenze: **(LIMIT DURATION(hour, 1)** .
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>Esempio di query: rilevare la durata di una condizione
 **Descrizione**: individuare la durata di una condizione.
@@ -506,7 +506,7 @@ Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le au
 | "2014-01-01T06:01:30" |5 |
 | "2014-01-01T06:01:35" |6 |
 
-**Output (prime 10 righe)**:
+**Output (prime 10 righe)** :
 
 | windowend | lastevent.t | lastevent.value |
 | --- | --- | --- |
@@ -655,7 +655,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Input**:  
 
-| DeviceId | Time | Attributo | Value |
+| deviceId | Time | Attributo | Value |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
@@ -666,7 +666,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Output**:  
 
-| AverageValue | DeviceId |
+| AverageValue | deviceId |
 | --- | --- |
 | 70 | 1 |
 |45 | 2 |
@@ -696,7 +696,7 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 
 **Spiegazione**: [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics) restituisce il numero di valori distinct della colonna Tempo all'interno di una finestra temporale. È quindi possibile usare l'output di questo passaggio per calcolare la media di ogni dispositivo eliminando i duplicati.
 
-## <a name="get-help"></a>Guida
+## <a name="get-help"></a>Ottenere aiuto
 
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

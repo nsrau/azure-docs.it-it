@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335429"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Spostare i dati da Amazon Redshift usando Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](data-factory-amazon-redshift-connector.md)
 > * [Versione 2 (corrente)](../connector-amazon-redshift.md)
 
@@ -62,12 +62,12 @@ La tabella seguente include le descrizioni degli elementi JSON specifici di un s
 
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
-| **type** |Questa proprietà deve essere impostata su **AmazonRedshift**. |Sì |
-| **server** |Indirizzo IP o nome host del server Amazon Redshift. |Sì |
+| **type** |Questa proprietà deve essere impostata su **AmazonRedshift**. |Yes |
+| **server** |Indirizzo IP o nome host del server Amazon Redshift. |Yes |
 | **port** |Il numero della porta TCP che il server Amazon Redshift usa per ascoltare le connessioni client. |No (il valore predefinito è 5439) |
-| **database** |Nome del database Amazon Redshift. |Sì |
-| **username** |Nome dell'utente che ha accesso al database. |Sì |
-| **password** |La password per l'account utente. |Sì |
+| **database** |Nome del database Amazon Redshift. |Yes |
+| **username** |Nome dell'utente che ha accesso al database. |Yes |
+| **password** |La password per l'account utente. |Yes |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
@@ -88,7 +88,7 @@ Per l'attività di copia, quando l'origine è di tipo **AmazonRedshiftSource**, 
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | **query** | Usare la query personalizzata per leggere i dati. |No (se è specificata la proprietà **tableName** di un set di dati) |
-| **redshiftUnloadSettings** | Contiene il gruppo di proprietà quando si usa il comando **UNLOAD** di Redshift. | No  |
+| **redshiftUnloadSettings** | Contiene il gruppo di proprietà quando si usa il comando **UNLOAD** di Redshift. | No |
 | **s3LinkedServiceName** | Amazon S3 da usare come archivio provvisorio. Il servizio collegato viene specificato usando un nome di Azure Data Factory di tipo **AwsAccessKey**. | Obbligatoria quando si usa la proprietà **redshiftUnloadSettings** |
 | **bucketName** | Indica il bucket Amazon S3 da usare per archiviare i dati provvisori. Se questa proprietà non è specificata, l'attività di copia genera automaticamente un bucket. | Obbligatoria quando si usa la proprietà **redshiftUnloadSettings** |
 
@@ -336,11 +336,11 @@ Quando l'attività di copia converte i dati da un tipo Amazon Redshift a un tipo
 | DECIMAL |Decimal |
 | REAL |Single |
 | DOUBLE PRECISION |Double |
-| BOOLEAN |String |
+| BOOLEAN |string |
 | CHAR |String |
 | VARCHAR |String |
-| DATE |Datetime |
-| TIMESTAMP |Datetime |
+| DATE |DateTime |
+| TIMESTAMP |DateTime |
 | TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink

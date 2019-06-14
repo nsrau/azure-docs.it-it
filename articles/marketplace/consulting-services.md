@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964122"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servizi di consulenza per Azure Marketplace e AppSource
@@ -30,7 +30,7 @@ Le vetrine del marketplace sono organizzate in base a gruppi di destinatari e pr
 |Pertinenza delle soluzioni     |Applicazioni tecniche create per o in Azure|Applicazioni aziendali che sfruttano/estendono D365, Power BI, Office 365, Azure. (applicazioni completate per componente aggiuntivo)|
 |Opzioni di pubblicazione     |Contattami, prova, transazione o servizi di consulenza|Contattami, prova o servizi di consulenza|
 |In Esperienza di prodotto      |Portale di gestione di Azure|Office 365, Dynamics 365, app client di Office| 
-|Altro      |Pubblicazione locale tramite Azure Stack|Servizi di consulenza per Dynamics e Power BI|
+|Altri      |Pubblicazione locale tramite Azure Stack|Servizi di consulenza per Dynamics e Power BI|
 
 Le offerte di servizio basate su Microsoft Dynamics 365, Office 365 e Power BI sono idonee a essere inserite in AppSource. Per altre informazioni, vedere [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Linee guida all'inserzione di servizi di consulenza in Microsoft AppSource). 
 
@@ -62,7 +62,7 @@ I partner devono avere **competenze Silver o Gold** nell'area pertinente al serv
 |Dynamics 365 for Finance and Operations, Enterprise edition  |  Competenza Silver o Gold di [Enterprise Resource Planning](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e un fatturato minimo di $ 25.000 derivante dalle operazioni cloud degli ultimi 12 mesi.       |
 |Dynamics 365 for Finance and Operations, Business edition  |  Aver operato come [Provider di servizi Cloud (CSP)](https://partner.microsoft.com/cloud-solution-provider) o come [Digital POR (Partner of Record)](https://partner.microsoft.com/membership/digital-partner-of-record) per almeno un cliente      |
 |Power BI, oggetti visivi personalizzati di Power BI | Soddisfare i [criteri di Partner di soluzioni](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApp | Avere pubblicato una soluzione di [presentazione dei partner](https://appsource.microsoft.com/partners)
+|PowerApps | Avere pubblicato una soluzione di [presentazione dei partner](https://appsource.microsoft.com/partners)
 
 <b> Per altre informazioni, vedere [Competenze in Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  

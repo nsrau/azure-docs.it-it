@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: reference
-ms.date: 10/05/2018
+ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 101c985178b8269b4ff542b94b057330d0c2652a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0199d8f0c4a76a10fffcab7cf2819643d0ac2d68
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60902248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075354"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights per le funzionalità supportate di Funzioni di Azure
 
@@ -30,27 +30,27 @@ Funzioni di Azure offre l'[integrazione predefinita](https://docs.microsoft.com/
 | **Application Insights .NET SDK**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **Raccolta automatica di**        |                 |                   |               
-| &bull; Richieste                     | Sì             | Sì               | 
-| &bull; Eccezioni                   | Sì             | Sì               | 
-| &bull; Contatori delle prestazioni         | Sì             | Sì               |
+| &bull; Richieste                     | Yes             | Yes               | 
+| &bull; Eccezioni                   | Yes             | Yes               | 
+| &bull; Contatori delle prestazioni         | Yes             | Yes               |
 | &bull; Dipendenze                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sì               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Sì               | 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Sì               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sì               | 
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Yes               | 
 | | | | 
 | **Funzionalità supportate**                |                   |                   |               
-| &bull; QuickPulse/LiveMetrics       | Sì             | Sì               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Canale di controllo sicuro|                 | Sì               | 
-| &bull; Campionamento                     | Sì             | Sì               | 
-| &bull; Heartbeat                   |                 | Sì               | 
+| &bull; QuickPulse/LiveMetrics       | Yes             | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canale di controllo sicuro|                 | Yes               | 
+| &bull; Campionamento                     | Yes             | Yes               | 
+| &bull; Heartbeat                   |                 | Yes               | 
 | | | | 
 | **Correlazione**                       |                   |                   |               
-| &bull; ServiceBus                     |                   | Sì               | 
-| &bull; EventHub                       |                   | Sì               | 
+| &bull; ServiceBus                     |                   | Yes               | 
+| &bull; EventHub                       |                   | Yes               | 
 | | | | 
 | **Configurabile**                      |                   |                   |           
-| &bull;Completamente configurabile.<br/>Per istruzioni, vedere [Funzioni di Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852).<br/>Per tutte le opzioni, vedere [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration).               |                   | Sì                   | 
+| &bull;Completamente configurabile.<br/>Per istruzioni, vedere [Funzioni di Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852).<br/>Per tutte le opzioni, vedere [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration).               |                   | Yes                   | 
 
 
 ## <a name="performance-counters"></a>Contatori delle prestazioni

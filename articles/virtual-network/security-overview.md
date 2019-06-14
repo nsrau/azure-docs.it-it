@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 751a3a940dad74cbc8c7343ee70309736b381d5b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: ee976f163bdb00511e2a8f85906aa59aaebbfa47
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478877"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056546"
 ---
 # <a name="security-groups"></a>Gruppi di sicurezza
 <a name="network-security-groups"></a>
@@ -81,6 +81,7 @@ Le regole di sicurezza ottimizzate semplificano la definizione della sicurezza p
 * **ServiceFabric** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio ServiceFabric. Se si specifica *ServiceFabric* come valore, verrà consentito o impedito il traffico verso ServiceFabric. 
 * **AzureMachineLearning** (solo Resource Manager): Questo tag identifica i prefissi di indirizzo del servizio AzureMachineLearning. Se si specifica *AzureMachineLearning* come valore, verrà consentito o impedito il traffico verso AzureMachineLearning. 
 * **BatchNodeManagement** (solo Resource Manager): Questo tag identifica i prefissi degli indirizzi del servizio Azure BatchNodeManagement. Se si specifica *BatchNodeManagement* per il valore, il traffico è consentito o negato dal servizio Batch nei nodi di calcolo.
+* **AzureBackup**(solo Resource Manager): questo tag identifica i prefissi degli indirizzi del servizio AzureBackup. Se si specifica AzureBackup per il valore, il traffico è consentito o negato per AzureBackup.
 
 > [!NOTE]
 > I tag di servizio per i servizi Azure identificano i prefissi di indirizzo dal cloud specifico in uso. 

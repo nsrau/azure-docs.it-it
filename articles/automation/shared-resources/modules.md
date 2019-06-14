@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: shared-resources
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/13/2019
+ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fa7f5d3fb38eb1dbca51dec9b73dca3c998436aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54ebe7df9523a863ae14bc55c6ae4c9635468755
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60500351"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063462"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gestire i moduli in automazione di Azure
 
-Automazione di Azure offre la possibilità di importare i moduli di PowerShell nell'Account di automazione da usare per i runbook di PowerShell basati su. Questi moduli possono essere creati, da PowerShell Gallery, i moduli personalizzati o i moduli AzureRM e Az per Azure.
+Automazione di Azure offre la possibilità di importare i moduli di PowerShell nell'Account di automazione da usare per i runbook di PowerShell basati su. Questi moduli possono essere creati, da PowerShell Gallery, i moduli personalizzati o i moduli AzureRM e Az per Azure. Quando si crea un Account di automazione alcuni moduli vengono importati per impostazione predefinita.
 
 ## <a name="import-modules"></a>Importare i moduli
 
@@ -51,11 +51,27 @@ Per importare un modulo da PowerShell Gallery, passare a https://www.powershellg
 
 ![Importazione di PowerShell Gallery dal portale di Azure](../media/modules/gallery-azure-portal.png)
 
+## <a name="delete-modules"></a>Eliminare i moduli
+
+Se hai problemi con un modulo o è necessario eseguire il rollback a una versione precedente di un modulo, è possibile eliminarlo dall'Account di automazione. Non è possibile eliminare la versione originale del [predefinito moduli](#default-modules) che vengono importati quando si crea un Account di automazione. Se il modulo che si desidera eliminare è una versione più recente di uno dei [predefinito moduli](#default-modules) installato, verrà rollback alla versione che è stato installato con l'Account di automazione. In caso contrario, verranno rimossi tutti i moduli che si elimina dall'Account di automazione.
+
+### <a name="azure-portal"></a>Portale di Azure
+
+Nel portale di Azure, passare all'Account di automazione e selezionare **moduli** sotto **risorse condivise**. Selezionare il modulo che si desidera rimuovere. Nel **Module** pagina, clcick **eliminare**. Se questo modulo è uno dei [predefinito moduli](#default-modules) viene possibile il rollback alla versione che era presente quando è stato creato l'Account di automazione.
+
+### <a name="powershell"></a>PowerShell
+
+Per rimuovere un modulo tramite PowerShell, eseguire il comando seguente:
+
+```azurepowershell-interactive
+Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName>
+```
+
 ## <a name="internal-cmdlets"></a>Cmdlet interni
 
 Di seguito è riportato un elenco dei cmdlet inclusi nel interno `Orchestrator.AssetManagement.Cmdlets` modulo importato in ogni Account di automazione. Questi cmdlet sono accessibili nel runbook e configurazioni DSC e consentono di interagire con le risorse all'interno dell'Account di automazione. Inoltre, i cmdlet interni consentono di recuperare i segreti da crittografati **variabile** valori, **credenziali**e crittografati **connessione** campi. I cmdlet di PowerShell di Azure non sono in grado di recuperare questi segreti. Questi cmdlet non sono necessario connettersi ad Azure in modo implicito quando vengono utilizzati. Ciò è utile per scenari in cui si dispone di una connessione, ad esempio un Account runas che è necessario usare l'autenticazione ad Azure.
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
@@ -209,6 +225,37 @@ Questi moduli di PowerShell possono essere importati in Automazione di Azure per
 * Il modulo deve essere interamente in un pacchetto in grado di xcopy. Moduli di automazione di Azure vengono distribuiti a sandbox di automazione quando devono eseguire i runbook. I moduli devono funzionare in modo indipendente dall'host in cui vengono eseguiti. Dovrebbe essere possibile comprimere un pacchetto del modulo e spostarlo, facendo in modo che funzioni normalmente dopo l'importazione nell'ambiente PowerShell di un altro host. Perché ciò avvenga, il modulo non deve dipendere da file all'esterno della cartella del modulo, ovvero della cartella che viene compressa quando il modulo è importato in Automazione di Azure. Il modulo non deve inoltre dipendere da eventuali impostazioni del Registro di sistema univoche di un host, come quelle definite quando viene installato un prodotto. Tutti i file del modulo devono avere un percorso di meno di 140 caratteri. Tutti i percorsi contenenti oltre 140 caratteri causerà problemi di importazione del runbook. Se questa procedura consigliata non viene seguita, il modulo non potrà essere usato in Automazione di Azure.  
 
 * Se si fa riferimento ai [moduli Az di Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) nel modulo, assicurarsi che non venga fatto riferimento anche a `AzureRM`. Il modulo `Az` non può essere usato in combinazione con i moduli `AzureRM`. `Az` è supportato nei runbook, ma non viene importato per impostazione predefinita. Per saperne di più sui moduli `Az` e sulle considerazioni di cui tenere conto, vedere [Supporto per i moduli Az in Automazione di Azure](../az-modules.md).
+
+## <a name="default-modules"></a>Moduli predefiniti
+
+La tabella seguente elenca i moduli vengono importati per impostazione predefinita quando viene creato un Account di automazione. I moduli elencati di seguito possono avere versioni più recenti di essi importato, ma la versione originale non può essere rimosso dall'Account di automazione anche se si elimina una versione più recente di essi.
+
+|nome del modulo|Version|
+|---|---|
+| AuditPolicyDsc | 1.1.0.0 |
+| Azure | 1.0.3 |
+| Azure.Storage | 1.0.3 |
+| AzureRM.Automation | 1.0.3 |
+| AzureRM.Compute | 1.2.1 |
+| AzureRM.Profile | 1.0.3 |
+| AzureRM.Resources | 1.0.3 |
+| AzureRM.Sql | 1.0.3 |
+| AzureRM.Storage | 1.0.3 |
+| ComputerManagementDsc | 5.0.0.0 |
+| GPRegistryPolicyParser | 0,2 |
+| Microsoft.PowerShell.Core | 0 |
+| Microsoft.PowerShell.Diagnostics |  |
+| Microsoft.PowerShell.Management |  |
+| Microsoft.PowerShell.Security |  |
+| Microsoft.PowerShell.Utility |  |
+| Microsoft.WSMan.Management |  |
+| Orchestrator.AssetManagement.Cmdlets | 1 |
+| PSDscResources | 2.9.0.0 |
+| SecurityPolicyDsc | 2.1.0.0 |
+| StateConfigCompositeResources | 1 |
+| xDSCDomainjoin | 1.1 |
+| xPowerShellExecutionPolicy | 1.1.0.0 |
+| xRemoteDesktopAdmin | 1.1.0.0 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

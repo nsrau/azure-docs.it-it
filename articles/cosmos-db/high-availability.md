@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 74eee3d164e7ee3831f292568da9cf0620e576e5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 23273084826775b47170753dff3e5cf5ed8ae45f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399294"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063557"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
 
@@ -76,7 +76,7 @@ Questa funzionalità è disponibile nelle aree di Azure seguenti:
 
 La tabella seguente riepiloga le funzionalità a disponibilità elevata delle varie configurazioni di account: 
 
-|KPI  |Singola area senza zone di disponibilità (Non-AZ)  |Singola area con zone di disponibilità (AZ)  |Più aree con le zone di disponibilità (AZ, 2 aree) – più l'impostazione consigliata |
+|KPI  |Singola area senza zone di disponibilità (Non-AZ)  |In una singola area con zone di disponibilità (AZ)  |Scrive in più aree con le zone di disponibilità (AZ, 2 aree): l'impostazione consigliata nella maggior parte |
 |---------|---------|---------|---------|
 |Contratto di servizio con disponibilità di scrittura     |   99,99%      |    99,99%     |  99,999%  |
 |Contratto di servizio con disponibilità in lettura   |   99,99%      |   99,99%      |  99,999%       |

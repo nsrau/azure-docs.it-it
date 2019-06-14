@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3b4c3bac1a2d62246fa5a7ff3a348c6cb2652ea1
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a29381bded4bb2562227bd5f23ccb59bb5add028
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868176"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059216"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Usare i webhook di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET 
 
@@ -61,7 +61,7 @@ Quando si sviluppano le funzioni di Servizi multimediali, è utile aggiungere va
 
 La sezione relativa alle [impostazioni dell'applicazione](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) indica i parametri usati nel webhook definito in questo articolo. Aggiungere anche i parametri seguenti alle impostazioni dell'app. 
 
-|NOME|Definizione|Esempio| 
+|Name|Definizione|Esempio| 
 |---|---|---|
 |SigningKey |Chiave di firma.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Indirizzo di un endpoint di webhook. Dopo avere creato la funzione del webhook, è anche possibile copiare l'URL dal collegamento **Recupera URL della funzione**. | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
@@ -79,7 +79,7 @@ In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizza
 
 La funzione di Azure viene associata ai file di codice e agli altri file descritti in questa sezione. Per impostazione predefinita, una funzione è associata ai file **function.json** e **run.csx** (C#). È necessario aggiungere un file **project.json**. La parte successiva di questa sezione illustra le definizioni per questi file.
 
-![input](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 #### <a name="functionjson"></a>function.json
 
@@ -245,7 +245,7 @@ private static string PublishAndBuildStreamingURLs(String jobID)
 
     // Get a reference to the streaming manifest file from the  
     // collection of files in the asset. 
-    var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+    var manifestFile = asset.AssetFiles.ToList().Where(f => f.Name.ToLower().
                 EndsWith(".ism")).
                 FirstOrDefault();
 

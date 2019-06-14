@@ -2,18 +2,17 @@
 title: Come effettuare il provisioning di dispositivi per la multi-tenancy nel servizio Device Provisioning in hub IoT di Azure | Microsoft Docs
 description: Come effettuare il provisioning di dispositivi per la multi-tenancy con l'istanza del servizio di provisioning di dispositivi
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116119"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Come effettuare il provisioning per la multi-tenancy 
@@ -42,6 +41,8 @@ Questo articolo usa un esempio di dispositivo simulato proveniente da [Azure IoT
 
 * Completamento della guida introduttiva per [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-two-regional-iot-hubs"></a>Creare due hub IoT a livello di area
@@ -192,7 +193,7 @@ Per rendere più semplici le operazioni di pulizia, queste macchine virtuali ver
 In questa sezione si clonerà Azure IoT C SDK in ogni macchina virtuale. L'SDK contiene un esempio che consentirà di simulare il provisioning di dispositivi del tenant da ogni area.
 
 
-1. Per ogni macchina virtuale, installare **Cmake**, **g++**, **gcc** e [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando i comandi seguenti:
+1. Per ogni macchina virtuale, installare **Cmake**, **g++** , **gcc** e [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando i comandi seguenti:
 
     ```bash
     sudo apt-get update
@@ -299,7 +300,7 @@ In questa sezione si aggiornerà un esempio di provisioning in Azure IoT C SDK p
 
 Il codice di esempio simula una sequenza di avvio di dispositivo che invia la richiesta di provisioning all'istanza del servizio Device Provisioning. La sequenza di avvio riconoscerà il dispositivo e lo assegnerà all'hub IoT più vicino in base alla latenza.
 
-1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_**.
+1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_** .
 
     ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal pannello del portale](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 

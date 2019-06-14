@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: b5a13254fc9dfd58db83a1bc8b9dd071cfbbdab2
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 9d872a6d753a206dcfb03761e50e5854db4f146e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015600"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071599"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Comprendere il funzionamento dello strumento di migrazione
 
@@ -55,10 +55,11 @@ Tutti gli avvisi classici in account di archiviazione possono essere migrati, ad
 - PercentTimeoutError
 - AnonymousThrottlingError
 - SASThrottlingError
+- ThrottlingError
 
 Avviso classico delle regole per le metriche percentuale devono essere migrate in base a [il mapping tra le metriche di archiviazione di vecchi e nuovi](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Le soglie dovrà essere modificata in modo appropriato in quanto la nuova metrica disponibile è assoluto.
 
-Le regole di avviso di classiche AnonymousThrottlingError e SASThrottlingError devono essere suddivisa in due nuovi avvisi, poiché non esiste alcuna metrica combinata che offre le stesse funzionalità. Le soglie dovrà essere adattato in modo appropriato.
+Le regole di avviso di classiche AnonymousThrottlingError, SASThrottlingError e ThrottlingError devono essere suddivisa in due nuovi avvisi, poiché non esiste alcuna metrica combinata che offre le stesse funzionalità. Le soglie dovrà essere adattato in modo appropriato.
 
 ## <a name="rollout-phases"></a>Fasi di implementazione
 

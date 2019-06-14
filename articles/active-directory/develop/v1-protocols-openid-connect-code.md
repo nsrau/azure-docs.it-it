@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9df592272b97bded9eba64249aa7608c72f8abdf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121532"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizzare l'accesso ad applicazioni Web con OpenID Connect e Azure Active Directory
@@ -92,11 +92,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametro |  | Descrizione |
 | --- | --- | --- |
-| tenant |obbligatorio |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono gli identificatori dei tenant, ad esempio `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` o `common` per i token indipendenti dai tenant |
-| client_id |obbligatorio |ID applicazione assegnato all'app quando è stata registrata in Azure AD. Questo è reperibile nel portale di Azure. Fare clic su **Azure Active Directory**, fare clic su **registrazioni per l'App**, scegliere l'applicazione e individuarne applicazione nella pagina dell'applicazione. |
-| response_type |obbligatorio |Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere altri parametri response_type, ad esempio `code` o `token`. |
-| ambito | Consigliato | La specifica di OpenID Connect richiede l'ambito `openid`, che configura l'autorizzazione "Accedi" nell'interfaccia utente di consenso. In questo e altri ambiti OIDC vengono ignorati nell'endpoint v1.0, ma sono comunque consigliabile per i client conforme agli standard. |
-| nonce |obbligatorio |Valore incluso nella richiesta, generata dall'app, che verrà incluso nel `id_token` risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere un GUID o una stringa univoca casuale che consente di identificare l'origine della richiesta. |
+| tenant |Obbligatoria |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono gli identificatori dei tenant, ad esempio `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` o `common` per i token indipendenti dai tenant |
+| client_id |Obbligatoria |ID applicazione assegnato all'app quando è stata registrata in Azure AD. Questo è reperibile nel portale di Azure. Fare clic su **Azure Active Directory**, fare clic su **registrazioni per l'App**, scegliere l'applicazione e individuarne applicazione nella pagina dell'applicazione. |
+| response_type |Obbligatoria |Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere altri parametri response_type, ad esempio `code` o `token`. |
+| scope | Consigliato | La specifica di OpenID Connect richiede l'ambito `openid`, che configura l'autorizzazione "Accedi" nell'interfaccia utente di consenso. In questo e altri ambiti OIDC vengono ignorati nell'endpoint v1.0, ma sono comunque consigliabile per i client conforme agli standard. |
+| nonce |Obbligatoria |Valore incluso nella richiesta, generata dall'app, che verrà incluso nel `id_token` risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere un GUID o una stringa univoca casuale che consente di identificare l'origine della richiesta. |
 | redirect_uri | Consigliato |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Se non è presente, l'agente utente verrà inviato nuovamente a uno degli URI di reindirizzamento registrati per l'app, in modo casuale. La lunghezza massima è lunga 255 byte |
 | response_mode |facoltativo |Specifica il metodo che deve essere usato per inviare un codice di autorizzazione all'app. I valori supportati sono `form_post` per *POST modulo HTTP* e `fragment` per *frammento URL*. Per le applicazioni Web è consigliabile usare `response_mode=form_post` per assicurare il trasferimento più sicuro dei token nell'applicazione. Il valore predefinito per qualsiasi flusso che include un id_token è `fragment`.|
 | stato |Consigliato |Valore incluso nella richiesta che viene restituito nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per [evitare gli attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
@@ -136,7 +136,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parametro | Descrizione |
 | --- | --- |
-| errore |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
+| error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Codici per gli errori dell'endpoint di autorizzazione
@@ -214,7 +214,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 
 Includendo gli ambiti di autorizzazione nella richiesta e usando `response_type=code+id_token`, l'endpoint `authorize` verificherà che l'utente abbia dato il consenso per le autorizzazioni indicate nel parametro di query `scope` e restituirà all'app un codice di autorizzazione da scambiare con un token di accesso.
 
-### <a name="successful-response"></a>Risposta riuscita
+### <a name="successful-response"></a>Risposta con esito positivo
 
 Una risposta con esito positivo, inviata per la `redirect_uri` usando `response_mode=form_post`, simile:
 
@@ -246,7 +246,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parametro | Descrizione |
 | --- | --- |
-| errore |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
+| error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
 
 Per una descrizione dei possibili codici di errore e l'azione consigliata per il client, vedere [Codici per gli errori dell'endpoint di autorizzazione](#error-codes-for-authorization-endpoint-errors).

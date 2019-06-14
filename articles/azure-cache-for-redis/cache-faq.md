@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: cdf0ce26ab3a8056fb40bc54ba6336b7cfd69ec0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 6b27b27fedf622908fa5c06bd2562d9049a4366b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230108"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052065"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Domande frequenti su Cache Redis di Azure
 Risposte alle domande più comuni, modelli e procedure consigliate per Cache Redis di Azure.
@@ -136,19 +136,19 @@ Da questa tabella è possibile trarre le seguenti conclusioni:
 | Piano tariffario | Dimensione | Core CPU | Larghezza di banda disponibile | Dimensioni del valore di 1 KB | Dimensioni del valore di 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Dimensioni della cache livello Standard** | | |**Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS) non SSL** |**Richieste al secondo (RPS) SSL** |
-| C0 | 250 MB | Condiviso | 100 / 12,5  |  15.000 |   7.500 |
-| C1 |   1 GB | 1      | 500 / 62,5  |  38.000 |  20.720 |
-| C2 | 2,5 GB | 2      | 500 / 62,5  |  41.000 |  37.000 |
-| C3 |   6 GB | 4      | 1000 / 125  | 100,000 |  90.000 |
-| C4 |  13 GB | 2      | 500 / 62,5  |  60.000 |  55.000 |
-| C5 |  26 GB | 4      | 1,000 / 125 | 102.000 |  93.000 |
-| C6 |  53 GB | 8      | 2,000 / 250 | 126.000 | 120.000 |
+| C0 | 250 MB | Condiviso | 100 / 12,5  |  15\.000 |   7\.500 |
+| C1 |   1 GB | 1      | 500 / 62,5  |  38\.000 |  20\.720 |
+| C2 | 2,5 GB | 2      | 500 / 62,5  |  41\.000 |  37\.000 |
+| C3 |   6 GB | 4      | 1000 / 125  | 100,000 |  90\.000 |
+| C4 |  13 GB | 2      | 500 / 62,5  |  60\.000 |  55\.000 |
+| C5 |  26 GB | 4      | 1,000 / 125 | 102\.000 |  93\.000 |
+| C6 |  53 GB | 8      | 2,000 / 250 | 126\.000 | 120\.000 |
 | **Dimensioni della cache livello Premium** | |**Core CPU per partizione** | **Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS) non SSL, per partizione** |**Richieste al secondo (RPS) SSL, per partizione** |
-| P1 |   6 GB |  2 | 1,500 / 187.5 | 180,000 | 172.000 |
-| P2 |  13 GB |  4 | 3,000 / 375   | 350.000 | 341.000 |
-| P3 |  26 GB |  4 | 3,000 / 375   | 350.000 | 341.000 |
-| P4 |  53 GB |  8 | 6,000 / 750   | 400,000 | 373.000 |
-| P5 | 120 GB | 20 | 6,000 / 750   | 400,000 | 373.000 |
+| P1 |   6 GB |  2 | 1,500 / 187.5 | 180,000 | 172\.000 |
+| P2 |  13 GB |  4 | 3,000 / 375   | 350\.000 | 341\.000 |
+| P3 |  26 GB |  4 | 3,000 / 375   | 350\.000 | 341\.000 |
+| P4 |  53 GB |  8 | 6,000 / 750   | 400,000 | 373\.000 |
+| P5 | 120 GB | 20 | 6,000 / 750   | 400,000 | 373\.000 |
 
 Per istruzioni sulla configurazione di stunnel o sul download degli strumenti Redis, ad esempio `redis-benchmark.exe`, vedere la sezione [Come si eseguono i comandi Redis?](#cache-commands).
 
@@ -251,7 +251,7 @@ Facoltativamente, è possibile configurare un file [redis.conf](https://redis.io
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> Gli strumenti da riga di comando Redis non funzionano con la porta SSL, ma è possibile usare un'utilità come `stunnel` per connettere in modo sicuro gli strumenti alla porta SSL seguendo le istruzioni disponibili nel post di blog [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) (Annuncio del provider di stato della sessione ASP.NET per la versione di anteprima di Redis).
+> Gli strumenti da riga di comando Redis non funzionano con la porta SSL, ma è possibile usare un'utilità, ad esempio `stunnel` connettere in modo sicuro gli strumenti per la porta SSL seguendo le istruzioni disponibili nel [come usare lo strumento da riga di comando di Redis cache di Azure per Redis ](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) articolo.
 >
 >
 
@@ -350,7 +350,7 @@ I comandi seguenti rappresentano un esempio di uso di redis-benchmark.exe. Per r
 
   `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t SET -n 1000000 -d 1024 -P 50`
 * Testare le richieste GET in pipeline usando un payload 1 k.
-  NOTA: eseguire il test SET mostrato in alto prima di popolare la cache
+  NOTA:  eseguire il test SET mostrato in alto prima di popolare la cache
 
   `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50`
 
@@ -403,7 +403,7 @@ void Application_Start(object sender, EventArgs e)
 ```
 
   > [!NOTE]
-  > Il valore specificato da questo metodo è un'impostazione globale, che interessano l'intero AppDomain. Ad esempio, se si dispone di un computer con 4 core e si desidera impostare *minWorkerThreads* e *minIoThreads* fino a 50 per ogni CPU durante la fase di esecuzione, si utilizzerebbe **SetMinThreads (200, 200)**.
+  > Il valore specificato da questo metodo è un'impostazione globale, che interessano l'intero AppDomain. Ad esempio, se si dispone di un computer con 4 core e si desidera impostare *minWorkerThreads* e *minIoThreads* fino a 50 per ogni CPU durante la fase di esecuzione, si utilizzerebbe **SetMinThreads (200, 200)** .
 
 * È anche possibile specificare i thread minimi impostazione mediante il [ *minIoThreads* o *minWorkerThreads* impostazione di configurazione](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) sotto il `<processModel>` elemento di configurazione nel `Machine.config`, che in genere si trova in `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Impostazione del numero minimo di thread in questo modo è in genere sconsigliato, perché è un'impostazione a livello di sistema.**
 

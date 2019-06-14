@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: rosh
 ms.openlocfilehash: 085cb20e4dad92ed55b5ba0914c677aa50f3ac97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345754"
 ---
 # <a name="project-answer-search-use-and-display-requirements"></a>Requisiti per l'uso e la visualizzazione di Project Answer Search

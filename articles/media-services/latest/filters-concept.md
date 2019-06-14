@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66225423"
 ---
 # <a name="filters"></a>Filtri
@@ -47,7 +47,7 @@ A seconda dello scenario, decidere quale tipo di filtro è più adatto (asset o 
 
 Utilizzare le seguenti proprietà per descrivere i filtri. 
 
-|NOME|Descrizione|
+|Name|Descrizione|
 |---|---|
 |firstQuality|La prima velocità in bit di qualità del filtro.|
 |presentationTimeRange|L’intervallo di tempo di presentazione. Questa proprietà viene utilizzata per filtrare i punti di inizio/fine del manifesto, la lunghezza della finestra di presentazione e la posizione iniziale live. <br/>Per altre informazioni, vedere [Intervallo di tempo di presentazione](#presentationtimerange).|
@@ -57,7 +57,7 @@ Utilizzare le seguenti proprietà per descrivere i filtri.
 
 Utilizzare questa proprietà con i **filtri asset**. Non è consigliabile impostare la proprietà per i **filtri account**.
 
-|NOME|Descrizione|
+|Name|Descrizione|
 |---|---|
 |**endTimestamp**|È adatto per i video on demand (VoD).<br/>Per la presentazione Live Streaming, vengono automaticamente ignorato e applicato quando le entità finali di presentazione e il flusso diventa VoD.<br/>Si tratta di un valore long che rappresenta un punto finale assoluto della presentazione, arrotondato all'inizio GOP successivo più vicino. L'unità è il valore di scala cronologica, pertanto un endTimestamp di 1800000000 sarebbe per 3 minuti.<br/>Usare startTimestamp ed endTimestamp per tagliare i frammenti che saranno presente nella playlist del (manifesto).<br/>Ad esempio, startTimestamp = 40000000 ed endTimestamp = 100000000 utilizzando la scala cronologica predefinito genera una playlist contenente frammenti compresa tra 4 secondi e 10 secondi della presentazione VoD. Se un frammento attraversa il limite, l'intero frammento verrà incluso nel manifesto.|
 |**forceEndTimestamp**|Si applica allo Streaming Live.<br/>Indica se la proprietà endTimestamp deve essere presente. Se true, è necessario specificare endTimestamp o viene restituito un codice di richiesta non valida.<br/>Valori consentiti: false, true.|

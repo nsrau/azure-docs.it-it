@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116195"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
@@ -21,7 +21,7 @@ Ogni definizione di criteri in Criteri di Azure ha un effetto. Questo effetto de
 
 Attualmente sono disponibili sei effetti supportati in una definizione dei criteri:
 
-- Aggiungi
+- Append
 - Audit
 - AuditIfNotExists
 - Nega
@@ -43,7 +43,7 @@ Dopo che il provider di risorse restituisce un codice di riuscita, vengono valut
 
 Questo effetto è utile per gli scenari di test o quando la definizione dei criteri ha parametrizzato l'effetto. Grazie a questa flessibilità è possibile disabilitare una singola assegnazione invece di disabilitare tutte le assegnazioni di quei criteri.
 
-## <a name="append"></a>Aggiungi
+## <a name="append"></a>Append
 
 Append viene usato per aggiungere altri campi alla risorsa richiesta durante la creazione o l'aggiornamento. Un esempio comune è l'aggiunta di tag a risorse come costCenter o la specifica di indirizzi IP consentiti per una risorsa di archiviazione.
 
@@ -103,7 +103,7 @@ Esempio 3: Singolo **/valore del campo** abbinare usando non **[\*]** [alias](de
 }
 ```
 
-Esempio 4: coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) **[\*]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Usando l'alias **[\*]**, l'effetto accoda il **valore** a una matrice potenzialmente già esistente. Se non esiste ancora, la matrice verrà creata.
+Esempio 4: coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) **[\*]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Usando l'alias **[\*]** , l'effetto accoda il **valore** a una matrice potenzialmente già esistente. Se non esiste ancora, la matrice verrà creata.
 
 ```json
 "then": {
@@ -373,4 +373,4 @@ Ogni assegnazione viene valutata singolarmente. Di conseguenza, non c'è alcuna 
 - Comprendere come [a livello di codice, creare criteri](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
 - Informazioni su come [monitora e aggiorna le risorse non conformi](../how-to/remediate-resources.md).
-- Esaminare un gruppo di gestione riguarda [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).
+- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).
