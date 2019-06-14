@@ -17,10 +17,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19b3e4cc5ba4bc0173721947bd1e1a680ca7b3a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60869847"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Esercitazione: Configurare ServiceNow per il provisioning utenti automatico con Azure Active Directory
@@ -85,7 +85,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
     c. Nella casella di testo **ServiceNow Admin Password** (Password amministratore ServiceNow) digitare la password dell'amministratore.
 
-1. Nel portale di Azure fare clic su **Verifica connessione** per verificare che Azure AD possa connettersi all'app ServiceNow. Se la connessione non riesce, verificare che l'account ServiceNow abbia autorizzazioni di amministratore di team e ripetere il passaggio **"Credenziali amministratore"**.
+1. Nel portale di Azure fare clic su **Verifica connessione** per verificare che Azure AD possa connettersi all'app ServiceNow. Se la connessione non riesce, verificare che l'account ServiceNow abbia autorizzazioni di amministratore di team e ripetere il passaggio **"Credenziali amministratore"** .
 
 1. Immettere l'indirizzo e-mail di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo.
 

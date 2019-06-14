@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606931"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specifiche e conformità tecniche per il dispositivo StorSimple
@@ -44,7 +44,7 @@ Lo chassis EBOD utilizza un PCM 580 W, mentre lo chassis principale utilizza un 
 | Output |Tensione di standby 5V \@ 2.0 A |Tensione di standby 5V \@ 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
-| Collegabile "hot" |Sì |Sì |
+| Collegabile "hot" |Yes |Yes |
 | LED e commutatori |Commutatore CA ACCESO/SPENTO e quattro indicatori LED di stato |Commutatore CA ACCESO/SPENTO e sei indicatori LED di stato |
 | Raffreddamento chassis |Ventole di raffreddamento assiale con controllo di velocità della ventola variabile |Ventole di raffreddamento assiale con controllo di velocità della ventola variabile |
 
@@ -188,7 +188,7 @@ La spina e l'assembly di cavo completa dell'alimentazione devono soddisfare gli 
 | Componente | Specifiche |
 | --- | --- |
 | Tipo di cavo |Armonizzate, H05-VVF-3G1.0 |
-| Socket |IEC 320 C-13, 250 V, 10 A |
+| Presa elettrica |IEC 320 C-13, 250 V, 10 A |
 
 ## <a name="supported-network-cables"></a>Cavi di rete supportati
 

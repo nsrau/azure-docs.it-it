@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66124767"
 ---
 Bing supporta l'evidenziazione dei risultati, con cui i termini di query o altri termini ritenuti rilevanti da Bing vengono contrassegnati nelle stringhe visualizzate di alcune risposte. I termini di query possono ad esempio essere contrassegnati con i campi `name`, `displayUrl` e `snippet` di una pagina Web.

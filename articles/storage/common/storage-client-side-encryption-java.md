@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 058dc97054aad310135ccc1f51d765f0af3f571b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147018"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Crittografia lato client e Insieme di credenziali chiave Azure con Java per Archiviazione di Microsoft Azure
@@ -56,7 +56,7 @@ Durante la crittografia, la libreria client genererà un vettore di inizializzaz
 > 
 > 
 
-Download di un blob crittografato comporta il recupero del contenuto dell'intero blob usando il **scaricare**/**/openinputstream** metodi pratici. La CEK con wrapping viene sottoposta a rimozione del wrapping e utilizzata con il vettore di inizializzazione (archiviato come metadati BLOB in questo caso) per restituire i dati decrittografati agli utenti.
+Download di un blob crittografato comporta il recupero del contenuto dell'intero blob usando il **scaricare**/ **/openinputstream** metodi pratici. La CEK con wrapping viene sottoposta a rimozione del wrapping e utilizzata con il vettore di inizializzazione (archiviato come metadati BLOB in questo caso) per restituire i dati decrittografati agli utenti.
 
 Download di un intervallo arbitrario (**downloadRange** metodi) nel blob crittografato implica la regolazione dell'intervallo fornito dagli utenti per ottenere una piccola quantità di dati aggiuntivi che possono essere utilizzati per decrittografare correttamente la richiesta intervallo.  
 
@@ -252,6 +252,6 @@ Si noti che la crittografia dei dati di archiviazione restituisce un overhead de
 * Scaricare la [libreria client di archiviazione di Azure per il pacchetto Java Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * Scaricare la [libreria client di Archiviazione di Azure per il codice Java Source da GitHub](https://github.com/Azure/azure-storage-java)   
 * Scaricare la libreria Maven dell'insieme di credenziali delle chiavi di Azure per i pacchetti Java Maven seguenti:
-  * [core](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 
-  * [client](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 
+  * [core](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
+  * [client](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
 * Vedere la [documentazione sull'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-whatis.md)

@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883317"
 ---
 # <a name="troubleshooting-network-performance"></a>Risoluzione dei problemi di prestazioni di rete
@@ -44,7 +44,7 @@ Diamo una breve occhiata a ciascun componente del diagramma, da destra a sinistr
  - **Subnet NSG**: proprio come la scheda di interfaccia di rete, anche i gruppi di sicurezza di rete possono essere applicati alla subnet. Verificare che il set di regole dei gruppi di sicurezza di rete sia appropriato per il traffico da passare. (per il traffico che entra nella scheda di interfaccia di rete, si applica prima la Subnet NSG, poi la NIC NSG, mentre per il traffico che lascia la macchina virtuale, la NIC NSG viene applicata per prima, quindi entra in gioco la Subnet NSG).
  - **Subnet UDR**: le route definite dall'utente possono indirizzare il traffico verso un hop intermedio (ad esempio un firewall o un servizio di bilanciamento del carico). Verificare che sia presente una route definita dall'utente per il traffico e, in tal caso, dove va e cosa farà quell'hop successivo al proprio traffico. (ad esempio, un firewall può consentire il passaggio di un traffico mentre può negarne un altro tra gli stessi due host).
  - **Subnet gateway / NSG / UDR**: proprio come la subnet della macchina virtuale, la subnet del gateway può avere gruppi di sicurezza di rete e route definite dall'utente. Verificare la loro possibile presenza e il loro impatto sul traffico.
- - **VNet Gateway (ExpressRoute)**: dopo aver abilitato la VPN o il peering (ExpressRoute) non vi sono molte impostazioni che possono influenzare il routing del traffico o l'esistenza di questo routing. Se sono presenti più circuiti ExpressRoute o tunnel VPN collegati allo stesso VNet Gateway, è necessario conoscere l'impostazione del peso della connessione in quanto influisce sulle preferenze di connessione e sul percorso del traffico.
+ - **VNet Gateway (ExpressRoute)** : dopo aver abilitato la VPN o il peering (ExpressRoute) non vi sono molte impostazioni che possono influenzare il routing del traffico o l'esistenza di questo routing. Se sono presenti più circuiti ExpressRoute o tunnel VPN collegati allo stesso VNet Gateway, è necessario conoscere l'impostazione del peso della connessione in quanto influisce sulle preferenze di connessione e sul percorso del traffico.
  - **Route Filter** (non illustrato): un filtro di routing si applica solo al Peering Microsoft su ExpressRoute, ma è fondamentale verificare che le route previste non vengano visualizzate sul Peering Microsoft. 
 
 A questo punto si è nella parte WAN del collegamento. Questo dominio di routing può essere il provider di servizi, la WAN aziendale o Internet. Molti hop, tecnologie e aziende coinvolti in questi collegamenti possono rendere piuttosto difficile la risoluzione dei problemi. Spesso si fa in modo di escludere Azure e le reti aziendali prima di passare a questa moltitudine di aziende e hop.
@@ -160,7 +160,7 @@ Configurazione di test:
  - Un circuito ExpressRoute Premium da 10 Gbps nella posizione identificata con Peering privato abilitato.
  - Una rete virtuale di Azure con un gateway UltraPerformance nella regione specificata.
  - Una macchina virtuale DS5v2 che esegue Windows Server 2016 sulla rete virtuale. La macchina virtuale non è stata aggiunta a un dominio ed è stata generata dall'immagine di Azure predefinita (nessuna ottimizzazione o personalizzazione) con AzureCT installato.
- - Tutti i test sono stati eseguiti usando il comando Get-LinkPerformance di AzureCT, con un test di carico di 5 minuti per ciascuna delle sei esecuzioni dei test. Ad esempio: 
+ - Tutti i test sono stati eseguiti usando il comando Get-LinkPerformance di AzureCT, con un test di carico di 5 minuti per ciascuna delle sei esecuzioni dei test. Ad esempio:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -181,19 +181,19 @@ Configurazione di test:
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Località|Azure<br/>Region|Distanza<br/>stimata (km)|Latenza|1 Sessione<br/>Larghezza di banda|Massima<br/>Larghezza di banda|
 | Seattle | Stati Uniti occidentali 2        |    191 km |   5 ms | 262,0 Mbit/sec |  3,74 Gbit/sec |
-| Seattle | Stati Uniti occidentali          |  1.094 km |  18 ms |  82,3 Mbit/sec |  3,70 Gbit/sec |
-| Seattle | Stati Uniti centrali       |  2.357 km |  40 ms |  38,8 Mbit/sec |  2,55 Gbit/sec |
-| Seattle | Stati Uniti centro-meridionali |  2.877 km |  51 ms |  30,6 Mbit/sec |  2,49 Gbit/sec |
-| Seattle | Stati Uniti centro-settentrionali |  2.792 km |  55 ms |  27,7 Mbit/sec |  2,19 Gbit/sec |
-| Seattle | Stati Uniti orientali 2        |  3.769 km |  73 ms |  21,3 Mbit/sec |  1,79 Gbit/sec |
-| Seattle | Stati Uniti orientali          |  3.699 km |  74 ms |  21,1 Mbit/sec |  1,78 Gbit/sec |
-| Seattle | Giappone orientale       |  7.705 km | 106 ms |  14,6 Mbit/sec |  1,22 Gbit/sec |
-| Seattle | Regno Unito meridionale         |  7.708 km | 146 ms |  10,6 Mbit/sec |   896 Mbit/sec |
-| Seattle | Europa occidentale      |  7.834 km | 153 ms |  10,2 Mbit/sec |   761 Mbit/sec |
-| Seattle | Australia orientale   | 12.484 km | 165 ms |   9,4 Mbit/sec |   794 Mbit/sec |
-| Seattle | Asia sud-orientale   | 12.989 km | 170 ms |   9,2 Mbit/sec |   756 Mbit/sec |
-| Seattle | Brasile meridionale *   | 10.930 km | 189 ms |   8,2 Mbit/sec |   699 Mbit/sec |
-| Seattle | India meridionale      | 12.918 km | 202 ms |   7,7 Mbit/sec |   634 Mbit/sec |
+| Seattle | Stati Uniti occidentali          |  1\.094 km |  18 ms |  82,3 Mbit/sec |  3,70 Gbit/sec |
+| Seattle | Stati Uniti centrali       |  2\.357 km |  40 ms |  38,8 Mbit/sec |  2,55 Gbit/sec |
+| Seattle | Stati Uniti centro-meridionali |  2\.877 km |  51 ms |  30,6 Mbit/sec |  2,49 Gbit/sec |
+| Seattle | Stati Uniti centro-settentrionali |  2\.792 km |  55 ms |  27,7 Mbit/sec |  2,19 Gbit/sec |
+| Seattle | Stati Uniti orientali 2        |  3\.769 km |  73 ms |  21,3 Mbit/sec |  1,79 Gbit/sec |
+| Seattle | Stati Uniti orientali          |  3\.699 km |  74 ms |  21,1 Mbit/sec |  1,78 Gbit/sec |
+| Seattle | Giappone orientale       |  7\.705 km | 106 ms |  14,6 Mbit/sec |  1,22 Gbit/sec |
+| Seattle | Regno Unito meridionale         |  7\.708 km | 146 ms |  10,6 Mbit/sec |   896 Mbit/sec |
+| Seattle | Europa occidentale      |  7\.834 km | 153 ms |  10,2 Mbit/sec |   761 Mbit/sec |
+| Seattle | Australia orientale   | 12\.484 km | 165 ms |   9,4 Mbit/sec |   794 Mbit/sec |
+| Seattle | Asia sud-orientale   | 12\.989 km | 170 ms |   9,2 Mbit/sec |   756 Mbit/sec |
+| Seattle | Brasile meridionale *   | 10\.930 km | 189 ms |   8,2 Mbit/sec |   699 Mbit/sec |
+| Seattle | India meridionale      | 12\.918 km | 202 ms |   7,7 Mbit/sec |   634 Mbit/sec |
 
 \* La latenza in Brasile è un buon esempio in cui la distanza in linea d'aria differisce notevolmente dalla distanza in fibra ottica. Mentre la latenza dovrebbe normalmente essere di circa 160 ms, è di 189 ms. Questa differenza rispetto alle mie aspettative potrebbe indicare un problema di rete da qualche parte, ma molto probabilmente la fibra ottica in Brasile non va in linea retta e percorre circa 1.000 km in più per arrivare da Seattle.
 

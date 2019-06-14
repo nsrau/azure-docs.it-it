@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: b06f19736c4d50ab7d246a5c71da04ada95b6f98
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727372"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Usare C# con lo streaming di MapReduce su Apache Hadoop in HDInsight
@@ -150,13 +150,13 @@ Dopo aver creato l'applicazione, compilarla per produrre il file `/bin/Debug/red
 
 3. Se richiesto, immettere le credenziali della sottoscrizione di Azure, quindi fare clic su **Accedi**.
 
-4. Espandere il cluster HDInsight in cui si desidera distribuire l'applicazione. Viene elencata una voce con il testo __(Account di archiviazione predefinito)__.
+4. Espandere il cluster HDInsight in cui si desidera distribuire l'applicazione. Viene elencata una voce con il testo __(Account di archiviazione predefinito)__ .
 
     ![Esplora server con account di archiviazione per il cluster](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
 
-    * Se è possibile espandere questa voce, si usa un __Account di archiviazione di Azure__ come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, espandere la voce e quindi fare doppio clic su __(Contenitore predefinito)__.
+    * Se è possibile espandere questa voce, si usa un __Account di archiviazione di Azure__ come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, espandere la voce e quindi fare doppio clic su __(Contenitore predefinito)__ .
 
-    * Se non è possibile espandere questa voce, si usa __Azure Data Lake Storage__ come archivio predefinito per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, fare doppio clic sulla voce __(Account di archiviazione predefinito)__.
+    * Se non è possibile espandere questa voce, si usa __Azure Data Lake Storage__ come archivio predefinito per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, fare doppio clic sulla voce __(Account di archiviazione predefinito)__ .
 
 5. Per caricare i file con estensione .exe, usare uno dei metodi seguenti:
 

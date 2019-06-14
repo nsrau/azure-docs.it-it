@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/23/2019
 ms.author: victorh
 ms.openlocfilehash: 7a412589f4e86f2a49d07f2d01ca34bf30fd528b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721175"
 ---
 # <a name="fqdn-tags-overview"></a>Panoramica dei tag FQDN
@@ -28,7 +28,7 @@ La tabella seguente mostra i tag FQDN attuali che è possibile usare. Microsoft 
 
 ## <a name="current-fqdn-tags"></a>Tag FQDN correnti
 
-|Tag FQDN  |DESCRIZIONE  |
+|Tag FQDN  |Descrizione  |
 |---------|---------|
 |Windows Update     |Consente l'accesso in uscita a Microsoft Update come descritto in [Come configurare un firewall per gli aggiornamenti software](https://technet.microsoft.com/library/bb693717.aspx).|
 |Diagnostica per Windows|Consente l'accesso in uscita a tutti gli [endpoint di Diagnostica Windows](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 682f3df362a7fbb0e95a07aa8a8f3a068367eef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 132e355abbdbe147a843c51efd018cc759c06836
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025819"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064047"
 ---
 # <a name="inspect-custom-speech-data"></a>Esaminare i dati di riconoscimento vocale personalizzato
 
@@ -34,7 +34,7 @@ Seguire queste istruzioni per creare un test:
 
 1. Passare a **vocale-> riconoscimento vocale personalizzato > test**.
 2. Fare clic su **aggiungere Test**.
-3. Selezionare **ispezionare qualità (dati Audio-only)**. Assegnare un nome, descrizione, il test e selezionare il set di dati audio.
+3. Selezionare **ispezionare qualità (dati Audio-only)** . Assegnare un nome, descrizione, il test e selezionare il set di dati audio.
 4. Selezionare fino a due modelli che si desidera testare.
 5. Fare clic su **Create**(Crea).
 
@@ -46,7 +46,7 @@ Quando lo stato del test è *Succeeded*, fare clic sul nome di elemento di test 
 
 Per consentire di controllare il confronto side-by-side, è possibile passare diversi tipi di errore, tra cui inserimento, eliminazione e sostituzione. Ascoltare l'audio e confrontando i risultati del riconoscimento in ogni colonna (rappresentato da un'etichetta umane trascrizione e i risultati dei due modelli di riconoscimento vocale), è possibile decidere quale modello soddisfa le proprie esigenze e in cui sono necessari miglioramenti.
 
-Controllo qualità di test è utile per verificare se la qualità di un endpoint di riconoscimento vocale è sufficiente per un'applicazione.  Per una misura obiettiva di accuratezza, che richiedono trascritto audio, seguire le istruzioni disponibili in fase di test: Valutare l'accuratezza.
+Controllo qualità di test è utile per verificare se la qualità di un endpoint di riconoscimento vocale è sufficiente per un'applicazione.  Per una misura obiettiva di accuratezza, che richiedono trascritto audio, seguire le istruzioni disponibili nel [valutare accuratezza](how-to-custom-speech-evaluate-data.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

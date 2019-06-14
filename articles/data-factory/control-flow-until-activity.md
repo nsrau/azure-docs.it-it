@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 5a053ab213390a12c5d2051a802a1fa98279c344
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155164"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Attività Until in Azure Data Factory
@@ -54,11 +54,11 @@ L'attività Until svolge la stessa funzione della struttura di ciclo do-until ne
 
 Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività `Until`. | String | Sì
-tipo | Deve essere impostata su **Until**. | String | Sì
-expression | Espressione che deve restituire true o false | Espressione.  | Sì
-timeout | Il ciclo do-until raggiunge il timeout allo scadere del tempo specificato qui. | Stringa. `d.hh:mm:ss`(o) `hh:mm:ss`. Il valore predefinito è 7 giorni. Valore massimo: 90 giorni. | N.
-attività | Set di attività che vengono eseguite fino a quando l'espressione restituisce `true`. | Matrice di attività. |  Sì
+name | Nome dell'attività `Until`. | String | Yes
+type | Deve essere impostata su **Until**. | String | Yes
+expression | Espressione che deve restituire true o false | Espressione.  | Yes
+timeout | Il ciclo do-until raggiunge il timeout allo scadere del tempo specificato qui. | Stringa. `d.hh:mm:ss`(o) `hh:mm:ss`. Il valore predefinito è 7 giorni. Valore massimo: 90 giorni. | No
+Attività | Set di attività che vengono eseguite fino a quando l'espressione restituisce `true`. | Matrice di attività. |  Yes
 
 ## <a name="example-1"></a>Esempio 1
 

@@ -17,10 +17,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: f455985d2a7d05f45100d4a88b43c688fe1a7767
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955763"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
@@ -66,7 +66,7 @@ Per acquisire un dump della memoria in modalità utente per l'app Web:
 1. Accedere al [sito Web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
 2. Selezionare il menu **Process Explorer** (Esplora processi).
 3. Fare clic con il pulsante destro del mouse sul processo **w3wp.exe** o sul proprio processo Web.
-4. Selezionare **Download Memory Dump (Scarica dump di memoria)** > **Full Dump (Dump completo)**.
+4. Selezionare **Download Memory Dump (Scarica dump di memoria)**  > **Full Dump (Dump completo)** .
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Come si visualizzano le informazioni a livello di processo per l'app Web?
 
@@ -149,7 +149,7 @@ Per abilitare la traccia delle richieste non riuscite:
     ```
 13. Per scaricare le tracce di richieste non riuscite, nel [portale](https://portal.azure.com) passare al sito Web.
 15. Select **Strumenti** > **Kudu** > **Vai**.
-18. Nel menu selezionare **Debug Console (Console di debug)** > **CMD**.
+18. Nel menu selezionare **Debug Console (Console di debug)**  > **CMD**.
 19. Selezionare la cartella **LogFiles** e quindi la cartella con un nome che inizia con **W3SVC**.
 20. Per visualizzare il file XML, selezionare l'icona della matita.
 

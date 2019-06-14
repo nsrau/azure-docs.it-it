@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: 951178a82e0975f5f2af71bd48cf0f931246ae37
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002132"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Impostare e configurare l'integrazione di report di utilizzo e costi di AWS
@@ -67,7 +67,7 @@ Usare la creazione guidata nuovo ruolo:
 3. Selezionare **ruoli** e quindi selezionare **Create Role**.
 4. Nella pagina successiva, selezionare **account AWS un'altra**.
 5. Nelle **ID dell'Account**, immettere **432263259397**.
-6. Nelle **le opzioni**, selezionare **Richiedi ID esterno (procedura consigliata quando una terza parte assumerà il ruolo)**.
+6. Nelle **le opzioni**, selezionare **Richiedi ID esterno (procedura consigliata quando una terza parte assumerà il ruolo)** .
 7. Nelle **ID esterno**, immettere l'ID esterno. L'ID esterno è un codice di accesso condiviso tra il ruolo AWS e gestione costi di Azure. Lo stesso ID esterno viene usato anche nella **nuovo connettore** pagina in Gestione costi. Ad esempio, un ID esterno è simile _Companyname1234567890123_.
 
     > [!NOTE]
@@ -100,7 +100,7 @@ Configurare le autorizzazioni per Esplora risorse di costo:
 
 1. Selezionare **scegliere un servizio**.
 2. Immettere **costo Service Explorer**.
-3. Selezionare **tutti i costi Explorer Service actions (ce:\*)**. Questa azione verifica che la raccolta sia corretta.
+3. Selezionare **tutti i costi Explorer Service actions (ce:\*)** . Questa azione verifica che la raccolta sia corretta.
 4. Selezionare **aggiungere le autorizzazioni aggiuntive**.
 
 Aggiungere le autorizzazioni per le organizzazioni di AWS:
@@ -152,7 +152,7 @@ Usare le informazioni seguenti per creare un connettore di AWS e iniziare a moni
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare a **gestione e fatturazione dei costi** > **gestione costi**.
-3. Sotto **le impostazioni**, selezionare **Cloud connettori (anteprima)**.  
+3. Sotto **le impostazioni**, selezionare **Cloud connettori (anteprima)** .  
     ![Esempio che illustra i connettori di Cloud (anteprima) impostazione)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
 4. Selezionare **+ Aggiungi** nella parte superiore della pagina per creare un connettore.
 5. Nel **creare un connettore di AWS** nella pagina **nome visualizzato**, immettere un nome per il connettore.  

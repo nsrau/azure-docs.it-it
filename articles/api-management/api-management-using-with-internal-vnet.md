@@ -14,19 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 7db40de921c0eb8826a2fee832c1a51c57796f6d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a5d8a724a0b4dd6899a71187176b9d444e5fe19c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919828"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051687"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
 Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API non accessibili su Internet. Sono disponibili varie tecnologie VPN per stabilire la connessione. È possibile distribuire Gestione API in due modalità principali all'interno di una rete virtuale:
 * Esterno
 * Interno
 
-Quando il servizio Gestione API viene installato in modalità di rete virtuale interna, tutti gli endpoint di servizio, ovvero gateway, portale per sviluppatori, portale di Azure, gestione diretta e GIT, sono visibili solo all'interno di una rete virtuale i cui accessi sono gestiti dall'utente. Nessuno degli endpoint di servizio è registrato nel server DNS pubblico.
+Quando Gestione API consente di distribuire in modalità di rete virtuale interna, sono visibili all'interno di una rete virtuale a cui si controlla l'accesso al solo tutti gli endpoint di servizio (il gateway proxy, il Developer portal, gestione diretta e Git). Nessuno degli endpoint di servizio è registrato nel server DNS pubblico.
+
+> [!NOTE]
+> Perché non sono presenti voci DNS per gli endpoint del servizio, questi endpoint non sarà accessibili fino [DNS è configurato](#apim-dns-configuration) per la rete virtuale.
 
 Usando Gestione API in modalità interna è possibile implementare gli scenari seguenti:
 
@@ -116,10 +119,12 @@ Se si usa un server DNS personalizzato in una rete virtuale, è anche possibile 
 2. È quindi possibile creare record nel server DNS per accedere agli endpoint accessibili solo dall'interno della rete virtuale.
 
 ## <a name="routing"> </a> Routing
-+ Verrà riservato e usato un indirizzo IP virtuale privato con bilanciamento del carico dall'intervallo della subnet per accedere agli endpoint del servizio Gestione API dall'interno della rete virtuale.
-+ Verrà inoltre riservato un indirizzo IP pubblico (VIP) con bilanciamento del carico per fornire l'accesso all'endpoint del servizio di gestione solo sulla porta 3443.
-+ Verranno usati un indirizzo IP di un intervallo IP di subnet (DIP) per accedere alle risorse all'interno della rete rituale e un indirizzo IP pubblico (VIP) per accedere alle risorse esterne alla rete virtuale.
-+ Gli indirizzi IP pubblici e privati con bilanciamento del carico sono disponibili nel pannello Panoramica/Informazioni di base del portale di Azure.
+
+* Con un carico bilanciato *privato* indirizzo IP virtuale dall'intervallo della subnet verrà riservato e usato per accedere agli endpoint del servizio Gestione API all'interno della rete virtuale. Ciò *privato* indirizzi IP sono reperibili nel pannello Panoramica per il servizio nel portale di Azure. Questo indirizzo deve essere registrato con il server DNS usati dalla rete virtuale.
+* Con un carico bilanciato *pubblica* verrà inoltre riservato indirizzo IP (VIP) per fornire l'accesso all'endpoint di servizio di gestione sulla porta 3443. Ciò *pubblica* indirizzi IP sono reperibili nel pannello Panoramica per il servizio nel portale di Azure. Il *pubbliche* indirizzo IP viene usato solo per traffico del piano di controllo per il `management` endpoint oltre porta 3443 e può essere bloccato verso il basso per il [ApiManagement] [ ServiceTags] servicetag .
+* Indirizzi IP dall'intervallo IP della subnet (DIP) verranno assegnati a ogni macchina virtuale nel servizio e verranno usata per accedere alle risorse all'interno della rete virtuale. Un indirizzo IP pubblico (VIP) da utilizzare per accedere alle risorse all'esterno della rete virtuale. Se gli elenchi di restrizione IP vengono usati per proteggere le risorse all'interno della rete virtuale, l'intero intervallo della subnet in cui l'API di Gestione distribuzione del servizio deve specificata per concedere o limitare l'accesso dal servizio.
+* Il carico bilanciato pubblici e indirizzi IP privati sono reperibili nel pannello della panoramica nel portale di Azure.
+* Gli indirizzi IP assegnati per l'accesso pubblico e privato possono cambiare se il servizio viene rimosso dal e quindi riaggiungere la rete virtuale. In questo caso, potrebbe essere necessario aggiornare le registrazioni DNS, regole di routing e gli elenchi di restrizione IP all'interno della rete virtuale.
 
 ## <a name="related-content"></a>Contenuti correlati
 Per altre informazioni, vedere gli articoli seguenti:

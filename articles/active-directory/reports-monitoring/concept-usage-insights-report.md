@@ -17,10 +17,10 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 3fe1e72d277bffd4bc9b38ac377e33b341967e17
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806357"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Report di utilizzo e insights nel portale di Azure Active Directory
@@ -45,7 +45,7 @@ Per accedere ai dati dal report di utilizzo e informazioni dettagliate, è neces
 2. Selezionare la directory corretta, quindi selezionare **Azure Active Directory** e scegliere **applicazioni aziendali**.
 3. Dal **impegno** sezione, selezionare **utilizzo & insights** per aprire il report. 
 
-![Report sull'utilizzo e informazioni dettagliate](./media/concept-usage-insights-report/main-menu.png)
+![Report su utilizzo e informazioni dettagliate](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>Usare il report
@@ -58,7 +58,7 @@ Facendo clic su Carica più nella parte inferiore dell'elenco consente di visual
 
 Quando si seleziona un giorno nel grafico di utilizzo dell'applicazione, si ottiene un elenco dettagliato delle attività di accesso per l'applicazione.  
 
-![Report sull'utilizzo e informazioni dettagliate](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![Report su utilizzo e informazioni dettagliate](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

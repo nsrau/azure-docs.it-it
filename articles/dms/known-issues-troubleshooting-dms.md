@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 05/22/2019
 ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002205"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Risolvere i problemi di migrazione di Database di Azure e gli errori comuni
@@ -96,7 +96,7 @@ Quando si esegue la migrazione di un database MySQL a un Database di Azure per l
 
 | Causa         | Risoluzione    |
 | ------------- | ------------- |
-| Questo errore si verifica quando la migrazione ha esito negativo a causa del timeout di attesa di blocco durante la migrazione. | Provare ad aumentare il valore di parametro del server **'innodb_lock_wait_timeout'**. Il valore massimo consentito è 1073741824. |
+| Questo errore si verifica quando la migrazione ha esito negativo a causa del timeout di attesa di blocco durante la migrazione. | Provare ad aumentare il valore di parametro del server **'innodb_lock_wait_timeout'** . Il valore massimo consentito è 1073741824. |
 
 ## <a name="error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance"></a>Errore durante la connessione a SQL Server di origine quando si utilizzano porte dinamiche o istanza denominata
 

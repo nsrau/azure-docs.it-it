@@ -10,11 +10,11 @@ ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344309"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64720441"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Piani e fatturazione per l'Utilità di pianificazione di Azure
 
@@ -80,7 +80,7 @@ Le raccolte di processi P20 Premium forniscono le stesse funzionalità delle rac
 
   Le fatture del servizio Utilità di pianificazione sono basate sul numero di raccolte di processi attive Standard o Premium.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 * [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)

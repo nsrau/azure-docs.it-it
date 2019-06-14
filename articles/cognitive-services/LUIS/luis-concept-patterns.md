@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813553"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
@@ -68,7 +68,7 @@ Tipo di sintassi supporta la sintassi seguente:
 |Funzione|Sintassi|Livello di nidificazione|Esempio|
 |--|--|--|--|
 |Entità| {} -le parentesi graffe|2|Dov'è il formato {nome entità}?|
-|Facoltativo|[]: le parentesi quadre<BR><BR>È previsto un limite di 3 su livelli di annidamento qualsiasi combinazione di raggruppamento e facoltativi |2|Il punto interrogativo è facoltativo [?]|
+|facoltativo|[]: le parentesi quadre<BR><BR>È previsto un limite di 3 su livelli di annidamento qualsiasi combinazione di raggruppamento e facoltativi |2|Il punto interrogativo è facoltativo [?]|
 |raggruppamento|() - parentesi|2|is (a \| b)|
 |oppure| \| -verticale della barra (barra verticale)<br><br>È previsto un limite di 2 sulle barre verticali (o) in un gruppo |-|Dove è form ({breve nome-modulo} &#x7c; {nome-modulo-prolungata} &#x7c; {numero modulo})| 
 |inizio e/o fine del utterance|^-punto di inserimento|-|^ inizio il utterance<br>viene eseguita la utterance ^<br>^ rigida corrispondenza letterale dell'intera utterance con l'entità {number} ^|
@@ -99,8 +99,8 @@ Una combinazione di **raggruppamento** con **facoltativo** sintassi presenta un 
 
 |Consentito|Esempio|
 |--|--|
-|Sì|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
-|No |( [ ( [ test1 ] &#x7c; test2 ) ] &#x7c; test3 )|
+|Yes|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
+|No|( [ ( [ test1 ] &#x7c; test2 ) ] &#x7c; test3 )|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Limiti di annidamento per i gruppi con la sintassi o un'operazione
 
@@ -108,8 +108,8 @@ Una combinazione di **raggruppamento** con **o un'operazione** sintassi prevede 
 
 |Consentito|Esempio|
 |--|--|
-|Sì|( test1 &#x7c; test2 &#x7c; ( test3 &#x7c; test4 ) )|
-|No |( test1 &#x7c; test2 &#x7c; test3 &#x7c; ( test4 &#x7c; test5 ) ) |
+|Yes|( test1 &#x7c; test2 &#x7c; ( test3 &#x7c; test4 ) )|
+|No|( test1 &#x7c; test2 &#x7c; test3 &#x7c; ( test4 &#x7c; test5 ) ) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintassi per aggiungere un'entità a un modello di criteri
 Per aggiungere un'entità a un modello di criteri, racchiudere il nome dell'entità tra parentesi graffe, come ad esempio in `Who does {Employee} manage?`. 
@@ -170,7 +170,7 @@ Contrassegnare il testo facoltativo nell'espressione usando la sintassi tra pare
 |Criteri con testo facoltativo|Significato|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` e `from {person}` sono facoltativi|
-|'. Può aiutarmi [?] | Il segno di punteggiatura è facoltativo|
+|'. Può aiutarmi [?]|Il segno di punteggiatura è facoltativo|
 
 Segni di punteggiatura (`?`, `!`, `.`) devono essere ignorate ed è necessario ignorarli utilizzando la sintassi di parentesi quadre nei modelli. 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: f8c95b2981933764bc8d6dcf8bf57e9ab40ef53b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 4f97f6925c482cb282324dcc1c97bbfe2a701643
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752068"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074215"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium
 Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. Una rete virtuale è una rete privata nel cloud. Quando un'istanza di Cache Redis di Azure viene configurata con una rete virtuale, non è indirizzabile pubblicamente ed è accessibile solo da macchine virtuali e applicazioni all'interno della rete virtuale. Questo articolo descrive come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure.
@@ -131,7 +131,7 @@ Vi sono otto requisiti delle porte in ingresso. Le richieste in ingresso in ques
 
 | Porte | Direction | Protocollo di trasporto | Scopo | IP locale | IP remoto |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |In ingresso |TCP |Comunicazione tra client e Redis, bilanciamento del carico di Azure | (Subnet Redis) | (Subnet Redis), Rete virtuale, Azure Load Balancer |
+| 6379, 6380 |In ingresso |TCP |Comunicazione tra client e Redis, bilanciamento del carico di Azure | (Subnet Redis) | (Subnet redis), rete virtuale, Azure Load Balancer <sup>2</sup> |
 | 8443 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
 | 8500 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Azure Load Balancer |
 | 10221-10231 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis), bilanciamento del carico di Azure |
@@ -139,6 +139,8 @@ Vi sono otto requisiti delle porte in ingresso. Le richieste in ingresso in ques
 | 15000-15999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure | (Subnet Redis) |Rete virtuale, Bilanciamento carico di Azure |
 | 16001 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Azure Load Balancer |
 | 20226 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
+
+<sup>2</sup> è possibile usare il Tag di servizio 'AzureLoadBalancer' (Resource Manager) (o 'AZURE_LOADBALANCER' per la distribuzione classica) per la creazione di regole NSG.
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>Ulteriori requisiti di connettività della rete VNET
 

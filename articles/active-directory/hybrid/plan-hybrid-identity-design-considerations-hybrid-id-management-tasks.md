@@ -1,6 +1,6 @@
 ---
 title: 'Progettazione di una soluzione ibrida di gestione delle identità: attività di gestione in Azure | Microsoft Docs'
-description: Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
+description: Con il controllo di accesso condizionale, Azure Active Directory controlla le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb3f7baa38305215a8b8383d25132327327d182
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472960"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109374"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Pianificare il ciclo di vita dell’identità ibrida
 L'identità rappresenta uno degli elementi fondamentali della strategia di mobilità aziendale e di accesso alle applicazioni. Quando si accede a un dispositivo mobile personale o a un'app SaaS, l'identità è la chiave con cui si ottiene l'accesso a tutti i componenti. A livello generale, una soluzione di gestione delle identità prevede il consolidamento e la sincronizzazione degli archivi di identità, che include l'automazione e la centralizzazione del processo di provisioning delle risorse. La soluzione di identità, inoltre, deve essere un'identità centralizzata in locale e nel cloud e ricorrere a una forma di federazione delle identità per gestire l'autenticazione centralizzata e condividere e collaborare con aziende e utenti esterni in modo totalmente sicuro. Le risorse comprendono i sistemi operativi, le applicazioni e gli utenti appartenenti o affiliati a un'azienda. La struttura aziendale, inoltre, può essere modificata per soddisfare determinati criteri o procedure di provisioning.

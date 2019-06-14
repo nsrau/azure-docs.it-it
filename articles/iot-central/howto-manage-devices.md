@@ -3,17 +3,17 @@ title: Gestire i dispositivi nell'applicazione Azure IoT Central | Microsoft Doc
 description: Informazioni su come gestire i dispositivi nell'applicazione Azure IoT Central come operatore.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/30/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e4746620f083996bf64e77617ec472c3d3894d91
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: a4a22cc2161af444ba2169cc2f83124e80c7ec11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464220"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052986"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gestire i dispositivi nell'applicazione Azure IoT Central
 
@@ -92,7 +92,7 @@ Se si registrano i dispositivi avviando l'importazione sotto **Dispositivi non a
 
 1. Selezionare **associare**:
 
-    ![Associa dispositivi](./media/howto-manage-devices/unassociateddevices2a.png)
+    ![Associare i dispositivi](./media/howto-manage-devices/unassociateddevices2a.png)
 
 1. Scegliere il modello dall'elenco dei modelli disponibili e selezionare **associare**.
 

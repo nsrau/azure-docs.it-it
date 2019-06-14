@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: ff71eb7d1386226e29b3f0846e0894a553f978e5
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0d52e84ba027f902cebf543ae019b5e4b53400b7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754224"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059676"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Panoramica dei record di alias DNS di Azure
 
@@ -53,7 +53,7 @@ Questo scenario è simile a quello precedente. Un'applicazione viene forse spost
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Ospitare applicazioni con carico bilanciato nel dominio radice
 
-Il protocollo DNS impedisce l'assegnazione di record CNAME al dominio radice. Se ad esempio il dominio è contoso.com; è possibile creare record CNAME per somelable.contoso.com; ma non è possibile creare record CNAME per contoso.com.
+Il protocollo DNS impedisce l'assegnazione di record CNAME al dominio radice. Se, ad esempio il dominio è contoso.com; è possibile creare record CNAME per somelabel.contoso.com; ma non è possibile creare record CNAME per contoso.com.
 Questa restrizione presenta un problema per i proprietari delle applicazioni che dispongono di applicazioni con carico bilanciato dietro [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). Poiché usa un profilo di Traffic Manager richiede la creazione di un record CNAME, non è possibile in modo che punti al profilo di Traffic Manager di vertice della zona.
 
 Questo problema viene risolto utilizzando record di alias. A differenza dei record CNAME, record di alias vengono creati al vertice della zona e i proprietari delle applicazioni possono utilizzarlo in modo da puntare i record vertice della zona a un profilo di gestione traffico con endpoint esterni. I proprietari delle applicazioni scegliere lo stesso profilo di Traffic Manager che viene usato per qualsiasi altro dominio all'interno della zona DNS.

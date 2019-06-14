@@ -10,10 +10,10 @@ ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65070862"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di Azure Container
@@ -177,7 +177,7 @@ Un altro modo per ridurre l'impatto del pull dell'immagine sul tempo di avvio de
 Istanze di contenitore di Azure Usa un meccanismo di memorizzazione nella cache per ridurre il tempo di avvio di contenitore per le immagini basate su common [le immagini di base di Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), tra cui `nanoserver:1809`, `servercore:ltsc2019`, e `servercore:1809`. Comunemente usato, ad esempio le immagini Linux `ubuntu:1604` e `alpine:3.6` vengono inoltre memorizzate nella cache. Per un elenco aggiornato delle immagini memorizzate nella cache e i tag, usare il [elencare le immagini memorizzate nella cache] [ list-cached-images] API.
 
 > [!NOTE]
-> Uso di immagini basate su Windows Server 2019 in istanze di contenitore di Azure è disponibile in anteprima.
+> L'uso di immagini basate su Windows Server 2019 in istanze di Azure Container è disponibile in anteprima.
 
 ### <a name="windows-containers-slow-network-readiness"></a>La rete diventa disponibile lentamente per i contenitori Windows
 

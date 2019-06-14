@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: bcda6ac723101d6a907a10c5163ae1baf0ad2214
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66168036"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: Proteggere i dati sensibili e archiviare le chiavi di crittografia in Azure Key Vault
@@ -107,7 +107,7 @@ Aprire SSMS e connettersi al server con il database Clinic.
 
 Se viene visualizzata la finestra **Nuova regola firewall** , accedere ad Azure e lasciare che SSMS crei una nuova regola firewall per l'utente.
 
-## <a name="create-a-table"></a>Crea una tabella
+## <a name="create-a-table"></a>Creare una tabella
 Questa sezione contiene istruzioni per creare una tabella con i dati dei pazienti. Non è crittografata inizialmente e la crittografia verrà configurata nella sezione successiva.
 
 1. Espandere **Database**.

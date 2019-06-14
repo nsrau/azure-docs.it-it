@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
 ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230006"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes
@@ -57,7 +57,7 @@ Criteri di rete funzionano solo con l'opzione Azure CNI (avanzate). Implementazi
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Differenze tra i criteri di Azure e Tigrato e le relative funzionalità
 
-| Capacità                               | Azure                      | Calico                      |
+| Funzionalità                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Piattaforme supportate                      | Linux                      | Linux                       |
 | Opzioni di rete supportate             | Azure CNI                  | Azure CNI                   |

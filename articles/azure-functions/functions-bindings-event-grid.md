@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e11446b961727663961e4d3fa295a9b7f64860c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438763"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059662"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi per Funzioni di Azure
 
@@ -320,11 +320,11 @@ Per un esempio completo, vedere l'esempio in C#.
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*. Non sono presenti parametri o proprietà di costruttori da impostare nell'attributo `EventGridTrigger`.
 
-|Proprietà di function.json |DESCRIZIONE|
+|Proprietà di function.json |Descrizione|
 |---------|---------|
 | **type** | Obbligatoria. Deve essere impostata su `eventGridTrigger`. |
 | **direction** | Obbligatoria. Deve essere impostata su `in`. |
-| **nome** | Obbligatoria: nome della variabile usato nel codice della funzione per il parametro che riceve i dati dell'evento. |
+| **name** | Obbligatoria: nome della variabile usato nel codice della funzione per il parametro che riceve i dati dell'evento. |
 
 ## <a name="usage"></a>Uso
 
@@ -555,7 +555,7 @@ La funzione trigger Griglia di eventi viene eseguita e vengono visualizzati log 
 
 ## <a name="local-testing-with-ngrok"></a>Test locale con ngrok
 
-Un altro modo per eseguire il test di un trigger Griglia di eventi in locale è quello di automatizzare la connessione HTTP tra Internet e il computer di sviluppo. A tale scopo, è possibile usare uno strumento open source denominato [ngrok](https://ngrok.com/):
+Un altro modo per eseguire il test di un trigger Griglia di eventi in locale è quello di automatizzare la connessione HTTP tra Internet e il computer di sviluppo. È possibile farlo con uno strumento quale [ngrok](https://ngrok.com/):
 
 1. [Creare un endpoint ngrok](#create-an-ngrok-endpoint).
 1. [Eseguire la funzione trigger Griglia di eventi](#run-the-event-grid-trigger-function).

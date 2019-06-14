@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e34e6257b4800387470cdc1b7d624bf3ebd1d3e6
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989160"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Configurare single sign-on alle applicazioni non incluse nella raccolta nella piattaforma delle identità Microsoft
@@ -54,7 +54,7 @@ Per connettere un'applicazione non pubblicata usando un modello di integrazione 
 3. (Facoltativo ma consigliato) Nel **Aggiungi dalla raccolta** casella di ricerca, immettere il nome visualizzato dell'applicazione. Se l'applicazione viene visualizzato nei risultati della ricerca, selezionarlo e ignorare il resto di questa procedura.
 4. Selezionare **applicazione Non nella raccolta**. Il **aggiungere la propria applicazione** verrà visualizzata la pagina.
 
-   ![Aggiungi applicazione](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
+   ![Aggiunta di un'applicazione](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
 5. Immettere il nome visualizzato per la nuova applicazione.
 6. Selezionare **Aggiungi**.
 
@@ -125,7 +125,7 @@ Sono necessari i seguenti due campi:
 
 I tre campi seguenti sono facoltativi:
 
-- **URL di accesso (avviato da SP solo)**. Questo valore indica dove l'utente passa per accedere a questa applicazione. Se l'applicazione esegue SSO avviato da SP, quindi quando un utente passa a questo URL, stored procedure esegue il reindirizzamento necessario ad Azure AD per l'autenticazione e accesso dell'utente. Se si specifica questo campo, Azure AD Usa questo URL per avviare l'applicazione dal Pannello di accesso di Azure AD e Office 365. Se si omette questo campo, Azure AD esegue avviata da IdP sign-on durante l'avvio dell'applicazione da Office 365, il pannello di accesso di Azure AD o l'URL di accesso SSO di Azure AD (che è possibile copiare dal **Dashboard** pagina).
+- **URL di accesso (avviato da SP solo)** . Questo valore indica dove l'utente passa per accedere a questa applicazione. Se l'applicazione esegue SSO avviato da SP, quindi quando un utente passa a questo URL, stored procedure esegue il reindirizzamento necessario ad Azure AD per l'autenticazione e accesso dell'utente. Se si specifica questo campo, Azure AD Usa questo URL per avviare l'applicazione dal Pannello di accesso di Azure AD e Office 365. Se si omette questo campo, Azure AD esegue avviata da IdP sign-on durante l'avvio dell'applicazione da Office 365, il pannello di accesso di Azure AD o l'URL di accesso SSO di Azure AD (che è possibile copiare dal **Dashboard** pagina).
 
 - **Stato dell'inoltro**. È possibile specificare uno stato di inoltro in SAML per indicare all'applicazione dove reindirizzare gli utenti dopo l'autenticazione. Il valore è in genere un URL o percorso che indirizza gli utenti a una posizione specifica all'interno dell'applicazione.
 
@@ -141,7 +141,7 @@ Per visualizzare o modificare le attestazioni inviate nel token SAML all'applica
 
 - Andare alla **attributi utente e le attestazioni** sull'intestazione e selezionare il **modificare** icona. Il **attributi utente e le attestazioni** verrà visualizzata la pagina.
 
-![Attributi e attestazioni utente](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
+![Attestazioni e gli attributi utente](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
 
 Potrebbe essere necessario modificare le attestazioni rilasciate nel token SAML per due motivi:
 
@@ -183,7 +183,7 @@ Per assegnare un nuovo utente o gruppo all'applicazione:
 
 1. Nella barra laterale di applicazione, selezionare **utenti e gruppi**. Il  **\<nome applicazione >-gli utenti e gruppi** verrà visualizzata la pagina, che mostra l'elenco corrente di utenti e gruppi assegnati.
 2. Selezionare **aggiungere utenti**. Il **aggiungere assegnazioni** verrà visualizzata la pagina.
-3. Selezionare **utenti e gruppi (\<numero > selezionati)**. Il **utenti e gruppi** viene visualizzata la pagina che mostra un elenco di utenti e gruppi disponibili.
+3. Selezionare **utenti e gruppi (\<numero > selezionati)** . Il **utenti e gruppi** viene visualizzata la pagina che mostra un elenco di utenti e gruppi disponibili.
 4. Tipo o scorrere per trovare l'utente o gruppo che si desidera assegnare dall'elenco.
 5. Selezionare ogni utente o gruppo che si desidera aggiungere e quindi selezionare il **seleziona** pulsante. Il **utenti e gruppi** pagina scompare.
 6. Nel **aggiungere assegnazioni** pagina, selezionare **assegnare**. Il  **<application name> -utenti e gruppi** verrà visualizzata la pagina con gli altri utenti visualizzati nell'elenco.
@@ -213,7 +213,7 @@ Selezionare questa opzione per configurare [basato su password single sign-on](w
 
 Dopo aver selezionato **basato su Password**, viene chiesto di immettere l'URL della pagina dell'applicazione web di accesso.
 
-![Accesso Single Sign-On basato su password](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+![Single Sign-On basato su password](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
 Quindi eseguire questi passaggi:
 

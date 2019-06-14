@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113248"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Verificare l'accesso a gruppi o applicazioni in Azure AD le verifiche di accesso
@@ -102,7 +102,7 @@ Per rendere più facile e veloce le verifiche di accesso per te, offriamo anche 
 
 1. Nella barra blu nella parte inferiore della pagina, fare clic su **accettare le raccomandazioni**.
 
-    ![Accetta le raccomandazioni](./media/perform-access-review/accept-recommendations.png)
+    ![Accettare le raccomandazioni](./media/perform-access-review/accept-recommendations.png)
 
     Viene visualizzato un riepilogo delle azioni consigliate.
 

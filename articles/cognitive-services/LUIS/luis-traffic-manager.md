@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
 ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123538"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usare Gestione traffico di Microsoft Azure per gestire la quota di endpoint tra le chiavi
@@ -308,7 +308,7 @@ Creare il profilo di Gestione traffico padre e collegare ad esso i due profili d
     Una risposta con esito positivo è uguale a quella del passaggio 3.
 
 ### <a name="powershell-variables"></a>Variabili di PowerShell
-Nelle sezioni precedenti sono state create tre variabili di PowerShell: `$eastprofile`, `$westprofile`, `$parentprofile`. Queste variabili vengono usate verso la fine della configurazione di Gestione traffico. Se si sceglie di non creare le variabili, dimenticato di o finestra di PowerShell verifica il timeout, è possibile usare il cmdlet di PowerShell  **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)**, per ottenere nuovamente il profilo e assegnarla a un variabile. 
+Nelle sezioni precedenti sono state create tre variabili di PowerShell: `$eastprofile`, `$westprofile`, `$parentprofile`. Queste variabili vengono usate verso la fine della configurazione di Gestione traffico. Se si sceglie di non creare le variabili, dimenticato di o finestra di PowerShell verifica il timeout, è possibile usare il cmdlet di PowerShell  **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** , per ottenere nuovamente il profilo e assegnarla a un variabile. 
 
 Sostituire gli elementi tra parentesi acute `<>` con i valori corretti per ognuno dei tre profili necessari. 
 

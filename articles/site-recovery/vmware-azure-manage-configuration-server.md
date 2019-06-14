@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66171751"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware
@@ -279,7 +279,7 @@ Per le distribuzioni del server di configurazione precedenti maggio 2016, la sca
 - Un banner di notifica viene visualizzato nella pagina delle risorse dell'insieme di credenziali. Per altre informazioni, selezionare il banner.
 - Se viene visualizzato il pulsante **Aggiorna ora**, alcuni componenti nell'ambiente non sono stati aggiornati alla versione 9.4.xxxx.x o versioni successive. Aggiornare i componenti prima di rinnovare il certificato. Non è possibile eseguire il rinnovo per le versioni precedenti.
 
-### <a name="renew-the-certificate"></a>Rinnova il certificato
+### <a name="renew-the-certificate"></a>Rinnovare il certificato
 
 1. Nell'insieme di credenziali aprire **Site Recovery Infrastructure** (Infrastruttura di Site Recovery) > **Server di configurazione**. Selezionare il server di configurazione richiesto.
 2. La data di scadenza viene visualizzata in **Integrità del server di configurazione**.

@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b00afa3d1001ee7c48997e41fd6042763bcc9aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd41bdfb90e5e8428a747832c10fe23a2cac4560
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347618"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109395"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: Domande frequenti
 
@@ -37,11 +37,11 @@ L'autenticazione pass-through è una funzionalità gratuita. Per usare Azure AD 
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>L'autenticazione pass-through è disponibile nel [cloud Microsoft Azure Germania](https://www.microsoft.de/cloud-deutschland) e nel [cloud Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/)?
 
- No. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a livello mondiale.
+No. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a livello mondiale.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>L'[accesso condizionale](../active-directory-conditional-access-azure-portal.md) funziona con l'autenticazione pass-through?
 
-Sì. Tutte le funzionalità di accesso condizionale, incluso Azure Multi-Factor Authentication, funzionano con l'autenticazione pass-through.
+Sì. Tutte le funzionalità di accesso condizionale, incluso Azure multi-Factor Authentication, funzionano con l'autenticazione pass-through.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L'autenticazione pass-through supporta "Alternate ID" come nome utente, al posto di "userPrincipalName"?
 
@@ -49,7 +49,7 @@ Sì, l'autenticazione pass-through supporta `Alternate ID` come nome utente quan
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La sincronizzazione dell'hash delle password agisce da fallback per l'autenticazione pass-through?
 
- No. L'autenticazione pass-through _non_ esegue automaticamente il failover sulla sincronizzazione dell'hash delle password. Per evitare errori di accesso dell'utente, è consigliabile configurare l'autenticazione pass-through per la [disponibilità elevata](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+No. L'autenticazione pass-through _non_ esegue automaticamente il failover sulla sincronizzazione dell'hash delle password. Per evitare errori di accesso dell'utente, è consigliabile configurare l'autenticazione pass-through per la [disponibilità elevata](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>Cosa accade quando si disattiva la sincronizzazione dell'hash delle password per l'autenticazione pass-through?
 

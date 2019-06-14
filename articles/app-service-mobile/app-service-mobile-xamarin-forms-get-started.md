@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: b0719f6ac2f99f9e665b1265665752dd53ccbaf0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b47e498754bad6917efca5b7f19f8ebce9cf0330
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242668"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062219"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Creare un'app Xamarin.Forms con Azure
 
@@ -48,19 +48,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 Per aprire la soluzione sono necessari gli Strumenti di Visual Studio per Xamarin. Vedere le [istruzioni di installazione di Xamarin][Install Xamarin]. Se gli strumenti sono già installati, seguire questa procedura per scaricare e aprire la soluzione:
 
-### <a name="visual-studio"></a>Visual Studio
-
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-
-2. Nel pannello delle impostazioni dell'app per dispositivi mobili, fare clic su **Avvio rapido** (in Distribuzione) > **Xamarin.Forms**. Al passaggio 3 fare clic su **Crea una nuova app**, se l'opzione non è già selezionata.  Fare quindi clic sul pulsante **Download** .
-
-   Questa azione scarica un progetto che contiene un'applicazione client connessa all'app per dispositivi mobili. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
-
-3. Estrarre il progetto scaricato e aprirlo in Visual Studio.
-
-4. Seguire le istruzioni riportate di seguito per eseguire i progetti Android o Windows e, se nella rete è disponibile un computer Mac, il progetto iOS.
-
-### <a name="visual-studio-for-mac"></a>Visual Studio per Mac
+### <a name="visual-studio-windows-and-mac"></a>Visual Studio (Windows e Mac)
 
 1. Andare alla [portale di Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili che è stato creato. Nel `Overview` pannello, cercare l'URL a cui l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il nome di sito per il nome di app "test123" saranno https://test123.azurewebsites.net.
 

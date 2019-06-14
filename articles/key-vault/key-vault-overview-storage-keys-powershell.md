@@ -8,10 +8,10 @@ ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
 ms.openlocfilehash: 9b6089aa828b5667f100c1a8cbff3e69345e4512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150432"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Account di archiviazione gestita di Azure Key Vault - PowerShell
@@ -46,7 +46,7 @@ Gli esempi seguenti illustrano come consentire a Key Vault di gestire le chiavi 
 ## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Autorizzare Key Vault ad accedere all'account di archiviazione
 
 > [!IMPORTANT]
-> Un tenant Azure AD assegna ad ogni applicazione registrata un'**[entità servizio](/azure/active-directory/develop/developer-glossary#service-principal-object)**, che svolge la funzione di identità dell'applicazione. Viene usato l'ID di applicazione dell'entità servizio per concedere a tale entità l'autorizzazione ad accedere ad altre risorse di Azure tramite il controllo degli accessi in base al ruolo. Key Vault è un'applicazione Microsoft pre-registrata in tutti i tenant di Azure AD con lo stesso ID di applicazione all'interno di ogni cloud di Azure:
+> Un tenant Azure AD assegna ad ogni applicazione registrata un' **[entità servizio](/azure/active-directory/develop/developer-glossary#service-principal-object)** , che svolge la funzione di identità dell'applicazione. Viene usato l'ID di applicazione dell'entità servizio per concedere a tale entità l'autorizzazione ad accedere ad altre risorse di Azure tramite il controllo degli accessi in base al ruolo. Key Vault è un'applicazione Microsoft pre-registrata in tutti i tenant di Azure AD con lo stesso ID di applicazione all'interno di ogni cloud di Azure:
 > - I tenant di Azure AD nel cloud di Azure per enti pubblici usano l'ID di applicazione `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
 > - I tenant di Azure AD nel cloud pubblico di Azure e in tutti gli altri usano l'ID di applicazione `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 

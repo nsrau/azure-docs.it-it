@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: a6dcd57591dcc6aa09ae2cb62f4b6dfe964c979f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 89f821398f2bccf19a8be090de0e8788090670fb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191125"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080826"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -92,7 +92,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
 [Azure PowerShell](/powershell/azure/overview) è uno dei modi più rapidi ed efficaci per amministrare i servizi di Azure. Usare il cmdlet `Get-AzStorageBlob` per ottenere un riferimento al BLOB, quindi impostare la proprietà `.ICloudBlob.Properties.CacheControl`. 
 
-Ad esempio: 
+Ad esempio:
 
 ```powershell
 # Create a storage context
@@ -114,9 +114,9 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## <a name="setting-cache-control-headers-by-using-net"></a>Impostazione delle intestazioni Cache-Control tramite .NET
-Per specificare un'intestazione `Cache-Control` tramite un codice .NET, usare la [libreria client di Archiviazione di Azure per .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) per impostare la proprietà [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.azure.storage.blob.blobproperties.cachecontrol#Microsoft_WindowsAzure_Storage_Blob_BlobProperties_CacheControl).
+Per specificare un'intestazione `Cache-Control` tramite un codice .NET, usare la [libreria client di Archiviazione di Azure per .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) per impostare la proprietà [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.azure.storage.blob.blobproperties.cachecontrol).
 
-Ad esempio: 
+Ad esempio:
 
 ```csharp
 class Program

@@ -11,10 +11,10 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646776"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
@@ -41,13 +41,13 @@ Per l'URI di POST sono presenti i parametri `{subscriptionId}`, `{vaultName}`, `
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Risposte
+#### <a name="responses"></a>Responses
 
 L'operazione di aggiornamento è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|NOME  |Type  |DESCRIZIONE  |
+|Name  |Type  |Descrizione  |
 |---------|---------|---------|
 |204 No Content (Nessun contenuto)     |         |  OK senza alcun contenuto restituito      |
 |202 - Accettato     |         |     Accepted    |
@@ -108,9 +108,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 All'URI di *GET* sono associati tutti i parametri obbligatori. Non è necessario alcun corpo della richiesta aggiuntivo.
 
-#### <a name="responses"></a>Risposte
+#### <a name="responses"></a>Responses
 
-|NOME  |Type  |DESCRIZIONE  |
+|NOME  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -186,7 +186,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per creare un elemento protetto.
 
-|NOME  |Type  |DESCRIZIONE  |
+|Name  |Type  |Descrizione  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Proprietà delle risorse ProtectedItem         |
 
@@ -208,13 +208,13 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per creare 
 
 `{sourceResourceId}` è l'elemento `{virtualMachineId}` citato in precedenza per dalla [risposta per l'elenco di elementi che è possibile proteggere](#example-responses-1).
 
-#### <a name="responses"></a>Risposte
+#### <a name="responses"></a>Responses
 
 La creazione di un elemento protetto è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|NOME  |Type  |DESCRIZIONE  |
+|Name  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 - Accettato     |         |     Accepted    |
@@ -300,7 +300,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare un backup su richiesta.
 
-|NOME  |Type  |DESCRIZIONE  |
+|Name  |Type  |Descrizione  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Proprietà BackupRequestResource         |
 
@@ -319,13 +319,13 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per attivar
 }
 ```
 
-### <a name="responses"></a>Risposte
+### <a name="responses"></a>Responses
 
 L'attivazione di un backup su richiesta è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|NOME  |Type  |DESCRIZIONE  |
+|Name  |Type  |Descrizione  |
 |---------|---------|---------|
 |202 - Accettato     |         |     Accepted    |
 
@@ -439,13 +439,13 @@ Gli elementi `{containerName}` e `{protectedItemName}` sono come creati [in prec
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses"></a>Risposte
+### <a name="responses"></a>Responses
 
 L'operazione *DELETE* applicata alla protezione è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
 L'operazione restituisce due risposte: 202 (accettato) quando viene creata un'altra operazione e quindi 204 (NoContent) al completamento di tale operazione.
 
-|NOME  |Type  |DESCRIZIONE  |
+|Name  |Type  |Descrizione  |
 |---------|---------|---------|
 |204 NoContent (Nessun contenuto)     |         |  Nessun contenuto restituito       |
 |202 - Accettato     |         |     Accepted    |

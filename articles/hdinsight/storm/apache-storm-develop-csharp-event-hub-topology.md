@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f4db76fe2a302dd5acce01b456ef3b676b187c6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690934"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078277"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Elaborare eventi di Hub eventi di Azure con Apache Storm in HDInsight (C#)
 
@@ -38,7 +38,7 @@ Il pacchetto NuGet Microsoft.SCP.Net.SDK usato per il progetto deve corrisponder
 > [!IMPORTANT]  
 > L'esempio in questo documento presuppone un cluster HDInsight 3.5 o 3.6.
 >
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. 
 
 Le topologie C# devono inoltre puntare a .NET 4.5.
 
@@ -135,7 +135,7 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
 
 1. Dopo avere creato l'hub eventi, visualizzare le impostazioni di **Hub eventi** nel portale di Azure e selezionare **Criteri di accesso condivisi**. Selezionare **+ Aggiungi** per aggiungere i criteri seguenti:
 
-   | NOME | Autorizzazioni |
+   | Name | Autorizzazioni |
    | --- | --- |
    | writer |Invio |
    | reader |Attesa |
@@ -180,7 +180,7 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
 
 ## <a name="deploy-the-topologies"></a>Distribuire le topologie
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **EventHubReader** e scegliere Submit to Storm on HDInsight **(Invia a Storm in HDInsight)**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **EventHubReader** e scegliere Submit to Storm on HDInsight **(Invia a Storm in HDInsight)** .
 
     ![Schermata di Esplora soluzioni con Submit to Storm on HDInsight (Invia a Storm in HDInsight) evidenziato](./media/apache-storm-develop-csharp-event-hub-topology/submittostorm.png)
 

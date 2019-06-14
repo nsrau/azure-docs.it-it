@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8fecc5232b26c98c4027174454cf29b81b0ee41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263598"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060334"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di MerchLogix per il provisioning utenti automatico
 

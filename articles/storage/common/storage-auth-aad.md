@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 66051bd0f8be349f748c72218d538bba273be8f6
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147259"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autenticare l'accesso a BLOB di Azure e code con Azure Active Directory

@@ -19,10 +19,10 @@ ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544876"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Le autorizzazioni e consenso nell'endpoint di Microsoft identity platform
@@ -49,7 +49,7 @@ Lo stesso vale per le risorse di terze parti integrate con Microsoft Identity Pl
 
 * Lettura del calendario dell'utente
 * Scrittura nel calendario dell'utente
-* Invia messaggi come un utente
+* Invio di messaggi di posta elettronica come utente
 
 Con la definizione di questi tipi di autorizzazioni, la risorsa può avere un controllo accurato dei dati e dell'esposizione delle funzionalità API. Un'app di terze parti può richiedere queste autorizzazioni da utenti e amministratori, che devono approvare la richiesta prima che l'app possa accedere ai dati o agire per conto di un utente. Suddividendo le funzionalità della risorsa in set di autorizzazioni più piccoli, è possibile creare le app di terze parti affinché richiedano solo le autorizzazioni specifiche necessarie per il relativo funzionamento. Utenti e amministratori possono sapere esattamente quali dati dell'app può accedere a, e possono essere più sicuri che non agisca per fini dannosi. Gli sviluppatori devono sempre rispettare il concetto di privilegio minimo, richiedendo solo le autorizzazioni necessarie per il funzionamento delle loro applicazioni.
 
@@ -85,11 +85,11 @@ L'implementazione di piattaforma Microsoft identity di OpenID Connect presenta a
 
 Se un'app esegue l'accesso usando [OpenID Connect](active-directory-v2-protocols.md), deve richiedere l'ambito `openid`. L'ambito `openid` viene visualizzato nella pagina di consenso dell'account aziendale come autorizzazione di accesso e nella pagina di consenso dell'account personale Microsoft come autorizzazione per la visualizzazione del profilo e la connessione ad app e servizi tramite l'account Microsoft. Questa autorizzazione consente a un'app di ricevere un identificatore univoco per l'utente sotto forma di attestazione `sub` e concede all'app l'accesso all'endpoint delle informazioni utente. Il `openid` ambito è utilizzabile in corrispondenza dell'endpoint di token di Microsoft identity platform per acquisire token ID, che può essere usato dall'app per l'autenticazione.
 
-### <a name="email"></a>posta elettronica
+### <a name="email"></a>email
 
 L'ambito `email` può essere usato con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere all'indirizzo di posta elettronica primario dell'utente sotto forma di attestazione `email`. Il `email` attestazione è inclusa nei token solo se un indirizzo di posta elettronica è associato l'account utente, che non sempre avveniva. Se si usa l'ambito `email`, l'applicazione deve essere pronta per gestire il caso in cui l'attestazione `email` non esiste nel token.
 
-### <a name="profile"></a>profilo
+### <a name="profile"></a>Profilo
 
 L'ambito `profile` può essere usato con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere a numerose informazioni sull'utente, Includono le informazioni che può accedere, ma non sono limitate al nome specificato dell'utente, cognome, nome utente preferito e ID di oggetto. Per un elenco completo delle attestazioni profilo disponibili nel parametro id_tokens per un determinato utente, vedere le [informazioni di riferimento su `id_tokens`](id-tokens.md).
 
@@ -206,7 +206,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 A questo punto, Azure AD richiede che solo un amministratore tenant possa accedere per completare la richiesta. L'amministratore deve approvare tutte le autorizzazioni richieste per l'app nel portale di registrazione delle applicazioni.
 
-#### <a name="successful-response"></a>Risposta riuscita
+#### <a name="successful-response"></a>Risposta con esito positivo
 
 Se l'amministratore approva le autorizzazioni per l'app, la risposta con esito positivo si presenta come segue:
 

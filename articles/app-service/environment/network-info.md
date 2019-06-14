@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b29dec76fb6b1f9883c5c594d4719c9f3032089e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3f80f3c6be747cf84aa9d8b2c386c0568a7511ad
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514632"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069386"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -58,24 +58,32 @@ Quando si aumenta o si riduce il numero di istanze, vengono aggiunti nuovi ruoli
 
 ### <a name="ase-inbound-dependencies"></a>Dipendenze in ingresso dell'ambiente del servizio app ###
 
-Le dipendenze per l'accesso in ingresso dell'ambiente del servizio app sono:
+Solo per l'ambiente del servizio App per il funzionamento, l'ambiente del servizio App richiede che le porte seguenti siano aperte:
 
 | Uso | Da | A |
 |-----|------|----|
 | Gestione | Indirizzi di gestione del servizio app | Subnet dell'ambiente del servizio app: 454, 455 |
 |  Comunicazione interna dell'ambiente del servizio app | Subnet dell'ambiente del servizio app: Tutte le porte | Subnet dell'ambiente del servizio app: Tutte le porte
-|  Consenti bilanciamento del carico di Azure in ingresso | Servizio di bilanciamento del carico di Azure | Subnet dell'ambiente del servizio app: Tutte le porte
-|  Indirizzi IP assegnati alle app | Indirizzi assegnati alle app | Subnet dell'ambiente del servizio app: Tutte le porte
+|  Consenti bilanciamento del carico di Azure in ingresso | Servizio di bilanciamento del carico di Azure | Subnet dell'ambiente del servizio app: 16001
 
-Il traffico di gestione in ingresso fornisce comandi e controllo dell'ambiente del servizio app oltre al monitoraggio del sistema. Gli indirizzi di origine per il traffico sono indicati nel documento [Indirizzi di gestione dell'Ambiente del servizio app][ASEManagement]. La configurazione della sicurezza di rete deve consentire l'accesso da tutti gli indirizzi IP sulle porte 454 e 455. Se si blocca l'accesso da questi indirizzi, l'ambiente del servizio app risulterà non integro e quindi verrà sospeso.
+Esistono 2 altre porte in grado di mostrare come aperti in una scansione delle porte, 7654 e 1221. Rispondono con un indirizzo IP e nient'altro. Può essere bloccati se lo si desidera. 
+
+Il traffico di gestione in ingresso fornisce comandi e controllo dell'ambiente del servizio app oltre al monitoraggio del sistema. Gli indirizzi di origine per il traffico sono indicati nel documento [Indirizzi di gestione dell'Ambiente del servizio app][ASEManagement]. La configurazione di sicurezza di rete deve consentire l'accesso dagli indirizzi di gestione di ambiente del servizio App sulle porte 454 e 455. Se si blocca l'accesso da questi indirizzi, l'ambiente del servizio app risulterà non integro e quindi verrà sospeso. Il traffico TCP in ingresso sulle porte 454 e 455 deve essere ritrasmesso dallo stesso indirizzo VIP oppure si verificherà un problema di routing asimmetrico. 
 
 All'interno della subnet di ambiente del servizio App, esistono molte porte usate per la comunicazione dei componenti interni e può modificare. Per questo motivo, è necessario che a tutte le porte nella subnet dell'ambiente del servizio app sia possibile accedere dalla subnet dell'ambiente del servizio app. 
 
-Per le comunicazioni tra Azure Load Balancer e la subnet dell'ambiente del servizio app, le porte minime che devono essere aperte sono le porte 454, 455 e 16001. La porta 16001 viene usata per mantenere attivo il traffico tra il servizio di bilanciamento del carico e l'ambiente del servizio app. Se si usa un ambiente del servizio App ILB, quindi è possibile limitare il traffico 454, 455 e 16001 porte.  Se si usa un ambiente del servizio App esterno, è necessario prendere in considerazione le porte di accesso normale app.  Se si usano indirizzi assegnati alle app, è necessario aprirlo per tutte le porte.  Quando un indirizzo è assegnato a un'app specifica, il servizio di bilanciamento del carico usa porte non conosciute in anticipo per inviare il traffico HTTP e HTTPS all'ambiente del servizio app.
+Per le comunicazioni tra Azure Load Balancer e la subnet dell'ambiente del servizio app, le porte minime che devono essere aperte sono le porte 454, 455 e 16001. La porta 16001 viene usata per mantenere attivo il traffico tra il servizio di bilanciamento del carico e l'ambiente del servizio app. Se si usa un ambiente del servizio App ILB, quindi è possibile limitare il traffico 454, 455 e 16001 porte.  Se si usa un ambiente del servizio App esterno, è necessario prendere in considerazione le porte di accesso normale app.  
 
-Se si usa indirizzi IP assegnati alle app, è necessario consentire il traffico dagli indirizzi IP assegnati alle App per la subnet dell'ambiente del servizio app.
+Le altre porte che è necessario preoccuparsi sono le porte applicazione:
 
-Il traffico TCP in ingresso sulle porte 454 e 455 deve essere ritrasmesso dallo stesso indirizzo VIP oppure si verificherà un problema di routing asimmetrico. 
+| Uso | Porte |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Debug remoto in Visual Studio  |  4020, 4022, 4024 |
+|  Distribuisci servizio Web | 8172 |
+
+Se si bloccano le porte applicazione, l'ambiente del servizio App possono comunque funzionare, ma l'app potrebbe non.  Se si usano indirizzi IP assegnati alle app con un ambiente del servizio App esterno, è necessario consentire il traffico dagli indirizzi IP assegnati alle App per la subnet dell'ambiente del servizio App le porte visualizzata nel portale ambiente del servizio App > pagina indirizzi IP.
 
 ### <a name="ase-outbound-dependencies"></a>Dipendenze in uscita dell'ambiente del servizio app ###
 
@@ -83,15 +91,15 @@ Per l'accesso in uscita, un ambiente del servizio app dipende da più sistemi es
 
 L'ambiente del servizio App comunica a indirizzi accessibile internet sulle porte seguenti:
 
-| Port | Utilizzi |
+| Utilizzi | Porte |
 |-----|------|
-| 53 | DNS |
-| 123 | NTP |
-| 80/443 | Elenco CRL, gli aggiornamenti di Windows, le dipendenze di Linux, servizi di Azure |
-| 1433 | SQL di Azure | 
-| 12000 | Monitoraggio |
+| DNS | 53 |
+| NTP | 123 |
+| 8CRL, gli aggiornamenti di Windows, le dipendenze di Linux, servizi di Azure | 80/443 |
+| SQL di Azure | 1433 | 
+| Monitoraggio | 12000 |
 
-L'elenco completo delle dipendenze in uscita è disponibile nel documento che descrive il [blocco del traffico in uscita dell'ambiente del servizio app](./firewall-integration.md). L'ambiente del servizio app smette di funzionare se perde l'accesso alle relative dipendenze. Se questa condizione si prolunga nel tempo, l'ambiente del servizio app viene sospeso. 
+Le dipendenze in uscita sono elencate nel documento che descrive [bloccare il traffico in uscita di ambiente del servizio App](./firewall-integration.md). L'ambiente del servizio app smette di funzionare se perde l'accesso alle relative dipendenze. Se questa condizione si prolunga nel tempo, l'ambiente del servizio app viene sospeso. 
 
 ### <a name="customer-dns"></a>DNS del cliente ###
 
@@ -165,12 +173,12 @@ Le voci necessarie in un gruppo di sicurezza, per un ambiente del servizio app d
 
 La porta DNS non è necessario essere aggiunti come il traffico al servizio DNS non è interessato dalle regole di sicurezza di rete. Queste porte non includono le porte che richiedono le tue App per il corretto utilizzo. Le porte di accesso alle app normali sono:
 
-| Uso | Da | A |
-|----------|---------|-------------|
-|  HTTP/HTTPS  | Configurabile dall'utente |  80, 443 |
-|  FTP/FTPS    | Configurabile dall'utente |  21, 990, 10001-10020 |
-|  Debug remoto in Visual Studio  |  Configurabile dall'utente |  4020, 4022, 4024 |
-|  Distribuisci servizio Web | Configurabile dall'utente | 8172 |
+| Uso | Porte |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Debug remoto in Visual Studio  |  4020, 4022, 4024 |
+|  Distribuisci servizio Web | 8172 |
 
 Tenendo conto dei requisiti in ingresso e in uscita, i gruppi di sicurezza di rete dovrebbero avere un aspetto simile a quelli illustrati in questo esempio. 
 

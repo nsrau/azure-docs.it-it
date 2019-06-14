@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2019
+ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: deb7864c9f59427d6da9d27ede349c7532bf40d5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66160325"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074020"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell
 
@@ -215,7 +215,7 @@ Per elencare le assegnazioni di ruolo per l'amministratore e i coamministratori 
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="grant-access"></a>Concedi accesso
+## <a name="grant-access"></a>Concedere l'accesso
 
 Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si crea un'assegnazione di ruolo.
 
@@ -355,7 +355,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-## <a name="remove-access"></a>Rimuovi accesso
+## <a name="remove-access"></a>Rimuovere un accesso
 
 Nel controllo degli accessi in base al ruolo, per rimuovere un accesso, è possibile rimuovere un'assegnazione di ruolo tramite [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
@@ -366,6 +366,8 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
+
+Se viene visualizzato il messaggio di errore: "Le informazioni fornite non esegue il mapping a un'assegnazione di ruolo", assicurarsi che venga specificata anche il `-Scope` o `-ResourceGroupName` parametri. Per altre informazioni, vedere [risolvere i problemi di RBAC per le risorse di Azure](troubleshooting.md#role-assignments-without-a-security-principal).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

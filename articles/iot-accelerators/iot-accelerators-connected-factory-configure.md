@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e059762cbbf5de2ac03a8a74397e59c9b3bdb97e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 042277899ff22066cfa890e64f5c6c0f2e0134f9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387110"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080465"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurare l'acceleratore di soluzioni Fabbrica connessa
 
@@ -264,7 +264,7 @@ Tutte le proprietà usate nel file di configurazione possono essere raggruppate 
 
 Le proprietà in questa categoria definiscono l'aspetto visivo del dashboard di Fabbrica connessa. Tra gli esempi sono inclusi:
 
-* NOME
+* Name
 * Descrizione
 * Image
 * Località
@@ -340,4 +340,4 @@ Una caratteristica del valore del nodo **NumberOfManufactureredProducts** è che
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Come passaggio successivo, si consiglia di imparare a [distribuire un gateway in Windows o Linux per l'acceleratore di soluzioni Fabbrica connessa](iot-accelerators-connected-factory-gateway-deployment.md).
+Suggerito il passaggio successivo consiste nel informazioni su come [personalizzare la soluzione di Connected Factory](iot-accelerators-connected-factory-customize.md).

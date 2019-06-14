@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a3468d720cb04e73cb284abb20c7bcf6a392dd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4790dc7ebeeee3407e89bcf38d7e3f25699ed328
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65859519"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108419"
 ---
 # <a name="compare-remote-access-solutions"></a>Confrontare le soluzioni di accesso remoto
 
@@ -34,21 +34,21 @@ Usare questa tabella per comprendere come vengono confrontate tra loro Threat Ma
 
 | Funzionalità | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| Autenticazione del certificato | Sì | Sì | - | - |
-| Pubblicare in modo selettivo le app del browser | Sì | Sì | Sì | Sì |
-| Preautenticazione e Single Sign-On | Sì | Sì | Sì | Sì | 
-| Firewall di livello 2/3 | Sì | Sì | - | - |
-| Funzionalità proxy di inoltro | Sì | - | - | - |
-| Funzionalità VPN | Sì | Sì | - | - |
-| Supporto dei protocolli rich | - | Sì | Sì, se in esecuzione su HTTP | Sì, se in esecuzione su HTTP o tramite Gateway Desktop remoto |
-| Funge da server proxy ADFS | - | Sì | Sì | - |
-| Un portale per l'accesso all'applicazione | - | Sì | - | Sì |
-| Conversione dei collegamenti al corpo della risposta | Sì | Sì | - | Sì | 
-| Autenticazione con intestazioni | - | Sì | - | Sì, con PingAccess | 
-| Sicurezza a livello di cloud | - | - | - | Sì | 
-| Accesso condizionale | - | Sì | - | Sì |
+| Autenticazione del certificato | Yes | Yes | - | - |
+| Pubblicare in modo selettivo le app del browser | Yes | Sì | Sì | Yes |
+| Preautenticazione e Single Sign-On | Yes | Sì | Sì | Yes | 
+| Firewall di livello 2/3 | Yes | Yes | - | - |
+| Funzionalità proxy di inoltro | Yes | - | - | - |
+| Funzionalità VPN | Yes | Yes | - | - |
+| Supporto dei protocolli rich | - | Yes | Sì, se in esecuzione su HTTP | Sì, se in esecuzione su HTTP o tramite Gateway Desktop remoto |
+| Funge da server proxy ADFS | - | Yes | Yes | - |
+| Un portale per l'accesso all'applicazione | - | Yes | - | Yes |
+| Conversione dei collegamenti al corpo della risposta | Yes | Sì | - | Yes | 
+| Autenticazione con intestazioni | - | Yes | - | Sì, con PingAccess | 
+| Sicurezza a livello di cloud | - | - | - | Yes | 
+| Accesso condizionale | - | Yes | - | Sì |
 | Nessun componente all'interno della rete perimetrale | - | - | - | Sì |
-| Nessuna connessione in ingresso | - | - | - | Sì |
+| Nessuna connessione in ingresso | - | - | - | Yes |
 
 Per la maggior parte degli scenari, si consiglia di Proxy applicazione Azure AD come soluzione moderna. Il Proxy applicazione Web è preferito esclusivamente in scenari che richiedono un server proxy per il servizio federativo AD e non è possibile usare domini personalizzati in Azure Active Directory. 
 
@@ -56,7 +56,7 @@ Il proxy dell'applicazione Azure AD offre vantaggi esclusivi rispetto ai prodott
 
 - Estensione di Azure AD a risorse locali
    - Sicurezza e protezione a livello di scalabilità
-   - Funzionalità quali l'accesso condizionale e l'autenticazione a più fattori sono facili da abilitare
+   - Sono facili da abilitare funzionalità quali l'accesso condizionale e multi-Factor Authentication
 - Nessun componente all'interno della rete perimetrale
 - Nessuna connessione in ingresso necessaria
 - Un pannello di accesso che gli utenti possono visualizzare per tutte le applicazioni, comprese Office 365, app SaaS integrate di Azure AD e app Web locali. 

@@ -12,10 +12,10 @@ ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: c9add80b7494ae2a8e671967a96dc5d3c7307f51
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541598"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Modificare una knowledge base in QnA Maker
@@ -38,7 +38,7 @@ QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'espe
   
     |Obiettivo|Azione|
     |--|--|
-    |Aggiungi un URL|È possibile aggiungere nuovi URL per aggiungere nuovi contenuti delle domande frequenti alla knowledge base facendo clic sul collegamento **Gestisci Knowledge base -> "+ Aggiungi URL"**.|
+    |Aggiungere URL|È possibile aggiungere nuovi URL per aggiungere nuovi contenuti delle domande frequenti alla knowledge base facendo clic sul collegamento **Gestisci Knowledge base -> "+ Aggiungi URL"** .|
     |Eliminare URL|È possibile eliminare gli URL esistenti selezionando l'icona di eliminazione (cestino).|
     |Aggiornare il contenuto degli URL|Se si vuole che la knowledge base esegua una ricerca per indicizzazione del contenuto più recente degli URL esistenti, selezionare la casella di controllo **Aggiorna**. La knowledge base verrà aggiornata con il contenuto più recente degli URL.|
     |Aggiungere file|È possibile aggiungere un documento supportato come parte di una knowledge base selezionando **Gestisci Knowledge base** e quindi **+ Aggiungi file**.|

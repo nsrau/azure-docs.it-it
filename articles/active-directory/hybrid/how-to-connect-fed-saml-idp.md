@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e25060152577e7947a78aa0e8d78c85cc7fd2fad
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138330"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Usare un provider di identità (IdP) SAML 2.0 per l'accesso Single Sign-On
@@ -77,7 +77,7 @@ I binding sono i parametri di comunicazione correlati al trasporto richiesti. Ai
 ## <a name="required-attributes"></a>Attributi richiesti
 Questa tabella mostra i requisiti per gli attributi specifici nel messaggio SAML 2.0.
  
-|Attributo|DESCRIZIONE|
+|Attributo|Descrizione|
 | ----- | ----- |
 |NameID|Il valore di questa asserzione deve corrispondere al valore di ImmutableID dell'utente di Azure AD. Può essere composto da un massimo di 64 caratteri alfanumerici. Qualsiasi carattere non compatibile con HTML deve essere codificato. Ad esempio, il carattere "+" viene visualizzato come ".2B".|
 |IDPEmail|Il nome dell'entità utente (UPN) è indicato nella risposta SAML come elemento denominato IDPEmail. Si tratta dell'oggetto UserPrincipalName (UPN) dell'utente in Azure AD/Office 365. Il nome dell'entità utente è nel formato indirizzo di posta elettronica. Valore UPN in Office 365 (Azure Active Directory).|

@@ -14,10 +14,10 @@ ms.date: 03/10/2019
 ms.author: cephalin;byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: b054e56afdec65ac000b0dc18a0c1a3fd845b4c3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955990"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
@@ -33,7 +33,7 @@ Il [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) suppo
 
 Per configurare le credenziali a livello di utente:
 
-1. Nel [portale di Azure](https://portal.azure.com), nel menu a sinistra, fare clic su **Servizi app** > **&lt;qualsiasi_app >** > **Centro distribuzione** > **Credenziali distribuzione**.
+1. Nel [portale di Azure](https://portal.azure.com), nel menu a sinistra, fare clic su **Servizi app** >  **&lt;qualsiasi_app >**  > **Centro distribuzione** > **Credenziali distribuzione**.
 
     È necessario disporre di almeno un'app nel portale per poter accedere alla pagina delle credenziali per la distribuzione. Tuttavia, con l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) è possibile configurare le credenziali a livello di utente senza un'app esistente.
 
@@ -63,7 +63,7 @@ Poiché le credenziali a livello di utente sono collegate all'utente e non una r
 ## <a name="appscope"></a>Ottenere e reimpostare le credenziali a livello di utente
 Per ottenere le credenziali a livello di app:
 
-1. Nel [portale di Azure](https://portal.azure.com), nel menu a sinistra, fare clic su **Servizi app** > **&lt;qualsiasi_app >** > **Centro distribuzione** > **Credenziali distribuzione**.
+1. Nel [portale di Azure](https://portal.azure.com), nel menu a sinistra, fare clic su **Servizi app** >  **&lt;qualsiasi_app >**  > **Centro distribuzione** > **Credenziali distribuzione**.
 
 2. Fare clic su **Credenziali dell'app** e fare clic sul collegamento **Copia** per copiare nome utente o password.
 

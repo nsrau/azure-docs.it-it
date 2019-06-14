@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba9deb00b885dad1d69eb38d4977aafd3d80ab91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 902696e35a2447b67dab74b73794b80ad5e26511
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468022"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083742"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Condivisione di account con Azure AD
 ## <a name="overview"></a>Panoramica
@@ -73,5 +73,5 @@ Con Azure AD è possibile rendere più sicuro l'account condiviso tramite Multi-
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Gestione di applicazioni con Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Sicurezza delle app con l'accesso condizionale](../active-directory-conditional-access-azure-portal.md)
+* [Protezione delle App con accesso condizionale](../active-directory-conditional-access-azure-portal.md)
 * [Gestione di gruppi self-service/SSAA](groups-self-service-management.md)

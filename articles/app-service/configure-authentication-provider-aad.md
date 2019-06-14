@@ -16,10 +16,10 @@ ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851376"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configurare l'app del servizio app per l'uso dell'accesso di Azure Active Directory
@@ -79,12 +79,12 @@ Questo articolo descrive come configurare i servizi app di Azure per usare Azure
 1. Passare a **Azure Active Directory** nel [portale di Azure].
 2. Nel riquadro di spostamento a sinistra selezionare **Registrazioni per l'app**. Fare clic su **New app registration** (Nuova registrazione app) nella parte superiore.
 4. Nella pagina **Crea** immettere il nome della registrazione dell'app nel campo **Nome**. In **Tipo applicazione** selezionare **Nativo**.
-5. Nella casella **URI di reindirizzamento** immettere l'endpoint del sito */.auth/login/done*, usando lo schema HTTPS. Questo valore deve essere simile a *https://contoso.azurewebsites.net/.auth/login/done*. Se si crea un'applicazione Windows, usare invece il [SID pacchetto](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) come URI.
+5. Nella casella **URI di reindirizzamento** immettere l'endpoint del sito */.auth/login/done*, usando lo schema HTTPS. Questo valore deve essere simile a *https://contoso.azurewebsites.net/.auth/login/done* . Se si crea un'applicazione Windows, usare invece il [SID pacchetto](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) come URI.
 5. Fare clic su **Create**(Crea).
 6. Dopo aver aggiunto la registrazione dell'app, selezionarla per aprirla. Trovare l'**ID applicazione** e prendere nota del valore.
 7. Fare clic su **Tutte le impostazioni** > **Autorizzazioni necessarie** > **Aggiungi** > **Selezionare un'API**.
 8. Digitare il nome dell'applicazione dei servizi app registrata in precedenza per cercarlo e fare clic su **Seleziona**.
-9. Selezionare **Accesso a \<nome_app>**. Quindi fare clic su **Seleziona**. Fare quindi clic su **Done**.
+9. Selezionare **Accesso a \<nome_app>** . Quindi fare clic su **Seleziona**. Fare quindi clic su **Done**.
 
 Ora è stata configurata un'applicazione client nativa che può accedere all'applicazione dei servizi app.
 

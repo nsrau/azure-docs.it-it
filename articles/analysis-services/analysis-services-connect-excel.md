@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5c46d4e4d23744cf07ccf7857a33990bf405a6a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023258"
 ---
 # <a name="connect-with-excel"></a>Connettersi con Excel
@@ -41,7 +41,7 @@ La connessione a un server in Excel è supportata con la funzione Dati in Excel 
     ![Connettersi dal modello di selezione in Excel](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Librerie client](analysis-services-data-providers.md)   
 [Gestire il server](analysis-services-manage.md)     

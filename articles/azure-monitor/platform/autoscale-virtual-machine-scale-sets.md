@@ -9,10 +9,10 @@ ms.date: 02/22/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787781"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configurazione di scalabilità automatica avanzata con modelli di Resource Manager per set di scalabilità di macchine virtuali di Microsoft Azure
@@ -31,11 +31,11 @@ In questa procedura dettagliata viene usato [Esplora risorse di Azure](https://r
 
     ![Azure Explorer](media/autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
-    L'esecuzione del modello ha creato un'impostazione predefinita di ridimensionamento automatico con il nome **"autoscalewad"**. Sul lato destro è possibile visualizzare la definizione completa di questa impostazione di ridimensionamento automatico. In questo caso, l'impostazione di ridimensionamento automatico predefinita è inclusa in una regola di aumento e riduzione del numero di istanze basata sulla percentuale di CPU.  
+    L'esecuzione del modello ha creato un'impostazione predefinita di ridimensionamento automatico con il nome **"autoscalewad"** . Sul lato destro è possibile visualizzare la definizione completa di questa impostazione di ridimensionamento automatico. In questo caso, l'impostazione di ridimensionamento automatico predefinita è inclusa in una regola di aumento e riduzione del numero di istanze basata sulla percentuale di CPU.  
 
 3. Ora è possibile aggiungere altri profili e regole basati sulla pianificazione o su specifici requisiti. Viene creata un'impostazione di ridimensionamento automatico con tre profili. Per conoscere i profili e le regole nel ridimensionamento automatico, vedere [Procedure consigliate per il ridimensionamento automatico](autoscale-best-practices.md).  
 
-    | Profili e regole | DESCRIZIONE |
+    | Profili e regole | Descrizione |
     |--- | --- |
     | **Profilo** |**Basato su prestazioni/metrica** |
     | Regola |Numero di messaggi della coda del bus di servizio > x |

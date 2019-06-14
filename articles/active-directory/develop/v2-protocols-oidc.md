@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23a8eaaf095be1d59944791bd793047886dda40c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544803"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Piattaforma delle identità Microsoft e il protocollo OpenID Connect
@@ -128,7 +128,7 @@ A questo punto, all'utente viene chiesto di immettere le credenziali e completar
 
 Dopo che l'utente esegue l'autenticazione e dato il consenso, l'endpoint di Microsoft identity platform restituisce una risposta per le app nell'URI URI di reindirizzamento usando il metodo specificato nel `response_mode` parametro.
 
-### <a name="successful-response"></a>Risposta riuscita
+### <a name="successful-response"></a>Risposta con esito positivo
 
 La risposta con esito positivo quando si usa `response_mode=form_post` è simile alla seguente:
 
@@ -241,7 +241,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 
 Includendo gli ambiti di autorizzazione nella richiesta e usando `response_type=id_token code`, l'endpoint di piattaforma di identità Microsoft garantisce che l'utente ha acconsentito alle autorizzazioni indicate nel `scope` parametro di query. Verrà restituito nell'app un codice di autorizzazione da scambiare con un token di accesso.
 
-### <a name="successful-response"></a>Risposta riuscita
+### <a name="successful-response"></a>Risposta con esito positivo
 
 La risposta con esito positivo quando si usa `response_mode=form_post` è simile alla seguente:
 

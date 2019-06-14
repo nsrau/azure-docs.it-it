@@ -18,10 +18,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04d2be76072866da2b21718f60fd0c9a5923b15b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545118"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Piattaforma delle identità Microsoft e le credenziali di password proprietario risorsa OAuth 2.0
@@ -41,7 +41,7 @@ Il diagramma seguente mostra il flusso ROPC.
 
 ![Flusso ROPC](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
-## <a name="authorization-request"></a>Richiesta di autorizzazione
+## <a name="authorization-request"></a>Authorization request (Richiesta di autorizzazione)
 
 Il flusso ROPC è una richiesta singola: invia l'identificazione del client e le credenziali dell'utente all'IDP, quindi riceve i token in cambio. Il client deve richiedere l'indirizzo di posta elettronica (UPN) e la password dell'utente prima di procedere. Subito dopo una richiesta con esito positivo, il client dovrebbe rilasciare le credenziali dell'utente dalla memoria in modo sicuro. Non deve mai salvarle.
 
@@ -93,7 +93,7 @@ Nell'esempio seguente mostra una risposta token con esito positivo:
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per cui è valido. |
 | `expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 | `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti. |
-| `id_token` | JWT | Emessa nel parametro `scope` originale incluso nell'ambito `openid`. |
+| `id_token` | Token JSON Web | Emessa nel parametro `scope` originale incluso nell'ambito `openid`. |
 | `refresh_token` | Stringa opaca | Emessa nel parametro `scope` originale incluso `offline_access`. |
 
 È possibile usare il token di aggiornamento per acquisire nuovi token di accesso e token di aggiornamento usando lo stesso flusso descritto nella [documentazione del flusso del codice OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).

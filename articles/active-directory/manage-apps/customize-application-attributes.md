@@ -16,10 +16,10 @@ ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc3aea059b6ac4244ea440d26717562e83fdbd09
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824915"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
@@ -123,10 +123,10 @@ Quando si modifica l'elenco degli attributi supportati, vengono fornite le propr
    * *Integer*: l'attributo contiene un numero intero.
    * *Riferimento*: l'attributo contiene un ID che fa riferimento a un valore archiviato in un'altra tabella nell'applicazione di destinazione.
    * *String*: l'attributo contiene una stringa di testo. 
-* **Chiave primaria?**: : Indica se l'attributo è definito come campo di chiave primaria nello schema dell'oggetto di destinazione.
+* **Chiave primaria?** : : Indica se l'attributo è definito come campo di chiave primaria nello schema dell'oggetto di destinazione.
 * **Obbligatorio?** : Indica se l'attributo è necessario popolare nel sistema o applicazione di destinazione.
-* **Multivalore?**: : Indica se l'attributo supporta più valori.
-* **Maiuscole/minuscole esatte?**: : Indica se i valori degli attributi vengono valutati in modo distinzione maiuscole/minuscole.
+* **Multivalore?** : : Indica se l'attributo supporta più valori.
+* **Maiuscole/minuscole esatte?** : : Indica se i valori degli attributi vengono valutati in modo distinzione maiuscole/minuscole.
 * **Espressione API** -non usare, se non diversamente indicato a tale scopo, la documentazione relativa a un connettore di provisioning specifico (ad esempio Workday).
 * **Attributo oggetto di riferimento** : se è un attributo di tipo riferimento, quindi questo menu consente di selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi degli ID primari supportati per una determinata applicazione sono preconfigurati e attualmente non può essere modificati usando il portale di Azure, ma possono essere modificati utilizzando il [API Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 

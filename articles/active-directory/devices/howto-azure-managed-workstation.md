@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 242926c0821e4951d2a2bd2f858f63691baf1017
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: ae7c823b9aea262556081354a108ac9509a284ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307228"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110678"
 ---
 # <a name="deploy-a-secure-workstation"></a>Distribuire una workstation sicura
 
@@ -104,7 +104,7 @@ Dal portale di Azure, passare a **Azure Active Directory** > **servizi Mobility 
 
 #### <a name="azure-ad-conditional-access"></a>Accesso condizionale di Azure AD
 
-Accesso condizionale di Azure AD consente di mantenere queste attività amministrative con privilegi dispositivi compatibili. Gli utenti sono stati definiti come membri delle **proteggere gli utenti di Workstation** gruppo sarà necessario eseguire l'autenticazione a più fattori durante l'accesso alle applicazioni cloud. Verrà seguire le procedure consigliate ed escludere i nostri account di accesso di emergenza dai criteri. Altre informazioni sono reperibili nell'articolo [gestire gli account di accesso di emergenza in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+Accesso condizionale AD Azure consente di mantenere queste attività amministrative con privilegi dispositivi compatibili. Gli utenti sono stati definiti come membri delle **proteggere gli utenti di Workstation** gruppo sarà necessario eseguire l'autenticazione a più fattori durante l'accesso alle applicazioni cloud. Verrà seguire le procedure consigliate ed escludere i nostri account di accesso di emergenza dai criteri. Altre informazioni sono reperibili nell'articolo [gestire gli account di accesso di emergenza in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 
 Per configurare l'accesso condizionale dal portale di Azure, passare a **Azure Active Directory** > **accesso condizionale** > **nuovo criterio**.
 
@@ -122,7 +122,7 @@ Per configurare l'accesso condizionale dal portale di Azure, passare a **Azure A
       * Per più controlli - **richiedono tutti i controlli selezionati**
 * Abilitare i criteri - **su**
 
-Le organizzazioni possono facoltativamente creare i criteri di blocco paesi in cui utenti non accedono alle risorse aziendali. Altre informazioni sui criteri di accesso condizionale basato su indirizzo IP sono reperibili nell'articolo [che cos'è la condizione della posizione nell'accesso condizionale di Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
+Le organizzazioni possono facoltativamente creare i criteri di blocco paesi in cui utenti non accedono alle risorse aziendali. Altre informazioni sui criteri di accesso condizionale basati sulla posizione IP sono reperibili nell'articolo [qual è la condizione della posizione in Active Directory accesso condizionale di Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
 
 ## <a name="intune-configuration"></a>Configurazione di Intune
 

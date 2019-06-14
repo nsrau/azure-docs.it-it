@@ -9,10 +9,10 @@ ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603102"
 ---
 # <a name="what-is-azure-importexport-service"></a>Che cos'è il servizio Importazione/Esportazione di Azure?
@@ -112,7 +112,7 @@ In generale, un processo di esortazione prevede i passaggi seguenti:
 
 Per istruzioni dettagliate sull'esportazione dei dati, vedere [Export data from Azure Blobs](storage-import-export-data-from-blobs.md) (Esportare dati da BLOB di Azure).
 
-## <a name="region-availability"></a>Disponibilità a livello di area 
+## <a name="region-availability"></a>Aree di disponibilità 
 
 Il servizio Importazione/Esportazione di Azure supporta la copia dei dati da e verso tutti gli account di archiviazione di Azure. È possibile spedire le unità disco a una delle località seguenti. Se l'account di archiviazione è in una località di Azure non specificata di seguito, quando si crea il processo viene proposta una località di spedizione alternativa.
 
@@ -121,9 +121,9 @@ Il servizio Importazione/Esportazione di Azure supporta la copia dei dati da e v
 
 |Paese/Area geografica  |Paese/Area geografica  |Paese/Area geografica  |Paese/Area geografica  |
 |---------|---------|---------|---------|
-|Stati Uniti orientali    | Europa settentrionale        | India centrale        |US Gov Iowa         |
-|Stati Uniti occidentali     |Europa occidentale         | India meridionale        | US DoD East        |
-|Stati Uniti orientali 2    | Asia orientale        |  India occidentale        | US DoD Central        |
+|Stati Uniti orientali    | Europa settentrionale        | India centrale        |Governo degli Stati Uniti - Iowa         |
+|Stati Uniti occidentali     |Europa occidentale         | India meridionale        | US DoD (area orientale)        |
+|Stati Uniti orientali 2    | Asia orientale        |  India occidentale        | US DoD (area centrale)        |
 |Stati Uniti occidentali 2     | Asia sud-orientale        | Canada centrale        | Cina orientale         |
 |Stati Uniti centrali     | Australia orientale        | Canada orientale        | Cina settentrionale        |
 |Stati Uniti centro-settentrionali     |  Australia sud-orientale       | Brasile meridionale        | Regno Unito meridionale        |

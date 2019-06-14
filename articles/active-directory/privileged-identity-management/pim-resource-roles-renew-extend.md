@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a064fc67bf94ba6aa443e429fe83179d84cada84
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602548"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Estendere o rinnovare le assegnazioni dei ruoli delle risorse di Azure in PIM
@@ -41,7 +41,7 @@ Gli amministratori ricevono notifiche quando un membro di un ruolo in scadenza o
 
 I passaggi seguenti descrivono la procedura per la richiesta, la risoluzione o l'amministrazione di un'estensione o del rinnovo di un'assegnazione di ruolo. 
 
-### <a name="member-extend"></a>Estensione del membro
+### <a name="member-extend"></a>Estensione richiesta dai membri
 
 I membri di un'assegnazione di ruolo possono estendere le assegnazioni di ruolo in scadenza direttamente dalla scheda **Idonea** o **Attiva** nella pagina **Ruoli personali** di una risorsa e dalla pagina **Ruoli personali** di primo livello del portale PIM. I membri possono richiedere l'estensione dei ruoli idonei e attivi (assegnati) con scadenza entro 14 giorni.
 
@@ -84,7 +84,7 @@ Quando un amministratore seleziona **Approva** o **Rifiuta**, vengono visualizza
 
 Quando approvano una richiesta di estensione di un'assegnazione di ruolo, gli amministratori delle risorse possono scegliere una nuova data di inizio e di fine e un tipo di assegnazione. La modifica del tipo di assegnazione potrebbe essere necessaria se l'amministratore vuole fornire accesso limitato per completare un'attività specifica (un giorno, ad esempio). In questo esempio, l'amministratore può modificare l'assegnazione da **Idonea** ad **Attiva**. Ciò significa che possono fornire l'accesso al richiedente senza necessità di attivazione.
 
-### <a name="admin-extend"></a>Estensione amministratore
+### <a name="admin-extend"></a>Estensione richiesta dall'amministratore
 
 Se un membro del ruolo si dimentica o non è in grado di richiedere l'estensione dell'appartenenza al ruolo, un amministratore può estendere un'assegnazione per conto del membro. Le estensioni amministrative dell'appartenenza ai ruoli non richiedono l'approvazione, ma vengono inviate notifiche a tutti gli altri amministratori al termine dell'estensione del ruolo.
 
@@ -96,7 +96,7 @@ Per estendere l'appartenenza a un ruolo, passare al ruolo della risorsa o alla v
 
 Anche se concettualmente simile alla richiesta di estensione, il processo di rinnovo di un'assegnazione di ruolo scaduto è diverso da quello appena citato. Usando la procedura descritta di seguito i membri e gli amministratori possono rinnovare l'accesso ai ruoli scaduti quando necessario.
 
-### <a name="member-renew"></a>Rinnovo del membro
+### <a name="member-renew"></a>Rinnovo richiesto dai membri
 
 I membri che non possono più accedere alle risorse possono accedere alla cronologia di assegnazione scaduti fino a 30 giorni. A tale scopo, passare a **Ruoli personali** nel riquadro sinistro e quindi selezionare la scheda **Ruoli scaduti** nella sezione dei ruoli delle risorse di Azure.
 
@@ -122,7 +122,7 @@ Quando un amministratore seleziona **Approva** o **Rifiuta**, vengono visualizza
 
 Quando approvano una richiesta di rinnovo di un'assegnazione di ruolo, gli amministratori delle risorse devono immettere una nuova data di inizio, di fine e un tipo di assegnazione. 
 
-### <a name="admin-renew"></a>Rinnovo amministratore
+### <a name="admin-renew"></a>Rinnovo richiesto dagli amministratori
 
 Gli amministratori delle risorse possono rinnovare le assegnazioni di ruolo scaduto dalla scheda **Membri** nel menu di spostamento a sinistra di una risorsa. Possono anche rinnovare le assegnazioni di ruolo scaduto nella scheda dei ruoli **Scaduti** di un ruolo di risorse.
 

@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113096"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
@@ -50,7 +50,7 @@ Per distribuire correttamente il proxy di applicazione, è necessario almeno un 
 
 Per ulteriori informazioni sui requisiti di rete per il server del connettore, vedere [Introduzione al proxy dell'applicazione e installazione di un connettore](application-proxy-add-on-premises-application.md).
 
-## <a name="maintenance"></a>Manutenzione 
+## <a name="maintenance"></a>Manutenzione
 I connettori e il servizio si occupano di tutte le attività che richiedono disponibilità elevata. Possono essere aggiunti o rimossi in modo dinamico. Ogni volta che arriva una nuova richiesta, questa viene indirizzata a uno dei connettori attualmente disponibili. Se un connettore è temporaneamente non disponibile, non risponde a questo traffico.
 
 I connettori sono senza stato e senza dati di configurazione nel computer. Gli unici dati che archiviano sono le impostazioni per la connessione del servizio e il relativo certificato di autenticazione. Quando si connettono al servizio, eseguono il pull di tutti i dati di configurazione necessari e li aggiornano ogni due minuti.

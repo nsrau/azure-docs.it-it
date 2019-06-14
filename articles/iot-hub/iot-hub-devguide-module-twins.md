@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
 ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61363455"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendere e usare i moduli gemelli nell'hub IoT
@@ -113,7 +113,7 @@ Nell'esempio precedente, il dispositivo gemello contiene la proprietà `batteryL
 
 ### <a name="desired-property-example"></a>Esempio di proprietà desiderata
 
-Nell'esempio precedente le proprietà desiderate e segnalate del modulo gemello `telemetryConfig` vengono usate dal back-end della soluzione e dall'app per modulo per sincronizzare la configurazione della telemetria per questo modulo. Ad esempio: 
+Nell'esempio precedente le proprietà desiderate e segnalate del modulo gemello `telemetryConfig` vengono usate dal back-end della soluzione e dall'app per modulo per sincronizzare la configurazione della telemetria per questo modulo. Ad esempio:
 
 1. Il back-end della soluzione imposta la proprietà desiderata sul valore di configurazione desiderato. Questa è la parte del documento con il set di proprietà desiderate:
 
@@ -176,7 +176,7 @@ Il back-end della soluzione opera sul modulo gemello tramite le seguenti operazi
 
   - Properties
 
-    | NOME | Value |
+    | Name | Value |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
@@ -191,7 +191,7 @@ Il back-end della soluzione opera sul modulo gemello tramite le seguenti operazi
 
     Le proprietà di sistema del messaggio hanno come prefisso il simbolo `$`.
 
-  - Corpo
+  - Body
         
     Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. Usa lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni, ovvero tag, properties.reported e properties.desired, e che contiene gli elementi "$metadata". Ad esempio,
 
@@ -275,7 +275,7 @@ L'hub IoT rifiuta con errore tutte le operazioni che aumentano le dimensioni dei
 ## <a name="module-twin-metadata"></a>Metadati del modulo gemello
 
 L'hub IoT conserva il timestamp dell'ultimo aggiornamento di ogni oggetto JSON nelle proprietà desiderate e segnalate del modulo gemello. I timestamp sono in formato UTC e codificati in formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)`YYYY-MM-DDTHH:MM:SS.mmmZ`.
-Ad esempio: 
+Ad esempio:
 
 ```json
 {

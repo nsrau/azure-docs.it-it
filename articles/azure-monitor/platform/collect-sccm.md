@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.openlocfilehash: 26ddb0cdd2728f9dff5d45494a14841cdc1a20cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922890"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connettere Configuration Manager a monitoraggio di Azure
@@ -49,7 +49,7 @@ Nella procedura seguente si concede il ruolo *Collaboratore* nell'area di lavoro
 
 1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 2. Nell'elenco di aree di lavoro di Log Analytics selezionare l'area di lavoro da modificare.
-3. Nel riquadro a sinistra selezionare **Controllo di accesso (IAM)**.
+3. Nel riquadro a sinistra selezionare **Controllo di accesso (IAM)** .
 4. Nella pagina Controllo di accesso (IAM) fare clic su **Aggiungi un'assegnazione di ruolo**. Viene visualizzato il riquadro **Aggiungi un'assegnazione di ruolo**.
 5. Nel riquadro **Aggiungi un'assegnazione di ruolo**, nell'elenco a discesa **Ruolo** selezionare il ruolo **Collaboratore**.  
 6. Nell'elenco a discesa **Assegna accesso a** selezionare l'applicazione di Configuration Manager creata in precedenza in AD e quindi fare clic su **OK**.  

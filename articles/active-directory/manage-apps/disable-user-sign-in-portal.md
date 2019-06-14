@@ -17,10 +17,10 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90000f34ff247fdd5939dc19971c170aa4b70386
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824653"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Disabilitare gli accessi utente per un'app aziendale in Azure Active Directory
@@ -32,7 +32,7 @@ ms.locfileid: "65824653"
 1. Nel **Azure Active Directory** -  ***nomedirectory*** riquadro (vale a dire il riquadro Azure AD per la directory che si sta gestendo), selezionare **applicazioni aziendali**.
 1. Nel **applicazioni aziendali - tutte le applicazioni** riquadro, viene visualizzato un elenco di App che è possibile gestire. Selezionare un'app.
 1. Nel riquadro ***nomeapp***, vale a dire il riquadro con il nome dell'app selezionata nel titolo, selezionare **Proprietà**.
-1. Nel riquadro ***nomeapp*** - **Proprietà** selezionare **No** per **Abilitata per l'accesso degli utenti?**.
+1. Nel riquadro ***nomeapp*** - **Proprietà** selezionare **No** per **Abilitata per l'accesso degli utenti?** .
 1. Selezionare il comando **Salva** .
 
 ## <a name="next-steps"></a>Passaggi successivi

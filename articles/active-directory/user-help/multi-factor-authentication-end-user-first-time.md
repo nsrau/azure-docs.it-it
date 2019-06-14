@@ -15,10 +15,10 @@ ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230058"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurare l'account per la verifica in due passaggi
@@ -26,7 +26,7 @@ La verifica in due passaggi è un livello di sicurezza aggiuntiva che consente d
 
 Questo articolo consente di configurare l'**account aziendale o dell'istituto di istruzione**. Se si vuole abilitare la verifica in due passaggi di un account Microsoft personale, vedere [Informazioni sulla verifica in due passaggi](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
-## <a name="set-up-your-account"></a>Configura l'account
+## <a name="set-up-your-account"></a>Configurare l'account
 
 Quando il supporto tecnico dell'azienda richiede all'utente di iniziare a usare la verifica in due passaggi, verrà visualizzata una schermata con l'indicazione **L'amministratore ha richiesto la configurazione di questo account per un'altra verifica della sicurezza**:
 

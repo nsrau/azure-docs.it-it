@@ -17,10 +17,10 @@ ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Esercitazione: Integrazione di Azure Active Directory con Secret Server (On-Premises)
@@ -73,7 +73,7 @@ Per configurare l'integrazione di Secret Server (On-Premises) in Azure AD, è ne
 
     ![Pulsante Nuova applicazione][3]
 
-1. Nella casella di ricerca digitare **Secret Server (On-Premises)**, selezionare **Secret Server (On-Premises)** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **Secret Server (On-Premises)** , selezionare **Secret Server (On-Premises)** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Secret Server (On-Premises) nell'elenco risultati](./media/secretserver-on-premises-tutorial/tutorial_secretserver_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Secret Server (On-Premises), è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creare un utente di test di Secret Server (On-Premises)](#create-a-secret-server-on-premises-test-user)**: per avere una controparte di Britta Simon in Secret Server (On-Premises) collegata alla rappresentazione dell'utente in Azure AD.
-1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creare un utente di test di Secret Server (On-Premises)](#create-a-secret-server-on-premises-test-user)** : per avere una controparte di Britta Simon in Secret Server (On-Premises) collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -141,7 +141,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configurazione di Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_configure.png)
 
-1. Per configurare l'accesso Single Sign-On in **Secret Server (On-Premises)**, è necessario inviare il **certificato (Base64) scaricato, l'URL di disconnessione, l'URL del servizio Single Sign-On SAML** e l'**ID entità SAML** al [team di supporto di Secret Server (On-Premises)](https://thycotic.force.com/support/s/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso Single Sign-On in **Secret Server (On-Premises)** , è necessario inviare il **certificato (Base64) scaricato, l'URL di disconnessione, l'URL del servizio Single Sign-On SAML** e l'**ID entità SAML** al [team di supporto di Secret Server (On-Premises)](https://thycotic.force.com/support/s/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -191,7 +191,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201]
 
-1. Nell'elenco delle applicazioni selezionare **Secret Server (On-Premises)**.
+1. Nell'elenco delle applicazioni selezionare **Secret Server (On-Premises)** .
 
     ![Collegamento di Secret Server (On-Premises) nell'elenco delle applicazioni](./media/secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
 

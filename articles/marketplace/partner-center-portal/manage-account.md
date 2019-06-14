@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
 ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752839"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire l'account di Marketplace commerciale nel centro per i Partner 
@@ -84,7 +84,7 @@ Per configurare l'account di pagamento, è necessario **associare il proprio Acc
 
 Ora che è associato l'Account Microsoft, per aggiungere un account di pagamento, è necessario:
 - **Scegliere un metodo di pagamento**: Conto bancario o PayPal
-- **Aggiungere le informazioni di pagamento**: Può trattarsi di scelta di un tipo di account (deposito o risparmio), immettere il nome del titolare dell'account, il numero di account e routing numero, indirizzo di fatturazione, numero di telefono o indirizzo di posta elettronica di PayPal. * Per altre informazioni sull'uso di PayPal come metodo di pagamento di account e per scoprire se è supportato nella propria area di immissione sul mercato, vedere [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+- **Aggiungere le informazioni di pagamento**: Può trattarsi di scelta di un tipo di account (deposito o risparmio), immettere il nome del titolare dell'account, il numero di account e routing numero, indirizzo di fatturazione, numero di telefono o indirizzo di posta elettronica di PayPal. \* Per altre informazioni sull'uso di PayPal come metodo di pagamento di account e per scoprire se è supportato nella propria area di immissione sul mercato, vedere [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > La modifica dell'account per il pagamento può ritardare i pagamenti per un massimo di un ciclo di pagamento. Questo ritardo si verifica perché dobbiamo verificare la modifica dell'account, proprio come facciamo quando si configura prima l'account di pagamento. Dopo aver verificato l'account, verrà comunque pagato per l'intero importo. Ii pagamenti in scadenza per il ciclo pagamento corrente saranno aggiunti a quello successivo.  
@@ -174,7 +174,7 @@ Per aggiungere utenti all'account Partner Center già presenti in azienda [accou
 
 1. Passare a **gli utenti** (sotto **impostazioni Account**) e selezionare **aggiungere utenti**.
 2. Selezionare uno o più utenti dall'elenco visualizzato. È possibile usare la casella di ricerca per cercare utenti specifici.
-* Se si seleziona più di un utente da aggiungere all'account del centro per i Partner, è necessario assegnare loro il ruolo stesso o un set di autorizzazioni personalizzate. Per aggiungere più utenti con ruoli diversi o le autorizzazioni, ripetere questi passaggi per ogni ruolo o set di autorizzazioni personalizzate.
+\* Se si seleziona più di un utente da aggiungere all'account del centro per i Partner, è necessario assegnare loro il ruolo stesso o un set di autorizzazioni personalizzate. Per aggiungere più utenti con ruoli diversi o le autorizzazioni, ripetere questi passaggi per ogni ruolo o set di autorizzazioni personalizzate.
 3.  Dopo aver scelto gli utenti, fare clic **Aggiungi selezionato**.
 5.  Nel **ruoli** sezione, specificare i ruoli o le autorizzazioni personalizzate per gli utenti selezionati.
 6.  Selezionare **Salva**.

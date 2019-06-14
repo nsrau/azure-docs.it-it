@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 5bb5f39ef5f5bce09a8639ba9eedc6d042e60c1d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942389"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Scheda Test Drive dell'applicazione Dynamics 365 for Customer Engagement
@@ -36,11 +36,11 @@ Nella sezione **Details** (Dettagli) si forniscono le informazioni di base sul T
 
 Nella tabella seguente vengono descritti i campi necessari per configurare il test drive per l'applicazione Dynamics 365. I campi obbligatori sono indicati da un asterisco (*).
 
-|      Campo                    |    DESCRIZIONE                  |
+|      Campo                    |    Descrizione                  |
 |    ---------                  |  ---------------                |
 |      Descrizione\*            |   Descrivere le operazioni che possono essere eseguite durante il test drive. È possibile usare tag HTML di base per formattare questa descrizione. Ad esempio, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e le intestazioni.  |
 |  Manuale dell'utente\*                |   Caricare un manuale dell'utente che i clienti possono usare per eseguire il test drive. Questo documento deve essere un file con estensione pdf. |
-|  Video demo del test drive (facoltativo) |  È possibile fornire una procedura dettagliata video del test drive che un cliente può guardare prima di eseguire un test drive. Specificare un URL per il video su YouTube o Vimeo. Se si seleziona **+ Aggiungi video**, verrà chiesto di fornire le informazioni seguenti:<ul><li>NOME</li><li>URL</li><li>Anteprima (in formato PNG, 533 x 324 pixel)</li></ul>  |
+|  Video demo del test drive (facoltativo) |  È possibile fornire una procedura dettagliata video del test drive che un cliente può guardare prima di eseguire un test drive. Specificare un URL per il video su YouTube o Vimeo. Se si seleziona **+ Aggiungi video**, verrà chiesto di fornire le informazioni seguenti:<ul><li>Name</li><li>URL</li><li>Anteprima (in formato PNG, 533 x 324 pixel)</li></ul>  |
 |   |   |
 
 
@@ -52,9 +52,9 @@ In questa sezione si specificano i dettagli tecnici sul test drive.
 
 In cui i campi hanno gli scopi seguenti.  I campi obbligatori sono indicati da un asterisco (*).
 
-|      Campo                    |    DESCRIZIONE                  |
+|      Campo                    |    Descrizione                  |
 |    ---------                  |  ---------------                |
-| Tipo di Test Drive\*            | Scegliere **Microsoft Hosted (Ospitato da Microsoft) (Dynamics 365 for Customer Engagement)**.  |
+| Tipo di Test Drive\*            | Scegliere **Microsoft Hosted (Ospitato da Microsoft) (Dynamics 365 for Customer Engagement)** .  |
 | Test Drive di max simultanee\*    | Numero massimo di istanze simultanee di un test drive attivo in qualsiasi momento. Ogni utente userà una licenza Dynamics mentre il test drive è attivo, pertanto sarà necessario avere a disposizione almeno questo numero di licenze Dynamics disponibili per gli utenti del test drive. Valore consigliato da 3 a 5.  |
 | Unità di durata del test (ore)\*   | Numero massimo di ore per cui sarà attiva l'istanza di test drive dell'utente. Trascorso questo periodo, verrà effettuato il deprovisioning dell'istanza dal tenant. Il valore consigliato è di 2-24 ore, a seconda della complessità dell'app. Gli utenti possono sempre richiedere un altro test drive se non hanno più tempo a disposizione e vogliono ripetere la valutazione.  |
 | URL dell'istanza\*                  | URL di navigazione iniziale del test drive. In genere è l'URL dell'istanza di Dynamics 365 su cui sono installati i dati dell'app e dell'esempio.  |
@@ -62,7 +62,7 @@ In cui i campi hanno gli scopi seguenti.  I campi obbligatori sono indicati da u
 | Azure AD App ID\*               | GUID dell'applicazione Azure AD  |
 | Chiave dell'App Azure AD\*              | Segreto dell'applicazione Azure AD, ad esempio: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=` |
 | Nome del Tenant di Azure AD\*          | Nome del tenant di Azure per l'istanza di Dynamics 365. Usare il formato <nometenant.>onmicrosoft.com, ad esempio: `testdrive.onmicrosoft.com`.  |
-| URL API Web dell'istanza\*          | URL dell'API Web per l'istanza di Dynamics 365. È possibile recuperare questo valore accedendo all'istanza di Microsoft Dynamics 365 e passando a **Impostazioni** > **Personalizzazione** > **Risorse per sviluppatori** > **API Web istanza (copiare quest'URL)**. Valore di esempio: `https://testdrive.crm.dynamics.com/api/data/v9.0`  |
+| URL API Web dell'istanza\*          | URL dell'API Web per l'istanza di Dynamics 365. È possibile recuperare questo valore accedendo all'istanza di Microsoft Dynamics 365 e passando a **Impostazioni** > **Personalizzazione** > **Risorse per sviluppatori** > **API Web istanza (copiare quest'URL)** . Valore di esempio: `https://testdrive.crm.dynamics.com/api/data/v9.0`  |
 | Nome del ruolo\*                     | Nome del ruolo di sicurezza personalizzato di Dynamics 365 creato per il test drive e che verrà assegnato agli utenti all'esecuzione, ad esempio `testdriveuser`. |
 |  |  |
 

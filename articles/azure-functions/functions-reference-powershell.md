@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833512"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065491"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per sviluppatori di Azure PowerShell di funzioni
 
@@ -60,7 +60,7 @@ Nella radice del progetto, vi è condivisa [ `host.json` ](functions-host-json.m
 
 Alcune associazioni richiedono la presenza di un `extensions.csproj` file. Associazione di estensioni, obbligatorio in [versione 2.x](functions-versions.md) del runtime di funzioni, definite nel `extensions.csproj` file, con i file di libreria effettivo nel `bin` cartella. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
-Nelle app di funzione di PowerShell, potrebbe essere facoltativamente un `profile.ps1` che viene eseguita all'avvio di un'app per le funzioni per l'esecuzione (in caso contrario, conosciuto come un  *[avvio a freddo](#cold-start)*. Per altre informazioni, vedere [profilo PowerShell](#powershell-profile).
+Nelle app di funzione di PowerShell, potrebbe essere facoltativamente un `profile.ps1` che viene eseguita all'avvio di un'app per le funzioni per l'esecuzione (in caso contrario, conosciuto come un  *[avvio a freddo](#cold-start)* . Per altre informazioni, vedere [profilo PowerShell](#powershell-profile).
 
 ## <a name="defining-a-powershell-script-as-a-function"></a>Definizione di uno script di PowerShell come una funzione
 
@@ -84,7 +84,7 @@ $TriggerMetadata.sys
 | Proprietà   | Description                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | utcNow     | Quando, in formato UTC, la funzione è stata attivata        | DateTime |
-| Nome del metodo | Il nome della funzione che è stata attivata     | string   |
+| MethodName | Il nome della funzione che è stata attivata     | string   |
 | RandGuid   | un guid univoco per l'esecuzione della funzione | string   |
 
 Ogni tipo di trigger ha un set diverso di metadati. Ad esempio, il `$TriggerMetadata` per `QueueTrigger` contiene il `InsertionTime`, `Id`, `DequeueCount`, tra le altre cose. Per altre informazioni sui metadati del trigger della coda, vedere la [documentazione ufficiale per i trigger della coda](functions-bindings-storage-queue.md#trigger---message-metadata). Consultare la documentazione sul [trigger](functions-triggers-bindings.md) si lavora con per vedere ciò che viene fornito all'interno di metadati del trigger.
@@ -133,7 +133,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Di seguito sono i parametri validi per la chiamata `Push-OutputBinding`:
 
-| NOME | Type | Posizione | Descrizione |
+| Name | Type | Posizione | Descrizione |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | Il nome dell'associazione di output a cui si desidera impostare. |
 | **`-Value`** | Object | 2 | Il valore dell'associazione di output si desidera impostare, che è accettato dalla pipeline ByValue. |
@@ -253,7 +253,7 @@ Oltre a questi cmdlet, qualsiasi elemento scritto la pipeline viene reindirizzat
 
 ### <a name="configure-the-function-app-log-level"></a>Configurare il livello di registrazione di app (funzione)
 
-Funzioni consente di definire il livello di soglia per renderlo più semplice controllare le funzioni modo scrive i log. Per impostare la soglia per tutte le tracce scritte nella console, usare il `logging.logLevel.default` proprietà di [ `host.json` file][riferimento su host.json]. Questa impostazione si applica a tutte le funzioni dell'app per le funzioni.
+Funzioni di Azure consente di definire il livello di soglia per renderlo più semplice controllare le funzioni modo scrive i log. Per impostare la soglia per tutte le tracce scritte nella console, usare il `logging.logLevel.default` proprietà di [ `host.json` file][riferimento su host.json]. Questa impostazione si applica a tutte le funzioni dell'app per le funzioni.
 
 Nell'esempio seguente imposta la soglia per abilitare la registrazione dettagliata per tutte le funzioni, ma imposta la soglia per abilitare la registrazione di debug per una funzione denominata `MyFunction`:
 
@@ -304,7 +304,7 @@ L'oggetto richiesta che viene passato allo script è di tipo `HttpRequestContext
 
 | Proprietà  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Oggetto che contiene il corpo della richiesta. `Body` viene serializzato nel tipo migliore in base ai dati. Ad esempio, se i dati JSON, viene passato come una tabella hash. Se i dati sono una stringa, viene passato sotto forma di stringa. | oggetto |
+| **`Body`**    | Oggetto che contiene il corpo della richiesta. `Body` viene serializzato nel tipo migliore in base ai dati. Ad esempio, se i dati JSON, viene passato come una tabella hash. Se i dati sono una stringa, viene passato sotto forma di stringa. | object |
 | **`Headers`** | Un dizionario che contiene le intestazioni della richiesta.                | Dizionario < stringa, stringa ><sup>*</sup> |
 | **`Method`** | Metodo HTTP della richiesta.                                | string                    |
 | **`Params`**  | Oggetto che contiene i parametri di routing della richiesta. | Dizionario < stringa, stringa ><sup>*</sup> |
@@ -319,7 +319,7 @@ L'oggetto risposta che deve inviare nuovamente è del tipo `HttpResponseContext`
 
 | Proprietà      | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Oggetto che contiene il corpo della risposta.           | oggetto                    |
+| **`Body`**  | Oggetto che contiene il corpo della risposta.           | object                    |
 | **`ContentType`** | Una mano breve per impostare il tipo di contenuto per la risposta. | string                    |
 | **`Headers`** | Oggetto che contiene le intestazioni della risposta.               | Dizionario o una tabella hash   |
 | **`StatusCode`**  | Codice di stato HTTP della risposta.                       | stringa o numero intero             |
@@ -598,7 +598,7 @@ Durante lo sviluppo di funzioni di Azure i [modello di hosting senza server](fun
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Moduli di bundle invece di usare `Install-Module`
 
-Lo script viene eseguito a ogni chiamata. Evitare di usare `Install-Module` nello script. Usare invece `Save-Module` prima di pubblicare in modo che la funzione non deve sprecare tempo scaricare il modulo. Se avvii a freddo con effetti sulle funzioni, è consigliabile distribuire l'app per le funzioni a un [piano di servizio App](functions-scale.md#app-service-plan) impostata su *AlwaysOn* o a una [piano Premium](functions-scale.md#premium-plan-public-preview).
+Lo script viene eseguito a ogni chiamata. Evitare di usare `Install-Module` nello script. Usare invece `Save-Module` prima di pubblicare in modo che la funzione non deve sprecare tempo scaricare il modulo. Se avvii a freddo con effetti sulle funzioni, è consigliabile distribuire l'app per le funzioni a un [piano di servizio App](functions-scale.md#app-service-plan) impostata su *AlwaysOn* o a una [piano Premium](functions-scale.md#premium-plan).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

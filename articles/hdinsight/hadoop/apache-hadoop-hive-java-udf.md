@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
 ms.openlocfilehash: 24c2e8b9600b3d622d3d6b42b3bc3615a87ff853
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686637"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Usare una funzione definita dall'utente Java con Apache Hive in HDInsight
@@ -21,7 +21,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Hadoop in HDInsight. Visualizzare [Introduzione a HDInsight su Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](./apache-hadoop-linux-tutorial-get-started.md).
 * [Java Developer Kit (JDK) versione 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) correttamente [installato](https://maven.apache.org/install.html) in base alle indicazioni di Apache.  Maven è un sistema di compilazione per progetti Java.
 * Il [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria cluster. Il risultato sarà wasb: / / per archiviazione di Azure, abfs: / / per Azure Data Lake archiviazione Gen2 o adl: / / per Azure Data Lake archiviazione Gen1. Se il trasferimento protetto è abilitato per l'archiviazione di Azure o Data Lake Storage Gen2, l'URI sarà wasbs: / / o abfss: / /, vedere rispettivamente anche [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).

@@ -3,20 +3,20 @@ title: Installare ed eseguire i contenitori
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Come scaricare, installare ed eseguire i contenitori per Analisi del testo in questa esercitazione dettagliata.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: f9f68b74c09bf0122ba856680a60bdb14ffa868f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: fc9e2b6e5ab2d2103cab2681fe603c1ca9b725c8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306517"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069207"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
@@ -110,7 +110,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Il comando usa i parametri seguenti:
 
-| Segnaposto | Value |
+| Placeholder | Value |
 |-------------|-------|
 |{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore e sono disponibile sul portale di Azure `Cognitive Services` pagina chiavi.  |
 |{BILLING_ENDPOINT_URI} | Il valore URI dell'endpoint di fatturazione è disponibile in Azure `Cognitive Services` pagina Panoramica. <br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|

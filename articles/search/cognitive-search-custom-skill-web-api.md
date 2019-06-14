@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
 ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023864"
 ---
 # <a name="custom-web-api-skill"></a>Competenza API Web personalizzata
@@ -36,7 +36,7 @@ Microsoft.Skills.Custom.WebApiSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | DESCRIZIONE |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | Uri | L'URI dell'API Web a cui il _JSON_ payload verrà inviato. È consentito solo lo schema URI **https** |
 | httpMethod | Metodo da usare per l'invio del payload. I metodi consentiti sono `PUT` o `POST` |
@@ -201,7 +201,7 @@ Oltre alla non disponibilità dell'API Web o all'invio di codici di stato che no
 
 Nei casi in cui l'API Web non è disponibile o restituisce un errore HTTP, un errore descrittivo con i dettagli disponibili sull'errore HTTP verrà aggiunto alla cronologia di esecuzione dell'indicizzatore.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Come aggiungere una competenza personalizzata a una pipeline di ricerca cognitiva](cognitive-search-custom-skill-interface.md)

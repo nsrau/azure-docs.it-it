@@ -1,21 +1,21 @@
 ---
-title: Configurare e accedere ai log del server per Database di Azure per MySQL nel portale di Azure
-description: Questo articolo descrive come configurare e accedere ai log del server nel Database di Azure per MySQL dal Portale di Azure.
+title: Configurare e accedere ai log query lente per il Database di Azure per MySQL nel portale di Azure
+description: Questo articolo descrive come configurare e accedere ai log lento nel Database di Azure per MySQL dal portale di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: e0701d2e10b366a6bf849512484fb216c42823bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: b16ac525d41eb2423828a647fdb75fd3f4a80a31
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525915"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052727"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurare e accedere ai log del server nel portale di Azure
+# <a name="configure-and-access-slow-query-logs-in-the-azure-portal"></a>Configurare e log query lente di accesso nel portale di Azure
 
-È possibile configurare, elencare e scaricare i [log del server di Database di Azure per PostgreSQL](concepts-server-logs.md) dal portale di Azure.
+È possibile configurare, elencare e scaricare il [Database di Azure per i log query lente MySQL](concepts-server-logs.md) dal portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per proseguire con questa guida, si richiedono:
@@ -42,7 +42,7 @@ Configurare l'accesso al log di query lente MySQL.
 6. Tornare all'elenco di log facendo clic sul **pulsante di chiusura** (icona X) nella pagina **Parametri del server**.
 
 ## <a name="view-list-and-download-logs"></a>Visualizzare l'elenco e scaricare i log
-Quando inizia la registrazione, è possibile visualizzare un elenco di log disponibili e scaricare i singoli file di log nel riquadro Log del server. 
+Quando inizia la registrazione, è possibile visualizzare un elenco di log query lente disponibili e scaricare singoli file di log nel riquadro dei log del Server.
 
 1. Aprire il Portale di Azure.
 
@@ -61,9 +61,7 @@ Quando inizia la registrazione, è possibile visualizzare un elenco di log dispo
 
    ![Fare clic sull'icona per scaricare](./media/howto-configure-server-logs-in-portal/5-download.png)
 
-
 ## <a name="next-steps"></a>Passaggi successivi
-- Per informazioni su come scaricare i log a livello di codice, vedere [Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure](howto-configure-server-logs-in-cli.md).
-- Altre informazioni sui [log del server](concepts-server-logs.md) nel Database di Azure per MySQL. 
+- Visualizzare [log di query lente di accesso nell'infrastruttura CLI](howto-configure-server-logs-in-cli.md) per informazioni su come scaricare i log query lente a livello di codice.
+- Altre informazioni sulle [rallentare i log di query](concepts-server-logs.md) nel Database di Azure per MySQL.
 - Per altre informazioni sulle definizioni di parametri e la registrazione MySQL, vedere la documentazione di MySQL sui [log](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
-

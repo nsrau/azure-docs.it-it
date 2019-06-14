@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 219a69632fe29b1d756702d97804613021b57006
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942447"
 ---
 # <a name="dynamics-365-for-customer-engagement-offer-settings-tab"></a>Scheda Offer Settings (Impostazioni dell'offerta) di Dynamics 365 for Customer Engagement
@@ -27,7 +27,7 @@ La pagina **Dynamics 365 for Customer Engagement** > **New Offer** (Nuova offert
 
 La tabella seguente descrive i campi della scheda. I campi obbligatori sono indicati da un asterisco (*).
 
-|    Campo         |       DESCRIZIONE                                                            |
+|    Campo         |       Descrizione                                                            |
 |  ---------       |     ---------------                                                          |
 | **ID offerta\***   | Identificatore univoco dell'offerta (in un profilo di pubblicazione). Questo ID sarà visibile negli URL dei prodotti e nei report delle informazioni dettagliate. Ha una lunghezza massima di 50 caratteri e può contenere caratteri alfanumerici minuscoli e trattini (-). L'identificatore non può terminare con un trattino. **Nota:** Questo campo non può essere modificato dopo la pubblicazione dell'offerta perché è associato all'URL di base sul marketplace dell'offerta.  |
 | **ID dell'editore\***  | Identificatore univoco della propria organizzazione in Azure Marketplace. È consigliabile associare a tutte le proprie offerte il proprio ID editore. Questo valore non può essere modificato dopo che l'offerta è stata salvata. |

@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067609"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Avvisi delle metriche con soglie dinamiche in Monitoraggio di Azure
@@ -64,7 +64,7 @@ Usando la stessa regola di avviso con soglie dinamiche è possibile creare sogli
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>A cosa servono le impostazioni avanzate per le soglie dinamiche?
 
-**Periodi di errore**: le soglie dinamiche consentono anche di configurare l'opzione "Number violations to trigger the alert" (Numero di violazioni per attivare l'avviso), ovvero un numero minimo di deviazioni che devono verificarsi entro un determinato intervallo di tempo affinché il sistema generi un avviso (l'intervallo di tempo predefinito è quattro deviazioni in 20 minuti). L'utente può configurare i periodi di errore e scegliere il criterio in base al quale essere avvisato modificando i periodi di errore e l'intervallo di tempo. Questa opzione consente di ridurre la generazione di avvisi non significativi a causa di picchi temporanei. Ad esempio: 
+**Periodi di errore**: le soglie dinamiche consentono anche di configurare l'opzione "Number violations to trigger the alert" (Numero di violazioni per attivare l'avviso), ovvero un numero minimo di deviazioni che devono verificarsi entro un determinato intervallo di tempo affinché il sistema generi un avviso (l'intervallo di tempo predefinito è quattro deviazioni in 20 minuti). L'utente può configurare i periodi di errore e scegliere il criterio in base al quale essere avvisato modificando i periodi di errore e l'intervallo di tempo. Questa opzione consente di ridurre la generazione di avvisi non significativi a causa di picchi temporanei. Ad esempio:
 
 Per attivare un avviso quando il problema continua per 20 minuti, 4 volte consecutive con periodicità di 5 minuti, usare le impostazioni seguenti:
 

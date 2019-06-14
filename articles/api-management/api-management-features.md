@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
 ms.openlocfilehash: 34c4ef2885a82b6c392b814eeb624e616e341d48
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304339"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Confronto basato sulle funzionalità dei livelli di Gestione API di Azure
@@ -26,19 +26,19 @@ Ogni [piano tariffario](https://aka.ms/apimpricing) di Gestione API offre un set
 
 | Funzionalità                                                                                      | Consumo | Sviluppatore      | Basic          | Standard       | Premium        |
 | -------------------------------------------------------------------------------------------- | ----------------------------- | -------------- | -------------- | -------------- | -------------- |
-| Integrazione di Azure AD<sup>1</sup>                                                             | No                             | Sì            | No              | Yes            | Yes            |
-| Supporto della Rete virtuale di Microsoft Azure (VNet)                                                               | No                            | Sì            | No              | No             | Yes            |
-| Distribuzione in più aree                                                                      | No                             | No             | No              | No             | Yes            |
-| Più nomi di dominio personalizzati                                                                 | No                             | No              | No              | No             | Yes            |
-| Portale per sviluppatori<sup>2</sup>                                                                 | No                             | Yes            | Sì            | Sì            | Yes            |
-| Cache incorporata                                                                               | No                             | Yes            | Sì            | Sì            | Yes            |
-| Analisi incorporata                                                                           | No                             | Yes            | Sì            | Sì            | Yes            |
+| Integrazione di Azure AD<sup>1</sup>                                                             | No                            | Sì            | No             | Yes            | Yes            |
+| Supporto della Rete virtuale di Microsoft Azure (VNet)                                                               | No                            | Sì            | No             | No             | Yes            |
+| Distribuzione in più aree                                                                      | No                            | No             | No             | No             | Yes            |
+| Più nomi di dominio personalizzati                                                                 | No                            | No             | No             | No             | Yes            |
+| Portale per sviluppatori<sup>2</sup>                                                                 | No                            | Yes            | Sì            | Sì            | Yes            |
+| Cache incorporata                                                                               | No                            | Yes            | Sì            | Sì            | Yes            |
+| Analisi incorporata                                                                           | No                            | Yes            | Sì            | Sì            | Yes            |
 | [Impostazioni SSL](api-management-howto-manage-protocols-ciphers.md)                             | Yes                            | Sì            | Sì            | Sì            | Yes            |
 | [Cache esterna](https://aka.ms/apimbyoc)                                                    | Yes                           | Sì            | Sì            | Sì            | Yes            |
 | [Autenticazione con certificato client](api-management-howto-mutual-certificates-for-clients.md) | Yes                | Sì            | Sì            | Sì            | Yes            |
 | [Backup e ripristino](api-management-howto-disaster-recovery-backup-restore.md)               | No                            | Yes            | Sì            | Sì            | Yes            |
 | [Gestione tramite Git](api-management-configuration-repository-git.md)                        | No                            | Yes            | Sì            | Sì            | Yes            |
-| API di gestione diretta                                                                        | No                             | Yes            | Sì            | Sì            | Yes            |
+| API di gestione diretta                                                                        | No                            | Yes            | Sì            | Sì            | Yes            |
 | Metriche e log di Monitoraggio di Azure                                                               | No                | Yes            | Sì            | Sì            | Yes            |
 
 <sup>1</sup> consente l'uso di Azure Active Directory (e Azure AD B2C) come un'identità provider per l'utente accede da portale per sviluppatori.<br/>

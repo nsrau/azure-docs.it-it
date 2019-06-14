@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1018b449047e40a67ea843e8506fb43f6e1093a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9e074282b477fe620170cd8672dc3d050fce6afe
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239062"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061632"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Creare un nuovo ambiente Time Series Insights nel portale di Azure
 
@@ -51,7 +51,7 @@ Seguire questa procedura per creare un ambiente:
    Piano tariffario | S1 | Scegliere la velocità effettiva necessaria. Per la capacità iniziale e i costi minimi, selezionare S1.
    Capacity | 1 | Per Capacità si intende il moltiplicatore applicato alla velocità in ingresso, alla capacità di archiviazione e ai costi associati allo SKU selezionato.  È possibile modificare la capacità di un ambiente dopo la creazione. Per i costi minimi, selezionare una capacità pari a 1. 
   
-1. Selezionare **Aggiungi al dashboard** per accedere più facilmente all'ambiente di Time Series in futuro.
+1. Controllare **Aggiungi al dashboard** di accedere più facilmente l'ambiente Time Series in futuro.
 
    ![Creare l'aggiunta al dashboard per Time Series Insights](media/time-series-insights-get-started/3-pin-create.png)
 

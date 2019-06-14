@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 4b125649dee51680625ac5a92b31bdc9f6830529
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653391"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069598"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connessioni ibride del Servizio app di Azure #
 
@@ -41,7 +41,6 @@ Quando l'app esegue una richiesta DNS che corrisponde a un endpoint di Connessio
 > [!NOTE]
 > Ciò significa che è consigliabile usare sempre un nome DNS per la connessione ibrida. Alcuni software client non eseguono una ricerca DNS se l'endpoint usa un indirizzo IP al posto del nome DNS.
 >
-
 
 ### <a name="app-service-hybrid-connection-benefits"></a>Vantaggi della funzionalità Connessioni ibride di Servizio app di Azure ###
 
@@ -140,7 +139,7 @@ Per aggiungere una o più connessioni ibride a Gestione connessione ibrida:
 2. Selezionare **Configure another Hybrid Connection** (Configura un'altra connessione ibrida).
 ![Schermata Configure New Hybrid Connections (Configura nuove connessioni ibride)][8]
 
-1. Accedere con l'account Azure.
+1. Accedere con l'account Azure per ottenere le connessioni ibride disponibile con le sottoscrizioni. Gestione connessione ibrida non continuare a usare l'account di Azure oltre a quelle. 
 1. Scegliere una sottoscrizione.
 1. Selezionare le connessioni ibride che si vuole vengano inoltrate tramite Gestione connessione ibrida.
 ![Schermata delle connessioni ibride][9]
@@ -226,7 +225,9 @@ Lo stato "Connesso" indica che almeno un'istanza di Gestione connessione ibrida 
 
 Il motivo principale per cui i client non riescono a connettersi al relativo endpoint è perché l'endpoint è stato specificato usando un indirizzo IP anziché un nome DNS. Se l'app non riesce a raggiungere l'endpoint desiderato ed è stato specificato un indirizzo IP, usare un nome DNS valido nell'host in cui Gestione connessione ibrida è in esecuzione. È necessario controllare anche che il nome DNS venga risolto correttamente nell'host in cui Gestione connessione ibrida è in esecuzione e che vi sia connettività tra l'host in cui Gestione connessione ibrida è in esecuzione e l'endpoint della connessione ibrida.  
 
-Nel Servizio app è possibile richiamare lo strumento tcpping dalla console Strumenti avanzati (Kudu). Questo strumento indica se si dispone dell'accesso a un endpoint TCP, ma non se si dispone dell'accesso all'endpoint di una connessione ibrida. Quando lo strumento viene usato nella console per rilevare l'endpoint di una connessione ibrida, viene confermato solo che usa una combinazione host:porta.  
+Nel servizio App, il **tcpping** strumento da riga di comando può essere richiamato dalla console strumenti avanzati (Kudu). Questo strumento indica se si dispone dell'accesso a un endpoint TCP, ma non se si dispone dell'accesso all'endpoint di una connessione ibrida. Quando lo strumento viene usato nella console per rilevare l'endpoint di una connessione ibrida, viene confermato solo che usa una combinazione host:porta.  
+
+Se si dispone di un client della riga di comando per l'endpoint, è possibile testare la connettività dalla console dell'app. Ad esempio, è possibile testare l'accesso agli endpoint server web mediante curl.
 
 ## <a name="biztalk-hybrid-connections"></a>Connessioni ibride BizTalk ##
 

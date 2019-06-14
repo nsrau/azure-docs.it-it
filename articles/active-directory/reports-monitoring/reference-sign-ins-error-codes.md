@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 760eb5a37a09687cd98ca7abbdcb0bc42667f830
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513658"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107616"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 
@@ -66,7 +66,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |50001|Il nome dell'entità servizio non è stato trovato in questo tenant. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o se l'entità risorsa non è stata trovata nella directory o non è valida.|
 |50002|L'accesso non è riuscito a causa delle limitazioni dell'accesso proxy nel tenant. Se questo errore è dovuto ai propri criteri per il tenant, è possibile modificare le impostazioni di limitazione per il tenant per correggerlo.|
 |50003|L'accesso non è riuscito a causa di una chiave di firma o un certificato mancante. Ciò può essere dovuto all'assenza di una chiave di firma configurata nell'applicazione. Vedere le soluzioni illustrate in [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Se il problema persiste, contattare il proprietario dell'applicazione o l'amministratore dell'applicazione.|
-|50005|L'utente ha cercato di eseguire l'accesso a un dispositivo da una piattaforma attualmente non supportata tramite criteri di accesso condizionale.|
+|50005|Utente ha tentato di eseguire l'accesso a un dispositivo da una piattaforma che non è attualmente supportata tramite i criteri di accesso condizionale.|
 |50006| La verifica della firma non è riuscita perché la firma non è valida. Vedere la soluzione illustrata in [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). Se il problema persiste, contattare il proprietario dell'applicazione o l'amministratore dell'applicazione.|
 |50007|Non è stato trovato il certificato di crittografia del partner per l'applicazione. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) presso Microsoft per richiedere la risoluzione del problema.|
 |50008|L'asserzione SAML non è presente o è configurata in modo errato nel token. Contattare il provider di federazione.|
@@ -133,7 +133,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |52004|L'utente non ha fornito il consenso per l'accesso alle risorse di LinkedIn. |
 |53000|Il criterio di accesso condizionale richiede un dispositivo conforme e il dispositivo non è conforme. Chiedere all'utente di registrare il dispositivo con un provider MDM approvato, come Intune.|
 |53001|I criteri di accesso condizionale richiedono un dispositivo aggiunto al dominio e il dispositivo non è aggiunto al dominio. Chiedere all'utente di usare un dispositivo aggiunto al dominio.|
-|53002|L'applicazione usata non è un'applicazione approvata per l'accesso condizionale. L'utente deve usare una delle app dell'elenco di applicazioni approvate per l'uso per ottenere l'accesso.|
+|53002|Applicazione utilizzata non è un'applicazione approvata per l'accesso condizionale. L'utente deve usare una delle app dell'elenco di applicazioni approvate per l'uso per ottenere l'accesso.|
 |53003|L'accesso è stato bloccato a causa di criteri di accesso condizionale.|
 |53004|L'utente deve completare il processo di registrazione dell'autenticazione a più fattori prima di accedere al contenuto. L'utente deve eseguire la registrazione per l'autenticazione a più fattori.|
 |65001|L'applicazione X non è autorizzata ad accedere all'applicazione Y o l'autorizzazione è stata revocata. Oppure, l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare una richiesta di autorizzazione interattiva per questo utente e questa risorsa. Oppure, l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare all'amministratore del tenant una richiesta di autorizzazione ad agire per conto dell'applicazione Y per la risorsa Z.|
@@ -180,7 +180,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |500021|Tenant è limitato dal proxy aziendale. Negando l'accesso alle risorse.|
 |500121| Autenticazione non riuscita durante la richiesta di autenticazione avanzata.|
 |500133| L'asserzione non è compresa nell'intervallo di tempo valido. Assicurarsi che il token di accesso non sia scaduto prima di usarlo per l'asserzione utente o richiedere un nuovo token.|
-|530021|Applicazione non soddisfa i requisiti delle app approvata l'accesso condizionale.|
+|530021|Applicazione non soddisfa i requisiti delle app approvate l'accesso condizionale.|
 |7000218|Il corpo della richiesta deve contenere il parametro seguente: 'client_assertion' o 'client_secret'.|
 
 

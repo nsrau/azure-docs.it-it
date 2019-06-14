@@ -16,10 +16,10 @@ ms.date: 03/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d12519a2bd0a5e3951d0ca9ae51a54bd728a782b
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65987888"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Esercitazione: Integrazione di Azure Active Directory con Land Gorilla Client
@@ -71,11 +71,11 @@ Per configurare l'integrazione di Land Gorilla Client in Azure AD, è necessario
 
 1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 1. Fare clic sul pulsante **Aggiungi** nella parte superiore della finestra di dialogo.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 1. Digitare **Land Gorilla Client** nella casella di ricerca.
 
@@ -172,7 +172,7 @@ L'obiettivo di questa sezione consiste nel creare un utente di test nel portale 
  
     ![Creazione di un utente test di Azure AD](./media/landgorilla-tutorial/create_aaduser_04.png) 
 
-    a. Nel **Name** nella casella di testo, digitare **Simon B.**.
+    a. Nel **Name** nella casella di testo, digitare **Simon B.** .
 
     b. Nel **nome utente** digitare il **indirizzo di posta elettronica** di B. Simon.
 

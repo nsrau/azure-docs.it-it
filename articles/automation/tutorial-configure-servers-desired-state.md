@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 582533d23757de748b9cc7d40e45acc00240d384
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83a65be50a3cec9cea47682ab5e207bd4ad9e984
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599736"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072566"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurare i server sullo stato desiderato e gestire gli orientamenti
 
@@ -145,6 +145,27 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 # Display the most recent report
 $reports[0]
 ```
+
+## <a name="removing-nodes-from-service"></a>Rimozione di nodi dal servizio
+
+Quando si aggiunge un nodo alla configurazione dello stato di automazione di Azure, le impostazioni in Gestione configurazione locale vengono impostate da registrare con il servizio e il pull delle configurazioni e i moduli necessari per configurare la macchina.
+Se si sceglie di rimuovere il nodo dal servizio, è possibile farlo usando il portale di Azure o i cmdlet di Az.
+
+> [!NOTE]
+> Annullamento della registrazione di un nodo da solo il servizio imposta le impostazioni di Gestione configurazione locale in modo che il nodo non è più si connette al servizio.
+> Ciò non influisce la configurazione attualmente applicato al nodo.
+> Per rimuovere la configurazione corrente, usare il [PowerShell](https://docs.microsoft.com/en-us/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) oppure eliminare il file di configurazione locale (questo è l'unica opzione disponibile per i nodi di Linux).
+
+### <a name="azure-portal"></a>Portale di Azure
+
+Automazione di Azure, fare clic su **State configuration (DSC)** nel sommario.
+Successivamente fare clic su **nodi** per visualizzare l'elenco di nodi che sono registrati con il servizio.
+Fare clic sul nome del nodo da rimuovere.
+Nella vista del nodo che si apre, fare clic su **Unregister**.
+
+### <a name="powershell"></a>PowerShell
+
+Per annullare la registrazione di un nodo dal servizio di configurazione dello stato di automazione di Azure usando PowerShell, seguire la documentazione per il cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/en-us/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: cfa6a363725c35083b32d6de1dd1371777f91907
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240295"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controllo delle versioni client e server in App per dispositivi mobili e Servizi mobili
@@ -34,7 +34,7 @@ Per altre informazioni sulla migrazione al servizio App senza apportare modifich
 ## <a name="header-specification"></a>Specifica di intestazione
 La chiave `ZUMO-API-VERSION` può essere specificata nell'intestazione HTTP o nella stringa di query. Il valore è una stringa di versione nel formato **x.y.z**.
 
-Ad esempio: 
+Ad esempio:
 
 GET https://service.azurewebsites.net/tables/TodoItem
 
@@ -69,7 +69,7 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 ### <a name="behavior-of-mobile-apps-backends"></a>Comportamento dei back-end di app per dispositivi mobili
 | ZUMO-API-VERSION | Valore di MS_SkipVersionCheck | Risposta |
 | --- | --- | --- |
-| x.y.z o Null |True  |200 - OK |
+| x.y.z o Null |True |200 - OK |
 | Null |False/Non specificato |400 - Richiesta non valida |
 | 1.x.y |False/Non specificato |400 - Richiesta non valida |
 | 2.0.0-2.x.y |False/Non specificato |200 - OK |

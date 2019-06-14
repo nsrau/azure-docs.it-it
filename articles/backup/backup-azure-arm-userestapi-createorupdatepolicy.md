@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648806"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creare criteri di backup di Servizi di ripristino di Azure usando l'API REST
@@ -50,9 +50,9 @@ I parametri `{policyName}` e `{vaultName}` vengono forniti nell'URI. Informazion
 
 Ad esempio, per creare un criterio per il backup di macchine virtuali di Azure, sono disponibili i componenti del corpo della richiesta indicati di seguito.
 
-|NOME  |Obbligatorio  |Type  |DESCRIZIONE  |
+|Name  |Obbligatorio  |Type  |Descrizione  |
 |---------|---------|---------|---------|
-|properties     |   True       |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Proprietà ProtectionPolicyResource        |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Proprietà ProtectionPolicyResource        |
 |tags     |         | Object        |  Tag delle risorse       |
 
 Per l'elenco completo delle definizioni nel corpo della richiesta, vedere il [documento relativo all'API REST dei criteri di backup](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
@@ -152,13 +152,13 @@ Il criterio indica:
 > [!IMPORTANT]
 > I formati di ora per la pianificazione e la conservazione supportano solo DateTime. Non supportano il solo formato Time.
 
-## <a name="responses"></a>Risposte
+## <a name="responses"></a>Responses
 
 La creazione o l'aggiornamento dei criteri di backup è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|NOME  |Type  |DESCRIZIONE  |
+|NOME  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |    [ProtectionPolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 - Accettato     |         |     Accepted    |

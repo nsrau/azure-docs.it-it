@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7bb07fa00babb00d1b2af03f89ae6857cb79f5f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fa7b5c82f0b057e2eb029b9cc632d8da02206678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108401"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerazioni relative alla sicurezza quando si accede alle app in remoto usando il proxy applicazione di Azure AD
 
@@ -47,9 +47,9 @@ Se si sceglie Pass-through come metodo di preautenticazione, non si otterrà que
 
 Applicare controlli dei criteri più completi prima che vengano stabilite connessioni alla rete.
 
-Con l'[accesso condizionale](../conditional-access/overview.md) è possibile definire restrizioni sul tipo di traffico che può accedere alle applicazioni back-end. È possibile, ad esempio, creare criteri per definire restrizioni in base alla posizione, al livello di autenticazione e al profilo di rischio.
+Con [accesso condizionale](../conditional-access/overview.md), è possibile definire restrizioni sul quale traffico è consentito accedere alle applicazioni back-end. È possibile, ad esempio, creare criteri per definire restrizioni in base alla posizione, al livello di autenticazione e al profilo di rischio.
 
-È possibile usare l'accesso condizionale anche per configurare criteri di autenticazione a più fattori e aggiungere così un altro livello di sicurezza alle autenticazioni utente. Le applicazioni possono anche essere indirizzate a Microsoft Cloud App Security tramite l'accesso condizionale di Azure AD per fornire monitoraggio e controlli in tempo reale, tramite i criteri di [accesso](https://docs.microsoft.com/cloud-app-security/access-policy-aad) e della [sessione](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
+È anche possibile usare l'accesso condizionale per configurare i criteri di multi-Factor Authentication, l'aggiunta di un ulteriore livello di sicurezza alle autenticazioni utente. Inoltre, le applicazioni possono essere indirizzate anche a Microsoft Cloud App Security tramite l'accesso condizionale di Azure AD per fornire il monitoraggio in tempo reale e i controlli, tramite [access](https://docs.microsoft.com/cloud-app-security/access-policy-aad) e [sessione](https://docs.microsoft.com/cloud-app-security/session-policy-aad) criteri
 
 ### <a name="traffic-termination"></a>Terminazione di traffico
 
@@ -144,7 +144,7 @@ Se l'app è configurata per l'utilizzo di PassThrough come metodo di autenticazi
 
 Se l'app è configurata per eseguire la pre-autenticazione con Azure AD, l'utente viene reindirizzato al servizio token di sicurezza di Azure AD per eseguire l'autenticazione e si verificano gli eventi seguenti:
 
-1. Il proxy applicazione verifica gli eventuali requisiti dei criteri di accesso condizionale per l'applicazione specifica. Questo passaggio verifica che l'utente sia stato assegnato all'applicazione. Se è necessaria la verifica in due passaggi, la sequenza di autenticazione richiede all'utente di usare un secondo metodo di autenticazione.
+1. Proxy applicazione verifica gli eventuali requisiti dei criteri di accesso condizionale per l'applicazione specifica. Questo passaggio verifica che l'utente sia stato assegnato all'applicazione. Se è necessaria la verifica in due passaggi, la sequenza di autenticazione richiede all'utente di usare un secondo metodo di autenticazione.
 
 2. Dopo avere superato tutti i controlli, il servizio token di sicurezza di Azure AD rilascia un token firmato per l'applicazione e l'utente viene reindirizzato al servizio proxy applicazione.
 

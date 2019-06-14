@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: 6284a1aa0cc3a49291553309b058e4d9f65b24c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701023"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali con REST
@@ -61,7 +61,7 @@ In questa esercitazione si apprenderà come:
 
 Per accedere alle API di Servizi multimediali, è necessario raccogliere i punti dati seguenti.
 
-|Impostazione|Esempio|DESCRIZIONE|
+|Impostazione|Esempio|Descrizione|
 |---|-------|-----|
 |Dominio del tenant di Azure Active Directory|microsoft.onmicrosoft.com|Azure AD come servizio token di sicurezza viene creato usando il formato seguente: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. Azure AD emette un token JWT per accedere alle risorse (token di accesso).|
 |Endpoint API REST|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Si tratta dell'endpoint verso il quale vengono eseguite tutte le chiamate all'API REST di Servizi multimediali nell'applicazione,|

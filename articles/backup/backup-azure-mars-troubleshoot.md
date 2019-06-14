@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: d8a1d261808eb8f97d1e0dab78b767b37ae6802f
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 2c2ed46ed6e4a5d6663387777d3425d18b50500e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743148"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060210"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Risoluzione dei problemi dell'agente di Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -41,9 +41,29 @@ Si consiglia di eseguire la convalida, di seguito prima di iniziare la risoluzio
 
 ## <a name="invalid-vault-credentials-provided"></a>Sono state specificate credenziali dell'insieme di credenziali non valide
 
-| Dettagli errore | Possibili cause | Azioni consigliate |
-| ---     | ---     | ---    |
-| **Error (Errore) (Error (Errore)e)** </br> *Sono state specificate credenziali dell'insieme di credenziali non valide. Il file è danneggiato o non ha le credenziali più recenti associate al servizio di ripristino. (ID: 34513)* | <ul><li> Le credenziali dell'insieme delle credenziali non sono valide, ovvero sono state scaricate più di 48 ore prima dell'ora di registrazione.<li>L'agente MARS è in grado di scaricare i file nella directory Temp di Windows. <li>Le credenziali dell'insieme di credenziali si trovano in un percorso di rete. <li>TLS 1.0 è disabilitato<li> La connessione è bloccata da un server proxy configurato. <br> |  <ul><li>Scaricare le nuove credenziali dell'insieme di credenziali (**Nota**: se in precedenza sono stati scaricati più file di credenziali dell'insieme di credenziali, solo il file scaricato più recente è valido entro 48 ore.) <li>Avviare **IE** > **Impostazione** > **Opzioni Internet** > **Sicurezza** > **Internet**. Selezionare quindi **Livello personalizzato** e scorrere per visualizzare la sezione di download del file. Selezionare quindi **Abilita**.<li>Potrebbe anche essere necessario aggiungere questi siti ai [siti attendibili](https://docs.microsoft.com/azure/backup/backup-configure-vault#verify-internet-access) di IE.<li>Modificare le impostazioni per l'utilizzo di un server proxy. Indicare quindi i dettagli del server proxy. <li> Mettere in corrispondenza la data e l'ora con il computer.<li>Se viene visualizzato un errore indicante che non è consentito scaricare file, è probabile che sia presente un numero elevato di file nella directory C:/Windows/Temp.<li>Andare a C:/Windows/Temp e controllare se sono presenti più di 60.000 o 65.000 file con estensione tmp. Se sono presenti, eliminare questi file.<li>Assicurarsi che .NET Framework 4.6.2 sia installato. <li>Se TLS 1.0 è stato disabilitato per conformità PCI, fare riferimento a questa [pagina per la risoluzione dei problemi](https://support.microsoft.com/help/4022913). <li>Se si dispone di un antivirus installato nel server, escludere i file seguenti dall'analisi dell'antivirus: <ul><li>CBengine.exe<li>CSC.exe, correlato a .NET Framework. È presente un file CSC.exe per ogni versione di .NET installata nel server. Escludere i file CSC.exe associati a tutte le versioni di .NET Framework nel server interessato. <li>Percorso della cartella Scratch o della cache. <br>*Il percorso predefinito della cartella Scratch o della posizione della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch*.<br><li>Cartella Bin C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure\Bin
+**Messaggio di errore**: Sono state specificate credenziali di insieme non valide. Il file è danneggiato o non ha le credenziali più recenti associate al servizio di ripristino. (ID: 34513)
+
+| Causa | Azione consigliata |
+| ---     | ---    |
+| **L'insieme di credenziali non è validi** <br/> <br/> I file delle credenziali dell'insieme di credenziali potrebbero essere danneggiati oppure potrebbero essere scaduto (ad esempio scaricata più di 48 ore prima dell'ora di registrazione)| Scaricare nuove credenziali dall'insieme di credenziali di servizi di ripristino dal portale di Azure (vedere *passaggio 6* sotto [ **scaricare l'agente MARS** ](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) sezione) ed eseguire il seguente: <ul><li> Se già installato e registrato di Microsoft Azure Backup Agent, quindi aprire la console MMC di Microsoft Azure Backup Agent e scegliere **registra Server** dal riquadro azioni per completare la registrazione con appena scaricato credenziali <br/> <li> Se non è riuscita nella nuova installazione quindi provare a reinstallare usando le nuove credenziali</ul> **Nota**: Se più file delle credenziali dell'insieme di credenziali vengono scaricati in precedenza, la versione più recente scaricato è valido solo file entro 48 ore. Di conseguenza è consigliabile scaricare aggiornata nuovo file di credenziali di insieme di credenziali.
+| **Server proxy/firewall sta bloccando <br/>o <br/>connettività Internet No** <br/><br/> Se la macchina o il Server Proxy con accesso Internet limitato, senza che vengano elencati gli URL necessari la registrazione avrà esito negativo.| Per risolvere questo problema, effettuare le seguenti:<br/> <ul><li> Rivolgersi al team IT per assicurarsi che il sistema disponga della connettività Internet<li> Se non è il server Proxy, quindi verificare che l'opzione proxy sia deselezionato quando si registra l'agente, verificare i passaggi di impostazione proxy elencati [qui](#verifying-proxy-settings-for-windows)<li> Se si dispone di un server proxy/firewall quindi funzionano con il team di rete per garantire che sotto URL e l'IP indirizzo avere accesso<br/> <br> **URL**<br> - *www.msftncsi.com* <br>-  *.Microsoft.com* <br> -  *.WindowsAzure.com* <br>-  *.microsoftonline.com* <br>-  *.windows.net* <br>**Indirizzo IP**<br> - *20.190.128.0/18* <br> - *40.126.0.0/18* <br/></ul></ul>Provare a registrare nuovamente dopo aver completato i passaggi di risoluzione dei problemi precedenti
+| **Il software antivirus blocca** | Se si dispone di un antivirus installato nel server, quindi aggiungere le regole di esclusione necessari per i file seguenti dall'analisi dell'antivirus: <br/><ui> <li> *CBengine.exe* <li> *CSC.exe*<li> Cartella dei file temporanei, il percorso predefinito è *C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch* <li> Cartella bin al *C:\Program Files\Microsoft Azure Recovery Services Agent\Bin*
+
+### <a name="additional-recommendations"></a>Consigli aggiuntivi
+- Passare a *c: / Windows/Temp* e controllare se sono presenti più di 60.000 o 65.000 file con estensione tmp. Se sono presenti, eliminare questi file
+- Verificare che data e ora del computer corrisponda al fuso orario locale
+- Verificare che il [seguente](backup-configure-vault.md#verify-internet-access) siti vengono aggiunti ai siti attendibili di Internet Explorer
+
+### <a name="verifying-proxy-settings-for-windows"></a>Verifica per determinare se le impostazioni proxy per Windows
+
+- Scaricare **psexec** da [qui](https://docs.microsoft.com/sysinternals/downloads/psexec)
+- Eseguire questo `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` comando dal prompt dei comandi con privilegi elevati:
+- Verrà avviata *Internet Explorer* finestra
+- Passare a *degli strumenti* -> *Opzioni Internet* -> *connessioni* -> *impostazioni LAN*
+- Verificare le impostazioni proxy per *sistema* account
+- Se è stato configurato alcun proxy e vengono forniti i dettagli proxy, quindi rimuovere i dettagli
+-   Se il proxy è configurato e dettagli del proxy non sono corrette, quindi assicurarsi *IP Proxy* e *porta* dettagli sono accurati
+- Chiudi *Internet Explorer*
 
 ## <a name="unable-to-download-vault-credential-file"></a>Non è possibile scaricare il file di credenziali dell'insieme di credenziali
 
@@ -85,34 +105,31 @@ Se i backup pianificati non vengono generati automaticamente, mentre i backup ma
 
 - Verificare che lo stato di Backup in linea è impostato su **abilitare**. Per verificare lo stato di eseguire il seguente:
 
-  - Andare a **Pannello di controllo** > **Strumenti di amministrazione** > **Utilità di pianificazione**.
-    - Espandere **Microsoft** e selezionare **Backup online**.
+  - Aprire **utilità di pianificazione** ed espandere **Microsoft**e selezionare **Backup Online**.
   - Fare doppio clic su **Microsoft-Backup online** e andare alla scheda **Trigger**.
-  - Verificare se lo stato è impostato su **abilitato**. In caso contrario, selezionare **Modifica**, quindi selezionare la casella di controllo **Abilitata** e fare clic su **OK**.
+  - Verificare se lo stato è impostato su **abilitato**. Se non lo è, quindi selezionare **Edit** > **Enabled** casella di controllo e fare clic su **OK**.
 
-- Assicurarsi che l'account utente selezionato per l'esecuzione dell'attività è uno **SYSTEM** oppure **gruppo locale Administrators** nel server. Per verificare l'account utente, passare al **generali** scheda e selezionare il **opzioni di sicurezza**.
+- Assicurarsi che l'account utente selezionato per l'esecuzione dell'attività è uno **SYSTEM** oppure **gruppo locale Administrators** nel server. Per verificare l'account utente, passare al **generali** scheda e selezionare il **sicurezza** opzioni.
 
-- Verificare se PowerShell 3.0 o versione successiva è installato nel server. Per controllare la versione di PowerShell, eseguire il comando seguente e verificare che il numero di versione *principale* sia uguale o maggiore di 3.
+- Verificare che PowerShell 3.0 o versione successiva sia installato nel server. Per controllare la versione di PowerShell, eseguire il comando seguente e verificare che il numero di versione *principale* sia uguale o maggiore di 3.
 
   `$PSVersionTable.PSVersion`
 
-- Verificare che il percorso seguente appartenga alla variabile di ambiente *PSMODULEPATH*.
+- Verificare che il percorso seguente fa parte di *PSMODULEPATH* variabile di ambiente
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- Se i criteri di esecuzione PowerShell per *LocalMachine* sono impostati con restrizioni, il cmdlet di PowerShell che attiva il backup potrebbe non avere esito positivo. Eseguire questi comandi in modalità con privilegi elevati per controllare e impostare i criteri di esecuzione per *Unrestricted* o *RemoteSigned*.
+- Se i criteri di esecuzione PowerShell per *LocalMachine* sono impostati con restrizioni, il cmdlet di PowerShell che attiva il backup potrebbe non avere esito positivo. Eseguire i comandi seguenti in modalità con privilegi elevate, per controllare e impostare i criteri di esecuzione per uno *Unrestricted* o *RemoteSigned*
 
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
-- Verificare che server è stato riavviato dopo l'installazione dell'agente di backup
+- Verificare che vi siano mancanti o danneggiati **PowerShell** modulo **MSonlineBackup**. In caso di qualsiasi file mancanti o danneggiati, per risolvere questo problema, procedere con il seguente:
 
-- Verificare che vi siano mancanti o danneggiati **PowerShell** modulo **MSonlineBackup**. Nel caso in cui sono presenti eventuali file mancanti o danneggiati, per risolvere il problema, procedere con il seguente:
-
-  - Da un altro computer (Windows 2008 R2) che l'agente di MARS funziona correttamente e copiare la cartella MSOnlineBackup dal *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* percorso.
+  - Da qualsiasi computer con l'agente MARS che funziona correttamente e copiare la cartella MSOnlineBackup dal *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* percorso.
   - Incollare questa problematica macchina nello stesso percorso *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* .
-  - Se **MSOnlineBackup** la cartella è già presente nella macchina, Incolla e Sostituisci i file di contenuto all'interno.
+  - Se **MSOnlineBackup** cartella esiste già nella macchina, incollare o sostituire i file di contenuto all'interno.
 
 
 > [!TIP]

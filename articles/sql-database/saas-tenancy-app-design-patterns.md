@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484455"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Criteri di tenancy di database delle applicazioni SaaS multi-tenant
@@ -33,8 +33,8 @@ In cambio della tariffa di noleggio, ogni tenant ottiene l'accesso ai componenti
 
 Il termine *modello di tenancy* indica il modo in cui sono organizzati i dati dei tenant che vengono archiviati:
 
-- *Singola tenancy:*&nbsp; in ogni database sono archiviati i dati di un solo tenant.
-- *Multi-tenancy:*&nbsp; in ogni database sono archiviati i dati di più tenant diversi, con meccanismi per proteggere la privacy dei dati.
+- *Singola tenancy:* &nbsp; in ogni database sono archiviati i dati di un solo tenant.
+- *Multi-tenancy:* &nbsp; in ogni database sono archiviati i dati di più tenant diversi, con meccanismi per proteggere la privacy dei dati.
 - Sono disponibili anche modelli di tenancy ibridi.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Come scegliere il modello di tenancy appropriato
@@ -47,9 +47,9 @@ In generale, il modello di tenancy non influisce sul funzionamento di un'applica
     - Archiviazione in modo aggregato.
     - Carico di lavoro.
 
-- **Isolamento dei tenant:**&nbsp; isolamento dei dati e prestazioni (se il carico di lavoro di un tenant influisce su altri).
+- **Isolamento dei tenant:** &nbsp; isolamento dei dati e prestazioni (se il carico di lavoro di un tenant influisce su altri).
 
-- **Costo per singolo tenant:**&nbsp; Costi del database.
+- **Costo per singolo tenant:** &nbsp; Costi del database.
 
 - **Complessità di sviluppo:**
     - Modifiche allo schema.
@@ -61,7 +61,7 @@ In generale, il modello di tenancy non influisce sul funzionamento di un'applica
     - Ripristino di un tenant.
     - Ripristino di emergenza.
 
-- **Personalizzabilità:**&nbsp; facilità di supporto delle personalizzazioni degli schemi specifiche del tenant o della classe del tenant.
+- **Personalizzabilità:** &nbsp; facilità di supporto delle personalizzazioni degli schemi specifiche del tenant o della classe del tenant.
 
 La discussione sui tenancy è incentrata sul livello dei *dati*.  Consideriamo tuttavia per un momento il livello dell'*applicazione*.  Il livello dell'applicazione viene considerato come un'entità monolitica.  Se si divide l'applicazione in vari componenti di dimensioni inferiori, la scelta del modello di tenancy potrebbe cambiare.  È possibile trattare alcuni componenti in modo diverso rispetto ad altri in merito alla tenancy e alla tecnologia di archiviazione o alla piattaforma usata.
 
@@ -126,9 +126,9 @@ Un altro criterio disponibile permette di archiviare diversi tenant in un databa
 
 #### <a name="tenant-isolation-is-sacrificed"></a>L'isolamento dei tenant viene ignorato
 
-*Dati:*&nbsp; un database multi-tenant comporta necessariamente che venga ignorato l'isolamento dei tenant.  I dati di più tenant vengono archiviati insieme in un database.  Durante lo sviluppo, verificare che le query non espongano mai i dati di più tenant.  Il database SQL supporta la [sicurezza a livello di riga][docu-sql-svr-db-row-level-security-947w], in base alla quale i dati restituiti da una query possono rientrare nell'ambito di un singolo tenant.
+*Dati:* &nbsp; un database multi-tenant comporta necessariamente che venga ignorato l'isolamento dei tenant.  I dati di più tenant vengono archiviati insieme in un database.  Durante lo sviluppo, verificare che le query non espongano mai i dati di più tenant.  Il database SQL supporta la [sicurezza a livello di riga][docu-sql-svr-db-row-level-security-947w], in base alla quale i dati restituiti da una query possono rientrare nell'ambito di un singolo tenant.
 
-*Elaborazione:*&nbsp; un database multi-tenant condivide le risorse di calcolo e archiviazione tra tutti i relativi tenant.  È possibile monitorare l'intero database per verificare che le prestazioni siano accettabili.  Tuttavia, il sistema Azure non è in grado di monitorare o gestire l'uso di queste risorse da un singolo tenant per impostazione predefinita.  Il database multi-tenant rischia quindi maggiormente di incontrare elementi che potrebbero influire negativamente sulle prestazioni, in cui il carico di lavoro di un tenant iperattivo influisce sulle prestazioni di altri tenant nello stesso database.  Un livello aggiuntivo di monitoraggio a livello di applicazione potrebbe monitorare le prestazioni a livello di tenant.
+*Elaborazione:* &nbsp; un database multi-tenant condivide le risorse di calcolo e archiviazione tra tutti i relativi tenant.  È possibile monitorare l'intero database per verificare che le prestazioni siano accettabili.  Tuttavia, il sistema Azure non è in grado di monitorare o gestire l'uso di queste risorse da un singolo tenant per impostazione predefinita.  Il database multi-tenant rischia quindi maggiormente di incontrare elementi che potrebbero influire negativamente sulle prestazioni, in cui il carico di lavoro di un tenant iperattivo influisce sulle prestazioni di altri tenant nello stesso database.  Un livello aggiuntivo di monitoraggio a livello di applicazione potrebbe monitorare le prestazioni a livello di tenant.
 
 #### <a name="lower-cost"></a>Costi ridotti
 

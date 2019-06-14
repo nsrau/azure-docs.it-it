@@ -9,10 +9,10 @@ ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478675"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Recupero delle informazioni sullo stato per un processo di Importazione/Esportazione di Azure
@@ -35,7 +35,7 @@ La tabella e il diagramma degli stati seguenti descrivono gli stati di un proces
 
 La tabella seguente descrive ogni stato in cui può trovarsi un processo.
 
-|Stato del processo|DESCRIZIONE|
+|Stato del processo|Descrizione|
 |---------------|-----------------|
 |`Creating`|Dopo avere chiamato l'operazione Put Job, viene creato un processo e il relativo stato viene impostato su `Creating`. Mentre il processo si trova nello stato `Creating`, il servizio Importazione/Esportazione presuppone che le unità non siano state spedite al data center. Un processo può rimanere nello stato `Creating` fino a due settimane; al termine di questo periodo viene automaticamente eliminato dal servizio.<br /><br /> Se si chiama l'operazione Update Job Properties mentre il processo si trova nello stato `Creating`, il processo rimane nello stato `Creating` e l'intervallo di timeout viene reimpostato su due settimane.|
 |`Shipping`|Dopo avere spedito il pacchetto, è necessario chiamare l'operazione Update Job Properties per aggiornare lo stato del processo in `Shipping`. Lo stato di spedizione può essere impostato solo se `DeliveryPackage` (spedizioniere e numero di tracciabilità) e le proprietà `ReturnAddress` sono state impostate per il processo.<br /><br /> Il processo rimarrà in questo stato per un massimo di due settimane. Se sono trascorse due settimane e le unità non sono state ricevute, gli operatori del servizio Importazione/Esportazione riceveranno una notifica.|
@@ -64,7 +64,7 @@ La tabella e diagramma di seguito descrivono il ciclo di vita di una singola uni
 
 La tabella seguente descrive ogni stato in cui un processo può trovarsi.
 
-|Stato dell'unità|DESCRIZIONE|
+|Stato dell'unità|Descrizione|
 |-----------------|-----------------|
 |`Specified`|Per un processo di importazione, quando il processo viene creato con l'operazione Put Job, lo stato iniziale di un'unità è `Specified`. Per un processo di esportazione, lo stato iniziale dell'unità è `Received` perché non è stata specificata un'unità in fase di creazione del processo.|
 |`Received`|Le unità passano allo stato `Received` quando l'operatore del servizio Importazione/Esportazione avrà elaborato le unità ricevute dallo spedizioniere per un processo di importazione. Per un processo di esportazione, lo stato iniziale dell'unità è `Received`.|

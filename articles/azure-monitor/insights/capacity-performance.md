@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.openlocfilehash: fcf71bf144b559c4867303988d4c1f08b7aa5605
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101915"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Pianificare la capacità di macchina virtuale Hyper-V con la soluzione Capacity and Performance (deprecata)
@@ -49,9 +49,9 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 | Origine connessa | Supporto | DESCRIZIONE |
 |---|---|---|
 | [Agenti Windows](../../azure-monitor/platform/agent-windows.md) | Sì | La soluzione raccoglie informazioni su capacità e prestazioni dagli agenti Windows. |
-| [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No     | La soluzione non raccoglie informazioni su capacità e prestazioni dagli agenti Linux diretti.|
+| [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No    | La soluzione non raccoglie informazioni su capacità e prestazioni dagli agenti Linux diretti.|
 | [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | Sì |La soluzione raccoglie dati su capacità e prestazioni dagli agenti in un gruppo di gestione SCOM connesso. Non è necessaria una connessione diretta dall'agente SCOM a Log Analytics.|
-| [Account di archiviazione di Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No  | Archiviazione di Azure non include dati di capacità e prestazioni.|
+| [Account di archiviazione di Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Archiviazione di Azure non include dati di capacità e prestazioni.|
 
 ## <a name="prerequisites"></a>Prerequisiti
 

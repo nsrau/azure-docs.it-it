@@ -19,10 +19,10 @@ ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e6a5ecd704aabb4994337cb7b7df9e84677348d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235288"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
@@ -138,7 +138,7 @@ L'applicazione può avere più livelli, ognuno rappresentato dalla propria regis
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Più livelli in un singolo tenant
 
-Può trattarsi di un problema se l'applicazione logica è costituita da due o più registrazioni di applicazioni, ad esempio un client e una risorsa separati. Come ottenere prima la risorsa nel tenant del cliente? Azure AD si occupa di questo caso, concedendo al client e alla risorsa l'autorizzazione in un unico passaggio. L'utente visualizza la somma totale delle autorizzazioni richieste dal client e dalla risorsa nella pagina del consenso. Per abilitare questo comportamento, la registrazione dell'applicazione della risorsa deve includere l'ID app del client come `knownClientApplications` nel [manifesto dell'applicazione][AAD-App-Manifest]. Ad esempio: 
+Può trattarsi di un problema se l'applicazione logica è costituita da due o più registrazioni di applicazioni, ad esempio un client e una risorsa separati. Come ottenere prima la risorsa nel tenant del cliente? Azure AD si occupa di questo caso, concedendo al client e alla risorsa l'autorizzazione in un unico passaggio. L'utente visualizza la somma totale delle autorizzazioni richieste dal client e dalla risorsa nella pagina del consenso. Per abilitare questo comportamento, la registrazione dell'applicazione della risorsa deve includere l'ID app del client come `knownClientApplications` nel [manifesto dell'applicazione][AAD-App-Manifest]. Ad esempio:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 

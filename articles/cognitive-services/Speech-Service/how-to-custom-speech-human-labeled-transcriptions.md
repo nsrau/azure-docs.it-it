@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7f0b467284872f3d936984741c6d092705008a5a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ba6d137a7eb5fc2c56bfc39aa8f831d76411fb46
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025923"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060863"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Come creare un'etichetta umane trascrizioni
 
@@ -78,7 +78,7 @@ Ecco alcuni esempi di normalizzazione eseguita automaticamente la trascrizione d
 | Pi is about 3.14 | pi is about three point one four |
 It costs $3.14| it costs three fourteen |
 
-## <a name="mandarin-chinese-zh-cn"></a>Cinese mandarino (zh-cn)
+## <a name="mandarin-chinese-zh-cn"></a>Cinese mandarino (zh-CN)
 
 Con l'etichetta umane trascrizioni per l'audio cinese mandarino devono essere codificato con un byte order mark UTF-8. Evitare l'uso di caratteri di punteggiatura a mezza larghezza. Questi caratteri possono essere inclusi inavvertitamente quando si prepara i dati in un programma di elaborazione testi o cercare i dati dalle pagine web. Se questi caratteri sono presenti, assicurarsi di aggiornarli con la sostituzione a larghezza intera appropriata.
 

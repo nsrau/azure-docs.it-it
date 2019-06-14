@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 638703e4d67cbd004f0bd616ba31475f507dfd8a
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64873417"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrare l'infrastruttura Gateway Desktop remoto con Azure MFA usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) e Azure AD
@@ -327,7 +327,7 @@ Dopo aver eseguito correttamente l'autenticazione con il metodo secondario, vien
 
 Per visualizzare gli eventi di accesso riusciti nei log del Visualizzatore eventi di Windows, è possibile usare il comando seguente di Windows PowerShell per eseguire una query sui log di Servizi terminal Windows e di sicurezza di Windows.
 
-Per eseguire correttamente una query per individuare gli eventi di accesso riusciti nei log operativi del gateway _(Visualizzatore eventi\Registri applicazioni e servizi\Microsoft\Windows\TerminalServices-Gateway\Operational)_, usare i comandi di PowerShell seguenti:
+Per eseguire correttamente una query per individuare gli eventi di accesso riusciti nei log operativi del gateway _(Visualizzatore eventi\Registri applicazioni e servizi\Microsoft\Windows\TerminalServices-Gateway\Operational)_ , usare i comandi di PowerShell seguenti:
 
 * `Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational | where {$_.ID -eq '300'} | FL`
 * Questo comando visualizza gli eventi di Windows che mostrano che l'utente ha soddisfatto i requisiti dei criteri di autorizzazione risorse e gli è stato concesso l'accesso.

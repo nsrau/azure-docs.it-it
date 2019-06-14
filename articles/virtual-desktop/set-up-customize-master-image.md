@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
 ms.openlocfilehash: 9df4be5534a1cbe6aa4ffb9c60bb180fd4587d32
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551039"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
@@ -227,7 +227,7 @@ Le istruzioni seguenti indicano come caricare l'immagine master in un account di
 
 Dopo aver creato un'immagine, è possibile creare o aggiornare i pool di host. Per altre informazioni su come creare e aggiornare i pool di host, vedere gli articoli seguenti:
 
-- [Creare un pool di host con un modello Azure Resource Manager](create-host-pools-arm-template.md)
+- [Creare un pool di host con un modello di Azure Resource Manager](create-host-pools-arm-template.md)
 - [Esercitazione: Creare un pool di host con Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Creare un pool di host con PowerShell](create-host-pools-powershell.md)
 - [Configurare una condivisione di profilo utente per un pool di host](create-host-pools-user-profile.md)

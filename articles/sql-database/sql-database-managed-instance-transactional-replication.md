@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: c8d5df0f83a7ae37b9f06a5e255e9809288b6d67
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64917010"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replica transazionale con database singoli, in pool e dell'istanza nel database SQL di Azure
@@ -52,10 +52,10 @@ Il **sottoscrittore** è un'istanza o un server che riceve le modifiche apportat
 
 | Ruolo | Database singoli e in pool | Database dell'istanza |
 | :----| :------------- | :--------------- |
-| **Autore** | No  | Sì | 
-| **Database di distribuzione** | No  | Sì|
-| **Sottoscrittore pull** | No  | Sì|
-| **Sottoscrittore push**| Sì | Sì|
+| **Autore** | No | Yes | 
+| **Database di distribuzione** | No | Yes|
+| **Sottoscrittore pull** | No | Yes|
+| **Sottoscrittore push**| Yes | Yes|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
@@ -66,13 +66,13 @@ Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-dat
 
 | Replica | Database singoli e in pool | Database in istanza|
 | :----| :------------- | :--------------- |
-| [**Transazionale**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Sì | 
-| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Sì|
-| [**Replica di tipo merge**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | No  | No |
-| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No  | No |
-| **Unidirezionale** | Sì | Sì|
-| [**Bidirezionale**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No  | Sì|
-| [**Sottoscrizioni aggiornabili**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No  | No |
+| [**Transazionale**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Yes | 
+| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Yes|
+| [**Replica di tipo merge**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | No | No|
+| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
+| **Unidirezionale** | Yes | Yes|
+| [**Bidirezionale**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
+| [**Sottoscrizioni aggiornabili**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]

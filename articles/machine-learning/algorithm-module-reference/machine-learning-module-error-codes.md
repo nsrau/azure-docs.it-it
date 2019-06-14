@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029761"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Le eccezioni e codici di errore per l'algoritmo di & riferimento al modulo
@@ -347,7 +347,7 @@ Per le colonne che si intendono usare per la categorizzazione o di raggruppament
 ## <a name="error-0018"></a>Errore 0018  
  Si verifica un'eccezione se i set di dati di input non è valido.  
   
-**Risoluzione:** Questo errore in Azure Machine Learning può essere visualizzato in molti contesti, pertanto non c'è non una singola soluzione. In generale, l'errore indica che i dati forniti come input per un modulo hanno un numero errato di colonne o che il tipo di dati non soddisfa i requisiti del modulo. Ad esempio:   
+**Risoluzione:** Questo errore in Azure Machine Learning può essere visualizzato in molti contesti, pertanto non c'è non una singola soluzione. In generale, l'errore indica che i dati forniti come input per un modulo hanno un numero errato di colonne o che il tipo di dati non soddisfa i requisiti del modulo. Ad esempio:  
   
 -   Il modulo richiede una colonna di etichetta, ma nessuna colonna è contrassegnata come etichetta, o ancora non è stata selezionata una colonna di etichetta.  
   
@@ -415,7 +415,7 @@ Per le colonne che si intendono usare per la categorizzazione o di raggruppament
 ## <a name="error-0022"></a>Errore 0022  
  Si verifica un'eccezione se il numero di colonne selezionate nel set di dati di input non corrisponde al numero previsto.  
   
- Questo errore in Azure Machine Learning può verificarsi quando l'operazione o il modulo downstream richiede un numero specifico di colonne o gli input, e sono state specificate troppe o troppo poche colonne o gli input. Ad esempio:   
+ Questo errore in Azure Machine Learning può verificarsi quando l'operazione o il modulo downstream richiede un numero specifico di colonne o gli input, e sono state specificate troppe o troppo poche colonne o gli input. Ad esempio:  
   
 -   Si specifica una colonna di etichetta singola o una colonna chiave e si seleziona accidentalmente più colonne.  
   
@@ -1192,7 +1192,7 @@ Vedere gli articoli seguenti per assistenza con le query Hive per machine learni
   
  Se è presente un messaggio SQL generato segnalato dall'eccezione modulo, intervenire di conseguenza l'errore segnalato. Ad esempio, i messaggi di errore talvolta includono indicazioni specifiche sull'errore probabile:
 + *Il database mancante o non trovato colonna*, che indica che potrebbe aver digitato un nome di colonna non corretto. Se si conosce il nome della colonna sia corretto, provare a usare parentesi quadre o virgolette per racchiudere l'identificatore della colonna.
-+ *SQL per la logica corretta in prossimità \<parola chiave SQL\>*, che indica che potrebbe essere un errore di sintassi prima della parola chiave specificata
++ *SQL per la logica corretta in prossimità \<parola chiave SQL\>* , che indica che potrebbe essere un errore di sintassi prima della parola chiave specificata
 
   
 |Messaggi di eccezione|  
@@ -1500,7 +1500,7 @@ In generale, una trasformazione basata sui conteggi applicabile solo ai set di d
 ## <a name="error-0100"></a>Errore 0100  
  Eccezione si verifica quando viene specificata una lingua non supportata per un modulo personalizzato.  
   
- Questo errore in Azure Machine Learning si verifica quando si compila un modulo personalizzato e la proprietà name del **linguaggio** elemento in un file di definizione xml di modulo personalizzato ha un valore non valido. Attualmente, l'unico valore valido per questa proprietà è `R`. Ad esempio:   
+ Questo errore in Azure Machine Learning si verifica quando si compila un modulo personalizzato e la proprietà name del **linguaggio** elemento in un file di definizione xml di modulo personalizzato ha un valore non valido. Attualmente, l'unico valore valido per questa proprietà è `R`. Ad esempio:  
   
  `<Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />`  
   
@@ -1555,7 +1555,7 @@ In generale, una trasformazione basata sui conteggi applicabile solo ai set di d
 ## <a name="error-0104"></a>Errore 0104  
  Generata quando un file di definizione del modulo fa riferimento a uno script che non è stato trovato  
   
- Questo errore in Azure Machine Learning viene generato quando si fa riferimento a un file di definizione xml di modulo personalizzato in un file script di **linguaggio** elemento che non esiste nel pacchetto zip. Il percorso del file script è definito nel **sourceFile** proprietà delle **Language** elemento. Il percorso del file di origine è relativo alla radice del pacchetto zip (stesso percorso dei file di definizione xml di modulo). Se il file di script è in una sottocartella, è necessario specificare il percorso relativo del file di script. Ad esempio, se tutti gli script sono stati archiviati in un **myScripts** cartella all'interno del pacchetto con estensione zip, la **Language** sarebbe necessario aggiungere il percorso all'elemento il **sourceFile** proprietà come di seguito. Ad esempio:   
+ Questo errore in Azure Machine Learning viene generato quando si fa riferimento a un file di definizione xml di modulo personalizzato in un file script di **linguaggio** elemento che non esiste nel pacchetto zip. Il percorso del file script è definito nel **sourceFile** proprietà delle **Language** elemento. Il percorso del file di origine è relativo alla radice del pacchetto zip (stesso percorso dei file di definizione xml di modulo). Se il file di script è in una sottocartella, è necessario specificare il percorso relativo del file di script. Ad esempio, se tutti gli script sono stati archiviati in un **myScripts** cartella all'interno del pacchetto con estensione zip, la **Language** sarebbe necessario aggiungere il percorso all'elemento il **sourceFile** proprietà come di seguito. Ad esempio:  
   
  `<Language name="R" sourceFile="myScripts/CustomAddRows.R" entryPoint="CustomAddRows" />`  
   
@@ -2191,4 +2191,4 @@ Per ottenere altre informazioni, è consigliabile che si registra il messaggio d
 |------------------------|  
 |Eccezione di libreria.|  
 |Eccezione di libreria: {0}|  
-|{0} eccezione di libreria: {1}|  
+|{0} Eccezione di libreria: {1}|  

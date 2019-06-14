@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
 ms.openlocfilehash: 6cb40f8c9f1ee85848b5e3db311d0fb652ec1bc3
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65921807"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Esercitazione: Rilevare le minacce con Sentinel anteprima di Azure
@@ -45,11 +45,11 @@ Regole di rilevamento sono basate sui tipi di minacce e anomalie che potrebbero 
 
 1. Nel portale di Azure in Azure Sentinel, selezionare **Analitica**.
 
-   ![Analisi](./media/tutorial-detect-threats/alert-rules.png)
+   ![Analytics](./media/tutorial-detect-threats/alert-rules.png)
 
 2. Nella barra dei menu superiore, fare clic su **+ Aggiungi**.  
 
-   ![Crea regola di avviso](./media/tutorial-detect-threats/create-alert-rule.png)
+   ![Creare la regola di avviso](./media/tutorial-detect-threats/create-alert-rule.png)
 
 3. Sotto **Crea regola di avviso**, specificare un nome descrittivo e impostare le **gravità** in base alle esigenze. 
 

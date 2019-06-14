@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
 ms.openlocfilehash: 9443a50d130e6542672eb143bcb56d04d63959a4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235718"
 ---
 # <a name="media-services-job-error-codes"></a>Codici di errore di processo di servizi multimediali
@@ -32,7 +32,7 @@ Il documento REST seguente offre una spiegazione dettagliata sul [codici di erro
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Codici di errore di Endpoint di streaming](streaming-endpoint-error-codes.md)
 - [Concetti di servizi multimediali di Azure](concepts-overview.md)

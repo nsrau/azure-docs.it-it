@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: deb94cab97bd9a402676cdc5c0239da8d07ed8b2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66141030"
 ---
 L'esempio precedente illustra un accesso standard che richiede al client di contattare sia il provider di identità sia il servizio back-end di Azure ogni volta che l'app viene avviata. Questo metodo risulta inefficiente e può creare problemi relativi all'uso se più clienti tentano di avviare l'app contemporaneamente. Un miglior approccio consiste nel memorizzare nella cache il token di autorizzazione restituito dal servizio Azure e provare a usarlo prima di un accesso basato su provider.

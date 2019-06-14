@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: shlo
 ms.openlocfilehash: ba2041495e1e3c63ee322a0b748753ad6cb68914
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870133"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Servizi collegati in Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-create-datasets.md)
 > * [Versione corrente](concepts-datasets-linked-services.md)
 
@@ -64,10 +64,10 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 
 Proprietà | Descrizione | Obbligatorio |
 -------- | ----------- | -------- |
-name | Nome del servizio collegato. Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). |  Sì |
-type | Tipo di servizio collegato. Ad esempio:  AzureStorage (archivio dati) o AzureBatch (calcolo). Vedere la descrizione di typeProperties. | Sì |
-typeProperties | Le proprietà del tipo sono diverse per ogni archivio dati o calcolo. <br/><br/> Per i tipi di archivio dati supportati e le relative proprietà del tipo, vedere la tabella [Tipo di set di dati](concepts-datasets-linked-services.md#dataset-type) in questo articolo. Vedere l'articolo sul connettore dell'archivio dati per informazioni sulle proprietà del tipo specifiche di un archivio dati. <br/><br/> Per i tipi di calcolo supportati e le relative proprietà del tipo, vedere [Servizi collegati di calcolo](compute-linked-services.md). | Sì |
-connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No 
+name | Nome del servizio collegato. Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). |  Yes |
+type | Tipo di servizio collegato. Ad esempio: AzureStorage (archivio dati) o AzureBatch (calcolo). Vedere la descrizione di typeProperties. | Yes |
+typeProperties | Le proprietà del tipo sono diverse per ogni archivio dati o calcolo. <br/><br/> Per i tipi di archivio dati supportati e le relative proprietà del tipo, vedere la tabella [Tipo di set di dati](concepts-datasets-linked-services.md#dataset-type) in questo articolo. Vedere l'articolo sul connettore dell'archivio dati per informazioni sulle proprietà del tipo specifiche di un archivio dati. <br/><br/> Per i tipi di calcolo supportati e le relative proprietà del tipo, vedere [Servizi collegati di calcolo](compute-linked-services.md). | Yes |
+connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No
 
 ## <a name="linked-service-example"></a>Esempio di servizio collegato
 Il seguente servizio collegato è un servizio collegato di Archiviazione di Azure. Si noti che il valore type è impostato su AzureStorage. Le proprietà del tipo per il servizio collegato di Archiviazione di Azure includono una stringa di connessione. Il servizio Data Factory usa questa stringa di connessione per connettersi all'archivio dati in fase di esecuzione.

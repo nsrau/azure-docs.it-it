@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff77f9fc017627143b14544af03d0d5e80813db9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800053"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051704"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Crittografia dischi di Azure per Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -41,7 +41,44 @@ Per un elenco delle versioni di Windows attuali, vedere [Prerequisiti di Crittog
 Crittografia dischi di Azure richiede una connessione Internet per accedere a Active Directory, Key Vault, Archiviazione e agli endpoint di gestione pacchetti.  Per altre informazioni sulle impostazioni di sicurezza di rete, vedere [Prerequisiti di Crittografia dischi di Azure](
 ../../security/azure-security-disk-encryption-prerequisites.md).
 
-## <a name="extension-schema"></a>Schema dell'estensione
+## <a name="extension-schemata"></a>Schemi di estensione
+
+Esistono due schemi per crittografia dischi di Azure: versione 1.1, uno schema più recente, consigliato che non usa le proprietà di Azure Active Directory (AAD) e v0.1, uno schema obsoleto che richiede proprietà di AAD. È necessario usare la versione dello schema corrispondente all'estensione in uso: v1.1 dello schema per la versione dell'estensione 1.1, v0.1 dello schema per la versione dell'estensione 0,1 AzureDiskEncryption AzureDiskEncryption.
+
+### <a name="schema-v11-no-aad-recommended"></a>Versione 1.1 di schema: Nessun AAD (scelta consigliata)
+
+Lo schema v1.1 è consigliato e non richiede la proprietà di Azure Active Directory.
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
+
+### <a name="schema-v01-with-aad"></a>Schema v0.1: con AAD 
+
+Richiede lo schema 0,1 `aadClientID` e il valore `aadClientSecret` o `AADClientCertificate`.
+
+Utilizzo di `aadClientSecret`:
 
 ```json
 {
@@ -51,29 +88,56 @@ Crittografia dischi di Azure richiede una connessione Internet per accedere a Ac
   "location": "[location]",
   "properties": {
     "protectedSettings": {
-      "AADClientSecret": "[aadClientSecret]",
-    },
+      "AADClientSecret": "[aadClientSecret]"
+    },    
     "publisher": "Microsoft.Azure.Security",
     "settings": {
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-      
       "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-          "KekVaultResourceId": "[keyVaultResourceID]",
-      
+      "KekVaultResourceId": "[keyVaultResourceID]",
       "KeyVaultURL": "[keyVaultURL]",
-          "KeyVaultResourceId": "[keyVaultResourceID]",
-
-      "EncryptionOperation": "[encryptionOperation]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
     },
-    "type": "AzureDiskEncryption",
-    "typeHandlerVersion": "[extensionVersion]"
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
   }
 }
 ```
+
+Utilizzo di `AADClientCertificate`:
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "protectedSettings": {
+      "AADClientCertificate": "[aadClientCertificate]"
+    },    
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "AADClientID": "[aadClientID]",
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
 
 ### <a name="property-values"></a>Valori delle proprietà
 
@@ -81,17 +145,17 @@ Crittografia dischi di Azure richiede una connessione Internet per accedere a Ac
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForWindows| string |
-| typeHandlerVersion | LE VERSIONI 1.0, 1.1, 2.2 (VMSS) | int |
-| (facoltativo) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (facoltativo) AADClientSecret | password | string |
-| (facoltativo) AADClientCertificate | thumbprint | string |
-| EncryptionOperation | EnableEncryption | string | 
-| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | string |
+| type | AzureDiskEncryptionForLinux | string |
+| typeHandlerVersion | 0.1, 1.1 | int |
+| (0,1 schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| (0,1 schema) AADClientSecret | password | string |
+| (0,1 schema) AADClientCertificate | thumbprint | string |
+| DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dizionario JSON |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
 | KeyEncryptionKeyURL | url | string |
-| KeyVaultResourceId | uri di risorsa | string |
-| KekVaultResourceId | uri di risorsa | string |
 | KeyVaultURL | url | string |
+| (facoltativo) Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | Sistema operativo, dati, tutti | string |
 

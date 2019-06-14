@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
 ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65835194"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrare Azure Active Directory con Azure Kubernetes Service tramite la CLI di Azure
@@ -78,7 +78,7 @@ serverApplicationSecret=$(az ad sp credential reset \
 Azure AD necessita delle autorizzazioni per eseguire le azioni seguenti:
 
 * Leggi i dati della directory
-* Accedi e leggi il profilo di un altro utente
+* Eseguire l'accesso e leggere il profilo utente
 
 Assegnare queste autorizzazioni seguendo la [aggiungere l'autorizzazione dell'app ad az] [ az-ad-app-permission-add] comando:
 

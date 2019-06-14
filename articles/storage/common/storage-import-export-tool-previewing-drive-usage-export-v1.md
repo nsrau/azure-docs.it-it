@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 53ab1e28c5864b403d52bf5e73f0c5c41b8f18a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478454"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Anteprima dell'uso del disco per un processo di esportazione
@@ -24,14 +24,14 @@ Prima di creare un processo di esportazione, è necessario scegliere un set di B
 
 Quando si usa il comando `PreviewExport` dello strumento Importazione/Esportazione, è possibile usare i parametri seguenti.
 
-|Parametro della riga di comando|DESCRIZIONE|  
+|Parametro della riga di comando|Descrizione|  
 |--------------------------|-----------------|  
-|**/logdir:**&lt;DirectoryLog\>|facoltativo. Directory dei log. in cui verranno scritti file di log dettagliati. Se non è specificata alcuna directory dei log, verrà usata la directory corrente.|  
-|**/sn:**<NomeAccountArchiviazione\>|Richiesto. Nome dell'account di archiviazione per il processo di esportazione.|  
-|**/sk:**&lt;ChiaveAccountArchiviazione\>|Obbligatorio solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|  
-|**/csas:**&lt;FirmaAccessoCondivisoContenitore\>|Obbligatorio solo se non è specificata una chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'elenco dei BLOB da esportare nel processo di esportazione.|  
-|**/ExportBlobListFile:**&lt;FileElencoBlobEsportazione\>|Richiesto. Percorso del file XML contenente l'elenco dei percorsi o dei prefissi dei percorsi BLOB per i BLOB da esportare. Formato di file usato nell'elemento `BlobListBlobPath` nell'operazione [Put Job](/rest/api/storageimportexport/jobs) dell'API REST del servizio Importazione/Esportazione.|  
-|**/DriveSize:**<DimensioneUnità\>|Richiesto. Dimensione delle unità da usare per un processo di esportazione, *ad es.* 500 GB, 1,5 TB.|  
+|**/logdir:** &lt;DirectoryLog\>|facoltativo. Directory dei log. in cui verranno scritti file di log dettagliati. Se non è specificata alcuna directory dei log, verrà usata la directory corrente.|  
+|**/sn:** <NomeAccountArchiviazione\>|Richiesto. Nome dell'account di archiviazione per il processo di esportazione.|  
+|**/sk:** &lt;ChiaveAccountArchiviazione\>|Obbligatorio solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|  
+|**/csas:** &lt;FirmaAccessoCondivisoContenitore\>|Obbligatorio solo se non è specificata una chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'elenco dei BLOB da esportare nel processo di esportazione.|  
+|**/ExportBlobListFile:** &lt;FileElencoBlobEsportazione\>|Richiesto. Percorso del file XML contenente l'elenco dei percorsi o dei prefissi dei percorsi BLOB per i BLOB da esportare. Formato di file usato nell'elemento `BlobListBlobPath` nell'operazione [Put Job](/rest/api/storageimportexport/jobs) dell'API REST del servizio Importazione/Esportazione.|  
+|**/DriveSize:** <DimensioneUnità\>|Richiesto. Dimensione delle unità da usare per un processo di esportazione, *ad es.* 500 GB, 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Esempio di riga di comando
 

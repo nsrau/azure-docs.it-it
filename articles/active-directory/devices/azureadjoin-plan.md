@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fc638c515af59f6872f2dae262a6910318abdd0e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918825"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110766"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -240,11 +240,11 @@ Ecco un confronto di questi tre approcci
  
 ||Configurazione self-service|Windows Autopilot|Registrazione in blocco|
 |---|---|---|---|
-|Richiesta dell'interazione dell'utente per la configurazione|Sì|Sì|No |
-|Richiesta di attività IT|No |Sì|Sì|
+|Richiesta dell'interazione dell'utente per la configurazione|Yes|Sì|No|
+|Richiesta di attività IT|No|Yes|Yes|
 |Flussi applicabili|Configurazione guidata e impostazioni|Solo Configurazione guidata|Solo Configurazione guidata|
-|Diritti di amministratore locale a un utente primario|Sì, per impostazione predefinita|Configurabile|No |
-|Richiesta del supporto dell'OEM del dispositivo|No |Sì|No |
+|Diritti di amministratore locale a un utente primario|Sì, per impostazione predefinita|Configurabile|No|
+|Richiesta del supporto dell'OEM del dispositivo|No|Sì|No|
 |Versioni supportate|1511+|1709+|1703+|
  
 Scegliere l'approccio o gli approcci di distribuzione consultando la tabella precedente e le considerazioni seguenti per l'adozione di uno degli approcci:  
@@ -355,7 +355,7 @@ Se per i dispositivi aggiunti ad Azure AD è stato configurato un provider MDM, 
 
 ![Dispositivo conforme](./media/azureadjoin-plan/46.png)
 
-È possibile usare questa implementazione per [richiedere dispositivi gestiti per l'accesso alle app cloud con l'accesso condizionale](../conditional-access/require-managed-devices.md).
+È possibile usare questa implementazione per [richiedono i dispositivi gestiti per accedere all'app cloud con l'accesso condizionale](../conditional-access/require-managed-devices.md).
 
 
 

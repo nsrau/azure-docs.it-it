@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d78ab917589af0eae72eb70e3cdc2cc751072eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406396"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076433"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Attività di avvio comuni del servizio cloud
 Questo articolo fornisce alcuni esempi relativi alle attività di avvio comuni che è possibile eseguire nel servizio cloud. È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata. 
@@ -73,7 +73,7 @@ Il valore di errorlevel restituito da *AppCmd.exe* è elencato nel file winerror
 ### <a name="example-of-managing-the-error-level"></a>Esempio di gestione del livello di errore
 In questo esempio vengono aggiunte una sezione di compressione e una voce di compressione per JSON al file *Web.config* , con gestione e registrazione degli errori.
 
-Le sezioni pertinenti del file [ServiceDefinition.csdef] sono riportate di seguito, evidenziando l'impostazione dell'attributo [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) su `elevated` per fornire ad *AppCmd.exe* le autorizzazioni sufficienti per modificare le impostazioni nel file *Web.config*:
+Le sezioni pertinenti del file [ServiceDefinition.csdef] sono riportate di seguito, evidenziando l'impostazione dell'attributo [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) su `elevated` per fornire ad *AppCmd.exe* le autorizzazioni sufficienti per modificare le impostazioni nel file *Web.config*:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -383,7 +383,7 @@ EXIT /B 0
 Di seguito sono riportate alcune procedure consigliate da seguire durante la configurazione dell'attività per il ruolo Web o di lavoro.
 
 ### <a name="always-log-startup-activities"></a>Registrare sempre le attività di avvio
-In Visual Studio non è previsto un debugger per analizzare i file batch, pertanto è buona pratica ottenere quanti più dati possibile sul funzionamento di tali file. La registrazione dell'output dei file batch, sia **stdout** che **stderr**, può fornire informazioni importanti quando si tenta di eseguire il debug e correggere i file batch. Per registrare sia **stdout** che **stderr** nel file StartupLog.txt nella directory a cui fa riferimento la variabile di ambiente **%TEMP%**, aggiungere il testo `>>  "%TEMP%\\StartupLog.txt" 2>&1` alla fine delle righe specifiche che si desidera registrare. Ad esempio, per eseguire setup.exe nella directory **%PathToApp1Install%** :
+In Visual Studio non è previsto un debugger per analizzare i file batch, pertanto è buona pratica ottenere quanti più dati possibile sul funzionamento di tali file. La registrazione dell'output dei file batch, sia **stdout** che **stderr**, può fornire informazioni importanti quando si tenta di eseguire il debug e correggere i file batch. Per registrare sia **stdout** che **stderr** nel file StartupLog.txt nella directory a cui fa riferimento la variabile di ambiente **%TEMP%** , aggiungere il testo `>>  "%TEMP%\\StartupLog.txt" 2>&1` alla fine delle righe specifiche che si desidera registrare. Ad esempio, per eseguire setup.exe nella directory **%PathToApp1Install%** :
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 

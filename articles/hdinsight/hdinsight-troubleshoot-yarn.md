@@ -6,12 +6,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4ca3dddb2b5ea4897ff82f1d91e88dc656305453
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8396f682558b71ca99af845bd51f7b2c8059f79b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721588"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072006"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Risolvere i problemi di YARN di Apache Hadoop usando Azure HDInsight
 
@@ -57,7 +57,7 @@ In questo esempio è stata modificata la capacità dal 50% al 25% per due code e
 
 Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'utilità di pianificazione YARN.
 
-### <a name="additional-reading"></a>Informazioni aggiuntive
+### <a name="additional-reading"></a>Altre informazioni
 
 - [Utilità di pianificazione della capacità di YARN di Apache Hadoop](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
@@ -132,7 +132,7 @@ Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'ut
 ### <a name="additional-reading-2"></a>Informazioni aggiuntive
 
 - [Connettersi a HDInsight (Apache Hadoop) con SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
-- [Apache Hadoop YARN concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/) (Concetti e applicazioni di Apache Hadoop YARN)
+- [Apache Hadoop YARN concepts and applications](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow) (Concetti e applicazioni di Apache Hadoop YARN)
 
 
 ### <a name="see-also"></a>Vedere anche

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66252807"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creare e leggere messaggi dell'hub IoT
@@ -57,7 +57,7 @@ La tabella seguente riporta il set delle proprietà di sistema nei messaggi dell
 | absolute-expiry-time |Data e ora della scadenza del messaggio. | Yes |
 | iothub-enqueuedtime |Date e ora di ricezione del messaggio [da cloud a dispositivo](iot-hub-devguide-c2d-guidance.md) da parte dell'hub IoT. | No per i messaggi C2D, sì altrimenti. |
 | correlation-id |Proprietà stringa in un messaggio di risposta che contiene in genere il valore MessageId della richiesta nei modelli richiesta-risposta. | Yes |
-| user-id |ID usato per specificare l'origine dei messaggi. Quando i messaggi vengono generati dall'hub IoT, viene impostata su `{iot hub name}`. | No  |
+| user-id |ID usato per specificare l'origine dei messaggi. Quando i messaggi vengono generati dall'hub IoT, viene impostata su `{iot hub name}`. | No |
 | iothub-ack |Generatore di messaggi con commenti. Questa proprietà viene usata nei messaggi da cloud a dispositivo per richiedere all'hub IoT di generare messaggi con commenti come risultato dell'utilizzo del messaggio da parte del dispositivo. I valori possibili sono i seguenti: **none** (predefinito): non viene generato alcun messaggio con commenti, **positive**: si riceve un messaggio con commenti se il messaggio è stato completato, **negative**: si riceve un messaggio con commenti se il messaggio è scaduto o se è stato raggiunto il numero massimo di recapiti senza il completamento da parte del dispositivo, **full**: sia per esito positivo che negativo. <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Yes |
 | iothub-connection-device-id |ID impostato dall'hub IoT sui messaggi da dispositivo a cloud. Contiene il valore **deviceId** del dispositivo che ha inviato il messaggio. | No per i messaggi D2C, sì altrimenti. |
 | iothub-connection-auth-generation-id |ID impostato dall'hub IoT sui messaggi da dispositivo a cloud. Contiene il valore **generationId** (come indicato in [Proprietà delle identità dei dispositivi](iot-hub-devguide-identity-registry.md#device-identity-properties)) del dispositivo che ha inviato il messaggio. | No per i messaggi D2C, sì altrimenti. |

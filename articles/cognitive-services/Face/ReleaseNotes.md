@@ -8,18 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 06/06/2019
 ms.author: yluiu
-ms.openlocfilehash: 63f705061db7c89a80578e741d02ab8f8b1041c2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a7667f94d3f4dea2901c4b4b0e2b2c893b9f535e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917106"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074085"
 ---
 # <a name="face-api-release-notes"></a>Note sulla versione dell'API Viso
 
 Questo articolo si riferisce al servizio API Viso versione 1.0.
+
+### <a name="release-changes-in-june-2019"></a>Modifiche di versione nel giugno 2019
+
+* Aggiungere un nuovo modello di rilevamento viso con una maggiore precisione sulle facce di piccole dimensioni, side-vista, bloccate e sfocate. Usare tramite il [affrontano: rilevare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - aggiungere viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList - aggiungere viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [persona di gruppo di persone - aggiungere viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) e [LargePersonGroup persona - aggiungere viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) specificando il nuovo nome di modello di rilevamento viso `detection_02` in `detectionModel` parametro. Altre informazioni, vedere [come specificare un modello di rilevamento](Face-API-How-to-Topics/specify-detection-model.md).
 
 ### <a name="release-changes-in-april-2019"></a>Modifiche di versione nel mese di aprile 2019
 

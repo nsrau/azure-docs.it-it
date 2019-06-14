@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119304"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Come usare il client gestito per App per dispositivi mobili di Azure
@@ -378,7 +378,7 @@ Quando si esegue una richiesta di eliminazione, è necessario specificare un ID.
 
 App per dispositivi mobili supporta il controllo della concorrenza ottimistica tenendo traccia delle modifiche apportate a ogni elemento, usando la colonna di proprietà di sistema `version` definita per ogni tabella nel back-end di App per dispositivi mobili. Ogni volta che un record viene aggiornato, App per dispositivi mobili imposta la proprietà `version` per quel record su un nuovo valore. Durante ogni richiesta di aggiornamento, la proprietà `version` del record inclusa nella richiesta viene confrontata con la stessa proprietà relativa al record sul server. Se la versione passata con la richiesta non corrisponde a quella del back-end, la libreria client genera un'eccezione `MobileServicePreconditionFailedException<T>` . Il tipo incluso nell'eccezione corrisponde al record del back-end contenente la versione dei server del record. L'applicazione può quindi usare questa informazione per decidere se eseguire nuovamente la richiesta di aggiornamento con il valore `version` corretto dal back-end per effettuare il commit delle modifiche.
 
-Per abilitare la concorrenza ottimistica, definire una colonna sulla classe di tabella per la proprietà di sistema `version` . Ad esempio: 
+Per abilitare la concorrenza ottimistica, definire una colonna sulla classe di tabella per la proprietà di sistema `version` . Ad esempio:
 
 ```csharp
 public class TodoItem
@@ -616,7 +616,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 Questo formato è una chiamata tipizzata al metodo, che richiede che il tipo restituito **MarkAllResult** sia definito. Sono supportati sia i metodi tipizzati, sia quelli non tipizzati.
 
 Il metodo InvokeApiAsync() antepone "/api/" all'API che si desidera chiamare, a meno che l'API non inizi con una "/".
-Ad esempio: 
+Ad esempio:
 
 * `InvokeApiAsync("completeAll",...)` chiama /api/completeAll nel back-end
 * `InvokeApiAsync("/.auth/me",...)` chiama /.auth/me nel back-end
@@ -657,7 +657,7 @@ Vengono forniti esempi per i modelli di autenticazione del flusso client seguent
    * Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.microsoftonline.com/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure].
    * Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. L'ID client è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
    * Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
-   * Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint */.auth/login/done* del sito, usando lo schema HTTPS. Questo valore deve essere simile a *https://contoso.azurewebsites.net/.auth/login/done*.
+   * Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint */.auth/login/done* del sito, usando lo schema HTTPS. Questo valore deve essere simile a *https://contoso.azurewebsites.net/.auth/login/done* .
 
      Il codice necessario per ogni piattaforma è riportato di seguito:
 

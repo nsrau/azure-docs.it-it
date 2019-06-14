@@ -17,22 +17,22 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64dd8067654246f7c9a077d027c068df820f439d
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 54a1c349ae7cdd66c09db412331c344d6512ecd3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688710"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110606"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
-In modo analogo a un utente, un dispositivo è un'altra identità core che si desidera proteggere e usarlo per proteggere le risorse in qualsiasi momento e da qualsiasi posizione. È possibile raggiungere questo obiettivo attraverso l'integrazione e la gestione delle identità dei dispositivi in Azure AD usando uno dei metodi seguenti:
+Analogamente agli utenti, i dispositivi sono un'altra identità di base da proteggere e da usare per proteggere le risorse ovunque e in qualsiasi momento. È possibile raggiungere questo obiettivo trasferendo e gestendo le identità dei dispositivi in Azure AD con uno dei metodi seguenti:
 
 - Aggiunta ad Azure AD
 - Aggiunta ad Azure AD ibrido
 - Registrazione di Azure AD
 
-Con il trasferimento dei dispositivi in Azure AD si ottimizza la produttività degli utenti tramite il Single Sign-On (SSO) in tutte le risorse locali e nel cloud. Analogamente, è possibile proteggere l'accesso alle risorse locali e nel cloud con l'[accesso condizionale](../active-directory-conditional-access-azure-portal.md).
+Con il trasferimento dei dispositivi in Azure AD si ottimizza la produttività degli utenti tramite il Single Sign-On (SSO) in tutte le risorse locali e nel cloud. Allo stesso tempo, è possibile proteggere l'accesso alle risorse cloud e locali con [accesso condizionale](../active-directory-conditional-access-azure-portal.md).
 
 Se è disponibile un ambiente Active Directory (AD) locale e si desidera aggiungere i computer aggiunti a un dominio AD Azure ad, è possibile farlo eseguendo l'aggiunta ad Azure AD ibrido. Questo articolo fornisce i passaggi correlati per implementare un'aggiunta ad Azure AD ibrido nell'ambiente. 
 
@@ -113,7 +113,7 @@ Aggiunta ad Azure AD ibrido funziona con gli ambienti, gestiti sia federativi.
 
 ### <a name="managed-environment"></a>Ambiente gestito
 
-Un ambiente gestito può essere distribuita tramite [sincronizzazione Hash Password (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) oppure [passare attraverso sull'autenticazione](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) con [Seamless Single Sign On](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
+Un ambiente gestito può essere distribuito tramite la [sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) o l'[autenticazione pass-through](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) con [Single Sign-On facile](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
 
 Questi scenari non richiedono la configurazione di un server federativo per l'autenticazione.
 

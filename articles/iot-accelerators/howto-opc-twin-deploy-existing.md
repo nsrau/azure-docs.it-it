@@ -8,42 +8,43 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6eeca062bdc17ec207910b9ba4aa8cea4048f849
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61451303"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080498"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuire OPC dei dispositivi gemelli in un progetto esistente
 
-Il modulo gemello OPC viene eseguito in dispositivi perimetrali IoT e offre diversi servizi di edge per i servizi del Registro di sistema e il gemello OPC. 
+Il modulo gemello OPC viene eseguito in dispositivi perimetrali IoT e offre diversi servizi di edge per i servizi del Registro di sistema e il gemello OPC.
 
 Il servizio di micro OPC gemello facilita la comunicazione tra gli operatori di factory e i dispositivi server OPC UA nell'ambiente di produzione tramite un modulo IoT Edge gemello di OPC. Il servizio micro espone servizi OPC UA (Sfoglia, lettura, scrittura ed Execute) tramite l'API REST. 
 
 Il microservizio del Registro di sistema del dispositivo OPC UA fornisce accesso alle applicazioni registrate OPC UA e i relativi endpoint. Gli operatori e gli amministratori possono registrare e annullare la registrazione di nuove applicazioni OPC UA e individuare quelle esistenti, inclusi i relativi endpoint. Oltre all'applicazione e la gestione di endpoint, il servizio Registro di sistema possono essere visualizzate i moduli di IoT Edge gemello di OPC registrati. L'API del servizio ti offre controllo della funzionalità modulo edge, ad esempio, avviare o arrestare l'individuazione server (servizi di analisi) o attivazione nuovi dispositivi gemelli di endpoint che è possibile accedere tramite il servizio di micro gemello OPC.
 
-Il nucleo del modulo è l'identità del supervisore. Il Supervisore gestisce gemello endpoint, che corrisponde agli endpoint del server OPC UA che vengono attivati mediante l'API di registro OPC UA corrispondente. Dispositivi gemelli questo endpoint traducono OPC UA JSON ricevuto dal servizio micro gemello OPC in esecuzione nel cloud in messaggi binari OPC UA, che vengono inviati tramite un canale sicuro con stato per l'endpoint gestito. Il Supervisore fornisce anche servizi di individuazione che inviano eventi di individuazione di dispositivi per il servizio di onboarding dispositivo OPC UA per l'elaborazione, in cui questi eventi che gli aggiornamenti al Registro di sistema OPC UA.  Questo articolo illustra come distribuire il modulo gemello OPC a un progetto esistente. 
+Il nucleo del modulo è l'identità del supervisore. Il Supervisore gestisce gemello endpoint, che corrisponde agli endpoint del server OPC UA che vengono attivati mediante l'API di registro OPC UA corrispondente. Dispositivi gemelli questo endpoint traducono OPC UA JSON ricevuto dal servizio micro gemello OPC in esecuzione nel cloud in messaggi binari OPC UA, che vengono inviati tramite un canale sicuro con stato per l'endpoint gestito. Il Supervisore fornisce anche servizi di individuazione che inviano eventi di individuazione di dispositivi per il servizio di onboarding dispositivo OPC UA per l'elaborazione, in cui questi eventi che gli aggiornamenti al Registro di sistema OPC UA.  Questo articolo illustra come distribuire il modulo gemello OPC a un progetto esistente.
 
 > [!NOTE]
 > Per altre informazioni sui dettagli di distribuzione e istruzioni, vedere GitHub [repository](https://github.com/Azure/azure-iiot-opc-twin-module).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Assicurarsi di disporre di PowerShell e [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) estensioni installate.   Se non si fatto ancora, clonare questo repository GitHub.  Aprire un prompt dei comandi o terminale ed eseguire:
+Assicurarsi di disporre di PowerShell e [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) estensioni installate. Se è non è già stato fatto, clonare questo repository GitHub. Eseguire i comandi seguenti in PowerShell:
 
-```bash
-git clone --recursive https://github.com/Azure/azure-iiot-components 
+```powershell
+git clone --recursive https://github.com/Azure/azure-iiot-components.git
 cd azure-iiot-components
 ```
 
 ## <a name="deploy-industrial-iot-services-to-azure"></a>Distribuire i servizi IoT industriali in Azure
 
-1. Nel prompt dei comandi aperta o terminale eseguire:
+1. Nella sessione di PowerShell, eseguire:
 
-   ```bash
-   deploy
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy.cmd
+    ```
 
 2. Seguire le istruzioni per assegnare un nome al gruppo di risorse della distribuzione e un nome per il sito Web.   Lo script distribuisce i microservizi e le relative dipendenze di piattaforma di Azure nel gruppo di risorse nella sottoscrizione di Azure.  Lo script registra inoltre un'applicazione nel tenant di Azure Active Directory (AAD) per supportare l'autenticazione basata su OAUTH.  Distribuzione richiederà alcuni minuti.  Un esempio di ciò che viene viene visualizzato dopo aver distribuita la soluzione:
 
@@ -77,11 +78,12 @@ Lo script di distribuzione tenta di registrare due applicazioni AAD in Azure Act
 
 È anche possibile distribuire una demo di all-in-one anziché solo i servizi e le dipendenze.  Il tutto in una demo contiene tre server OPC UA, il modulo gemello OPC, tutti i microservizi e un'applicazione Web di esempio.  Destinato a scopo dimostrativo.
 
-1. Assicurarsi di avere un clone del repository (vedere sopra). Aprire un prompt dei comandi o terminale nella radice del repository ed eseguire:
+1. Assicurarsi di avere un clone del repository (vedere sopra). Aprire un prompt di PowerShell nella radice del repository ed eseguire:
 
-   ```bash
-   deploy -type demo
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy -type demo
+    ```
 
 2. Seguire le istruzioni per assegnare un nuovo nome per il gruppo di risorse e un nome per il sito Web.  Dopo aver distribuito correttamente, lo script verrà visualizzato l'URL dell'endpoint dell'applicazione web.
 
@@ -89,49 +91,49 @@ Lo script di distribuzione tenta di registrare due applicazioni AAD in Azure Act
 
 Lo script accetta i parametri seguenti:
 
-```bash
+```powershell
 -type
 ```
 
 Il tipo di distribuzione (macchina virtuale locale, demo)
 
-```bash
+```powershell
 -resourceGroupName
 ```
 
 Può essere il nome di un gruppo di risorse nuovo o esistente.
 
-```bash
+```powershell
 -subscriptionId
 ```
 
 Facoltativo, l'ID sottoscrizione in cui verranno distribuite risorse.
 
-```bash
+```powershell
 -subscriptionName
 ```
 
 O il nome della sottoscrizione.
 
-```bash
+```powershell
 -resourceGroupLocation
 ```
 
 Facoltativo, il percorso di un gruppo di risorse. Se specificato, tenterà di creare un nuovo gruppo di risorse in questa posizione.
 
-```bash
+```powershell
 -aadApplicationName
 ```
 
-Un nome per l'applicazione di AAD registrare in. 
+Un nome per l'applicazione di AAD registrare in.
 
-```bash
+```powershell
 -tenantId
 ```
 
 Tenant di AAD da usare.
 
-```bash
+```powershell
 -credentials
 ```
 

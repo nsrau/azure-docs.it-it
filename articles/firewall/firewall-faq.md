@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 5/30/2019
 ms.author: victorh
 ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384680"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
@@ -89,7 +89,7 @@ Visualizzare [prezzi di Azure Firewall](https://azure.microsoft.com/pricing/deta
 
 È possibile usare i metodi di *deallocazione* e *allocazione* di Azure PowerShell.
 
-Ad esempio: 
+Ad esempio:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -138,7 +138,7 @@ Sì. Il firewall, la subnet, la rete virtuale e l'indirizzo IP pubblico devono t
 
 ## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Quando si configura DNAT per il traffico di rete in ingresso, è necessario anche configurare una regola di rete corrispondente per consentire tale traffico?
 
- No. Le regole NAT aggiungono in modo implicito una regola di rete corrispondente per consentire il traffico convertito. È possibile sostituire questo comportamento aggiungendo in modo esplicito una raccolta regole di rete con regole di negazione corrispondenti al traffico convertito. Per altre informazioni sulla logica di elaborazione delle regole di Firewall di Azure, vedere [Azure Firewall rule processing logic](rule-processing.md) (Logica di elaborazione delle regole di Firewall di Azure).
+No. Le regole NAT aggiungono in modo implicito una regola di rete corrispondente per consentire il traffico convertito. È possibile sostituire questo comportamento aggiungendo in modo esplicito una raccolta regole di rete con regole di negazione corrispondenti al traffico convertito. Per altre informazioni sulla logica di elaborazione delle regole di Firewall di Azure, vedere [Azure Firewall rule processing logic](rule-processing.md) (Logica di elaborazione delle regole di Firewall di Azure).
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Come funzionano i caratteri jolly in una nome di dominio completo di destinazione regola applicazione?
 

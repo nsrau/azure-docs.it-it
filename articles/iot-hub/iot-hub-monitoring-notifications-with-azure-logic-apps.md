@@ -10,11 +10,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/19/2019
 ms.author: robinsh
 ms.openlocfilehash: 26637468f44e12f7ad66f907e0f6be3d907e578f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126208"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64719320"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale
 
@@ -78,7 +78,7 @@ Creare uno spazio dei nomi del bus di servizio e una coda Più avanti in questo 
 
    ![Aggiungere una coda del bus di servizio nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. Nella **Service Bus Namespace** riquadro, di sotto **entità**, selezionare **code**. Aprire la coda del Bus di servizio dall'elenco e quindi selezionare **criteri di accesso condiviso** > **+ Aggiungi**.
+1. Nella **Service Bus Namespace** riquadro, di sotto **entità**, selezionare **code**. Aprire la coda del Bus di servizio dall'elenco e quindi selezionare **criteri di accesso condiviso** >  **+ Aggiungi**.
 
 1. Immettere un nome per il criterio e selezionare **Manage**, quindi selezionare **crea**.
 
@@ -158,7 +158,7 @@ Nella sezione precedente, configurare l'hub IoT per indirizzare i messaggi che c
 
    ![Selezionare il bus di servizio per avviare la creazione dell'app per la logica nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
-1. Sotto **trigger**, selezionare **quando uno o più messaggi sono ricevuti in una coda (completamento automatico)**.
+1. Sotto **trigger**, selezionare **quando uno o più messaggi sono ricevuti in una coda (completamento automatico)** .
 
    ![Selezionare il trigger per app per la logica nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
 
@@ -214,7 +214,7 @@ Nella sezione precedente, configurare l'hub IoT per indirizzare i messaggi che c
 
    1. Nel **smtp Apiconnection** riquadro, di sotto **generali**, selezionare **Modifica connessione API**.
 
-   1. Nel **Modifica connessione API** riquadro, selezionare **abilitare SSL?**, immettere nuovamente la password per l'account di posta elettronica e selezionare **Salva**.
+   1. Nel **Modifica connessione API** riquadro, selezionare **abilitare SSL?** , immettere nuovamente la password per l'account di posta elettronica e selezionare **Salva**.
 
       ![Modifica connessione API SMTP nelle app per la logica nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
 

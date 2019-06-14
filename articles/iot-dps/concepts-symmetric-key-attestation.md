@@ -3,16 +3,16 @@ title: Servizio Device Provisioning in hub IoT di Azure - Attestazione chiave si
 description: In questo articolo viene fornita una panoramica concettuale dell'attestazione con chiave simmetrica con il servizio Device Provisioning IoT.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/18/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60746138"
 ---
 # <a name="symmetric-key-attestation"></a>Attestazione con chiave simmetrica
@@ -46,7 +46,7 @@ I token di firma di accesso condiviso hanno il formato seguente:
 
 Di seguito sono riportati i componenti di ciascun token:
 
-| Value | DESCRIZIONE |
+| Value | Descrizione |
 | --- | --- |
 | {signature} |Stringa della firma HMAC-SHA256. Per le registrazioni individuali, questa firma viene generata utilizzando la chiave simmetrica (primaria o secondaria) per eseguire il codice hash. Per i gruppi di registrazioni, viene usata una chiave derivata dalla chiave del gruppo di registrazioni per eseguire il codice hash. Il codice hash viene eseguito su un messaggio nel formato: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: La chiave deve essere decodificata da base64 prima di essere usata per eseguire il calcolo di HMAC-SHA256. Inoltre, il risultato di firma deve essere codificato con URL. |
 | {resourceURI} |URI dell'endpoint di registrazione a cui è possibile accedere tramite questo token, a partire da ID ambito per l'istanza del servizio Device Provisioning. Ad esempio: `{Scope ID}/registrations/{Registration ID}` |
@@ -114,6 +114,6 @@ Se le chiavi di dispositivo non vengono installate in ambiente di fabbrica, deve
 
 Ora che si hanno le informazioni sull'attestazione con chiave simmetrica, vedere gli articoli seguenti per altre informazioni:
 
-* [Guida introduttiva: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
+* [Avvio rapido: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
 * [Informazioni sui concetti di provisioning automatico](./concepts-auto-provisioning.md)
 * [Iniziare a usare il provisioning automatico](./quick-setup-auto-provision.md) 

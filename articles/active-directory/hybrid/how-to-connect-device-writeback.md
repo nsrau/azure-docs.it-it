@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 977b599c26e8bb586cc47bd2f0aac80034f22834
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 632f6f80184c6ba3409bd30ae070cbaefc77f036
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785722"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109508"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Abilitazione del writeback dei dispositivi
 > [!NOTE]
@@ -32,9 +32,9 @@ ms.locfileid: "65785722"
 Il documento seguente illustra come abilitare la funzionalità di writeback dei dispositivi in Azure AD Connect. Il writeback dei dispositivi viene usato negli scenari seguenti:
 
 * Abilitare [Windows Hello for Business Usa una distribuzione ibrida certificato attendibile](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
-* Per abilitare l'accesso condizionale in base ai dispositivi alle applicazione protette tramite ADFS 2012 R2 o versioni successive (trust della relying party).
+* Abilitare l'accesso condizionale in base ai dispositivi di ADFS (2012 R2 o versione successiva) delle applicazioni (trust della relying party) protetti.
 
-Questo offre maggiore sicurezza e garantisce che l'accesso alle applicazioni venga concesso solo ai dispositivi attendibili. Per altre informazioni sull'accesso condizionale, vedere [Gestione dei rischi con l'accesso condizionale](../active-directory-conditional-access-azure-portal.md) e [Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+Questo offre maggiore sicurezza e garantisce che l'accesso alle applicazioni venga concesso solo ai dispositivi attendibili. Per altre informazioni sull'accesso condizionale, vedere [gestire i rischi con l'accesso condizionale](../active-directory-conditional-access-azure-portal.md) e [configurazione dell'accesso condizionale locale usando Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 > [!IMPORTANT]
 > <li>I dispositivi devono trovarsi nella stessa foresta degli utenti. Data la necessità di eseguire il writeback dei dispositivi in una singola foresta, attualmente questa funzionalità non supporta una distribuzione con più foreste utente.</li>

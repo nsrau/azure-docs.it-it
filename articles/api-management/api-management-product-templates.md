@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61088174"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modelli di prodotto in Gestione API di Azure
@@ -78,7 +78,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |Paging|Entità [Paging](api-management-template-data-model-reference.md#Paging).|Le informazioni di paging per la raccolta di prodotti.|  
 |Filtri|Entità [Filtri](api-management-template-data-model-reference.md#Filtering).|Le informazioni dei filtri per la pagina di elenco proodtti.|  
@@ -203,7 +203,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |Prodotto|[Prodotto](api-management-template-data-model-reference.md#Product)|Il prodotto specificato.|  
 |IsDeveloperSubscribed|boolean|Indica se l'utente corrente è sottoscritto a questo prodotto.|  

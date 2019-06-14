@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023611"
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
@@ -43,7 +43,7 @@ Quando si crea un progetto di modello tabulare, si creano ruoli e si aggiungono 
   
 4.  Selezionare una delle seguenti autorizzazioni:  
   
-    |Autorizzazione|DESCRIZIONE|  
+    |Autorizzazione|Descrizione|  
     |----------------|-----------------|  
     |**Nessuno**|I membri non possono modificare lo schema del modello e non possono eseguire query sui dati.|  
     |**Lettura**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
@@ -72,7 +72,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
 
 3. Selezionare un'autorizzazione.
 
-   |Autorizzazione|DESCRIZIONE|  
+   |Autorizzazione|Descrizione|  
    |----------------|-----------------|  
    |**Controllo completo (amministratore)**|I membri possono modificare lo schema del modello, eseguire operazioni di elaborazione e query su tutti i dati.| 
    |**Elabora database**|I membri possono eseguire operazioni Elabora ed Elabora tutto. Non possono modificare lo schema del modello ed eseguire query sui dati.|  
@@ -122,7 +122,7 @@ In questo esempio, un gruppo e un utente esterno B2B vengono aggiunti al ruolo a
 
 Il modulo [SqlServer](/sql/analysis-services/powershell/analysis-services-powershell-reference) fornisce cmdlet di gestione database specifici dell'attività, oltre al cmdlet Invoke-ASCmd per utilizzo generico che accetta una query o uno script TMSL (Tabular Model Scripting Language). I cmdlet seguenti vengono usati per la gestione di utenti e ruoli del database.
   
-|Cmdlet|DESCRIZIONE|
+|Cmdlet|Descrizione|
 |------------|-----------------| 
 |[Add-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Aggiunge un membro a un ruolo del database.| 
 |[Remove-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Rimuove un membro da un ruolo del database.|   
@@ -134,7 +134,7 @@ I filtri di riga definiscono le righe di una tabella su cui i membri di uno spec
   
 I filtri di riga possono essere definiti solo per i ruoli con le autorizzazioni Lettura e Lettura ed elaborazione. Per impostazione predefinita, se non si definisce un filtro di riga per una determinata tabella, i membri possono eseguire query su tutte le righe della tabella a meno che non vengano applicati filtri incrociati da un'altra tabella.
   
- I filtri di riga richiedono una formula DAX, che deve restituire un valore TRUE/FALSE, per definire le righe su cui i membri del ruolo specifico possono eseguire query. Non è possibile eseguire query su righe non incluse nella formula DAX. Ad esempio, nel caso della tabella Customers con l'espressione di filtri di riga seguente, *=Customers [Country] = 'USA'*, i membri del ruolo Sales possono visualizzare solo i clienti negli Stati Uniti.  
+ I filtri di riga richiedono una formula DAX, che deve restituire un valore TRUE/FALSE, per definire le righe su cui i membri del ruolo specifico possono eseguire query. Non è possibile eseguire query su righe non incluse nella formula DAX. Ad esempio, nel caso della tabella Customers con l'espressione di filtri di riga seguente, *=Customers [Country] = 'USA'* , i membri del ruolo Sales possono visualizzare solo i clienti negli Stati Uniti.  
   
 I filtri di riga si applicano alle righe specificate e alle righe correlate. Quando una tabella contiene più relazioni, i filtri applicano la sicurezza per la relazione che è attiva. I filtri di riga vengono intersecati con altri filtri di riga definiti per le tabelle correlate, ad esempio:  
   
@@ -146,7 +146,7 @@ I filtri di riga si applicano alle righe specificate e alle righe correlate. Qua
   
  I membri possono eseguire query sulle righe di dati, in cui il cliente si trova negli Stati Uniti, la categoria del prodotto è biciclette e l'anno è il 2016. Gli utenti non possono eseguire query sulle transazioni all'esterno degli Stati Uniti, non relative alle biciclette o all'anno 2016, a meno che non siano membri di un altro ruolo che prevede queste autorizzazioni.
   
- È possibile usare il filtro, *=FALSE()*, per negare l'accesso a tutte le righe di un'intera tabella.
+ È possibile usare il filtro, *=FALSE()* , per negare l'accesso a tutte le righe di un'intera tabella.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

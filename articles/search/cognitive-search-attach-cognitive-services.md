@@ -11,10 +11,10 @@ ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244423"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Allegare la risorsa Servizi cognitivi a un set di competenze - Ricerca di Azure 
@@ -140,7 +140,7 @@ Content-Type: application/json
 
 Per stimare i costi relativi all'indicizzazione di ricerca cognitiva, iniziare con un'idea di un documento Media come appare in modo che è possibile eseguire alcuni numeri. Ad esempio, potrebbe simulare:
 
-+ 1.000 documenti PDF.
++ 1\.000 documenti PDF.
 + Sei pagine ogni.
 + Un'immagine per ogni pagina (6.000 immagini).
 + 3000 caratteri per ogni pagina.
@@ -149,7 +149,7 @@ Si presuppone una pipeline costituita da decifrazione del documento di ogni estr
 
 I prezzi indicati in questo articolo sono ipotetici. Vengono utilizzati per illustrare il processo di stima. I costi può essere inferiori. Per il prezzo effettivo delle transazioni, vedere [prezzi di servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services).
 
-1. Per l'individuazione di documenti con contenuto di testo e immagini, attualmente l'estrazione di testo è gratuita. 6.000 immagini, presuppone che $1 per ogni 1.000 immagini estratte. Che rappresenta un costo di $6.00 per questo passaggio.
+1. Per l'individuazione di documenti con contenuto di testo e immagini, attualmente l'estrazione di testo è gratuita. 6\.000 immagini, presuppone che $1 per ogni 1.000 immagini estratte. Che rappresenta un costo di $6.00 per questo passaggio.
 
 2. Per il riconoscimento ottico dei caratteri di 6.000 immagini in inglese, la competenza cognitiva OCR usa l'algoritmo migliore (DescribeText). Supponendo un costo di 2,50 dollari per l’analisi di 1.000 immagini, il costo raggiunto in questo passaggio sarebbe di 15 dollari.
 

@@ -12,12 +12,12 @@ ms.date: 05/09/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2ecc458183006872d5a4c6712cdf00a97993dbc
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 780dedd52e492aceaab1aa00eedb631d0814ebf3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825545"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108387"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Accesso remoto ad applicazioni locali tramite Azure Active Directory Application Proxy 
 
@@ -27,7 +27,7 @@ Il proxy di applicazione di Azure AD:
 
 - **Semplice da usare**. Gli utenti possono accedere alle applicazioni locali nello stesso modo in cui accedono a Office 365 e alle altre app SaaS integrate in Azure AD. Non è necessario modificare o aggiornare le applicazioni per usare il proxy di applicazione. 
 
-- **Sicuro**. Le applicazioni locali possono usare i controlli di autorizzazione e le funzionalità di analisi della sicurezza di Azure. Ad esempio, le applicazioni locali possono usare l'accesso condizionale e la verifica in due passaggi. Application Proxy non richiede l'apertura delle connessioni in ingresso attraverso il firewall.
+- **Sicuro**. Le applicazioni locali possono usare i controlli di autorizzazione e le funzionalità di analisi della sicurezza di Azure. Ad esempio, in locale le applicazioni possono usare la verifica in due passaggi e l'accesso condizionale. Application Proxy non richiede l'apertura delle connessioni in ingresso attraverso il firewall.
  
 - **Convenienza**. Le soluzioni locali richiedono generalmente di configurare e gestire reti perimetrali, server perimetrali o altre infrastrutture complesse. Application Proxy viene eseguito nel cloud ed è quindi facile da usare. Per usare Application Proxy non è necessario modificare l'infrastruttura di rete o installare altre appliance nell'ambiente locale.
 

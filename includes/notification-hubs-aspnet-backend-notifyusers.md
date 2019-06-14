@@ -9,10 +9,10 @@ ms.date: 03/22/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156774"
 ---
 ## <a name="create-the-webapi-project"></a>Creare il progetto WebAPI
@@ -40,7 +40,7 @@ Creare un nuovo back-end WebAPI ASP.NET eseguendo le azioni seguenti:
 2. Selezionare **Esplora server** e accedere all'account Azure. Per creare le risorse del sito Web nell'account è necessario eseguire l'accesso.
 
 3. In Visual Studio fare clic con il pulsante destro del mouse sulla soluzione di Visual Studio, scegliere **Aggiungi** e fare clic su **Nuovo progetto**.
-4. Espandere **Visual C#**, selezionare **Web** e fare clic su **Applicazione Web ASP.NET**.
+4. Espandere **Visual C#** , selezionare **Web** e fare clic su **Applicazione Web ASP.NET**.
 
 5. Nella casella **Nome** digitare **AppBackend** e quindi selezionare **OK**.
 
@@ -389,7 +389,7 @@ L'app verrà ora distribuita in un sito Web Azure per renderla accessibile da tu
 
 3. Nella finestra **Crea servizio app** selezionare l'account Azure. Selezionare **Modifica tipo** > **App Web**. Mantenere il valore di **Nome app Web** predefinito e selezionare la **sottoscrizione**, il **gruppo di risorse** e il **piano di servizio app**.
 
-4. Selezionare **Create**.
+4. Selezionare **Create** (Crea).
 
 5. Prendere nota della proprietà **URL sito** nella scheda **Riepilogo**. Questo URL sarà l'*endpoint back-end* più avanti nell'esercitazione.
 

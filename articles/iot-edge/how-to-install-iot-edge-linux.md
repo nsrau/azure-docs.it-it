@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: b519ed21b4d2e0e258c48bd1dc12750176281c9e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 86ca3080229f2a286e8aa4725fe13c40e2a38549
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152857"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054288"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installare il runtime di Azure IoT Edge in Linux (x64)
 
@@ -82,6 +82,18 @@ Installare l'interfaccia della riga di comando di Moby. L'interfaccia della riga
    ```bash
    sudo apt-get install moby-cli
    ```
+
+### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>Verificare il kernel di Linux per la compatibilità Moby
+
+Molti produttori di dispositivi incorporati spedire immagini per i dispositivi che contengono i kernel Linux personalizzati che è possono che manchino le funzionalità necessarie per la compatibilità di runtime contenitore. Se si verificano problemi quando si installa l'elemento consigliato [Moby](https://github.com/moby/moby) runtime del contenitore, potrebbe essere in grado di risolvere i problemi di configurazione il kernel Linux tramite il [check-config](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) script fornito nel ufficiale [repository Moby Github](https://github.com/moby/moby) eseguendo i comandi seguenti nel dispositivo.
+
+   ```bash
+   curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
+   chmod +x check-config.sh
+   ./check-config.sh
+   ```
+
+Ciò fornirà un output dettagliato che contiene lo stato delle funzionalità di kernel che vengono utilizzate dal runtime Moby. È opportuno verificare che tutti gli elementi sotto `Generally Necessary` e `Network Drivers` sono abilitati per garantire che il kernel sia completamente compatibile con il balena runtime.  Se sono state identificate le funzionalità mancante, è possibile abilitare la ricompilazione del kernel dall'origine e selezionando i moduli associati per l'inclusione nel file config kernel appropriato.  Analogamente, se si usa un generatore di configurazione di kernel come defconfig o menuconfig, sarà necessario trovare e abilitare le rispettive funzionalità e ricompilare il kernel di conseguenza.  Dopo aver distribuito il kernel appena modificati, eseguire lo script di configurazione di controllo per verificare che la funzionalità identificata sono state abilitate correttamente.
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>Installare il daemon di sicurezza di Azure IoT Edge
 

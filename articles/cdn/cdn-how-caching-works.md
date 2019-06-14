@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
 ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636810"
 ---
 # <a name="how-caching-works"></a>Funzionamento della memorizzazione nella cache
@@ -126,7 +126,7 @@ La tabella seguente descrive il comportamento predefinito di memorizzazione nell
 
 |    | Microsoft: Distribuzione Web generale | Verizon: Distribuzione Web generale | Verizon: DSA | Akamai: Distribuzione Web generale | Akamai: DSA | Akamai: Download di file di grandi dimensioni | Akamai: streaming multimediale generale o di video on demand |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Rispetta intestazioni origine**       | Sì    | Sì   | No    | Sì    | No    | Sì   | Sì    |
+| **Rispetta intestazioni origine**       | Yes    | Sì   | No   | Sì    | No   | Yes   | Yes    |
 | **Durata cache rete CDN** | 2 giorni |7 giorni | Nessuna | 7 giorni | Nessuna | 1 giorno | 1 anno |
 
 **Rispetta intestazioni origine**: specifica se rispettare le intestazioni di direttive di memorizzazione nella cache supportate se presenti nella risposta HTTP del server di origine.

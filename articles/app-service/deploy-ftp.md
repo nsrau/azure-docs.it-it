@@ -16,10 +16,10 @@ ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
 ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130110"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuire l'app nel servizio app di Azure usando FTP/S
@@ -55,7 +55,7 @@ Nel dashboard FTP fare clic su **Copia** per copiare le credenziali FTPS di endp
 ## <a name="deploy-files-to-azure"></a>Distribuire file in Azure
 
 1. Nel client FTP, ad esempio [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/) o [WinSCP](https://winscp.net/index.php), usare le specifiche informazioni raccolte per connettersi all'app.
-2. Copiare i file e la struttura di directory corrispondente nella directory [**/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure o nella directory **/site/wwwroot/App_Data/Jobs/** per i processi Web.
+2. Copiare i file e la struttura di directory corrispondente nella directory [ **/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure o nella directory **/site/wwwroot/App_Data/Jobs/** per i processi Web.
 3. Passare all'URL dell'app per verificare che l'applicazione venga eseguita correttamente. 
 
 > [!NOTE] 

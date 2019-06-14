@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65441632"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure Active Directory
@@ -27,7 +27,7 @@ Usare il logo e combinazioni colori personalizzate dell'azienda per offrire un a
 >Per l'aggiunta di informazioni personalizzate distintive dell'azienda è necessario usare Azure Active Directory Premium 1, Premium 2 o le edizioni Basic, oppure disporre di una licenza di Office 365. Per altre informazioni sulle licenze e sulle edizioni, vedere [Iscriversi ad Azure AD Premium](active-directory-get-started-premium.md).<br><br>Le edizioni Premium e Basic di Azure AD sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Le edizioni Azure AD Premium e Basic non sono attualmente supportate nel servizio di Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizzare la pagina di accesso di Azure AD
-È possibile personalizzare le pagine di accesso di Azure AD che vengono visualizzate quando gli utenti accedono alle applicazioni specifiche del tenant dell'organizzazione, quali [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com), o passando la variabile del dominio, ad esempio [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+È possibile personalizzare le pagine di accesso di Azure AD che vengono visualizzate quando gli utenti accedono alle applicazioni specifiche del tenant dell'organizzazione, quali [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), o passando la variabile del dominio, ad esempio [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
 Le impostazioni di personalizzazione non verrà immediatamente visualizzata quando gli utenti accedono ai siti, ad esempio, www\.office.com. L'utente dovrà effettuare invece l'accesso prima che vengano visualizzate le informazioni distintive.
 
@@ -56,7 +56,7 @@ Le impostazioni di personalizzazione non verrà immediatamente visualizzata quan
         
             L'immagine non può essere più grande di 1920x1080 pixel e deve avere una dimensione del file inferiore a 300 kB.
 
-        - **Logo banner.** Selezionare una versione .png o .jpg del logo da visualizzare nella pagina di accesso dopo che l'utente ha inserito un nome utente nella pagina del portale **My Apps (Le mie applicazioni)**.
+        - **Logo banner.** Selezionare una versione .png o .jpg del logo da visualizzare nella pagina di accesso dopo che l'utente ha inserito un nome utente nella pagina del portale **My Apps (Le mie applicazioni)** .
             
             L'immagine non può essere più alta di 36 pixel o più ampia di 245 pixel. È consigliabile usare un'immagine trasparente poiché lo sfondo potrebbe non corrispondere allo sfondo del logo. È inoltre consigliabile non aggiungere una spaziatura interna intorno all'immagine perché potrebbe far sembrare piccolo il logo.
 

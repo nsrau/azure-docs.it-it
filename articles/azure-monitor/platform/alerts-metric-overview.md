@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ce65d87142df64a9f0c27f3acdb4d6f25e86fb8a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244898"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071636"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -36,6 +36,8 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 - Soglia: 70
 
 Dal momento in cui viene creata la regola di avviso, il monitoraggio viene eseguito ogni minuto, analizza i valori delle metriche per gli ultimi 5 minuti e controlla se la media di questi valori supera 70. Se la condizione viene soddisfatta, ovvero il valore medio di CPU percentuale per gli ultimi 5 minuti supera 70, la regola di avviso genera una notifica attivata. Se è stata configurata un'azione di webhook o posta elettronica nel gruppo di azioni associato alla regola di avviso, si riceverà una notifica attivata su entrambe.
+
+Quando si usa più condizioni in una sola regola, la regola "and" le condizioni tra loro.  Vale a dire, l'avviso viene attivato quando tutte le condizioni di avviso vengono valutate come true e risolvere quando una delle condizioni non è più true. Esempio di questo tipo di avviso può essere generare un avviso quando "Superiore al 90% della CPU" e "lunghezza coda è più di 300 elementi". 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Regola di avviso con tipo di condizione dinamica
 
@@ -148,16 +150,16 @@ Se si usano avvisi delle metriche classici e si vuole verificare se gli avvisi d
 | Microsoft.ApiManagement/service | Yes |
 | Microsoft.Batch/batchAccounts| Yes|
 |Microsoft.Cache/redis| Yes |
-|Microsoft.ClassicCompute/virtualMachines | No  |
-|Microsoft.ClassicCompute/domainNames/slots/roles | No |
-|Microsoft.CognitiveServices/accounts | No  |
+|Microsoft.ClassicCompute/virtualMachines | No |
+|Microsoft.ClassicCompute/domainNames/slots/roles | No|
+|Microsoft.CognitiveServices/accounts | No |
 |Microsoft.Compute/virtualMachines | Yes|
 |Microsoft.Compute/virtualMachineScaleSets| Yes|
-|Microsoft.ClassicStorage/storageAccounts| No  |
+|Microsoft.ClassicStorage/storageAccounts| No |
 |Microsoft.DataFactory/datafactories | Yes|
 |Microsoft.DBforMySQL/servers| Yes|
 |Microsoft.DBforPostgreSQL/servers| Yes|
-|Microsoft.Devices/IotHubs | No |
+|Microsoft.Devices/IotHubs | No|
 |Microsoft.DocumentDB/databaseAccounts| Yes|
 |Microsoft.EventHub/namespaces | Yes|
 |Microsoft.Logic/workflows | Yes|
@@ -174,7 +176,7 @@ Se si usano avvisi delle metriche classici e si vuole verificare se gli avvisi d
 |Microsoft. Web/serverfarms | Yes |
 |Microsoft. Web/sites (escluse le funzioni) | Yes|
 |Microsoft. Web/hostingEnvironments/multiRolePools | No|
-|Microsoft. Web/hostingEnvironments/workerPools| No  |
+|Microsoft. Web/hostingEnvironments/workerPools| No |
 |Microsoft.SQL/Servers | No |
 
 ## <a name="next-steps"></a>Passaggi successivi

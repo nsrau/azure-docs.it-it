@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: bac61342f39821b6181a6a0e61bf0b11fb311007
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 06a7623fed0205d927fca9406469737faeda3a4b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239319"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076800"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
@@ -70,6 +70,9 @@ Inoltre, esistono un paio di cose che potrebbe essere necessario eseguire operaz
  Dopo aver creato l'insieme di credenziali, viene visualizzato nell'elenco di insiemi di credenziali dei servizi di ripristino. Se non viene visualizzato, selezionare **Aggiorna**.
 
 ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
+
+> [!NOTE]
+> Servizio Backup di Azure consente di creare un gruppo di risorse separato (diverso dal gruppo di risorse della macchina virtuale) per archiviare lo snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (esempio: AzureBackupRG_northeurope_1). Verranno conservati i dati nel gruppo di risorse per la durata in giorni come specificato nella *snapshot di ripristino istantaneo Mantieni* sezione del criterio di Backup di macchine virtuali di Azure.  Applicare un blocco a questo gruppo di risorse può causare errori di backup.
 
 ### <a name="modify-storage-replication"></a>Modificare la replica di archiviazione
 

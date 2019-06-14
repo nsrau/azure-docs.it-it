@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a0581ef43e8a3c02126612a21122db559a941370
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2b92b7673ed852e203ca0926421be6ee8cf977d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058179"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Ripristino di emergenza geografico per il bus di servizio di Azure
 
@@ -120,7 +120,7 @@ Tenere presente le considerazioni seguenti per questa versione:
 
 2. Il fatto che non vengano replicati dati significa che le sessioni attive non vengono replicate. Il rilevamento dei duplicati e i messaggi pianificati potrebbero inoltre non funzionare. Le nuove sessioni, i nuovi messaggi pianificati e i nuovi duplicati funzioneranno. 
 
-3. È necessario [provare a effettuare](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) il failover di un'infrastruttura distribuita complessa almeno una volta.
+3. È necessario [provare a effettuare](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) il failover di un'infrastruttura distribuita complessa almeno una volta.
 
 4. La sincronizzazione delle entità può richiedere tempo, circa un minuto per 50-100 entità. Anche le sottoscrizioni e le regole contano come entità.
 

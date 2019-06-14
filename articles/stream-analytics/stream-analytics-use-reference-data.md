@@ -4,19 +4,19 @@ description: Questo articolo descrive come usare i dati di riferimento per cerca
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.openlocfilehash: 93c65429ef7581f4a7d2e268034e4056d6f000c8
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/11/2019
+ms.openlocfilehash: 99917fa01fcdb3faf731e9d0909d67ff41222f22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393129"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066776"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso dei dati di riferimento per le ricerche in Analisi di flusso
+
 I dati di riferimento, noti anche come tabella di ricerca, sono un set di dati limitato di natura statica o soggetti a lenti cambiamenti, usati per eseguire una ricerca o la correlazione con il flusso di dati. Ad esempio, in uno scenario IoT, si potrebbero archiviare i metadati relativi ai sensori, che non cambiano spesso, in dati di riferimento e unirli ai flussi di dati IoT in tempo reale. Analisi di flusso di Azure carica i dati di riferimento nella memoria per ottenere un'elaborazione del flusso a bassa latenza. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](https://msdn.microsoft.com/library/azure/dn949258.aspx) nella query. 
 
 Analisi di flusso supporta l'archivio BLOB di Azure e il database SQL di Azure come livello di archiviazione per i dati di riferimento. È anche possibile trasformare e/o copiare i dati di riferimento nell'archiviazione BLOB da Azure Data Factory per usare [qualsiasi numero di archivi dati locali e basati sul cloud](../data-factory/copy-activity-overview.md).
@@ -43,7 +43,7 @@ Per configurare i dati di riferimento, è prima di tutto necessario creare un in
 
 ### <a name="static-reference-data"></a>Dati di riferimento statici
 
-Se non è previsto che i dati di riferimento cambino, viene abilitato il supporto dei dati di riferimento statici specificando un percorso statico nella configurazione di input. Analisi di flusso di Azure preleva il BLOB dal percorso specificato. Non sono necessari i token di sostituzione {date} e {time}. I dati di riferimento sono immutabili in Analisi di flusso. Pertanto, non è consigliabile sovrascrivere un BLOB di dati di riferimento statici.
+Se non è previsto che i dati di riferimento cambino, viene abilitato il supporto dei dati di riferimento statici specificando un percorso statico nella configurazione di input. Analisi di flusso di Azure preleva il BLOB dal percorso specificato. Non sono necessari i token di sostituzione {date} e {time}. Poiché i dati di riferimento sono modificabili in Stream Analitica, sovrascrivendo un blob di dati di riferimento statici non è consigliabile.
 
 ### <a name="generate-reference-data-on-a-schedule"></a>Generare i dati di riferimento in base a una pianificazione
 
@@ -54,7 +54,7 @@ Analisi di flusso di Azure verifica automaticamente se sono disponibili BLOB di 
 > [!NOTE]
 > Attualmente i processi di analisi di flusso cercano l'aggiornamento del BLOB solo quando la data/ora del computer precede quella codificata nel nome del BLOB. Ad esempio, il processo cercherà `sample/2015-04-16/17-30/products.csv` non appena possibile ma non prima delle 17.30 del 16 aprile 2015 nel fuso orario UTC. Il processo non cercherà *mai* un BLOB con data/ora codificata precedente all'ultima individuata.
 > 
-> ad esempio quando il processo trova il BLOB `sample/2015-04-16/17-30/products.csv` ignora tutti i file con data/ora codificata precedente alle 17.30 del 16 aprile 2015. Di conseguenza, se nello stesso contenitore viene creato un BLOB `sample/2015-04-16/17-25/products.csv` arrivato in ritardo, questo non viene usato dal processo.
+> Ad esempio, quando il processo trova il blob `sample/2015-04-16/17-30/products.csv` verranno ignorati tutti i file con data/ora codificata precedente alle 17.30 del 16 aprile 2015, quindi se un arrivato in ritardo `sample/2015-04-16/17-25/products.csv` blob viene creato nello stesso contenitore il processo non verrà utilizzate.
 > 
 > Analogamente, se il file `sample/2015-04-16/17-30/products.csv` viene generato solo alle 22.03 del 16 aprile 2015, ma nel contenitore non è presente alcun BLOB con data/ora precedente, il processo usa questo file a partire dalle 22.03 del 16 aprile 2015 e i dati di riferimento precedenti fino a quel momento.
 > 

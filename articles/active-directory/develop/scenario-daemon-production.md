@@ -17,10 +17,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 627dab0cb23800664c5fb5b3df9c61f5071d4b87
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545394"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>App daemon che chiama web API: passare alla produzione
@@ -51,15 +51,15 @@ Ecco alcuni collegamenti per altre informazioni:
 - Altri esempi/esercitazioni:
   - [Microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) dotato di una semplice applicazione di .NET Core daemon console che consente di visualizzare gli utenti di un tenant di Microsoft Graph l'esecuzione di query.
 
-    ![topologia](media/scenario-daemon-app/daemon-app-sample.svg)
+    ![Topologia](media/scenario-daemon-app/daemon-app-sample.svg)
 
     Lo stesso esempio vengono inoltre illustrate le variazioni con i certificati.
 
-    ![topologia](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
+    ![Topologia](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
 
   - [Microsoft-Identity-Platform-ASPNET-WebApp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) dotato di un'applicazione web ASP.NET MVC che consente di sincronizzare dati da Microsoft Graph usando l'identità dell'applicazione anziché per conto di un utente. L'esempio illustra anche il processo di consenso dell'amministratore.
 
-    ![topologia](media/scenario-daemon-app/damon-app-sample-web.svg)
+    ![Topologia](media/scenario-daemon-app/damon-app-sample-web.svg)
 
 ### <a name="python"></a>Python
 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 01c1711fb70d31fe84c7e20272de0eb7ce82c879
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 447116267e53f8c4df1e882ca30c6a2e906d314c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494226"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114299"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali
 
@@ -116,6 +116,24 @@ Selezionare **Send** (Invia).
 Il filtro asset è stato creato.
 
 Per informazioni dettagliate su come creare o aggiornare i filtri asset, vedere [Crea o aggiorna](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Vedere anche [Esempi JSON per i filtri](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter). 
+
+## <a name="associate-filters-with-streaming-locator"></a>Associare i filtri localizzatore di Streaming
+
+È possibile specificare un elenco di filtri di asset o account, si applica anche per il localizzatore di Streaming. Il [creazione dinamica dei pacchetti (Endpoint di Streaming)](dynamic-packaging-overview.md) si applica questo elenco di filtri insieme a quelli del client specifica l'URL. Questa combinazione genera una [manifesto dinamico](filters-dynamic-manifest-overview.md), basata su filtri nell'URL + filtri è specificare nel localizzatore di Streaming. È consigliabile usare questa funzionalità se si desidera applicare i filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
+
+Per creare e associare filtri a un localizzatore di Streaming usando REST, usare il [creare i localizzatori di Streaming -](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API e specificare `properties.filters` nel [corpo della richiesta](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
+                                
+## <a name="stream-using-filters"></a>Utilizzo dei filtri di Stream
+
+Dopo aver definito i filtri, è possibile usarli nell'URL di streaming. È possibile applicare filtri ai protocolli di streaming a bitrate adattivo: Apple HLS (HTTP Live Streaming), MPEG-DASH e Smooth Streaming.
+
+Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
+
+|Protocol|Esempio|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

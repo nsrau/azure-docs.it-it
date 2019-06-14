@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610804"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Guida introduttiva a Threat Modeling Tool
@@ -79,14 +79,14 @@ Essi stanno completando il processo di sviluppo del loro primo modello di minacc
 > - Sta inviando comandi al nostro server Web: il cerchio
 > - Il server Web sta consultando un database (due linee parallele)
 
-Ciò che Ricardo ha appena mostrato a Cristina è un DFD, abbreviazione di **[diagramma di flusso dei dati](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Threat Modeling Tool consente agli utenti di specificare i limiti di trust, indicati dalle linee rosse tratteggiate, per mostrare dove entità diverse sono sotto controllo. Ad esempio, gli amministratori IT richiedono un sistema Active Directory per scopi di autenticazione, perciò Active Directory è fuori dal loro controllo.
+Ciò che Ricardo ha appena mostrato a Cristina è un DFD, abbreviazione di **[diagramma di flusso dei dati](https://en.wikipedia.org/wiki/Data_flow_diagram)** . Threat Modeling Tool consente agli utenti di specificare i limiti di trust, indicati dalle linee rosse tratteggiate, per mostrare dove entità diverse sono sotto controllo. Ad esempio, gli amministratori IT richiedono un sistema Active Directory per scopi di autenticazione, perciò Active Directory è fuori dal loro controllo.
 
 > Cristina: Mi sembra perfetto. E le minacce?
 > Ricardo: Ti mostro.
 
 ## <a name="analyzing-threats"></a>Analisi delle minacce
 
-Quando fa clic sulla visualizzazione di analisi nel menu di icone (il file con la lente di ingrandimento), compare un elenco delle minacce generate trovare da Threat Modeling Tool in base al modello predefinito che usa l'approccio SDL chiamato **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))**. L'idea è che il software è soggetto a una serie di minacce prevedibili che si possono trovare usando queste 6 categorie.
+Quando fa clic sulla visualizzazione di analisi nel menu di icone (il file con la lente di ingrandimento), compare un elenco delle minacce generate trovare da Threat Modeling Tool in base al modello predefinito che usa l'approccio SDL chiamato **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))** . L'idea è che il software è soggetto a una serie di minacce prevedibili che si possono trovare usando queste 6 categorie.
 
 Questo approccio è come proteggere una casa dotando ogni porta e finestra di un meccanismo di blocco prima di aggiungere un sistema di allarme o rincorrere il ladro.
 

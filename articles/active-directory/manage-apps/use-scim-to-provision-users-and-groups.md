@@ -17,10 +17,10 @@ ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742466"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
@@ -665,7 +665,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
    ![][2]
    *Figura 6: Configurazione del provisioning nel portale di Azure*
     
-1. Nel campo **URL tenant** immettere l'URL esposto a Internet e la porta dell'endpoint SCIM. Questa voce sarà simile a http://testmachine.contoso.com:9000 o a http://\<indirizzo-IP>:9000/, dove \<indirizzo-IP> è l'indirizzo IP esposto a Internet. 
+1. Nel campo **URL tenant** immettere l'URL esposto a Internet e la porta dell'endpoint SCIM. Questa voce sarà simile a http://testmachine.contoso.com:9000 o a http://\< indirizzo-IP>:9000/, dove \< indirizzo-IP> è l'indirizzo IP esposto a Internet. 
 
 1. Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token segreto** facoltativo. 
 1. Selezionare **Test connessione** avere Azure Active Directory prova a connettersi all'endpoint SCIM. Se il tentativo non riesce, vengono visualizzate informazioni di errore.  
@@ -823,7 +823,7 @@ Per ospitare il servizio in Internet Information Services, uno sviluppatore deve
    ```
 
 ### <a name="handling-endpoint-authentication"></a>Gestione dell'autenticazione dell'endpoint
-Le richieste da Azure Active Directory includono un token di connessione OAuth 2.0.   Qualsiasi servizio che riceve la richiesta deve autenticare l'emittente come Azure Active Directory per il tenant di Azure Active Directory previsto, per l'accesso al servizio web Graph di Azure Active Directory.  Nel token, l'autorità emittente è identificata da un'attestazione iss, ad esempio "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In questo esempio, l'indirizzo di base del valore dell'attestazione, https://sts.windows.net, identifica Azure Active Directory come autorità di certificazione, mentre il relativo indirizzo segmento, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, è un identificatore univoco del tenant di Azure Active Directory per che è stato emesso il token.  Se il token è stato emesso per l'accesso al servizio Web Graph di Azure Active Directory, l'identificatore di quel servizio, 00000002-0000-0000-c000-000000000000, deve essere incluso nel valore dell'attestazione aud del token.  Ognuna delle applicazioni registrate in un singolo tenant possa ricevere lo stesso `iss` un'attestazione con SCIM richieste.
+Le richieste da Azure Active Directory includono un token di connessione OAuth 2.0.   Qualsiasi servizio che riceve la richiesta deve autenticare l'emittente come Azure Active Directory per il tenant di Azure Active Directory previsto, per l'accesso al servizio web Graph di Azure Active Directory.  Nel token, l'autorità emittente è identificata da un'attestazione iss, ad esempio "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ ".  In questo esempio, l'indirizzo di base del valore dell'attestazione, https://sts.windows.net , identifica Azure Active Directory come autorità di certificazione, mentre il relativo indirizzo segmento, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, è un identificatore univoco del tenant di Azure Active Directory per che è stato emesso il token.  Se il token è stato emesso per l'accesso al servizio Web Graph di Azure Active Directory, l'identificatore di quel servizio, 00000002-0000-0000-c000-000000000000, deve essere incluso nel valore dell'attestazione aud del token.  Ognuna delle applicazioni registrate in un singolo tenant possa ricevere lo stesso `iss` un'attestazione con SCIM richieste.
 
 Gli sviluppatori che usano le librerie CLI fornite da Microsoft per la creazione di un servizio SCIM possono autenticare le richieste da Azure Active Directory usando il pacchetto Microsoft.Owin.Security.ActiveDirectory seguendo questa procedura: 
 

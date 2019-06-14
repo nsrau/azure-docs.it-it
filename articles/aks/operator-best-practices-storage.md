@@ -5,13 +5,13 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 5/6/2019
 ms.author: iainfou
-ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e7f45a3a0e62b2b559002b71bd8816e050f062ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072640"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes
@@ -34,12 +34,12 @@ Le applicazioni spesso richiedono tipi e velocità di archiviazione diversi. Le 
 
 La tabella seguente descrive i tipi di archiviazione disponibili e le relative funzionalità:
 
-| Caso d'uso | Plug-in volume | Una sola operazione di lettura/scrittura | Molte operazioni di sola lettura | Molte operazioni di lettura/scrittura |
-|----------|---------------|-----------------|----------------|-----------------|
-| Configurazione condivisa       | File di Azure   | Sì | Sì | Sì |
-| Dati di app strutturati        | Dischi di Azure   | Sì | No   | No   |
-| Dati di app, condivisioni di sola lettura | [Dysk (anteprima)][dysk] | Sì | Sì | No   |
-| Dati non strutturati, operazioni sui file system | [BlobFuse (anteprima)][blobfuse] | Sì | Sì | Sì |
+| Caso d'uso | Plug-in volume | Una sola operazione di lettura/scrittura | Molte operazioni di sola lettura | Molte operazioni di lettura/scrittura | Supporto per i contenitori Windows Server |
+|----------|---------------|-----------------|----------------|-----------------|--------------------|
+| Configurazione condivisa       | File di Azure   | Yes | Sì | Sì | Yes |
+| Dati di app strutturati        | Dischi di Azure   | Yes | No  | No  | Yes |
+| Dati di app, condivisioni di sola lettura | [Dysk (anteprima)][dysk] | Yes | Sì | No  | No |
+| Dati non strutturati, operazioni sui file system | [BlobFuse (anteprima)][blobfuse] | Yes | Sì | Sì | No |
 
 I due principali tipi di archiviazione forniti per i volumi nel servizio Azure Kubernetes sono supportati da Dischi di Azure o File di Azure. Per migliorare la sicurezza, per impostazione predefinita entrambi i tipi di archiviazione usano la crittografia del servizio di archiviazione, che crittografa i dati inattivi. Attualmente i dischi non possono essere crittografati mediante Crittografia dischi di Azure a livello di nodo AKS.
 
@@ -64,8 +64,8 @@ Se le applicazioni richiedono Dischi di Azure come soluzione di archiviazione, p
 
 | Tipo e dimensioni del nodo | vCPU | Memoria (GiB) | Numero massimo di dischi dati | Operazioni di I/O al secondo del disco senza memorizzazione nella cache | Velocità effettiva massima senza memorizzazione nella cache (MBps) |
 |--------------------|------|--------------|----------------|------------------------|--------------------------------|
-| Standard_B2ms      | 2    | 8            | 4              | 1.920                  | 22,5                           |
-| Standard_DS2_v2    | 2    | 7            | 8              | 6.400                  | 96                             |
+| Standard_B2ms      | 2    | 8            | 4              | 1\.920                  | 22,5                           |
+| Standard_DS2_v2    | 2    | 7            | 8              | 6\.400                  | 96                             |
 
 Qui la dimensione *Standard_DS2_v2* consente il doppio del numero di dischi collegati e fornisce da tre a quattro volte la quantità di operazioni di I/O al secondo e velocità effettiva del disco. Se si considerassero solo le risorse di calcolo di base e si confrontassero i costi, si potrebbe scegliere la dimensione di macchina virtuale *Standard_B2ms* e ottenere prestazioni di archiviazione insufficienti e limitazioni. È opportuno consultare il team di sviluppo delle applicazioni per comprendere le esigenze di capacità e prestazioni di archiviazione. Scegliere quindi la dimensione di macchina virtuale appropriata per i nodi AKS in modo da soddisfare o superare queste esigenze di prestazioni. Stabilire regolarmente una baseline delle applicazioni per modificare la dimensione di macchina virtuale in base alle necessità.
 

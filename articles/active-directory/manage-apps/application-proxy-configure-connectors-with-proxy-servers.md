@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015466"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti

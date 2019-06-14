@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 337f2a31d60d54b47c692b06b5d63c28c0964061
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 5092872433529f11f699aa8a0c5e87d110cb59f7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876211"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077432"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso della rete CDN di Azure con CORS
 ## <a name="what-is-cors"></a>Informazioni su CORS
@@ -36,7 +36,7 @@ Esistono due tipi di richieste CORS, le *richieste semplici* e le *richieste com
 
 2. Il server può rispondere con uno degli elementi seguenti:
 
-   * Un'intestazione **Access-Control-Allow-Origin** presente nella risposta, per indicare il sito di origine consentito. Ad esempio: 
+   * Un'intestazione **Access-Control-Allow-Origin** presente nella risposta, per indicare il sito di origine consentito. Ad esempio:
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 
@@ -85,7 +85,7 @@ Se l'espressione regolare corrisponde, la regola specificata sostituirà l'intes
 ![Esempio di regole con espressione regolare](./media/cdn-cors/cdn-cors-regex.png)
 
 #### <a name="request-header-rule-for-each-origin"></a>Regola intestazione richiesta per ciascuna origine.
-Anziché usare espressioni regolari, è possibile creare una regola separata per ogni origine che si vuole consentire usando la [condizione di corrispondenza](/previous-versions/azure/mt757336(v=azure.100)#Anchor_1) **Request Header Wildcard** (Carattere jolly intestazione richiesta). Come per il metodo delle espressioni regolari, il motore regole imposta le intestazioni CORS. 
+Anziché usare espressioni regolari, è possibile creare una regola separata per ogni origine che si vuole consentire usando la [condizione di corrispondenza](/previous-versions/azure/mt757336(v=azure.100)#match-conditions) **Request Header Wildcard** (Carattere jolly intestazione richiesta). Come per il metodo delle espressioni regolari, il motore regole imposta le intestazioni CORS. 
 
 ![Esempio di regole senza espressione regolare](./media/cdn-cors/cdn-cors-no-regex.png)
 

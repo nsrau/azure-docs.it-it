@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
 ms.openlocfilehash: 2d440adc5111db11486d1fc606abbda0ffae9595
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942519"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Offerte di Azure Marketplace e del marketplace di AppSource
@@ -43,7 +43,7 @@ Il *test drive* è una funzionalità del marketplace che offre ai clienti un'opz
 
 La tabella seguente contiene l'elenco dei tipi di offerta correnti supportati dal [portale Cloud Partner](https://cloudpartner.azure.com).  Per ogni tipo sono indicati i marketplace in cui è possibile includere l'offerta, nonché una descrizione generale della tecnologia della soluzione fornita.
 
-|                Tipo di offerta                |  Marketplace  |   DESCRIZIONE                                                           |
+|                Tipo di offerta                |  Marketplace  |   Descrizione                                                           |
 |                ----------                |  -----------  |   -----------                                                           |
 | [Applicazione di Azure](./azure-applications/cpp-azure-app-offer.md) | Azure | La soluzione è costituita da una o più macchine virtuali, codice di Azure personalizzato facoltativo, distribuiti tramite un modello Azure Resource Manager.  La distribuzione può essere eseguita dal cliente tramite un modello di soluzione o gestita dall'editore. Questo tipo viene usato per offrire maggiore flessibilità rispetto all'offerta fornita di tipo macchina virtuale.  |
 | [Servizio di consulenza](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Entrambi | I consulenti qualificati Microsoft possono offrire servizi specifici di dominio in Azure Marketplace o AppSource.  Le competenze offerte consentono ai clienti di valutare i problemi riscontrati e creare e distribuire le soluzioni più appropriate per soddisfare gli obiettivi fi business.  |

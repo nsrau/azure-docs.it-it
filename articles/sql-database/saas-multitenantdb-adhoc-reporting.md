@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 10/30/2018
 ms.openlocfilehash: d4c5a2ca88f982626c8c2a8b37e4a7d6dfdbe599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485824"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Eseguire query di reporting ad hoc su più database SQL di Azure
@@ -96,7 +96,7 @@ Questo esercizio aggiunge lo schema (definizioni dell'origine dati esterna e del
 
     ![creare l'origine dati esterna](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
-   Le tabelle esterne che fanno riferimento a tabelle tenant sono definite con **DISTRIBUTION = SHARDED(VenueId)**. Ciò consente di indirizzare una query per un particolare *VenueId* al database appropriato e di migliorare le prestazioni per molti scenari, come illustrato nella sezione successiva.
+   Le tabelle esterne che fanno riferimento a tabelle tenant sono definite con **DISTRIBUTION = SHARDED(VenueId)** . Ciò consente di indirizzare una query per un particolare *VenueId* al database appropriato e di migliorare le prestazioni per molti scenari, come illustrato nella sezione successiva.
 
     ![creare tabelle esterne](media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 

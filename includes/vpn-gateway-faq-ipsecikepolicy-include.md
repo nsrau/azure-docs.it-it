@@ -9,10 +9,10 @@ ms.date: 12/14/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 36b3fcfa90b5b1de9c9d3262da1f3e519cc99c19
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66151064"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>I criteri IPsec/IKE personalizzati sono supportati in tutti gli SKU del gateway VPN di Azure?
@@ -101,7 +101,7 @@ Sì. È possibile applicare criteri personalizzati sia a connessioni cross-premi
 Sì. Un tunnel da rete virtuale a rete virtuale è costituito da due risorse di connessione di Azure, una per ogni direzione. Verificare che entrambe le risorse di connessione abbiano gli stessi criteri. In caso contrario, la connessione da rete virtuale a rete virtuale non verrà stabilita.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>I criteri IPsec/IKE personalizzati funzionano in una connessione ExpressRoute?
- No. I criteri IPsec/IKE funzionano solo in connessioni VPN da sito a sito e da rete virtuale a rete virtuale tramite gateway VPN di Azure.
+No. I criteri IPsec/IKE funzionano solo in connessioni VPN da sito a sito e da rete virtuale a rete virtuale tramite gateway VPN di Azure.
 
 ### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>Dove sono reperibili altre informazioni di configurazione per IPSec?
 Vedere [Configurare criteri IPSec/IKE per connessioni da sito a sito o da rete virtuale a rete virtuale](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

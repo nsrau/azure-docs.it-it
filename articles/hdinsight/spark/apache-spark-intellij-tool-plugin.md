@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 57a3ea73783af1edaee069bf2770d5c58f81772a
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 94cc41890778e842cb2e4bd6e06b90361cbef1cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66495986"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066450"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight
 
@@ -183,7 +183,7 @@ Per iniziare è possibile [accedere alla sottoscrizione di Azure](#sign-in-to-yo
         |User Name| Immettere il nome utente del cluster, il cui valore predefinito è admin.|
         |Password| Immettere la password per il nome utente.|
     
-        ![collegamento finestra di dialogo cluster Hdinsight](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        ![collegamento finestra di dialogo cluster HdInsight](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
     * **Livy Service**  
   
@@ -457,12 +457,12 @@ Se il cluster è occupato, è possibile che venga visualizzato l'errore riportat
 
 ![Errore Intellij in caso di cluster occupato](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
-## <a name="feedback-and-known-issues"></a>Commenti, suggerimenti e problemi noti
+## <a name="known-issues"></a>Problemi noti
+
 Il supporto della visualizzazione diretta degli output di Spark non è al momento disponibile.
 
-Per eventuali commenti o suggerimenti oppure se si riscontrano problemi nell'uso di questo plug-in, inviare un messaggio di posta elettronica all'indirizzo hdivstool@microsoft.com.
-
 ## <a name="seealso"></a>Passaggi successivi
+
 * [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demo
@@ -482,7 +482,6 @@ Per eventuali commenti o suggerimenti oppure se si riscontrano problemi nell'uso
 ### <a name="tools-and-extensions"></a>Strumenti ed estensioni
 * [Usare Azure Toolkit for IntelliJ per il debug remoto di applicazioni Apache Spark tramite VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Usare Azure Toolkit for IntelliJ per il debug remoto di applicazioni Apache Spark tramite SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Usare gli strumenti HDInsight per IntelliJ con Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Usare gli strumenti HDInsight in Azure Toolkit for Eclipse per creare applicazioni Apache Spark](apache-spark-eclipse-tool-plugin.md)
 * [Usare i notebook di Apache Zeppelin con cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernel disponibili per notebook di Jupyter nel cluster Apache Spark per HDInsight](apache-spark-jupyter-notebook-kernels.md)

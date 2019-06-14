@@ -16,10 +16,10 @@ ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07a21e83f304f3e1acc0ed4033d832dd8e901ac9
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65076361"
 ---
 # <a name="scenario-single-page-application"></a>Scenario: Applicazione a pagina singola
@@ -35,7 +35,7 @@ Scopri tutto quello che dovete compilare un'applicazione a pagina singola (SPA).
 È possibile creare la prima applicazione seguendo la Guida introduttiva JavaScript SPA:
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Applicazione a singola pagina](./quickstart-v2-javascript.md)
+> [Avvio rapido: Applicazione a singola pagina](./quickstart-v2-javascript.md)
 
 ## <a name="overview"></a>Panoramica
 

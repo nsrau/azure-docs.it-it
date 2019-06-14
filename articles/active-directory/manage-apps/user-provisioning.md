@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 086161b73e2a3e07df835394dc26082e12fbd434
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963989"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
@@ -91,7 +91,7 @@ Per informazioni su come connettere genericamente applicazioni che implementano 
 
 Usare il portale di Azure Active Directory per configurare il provisioning del servizio per un'applicazione selezionata AD Azure.
 
-1. Aprire il  **[portale di Azure Active Directory](https://aad.portal.azure.com)**.
+1. Aprire il  **[portale di Azure Active Directory](https://aad.portal.azure.com)** .
 
 1. Selezionare **applicazioni aziendali** nel riquadro sinistro. Un elenco di tutte le app configurate verrà mostrati.
 
@@ -202,13 +202,13 @@ La tabella seguente riepiloga i tempi di sincronizzazione per gli scenari di pro
 | Configurazione dell'ambito | Utenti, gruppi e membri nell'ambito | Ora della sincronizzazione iniziale | Ora della sincronizzazione incrementale |
 | -------- | -------- | -------- | -------- |
 | Sincronizza solo utenti e gruppi assegnati |  < 1.000 |  < 30 minuti | < 30 minuti |
-| Sincronizza solo utenti e gruppi assegnati |  1.000 - 10.000 | 142 - 708 minuti | < 30 minuti |
-| Sincronizza solo utenti e gruppi assegnati |   10.000 - 100.000 | 1.170 - 2.340 minuti | < 30 minuti |
+| Sincronizza solo utenti e gruppi assegnati |  1\.000 - 10.000 | 142 - 708 minuti | < 30 minuti |
+| Sincronizza solo utenti e gruppi assegnati |   10\.000 - 100.000 | 1\.170 - 2.340 minuti | < 30 minuti |
 | Sincronizza tutti gli utenti e i gruppi in Azure AD |  < 1.000 | < 30 minuti  | < 30 minuti |
-| Sincronizza tutti gli utenti e i gruppi in Azure AD |  1.000 - 10.000 | < 30 - 120 minuti | < 30 minuti |
-| Sincronizza tutti gli utenti e i gruppi in Azure AD |  10.000 - 100.000  | 713 - 1.425 minuti | < 30 minuti |
+| Sincronizza tutti gli utenti e i gruppi in Azure AD |  1\.000 - 10.000 | < 30 - 120 minuti | < 30 minuti |
+| Sincronizza tutti gli utenti e i gruppi in Azure AD |  10\.000 - 100.000  | 713 - 1.425 minuti | < 30 minuti |
 | Sincronizza tutti gli utenti in Azure AD|  < 1.000  | < 30 minuti | < 30 minuti |
-| Sincronizza tutti gli utenti in Azure AD | 1.000 - 10.000  | 43 - 86 minuti | < 30 minuti |
+| Sincronizza tutti gli utenti in Azure AD | 1\.000 - 10.000  | 43 - 86 minuti | < 30 minuti |
 
 
 Nella configurazione **Sincronizza solo utenti e gruppi assegnati**, è possibile applicare le formule seguenti per determinare la durata approssimativa prevista, minima e massima, per la **sincronizzazione iniziale**:
@@ -269,7 +269,7 @@ Tuttavia, l'utilizzo di gruppi dinamici può compromettere le prestazioni comple
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Il provisioning utenti automatico nelle app SaaS funziona con i gruppi annidati in Azure AD?
 
- No. Quando configurato per "sincronizzare assegnati solo gli utenti e gruppi", il servizio di provisioning utenti di Azure AD non è in grado di leggere o eseguire il provisioning degli utenti che si trovano in gruppi annidati. È solo in grado di leggere e il provisioning degli utenti che sono membri immediati di gruppo assegnato in modo esplicito.
+No. Quando configurato per "sincronizzare assegnati solo gli utenti e gruppi", il servizio di provisioning utenti di Azure AD non è in grado di leggere o eseguire il provisioning degli utenti che si trovano in gruppi annidati. È solo in grado di leggere e il provisioning degli utenti che sono membri immediati di gruppo assegnato in modo esplicito.
 
 Si tratta di una limitazione delle "assegnazioni basate su gruppi alle applicazioni", che ha effetto anche su Single Sign-On e viene descritta in [Uso di un gruppo per gestire l'accesso ad applicazioni SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 
