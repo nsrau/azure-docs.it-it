@@ -78,7 +78,7 @@ Il codice JSON seguente mostra lo schema per l'estensione dell'agente di dipende
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
-| tipo | DependencyAgentLinux |
+| type | DependencyAgentLinux |
 | typeHandlerVersion | 9,5 |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
