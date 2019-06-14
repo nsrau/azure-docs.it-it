@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
 ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150542"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Soluzione di ripristino di emergenza automatizzato usando Azure Site Recovery per le condivisioni file ospitate su StorSimple
@@ -105,7 +105,7 @@ Questo passaggio richiede la preparazione dell'ambiente di file server locale, l
    1. Selezionare la scheda **Configura** e prendere nota dell'indirizzo IP del dispositivo.
    1. Nelle macchine virtuali locali tornare a **Iniziatore iSCSI** e immettere l'indirizzo IP nella sezione connessione rapida. Fare clic su **Connessione rapida** (il dispositivo ora deve essere connesso).
    1. Aprire il portale di Azure e selezionare la scheda **Volumi e dispositivi**. Fare clic su **Configura automaticamente**. Viene visualizzato il volume appena creato.
-   1. Nel portale selezionare la scheda **Dispositivi** e quindi selezionare **Create a New Virtual Device** (Crea un nuovo dispositivo virtuale)  (il dispositivo virtuale verrà usato se si verifica un failover). Il nuovo dispositivo virtuale può essere mantenuto in uno stato offline per evitare costi aggiuntivi. Per portare offline il dispositivo virtuale, passare alla sezione **Macchine virtuali** nel portale e arrestarlo.
+   1. Nel portale selezionare la scheda **Dispositivi** e quindi selezionare **Create a New Virtual Device** (Crea un nuovo dispositivo virtuale) (il dispositivo virtuale verrà usato se si verifica un failover). Il nuovo dispositivo virtuale può essere mantenuto in uno stato offline per evitare costi aggiuntivi. Per portare offline il dispositivo virtuale, passare alla sezione **Macchine virtuali** nel portale e arrestarlo.
    1. Tornare alle macchine virtuali locali e aprire Gestione disco (premere il tasto Windows + X, quindi selezionare **Gestione disco**).
    1. Si noteranno alcuni dischi aggiuntivi (a seconda del numero di volumi creati). Fare clic con il pulsante destro del mouse sul primo disco e scegliere **Inizializza disco**, quindi fare clic su **OK**. Fare doppio clic sulla sezione **Non allocato**, selezionare **Nuovo volume semplice**, assegnare una lettera di unità al volume e completare la procedura guidata.
    1. Ripetere il primo passaggio per tutti i dischi. È ora possibile visualizzare tutti i dischi in **Computer** in Esplora risorse di Windows.
@@ -171,16 +171,16 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
 1. Nell'account di automazione fare clic su **Variabili** &gt; **Aggiungi variabile** e aggiungere le variabili seguenti. È possibile scegliere di crittografare questi asset. Queste variabili sono specifiche del piano di ripristino. Se il nome del piano di ripristino (che verrà creato nel passaggio successivo) è TestPlan, le variabili devono essere TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e così via.
 
    - **BaseUrl**: l'URL di Resource Manager per il cloud di Azure. Ottenere utilizzando **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet.
-   - *RecoveryPlanName***-ResourceGroupName**: il gruppo di Resource Manager contenente la risorsa StorSimple.
-   - *RecoveryPlanName***-ManagerName**: la risorsa StorSimple contenente il dispositivo StorSimple.
-   - *RecoveryPlanName***-DeviceName**: il dispositivo StorSimple che deve essere sottoposto a failover.
-   - *RecoveryPlanName***-DeviceIpAddress**: l'indirizzo IP del dispositivo (reperibile nella scheda **Dispositivi** della sezione Gestione dispositivi StorSimple &gt; **Impostazioni** &gt; **Rete** &gt; gruppo **Impostazioni DNS**).
-   - *RecoveryPlanName***-VolumeContainers**: una stringa con valori delimitati da virgole dei contenitori di volumi presenti sul dispositivo che devono essere sottoposti a failover, ad esempio, volcon1, volcon2, volcon3.
-   - *RecoveryPlanName***-TargetDeviceName**: l'appliance cloud di StorSimple in cui eseguire il failover dei contenitori.
-   - *RecoveryPlanName***-TargetDeviceIpAddress**: l'indirizzo IP del dispositivo di destinazione (reperibile nella sezione **Macchina virtuale** &gt; gruppo **Impostazioni** &gt; scheda **Rete**).
-   - *RecoveryPlanName***-StorageAccountName**: il nome dell'account di archiviazione in cui verrà archiviato lo script (che deve essere eseguito nella macchina virtuale sottoposta a failover). Può trattarsi di qualsiasi account di archiviazione in cui sia disponibile spazio per l'archiviazione temporanea dello script.
-   - *RecoveryPlanName***-StorageAccountKey**: la chiave di accesso per l'account di archiviazione specificato sopra.
-   - *RecoveryPlanName***-VMGUIDS**: quando protegge una macchina virtuale, Azure Site Recovery assegna a ogni macchina virtuale un ID univoco che fornisce i dettagli della macchina sottoposta a failover. Per ottenere VMGUID, selezionare la scheda **Servizi di ripristino** e quindi fare clic su **Elemento protetto** &gt; **Gruppi di protezione** &gt; **Macchine** &gt; **Proprietà**. Se sono presenti più VM, aggiungere i GUID come stringa con valori delimitati da virgole.
+   - *RecoveryPlanName* **-ResourceGroupName**: il gruppo di Resource Manager contenente la risorsa StorSimple.
+   - *RecoveryPlanName* **-ManagerName**: la risorsa StorSimple contenente il dispositivo StorSimple.
+   - *RecoveryPlanName* **-DeviceName**: il dispositivo StorSimple che deve essere sottoposto a failover.
+   - *RecoveryPlanName* **-DeviceIpAddress**: l'indirizzo IP del dispositivo (reperibile nella scheda **Dispositivi** della sezione Gestione dispositivi StorSimple &gt; **Impostazioni** &gt; **Rete** &gt; gruppo **Impostazioni DNS**).
+   - *RecoveryPlanName* **-VolumeContainers**: una stringa con valori delimitati da virgole dei contenitori di volumi presenti sul dispositivo che devono essere sottoposti a failover, ad esempio, volcon1, volcon2, volcon3.
+   - *RecoveryPlanName* **-TargetDeviceName**: l'appliance cloud di StorSimple in cui eseguire il failover dei contenitori.
+   - *RecoveryPlanName* **-TargetDeviceIpAddress**: l'indirizzo IP del dispositivo di destinazione (reperibile nella sezione **Macchina virtuale** &gt; gruppo **Impostazioni** &gt; scheda **Rete**).
+   - *RecoveryPlanName* **-StorageAccountName**: il nome dell'account di archiviazione in cui verrà archiviato lo script (che deve essere eseguito nella macchina virtuale sottoposta a failover). Può trattarsi di qualsiasi account di archiviazione in cui sia disponibile spazio per l'archiviazione temporanea dello script.
+   - *RecoveryPlanName* **-StorageAccountKey**: la chiave di accesso per l'account di archiviazione specificato sopra.
+   - *RecoveryPlanName* **-VMGUIDS**: quando protegge una macchina virtuale, Azure Site Recovery assegna a ogni macchina virtuale un ID univoco che fornisce i dettagli della macchina sottoposta a failover. Per ottenere VMGUID, selezionare la scheda **Servizi di ripristino** e quindi fare clic su **Elemento protetto** &gt; **Gruppi di protezione** &gt; **Macchine** &gt; **Proprietà**. Se sono presenti più VM, aggiungere i GUID come stringa con valori delimitati da virgole.
 
      Se, ad esempio, il nome del piano di ripristino è fileServerpredayRP, le schede **Variabili**, **Connessioni** e **Certificati** dovrebbero essere visualizzate come segue dopo aver aggiunto tutti gli asset.
 
@@ -241,7 +241,7 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
    
    - Fare clic sul pulsante **+ Piano di ripristino**. Verrà visualizzato il pannello seguente.
       
-      ![Creare il piano di ripristino](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
+      ![Crea piano di ripristino](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
       
    - Immettere un nome del piano di ripristino e scegliere i valori di Origine, Destinazione e Modello di distribuzione.
    
@@ -323,7 +323,7 @@ Durante il failback, i contenitori di volumi StorSimple vengono sottoposti a fai
 
 ## <a name="best-practices"></a>Procedure consigliate
 ### <a name="capacity-planning-and-readiness-assessment"></a>Pianificazione della capacità e valutazione della conformità
-#### <a name="hyper-v-site"></a>Sito Hyper-V
+#### <a name="hyper-v-site"></a>Sito di Hyper-V
 Usare lo [strumento Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057) per progettare l'infrastruttura di server, archiviazione e rete per l'ambiente di replica Hyper-V.
 
 #### <a name="azure"></a>Azure

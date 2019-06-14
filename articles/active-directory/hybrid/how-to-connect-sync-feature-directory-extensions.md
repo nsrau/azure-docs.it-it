@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff0fd4d01eab739b79685c1de67cb8fe28873961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347996"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Servizio di sincronizzazione Azure AD Connect: Estensioni della directory
@@ -35,7 +35,7 @@ Attualmente nessun carico di lavoro di Office 365 utilizza questi attributi.
 
 ![Procedura guidata per l'estensione dello schema](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 
- L'installazione mostra gli attributi seguenti, che sono candidati validi:
+L'installazione mostra gli attributi seguenti, che sono candidati validi:
 
 * Tipi di oggetto utente e gruppo
 * Attributi a valore singolo: String, Boolean, Integer, Binary
@@ -62,7 +62,7 @@ Questi attributi ora sono disponibili tramite l'API Graph di Azure AD. È possib
 In alternativa è possibile eseguire una query sugli attributi tramite l'API Microsoft Graph, usando [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> È necessario richiedere gli attributi da restituire. Selezionare in modo esplicito gli attributi così: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
+> È necessario richiedere gli attributi da restituire. Selezionare in modo esplicito gli attributi così: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
 > Per altre informazioni, vedere [Microsoft Graph: Use query parameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter) (Microsoft Graph: Usare parametri di query).
 

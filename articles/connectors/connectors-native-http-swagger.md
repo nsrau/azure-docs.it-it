@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60448633"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Chiamare gli endpoint REST con il connettore HTTP + Swagger in App per la logica di Azure
@@ -72,16 +72,16 @@ Ecco i passaggi per creare, configurare e archiviare i documenti di Swagger in A
 Di seguito sono riportati i dettagli per i trigger e le azioni supportati da questo connettore HTTP + Swagger.
 
 ## <a name="http--swagger-triggers"></a>Trigger HTTP + Swagger
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica.  Il connettore HTTP + Swagger supporta un solo trigger. [Altre informazioni sui trigger](../connectors/apis-list.md).
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. Il connettore HTTP + Swagger supporta un solo trigger. [Altre informazioni sui trigger](../connectors/apis-list.md).
 
-| Trigger | DESCRIZIONE |
+| Trigger | Descrizione |
 | --- | --- |
 | HTTP + Swagger |Esegue una chiamata HTTP e restituisce il contenuto della risposta |
 
 ## <a name="http--swagger-actions"></a>Azioni HTTP + Swagger
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica.  Il connettore HTTP + Swagger supporta una sola azione possibile. [Altre informazioni sulle azioni](../connectors/apis-list.md).
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. Il connettore HTTP + Swagger supporta una sola azione possibile. [Altre informazioni sulle azioni](../connectors/apis-list.md).
 
-| Azione | DESCRIZIONE |
+| Azione | Descrizione |
 | --- | --- |
 | HTTP + Swagger |Esegue una chiamata HTTP e restituisce il contenuto della risposta |
 
@@ -92,28 +92,28 @@ Il connettore HTTP + Swagger include una sola azione possibile. Di seguito sono 
 Eseguire una richiesta HTTP in uscita con l'assistenza dei metadati Swagger.
 L'asterisco (*) indica un campo obbligatorio.
 
-| Nome visualizzato | Nome proprietà | DESCRIZIONE |
+| `Display name` | Nome proprietà | Descrizione |
 | --- | --- | --- |
 | Metodo* |statico |Verbo HTTP da usare. |
 | URI* |Uri |URI per la richiesta HTTP. |
 | Headers |headers |Un oggetto JSON delle intestazioni HTTP da includere. |
-| Corpo |Corpo |Il corpo della richiesta HTTP. |
+| Body |Corpo |Il corpo della richiesta HTTP. |
 | Authentication |Autenticazione |Autenticazione da usare per la richiesta. Per altre informazioni, vedere il [connettore HTTP](connectors-native-http.md#authentication). |
 
 **Dettagli dell'output**
 
 Risposta HTTP
 
-| Nome proprietà | Tipo di dati | DESCRIZIONE |
+| Nome proprietà | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | headers |object |Intestazioni della risposta |
-| Corpo |object |Oggetto della risposta |
+| Body |object |Oggetto della risposta |
 | Codice di stato |int |Stato codice HTTP |
 
 ### <a name="http-responses"></a>Risposte HTTP
 Quando si eseguono chiamate a varie azioni, è possibile ottenere determinate risposte. Di seguito è riportata una tabella contenente le risposte e le descrizioni corrispondenti.
 
-| Name | DESCRIZIONE |
+| NOME | Descrizione |
 | --- | --- |
 | 200 |OK |
 | 202 |Accepted |

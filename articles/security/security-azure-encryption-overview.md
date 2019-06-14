@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
 ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60444517"
 ---
 # <a name="azure-encryption-overview"></a>Panoramica della crittografia di Azure
@@ -39,7 +39,7 @@ Azure supporta vari modelli di crittografia, tra cui la crittografia lato server
 
 ### <a name="client-side-encryption"></a>crittografia lato client
 
-La crittografia lato client viene eseguita all'esterno di Azure.  Sono inclusi:
+La crittografia lato client viene eseguita all'esterno di Azure. Sono inclusi:
 
 - I dati crittografati da un'applicazione in esecuzione nel data center del cliente o da un'applicazione di servizio.
 - I dati sono già crittografati quando vengono ricevuti da Azure.

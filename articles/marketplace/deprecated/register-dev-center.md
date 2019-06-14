@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 6ba008ffdf0fe00d6720b0968dc42bfcfc651c9c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258970"
 ---
 # <a name="register-in-dev-center"></a>Eseguire la registrazione nel Dev Center  
@@ -182,7 +182,7 @@ Le informazioni bancarie e fiscali sono necessarie per tutte le offerte commerci
   > Non è possibile pubblicare offerte di transazione se prima non sono state inserite tutte le informazioni fiscali e bancarie nell'account Dev Center.  Per altre informazioni sull'aggiunta di informazioni relative all'account, visitare le sezioni relative a [come aggiungere le informazioni bancarie e fiscali](https://docs.microsoft.com/azure/marketplace/register-dev-center).
 
 * **È possibile modificare l'account Microsoft di accesso a Dev Center?**
-  >  No. Dopo aver creato un account Dev Center, l'account del proprietario non può essere modificato. È necessario ricominciare con un account Dev Center completamente nuovo usando l'account Microsoft desiderato.
+  > No. Dopo aver creato un account Dev Center, l'account del proprietario non può essere modificato. È necessario ricominciare con un account Dev Center completamente nuovo usando l'account Microsoft desiderato.
 
 * **Dove si contatta il supporto per problemi di registrazione a Dev Center?**
   Per accedere al supporto, visitare la pagina Supporto per gli sviluppatori Windows all'indirizzo [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 

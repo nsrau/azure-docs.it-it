@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246125"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita
@@ -52,7 +52,7 @@ Gli oggetti utente seguenti **non** vengono sincronizzati con Azure AD:
   * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
 * Non sincronizzare gli oggetti che non funzionerebbero in Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
-   Questa maschera di bit (&H21C07000) filtra gli oggetti seguenti:
+  Questa maschera di bit (&H21C07000) filtra gli oggetti seguenti:
   * Cartella pubblica abilitata alla posta elettronica (in anteprima a partire dalla versione 1.1.524.0)
   * Cassetta postale Supervisore sistema
   * Cassetta postale Database cassette postali (cassetta postale di sistema)
@@ -148,7 +148,7 @@ Essendo una regola predefinita, verrà visualizzato un avviso quando la si apre.
 
 Una regola di sincronizzazione include quattro sezioni di configurazione: descrizione, filtro per la definizione dell'ambito, regole di unione e trasformazioni.
 
-#### <a name="description"></a>DESCRIZIONE
+#### <a name="description"></a>Descrizione
 La prima sezione fornisce informazioni di base, ad esempio il nome e una descrizione.
 
 ![Scheda Description (Descrizione) nell'editor delle regole di sincronizzazione](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
@@ -220,7 +220,7 @@ La precedenza per le regole di sincronizzazione è impostata in gruppi mediante 
 ### <a name="putting-it-all-together"></a>Riassumendo
 Le informazioni fornite fino a questo punto dovrebbero essere sufficienti per comprendere il modo in cui le diverse regole di sincronizzazione agiscono sulla configurazione. Se si prendono in considerazione un utente e gli attributi passati al metaverse, le regole vengono applicate nell'ordine seguente:
 
-| Name | Comment |
+| NOME | Commento |
 |:--- |:--- |
 | In from AD – User Join |Regola per l'unione degli oggetti dello spazio connettore con il metaverse. |
 | In from AD – UserAccount Enabled |Attributi necessari per l'accesso ad Azure AD e Office 365. Questi attributi dovranno essere rilevati dall'account abilitato. |

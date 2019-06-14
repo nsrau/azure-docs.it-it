@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246446"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo
@@ -42,18 +42,18 @@ La pipeline include diversi moduli. Ognuno di essi è responsabile di un concett
 * [Precedenza](#precedence), risolve i conflitti tra attributi
 * Destinazione, l'oggetto di destinazione
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>`Scope`
 Il modulo scope valuta un oggetto e determina le regole che si trovano nell'ambito e devono essere incluse nell'elaborazione. A seconda dei valori degli attributi sull'oggetto, viene valutata la presenza di diverse regole di sincronizzazione nell'ambito. Ad esempio, un utente disabilitato senza alcuna cassetta postale di Exchange ha regole diverse rispetto a un utente abilitato che ha una cassetta postale.  
-![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![`Scope`](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 L'ambito è definito sotto forma di gruppi e clausole. Le clausole si trovano all'interno di un gruppo. Tra tutte le clausole in un gruppo viene usato un operatore logico AND. Ad esempio, (department =IT AND country = Denmark). Viene usato un operatore logico OR tra gruppi.
 
 ![Ambito](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
- L'ambito in questa immagine deve essere letto come (department = IT AND country = Denmark) OR (country=Sweden). Se il gruppo 1 o il gruppo 2 viene valutato su true, la regola si trova nell'ambito.
+L'ambito in questa immagine deve essere letto come (department = IT AND country = Denmark) OR (country=Sweden). Se il gruppo 1 o il gruppo 2 viene valutato su true, la regola si trova nell'ambito.
 
 Il modulo dell'ambito supporta le operazioni seguenti.
 
-| Operazione | DESCRIZIONE |
+| Operazione | Descrizione |
 | --- | --- |
 | EQUAL, NOTEQUAL |Confronto di stringhe che valuta se il valore è uguale al valore dell'attributo. Per gli attributi multivalore, vedere ISIN e ISNOTIN. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |Confronto di stringhe che valuta se il valore è minore del valore dell'attributo. |
@@ -66,16 +66,16 @@ Il modulo dell'ambito supporta le operazioni seguenti.
 | ISBITSET, ISNOTBITSET |Valuta se un determinato bit è impostato. Può essere ad esempio usato per valutare i bit di userAccountControl per vedere se un utente è abilitato o disabilitato. |
 | ISMEMBEROF, ISNOTMEMBEROF |Il valore deve contenere un nome distinto per un gruppo nello spazio connettore. Se l'oggetto è un membro del gruppo specificato, la regola si trova nell'ambito. |
 
-## <a name="join"></a>Join
+## <a name="join"></a>Unisci
 Il modulo join nella pipeline di sincronizzazione provvede a trovare la relazione tra l'oggetto nell'origine e un oggetto nella destinazione. In una regola in ingresso, questa relazione sarebbe rappresentata da un oggetto in uno spazio connettore che trova una relazione con un oggetto nel metaverse.  
 ![Join tra cs e mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
- L'obiettivo è verificare se è già presente un oggetto nel metaverse, creato da un altro connettore, con cui eseguire l'associazione. In una foresta di account e risorse, ad esempio, l'utente della foresta di account deve essere unito all'utente della foresta di risorse.
+L'obiettivo è verificare se è già presente un oggetto nel metaverse, creato da un altro connettore, con cui eseguire l'associazione. In una foresta di account e risorse, ad esempio, l'utente della foresta di account deve essere unito all'utente della foresta di risorse.
 
 I join vengono usati principalmente nelle regole in ingresso per unire gli oggetti dello spazio connettore con lo stesso oggetto del metaverse.
 
 I join sono definiti come uno o più gruppi. All'interno di un gruppo sono presenti clausole. Tra tutte le clausole in un gruppo viene usato un operatore logico AND. Viene usato un operatore logico OR tra gruppi. I gruppi vengono elaborati dall'alto verso il basso. Quando un gruppo trova esattamente una corrispondenza con un oggetto nella destinazione, non vengono valutate altre regole di unione. Se non vengono trovati oggetti o ne viene trovato più di uno, l'elaborazione continua con il gruppo di regole successivo. Per questo motivo, le regole devono essere create seguendo l'ordine dalla più esplicita alla più fuzzy.  
 ![Definizione join](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
- I join in questa immagine vengono elaborati dall'alto verso il basso. La pipeline di sincronizzazione verifica prima di tutto se è presente una corrispondenza in employeeID. Se non sono presenti corrispondenze, la seconda regola verifica se è possibile usare il nome account per unire gli oggetti. Se neanche in questo caso vengono trovate corrispondenze, la terza e ultima regola rappresenta una corrispondenza fuzzy che usa il nome dell'utente.
+I join in questa immagine vengono elaborati dall'alto verso il basso. La pipeline di sincronizzazione verifica prima di tutto se è presente una corrispondenza in employeeID. Se non sono presenti corrispondenze, la seconda regola verifica se è possibile usare il nome account per unire gli oggetti. Se neanche in questo caso vengono trovate corrispondenze, la terza e ultima regola rappresenta una corrispondenza fuzzy che usa il nome dell'utente.
 
 Se tutte le regole di join sono state valutate e non è presente esattamente una corrispondenza, verrà usato il valore di **Link Type** (Tipo di collegamento) indicato nella pagina **Description** (Descrizione). Se per questa impostazione è specificato il valore **Provision**(Provisioning), nella destinazione verrà creato un nuovo oggetto.  
 ![Provisioning o join](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
@@ -120,19 +120,19 @@ Il valore letterale **AuthoritativeNull** è simile a **NULL**, con la differenz
 
 Un flusso dell'attributo può anche usare **IgnoreThisFlow**. È simile a NULL in quanto indica che non è disponibile alcun valore da fornire, con la differenza che non rimuove un valore già esistente nella destinazione. È come se il flusso dell'attributi non sia mai stato presente.
 
-Di seguito è fornito un esempio: 
+Di seguito è fornito un esempio:
 
 In *Out to AD - User Exchange hybrid* (In uscita ad AD - Utente Exchange ibrido) è possibile trovare il flusso seguente:  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
- Questa espressione deve essere letta come: se la cassetta postale dell'utente si trova in Azure AD, trasmettere l'attributo da Azure AD ad Active Directory. In caso contrario, non ritrasmettere nulla ad Active Directory. In questo caso, il valore esistente rimarrà in Active Directory.
+Questa espressione deve essere letta come: se la cassetta postale dell'utente si trova in Azure AD, trasmettere l'attributo da Azure AD ad Active Directory. In caso contrario, non ritrasmettere nulla ad Active Directory. In questo caso, il valore esistente rimarrà in Active Directory.
 
 ### <a name="importedvalue"></a>ImportedValue
-La funzione ImportedValue è diversa da tutte le altre funzioni, perché il nome dell'attributo deve essere racchiuso tra virgolette invece che tra parentesi quadre:   
+La funzione ImportedValue è diversa da tutte le altre funzioni, perché il nome dell'attributo deve essere racchiuso tra virgolette invece che tra parentesi quadre:  
 `ImportedValue("proxyAddresses")`.
 
 In genere, durante la sincronizzazione un attributo usa il valore previsto, anche se non è stato ancora esportato o se è stato visualizzato un errore durante l'esportazione ("livello massimo"). Una sincronizzazione in ingresso presuppone che un attributo che non ha ancora raggiunto una directory connessa la raggiungerà prima o poi. In alcuni casi è importante sincronizzare solo un valore confermato dalla directory connessa ("livello di importazione ologrammi e delta").
 
-Un esempio di questa funzione è disponibile nella regola di sincronizzazione predefinita *In from AD – User Common from Exchange*(In ingresso da AD - Utente comune di Exchange). Nella regola per Exchange ibrido il valore aggiunto da Exchange online deve essere sincronizzato solo quando è stato confermato che l'esportazione del valore è riuscita:   
+Un esempio di questa funzione è disponibile nella regola di sincronizzazione predefinita *In from AD – User Common from Exchange*(In ingresso da AD - Utente comune di Exchange). Nella regola per Exchange ibrido il valore aggiunto da Exchange online deve essere sincronizzato solo quando è stato confermato che l'esportazione del valore è riuscita:  
 `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 ## <a name="precedence"></a>Precedenza

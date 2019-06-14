@@ -16,10 +16,10 @@ ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31cf1f6da515aa9b453987383e78f466c5ba4fb9
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827284"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
@@ -152,8 +152,8 @@ In questo scenario, si ha un tenant di Workday e si vuole effettuare il provisio
 
 |   |   |
 | - | - |
-|  No. di provisioning di agenti da distribuire in locale | 3 (per disponibilità elevata e failover) |
-|  No. di app Workday to Azure AD User Provisioning da configurare nel portale di Azure | 1 |
+| No. di provisioning di agenti da distribuire in locale | 3 (per disponibilità elevata e failover) |
+| No. di app Workday to Azure AD User Provisioning da configurare nel portale di Azure | 1 |
 
   ![Scenario 1](./media/workday-inbound-tutorial/dep_scenario1.png)
 
@@ -163,8 +163,8 @@ Questo scenario implica il provisioning utenti da Workday a più domini figlio A
 
 |   |   |
 | - | - |
-|  No. di provisioning di agenti da distribuire in locale | 3 (per disponibilità elevata e failover) |
-|  No. di app Workday to Azure AD User Provisioning da configurare nel portale di Azure | un'app per ogni dominio figlio |
+| No. di provisioning di agenti da distribuire in locale | 3 (per disponibilità elevata e failover) |
+| No. di app Workday to Azure AD User Provisioning da configurare nel portale di Azure | un'app per ogni dominio figlio |
 
   ![Scenario 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -174,8 +174,8 @@ Questo scenario implica il provisioning utenti da Workday a domini in foreste AD
 
 |   |   |
 | - | - |
-|  No. di provisioning di agenti da distribuire in locale | 3 per ogni foresta AD non contigua |
-|  No. di app Workday to Azure AD User Provisioning da configurare nel portale di Azure | un'app per ogni dominio figlio |
+| No. di provisioning di agenti da distribuire in locale | 3 per ogni foresta AD non contigua |
+| No. di app Workday to Azure AD User Provisioning da configurare nel portale di Azure | un'app per ogni dominio figlio |
 
   ![Scenario 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 
@@ -311,9 +311,9 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
    | ---------- | ---------- |
    | Get e put | Worker Data: Public Worker Reports (Dati ruolo di lavoro: report ruoli di lavoro pubblici) |
    | Get e put | Person Data: Work Contact Information (Dati ruolo personali: Informazioni contatto di lavoro) |
-   | Recupera | Worker Data: All Positions (Dati ruolo di lavoro: tutte le posizioni) |
-   | Recupera | Worker Data: Current Staffing Information (Dati ruolo di lavoro: informazioni correnti sul personale) |
-   | Recupera | Worker Data: Business Title on Worker Profile (Dati ruolo di lavoro: qualifica riportata sul profilo) |
+   | Get | Worker Data: All Positions (Dati ruolo di lavoro: tutte le posizioni) |
+   | Get | Worker Data: Current Staffing Information (Dati ruolo di lavoro: informazioni correnti sul personale) |
+   | Get | Worker Data: Business Title on Worker Profile (Dati ruolo di lavoro: qualifica riportata sul profilo) |
    | Get e put | Account WorkDay |
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Configurazione delle autorizzazioni dei criteri di sicurezza dei processi aziendali
@@ -342,7 +342,7 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
 
 **Per attivare le modifiche apportate ai criteri di sicurezza, seguire questa procedura:**
 
-1. Immettere "activate" (attiva) nella casella di ricerca e quindi fare clic sul collegamento **Activate Pending Security Policy Changes (Attiva le modifiche in sospeso ai criteri di sicurezza)**.
+1. Immettere "activate" (attiva) nella casella di ricerca e quindi fare clic sul collegamento **Activate Pending Security Policy Changes (Attiva le modifiche in sospeso ai criteri di sicurezza)** .
 
     ![Attivare](./media/workday-inbound-tutorial/wd_isu_16.png "Attivare")
 
@@ -368,7 +368,7 @@ Per effettuare il provisioning in Active Directory locale, è necessario install
 > È possibile controllare la versione di .NET Framework nel server seguendo le istruzioni disponibili [qui](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > Se il server non dispone di .NET 4.7.1 o versioni successive, è possibile scaricarlo da [qui](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
-Dopo aver distribuito .NET 4.7.1 o versioni successive, sarà possibile scaricare l'**[agente di provisioning locale qui](https://go.microsoft.com/fwlink/?linkid=847801)** e seguire i passaggi seguenti per completare la configurazione dell'agente.
+Dopo aver distribuito .NET 4.7.1 o versioni successive, sarà possibile scaricare l' **[agente di provisioning locale qui](https://go.microsoft.com/fwlink/?linkid=847801)** e seguire i passaggi seguenti per completare la configurazione dell'agente.
 
 1. Accedi a Windows Server in cui si desidera installare il nuovo agente.
 
@@ -484,7 +484,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 
       * Attributo: EmployeeID
 
-      * Operator: NON È NULL
+      * Operator: IS NOT NULL (NON È NULL)
 
    > [!TIP]
    > Quando si configura l'app di provisioning per la prima volta, è necessario testare e verificare i mapping degli attributi e le espressioni per assicurarsi che restituisca il risultato desiderato. Microsoft consiglia di usare i filtri di ambito in **Source Object Scope** (Ambito dell'oggetto di origine) per testare il mapping con alcuni utenti test da Workday. Dopo avere verificato che i mapping funzionino è possibile rimuovere il filtro o espanderlo gradualmente in modo da includere altri utenti.
@@ -545,7 +545,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 | **Company**         | company   |     |  Creazione e aggiornamento |
 | **SupervisoryOrganization**  | department  |     |  Creazione e aggiornamento |
 | **ManagerReference**   | responsabile  |     |  Creazione e aggiornamento |
-| **BusinessTitle**   |  titolo     |     |  Creazione e aggiornamento | 
+| **BusinessTitle**   |  title     |     |  Creazione e aggiornamento | 
 | **AddressLineData**    |  streetAddress  |     |   Creazione e aggiornamento |
 | **Municipality**   |   l   |     | Creazione e aggiornamento |
 | **CountryReferenceTwoLetter**      |   co |     |   Creazione e aggiornamento |
@@ -624,7 +624,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Azu
 
       * Attributo: ContingentID
 
-      * Operator: NON È NULL
+      * Operator: IS NOT NULL (NON È NULL)
 
 3. Nel campo **Target Object Actions** (Azioni oggetto di destinazione) è possibile applicare un filtro a livello globale per le azioni che vengono eseguite in Azure AD. **Create** (Crea) e **Update** (Aggiorna) sono le più comuni.
 
@@ -959,7 +959,7 @@ La soluzione attualmente non supporta l'impostazione di attributi binari come *t
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Come si formattano i nomi visualizzati in AD in base agli attributi di reparto, paese o città e come si gestiscono le variazioni di area?
 
-È un requisito comune per configurare il *displayName* attributo in Active Directory in modo che fornisce inoltre informazioni sul reparto e paese/area geografica dell'utente. Ad esempio, se John Smith lavora nel reparto Marketing negli Stati Uniti, è consigliabile che il suo *displayName* compaia come *Smith, John (Marketing-US)*.
+È un requisito comune per configurare il *displayName* attributo in Active Directory in modo che fornisce inoltre informazioni sul reparto e paese/area geografica dell'utente. Ad esempio, se John Smith lavora nel reparto Marketing negli Stati Uniti, è consigliabile che il suo *displayName* compaia come *Smith, John (Marketing-US)* .
 
 Ecco come è possibile gestire tali requisiti per la costruzione *CN* oppure *displayName* per includere gli attributi, ad esempio società, unità aziendale, città o paese/area geografica.
 
@@ -988,14 +988,14 @@ Ecco come è possibile gestire tali requisiti per la costruzione *CN* oppure *di
 
   Verificare con il proprio team Workday che l'espressione API precedente sia valida per la configurazione del tenant di Workday. Se necessario, è possibile modificarle come descritto nella sezione [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes) (Personalizzazione dell'elenco di attributi utente di Workday).
 
-* Per compilare l'espressione di mapping di attributi a destra, identificare quale attributo di Workday "autorevole" rappresenta il suo nome, cognome, paese/area geografica e department. Si supponga che gli attributi siano rispettivamente *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* e *SupervisoryOrganization*. È possibile usare questo attributo per compilare un'espressione per l'attributo di Active Directory *displayName* come indicato di seguito per ottenere un nome visualizzato, come *Smith, John (Marketing-US)*.
+* Per compilare l'espressione di mapping di attributi a destra, identificare quale attributo di Workday "autorevole" rappresenta il suo nome, cognome, paese/area geografica e department. Si supponga che gli attributi siano rispettivamente *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* e *SupervisoryOrganization*. È possibile usare questo attributo per compilare un'espressione per l'attributo di Active Directory *displayName* come indicato di seguito per ottenere un nome visualizzato, come *Smith, John (Marketing-US)* .
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
     ```
     Dopo aver creato l'espressione corretta, modificare la tabella di mapping degli attributi e modificare il mapping degli attributi *displayName*, come illustrato di seguito:   ![Mapping di DisplayName](./media/workday-inbound-tutorial/wd_displayname_map.png)
 
-* Ampliando l'esempio precedente, si consideri l'ipotesi di convertire i nomi di città provenienti da Workday in valori a sintassi abbreviata e usarli per creare nomi visualizzati, come *Smith, John (CHI)* oppure *Doe, Jane (NYC)*, allora questo risultato può essere ottenuto usando un'espressione Switch con l'attributo Workday *Municipality* come variabile determinante.
+* Ampliando l'esempio precedente, si consideri l'ipotesi di convertire i nomi di città provenienti da Workday in valori a sintassi abbreviata e usarli per creare nomi visualizzati, come *Smith, John (CHI)* oppure *Doe, Jane (NYC)* , allora questo risultato può essere ottenuto usando un'espressione Switch con l'attributo Workday *Municipality* come variabile determinante.
 
      ```
     Switch

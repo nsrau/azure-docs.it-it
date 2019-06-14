@@ -15,10 +15,10 @@ ms.date: 01/21/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824634"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
@@ -27,24 +27,24 @@ Quando si configura il provisioning in un'applicazione SaaS, come mapping degli 
 ## <a name="syntax-overview"></a>Panoramica della sintassi
 La sintassi per le espressioni per i mapping degli attributi è simile a quella delle funzioni di Visual Basic for Applications (VBA).
 
-* L'intera espressione deve essere definita in termini di funzioni, che sono costituite da un nome seguito da argomenti racchiusi tra parentesi:  <br>
+* L'intera espressione deve essere definita in termini di funzioni, che sono costituite da un nome seguito da argomenti racchiusi tra parentesi: <br>
   *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
 * È possibile annidare le funzioni in altre funzioni. Ad esempio: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * È possibile passare tre tipi diversi di argomenti nelle funzioni:
   
   1. Attributi, che devono essere racchiusi tra parentesi quadre. Ad esempio: [NomeAttributo]
-  2. Costanti di stringa, che devono essere racchiuse tra virgolette doppie. Ad esempio: "Stati Uniti"
-  3. Altre funzioni. Ad esempio: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
+  2. Costanti di stringa, che devono essere racchiuse tra virgolette doppie. Ad esempio:  "Stati Uniti"
+  3. Altre funzioni. Ad esempio:  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
 * Eventuali barre rovesciate ( \ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \ ) come carattere di escape. Ad esempio: "Nome società: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>Elenco di funzioni
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 - - -
-### <a name="append"></a>Aggiungi
-**Funzione:**<br>  Append(source, suffix)
+### <a name="append"></a>Append
+**Funzione:**<br> Append(source, suffix)
 
-**Descrizione:**<br>  Accetta un valore di stringa di origine e aggiunge un suffisso alla fine del valore.
+**Descrizione:**<br> Accetta un valore di stringa di origine e aggiunge un suffisso alla fine del valore.
 
 **Parametri:**<br> 
 
@@ -55,9 +55,9 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**Funzione:**<br>  FormatDateTime(source, inputFormat, outputFormat)
+**Funzione:**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**Descrizione:**<br>  Accetta una stringa data in un formato e la converte in un formato diverso.
+**Descrizione:**<br> Accetta una stringa data in un formato e la converte in un formato diverso.
 
 **Parametri:**<br> 
 
@@ -69,7 +69,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 - - -
 ### <a name="join"></a>Unisci
-**Funzione:**<br>  Join(separator, source1, source2, …)
+**Funzione:**<br> Join(separator, source1, source2, …)
 
 **Descrizione:**<br> Join() è simile ad Append(), ma può combinare più valori di stringa **source** in un singola stringa e ogni valore sarà separato da una stringa **separator**.
 
@@ -77,24 +77,24 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **separator** |Obbligatorio |String |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
 | **source1 … sourceN** |Obbligatorio per un numero variabile di volte |String |Valori stringa da unire. |
 
 - - -
 ### <a name="mid"></a>Mid
-**Funzione:**<br>  Mid(source, start, length)
+**Funzione:**<br> Mid(source, start, length)
 
-**Descrizione:**<br>  Restituisce una sottostringa del valore source. Una sottostringa è una stringa che contiene solo alcuni caratteri della stringa di origine.
+**Descrizione:**<br> Restituisce una sottostringa del valore source. Una sottostringa è una stringa che contiene solo alcuni caratteri della stringa di origine.
 
 **Parametri:**<br> 
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatorio |String |Corrisponde in genere al nome dell'attributo. |
-| **start** |Obbligatorio |integer |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
-| **length** |Obbligatorio |integer |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
+| **start** |Obbligatorio |numero intero |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
+| **length** |Obbligatorio |numero intero |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
 
 - - -
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -104,13 +104,13 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatorio |String | In genere un attributo nome o cognome. |
 
 - - -
 ### <a name="not"></a>not
-**Funzione:**<br>  Not(source)
+**Funzione:**<br> Not(source)
 
 **Descrizione:**<br> Inverte il valore booleano di **source**. Se il valore di **source** è "*True*", restituisce "*False*". In caso contrario, restituisce "*True*".
 
@@ -121,11 +121,11 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 | **source** |Obbligatorio |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
 
 - - -
-### <a name="replace"></a>Sostituisci
+### <a name="replace"></a>Replace
 **Funzione:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Descrizione:**<br>
- Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seconda dei parametri forniti:
+Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seconda dei parametri forniti:
 
 * Se vengono forniti **oldValue** e **replacementValue**:
   
@@ -181,10 +181,10 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obbligatorio |String |Oggetto **[appRoleAssignments]**. |
+| **[appRoleAssignments]** |Obbligatorio |String |Oggetto **[appRoleAssignments]** . |
 
 - - -
-### <a name="split"></a>Suddiviso
+### <a name="split"></a>Split
 **Funzione:**<br> Split(source, delimiter)
 
 **Descrizione:**<br> Divide una stringa in una matrice multivalore usando il carattere di delimitazione specificato.
@@ -198,25 +198,25 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
-**Funzione:**<br>  StripSpaces(source)
+**Funzione:**<br> StripSpaces(source)
 
-**Descrizione:**<br>  Rimuove tutti i caratteri di spazio (" ") dalla stringa di origine.
+**Descrizione:**<br> Rimuove tutti i caratteri di spazio (" ") dalla stringa di origine.
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatorio |String |**source** da aggiornare. |
 
 - - -
 ### <a name="switch"></a>Switch
-**Funzione:**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Funzione:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Descrizione:**<br> Quando il valore **source** corrisponde a **key**, verrà restituito un parametro **value** per tale oggetto **key**. Se il valore del parametro **source** non corrisponde ad alcuna chiave, verrà restituito **defaultValue**.  I parametri **key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri.
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatorio |String |**Source** da aggiornare. |
 | **defaultValue** |Facoltativo |String |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
@@ -244,7 +244,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatorio |String |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **Impostazioni cultura** |Facoltativo |String |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
@@ -252,7 +252,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 ## <a name="examples"></a>Esempi
 ### <a name="strip-known-domain-name"></a>Rimuovere un nome di dominio noto
 Occorre rimuovere un nome di dominio noto dall'indirizzo di posta elettronica di un utente per ottenere il nome utente. <br>
- Ad esempio, se il dominio è "contoso.com", è possibile usare l'espressione seguente:
+Ad esempio, se il dominio è "contoso.com", è possibile usare l'espressione seguente:
 
 **Espressione:** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -323,7 +323,7 @@ Ad esempio, formattare le date per ServiceNow.
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Sostituire un valore in base a un set di opzioni predefinito
 
 È necessario definire il fuso orario dell'utente in base al codice di stato archiviato in Azure AD. <br>
- Se il codice di stato non corrisponde ad alcuna opzione predefinita, usare il valore predefinito "Australia/Sydney".
+Se il codice di stato non corrisponde ad alcuna opzione predefinita, usare il valore predefinito "Australia/Sydney".
 
 **Espressione:** <br>
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`

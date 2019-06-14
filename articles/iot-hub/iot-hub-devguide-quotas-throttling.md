@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2019
 ms.openlocfilehash: ea9bea8b314d00db87ad7addacc49a976e0da08e
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550477"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
@@ -35,10 +35,10 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | -------- | ------- | ------- | ------- |
 | [Operazioni del registro delle identità](#identity-registry-operations-throttle) (creare, recuperare, elencare, aggiornare ed eliminare) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83.33/sec/unit (5000/min/unità) |
 | [Nuove connessioni del dispositivo](#device-connections-throttle) (questo limite si applica alla velocità del _nuove connessioni_, non il numero totale di connessioni) | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24 nuove connessioni/sec, ma si hanno almeno 100 nuove conessioni/sec tra le unità. Con nove unità S1 si otterranno 108 nuove connessioni/sec (9\*12) tra le unità. | 120 nuove connessioni/sec/unità | nuove connessioni/sec/unità 6.000 |
-| Inoltri dal dispositivo al cloud | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma si hanno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9\*12) tra le unità. | 120/sec/unità | 6.000/sec/unità |
+| Inoltri dal dispositivo al cloud | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma si hanno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9\*12) tra le unità. | 120/sec/unità | 6\.000/sec/unità |
 | Inoltri dal cloud al dispositivo<sup>1</sup> | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83.33/sec/unit (5000/min/unità) |
 | Ricezioni dal cloud al dispositivo<sup>1</sup> <br/> (solo quando il dispositivo usa HTTPS)| 16.67/sec/unit (1000/min/unità) | 16.67/sec/unit (1000/min/unità) | 833.33/sec/unit (50.000/min/unità) |
-| Caricamento file | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 1,67 notifice caricamento file/sec/unità (100/min/unità) | caricamento delle notifiche/sec/unità file 83,33 (5000/min/unità) |
+| Caricamento di file | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 1,67 notifice caricamento file/sec/unità (100/min/unità) | caricamento delle notifiche/sec/unità file 83,33 (5000/min/unità) |
 | Metodi diretti<sup>1</sup> | 160 KB/sec/unità<sup>2</sup> | 480 KB/sec/unità<sup>2</sup> | 24 MB/sec/unità<sup>2</sup> | 
 | Query | 20/min/unità | 20/min/unità | 1000/min/unità |
 | Letture di dispositivi e moduli gemelli <sup>1</sup> | 100/sec | Più di 100/sec o 10/sec/unità | 500/sec/unità |
@@ -76,7 +76,7 @@ L'hub IoT applica altri limiti operativi:
 | Operazione | Limite |
 | --------- | ----- |
 | Dispositivi | Il numero massimo di dispositivi che è possibile connettersi a un singolo hub IoT è pari a 1.000.000. L'unico modo per aumentare questo limite è contattare [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).| 
-| URI per il caricamento di file | 10.000 URI di firma di accesso condiviso possono essere generati per un account di archiviazione in una sola volta. <br/>  10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
+| URI per il caricamento di file | 10\.000 URI di firma di accesso condiviso possono essere generati per un account di archiviazione in una sola volta. <br/> 10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
 | Processi<sup>1</sup> | Numero massimo di processi simultaneo è 1 (per il livello gratuito e S1), 5 (per S2) e 10 (per S3). Tuttavia, max simultaneo [processi di importazione/esportazione di dispositivo](iot-hub-bulk-identity-mgmt.md) è 1 per tutti i livelli. <br/>Cronologia dei processi verrà conservata fino a 30 giorni. |
 | Altri endpoint | Agli hub SKU a pagamento possono essere associati 10 endpoint aggiuntivi. Agli hub SKU gratuiti può essere associato solo un endpoint aggiuntivo. |
 | Regole di routing dei messaggi | Agli hub SKU a pagamento possono essere associate 100 regole di routing. Agli hub SKU gratuiti possono essere associate cinque regole di routing. |

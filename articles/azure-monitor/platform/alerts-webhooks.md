@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.component: alerts
+ms.subservice: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345780"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Impostare un avviso di metrica classico per l'invio di una notifica a un sistema non Azure tramite un webhook
@@ -73,7 +73,7 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 |:--- |:--- |:--- |:--- |
 | status |S |Activated, Resolved |Stato dell'avviso in base alle condizioni impostate. |
 | context |S | |Contesto dell'avviso. |
-|  timestamp |S | |Ora in cui è stato attivato l'avviso. |
+| timestamp |S | |Ora in cui è stato attivato l'avviso. |
 | id |S | |Ogni regola di avviso ha un ID univoco. |
 | name |S | |Nome dell'avviso. |
 | description |S | |Descrizione dell'avviso. |
@@ -106,3 +106,4 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 * Informazioni su come [usare un'app per la logica per inviare SMS tramite Twilio da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Informazioni su come [usare un'app per la logica per inviare un messaggio Slack da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Informazioni su come [usare un'app per la logica per inviare un messaggio a una coda di Azure da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
+
