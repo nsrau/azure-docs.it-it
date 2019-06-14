@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: e61f0f4ba30b29fea1b2fd5f2a2ab253d3a6710c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502867"
 ---
 # <a name="samples-on-data-science-virtual-machines"></a>Esempi nelle Data Science Virtual Machine
@@ -30,7 +30,7 @@ Data Science Virtual Machine di Azure include un set completo di codice di esemp
 > Per altre informazioni su come eseguire i Jupyter Notebook in macchine virtuali di data science, vedere la sezione [Accesso a Jupyter](#access-jupyter).
 
 ## <a name="quick-reference-of-samples"></a>Avvio rapido per gli esempi
-| Categoria di esempi | DESCRIZIONE | Località |
+| Categoria di esempi | Descrizione | Località |
 | ------------- | ------------- | ------------- |
 | Linguaggio di programmazione di R  | Gli esempi in R illustrano gli scenari, ad esempio la modalità di connessione con gli archivi dati di cloud di Azure. Viene inoltre illustrato come confrontare R open source e Microsoft R. Viene anche spiegato come rendere operativi i modelli in Microsoft R Server o SQL Server. <br/> [Linguaggio di programmazione di R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Linguaggio di programmazione di Python  | Gli esempi in Python descrivono scenari quali come eseguire la connessione con gli archivi dati di cloud di Azure e l'uso di Azure Machine Learning.  <br/> [Linguaggio di programmazione di Python](#python-language) | <br/>`~notebooks` <br/><br/>|
