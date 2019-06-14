@@ -11,14 +11,14 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3bfe067b7a927f800f88958ee2ffca09711c10
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c012ebfb00b57079e43b74b4f6570744db980860
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812818"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113150"
 ---
-# <a name="conditional-access-for-b2b-collaboration-users"></a>Accesso condizionale per gli utenti di Collaborazione B2B
+# <a name="conditional-access-for-b2b-collaboration-users"></a>Accesso condizionale per gli utenti di collaborazione B2B
 
 ## <a name="multi-factor-authentication-for-b2b-users"></a>Autenticazione a più fattori per gli utenti B2B
 Con Collaborazione B2B di Azure AD, le organizzazioni possono applicare criteri di autenticazione a più fattori (MFA) per gli utenti B2B. Questi criteri possono essere applicati a livello di tenant, di app o di singolo utente, così come vengono abilitati per dipendenti a tempo pieno e membri dell'organizzazione. I criteri di autenticazione a più fattori (MFA) vengono applicati all'organizzazione delle risorse.
@@ -57,7 +57,7 @@ L'amministratore attualmente può richiedere agli utenti di Collaborazione B2B d
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
-   Di seguito è fornito un esempio: 
+   Di seguito è fornito un esempio:
 
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
@@ -87,17 +87,17 @@ Infine, l'autenticazione a più fattori del tenant delle risorse funziona anche 
 
 Di conseguenza, per l'autenticazione a più fattori degli utenti B2B è consigliabile richiedere sempre l'autenticazione a più fattori nel tenant che emette l'invito. In alcuni casi, questo requisito può causare la duplicazione dell'autenticazione a più fattori, ma l'esperienza degli utenti finali è prevedibile a ogni accesso al tenant che emette l'invito: l'utente deve eseguire la registrazione al servizio MFA con tale tenant.
 
-### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Accesso condizionale basato sul dispositivo, sulla posizione e sui rischi per gli utenti B2B
+### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Accesso condizionale basato su dispositivo, basata sulla posizione e basati sul rischio per gli utenti B2B
 
-Quando Contoso abilita criteri di accesso condizionale basati sul dispositivo per i dati aziendali, viene impedito l'accesso da dispositivi non gestiti da Contoso e non conformi ai criteri dei dispositivi di Contoso.
+Quando Contoso Abilita criteri di accesso condizionale basato su dispositivo per i dati aziendali, i dispositivi non gestiti da Contoso e non conformi ai criteri dei dispositivi Contoso viene impedito di accesso.
 
-Se il dispositivo dell'utente B2B non è gestito da Contoso, l'accesso degli utenti B2B delle organizzazioni partner viene bloccato in qualsiasi contesto vengano applicati i criteri. Contoso, tuttavia, può creare elenchi di esclusione contenenti gli utenti di partner specifici per escluderli dai criteri di accesso condizionale basati sul dispositivo.
+Se il dispositivo dell'utente B2B non è gestito da Contoso, l'accesso degli utenti B2B delle organizzazioni partner viene bloccato in qualsiasi contesto vengano applicati i criteri. Tuttavia, Contoso può creare elenchi di esclusione contenenti gli utenti di partner specifici per escluderli dai criteri di accesso condizionale basato su dispositivo.
 
-#### <a name="location-based-conditional-access-for-b2b"></a>Accesso condizionale basato sulla posizione per B2B
+#### <a name="location-based-conditional-access-for-b2b"></a>Accesso condizionale basati sulla posizione per B2B
 
-I criteri di accesso condizionale basati sulla posizione possono essere applicati per gli utenti B2B se l'organizzazione che emette l'invito può creare un intervallo di indirizzi IP attendibili che definisce le organizzazioni partner.
+Criteri di accesso condizionale basati sulla posizione possono essere applicati per gli utenti B2B se l'organizzazione che emette l'invito è in grado di creare un intervallo di indirizzi IP attendibile che definisce le organizzazioni partner.
 
-#### <a name="risk-based-conditional-access-for-b2b"></a>Accesso condizionale basato sui rischi per B2B
+#### <a name="risk-based-conditional-access-for-b2b"></a>Accesso condizionale basati sui rischi per B2B
 
 Attualmente non è possibile applicare criteri di accesso basati sui rischi agli utenti B2B, perché la valutazione dei rischi viene eseguita nell'organizzazione principale dell'utente B2B.
 

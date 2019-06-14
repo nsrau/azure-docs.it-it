@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c87685673052d2cfbc961d3bb717c9cd274872af
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165869"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059235"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Creare ed eseguire una pipeline di Machine Learning con l'SDK di Azure Machine Learning
 
@@ -53,7 +53,7 @@ Creare le risorse necessarie per eseguire una pipeline:
 
 * Configurare un oggetto `DataReference` in modo da puntare ai dati che si trovano in un archivio dati o che sono accessibili da tale archivio.
 
-* Configurare le [destinazioni di calcolo](concept-azure-machine-learning-architecture.md#compute-target) in cui verranno eseguiti i passaggi della pipeline.
+* Configurare le [destinazioni di calcolo](concept-azure-machine-learning-architecture.md#compute-targets) in cui verranno eseguiti i passaggi della pipeline.
 
 ### <a name="set-up-a-datastore"></a>Configurare un archivio dati
 Un archivio dati contiene i dati a cui accede la pipeline. Ogni area di lavoro ha un archivio dati predefinito. È possibile registrare altri archivi dati. 
@@ -296,7 +296,7 @@ Quando si invia la pipeline, il servizio Azure Machine Learning controlla le dip
 > [!IMPORTANT]
 > Per impedire che viene incluso nello snapshot di file, creare un [file con estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` file nella directory e aggiungere i file a esso. Il `.amlignore` file utilizza la stessa sintassi e i modelli come i [file con estensione gitignore](https://git-scm.com/docs/gitignore) file. Se entrambi i file esistono, il `.amlignore` file ha la precedenza.
 >
-> Per altre informazioni, vedere [Snapshot](concept-azure-machine-learning-architecture.md#snapshot).
+> Per altre informazioni, vedere [Snapshot](concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 # Submit the pipeline to be run
@@ -366,7 +366,7 @@ response = requests.post(published_pipeline1.endpoint,
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-## <a name="view-results"></a>Visualizza risultati
+## <a name="view-results"></a>Visualizzare i risultati
 
 Visualizzare l'elenco di tutte le pipeline e i relativi dettagli di esecuzione:
 1. Accedere al [portale di Azure](https://portal.azure.com/).  

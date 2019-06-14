@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 05/21/2019
+ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 1dcdbbf0a2a71fa38b6eacd6a8d179cdad979937
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515560"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059299"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -62,6 +62,19 @@ Durante la compilazione del modello è automatizzata, è anche possibile [inform
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 <a name="preprocess"></a>
+
+## <a name="time-series-forecasting"></a>Previsione in serie temporale
+Creazione di previsioni è parte integrante di qualsiasi azienda, sia che si tratti di richiesta dei ricavi, inventario, vendite o dei clienti. Automated ml Usa una serie di tecniche combinate e approcci per consigliare una serie temporale di alta qualità di previsione. Serie temporali esperimenti in Machine Learning automatizzati vengono considerati come un problema di regressione multivariata. Oltre a time series i valori sono "trasformato tramite pivot" per diventare quote aggiuntive per il regressore insieme alle altre variabili predittive. 
+
+Questo approccio, a differenza dei metodi di serie ora classiche, presenta un vantaggio di naturale incorporare più variabili contestuali e sulla loro relazione uno a altro durante il training. Nelle applicazioni di previsione del mondo reale, vari fattori possono influenzare una previsione. Ad esempio, quando previsioni di vendite, le interazioni di tendenze cronologiche, tasso di cambio e prezzi unità congiuntamente il risultato di vendita. Un ulteriore vantaggio è che tutte le innovazioni recenti per i modelli di regressione sono immediatamente valide per la previsione.
+
+Fino a quando il futuro della previsione deve estendere (l'orizzonte di previsione) fa parte della specifica di previsione di base. Impostare il parametro obbligatorio del `max_horizon` nell'esperimento definisce il numero di periodi unit (in base l'intervallo di tempo dei dati di training, ad esempio, mensili, settimanali deve prevedere la forecaster out. 
+
+Automatizzati di Machine Learning crea un modello singolo, ma spesso internamente sottoposto a branching per tutti gli elementi in orizzonti il set di dati e la stima. In questo modo sono disponibili per stimare i parametri di modello più dati e generalizzazione di serie non visti diventa possibile. 
+
+Funzionalità estratte dai dati di training svolgono un ruolo fondamentale. Automatizzati di Machine Learning esegue i passaggi di pre-elaborazione standard e genera funzionalità aggiuntive di serie temporali (ad esempio, anno, mese, giorno della settimana e così via) per acquisire gli effetti stagionali e aumentare l'accuratezza predittiva. 
+
+Se appropriato per lo scenario, è possibile indirizzare automatizzati di Machine Learning per creare intervalli (`target_lags`) o aggregazioni finestra scorrevole di dati (`target_rolling_window_size`) di destinazione (`y_value`) oltre i valori. 
 
 ## <a name="preprocessing"></a>Pre-elaborazione
 
@@ -160,6 +173,7 @@ Automatizzati di Machine Learning è disponibile anche in altre soluzioni Micros
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Selezione automatica del modello e il training delle app .NET con Visual Studio e Visual Studio Code con a ML.NET automatizzati di Machine Learning (anteprima).|
 |[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|La scalabilità orizzontale ML training automatizzate su Spark nei cluster HDInsight in parallelo.|
 |[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Richiamare i modelli di machine learning direttamente in Power BI (anteprima).|
+|[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Creare nuovi modelli di machine learning sui dati nei cluster di SQL Server 2019 dei big Data.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

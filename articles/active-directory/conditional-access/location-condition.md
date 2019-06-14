@@ -1,5 +1,5 @@
 ---
-title: Qual è la condizione della posizione nell'accesso condizionale di Azure Active Directory? | Microsoft Docs
+title: Che cos'è la condizione della posizione in Active Directory accesso condizionale di Azure? | Microsoft Docs
 description: Informazioni su come usare la condizione della posizione per controllare l'accesso alle app cloud in base al percorso di rete dell'utente.
 services: active-directory
 ms.service: active-directory
@@ -12,16 +12,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98588e0c25439fd4988fe39e06e7042cfa9113cb
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 886118614427bea61f745e1ded28824b60225919
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305670"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112302"
 ---
-# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual è la condizione della posizione nell'accesso condizionale di Azure Active Directory? 
+# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Che cos'è la condizione della posizione in Active Directory accesso condizionale di Azure? 
 
-Con l'[accesso condizionale di Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md) è possibile controllare il modo in cui gli utenti autorizzati possono accedere alle app cloud. La condizione della posizione dei criteri dei accesso condizionale consente di associare le impostazioni dei controlli dell'accesso ai percorsi di rete degli utenti.
+Con [accesso condizionale di Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), è possibile controllare gli utenti come autorizzati possono accedere alle App cloud. La condizione della posizione di un criterio di accesso condizionale consente di associare le impostazioni di controlli di accesso ai percorsi di rete degli utenti.
 
 Questo articolo fornisce le informazioni necessarie per configurare la condizione della posizione.
 
@@ -38,7 +38,7 @@ Un percorso è un'etichetta per un percorso di rete che rappresenta una posizion
 
 Con le località denominate, è possibile creare raggruppamenti logici di intervalli di indirizzi IP o paesi e aree geografiche.
 
-È possibile accedere a specifiche posizioni dalla sezione **Gestisci** della pagina Accesso condizionale.
+È possibile accedere a specifiche posizioni il **Gestisci** sezione della pagina di accesso condizionale.
 
 ![Località denominate nell'accesso condizionale](./media/location-condition/02.png)
 
@@ -52,7 +52,7 @@ Una posizione specifica ha le caratteristiche seguenti:
    > [!NOTE]
    > IPv6 indirizzo rangess attualmente non è possibile includere in una posizione denominata. Gli intervalli IPv6 questo measn non possono essere esclusa da un criterio di accesso condizionale.
 
-- **Contrassegna come posizione attendibile**: flag che è possibile impostare per una posizione specifica per indicare un percorso attendibile. In genere, i percorsi attendibili sono aree della rete controllate dal reparto IT. Oltre che per l'accesso condizionale, le posizioni specifiche attendibili vengono usate anche da Azure AD Identity Protection e dai report di sicurezza di Azure AD per ridurre il numero di [falsi positivi](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
+- **Contrassegna come posizione attendibile**: flag che è possibile impostare per una posizione specifica per indicare un percorso attendibile. In genere, i percorsi attendibili sono aree della rete controllate dal reparto IT. Oltre all'accesso condizionale, posizioni attendibili sono usate anche dai report di sicurezza di Azure Identity Protection e Azure AD per ridurre [falsi positivi](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Paesi/aree geografiche**: questa opzione consente di selezionare uno o più paesi o aree geografiche per definire una posizione specifica.
 - **Includi aree sconosciute** -alcuni indirizzi IP non sono mappati a un paese specifico. Questa opzione consente di scegliere se questi indirizzi IP devono essere inclusi nella posizione specifica. Usare questa impostazione quando i criteri che usano la posizione specifica devono essere applicati a posizioni sconosciute.
 
@@ -73,7 +73,7 @@ Se si dispone di indirizzi IP attendibili configurati, vengono visualizzati come
 
 ### <a name="skipping-multi-factor-authentication"></a>Ignorare l'autenticazione a più fattori
 
-Nella pagina delle impostazioni del servizio di autenticazione a più fattori, è possibile identificare gli utenti della rete Intranet aziendale selezionando **Ignora l'autenticazione a più fattori per le richieste provenienti da utenti federati nella Intranet**. Questa impostazione indica che l'attestazione della rete aziendale interna, rilasciata da AD FS, deve essere attendibile e usata per identificare l'utente come appartenente alla rete aziendale. Per altre informazioni, vedere [Abilitare la funzionalità degli indirizzi IP attendibili tramite l'accesso condizionale](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+Nella pagina delle impostazioni del servizio di autenticazione a più fattori, è possibile identificare gli utenti della rete Intranet aziendale selezionando **Ignora l'autenticazione a più fattori per le richieste provenienti da utenti federati nella Intranet**. Questa impostazione indica che l'attestazione della rete aziendale interna, rilasciata da AD FS, deve essere attendibile e usata per identificare l'utente come appartenente alla rete aziendale. Per altre informazioni, vedere [abilitare la funzionalità indirizzi IP attendibili usando l'accesso condizionale](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 Dopo aver selezionato questa opzione, inclusa la posizione specifica **indirizzi IP attendibili MFA** verranno applicate a tutti i criteri con questa opzione è selezionata.
 
@@ -113,7 +113,7 @@ Con questa opzione è possibile selezionare una o più posizioni specifiche. Per
 
 ### <a name="when-is-a-location-evaluated"></a>Quando viene valutata una posizione?
 
-I criteri di accesso condizionale vengono valutati quando:
+Criteri di accesso condizionale vengono valutati quando:
 
 - Un utente accede inizialmente a un'app Web, un'applicazione per dispositivi mobili o un'applicazione desktop.
 - Un'applicazione desktop o per dispositivo mobili che usa l'autenticazione moderna usa un token di aggiornamento per acquisire un nuovo token di accesso. Per impostazione predefinita questo controllo è una sola volta con cadenza oraria.
@@ -141,9 +141,9 @@ Quando è presente un proxy cloud, è possibile usare criteri che richiedono un 
 
 ### <a name="api-support-and-powershell"></a>Supporto dell'API e PowerShell
 
-L'API e PowerShell non sono ancora supportati per le posizioni specifiche o per i criteri di accesso condizionale.
+API e PowerShell non è ancora supportata per le posizioni specifiche o per i criteri di accesso condizionale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come configurare criteri di accesso condizionale, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](app-based-mfa.md).
-- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md).
+- Se si desidera sapere come configurare un criterio di accesso condizionale, vedere [Richiedi autenticazione a più fattori per App specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md).
+- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente, vedere la [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md).

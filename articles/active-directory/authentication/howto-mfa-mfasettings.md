@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6a74548d0dc965127c5568708155341f60dbc65
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 618377d532dc932eb21f282ac8ba7f6c07df16f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496754"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113448"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -191,7 +191,7 @@ Alcune applicazioni, come Office 2010 o versioni precedenti e Apple Mail precede
 L'autenticazione moderna è supportata per i client di Microsoft Office 2013 e versioni successive. I client di Office 2013, tra cui Outlook, supportano i protocolli di autenticazione moderni e possono essere abilitati per la verifica in due passaggi. Dopo averlo abilitato, il client non richiede le password dell'app.
 
 >[!NOTE]
->Le password delle app non funzionano con i criteri di autenticazione a più fattori basati su accesso condizionale e l'autenticazione moderna.
+>Le password dell'App non funzionano con i criteri di accesso condizionale basato su autenticazione a più fattori e l'autenticazione moderna.
 
 ### <a name="considerations-about-app-passwords"></a>Considerazioni sulle password dell'app
 
@@ -259,7 +259,7 @@ Gli utenti possono creare password delle app anche dopo la registrazione. Per al
 La funzionalità _Indirizzi IP attendibili_ di Azure Multi-Factor Authentication viene usata dagli amministratori di un tenant gestito o federato. La funzionalità consente di ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet aziendale. Questa funzionalità è disponibile nella versione completa di Azure Multi-Factor Authentication, ma non nella versione gratuita per amministratori. Per informazioni dettagliate su come ottenere la versione completa di Azure Multi-Factor Authentication, vedere [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 > [!NOTE]
-> Gli IP attendibili MFA e le posizioni specifiche di accesso condizionale funzionano solo con indirizzi IPV4.
+> Autenticazione a più fattori attendibili gli indirizzi IP e l'accesso condizionale località denominate funzionano solo con indirizzi IPV4.
 
 Se l'organizzazione distribuisce l'estensione del server dei criteri di rete per garantire l'autenticazione a più fattori ad applicazioni locali, si prega di notare che gli indirizzi IP originali sembreranno sempre il server dei criteri di rete attraverso cui passa il tentativo di autenticazione.
 
@@ -283,17 +283,17 @@ Indipendentemente dal fatto che la funzionalità Indirizzi IP attendibili sia di
 ### <a name="enable-named-locations-by-using-conditional-access"></a>Abilitare le località denominate usando l'accesso condizionale
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Sulla sinistra selezionare **Azure Active Directory** > **Accesso condizionale** > **Località denominate**.
+2. A sinistra, selezionare **Azure Active Directory** > **accesso condizionale** > **località denominate**.
 3. Selezionare **Nuova località**.
 4. Immettere un nome per la località.
 5. Selezionare **Contrassegna come posizione attendibile**.
 6. Immettere l'intervallo di indirizzi IP nella notazione CIDR, ad esempio **192.168.1.1/24**.
 7. Selezionare **Create**.
 
-### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Abilitare la funzionalità Indirizzi IP attendibili tramite l'accesso condizionale
+### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Abilitare la funzionalità indirizzi IP attendibili usando l'accesso condizionale
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Sulla sinistra selezionare **Azure Active Directory** > **Accesso condizionale** > **Località denominate**.
+2. A sinistra, selezionare **Azure Active Directory** > **accesso condizionale** > **località denominate**.
 3. Selezionare **Configura indirizzi IP attendibili MFA**.
 4. Nella pagina **Impostazioni servizio**, in **Indirizzi IP attendibili** scegliere una delle due opzioni seguenti:
 
@@ -367,7 +367,7 @@ La funzionalità di memorizzazione di Multi-Factor Authentication imposta un coo
 
 L'opzione **Don't ask again for X days** (Non visualizzare più il messaggio per X giorni) non viene visualizzata nelle applicazioni non basate su browser, indipendentemente dal fatto che l'app supporti l'autenticazione moderna. Queste app usano _token di aggiornamento_ che creano nuovi token di accesso ogni ora. Quando un token di aggiornamento viene convalidato, Azure AD controlla che l'ultima verifica in due passaggi sia stata eseguita entro il numero di giorni specificato.
 
-La funzionalità riduce il numero di autenticazioni per le app Web, che in genere viene richiesta ogni volta. Questa comporta però un aumento del numero di autenticazioni per i client di autenticazione moderna che in genere la richiedono ogni 90 giorni. Può anche aumentare il numero di autenticazioni in combinazione con i criteri di accesso condizionale.
+La funzionalità riduce il numero di autenticazioni per le app Web, che in genere viene richiesta ogni volta. Questa comporta però un aumento del numero di autenticazioni per i client di autenticazione moderna che in genere la richiedono ogni 90 giorni. Può anche aumentare il numero di autenticazioni quando combinato con i criteri di accesso condizionale.
 
 >[!IMPORTANT]
 >La funzionalità di **memorizzazione di Multi-Factor Authentication** non è compatibile con la funzionalità **mantieni l'accesso** di AD FS, quando gli utenti eseguono la verifica in due passaggi per AD FS tramite il server Azure Multi-Factor Authentication o una soluzione di autenticazione a più fattori di terze parti.

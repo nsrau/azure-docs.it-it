@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: eb68421c4f62d94eedf266a0c34a0e276eacc4a6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.date: 06/10/2019
+ms.openlocfilehash: b85277a4238351b6448c2cf29676ae3d8c118385
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479272"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077185"
 ---
 # <a name="scale-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight
 
@@ -21,6 +21,9 @@ HDInsight offre elasticità permettendo di aumentare e ridurre il numero di nodi
 Se hai l'elaborazione di batch periodici, il cluster HDInsight può essere aumentato pochi minuti prima dell'operazione, in modo che il cluster disponga di sufficiente memoria e potenza della CPU.  Successivamente, al termine dell'elaborazione e quando l'utilizzo diminuisce di nuovo, è possibile ridurre il cluster HDInsight a un numero inferiore di nodi di lavoro.
 
 È possibile ridimensionare un cluster manualmente usando uno dei metodi descritti di seguito oppure usare [scalabilità automatica](hdinsight-autoscale-clusters.md) scalabilità verticale di opzioni per disporre automaticamente del sistema in risposta a CPU, memoria e altre metriche.
+
+> [!NOTE]  
+> Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è certi della versione del cluster, è possibile controllare la pagina delle proprietà.
 
 ## <a name="utilities-to-scale-clusters"></a>Utilità per ridimensionare i cluster
 
@@ -47,6 +50,50 @@ Usando uno di questi metodi, è possibile aumentare o ridurre il cluster HDInsig
 Quando si **aggiungere** nodi al cluster in esecuzione HDInsight (scalabilità verticale), tutti i processi in sospeso o in esecuzione non saranno interessati. È possibile inviare nuovi processi in tutta sicurezza durante l'esecuzione del processo di ridimensionamento. Se l'operazione di ridimensionamento non riesce per qualsiasi motivo, l'errore verrà gestito per lasciare il cluster in uno stato funzionale.
 
 Se si **rimuovere** nodi (scalabilità verso il basso), verrà eventuali processi in sospeso o in esecuzione si verificano errori quando viene completata l'operazione di ridimensionamento. Questo errore è dovuto a alcuni dei servizi il riavvio durante il processo di ridimensionamento. È inoltre disponibile un rischio che il cluster può ottenere bloccato in modalità sicura durante l'operazione di ridimensionamento manuale.
+
+Impatto della modifica del numero di nodi dati per ogni tipo di cluster supportato da HDInsight:
+
+* Apache Hadoop
+
+    È possibile aumentare facilmente il numero di nodi del ruolo di lavoro in un cluster Hadoop in esecuzione senza conseguenze per eventuali processi in sospeso o in esecuzione. È inoltre possibile inviare nuovi processi mentre è in corso l'operazione. Gli errori in un'operazione di scalabilità vengono gestiti in modo che il cluster rimanga sempre in uno stato funzionale.
+
+    Quando un cluster Hadoop viene ridimensionato riducendo il numero di nodi dati, alcuni dei servizi del cluster vengono riavviati. A causa di questo comportamento, tutti i processi in esecuzione e in sospeso avranno esito negativo al completamento dell'operazione di ridimensionamento. È tuttavia possibile inviare nuovamente i processi una volta completata l'operazione.
+
+* Apache HBase
+
+    È possibile aggiungere o rimuovere facilmente nodi nel cluster HBase mentre è in esecuzione. I server a livello di area vengono bilanciati automaticamente entro pochi minuti dal completamento dell'operazione di ridimensionamento. È tuttavia possibile anche bilanciare manualmente i server a livello di area accedendo al nodo head del cluster ed eseguendo i comandi seguenti da una finestra del prompt dei comandi:
+
+    ```bash
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
+    ```
+
+    Per altre informazioni sull'uso della shell HBase, vedere [Iniziare a usare un esempio di Apache HBase in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
+
+* Apache Storm
+
+    È possibile aggiungere o rimuovere facilmente nodi dati dal cluster Storm mentre è in esecuzione. Tuttavia, dopo il completamento dell'operazione di ridimensionamento, è necessario bilanciare nuovamente la topologia.
+
+    A tale scopo, è possibile scegliere tra due opzioni:
+
+  * Interfaccia utente Web di Storm
+  * Interfaccia della riga di comando (CLI)
+
+    Per altri dettagli, vedere la [documentazione di Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+
+    L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
+
+    ![Ribilanciamento di HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
+    Ecco un esempio di comando dell'interfaccia della riga di comando per bilanciare di nuovo la topologia di Storm:
+
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Come ridurre in modo sicuro a un cluster
 
@@ -140,13 +187,13 @@ Se sono rimasti file temporanei di Hive, è possibile pulire questi file manualm
 1. Arrestare i servizi Hive e assicurarsi che tutte le query e i processi siano stati completati.
 2. Elencare il contenuto della directory di file temporanei trovato sopra, `hdfs://mycluster/tmp/hive/` per verificare se contiene tutti i file:
 
-    ```
+    ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     ```
 
     Ecco un esempio di output quando sono presenti file:
 
-    ```
+    ```output
     sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/_tmp_space.db
@@ -160,7 +207,7 @@ Se sono rimasti file temporanei di Hive, è possibile pulire questi file manualm
 
     Riga di comando di esempio per rimuovere file da Hadoop Distributed File System:
 
-    ```
+    ```bash
     hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     ```
 
@@ -173,7 +220,6 @@ Mantenendo tre nodi di lavoro è più costoso riduzione a un solo nodo di lavoro
 #### <a name="run-the-command-to-leave-safe-mode"></a>Eseguire il comando per disattivare la modalità sicura
 
 L'opzione finale consiste nell'eseguire il comando di lasciare la modalità provvisoria. Se si sa che il motivo per entrare in modalità sicura di HDFS a causa di replica correggerà file Hive, è possibile eseguire il comando seguente per disattivare la modalità sicura:
-
 
 ```bash
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
@@ -201,4 +247,3 @@ Server di area vengono bilanciati automaticamente entro pochi minuti dopo aver c
 
 * [Ridimensionare automaticamente i cluster HDInsight di Azure](hdinsight-autoscale-clusters.md)
 * [Introduzione ad Azure HDInsight](hadoop/apache-hadoop-introduction.md)
-* [Ridimensionare i cluster](hdinsight-administer-use-portal-linux.md#scale-clusters)

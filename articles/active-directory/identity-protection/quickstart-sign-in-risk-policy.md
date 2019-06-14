@@ -1,8 +1,8 @@
 ---
 title: "Guida introduttiva: bloccare l'accesso quando viene rilevato un rischio per la sessione con Azure Active Directory Identity Protection | Microsoft Docs"
-description: La presente guida introduttiva descrive come configurare un criterio di accesso condizionale di Azure Active Directory (Azure AD) Identity Protection per il rischio di accesso per impedire accessi basati sui rischi per la sessione.
+description: Questa Guida introduttiva descrive come configurare un Azure Active Directory (Azure AD) Identity Protection rischio di accesso criteri di accesso condizionale per bloccare accessi basati sui rischi di sessione.
 services: active-directory
-keywords: identity protection, accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
+keywords: protezione dell'identità, l'accesso condizionale alle App, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, i criteri di accesso condizionale
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -17,18 +17,18 @@ ms.date: 09/13/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f5127342f97a90103ef56efbd7465832440ec0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c04d1a01c0ffd69e70dfa3b88b4f3c7f4b3576d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381829"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108798"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Avvio rapido: bloccare l'accesso quando viene rilevato un rischio per la sessione con Azure Active Directory Identity Protection  
 
-Per mantenere l'ambiente protetto, è possibile bloccare l'accesso per gli utenti sospetti. Azure Active Directory (Azure AD) Identity Protection analizza ogni accesso e calcola la probabilità che un tentativo di accesso non sia stato eseguito dal proprietario legittimo di un account utente. La probabilità (bassa, media, elevata) è indicata in forma di valore calcolato denominato livello di rischio di accesso. Impostando la condizione di rischio di accesso, è possibile configurare un criterio di accesso condizionale per il rischio di accesso per rispondere ai livelli di rischio di accesso specifico. 
+Per mantenere l'ambiente protetto, è possibile bloccare l'accesso per gli utenti sospetti. Azure Active Directory (Azure AD) Identity Protection analizza ogni accesso e calcola la probabilità che un tentativo di accesso non sia stato eseguito dal proprietario legittimo di un account utente. La probabilità (bassa, media, elevata) è indicata in forma di valore calcolato denominato livello di rischio di accesso. Imposta la condizione di rischio di accesso, è possibile configurare un rischio di accesso criteri di accesso condizionale per rispondere ai livelli di rischio di accesso specifico. 
 
-Questa guida introduttiva illustra come configurare un criterio di accesso condizionale per il rischio di accesso che blocca l'accesso quando viene rilevato un livello di rischio di accesso medio o superiore. 
+Questa Guida introduttiva illustra come configurare un rischio di accesso criteri di accesso condizionale che blocca un accesso aggiuntivo quando un supporto e di sopra di rischio di accesso è stato rilevato a livello di. 
 
 ![Crea criteri](./media/quickstart-sign-in-risk-policy/1004.png)
 
@@ -61,11 +61,11 @@ L'obiettivo di questo passaggio è assicurarsi che l'account di test possa acced
 2. Uscire, 
 
 
-## <a name="create-your-conditional-access-policy"></a>Creare i criteri di accesso condizionale 
+## <a name="create-your-conditional-access-policy"></a>Creare criteri di accesso condizionale 
 
 Lo scenario di questa guida introduttiva sfrutta un accesso da un Tor Browser per generare un evento di rischio rilevato da **accessi provenienti da indirizzi IP anonimi**. Il livello di rischio di questo evento di rischio è medio. Per rispondere a questo evento di rischio, impostare la condizione di rischio di accesso su medio. 
 
-Questa sezione illustra come creare il criterio di accesso condizionale per il rischio di accesso necessario. Nei criteri, impostare:
+In questa sezione viene illustrato come creare i necessario rischio di accesso criteri di accesso condizionale. Nei criteri, impostare:
 
 |Impostazione |Value|
 |---     | --- |
@@ -110,16 +110,16 @@ Questa sezione illustra come creare il criterio di accesso condizionale per il r
 14. Nella pagina dei criteri fare clic su **Salva**.  
 
 
-## <a name="test-your-conditional-access-policy"></a>Testare i criteri di accesso condizionale
+## <a name="test-your-conditional-access-policy"></a>Verificare i criteri di accesso condizionale
 
-Per testare i criteri, provare a effettuare l'accesso al [portale di Azure](https://portal.azure.com) come **Alan Charon** usando Tor Browser. Il tentativo di accesso dovrebbe essere bloccato dai criteri di accesso condizionale.
+Per testare i criteri, provare a effettuare l'accesso al [portale di Azure](https://portal.azure.com) come **Alan Charon** usando Tor Browser. Il tentativo di accesso deve essere bloccato da criteri di accesso condizionale.
 
 ![Autenticazione a più fattori](./media/quickstart-sign-in-risk-policy/203.png)
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare l'utente di test, Tor Browser e disabilitare il criterio di accesso condizionale per il rischio di accesso:
+Quando non servono più, eliminare l'utente di test, il Tor Browser e disabilitare il rischio di accesso criteri di accesso condizionale:
 
 - Se non si conosce la procedura per eliminare un utente di Azure AD, vedere [Come aggiungere o eliminare utenti](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 

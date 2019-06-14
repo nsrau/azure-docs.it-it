@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703167"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Usare il log di diagnostica delle prestazioni del database SQL di Azure generato da Intelligent Insights
@@ -114,7 +114,7 @@ Nell'esempio di log seguente è possibile notare che la query con hash 0x9102EXZ
 }]
 ```
 
-### <a name="metrics"></a>Metriche
+### <a name="metrics"></a>metrics
 
 L'unità di misura per ogni metrica segnalata viene indicata nella proprietà relativa alla metrica (metric) con i valori possibili: secondi, numero e percentuale. Il valore di una metrica misurata viene restituito nella proprietà relativa al valore (value).
 

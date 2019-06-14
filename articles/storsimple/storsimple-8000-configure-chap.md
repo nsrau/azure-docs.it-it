@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: efc116c278bfe72419800603a3b365f461fe0a28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362789"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configurare CHAP per il dispositivo StorSimple
@@ -34,12 +34,12 @@ Come procedura consigliata, si raccomanda l’uso di CHAP per migliorare la sicu
 
 Le impostazioni CHAP nel dispositivo StorSimple possono essere configurate nei modi seguenti:
 
-* Autenticazione unidirezionale 
-* Autenticazione bidirezionale, reciproca o inversa 
+* Autenticazione unidirezionale
+* Autenticazione bidirezionale, reciproca o inversa
 
 In ognuno di questi casi, è necessario configurare il portale del dispositivo e il software dell'iniziatore iSCSI del server. Nell'esercitazione seguente sono descritti i passaggi dettagliati per questa configurazione.
 
-## <a name="unidirectional-or-one-way-authentication"></a>Autenticazione unidirezionale 
+## <a name="unidirectional-or-one-way-authentication"></a>Autenticazione unidirezionale
 
 Nell’autenticazione unidirezionale, la destinazione autentica l'iniziatore. Questa autenticazione richiede che si configurino le impostazioni  dell’iniziatore CHAP sul dispositivo StorSimple e il software dell’iniziatore iSCSI nell'host. Le procedure dettagliate per il dispositivo StorSimple e l’host di Windows sono descritte di seguito.
 
@@ -92,7 +92,7 @@ Nell’autenticazione unidirezionale, la destinazione autentica l'iniziatore. Qu
 
 Per ulteriori informazioni sulla configurazione di CHAP nel server host di Windows, andare a [Ulteriori considerazioni](#additional-considerations).
 
-## <a name="bidirectional-or-mutual-authentication"></a>Autenticazione bidirezionale o reciproca 
+## <a name="bidirectional-or-mutual-authentication"></a>Autenticazione bidirezionale o reciproca
 
 Nell'autenticazione bidirezionale la destinazione autentica l'iniziatore e poi l’iniziatore autentica la destinazione. A tal fine è necessario che l'utente configuri le impostazioni dell'iniziatore CHAP e le impostazioni di autenticazione CHAP inversa sul dispositivo e nel software dell'iniziatore iSCSI nell'host. Le procedure seguenti descrivono i passaggi per configurare l'autenticazione reciproca nel dispositivo e nell'host Windows.
 

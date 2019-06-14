@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91ac6b4530414850c52605bac8cb701aa2b877d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473129"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Eliminare una directory in Azure Active Directory
@@ -63,7 +63,7 @@ Scaduto (30 giorni) | Dati accessibili a tutti| Gli utenti hanno accesso normale
 Disattivato (30 giorni) | Dati accessibili solo all'amministratore | Gli utenti non possono accedere ai file di Office 365 o alle app<br>Gli amministratori possono accedere al centro di amministrazione Microsoft 365, ma non è possibile assegnare le licenze o aggiornare gli utenti
 Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eliminati automaticamente se nessun altro servizio è in funzione) | Gli utenti non possono accedere ai file di Office 365 o alle app<br>Gli amministratori possono accedere l'interfaccia di amministrazione di Microsoft 365 per acquistare e gestire altre sottoscrizioni
 
-## <a name="delete-a-subscription"></a>Elimina una sottoscrizione
+## <a name="delete-a-subscription"></a>Eliminare una sottoscrizione
 
 È possibile inserire una sottoscrizione nello stato di deprovisioning eseguito deve essere eliminato entro tre giorni usando l'interfaccia di amministrazione di Microsoft 365.
 

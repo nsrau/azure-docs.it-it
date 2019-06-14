@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 628a96c4e912341226d67a7ed8f241194e7b7825
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141034"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080047"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipi di entità e relativo scopo nel servizio LUIS
 
@@ -109,6 +109,30 @@ Le entità Pattern.any devono essere contrassegnate negli esempi di modello [Pat
 
 Le entità miste usano una combinazione di metodi di rilevamento delle entità.
 
+## <a name="machine-learned-entities-use-context"></a>Contesto di utilizzo di entità apprese macchina
+
+Informazioni su entità apprese macchina dal contesto nel utterance. Variazione del posizionamento delle espressioni di esempio in questo modo significativo. 
+
+## <a name="non-machine-learned-entities-dont-use-context"></a>Le entità non-machine-appreso non usano contesto
+
+La seguente macchina non appreso entità diventano contesto utterance conto durante l'associazione di entità: 
+
+* [Entità predefinite](#prebuilt-entity)
+* [Entità di espressione regolare](#regular-expression-entity)
+* [Elenca entità](#list-entity) 
+
+Queste entità non richiedono l'assegnazione di etichette o training del modello. Una volta che si aggiungono o si configura l'entità, le entità vengono estratti. Lo svantaggio è che queste entità possono essere overmatched, in cui se contesto è stato preso in considerazione, la corrispondenza sarebbe non sono stata apportata. 
+
+Ciò si verifica con elenco di entità su nuovi modelli di frequente. Compilare e testare il modello con un'entità di elenco, ma quando si pubblica il modello e ricevere query da endpoint, si può notare che il modello è overmatching a causa della mancanza del contesto. 
+
+Se si desidera corrispondono a parole o frasi e tener conto di contesto, sono disponibili due opzioni. Il primo consiste nell'usare un'entità semplice abbinata a un elenco frasi. L'elenco di una frase non verrà utilizzato per la corrispondenza, ma invece aiuterà a segnale parole relativamente simile (intercambiabile elenco). Se è necessario avere una corrispondenza esatta anziché variazioni dell'elenco una frase, usare un'entità di elenco con un ruolo, descritto di seguito.
+
+### <a name="context-with-non-machine-learned-entities"></a>Contesto con le entità non appreso-computer
+
+Se si desidera contesto di utterance per è importante per la macchina non acquisita entità, è necessario utilizzare [ruoli](luis-concept-roles.md).
+
+Se hai un'entità non appreso macchina, ad esempio [entità predefinite](#prebuilt-entity), [regex](#regular-expression-entity) entità oppure [elenco](#list-entity) entità che corrisponda di là sull'istanza, prendere in considerazione creazione di un'entità con due ruoli. Un ruolo acquisirà ciò che sta cercando e acquisirà il materiale non desiderato un ruolo. Entrambe le versioni dovrà essere etichettati con espressioni di esempio.  
+
 ## <a name="composite-entity"></a>Entità composita
 
 Un'entità composita è costituita da altre entità, ad esempio le entità predefinite, semplice, espressioni regolari ed entità di elenco. Le entità separate formano un'entità intera. 
@@ -133,8 +157,9 @@ Le entità elenco rappresentano un set chiuso e fisso di parole correlate insiem
 Questa entità è idonea quando i dati di testo:
 
 * Sono un set noto.
+* Non vengono modificati spesso. Se è necessario modificare l'elenco spesso o vuole includere self-espandere l'elenco, un'entità semplice boosted con un elenco di frase è una scelta migliore. 
 * Il set non supera i [limiti](luis-boundaries.md) massimi di LUIS per questo tipo di entità.
-* Il testo nell'espressione è una corrispondenza esatta con un sinonimo o il nome canonico. LUIS non usa l'elenco di là delle corrispondenze esatte del testo. Stemming, plurali e altre varianti non vengono risolti con un'entità elenco. Per gestire le variazioni, è consigliabile usare un [criterio](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintassi del testo facoltativo.
+* Il testo nell'espressione è una corrispondenza esatta con un sinonimo o il nome canonico. LUIS non usa l'elenco di là delle corrispondenze esatte del testo. La corrispondenza fuzzy, mancata, lo stemming, plurali e altre varianti non vengono risolti con un'entità di elenco. Per gestire le variazioni, è consigliabile usare un [criterio](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintassi del testo facoltativo.
 
 ![entità elenco](./media/luis-concept-entities/list-entity.png)
 
@@ -158,10 +183,11 @@ Nella tabella seguente, ogni riga presenta due versioni dell'espressione. L'espr
 
 |Espressione|
 |--|
-|' È stata l'uomo che scambia His moglie per Hat e altri Tales Clinical scritto da un American quest'anno?<br>Was **The Man Who Mistook His Wife for a Hat and Other Clinical Tales** written by an American this year?|
-|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
-|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
+|Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?<br><br>Was **The Man Who Mistook His Wife for a Hat and Other Clinical Tales** written by an American this year?|
+|Was Half Asleep in Frog Pajamas written by an American this year?<br><br>Was **Half Asleep in Frog Pajamas** written by an American this year?|
+|Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?<br><br>Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?|
+|Was There's A Wocket In My Pocket! written by an American this year?<br><br>Was **There's A Wocket In My Pocket!** written by an American this year?|
+||
 
 ## <a name="prebuilt-entity"></a>Entità predefinita
 
@@ -225,6 +251,18 @@ Questa entità è idonea quando:
 
 [Esercitazione](luis-quickstart-intents-regex-entity.md)<br>
 [Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+
+Le espressioni regolari potrebbero corrispondere più tempo del previsto in modo che corrispondano. Un esempio di questo oggetto è numerico parola corrispondente, ad esempio `one` e `two`. Un esempio è l'espressione regolare seguente, che corrisponde al numero `one` con altri numeri:
+
+```javascript
+(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
+``` 
+
+Questa espressione regex corrisponde anche a qualsiasi parola che termina con questi numeri, ad esempio `phone`. Per risolvere i problemi simile al seguente, assicurarsi che corrisponda all'espressione regolare tiene i delimitatori di parola account. L'espressione regolare da utilizzare i delimitatori di parola per questo esempio viene utilizzato nell'espressione regolare seguente:
+
+```javascript
+\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
+```
 
 ## <a name="simple-entity"></a>Entità semplice 
 

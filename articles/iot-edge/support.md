@@ -4,17 +4,17 @@ description: Informazioni sui sistemi operativi in grado di eseguire il daemon e
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/06/2019
+ms.date: 06/12/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1db999f5d3172734311ecc7dbec72214a1e07e91
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 178cbf930c946170834eb1f7de17e6d5bc0dda48
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137816"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058300"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemi supportati da Azure IoT Edge
 
@@ -57,18 +57,19 @@ Disponibile a livello generale
 
 | Sistema operativo | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| Raspbian-stretch | No  | Sì|
-| Ubuntu Server 16.04 | Sì | No  |
-| Ubuntu Server 18.04 | Sì | No  |
-| Windows 10 IoT Enterprise, compilazione 17763 | Sì | No  |
+| Raspbian-stretch | No | Yes|
+| Ubuntu Server 16.04 | Yes | No |
+| Ubuntu Server 18.04 | Yes | No |
+| Windows 10 IoT Enterprise, compilazione 17763 | Yes | No |
+| Windows Server 2019, compilazione 17763 | Yes | No |
+| Windows Server IoT 2019, compilazione 17763 | Yes | No |
 
 Anteprima pubblica
 
 | Sistema operativo | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| Windows 10 IoT Core, build 17763 | Sì | No  |
-| Windows Server 2019, compilazione 17763 | Sì | No  |
-| Windows Server IoT 2019, compilazione 17763 | Sì | No  |
+| Windows 10 IoT Core, build 17763 | Yes | No |
+
 
 I sistemi operativi Windows elencati in precedenza sono i requisiti per i dispositivi che eseguono i contenitori Windows in Windows. Questa configurazione è l'unica configurazione supportata per la produzione. I pacchetti di installazione di Azure IoT Edge per Windows consentono l'uso di contenitori Linux in Windows; Tuttavia, questa configurazione è solo per sviluppo e test. Uso di contenitori Linux in Windows non è una configurazione supportata per la produzione. Qualsiasi versione di Windows 10 build 14393 o versioni successive e Windows Server 2016 o versioni successive sono utilizzabili per questo scenario di sviluppo.
 
@@ -76,14 +77,14 @@ I sistemi operativi Windows elencati in precedenza sono i requisiti per i dispos
 
 | Sistema operativo | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| CentOS 7.5 | Sì | Sì |
-| Debian 8 | Sì | Sì |
-| Debian 9 | Sì | Sì |
-| RHEL 7.5 | Sì | Sì |
-| Ubuntu 18.04 | Sì | Sì |
-| Ubuntu 16.04 | Sì | Sì |
-| Wind River 8 | Sì | No  |
-| Yocto | Sì | No  |
+| CentOS 7.5 | Yes | Yes |
+| Debian 8 | Yes | Yes |
+| Debian 9 | Yes | Yes |
+| RHEL 7.5 | Yes | Yes |
+| Ubuntu 18.04 | Yes | Yes |
+| Ubuntu 16.04 | Yes | Yes |
+| Wind River 8 | Yes | No |
+| Yocto | Yes | No |
 
 
 ## <a name="virtual-machines"></a>Macchine virtuali

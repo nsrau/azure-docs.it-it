@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: e5d32d1bc3bd704b03e58c62251a323ed3f4662c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61229051"
 ---
 # <a name="generate-a-thumbnail-sprite"></a>Generare uno sprite di anteprima  
@@ -33,7 +33,7 @@ Per poter usare Media Encoder Standard allo scopo di generare un'anteprima sprit
 
     1. Se SpriteColumn è impostato su M >= 1, l'immagine di output è un rettangolo con M colonne. Se il numero di immagini di anteprima generate tramite #2 non è un multiplo esatto di M, l'ultima riga sarà incompleta e rimarranno pixel neri.  
 
-Di seguito è fornito un esempio: 
+Di seguito è fornito un esempio:
 
 ```json
 {

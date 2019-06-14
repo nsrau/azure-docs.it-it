@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4b61b661d9da0748bc354b8defa4e6d67a047a2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7e61207ea23b9b9560668b58b33e3f32f5f70ab2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920473"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083950"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -213,9 +213,9 @@ Il log attività di Azure fornisce una cronologia degli eventi a livello di sott
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Passaggi aggiuntivi per le organizzazioni che gestiscono l'accesso ad altre app cloud tramite Azure AD
 
-#### <a name="configure-conditional-access-policies"></a>Configurare criteri di accesso condizionale
+#### <a name="configure-conditional-access-policies"></a>Configurare i criteri di accesso condizionale
 
-Preparare criteri di accesso condizionale per applicazioni locali e ospitate nel cloud. Se ci sono dispositivi degli utenti aggiunti all'area di lavoro, vedere [Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory](../active-directory-device-registration-on-premises-setup.md) per altre informazioni.
+Preparare criteri di accesso condizionale per le applicazioni ospitate nel cloud e locali. Se si dispone di dispositivi all'area di lavoro degli utenti, ottenere altre informazioni dal [configurazione in locale l'accesso condizionale mediante registrazione dispositivo Azure Active Directory](../active-directory-device-registration-on-premises-setup.md).
 
 
 ## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>Fase 3: implementazione di visibilità e controllo completo sull'attività di amministrazione
@@ -261,7 +261,7 @@ Se si usa già Azure AD Privileged Identity Management, modificare gli intervall
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Determinare l'esposizione a protocolli di accesso basati su password (se si usa Exchange Online)
 
-In passato, i protocolli presupponevano che le combinazioni di nome utente/password fossero incorporate in dispositivi, account di posta elettronica, telefoni e così via. Ora, con il rischio di attacchi informatici nel cloud, è consigliabile identificare tutti gli utenti le cui credenziali, se compromesse, potrebbero comportare conseguenze molto gravi per l'organizzazione e non permettere a tali utenti di eseguire l'accesso alla posta elettronica tramite nome utente e password, implementando requisiti di autenticazione avanzata e accesso condizionale. È possibile bloccare [autenticazione legacy usando l'accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Verificare i dettagli sul [come bloccare l'autenticazione di base](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) tramite autorizzata con Exchange online. 
+In passato, i protocolli presupponevano che le combinazioni di nome utente/password fossero incorporate in dispositivi, account di posta elettronica, telefoni e così via. Ma ora con il rischio di attacchi informatici nel cloud, è consigliabile identificare tutti gli utenti potenziali che, se sono state violate le proprie credenziali, potrebbero causare gravi problemi all'organizzazione ed escluderli in grado di accedere a posta elettronica tramite nome utente / password mediante l'implementazione di requisiti di autenticazione avanzata e l'accesso condizionale. È possibile bloccare [autenticazione legacy usando l'accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Verificare i dettagli sul [come bloccare l'autenticazione di base](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) tramite autorizzata con Exchange online. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Completare una valutazione di verifica dei ruoli per i ruoli di Office 365 (se si usa Office 365)
 
@@ -306,7 +306,7 @@ MCAS consente di esaminare i file e impostare criteri in base alle etichette di 
 
 #### <a name="configure-conditional-access"></a>Configurare l'accesso condizionale
 
-Configurare l'accesso condizionale basato sull'importanza di gruppi, posizioni e applicazioni per le [app SaaS](https://azure.microsoft.com/overview/what-is-saas/) e le app connesse di Azure AD. 
+Configurare l'accesso condizionale basato su un gruppo, posizione e alla sensibilità dell'applicazione per [App SaaS](https://azure.microsoft.com/overview/what-is-saas/) e le app connesse AD Azure. 
 
 #### <a name="monitor-activity-in-connected-cloud-apps"></a>Monitorare l'attività nelle app cloud connesse
 

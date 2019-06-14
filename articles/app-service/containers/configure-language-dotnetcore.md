@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: f2781e3cc2433f73ba7ff33e5c452e29de746adf
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956209"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurare una Linux app ASP.NET Core per servizio App di Azure
@@ -124,7 +124,7 @@ project = <project-name>/<project-name>.csproj
 
 ### <a name="using-app-settings"></a>Usando le impostazioni dell'app
 
-Nel <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>, aggiungere un'impostazione dell'app all'App del servizio app eseguendo il comando seguente dell'interfaccia della riga. Sostituire  *\<app-name >*,  *\<resource-group-name >*, e  *\<nome-progetto >* con i valori appropriati .
+Nel <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>, aggiungere un'impostazione dell'app all'App del servizio app eseguendo il comando seguente dell'interfaccia della riga. Sostituire  *\<app-name >* ,  *\<resource-group-name >* , e  *\<nome-progetto >* con i valori appropriati .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"

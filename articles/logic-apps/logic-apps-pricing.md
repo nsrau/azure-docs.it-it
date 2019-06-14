@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299094"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075069"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -89,7 +89,7 @@ Dopo che un'app per la logica è stata disabilitata, l'arresto di eventuali ista
 
 ## <a name="integration-accounts"></a>Account di integrazione
 
-Prezzi a consumo si applica a [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) in cui è possibile esplorare, sviluppare e testare il [EDI e B2B](logic-apps-enterprise-integration-b2b.md) e [elaborazione XML](logic-apps-enterprise-integration-xml.md) funzionalità nelle App per la logica di Azure gratuitamente costi aggiuntivi.
+Il piano tariffario predefinito si applica a [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) in cui è possibile esplorare, sviluppare e testare il [EDI e B2B](logic-apps-enterprise-integration-b2b.md) e [elaborazione XML](logic-apps-enterprise-integration-xml.md) funzionalità nelle App per la logica di Azure gratuitamente costi aggiuntivi.
 È possibile avere un account di integrazione in ogni area di Azure. Ogni account di integrazione può archiviare un [numero specifico di artefatti](../logic-apps/logic-apps-limits-and-config.md), ad esempio partner commerciali, contratti, mappe, schemi, assembly, certificati, configurazioni batch e così via.
 
 Le App per la logica di Azure offre gli account di integrazione Free, Basic e Standard. I livelli Basic e Standard sono supportati dall'App per la logica contratto di servizio (SLA), mentre il livello gratuito non è supportato da un contratto di servizio e presenta limiti di velocità effettiva e l'utilizzo.

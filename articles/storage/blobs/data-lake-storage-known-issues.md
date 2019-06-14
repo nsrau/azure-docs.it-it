@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 27adc0eeeabed2b1f2e86f301a60604a3d358b82
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 446b49cbf3fdf3d4cde37b2a7c4ac2d9f0a811b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464714"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061326"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Questo articolo elenca le funzionalità e strumenti che non ancora supportati o 
 
 ## <a name="blob-storage-apis"></a>Api di archiviazione BLOB
 
-Le API di archiviazione BLOB sono disabilitati per evitare problemi di accesso accidentale dei dati che possono verificarsi perché l'API di archiviazione Blob non sono ancora l'interoperabilità con API di Azure Data Lake Gen2.
+Le API di archiviazione BLOB sono disabilitati per evitare problemi di funzionamento della funzionalità che possono verificarsi perché l'API di archiviazione Blob non sono ancora l'interoperabilità con API di Azure Data Lake Gen2.
 
 ### <a name="what-to-do-with-existing-tools-applications-and-services"></a>Cosa fare con i servizi, applicazioni e gli strumenti esistenti
 

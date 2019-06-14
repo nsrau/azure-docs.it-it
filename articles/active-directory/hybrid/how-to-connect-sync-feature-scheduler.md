@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65139298"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Servizio di sincronizzazione Azure AD Connect: Utilità di pianificazione
@@ -72,7 +72,7 @@ La configurazione dell'utilità di pianificazione viene archiviata in Azure AD. 
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 Sintassi: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
- d - giorni, HH - ore, mm - minuti, ss - secondi
+d - giorni, HH - ore, mm - minuti, ss - secondi
 
 Esempio: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
 Modifica l'utilità di pianificazione in modo che venga eseguita ogni 3 ore.
@@ -93,7 +93,7 @@ Dopo avere apportato le modifiche, ricordare di abilitare di nuovo l'utilità di
 Per impostazione predefinita, l'utilità di pianificazione viene eseguita ogni 30 minuti. In alcuni casi, è possibile che si voglia eseguire un ciclo di sincronizzazione tra i cicli pianificati o che sia necessario eseguirne un tipo diverso.
 
 ### <a name="delta-sync-cycle"></a>Ciclo di sincronizzazione differenziale
- Un ciclo di sincronizzazione differenziale include i passaggi seguenti:
+Un ciclo di sincronizzazione differenziale include i passaggi seguenti:
 
 
 - Importazione differenziale su tutti i connettori
@@ -199,7 +199,7 @@ Get-ADSyncConnectorRunStatus
 ```
 
 ![Stato di esecuzione del connettore](./media/how-to-connect-sync-feature-scheduler/getconnectorrunstatus.png)  
- Nella figura precedente, la prima riga proviene da uno stato in cui il motore di sincronizzazione è inattivo. La seconda riga proviene da uno stato in cui Azure AD Connector è in esecuzione.
+Nella figura precedente, la prima riga proviene da uno stato in cui il motore di sincronizzazione è inattivo. La seconda riga proviene da uno stato in cui Azure AD Connector è in esecuzione.
 
 ## <a name="scheduler-and-installation-wizard"></a>Utilità di pianificazione e installazione guidata
 Se si avvia l'installazione guidata, l'utilità di pianificazione viene sospesa temporaneamente. Si presuppone infatti che vengano apportate modifiche alla configurazione e queste impostazioni non possono essere applicate se il motore di sincronizzazione è attivamente in esecuzione. Non lasciare quindi aperta l'installazione guidata, perché impedisce al motore di sincronizzazione di eseguire azioni di sincronizzazione.

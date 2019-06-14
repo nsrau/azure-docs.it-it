@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 080a37a88e46117a9963f07c14d64f00c6bae6d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 19bcac68084c4817e0dc0e67f31ab62244db5a2a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570480"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113410"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -134,7 +134,7 @@ Prima di distribuire e usare l'estensione NPS, gli utenti che devono eseguire la
 Seguire questa procedura per avviare un account di test:
 1. Accedere a [https://aka.ms/mfasetup](https://aka.ms/mfasetup) con un account di prova. 
 2. Seguire le richieste per configurare un metodo di verifica.
-3. Creare un criterio di accesso condizionale o [modificare lo stato dell'utente](howto-mfa-userstates.md) per richiedere la verifica in due passaggi per l'account di test. 
+3. Creare un criterio di accesso condizionale o [modificare lo stato utente](howto-mfa-userstates.md) per richiedere la verifica in due passaggi per l'account di test. 
 
 Gli utenti devono inoltre eseguire la procedura per la registrazione prima di potersi autenticare con l'estensione del server dei criteri di rete.
 

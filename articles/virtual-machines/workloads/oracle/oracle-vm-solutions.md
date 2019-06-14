@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: b62b35320ba1f4473e9b3a039d181d6a2fb58257
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 9dd7f7d07b34ed3c1076b46c0bf5185d6c8cd31a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743621"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074222"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Immagini di macchina virtuale di Oracle e rispettiva distribuzione in Microsoft Azure
 
@@ -68,6 +68,18 @@ Oracle supporta l'esecuzione di Oracle DB 12.1 Standard ed Enterprise Edition in
 ### <a name="attached-disk-configuration-options"></a>Opzioni di configurazione dei dischi collegati
 
 I dischi collegati si basano sul servizio di archiviazione BLOB di Azure. Ogni disco standard è in grado di supportare un massimo teorico di circa 500 operazioni di input/output al secondo (IOPS). I dischi premium Microsoft sono la soluzione preferibile per i carichi di lavoro di database ad alte prestazioni e possono raggiungere fino a 5000 IOPS per disco. È possibile usare un singolo disco se questo soddisfa le esigenze di prestazioni. Tuttavia, è possibile migliorare le prestazioni delle operazioni IOPS effettive se usare più dischi collegati, distribuendo i dati dei database tra di essi e quindi utilizzare Oracle Automatic Storage Management (ASM). Per altre informazioni specifiche per Oracle ASM, vedere [Oracle Automatic Storage overview](https://www.oracle.com/technetwork/database/index-100339.html) (Panoramica di Oracle Automatic Storage). Per un esempio di come installare e configurare Oracle ASM su una VM Linux di Azure, vedere la [Installing and Configuring Oracle Automated Storage Management](configure-oracle-asm.md) esercitazione.
+
+### <a name="shared-storage-configuration-options"></a>Opzioni di configurazione di archiviazione condivisa
+
+File di Azure NetApp è stato progettato per soddisfare i requisiti di base dell'esecuzione di carichi di lavoro a prestazioni elevate, come i database nel cloud e fornisce;
+- Nativa di Azure condiviso del servizio di archiviazione NFS per l'esecuzione di carichi di lavoro Oracle sia tramite macchine Virtuali native client NFS o dNFS Oracle
+- Livelli di prestazioni scalabili che riflettono le esigenze reali intervallo di IOPS
+- Bassa latenza
+- Disponibilità elevata, una durabilità elevata e la facilità di gestione su larga scala, in genere richiesta dai carichi di lavoro aziendali critici (ad esempio, SAP e Oracle)
+- Backup veloci ed efficienti e recupero, per raggiungere gli obiettivi RTO e RPO contratti di servizio più aggressivo
+
+Queste funzionalità sono possibili in quanto file NetApp di Azure si basa su sistemi di all-flash® di NetApp ONTAP® in esecuzione in ambiente di centro dati di Azure, come un servizio di Azure Native. Il risultato è una tecnologia di archiviazione di database ideale che può essere eseguito il provisioning e può essere utilizzata solo come le altre opzioni di archiviazione di Azure. Visualizzare [documentazione di Azure i file di NetApp](https://docs.microsoft.com/azure/azure-netapp-files/) per altre informazioni su come distribuire e accedere ai volumi NFS i file di Azure NetApp. Visualizzare [Oracle su Azure distribuzione migliore pratica usando Azure NetApp file di Guida](https://www.netapp.com/us/media/tr-4780.pdf) per le procedure consigliate per il funzionamento di un database Oracle in Azure i file di NetApp.
+
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
 Oracle RAC è progettato per ridurre l'errore di un singolo nodo in una configurazione cluster a più nodi locale. Si basa su due tecnologie locali, non native agli ambienti cloud pubblici su vasta scala, ovvero il multicast di rete e i dischi condivisi. Se la soluzione di database richiede Oracle RAC in Azure, è necessario terza software di terze parti per abilitare queste tecnologie. Per altre informazioni su Oracle RAC, vedere la [FlashGrid SkyCluster pagina](https://www.flashgrid.io/oracle-rac-in-azure/).

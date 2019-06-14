@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e3fe64baca6e61c7eee214b84fd1ccdc88d3629
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f49b384f6f943e8c6767a6133a835011bc1e6bac
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237812"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059320"
 ---
 # <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>Creare pipeline di Machine Learning riutilizzabili nel servizio Azure Machine Learning
 
@@ -34,6 +34,7 @@ Il diagramma seguente mostra un esempio di pipeline:
 
 ![Pipeline di apprendimento automatico nel servizio Azure Machine Learning](./media/concept-ml-pipelines/pipelines.png)
 
+<a name="compare"></a>
 ### <a name="which-azure-pipeline-technology-should-i-use"></a>La tecnologia della pipeline di Azure è consigliabile usare?
 
 Cloud di Azure offre diverse altre pipeline, ognuna con uno scopo diverso. Nella tabella seguente sono elencate le pipeline diverse e il relativo uso per:

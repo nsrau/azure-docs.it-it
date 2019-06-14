@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478046"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visualizzare lo stato dei processi di Importazione/Esportazione di Azure
@@ -28,7 +28,7 @@ Questo articolo fornisce informazioni su come visualizzare lo stato delle unità
 
 Viene visualizzato uno degli stati di processo seguenti, in base al punto in cui si trova l'unità nel processo.
 
-| Stato processo | DESCRIZIONE |
+| Stato processo | Descrizione |
 |:--- |:--- |
 | Creating | Dopo la creazione di un processo, lo stato è impostato su **Creazione**. Mentre il processo si trova nello stato **Creazione**, il servizio Importazione/Esportazione presuppone che le unità non siano state spedite al data center. Un processo può rimanere in questo stato per un massimo di due settimane; trascorse le quali viene automaticamente eliminato dal servizio. |
 | Spedizione | Dopo aver spedito il pacchetto, è consigliabile aggiornare le informazioni di tracciabilità nel portale di Azure.  Lo stato del processo viene modificato in **Spedizione**. Il processo rimane nello stato **Spedizione** per un massimo di due settimane. 
@@ -44,7 +44,7 @@ La tabella di seguito descrive il ciclo di vita di una singola unità attraverso
 
 La tabella seguente descrive ogni stato in cui può trovarsi un'unità in un processo.
 
-| Stato dell'unità | DESCRIZIONE |
+| Stato dell'unità | Descrizione |
 |:--- |:--- |
 | Specificata | Per un processo di importazione, quando il processo viene creato dal portale di Azure, lo stato iniziale di un'unità è **Specificata**. Per un processo di esportazione, lo stato iniziale dell'unità è **Ricevuta**, perché non è stata specificata alcuna unità al momento della creazione del processo. |
 | Ricevuto | Le unità passano allo stato **Ricevuta** quando il servizio Importazione/Esportazione ha elaborato le unità ricevute dallo spedizioniere per un processo di importazione. Per un processo di esportazione, lo stato iniziale dell'unità è **Ricevuta**. |

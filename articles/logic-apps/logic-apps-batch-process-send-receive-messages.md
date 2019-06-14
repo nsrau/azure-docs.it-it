@@ -10,10 +10,10 @@ ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683705"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Inviare, ricevere ed elaborare in batch i messaggi nelle app per la logica di Azure
@@ -56,7 +56,7 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
 
 3. Impostare queste proprietà per il ricevitore di batch: 
 
-   | Proprietà | DESCRIZIONE | 
+   | Proprietà | Descrizione | 
    |----------|-------------|
    | **Modalità batch** | - **Inline**: per la definizione di criteri di rilascio all'interno del trigger batch <br>- **Account di integrazione**: per la definizione di più configurazioni di criteri di rilascio tramite un'[account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Con un account di integrazione, è possibile gestire queste configurazioni in un'unica posizione invece che nell'App per la logica separata. | 
    | **Nome batch** | Il nome per il batch, che è "TestBatch" in questo esempio, si applica solo al **Inline** modalità batch |  
@@ -90,7 +90,7 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
 
    3. Selezionare questa azione: **Invia un messaggio di posta elettronica - <*provider di posta elettronica*>**
 
-      Ad esempio: 
+      Ad esempio:
 
       ![Selezionare l'azione "Invia un messaggio di posta elettronica" per il provider di posta elettronica](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 
@@ -169,7 +169,7 @@ A questo punto creare una o più app per la logica mittenti del batch che invian
 
 3. Impostare le proprietà del mittente del batch:
 
-   | Proprietà | DESCRIZIONE | 
+   | Proprietà | Descrizione | 
    |----------|-------------| 
    | **Nome batch** | Il nome del batch definito dall'app per la logica ricevente, che in questo esempio è "TestBatch" <p>**Importante**: il nome del batch viene convalidato in fase di esecuzione e deve corrispondere al nome specificato dall'app per la logica ricevente. Se si modifica il nome del batch, l'esecuzione del mittente del batch ha esito negativo. | 
    | **Contenuto del messaggio** | Contenuto del messaggio da inviare | 
@@ -187,7 +187,7 @@ A questo punto creare una o più app per la logica mittenti del batch che invian
 
 4. Configurare a questo punto una partizione per il batch. Nell'azione "BatchReceiver" scegliere **Mostra opzioni avanzate** e impostare le proprietà seguenti:
 
-   | Proprietà | DESCRIZIONE | 
+   | Proprietà | Descrizione | 
    |----------|-------------| 
    | **Nome della partizione** | Una chiave di partizione univoca facoltativa da usare per la suddivisione del batch di destinazione in subset logici e raccogliere i messaggi in base a tale chiave | 
    | **Id del messaggio** | Un identificatore di messaggio facoltativo che rappresenta l'identificatore univoco globale generato (GUID) se non viene specificato | 

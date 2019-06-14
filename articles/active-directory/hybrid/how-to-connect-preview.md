@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7def733a80aea1be77825bb9069217f5f43e003
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347805"
 ---
 # <a name="more-details-about-features-in-preview"></a>Altre informazioni sulle funzionalità in anteprima
@@ -54,4 +54,4 @@ Un gruppo di Office 365 viene rappresentato come gruppo di distribuzione in AD D
 ## <a name="next-steps"></a>Passaggi successivi
 Continuare l'[Installazione personalizzata di Azure AD Connect](how-to-connect-install-custom.md).
 
-Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

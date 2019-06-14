@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: e770beb0470b54d8e13493bca4790323b2e96ce1
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 4e96276a862844cea1d0800eafb952d4a0df97ab
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076347"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Schema di eventi di Griglia di eventi di Azure per l'hub IoT
 
@@ -35,7 +35,7 @@ L'hub IoT genera i tipi di eventi seguenti:
 | Microsoft.Devices.DeviceDisconnected | Pubblicato quando un dispositivo è disconnesso da un hub IoT. | 
 | Microsoft.Devices.DeviceTelemetry | Pubblicato quando viene inviato un messaggio di telemetria a un hub IoT. |
 
-Tutti gli eventi di dispositivo, ad eccezione degli eventi di telemetria dispositivo sono disponibili a livello generale in tutte le aree supportate da griglia di eventi. Evento di telemetria dispositivo è in anteprima pubblica ed è disponibile in tutte le aree ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale [Azure per enti pubblici](/azure-government/documentation-government-welcome.md), [Azure Cina 21Vianet](/azure/china/china-welcome.md), e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/).
+Tutti gli eventi di dispositivo, ad eccezione degli eventi di telemetria dispositivo sono disponibili a livello generale in tutte le aree supportate da griglia di eventi. Evento di telemetria dispositivo è in anteprima pubblica ed è disponibile in tutte le aree ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale [Azure per enti pubblici](../azure-government/documentation-government-welcome.md), [Azure Cina 21Vianet](/azure/china/china-welcome), e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="example-event"></a>Evento di esempio
 

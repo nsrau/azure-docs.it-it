@@ -9,10 +9,10 @@ ms.date: 04/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 0ffbffc788baaffd4a0532c3918ed82cc3eaf5c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023554"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Limiti di risorse e oggetti di Azure Analysis Services
@@ -60,14 +60,14 @@ Questi limiti sono teorici. Le prestazioni risulteranno inferiori con numeri pi�
 
 |Object|Dimensioni/numeri massimi|  
 |------------|----------------------------|  
-|Database in un'istanza|16.000|  
-|Numero combinato di tabelle e colonne in un database|16.000|  
+|Database in un'istanza|16,000|  
+|Numero combinato di tabelle e colonne in un database|16,000|  
 |Righe in una tabella|Illimitato<br /><br /> **Avviso:** Con la restrizione che nessuna colonna singola nella tabella può avere più di 1.999.999.997 valori distinti.|  
-|Gerarchie in una tabella|15.999|  
-|Livelli in una gerarchia|15.999|  
-|Relazioni|8.000|  
-|Colonne chiave in tutte le tabelle|15.999|  
-|Misure nelle tabelle|2^31-1 = 2.147.483.647|  
+|Gerarchie in una tabella|15\.999|  
+|Livelli in una gerarchia|15,999|  
+|Relazioni|8\.000|  
+|Colonne chiave in tutte le tabelle|15,999|  
+|Misure nelle tabelle|2^31-1 = 2,147,483,647|  
 |Celle restituite da una query|2^31-1 = 2.147.483.647|  
 |Dimensioni dei record della query di origine|64 K|  
 |Lunghezza dei nomi degli oggetti|512 caratteri|  

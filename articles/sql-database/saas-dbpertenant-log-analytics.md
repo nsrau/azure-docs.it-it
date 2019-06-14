@@ -13,10 +13,10 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6380488faa9a4554df5df5ea67e11dbeb8853fff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61390555"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configurare e usare i log di monitoraggio di Azure con un'app SaaS di Database SQL multi-tenant
@@ -57,7 +57,7 @@ Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics. Le ar
 
 1. Avviare quindi il generatore di carico per eseguire un carico simulato su tutti i tenant.
 
-    a. Impostare **$DemoScenario scrittura=2**, _generare un carico di intensità normale (circa 30 DTU)_.
+    a. Impostare **$DemoScenario scrittura=2**, _generare un carico di intensità normale (circa 30 DTU)_ .
 
     b. Per eseguire lo script, premere F5.
 
@@ -83,7 +83,7 @@ In questo esercizio, aprire l'area di lavoro di Log Analitica nel portale di Azu
 
    ![Aprire area di lavoro di Log Analitica](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Selezionare l'area di lavoro denominata _wtploganalytics-&lt;utente&gt;_.
+1. Selezionare l'area di lavoro denominata _wtploganalytics-&lt;utente&gt;_ .
 
 1. Selezionare **Panoramica** per aprire la soluzione analitica di log nel portale di Azure.
 

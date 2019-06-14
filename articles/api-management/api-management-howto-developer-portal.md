@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
 ms.openlocfilehash: deb3fdf3069aaad4982d71806c209fe516e3c3d6
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66743576"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Accedere e personalizzare il nuovo portale per sviluppatori in Gestione API di Azure

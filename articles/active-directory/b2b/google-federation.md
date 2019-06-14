@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94b35f0530dacfadb799f1d44d7a9eb666def6c9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65892034"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Aggiungere Google come provider di identità per utenti guest B2B
@@ -101,7 +101,7 @@ Si imposteranno ora l'ID client e il segreto client di Google immettendoli nel p
 1. Accedere al [portale di Azure](https://portal.azure.com). Nel riquadro sinistro selezionare **Azure Active Directory**. 
 2. Selezionare **Relazioni aziendali**.
 3. Selezionare **provider di identità**.
-4. Nel **Google** , selezionare il menu di scelta rapida (**...** ) e quindi selezionare **eliminare**. 
+4. Nel **Google** , selezionare il menu di scelta rapida ( **...** ) e quindi selezionare **eliminare**. 
    
    ![Screenshot che mostra l'opzione di eliminazione per il provider di identità di social networking](media/google-federation/google-social-identity-providers.png)
 

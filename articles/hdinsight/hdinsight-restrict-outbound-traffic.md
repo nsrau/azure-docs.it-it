@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 4ce3ca31163c286f54b9630e5d4779e2e47a032f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 542813e0f82a1a52142a2b82bea3fdb101fdec28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754592"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077166"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurare il traffico di rete in uscita per i cluster HDInsight di Azure con Firewall (anteprima)
 
@@ -52,20 +52,22 @@ Selezionare il nuovo firewall **Test-FW01** dal portale di Azure. Fare clic su *
 
 Nel **aggiungere la raccolta di regole dell'applicazione** schermata, seguire questa procedura:
 
-1. Immettere un **Name**, **priorità**, fare clic su **Consenti** dal **azione** menu a discesa.
-1. Aggiungere le regole seguenti:
-    1. Una regola per consentire il traffico di HDInsight e l'aggiornamento di Windows:
-        1. Nel **tag FQDN** sezione, fornire un **nome**e impostare **indirizzi di origine** a `*`.
-        1. Selezionare **HDInsight** e il **WindowsUpdate** dal **tag FQDN** menu a discesa.
-    1. Una regola per consentire attività di accesso di Windows:
-        1. Nel **destinazione FQDN** sezione, fornire un **nome**e impostare **indirizzi di origine** a `*`.
-        1. Immettere `https:443` sotto **protocollo: Port** e `login.windows.net` sotto **destinazione FQDN**.
-    1. Se il cluster è supportato da WASB, aggiungere una regola per WASB:
-        1. Nel **destinazione FQDN** sezione, fornire un **nome**e impostare **indirizzi di origine** a `*`.
-        1. Immettere `http:80,https:443` sotto **protocollo: Port** e l'url di account di archiviazione sotto **FQDN destinazione**. Il formato sarà simile a < storage_account_name.blob.core.windows.net >. Per usare https solo per assicurarsi che le connessioni ["trasferimento sicuro obbligatorio"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) è abilitata nell'account di archiviazione.
+1. Immettere un **Name**, **priorità**e fare clic su **Consenti** dal **azione** menu a discesa e immettere le seguenti regole di **FQDN tag sezione** :
+
+   | **Nome** | **Indirizzo di origine** | **Tag di nome di dominio completo** | **Note** |
+   | --- | --- | --- | --- |
+   | Regola_1 | * | HDInsight e Windows Update. | Obbligatorio per i servizi HDI |
+
+1. Aggiungere le seguenti regole per la **destinazione FQDN sezione** :
+
+   | **Nome** | **Indirizzo di origine** | **Protocollo: porta** | **Destinazione FQDN** | **Note** |
+   | --- | --- | --- | --- | --- |
+   | Rule_2 | * | https:443 | login.windows.net | Consente attività di accesso di Windows |
+   | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | Se il cluster è supportato da WASB, aggiungere una regola per WASB. Per usare https solo per assicurarsi che le connessioni ["trasferimento sicuro obbligatorio"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) è abilitata nell'account di archiviazione. |
+
 1. Fare clic su **Aggiungi**.
 
-![Titolo: Immettere i dettagli sulla raccolta di regole di applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+   ![Titolo: Immettere i dettagli sulla raccolta di regole di applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Configurare il firewall con le regole di rete
 
@@ -74,37 +76,24 @@ Creare le regole di rete per configurare correttamente il cluster HDInsight.
 1. Selezionare il nuovo firewall **Test-FW01** dal portale di Azure.
 1. Fare clic su **regole** sotto **impostazioni** > **raccolta regole di rete** > **Aggiungi insieme di regole di rete**.
 1. Nel **aggiungere una raccolta di regole di rete** schermata, immettere una **nome**, **priorità**e fare clic su **Consenti** dal **azione** dal menu a discesa.
-1. Creare le regole seguenti:
-    1. Una regola di rete nella sezione degli indirizzi IP che consente al cluster eseguire la sincronizzazione dell'orologio tramite NTP.
-        1. Nel **regole** sezione, fornire un **Name** e selezionare **UDP** dal **protocollo** elenco a discesa.
-        1. Impostare **gli indirizzi di origine** e **gli indirizzi di destinazione** a `*`.
-        1. Impostare **le porte di destinazione** alla 123.
-    1. Se si usa Enterprise Security Package (ESP), quindi aggiungere una regola di rete nella sezione degli indirizzi IP che consente la comunicazione con AAD-DS per i cluster ESP.
-        1. Determinare i due indirizzi IP per i controller di dominio.
-        1. Nella riga successiva nella **regole** sezione, fornire un **nome** e selezionare **qualsiasi** dal **protocollo** elenco a discesa.
-        1. Impostare **indirizzi di origine** `*`.
-        1. Immettere tutti gli indirizzi IP per il controller di dominio **gli indirizzi di destinazione** separati da virgole.
-        1. Impostare **le porte di destinazione** a `*`.
-    1. Se si Usa archiviazione di Azure Data Lake, è possibile aggiungere una regola di rete nella sezione degli indirizzi IP per risolvere un problema SNI con Azure Data Lake Store Gen1 e Gen2. Questa opzione instraderà il traffico al firewall che potrebbe comportare costi più elevati per i caricamenti di dati di grandi dimensioni, ma il traffico verrà registrata e controllabile nel log del firewall.
-        1. Determinare l'indirizzo IP per l'account Data Lake Store. È possibile usare un comando di powershell, ad esempio `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` risolvere il FQDN per un indirizzo IP.
-        1. Nella riga successiva nella **regole** sezione, fornire un **nome** e selezionare **TCP** dal **protocollo** elenco a discesa.
-        1. Impostare **indirizzi di origine** `*`.
-        1. Immettere l'indirizzo IP per l'account di archiviazione nel **gli indirizzi di destinazione**.
-        1. Impostare **le porte di destinazione** a `*`.
-    1. (Facoltativo) Se si usa Log Analitica, quindi creare una regola di rete nella sezione degli indirizzi IP per abilitare la comunicazione con l'area di lavoro di Log Analitica.
-        1. Nella riga successiva nella **regole** sezione, fornire un **nome** e selezionare **TCP** dal **protocollo** elenco a discesa.
-        1. Impostare **indirizzi di origine** `*`.
-        1. Impostare **gli indirizzi di destinazione** a `*`.
-        1. Impostare **le porte di destinazione** a `12000`.
-    1. Configurare una regola di rete nella sezione tag di servizio per SQL che ti permetterà di accedere e controllare il traffico SQL, a meno che non è configurato gli endpoint di servizio per SQL Server sulla subnet HDInsight che possono ignorare il firewall.
-        1. Nella riga successiva nella **regole** sezione, fornire un **nome** e selezionare **TCP** dal **protocollo** elenco a discesa.
-        1. Impostare **indirizzi di origine** `*`.
-        1. Impostare **gli indirizzi di destinazione** a `*`.
-        1. Selezionare **Sql** dalle **tag di servizio** elenco a discesa.
-        1. Impostare **le porte di destinazione** a `1433,11000-11999,14000-14999`.
+1. Creare le regole seguenti nel **gli indirizzi IP** sezione:
+
+   | **Nome** | **Protocollo** | **Indirizzo di origine** | **Indirizzo di destinazione** | **Porta di destinazione** | **Note** |
+   | --- | --- | --- | --- | --- | --- |
+   | Regola_1 | UDP | * | * | `123` | Servizio ora |
+   | Rule_2 | Qualsiasi | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Se si usa Enterprise Security Package (ESP), quindi aggiungere una regola di rete nella sezione degli indirizzi IP che consente la comunicazione con AAD-DS per i cluster ESP. È possibile trovare gli indirizzi IP dei controller di dominio nella sezione AAD-DS nel portale | 
+   | Rule_3 | TCP | * | Indirizzo IP dell'account di archiviazione di Data Lake | `*` | Se si Usa archiviazione di Azure Data Lake, è possibile aggiungere una regola di rete nella sezione degli indirizzi IP per risolvere un problema SNI con Azure Data Lake Store Gen1 e Gen2. Questa opzione instraderà il traffico al firewall che potrebbe comportare costi più elevati per i caricamenti di dati di grandi dimensioni, ma il traffico verrà registrata e controllabile nel log del firewall. Determinare l'indirizzo IP per l'account Data Lake Store. È possibile usare un comando di powershell, ad esempio `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` risolvere il FQDN per un indirizzo IP.|
+   | Rule_4 | TCP | * | * | `12000` | (Facoltativo) Se si usa Log Analitica, quindi creare una regola di rete nella sezione degli indirizzi IP per abilitare la comunicazione con l'area di lavoro di Log Analitica. |
+
+1. Creare le regole seguenti nel **tag di servizio** sezione:
+
+   | **Nome** | **Protocollo** | **Indirizzo di origine** | **Tag di servizio** | **Porta di destinazione** | **Note** |
+   | --- | --- | --- | --- | --- | --- |
+   | Rule_7 | TCP | * | * | `1433,11000-11999,14000-14999` | Configurare una regola di rete nella sezione tag di servizio per SQL che ti permetterà di accedere e controllare il traffico SQL, a meno che non è configurato gli endpoint di servizio per SQL Server sulla subnet HDInsight che possono ignorare il firewall. |
+
 1. Fare clic su **Add** per completare la creazione della raccolta di regole di rete.
 
-![Titolo: Immettere i dettagli sulla raccolta di regole di applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   ![Titolo: Immettere i dettagli sulla raccolta di regole di applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### <a name="create-and-configure-a-route-table"></a>Creare e configurare una tabella di route
 
@@ -162,7 +151,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 L'integrazione del Firewall di Azure con i log di monitoraggio di Azure è utile durante il recupero prima di tutto eseguita un'applicazione quando non si è consapevoli di tutte le dipendenze dell'applicazione. Per altre informazioni sui log di Monitoraggio di Azure, vedere [Analizzare i dati di log in Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)
 
 ## <a name="access-to-the-cluster"></a>Accesso al cluster
-Dopo avere completato la configurazione del firewall, è possibile usare l'endpoint interno (`https://<clustername>-int.azurehdinsight.net`) per accedere la Ambari dall'interno della rete virtuale. Per usare l'endpoint pubblico (`https://<clustername>.azurehdinsight.net`) o ssh endpoint (`<clustername>-ssh.azurehdinsight.net`), assicurarsi che hai le route a destra nella tabella di route e configurare le regole NSG per evitare il problema di routing asymetric illustrato [qui](https://docs.microsoft.com/azure/firewall/integrate-lb).
+Dopo avere completato la configurazione del firewall, è possibile usare l'endpoint interno (`https://<clustername>-int.azurehdinsight.net`) per accedere la Ambari dall'interno della rete virtuale. Per usare l'endpoint pubblico (`https://<clustername>.azurehdinsight.net`) o ssh endpoint (`<clustername>-ssh.azurehdinsight.net`), assicurarsi che hai le route a destra nella tabella di route e configurare le regole NSG per evitare il problema di routing asimmetrica illustrato [qui](https://docs.microsoft.com/azure/firewall/integrate-lb).
 
 ## <a name="configure-another-network-virtual-appliance"></a>Configurare un'altra appliance virtuale di rete
 

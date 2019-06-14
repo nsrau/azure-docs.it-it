@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/08/2018
+ms.date: 01/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4f8fd0b317c17f142664d22291c23442dd49f970
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60898917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053300"
 ---
 # <a name="application-insights-export-data-model"></a>Modello di dati di esportazione di Application Insights
 Questa tabella elenca le proprietà di telemetria inviate al portale dagli SDK di [Application Insights](../../azure-monitor/app/app-insights-overview.md) .
@@ -296,12 +296,12 @@ Segnala i [test Web di disponibilità](../../azure-monitor/app/monitor-web-app-a
 | availability [0] testRunId |string | |
 | availability [0] testTimestamp |string | |
 
-## <a name="metrics"></a>Metriche
+## <a name="metrics"></a>metrics
 Generata da TrackMetric().
 
 Il valore della metrica è disponibile in context.custom.metrics[0]
 
-Ad esempio: 
+Ad esempio:
 
     {
      "metric": [ ],
@@ -327,7 +327,7 @@ Ad esempio:
     }
 
 ## <a name="about-metric-values"></a>Informazioni sui valori della metrica
-I valori della metrica, nei report della metrica e altrove, vengono segnalati con una struttura di oggetti standard. Ad esempio: 
+I valori della metrica, nei report della metrica e altrove, vengono segnalati con una struttura di oggetti standard. Ad esempio:
 
       "durationMetric": {
         "name": "contoso.org",
@@ -351,7 +351,7 @@ Se è necessario ridurre il volume della telemetria, anziché aggregare in antic
 ### <a name="durations"></a>Durate
 Se non indicato diversamente, le durate vengono espresse in decimi di microsecondo, quindi 10000000,0 corrisponde a 1 secondo.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [Esportazione continua](export-telemetry.md)
 * [Esempi di codice](export-telemetry.md#code-samples)

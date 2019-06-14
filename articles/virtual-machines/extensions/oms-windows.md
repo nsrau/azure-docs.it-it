@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 270b3ae49a815c9e12fce9377c8298192237f28a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fb931d5ce72b21cb17abbcd11095dbc8d611f0c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790379"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064433"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Estensione della macchina virtuale di Azure Monitor per Windows
 
@@ -38,17 +38,18 @@ L'estensione agente di Log Analitica per Windows supporta seguenti versioni del 
 - Windows Server 2008 R2, 2012, 2012 R2, 2016, versione 1709 e 1803
 
 ### <a name="agent-and-vm-extension-version"></a>Versione dell'estensione della macchina virtuale e dell'agente
-Nella tabella seguente fornisce un mapping della versione dell'estensione macchina virtuale di monitoraggio di Azure e bundle di agente di Log Analitica per ogni versione. 
+Nella tabella seguente fornisce un mapping della versione dell'estensione macchina virtuale di Windows Azure Monitor e bundle di agente di Log Analitica per ogni versione. 
 
-| Versione dell'estensione macchina virtuale Linux di monitoraggio Azure | Versione bundle agenti Log Analytics | Data di rilascio | Note sulla versione |
+| Versione bundle agenti Windows Analitica di log | Versione dell'estensione di monitoraggio macchina virtuale di Windows Azure | Data di rilascio | Note sulla versione |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 8.0.11049.0 | 1.0.11049.1 | Febbraio 2017 | |
-| 8.0.11072.0 | 1.0.11072.1 | Settembre 2017 | |
-| 8.0.11081.0 | 1.0.11081.5 | Nov 2017 | | 
-| 8.0.11103.0 | n/d |  Aprile 2018 | |
-| 8.0.11136.0 | n/d | Settembre 2018 |  <ul><li> Aggiunta del supporto per il rilevamento di modifica dell'ID di risorsa su Sposta macchina virtuale </li><li> Aggiunta del supporto per installare ID quando si usa l'estensione di risorsa di creazione report </li></ul>| 
-| 10.19.10006.0 | n/d | Dicembre 2018 | <ul><li> Correzioni minori della stabilizzazione </li></ul> | 
-| 10.19.13515.0 | 1.0.13515.1 | Marzo 2019 | <ul><li>Correzioni minori della stabilizzazione </li></ul> |
+| 10.20.18001 | 1.0.18001 | Giugno 2019 | <ul><li> Piccole correzioni di bug e miglioramenti della stabilizzazione </li><li> Possibilità di disabilitare le credenziali predefinite quando si effettua la connessione proxy (supporto per WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
+| 10.19.13515 | 1.0.13515 | Marzo 2019 | <ul><li>Correzioni minori della stabilizzazione </li></ul> |
+| 10.19.10006 | n/d | Dicembre 2018 | <ul><li> Correzioni minori della stabilizzazione </li></ul> | 
+| 8.0.11136 | n/d | Settembre 2018 |  <ul><li> Aggiunta del supporto per il rilevamento di modifica dell'ID di risorsa su Sposta macchina virtuale </li><li> Aggiunta del supporto per installare ID quando si usa l'estensione di risorsa di creazione report </li></ul>| 
+| 8.0.11103 | n/d |  Aprile 2018 | |
+| 8.0.11081 | 1.0.11081 | Nov 2017 | | 
+| 8.0.11072 | 1.0.11072 | Settembre 2017 | |
+| 8.0.11049 | 1.0.11049 | Febbraio 2017 | |
 
 ### <a name="azure-security-center"></a>Centro sicurezza di Azure
 

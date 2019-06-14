@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1871fee2734d347ff54d6aa70d90d1c28bd1f6f1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 8676ad48bc4fab6149db00d778349ac1acd7223d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062392"
 ---
 # <a name="filters-in-azure-search"></a>Filtri in Ricerca di Azure 
 
@@ -158,11 +158,11 @@ Per le stringhe di testo viene fatta distinzione tra maiuscole e minuscole. Non 
 
 ### <a name="approaches-for-filtering-on-text"></a>Approcci per il filtro sul testo
 
-| Approccio | Descrizione | Quando usare le autorizzazioni | 
+| Approccio | Descrizione | Quando usare le autorizzazioni |
 |----------|-------------|-------------|
-| [search.in](query-odata-filter-orderby-syntax.md) | Una funzione che corrisponde a un campo rispetto a un elenco delimitato da virgole di stringhe. | Consigliato per [filtri di sicurezza](search-security-trimming-for-azure-search.md) e per tutti i filtri in cui devono essere associata a un campo stringa molti valori di testo non elaborato. Il **search.in** funzione è progettata per offrire velocità ed è molto più veloce rispetto a confronto esplicito di campo in ogni stringa usando `eq` e `or`. | 
-| [search.ismatch](query-odata-filter-orderby-syntax.md) | Funzione che consente di combinare le operazioni di ricerca full-text con operazioni di filtro esclusivamente booleane nella stessa espressione filtro. | Uso **IsMatch** (o equivalente, assegnazione dei punteggi **search.ismatchscoring**) quando si desidera più combinazioni di filtri di ricerca in un'unica richiesta. Può essere usata anche con un filtro *contains* per applicare un filtro su una stringa parziale all'interno di una stringa più grande. |
-| [$filter=stringa operatore di campo](query-odata-filter-orderby-syntax.md) | Espressione definita dall'utente composta da campi, operatori e valori. | Usare questo metodo quando si desidera individuare corrispondenze esatte tra un campo stringa e un valore stringa. |
+| [`search.in`](search-query-odata-search-in-function.md) | Una funzione che corrisponde a un campo rispetto a un elenco delimitato da virgole di stringhe. | Consigliato per [filtri di sicurezza](search-security-trimming-for-azure-search.md) e per tutti i filtri in cui devono essere associata a un campo stringa molti valori di testo non elaborato. Il **search.in** funzione è progettata per offrire velocità ed è molto più veloce rispetto a confronto esplicito di campo in ogni stringa usando `eq` e `or`. | 
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Funzione che consente di combinare le operazioni di ricerca full-text con operazioni di filtro esclusivamente booleane nella stessa espressione filtro. | Uso **IsMatch** (o equivalente, assegnazione dei punteggi **search.ismatchscoring**) quando si desidera più combinazioni di filtri di ricerca in un'unica richiesta. Può essere usata anche con un filtro *contains* per applicare un filtro su una stringa parziale all'interno di una stringa più grande. |
+| [`$filter=field operator string`](search-query-odata-comparison-operators.md) | Espressione definita dall'utente composta da campi, operatori e valori. | Usare questo metodo quando si desidera individuare corrispondenze esatte tra un campo stringa e un valore stringa. |
 
 ## <a name="numeric-filter-fundamentals"></a>Concetti fondamentali sui filtri numerici
 
@@ -197,7 +197,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 Per altri esempi, vedere [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) (Sintassi delle espressioni di filtro OData -> Esempi).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Funzionamento della ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md)
 + [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti)

@@ -8,16 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ae87523e66ae49d17f198a1f70b0f449ca0a713
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60950381"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080411"
 ---
 # <a name="upload-files-with-iot-hub"></a>Caricare file con l'hub IoT
 
-Come descritto nell'articolo [IoT Hub endpoints](iot-hub-devguide-endpoints.md) (Endpoint dell'hub IoT), un dispositivo può avviare il caricamento di file inviando una notifica tramite un endpoint per il dispositivo (**/devices/{deviceId}/files**). Quando un dispositivo notifica all'hub IoT il completamento di un caricamento, l'hub IoT invia un messaggio di notifica per il caricamento del file tramite l'endpoint per il servizio (**/messages/servicebound/filenotifications**).
+Come descritto nell'articolo [IoT Hub endpoints](iot-hub-devguide-endpoints.md) (Endpoint dell'hub IoT), un dispositivo può avviare il caricamento di file inviando una notifica tramite un endpoint per il dispositivo ( **/devices/{deviceId}/files**). Quando un dispositivo notifica all'hub IoT il completamento di un caricamento, l'hub IoT invia un messaggio di notifica per il caricamento del file tramite l'endpoint per il servizio ( **/messages/servicebound/filenotifications**).
 
 I messaggi non vengono negoziati tramite l'hub IoT, che funge invece da strumento di recapito per un account di archiviazione di Azure associato. Un dispositivo richiede dall'hub IoT un token di archiviazione specifico del file che intende caricare. Il dispositivo usa l'URI di firma di accesso condiviso per caricare il file nella risorsa di archiviazione e al termine del caricamento invia una notifica di completamento all'hub IoT. L'hub IoT verifica che il completamento del file sia stato completato e quindi aggiunge un messaggio di notifica di caricamento file all'endpoint per il servizio per le notifiche relative ai file.
 
@@ -95,9 +95,9 @@ Negli argomenti di riferimento seguenti vengono offerte altre informazioni sul c
 
 Facoltativamente, quando un dispositivo comunica all'hub IoT che il caricamento è completato, l'hub IoT genera un messaggio di notifica. Questo messaggio contiene il nome e il percorso di archiviazione del file.
 
-Come illustrato nella sezione [Endpoint](iot-hub-devguide-endpoints.md), l'hub IoT recapita le notifiche di caricamento file sotto forma di messaggi tramite un endpoint per servizio (**/messages/servicebound/fileuploadnotifications**). La semantica di ricezione per le notifiche di caricamento file è uguale a quella dei messaggi da cloud a dispositivo e ha lo stesso [ciclo di vita dei messaggi](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Ogni messaggio recuperato dall'endpoint delle notifiche di caricamento file è un record JSON con le proprietà seguenti.
+Come illustrato nella sezione [Endpoint](iot-hub-devguide-endpoints.md), l'hub IoT recapita le notifiche di caricamento file sotto forma di messaggi tramite un endpoint per servizio ( **/messages/servicebound/fileuploadnotifications**). La semantica di ricezione per le notifiche di caricamento di file sono uguali a quella dei messaggi da cloud a dispositivo e ha lo stesso [messaggi del ciclo di vita](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Ogni messaggio recuperato dall'endpoint delle notifiche di caricamento file è un record JSON con le proprietà seguenti.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | EnqueuedTimeUtc |Timestamp che indica quando è stata creata la notifica. |
 | deviceId |**DeviceId** del dispositivo che ha caricato il file. |
@@ -123,7 +123,7 @@ Come illustrato nella sezione [Endpoint](iot-hub-devguide-endpoints.md), l'hub I
 
 Ogni hub IoT espone le opzioni di configurazione seguenti per le notifiche di caricamento file:
 
-| Proprietà | DESCRIZIONE | Intervallo e valore predefinito |
+| Proprietà | Descrizione | Intervallo e valore predefinito |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Controlla se verranno scritte notifiche di caricamento file nell'endpoint per le notifiche relative ai file. |Valore booleano. Predefinito: vero. |
 | **fileNotifications.ttlAsIso8601** |Durata (TTL) predefinita per le notifiche di caricamento file. |Intervallo ISO_8601 fino a 48 ore (minimo 1 minuto). Predefinito: 1 ora |

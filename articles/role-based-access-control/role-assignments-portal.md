@@ -15,10 +15,10 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60533168"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure
@@ -27,9 +27,9 @@ Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di ge
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per aggiungere e rimuovere le assegnazioni di ruolo, è necessario disporre di:
+Per aggiungere e rimuovere assegnazioni di ruoli, l'utente deve disporre di:
 
-- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` le autorizzazioni, ad esempio [amministratore accesso utenti](built-in-roles.md#user-access-administrator) o [proprietario](built-in-roles.md#owner)
+- autorizzazioni `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, ad esempio [Amministratore accesso utenti](built-in-roles.md#user-access-administrator) o [Proprietario](built-in-roles.md#owner)
 
 ## <a name="overview-of-access-control-iam"></a>Cenni preliminari sul controllo di accesso (IAM)
 
@@ -69,7 +69,7 @@ La prima cosa che è necessario stabilire è la posizione in cui aprire il panne
 
 1. Scegliere la risorsa specifica.
 
-1. Fare clic su **Controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
     Di seguito viene riportato un esempio del pannello Controllo di accesso (IAM) per una sottoscrizione. Se si apportano modifiche controllo accesso qui, essi verrà applicata all'intera sottoscrizione.
 
@@ -161,7 +161,7 @@ Per rendere un utente amministratore per una sottoscrizione di Azure, assegnargl
 
 1. Fare clic sulla sottoscrizione in cui si intende concedere l'accesso.
 
-1. Fare clic su **Controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
 1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questa sottoscrizione.
 

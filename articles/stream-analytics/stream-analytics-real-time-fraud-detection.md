@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 38353ed68469ac35f04d68e19afd11ac4b47f2ae
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cfb7dc8ef41c8829caebed6fff2d881093dbbe4d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943961"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076231"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introduzione all'uso di Analisi di flusso di Azure: Rilevamento delle frodi in tempo reale
 
@@ -131,11 +131,12 @@ Prima di avviare l'app TelcoGenerator è necessario configurarla per l'invio di 
 
 ### <a name="start-the-app"></a>Avviare l'app
 1.  Aprire una finestra di comando e passare alla cartella in cui è stata decompressa l'app TelcoGenerator.
+
 2.  Immettere il comando seguente:
 
-        ```cmd
-        telcodatagen.exe 1000 0.2 2
-        ```
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
 
     I parametri sono i seguenti: 
 
@@ -150,7 +151,7 @@ Di seguito sono riportati alcuni campi chiave che verranno usati in questa appli
 |**Record**|**Definizione**|
 |----------|--------------|
 |`CallrecTime`|Timestamp dell'ora di inizio della chiamata. |
-|`SwitchNum`|Commutatore telefonico usato per la connessione della chiamata. Per questo esempio, i commutatori sono stringhe che rappresentano il paese/area geografica di origine (Stati Uniti, Cina, Regno Unito, Germania o Australia). |
+|`SwitchNum`|Commutatore telefonico usato per la connessione della chiamata. Per questo esempio i commutatori sono stringhe che rappresentano il paese/area di origine (Stati Uniti, Cina, Regno Unito, Germania o Australia). |
 |`CallingNum`|Numero di telefono del chiamante. |
 |`CallingIMSI`|Codice IMSI (International Mobile Subscriber Identity). Si tratta dell'identificatore univoco del chiamante. |
 |`CalledNum`|Numero di telefono del destinatario della chiamata. |

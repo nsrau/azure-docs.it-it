@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 149452bd7d43ce46f320b9bae63a6f9cd48d98d4
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: e1583ccf04b68f81a71bd2f63779680427ce3362
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730694"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068772"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Domande frequenti su Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -33,7 +33,7 @@ Non è previsto alcun addebito per la crittografia dei dischi delle macchine vir
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Quali livelli di macchine virtuali sono supportati da Crittografia dischi di Azure?
 
-Crittografia dischi di Azure è disponibile nelle VM di livello standard tra cui le VM IaaS delle serie [A, D, DS, G, GS e F](https://azure.microsoft.com/pricing/details/virtual-machines/). È anche disponibile per le VM con archiviazione Premium. Non è invece disponibile per le VM del livello Basic.
+Crittografia dischi di Azure è disponibile nelle VM di livello standard tra cui [A, D, DS, E, G, GS e F](https://azure.microsoft.com/pricing/details/virtual-machines/) serie delle macchine virtuali IaaS. È anche disponibile per le VM con archiviazione Premium. Non è invece disponibile per le VM del livello Basic.
 
 ## <a name="bkmk_LinuxOSSupport"></a> Quali distribuzioni di Linux sono supportate da Crittografia dischi di Azure?
 
@@ -121,7 +121,9 @@ Sì. L'esecuzione di Crittografia dischi con un'app Azure AD è ancora supportat
 Usare la versione più recente di Azure PowerShell SDK per configurare Crittografia dischi di Azure. Scaricare la versione più recente di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Crittografia dischi di Azure *non* è supportato da Azure SDK versione 1.1.0.
 
 > [!NOTE]
-> L'estensione di anteprima di Crittografia dischi di Azure per Linux è deprecata. Per informazioni dettagliate, vedere [Deprecating Azure disk encryption preview extension for Linux IaaS VMs](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/12/deprecating-azure-disk-encryption-preview-extension-for-linux-iaas-vms/) (Deprecazione dell'estensione dell'anteprima di Crittografia dischi di Azure per le VM IaaS Linux).
+> L'estensione di anteprima di crittografia del disco "Microsoft.OSTCExtension.AzureDiskEncryptionForLinux" Azure per Linux è deprecata. Questa estensione è stata pubblicata per la versione di anteprima di crittografia dischi di Azure. Non si utilizzino la versione di anteprima dell'estensione nella distribuzione di test o produzione.
+
+> Per scenari di distribuzione, ad esempio Azure Resource Manager (ARM), in cui si ha l'esigenza di distribuire l'estensione crittografia dischi di Azure per VM Linux per abilitare la crittografia nella VM IaaS Linux, è necessario usare l'estensione di produzione è supportata la crittografia dischi di Azure" Microsoft.Azure.Security.AzureDiskEncryptionForLinux".
 
 ## <a name="can-i-apply-azure-disk-encryption-on-my-custom-linux-image"></a>È possibile applicare Crittografia dischi di Azure a un'immagine Linux personalizzata?
 

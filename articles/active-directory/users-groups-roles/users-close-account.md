@@ -14,10 +14,10 @@ ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39b359ef7feeaec541ba17e98a5d1e9b74c6403a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65958001"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-directory"></a>Chiudere l'account aziendale o dell'istituto di istruzione in una directory non gestita
@@ -39,7 +39,7 @@ Prima di chiudere l'account, è necessario verificare gli elementi seguenti:
 > [!WARNING]
 > Chiusura dell'account non può essere annullata. Quando si chiude l'account, tutti i dati personali verranno rimossi. Non sarà non sarà più possibile accedere all'account e ai dati associati all'account.
 
-## <a name="close-your-account"></a>Chiudi il tuo account
+## <a name="close-your-account"></a>Chiudere l'account
 
 Per chiudere un non gestito account aziendale o dell'istituto di istruzione, seguire questa procedura:
 

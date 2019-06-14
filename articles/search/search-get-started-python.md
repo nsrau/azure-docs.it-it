@@ -1,7 +1,7 @@
 ---
 title: 'Avvio rapido: Python e API REST - ricerca di Azure'
 description: Creare, caricare e query su un indice usando Python, notebook di Jupyter e l'API REST di ricerca di Azure.
-ms.date: 05/23/2019
+ms.date: 06/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 99b4ec0be8e9fa631c5081edd42474ea89dc5dc3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c519cbd151ac3008593e3309930db4e9a9414e51
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244782"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056617"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Avvio rapido: Creare un indice di ricerca di Azure con i notebook di Jupyter Python
 > [!div class="op_single_selector"]
@@ -88,22 +88,19 @@ In questa attività, avviare un notebook di Jupyter e verificare che sia possibi
 
    Al contrario, una raccolta di indici vuoto restituisce questa risposta: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
-> [!Tip]
-> In un servizio gratuito, si è limitati a tre indici, indicizzatori e origini dati. Questa Guida introduttiva viene creato uno di ciascuno. Assicurarsi di avere spazio sufficiente per creare nuovi oggetti prima di procedere.
-
 ## <a name="1---create-an-index"></a>1 - Creare un indice
 
 A meno che non si usa il portale, deve esistere un indice nel servizio prima di caricare i dati. Questo passaggio Usa la [API REST di creazione indice](https://docs.microsoft.com/rest/api/searchservice/create-index) effettuare il push di uno schema di indice per il servizio.
 
 Gli elementi necessari di un indice includono un nome, una raccolta di campi e una chiave. Raccolta fields definisce la struttura di un *documento*. Ogni campo ha un nome, tipo e gli attributi che determinano il modo in cui viene usato il campo (ad esempio, se è full-text ricercabile, filtrabile oppure recuperabile nei risultati della ricerca). All'interno di un indice, uno dei campi di tipo `Edm.String` deve essere designato come il *chiave* per identità del documento.
 
-Questo indice è denominato "hotels-py" e contiene le definizioni di campo visualizzato di seguito. È un subset di una più grande [indice degli hotel](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) usato nelle altre procedure dettagliate. Sono stati tagliati, in questa Guida introduttiva per motivi di brevità.
+L'indice è denominato "hotels-quickstart" e contiene le definizioni di campo visualizzato di seguito. È un subset di una più grande [indice degli hotel](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) usato nelle altre procedure dettagliate. Sono stati tagliati, in questa Guida introduttiva per motivi di brevità.
 
 1. Nella prossima cella, incollare l'esempio seguente in una cella per fornire lo schema. 
 
     ```python
     index_schema = {
-       "name": "hotels-py",  
+       "name": "hotels-quickstart",  
        "fields": [
          {"name": "HotelId", "type": "Edm.String", "key": "true", "filterable": "true"},
          {"name": "HotelName", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "true", "facetable": "false"},
@@ -236,10 +233,10 @@ Per eseguire il push documenti, usare una richiesta HTTP POST all'endpoint dell'
     }
     ```   
 
-2. In un'altra cella, formulare la richiesta. Questa richiesta POST è destinato a raccolta di documenti dell'indice degli hotel-py e inserisce i documenti specificati nel passaggio precedente.
+2. In un'altra cella, formulare la richiesta. Questa richiesta POST è destinato a raccolta di documenti dell'indice degli hotel-quickstart e inserisce i documenti specificati nel passaggio precedente.
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs/index" + api_version
+   url = endpoint + "indexes/hotels-quickstart/docs/index" + api_version
    response  = requests.post(url, headers=headers, json=documents)
    index_content = response.json()
    pprint(index_content)
@@ -253,56 +250,63 @@ Per eseguire il push documenti, usare una richiesta HTTP POST all'endpoint dell'
 
 Questo passaggio illustra come eseguire query su un indice con il [API REST di ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
+1. In una cella, fornire un'espressione di query che esegue una ricerca vuota (ricerca = *), la restituzione di un elenco unranked (punteggio di ricerca = 1,0) di documenti arbitrari. Per impostazione predefinita, ricerca di Azure restituisce 50 corrispondenze in una fase. Come strutturato, questa query restituisce una struttura dell'intero documento e i valori. Aggiungere $count = true per ottenere un conteggio di tutti i documenti nei risultati.
 
-1. In una nuova cella, fornire un'espressione di query. Nell'esempio seguente Cerca termini "Hotel" e "wifi". Restituisce anche un *conteggio* dei documenti che corrispondono a, e *seleziona* i campi da includere nei risultati della ricerca.
+   ```python
+   searchstring = '&search=*&$count=true'
+   ```
+
+1. In una nuova cella, fornire l'esempio seguente per la ricerca termini "Hotel" e "wifi". Aggiungere $select per specificare i campi da includere nei risultati della ricerca.
 
    ```python
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. In un'altra cella, formulare una richiesta. La richiesta GET ha come destinazione la raccolta di documenti dell'indice degli hotel-py e associa la query specificata nel passaggio precedente.
+1. In un'altra cella, formulare una richiesta. La richiesta GET ha come destinazione la raccolta di documenti dell'indice degli hotel-quickstart e associa la query specificata nel passaggio precedente.
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
    response  = requests.get(url, headers=headers, json=searchstring)
    query = response.json()
    pprint(query)
    ```
 
-3. Eseguire ogni passaggio. Risultati dovrebbero essere simili all'output seguente. 
+1. Eseguire ogni passaggio. Risultati dovrebbero essere simili all'output seguente. 
 
     ![Un indice di ricerca](media/search-get-started-python/search-index.png "un indice di ricerca")
 
-4. Provare ad alcuni altri esempi di query per acquisire familiarità con la sintassi. È possibile sostituire searchstring con gli esempi seguenti e quindi eseguire di nuovo la richiesta di ricerca. 
+1. Provare ad alcuni altri esempi di query per acquisire familiarità con la sintassi. È possibile sostituire searchstring con gli esempi seguenti e quindi eseguire di nuovo la richiesta di ricerca. 
 
    Applicare un filtro: 
 
    ```python
-   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'
+   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
    ```
 
    Seguire i primi due risultati:
 
    ```python
-   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
    ```
 
     Ordina per un campo specifico:
 
    ```python
-   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
 ## <a name="clean-up"></a>Eseguire la pulizia 
 
-Se è non è più necessario, è necessario eliminare l'indice. Un servizio gratuito è limitato a tre indici. È possibile eliminare gli indici che non si usa attivamente per fare spazio ad altre esercitazioni.
+Se è non è più necessario, è necessario eliminare l'indice. Un servizio gratuito è limitato a tre indici. È necessario eliminare eventuali indici che non si usa attivamente per fare spazio ad altre esercitazioni.
+
+Il modo più semplice per eliminare gli oggetti è tramite il portale, ma poiché si tratta di una Guida introduttiva per Python, la sintassi seguente restituisce lo stesso risultato:
 
    ```python
-  url = endpoint + "indexes/hotels-py" + api_version
+  url = endpoint + "indexes/hotels-quickstart" + api_version
   response  = requests.delete(url, headers=headers)
    ```
 
-È possibile verificare l'eliminazione dell'indice, restituendo un elenco degli indici esistenti. Se gli hotel-py è ancora attivo, allora si conosce la richiesta ha avuto esito positivo.
+È possibile verificare l'eliminazione dell'indice richiedendo un elenco degli indici esistenti. Se non è più presente hotels-quickstart, allora si conosce la richiesta ha avuto esito positivo.
 
 ```python
 url = endpoint + "indexes" + api_version + "&$select=name"

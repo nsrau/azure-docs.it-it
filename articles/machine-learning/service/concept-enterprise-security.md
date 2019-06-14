@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e9002b96467d6fa3a5c4fb03fb20bde4e1bf87a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059348"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Sicurezza aziendale per un servizio di Azure Machine Learning
 
@@ -75,7 +75,7 @@ Nella tabella seguente sono elencate alcune delle operazioni del servizio Azure 
 | Vista modelli/immagini | ✓ | ✓ | ✓ |
 | Chiamare il servizio web | ✓ | ✓ | ✓ |
 
-Se i ruoli predefiniti non sono sufficienti per le proprie esigenze, è anche possibile creare ruoli personalizzati. Si noti che i ruoli solo personalizzati che sono supportati per le operazioni su area di lavoro e calcolo di Machine Learning. I ruoli personalizzati possono avere leggere, scrivere o eliminare le autorizzazioni per l'area di lavoro e la risorsa di calcolo nell'area di lavoro. È possibile rendere disponibile il ruolo a un livello specifico dell'area di lavoro, il livello di un gruppo di risorse specifico o un livello di abbonamento specifico. Per altre informazioni, vedere [gestire utenti e ruoli in un'area di lavoro di Azure Machine Learning](how-to-assign-roles.md)
+Se i ruoli predefiniti non sono sufficienti per le proprie esigenze, è anche possibile creare ruoli personalizzati. I ruoli personalizzati solo che Supportiamo sono per le operazioni su area di lavoro e calcolo di Machine Learning. I ruoli personalizzati possono avere leggere, scrivere o eliminare le autorizzazioni per l'area di lavoro e la risorsa di calcolo nell'area di lavoro. È possibile rendere disponibile il ruolo a un livello specifico dell'area di lavoro, il livello di un gruppo di risorse specifico o un livello di abbonamento specifico. Per altre informazioni, vedere [gestire utenti e ruoli in un'area di lavoro di Azure Machine Learning](how-to-assign-roles.md)
 
 ### <a name="securing-compute-and-data"></a>Protezione di dati e calcolo
 I proprietari e collaboratori possono usare tutte calcolo destinazioni e gli archivi dati collegati all'area di lavoro.  
@@ -88,13 +88,13 @@ Per altre informazioni sulle identità gestita, vedere [gestite le identità per
 | Area di lavoro | Collaboratore | 
 | Account di archiviazione | Collaboratore ai dati dei BLOB di archiviazione | 
 | Key Vault | Accesso a tutte le chiavi, segreti, certificati | 
-| Registro contenitori di Azure | Collaboratore | 
+| Registro Azure Container | Collaboratore | 
 | Gruppo di risorse che contiene l'area di lavoro | Collaboratore | 
 | Gruppo di risorse che contiene l'insieme di credenziali chiave (se diverso da quello contenente l'area di lavoro) | Collaboratore | 
 
 È consigliabile che gli amministratori non viene revocato l'accesso dell'identità gestita per le risorse indicate sopra. È possibile ripristinare l'accesso con l'operazione di risincronizzazione delle chiavi.
 
-Servizio Azure Machine Learning crea un'applicazione aggiuntiva (nome inizia con Azure Machine Learning-) con l'accesso a livello di collaboratore nella sottoscrizione per ogni area di lavoro. Per es. Se si dispone di un'altra area di lavoro nell'area Europa settentrionale nella stessa sottoscrizione e un'area di lavoro negli Stati Uniti orientali noterai 2 tali applicazioni. Ciò è necessario in modo che Azure Machine Learning servizio consentono di gestire le risorse di calcolo.
+Servizio Azure Machine Learning crea un'applicazione aggiuntiva (nome inizia con `aml-`) con l'accesso a livello di collaboratore nella sottoscrizione per ogni area di lavoro. Per es. Se si dispone di un'altra area di lavoro nell'area Europa settentrionale nella stessa sottoscrizione e un'area di lavoro negli Stati Uniti orientali noterai due tipi di applicazioni. Ciò è necessario in modo che Azure Machine Learning servizio consentono di gestire le risorse di calcolo.
 
 
 ## <a name="network-security"></a>Sicurezza di rete
@@ -103,7 +103,7 @@ Il servizio Azure Machine Learning si basa su altri servizi di Azure per le riso
 
 Per altre informazioni, vedere [come eseguire gli esperimenti e l'inferenza in una rete virtuale](how-to-enable-virtual-network.md).
 
-## <a name="data-encryption"></a>Crittografia dati
+## <a name="data-encryption"></a>Crittografia dei dati
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 #### <a name="azure-blob-storage"></a>Archivio BLOB di Azure
@@ -113,13 +113,15 @@ Per altre informazioni su come usare chiavi personalizzate per i dati archiviati
 
 I dati di training vengano in genere anche archiviati in archiviazione Blob di Azure in modo che sia accessibile al calcolo di training. Questa risorsa di archiviazione non viene gestita da Azure Machine Learning ma montata di calcolo come un file system remoto.
 
+Per informazioni sulla rigenerazione delle chiavi di accesso per gli account di archiviazione di Azure usati con l'area di lavoro, vedere la [rigenerare le chiavi di accesso archiviazione](how-to-change-storage-access-key.md) articolo.
+
 #### <a name="cosmos-db"></a>Cosmos DB
 Servizio Azure Machine Learning archivia le metriche e i metadati per Cosmos DB a cui si trova in una sottoscrizione di Microsoft gestita dal servizio Azure Machine Learning. Tutti i dati archiviati in Cosmos DB vengono crittografati a riposo usando chiavi gestite da Microsoft.
 
 #### <a name="azure-container-registry-acr"></a>Registro contenitori di Azure (ACR)
 Tutte le immagini del contenitore nel Registro di sistema (ACR) vengono crittografate a riposo. Azure consente di crittografare un'immagine prima di archiviarla automaticamente e lo decrittografa in tempo reale quando il servizio di Azure Machine Learning esegue il pull dell'immagine.
 
-#### <a name="machine-learning-compute"></a>Ambiente di calcolo di Machine Learning
+#### <a name="machine-learning-compute"></a>Machine Learning di calcolo
 Disco del sistema operativo per ogni nodo di calcolo verrà archiviato in archiviazione di Azure verrà crittografato usando chiavi gestite da Microsoft negli account di archiviazione del servizio di Azure Machine Learning. Questo calcolo è temporaneo e i cluster sono in genere, ridotte qualora non sono presenti esecuzioni in coda. La macchina virtuale sottostante viene effettuato il deprovisioning ed eliminato il disco del sistema operativo. Crittografia dischi di Azure non è supportata per il disco del sistema operativo.
 Inoltre, ogni macchina virtuale ha un disco temporaneo locale per le operazioni del sistema operativo. Questo disco può anche facoltativamente utilizzabile per organizzare i dati di training. Questo disco non è crittografato. Per altre informazioni sul funzionamento della crittografia dei dati inattivi in Azure, vedere [crittografia di Azure Data-at-Rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest). 
 

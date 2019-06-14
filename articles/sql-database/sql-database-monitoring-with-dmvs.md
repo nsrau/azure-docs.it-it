@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 371632a28d22583f8b206e4d8b9d2b6b4e510ab0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62103764"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitoraggio delle prestazioni del database SQL di Azure tramite DMV
@@ -613,7 +613,7 @@ L'esempio successivo mostra i diversi modi in cui è possibile usare la vista de
 
    | Percentuale CPU media | Percentuale CPU massima |
    | --- | --- |
-   | 24,5 |100,00 |
+   | 24,5 |100.00 |
 
     L'uso medio della CPU corrisponde a circa un quarto del limite delle dimensioni di calcolo, che potrebbe rientrare nelle dimensioni di calcolo del database. Il valore massimo corrisponde tuttavia al limite delle dimensioni di calcolo del database. È necessario passare alle dimensioni di calcolo superiori a quelle attualmente in uso? Considerare il numero di volte in cui il carico di lavoro raggiunge il 100% e quindi confrontare tale numero con l'obiettivo del carico di lavoro del database.
 
@@ -733,6 +733,6 @@ Un piano di query inefficiente può anche aumentare il consumo della CPU. Nell'e
     ORDER BY highest_cpu_queries.total_worker_time DESC;
     ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Introduzione al Database SQL](sql-database-technical-overview.md)

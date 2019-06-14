@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473740"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Creare una VM Linux usando l'interfaccia della riga di comando classica di Azure
@@ -52,11 +52,11 @@ Per scegliere rapidamente una distribuzione è possibile usare gli alias dell'in
 
 | Alias | Editore | Offerta | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
-| CentOS |OpenLogic |CentOS |7,2 |più recenti |
+| CentOS |OpenLogic |CentOS |7.2 |più recenti |
 | CoreOS |CoreOS |CoreOS |Stabile |più recenti |
 | Debian |credativ |Debian |8 |più recenti |
 | openSUSE |SUSE |openSUSE |13.2 |più recenti |
-| RHEL |Red Hat |RHEL |7,2 |più recenti |
+| RHEL |Red Hat |RHEL |7.2 |più recenti |
 | UbuntuLTS |Canonical |Ubuntu Server |14.04.4-LTS |più recenti |
 
 Le sezioni seguenti illustrano come usare l'alias `UbuntuLTS` per l'opzione **ImageURN** (`-Q`) per distribuire Ubuntu Server 14.04.4 LTS.

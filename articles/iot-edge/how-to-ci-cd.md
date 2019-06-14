@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61221847"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integrazione e distribuzione continue in Azure IoT Edge
@@ -47,7 +47,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
 >
 >Per altre informazioni, vedere [Creare una pipeline di compilazione](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Accesso all'organizzazione di Azure DevOps (**https:\/organizzazione /dev.azure.com/{your} /**) e aprire il progetto che contiene il repository della soluzione IoT Edge.
+1. Accesso all'organizzazione di Azure DevOps (**https:\/organizzazione /dev.azure.com/{your} /** ) e aprire il progetto che contiene il repository della soluzione IoT Edge.
 
    Per questo articolo è stato creato un repository denominato **IoTEdgeRepo**. Questo repository contiene **IoTEdgeSolution**, in cui c'è il codice per un modulo denominato **filtermodule**. 
 
@@ -77,7 +77,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
     
      ![Configurare il pool di agenti di compilazione](./media/how-to-ci-cd/configure-env.png)
 
-5. La pipeline è preconfigurata con un processo denominato **Processo agente 1**. Selezionare il segno più (**+**) per aggiungere tre attività al processo: **Azure IoT Edge** due volte e **Pubblica artefatti di compilazione** una volta. Passare il mouse sul nome di ogni attività per vedere il pulsante **Aggiungi**.
+5. La pipeline è preconfigurata con un processo denominato **Processo agente 1**. Selezionare il segno più ( **+** ) per aggiungere tre attività al processo: **Azure IoT Edge** due volte e **Pubblica artefatti di compilazione** una volta. Passare il mouse sul nome di ogni attività per vedere il pulsante **Aggiungi**.
 
    ![Aggiungere l'attività Azure IoT Edge](./media/how-to-ci-cd/add-iot-edge-task.png)
 
@@ -89,7 +89,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
 
    * **Nome visualizzato**: Accettare il valore predefinito **Azure IoT Edge -Build module images** (Compilazione immagini del modulo).
    * **Azione**: accettare il valore predefinito **Build module images** (Compila immagini del modulo). 
-   * **File template.json**: Selezionare i puntini di sospensione (**...**) e passare al file **deployment.template.json** nel repository che contiene la soluzione IoT Edge. 
+   * **File template.json**: Selezionare i puntini di sospensione ( **...** ) e passare al file **deployment.template.json** nel repository che contiene la soluzione IoT Edge. 
    * **Piattaforma predefinita**: selezionare la piattaforma appropriata per i moduli in base al dispositivo IoT Edge di destinazione. 
    * **Variabili di output**: le variabili di output includono un nome di riferimento che è possibile usare per configurare il percorso in cui verrà generato il file deployment.json. Impostare il nome di riferimento su un valore facile da ricordare, ad esempio **edge**. 
 
@@ -98,7 +98,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
    * **Nome visualizzato**: il nome visualizzato viene aggiornato automaticamente quando il campo dell'azione cambia. 
    * **Azione**: Usare l'elenco a discesa per selezionare **Push module images** (Esegui il push di immagini del modulo). 
    * **Tipo di registro contenitori**: selezionare il tipo di registro contenitori che si usa per archiviare le immagini dei moduli. A seconda del tipo di registro scelto, il modulo cambia. Se si sceglie **Registro Azure Container**, usare gli elenchi a discesa per selezionare la sottoscrizione di Azure e il nome del registro contenitori. Se si sceglie **Generic Container Registry** (Registro contenitori generico), selezionare **Nuovo** per creare una connessione al servizio di registro. 
-   * **File template.json**: Selezionare i puntini di sospensione (**...**) e passare al file **deployment.template.json** nel repository che contiene la soluzione IoT Edge. 
+   * **File template.json**: Selezionare i puntini di sospensione ( **...** ) e passare al file **deployment.template.json** nel repository che contiene la soluzione IoT Edge. 
    * **Piattaforma predefinita**: selezionare la stessa piattaforma delle immagini di moduli compilate.
 
    Se si dispone di più registri contenitori per ospitare le immagini del modulo, è necessario duplicare questa attività, selezionare un registro contenitori diverso e usare **Ignora moduli** nelle impostazioni avanzate per ignorare le immagini che non sono per questo specifico registro.
@@ -152,7 +152,7 @@ Creare una nuova pipeline e configurare la prima fase per le distribuzioni di co
 
 8. Nella fase del controllo di qualità dovrebbe essere presente un **processo agente** predefinito. È possibile configurare dettagli sul processo agente, ma l'attività di distribuzione è indipendente dalla piattaforma, il che significa che è possibile scegliere **Hosted VS2017** o **Hosted Ubuntu 1604** nel **Pool di agenti** (o qualsiasi altro agente gestito dall'utente stesso). 
 
-9. Selezionare il segno più (**+**) per aggiungere un'attività. Cercare e aggiungere **Azure IoT Edge**. 
+9. Selezionare il segno più ( **+** ) per aggiungere un'attività. Cercare e aggiungere **Azure IoT Edge**. 
 
     ![Aggiungere attività per il controllo qualità](./media/how-to-ci-cd/add-task-qa.png)
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e55d11fa44aca65e2d4e487852bd242a4ba75a5f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 43b5a051913ac762fe6b5a0ad11776ae911df864
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474177"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110376"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivio per le novità in Azure Active Directory
 
@@ -177,7 +177,7 @@ Per altre informazioni sull'uso delle proprietà di estensione personalizzate pe
 
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nuove app client approvate per l'accesso condizionale basato su app di Azure AD
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nuove app client approvate per Azure AD basato su app l'accesso condizionale
 
 **Tipo:** Modifica prevista  
 **Categoria di servizio:** Accesso condizionale  
@@ -191,7 +191,7 @@ Le app seguenti sono nell'elenco delle [app client approvate](https://docs.micro
 
 Per altre informazioni, vedere:
 
-- [Accesso condizionale basato su app di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Accesso condizionale basato su app di Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -439,7 +439,7 @@ Per altre informazioni sulle nuove funzionalità, vedere il blog relativo alla [
 
 ---
 
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Sono state aggiunte informazioni sull'accesso condizionale al report sugli accessi di Azure AD
+### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Informazioni di accesso condizionale aggiunti al report degli accessi di Azure AD
 
 **Tipo:** Nuova funzionalità  
 **Categoria di servizio:** Creazione di report  
@@ -707,13 +707,13 @@ Per altre informazioni, vedere [Funzionalità Condizioni per l'utilizzo di Azure
 
 ---
 
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Nuovo modello di criteri di accesso condizionale "custom" creato durante condizioni per la creazione di utilizzo
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Modello di criteri di accesso condizionale "custom" nuovo creato durante condizioni per la creazione di utilizzo
 
 **Tipo:** Nuova funzionalità  
 **Categoria di servizio:** Condizioni per l'utilizzo  
 **Funzionalità del prodotto:** Governance
 
-Durante la creazione dei termini di utilizzo, viene creato anche un nuovo modello di criteri di accesso condizionale "custom". Questo nuovo modello di criteri consente di creare le Condizioni per l'utilizzo e quindi raggiungere immediatamente il pannello di creazione dei criteri di accesso condizionale, senza dover passare manualmente tramite il portale.
+Durante la creazione dei termini di utilizzo, viene creato anche un nuovo modello di criteri di accesso condizionale "custom". Questo nuovo modello di criteri consente di creare condizioni per l'utilizzo e quindi passare immediatamente al pannello di creazione dei criteri di accesso condizionale, senza la necessità di passare manualmente tramite il portale.
 
 Per altre informazioni, vedere [Funzionalità Condizioni per l'utilizzo di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -891,7 +891,7 @@ Per altre informazioni su come inserire l'applicazione nella raccolta di app di 
 **Categoria di servizio:** Altri  
 **Funzionalità del prodotto:** Directory
  
-Nuovo materiale sussidiario dettagliato su come distribuire Azure Active Directory (Azure AD), fra cui reimpostazione della password self-service (SSPR), Single Sign-On (SSO), accesso condizionale (CA), proxy di app, provisioning, da Active Directory Federation Services (ADFS) all'autenticazione pass-through (PTA) e da ADFS alla sincronizzazione dell'hash delle password (PHS).
+Nuove indicazioni dettagliate su come distribuire Azure Active Directory (Azure AD), tra cui password self-service (SSPR) di reimpostare l'accesso single sign-on (SSO), l'accesso Condizionale, proxy di App, provisioning, Active Directory Federation Services (ADFS) di utenti Autenticazione pass-through (PTA) e ad FS per la sincronizzazione degli hash Password (PHS).
 
 Per visualizzare le guide alla distribuzione, visitare il repository [Identity Deployment Guides](https://aka.ms/DeploymentPlans) (Guide alla distribuzione di identità) in GitHub. Per fornire commenti e suggerimenti sulle guide alla distribuzione, usare il [modulo di feedback per il piano di distribuzione](https://aka.ms/deploymentplanfeedback). In caso di domande sulle guide alla distribuzione, contattare Microsoft all'indirizzo [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
@@ -1034,7 +1034,7 @@ Per altre informazioni, vedere [Funzione Condizioni per l'utilizzo di Azure Acti
 
 Ciò consente di controllare l'accesso alle risorse, consentendo nel contempo un'esperienza fluida agli utenti approvati.
 
-Questa funzionalità di B2B Collaboration è disponibile per tutti i clienti di Azure Active Directory e può essere utilizzata insieme alle funzionalità Azure AD Premium, come l'accesso condizionato e la protezione dell’identità, per un controllo più dettagliato di quando e come gli utenti aziendali esterni accedono e ottengono l’accesso.
+Questa funzionalità di collaborazione B2B è disponibile per tutti i clienti di Azure Active Directory e utilizzabile in combinazione con le funzionalità di Azure AD Premium, ad esempio protezione identità e accesso condizionale per un controllo più granulare di quando e come accedano agli utenti aziendali esterni in e ottenere l'accesso.
 
 Per altre informazioni, consultare [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-allow-deny-list).
 
@@ -1137,7 +1137,7 @@ Per altre informazioni, vedere [Informazioni su Collaborazione B2B di Azure AD](
  
 ---
 
-### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Limitare l'accesso al browser usando Intune Managed Browser con l'accesso condizionale basato su applicazioni di Azure AD per iOS e Android
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Limitare l'accesso al browser tramite Intune Managed Browser con Azure AD basato su applicazioni accesso condizionale per iOS e Android
 
 **Tipo:** Nuova funzionalità  
 **Categoria di servizio:** Accesso condizionale  
@@ -1147,13 +1147,13 @@ Per altre informazioni, vedere [Informazioni su Collaborazione B2B di Azure AD](
 
 **SSO di Intune Managed Browser:** i dipendenti possono usare Single Sign-On nei client nativi (ad esempio, Microsoft Outlook) e in Intune Managed Browser per tutte le app connesse ad Azure AD.
 
-**Supporto dell'accesso condizionale di Intune Managed Browser:** è ora possibile fare in modo che i dipendenti usino Intune Managed Browser con i criteri di accesso condizionale basato su applicazioni.
+**Supporto dell'accesso condizionale di Intune Managed Browser:** È ora possibile richiedere ai dipendenti di usare Intune Managed browser usando i criteri di accesso condizionale basato su applicazioni.
 
 Per altre informazioni, vedere il [post di blog](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/).
 
 Per altre informazioni, vedere:
 
-- [Configurare l'accesso condizionale basato sulle applicazioni](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Configurare l'accesso condizionale basato sull'applicazione](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - [Configurare i criteri di Managed Browser](https://aka.ms/managedbrowser)  
 
@@ -1494,13 +1494,13 @@ Questa versione contiene gli aggiornamenti e le modifiche seguenti:
 
 ---
  
-### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Aggiunta di applicazioni che supportano i criteri Protezione app di Intune per l'uso con l'accesso condizionale basato sull'applicazione di Azure AD.
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Le applicazioni che supportano i criteri di Intune App Protection per l'uso con Azure l'accesso condizionale basato sull'applicazione AD
 
 **Tipo:** Funzionalità modificata  
 **Categoria di servizio:** Accesso condizionale  
 **Funzionalità del prodotto:** Protezione e sicurezza delle identità
 
-Sono state aggiunte altre applicazioni che supportano l'accesso condizionale basato sull'applicazione. Ora è possibile accedere a Office 365 e ad altre app cloud connesse ad Azure AD usando queste app client approvate.
+Sono state aggiunte altre applicazioni che supportano l'accesso condizionale basato su applicazioni. Ora è possibile accedere a Office 365 e ad altre app cloud connesse ad Azure AD usando queste app client approvate.
 
 Le applicazioni seguenti verranno aggiunte entro le fine di febbraio:
 
@@ -1513,7 +1513,7 @@ Le applicazioni seguenti verranno aggiunte entro le fine di febbraio:
 Per altre informazioni, vedere:
 
 - [Requisiti per le app client approvate](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Accesso condizionale basato su app di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Accesso condizionale basato su app di Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1793,11 +1793,11 @@ Attualmente, l'accesso è bloccato quando si usa questa condizione. Quando l'ant
 
 Cercare questa funzionalità e altre informazioni nelle note sulla versione e nei blog che verranno pubblicati a breve. 
 
-Per altre informazioni, vedere [Conditional access in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) (Accesso condizionale in Azure AD).
+Per altre informazioni, vedere [accesso condizionale in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nuove app client approvate per l'accesso condizionale basato su app di Azure AD
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nuove app client approvate per Azure AD basato su app l'accesso condizionale
 
 **Tipo:** Modifica prevista  
 **Categoria di servizio:** Accesso condizionale  
@@ -1811,7 +1811,7 @@ Le app seguenti sono nell'elenco delle [app client approvate](https://docs.micro
 Per altre informazioni, vedere:
 
 - [Requisiti per le app client approvate](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Accesso condizionale basato su app di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Accesso condizionale basato su app di Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1848,9 +1848,9 @@ Per altre informazioni, vedere [Integrazione locale](https://docs.microsoft.com/
 **Categoria di servizio:** Azure AD  
 **Funzionalità del prodotto:** Sicurezza e protezione delle identità
 
-È ora possibile limitare l'accesso a Office 365 e ad altre app cloud connesse ad Azure AD alle [app client approvate](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) che supportano i criteri di protezione app di Intune tramite l'[accesso condizionale basato su app di Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). I criteri di protezione app di Intune vengono usati per configurare e proteggere i dati aziendali in queste applicazioni client.
+È ora possibile limitare l'accesso a Office 365 e ad altre App cloud connesse AD Azure alle [App client approvate](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) che supportano i criteri di protezione app di Intune tramite [Azure l'accesso condizionale basato su app AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). I criteri di protezione app di Intune vengono usati per configurare e proteggere i dati aziendali in queste applicazioni client.
 
-Combinando i criteri di accedo condizionale [basato su app](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) con quelli dell'accesso condizionale [basato su dispositivo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) si ottiene la flessibilità necessaria per proteggere i dati dei dispositivi personali e aziendali.
+Combinando [basato su app](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) con [basato su dispositivo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) criteri di accesso condizionale, hai la possibilità di proteggere i dati per utenti e dispositivi aziendali.
 
 I controlli e le condizioni seguenti sono ora disponibili per l'uso con l'accesso condizionale basato su app:
 
@@ -1867,7 +1867,7 @@ I controlli e le condizioni seguenti sono ora disponibili per l'uso con l'access
 
 - Richiedere app client approvata
 
-Per altre informazioni, vedere [Accesso condizionale basato su app di Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
+Per altre informazioni, vedere [Azure l'accesso condizionale basato su app AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
  
 ---
 
@@ -1879,7 +1879,7 @@ Per altre informazioni, vedere [Accesso condizionale basato su app di Azure AD](
 
 È ora possibile individuare tutti i dispositivi connessi ad Azure AD e le attività correlate al dispositivo in un'unica posizione. È disponibile una nuova esperienza di amministrazione per gestire tutte le impostazioni e le identità dei dispositivi nel portale di Azure. In questa versione è possibile:
 
-- Visualizzare tutti i dispositivi disponibili per l'accesso condizionale in Azure AD.
+- Visualizzare tutti i dispositivi che sono disponibili per l'accesso condizionale in Azure AD.
 - Visualizzare le proprietà, inclusi i dispositivi aggiunti ad Azure AD ibridi.
 - Trovare le chiavi di BitLocker per i dispositivi aggiunti ad Azure AD, gestire il dispositivo con Intune e altro ancora.
 - Gestire le impostazioni relative al dispositivo di Azure AD.
@@ -1888,22 +1888,22 @@ Per altre informazioni, vedere [Manage devices by using the Azure portal](https:
 
 ---
 
-### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>Supporto per macOS come piattaforma del dispositivo per l'accesso condizionale ad Azure AD 
+### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>Supporto per macOS come piattaforma del dispositivo per l'accesso condizionale di Azure AD 
 
 **Tipo:** Nuova funzionalità    
 **Categoria di servizio:** Accesso condizionale  
 **Funzionalità del prodotto:** Sicurezza e protezione delle identità 
 
-È ora possibile includere o escludere macOS come condizione per la piattaforma del dispositivo nei criteri di accesso condizionale di Azure AD. Con l'aggiunta di macOS alle piattaforme di dispositivi supportati, è possibile:
+È ora possibile includere (o escludere) macOS come condizione per piattaforma dispositivo nei criteri di accesso condizionale di Azure AD. Con l'aggiunta di macOS alle piattaforme di dispositivi supportati, è possibile:
 
 - **Registrare e gestire i dispositivi macOS con Intune.** Analogamente ad altre piattaforme quali iOS e Android, un'applicazione del portale aziendale è disponibile per macOS per eseguire le registrazioni unificate. È possibile usare la nuova app del portale aziendale per macOS per registrare un dispositivo con Intune e registrarlo con Azure AD.
 - **Assicurarsi che i dispositivi macOS siano conformi ai criteri di conformità dell'organizzazione definiti in Intune.** Con Intune nel portale di Azure è ora possibile impostare criteri di conformità per i dispositivi macOS. 
-- **Limitare l'accesso alle applicazioni in Azure AD solo ai dispositivi macOS conformi.** La creazione di criteri di accesso condizionale prevede macOS come opzione di piattaforma del dispositivo distinta. È ora possibile creare criteri di accesso condizionale specifici per macOS per il set dell'applicazione di destinazione in Azure.
+- **Limitare l'accesso alle applicazioni in Azure AD solo ai dispositivi macOS conformi.** Creazione di criteri accesso condizionale prevede macOS come opzione di piattaforma dispositivo separato. A questo punto è possibile creare criteri di accesso condizionale specifici per macOS per il set dell'applicazione di destinazione in Azure.
 
 Per altre informazioni, vedere:
 
 - [Creare criteri di conformità per i dispositivi macOS con Intune](https://aka.ms/macoscompliancepolicy)
-- [Conditional access in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) (Accesso condizionale in Azure AD)
+- [Accesso condizionale in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
  
 ---
 
@@ -1942,7 +1942,7 @@ Nel centro di amministrazione di Azure Active Directory è possibile:
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nuove app client approvate per l'accesso condizionale basato su app di Azure AD
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nuove app client approvate per Azure AD basato su app l'accesso condizionale
  
 **Tipo:** Funzionalità modificata  
 **Categoria di servizio:** Accesso condizionale  
@@ -1956,7 +1956,7 @@ Le app seguenti sono state aggiunte all'elenco di [app client approvate](https:/
 Per altre informazioni, vedere:
 
 - [Requisiti per le app client approvate](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Accesso condizionale basato su app di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Accesso condizionale basato su app di Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1966,9 +1966,9 @@ Per altre informazioni, vedere:
 **Categoria di servizio:** Accesso condizionale  
 **Funzionalità del prodotto:** Sicurezza e protezione delle identità
  
-È ora possibile usare "OR", ovvero richiedere uno dei controlli selezionati, per i controlli di accesso condizionale. È possibile usare questa funzionalità per creare criteri usando l'operatore "OR" tra i controlli di accesso. È ad esempio possibile usare questa funzionalità per creare un criterio che richiede all'utente di accedere usando Multi-Factor Authentication o in alternativa di usare un dispositivo conforme.
+È ora possibile usare "o" (Richiedi uno dei controlli selezionati) per i controlli di accesso condizionale. È possibile usare questa funzionalità per creare criteri usando l'operatore "OR" tra i controlli di accesso. È ad esempio possibile usare questa funzionalità per creare un criterio che richiede all'utente di accedere usando Multi-Factor Authentication o in alternativa di usare un dispositivo conforme.
 
-Per altre informazioni, vedere [Controls in Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls) (Controlli nell'accesso condizionale di Azure AD).
+Per altre informazioni, vedere [controlli nell'accesso condizionale di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
  
 ---
 

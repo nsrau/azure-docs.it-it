@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 8eeb29b2d1fe17ae5581dab81c34d5c2c635a6c2
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 3cad3722a9d0a52b1a0e66c760e948ceb3c1671c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496349"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061043"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e costi con i log di monitoraggio di Azure
 
@@ -108,10 +108,12 @@ La procedura seguente descrive come configurare il periodo di conservazione dei 
 
 ## <a name="legacy-pricing-tiers"></a>Piani tariffari legacy
 
-Le sottoscrizioni che ha un'area di lavoro di Log Analitica o risorsa di Application Insights in esso prima del 2 aprile 2018, o sono collegate a un contratto Enterprise Agreement che ha avviato prima del 1 febbraio 2019, continueranno ad avere accesso a legacy piani tariffari: Gratuito, autonomo (Per GB) e Per nodo (OMS).  Le aree di lavoro nel piano tariffario gratuito avrà l'inserimento di dati giornaliero limitata a 500 MB (tranne i tipi di dati di sicurezza raccolti dal Centro sicurezza di Azure) e la conservazione dei dati è limitato a 7 giorni. Il piano tariffario gratuito è destinato solo a scopo di valutazione. Aree di lavoro di autonomo o per ogni nodo piani tariffari avere accesso alla conservazione dei dati fino al 2 anni. 
+Le sottoscrizioni che ha un'area di lavoro di Log Analitica o risorsa di Application Insights in esso prima del 2 aprile 2018, o sono collegate a un contratto Enterprise Agreement che ha avviato prima del 1 febbraio 2019, continueranno ad avere accesso a legacy piani tariffari: **Libera**, **autonomo (Per GB)** e **per ogni nodo (OMS)** .  Le aree di lavoro nel piano tariffario gratuito avrà l'inserimento di dati giornaliero limitata a 500 MB (tranne i tipi di dati di sicurezza raccolti dal Centro sicurezza di Azure) e la conservazione dei dati è limitato a 7 giorni. Il piano tariffario gratuito è destinato solo a scopo di valutazione. Aree di lavoro di autonomo o per ogni nodo piani tariffari hanno conservazione configurabili dall'utente di fino a 2 anni. 
 
 > [!NOTE]
 > Per usare i diritti che derivano dall'acquisto di OMS E1 Suite, OMS E2 Suite o un componente aggiuntivo di OMS per System Center, scegliere il piano tariffario *Per nodo* di Log Analytics.
+
+La società ad adottare più vecchio Log Analitica inoltre avranno accesso per i piani tariffari originali **Standard** e **Premium**, che hanno risolto rispettivamente la conservazione dei dati di 30 e 365 giorni. 
 
 ## <a name="changing-pricing-tier"></a>Modifica del piano tariffario
 
@@ -410,6 +412,11 @@ Quando si crea l'avviso per la seconda query e si prevedono più di 100 GB di da
 Specificare un [gruppo di azioni](action-groups.md) esistente o crearne uno nuovo, in modo da ricevere una notifica se l'avviso del log corrisponde ai criteri.
 
 Quando si riceve un avviso, seguire la procedura descritta nella sezione seguente per risolvere i problemi che determinano un utilizzo superiore al previsto.
+
+## <a name="limits-summary"></a>Riepilogo dei limiti
+
+Esistono alcuni altri limiti di Analitica di Log, alcuni dei quali dipendono dal piano tariffario di Analitica di Log. Questi scenari sono documentati [qui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-limits).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 81b7030d0f45222a1641e34b341885d2ecc051e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864459"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107656"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -86,7 +86,7 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 ![Attività di accesso](./media/concept-sign-ins/03.png "Attività di accesso")
 
 > [!NOTE]
-> I clienti possono ora risolvere i problemi dei criteri di accesso condizionale tramite tutti i report di accesso. Facendo clic sulla scheda di **Accesso condizionale** per un record di accesso, i clienti possono esaminare lo stato di accesso condizionale e approfondire i dettagli dei criteri applicati per l'accesso e il risultato per ogni criterio.
+> I clienti possono ora risolvere i problemi di criteri di accesso condizionale tramite tutti i report di accesso. Facendo clic sui **accesso condizionale** scheda per un record di accesso, i clienti possono esaminare lo stato di accesso condizionale e approfondire i dettagli dei criteri applicati per l'accesso e il risultato per ogni criterio.
 > Per altre informazioni, vedere [Domande frequenti sulle informazioni di CA in tutti gli accessi](reports-faq.md#conditional-access).
 
 ![Attività di accesso](./media/concept-sign-ins/ConditionalAccess.png "Attività di accesso")
@@ -111,15 +111,15 @@ Il filtro **Applicazione** permette di specificare il nome dell'applicazione ric
 Il filtro **Stato accesso** permette di selezionare:
 
 - Tutti
-- Esito positivo
-- Errore
+- Riuscito
+- Esito negativo
 
 Il filtro **Accesso condizionale** consente di selezionare lo stato dei criteri di accesso condizionale per l'accesso:
 
 - Tutti
 - Non applicato
-- Esito positivo
-- Errore
+- Riuscito
+- Esito negativo
 
 Il filtro **Date** (Data) permette di definire un intervallo di tempo per i dati restituiti.  
 I valori possibili sono:
@@ -199,7 +199,7 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 - Località
 - Indirizzo IP
 - Date
-- Autenticazione MFA obbligatoria
+- Autenticazione a più fattori obbligatoria
 - Stato accesso
 
 > [!NOTE]

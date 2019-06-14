@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 0fe098bd644762fb291eb623a7b41cd987c7fa26
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a953af3d9cd5a6748b79465a59b4a4284e58714c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779180"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070137"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Livello di servizio con Iperscalabilità per fino a 100 TB
 
@@ -111,7 +111,7 @@ Con la possibilità di accelerare/diminuore la velocità dei nodi di calcolo di 
 
 È possibile creare un database con iperscalabilità usando il [portale di Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o l'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). I database con iperscalabilità sono disponibili solo con il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
-Il comando T-SQL seguente crea un database Hyperscale. Nell'istruzione `CREATE DATABASE` è necessario specificare sia l'edizione che l'obiettivo del servizio.
+Il comando T-SQL seguente crea un database Hyperscale. Nell'istruzione `CREATE DATABASE` è necessario specificare sia l'edizione che l'obiettivo del servizio. Vedere le [dei limiti delle risorse](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier) per un elenco degli obiettivi di servizio valido.
 
 ```sql
 -- Create a HyperScale Database
@@ -146,8 +146,8 @@ Se è necessario ripristinare un database con Iperscalabilità di Database SQL d
 1. Creare un server di Database SQL nell'area di destinazione se non hai già un server appropriato esiste.  Questo server deve appartenere la stessa sottoscrizione originale (server di origine).
 2. Seguire le istruzioni di [ripristino geografico](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) argomento della pagina su come ripristinare i database SQL di Azure dai backup automatici.
 
-#### <a name="notes-on-geo-restores-of-a-hyperscale-database"></a>Note sul ripristino geografico di un database su scala molto vasta
-Poiché l'origine e destinazione si trovano in aree separate, il database non può condividere l'archiviazione snapshot con il database di origine come ripristini non-geo Capabilities, che vengono completate molto rapidamente.  Nel caso di un ripristino geografico di un database con Iperscalabilità, sarà un'operazione di dimensioni dei dati, anche se la destinazione è nell'area abbinata dello spazio di archiviazione con replica geografica.  Ciò significa che esegue un ripristino geografico richieda tempo proporzionale alla dimensione del database da ripristinare.  Se la destinazione è nell'area abbinata, la copia si troverà all'interno di un Data Center, che sarà molto più rapido di una copia interurbana tramite internet, ma verrà comunque copia tutti i bit.
+> [!NOTE]
+> Poiché l'origine e destinazione si trovano in aree separate, il database non può condividere l'archiviazione snapshot con il database di origine come ripristini non-geo Capabilities, che vengono completate molto rapidamente.  Nel caso di un ripristino geografico di un database con Iperscalabilità, sarà un'operazione di dimensioni dei dati, anche se la destinazione è nell'area abbinata dello spazio di archiviazione con replica geografica.  Ciò significa che esegue un ripristino geografico richieda tempo proporzionale alla dimensione del database da ripristinare.  Se la destinazione è nell'area abbinata, la copia si troverà all'interno di un Data Center, che sarà molto più rapido di una copia interurbana tramite internet, ma verrà comunque copia tutti i bit.
 
 ## <a name=regions></a>Aree disponibili
 
@@ -225,8 +225,8 @@ Queste sono le limitazioni attuali per il livello di servizio su scala molto vas
 
 | Problema | Descrizione |
 | :---- | :--------- |
-| Il riquadro Gestisci backup per un server logico non mostra i database Hyperscale, che vengono filtrati da SQL Server  | Il livello di servizio Hyperscale gestisce i backup diversamente, pertanto le impostazioni di conservazione a lungo termine e conservazione dei backup temporizzata non sono valide. Di conseguenza i database Hyperscale non compaiono nel riquadro Gestisci backup. |
-| Ripristino temporizzato | Dopo la migrazione di un database nel livello di servizio Hyperscale, il ripristino in un tempo precedente alla migrazione non è supportato.|
+| Non viene visualizzato il riquadro di gestione dei backup per un server logico di database su scala molto vasta verranno filtrati da SQL server  | Il livello di servizio Hyperscale gestisce i backup diversamente, pertanto le impostazioni di conservazione a lungo termine e conservazione dei backup temporizzata non sono valide. Di conseguenza i database Hyperscale non compaiono nel riquadro Gestisci backup. |
+| Ripristino temporizzato | Una volta che viene eseguita la migrazione di un database al livello di servizio con Iperscalabilità, ripristino in un punto nel tempo prima della migrazione non è supportato.|
 | Ripristino di non - con Iperscalabilità DB Hypserscale e viceversa | Non è possibile ripristinare un database con Iperscalabilità in un database non su scala molto vasta, né è possibile ripristinare un database non su scala molto vasta in un database con scalabilità elevatissima.|
 | Se le dimensioni di un database aumentano durante la migrazione a causa di un carico di lavoro inattivo, superando il limite di 1 TB per file, la migrazione non riesce. | Soluzioni: <br> - Se possibile, eseguire la migrazione del database in un momento in cui non è in esecuzione un carico di lavoro di aggiornamento.<br> - Riprovare a eseguire la migrazione, che riuscirà se durante il processo non viene superato il limite di 1 TB.|
 | Istanza gestita | Istanza gestita del Database SQL Azure non è attualmente supportato con i database su scala molto vasta. |

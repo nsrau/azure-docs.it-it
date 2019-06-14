@@ -6,18 +6,18 @@ documentationcenter: ''
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 06/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: sasubram
+ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5db5eb9c0e0493d906345892fcc5f2872a3e0e14
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 81aad3ef9a4a53532d19fdb81bc48fc50931d49c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812449"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056072"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Aggiungere utenti guest di collaborazione B2B senza un collegamento di invito o un messaggio di posta elettronica
 
@@ -29,7 +29,7 @@ Prima che questo nuovo metodo fosse disponibile, era possibile invitare gli uten
 2. L'amministratore dell'organizzazione host [configura criteri](delegate-invitations.md) che consentono a Sam di identificare e aggiungere altri utenti dall'organizzazione partner (Litware) (Sam deve essere aggiunto per il ruolo di **mittente dell'invito guest**).
 3. Ora Sam può aggiungere altri utenti da Litware alla directory, ai gruppi o alle applicazioni di WoodGrove senza la necessità di riscattare gli inviti. Se Sam dispone dei privilegi di enumerazione appropriati in Litware, l'operazione viene eseguita automaticamente.
  
-Questo metodo originale continua a essere efficace. Tuttavia, vi è una piccola differenza nel comportamento. Se si usa PowerShell, si noterà che un account guest invitati include ora uno stato **PendingAcceptance** anziché mostrare immediatamente quello di **accettato**. Anche se lo stato è in sospeso, l'utente guest può effettuare l'accesso e accedere all'app senza fare clic su un collegamento di invito tramite posta elettronica. Lo stato in sospeso significa che l'utente non ha concluso l'[esperienza di consenso](redemption-experience.md#privacy-policy-agreement), in cui accetta le condizioni sulla privacy dell'organizzazione invitante. L'utente guest visualizza questa schermata di consenso al primo accesso. 
+Questo metodo originale continua a essere efficace. Tuttavia, vi è una piccola differenza nel comportamento. Se si usa PowerShell, si noterà che un account guest invitati include ora uno stato **PendingAcceptance** anziché mostrare immediatamente quello di **accettato**. Anche se lo stato è in sospeso, l'utente guest può effettuare l'accesso e accedere all'app senza fare clic su un collegamento di invito tramite posta elettronica. Lo stato in sospeso significa che l'utente non ha concluso l'[esperienza di consenso](redemption-experience.md#consent-experience-for-the-guest), in cui accetta le condizioni sulla privacy dell'organizzazione invitante. L'utente guest visualizza questa schermata di consenso al primo accesso. 
 
 Se si invita un utente nella directory, l'utente guest deve accedere direttamente all'URL del portale di Azure specifico per il tenant della risorsa (ad esempio https://portal.azure.com/*resourcetenant*.onmicrosoft.com) per visualizzare e accettare le condizioni sulla privacy.
 

@@ -2,17 +2,16 @@
 title: Esempio di configurazione per la connessione di dispositivi Cisco ASA a gateway VPN di Azure | Microsoft Docs
 description: Questo articolo contiene un esempio di configurazione per la connessione di dispositivi Cisco ASA ai gateway VPN di Azure.
 services: vpn-gateway
-author: WenJason
+author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 10/19/2018
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 10/19/2018
+ms.author: yushwang
 ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648742"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configurazione di esempio: dispositivo Cisco ASA (IKEv2/senza BGP)
@@ -28,7 +27,7 @@ Questo articolo fornisce configurazioni di esempio per la connessione di disposi
 | Modello testato           | ASA 5505                          |
 | Versione testata         | 9.2                               |
 | Versione IKE            | IKEv2                             |
-| BGP                    | No                                 |
+| BGP                    | No                                |
 | Tipo di gateway VPN di Azure | Gateway VPN basato su route           |
 |                        |                                   |
 
@@ -79,7 +78,7 @@ La tabella seguente include gli algoritmi di IPsec/IKE e i parametri usati nell'
 | * Crittografia IPsec | AES256                               |
 | * Integrità IPsec  | SHA1                                 |
 | Gruppo PFS        | PFS24                                |
-| Durata associazione di sicurezza in modalità rapida   | 7.200 secondi                         |
+| Durata associazione di sicurezza in modalità rapida   | 7\.200 secondi                         |
 | Selettore di traffico | UsePolicyBasedTrafficSelectors $True |
 | Chiave precondivisa   | PreSharedKey                         |
 |                  |                                      |
@@ -303,4 +302,3 @@ Usare i comandi ASA seguenti a scopo di debug:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per configurare connessioni cross-premise e da rete virtuale a rete virtuale di tipo attivo/attivo, vedere [Configurare gateway VPN di tipo attivi/attivo](vpn-gateway-activeactive-rm-powershell.md).
-<!--Update_Description: wording update -->

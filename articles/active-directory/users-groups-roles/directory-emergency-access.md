@@ -12,12 +12,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f430a832ffb35b95d0bf4eff2d82be5ecc3d865c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42de060d81539030ef1970e01e753383662e924f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472350"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083902"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gestire gli account di accesso di emergenza in Azure AD
 
@@ -43,7 +43,7 @@ Creare due o più account di accesso di emergenza. Devono essere account solo cl
 Durante la configurazione di questi account, devono essere soddisfatti i requisiti seguenti:
 
 - Gli account di accesso di emergenza non devono essere associati a un utente specifico dell'organizzazione. Assicurarsi che gli account non siano connessi a cellulari forniti ai dipendenti, token hardware che viaggiano con i singoli dipendenti o altre credenziali specifiche del dipendente. Questa precauzione consente di affrontare le situazioni in cui un singolo dipendente è irraggiungibile quando sono necessarie le credenziali. È importante verificare che tutti i dispositivi registrati vengano conservati in una posizione nota e sicura con più mezzi di comunicazione con Azure AD.
-- Il meccanismo di autenticazione usato per un account di accesso di emergenza deve essere diverso da quello usato dagli altri account amministrativi, inclusi altri account di accesso di emergenza.  Ad esempio, se l'amministratore usuale accede tramite l'autenticazione a più fattori locale, Azure MFA sarebbe un meccanismo diverso.  Tuttavia, se Azure MFA rappresenta la parte principale dell'autenticazione per gli account amministrativi, è consigliabile adottare un approccio diverso per questi ultimi, ad esempio usare l'accesso condizionale con un provider di autenticazione a più fattori di terze parti.
+- Il meccanismo di autenticazione usato per un account di accesso di emergenza deve essere diverso da quello usato dagli altri account amministrativi, inclusi altri account di accesso di emergenza.  Ad esempio, se l'amministratore usuale accede tramite l'autenticazione a più fattori locale, Azure MFA sarebbe un meccanismo diverso.  Tuttavia se Azure MFA è parte dell'utente primario di autenticazione per gli account amministrativi, quindi è consigliabile un approccio diverso per questo motivo, ad esempio usando l'accesso condizionale con un provider di autenticazione a più fattori di terze parti.
 - Il dispositivo o le credenziali non devono scadere o trovarsi nell'ambito della pulizia automatica per mancanza di utilizzo.  
 - È necessario rendere permanente l'assegnazione del ruolo di amministratore globale per gli account di accesso di emergenza. 
 
@@ -52,9 +52,9 @@ Durante la configurazione di questi account, devono essere soddisfatti i requisi
 
 Per ridurre il rischio di attacchi derivanti da una password compromessa, in Azure AD è consigliabile richiedere l'autenticazione a più fattori per tutti gli utenti singoli. Questo gruppo include gli amministratori e tutti gli altri utenti (ad esempio dirigenti del reparto finanziario) per cui un account compromesso avrebbe un impatto significativo.
 
-Tuttavia, almeno uno degli account di accesso di emergenza deve avere un meccanismo di autenticazione a più fattori diverso rispetto agli altri account non di emergenza. Questo include le soluzioni di autenticazione a più fattori di terze parti. Se si hanno criteri di accesso condizionale per richiedere l'[autenticazione a più fattori per ogni amministratore](../authentication/howto-mfa-userstates.md) per Azure AD e altre app connesse in modalità SaaS, è opportuno escludere gli account di accesso di emergenza da questo requisito e configurare un meccanismo diverso. Inoltre, assicurarsi che gli account non abbiano criteri di autenticazione a più fattori per utente.
+Tuttavia, almeno uno degli account di accesso di emergenza deve avere un meccanismo di autenticazione a più fattori diverso rispetto agli altri account non di emergenza. Questo include le soluzioni di autenticazione a più fattori di terze parti. Se si dispone di un criterio di accesso condizionale per richiedere [multi-factor authentication per tutti gli amministratori](../authentication/howto-mfa-userstates.md) per Azure AD e altri software connesso come un'App del servizio (SaaS), è necessario escludere gli account di accesso di emergenza da questo oggetto requisito e configurare invece un meccanismo diverso. Inoltre, assicurarsi che gli account non abbiano criteri di autenticazione a più fattori per utente.
 
-### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Escludere almeno un account dai criteri di accesso condizionale
+### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Escludere almeno un account da criteri di accesso condizionale
 
 Durante un'emergenza, non è desiderabile che un criterio possa potenzialmente bloccare l'accesso necessario per risolvere un problema. Almeno un account di accesso di emergenza deve essere escluso da tutti i criteri di accesso condizionale. Se è stato abilitato un [criterio di base](../conditional-access/baseline-protection.md), è necessario escludere gli account di accesso di emergenza.
 

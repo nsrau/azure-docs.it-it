@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 06/11/2019
 ms.author: tulasim
-ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b3bae01d65685aa9ea7bfc95d1f1454741d37b5e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599088"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053232"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Esercitazione: Crea un Bot per domande e risposte con Azure v4 servizio Bot
 
@@ -55,7 +55,7 @@ Creazione di un bot come un'applicazione client per la knowledge base.
     |Località|`west us`|Percorso della risorsa di Azure del bot.|
     |Piano tariffario|`F0`|Il livello gratuito per il servizio Azure bot.|
     |Nome app|`my-tutorial-kb-bot-app`|Si tratta di un'app web per il tuo bot solo supporto. Questo non deve essere lo stesso nome di app come sta già usando il servizio QnA Maker. Condivisione di app web di QnA Maker con qualsiasi altra risorsa non è supportata.|
-    |Java SDK|C#|Questo è il linguaggio di programmazione sottostante usato dal bot framework SDK. Le scelte disponibili sono C# o Node. js.|
+    |Java SDK|C#|Questo è il linguaggio di programmazione sottostante usato dal bot framework SDK. Le scelte disponibili sono [ C# ](https://github.com/Microsoft/botbuilder-dotnet) oppure [Node. js](https://github.com/Microsoft/botbuilder-js).|
     |Chiave di autenticazione QnA|**Non modificare**|Questo valore viene inserito automaticamente.|
     |Piano di servizio app/Località|**Non modificare**|Per questa esercitazione, il percorso non è importante.|
     |Archiviazione di Azure|**Non modificare**|Dati di conversazione vengono archiviati nelle tabelle di archiviazione di Azure.|
@@ -109,7 +109,7 @@ Se è stato creato un nuovo gruppo di risorse, è necessario trovare le risorse 
 > [!div class="nextstepaction"]
 > [Concetto: knowledge base](../concepts/knowledge-base.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Gestire la knowledge base](https://qnamaker.ai)
 - [Abilitare i bot nei diversi canali](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)

@@ -16,10 +16,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7de892a0851e556c5046fe4b3691f39b42a9d237
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074756"
 ---
 # <a name="web-api-that-calls-web-apis---move-to-production"></a>API Web che chiama le API - web passare alla produzione
@@ -32,6 +32,6 @@ Dopo aver acquisito un token per chiamare le API web, è possibile spostare l'ap
 
 Dopo avere appreso le nozioni di base di come chiamare le API web da un'API web, potrebbe essere interessante questa esercitazione, che descrive il codice che ha usato per compilare un'API web protetta chiama le API web.
 
-| Esempio | Piattaforma | DESCRIZIONE |
+| Esempio | Piattaforma | Descrizione |
 |--------|----------|-------------|
-| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | 2.2 API Web ASP.NET Core, Desktop (WPF) | API Web ASP.NET Core 2.2 chiamare Microsoft Graph, stessa chiamata da un'applicazione WPF con la piattaforma delle identità Microsoft (v2.0) |
+| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | 2\.2 API Web ASP.NET Core, Desktop (WPF) | API Web ASP.NET Core 2.2 chiamare Microsoft Graph, stessa chiamata da un'applicazione WPF con la piattaforma delle identità Microsoft (v2.0) |

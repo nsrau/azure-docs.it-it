@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: tomfitz
 ms.openlocfilehash: 6554c05f40f580a6d7ae086e1d09834298f86621
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550768"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Eseguire l'autenticazione delle richieste su più tenant
@@ -26,7 +26,7 @@ Quando si crea un'applicazione multi-tenant, potrebbe essere necessario gestire 
 
 La richiesta include i valori di intestazione di autenticazione seguenti:
 
-| Nome intestazione | DESCRIZIONE | Valore di esempio |
+| Nome intestazione | Descrizione | Valore di esempio |
 | ----------- | ----------- | ------------ |
 | Authorization | Token primario | Bearer &lt;primary-token&gt; |
 | x-ms-authorization-auxiliary | Token ausiliari | Bearer &lt;auxiliary-token1&gt;; EncryptedBearer &lt;auxiliary-token2&gt;; Bearer &lt;auxiliary-token3&gt; |

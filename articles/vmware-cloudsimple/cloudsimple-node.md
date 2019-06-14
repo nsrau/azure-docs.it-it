@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: b3c8fca1dd93f379860cc3b084fbb14d4a0c6380
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577361"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Panoramica di nodi CloudSimple
@@ -48,7 +48,7 @@ I tipi di nodi seguenti sono disponibili per l'acquisto o prenotazione.
 
 I limiti di nodo seguenti si applicano ai cloud privati.
 
-| Risorsa | Limite |
+| Resource | Limite |
 |----------|-------|
 | Numero minimo di nodi per creare un cloud privato | 3 |
 | Numero massimo di nodi in un Cluster in un cloud privato | 16 |
