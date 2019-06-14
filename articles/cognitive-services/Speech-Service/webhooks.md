@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 3ceaed2b1e27a1f5b910865f6e9d0e70ef347b71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbe6fe25b5ff0cd5148e3bba22dec4648399510d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515401"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072300"
 ---
 # <a name="webhooks-for-speech-services"></a>Webhook per i servizi di riconoscimento vocale
 
@@ -39,7 +39,7 @@ Successivamente, è possibile creare un webhook.
 
 È possibile creare un webhook per una trascrizione offline. Lo scenario: un utente dispone di un file audio a esecuzione prolungata che desiderano trascrivere in modo asincrono con l'API di trascrizione di Batch. 
 
-Per creare una web hook di POST https://<region>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
+I Webhook possono essere creati da una richiesta POST a https://\<regione\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
 
 I parametri di configurazione per la richiesta vengono forniti in formato JSON:
 
@@ -136,7 +136,7 @@ Invia una richiesta POST all'URL registrato se un'entità per il tipo di evento 
 
 Un rapido test può essere eseguito tramite il sito Web https://bin.webhookrelay.com. Da qui, è possibile ottenere chiamata nuovamente gli URL da passare come parametro per la richiesta HTTP POST per la creazione di un webhook, descritto in precedenza nel documento.
 
-Fare clic su 'Crea Bucket' e seguire sullo schermo le istruzioni per ottenere un hook. Usare quindi le informazioni fornite in questa pagina per registrare l'hook nel servizio di riconoscimento vocale. Il payload di un endpoint di inoltro dei messaggi - nella risposta per il completamento di una trascrizione ha un aspetto come indicato di seguito:
+Fare clic su 'Crea Bucket' e seguire sullo schermo le istruzioni per ottenere un hook. Usare quindi le informazioni fornite in questa pagina per registrare l'hook nel servizio di riconoscimento vocale. Il payload di un messaggio di inoltro: nella risposta per il completamento di una trascrizione – appare come segue:
 
 ```json
 {

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60579975"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introduzione allo sviluppo della rete CDN di Azure
@@ -51,7 +51,7 @@ Il progetto userà alcune librerie di Azure contenute nei pacchetti Nuget.  Ora 
 1. Scegliere **Gestione pacchetti NuGet** dal menu **Strumenti** e fare clic su **Console di Gestione pacchetti**.
    
     ![Gestisci pacchetti NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. Nella Console di Gestione pacchetti eseguire il comando seguente per installare **Active Directory Authentication Library (ADAL)**:
+2. Nella Console di Gestione pacchetti eseguire il comando seguente per installare **Active Directory Authentication Library (ADAL)** :
    
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 3. Eseguire il codice seguente per installare **Azure CDN Management Library**:
@@ -73,7 +73,7 @@ Ora si scriverà la struttura di base del programma.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. È necessario definire alcune costanti che i metodi useranno.  Nella classe `Program`, ma prima del metodo `Main`, aggiungere il codice seguente.  Sostituire i segnaposto, incluse le **&lt;parentesi acute&gt;**, con i valori necessari.
+2. È necessario definire alcune costanti che i metodi useranno.  Nella classe `Program`, ma prima del metodo `Main`, aggiungere il codice seguente.  Sostituire i segnaposto, incluse le **&lt;parentesi acute&gt;** , con i valori necessari.
    
     ```csharp
     //Tenant app constants

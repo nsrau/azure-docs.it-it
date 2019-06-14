@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245727"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gestire il trust di AD FS con Azure AD usando Azure AD Connect
@@ -39,7 +39,7 @@ Azure AD Connect può gestire la federazione tra una distribuzione di Active Dir
 
 Azure AD Connect gestisce **solo** le impostazioni correlate al trust di Azure AD. Azure AD Connect non modifica eventuali impostazioni di trust di altre relying party in AD FS. La tabella seguente indica le impostazioni controllate da Azure AD Connect.
 
-| Impostazione | DESCRIZIONE |
+| Impostazione | Descrizione |
 | :--- | :--- |
 | Certificato per la firma di token | Si può usare Azure AD Connect per reimpostare e ricreare il trust con Azure AD. Azure AD Connect esegue un'operazione una tantum immediata di rollover dei certificati per la firma di token per AD FS e aggiorna le impostazioni di federazione dei domini di Azure AD.|
 | Algoritmo di firma dei token | Microsoft consiglia di usare l'algoritmo di firma dei token SHA-256. Azure AD Connect è in grado di rilevare se l'algoritmo di firma di token è impostato su un valore meno sicuro di SHA-256. L'impostazione verrà aggiornata a SHA-256 nella prima operazione di configurazione successiva possibile. Per usare il nuovo certificato per la firma di token è necessario aggiornare altri trust della relying party. |
@@ -77,7 +77,7 @@ In tutte le operazioni in cui vengono modificate impostazioni, Azure AD Connect 
 
 Azure AD Connect verifica che il trust di Azure AD sia sempre configurato con il set di regole attestazioni consigliato. Microsoft consiglia di usare Azure AD Connect per la gestione del trust di Azure AD. Questa sezione elenca il set di regole di trasformazione rilascio e la relativa descrizione.
 
-| Nome regola | DESCRIZIONE |
+| Nome regola | Descrizione |
 | --- | --- |
 | Issue UPN | Questa regola esegue una query per recuperare il valore di userprincipalname dall'attributo configurato nelle impostazioni di sincronizzazione per userprincipalname.|
 | Query objectguid and msdsconsistencyguid for custom ImmutableId claim | Questa regola aggiunge un valore temporaneo nella pipeline per objectguid e il valore msdsconsistencyguid se esistente |

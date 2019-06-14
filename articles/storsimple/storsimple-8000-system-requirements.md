@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: f05e3e85d36ffc23a193a6771a0271c71b2f8544
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631907"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software, disponibilità elevata e requisiti di rete di StorSimple serie 8000
@@ -54,7 +54,7 @@ I requisiti software seguenti riguardano i componenti facoltativi di StorSimple,
 
 | Componente | Piattaforma host | Requisiti aggiuntivi/note |
 | --- | --- | --- |
-| Gestione snapshot StorSimple  |Windows Server 2008 R2 SP1, 2012, 2012 R2 |L'uso di Gestione snapshot StorSimple su Windows Server è necessario per eseguire il backup o il ripristino di dischi dinamici con mirroring e per qualsiasi backup coerente con l'applicazione.<br> StorSimple Snapshot Manager è supportato solo su Windows Server 2008 R2 SP1 (64 bit), Windows Server 2012 R2 e Windows Server 2012.<ul><li>Se si usa Windows Server 2012, è necessario installare .NET 3.5 o 4.5 prima di installare StorSimple Snapshot Manager.</li><li>Se si usa Windows Server 2008 R2 SP1, è necessario installare Windows Management Framework 3.0 prima di installare StorSimple Snapshot Manager.</li></ul> |
+| Gestione snapshot StorSimple |Windows Server 2008 R2 SP1, 2012, 2012 R2 |L'uso di Gestione snapshot StorSimple su Windows Server è necessario per eseguire il backup o il ripristino di dischi dinamici con mirroring e per qualsiasi backup coerente con l'applicazione.<br> StorSimple Snapshot Manager è supportato solo su Windows Server 2008 R2 SP1 (64 bit), Windows Server 2012 R2 e Windows Server 2012.<ul><li>Se si usa Windows Server 2012, è necessario installare .NET 3.5 o 4.5 prima di installare StorSimple Snapshot Manager.</li><li>Se si usa Windows Server 2008 R2 SP1, è necessario installare Windows Management Framework 3.0 prima di installare StorSimple Snapshot Manager.</li></ul> |
 | Adattatore StorSimple per SharePoint |Windows Server 2008 R2 SP1, 2012, 2012 R2 |<ul><li>L'adattatore StorSimple per SharePoint è supportato solo in SharePoint 2010 e SharePoint 2013.</li><li>Per RBS è necessario SQL Server Enterprise Edition, versioni 2008 R2 o 2012.</li></ul> |
 
 ## <a name="networking-requirements-for-your-storsimple-device"></a>Requisiti di rete per il dispositivo StorSimple
@@ -63,14 +63,14 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 
 | Numero porta<sup>1, 2</sup> | In ingresso/In uscita | Ambito porta | Obbligatorio | Note |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |In uscita |WAN |No  |<ul><li>La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li></ul> |
-| TCP 443 (HTTPS)<sup>3</sup> |In uscita |WAN |Sì |<ul><li>La porta in uscita viene usata per accedere ai dati nel cloud.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li><li>Questa porta viene usata anche su entrambi i controller per operazioni di garbage collection.</li></ul> |
+| TCP 80 (HTTP)<sup>3</sup> |In uscita |WAN |No |<ul><li>La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li></ul> |
+| TCP 443 (HTTPS)<sup>3</sup> |In uscita |WAN |Yes |<ul><li>La porta in uscita viene usata per accedere ai dati nel cloud.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li><li>Questa porta viene usata anche su entrambi i controller per operazioni di garbage collection.</li></ul> |
 | UDP 53 (DNS) |In uscita |WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server DNS basato su Internet. |
 | UDP 123 (NTP) |In uscita |WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server NTP basato su Internet. |
-| TCP 9354 |In uscita |WAN |Sì |La porta in uscita viene usata dal dispositivo StorSimple per comunicare con il servizio Gestione dispositivi StorSimple. |
-| 3260 (iSCSI) |In ingresso |LAN |No  |Questa porta viene usata per accedere ai dati tramite iSCSI. |
-| 5985 |In ingresso |LAN |No  |La porta in ingresso viene usata da Gestione snapshot StorSimple per comunicare con il dispositivo StorSimple.<br>La porta viene usata anche per connettersi in remoto a Windows PowerShell per StorSimple tramite HTTP. |
-| 5986 |In ingresso |LAN |No  |Questa porta viene utilizzata quando ci si connette in modalità remota a Windows PowerShell per StorSimple tramite HTTPS. |
+| TCP 9354 |In uscita |WAN |Yes |La porta in uscita viene usata dal dispositivo StorSimple per comunicare con il servizio Gestione dispositivi StorSimple. |
+| 3260 (iSCSI) |In ingresso |LAN |No |Questa porta viene usata per accedere ai dati tramite iSCSI. |
+| 5985 |In ingresso |LAN |No |La porta in ingresso viene usata da Gestione snapshot StorSimple per comunicare con il dispositivo StorSimple.<br>La porta viene usata anche per connettersi in remoto a Windows PowerShell per StorSimple tramite HTTP. |
+| 5986 |In ingresso |LAN |No |Questa porta viene utilizzata quando ci si connette in modalità remota a Windows PowerShell per StorSimple tramite HTTPS. |
 
 <sup>1</sup> Nessuna porta in ingresso deve essere aperta sulla rete Internet pubblica.
 

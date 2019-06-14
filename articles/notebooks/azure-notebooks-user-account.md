@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: kraigb
 ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632155"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>L'account utente per Azure Notebooks
@@ -43,7 +43,7 @@ Se non se ne è certi, selezionare il comando **Create one** (Creane uno) nel pr
 ![Comando per la creazione di un nuovo account Microsoft](media/accounts/create-new-microsoft-account.png)
 
 > [!Note]
-> Se si prova a creare un nuovo account con un indirizzo di posta elettronica che è già associato un account, si può vedere il messaggio "non è possibile effettuare l'iscrizione qui con un lavoro o dell'istituto di istruzione indirizzo di posta elettronica. Usare un indirizzo e-mail personale, ad esempio Gmail o Yahoo!, oppure ottenere un nuovo indirizzo e-mail Outlook". In tal caso, provare ad accedere con l'indirizzo di posta elettronica di lavoro senza creare un nuovo account.
+> Se si tenta di creare un nuovo account con un indirizzo di posta elettronica a cui è già associato un account, potrebbe essere visualizzato il messaggio "Non puoi accedere qui con un indirizzo e-mail aziendale o dell'istituto di istruzione. Usa un indirizzo e-mail personale, ad esempio Gmail o Yahoo!, oppure crea un nuovo indirizzo e-mail di Outlook." In tal caso, provare ad accedere con l'indirizzo di posta elettronica aziendale senza creare un nuovo account.
 
 In caso di account per bambini, l'accesso ad Azure Notebooks è bloccato per impostazione predefinita. Se si accede con un account per bambini, viene visualizzato l'errore seguente:
 

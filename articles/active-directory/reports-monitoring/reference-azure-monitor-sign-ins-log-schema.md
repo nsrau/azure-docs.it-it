@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285187"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretare schema i log di accesso di Azure AD in Monitoraggio di Azure
@@ -143,10 +143,10 @@ Questo articolo illustra lo schema del log di accesso di Azure Active Directory 
 
 ## <a name="field-descriptions"></a>Descrizioni dei campi
 
-| Nome campo | DESCRIZIONE |
+| Nome campo | Descrizione |
 |------------|-------------|
-| Tempo | Data e ora in formato UTC. |
-| resourceId | Questo valore non è mappato, è quindi possibile ignorare questo campo.  |
+| Time | Data e ora in formato UTC. |
+| ResourceId | Questo valore non è mappato, è quindi possibile ignorare questo campo.  |
 | OperationName | Per gli accessi, questo valore è sempre *Attività di accesso*. |
 | OperationVersion | Versione dell'API REST richiesta dal client. |
 | Category | Per gli accessi, questo valore è sempre *Accesso*. | 
@@ -159,7 +159,7 @@ Questo articolo illustra lo schema del log di accesso di Azure Active Directory 
 | CorrelationId | GUID facoltativo passato dal client. Questo valore consente di correlare le operazioni lato client con le operazioni lato server ed è utile durante l'analisi dei log che si estendono tra i servizi. |
 | Identità | Identità del token presentato al momento dell'esecuzione della richiesta. Può essere un account utente, un account di sistema o un'entità servizio. |
 | Level | Fornisce il tipo di messaggio. Per il controllo, è sempre *Informativo*. |
-| Location | Fornisce il percorso dell'attività di accesso. |
+| Località | Fornisce il percorso dell'attività di accesso. |
 | Properties | Elenca tutte le proprietà associate agli accessi. Per altre informazioni, vedere le [informazioni di riferimento per l'API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Questo schema usa gli stessi nomi di attributi usati nella risorsa di accesso, per migliorare la leggibilità.
 
 ## <a name="next-steps"></a>Passaggi successivi

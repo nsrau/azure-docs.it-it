@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
 ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531684"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Eseguire la migrazione da Utilità di pianificazione ad App per la logica di Azure
@@ -102,9 +102,9 @@ Per eseguire o attivare manualmente un processo unico, inviare una chiamata all'
 
 Ad esempio, usando l'app Postman, è possibile creare una richiesta POST con impostazioni simili a questo esempio e quindi scegliere **Send** (Invia) per effettuare la richiesta.
 
-| Metodo richiesta | URL | Corpo | Headers |
+| Metodo richiesta | URL | Body | Headers |
 |----------------|-----|------|---------| 
-| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>Nella casella **raw** immettere il payload da inviare nella richiesta. <p>**Nota**: Automaticamente questa impostazione consente di configurare il **intestazioni** valori. | **Chiave**: Content-Type <br>**Value (Valore)**: application/json
+| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>Nella casella **raw** immettere il payload da inviare nella richiesta. <p>**Nota**: Automaticamente questa impostazione consente di configurare il **intestazioni** valori. | **Chiave**: Content-Type <br>**Value (Valore)** : application/json
  |||| 
 
 ![Inviare la richiesta per attivare manualmente l'app per la logica](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -159,7 +159,7 @@ Ecco altri modi per personalizzare i processi.
 
 Per controllare i tentativi di ripetizione di un'azione nell'app per la logica quando si verificano errori intermittenti, è possibile impostare [criteri di ripetizione](../logic-apps/logic-apps-exception-handling.md#retry-policies) nelle impostazioni di ogni azione, ad esempio:
 
-1. Aprire il menu (**...**) dell'azione e selezionare **Impostazioni**.
+1. Aprire il menu ( **...** ) dell'azione e selezionare **Impostazioni**.
 
    ![Aprire le impostazioni azione](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
@@ -179,7 +179,7 @@ Nell'Utilità di pianificazione di Microsoft Azure, se l'azione predefinita non 
 
    ![Aggiungere un'azione parallela](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. Nell'azione alternativa aprire il menu (**...**) e selezionare **Configura azione Run after**.
+1. Nell'azione alternativa aprire il menu ( **...** ) e selezionare **Configura azione Run after**.
 
    ![Configura azione Run after](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 

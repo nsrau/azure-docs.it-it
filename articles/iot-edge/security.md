@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 8aadddbc9ae13a87f89db4d7e7189ea7aa8aeef5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60612037"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Standard di sicurezza per Azure IoT Edge
@@ -68,7 +68,7 @@ Per molti dispositivi perimetrali intelligenti, specialmente quelli nelle posizi
 
 Per consentire ai clienti di prendere decisioni informate quando si servono di dispositivi di Azure IoT Edge per la distribuzione, il framework di Azure IoT Edge include i requisiti di certificazione.  Alla base di tali requisiti ci sono le certificazioni che riguardano le attestazioni di sicurezza e le certificazioni relative alla convalida di implementazione della protezione.  Ad esempio, una certificazione di attestazione di sicurezza potrebbe comunicare che il dispositivo di IoT Edge usa un hardware sicuro che notoriamente resiste agli attacchi all'avvio. Una certificazione di convalida potrebbe informare che l'hardware sicuro è stato implementato correttamente per offrire questo valore nel dispositivo.  Fedele al principio di semplicità, il framework prova a mantenere al minimo il carico di lavoro della certificazione.   
 
-## <a name="extensibility"></a>Estensibilità
+## <a name="extensibility"></a>Estendibilità
 
 Se la tecnologia IoT guida i diversi tipi di trasformazioni aziendali, è logico che la sicurezza deve essere evolversi parallelamente agli scenari emergenti.  Il framework di sicurezza di Azure IoT Edge si basa su fondamenta solide su cui si costruisce l'estensibilità in diverse dimensioni per includere: 
 

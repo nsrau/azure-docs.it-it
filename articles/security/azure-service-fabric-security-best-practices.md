@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611528"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedure consigliate per la sicurezza di Azure Service Fabric
@@ -139,10 +139,10 @@ Il certificato deve soddisfare i requisiti seguenti per i certificati SSL in Azu
 -   Il nome del soggetto del certificato deve corrispondere al nome di dominio usato per accedere al servizio cloud.
 
     - Acquistare un nome di dominio personalizzato da usare per accedere al servizio cloud.
-    - Richiedere un certificato da un'autorità di certificazione con un nome di soggetto corrispondente al nome di dominio personalizzato del servizio. Se ad esempio il nome di dominio personalizzato è __contoso__**.com**, il nome del soggetto del certificato dell'autorità di certificazione deve essere **.contoso.com** o __www__**.contoso.com**.
+    - Richiedere un certificato da un'autorità di certificazione con un nome di soggetto corrispondente al nome di dominio personalizzato del servizio. Se ad esempio il nome di dominio personalizzato è __contoso__ **.com**, il nome del soggetto del certificato dell'autorità di certificazione deve essere **.contoso.com** o __www__ **.contoso.com**.
 
     >[!NOTE]
-    >Non è possibile ottenere un certificato SSL da un'autorità di certificazione per il dominio __cloudapp__**.net**.
+    >Non è possibile ottenere un certificato SSL da un'autorità di certificazione per il dominio __cloudapp__ **.net**.
 
 -   Per il certificato deve essere usata una crittografia di almeno 2.048 bit.
 

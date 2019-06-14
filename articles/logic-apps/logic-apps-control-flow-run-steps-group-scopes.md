@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685404"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Eseguire azioni in base allo stato del gruppo con ambiti nelle App per la logica di Azure
@@ -65,7 +65,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
    1. Se non si ha già una connessione esistente a Bing Maps, viene chiesto di crearne una.
 
-      | Impostazione | Valore | DESCRIZIONE |
+      | Impostazione | Valore | Descrizione |
       | ------- | ----- | ----------- |
       | **Connection Name** (Nome connessione) | BingMapsConnection | Specificare un nome per la connessione. | 
       | **Chiave API** | <*chiave-Bing-Maps*> | Immettere la chiave di Bing Maps ricevuta in precedenza. | 
@@ -77,7 +77,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
       Per altre informazioni su questi parametri, vedere [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcolare un itinerario).
 
-      | Impostazione | Valore | DESCRIZIONE |
+      | Impostazione | Valore | Descrizione |
       | ------- | ----- | ----------- |
       | **Punto di tragitto 1** | <*start*> | Immettere l'origine dell'itinerario. | 
       | **Punto di tragitto 2** | <*end*> | Immettere la destinazione dell'itinerario. | 
@@ -125,7 +125,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
    1. Nell'elenco di contenuto dinamico scegliere **Espressione**.
 
-   1. Trovare e selezionare la funzione **div()**. 
+   1. Trovare e selezionare la funzione **div()** . 
       Posizionare il cursore tra le parentesi della funzione.
 
    1. Mentre il cursore è tra le parentesi della funzione, scegliere **Contenuto dinamico** in modo che venga visualizzato l'elenco di contenuto dinamico. 
@@ -165,7 +165,7 @@ Aggiungere successivamente un ambito per poter raggruppare azioni specifiche e v
 1. Aggiungere un ambito al percorso del flusso di lavoro da usare. Ad esempio, per aggiungere un ambito tra i passaggi esistenti nel flusso di lavoro dell'app per la logica, seguire questa procedura: 
 
    1. Spostare il puntatore sulla freccia dove si vuole aggiungere l'ambito. 
-   Scegliere il **segno più** (**+**) > **Aggiungi un'azione**.
+   Scegliere il **segno più** ( **+** ) > **Aggiungi un'azione**.
 
       ![Aggiungere un ambito](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 

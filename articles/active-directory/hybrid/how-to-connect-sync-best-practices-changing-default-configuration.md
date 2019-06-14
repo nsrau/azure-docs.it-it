@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 940a35d89996b1eb9600fe4214863d2b5304750e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242142"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: Procedure consigliate per modificare la configurazione predefinita
@@ -63,7 +63,7 @@ Nella figura precedente l'installazione guidata ha rilevato un vecchio schema di
 ### <a name="change-an-out-of-box-rule"></a>modificare una regola predefinita
 È necessario modificare una regola predefinita solo se è necessario modificare la regola join. Se si vuole modificare un flusso di attributi, creare una regola di sincronizzazione con una precedenza superiore rispetto alle regole predefinite. L'unica regola che è in pratica necessario clonare è la regola **In from AD – User Join**. È possibile eseguire l'override di tutte le altre regole con una regola di precedenza superiore.
 
-Se è necessario apportare modifiche a una regola predefinita, effettuarne una copia e disabilitare la regola originale. Quindi apportare le modifiche alla regola clonata. L'editor delle regole di sincronizzazione facilita l'esecuzione di questa procedura. Quando si apre una regola predefinita, viene visualizzata questa finestra di dialogo:   
+Se è necessario apportare modifiche a una regola predefinita, effettuarne una copia e disabilitare la regola originale. Quindi apportare le modifiche alla regola clonata. L'editor delle regole di sincronizzazione facilita l'esecuzione di questa procedura. Quando si apre una regola predefinita, viene visualizzata questa finestra di dialogo:  
 ![Avviso regola predefinita](./media/how-to-connect-sync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
 Selezionare **Sì** per creare una copia della regola. Viene quindi aperta la regola clonata.  

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
 ms.openlocfilehash: 3c0decaa89b4ecc503157a32fcb1e5b4d249ccfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254619"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Uso di PowerShell per la configurazione di Application Insights per un'app Web di Azure
@@ -49,7 +49,7 @@ Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resou
 * `myWebAppName`: ID dell'app Web
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Abilitare l'estensione delle funzionalità di diagnostica come parte della distribuzione di un servizio Cloud
-Il cmdlet `New-AzureDeployment` ha un parametro `ExtensionConfiguration`, che accetta una matrice di configurazioni di diagnostica. Queste possono essere create con il cmdlet `New-AzureServiceDiagnosticsExtensionConfig` . Ad esempio: 
+Il cmdlet `New-AzureDeployment` ha un parametro `ExtensionConfiguration`, che accetta una matrice di configurazioni di diagnostica. Queste possono essere create con il cmdlet `New-AzureServiceDiagnosticsExtensionConfig` . Ad esempio:
 
 ```ps
 
@@ -136,7 +136,7 @@ Per rimuovere l'estensione della diagnostica da ogni singolo ruolo:
 ```
 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Monitorare le app dei Servizi cloud di Azure con Application Insights](../../azure-monitor/app/cloudservices.md)
 * [Inviare i dati del servizio Diagnostica di Azure ad Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Automatizzare la configurazione degli avvisi](powershell-alerts.md)

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/18/2018
 ms.author: aljo
 ms.openlocfilehash: 37d9c17ff10922aa524fa2fe3eb8abff92c83052
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394048"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Creare la prima applicazione Java Reliable Actors di Service Fabric in Linux
@@ -56,7 +56,7 @@ Per iniziare a usare Reliable Actors, è sufficiente comprendere solo alcuni con
 È opportuno citare le regole seguenti relative alle interfacce dell'attore:
 
 * I metodi di interfaccia dell'attore non possono essere sottoposti a overload.
-*  I metodi di interfaccia dell'attore non accettano parametri facoltativi, out o ref.
+* I metodi di interfaccia dell'attore non accettano parametri facoltativi, out o ref.
 * Non sono supportate interfacce generiche.
 
 ## <a name="create-the-application"></a>Creazione dell'applicazione

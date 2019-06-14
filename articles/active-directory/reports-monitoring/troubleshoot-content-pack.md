@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 06/07/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78676ac2f2dcff74a27e0260a5d83e924f7c246f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee49ae56122fe596a4490914677d91d2f0348f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284951"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807517"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Risoluzione dei problemi relativi ai pacchetti di contenuto dei log attività di Azure Active Directory 
 
@@ -47,7 +47,7 @@ Questo articolo offre informazioni sulle possibili cause e su come risolvere que
 | Causa | Modalità di correzione |
 | ---   | ---        |
 | Gli errori di aggiornamento non riuscito possono verificarsi quando le credenziali degli utenti che si connettono al pacchetto di contenuto sono state reimpostate ma non sono state aggiornate nelle impostazioni di connessione del pacchetto di contenuto. | Individuare in Power BI il set di dati corrispondente al dashboard dei log attività di Azure AD (**Log attività di Azure Active Directory**), scegliere Pianifica aggiornamenti e quindi immettere le credenziali di Azure AD. |
-| Un aggiornamento può non riuscire a causa di problemi relativi ai dati nel pacchetto di contenuto sottostante. | [Inviare un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+| Un aggiornamento può non riuscire a causa di un set di dati di grandi dimensioni. | Attualmente, il pacchetto di contenuto di Azure AD con Power BI supporta solo piccoli set di dati (righe minore di 500,00) a causa di alcune delle limitazioni relativamente al timeout nel servizio Power BI. Se si verificano errori di limitazione o l'aggiornamento non riesce a causa di problemi di timeout, questo potrebbe perché si sta tentando di recuperare un set di dati di grandi dimensioni. Ridurre il periodo di tempo nella query e riprovare.|
  
  
 ## <a name="failed-to-update-data-source-credentials"></a>L'aggiornamento delle credenziali dell'origine dati non è riuscito 

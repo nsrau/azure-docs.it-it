@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: fba29cd55f2d765faa107de3a8961032ef44deec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771342"
 ---
 # <a name="post-deployment-tasks"></a>Attività di post-distribuzione
 
-Dopo aver distribuito un cluster OpenShift, è possibile configurare elementi aggiuntivi. Questo articolo riguarda:
+Dopo aver distribuito un cluster OpenShift, è possibile configurare elementi aggiuntivi. Questo articolo illustra le attività seguenti:
 
 - Come configurare l'accesso Single Sign-On usando Azure Active Directory (Azure AD)
 - Come configurare i log di monitoraggio di Azure per monitorare OpenShift
@@ -83,7 +83,7 @@ Nel portale di Azure:
 
    ![Registrazione delle app](media/openshift-post-deployment/app-registration.png)
 
-6. Fare clic su passaggio 1: Selezionare API e quindi fare clic su **Windows Azure Active Directory (ActiveDirectory)**. Fare clic su **Seleziona** nella parte inferiore.
+6. Fare clic su passaggio 1: Selezionare API e quindi fare clic su **Windows Azure Active Directory (ActiveDirectory)** . Fare clic su **Seleziona** nella parte inferiore.
 
    ![Registrazione dell'app, Seleziona API](media/openshift-post-deployment/app-registration-select-api.png)
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
 ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337579"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modello di dati per i report di Backup di Azure
@@ -27,12 +27,12 @@ Per creare nuovi report e personalizzare report esistenti, è possibile usare i 
 ### <a name="alert"></a>Avviso
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati agli avvisi.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | #AlertsCreatedInPeriod |Numero intero |Numero di avvisi creati nel periodo di tempo selezionato |
 | %ActiveAlertsCreatedInPeriod |Percentuale |Percentuale di avvisi attivi nel periodo di tempo selezionato |
 | %CriticalAlertsCreatedInPeriod |Percentuale |Percentuale di avvisi critici nel periodo di tempo selezionato |
-| AlertOccurrenceDate |Data |Data di creazione dell'avviso |
+| AlertOccurrenceDate |Date |Data di creazione dell'avviso |
 | AlertSeverity |Text |Gravità dell'avviso, ad esempio, Critical |
 | AlertStatus |Text |Stato dell'avviso, ad esempio, Active |
 | AlertType |Text |Tipo di avviso generato, ad esempio, Backup |
@@ -44,7 +44,7 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 ### <a name="backup-item"></a>Elementi di backup
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati agli elementi di backup.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | #BackupItems |Numero intero |Numero di elementi di backup |
 | #UnprotectedBackupItems |Numero intero |Numero di elementi di backup arrestati per protezione o configurati per il backup, ma con backup non avviato|
@@ -62,24 +62,24 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 ### <a name="calendar"></a>Calendario
 Questa tabella offre dettagli sui campi relativi al calendario.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
-| Data |Data |Data selezionata per il filtro dei dati |
+| Date |Date |Data selezionata per il filtro dei dati |
 | DateKey |Text |Chiave univoca per ogni elemento data |
 | DayDiff |Numero decimale |Differenza relativa al giorno per il filtro dei dati. Ad esempio, 0 indica i dati del giorno corrente, -1 i dati del giorno precedente, 0 e -1 indicano i dati del giorno corrente e di quello precedente  |
 | Mese |Text |Mese dell'anno selezionato per il filtro dei dati. Il mese inizia il primo giorno e finisce il 31° giorno |
-| MonthDate | Data |Data di fine del mese, selezionata per il filtro dei dati |
+| MonthDate | Date |Data di fine del mese, selezionata per il filtro dei dati |
 | MonthDiff |Numero decimale |Differenza relativa al mese per il filtro dei dati. Ad esempio, 0 indica i dati del mese corrente, -1 i dati del mese precedente, 0 e -1 indicano i dati del mese corrente e di quello precedente |
 | Settimana |Text |Settimana selezionata come filtro dei dati. La settimana inizia la domenica e finisce il sabato |
-| WeekDate |Data |Data dell'ultima settimana del mese, selezionata come filtro dei dati |
+| WeekDate |Date |Data dell'ultima settimana del mese, selezionata come filtro dei dati |
 | WeekDiff |Numero decimale |Differenza relativa alla settimana per il filtro dei dati. Ad esempio, 0 indica i dati della settimana corrente, -1 i dati della settimana precedente, 0 e -1 indicano i dati della settimana corrente e di quella precedente |
 | Year |Text |Anno di calendario selezionato per il filtro dei dati |
-| YearDate |Data |Data della fine dell'anno, selezionata come filtro dei dati |
+| YearDate |Date |Data della fine dell'anno, selezionata come filtro dei dati |
 
 ### <a name="job"></a>Processo
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati ai processi.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | #JobsCreatedInPeriod |Numero intero |Numero di processi creati nel periodo di tempo selezionato |
 | %FailuresForJobsCreatedInPeriod |Percentuale |Percentuale complessiva degli errori dei processi nel periodo di tempo selezionato |
@@ -91,15 +91,15 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 | EntityState |Text |Stato corrente dell'oggetto processo, ad esempio, Active o Deleted |
 | JobFailureCode |Text |Stringa di codice contenente un errore e a causa della quale si è verificato un errore del processo |
 | JobOperation |Text |Operazione per la quale viene eseguito il processo, ad esempio Backup, Restore o Configure Backup |
-| JobStartDate |Data |Data di avvio dell'esecuzione del processo |
-| JobStartTime |Tempo |Ora di avvio dell'esecuzione del processo |
+| JobStartDate |Date |Data di avvio dell'esecuzione del processo |
+| JobStartTime |Time |Ora di avvio dell'esecuzione del processo |
 | Stato processo |Text |Stato del processo completato, ad esempio, Completed o Failed |
 | JobUniqueId |Text |ID univoco per l'identificazione del processo |
 
 ### <a name="policy"></a>Policy
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati ai criteri.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | #Policies |Numero intero |Numero di criteri di backup presenti nel sistema |
 | #PoliciesInUse |Numero intero |Numero di criteri attualmente in uso per la configurazione di backup |
@@ -133,7 +133,7 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 ### <a name="protected-server"></a>Server protetti
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati ai server protetti.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | #ProtectedServers |Numero intero |Numero di server protetti |
 | AsOnDateTime |Data/ora |Data e ora dell'aggiornamento più recente della riga selezionata |
@@ -152,30 +152,30 @@ Questa tabella presenta i campi e le aggregazioni di base per diversi campi corr
 ### <a name="storage"></a>Archiviazione
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati all'archiviazione.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | #ProtectedInstances |Numero decimale |Numero di istanze protette usato per il calcolo dell'archiviazione front-end a scopo di fatturazione, calcolato in base al valore più recente nel periodo selezionato |
 | AsOnDateTime |Data/ora |Data e ora dell'aggiornamento più recente della riga selezionata |
 | CloudStorageInMB |Numero decimale |Spazio di archiviazione nel cloud usato dal backup, calcolato in base al valore più recente nel periodo selezionato |
 | EntityState |Text |Stato corrente dell'oggetto, ad esempio, Active o Deleted |
-| LastUpdatedDate |Data |Data dell'aggiornamento più recente della riga selezionata |
+| LastUpdatedDate |Date |Data dell'aggiornamento più recente della riga selezionata |
 
-### <a name="time"></a>Tempo
+### <a name="time"></a>Time
 Questa tabella offre dettagli sui campi relativi al tempo.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
-| Hour |Tempo |Ora del giorno, ad esempio 13.00.00 |
+| Hour |Time |Ora del giorno, ad esempio 13.00.00 |
 | HourNumber |Numero decimale |Numero dell'ora nel giorno, ad esempio 13,00 |
 | Minuto |Numero decimale |Minuto dell'ora |
 | PeriodOfTheDay |Text |Periodo all'interno del giorno, ad esempio, 12.00-15.00 |
-| Tempo |Tempo |Ora del giorno, ad esempio 00.00.01 |
+| Time |Time |Ora del giorno, ad esempio 00.00.01 |
 | TimeKey |Text |Valore chiave per rappresentare l'ora |
 
 ### <a name="vault"></a>Insiemi di credenziali
 Questa tabella presenta i campi e le aggregazioni di base per diversi campi correlati agli insiemi di credenziali.
 
-| Campo | Tipo di dati | DESCRIZIONE |
+| Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | #Vaults |Numero intero |Numero di insiemi di credenziali |
 | AsOnDateTime |Data/ora |Data e ora dell'aggiornamento più recente della riga selezionata |

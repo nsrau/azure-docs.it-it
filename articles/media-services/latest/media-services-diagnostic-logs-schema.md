@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
 ms.openlocfilehash: 394370738bc7996a221300540e68404986d91310
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60322251"
 ---
 # <a name="diagnostic-logs-schemas"></a>Schemi dei log di diagnostica
@@ -38,7 +38,7 @@ Per una descrizione dettagliata dello schema di primo livello dei log di diagnos
 
 Queste proprietà sono specifiche per lo schema di log di distribuzione delle chiavi.
 
-|Name|DESCRIZIONE|
+|Name|Descrizione|
 |---|---|
 |keyId|ID della chiave richiesta.|
 |keyType|Può avere uno dei valori seguenti: "Clear" (Nessuna crittografia), "FairPlay", "PlayReady" o "Widevine".|

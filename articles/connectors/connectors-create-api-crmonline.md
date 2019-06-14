@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60313753"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gestire i record di Dynamics 365 con App per la logica di Azure
@@ -50,12 +50,12 @@ Aggiungere prima di tutto un trigger di Dynamics 365 che viene attivato quando v
 
 1. Specificare i dettagli del trigger:
 
-   | Proprietà | Obbligatorio | DESCRIZIONE |
+   | Proprietà | Obbligatorio | Descrizione |
    |----------|----------|-------------|
-   | **Nome organizzazione** | Sì | Nome dell'istanza di Dynamics 365 dell'organizzazione da monitorare, ad esempio "Contoso" |
-   | **Nome entità** | Sì | Nome dell'entità da monitorare, ad esempio "Clienti potenziali" | 
-   | **Frequenza** | Sì | Unità di tempo da usare con intervalli durante il controllo degli aggiornamenti correlati al trigger |
-   | **Interval** | Sì | Numero di secondi, minuti, ore, giorni, settimane o mesi che deve trascorrere prima della verifica successiva |
+   | **Nome organizzazione** | Yes | Nome dell'istanza di Dynamics 365 dell'organizzazione da monitorare, ad esempio "Contoso" |
+   | **Nome entità** | Yes | Nome dell'entità da monitorare, ad esempio "Clienti potenziali" | 
+   | **Frequenza** | Yes | Unità di tempo da usare con intervalli durante il controllo degli aggiornamenti correlati al trigger |
+   | **Interval** | Yes | Numero di secondi, minuti, ore, giorni, settimane o mesi che deve trascorrere prima della verifica successiva |
    ||| 
 
    ![Dettagli del trigger](./media/connectors-create-api-crmonline/trigger-details.png)
@@ -72,17 +72,17 @@ Aggiungere a questo punto l'azione di Dynamics 365 che crea un record di attivit
 
 1. Specificare i dettagli dell'azione:
 
-   | Proprietà | Obbligatorio | DESCRIZIONE |
+   | Proprietà | Obbligatorio | Descrizione |
    |----------|----------|-------------|
-   | **Nome organizzazione** | Sì | Istanza di Dynamics 365 in cui si desidera creare il record, che non deve essere la stessa istanza del trigger. In questo esempio è "Contoso". |
-   | **Nome entità** | Sì | Entità in cui si desidera creare il record, ad esempio "Attività" |
+   | **Nome organizzazione** | Yes | Istanza di Dynamics 365 in cui si desidera creare il record, che non deve essere la stessa istanza del trigger. In questo esempio è "Contoso". |
+   | **Nome entità** | Yes | Entità in cui si desidera creare il record, ad esempio "Attività" |
    | | |
 
    ![Informazioni dettagliate sulle azioni](./media/connectors-create-api-crmonline/action-details.png)
 
 1. Quando nell'azione viene visualizzata la casella **Oggetto**, fare clic nella casella **Oggetto** per visualizzare il riquadro di contenuto dinamico. In questo elenco selezionare i valori dei campi da includere nel record attività associato al nuovo record di cliente potenziale:
 
-   | Campo | DESCRIZIONE |
+   | Campo | Descrizione |
    |-------|-------------|
    | **Cognome** | Cognome del cliente potenziale come contatto principale nel record |
    | **Argomento** | Nome descrittivo per il cliente potenziale nel record |
@@ -120,7 +120,7 @@ Quando si specifica un valore per un campo in un'azione o un trigger, il tipo di
 
 Questa tabella descrive alcuni dei tipi di campi e i tipi di dati necessari per i relativi valori.
 
-| Tipo di campo | Tipo di dati richiesto | DESCRIZIONE | 
+| Tipo di campo | Tipo di dati richiesto | Descrizione | 
 |------------|--------------------|-------------|
 | Campi di testo | Riga di testo singola | Questi campi richiedono una singola riga di testo oppure contenuto dinamico di tipo testo. <p><p>*Esempi di campi*: **Descrizione** e **categoria** | 
 | Campi di tipo Integer | Numero intero | Alcuni campi richiedono un numero intero oppure contenuto dinamico di tipo Integer. <p><p>*Esempi di campi*: **Percentuale di completamento** e **durata** | 
@@ -130,7 +130,7 @@ Questa tabella descrive alcuni dei tipi di campi e i tipi di dati necessari per 
 
 Espandendo questi tipi di campi, ecco alcuni campi di esempio nei trigger e nelle azioni di Dynamics 365 che richiedono sia un ID record e il tipo di ricerca. Questo requisito significa che i valori selezionati dall'elenco dinamico non funzioneranno.
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 |-------|-------------|
 | **Proprietario** | Deve essere un ID utente valido o un ID di record team valido. |
 | **Tipo di proprietario** | Deve contenere **systemusers** o **teams**. |

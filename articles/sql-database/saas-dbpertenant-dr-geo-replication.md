@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129861"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Ripristino di emergenza per un'applicazione SaaS multi-tenant con la replica geografica del database
@@ -90,9 +90,9 @@ Successivamente, in un passaggio di ricollocamento distinto, si effettua il fail
 ## <a name="review-the-healthy-state-of-the-application"></a>Esaminare lo stato di integrità dell'applicazione
 
 Prima di iniziare il processo di ripristino, esaminare il normale stato di integrità dell'applicazione.
-1. Nel Web browser aprire l'hub eventi di Wingtip Tickets all'indirizzo http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net. Sostituire &lt;utente&gt; con il valore utente della distribuzione.
+1. Nel Web browser aprire l'hub eventi di Wingtip Tickets all'indirizzo http://events.wingtip-dpt.&lt ;utente&gt;.trafficmanager.net. Sostituire &lt; utente&gt; con il valore utente della distribuzione.
     * Scorrere la pagina verso il basso e osservare il nome e la posizione del server di catalogo nella parte inferiore della pagina. La posizione corrisponde all'area in cui l'app è stata distribuita.
-    *SUGGERIMENTO: passare il puntatore del mouse sulla posizione per ingrandire la visualizzazione.*
+    *SUGGERIMENTO: passare il puntatore del mouse sulla posizione per ingrandire la visualizzazione.* 
     ![Stato di integrità dell'hub eventi nell'area originale](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Fare clic sul tenant Contoso Concert Hall e aprire la relativa pagina degli eventi.
@@ -207,7 +207,7 @@ Mentre l'endpoint applicazione è disabilitato in Gestione traffico, l'applicazi
  
      ![Hub eventi offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-   * Se si apre direttamente la pagina degli eventi di un tenant offline, viene visualizza una notifica che indica che il tenant è offline. Se, ad esempio, Contoso Concert Hall è offline, provare ad aprire http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net/contosoconcerthall ![Pagina Contoso offline](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Se si apre direttamente la pagina degli eventi di un tenant offline, viene visualizza una notifica che indica che il tenant è offline. Se, ad esempio, Contoso Concert Hall è offline, provare ad aprire http://events.wingtip-dpt.&lt ;utente&gt;.trafficmanager.net/contosoconcerthall ![ Pagina Contoso offline](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Effettuare il provisioning di un nuovo tenant nell'area di ripristino
 Ancora prima del completamento del failover di tutti i database tenant esistenti, è possibile effettuare il provisioning di nuovi tenant nell'area di ripristino.  
@@ -239,7 +239,7 @@ Al termine del processo di ripristino, l'applicazione e tutti i tenant sono perf
    * Le versioni di ripristino dei server di catalogo e tenants1, con il suffisso _-recovery_.  Tutti i database di catalogo e tenant ripristinati in questi server hanno i nomi usati nell'area di origine.
 
    * Il server SQL _tenants2-dpt-&lt;utente&gt;-recovery_.  Questo server viene usato per il provisioning di nuovi tenant durante l'interruzione.
-   * Il servizio app denominato _events-wingtip-dpt-&lt;arearipristino&gt;-&lt;utente&gt;_, che rappresenta l'istanza di ripristino dell'app relativa agli eventi. 
+   * Il servizio app denominato _events-wingtip-dpt-&lt;arearipristino&gt;-&lt;utente&gt;_ , che rappresenta l'istanza di ripristino dell'app relativa agli eventi. 
 
      ![Risorse di ripristino di Azure](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
@@ -256,7 +256,7 @@ In questa attività si aggiorna uno dei database tenant.
 2. In *PowerShell ISE*, nello script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1, impostare il valore seguente:
     * **$DemoScenario = 5**, per eliminare un evento da un tenant nell'area di ripristino
 3. Premere **F5** per eseguire lo script
-4. Aggiornare la pagina degli eventi di Contoso Concert Hall (http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net/contosoconcerthall - sostituire &lt;utente&gt; con il valore utente della distribuzione) e osservare che l'ultimo evento è stato eliminato.
+4. Aggiornare la pagina degli eventi di Contoso Concert Hall (http://events.wingtip-dpt.&lt ;utente&gt;.trafficmanager.net/contosoconcerthall - sostituire &lt; utente&gt; con il valore utente della distribuzione) e osservare che l'ultimo evento è stato eliminato.
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>Ricollocare l'applicazione nell'area di produzione originale
 
@@ -289,7 +289,7 @@ Si supponga ora che l'interruzione sia stata risolta e si esegue quindi lo scrip
     * Premere **F5** per eseguire lo script di ripristino in una nuova finestra di PowerShell.  Il processo di ricollocamento richiede alcuni minuti e può essere monitorato nella finestra di PowerShell.
     ![Processo di ricollocamento](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. Mentre lo script è in esecuzione, aggiornare la pagina Hub eventi (http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net).
+4. Mentre lo script è in esecuzione, aggiornare la pagina Hub eventi (http://events.wingtip-dpt.&lt ;utente&gt;.trafficmanager.net).
     * Si noti che tutti i tenant sono online e accessibili durante questo processo.
 
 5. Al termine del ricollocamento, aggiornare l'hub eventi e aprire la pagina degli eventi per Hawthorn Hall. Si noti che il database è stato ricollocato nell'area originale.

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 53571fdd7c5a93fef4df0832253542a5a6dfbec5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234011"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058548"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -36,24 +36,26 @@ Azure Dev Spaces attualmente funziona meglio durante il debug di una singola ist
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Errore "Failed to create Azure Dev Spaces controller" (Non è stato possibile creare il controller di Azure Dev Spaces)
 
+### <a name="reason"></a>`Reason`
 In caso di problemi durante la creazione del controller, è possibile che venga visualizzato questo errore. Se si tratta di un errore temporaneo, per correggerlo, eliminare e ricreare il controller.
 
-### <a name="try"></a>Soluzione:
+### <a name="try"></a>Prova
 
-Per eliminare il controller, usare l'interfaccia della riga di comando di Azure Dev Spaces. Non è possibile eseguire questa operazione in Visual Studio o in Cloud Shell. Per installare l'interfaccia della riga di comando di Azure Dev Spaces, installare innanzitutto l'interfaccia della riga di comando di Azure e quindi eseguire questo comando:
+Eliminare il controller:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+```
+
+È necessario utilizzare la CLI di spazi di sviluppo di Azure per eliminare un controller. Non è possibile eliminare un controller da Visual Studio. È anche possibile installare CLI Azure Dev spazi in Azure Cloud Shell in modo da Azure Cloud Shell non è possibile eliminare un controller.
+
+Se non si dispone di spazi di sviluppo Azure CLI installata, è possibile installarlo usando il comando seguente quindi eliminare il controller:
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-Eseguire quindi questo comando per eliminare il controller:
-
-```cmd
-azds remove -g <resource group name> -n <cluster name>
-```
-
-Per ricreare il controller è possibile usare l'interfaccia della riga di comando o Visual Studio. Seguire le istruzioni nelle esercitazioni come se si iniziasse per la prima volta.
-
+Per ricreare il controller è possibile usare l'interfaccia della riga di comando o Visual Studio. Vedere le [Team di sviluppo](quickstart-team-development.md) oppure [sviluppare con .NET Core](quickstart-netcore-visualstudio.md) guide introduttive per gli esempi.
 
 ## <a name="error-service-cannot-be-started"></a>Errore "Service cannot be started" (Impossibile avviare il servizio).
 
@@ -408,4 +410,7 @@ azds controller create --name my-controller --target-name MyAKS --resource-group
 ## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Abilitazione di spazi di sviluppo esito negativo quando il pool di nodi di Windows viene aggiunti a un cluster del servizio contenitore di AZURE
 
 ### <a name="reason"></a>`Reason`
-Attualmente, gli spazi di sviluppo di Azure è destinato all'esecuzione in Linux il POD e solo i nodi. A questo punto, è possibile abilitare spazi di sviluppo di Azure in un cluster del servizio contenitore di AZURE con un pool di nodi Windows.
+Attualmente, gli spazi di sviluppo di Azure è destinato all'esecuzione in Linux il POD e solo i nodi. Quando si dispone di un cluster del servizio contenitore di AZURE con un pool di nodi di Windows, è necessario assicurarsi che Azure Dev spazi POD vengono programmate solo nei nodi Linux. Se un podcast di spazi di sviluppo di Azure è stato pianificato per l'esecuzione in un nodo di Windows, quel pod non verrà avviato e l'abilitazione di spazi di sviluppo avrà esito negativo.
+
+### <a name="try"></a>Prova
+[Aggiungere un aspetto](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) del cluster servizio contenitore di AZURE per garantire Linux POD non pianificati per l'esecuzione in un nodo di Windows.

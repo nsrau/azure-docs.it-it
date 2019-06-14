@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60657829"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelli di API in Gestione API di Azure
@@ -88,7 +88,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`apis`|Raccolta di entità [Riepilogo dell'API](api-management-template-data-model-reference.md#APISummary).|Le API visibili all'utente corrente.|  
   
@@ -343,7 +343,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`apiId`|string|ID dell'API corrente.|  
 |`apiName`|string|Nome dell'API.|  

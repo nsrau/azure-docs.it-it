@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/5/2019
+ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 44d5ce3e194c873a564039934f518cb3a0e142e3
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 2387f2546afa9d5af2cb909a1e6a2179548e3b5a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497171"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053338"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Eseguire la migrazione di Gateway applicazione di Azure e Web Application Firewall da v1 a v2
 
@@ -96,7 +96,7 @@ Per eseguire lo script:
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [stringa]:  Obbligatorio** -questo è lo spazio di indirizzi IP che è stato allocato (o da allocare) per una nuova subnet che contiene il nuovo gateway v2. Questo deve essere specificato nella notazione CIDR. Ad esempio:  10.0.0.0/24. Non devi creare questa subnet in anticipo. Lo script crea automaticamente se non esiste.
+   * **subnetAddressRange: [stringa]:  Obbligatorio** -questo è lo spazio di indirizzi IP che è stato allocato (o da allocare) per una nuova subnet che contiene il nuovo gateway v2. Questo deve essere specificato nella notazione CIDR. Ad esempio:  10.0.0.0/24. Non è necessario creare questa subnet in anticipo. Lo script crea automaticamente se non esiste.
    * **appgwName: [stringa]: Facoltativo**. Questa è una stringa che specifica per l'uso come nome per il nuovo gateway Standard_v2 o WAF_v2. Se non viene specificato questo parametro, verrà utilizzato il nome del gateway di v1 esistente con il suffisso *_v2* aggiunto.
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: Facoltativo**.  Un elenco delimitato da virgole di oggetti PSApplicationGatewaySslCertificate creata per rappresentare i certificati SSL dal gateway di versione 1 deve essere caricato per il nuovo gateway v2. Per ognuno dei certificati SSL configurati per la Standard v1 o gateway WAF v1, è possibile creare un nuovo oggetto PSApplicationGatewaySslCertificate tramite il `New-AzApplicationGatewaySslCertificate` riga di comando mostrata di seguito. È necessario il percorso del file di certificato SSL e la password.
 
@@ -117,11 +117,11 @@ Per eseguire lo script:
 
       Per creare un elenco di oggetti PSApplicationGatewayTrustedRootCertificate, vedere [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
    * **privateIpAddress: [stringa]: Facoltativo**. Un indirizzo IP privato specifico che si desidera associare al nuovo gateway v2.  Questo deve essere compreso nella stessa rete virtuale che viene allocata per il nuovo gateway v2. Se non è specificato, lo script consente di allocare un indirizzo IP privato per il gateway v2.
-    * **publicIpResourceId: [String]: Facoltativo**. Il valore di resourceId di una risorsa di indirizzo IP pubblico nella sottoscrizione che si desidera allocare per il nuovo gateway v2. Se non viene specificato, lo script consente di allocare un nuovo indirizzo IP pubblico nello stesso gruppo di risorse. Il nome è il nome del gateway v2 con *- IP* aggiunto.
+    * **publicIpResourceId: [String]: Facoltativo**. Il valore di resourceId di una risorsa (SKU standard) dell'indirizzo IP pubblico nella sottoscrizione che si desidera allocare per il nuovo gateway v2. Se non è specificato, lo script consente di allocare un nuovo indirizzo IP pubblico nello stesso gruppo di risorse. Il nome è il nome del gateway v2 con *- IP* aggiunto.
    * **validateMigration: [switch]: Facoltativo**. Usare questo parametro se si desidera che lo script per eseguire alcune configurazioni di base delle convalide di confronto dopo la creazione del gateway v2 e la copia della configurazione. Per impostazione predefinita, viene eseguita alcuna convalida.
    * **enableAutoScale: [switch]: Facoltativo**. Usare questo parametro se si desidera che lo script per abilitare la scalabilità automatica nel nuovo gateway v2 dopo averlo creato. Per impostazione predefinita, la scalabilità automatica è disabilitata. È possibile sempre manualmente abilitarla in un secondo momento il gateway appena creata v2.
 
-1. Eseguire lo script usando i parametri appropriati.
+1. Eseguire lo script usando i parametri appropriati. Potrebbe richiedere da cinque a sette minuti.
 
     **Esempio**
 
@@ -176,7 +176,11 @@ No. Lo script di PowerShell di Azure solo la migrazione della configurazione. Mi
 
 ### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>Il nuovo gateway v2 creato dallo script di PowerShell di Azure appropriate per gestire tutto il traffico che attualmente viene servito dal mio gateway di versione 1?
 
-Lo script Azure PowerShell crea un nuovo gateway v2 con una dimensione appropriata per gestire il traffico nel gateway V1 esistente. La scalabilità automatica è disabilitata per impostazione predefinita, ma è possibile abilitare la scalabilità automatica quando si esegue lo script.
+Lo script Azure PowerShell crea un nuovo gateway v2 con una dimensione appropriata per gestire il traffico nel gateway v1 esistente. La scalabilità automatica è disabilitata per impostazione predefinita, ma è possibile abilitare la scalabilità automatica quando si esegue lo script.
+
+### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>Configurato il gateway v1 per inviare log ad archiviazione di Azure. Lo script di replica per la versione v2 anche questa configurazione?
+
+No. Lo script non vengono replicate questa configurazione per la versione v2. È necessario aggiungere la configurazione di log separatamente per il gateway v2 migrati.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Riscontrato alcuni problemi relativi all'uso di questo script. Come è possibile ottenere supporto?
   

@@ -13,10 +13,10 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646797"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replica in database SQL singoli e in pool
@@ -42,7 +42,7 @@ La replica di SQL Server può essere configurata in database singoli e in pool s
 - Se si cerca di configurare la replica usando una versione meno recente, potrebbero essere generati gli errori MSSQL_REPL20084 (Il processo non è riuscito a connettersi al sottoscrittore) e MSSQL_REPL40532 (Impossibile aprire il server \<nome> richiesto dall'account di accesso. Accesso non riuscito).  
 - Per usare tutte le funzionalità del database SQL di Azure, è necessario usare le versioni più recenti di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
   
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 - La replica può essere configurata usando [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o eseguendo istruzioni Transact-SQL sul database di pubblicazione. Non è possibile configurare la replica tramite il portale di Azure.  
 - La replica può usare solo account di accesso per l'autenticazione di SQL Server per connettersi a un database SQL di Azure.
@@ -107,7 +107,7 @@ Le opzioni seguenti non sono supportate per le sottoscrizioni del database SQL d
 Creare una pubblicazione e una sottoscrizione push. Per altre informazioni, vedere:
   
 - [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando il nome del server di database SQL di Azure come sottoscrittore (ad esempio **N'azuresqldbdns.database.windows.net'**) e il nome del database SQL di Azure SQL come database di destinazione (ad esempio **AdventureWorks**).  
+- [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando il nome del server di database SQL di Azure come sottoscrittore (ad esempio **N'azuresqldbdns.database.windows.net'** ) e il nome del database SQL di Azure SQL come database di destinazione (ad esempio **AdventureWorks**).  
 
 ## <a name="see-also"></a>Vedere anche  
 

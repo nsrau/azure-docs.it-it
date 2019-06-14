@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
 ms.openlocfilehash: 40880a2c28ce28a671930ef8837082247e61e24b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733131"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Connettersi all'API servizi multimediali di v3 - Node. js
@@ -51,7 +51,7 @@ Questo articolo illustra come connettersi a Node. js v3 di servizi multimediali 
 
 I pacchetti seguenti può essere specificati:
 
-|Pacchetto|DESCRIZIONE|
+|Pacchetto|Descrizione|
 |---|---|
 |`azure-arm-mediaservices`|Azure Media Services SDK. <br/>Per assicurarsi che si usa il pacchetto di servizi multimediali di Azure più recente, controllare [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/).|
 |`azure-storage`|SDK di archiviazione. Usato durante il caricamento di file nell'asset.|
@@ -120,7 +120,7 @@ npm install
 node index.js
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Concetti relativi ai Servizi multimediali](concepts-overview.md)
 - [Installazione di NPM tramite azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)

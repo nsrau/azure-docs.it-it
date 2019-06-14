@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60576187"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Usare lo strumento di diagnostica StorSimple per risolvere i problemi dei dispositivi della serie 8000
@@ -378,7 +378,7 @@ Per usare lo strumento di diagnostica, seguire questa procedura:
 
 1.  Creare prima di tutto una combinazione di volumi a livelli e volumi a livelli con l'opzione di archiviazione selezionata. Questa azione assicura l'esecuzione dei test per entrambe le dimensioni del BLOB, 64 KB e 512 KB.
 
-2. Eseguire il cmdlet dopo aver creato e configurato i volumi. Digitare: 
+2. Eseguire il cmdlet dopo aver creato e configurato i volumi. Digitare:
 
     `Invoke-HcsDiagnostics -Scope Performance`
 
@@ -414,10 +414,10 @@ Controller0>
 
 La tabella riportata di seguito illustra il mapping dei vari parametri di Windows PowerShell alle informazioni sul sistema. 
 
-| Parametro di PowerShell    | DESCRIZIONE  |
+| Parametro di PowerShell    | Descrizione  |
 |-------------------------|------------------|
 | ID istanza             | Ogni controller è associato a un identificatore univoco o un GUID.|
-| NOME                    | Nome descrittivo del dispositivo configurato tramite il portale di Azure durante la distribuzione del dispositivo. Il nome descrittivo predefinito è il numero di serie del dispositivo. |
+| Name                    | Nome descrittivo del dispositivo configurato tramite il portale di Azure durante la distribuzione del dispositivo. Il nome descrittivo predefinito è il numero di serie del dispositivo. |
 | Modello                   | Modello del dispositivo StorSimple serie 8000. Il modello può essere 8100 o 8600.|
 | SerialNumber            | Numero di serie di 15 caratteri assegnato in fase di produzione. Ad esempio, 8600-SHX0991003G44HT indica quanto segue:<br> 8600: modello del dispositivo.<br>SHX: sito di produzione.<br> 0991003: prodotto specifico. <br> G44HT: ultime cinque cifre incrementate per creare numeri di serie univoci. Questo potrebbe non essere un insieme sequenziale.|
 | TimeZone                | Fuso orario del dispositivo configurato nel portale di Azure durante la distribuzione del dispositivo.|

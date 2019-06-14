@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
 ms.openlocfilehash: 9a0b536426ab024d5af7b257e44a2d5e20f14def
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371037"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Esaminare i dati di fatturazione dell'Iscrizione Enterprise tramite le API REST
@@ -41,7 +41,7 @@ Il parametro `{billingAccountId}` è obbligatorio e deve contenere l'ID per l'ac
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|DESCRIZIONE|  
+|Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
 |*Content-Type:*|Richiesto. Impostare su `application/json`.|  
 |*Authorization:*|Richiesto. Impostare un valore valido per la `Bearer` [chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
@@ -94,7 +94,7 @@ Il parametro `{departmentId}` è obbligatorio e deve contenere l'ID del reparto 
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|DESCRIZIONE|  
+|Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
 |*Content-Type:*|Richiesto. Impostare su `application/json`.|  
 |*Authorization:*|Richiesto. Impostare un valore valido per la `Bearer` [chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
@@ -150,7 +150,7 @@ Il parametro `{enrollmentAccountId}` è obbligatorio e deve contenere l'ID dell'
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|DESCRIZIONE|  
+|Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
 |*Content-Type:*|Richiesto. Impostare su `application/json`.|  
 |*Authorization:*|Richiesto. Impostare un valore valido per la `Bearer` [chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  

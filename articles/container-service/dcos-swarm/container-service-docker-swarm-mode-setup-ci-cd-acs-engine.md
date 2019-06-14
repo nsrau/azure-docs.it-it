@@ -10,10 +10,10 @@ ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
 ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60430676"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(DEPRECATO) Pipeline CI/CD completa per distribuire un'applicazione con più contenitori nel servizio contenitore di Azure con il motore ACS e la modalità Docker Swarm tramite Azure DevOps
@@ -197,7 +197,7 @@ Azure DevOps consente di [gestire le versione in diversi ambienti](https://www.v
 
 ### <a name="initial-release-setup"></a>Configurazione iniziale del rilascio
 
-1. Per creare una pipeline di versione, fare clic su **Rilascio** > **+ Rilascio**
+1. Per creare una pipeline di versione, fare clic su **Rilascio** >  **+ Rilascio**
 
 2. Per configurare l'origine dell'elemento, fare clic su **Elementi** > **Collega un'origine elemento**. In questo caso, è possibile collegare questa nuova pipeline di versione alla compilazione definita nel passaggio precedente. Successivamente, il file docker-compose.yml è disponibile nel processo di rilascio.
 

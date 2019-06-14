@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: db73363a05734db5d7e3375a5755a807eb7ce2a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790088"
 ---
 # <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Esporre un servizio REST WCF locale a client esterni tramite Inoltro WCF di Azure
@@ -62,13 +62,13 @@ Il contratto di servizio specifica le operazioni (terminologia dei servizi Web p
 ### <a name="create-a-relay-contract-with-an-interface"></a>Creare un contratto di inoltro con un'interfaccia
 
 1. Aprire Visual Studio con ruolo di amministratore. Fare clic con il pulsante destro del mouse sul programma nel menu **Start** e scegliere **Esegui come amministratore**.
-2. Creare un nuovo progetto di applicazione console. Fare clic sul menu**File**, selezionare **Nuovo** e fare clic su **Progetto**. Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C#**. Se **Visual C#** non è visualizzato, vedere in **Altri linguaggi**. Fare clic sul modello **App console (.NET Framework)** e denominarlo **EchoService**. Fare clic su **OK** per creare il progetto.
+2. Creare un nuovo progetto di applicazione console. Fare clic sul menu**File**, selezionare **Nuovo** e fare clic su **Progetto**. Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C#** . Se **Visual C#** non è visualizzato, vedere in **Altri linguaggi**. Fare clic sul modello **App console (.NET Framework)** e denominarlo **EchoService**. Fare clic su **OK** per creare il progetto.
 
     ![Creare un'app console][2]
 
 3. Installare il pacchetto NuGet del bus di servizio. Questo pacchetto aggiunge automaticamente i riferimenti alle librerie del bus di servizio, oltre all'oggetto **System.ServiceModel** di WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) è lo spazio dei nomi che consente l'accesso a livello di codice alle funzionalità di base di WCF. Il bus di servizio utilizza molti degli oggetti e degli attributi di WCF per definire i contratti di servizio.
 
-    In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e quindi scegliere **Gestisci pacchetti NuGet...**. Fare clic sulla scheda **Sfoglia** e quindi cercare **WindowsAzure.ServiceBus**. Assicurarsi che il nome del progetto sia selezionato nella casella **Versione**. Fare clic su **Installa**e accettare le condizioni per l'utilizzo.
+    In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e quindi scegliere **Gestisci pacchetti NuGet...** . Fare clic sulla scheda **Sfoglia** e quindi cercare **WindowsAzure.ServiceBus**. Assicurarsi che il nome del progetto sia selezionato nella casella **Versione**. Fare clic su **Installa**e accettare le condizioni per l'utilizzo.
 
     ![Pacchetto del bus di servizio][3]
 4. In Esplora soluzioni fare doppio clic sul file Program.cs per aprirlo nell'editor, se non è già aperto.
@@ -426,7 +426,7 @@ Il passaggio successivo consiste nel creare un'applicazione client e nel definir
 1. Creare un nuovo progetto nella soluzione Visual Studio attuale per il client eseguendo le operazioni seguenti:
 
    1. Nella stessa soluzione che include il servizio in Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione attuale, non sul progetto, e scegliere **Aggiungi**. Fare clic su **Nuovo progetto**.
-   2. Nella finestra di dialogo **Aggiungi nuovo progetto** fare clic su **Visual C#**. Se **Visual C#** non è visibile, cercare in **Other Languages** (Altri linguaggi), selezionare il modello **App console (.NET Framework)** e denominarlo **EchoClient**.
+   2. Nella finestra di dialogo **Aggiungi nuovo progetto** fare clic su **Visual C#** . Se **Visual C#** non è visibile, cercare in **Other Languages** (Altri linguaggi), selezionare il modello **App console (.NET Framework)** e denominarlo **EchoClient**.
    3. Fare clic su **OK**.
       <br />
 2. In Esplora soluzioni fare doppio clic sul file Program.cs nel progetto **EchoClient** per aprirlo nell'editor, se non è già aperto.

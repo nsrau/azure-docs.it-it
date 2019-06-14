@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abfdad1db655c102dbfb300434eac952fe2154dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381897"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
@@ -91,7 +91,7 @@ Per la risoluzione dei problemi dell'accesso SSO facile, usare il seguente elenc
 
 ### <a name="domain-controller-logs"></a>Log del controller di dominio
 
-Se si abilita il controllo delle operazioni riuscite nel controller di dominio, ogni volta che un utente esegue l'accesso usando la funzionalità di accesso SSO facile, viene registrata una voce di sicurezza nel log eventi. È possibile trovare questi eventi di sicurezza usando la query seguente. Cercare l'evento **4769** associato all'account computer **AzureADSSOAcc$**.
+Se si abilita il controllo delle operazioni riuscite nel controller di dominio, ogni volta che un utente esegue l'accesso usando la funzionalità di accesso SSO facile, viene registrata una voce di sicurezza nel log eventi. È possibile trovare questi eventi di sicurezza usando la query seguente. Cercare l'evento **4769** associato all'account computer **AzureADSSOAcc$** .
 
 ```
     <QueryList>

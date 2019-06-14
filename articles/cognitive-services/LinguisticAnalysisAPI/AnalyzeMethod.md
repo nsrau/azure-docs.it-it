@@ -12,10 +12,10 @@ ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401187"
 ---
 # <a name="analyze-method"></a>Metodo analyze
@@ -26,7 +26,7 @@ ms.locfileid: "61401187"
 L'API REST **analyze** API viene usata per analizzare un input specificato in linguaggio naturale.
 Che può implicare trovare solo il [frasi e token](Sentences-and-Tokens.md) all'interno di tale input, la ricerca i [tag parti del discorso](POS-tagging.md), o la ricerca del [albero degli elementi costitutivi](Constituency-Parsing.md).
 È possibile specificare i risultati desiderati selezionando gli analizzatori pertinenti.
-Per ottenere un elenco di tutti gli analizzatori disponibili, esaminare gli **[analizzatori](AnalyzersMethod.md)**.
+Per ottenere un elenco di tutti gli analizzatori disponibili, esaminare gli **[analizzatori](AnalyzersMethod.md)** .
 
 Si noti che è necessario specificare la lingua della stringa di input.
 
@@ -38,11 +38,11 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
-NOME | Type | Obbligatorio | DESCRIZIONE
+Name | Type | Obbligatorio | Descrizione
 -----|-------|----------|------------
-**language**    | string | Sì | Codice di lingua ISO di due lettere da usare per l'analisi. Ad esempio il codice per l'italiano è "it".
-**analyzerIds** | elenco di stringhe | Sì | Elenco di GUID degli analizzatori da applicare. Per altre informazioni, vedere la documentazione sugli analizzatori.
-**text**        | string | Sì | Input non elaborato da analizzare. Potrebbe trattarsi di una stringa breve, ad esempio una parola o frase, una frase completa o un paragrafo completo o discorso.
+**language**    | string | Yes | Codice di lingua ISO di due lettere da usare per l'analisi. Ad esempio il codice per l'italiano è "it".
+**analyzerIds** | elenco di stringhe | Yes | Elenco di GUID degli analizzatori da applicare. Per altre informazioni, vedere la documentazione sugli analizzatori.
+**text**        | string | Yes | Input non elaborato da analizzare. Potrebbe trattarsi di una stringa breve, ad esempio una parola o frase, una frase completa o un paragrafo completo o discorso.
 
 ## <a name="response-json"></a>Risposta (JSON)
 
@@ -50,7 +50,7 @@ Una matrice di output di analisi, uno per ogni attributo specificato nella richi
 
 I risultati sono simili ai seguenti:
 
-NOME | Type | DESCRIZIONE
+NOME | Type | Descrizione
 -----|------|--------------
 analyzerId | string | GUID dell'analizzatore specificato
 risultato | object | risultato dell'analizzatore
@@ -59,7 +59,7 @@ Si noti che il tipo del risultato dipende dal tipo di analizzatore di input.
 
 ### <a name="tokens-response-json"></a>Risposta token (JSON)
 
-NOME | Type | DESCRIZIONE
+NOME | Type | Descrizione
 -----|------|-------------
 risultato | elenco di oggetti frase | delimitatori di frase identificati all'interno del testo |
 result[x].Offset | int | offset di caratteri iniziale di ogni frase |

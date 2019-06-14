@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
 ms.openlocfilehash: 9dd473aadd7123cafc27209f5c34322fdbcffb71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60816472"
 ---
 # <a name="migrate-to-the-30-api"></a>Eseguire la migrazione alla 3.0 API
@@ -30,14 +30,14 @@ Questa Guida illustrerà la procedura per aggiornare i progetti per lavorare con
 
 ## <a name="use-the-updated-prediction-api"></a>Usare l'API Prediction aggiornata
 
-2.x API usata la stessa chiamata di stima per classificatori di immagini e i progetti di rilevatore di oggetto. Entrambi i tipi di progetto sono stati accettabili per la **PredictImage** e **PredictImageUrl** chiamate. A partire da 3.0, è stato suddiviso questa API in modo che è necessario associare il tipo di progetto per la chiamata:
+2\.x API usata la stessa chiamata di stima per classificatori di immagini e i progetti di rilevatore di oggetto. Entrambi i tipi di progetto sono stati accettabili per la **PredictImage** e **PredictImageUrl** chiamate. A partire da 3.0, è stato suddiviso questa API in modo che è necessario associare il tipo di progetto per la chiamata:
 
 * Uso **[ClassifyImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)** e **[ClassifyImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c14)** per ottenere stime per i progetti di classificazione di immagini.
 * Uso **[DetectImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c19)** e **[DetectImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c18)** per ottenere stime per i progetti di rilevamento di oggetti.
 
 ## <a name="use-the-new-iteration-publishing-workflow"></a>Usare il nuovo flusso di lavoro iterazione
 
-2.x API utilizzata iterazione predefinita o un ID di iterazione specificato per scegliere l'iterazione da usare per la stima. A partire da 3.0, abbiamo adottato un flusso di pubblicazione in base al quale è prima di tutto pubblicare un'iterazione in un nome specificato dall'API di training. Quindi possibile passare il nome per i metodi di stima per specificare quali iterazione da usare.
+2\.x API utilizzata iterazione predefinita o un ID di iterazione specificato per scegliere l'iterazione da usare per la stima. A partire da 3.0, abbiamo adottato un flusso di pubblicazione in base al quale è prima di tutto pubblicare un'iterazione in un nome specificato dall'API di training. Quindi possibile passare il nome per i metodi di stima per specificare quali iterazione da usare.
 
 > [!IMPORTANT]
 > In 3.0 API non utilizzano la funzionalità di iterazione predefinito. Fino a quando non viene resa obsoleta le API precedenti, è possibile continuare a usare l'API versione 2.x per attivare o disattivare un'iterazione come impostazione predefinita. Queste API verranno mantenute per un periodo di tempo ed è possibile chiamare il **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** metodo per contrassegnare un'iterazione come predefinito.

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60619825"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uso dell'estensione Integrità applicazione con i set di scalabilità di macchine virtuali di Azure
@@ -72,9 +72,9 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione Integrità 
 
 ### <a name="settings"></a>Impostazioni
 
-| NOME | Valore/Esempio | Tipo di dati
+| Name | Valore/Esempio | Tipo di dati
 | ---- | ---- | ----
-| protocol | `http` oppure `tcp` | string |
+| protocol | `http` o `tcp` | string |
 | port | Facoltativo se il protocollo è `http`, obbligatorio se il protocollo è `tcp` | int |
 | requestPath | Obbligatorio se il protocollo è `http`, non consentito se il protocollo è `tcp` | string |
 

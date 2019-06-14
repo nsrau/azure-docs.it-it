@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/12/2018
 ms.author: shlo
 ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764752"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Esecuzione attività wait in Azure Data Factory
@@ -37,11 +37,11 @@ Quando si usa un'attività Wait in una pipeline, la pipeline attende per il peri
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività `Wait`. | string | Sì
-type | Deve essere impostata su **Wait**. | string | Sì
-waitTimeInSeconds | Numero di secondi di attesa prima che la pipeline continui con l'elaborazione. | Integer | Sì
+name | Nome dell'attività `Wait`. | String | Yes
+type | Deve essere impostata su **Wait**. | String | Yes
+waitTimeInSeconds | Numero di secondi di attesa prima che la pipeline continui con l'elaborazione. | Integer | Yes
 
 ## <a name="example"></a>Esempio
 

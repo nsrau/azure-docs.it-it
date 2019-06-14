@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
 ms.openlocfilehash: a4aaf440856746895a31914aeee2bddec2ce23f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60544987"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Informazioni sulle raccomandazioni delle risorse per Centro sicurezza di Azure
@@ -28,7 +28,7 @@ ms.locfileid: "60544987"
 Usare la tabella seguente come riferimento per conoscere le raccomandazioni disponibili per Calcolo e Servizi app i relativi effetti in caso di applicazione.
 
 ### <a name="computers"></a>Computer
-| Recommendation | DESCRIZIONE |
+| Recommendation | Descrizione |
 | --- | --- |
 | [Abilita la raccolta di dati per le sottoscrizioni](security-center-enable-data-collection.md) |Consiglia di attivare la raccolta dati nei criteri di sicurezza per ogni sottoscrizione e per tutte le macchine virtuali nelle sottoscrizioni. |
 | [Abilitare la crittografia per l'account di archiviazione di Azure](security-center-enable-encryption-for-storage-account.md) | Consiglia di abilitare la crittografia del servizio Archiviazione di Azure per i dati inattivi che applica la crittografia ai dati quando vengono scritti nell'archiviazione di Azure e li decrittografa prima del recupero. La crittografia del servizio Archiviazione di Azure è attualmente disponibile solo per il servizio BLOB di Azure e può essere usata per BLOB in blocchi, BLOB di pagine e BLOB di aggiunta. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md).</br>La crittografia del servizio Archiviazione di Azure è supportata solo negli account di archiviazione di Resource Manager. Gli account di archiviazione classici non sono attualmente supportati. Per informazioni sui modelli di distribuzione classico e di Gestione risorse, vedere i [modelli di distribuzione di Azure](../azure-classic-rm.md). |
@@ -44,13 +44,13 @@ Usare la tabella seguente come riferimento per conoscere le raccomandazioni disp
 | [Correggi le vulnerabilità](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Consente di visualizzare le vulnerabilità del sistema e delle applicazioni rilevate dalla soluzione di valutazione delle vulnerabilità installata nella VM. |
 
 ### Servizi app <a name="app-services"></a>
-| Recommendation | DESCRIZIONE |
+| Recommendation | Descrizione |
 | --- | --- |
 | Il servizio app deve essere accessibile solo tramite HTTPS | Consiglia di limitare l'accesso del servizio app solo tramite HTTPS. |
 | Web Socket deve essere disabilitato per l'applicazione Web| Consiglia di esaminare attentamente l'utilizzo di Web Socket all'interno delle applicazioni Web.  Il protocollo Web Socket è vulnerabile a diversi tipi di minacce alla sicurezza. |
 | Usare i domini personalizzati per l'applicazione Web | Consiglia l'uso dei domini personalizzati per proteggere un'applicazione Web da attacchi comuni come il phishing e altri attacchi correlati a DNS. |
 | Configurare le restrizioni IP per l'applicazione Web | Consiglia di definire un elenco di indirizzi IP che possono accedere all'applicazione.  L'uso di restrizioni IP protegge un'applicazione Web dagli attacchi comuni. |
-| Do not allow all ('*') resources to access your application (Non consentire a tutte le risorse ('*') di accedere all'applicazione) | Consiglia di non impostare il parametro WEBSITE_LOAD_CERTIFICATES su '*'. L'impostazione del parametro su '*' comporta che tutti i certificati verranno caricati nell'archivio certificati personale delle applicazioni Web.  Ciò può causare un abuso del principio dei privilegi minimi poiché è improbabile che il sito necessiti dell'accesso a tutti i certificati in fase di esecuzione. |
+| Do not allow all ('*') resources to access your application (Non consentire a tutte le risorse ('*') di accedere all'applicazione) | Consiglia di non impostare il parametro WEBSITE_LOAD_CERTIFICATES su ' *'. L'impostazione del parametro su '* ' comporta che tutti i certificati verranno caricati nell'archivio certificati personale delle applicazioni Web.  Ciò può causare un abuso del principio dei privilegi minimi poiché è improbabile che il sito necessiti dell'accesso a tutti i certificati in fase di esecuzione. |
 | Condivisione risorse tra le origini non deve consentire a tutte le risorse di accedere all'applicazione | Consiglia di consentire solo ai domini richiesti di interagire con l'applicazione Web. Condivisione di risorse tra le origini (CORS) non deve consentire a tutti i domini di accedere all'applicazione Web. |
 | Usare la versione supportata più recente di .NET Framework per l'applicazione Web | Consiglia di usare la versione più recente di .NET Framework per le classi di sicurezza più recenti. L'uso di classi e tipi meno recenti può rendere vulnerabile l'applicazione. |
 | Usare la versione supportata più recente di Java per l'applicazione Web | Consiglia di usare la versione più recente di Java per le classi di sicurezza più recenti. L'uso di classi e tipi meno recenti può rendere vulnerabile l'applicazione. |

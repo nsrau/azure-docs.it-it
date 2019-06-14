@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39c5efee0958fdfc8fa647f5acaf929f559f7bf7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038586"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065659"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Come configurare Database di Azure per MariaDB per la replica dei dati in ingresso
 
-In questo articolo viene descritto come configurare la replica dei dati in ingresso nel servizio Database di Azure per MariaDB configurando i server master e di replica. La replica dei dati in ingresso permette di sincronizzare i dati da un server MariaDB master, eseguito in locale, in macchine virtuali o servizi di database ospitati da altri provider di servizi cloud in una replica nel servizio Database di Azure per MariaDB. 
+In questo articolo viene descritto come configurare la replica dei dati in ingresso nel servizio Database di Azure per MariaDB configurando i server master e di replica. La replica dei dati in ingresso permette di sincronizzare i dati da un server MariaDB master, eseguito in locale, in macchine virtuali o servizi di database ospitati da altri provider di servizi cloud in una replica nel servizio Database di Azure per MariaDB. Abbiamo recommanded si configura la replica dei dati con [ID di transazione globale](https://mariadb.com/kb/en/library/gtid/) quando la versione del server master è 10.2 o versione successiva.
 
 Questo articolo presuppone che l'utente abbia già acquisito una certa esperienza con server e database MariaDB.
 
@@ -116,7 +116,16 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
    Si otterranno risultati simili ai seguenti. Prendere nota del nome del file binario poiché sarà necessario specificarlo nei passaggi successivi.
 
    ![Risultati stato master](./media/howto-data-in-replication/masterstatus.png)
+   
+6. Ottenere la posizione GTID (facoltativo, necessario per la replica con GTID)
+
+   Eseguire la funzione [ `BINLOG_GTID_POS` ](https://mariadb.com/kb/en/library/binlog_gtid_pos/) comando per ottenere la posizione GTID per il nome del file binlog corrispondente e l'offset.
+  
+    ```sql
+    select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
+    ```
  
+
 ## <a name="dump-and-restore-master-server"></a>Eseguire il dump e il ripristino del server master
 
 1. Eseguire il dump di tutti i database dal server master
@@ -142,10 +151,16 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
 
    Tutte le funzioni di replica dei dati in ingresso vengono eseguite tramite stored procedure. Per informazioni su tali procedure, vedere [Stored procedure per la replica dei dati in ingresso](reference-data-in-stored-procedures.md). Le stored procedure possono essere eseguite nella shell di MySQL o in MySQL Workbench.
 
-   Per collegare due server e avviare la replica, accedere al server di replica di destinazione nel servizio Database di Azure per MariaDB e impostare l'istanza esterna come server master. A questo scopo, è possibile usare la stored procedure `mysql.az_replication_change_master` nel server di Database di Azure per MariaDB.
+   Per collegare due server e avviare la replica, accedere al server di replica di destinazione nel servizio Database di Azure per MariaDB e impostare l'istanza esterna come server master. Questa operazione viene eseguita tramite il `mysql.az_replication_change_master` o `mysql.az_replication_change_master_with_gtid` stored procedure del database di Azure per MariaDB server.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   ```
+   
+   oppure
+   
+   ```sql
+   CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
    ```
 
    - master_host: nome host del server master
@@ -153,6 +168,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
    - master_password: password per il server master
    - master_log_file: nome del file di log binario da `show master status` in esecuzione
    - master_log_pos: posizione del file di log binario da `show master status` in esecuzione
+   - master_gtid_pos: Posizione GTID esecuzione `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
    - master_ssl_ca: contesto del certificato della CA. Se non si usa SSL, passare una stringa vuota.
        - È consigliabile passare questo parametro sotto forma di variabile. Per altre informazioni, vedere gli esempi seguenti.
 
@@ -199,6 +215,10 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
 
    Se lo stato di `Slave_IO_Running` e `Slave_SQL_Running` è "yes" e il valore di `Seconds_Behind_Master` è "0", la replica funziona correttamente. `Seconds_Behind_Master` indica il ritardo della replica. Se il valore non è "0", significa che la replica sta elaborando gli aggiornamenti. 
 
+4. Aggiornamento corrispondono a variabili del server per rendere i dati replica più sicura (necessaria solo per la replica senza GTID)
+    
+    A causa di restrizioni di replica nativa MariaDB, è necessario configurare [ `sync_master_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) e [ `sync_relay_log_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variabili sulla replica senza scenario GTID. È prevista è controllare il server di slave `sync_master_info` e `sync_relay_log_info` variabili e modificarli ot `1` se si desidera assicurarsi che la replica dei dati in ingresso è stabile.
+    
 ## <a name="other-stored-procedures"></a>Altre stored procedure
 
 ### <a name="stop-replication"></a>Arrestare la replica

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60324153"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso della rete CDN di Azure con firma di accesso condiviso
@@ -39,7 +39,7 @@ Dopo aver generato un token di firma di accesso condiviso, è possibile accedere
 
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
-Ad esempio: 
+Ad esempio:
  ```
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
@@ -60,7 +60,7 @@ Per altre informazioni sull'impostazione dei parametri, vedere [Considerazioni s
    
    L'URL dell'endpoint della rete CDN risultante ha il formato seguente: `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
-   Ad esempio:    
+   Ad esempio:   
    ```
    https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -91,7 +91,7 @@ Questa opzione è disponibile solo per i profili di **rete CDN Premium di Azure 
 
 2. Dopo l'attivazione della nuova regola, chiunque può accedere ai file nel contenitore specificato nell'endpoint della rete CDN indipendentemente dal fatto che venga usato o meno un token di firma di accesso condiviso nell'URL. Il formato è il seguente: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
-   Ad esempio:    
+   Ad esempio:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
@@ -106,7 +106,7 @@ Per usare l'autenticazione tramite token di sicurezza della rete CDN di Azure, �
    Un URL di endpoint con token di sicurezza ha il formato seguente:   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
-   Ad esempio:    
+   Ad esempio:   
    ```
    https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -133,7 +133,7 @@ Per usare l'autenticazione tramite token di sicurezza della rete CDN di Azure, �
 
 Poiché i parametri della firma di accesso condiviso non sono visibili alla rete CDN di Azure, quest'ultima non può modificare il proprio comportamento di distribuzione in base ad essi. Le restrizioni dei parametri definite si applicano solo alle richieste inviate dalla rete CDN di Azure al server di origine e non alle richieste inviate dal client alla rete CDN di Azure. È importante tenere presente questa distinzione quando si impostano i parametri della firma di accesso condiviso. Se queste funzionalità avanzate sono necessarie e si usa l'[opzione 3](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule), impostare le restrizioni appropriate nel token di sicurezza della rete CDN di Azure.
 
-| Nome del parametro della firma di accesso condiviso | DESCRIZIONE |
+| Nome del parametro della firma di accesso condiviso | Descrizione |
 | --- | --- |
 | Inizia | Ora in cui la rete CDN di Azure può iniziare ad accedere al file BLOB. A causa dello sfasamento del clock (quando un segnale di clock perviene in momenti diversi per i diversi componenti), scegliere un'ora con 15 minuti di anticipo se si vuole che l'asset sia immediatamente disponibile. |
 | End | Ora dopo la quale la rete CDN di Azure non può più accedere al file BLOB. I file precedentemente memorizzati nella cache sulla rete CDN di Azure sono ancora accessibili. Per controllare l'ora di scadenza dei file, impostare l'ora di scadenza appropriata nel token di sicurezza della rete CDN di Azure o ripulire l'asset. |

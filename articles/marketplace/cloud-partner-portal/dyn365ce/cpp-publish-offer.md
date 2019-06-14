@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: pabutler
 ms.openlocfilehash: 65df08d5fa2b7e4e7f6654f520f9caacc696f7c3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942291"
 ---
 # <a name="publish-a-dynamics-365-for-customer-engagement-offer"></a>Pubblicare un'offerta Dynamics 365 for Customer Engagement
@@ -29,7 +29,7 @@ La tabella seguente illustra ogni passaggio della pubblicazione e indica una sti
 La tabella seguente descrive i passaggi di pubblicazione. Viene inoltre specificato un tempo stimato per il completamento di ogni passaggio.
 
 
-|    Passaggio di pubblicazione             |   Tempo      |   DESCRIZIONE                                                              |
+|    Passaggio di pubblicazione             |   Time      |   Descrizione                                                              |
 |  -------------------           | --------    | ---------------                                                            |
 | Convalida dei prerequisiti         | 15 min   | Vengono convalidate le informazioni e le impostazioni dell'offerta.                        |
 | Certificazione                  | 1 settimana | L'offerta viene analizzata dal team delle certificazioni di Azure. Viene eseguita l'analisi dell'offerta per individuare eventuali virus, malware, conformità alle normative sulla sicurezza e problemi di sicurezza. L'offerta viene controllata per verificare che soddisfi tutti i criteri di idoneità. Per altre informazioni, vedere la sezione [Prerequisiti](./cpp-prerequisites.md). Se viene rilevato un problema, viene fornito un feedback. |

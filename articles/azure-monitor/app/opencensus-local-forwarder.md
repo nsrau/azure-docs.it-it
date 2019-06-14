@@ -13,10 +13,10 @@ ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
 ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60699321"
 ---
 # <a name="local-forwarder-preview"></a>Utilità di inoltro locali (anteprima)
@@ -35,7 +35,7 @@ Il modo più semplice per eseguire un servizio d'inoltro locale in Windows è qu
 
 > [!NOTE]
 > Il servizio di inoltro locale richiede almeno .NET Framework 4.7. In caso contrario, il servizio verrà installato ma non verrà avviato. Per accedere alla versione più recente di .NET Framework, **[visitare la pagina di download di .NET Framework](
-https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
+https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. Scaricare il file LF.WindowsServiceHost.zip dalla [pagina della versione del servizio d'inoltro locale](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) in GitHub.
 
@@ -146,7 +146,7 @@ systemctl enable localforwarder
 systemctl start localforwarder
 ```
 
-* Monitorare il servizio controllando i file **.log* nella directory /home/SAMPLE_USER/LOCALFORWARDER_DIR.
+* Monitorare il servizio controllando i file * *.log* nella directory /home/SAMPLE_USER/LOCALFORWARDER_DIR.
 
 ### <a name="mac"></a>Mac
 Il servizio d'inoltro locale può essere usato anche in macOS, ma al momento non è ufficialmente supportato.

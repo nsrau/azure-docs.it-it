@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: diberry
 ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198574"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Uso delle chiavi della sottoscrizione con l'app LUIS
@@ -90,9 +90,9 @@ Queste finalità e i relativi punteggi sono inclusi anche nei log di endpoint. �
 ```
 
 ### <a name="enable-bing-spell-checker"></a>Abilitare il controllo ortografico di Bing 
-In **Impostazioni URL endpoint** la casella di controllo**Controllo ortografico Bing** permette a LUIS di correggere l'ortografia prima della stima. Creare una **[chiave del Controllo ortografico Bing](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
+In **Impostazioni URL endpoint** la casella di controllo**Controllo ortografico Bing** permette a LUIS di correggere l'ortografia prima della stima. Creare una **[chiave del Controllo ortografico Bing](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** . 
 
-Aggiungere il parametro querystring **spellCheck=true** e **bing-spell-check-subscription-key={CHIAVE_BING}**. Sostituire `{YOUR_BING_KEY_HERE}` con la chiave del controllo ortografico di Bing.
+Aggiungere il parametro querystring **spellCheck=true** e **bing-spell-check-subscription-key={CHIAVE_BING}** . Sostituire `{YOUR_BING_KEY_HERE}` con la chiave del controllo ortografico di Bing.
 
 ```JSON
 {
@@ -139,7 +139,7 @@ Per scopi di automazione, ad esempio una pipeline CI/CD, è possibile automatizz
     |Intestazione|`Ocp-Apim-Subscription-Key`|La [chiave di creazione](luis-how-to-account-settings.md).|
     |Intestazione|`Content-type`|`application/json`|
     |QueryString|`appid`|L'ID dell'app LUIS. 
-    |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
+    |Body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     Quando l'API ha esito positivo, restituisce 201 - stato creato. 
 

@@ -12,10 +12,10 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8bbc86f5c6fe0f30968a1ba5bd5fa28160ef6963
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372857"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generazione di anteprime con ritaglio intelligente con Visione artificiale
@@ -42,7 +42,7 @@ L'anteprima generata può variare notevolmente a seconda dei valori specificati 
 
 La tabella seguente illustra anteprime tipiche generate da Visione artificiale per le immagini di esempio. Le anteprime sono state generate per un'altezza e una larghezza di destinazione pari a 50 pixel, con ritaglio intelligente abilitato.
 
-| Image | Immagine di anteprima |
+| Image | Anteprima |
 |-------|-----------|
 |![Mountain outdoor al tramonto, con sagoma una persona](./Images/mountain_vista.png) | ![Anteprima della Outdoor Mountain al tramonto, con sagoma una persona](./Images/mountain_vista_thumbnail.png) |
 |![Fiore bianco su sfondo verde](./Images/flower.png) | ![Anteprima di fiore - Analisi visione](./Images/flower_thumbnail.png) |

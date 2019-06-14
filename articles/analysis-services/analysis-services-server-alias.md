@@ -9,15 +9,15 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 66e6b4713591f099769543a75dcddec34f3d2e2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534318"
 ---
 # <a name="alias-server-names"></a>Nomi del server alias
 
-Utilizzando un alias del nome del server, gli utenti possono connettersi al server Azure Analysis Services con un *alias* più breve anziché con il nome del server. Durante la connessione da un'applicazione client, l'alias viene specificato come un endpoint utilizzando il formato di protocollo **link://**. L'endpoint restituisce quindi il nome del server effettivo per la connessione.
+Utilizzando un alias del nome del server, gli utenti possono connettersi al server Azure Analysis Services con un *alias* più breve anziché con il nome del server. Durante la connessione da un'applicazione client, l'alias viene specificato come un endpoint utilizzando il formato di protocollo **link://** . L'endpoint restituisce quindi il nome del server effettivo per la connessione.
 
 I nomi di server alias sono ottimali per:
 
@@ -30,7 +30,7 @@ Qualsiasi endpoint HTTPS che restituisce un nome del server valido di Azure Anal
 
 ![Alias che utilizza formato link](media/analysis-services-alias/aas-alias-browser.png)
 
-Durante la connessione da un client, il nome del server alias viene immesso utilizzando il formato del protocollo **link://**. Ad esempio, in Power BI Desktop:
+Durante la connessione da un client, il nome del server alias viene immesso utilizzando il formato del protocollo **link://** . Ad esempio, in Power BI Desktop:
 
 ![Connessione di Power BI Desktop](media/analysis-services-alias/aas-alias-connect-pbid.png)
 
@@ -53,7 +53,7 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Librerie client](analysis-services-data-providers.md)   
 [Connettersi con Power BI Desktop](analysis-services-connect-pbi.md)

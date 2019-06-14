@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
 ms.openlocfilehash: 734cf09869e5a2df5f9a505a3cb8ccc7bc2338d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60402314"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
@@ -39,7 +39,7 @@ In base ai requisiti dell'applicazione, Azure Cosmos DB ti permette di ottimizza
 ## <a name="upserts-from-stream-analytics"></a>Upsert di Analisi di flusso
 L'integrazione di Analisi di flusso di Azure con Azure Cosmos DB consente di inserire o aggiornare i record nella raccolta in base a una determinata colonna ID documento. Questa implementazione è detta anche *upsert*.
 
-Analisi di flusso di Azure usa un approccio upsert ottimistico in cui gli aggiornamenti vengono eseguiti solo quando l'inserimento non riesce a causa di un conflitto di ID documento. Con il livello di compatibilità 1.0, questo aggiornamento viene eseguito come una PATCH, consentendo aggiornamenti parziali al documento, vale a dire, l'aggiunta di nuove proprietà o la sostituzione di che una proprietà esistente viene eseguita in modo incrementale. Le modifiche apportate ai valori delle proprietà di matrice nel documento JSON comportano, tuttavia, la sovrascrittura dell'intera matrice, ovvero non viene eseguito il merge della matrice. 1.2, per inserire o sostituire il documento viene modificato il comportamento di upsert. Questo è descritto più dettagliatamente nella sezione 1.2 a livello di compatibilità di seguito.
+Analisi di flusso di Azure usa un approccio upsert ottimistico in cui gli aggiornamenti vengono eseguiti solo quando l'inserimento non riesce a causa di un conflitto di ID documento. Con il livello di compatibilità 1.0, questo aggiornamento viene eseguito come una PATCH, consentendo aggiornamenti parziali al documento, vale a dire, l'aggiunta di nuove proprietà o la sostituzione di che una proprietà esistente viene eseguita in modo incrementale. Le modifiche apportate ai valori delle proprietà di matrice nel documento JSON comportano, tuttavia, la sovrascrittura dell'intera matrice, ovvero non viene eseguito il merge della matrice. 1\.2, per inserire o sostituire il documento viene modificato il comportamento di upsert. Questo è descritto più dettagliatamente nella sezione 1.2 a livello di compatibilità di seguito.
 
 Se il documento JSON in ingresso include già un campo ID esistente, tale campo verrà usato automaticamente come colonna ID documento in Cosmos DB e le eventuali scritture successive verranno gestite come tali. Questo scenario sarà caratterizzato dalle situazioni seguenti:
 - gli ID univoci generano operazioni di inserimento
@@ -58,7 +58,7 @@ Per le raccolte di Azure Cosmos DB fisse, Analisi di flusso di Azure non consent
 La scrittura in più contenitori fissi verrà deprecata e non costituisce l'approccio consigliato per il ridimensionamento del processo di Analisi di flusso di Azure. Per altre informazioni, vedere [Partizionamento e scalabilità in Cosmos DB](../cosmos-db/sql-api-partition-data.md).
 
 ## <a name="improved-throughput-with-compatibility-level-12"></a>Miglioramento della velocità effettiva con 1.2 a livello di compatibilità
-Con livello di compatibilità 1.2, Analitica Stream supporta l'integrazione nativa in blocco di scrittura in Cosmos DB. Ciò consente la scrittura in modo efficace a Cosmos DB con l'ottimizzazione della velocità effettiva e in modo efficiente le richieste di limitazione delle richieste di handle. Il meccanismo di scrittura migliorate è disponibile in un nuovo livello di compatibilità a causa di una differenza di comportamento di upsert.  Prima di 1.2, il comportamento di upsert è inserire o unire il documento. 1.2, viene modificato il comportamento di Upsert per inserire o sostituire il documento. 
+Con livello di compatibilità 1.2, Analitica Stream supporta l'integrazione nativa in blocco di scrittura in Cosmos DB. Ciò consente la scrittura in modo efficace a Cosmos DB con l'ottimizzazione della velocità effettiva e in modo efficiente le richieste di limitazione delle richieste di handle. Il meccanismo di scrittura migliorate è disponibile in un nuovo livello di compatibilità a causa di una differenza di comportamento di upsert.  Prima di 1.2, il comportamento di upsert è inserire o unire il documento. 1\.2, viene modificato il comportamento di Upsert per inserire o sostituire il documento. 
 
 Prima di 1.2, utilizza una stored procedure personalizzata per operazioni bulk di documenti upsert per chiave di partizione in Cosmos DB, in cui un batch viene scritto come una transazione. Anche quando un record singolo ha rilevato un errore temporaneo (limitazione), l'intero batch deve essere riprovata. Ciò è reso scenari con limitazione ragionevole anche relativamente più lenti. Successivo confronto viene illustrato come questi processi si comporteranno 1.2.
 
@@ -70,7 +70,7 @@ Frequenza degli eventi in ingresso nell'Hub eventi è superiore a raccolte di Co
 
 ![confronto tra le metriche di COSMOS db](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
-1.2, è più intelligente nell'utilizzo del 100% della velocità effettiva disponibile in Cosmos DB con un numero molto ridotto nuovi invii dalla limitazione di frequenza la limitazione delle richieste/Analitica Stream. Ciò offre un'esperienza migliore per altri carichi di lavoro, ad esempio le query in esecuzione per la raccolta nello stesso momento. Nel caso in cui si vuole provare la modalità ASA viene scalata orizzontalmente con Cosmos DB come sink per k 1 e 10k. i messaggi al secondo, ecco un' [progetto di esempi di azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) che consente di eseguire questa operazione.
+1\.2, è più intelligente nell'utilizzo del 100% della velocità effettiva disponibile in Cosmos DB con un numero molto ridotto nuovi invii dalla limitazione di frequenza la limitazione delle richieste/Analitica Stream. Ciò offre un'esperienza migliore per altri carichi di lavoro, ad esempio le query in esecuzione per la raccolta nello stesso momento. Nel caso in cui si vuole provare la modalità ASA viene scalata orizzontalmente con Cosmos DB come sink per k 1 e 10k. i messaggi al secondo, ecco un' [progetto di esempi di azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) che consente di eseguire questa operazione.
 Si noti che velocità effettiva di output di Cosmos DB è identica a 1.0 e 1.1. Poiché 1.2 non è attualmente il valore predefinito, è possibile [impostare il livello di compatibilità](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) per un processo di Stream Analitica tramite portale o tramite il [creare processi, chiamare l'API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Dispone *consigliabile* usare 1.2 a livello di compatibilità in ASA con Cosmos DB. 
 
 
@@ -81,7 +81,7 @@ La creazione di Cosmos DB come output nell'analisi di flusso genera una richiest
 
 ![documentdb analisi di flusso schermata di output](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-|Campo           | DESCRIZIONE|
+|Campo           | Descrizione|
 |-------------   | -------------|
 |Alias di output    | Un alias per fare riferimento a questo output nella query ASA.|
 |Sottoscrizione    | Scegliere la sottoscrizione di Azure.|

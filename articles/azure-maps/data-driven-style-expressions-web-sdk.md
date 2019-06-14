@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60904976"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Espressioni di stile basato sui dati (Web SDK)
@@ -41,7 +41,7 @@ Le espressioni sono rappresentate come matrici JSON. Il primo elemento di un'esp
 
 Mappe di Azure SDK per Web supporta molti tipi di espressioni che possono essere utilizzate in modo autonomo o in combinazione con altre espressioni.
 
-| Tipo di espressioni | DESCRIZIONE |
+| Tipo di espressioni | Descrizione |
 |---------------------|-------------|
 | [Espressioni booleane](#boolean-expressions) | Espressioni booleane offrono un set di espressioni di operatori booleani per valutare i confronti booleani. |
 | [Espressioni colori](#color-expressions) | Espressioni colori rendono più semplice creare e modificare i valori di colore. |
@@ -79,7 +79,7 @@ Tutti gli esempi in questo documento verranno utilizzato la funzionalità seguen
 
 Le espressioni di dati forniscono accesso ai dati di proprietà in una funzionalità. 
 
-| Expression | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Recupera un elemento da una matrice. |
 | `['geometry-type']` | string | Ottiene il tipo di geometria della funzionalità: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
@@ -137,7 +137,7 @@ Analogamente, verrà eseguito il rendering del contorno di poligoni nei livelli 
 
 Espressioni matematiche includono operatori matematici per eseguire calcoli basati sui dati all'interno del framework di espressione.
 
-| Expression | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | number | Calcola la somma dei numeri specificati. |
 | `['-', number]` | number | Sottrae 0 per il numero specificato. |
@@ -171,7 +171,7 @@ Espressioni booleane offrono un set di espressioni di operatori booleani per val
 
 Quando si confrontano i valori, il confronto è fortemente tipizzato. Valori di tipi diversi vengono sempre considerati non uguali. Casi in cui i tipi sono noti sia diverso in fase di analisi vengono considerati non validi e producono un errore di analisi. 
 
-| Expression | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
 | `['! ', boolean]` | boolean | Negazione logica. Restituisce `true` se l'input è `false`, e `false` se l'input è `true`. |
 | `['!= ', value, value]` | boolean | Restituisce `true` se i valori di input non sono uguali, `false` in caso contrario. |
@@ -334,7 +334,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 Espressioni di tipo forniscono strumenti per test e la conversione di tipi di dati diversi, ad esempio stringhe, numeri e valori booleani.
 
-| Expression | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | matrice \| oggetto | Restituisce un valore letterale di matrice o oggetto. Usare questa espressione per impedire che una matrice o oggetto valutato come espressione. Questo è necessario quando una matrice o oggetto deve essere restituito da un'espressione. |
 | `['to-boolean', value]` | boolean | Converte il valore di input in un valore booleano. Il risultato viene `false` quando l'input è una stringa vuota `0`, `false`, `null`, o `NaN`; in caso contrario relativo `true`. |
@@ -369,7 +369,7 @@ Espressioni di tipo forniscono strumenti per test e la conversione di tipi di da
 
 Espressioni colori rendono più semplice creare e modificare i valori di colore.
 
-| Expression | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | color | Crea un valore di colore da *rossa*, *verde*, e *blu* componenti che deve essere compresa tra `0` e `255`e un componente alfa di `1`. Se qualsiasi componente non è compreso nell'intervallo, l'espressione è un errore. |
 | `['rgba', number, number, number, number]` | color | Crea un valore di colore da *rossa*, *verde*, *blu* componenti che deve essere compresa tra `0` e `255`e un componente alfa con un valore compreso fra `0` e `1`. Se qualsiasi componente non è compreso nell'intervallo, l'espressione è un errore. |
@@ -397,7 +397,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Espressioni di operatore di stringa eseguono operazioni di conversione in stringhe come concatenazione e il caso di conversione. 
 
-| Expression | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | string | Concatena più stringhe. Ogni valore deve essere una stringa. Usare il `to-string` digitare l'espressione per convertire altri tipi di valore in stringa, se necessario. |
 | `['downcase', string]` | string | Converte la stringa specificata in minuscolo. |
@@ -751,7 +751,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 Le espressioni di associazione variabile archiviano i risultati di un calcolo in una variabile in modo che è possibile farvi riferimento in un' posizione in un'espressione più volte senza dover ricalcolare lo. Si tratta di un'ottimizzazione utile per le espressioni che prevedono numerosi calcoli
 
-| Expression | Tipo restituito | DESCRIZIONE |
+| Expression | Tipo restituito | Descrizione |
 |--------------|---------------|--------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'let',<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome1: stringa,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: qualsiasi,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome2: stringa,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: qualsiasi,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Archivia uno o più valori come variabili da usare per il `var` dell'espressione figlio che restituisce il risultato. |
 | `['var', name: string]` | qualsiasi | Fa riferimento a una variabile che è stata creata utilizzando il `let` espressione. |

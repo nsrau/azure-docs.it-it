@@ -14,10 +14,10 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 0bb0946ea48a4c206d6bfe683da0835aca9b198b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60613235"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Schema WebRole di definizione di Servizi cloud di Azure
@@ -263,7 +263,7 @@ L'elemento `FixedPort` è disponibile solo se si usa Azure SDK versione 1.3 o su
 
 La tabella seguente descrive gli attributi dell'elemento `FixedPort`.
 
-| Attributo | Type | DESCRIZIONE |  
+| Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
 |port|int|Richiesto. Porta per l'endpoint interno. Se si impostano i valori minimo e massimo di `FixedPortRange` sulla stessa porta, si ottiene lo stesso risultato.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|  
 
@@ -277,7 +277,7 @@ L'elemento `FixedPortRange` è disponibile solo se si usa Azure SDK versione 1.3
 
 La tabella seguente descrive gli attributi dell'elemento `FixedPortRange`.
 
-| Attributo | Type | DESCRIZIONE |  
+| Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
 |Min|int|Richiesto. Numero di porta minimo nell'intervallo. I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|  
 |max|string|Richiesto. Numero di porta massimo nell'intervallo. I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|  
@@ -309,7 +309,7 @@ L'elemento `Import` è disponibile solo se si usa Azure SDK versione 1.3 o succe
 
 La tabella seguente descrive gli attributi dell'elemento `Import`.
 
-| Attributo | Type | DESCRIZIONE |  
+| Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
 |moduleName|string|Richiesto. Nome del modulo da importare. I moduli di importazione validi sono:<br /><br /> -   RemoteAccess<br />-   RemoteForwarder<br />-   Diagnostics<br /><br /> I moduli RemoteAccess e RemoteForwarder consentono di configurare l'istanza del ruolo per le connessioni desktop remote. Per altre informazioni, vedere [Abilitare una connessione Desktop remoto](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> Il modulo Diagnostics consente di raccogliere dati di diagnostica per un'istanza del ruolo.|  
 
@@ -320,7 +320,7 @@ L'elemento `Runtime` è disponibile solo se si usa Azure SDK versione 1.3 o succ
 
 La tabella seguente descrive gli attributi dell'elemento `Runtime`:  
 
-| Attributo | Type | DESCRIZIONE |  
+| Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
 |executionContext|string|facoltativo. Specifica il contesto in cui viene avviato il processo del ruolo. Il contesto predefinito è `limited`.<br /><br /> -   `limited`: il processo viene avviato senza privilegi di amministratore.<br />-   `elevated`: il processo viene avviato con privilegi di amministratore.|  
 
@@ -344,7 +344,7 @@ L'elemento `RoleInstanceValue` specifica un XPath da cui recuperare il valore de
 
 La tabella seguente descrive gli attributi dell'elemento `RoleInstanceValue`.
 
-| Attributo | Type | DESCRIZIONE |  
+| Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
 |xpath|string|facoltativo. Percorso delle impostazioni di distribuzione per l'istanza. Per altre informazioni, vedere [Variabili di configurazione con XPath](cloud-services-role-config-xpath.md).<br /><br /> È necessario includere un attributo value o un elemento `RoleInstanceValue`.|  
 
@@ -361,7 +361,7 @@ L'elemento `NetFxEntryPoint` specifica il programma da eseguire per un ruolo.
 
 La tabella seguente descrive gli attributi dell'elemento `NetFxEntryPoint`.
 
-| Attributo | Type | DESCRIZIONE |  
+| Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
 |assemblyName|string|Richiesto. Percorso e nome file dell'assembly contenente il punto di ingresso. Il percorso è relativo alla cartella **\\%ROLEROOT%\Approot**. Non specificare **\\%ROLEROOT%\Approot** in `commandLine` perché è dato per scontato. **%ROLEROOT%** è una variabile di ambiente gestita da Azure e rappresenta la posizione della cartella radice per il ruolo. La cartella **\\%ROLEROOT%\Approot** rappresenta la cartella dell'applicazione per il ruolo.<br /><br /> Per i ruoli HWC il percorso è sempre relativo alla cartella **\\%ROLEROOT%\Approot\bin**.<br /><br /> Per i ruoli Web IIS e IIS Express completi, se non è possibile trovare l'assembly relativo alla cartella **\\%ROLEROOT%\Approot**, viene eseguita una ricerca per **\\%ROLEROOT%\Approot\bin**.<br /><br /> Questo comportamento di fallback per IIS completo non è una procedura consigliata e potrebbe essere rimosso nelle versioni future.|  
 |targetFrameworkVersion|string|Richiesto. Versione di .NET Framework in cui è stato compilato l'assembly, Ad esempio: `targetFrameworkVersion="v4.0"`.|  
@@ -428,9 +428,9 @@ L'elemento `Startup` descrive una raccolta di attività eseguite quando il ruolo
 
 La tabella seguente descrive l'attributo dell'elemento `Startup`.
 
-| Attributo | Type | DESCRIZIONE |  
+| Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
-|priority|int|Solo per uso interno.|  
+|priorità|int|Solo per uso interno.|  
 
 ##  <a name="Task"></a> Task  
 L'elemento `Task` specifica l'attività di avvio eseguita quando il ruolo viene avviato. Le attività di avvio possono essere usate per eseguire attività che preparano il ruolo a eseguire tali componenti software di installazione o altre applicazioni. Le attività vengono eseguite nell'ordine in cui sono visualizzate nel blocco dell'elemento `Startup`.
@@ -439,7 +439,7 @@ L'elemento `Task` è disponibile solo se si usa Azure SDK versione 1.3 o success
 
 La tabella seguente descrive gli attributi dell'elemento `Task`.
 
-| Attributo | Type | DESCRIZIONE |  
+| Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
 |commandLine|string|Richiesto. Uno script, ad esempio un file CMD, contenente i comandi da eseguire. Il comando di avvio e i file batch devono essere salvati in formato ANSI. I formati di file che impostano un byte order mark all'inizio del file non verranno elaborati correttamente.|  
 |executionContext|string|Specifica il contesto in cui viene eseguito lo script.<br /><br /> -   `limited` [impostazione predefinita]: viene eseguito con gli stessi privilegi del ruolo che ospita il processo.<br />-   `elevated`: viene eseguito con privilegi di amministratore.|  
@@ -457,9 +457,9 @@ L'elemento `Content` è disponibile solo se si usa Azure SDK versione 1.5 o succ
 
 La tabella seguente descrive gli attributi dell'elemento `Content`.
 
-| Attributo | Type | DESCRIZIONE |  
+| Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
-|destination|string|Richiesto. Posizione della macchina virtuale Azure in cui viene inserito il contenuto. Questa posizione è relativa alla cartella **%ROLEROOT%\Approot**.|  
+|destinazione|string|Richiesto. Posizione della macchina virtuale Azure in cui viene inserito il contenuto. Questa posizione è relativa alla cartella **%ROLEROOT%\Approot**.|  
 
 Questo è l'elemento padre dell'elemento `SourceDirectory`.
 

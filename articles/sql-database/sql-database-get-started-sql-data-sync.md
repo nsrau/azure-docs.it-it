@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60342176"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Esercitazione: Configurare la sincronizzazione dati SQL tra il database SQL di Azure e SQL Server in locale
@@ -49,7 +49,7 @@ Per esempi di PowerShell su come configurare la sincronizzazione dati SQL, veder
 
    Nella pagina **Crea gruppo di sincronizzazione dati** cambiare le impostazioni seguenti:
 
-   | Impostazione                        | DESCRIZIONE |
+   | Impostazione                        | Descrizione |
    | ------------------------------ | ------------------------------------------------- |
    | **Nome gruppo di sincronizzazione** | Immettere un nome per il nuovo gruppo di sincronizzazione. Questo nome è distinto dal nome del database stesso. |
    | **Database dei metadati di sincronizzazione** | Scegliere di creare un database (scelta consigliata) o usare un database esistente.<br/><br/>Se si sceglie **Nuovo database**, selezionare **Crea nuovo database**. Nella pagina **Database SQL**, quindi, specificare un nome per il nuovo database, configurarlo e selezionare **OK**.<br/><br/>Se si sceglie **Usa database esistente**, selezionare il database dall'elenco. |
@@ -77,7 +77,7 @@ Nella sezione **Database membro** aggiungere facoltativamente un database SQL di
 
   Nella pagina **Configura database SQL di Azure** cambiare le impostazioni seguenti:
 
-  | Impostazione                       | DESCRIZIONE |
+  | Impostazione                       | Descrizione |
   | ----------------------------- | ------------------------------------------------- |
   | **Nome membro di sincronizzazione** | Specificare un nome per il nuovo membro di sincronizzazione. Questo nome è distinto dal nome del database. |
   | **Sottoscrizione** | Selezionare la sottoscrizione di Azure associata ai fini della fatturazione. |

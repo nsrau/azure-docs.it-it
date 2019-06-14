@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 0d055b1a78622665137a6abad18681a728ae2b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60422659"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Come effettuare una chiamata tramite Twilio in un'applicazione Java in Azure
@@ -179,11 +179,11 @@ Di seguito è riportata la procedura generica per eseguire l'applicazione. Per i
 Quando si è pronti a distribuire l'applicazione in Azure, ricompilare per la distribuzione nel cloud, distribuire in Azure ed eseguire http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp nel browser, sostituendo *your_hosted_name* con il proprio valore.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questo codice ha lo scopo di illustrare le funzionalità di base dell'utilizzo di Twilio con Java in Azure. Prima di eseguire la distribuzione in Azure in produzione, può essere necessario aggiungere ulteriori funzionalità per la gestione degli errori o per altri scopi. Ad esempio: 
+Questo codice ha lo scopo di illustrare le funzionalità di base dell'utilizzo di Twilio con Java in Azure. Prima di eseguire la distribuzione in Azure in produzione, può essere necessario aggiungere ulteriori funzionalità per la gestione degli errori o per altri scopi. Ad esempio:
 
 * Anziché utilizzare un modulo Web, è possibile utilizzare l'archiviazione BLOB o un database SQL di Azure per l'archiviazione di numeri di telefono e testo delle chiamate. Per informazioni sull'uso dei BLOB di archiviazione di Azure in Java, vedere [Come usare il servizio di archiviazione BLOB da Java][howto_blob_storage_java]. 
 * È possibile usare **RoleEnvironment.getConfigurationSettings** per recuperare l'ID e il token di autenticazione dell'account Twilio dalle impostazioni di configurazione della distribuzione, anziché impostare i valori come hardcoded in makecall.jsp. Per informazioni sulla classe **RoleEnvironment**, vedere [Uso della libreria di runtime del servizio Azure in JSP][azure_runtime_jsp] e la documentazione sul pacchetto della libreria di runtime del servizio Azure all'indirizzo [http://dl.windowsazure.com/javadoc][azure_javadoc].
-* Il codice makecall.jsp assegna un URL fornito da Twilio, [https://twimlets.com/message][twimlet_message_url], alla variabile **Url**. Tale URL fornisce una risposta TwiML (Twilio Markup Language) che indica a Twilio in che modo eseguire la chiamata. Ad esempio, la risposta TwiML restituita può contenere un verbo **&lt;Say&gt;** che offre una versione parlata del testo al destinatario della chiamata. Anziché usare l'URL fornito da Twilio, è possibile creare un servizio personalizzato per rispondere alla richiesta di Twilio. Per altre informazioni, vedere [Come usare Twilio per le funzionalità voce ed SMS in Java][howto_twilio_voice_sms_java]. Per altre informazioni su TwiML, vedere [https://www.twilio.com/docs/api/twiml][twiml] e per altre informazioni su **&lt;Say&gt;** e altri verbi Twilio vedere [https://www.twilio.com/docs/api/twiml/say][twilio_say].
+* Il codice makecall.jsp assegna un URL fornito da Twilio, [https://twimlets.com/message][twimlet_message_url], alla variabile **Url**. Tale URL fornisce una risposta TwiML (Twilio Markup Language) che indica a Twilio in che modo eseguire la chiamata. Ad esempio, la risposta TwiML restituita può contenere un verbo **&lt;Say&gt;** che offre una versione parlata del testo al destinatario della chiamata. Anziché usare l'URL fornito da Twilio, è possibile creare un servizio personalizzato per rispondere alla richiesta di Twilio. Per altre informazioni, vedere [Come usare Twilio per le funzionalità voce ed SMS in Java][howto_twilio_voice_sms_java]. Per altre informazioni su TwiML, vedere [https://www.twilio.com/docs/api/twiml][twiml] e per altre informazioni su **&lt; Say&gt;** e altri verbi Twilio vedere [https://www.twilio.com/docs/api/twiml/say][twilio_say].
 * Leggere le Twilio Security Guidelines (Linee guida sulla sicurezza di Twilio) all'indirizzo [https://www.twilio.com/docs/security][twilio_docs_security].
 
 Per altre informazioni aggiuntive su Twilio, vedere [https://www.twilio.com/docs][twilio_docs].

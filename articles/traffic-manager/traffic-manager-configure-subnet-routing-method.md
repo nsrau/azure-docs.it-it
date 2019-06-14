@@ -3,7 +3,7 @@ title: Configurare il metodo di routing del traffico subnet con Gestione traffic
 description: Questo articolo descrive come configurare Gestione traffico per instradare il traffico da subnet specifiche.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: kumud
-ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 1a7bc38a91dc7621a3b09d7901c70eecb21101d6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716331"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060954"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Indirizzare il traffico a endpoint specifici basati sulla subnet dell'utente usando Gestione traffico
 
@@ -52,7 +52,7 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|myIISVMEastUS|
+    |Name|myIISVMEastUS|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Gruppo di risorse| Selezionare **Nuovo** e quindi digitare *myResourceGroupTM1*.|
@@ -195,7 +195,7 @@ Aggiungere le due macchine virtuali in esecuzione sui server IIS, *myIISVMEastUS
     | Impostazione                 | Value                                              |
     | ---                     | ---                                                |
     | Type                    | Endpoint di Azure                                   |
-    | NOME           | myTestWebSiteEndpoint                                        |
+    | Name           | myTestWebSiteEndpoint                                        |
     | Tipo di risorsa di destinazione           | Indirizzo IP pubblico                          |
     | Risorsa di destinazione          | **Scegliere un indirizzo IP pubblico** per visualizzare l'elenco delle risorse con gli indirizzi IP pubblici inclusi nella stessa sottoscrizione. In **Risorsa** selezionare l'indirizzo IP pubblico denominato *myIISVMEastUS-ip*. Questo è l'indirizzo IP pubblico della VM del server IIS nell'area Stati Uniti orientali.|
     |  Impostazioni del routing della subnet    |   Aggiungere l'indirizzo IP della VM di test *myVMEastUS*. Tutte le query dell'utente provenienti da questa VM vengono indirizzate a *myTestWebSiteEndpoint*.    |

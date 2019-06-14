@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 1c16ea44418d99ee1f80a7d0ef7a3e5b3f118f46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485215"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introduzione a un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL
@@ -40,7 +40,7 @@ Mentre si eseguono le esercitazioni e si usa l'app, è importante concentrarsi s
 Dopo avere distribuito l'app, sfogliare le esercitazioni seguenti, che si basano sull'implementazione iniziale. Queste esercitazioni illustrano i comuni modelli SaaS che sfruttano le funzionalità predefinite del database SQL, di Azure SQL Data Warehouse e di altri servizi di Azure. Le esercitazioni includono script di PowerShell con spiegazioni dettagliate. Le spiegazioni semplificano la comprensione e l'implementazione degli stessi criteri di gestione SaaS nelle applicazioni.
 
 
-| Esercitazione | DESCRIZIONE |
+| Esercitazione | Descrizione |
 |:--|:--|
 | [Materiale sussidiario e suggerimenti per l'esempio di app SaaS multi-tenant del database SQL](saas-tenancy-wingtip-app-guidance-tips.md) | Scaricare ed eseguire gli script di PowerShell per preparare le parti dell'applicazione. |
 |[Distribuire ed esplorare l'applicazione SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)|  Implementare e sfogliare l'applicazione SaaS Wingtip nella sottoscrizione di Azure. |

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a65af5a5ea0629b617c4e736d8c110cbb9aa540c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348812"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronizzazione delle identità e resilienza degli attributi duplicati
@@ -45,7 +45,7 @@ Se l'attributo non è obbligatorio, ad esempio **ProxyAddress**, Azure Active Di
 
 Dopo aver messo in quarantena l'attributo, vengono inviate informazioni sul conflitto nello stesso messaggio di posta elettronica di segnalazione dell'errore usato nel comportamento precedente. Queste informazioni vengono però visualizzate nella segnalazione dell'errore una sola volta, al momento dell'inserimento in quarantena, e non continuano a essere registrate nei messaggi di posta elettronica futuri. Poiché l'esportazione di questo oggetto è riuscita, il client di sincronizzazione non registra un errore e non prova a ripetere l'operazione di creazione o aggiornamento nei cicli di sincronizzazione successivi.
 
-Per supportare questo comportamento è stato aggiunto un nuovo attributo alle classi di oggetti User, Group e Contact:   
+Per supportare questo comportamento è stato aggiunto un nuovo attributo alle classi di oggetti User, Group e Contact:  
 **DirSyncProvisioningErrors**
 
 Questo è un attributo multivalore usato per archiviare gli attributi in conflitto che violerebbero il vincolo di univocità se fossero aggiunti normalmente. In Azure Active Directory è stata abilitata un'attività timer in background eseguita ogni ora per la ricerca dei conflitti già risolti di attributi duplicati, che vengono quindi rimossi automaticamente dalla quarantena.
@@ -90,7 +90,7 @@ Una volta connessi, per visualizzare un elenco generale di errori di provisionin
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
 
-Viene generato un risultato simile al seguente:   
+Viene generato un risultato simile al seguente:  
  ![Get-MsolDirSyncProvisioningError](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")  
 
 #### <a name="by-property-type"></a>Per tipo di proprietà
@@ -128,7 +128,7 @@ Per istruzioni su come visualizzare gli errori di sincronizzazione delle directo
 ### <a name="identity-synchronization-error-report"></a>Segnalazione dell'errore di sincronizzazione delle identità
 Quando un oggetto con un conflitto di attributi duplicati viene gestito con questo nuovo comportamento, nel messaggio di posta elettronica standard di segnalazione dell'errore di sincronizzazione delle identità inviato al contatto per le comunicazioni tecniche del tenant viene inclusa una notifica. Questo comportamento include tuttavia una modifica importante. In passato le informazioni su un conflitto di attributi duplicati sarebbe stato incluso in tutte le segnalazioni degli errori successive, fino alla risoluzione del conflitto. Con questo nuovo comportamento la notifica di errore per un determinato conflitto viene visualizzata solo una volta, nel momento in cui l'attributo in conflitto viene messo in quarantena.
 
-Di seguito è riportato un esempio dell'aspetto della notifica di posta elettronica per un conflitto relativo a ProxyAddress:   
+Di seguito è riportato un esempio dell'aspetto della notifica di posta elettronica per un conflitto relativo a ProxyAddress:  
     ![Utenti attivi](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Utenti attivi")  
 
 ## <a name="resolving-conflicts"></a>Risoluzione dei conflitti
@@ -142,7 +142,7 @@ Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prest
 **Comportamento di base:**
 
 1. Per gli oggetti con configurazioni di attributo specifiche continuano a verificarsi errori di esportazione, diversamente dagli attributi duplicati che vengono messi in quarantena.  
-   Ad esempio: 
+   Ad esempio:
    
     a. Nuovo utente viene creato in Active Directory con l'UPN **Joe\@contoso.com** e ProxyAddress **smtp:Joe\@contoso.com**
    
@@ -154,7 +154,7 @@ Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prest
 **Report del portale di Office**:
 
 1. Il messaggio di errore dettagliato per due oggetti in un set di conflitti UPN è lo stesso. Ciò indica che per entrambi l'UPN è stato modificato o messo in quarantena, mentre in realtà i dati sono stati modificati solo per uno di essi.
-2. Il messaggio di errore dettagliato per un conflitto di UPN mostra il valore displayName errato per un utente il cui UPN è stato modificato o messo in quarantena. Ad esempio: 
+2. Il messaggio di errore dettagliato per un conflitto di UPN mostra il valore displayName errato per un utente il cui UPN è stato modificato o messo in quarantena. Ad esempio:
    
     a. **L'utente** sincronizzazioni prima con **UPN = User\@contoso.com**.
    
@@ -171,7 +171,7 @@ Il collegamento per i *passaggi per risolvere il problema* non è corretto:
 
 Dovrebbe puntare a [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Servizio di sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)
 * [Identificare gli errori di sincronizzazione della directory in Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

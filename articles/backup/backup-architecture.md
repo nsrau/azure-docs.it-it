@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
 ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60647406"
 ---
 # <a name="azure-backup-architecture"></a>Architettura di Backup di Azure
@@ -99,10 +99,10 @@ La tabella seguente riepiloga le funzionalità supportate per i diversi tipi di 
 
 **Funzionalità** | **Macchine Windows Server in locale (direct)** | **Macchine virtuali di Azure** | **Macchine o le app con DPM/MABS**
 --- | --- | --- | ---
-Backup nell'insieme di credenziali | ![Sì][green] | ![Sì][green] | ![Sì][green] 
-Eseguire il backup su disco DPM/MABS, quindi ad Azure | | | ![Sì][green] 
-Compressione dei dati inviati per il backup | ![Sì][green] | Durante il trasferimento dei dati non viene usata alcuna compressione. Leggero aumento dello spazio di archiviazione richiesto, ma ripristino più veloce.  | ![Sì][green] 
-Backup incrementale |![Sì][green] |![Sì][green] |![Sì][green] 
+Backup nell'insieme di credenziali | ![Yes][green] | ![Sì][green] | ![Yes][green] 
+Eseguire il backup su disco DPM/MABS, quindi ad Azure | | | ![Yes][green] 
+Compressione dei dati inviati per il backup | ![Yes][green] | Durante il trasferimento dei dati non viene usata alcuna compressione. Leggero aumento dello spazio di archiviazione richiesto, ma ripristino più veloce.  | ![Yes][green] 
+Backup incrementale |![Yes][green] |![Sì][green] |![Yes][green] 
 Backup di dischi deduplicati | | | ![Parzialmente][yellow]<br/><br/> Solo per i server DPM/MABS distribuiti in locale. 
 
 ![Chiave della tabella](./media/backup-architecture/table-key.png)
@@ -178,7 +178,7 @@ Per altre informazioni sull'archiviazione su disco e i tipi di disco disponibili
 
 È possibile eseguire il backup di macchine virtuali di Azure usando archiviazione premium con Backup di Azure:
 
-- Durante il processo di backup di macchine virtuali con archiviazione premium, il servizio Backup crea un percorso di gestione temporanea, denominato *AzureBackup -*, nell'account di archiviazione. La dimensione del percorso di gestione temporanea corrisponde alle dimensioni dello snapshot di punto di ripristino.
+- Durante il processo di backup di macchine virtuali con archiviazione premium, il servizio Backup crea un percorso di gestione temporanea, denominato *AzureBackup -* , nell'account di archiviazione. La dimensione del percorso di gestione temporanea corrisponde alle dimensioni dello snapshot di punto di ripristino.
 - Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di gestione temporanea. [Altre informazioni](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits) Non modificare il percorso di gestione temporanea.
 - Al termine del processo di backup, il percorso di gestione temporanea viene eliminato.
 - Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con i [prezzi dell'archiviazione Premium](../virtual-machines/windows/disks-types.md#billing).

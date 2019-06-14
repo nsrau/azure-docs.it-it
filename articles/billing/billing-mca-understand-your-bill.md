@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f93152ae3db926fb989c219d1e515abaf0281bf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372184"
 ---
 # <a name="understand-the-charges-on-your-microsoft-customer-agreements-invoice"></a>Comprendere gli addebiti nella fattura del contratto Microsoft dal cliente
@@ -46,7 +46,7 @@ Questo articolo si applica a un account di fatturazione per un contratto di clie
 
     |Colonna  |Definizione  |
     |---------|---------|
-    |Data     | Data della transazione  |
+    |Date     | Data della transazione  |
     |ID fattura     | L'identificatore per la fattura in cui è stata fatturata alla transazione. Se si invia una richiesta di supporto, condividere l'ID con il supporto di Azure per accelerare la richiesta di supporto |
     |Tipo di transazione     |  Il tipo di transazione, ad esempio i costi di acquisto, Annulla e utilizzo  |
     |Famiglia di prodotti     | La categoria di prodotto, ad esempio risorse di calcolo per le macchine virtuali o database per il database SQL di Azure|

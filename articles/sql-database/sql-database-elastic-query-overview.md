@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 01/19/2019
-ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/13/2019
+ms.openlocfilehash: 2ea1d116de2c435e873c653bbfa0571377c4f5ef
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60585683"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067066"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Panoramica delle query elastiche del database SQL di Azure (anteprima)
 
@@ -77,13 +77,13 @@ Per iniziare a scrivere codice, vedere [Introduzione alle query tra database (pa
 
 **Figura 2** Partizionamento verticale - Uso della query elastica per eseguire query nei dati di riferimento
 
-![ Partizionamento verticale - Uso della query elastica per eseguire query nei dati di riferimento][3]
+![Partizionamento verticale - Uso della query elastica per eseguire query nei dati di riferimento][3]
 
 **Query tra database**: le query elastiche consentono casi d'uso che richiedono l'esecuzione di query in diversi database SQL. La figura 3 mostra quattro database diversi: CRM, Inventario, Risorse umane e Prodotti. Le query eseguite in uno dei database devono accedere anche a uno o a tutti gli altri database. Usando una query elastica, è possibile configurare il database per questa situazione eseguendo alcune semplici istruzioni DDL in ogni database. Dopo avere eseguito una volta questa configurazione, l'accesso a una tabella remota sarà semplice quando fare riferimento a una tabella locale dalle query T-SQL o dagli strumenti di Business Intelligence. Questo approccio è consigliato se le query remote non restituiscono risultati di grandi dimensioni.
 
 **Figura 3** Partizionamento verticale - Uso delle query elastiche per eseguire query in diversi database
 
-![ Partizionamento verticale - Uso delle query elastiche per eseguire query in diversi database][4]
+![Partizionamento verticale - Uso delle query elastiche per eseguire query in diversi database][4]
 
 I passaggi seguenti configurano le query su database elastici per scenari di partizionamento verticale che richiedono l'accesso a una tabella situata in database SQL remoti con lo stesso schema:
 
@@ -100,7 +100,7 @@ L'uso delle query elastiche per eseguire attività di creazione report su un liv
 
 **Figura 4** Partizionamento orizzontale - Uso delle query elastiche per la creazione di report relativi ai livelli dati con partizionamento orizzontale
 
-![ Partizionamento orizzontale - Uso delle query elastiche per la creazione di report relativi ai livelli dati con partizionamento orizzontale][5]
+![Partizionamento orizzontale - Uso delle query elastiche per la creazione di report relativi ai livelli dati con partizionamento orizzontale][5]
 
 > [!NOTE]
 > Il database per query elastiche (nodo head) può essere un database separato o lo stesso database che ospita la mappa partizioni.
@@ -140,7 +140,7 @@ Le query elastiche sono incluse nei costi dei database SQL di Azure. Sono suppor
 * La creazione di script di origini dati esterne o tabelle esterne da SSMS o SSDT non è ancora supportata.
 * L'importazione/esportazione per il database SQL non supporta ancora origini dati esterne e tabelle esterne. Se è necessario usare l'importazione/esportazione, eliminare questi oggetti prima dell'esportazione e quindi crearli di nuovo dopo l'importazione.
 * La query elastica supporta attualmente solo l'accesso in sola lettura alle tabelle esterne. È tuttavia possibile usare la funzionalità T-SQL completa nel database in cui viene definita la tabella esterna. Ciò può risultare utile, ad esempio, per rendere permanenti i risultati temporanei usando, ad esempio SELECT <elenco_colonne> INTO <tabella_locale>, oppure per definire stored procedure nel database sottoposto a query elastiche che fanno riferimento a tabelle esterne.
-* Ad eccezione di nvarchar(max), i tipi LOB non sono supportati nelle definizioni di tabelle esterne. Come soluzione alternativa, è possibile creare una visualizzazione nel database remoto che esegue il cast del tipo LOB in nvarchar(max), definire una tabella esterna sulla visualizzazione invece della tabella di base e quindi eseguirne di nuovo il cast nel tipo LOB originale nelle query.
+* Ad eccezione di nvarchar (max), tipi LOB (inclusi i tipi spaziali) non sono supportati nelle definizioni di tabella esterna. Come soluzione alternativa, è possibile creare una visualizzazione nel database remoto che esegue il cast del tipo LOB in nvarchar(max), definire una tabella esterna sulla visualizzazione invece della tabella di base e quindi eseguirne di nuovo il cast nel tipo LOB originale nelle query.
 * Le colonne del tipo di dati nvarchar (max) nel set di risultati disattivano le tecniche di invio in batch avanzate usate nell'implementazione di query elastiche e possono influire sulle prestazioni della query per un ordine di grandezza o addirittura due ordini di grandezza in casi d'uso non canonici dove grandi quantità di dati non aggregati vengono trasferiti come risultato della query.
 * Le statistiche di colonna sulle tabelle esterne non sono attualmente supportate. Le statistiche di tabella sono supportate ma devono essere create manualmente.
 

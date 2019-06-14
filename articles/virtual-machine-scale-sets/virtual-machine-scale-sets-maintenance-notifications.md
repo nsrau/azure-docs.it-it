@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
 ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60618456"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifiche di manutenzione pianificata per set di scalabilità di macchine virtuali
@@ -86,10 +86,10 @@ Dopo la programmazione di un'ondata di manutenzione pianificata è possibile vis
 
 La colonna **Manutenzione self-service** è ora visualizzata nell'elenco dei set di scalabilità di macchine virtuali. Ogni set di scalabilità di macchine virtuali può avere uno dei valori seguenti per la colonna manutenzione self-service:
 
-| Value | DESCRIZIONE |
+| Value | Descrizione |
 |-------|-------------|
-| Sì | Almeno una macchina virtuale nel set di scalabilità di macchine virtuali si trova in una finestra self-service. È possibile avviare la manutenzione in qualsiasi momento durante questa finestra self-service. | 
-| No  | Non sono presenti macchine virtuali in una finestra self-service del set di scalabilità di macchine virtuali interessato. | 
+| Yes | Almeno una macchina virtuale nel set di scalabilità di macchine virtuali si trova in una finestra self-service. È possibile avviare la manutenzione in qualsiasi momento durante questa finestra self-service. | 
+| No | Non sono presenti macchine virtuali in una finestra self-service del set di scalabilità di macchine virtuali interessato. | 
 | - | I set di scalabilità di macchine virtuali non fanno parte di un'ondata di manutenzione pianificata.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notifiche e avvisi del portale
@@ -197,7 +197,7 @@ Per altre informazioni sulla disponibilità elevata, vedere [Regions and availab
 **D: Non sono disponibili informazioni sulla manutenzione per le macchine virtuali. Perché?**
 
 **R:** I motivi per cui non vengono visualizzate informazioni sulla manutenzione per le macchine virtuali sono diversi:
-   - Si usa una sottoscrizione contrassegnata come *Microsoft (interno)*.
+   - Si usa una sottoscrizione contrassegnata come *Microsoft (interno)* .
    - Le macchine virtuali non sono pianificate per la manutenzione. La manutenzione potrebbe essere terminata oppure essere stata annullata o modificata e di conseguenza le macchine virtuali non sono più interessate.
    - La colonna **Manutenzione** non è stata aggiunta alla visualizzazione elenco delle macchine virtuali. Anche se questa colonna è stata aggiunta alla visualizzazione predefinita, se si configura la visualizzazione per mostrare le colonne non predefinite, è necessario aggiungere manualmente la colonna **Manutenzione** alla visualizzazione elenco delle macchine virtuali.
 

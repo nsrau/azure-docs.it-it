@@ -16,10 +16,10 @@ ms.date: 04/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64edf2aa47211c1d2a598417a7b2edc00f260075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60321384"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con ScaleX Enterprise
@@ -91,7 +91,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con ScaleX Enterp
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creazione di un utente test di ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)**: per avere una controparte di Britta Simon in ScaleX Enterprise collegata alla relativa rappresentazione in Azure AD.
+1. **[Creazione di un utente test di ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)** : per avere una controparte di Britta Simon in ScaleX Enterprise collegata alla relativa rappresentazione in Azure AD.
 1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 

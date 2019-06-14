@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da934709274d90668d94dfea3a9c223e191d032
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ab2701a82da0b8f7bc4e23a3d947be905593e85
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076061"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057224"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>App desktop che chiama l'API - registrazione dell'app web
 
@@ -46,12 +46,13 @@ Se l'applicazione desktop utilizza l'autenticazione interattiva, è possibile ac
 
 Anche in questo caso l'URI da usare nell'applicazione desktop di reindirizzamento dipende il flusso da usare.
 
-- Se si usa l'autenticazione interattiva, è opportuno usare `https://login.microsoftonline.com/common/oauth2/nativeclient`. È possibile ottenere questa configurazione facendo l'URL corrispondente nel **autenticazione** sezione per l'applicazione
+- Se si usa la **autenticazione interattiva** oppure **flusso del codice di dispositivo**, è opportuno usare `https://login.microsoftonline.com/common/oauth2/nativeclient`. È possibile ottenere questa configurazione facendo l'URL corrispondente nel **autenticazione** sezione per l'applicazione
   
   > [!IMPORTANT]
   > Oggi MSAL.NET utilizza un altro URI di reindirizzamento per impostazione predefinita nelle applicazioni desktop in esecuzione su Windows (`urn:ietf:wg:oauth:2.0:oob`). In futuro si voglia modificare il valore predefinito e pertanto è consigliabile usare `https://login.microsoftonline.com/common/oauth2/nativeclient`
 
-- Se l'app Usa solo l'autenticazione Windows integrata, nome utente/Password o flusso del codice di dispositivo, non devi registrare un URI di reindirizzamento per l'applicazione. In effetti, questi flussi non un round trip all'endpoint v2.0 di piattaforma di identità Microsoft e l'applicazione non verrà richiamato su un URI specifico. Per poter distinguere da un flusso dell'applicazione client riservato, che non dispone di URI di reindirizzamento entrambi (il flusso di credenziali client usato nelle applicazioni daemon), è necessario esprimere che l'applicazione è un'applicazione client pubblica. Questa configurazione viene ottenuta passando il **autenticazione** sezione per l'applicazione e, il **impostazioni avanzate** sottosezione, scegliere **Sì**, alla domanda **Trattare dell'applicazione come un client pubblico** (nelle **tipo di client predefinito** paragrafo)
+- Se l'app Usa solo l'autenticazione Windows integrata, nome utente/Password, non devi registrare un URI di reindirizzamento per l'applicazione. In effetti, questi flussi non un round trip all'endpoint v2.0 di piattaforma di identità Microsoft e l'applicazione non verrà richiamato su un URI specifico. 
+- Per distinguere il flusso del codice di dispositivo, l'autenticazione integrata di Windows e nome utente/Password da un flusso dell'applicazione client riservato, che non dispone di URI di reindirizzamento entrambi (il flusso di credenziali client usato nelle applicazioni daemon), è necessario express che l'applicazione è un'applicazione client pubblica. Questa configurazione viene ottenuta passando il **autenticazione** sezione per l'applicazione e, il **impostazioni avanzate** sottosezione, scegliere **Sì**, alla domanda **Trattare dell'applicazione come un client pubblico** (nelle **tipo di client predefinito** paragrafo)
 
   ![Consenti client pubblici](media/scenarios/default-client-type.png)
 

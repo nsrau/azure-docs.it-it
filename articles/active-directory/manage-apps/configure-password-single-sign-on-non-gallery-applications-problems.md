@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f8787008b396c2dd8ce1c006a40fee1e32e8100d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60442065"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
@@ -66,7 +66,7 @@ Per configurare l'**accesso Single Sign-On basato su password** per un'applicazi
 
 9. Immettere l'**URL di accesso**, ovvero l'URL in cui gli utenti immetteranno il nome utente e la password per eseguire l'accesso. **Assicurarsi che i campi di accesso siano visibili nell'URL fornito**.
 
-10. Fare clic sul pulsante **Salva** .
+10. Fare clic sul pulsante **Salva**.
 
 11. Dopo questa operazione, dall'URL verrà creata automaticamente una casella di input per nome utente e password e sarà possibile usare Azure AD per la trasmissione sicura delle password all'applicazione tramite l'estensione del browser del pannello di accesso.
 
@@ -96,11 +96,11 @@ Per configurare l'**accesso Single Sign-On basato su password** per un'applicazi
 
 9. Immettere l'**URL di accesso**, ovvero l'URL in cui gli utenti immetteranno il nome utente e la password per eseguire l'accesso. **Assicurarsi che i campi di accesso siano visibili nell'URL fornito**.
 
-10. Fare clic sul pulsante **Salva** .
+10. Fare clic sul pulsante **Salva**.
 
 11. Dopo questa operazione, dall'URL verrà creata automaticamente una casella di input per nome utente e password e sarà possibile usare Azure AD per la trasmissione sicura delle password all'applicazione tramite l'estensione del browser del pannello di accesso. Nel caso in cui l'operazione non riesca, è possibile **modificare la modalità di accesso per usare l'acquisizione manuale dei campi di accesso** andando al passaggio 12.
 
-12. Fare clic su **Configura impostazioni Password Single Sign-On per &lt;nomeapp&gt;**.
+12. Fare clic su **Configura impostazioni Password Single Sign-On per &lt;nomeapp&gt;** .
 
 13. Selezionare l'opzione di configurazione **Rileva manualmente i campi di accesso**.
 
@@ -216,7 +216,7 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
     -   Esempio: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Timestamp (UTC)**: il timestamp in cui si è verificata la notifica, basato sul sistema UTC
+-   **Timestamp (UTC)** : il timestamp in cui si è verificata la notifica, basato sul sistema UTC
 
     -   Esempio: **2017-03-23T19:50:43.7583681Z**
 

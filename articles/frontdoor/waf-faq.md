@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 06/10/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 05d01851d0a3dc9df6c396e862ce93defd957c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91ee8b6e614cf12deccd1429ad67323c277954a0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461970"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061491"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Domande frequenti per il firewall applicazione web di Azure
 
@@ -31,9 +31,6 @@ I criteri di Azure WAF è applicabile per le applicazioni web ospitate in serviz
 ## <a name="what-is-waf-for-azure-front-door-service"></a>What ' s Web Application firewall per il servizio di ingresso principale di Azure? 
 
 Porta d'ingresso Azure è un'applicazione altamente scalabile e distribuito a livello globale e una rete CDN. Azure Web Application firewall, quando integrato con porta principale, arresta denial of service e attacchi di applicazione al perimetro della rete Azure di destinazione, vicino origini attacco prima che possa accedere alla rete virtuale, offre protezione senza sacrificare le prestazioni.
-
-## <a name="how-will-i-be-charged-for-azure-waf-for-front-door"></a>Come viene addebitato per Web Application firewall di Azure per la porta d'ingresso?
-Durante l'anteprima pubblica dell'utilizzo di Web Application firewall all'ingresso principale sono gratuite. Si noti che porta d'ingresso Addebito aggiuntivo. Ai prezzi del servizio di ingresso principale [qui](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 ## <a name="does-azure-waf-support-https"></a>Web Application firewall di Azure supporta HTTPS?
 
@@ -77,5 +74,5 @@ Distribuito a livello globale i bordi di rete di Azure, Azure porta d'ingresso p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scopri [firewall applicazione web di Azure](waf-overview.md).
+- Informazioni sul [web application firewall di Azure](waf-overview.md).
 - Altre informazioni sulle [porta d'ingresso Azure](front-door-overview.md).

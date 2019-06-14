@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
 ms.openlocfilehash: 7eb5f090026b415e3c980116a9317594f4ca8115
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60728067"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Uso delle funzioni nelle query di log di Monitoraggio di Azure
@@ -36,10 +36,10 @@ Creare una funzione con Log Analitica nel portale di Azure facendo clic **salvar
 
 | Impostazione | DESCRIZIONE |
 |:---|:---|
-| NOME           | Nome visualizzato della query in **Esplora Query**. |
+| Name           | Nome visualizzato della query in **Esplora Query**. |
 | Salva con nome        | Funzione |
 | Alias della funzione | Nome breve per usare la funzione in altre query. Non può contenere spazi e deve essere univoco. |
-| Categoria       | Una categoria per organizzare le funzioni e le query salvate in **Esplora Query**. |
+| Category       | Una categoria per organizzare le funzioni e le query salvate in **Esplora Query**. |
 
 > [!NOTE]
 > Una funzione in Monitoraggio di Azure non può contenere un'altra funzione.

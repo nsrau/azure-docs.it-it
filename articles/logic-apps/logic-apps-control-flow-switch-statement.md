@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683133"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Creare istruzioni switch che eseguono le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
@@ -45,7 +45,7 @@ Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue pass
 
 1. Per questo esempio, aggiungere un'istruzione switch alla fine del flusso di lavoro di esempio. Dopo l'ultimo passaggio, scegliere **Nuovo passaggio**.
 
-   Quando si vuole aggiungere un'istruzione switch tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere l'istruzione switch. Scegliere il **segno più** (**+**) visualizzato, quindi **Aggiungi un'azione**.
+   Quando si vuole aggiungere un'istruzione switch tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere l'istruzione switch. Scegliere il **segno più** ( **+** ) visualizzato, quindi **Aggiungi un'azione**.
 
 1. Nella casella di ricerca digitare "switch" come filtro. Selezionare questa azione: **Opzione - controllo**
 
@@ -113,7 +113,7 @@ Dopo aver creato un'app per la logica usando un'istruzione switch, esaminare la 
 }
 ```
 
-| Etichetta | DESCRIZIONE |
+| Etichetta | Descrizione |
 |-------|-------------|
 | `"Switch"`         | Nome dell'istruzione switch che può essere rinominata per migliorarne la leggibilità |
 | `"type": "Switch"` | Specifica che l'azione è un'istruzione switch |

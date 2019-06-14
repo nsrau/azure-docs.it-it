@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565719"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
@@ -126,11 +126,11 @@ Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta b
 | type                         | Impostare la proprietà type su **HDInsightOnDemand**. | Sì      |
 | clusterSize                  | Numero di nodi del ruolo di lavoro e di dati nel cluster. Il cluster HDInsight viene creato con 2 nodi head, oltre al numero di nodi del ruolo di lavoro specificato per questa proprietà. I nodi sono di dimensione Standard_D3, con 4 core. Un cluster di 4 nodi del ruolo di lavoro ha 24 core, ossia 4\*4 = 16 core per i nodi del ruolo di lavoro + 2\*4 = 8 core per i nodi head. Per informazioni dettagliate sul livello Standard_D3, vedere [Creare cluster Hadoop basati su Linux in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Sì      |
 | timeToLive                   | Il tempo di inattività consentito per il cluster HDInsight su richiesta. Specifica per quanto tempo il cluster HDInsight on demand rimane attivo quando un'esecuzione attività viene completata, se non sono presenti altri processi attivi del cluster.<br /><br />Ad esempio, se un'esecuzione attività richiede 6 minuti e **timeToLive** è impostato su 5 minuti, il cluster rimane attivo per altri 5 minuti dopo i 6 minuti di elaborazione dell'esecuzione attività. Se un'altra attività viene eseguita nella finestra di 6 minuti, viene elaborata dallo stesso cluster.<br /><br />La creazione di un cluster HDInsight su richiesta è un'operazione dispendiosa. Potrebbe infatti potrebbe richiedere alcuni minuti. Usare questa impostazione a seconda delle necessità per migliorare le prestazioni di una data factory riutilizzando un cluster HDInsight su richiesta.<br /><br />Se si imposta il valore di **timeToLive** su **0**, il cluster viene eliminato non appena l'esecuzione attività termina. Se tuttavia si imposta un valore elevato, il cluster potrebbe rimanere inattivo inutilmente causando costi elevati. È importante impostare il valore appropriato in base alle esigenze.<br /><br />Se il valore di **timeToLive** è impostato in modo appropriato, più pipeline possono condividere la stessa istanza del cluster HDInsight su richiesta. | Sì      |
-| version                      | Versione del cluster HDInsight. Per le versioni di HDInsight consentite, vedere [Versioni supportate di HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Se questo valore non viene specificato, viene usata l'[ultima versione di HDI predefinita](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning). | No        |
+| version                      | Versione del cluster HDInsight. Per le versioni di HDInsight consentite, vedere [Versioni supportate di HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Se questo valore non viene specificato, viene usata l'[ultima versione di HDI predefinita](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning). | No       |
 | linkedServiceName            | Servizio collegato Archiviazione di Azure che il cluster on demand deve usare per l'archiviazione e l'elaborazione dei dati. Il cluster HDInsight viene creato nella stessa area dell'account di archiviazione.<p>Non è attualmente possibile creare un cluster HDInsight on demand che usa Azure Data Lake Store come risorsa di archiviazione. Per archiviare i dati dei risultati dell'elaborazione di HDInsight in Data Lake Store, usare l'attività di copia per copiare i dati dall'archivio BLOB a Data Lake Store. </p> | Sì      |
-| additionalLinkedServiceNames | Specifica account di archiviazione aggiuntivi per il servizio collegato HDInsight. Data Factory registra gli account di archiviazione per conto dell'utente. Questi account di archiviazione devono trovarsi nella stessa area del cluster HDInsight. La creazione del cluster HDInsight avviene nella stessa area dell'account di archiviazione specificato dalla proprietà **linkedServiceName**. | No        |
-| osType                       | Tipo di sistema operativo. I valori consentiti sono **Linux** e **Windows**. Se questo valore non viene specificato, viene usato **Linux**.  <br /><br />È consigliabile usare cluster HDInsight basati su Linux. La data di ritiro di HDInsight per Windows è il 31 luglio 2018. | No        |
-| hcatalogLinkedServiceName    | Nome del servizio collegato SQL di Azure che fa riferimento al database HCatalog. Viene creato il cluster HDInsight on demand usando il database SQL come metastore. | No        |
+| additionalLinkedServiceNames | Specifica account di archiviazione aggiuntivi per il servizio collegato HDInsight. Data Factory registra gli account di archiviazione per conto dell'utente. Questi account di archiviazione devono trovarsi nella stessa area del cluster HDInsight. La creazione del cluster HDInsight avviene nella stessa area dell'account di archiviazione specificato dalla proprietà **linkedServiceName**. | No       |
+| osType                       | Tipo di sistema operativo. I valori consentiti sono **Linux** e **Windows**. Se questo valore non viene specificato, viene usato **Linux**.  <br /><br />È consigliabile usare cluster HDInsight basati su Linux. La data di ritiro di HDInsight per Windows è il 31 luglio 2018. | No       |
+| hcatalogLinkedServiceName    | Nome del servizio collegato SQL di Azure che fa riferimento al database HCatalog. Viene creato il cluster HDInsight on demand usando il database SQL come metastore. | No       |
 
 #### <a name="example-linkedservicenames-json"></a>Esempio: JSON LinkedServiceNames
 
@@ -146,14 +146,14 @@ Per la configurazione granulare del cluster HDInsight on demand, è anche possib
 
 | Proprietà               | Descrizione                              | Obbligatorio |
 | :--------------------- | :--------------------------------------- | :------- |
-| coreConfiguration      | Specifica i parametri di configurazione di base (core-site.xml) per il cluster HDInsight da creare. | No        |
-| hBaseConfiguration     | Specifica i parametri di configurazione HBase (hbase-site.xml) per il cluster HDInsight. | No        |
-| hdfsConfiguration      | Specifica i parametri di configurazione HDFS (hdfs-site.xml) per il cluster HDInsight. | No        |
-| hiveConfiguration      | Specifica i parametri di configurazione Hive (hive-site.xml) per il cluster HDInsight. | No        |
-| mapReduceConfiguration | Specifica i parametri di configurazione MapReduce (mapred-site.xml) per il cluster HDInsight. | No        |
-| oozieConfiguration     | Specifica i parametri di configurazione Oozie (oozie-site.xml) per il cluster HDInsight. | No        |
-| stormConfiguration     | Specifica i parametri di configurazione Storm (storm-site.xml) per il cluster HDInsight. | No        |
-| yarnConfiguration      | Specifica i parametri di configurazione YARN (yarn-site.xml) per il cluster HDInsight. | No        |
+| coreConfiguration      | Specifica i parametri di configurazione di base (core-site.xml) per il cluster HDInsight da creare. | No       |
+| hBaseConfiguration     | Specifica i parametri di configurazione HBase (hbase-site.xml) per il cluster HDInsight. | No       |
+| hdfsConfiguration      | Specifica i parametri di configurazione HDFS (hdfs-site.xml) per il cluster HDInsight. | No       |
+| hiveConfiguration      | Specifica i parametri di configurazione Hive (hive-site.xml) per il cluster HDInsight. | No       |
+| mapReduceConfiguration | Specifica i parametri di configurazione MapReduce (mapred-site.xml) per il cluster HDInsight. | No       |
+| oozieConfiguration     | Specifica i parametri di configurazione Oozie (oozie-site.xml) per il cluster HDInsight. | No       |
+| stormConfiguration     | Specifica i parametri di configurazione Storm (storm-site.xml) per il cluster HDInsight. | No       |
+| yarnConfiguration      | Specifica i parametri di configurazione YARN (yarn-site.xml) per il cluster HDInsight. | No       |
 
 #### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Esempio: Configurazione del cluster HDInsight su richiesta con le proprietà avanzate
 
@@ -199,9 +199,9 @@ Per specificare le dimensioni dei nodi head, di dati e ZooKeeper, usare le propr
 
 | Proprietà          | Descrizione                              | Obbligatorio |
 | :---------------- | :--------------------------------------- | :------- |
-| headNodeSize      | Imposta le dimensioni del nodo head. Il valore predefinito è **Standard_D3**. Per informazioni dettagliate, vedere [Specificare le dimensioni dei nodi](#specify-node-sizes). | No        |
-| dataNodeSize      | Imposta le dimensioni del nodo di dati. Il valore predefinito è **Standard_D3**. | No        |
-| zookeeperNodeSize | Imposta le dimensioni del nodo ZooKeeper. Il valore predefinito è **Standard_D3**. | No        |
+| headNodeSize      | Imposta le dimensioni del nodo head. Il valore predefinito è **Standard_D3**. Per informazioni dettagliate, vedere [Specificare le dimensioni dei nodi](#specify-node-sizes). | No       |
+| dataNodeSize      | Imposta le dimensioni del nodo di dati. Il valore predefinito è **Standard_D3**. | No       |
+| zookeeperNodeSize | Imposta le dimensioni del nodo ZooKeeper. Il valore predefinito è **Standard_D3**. | No       |
 
 #### <a name="specify-node-sizes"></a>Specificare le dimensioni dei nodi
 Per i valori delle stringhe che è necessario specificare per le proprietà descritte nella sezione precedente, vedere [Dimensioni delle macchine virtuali](../../virtual-machines/linux/sizes.md). I valori devono essere conforme ai cmdlet e alle API a cui si fa riferimento in [Dimensioni delle macchine virtuali](../../virtual-machines/linux/sizes.md). Le dimensioni dei nodi di dati grandi (impostazione predefinita) offrono 7 GB di memoria, che potrebbero non essere sufficienti per lo scenario. 
@@ -291,13 +291,13 @@ Se non si ha familiarità con l'uso del servizio Batch:
 }
 ```
 
-Per la proprietà **accountName**, aggiungere **.\<nome area\>** al nome dell'account Batch. Ad esempio: 
+Per la proprietà **accountName**, aggiungere **.\<nome area\>** al nome dell'account Batch. Ad esempio:
 
 ```json
 "accountName": "mybatchaccount.eastus"
 ```
 
-Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio: 
+Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio:
 
 ```json
 "accountName": "adfteam",
@@ -347,9 +347,9 @@ La tabella seguente descrive le proprietà generiche usate nella definizione JSO
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | type                 | Impostare la proprietà type su **AzureDataLakeAnalytics**. | Sì                                      |
 | accountName          | Nome dell'account Data Lake Analytics.  | Sì                                      |
-| dataLakeAnalyticsUri | URI di Data Lake Analytics.           | No                                        |
-| subscriptionId       | ID sottoscrizione di Azure.                    | No <br /><br />Se non specificata, viene usata la sottoscrizione della data factory. |
-| resourceGroupName    | Nome del gruppo di risorse di Azure.                | No <br /><br /> Se non specificata, viene usato il gruppo di risorse della data factory. |
+| dataLakeAnalyticsUri | URI di Data Lake Analytics.           | No                                       |
+| subscriptionId       | ID sottoscrizione di Azure.                    | No<br /><br />Se non specificata, viene usata la sottoscrizione della data factory. |
+| resourceGroupName    | Nome del gruppo di risorse di Azure.                | No<br /><br /> Se non specificata, viene usato il gruppo di risorse della data factory. |
 
 ### <a name="authentication-options"></a>Opzioni di autenticazione
 Per il servizio collegato Data Lake Analytics, è possibile scegliere tra autenticazione tramite un'entità servizio o le credenziali utente.

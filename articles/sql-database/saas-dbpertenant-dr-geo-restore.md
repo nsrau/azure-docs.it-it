@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556975"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usare il ripristino geografico per ripristinare un'applicazione SaaS dai backup di database
@@ -80,7 +80,7 @@ Gli script per il ripristino di emergenza usati in questa esercitazione sono dis
 ## <a name="review-the-healthy-state-of-the-application"></a>Esaminare lo stato di integrità dell'applicazione
 Prima di iniziare il processo di ripristino, esaminare il normale stato di integrità dell'applicazione.
 
-1. Nel Web browser aprire l'hub eventi di Wingtip Tickets all'indirizzo http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net, sostituire &lt;utente&gt; con il valore utente della distribuzione.
+1. Nel Web browser aprire l'hub eventi di Wingtip Tickets all'indirizzo http://events.wingtip-dpt.&lt ;utente&gt;.trafficmanager.net, sostituire &lt; utente&gt; con il valore utente della distribuzione.
     
    Scorrere la pagina verso il basso e osservare il nome e la posizione del server di catalogo nella parte inferiore della pagina. La posizione corrisponde all'area in cui l'app è stata distribuita.    
 
@@ -200,7 +200,7 @@ Quando l'endpoint dell'applicazione è disabilitato in Gestione traffico, l'appl
  
     ![Processo di ripristino](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * Se si apre direttamente la pagina degli eventi di un tenant mentre questo è offline, viene visualizzata una notifica per segnalare che il tenant è offline. Se, ad esempio, Contoso Concert Hall è offline, provare ad aprire http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net/contosoconcerthall.
+  * Se si apre direttamente la pagina degli eventi di un tenant mentre questo è offline, viene visualizzata una notifica per segnalare che il tenant è offline. Se, ad esempio, Contoso Concert Hall è offline, provare ad aprire http://events.wingtip-dpt.&lt ;utente&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Processo di ripristino](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -266,7 +266,7 @@ In questa attività si aggiorna uno dei database tenant ripristinati. Il process
 
 3. Per eseguire lo script, selezionare F5.
 
-4. Aggiornare la pagina degli eventi di Contoso Concert Hall (http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net/contosoconcerthall). Si noti che l'evento Seriously Strauss non è presente.
+4. Aggiornare la pagina degli eventi di Contoso Concert Hall (http://events.wingtip-dpt.&lt ;utente&gt;.trafficmanager.net/contosoconcerthall). Si noti che l'evento Seriously Strauss non è presente.
 
 A questo punto dell'esercitazione l'applicazione è stata ripristinata ed è in esecuzione nell'area di ripristino. È stato effettuato il provisioning di un nuovo tenant nell'area di ripristino e sono stati modificati i dati di uno dei tenant ripristinati.  
 
@@ -330,7 +330,7 @@ Se sono stati seguiti i passaggi dell'esercitazione, lo script riattiva immediat
 
     Premere F5 per eseguire lo script di ripristino in una nuova finestra di PowerShell. Il processo di ricollocamento richiede alcuni minuti e può essere monitorato nella finestra di PowerShell.
 
-3. Mentre lo script è in esecuzione, aggiornare la pagina dell'hub eventi (http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net).
+3. Mentre lo script è in esecuzione, aggiornare la pagina dell'hub eventi (http://events.wingtip-dpt.&lt ;utente&gt;.trafficmanager.net).
 
     Si noti che tutti i tenant sono online e accessibili durante questo processo.
 
@@ -365,7 +365,7 @@ Per un certo intervallo di tempo durante il ricollocamento, i database tenant po
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 > [!div class="checklist"]
 > 
 > * Usare il catalogo dei tenant per memorizzare periodicamente le informazioni di configurazione aggiornate e consentire così la creazione di un ambiente di ripristino con immagine speculare in un'altra area.

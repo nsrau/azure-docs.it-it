@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: orspodek
 ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394507"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copiare dati in o da Esplora dati di Azure usando Azure Data Factory
@@ -139,7 +139,7 @@ Per copiare dati da Esplora dati di Azure, impostare la proprietà **type** nell
 |:--- |:--- |:--- |
 | type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su: **AzureDataExplorerSource** | Sì |
 | query | Richiesta di sola lettura in [formato KQL](/azure/kusto/query/). Usare la query KQL personalizzata come riferimento. | Sì |
-| queryTimeout | Il tempo di attesa prima del timeout della richiesta di query. Il valore predefinito è 10 minuti (00:10:00); il valore massimo consentito è 1 ora (01:00:00). | No  |
+| queryTimeout | Il tempo di attesa prima del timeout della richiesta di query. Il valore predefinito è 10 minuti (00:10:00); il valore massimo consentito è 1 ora (01:00:00). | No |
 
 >[!NOTE]
 >Codice sorgente di Esplora dati di Azure per impostazione predefinita prevede un limite di dimensioni di 500.000 record oppure 64 MB. Per recuperare tutti i record senza troncamento, è possibile specificare `set notruncation;` all'inizio della query. Fare riferimento a [eseguire una Query dei limiti](https://docs.microsoft.com/azure/kusto/concepts/querylimits) altri dettagli.
@@ -184,7 +184,7 @@ Per copiare dati in Esplora dati di Azure, impostare la proprietà type nel sink
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del sink dell'attività di copia deve essere impostata su: **AzureDataExplorerSink** | Sì |
-| ingestionMappingName | Nome di una creata in precedenza **[mapping](/azure/kusto/management/mappings#csv-mapping)** in una tabella di Kusto. Per eseguire il mapping di colonne dall'origine da Esplora dati di Azure - che viene applicato a **[tutte le versioni di origine/formati di archivi](copy-activity-overview.md#supported-data-stores-and-formats)** tra cui CSV/JSON/Avro formatta e così via, è possibile usare l'attività di copia [colonna mapping](copy-activity-schema-and-type-mapping.md) (implicitamente dal nome o in modo esplicito, come configurato) e/o dei mapping di Esplora dati di Azure. | No  |
+| ingestionMappingName | Nome di una creata in precedenza **[mapping](/azure/kusto/management/mappings#csv-mapping)** in una tabella di Kusto. Per eseguire il mapping di colonne dall'origine da Esplora dati di Azure - che viene applicato a **[tutte le versioni di origine/formati di archivi](copy-activity-overview.md#supported-data-stores-and-formats)** tra cui CSV/JSON/Avro formatta e così via, è possibile usare l'attività di copia [colonna mapping](copy-activity-schema-and-type-mapping.md) (implicitamente dal nome o in modo esplicito, come configurato) e/o dei mapping di Esplora dati di Azure. | No |
 
 **Esempio:**
 

@@ -7,12 +7,12 @@ ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: dab0b11a350a10a209d67ddc69db5531a2cc292c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 3dcce64d86574a3e898531b2e2587b81d04f098d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481475"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080778"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Rete CDN di Azure dalla funzionalità del motore regole di Verizon Premium
 
@@ -24,7 +24,7 @@ La terza parte di una regola è la funzionalità. Una funzionalità definisce il
 
 Queste funzionalità sono progettate per controllare l'accesso al contenuto.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Deny Access (403)](#deny-access-403) (Nega accesso (403)) | Determina se tutte le richieste vengono rifiutate con una risposta 403 Accesso negato.
 [Token Auth](#token-auth) (Autenticazione token) | Determina se l'autenticazione basata su token viene applicata a una richiesta.
@@ -74,7 +74,7 @@ Name | Scopo
 
 Queste funzionalità sono progettate per aggiungere, modificare o eliminare le intestazioni dalla richiesta o dalla risposta.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Age Response Header](#age-response-header) (Intestazione di risposta Age) | Determina se un'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
 [Debug Cache Response Headers](#debug-cache-response-headers) (Intestazioni di risposta di debug per la cache) | Determina se una risposta può includere l'intestazione di risposta X-EC-Debug, che fornisce informazioni sul criterio di cache per l'asset richiesto.
@@ -140,7 +140,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 Queste funzionalità sono progettate per controllare in che modo la rete CDN comunica con un server di origine.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Maximum Keep-Alive Requests](#maximum-keep-alive-requests) (Numero massimo di richieste Keep-Alive) | Definisce il numero massimo di richieste per una connessione Keep-Alive prima della chiusura.
 [Proxy Special Headers](#proxy-special-headers) (Intestazioni speciali proxy) | Definisce il set di intestazioni di richiesta specifiche della rete CDN che vengono inoltrate da un POP a un server di origine.
@@ -338,7 +338,7 @@ Per duplicare il comportamento di memorizzazione nella cache della stringa di qu
 
 Il seguente esempio di utilizzo per questa funzionalità fornisce un esempio di richiesta e la chiave di cache predefinita:
 
-- **Richiesta di esempio:** http://wpc.0001.&lt;Dominio&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **Richiesta di esempio:** http://wpc.0001.&lt ;Dominio&gt; /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **Chiave di cache predefinita:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Includi
@@ -516,8 +516,8 @@ Il formato per specificare le intestazioni di richiesta e risposta è definito c
 
 Tipo di intestazione|Format|Esempi
 -|-|-
-Intestazione di richiesta|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
-Intestazione di risposta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+Intestazione di richiesta|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
+Intestazione di risposta|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Informazioni chiave:
 

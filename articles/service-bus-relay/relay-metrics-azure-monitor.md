@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
 ms.openlocfilehash: bd62624406adb006fdcd7d59f72db3fb5e1848a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60421803"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Metriche del sevizio di inoltro di Azure in Monitoraggio di Azure (anteprima)
@@ -41,7 +41,7 @@ Le metriche sono abilitate per impostazione predefinita ed è possibile accedere
 
 ![][1]
 
-È anche possibile accedere alle metriche direttamente tramite lo spazio dei nomi. A tale scopo, selezionare lo spazio dei nomi e quindi fare clic su **Metriche (anteprima)**. 
+È anche possibile accedere alle metriche direttamente tramite lo spazio dei nomi. A tale scopo, selezionare lo spazio dei nomi e quindi fare clic su **Metriche (anteprima)** . 
 
 Per le metriche che supportano le dimensioni, è necessario filtrare specificando il valore di dimensione da usare.
 
@@ -58,7 +58,7 @@ Tutti i valori delle metriche vengono inviati a Monitoraggio di Azure ogni minut
 
 ## <a name="connection-metrics"></a>Metriche di connessione
 
-| Nome della metrica | DESCRIZIONE |
+| Nome della metrica | Descrizione |
 | ------------------- | ----------------- |
 | ListenerConnections-Success (anteprima) | Numero di connessioni riuscite del listener eseguite al servizio di inoltro di Azure in un periodo specificato. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 |ListenerConnections-ClientError (anteprima)|Numero di errori del client nelle connessioni del listener in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
@@ -75,7 +75,7 @@ Tutti i valori delle metriche vengono inviati a Monitoraggio di Azure ogni minut
 
 ## <a name="memory-usage-metrics"></a>Metriche di utilizzo della memoria
 
-| Nome della metrica | DESCRIZIONE |
+| Nome della metrica | Descrizione |
 | ------------------- | ----------------- |
 |BytesTransferred (anteprima)|Numero di byte trasferiti in un periodo specificato.<br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
 
@@ -83,7 +83,7 @@ Tutti i valori delle metriche vengono inviati a Monitoraggio di Azure ogni minut
 
 Il servizio di inoltro di Azure supporta le dimensioni seguenti per le metriche in Monitoraggio di Azure. L'aggiunta di dimensioni alle metriche è facoltativa. Se non si aggiungono le dimensioni, le metriche vengono specificate a livello di spazio dei nomi. 
 
-|Nome della dimensione|DESCRIZIONE|
+|Nome della dimensione|Descrizione|
 | ------------------- | ----------------- |
 |EntityName| Il servizio di inoltro di Azure supporta le entità di messaggistica nello spazio dei nomi.|
 

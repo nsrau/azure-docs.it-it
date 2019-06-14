@@ -15,10 +15,10 @@ ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
 ms.openlocfilehash: 8d4290f1411749e2d8d3d27fbd792ceeeea47ef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851334"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Ripristinare un'app in Azure da uno snapshot
@@ -43,7 +43,7 @@ Il ripristino da snapshot è disponibile per le app in esecuzione a livello **Pr
 
 ## <a name="restore-an-app-from-a-snapshot"></a>Ripristinare un'app da uno snapshot
 
-1. Nella pagina **Impostazioni** dell'app nel [portale di Azure](https://portal.azure.com) fare clic su **Backup** per visualizzare la pagina **Backup**. Fare quindi clic su **Ripristina** nella sezione **Snapshot (anteprima)**.
+1. Nella pagina **Impostazioni** dell'app nel [portale di Azure](https://portal.azure.com) fare clic su **Backup** per visualizzare la pagina **Backup**. Fare quindi clic su **Ripristina** nella sezione **Snapshot (anteprima)** .
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 

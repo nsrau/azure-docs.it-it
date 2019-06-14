@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334119"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analizzare i log dei siti Web con Azure Data Lake Analytics
@@ -21,7 +21,7 @@ Informazioni su come analizzare i log dei siti Web con Analisi Data Lake, in par
 
 ## <a name="prerequisites"></a>Prerequisiti
 * **Visual Studio 2015 o Visual Studio 2013**.
-* **[Data Lake Tools per Visual Studio](https://aka.ms/adltoolsvs)**.
+* **[Data Lake Tools per Visual Studio](https://aka.ms/adltoolsvs)** .
 
     Dopo avere installato Strumenti Data Lake per Visual Studio, in Visual Studio verrà visualizzata una voce **Data Lake** nel menu **Strumenti**:
 
@@ -168,7 +168,7 @@ Un'applicazione U-SQL è principalmente uno script U-SQL. Per altre informazioni
 3. Fare doppio clic su **UnsuccessfulResponses.log**.
 4. È anche possibile fare doppio clic sul file di output nella visualizzazione grafico del processo per passare direttamente al file di output.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Per iniziare a usare Analisi Data Lake usando vari tipi di strumenti, vedere:
 
 * [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)

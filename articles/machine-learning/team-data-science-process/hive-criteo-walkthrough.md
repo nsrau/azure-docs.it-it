@@ -12,10 +12,10 @@ ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60305920"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
@@ -52,7 +52,7 @@ Questa procedura dettagliata illustra due problemi di stima di esempio:
 1. **Classificazione binaria**: stima se un utente ha fatto clic su un annuncio:
 
    * Classe 0: Nessun clic
-   * Classe 1: Fare clic su 
+   * Classe 1: Fare clic su
 2. **Regressione**: stima la probabilità di un clic su un annuncio in base alle caratteristiche dell'utente.
 
 ## <a name="setup"></a>Configurare un cluster Hadoop di HDInsight per l'analisi scientifica

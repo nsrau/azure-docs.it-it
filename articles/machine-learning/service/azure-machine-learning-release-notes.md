@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2dd397e879dd76cabd119a3cbedff34041be2d13
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 9e7441ab9503919fbf1d0890ce69f04259f38986
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298493"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065776"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -24,6 +24,51 @@ Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine 
 + [**SDK di preparazione dei dati**](https://aka.ms/data-prep-sdk) di Azure Machine Learning
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+## <a name="2019-06-10"></a>2019-06-10
+
+### <a name="azure-machine-learning-sdk-for-python-v1043"></a>Azure Machine Learning SDK per Python v1.0.43
+
++ **Nuove funzionalità**
+  + Azure Machine Learning offre ora un supporto eccellente per diffuse per machine learning e data analysis framework Scikit-learn. Usando [ `SKLearn` estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py), gli utenti possono facilmente eseguire il training e distribuire modelli Scikit-learn.
+    + Informazioni su come [eseguire l'ottimizzazione degli iperparametri con Scikit-learn usando HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb).
+  + Aggiunta del supporto per la creazione di ModuleStep nelle pipeline e le classi di modulo e ModuleVersion per gestire le unità di calcolo riutilizzabili.
+  + Webservices ACI supportano ora scoring_uri persistente tramite gli aggiornamenti. Il scoring_uri cambierà da indirizzo IP per nome di dominio completo. L'etichetta del nome Dns per nome di dominio completo può essere configurato impostando il dns_name_label sul deploy_configuration. 
+  + Computer automatizzati apprendimento delle nuove funzionalità:
+    + Featurizer STL per la previsione
+    + KMeans clustering è abilitato per la scansione sistematica delle funzionalità
+  + Le approvazioni AmlCompute Quota sono diventate più veloce. È ora abbiamo automatizzato il processo per approvare le richieste di quota entro una soglia. Per altre informazioni sul funzionano delle quote, vedere [come gestire le quote](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
+ 
+
++ **Funzionalità di anteprima**
+    + Integrazione con [MLflow](https://mlflow.org) 1.0.0 rilevamento tramite il pacchetto azureml-mlflow ([notebook di esempio](https://aka.ms/azureml-mlflow-examples)).
+    + Inviare i notebook di Jupyter come un'esecuzione. [Documentazione di riferimento API](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
+    + Versione di anteprima pubblica dei [dati sfasamento Rilevatore](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) tramite il pacchetto azureml-contrib-datadrift ([notebook di esempio](https://aka.ms/azureml-datadrift-example)). Lo sfasamento di dati è uno dei motivi principali in cui accuratezza del modello comporta una riduzione nel tempo. Si verifica quando i dati resi disponibili per la modellazione nell'ambiente di produzione è diverso dai dati che il modello è stato eseguito il training sui. Rilevatore di sfasamento di dati di Azure Machine Learning consente ai clienti di monitorare lo sfasamento di dati e Invia avviso ogni volta che viene rilevato uno sfasamento. 
+
++ **Modifiche di rilievo**
+
++ **Correzioni di bug e miglioramenti**
+  + RunConfiguration caricare e salvare supporta la specifica di un percorso completo del file con back-compat completo per il comportamento precedente.
+  + Aggiungere la memorizzazione nella cache in ServicePrincipalAuthentication, disattivata per impostazione predefinita.
+  + Abilitare la registrazione di più grafici con lo stesso nome di metrica.
+  + Classe ora correttamente importable (importabile) da azureml.core del modello (`from azureml.core import Model`).
+  + Nei passaggi della pipeline, `hash_path` parametro è deprecato. Nuovo comportamento è eseguire l'hashing directory_origine completo, ad eccezione dei file elencati in .amlignore o file con estensione gitignore.
+  + Nei pacchetti di pipeline, vari `get_all` e `get_all_*` metodi sono stati deprecati in favore di `list` e `list_*`, rispettivamente.
+  + azureml.Core.get_run non richiede più classi da importare prima di restituire il tipo dell'esecuzione originale.
+  + Risolto un problema in cui alcune chiamate all'aggiornamento di servizio Web non è stato attivare un aggiornamento.
+  + Timeout di assegnazione dei punteggi nel servizio contenitore di AZURE i servizi Web deve essere compreso tra 5 ms e 300000ms. Numero massimo consentito scoring_timeout_ms per le richieste di assegnazione dei punteggi è stata essenzialmente dal valore minimo di 1 a 5 minuti.
+  + Oggetti LocalWebservice ora hanno `scoring_uri` e `swagger_uri` proprietà.
+  + Spostare la creazione di directory di output e il caricamento di directory di output all'esterno del processo utente. Abilitata la cronologia di esecuzione SDK per l'esecuzione in tutti i processi utente. Questo dovrebbe risolvere alcuni problemi di sincronizzazione riscontrati dai training distribuita viene eseguita.
+  + Il nome del log di Azure ml scritti dal nome del processo utente include ora il nome di processo (per distribuita training solo) e il PID.
+
+### <a name="azure-machine-learning-data-prep-sdk-v115"></a>SDK v1.1.5 della preparazione dei dati di Azure Machine Learning
+
++ **Correzioni di bug e miglioramenti**
+  + Per i valori di data/ora interpretata che hanno un formato a 2 cifre, l'intervallo di anni validi è stata aggiornata in modo da corrispondere versione di Windows potrebbe. L'intervallo è stato modificato da 1930 2029 a 1950 2049.
+  + Durante la lettura in un file e impostare `handleQuotedLineBreaks=True`, `\r` verrà considerata come una nuova riga.
+  + Risolto un bug che ha causato `read_pandas_dataframe` a non riuscire in alcuni casi.
+  + Miglioramento delle prestazioni di `get_profile`.
+  + Messaggi di errore migliorati.
 
 ## <a name="2019-05-28"></a>2019-05-28
 
@@ -200,7 +245,7 @@ Note: SDK Python di preparazione dei dati non sono più installerà `numpy` e `p
   + Azure Machine Learning DNN Businesss ora offrono il supporto di più versioni predefinito. Ad esempio, `TensorFlow`  estimator ora accetta un `framework_version` parametro e gli utenti possono specificare versione '1.10' o '1.12'. Per un elenco delle versioni supportate per la versione SDK corrente, chiamare `get_supported_versions()` sulla classe framework desiderata (ad esempio, `TensorFlow.get_supported_versions()`).
   Per un elenco delle versioni supportate dalla versione di SDK più recente, vedere la [documentazione di rete neurale profonda Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
-### <a name="azure-machine-learning-data-prep-sdk-v111"></a>1.1.1 SDK di preparazione dei dati di Azure Machine Learning
+### <a name="azure-machine-learning-data-prep-sdk-v111"></a>1\.1.1 SDK di preparazione dei dati di Azure Machine Learning
 
 + **Nuove funzionalità**
   + È possibile leggere più origini di archivio dati/PercorsoDati/DataReference tramite read_ * trasformazioni.

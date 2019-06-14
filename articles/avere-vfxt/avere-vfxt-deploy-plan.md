@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409898"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Pianificare il sistema Avere vFXT
@@ -42,12 +42,12 @@ Seguire queste linee guida per la pianificazione dell'infrastruttura di rete del
 
 * Il modello di creazione del cluster è possibile creare la maggior parte delle risorse dell'infrastruttura necessari per il cluster, inclusi i gruppi di risorse, le reti virtuali, subnet e gli account di archiviazione. Se si desidera usare le risorse già esistenti, verificare che soddisfino i requisiti in questa tabella. 
 
-  | Risorsa | Usa esistente? | Requisiti |
+  | Resource | Usa esistente? | Requisiti |
   |----------|-----------|----------|
   | Gruppo di risorse | Sì, se è vuota | Deve essere vuoto| 
   | Account di archiviazione | Sì, se la connessione esistente di contenitore di Blob dopo la creazione del cluster <br/>  No se la creazione di un nuovo contenitore Blob durante la creazione del cluster | Contenitore Blob esistente deve essere vuoto <br/> &nbsp; |
-  | Rete virtuale | Sì | Deve includere un endpoint di servizio di archiviazione se la creazione di un nuovo contenitore Blob di Azure | 
-  | Subnet | Sì |   |
+  | Rete virtuale | Yes | Deve includere un endpoint di servizio di archiviazione se la creazione di un nuovo contenitore Blob di Azure | 
+  | Subnet | Yes |   |
 
 ## <a name="ip-address-requirements"></a>Requisiti degli indirizzi IP 
 
@@ -76,7 +76,7 @@ Ogni nodo vFXT sarà identico. Ciò significa che se si crea un cluster a tre no
 
 | Tipo di istanza | vCPU | Memoria  | Archiviazione SSD locale  | Numero massimo di dischi dati | Velocità effettiva del disco senza memorizzazione nella cache | Scheda di rete (conteggio) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51.200 operazioni di I/O al secondo <br/> 768 MBps | 16.000 MBps (8)  |
+| Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51\.200 operazioni di I/O al secondo <br/> 768 MBps | 16\.000 MBps (8)  |
 
 La cache del disco per ogni nodo è configurabile e può andare da 1000 GB a 8000 GB. Da 4 TB per ogni nodo è la dimensione della cache consigliata per i nodi Standard_E32s_v3.
 

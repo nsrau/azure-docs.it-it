@@ -11,10 +11,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595232"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
@@ -55,7 +55,7 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 
 1. Selezionare il **Modulo IoT Edge**.
 
-1. Specificare un nome per il modulo e quindi l'immagine del contenitore. Ad esempio: 
+1. Specificare un nome per il modulo e quindi l'immagine del contenitore. Ad esempio:
 
    * **Nome**: tempSensor
    * **URI immagine**: mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0

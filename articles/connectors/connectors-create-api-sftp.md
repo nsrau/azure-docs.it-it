@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
 ms.openlocfilehash: 42e1ef3e311633f9631163bc9d3df212b608ef3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60450761"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando App per la logica di Azure
@@ -73,7 +73,7 @@ Per altre differenze tra il connettore SFTP e il connettore SFTP-SSH, esaminare 
    Nell'elenco delle azioni selezionare l'azione desiderata.
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Specificare le informazioni necessarie per la connessione.
 
@@ -112,7 +112,7 @@ Quando un trigger rileva un nuovo file, controlla che sia completo e non parzial
 
 Per le richieste del contenuto del file, i trigger non recuperano file di dimensioni superiori a 50 MB. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello: 
 
-* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)**.
+* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
 
 * Fare seguire al trigger un'azione che legga il file completo, ad esempio **Ottieni contenuto di file tramite percorso** e impostare l'azione per l'uso della [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -128,7 +128,7 @@ Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene ag
 
 Per le richieste del contenuto del file, i trigger non recuperano file di dimensioni superiori a 50 MB. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello: 
 
-* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)**.
+* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
 
 * Fare seguire al trigger un'azione che legga il file completo, ad esempio **Ottieni contenuto di file tramite percorso** e impostare l'azione per l'uso della [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -140,7 +140,7 @@ Questa operazione recupera il contenuto da un file in un server SFTP. Ad esempio
 
 Per le richieste del contenuto del file, i trigger non recuperano file di dimensioni superiori a 50 MB. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello: 
 
-* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)**.
+* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
 
 * Fare seguire al trigger un'azione che legga il file completo, ad esempio **Ottieni contenuto di file tramite percorso** e impostare l'azione per l'uso della [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md).
 

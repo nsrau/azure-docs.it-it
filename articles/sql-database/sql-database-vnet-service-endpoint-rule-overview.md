@@ -13,10 +13,10 @@ ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 8c33cd7fe702f46f9c88643895b96445a9aa6a78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331422"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usare endpoint servizio e regole di rete virtuale per server di database
@@ -209,7 +209,7 @@ PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse d
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
     
-   1. Creare credenziali con ambito database con **IDENTITY = 'Managed Service Identity'**:
+   1. Creare credenziali con ambito database con **IDENTITY = 'Managed Service Identity'** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -248,7 +248,7 @@ L'errore di connessione 40914 è correlato alle *regole di rete virtuale*, come 
 
 ### <a name="error-40914"></a>Errore 40914
 
-*Testo del messaggio:* Impossibile aprire il server "*[nome-server]*" richiesto dall'account di accesso. Al client non è consentito accedere al server.
+*Testo del messaggio:* Impossibile aprire il server " *[nome-server]* " richiesto dall'account di accesso. Al client non è consentito accedere al server.
 
 *Descrizione dell'errore:* il client si trova in una subnet che include endpoint server di rete virtuale. Tuttavia, il server di database SQL di Azure non è associato ad alcuna regola di rete virtuale che concede alla subnet il diritto di comunicare con il database SQL.
 
@@ -298,7 +298,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
 1. Accedere al [portale di Azure][http-azure-portal-link-ref-477t].
 
-2. Nel portale passare a **SQL Server** &gt; **Firewall/Reti virtuali (anteprima)**.
+2. Nel portale passare a **SQL Server** &gt; **Firewall/Reti virtuali (anteprima)** .
 
 3. Impostare il controllo **Consenti l'accesso a Servizi di Azure** su OFF.
 

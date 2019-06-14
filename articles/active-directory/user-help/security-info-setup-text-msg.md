@@ -13,10 +13,10 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60482254"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Configurare le informazioni di sicurezza (anteprima) per l'uso di SMS
@@ -86,11 +86,11 @@ Per impostare l'invio di SMS come metodo predefinito da usare quando si accede a
 
     ![Collegamento Cambia per il metodo di accesso predefinito](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Selezionare **Telefono - SMS a (*_numero_telefono_utente_*)** dall'elenco a discesa di metodi disponibili e quindi selezionare **Conferma**.
+2. Selezionare **Telefono - SMS a ( *_numero_telefono_utente_* )** dall'elenco a discesa di metodi disponibili e quindi selezionare **Conferma**.
 
     ![Scegliere il metodo per l'accesso predefinito](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 
-    Il metodo predefinito usato per l'accesso passa a **Telefono - SMS a (*_numero_telefono_utente_*)**.
+    Il metodo predefinito usato per l'accesso passa a **Telefono - SMS a ( *_numero_telefono_utente_* )** .
 
 ## <a name="additional-security-info-methods"></a>Metodi aggiuntivi per le informazioni di sicurezza
 In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, tra cui:

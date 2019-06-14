@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: a0459eb67b5a79219e556cb03473a5ddf691b49d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60527468"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure
@@ -57,7 +57,7 @@ Con i criteri di memorizzazione nella cache illustrati in questo esempio, la pri
 4. Fare clic su **Demo Conference API** (API Demo Conference) nell'elenco di API.
 5. Selezionare **GetSpeakers**.
 6. Nella parte superiore della schermata selezionare la scheda **Progettazione**.
-7. Nella sezione **Elaborazione in ingresso** fare clic sull'icona **</>**.
+7. Nella sezione **Elaborazione in ingresso** fare clic sull'icona **</>** .
 
     ![Editor di codice](media/api-management-howto-cache/code-editor.png)
 

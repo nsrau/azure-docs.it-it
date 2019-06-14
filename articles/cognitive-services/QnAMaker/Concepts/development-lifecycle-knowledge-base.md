@@ -12,10 +12,10 @@ ms.date: 04/16/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61379284"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo di vita della knowledge base in QnA Maker
@@ -31,7 +31,7 @@ L'endpoint della knowledge base (KB) di QnA Maker fornisce una risposta scelta i
 La knowledge base è pronta per i test dopo essere stata popolata con il contenuto, a livello editoriale o tramite estrazione automatica. Test interattiva possono essere eseguiti nel portale di QnA Maker tramite il **Test** pannello immettendo le query utente comuni e verifica che le risposte restituite con la risposta corretta e il punteggio di confidenza sufficienti. 
 
 * **Per correggere i punteggi di confidenza basso in**: aggiungere domande alternative. 
-* **Quando una query restituisce in modo errato il [risposta predefinita](confidence-score.md#change-default-answer)**: aggiungere nuove risposte per la domanda corretta. 
+* **Quando una query restituisce in modo errato il [risposta predefinita](confidence-score.md#change-default-answer)** : aggiungere nuove risposte per la domanda corretta. 
 
 Questo ciclo serrato di test-aggiornamento continua finché non si è soddisfatti dei risultati. Leggere le informazioni su come [testare la knowledge base](../How-To/test-knowledge-base.md).
 
@@ -67,7 +67,7 @@ In base alle informazioni ottenute dall'analisi, apportare [aggiornamenti alla k
 > [!div class="nextstepaction"]
 > [Punteggio di attendibilità](./confidence-score.md)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
 [Knowledge base](./knowledge-base.md)
 [Panoramica di QnA Maker](../Overview/overview.md)

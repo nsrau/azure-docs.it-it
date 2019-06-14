@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630186"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida
@@ -29,7 +29,7 @@ StorSimple utilizza la [suddivisione in livelli](#automatic-storage-tiering) di 
 
 Oltre alla gestione dell'archiviazione, le funzioni di protezione dei dati di StorSimple consentono di creare backup su richiesta e pianificati e quindi di archiviarli in locale o nel cloud. I backup vengono eseguiti sotto forma di snapshot incrementali, il che significa che possono essere creati e ripristinati rapidamente. Gli snapshot cloud possono essere fondamentali in scenari di ripristino di emergenza perché sostituiscono i sistemi di archiviazione secondaria (come il backup su nastro) e consentono di ripristinare i dati nel data center o in siti alternativi, se necessario.
 
-![icona video](./media/storsimple-overview/video_icon.png)  Guardare il video per una breve introduzione a Microsoft Azure StorSimple.
+![icona video](./media/storsimple-overview/video_icon.png) Guardare il video per una breve introduzione a Microsoft Azure StorSimple.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 
@@ -112,7 +112,7 @@ Microsoft Azure StorSimple offre l'accesso a un'interfaccia utente basata sul We
 
 Per altre informazioni, vedere l'articolo [Use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md) (Uso del servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple).
 
-## <a name="windows-powershell-for-storsimple"></a>Windows PowerShell per StorSimple 
+## <a name="windows-powershell-for-storsimple"></a>Windows PowerShell per StorSimple
 Windows PowerShell per StorSimple fornisce un'interfaccia della riga di comando che è possibile usare per creare e gestire il servizio Microsoft Azure StorSimple e configurare e monitorare i dispositivi StorSimple. Si tratta di un'interfaccia della riga di comando basata su Windows PowerShell, che include cmdlet dedicati per la gestione del dispositivo StorSimple. Windows PowerShell per StorSimple offre funzionalità che consentono di:
 
 * Registrare un dispositivo.
@@ -128,7 +128,7 @@ Per altre informazioni, vedere l'articolo relativo all' [uso di Windows PowerShe
 ## <a name="azure-powershell-storsimple-cmdlets"></a>i cmdlet PowerShell di azure StorSimple
 I cmdlet StorSimple di Azure PowerShell sono una raccolta di diversi cmdlet di Windows PowerShell che consentono di automatizzare le attività  a livello di servizio e di migrazione dalla riga di comando. Per altre informazioni sui cmdlet di Azure PowerShell per StorSimple, visitare la [Documentazione di riferimento relativa ai cmdlet](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
 
-## <a name="storsimple-snapshot-manager"></a>Gestione snapshot StorSimple 
+## <a name="storsimple-snapshot-manager"></a>Gestione snapshot StorSimple
 Gestione snapshot StorSimple è uno snap-in di Microsoft Management Console (MMC) che consente di creare copie di backup coerenti e temporizzate di dati locali o cloud. Lo snap-in viene eseguito su un host basato su Windows Server. Gestione snapshot StorSimple può essere usato per:
 
 * Configurare, eseguire il backup ed eliminare volumi.
@@ -207,10 +207,10 @@ Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati
 
 | Scenario | Carico di lavoro | Supportato | Restrizioni | Version |
 | --- | --- | --- | --- | --- |
-| Collaborazione |Condivisione di file |Sì | |Tutte le versioni |
-| Collaborazione |Condivisione di file distribuita |Sì | |Tutte le versioni |
+| Collaborazione |Condivisione di file |Yes | |Tutte le versioni |
+| Collaborazione |Condivisione di file distribuita |Yes | |Tutte le versioni |
 | Collaborazione |SharePoint |Sì* |Supportata solo con i volumi aggiunti in locale |Aggiornamento 2 e successivi |
-| Archiviazione |Archiviazione di file semplice |Sì | |Tutte le versioni |
+| Archiviazione |Archiviazione di file semplice |Yes | |Tutte le versioni |
 | Virtualizzazione |Macchine virtuali |Sì* |Supportata solo con i volumi aggiunti in locale |Aggiornamento 2 e successivi |
 | Database |SQL |Sì* |Supportata solo con i volumi aggiunti in locale |Aggiornamento 2 e successivi |
 | Sorveglianza video |Sorveglianza video |Sì* |Supportata quando il dispositivo StorSimple è dedicato solo a questo carico di lavoro |Aggiornamento 2 e successivi |
@@ -234,11 +234,11 @@ Di seguito è riportato un elenco dei componenti dell'infrastruttura supportati 
 
 | Scenario | Carico di lavoro | Supportato | Restrizioni | Version |
 | --- | --- | --- | --- | --- |
-| Generale |Express Route |Sì | |Tutte le versioni |
+| Generale |Express Route |Yes | |Tutte le versioni |
 | Generale |DataCore FC |Sì* |Supportato con DataCore SANsymphony |Tutte le versioni |
 | Generale |DFSR |Sì* |Supportata solo con i volumi aggiunti in locale |Tutte le versioni |
 | Generale |Indicizzazione |Sì* |Per i volumi a più livelli, è supportata solo l'indicizzazione dei metadati (nessun dato).<br>Per i volumi aggiunti in locale, è supportata l'indicizzazione completa. |Tutte le versioni |
-| Generale |Anti-virus |Sì* |Per i volumi a più livelli, è supportata solo l'analisi in apertura e in chiusura.<br>  Per i volumi aggiunti in locale, è supportata l'analisi completa. |Tutte le versioni |
+| Generale |Anti-virus |Sì* |Per i volumi a più livelli, è supportata solo l'analisi in apertura e in chiusura.<br> Per i volumi aggiunti in locale, è supportata l'analisi completa. |Tutte le versioni |
 
 *Sì&#42;: devono essere applicate le restrizioni e le linee guida per la soluzione.*
 
@@ -255,7 +255,7 @@ Di seguito è riportato un elenco di altri prodotti software che vengono usati c
 Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile esaminare i seguenti termini e definizioni.
 
 ### <a name="key-terms-and-definitions"></a>Termini e definizioni chiave
-| Termine (acronimo o abbreviazione) | DESCRIZIONE |
+| Termine (acronimo o abbreviazione) | Descrizione |
 | --- | --- |
 | record di controllo di accesso |Record associato a un volume sul dispositivo Microsoft Azure StorSimple che determina quali host vi si possono connettere. Per determinarli, viene usato il nome qualificato iSCSI (IQN) degli host (contenuto nel record di controllo di accesso) che si connettono al dispositivo StorSimple. |
 | AES-256 |Algoritmo AES (Advanced Encryption Standard) a 256 bit per la crittografia dei dati in entrata e in uscita dal cloud. |
@@ -300,7 +300,7 @@ Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile e
 | archiviazione di Azure |Set di credenziali di accesso collegato all'account di archiviazione di un determinato provider di servizi cloud. |
 | Adattatore StorSimple per SharePoint |Componente di Microsoft Azure StorSimple che estende in modo trasparente l'archiviazione e la protezione dei dati di StorSimple a farm di SharePoint Server. |
 | Servizio Gestione dispositivi StorSimple |Estensione del portale di Azure che consente di gestire i dispositivi Azure StorSimple locali e virtuali. |
-| Gestione snapshot StorSimple  |Snap-in di Microsoft Management Console (MMC) per la gestione di operazioni di backup e ripristino in Microsoft Azure StorSimple. |
+| Gestione snapshot StorSimple |Snap-in di Microsoft Management Console (MMC) per la gestione di operazioni di backup e ripristino in Microsoft Azure StorSimple. |
 | Esegui backup |Funzionalità che consente all'utente di eseguire un backup interattivo di un volume. È un'alternativa al backup manuale di un volume invece del backup automatizzato con un criterio definito. |
 | Thin provisioning |Metodo per ottimizzare l'efficienza con cui lo spazio di archiviazione disponibile viene utilizzato nei sistemi di archiviazione. Nel thin provisioning lo spazio di archiviazione viene allocato tra più utenti in base allo spazio minimo richiesto da ogni utente in un determinato momento. Vedere anche *fat provisioning*. |
 | suddivisione in livelli |Disposizione dei dati in raggruppamenti logici basati sull'utilizzo corrente, l'età e relazioni con altri dati. StorSimple organizza automaticamente i dati in livelli. |
@@ -308,7 +308,7 @@ Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile e
 | contenitore del volume |Raggruppamento di volumi con le impostazioni applicabili. Tutti i volumi nel dispositivo StorSimple sono raggruppati in contenitori di volumi. Le impostazioni dei contenitori di volumi includono gli account di archiviazione, le impostazioni di crittografia per i dati inviati al cloud con le chiavi di crittografia associate e la larghezza di banda utilizzata per le operazioni che riguardano il cloud. |
 | gruppo di volumi |In Gestione snapshot StorSimple, un gruppo di volumi è una raccolta di volumi configurati per facilitare l'elaborazione di backup. |
 | Servizio Copia Shadow del volume (VSS) |Servizio del sistema operativo Windows Server che facilita la coerenza delle applicazioni comunicando con applicazioni compatibili con il Servizio Copia Shadow del volume per coordinare la creazione di snapshot incrementali. Il Servizio Copia Shadow del volume assicura che le applicazioni siano temporaneamente inattive quando vengono eseguiti gli snapshot. |
-| Windows PowerShell per StorSimple  |Interfaccia della riga di comando basata su Windows PowerShell utilizzata per far funzionare il dispositivo StorSimple e per gestirlo. Pur mantenendo alcune funzionalità di base di Windows PowerShell, questa interfaccia dispone di altri cmdlet dedicati che sono pensati per la gestione di un dispositivo StorSimple. |
+| Windows PowerShell per StorSimple |Interfaccia della riga di comando basata su Windows PowerShell utilizzata per far funzionare il dispositivo StorSimple e per gestirlo. Pur mantenendo alcune funzionalità di base di Windows PowerShell, questa interfaccia dispone di altri cmdlet dedicati che sono pensati per la gestione di un dispositivo StorSimple. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni sulla [sicurezza di StorSimple](storsimple-8000-security.md).

@@ -1,44 +1,42 @@
 ---
 title: Pagare le sottoscrizioni di Azure tramite fattura| Microsoft Docs
 description: L'articolo descrive come pagare le sottoscrizioni di Azure tramite fattura
-services: ''
 documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 06/06/2019
 ms.author: banders
-ms.openlocfilehash: 7caa7df3817c51d63dfa2838e4223d3fba88e529
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 7af8789d61069f37d34d07653177e839caf35304
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827349"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076499"
 ---
 # <a name="pay-azure-subscription-by-invoice"></a>Sottoscrizione di Azure di addebito con fattura
 
 Se si passa al pagamento con fattura, significa che si paga la fattura entro 30 giorni dalla data della fattura. Per usufruire di addebito con fattura per la sottoscrizione di Azure, inviare una richiesta di supporto tecnico di Azure. Una volta approvata la richiesta, è possibile passare una sottoscrizione per il pagamento con fattura nel [portale di Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> * Il pagamento con fattura è disponibile solo per gli account commerciali.
+> * Il pagamento con fattura è disponibile solo per gli account aziendali.
 > * È necessario sostenere tutti gli addebiti in sospeso prima del passaggio al pagamento con fattura.
-> * Dopo il passaggio al pagamento con fattura, non è possibile tornare al pagamento tramite carta di credito o di debito.
+> * Dopo il passaggio al pagamento con fattura, non è possibile tornare al pagamento con carta di credito o di debito.
 
 ## <a name="request-to-pay-by-invoice"></a>Richiesta di addebito con fattura
 
 1. Accedere al [portale di Azure](https://portal.azure.com/). Selezionare **Guida e supporto** > **Nuova richiesta di supporto**.
 
-    ![pulsante di guida e supporto tecnico](./media/billing-how-to-pay-by-invoice/help-and-support.png)
+    ![Guida e supporto tecnico di collegamento](./media/billing-how-to-pay-by-invoice/help-and-support.png)
 
-2. Selezionare **Fatturazione** come tipo di problema, selezionare la sottoscrizione che si intende pagare con fattura, selezionare un piano di supporto e quindi fare clic su **Avanti**.
+2. Selezionare **fatturazione** come la **tipo di problema**. Il *tipo di problema* è la categoria di richiesta di supporto. Selezionare la sottoscrizione per cui si vuole pagare tramite fattura, selezionare un piano di supporto e quindi selezionare **successivo**.
 
-3. Selezionare **l'opzione di pagamento** con fattura nella casella **Tipo di problema**.
+3. Selezionare **l'opzione di pagamento** con fattura nella casella **Tipo di problema**. Il *tipo di problema* è la sottocategoria di richiesta di supporto.
 
 4. Immettere le informazioni seguenti nella casella **Dettagli** e quindi selezionare **Avanti**.
 
@@ -65,8 +63,8 @@ Se si passa al pagamento con fattura, significa che si paga la fattura entro 30 
          (New quota) Requested cores:
          Specific region & series of Subscription:
 
-    - Il **nome società** e **aziendale indirizzo** deve corrispondere con le informazioni fornite per l'account di Azure.  Per visualizzare o aggiornare le informazioni, vedere [modificare le informazioni del profilo account di Azure](billing-how-to-change-azure-account-profile.md).
-    - È necessario aggiungere il contatto di fatturazione nel portale di Azure prima che il limite di credito potrà essere approvato. I dettagli di contatto devono essere correlati al reparto di contabilità fornitori o finanziari dell'azienda. Per aggiornare il contatto di fatturazione, visitare il [centro Account Azure](https://account.azure.com/Profile).
+    - Il **nome società** e **aziendale indirizzo** deve corrispondere le informazioni fornite per l'account di Azure. Per visualizzare o aggiornare le informazioni, vedere [modificare le informazioni del profilo account di Azure](billing-how-to-change-azure-account-profile.md).
+    - È necessario aggiungere le informazioni di contatto di fatturazione nel portale di Azure prima che il limite di credito potrà essere approvato. I dettagli di contatto devono essere correlati al reparto di contabilità fornitori o finanziari dell'azienda. Per aggiornare le informazioni di contatto di fatturazione, visitare il [centro Account Azure](https://account.azure.com/Profile).
 
 5. Verificare le informazioni di contatto e il metodo di contatto preferito e quindi fare clic su **Crea**.
 
@@ -76,7 +74,7 @@ Se è necessario eseguire una verifica del credito considerata la quantità di c
 
 Una volta che sono approvate per pagare tramite fattura, è possibile passare alla sottoscrizione di Azure per il metodo di pagamento della fattura nel [portale di Azure](https://portal.azure.com).
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
+1. Accedi per il [portale di Azure](https://portal.azure.com) come amministratore Account.
 1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
 
     ![Screenshot che mostra Cerca](./media/billing-how-to-pay-by-invoice/search.png)
@@ -87,6 +85,9 @@ Una volta che sono approvate per pagare tramite fattura, è possibile passare al
 
     ![Screenshot che mostra il pagamento tramite pulsante fattura](./media/billing-how-to-pay-by-invoice/pay-by-invoice.png)
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## <a name="next-steps"></a>Passaggi successivi
+- Se necessario, aggiornare le informazioni di contatto fatturazione per il [centro Account Azure](https://account.azure.com/Profile).

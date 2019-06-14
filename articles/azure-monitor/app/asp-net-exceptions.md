@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
 ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60691813"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticare eccezioni nelle app Web con Application Insights
@@ -191,7 +191,7 @@ Se però sono presenti reindirizzamenti attivi, aggiungere le righe seguenti all
 ## <a name="mvc"></a>MVC
 A partire da Application Insights Web SDK versione 2.6 (beta 3 e versioni successive), Application Insights raccoglie le eccezioni non gestite generate automaticamente nei metodi dei controller MVC 5+. Se in precedenza è stato aggiunto un gestore personalizzato per tenere traccia di tali eccezioni (come descritto negli esempi seguenti), è possibile rimuoverlo per evitare il doppio rilevamento delle eccezioni.
 
-Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio: 
+Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio:
 
 * Eccezioni generate dai costruttori dei controller.
 * Eccezioni generate dai gestori di messaggi.
@@ -283,7 +283,7 @@ Registrare AiHandleErrorAttribute come filtro globale in FilterConfig.cs:
 ## <a name="web-api"></a>API Web
 A partire da Application Insights Web SDK versione 2.6 (beta 3 e versioni successive), Application Insights raccoglie le eccezioni non gestite generate automaticamente nei metodi dei controller per WebAPI 2+. Se in precedenza è stato aggiunto un gestore personalizzato per tenere traccia di tali eccezioni (come descritto negli esempi seguenti), è possibile rimuoverlo per evitare il doppio rilevamento delle eccezioni.
 
-Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio: 
+Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio:
 
 * Eccezioni generate dai costruttori dei controller.
 * Eccezioni generate dai gestori di messaggi.

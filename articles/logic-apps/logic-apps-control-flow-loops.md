@@ -11,10 +11,10 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683962"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
@@ -54,7 +54,7 @@ Questa app per la logica di esempio invia un riepilogo giornaliero per un feed R
 2. Tra il trigger RSS e l'azione di invio del messaggio di posta elettronica, aggiungere un ciclo "Foreach". 
 
    1. Per aggiungere un ciclo tra i passaggi, spostare il puntatore del mouse sulla freccia tra tali passaggi. 
-   Scegliere il **segno più** (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
+   Scegliere il **segno più** ( **+** ) visualizzato, quindi selezionare **Aggiungi un'azione**.
 
       ![Selezionare "Add an action" (Aggiungi un'azione)](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
@@ -126,7 +126,7 @@ Se si usa la visualizzazione Codice per l'app per la logica, è invece possibile
 
 Per impostazione predefinita, in una versione di "Foreach" i cicli sono eseguiti in parallelo. Per eseguire ogni ciclo in sequenza, impostare l'opzione **Sequenziale** della versione. I cicli "Foreach" devono essere eseguiti in sequenza quando sono presenti cicli annidati o variabili all'interno dei cicli dove si attendono risultati prevedibili. 
 
-1. Nell'angolo in alto a destra del ciclo scegliere i **puntini di sospensione** (**...**) > **Impostazioni**.
+1. Nell'angolo in alto a destra del ciclo scegliere i **puntini di sospensione** ( **...** ) > **Impostazioni**.
 
    ![Nel ciclo "Foreach" scegliere "..." > "Impostazioni"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
@@ -234,7 +234,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
       ![Configurare le proprietà del messaggio di posta elettronica](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Proprietà | Valore | DESCRIZIONE |
+      | Proprietà | Valore | Descrizione |
       | -------- | ----- | ----------- | 
       | **To** | *\<email-address\@domain>* | Indirizzo e-mail del destinatario. Per il test è possibile usare l'indirizzo di posta elettronica personale. | 
       | **Oggetto** | Il valore corrente per "Limite" è **Limite** | Specificare l'oggetto del messaggio di posta elettronica. Assicurarsi di includere in questo esempio la variabile **Limite**. | 
@@ -251,7 +251,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
 Un ciclo "Until" ha limiti predefiniti che arrestano l'esecuzione se si verifica una di queste condizioni:
 
-| Proprietà | Valore predefinito | DESCRIZIONE | 
+| Proprietà | Valore predefinito | Descrizione | 
 | -------- | ------------- | ----------- | 
 | **Numero** | 60 | Numero massimo di cicli eseguiti prima della chiusura del ciclo. L'impostazione predefinita è 60 cicli. | 
 | **Timeout** | PT1H | Intervallo di tempo massimo per l'esecuzione di un ciclo prima della chiusura del ciclo. L'impostazione predefinita è un'ora ed è specificata in formato ISO 8601. <p>Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite. | 

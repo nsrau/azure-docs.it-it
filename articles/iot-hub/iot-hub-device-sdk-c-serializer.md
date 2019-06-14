@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
 ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60399235"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT SDK per dispositivi C: altre informazioni sul serializzatore
@@ -64,7 +64,7 @@ In questo esempio non vengono illustrati i tipi di dati aggiuntivi supportati da
 
 I tipi di dati seguenti sono supportati nei modelli creati con la libreria **serializer** .
 
-| Type | DESCRIZIONE |
+| Type | Descrizione |
 | --- | --- |
 | double |Numero a virgola mobile a precisione doppia |
 | int |Intero a 32 bit |

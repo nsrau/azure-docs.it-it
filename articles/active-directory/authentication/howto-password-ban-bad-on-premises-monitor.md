@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414801"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Monitoraggio e registrazione in Protezione password di Azure AD
@@ -235,7 +235,7 @@ La registrazione di testo è disabilitata per impostazione predefinita. Per rend
 
 Il software del servizio agente del controller di dominio installa un oggetto contatore delle prestazioni denominato **protezione password di Azure AD**. Sono attualmente disponibili i contatori delle prestazioni seguenti:
 
-|Nome contatore delle prestazioni | DESCRIZIONE|
+|Nome contatore delle prestazioni | Descrizione|
 | --- | --- |
 |Passwords processed (Password elaborate) |Questo contatore indica il numero totale di password elaborate (accettate o rifiutate) dall'ultimo riavvio.|
 |Passwords accepted (Password accettate) |Questo contatore indica il numero totale di password accettate dall'ultimo riavvio.|

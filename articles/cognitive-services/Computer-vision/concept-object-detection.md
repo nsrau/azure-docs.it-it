@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60368043"
 ---
 # <a name="detect-common-objects-in-images"></a>Rilevare gli oggetti comuni nelle immagini
@@ -99,5 +99,5 @@ La risposta JSON seguente illustra le informazioni restituite da Visione artific
 
 La funzionalità per il rilevamento di oggetti fa parte dell'API di [analisi delle immagini](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Objects` nella **visualFeatures** parametro di query. Quindi, quando si riceve la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto del `"objects"` sezione.
 
-* [Guida introduttiva: Analizzare un'immagine (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
-* [Guida introduttiva: Analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)
+* [Avvio rapido: Analizzare un'immagine (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Avvio rapido: Analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e4e9ef4f3a50aeac4db4d2cc2f2b6cbafcc47268
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939916"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051634"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -95,12 +95,19 @@ Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbo
 L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 - Canada centrale
 - Stati Uniti centro-occidentali
+- Stati Uniti occidentali
 - Stati Uniti occidentali 2
+- Stati Uniti centro-meridionali
+- Stati Uniti centrali
 - Stati Uniti orientali
+- Stati Uniti orientali 2
 - Francia centrale
 - Europa occidentale
+- Europa settentrionale
 - Regno Unito meridionale
+- Australia orientale
 - Australia sud-orientale
+- Asia orientale
 - Asia sud-orientale 
 - Corea del Sud centrale
 - India centrale
@@ -125,7 +132,7 @@ Sì, è possibile usare sottoscrizioni diverse per l'account di archiviazione di
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso archiviare i log non elaborati in un altro abbonamento?
 
- No. È possibile memorizzare i log non elaborati in qualsiasi account di archiviazione in cui è abilitato un NSG per i log dei flussi. Tuttavia, sia l'account di archiviazione che i log non elaborati devono trovarsi nella stessa area e nella stessa sottoscrizione.
+No. È possibile memorizzare i log non elaborati in qualsiasi account di archiviazione in cui è abilitato un NSG per i log dei flussi. Tuttavia, sia l'account di archiviazione che i log non elaborati devono trovarsi nella stessa area e nella stessa sottoscrizione.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Cosa succede se non riesco a configurare un NSG per Analisi del traffico a causa di un errore "Non trovato"?
 

@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474286"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Aggiungere manualmente un account all'app
@@ -51,7 +51,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
     La pagina **Impossibile effettuare scansione del codice a barre** verrà visualizzata con il codice segreto. Tenere aperta questa pagina per visualizzare il codice segreto.
 
-2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)**, quindi selezionare **O INSERIRE IL CODICE MANUALMENTE**.
+2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)** , quindi selezionare **O INSERIRE IL CODICE MANUALMENTE**.
 
 3. Immettere un **nome dell'account** (ad esempio, Google) e digitare la **Chiave privata** dal passaggio 1, quindi selezionare **Fine**.
 
@@ -66,7 +66,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
 1. Nella pagina **Configurare con autenticazione di terze parti**, che include il codice a matrice e un codice scritto da inserire nella app. Tenere aperta questa pagina per visualizzare il codice.
 
-2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)**, quindi selezionare **O INSERIRE IL CODICE MANUALMENTE**.
+2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)** , quindi selezionare **O INSERIRE IL CODICE MANUALMENTE**.
 
 3. Immettere un **nome dell'account** (ad esempio, Facebook) e digitare la **Chiave privata** dal passaggio 1, quindi selezionare **Fine**.
 
@@ -84,7 +84,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
     Verrà visualizzato il messaggio **Non riesci a scansionare il codice a barre?** contenente il codice segreto. Tenere aperto questo messaggio per visualizzare il codice segreto.
 
-2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)**, quindi selezionare **O INSERIRE IL CODICE MANUALMENTE**.
+2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)** , quindi selezionare **O INSERIRE IL CODICE MANUALMENTE**.
 
 3. Immettere un **nome dell'account** (ad esempio, Amazon) e digitare la **Chiave privata** del passaggio 1, quindi selezionare **Fine**.
 

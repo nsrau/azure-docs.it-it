@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505462"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Disabilitare il firewall del sistema operativo guest nella macchina virtuale di Azure
@@ -104,7 +104,7 @@ Seguire questa procedura per usare il [Registro di sistema remoto](https://suppo
 
 4.  Aprire un'istanza di  **Services.msc**.
 
-5.  Fare clic su **Servizi (computer locale)**.
+5.  Fare clic su **Servizi (computer locale)** .
 
 6.  Selezionare **Connetti a un altro computer**.
 

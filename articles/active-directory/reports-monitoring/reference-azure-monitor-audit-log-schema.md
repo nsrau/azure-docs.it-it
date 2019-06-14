@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437074"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretare lo schema dei log di controllo di Azure AD in Monitoraggio di Azure (anteprima)
@@ -147,7 +147,7 @@ Questo articolo illustra lo schema del log di controllo di Azure Active Director
 
 ## <a name="field-and-property-descriptions"></a>Descrizioni di campi e proprietà
 
-| Nome campo | DESCRIZIONE |
+| Nome campo | Descrizione |
 |------------|-------------|
 | time       | Data e ora (in formato UTC). |
 | operationName | Nome dell'operazione. |
@@ -167,7 +167,7 @@ Questo articolo illustra lo schema del log di controllo di Azure Active Director
 
 <br>
 
-| Nome proprietà | DESCRIZIONE |
+| Nome proprietà | Descrizione |
 |---------------|-------------|
 | AuditEventCategory | Tipo di evento di controllo. Può essere *Gestione utenti*, *Gestione applicazioni* o un altro tipo.|
 | Tipo di identità | Il tipo può essere *Applicazione* o *Utente*. |

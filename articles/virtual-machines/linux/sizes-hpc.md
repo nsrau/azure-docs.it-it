@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 32b0f467f11cf8cb0a04657006cb5a86b11e27e9
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 003a14174ff65bab253f27a458d4f3e2c0a1a6db
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755200"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069988"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali di calcolo a prestazioni elevate
 
@@ -72,7 +72,7 @@ Azure Marketplace ha molte distribuzioni di Linux che supportano la connettivit√
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]  
 
-  Per altre informazioni dettagliate sull'abilitazione InfiniBand, impostazione di MPI, vedere [InfiniBand abilitare](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband-with-sriov).
+  Per altre informazioni dettagliate sull'abilitazione InfiniBand, impostazione di MPI, vedere [InfiniBand abilitare](../workloads/hpc/enable-infiniband.md).
 
 
 ### <a name="cluster-configuration-options"></a>Opzioni di configurazione del cluster
@@ -107,5 +107,5 @@ Azure offre varie opzioni per la creazione di cluster di macchine virtuali HPC L
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su come configurare, ottimizzare e ridimensionare [carichi di lavoro HPC](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc) in Azure.
+- Altre informazioni su come configurare, ottimizzare e ridimensionare [carichi di lavoro HPC](../workloads/hpc/configure.md) in Azure.
 - Altre informazioni su come le [unit√† di calcolo di Azure](acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.

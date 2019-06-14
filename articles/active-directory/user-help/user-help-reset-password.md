@@ -13,10 +13,10 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473318"
 ---
 # <a name="reset-your-work-or-school-password"></a>Reimpostare la password aziendale o dell’istituto di istruzione
@@ -155,7 +155,7 @@ Se l'amministratore ha attivato la funzionalità, è possibile visualizzare un c
 
 Di seguito sono riportati alcuni degli errori più comuni e le relative soluzioni:
 
-|Problema|DESCRIZIONE|Soluzione|
+|Problema|Descrizione|Soluzione|
 | --- | --- | --- |
 |Quando si tenta di modificare la password, viene visualizzato un errore. |La password contiene una parola o una frase o segue uno schema che la rende facile da indovinare.| Riprovare con una password più complessa.|
 |Dopo avere immesso l'ID utente, viene visualizzata una pagina in cui è indicato "Contattare l'amministratore".|Microsoft ha stabilito che la password dell'account utente è gestita dall'amministratore in un ambiente locale. Di conseguenza, non è possibile reimpostare la password dal collegamento "Problemi di accesso all'account?". |Contattare l'amministratore per ulteriore assistenza.|

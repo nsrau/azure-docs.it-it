@@ -9,18 +9,18 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0b35ef5ca3aaa7ad4169f99e2830ebea76d2759e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752960"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074937"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurare le destinazioni di calcolo per il training del modello 
 
-Con il servizio Azure Machine Learning è possibile eseguire il training del modello in un'ampia gamma di risorse o ambienti, collettivamente definiti [__destinazioni di calcolo__](concept-azure-machine-learning-architecture.md#compute-target). Una destinazione di calcolo può essere un computer locale o una risorsa cloud, come un ambiente di calcolo di Machine Learning, Azure HDInsight o una macchina virtuale remota.  È possibile anche creare destinazioni di calcolo per la distribuzione del modello, come descritto in ["Dove e come distribuire i modelli"](how-to-deploy-and-where.md).
+Con il servizio Azure Machine Learning è possibile eseguire il training del modello in un'ampia gamma di risorse o ambienti, collettivamente definiti [__destinazioni di calcolo__](concept-azure-machine-learning-architecture.md#compute-targets). Una destinazione di calcolo può essere un computer locale o una risorsa cloud, come un ambiente di calcolo di Machine Learning, Azure HDInsight o una macchina virtuale remota.  È possibile anche creare destinazioni di calcolo per la distribuzione del modello, come descritto in ["Dove e come distribuire i modelli"](how-to-deploy-and-where.md).
 
 È possibile creare e gestire una destinazione di calcolo usando il SDK di Azure Machine Learning, portale di Azure, estensione di comando di Azure o Visual Studio Code di Azure Machine Learning. Se si dispone di destinazioni di calcolo create tramite un altro servizio, ad esempio un cluster HDInsight, è possibile usarle associandole all'area di lavoro del servizio Azure Machine Learning.
  
@@ -31,7 +31,7 @@ Questo articolo illustra come usare diverse destinazioni di calcolo per il train
 
 
 >[!NOTE]
-> Il codice in questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.39.
+> Il codice di questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.39.
 
 ## <a name="compute-targets-for-training"></a>Destinazioni di calcolo per il training
 
@@ -75,7 +75,7 @@ Il codice seguente illustra un esempio di configurazione di esecuzioni di traini
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
-## <a name="set-up-compute-targets-with-python"></a>Configurare le destinazioni di calcolo con Python
+## <a name="set-up-in-python"></a>Configurare Python
 
 Usare le sezioni seguenti per configurare queste destinazioni di calcolo:
 
@@ -271,7 +271,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-compute-in-the-azure-portal"></a>Configurare l'ambiente di calcolo nel portale di Azure
+## <a name="set-up-in-azure-portal"></a>Configurare nel portale di Azure
 
 È possibile accedere alle destinazioni di calcolo associate all'area di lavoro nel portale di Azure.  Nel portale è possibile:
 
@@ -357,7 +357,7 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 1. Selezionare __Allega__. 
 1. Visualizzare lo stato dell'operazione di collegamento selezionando la destinazione di calcolo dall'elenco.
 
-## <a name="set-up-compute-with-the-cli"></a>Configurare le risorse di calcolo con l'interfaccia della riga di comando
+## <a name="set-up-with-cli"></a>Configurare con CLI
 
 È possibile accedere alle destinazioni di calcolo collegate all'area di lavoro usando l'[estensione dell'interfaccia della riga di comando](reference-azure-machine-learning-cli.md) per il servizio Azure Machine Learning.  È possibile usare l'interfaccia della riga di comando per:
 
@@ -367,7 +367,7 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 Per altre informazioni consultare [Gestione delle risorse](reference-azure-machine-learning-cli.md#resource-management).
 
-## <a name="set-up-compute-with-vs-code"></a>Impostare le risorse di calcolo con Visual Studio Code
+## <a name="set-up-with-vs-code"></a>Configurare con Visual Studio Code
 
 È possibile accedere, creare e gestire le destinazioni di calcolo associati con l'area di lavoro utilizzando il [estensione di Visual Studio Code](how-to-vscode-tools.md#create-and-manage-compute-targets) per il servizio di Azure Machine Learning.
 
@@ -384,7 +384,7 @@ Dopo aver creato una configurazione di esecuzione, questa si usa per l'esecuzion
 >
 > Per impedire che viene incluso nello snapshot di file, creare un [file con estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` file nella directory e aggiungere i file a esso. Il `.amlignore` file utilizza la stessa sintassi e i modelli come i [file con estensione gitignore](https://git-scm.com/docs/gitignore) file. Se entrambi i file esistono, il `.amlignore` file ha la precedenza.
 > 
-> Per altre informazioni, vedere [Snapshot](concept-azure-machine-learning-architecture.md#snapshot).
+> Per altre informazioni, vedere [Snapshot](concept-azure-machine-learning-architecture.md#snapshots).
 
 ### <a name="create-an-experiment"></a>Creare un esperimento
 

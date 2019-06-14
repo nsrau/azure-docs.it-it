@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b1c0d33a7d920f76bcbea6d8d6babc7390003bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60383757"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
@@ -29,7 +29,7 @@ Questo articolo descrive diverse topologie locali e di Azure Active Directory (A
 
 Ecco la legenda delle immagini usate nell'articolo:
 
-| DESCRIZIONE | Simbolo |
+| Descrizione | Simbolo |
 | --- | --- |
 | Foresta locale di Active Directory |![Foresta locale di Active Directory](./media/plan-connect-topologies/LegendAD1.png) |
 | Active Directory locale con importazione con filtri |![Active Directory con importazione con filtri](./media/plan-connect-topologies/LegendAD2.png) |

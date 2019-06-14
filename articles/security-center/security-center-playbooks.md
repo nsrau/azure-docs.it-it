@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ec16e6daec099adbede625c5ec6fe6909059143b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60907003"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Playbook di sicurezza nel Centro sicurezza di Azure (anteprima)
@@ -34,7 +34,7 @@ Il playbook di sicurezza è una raccolta di procedure che possono essere eseguit
 Per creare un nuovo playbook di sicurezza dal Centro sicurezza, seguire questa procedura:
 
 1.  Aprire il dashboard del **Centro sicurezza**.
-2.  Nella sezione **Automazione e orchestrazione** nel riquadro a sinistra fare clic su **Playbook (anteprima)**.
+2.  Nella sezione **Automazione e orchestrazione** nel riquadro a sinistra fare clic su **Playbook (anteprima)** .
 
     ![App per la logica](./media/security-center-playbooks/security-center-playbooks-fig17.png)
 
@@ -96,7 +96,7 @@ In questo flusso di lavoro è possibile visualizzare il tempo necessario per l'e
 > Per altre informazioni su come creare un playbook usando App per la logica di Azure, vedere [Creare il primo flusso di lavoro di app per la logica per automatizzare i processi tra app cloud e servizi cloud](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app).
 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 In questo documento è stato descritto come usare playbook nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.

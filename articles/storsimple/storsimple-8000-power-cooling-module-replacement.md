@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632462"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Sostituzione di un modulo di alimentazione e raffreddamento nel dispositivo StorSimple
@@ -61,7 +61,7 @@ Per rimuovere un modulo di alimentazione e raffreddamento (PCM, Power and Coolin
    
      **Figura 1** Pannello anteriore del dispositivo  
    
-   | Etichetta | DESCRIZIONE |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |Pulsante di disattivazione audio |
    | 2 |Alimentazione del sistema |
@@ -74,7 +74,7 @@ Per rimuovere un modulo di alimentazione e raffreddamento (PCM, Power and Coolin
    
      **Figura 2** Parte posteriore del PCM con i LED degli indicatori
    
-   | Etichetta | DESCRIZIONE |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |Guasto dell’alimentazione CA |
    | 2 |Guasto alla ventola |
@@ -88,7 +88,7 @@ Per rimuovere un modulo di alimentazione e raffreddamento (PCM, Power and Coolin
    
      **Figura 3** Parte posteriore del dispositivo con moduli plug-in 
    
-   | Etichetta | DESCRIZIONE |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |

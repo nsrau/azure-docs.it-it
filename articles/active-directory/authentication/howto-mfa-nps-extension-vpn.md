@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570652"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Azure
@@ -153,7 +153,7 @@ Per il corretto funzionamento in questo scenario, è necessario registrare Serve
 
 Per configurare il server RADIUS, è possibile usare un'opzione di configurazione standard (basata su procedura guidata) o avanzata. Questa sezione presuppone l'uso dell'opzione di configurazione standard basata su procedura guidata.
 
-1. Nella console di Server dei criteri di rete selezionare **Server dei criteri di rete (locale)**.
+1. Nella console di Server dei criteri di rete selezionare **Server dei criteri di rete (locale)** .
 
 2. In **Configurazione standard** selezionare **Server RADIUS per connessioni remote o VPN** e quindi scegliere **Configurazione VPN o connessioni remote**.
 
@@ -171,7 +171,7 @@ Per configurare il server RADIUS, è possibile usare un'opzione di configurazion
 
 6. Selezionare **OK**, quindi **Avanti**.
 
-7. Nella finestra **Configurazione metodi di autenticazione** accettare l'opzione predefinita, ovvero **Autenticazione crittografata Microsoft versione 2 (MS-CHAP v2)**, oppure scegliere un'altra opzione e selezionare **Avanti**.
+7. Nella finestra **Configurazione metodi di autenticazione** accettare l'opzione predefinita, ovvero **Autenticazione crittografata Microsoft versione 2 (MS-CHAP v2)** , oppure scegliere un'altra opzione e selezionare **Avanti**.
 
     > [!NOTE]
     > Se si configura il protocollo Extensible Authentication Protocol, è necessario usare Microsoft Challenge Handshake Authentication Protocol (CHAPv2) o PEAP Protected Extensible Authentication Protocol. Non sono supportate altre opzioni EAP.
@@ -269,7 +269,7 @@ In questa sezione si verifica che il client VPN sia autenticato e autorizzato da
 
 4. Selezionare **Aggiungi una connessione VPN**.
 
-5. Nella finestra **Aggiungi una connessione VPN** della casella **Provider VPN** selezionare **Windows (predefinito)**, completare i campi rimanenti in base alle esigenze e quindi fare clic su **Salva**.
+5. Nella finestra **Aggiungi una connessione VPN** della casella **Provider VPN** selezionare **Windows (predefinito)** , completare i campi rimanenti in base alle esigenze e quindi fare clic su **Salva**.
 
     ![Finestra "Aggiungi una connessione VPN](./media/howto-mfa-nps-extension-vpn/image17.png)
 

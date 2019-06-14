@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: ed534f910fa1e44d3d53ab61ee86378eba788036
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 42f290109ca380464cb07ac9f684cdde25b8fdcd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240391"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063776"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Piani tariffari in Database di Azure per PostgreSQL - Server singolo
 
@@ -54,6 +54,26 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 È possibile aggiungere capacità di archiviazione durante e dopo la creazione del server e consentire al sistema di aumento delle dimensioni di archiviazione automaticamente in base all'utilizzo di archiviazione del carico di lavoro. Il piano Basic non offre la garanzia relativa alle operazioni di I/O al secondo. Nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria, la scalabilità delle operazioni di I/O al secondo rispetto allo spazio di archiviazione sottoposto a provisioning è in un rapporto di 3 a 1.
 
 È possibile monitorare il consumo di I/O nel portale di Azure oppure usando i comandi dell'interfaccia della riga di comando di Azure. Le metriche pertinenti al monitoraggio sono il [limite di archiviazione, la percentuale di archiviazione, lo spazio di archiviazione usato e la percentuale di I/O](concepts-monitoring.md).
+
+### <a name="large-storage-preview"></a>Archiviazione di grandi dimensioni (anteprima)
+
+I limiti di archiviazione attualmente stiamo aumentando i livelli di utilizzo generico e ottimizzate per la memoria. Appena creati server di tale acconsentire esplicitamente all'anteprima di effettuare il provisioning fino a 16 TB di spazio di archiviazione. Il numero di IOPS scala a un rapporto 3:1 fino a 20.000 IOPS. Come con l'archiviazione disponibile a livello generale corrente, è possibile aggiungere capacità di archiviazione dopo la creazione del server e consentire al sistema di aumento delle dimensioni di archiviazione automaticamente in base all'utilizzo di archiviazione del carico di lavoro.
+
+|              | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
+|:-------------|:--------------------|:---------------------|
+| Tipo di archiviazione | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
+| Dimensioni della risorsa di archiviazione | 32 GB a 16 TB| da 32 a 16 TB |
+| Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB |
+| IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Numero massimo di 20.000 IOPS| 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Numero massimo di 20.000 IOPS |
+
+> [!IMPORTANT]
+> Archiviazione di grandi dimensioni è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti occidentali 2, Europa settentrionale, Europa occidentale, Asia sud-orientale, Giappone orientale, Corea centrale, Australia orientale.
+>
+>L'anteprima di archiviazione di grandi dimensioni attualmente non supporta:
+>
+> * Connessioni in ingresso tramite gli endpoint di servizio di rete virtuale
+> * Backup con ridondanza geografica
+> * Cross replica tra aree
 
 ### <a name="reaching-the-storage-limit"></a>Raggiungimento del limite di archiviazione
 

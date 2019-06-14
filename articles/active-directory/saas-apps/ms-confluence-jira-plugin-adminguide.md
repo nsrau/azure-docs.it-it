@@ -15,10 +15,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60935779"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guida dell'amministratore per Atlassian Jira e Confluence per Azure Active Directory
@@ -112,11 +112,11 @@ L'immagine seguente mostra la schermata di configurazione in Jira e Confluence:
 
 * **Metadata URL** (URL metadata): URL per ottenere i metadati di federazione da Azure AD.
 
-* **Identifiers** (Identificatori): URL usato da Azure AD per convalidare l'origine della richiesta. È associato all'elemento **Identificatore** di Azure Active Directory. Il plug-in viene generato automaticamente questo URL come https://*\<dominio: porta >*/.
+* **Identifiers** (Identificatori): URL usato da Azure AD per convalidare l'origine della richiesta. È associato all'elemento **Identificatore** di Azure Active Directory. Il plug-in viene generato automaticamente questo URL come https:// *\<dominio: porta >* /.
 
-* **Reply URL** (URL di risposta): URL di risposta nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **URL di risposta** di Azure Active Directory. Il plug-in viene generato automaticamente questo URL come https://*\<dominio: porta >*/plugins/servlet/saml/auth.
+* **Reply URL** (URL di risposta): URL di risposta nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **URL di risposta** di Azure Active Directory. Il plug-in viene generato automaticamente questo URL come https:// *\<dominio: porta >* /plugins/servlet/saml/auth.
 
-* **Sign On URL** (URL di accesso): URL di accesso nel provider di identità (IdP) che avvia la procedura di accesso a SAML. È associato all'elemento **Accesso** di Azure Active Directory. Il plug-in viene generato automaticamente questo URL come https://*\<dominio: porta >*/plugins/servlet/saml/auth.
+* **Sign On URL** (URL di accesso): URL di accesso nel provider di identità (IdP) che avvia la procedura di accesso a SAML. È associato all'elemento **Accesso** di Azure Active Directory. Il plug-in viene generato automaticamente questo URL come https:// *\<dominio: porta >* /plugins/servlet/saml/auth.
 
 * **IdP Entity ID** (ID entità IdP): ID entità usato dal provider di identità. Questo campo viene popolato quando viene risolto l'URL dei metadati.
 
@@ -144,7 +144,7 @@ L'immagine seguente mostra la schermata di configurazione in Jira e Confluence:
 
 * **Un certificato sta per scadere in Azure AD**: l'esecuzione dell'effetto di attivazione automatico del certificato è gestita da componenti aggiuntivi. Quando un certificato sta per scadere, è necessario che un nuovo certificato venga contrassegnato come attivo e che i certificati inutilizzati vengano eliminati. Quando un utente tenta di eseguire l'accesso a Jira in questo scenario, il plug-in recupera e salva il nuovo certificato.
 
-* **Come disabilitare WebSudo (disabilitare la sessione amministratore protetta)**:
+* **Come disabilitare WebSudo (disabilitare la sessione amministratore protetta)** :
 
   * Per Jira, le sessioni amministratore protette (ovvero la conferma della password prima di accedere alle funzioni di amministrazione) sono abilitate per impostazione predefinita. Se si vuole disabilitare questa funzionalità nell'istanza di Jira, specificare la riga seguente nel file jira-config.properties: `ira.websudo.is.disabled = true`
 
@@ -180,7 +180,7 @@ Il plug-in funziona solo con le versioni locali di Jira e Confluence.
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>Il plug-in funziona con le versioni cloud?
 
- No. Il plug-in supporta solo le versioni locali di Jira e Confluence.
+No. Il plug-in supporta solo le versioni locali di Jira e Confluence.
 
 ### <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>Quali sono le versioni di Jira e Confluence supportate dal plug-in?
 
@@ -224,7 +224,7 @@ Questo plug-in è stato testato solo su installazioni di Jira e Confluence in Wi
 
 ### <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>Il plug-in funziona con provider di identità diversi da Azure AD?
 
- No. Funziona solo con Azure AD.
+No. Funziona solo con Azure AD.
 
 ### <a name="what-version-of-saml-does-the-plug-in-work-with"></a>Con quale versione di SAML funziona questo plug-in?
 
@@ -232,12 +232,12 @@ Funziona con SAML 2.0.
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>Il plug-in esegue il provisioning degli utenti?
 
- No. Il plug-in fornisce solo accesso Single Sign-On basato su SAML 2.0. È quindi necessario che venga eseguito il provisioning dell'utente nell'applicazione prima di poter effettuare l'accesso Single Sign-On.
+No. Il plug-in fornisce solo accesso Single Sign-On basato su SAML 2.0. È quindi necessario che venga eseguito il provisioning dell'utente nell'applicazione prima di poter effettuare l'accesso Single Sign-On.
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>Il plug-in supporta le versioni cluster di Jira e Confluence?
 
- No. Il plug-in funziona solo con le versioni locali di Jira e Confluence.
+No. Il plug-in funziona solo con le versioni locali di Jira e Confluence.
 
 ### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>Il plug-in funziona con le versioni HTTP di Jira e Confluence?
 
- No. Questo plug-in funziona solo con installazioni abilitate per HTTPS.
+No. Questo plug-in funziona solo con installazioni abilitate per HTTPS.

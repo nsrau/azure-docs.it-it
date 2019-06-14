@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370357"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione con pagamento in base al consumo
@@ -44,7 +44,7 @@ La parte hardware della VM è coperta perché la VM distribuita corrisponde agli
 
 ### <a name="statement-section-of-csv-file-for-vms"></a>Sezione relativa al rendiconto nel file CSV per le macchine virtuali
 
-Questa sezione del file CSV indica l'utilizzo totale della prenotazione. Nel campo **Sottocategoria contatore** applicare il filtro che contiene **"Istanze riservate"**. Il contenuto visualizzato sarà simile allo screenshot seguente:
+Questa sezione del file CSV indica l'utilizzo totale della prenotazione. Nel campo **Sottocategoria contatore** applicare il filtro che contiene **"Istanze riservate"** . Il contenuto visualizzato sarà simile allo screenshot seguente:
 
 ![Screenshot dei dettagli filtrati sull'utilizzo della prenotazione e addebiti](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 989c5c1cd9474999400177293d896b96c79c32b7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5333f02edd6a4ff888e28ed36c2b78f75309f4d4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955249"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060915"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Architettura di Azure Blockchain Workbench
 
@@ -45,7 +45,7 @@ Nell'applicazione Web gli utenti autorizzati possono accedere alla Console di am
 * Caricare e distribuire i propri contratti intelligenti.
 * Assegnare a un utente l'accesso al contratto intelligente nel contesto di un ruolo specifico.
 
-Per altre informazioni, vedere: [Le applicazioni client di Azure Blockchain Workbench esempio su GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-development-kit/connect/mobile/blockchain-workbench/workbench-client).
+Per altre informazioni, vedere: [Le applicazioni client di Azure Blockchain Workbench esempio su GitHub](https://github.com/Azure-Samples/blockchain-devkit/tree/master/connect/mobile).
 
 ## <a name="gateway-service-api"></a>API del servizio gateway
 

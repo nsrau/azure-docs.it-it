@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c26a5007c2dcaa5d41be46f685f0f259866ca2c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8240a487bdb01cdbe9017ddc7cb95ce4fc0e1503
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544066"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052339"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per consentire agli utenti con identità di social networking
 
@@ -177,7 +177,7 @@ La soluzione alternativa suggerita consiste nell'usare il [dai criteri di memori
 In alternativa, è possibile usare la `tid` attestazione, se si usa la [i criteri personalizzati B2C](https://aka.ms/ief), in quanto offre la possibilità di restituire attestazioni aggiuntive all'applicazione. Per altre informazioni su [trasformazione delle attestazioni](/azure/active-directory-b2c/claims-transformation-technical-profile)
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigazione dei rischi per "Mancante dalla risposta del token"
-Una possibilità consiste nell'usare l'attestazione "name" come nome utente preferito. Il processo è descritto in questo [B2C doc](/azure/active-directory-b2c/active-directory-b2c-reference-policies#frequently-asked-questions) -> "della colonna restituito attestazioni, scegliere le attestazioni che devono essere restituite nei token di autorizzazione inviati all'applicazione dopo la corretta esperienza di modifica del profilo. Ad esempio, selezionare nome visualizzato, codice postale".
+Una possibilità consiste nell'usare l'attestazione "name" come nome utente preferito. Il processo è descritto in questo [B2C doc](../../active-directory-b2c/active-directory-b2c-reference-policies.md) -> "della colonna restituito attestazioni, scegliere le attestazioni che devono essere restituite nei token di autorizzazione inviati all'applicazione dopo la corretta esperienza di modifica del profilo. Ad esempio, selezionare nome visualizzato, codice postale".
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

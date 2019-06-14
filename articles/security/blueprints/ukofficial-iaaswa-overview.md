@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609475"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Progetto per la sicurezza e la conformità di Azure: Automazione di applicazioni Web IaaS su tre livelli per UK OFFICIAL
@@ -154,7 +154,7 @@ Queste reti virtuali vengono gestite comunque come risorse separate, ma vengono 
 
 **Gruppi di sicurezza di rete**: i [gruppi di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contengono elenchi di controllo di accesso (ACL) che consentono o negano il traffico in una rete virtuale. I gruppi di sicurezza di rete possono essere usati per proteggere il traffico a livello di subnet o di singola VM.
 
-**Active Directory Domain Services (AD DS)**: questa architettura offre una distribuzione dedicata di [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx).
+**Active Directory Domain Services (AD DS)** : questa architettura offre una distribuzione dedicata di [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx).
 
 **Registrazione e controllo**: il [log attività di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) acquisisce operazioni eseguite nelle risorse della sottoscrizione, inclusi dati quali l'utente che ha avviato l'operazione, il momento in cui è stata eseguita l'operazione, lo stato dell'operazione e i valori di altre proprietà che potrebbero essere utili per eseguire ricerche sull'operazione. Log attività di Azure è un servizio piattaforma di Azure che acquisisce tutte le azioni eseguite in una sottoscrizione. I log possono essere archiviati o esportati, se necessario.
 

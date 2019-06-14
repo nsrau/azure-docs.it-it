@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538244"
 ---
 # <a name="get-started-with-the-query-action"></a>Introduzione all'azione di query
@@ -56,7 +56,7 @@ Ecco come è possibile aggiungerla in un'app per la logica:
 ## <a name="query-action"></a>Azione di query
 Ecco i dettagli per l'azione supportata da questo connettore. Il connettore supporta una sola azione possibile.
 
-| Azione | DESCRIZIONE |
+| Azione | Descrizione |
 | --- | --- |
 | Filtra matrice |Valuta una condizione per ogni elemento in una matrice e restituisce i risultati |
 
@@ -67,7 +67,7 @@ L'azione di query supporta un'azione possibile. La tabella seguente descrive i c
 Di seguito sono riportati campi di input per l'azione, che esegue una richiesta HTTP in uscita.
 Un asterisco (*) indica che è un campo obbligatorio.
 
-| Nome visualizzato | Nome proprietà | DESCRIZIONE |
+| `Display name` | Nome proprietà | Descrizione |
 | --- | --- | --- |
 | Da* |from |La matrice da filtrare |
 | Condizione* |dove |La condizione da valutare per ogni elemento |
@@ -77,7 +77,7 @@ Un asterisco (*) indica che è un campo obbligatorio.
 ### <a name="output-details"></a>Dettagli dell'output
 Di seguito sono riportati i dettagli di output per la risposta HTTP.
 
-| Nome proprietà | Tipo di dati | DESCRIZIONE |
+| Nome proprietà | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | Matrice filtrata |array |Matrice che contiene un oggetto per ogni risultato filtrato |
 

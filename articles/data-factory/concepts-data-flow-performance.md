@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: d4acc620fb2a4c41615c745516e5ccfafd59d848
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480424"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057965"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapping delle prestazioni di flussi di dati e l'ottimizzazione manuale
 
@@ -41,7 +41,7 @@ Fare clic sull'icona visualizzerà il piano di esecuzione e il profilo di presta
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Ottimizzazione per il Database SQL di Azure e Azure SQL Data Warehouse
 
-![Parte di origine](media/data-flow/sourcepart2.png "parte dell'origine")
+![Parte di origine](media/data-flow/sourcepart3.png "parte dell'origine")
 
 ### <a name="partition-your-source-data"></a>Partizionare i dati di origine
 
@@ -122,8 +122,8 @@ Fare clic sull'icona visualizzerà il piano di esecuzione e il profilo di presta
 * Per evitare l'esaurimento delle risorse di nodo di calcolo, è possibile mantenere il valore predefinito o esplicito schema di partizionamento in Azure Data factory, in modo da ottimizzare per le prestazioni, e quindi aggiungere un'attività di copia successive della pipeline che unisce tutta la parte dei file dalla cartella dell'output di un singolo nuovo file. In pratica, questa tecnica separa l'azione di trasformazione dall'unione di file e consente di ottenere lo stesso risultato dell'impostazione di "output in un singolo file".
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli altri articoli del flusso di dati:
+Vedere gli altri del flusso di dati articoli correlati alle prestazioni:
 
-- [Cenni preliminari sul flusso di dati](concepts-data-flow-overview.md)
+- [Scheda Ottimizza il flusso di dati](concepts-data-flow-optimize-tab.md)
 - [Attività del flusso di dati](control-flow-execute-data-flow-activity.md)
 - [Monitorare le prestazioni del flusso di dati](concepts-data-flow-monitoring.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 95682612b4b0fdb1baa5038039630e74abddb1a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 84d212129c5225fd0efebfca5640cfc3d32e8a40
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460321"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072402"
 ---
 # <a name="what-is-speech-translation"></a>Che cos'è la traduzione vocale?
 
@@ -32,9 +32,9 @@ Ecco le funzionalità disponibili attraverso il sistema Speech SDK e API REST:
 
 | Caso d'uso | SDK | REST |
 |----------|-----|------|
-| Traduzione vocale-con risultati del riconoscimento. | Sì | No  |
-| Traduzione vocale vocale. | Sì | No  |
-| Risultati di riconoscimento e traduzione intermedi. | Sì | No  |
+| Traduzione vocale-con risultati del riconoscimento. | Yes | No |
+| Traduzione vocale vocale. | Yes | No |
+| Risultati di riconoscimento e traduzione intermedi. | Yes | No |
 
 ## <a name="get-started-with-speech-translation"></a>Introduzione a funzionalità di traduzione vocale
 
@@ -46,7 +46,7 @@ Sono disponibili guide introduttive progettato per l'esecuzione di codice in men
 | [C#, .NET framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [Java](quickstart-translate-speech-java-jre.md) | Windows | [Browse](https://aka.ms/csspeech/javaref) |
+| [Java](quickstart-translate-speech-java-jre.md) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Codice di esempio
 

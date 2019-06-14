@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d2c7211831658a18e65e04aa753607f4eb22dac8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515084"
 ---
 # <a name="what-is-bing-speech"></a>Informazioni su Riconoscimento vocale Bing
@@ -36,10 +36,10 @@ L'API Riconoscimento vocale Microsoft *trascrive* i flussi audio in testo che l'
 
 | Casi d'uso | [API REST](GetStarted/GetStartedREST.md) | [Librerie client](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertire breve contenuto vocale, ad esempio comandi (lunghezza audio < 15 secondi) senza risultati temporanei | Sì | Sì |
-| Convertire contenuto audio lungo (> 15 secondi) | No  | Sì |
-| Trasmettere un flusso audio con risultati temporanei desiderati | No  | Sì |
-| Comprendere il testo convertito dall'audio tramite LUIS | No  | Sì |
+| Convertire breve contenuto vocale, ad esempio comandi (lunghezza audio < 15 secondi) senza risultati temporanei | Yes | Yes |
+| Convertire contenuto audio lungo (> 15 secondi) | No | Yes |
+| Trasmettere un flusso audio con risultati temporanei desiderati | No | Yes |
+| Comprendere il testo convertito dall'audio tramite LUIS | No | Yes |
 
 Indipendentemente dall'approccio scelto dagli sviluppatori (API REST o librerie client), il Servizio di riconoscimento vocale Microsoft supporta le funzionalità seguenti:
 

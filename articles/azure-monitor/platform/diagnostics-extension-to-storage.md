@@ -9,10 +9,10 @@ ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395068"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure
@@ -34,13 +34,13 @@ A seconda del tipo di dati di diagnostica da raccogliere, Diagnostica di Azure u
 | Origine dati | Formato di archiviazione |
 | --- | --- |
 | Log di Azure |Tabella |
-| Log di IIS 7.0 |BLOB |
+| Log di IIS 7.0 |Blob |
 | Log dell'infrastruttura Diagnostica di Azure |Tabella |
-| Log di analisi delle richieste non riuscite |BLOB |
+| Log di analisi delle richieste non riuscite |Blob |
 | Log eventi di Windows |Tabella |
 | Contatori delle prestazioni |Tabella |
-| Dump di arresto anomalo del sistema |BLOB |
-| Log degli errori personalizzati |BLOB |
+| Dump di arresto anomalo del sistema |Blob |
+| Log degli errori personalizzati |Blob |
 
 ## <a name="transfer-diagnostic-data"></a>Trasferire i dati di diagnostica
 Per SDK 2.5 e versioni successive, la richiesta di trasferimento dei dati di diagnostica può verificarsi nel file di configurazione. È possibile trasferire i dati di diagnostica a intervalli pianificati, come specificato nella configurazione.
@@ -71,7 +71,7 @@ I dati dei log vengono archiviati nell'archivio BLOB o tabelle con i nomi seguen
 * **"custom"** : contenitore personalizzato basato sulle directory di configurazione monitorate dal monitor di diagnostica.  Il nome di questo contenitore BLOB verrà specificato in WADDirectoriesTable.
 
 ## <a name="tools-to-view-diagnostic-data"></a>Strumenti per visualizzare i dati di diagnostica
-Sono disponibili diversi strumenti per visualizzare i dati una volta trasferiti nell'account di archiviazione. Ad esempio: 
+Sono disponibili diversi strumenti per visualizzare i dati una volta trasferiti nell'account di archiviazione. Ad esempio:
 
 * Esplora server in Visual Studio: se sono stati installati gli Strumenti di Azure per Microsoft Visual Studio, è possibile usare il nodo Archiviazione di Azure in Esplora server per visualizzare i dati di tabelle e BLOB di sola lettura dagli account di archiviazione di Azure. È possibile visualizzare i dati dall'account dell'emulatore di archiviazione locale e anche dagli account di archiviazione creati per Azure. Per altre informazioni, vedere [Esplorazione e gestione delle risorse di archiviazione con Esplora server](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, OSX e Linux.

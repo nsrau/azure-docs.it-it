@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: amishu
-ms.openlocfilehash: 41a55eca321cbe1bfa23a889b8e3ce7c701ce769
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 8717dad27786450e4275c9fd91523c0e9379f375
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468050"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073052"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Usando i codec di compressione input audio con Speech SDK
 
@@ -23,6 +23,7 @@ il SDK di riconoscimento vocale **Stream di Input Audio Compressed** API fornisc
 
 > [!IMPORTANT]
 > Lo streaming di audio compresso è supportato solo per C++, C#e Java su Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9).
+> Speech SDK versione 1.4.0 o versione successiva è obbligatorio.
 
 Per wav/PCM vedere la documentazione principale di riconoscimento vocale.  Di fuori di PCM/wav, sono supportati i formati di input di codec di compressione seguenti:
 

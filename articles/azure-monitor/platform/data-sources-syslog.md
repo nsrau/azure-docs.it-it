@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240822"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Origini dati Syslog in Monitoraggio di Azure
@@ -54,7 +54,7 @@ L'agente di Log Analytics per Linux raccoglie solo gli eventi con le funzionalit
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configurare Syslog nel portale di Azure
 Configurare Syslog usando il [menu Dati in Impostazioni avanzate](agent-data-sources.md#configuring-data-sources). Questa configurazione viene distribuita al file di configurazione su ogni agente Linux.
 
-È possibile aggiungere una nuova funzionalità digitando il nome corrispondente e facendo clic su **+**. Per ogni funzionalità vengono raccolti solo i messaggi con i livelli di gravità selezionati.  Controllare i livelli di gravità relativi alla funzionalità per la quale si vuole raccogliere i dati. Non è possibile specificare altri criteri per filtrare i messaggi.
+È possibile aggiungere una nuova funzionalità digitando il nome corrispondente e facendo clic su **+** . Per ogni funzionalità vengono raccolti solo i messaggi con i livelli di gravità selezionati.  Controllare i livelli di gravità relativi alla funzionalità per la quale si vuole raccogliere i dati. Non è possibile specificare altri criteri per filtrare i messaggi.
 
 ![Configurare Syslog](media/data-sources-syslog/configure.png)
 
@@ -215,7 +215,7 @@ I record Syslog sono di tipo **Syslog** e hanno le proprietà descritte nella ta
 ## <a name="log-queries-with-syslog-records"></a>Query di log con record Syslog
 La tabella seguente mostra alcuni esempi di query di log che recuperano i record Syslog.
 
-| Query | DESCRIZIONE |
+| Query | Descrizione |
 |:--- |:--- |
 | syslog |Tutti i record Syslog. |
 | Syslog &#124; where SeverityLevel == "error" |Tutti i record Syslog con livello di gravità errore. |

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764306"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Attività di Webhook in Azure Data Factory
@@ -54,16 +54,16 @@ ms.locfileid: "60764306"
 
 
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività hook web | string | Sì |
-type | Deve essere impostata su **WebHook**. | string | Sì |
-method | Metodo API REST per l'endpoint di destinazione. | Stringa. Tipi supportati: 'POST' | Sì |
-url | Endpoint e percorso di destinazione | Stringa (o espressione con l'elemento resultType della stringa). | Sì |
+name | Nome dell'attività hook web | String | Yes |
+type | Deve essere impostata su **WebHook**. | String | Yes |
+statico | Metodo API REST per l'endpoint di destinazione. | Stringa. Tipi supportati: 'POST' | Yes |
+url | Endpoint e percorso di destinazione | Stringa (o espressione con l'elemento resultType della stringa). | Yes |
 headers | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare la lingua e il tipo in una richiesta: "headers": {"Accept-Language": "en-us", "Content-Type": "application/json"}. | Stringa (o un'espressione con l'elemento resultType della stringa) | Sì, l'intestazione Content-type è obbligatoria. "headers":{ "Content-Type":"application/json"} |
-Corpo | Rappresenta il payload inviato all'endpoint. | Il corpo passato nuovamente per la funzione di richiamata URI deve essere un oggetto JSON valido. Vedere lo schema del payload della richiesta nella sezione [Schema del payload della richiesta](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0). | Sì |
-authentication | Metodo di autenticazione usato per chiamare l'endpoint. Tipi supportati sono "Basic" o "ClientCertificate". Per altre informazioni, vedere la sezione [Autenticazione](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0). Se l'autenticazione non è necessaria, escludere questa proprietà. | Stringa (o un'espressione con l'elemento resultType della stringa) | No  |
-timeout | Tempo di attesa dell'attività per il &#39;callBackUri&#39; da richiamare. Tempo di attesa dell'attività per callBackUri da richiamare. Valore predefinito è 10mins ("00: 10:00"). È di formato Timespan, ad esempio d.hh:mm:ss | string | No  |
+Corpo | Rappresenta il payload inviato all'endpoint. | Il corpo passato nuovamente per la funzione di richiamata URI deve essere un oggetto JSON valido. Vedere lo schema del payload della richiesta nella sezione [Schema del payload della richiesta](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0). | Yes |
+authentication | Metodo di autenticazione usato per chiamare l'endpoint. Tipi supportati sono "Basic" o "ClientCertificate". Per altre informazioni, vedere la sezione [Autenticazione](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0). Se l'autenticazione non è necessaria, escludere questa proprietà. | Stringa (o un'espressione con l'elemento resultType della stringa) | No |
+timeout | Tempo di attesa dell'attività per il &#39;callBackUri&#39; da richiamare. Tempo di attesa dell'attività per callBackUri da richiamare. Valore predefinito è 10mins ("00: 10:00"). È di formato Timespan, ad esempio d.hh:mm:ss | String | No |
 
 ## <a name="additional-notes"></a>Note aggiuntive
 

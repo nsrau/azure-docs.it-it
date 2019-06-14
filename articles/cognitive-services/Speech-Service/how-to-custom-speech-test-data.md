@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: de2f1009c574d9768330d4e6a38a219ba1f81daa
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 04da6b7a904bed8fa0990afe77b7fc81bec5a76e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237944"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064021"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per il riconoscimento vocale personalizzato
 
@@ -27,9 +27,9 @@ Questa tabella elenca i tipi di dati accettati, quando usare ogni tipo di dati e
 
 | Tipo di dati | Utilizzato di test | Quantità | Utilizzato per il training | Quantità |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Sì<br>Utilizzato per l'esame visivo | file audio 5 + | N. | n/d |
-| [Trascrizioni audio + con etichetta umane](#audio--human-labeled-transcript-data-for-testingtraining) | Sì<br>Utilizzato per valutare l'accuratezza | 0,5 - 5 ore dell'audio | Sì | 1 - 1.000 ore di audio |
-| [Testo correlato](##related-text-data-for-training) | N. | n/d | Sì | 1-200 MB di testo correlato |
+| [Audio](#audio-data-for-testing) | Yes<br>Utilizzato per l'esame visivo | file audio 5 + | No | n/d |
+| [Trascrizioni audio + con etichetta umane](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Utilizzato per valutare l'accuratezza | 0,5 - 5 ore dell'audio | Yes | 1 - 1.000 ore di audio |
+| [Testo correlato](##related-text-data-for-training) | No | n/d | Yes | 1-200 MB di testo correlato |
 
 I file devono essere raggruppati per tipo in un set di dati e caricati come file zip. Ogni set di dati può contenere solo un singolo tipo di dati.
 
@@ -44,7 +44,7 @@ Ogni set di dati caricati deve soddisfare i requisiti per il tipo di dati scelto
 Dopo aver caricato il set di dati, sono disponibili alcune opzioni:
 
 * È possibile passare al **Testing** scheda ed esaminare visivamente trascrizione audio + con etichetta umane dati o solo l'audio.
-* È possibile passare per il **Training** scheda e Stati Uniti i dati di trascrizione audio + risorse umane o dati di testo correlate per addestrare un modello personalizzato.
+* È possibile passare per il **Training** scheda e usare dati di trascrizione audio + risorse umane o testo correlato per addestrare un modello personalizzato.
 
 ## <a name="audio-data-for-testing"></a>Dati audio per il test
 
@@ -55,7 +55,7 @@ Usare questa tabella per assicurarsi che i file audio siano formattati correttam
 | Proprietà | Value |
 |----------|-------|
 | Formato file | RIFF (WAV) |
-| Frequenza di campionamento | 8.000 Hz o Hz 16.000 |
+| Frequenza di campionamento | 8\.000 Hz o Hz 16.000 |
 | Canali | 1 (mono) |
 | Lunghezza massima per ogni audio | 2 ore |
 | Formato del campione | PCM, 16 bit |
@@ -76,7 +76,7 @@ Per misurare l'accuratezza di accuratezza per il riconoscimento vocale di Micros
 | Proprietà | Value |
 |----------|-------|
 | Formato file | RIFF (WAV) |
-| Frequenza di campionamento | 8.000 Hz o Hz 16.000 |
+| Frequenza di campionamento | 8\.000 Hz o Hz 16.000 |
 | Canali | 1 (mono) |
 | Lunghezza massima per ogni audio | 60 s |
 | Formato del campione | PCM, 16 bit |

@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584871"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Scegliere l'opzione SQL Server più adatta in Azure
@@ -25,7 +25,7 @@ ms.locfileid: "60584871"
 In Azure i carichi di lavoro di SQL Server possono essere eseguiti in un'infrastruttura ospitata (IaaS) o come servizio ospitato ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)). In PaaS sono disponibili più opzioni di distribuzione e diversi livelli di servizio all'interno di ogni opzione di distribuzione. La domanda fondamentale che è necessario porsi prima di decidere tra PaaS o IaaS è: si vuole gestire il database, applicare le patch, eseguire i backup o si preferisce delegare queste operazioni ad Azure?
 A seconda della risposta, sono disponibili le opzioni seguenti:
 
-- [Database SQL di Azure](sql-database-technical-overview.md): Un motore di database SQL completamente gestito, basato sulla versione stabile più recente di SQL Server Enterprise Edition. Si tratta di un database relazionale distribuito come servizio (DBaaS) ospitato nel cloud di Azure, che rientra nella categoria di settore *piattaforma distribuita come servizio (PaaS)*. Il database SQL offre più opzioni di distribuzione, ognuna delle quali si basa su hardware e software standardizzati appartenenti, ospitati e gestiti da Microsoft. Con il database SQL è possibile usare caratteristiche e funzionalità predefinite che richiedono una configurazione complessa se usate in SQL Server, in locale o in una macchina virtuale di Azure. Il database SQL prevede un pagamento in base al consumo con la possibilità di aumentare o diminuire il numero di istanze per una maggiore efficienza e senza interruzioni. Il database SQL offre caratteristiche aggiuntive non disponibili in SQL Server, come le funzionalità di disponibilità elevata, gestione e intelligence incorporate. Il database SQL di Azure offre le opzioni di distribuzione seguenti:
+- [Database SQL di Azure](sql-database-technical-overview.md): Un motore di database SQL completamente gestito, basato sulla versione stabile più recente di SQL Server Enterprise Edition. Si tratta di un database relazionale distribuito come servizio (DBaaS) ospitato nel cloud di Azure, che rientra nella categoria di settore *piattaforma distribuita come servizio (PaaS)* . Il database SQL offre più opzioni di distribuzione, ognuna delle quali si basa su hardware e software standardizzati appartenenti, ospitati e gestiti da Microsoft. Con il database SQL è possibile usare caratteristiche e funzionalità predefinite che richiedono una configurazione complessa se usate in SQL Server, in locale o in una macchina virtuale di Azure. Il database SQL prevede un pagamento in base al consumo con la possibilità di aumentare o diminuire il numero di istanze per una maggiore efficienza e senza interruzioni. Il database SQL offre caratteristiche aggiuntive non disponibili in SQL Server, come le funzionalità di disponibilità elevata, gestione e intelligence incorporate. Il database SQL di Azure offre le opzioni di distribuzione seguenti:
   
   - Come [database singolo](sql-database-single-database.md) con uno specifico set di risorse gestito tramite server di database SQL. Un database singolo è simile a un [database indipendente](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) in SQL Server. Questa opzione è ottimizzata per lo sviluppo di nuove applicazioni moderne progettate per il cloud.
   - Un [pool elastico](sql-database-elastic-pool.md), ovvero una raccolta di database con un set condiviso di risorse gestito tramite un server di database SQL. I database singoli possono essere spostati all'interno e all'esterno di un pool elastico. Questa opzione è ottimizzata per lo sviluppo di nuove applicazioni moderne progettate per il cloud tramite l'applicazione SaaS multi-tenant.
@@ -107,7 +107,7 @@ Il **database SQL**, attualmente venduto come servizio, è disponibile con svari
 
 - Con un singolo database SQL è possibile scegliere un livello di servizio adatto alle proprie esigenze in una vasta gamma di prezzi, a partire da 5 dollari al mese per il livello Basic.
 - È possibile creare [pool elastici](sql-database-elastic-pool.md) per condividere le risorse tra le istanze del database, ridurre i costi e far fronte ai picchi di utilizzo.
-- Con un'istanza gestita del database SQL è anche possibile scegliere l'opzione Bring Your Own License (BYOL). Per altre informazioni sulla funzionalità Bring Your Own License, vedere [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/) o usare il [calcolatore del Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) per scoprire come **risparmiare fino al 40%**.
+- Con un'istanza gestita del database SQL è anche possibile scegliere l'opzione Bring Your Own License (BYOL). Per altre informazioni sulla funzionalità Bring Your Own License, vedere [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/) o usare il [calcolatore del Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) per scoprire come **risparmiare fino al 40%** .
 
 Viene inoltre fatturato il traffico Internet in uscita a una [velocità di trasferimento dati](https://azure.microsoft.com/pricing/details/data-transfers/)normale. È possibile modificare in modo dinamico i livelli di servizio e le dimensioni di calcolo per soddisfare le diverse esigenze di velocità effettiva dell'applicazione.
 

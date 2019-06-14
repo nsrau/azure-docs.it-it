@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60386925"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Come eseguire il ripristino dal limite di 10 GB per LocalDB
@@ -29,7 +29,7 @@ Per archiviare i dati sull'identità, Azure AD Connect richiede un database SQL.
 ## <a name="symptoms"></a>Sintomi
 Esistono due sintomi comuni:
 
-* Il servizio di sincronizzazione Azure AD Connect **è in esecuzione** ma non effettua la sincronizzazione e genera l'errore *"stopped-database-disk-full"*.
+* Il servizio di sincronizzazione Azure AD Connect **è in esecuzione** ma non effettua la sincronizzazione e genera l'errore *"stopped-database-disk-full"* .
 
 * Il servizio di sincronizzazione Azure AD Connect **non può essere avviato**. Quando si prova ad avviare il servizio, l'operazione non riesce e vengono generati l'evento 6323 il messaggio di errore *"Errore del server. Spazio su disco insufficiente per SQL Server".*
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ee721558e0e643a4b5fdcfa4cf0fe9c2195fa479
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64736976"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67113552"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: progettata per prestazioni elevate
 
@@ -104,7 +104,7 @@ Nella sezione precedente sono stati illustrati gli indicatori di prestazioni com
 | Profondità coda | | | |
 
 > [!NOTE]
->  è consigliabile prendere in considerazione il ridimensionamento di questi numeri sulla base della crescita futura prevista per l'applicazione. È consigliabile prepararsi con anticipo alla crescita dell'applicazione, perché in seguito potrebbe risultare più difficile modificare l'infrastruttura per migliorare le prestazioni.
+> è consigliabile prendere in considerazione il ridimensionamento di questi numeri sulla base della crescita futura prevista per l'applicazione. È consigliabile prepararsi con anticipo alla crescita dell'applicazione, perché in seguito potrebbe risultare più difficile modificare l'infrastruttura per migliorare le prestazioni.
 
 Se si ha già un'applicazione e si vuole passare all'Archiviazione Premium, creare prima di tutto l'elenco di controllo precedente per l'applicazione esistente. Creare quindi un prototipo dell'applicazione nell'Archiviazione Premium e progettare l'applicazione in base alle indicazioni disponibili nella sezione *Ottimizzazione delle prestazioni dell'applicazione* più avanti in questo documento. L'articolo successivo illustra gli strumenti disponibili per raccogliere le misurazioni relative alle prestazioni.
 
@@ -114,13 +114,13 @@ Il modo migliore per misurare i requisiti relativi alle prestazioni per l'applic
 
 Sono disponibili contatori di PerfMon per il processore, la memoria e ogni disco logico e fisico del server. Quando si usano dischi di Archiviazione Premium con una VM, i contatori per dischi fisici sono relativi a ogni disco di Archiviazione Premium e i contatori per dischi logici sono relativi a ogni volume creato nei dischi di Archiviazione Premium. È necessario acquisire i valori per i dischi che ospitano il carico di lavoro dell'applicazione. Se è disponibile il mapping uno a uno tra i dischi logici e i dischi fisici, sarà possibile fare riferimento ai contatori per i dischi fisici. In caso contrario, fare riferimento ai contatori per i dischi logici. In Linux il comando iostat genera un report relativo all'utilizzo della CPU e dei dischi. Il report di utilizzo dischi fornisce statistiche relative al singolo dispositivo o alla singola partizione. Se si dispone di un server di database con dati e i log in dischi separati, raccogliere i dati per entrambi i dischi. La tabella seguente vengono descritti i contatori per dischi, processori e memoria:
 
-| Contatore | DESCRIZIONE | PerfMon | Iostat |
+| Contatore | Descrizione | PerfMon | Iostat |
 | --- | --- | --- | --- |
-| **IOPS o transazioni al secondo** |Numero di richieste I/O rilasciate al disco di archiviazione a secondo. |Letture disco/sec  <br> Scritture disco/sec |tps  <br> r/s  <br>  w/s |
-| **Letture e scritture del disco** |% di operazioni di lettura e scrittura eseguite sul disco. |% Tempo lettura disco  <br>  % Tempo scrittura disco |r/s  <br>  w/s |
-| **Velocità effettiva** |Quantità di dati letti da o scritti nel disco al secondo. |Byte letti da disco/sec  <br>  Byte scritti su disco/sec |kB_read/s <br> kB_wrtn/s |
-| **Latency** |Tempo totale necessario per completare una richiesta I/O per il disco. |Media letture disco/sec  <br>  Media scritture disco/sec |await  <br>  svctm |
-| **Dimensioni I/O** |Dimensioni delle richieste I/O rilasciate ai dischi di archiviazione. |Media byte letti da disco  <br>  Media byte scritti su disco |avgrq-sz |
+| **IOPS o transazioni al secondo** |Numero di richieste I/O rilasciate al disco di archiviazione a secondo. |Letture disco/sec <br> Scritture disco/sec |tps <br> r/s <br> w/s |
+| **Letture e scritture del disco** |% di operazioni di lettura e scrittura eseguite sul disco. |% Tempo lettura disco <br> % Tempo scrittura disco |r/s <br> w/s |
+| **Velocità effettiva** |Quantità di dati letti da o scritti nel disco al secondo. |Byte letti da disco/sec <br> Byte scritti su disco/sec |kB_read/s <br> kB_wrtn/s |
+| **Latency** |Tempo totale necessario per completare una richiesta I/O per il disco. |Media letture disco/sec <br> Media scritture disco/sec |await <br> svctm |
+| **Dimensioni I/O** |Dimensioni delle richieste I/O rilasciate ai dischi di archiviazione. |Media byte letti da disco <br> Media byte scritti su disco |avgrq-sz |
 | **Profondità coda** |Numero di richieste I/O in attesa che devono essere lette da o scritte nel disco di archiviazione. |Lunghezza corrente coda su disco |avgqu-sz |
 | **Max. memoria** |Quantità di memoria necessaria per eseguire correttamente un'applicazione. |% byte vincolati in uso |Use vmstat |
 | **Max. CPU** |Quantità di CPU necessaria per eseguire correttamente un'applicazione. |% tempo processore |%util |
@@ -178,15 +178,15 @@ Ecco un esempio di come è possibile calcolare i valori di IOPS e larghezza di b
 
 | Requisiti dell'applicazione | Dimensioni di I/O | IOPS | Velocità effettiva/Larghezza di banda |
 | --- | --- | --- | --- |
-| Operazioni di I/O al secondo max |8 KB |5.000 |40 MB al secondo |
+| Operazioni di I/O al secondo max |8 KB |5\.000 |40 MB al secondo |
 | Velocità effettiva massima |1024 KB |200 |200 MB al secondo |
-| Velocità effettiva massima + IOPS elevati |64 KB |3.200 |200 MB al secondo |
-| IOPS massimi + Velocità effettiva elevata |32 KB |5.000 |160 MB al secondo |
+| Velocità effettiva massima + IOPS elevati |64 KB |3\.200 |200 MB al secondo |
+| IOPS massimi + Velocità effettiva elevata |32 KB |5\.000 |160 MB al secondo |
 
 Per ottenere valori di IOPS e larghezza di banda più elevati rispetto al valore massimo di un singolo disco di Archiviazione Premium, usare più dischi Premium con striping. Ad esempio, effettuare lo striping di due dischi P30 per ottenere un valore di IOPS combinato di 10.000 IOPS o un valore di velocità effettiva combinato di 400 MB al secondo. Come illustrato nella sezione successiva, è necessario usare una dimensione di VM che supporta i valori combinati di IOPS e velocità effettiva.
 
 > [!NOTE]
->  poiché se si aumenta il valore di IOPS o di velocità effettiva aumenterà anche l'altro valore, è necessario assicurarsi di non raggiungere i limiti di velocità effettiva o IOPS del disco o della VM in caso di aumento di uno dei valori.
+> poiché se si aumenta il valore di IOPS o di velocità effettiva aumenterà anche l'altro valore, è necessario assicurarsi di non raggiungere i limiti di velocità effettiva o IOPS del disco o della VM in caso di aumento di uno dei valori.
 
 Per verificare gli effetti delle dimensioni di I/O sulle prestazioni dell'applicazione, è possibile eseguire gli strumenti di benchmarking sulle VM e sui dischi. Creare più esecuzioni dei test e usare diverse dimensioni di I/O per ogni esecuzione per verificarne l'impatto. Vedere la sezione Benchmarking alla fine di questo articolo per altri dettagli.
 
@@ -198,18 +198,18 @@ VM a scalabilità elevata sono disponibili in diverse dimensioni con un numero d
 
 | Dimensioni macchina virtuale | Core CPU | Memoria | Dimensioni di disco della VM | Max. dischi dati | Dimensioni cache | IOPS | Limiti di I/O della cache della larghezza di banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |Sistema operativo = 1023 GB  <br>  SSD locale = 224 GB |32 |576 GB |50.000 IOPS  <br>  512 MB al secondo |4.000 IOPS e 33 MB al secondo |
-| Standard_GS5 |32 |448 GB |Sistema operativo = 1023 GB  <br>  SSD locale = 896 GB |64 |4224 GB |80.000 IOPS  <br>  2.000 MB al secondo |5.000 IOPS e 50 MB al secondo |
+| Standard_DS14 |16 |112 GB |Sistema operativo = 1023 GB <br> SSD locale = 224 GB |32 |576 GB |50\.000 IOPS <br> 512 MB al secondo |4\.000 IOPS e 33 MB al secondo |
+| Standard_GS5 |32 |448 GB |Sistema operativo = 1023 GB <br> SSD locale = 896 GB |64 |4224 GB |80\.000 IOPS <br> 2\.000 MB al secondo |5\.000 IOPS e 50 MB al secondo |
 
 Per visualizzare un elenco completo di tutte le dimensioni delle VM di Azure disponibili, vedere [Dimensioni per le macchine virtuali Windows](../articles/virtual-machines/windows/sizes.md) o [Dimensioni per le macchine virtuali Linux](../articles/virtual-machines/linux/sizes.md). Scegliere una dimensione di VM in grado di soddisfare e adeguarsi ai requisiti relativi alle prestazioni dell'applicazione. Quando si scelgono le dimensioni delle VM, è inoltre necessario esaminare le importanti considerazioni seguenti.
 
 *Limiti di scalabilità*  
- I limiti massimi per IOPS per ogni VM e ogni disco sono diversi e indipendenti gli uni dagli altri. Assicurarsi che l'applicazione gestisca i valori di IOPS entro i limiti della VM e dei dischi Premium collegati alla VM. In caso contrario, le prestazioni dell'applicazione verranno limitate.
+I limiti massimi per IOPS per ogni VM e ogni disco sono diversi e indipendenti gli uni dagli altri. Assicurarsi che l'applicazione gestisca i valori di IOPS entro i limiti della VM e dei dischi Premium collegati alla VM. In caso contrario, le prestazioni dell'applicazione verranno limitate.
 
 Si supponga, ad esempio, che i requisiti dell'applicazione siano pari a 4.000 IOPS. Per ottenere questo risultato, effettuare il provisioning di un disco P30 su una VM DS1. Il disco P30 può raggiungere fino a 5.000 IOPS. La VM DS1 è tuttavia limitata a 3.200 IOPS. Le prestazioni dell'applicazione verranno quindi vincolate dal limite della VM di 3.200 IOPS e le prestazioni risulteranno danneggiate. Per evitare questa situazione, scegliere dimensioni per VM e disco in grado di soddisfare entrambi i requisiti dell'applicazione.
 
 *Costo operativo*  
- In molti casi è possibile che il costo operativo complessivo con l'Archiviazione Premium sia inferiore al costo dell'uso dell'Archiviazione Standard.
+In molti casi è possibile che il costo operativo complessivo con l'Archiviazione Premium sia inferiore al costo dell'uso dell'Archiviazione Standard.
 
 Ad esempio, si consideri un'applicazione che richiede 16.000 IOPS. Per ottenere queste prestazioni, è necessario uno Standard\_D14 Azure IaaS VM, che può concedere a un numero massimo di IOPS pari a 16.000 usando 32 dischi di 1 TB di archiviazione standard. Ogni disco di archiviazione standard da 1 TB può raggiungere un massimo di 500 IOPS. Il costo stimato di questa VM al mese sarà pari a $ 1.570. Il costo mensile di 32 dischi di archiviazione Standard sarà pari a $ 1.638. Il costo totale mensile stimato sarà pari a $ 3.208.
 
@@ -235,24 +235,24 @@ Archiviazione Premium di Azure offre tre dimensioni di disco che sono attualment
 
 | Tipo di disco Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Dimensioni disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1.024 GiB (1 TiB)    | 2.048 GiB (2 TiB)    | 4.095 GiB (4 TiB)    | 8.192 GiB (8 TiB)    | 16.384 GiB (16 TiB)    | 32.767 GiB (32 TiB)    |
-| IOPS per disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15.000              | 20.000              |
+| Dimensioni disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1\.024 GiB (1 TiB)    | 2\.048 GiB (2 TiB)    | 4\.095 GiB (4 TiB)    | 8\.192 GiB (8 TiB)    | 16\.384 GiB (16 TiB)    | 32\.767 GiB (32 TiB)    |
+| IOPS per disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12\.500              | 15\.000              | 20\.000              |
 | Velocità effettiva per disco | 25 MiB al secondo  | 50 MiB al secondo  | 100 MiB al secondo |125 MiB al secondo | 150 MiB al secondo | 200 MiB al secondo | 250 MiB al secondo | 250 MiB al secondo | 480 MiB al secondo | 750 MiB al secondo | 750 MiB al secondo |
 
 Il numero di dischi scelto dipende dalla dimensione scelta per il disco. È possibile usare un singolo disco P50 o più dischi P10 per soddisfare i requisiti dell'applicazione. Valutare le considerazioni elencate di seguito quando si effettua la scelta.
 
 *Limiti di scalabilità (IOPS e velocità effettiva)*  
- I limiti di IOPS e velocità effettiva di ogni dimensione di disco Premium sono diversi e non dipendono dai limiti di scalabilità delle VM. Assicurarsi che il valore totale di IOPS e velocità effettiva rientri nei limiti di scalabilità della dimensione scelta per la VM.
+I limiti di IOPS e velocità effettiva di ogni dimensione di disco Premium sono diversi e non dipendono dai limiti di scalabilità delle VM. Assicurarsi che il valore totale di IOPS e velocità effettiva rientri nei limiti di scalabilità della dimensione scelta per la VM.
 
 Ad esempio, si supponga che un requisito di applicazione preveda una velocità effettiva massima di 250 MB/sec e si usi una VM DS4 con un singolo disco P30. La VM DS4 può offrire una velocità effettiva massima di 256 MB/sec. Un singolo disco P30 ha tuttavia un limite di velocità effettiva pari a 200 MB/sec. L'applicazione sarà quindi limitata a 200 MB/sec a causa di questo limite del disco. Per superare questo limite, effettuare il provisioning di più dischi dati nella VM oppure ridimensionare i dischi a P40 o P50.
 
 > [!NOTE]
->  le operazioni di lettura fornite dalla cache non sono incluse nei valori di IOPS e velocità effettiva, quindi non sono soggette ai limiti del disco. La cache ha un limite di IOPS e velocità effettiva specifico per ogni VM.
+> le operazioni di lettura fornite dalla cache non sono incluse nei valori di IOPS e velocità effettiva, quindi non sono soggette ai limiti del disco. La cache ha un limite di IOPS e velocità effettiva specifico per ogni VM.
 >
 > Ad esempio, le operazioni di lettura e scrittura iniziali sono rispettivamente pari a 60 MB/sec e 40 MB/sec. Nel corso del tempo, la cache migliora la propria operatività e fornisce un numero sempre maggiore di operazioni di lettura dalla cache. Sarà quindi possibile ottenere una velocità effettiva di lettura superiore dal disco.
 
 *Numero di dischi*  
- Determinare il numero di dischi necessari esaminando i requisiti dell'applicazione. Ogni dimensione di VM prevede anche un limite per il numero di dischi che possono essere collegati alla VM. In genere, questo valore corrisponde al doppio dei core. Assicurarsi che la dimensione di VM scelta sia in grado di supportare il numero di dischi necessari.
+Determinare il numero di dischi necessari esaminando i requisiti dell'applicazione. Ogni dimensione di VM prevede anche un limite per il numero di dischi che possono essere collegati alla VM. In genere, questo valore corrisponde al doppio dei core. Assicurarsi che la dimensione di VM scelta sia in grado di supportare il numero di dischi necessari.
 
 Occorre ricordare che i dischi di Archiviazione Premium hanno capacità di prestazioni più elevate rispetto ai dischi di Archiviazione Standard. Se quindi si esegue la migrazione dell'applicazione da una VM IaaS di Azure usando il passaggio dall'Archiviazione Standard all'Archiviazione Premium, è probabile che sia necessario un numero inferiore di dischi per ottenere le stesse prestazioni o prestazioni più elevate per l'applicazione.
 
@@ -283,13 +283,13 @@ Ecco le impostazioni consigliate per la cache su disco per i dischi dati:
 | ReadWrite |Configurare la cache host come ReadWrite solo se l'applicazione gestisce correttamente la scrittura di dati memorizzati nella cache in dischi persistenti, quando necessario. |
 
 *ReadOnly*  
- Configurando la memorizzazione nella cache ReadOnly nei dischi dati di Archiviazione Premium, è possibile ottenere una latenza di lettura bassa e valori molto elevati di IOPS e velocità effettiva di lettura per l'applicazione. Questo è dovuto ai due motivi seguenti:
+Configurando la memorizzazione nella cache ReadOnly nei dischi dati di Archiviazione Premium, è possibile ottenere una latenza di lettura bassa e valori molto elevati di IOPS e velocità effettiva di lettura per l'applicazione. Questo è dovuto ai due motivi seguenti:
 
 1. Le letture eseguite dalla cache, che si trova nella memoria della VM e nell'unità SSD locale, sono più veloci rispetto alle letture dal disco dati, che si trova nell'archivio BLOB di Azure.  
 1. L'Archiviazione Premium non include le operazioni di lettura fornite dalla cache nel calcolo dei valori di IOPS e velocità effettiva del disco. L'applicazione è quindi in grado di ottenere valori totali di IOPS e velocità effettiva più elevati.
 
 *ReadWrite*  
- Per impostazione predefinita, la memorizzazione nella cache ReadWrite è abilitata nei dischi sistema operativo. È stato recentemente aggiunto il supporto per la memorizzazione nella cache ReadWrite anche sui dischi dati. Se si usa la memorizzazione nella cache ReadWrite, è necessario scrivere in modo corretto i dati dalla cache ai dischi persistenti. Ad esempio, SQL Server gestisce automaticamente la scrittura di dati memorizzati nella cache nei dischi di archiviazione permanente. L'uso della cache di tipo ReadWrite con un'applicazione che non gestisce la persistenza dei dati necessari può provocare la perdita dei dati, in caso di arresto anomalo della VM.
+Per impostazione predefinita, la memorizzazione nella cache ReadWrite è abilitata nei dischi sistema operativo. È stato recentemente aggiunto il supporto per la memorizzazione nella cache ReadWrite anche sui dischi dati. Se si usa la memorizzazione nella cache ReadWrite, è necessario scrivere in modo corretto i dati dalla cache ai dischi persistenti. Ad esempio, SQL Server gestisce automaticamente la scrittura di dati memorizzati nella cache nei dischi di archiviazione permanente. L'uso della cache di tipo ReadWrite con un'applicazione che non gestisce la persistenza dei dati necessari può provocare la perdita dei dati, in caso di arresto anomalo della VM.
 
 È ad esempio possibile applicare queste indicazioni a SQL Server in esecuzione sull'Archiviazione Premium seguendo questa procedura:
 
@@ -350,14 +350,14 @@ Importante: l'uso dell'interfaccia utente di Gestione server consente di imposta
 In Linux usare l'utilità MDADM per lo striping dei dischi. Per informazioni dettagliate sulla procedura di striping dei dischi su Linux, vedere [Configurare RAID software in Linux](../articles/virtual-machines/linux/configure-raid.md).
 
 *Dimensioni di striping*  
- Un elemento importante della configurazione dello striping del disco è la dimensione di striping. La dimensione di striping o la dimensione del blocco è il blocco più piccolo di dati che l'applicazione può gestire in un volume con striping. La dimensione di striping configurabile dipende dal tipo di applicazione e dal relativo modello di richieste. Se si sceglie la dimensione di striping errata, è possibile che si ottenga un allineamento di I/O non corretto, che porta a prestazioni degradate per l'applicazione.
+Un elemento importante della configurazione dello striping del disco è la dimensione di striping. La dimensione di striping o la dimensione del blocco è il blocco più piccolo di dati che l'applicazione può gestire in un volume con striping. La dimensione di striping configurabile dipende dal tipo di applicazione e dal relativo modello di richieste. Se si sceglie la dimensione di striping errata, è possibile che si ottenga un allineamento di I/O non corretto, che porta a prestazioni degradate per l'applicazione.
 
 Ad esempio, se una richiesta I/O generata dall'applicazione è maggiore della dimensione di striping del disco, il sistema di archiviazione la scrive oltre i limiti di unità di striping in più dischi. Quando è necessario accedere ai dati, occorrerà cercarli in più unità di striping per completare la richiesta. L'effetto cumulativo di questo comportamento può portare a una riduzione significativa delle prestazioni. D'altra parte, se la dimensione della richiesta I/O è minore della dimensione di striping ed è di tipo casuale, è possibile che le richieste I/P si concentrino sullo stesso disco, provocando un collo di bottiglia e danneggiando le prestazioni di I/O.
 
 Scegliere una dimensione di striping appropriata in base a tipo di carico di lavoro eseguito dall'applicazione. Per richieste I/O di piccole dimensioni e casuali, usare una dimensione di striping minore. Mentre per i/o sequenziali grandi le richieste di usano una dimensione di striping maggiore. Esaminare le indicazioni relative alle dimensioni di striping per l'applicazione da eseguire nell'Archiviazione Premium. Per SQL Server, configurare le dimensioni di striping di 64 KB per carichi di lavoro OLTP e 256 KB per carichi di lavoro data warehouse. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) .
 
 > [!NOTE]
->  è possibile effettuare lo striping di un massimo di 32 dischi di Archiviazione Premium in una VM di serie DS e di 64 dischi di Archiviazione Premium in una VM di serie GS.
+> è possibile effettuare lo striping di un massimo di 32 dischi di Archiviazione Premium in una VM di serie DS e di 64 dischi di Archiviazione Premium in una VM di serie GS.
 
 ## <a name="multi-threading"></a>Multithreading
 
@@ -384,20 +384,20 @@ In genere, le applicazioni standard non consentono di modificare la profondità 
 Alcune applicazioni forniscono le impostazioni necessarie per influenzare la profondità della coda, ad esempio, l'impostazione MAXDOP (Massimo grado parallelismo) in SQL Server illustrata nella sezione precedente. MAXDOP consente di influenzare la profondità della coda e il multithreading, anche se non modifica direttamente il valore Profondità coda di SQL Server.
 
 *Profondità della coda elevata*  
- Un valore elevato per la profondità della coda consente di allineare più operazioni sul disco. Il disco conosce in anticipo la richiesta successiva nella coda. Di conseguenza, il disco può pianificare in anticipo le operazioni ed elaborarle nella sequenza ottimale. Poiché l'applicazione invia più richieste al disco, il disco potrà elaborare un numero maggiore di I/O paralleli. L'applicazione sarà infine in grado di ottenere valori più elevati per IOPS. Poiché l'applicazione elabora un numero maggiore di richieste, aumenterà anche la velocità effettiva dell'applicazione.
+Un valore elevato per la profondità della coda consente di allineare più operazioni sul disco. Il disco conosce in anticipo la richiesta successiva nella coda. Di conseguenza, il disco può pianificare in anticipo le operazioni ed elaborarle nella sequenza ottimale. Poiché l'applicazione invia più richieste al disco, il disco potrà elaborare un numero maggiore di I/O paralleli. L'applicazione sarà infine in grado di ottenere valori più elevati per IOPS. Poiché l'applicazione elabora un numero maggiore di richieste, aumenterà anche la velocità effettiva dell'applicazione.
 
 In genere, un'applicazione può ottenere una velocità effettiva massima con 8-16+ I/O in attesa per ogni disco collegato. Se una profondità della coda è uno, dell'applicazione non effettua il push sufficiente IOs al sistema e lo elaborerà una quantità inferiore in un determinato periodo. In altri termini, si otterrà una velocità effettiva minore.
 
 In SQL Server ,ad esempio, l'impostazione del valore MAXDOP per una query su "4" indica a SQL Server che può usare al massimo quattro core per eseguire la query. SQL Server determinerà il valore migliore per la profondità della coda e il numero di core per l'esecuzione della query.
 
 *Profondità della coda ottimale*  
- Un valore molto elevato per la coda può avere alcuni svantaggi. Se il valore della profondità della coda è troppo alto, l'applicazione proverà a effettuare un numero molto elevato di IOPS. A meno che un'applicazione non abbia dischi persistenti con un numero sufficiente di IOPS con provisioning, ciò può influire negativamente sulle latenze dell'applicazione. La formula seguente viene illustrata la relazione tra IOPS, latenza e profondità della coda.  
+Un valore molto elevato per la coda può avere alcuni svantaggi. Se il valore della profondità della coda è troppo alto, l'applicazione proverà a effettuare un numero molto elevato di IOPS. A meno che un'applicazione non abbia dischi persistenti con un numero sufficiente di IOPS con provisioning, ciò può influire negativamente sulle latenze dell'applicazione. La formula seguente viene illustrata la relazione tra IOPS, latenza e profondità della coda.  
     ![](media/premium-storage-performance/image6.png)
 
 È consigliabile non configurare la profondità della coda su un valore elevato, specificando invece un valore ottimale, in grado di offrire un numero di IOPS sufficiente per l'applicazione, senza influire sulle latenze. Ad esempio, se la latenza dell'applicazione deve essere pari a 1 millisecondo, la profondità della coda necessaria per ottenere 5.000 IOPS sarà QD = 5000 x 0,001 = 5.
 
 *Profondità della coda per un volume con striping*  
- Per un volume con striping è consigliabile mantenere una profondità della coda sufficientemente elevata da consentire a ogni disco di avere individualmente un picco di profondità della coda. Ad esempio, si consideri un'applicazione che effettua il push di una profondità della coda pari a 2 e sono disponibili quattro dischi in striping. Le due richieste I/O verranno trasmesse a due dischi e i due dischi rimanenti saranno inattivi. È quindi consigliabile configurare la profondità della coda in modo che tutti i dischi siano occupati. La formula seguente illustra come determinare la profondità della coda dei volumi con striping.  
+Per un volume con striping è consigliabile mantenere una profondità della coda sufficientemente elevata da consentire a ogni disco di avere individualmente un picco di profondità della coda. Ad esempio, si consideri un'applicazione che effettua il push di una profondità della coda pari a 2 e sono disponibili quattro dischi in striping. Le due richieste I/O verranno trasmesse a due dischi e i due dischi rimanenti saranno inattivi. È quindi consigliabile configurare la profondità della coda in modo che tutti i dischi siano occupati. La formula seguente illustra come determinare la profondità della coda dei volumi con striping.  
     ![](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Limitazione

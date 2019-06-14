@@ -14,10 +14,10 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b74049833b055caa112c346b74798893f2c0febf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60476679"
 ---
 # <a name="get-help-with-two-step-verification"></a>Informazioni sulla verifica in due passaggi
@@ -31,7 +31,7 @@ Microsoft offre la verifica in due passaggi, ma è l'organizzazione che decide s
 
 ## <a name="why-do-i-need-to-use-another-verification-method"></a>Perché è necessario usare un altro metodo di verifica?
 
-I motivi per cui potrebbe essere necessario usare un metodo di verifica alternativo con l'account sono diversi. Ad esempio: 
+I motivi per cui potrebbe essere necessario usare un metodo di verifica alternativo con l'account sono diversi. Ad esempio:
 
 - **Telefono o dispositivo dimenticato.** A volte si lascia il telefono a casa, ma si ha lo stesso la necessità di accedere alle risorse di lavoro. In primo luogo è consigliabile provare a eseguire l'accesso con un metodo diverso per cui non sia necessario il telefono.
 

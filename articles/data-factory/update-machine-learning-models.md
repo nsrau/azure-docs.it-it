@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
 ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335480"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aggiornare i modelli di Azure Machine Learning tramite l'attività Aggiorna risorsa
@@ -59,13 +59,13 @@ Il frammento JSON seguente definisce un'attività Esecuzione batch di Azure Mach
 
 | Proprietà                      | Descrizione                              | Obbligatorio |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Nome dell'attività nella pipeline     | Sì      |
-| description                   | Testo che descrive l'attività.  | No        |
-| type                          | Per l'attività Aggiorna risorsa di Azure Machine Learning il tipo corrisponde ad **AzureMLUpdateResource**. | Sì      |
-| linkedServiceName             | Servizio collegato di Azure Machine Learning che contiene la proprietà updateResourceEndpoint. | Sì      |
-| trainedModelName              | Nome del modulo di modello con training nell'esperimento del servizio Web da aggiornare | Sì      |
-| trainedModelLinkedServiceName | Nome del servizio collegato di Archiviazione di Azure che viene caricato dall'operazione di aggiornamento | Sì      |
-| trainedModelFilePath          | Il percorso file relativo in trainedModelLinkedService per rappresentare il file con estensione iLearner caricato dall'operazione di aggiornamento | Sì      |
+| name                          | Nome dell'attività nella pipeline     | Yes      |
+| description                   | Testo che descrive l'attività.  | No       |
+| type                          | Per l'attività Aggiorna risorsa di Azure Machine Learning il tipo corrisponde ad **AzureMLUpdateResource**. | Yes      |
+| linkedServiceName             | Servizio collegato di Azure Machine Learning che contiene la proprietà updateResourceEndpoint. | Yes      |
+| trainedModelName              | Nome del modulo di modello con training nell'esperimento del servizio Web da aggiornare | Yes      |
+| trainedModelLinkedServiceName | Nome del servizio collegato di Archiviazione di Azure che viene caricato dall'operazione di aggiornamento | Yes      |
+| trainedModelFilePath          | Il percorso file relativo in trainedModelLinkedService per rappresentare il file con estensione iLearner caricato dall'operazione di aggiornamento | Yes      |
 
 ## <a name="end-to-end-workflow"></a>Flusso di lavoro end-to-end
 

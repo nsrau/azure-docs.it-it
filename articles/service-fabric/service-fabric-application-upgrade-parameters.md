@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
 ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614387"
 ---
 # <a name="application-upgrade-parameters"></a>Parametri di aggiornamento di un'applicazione
@@ -44,7 +44,7 @@ I parametri di aggiornamento delle applicazioni di Service Fabric in Visual Stud
 ### <a name="required-parameters"></a>Parametri obbligatori
 (PS=PowerShell, VS=Visual Studio)
 
-| Parametro | Si applica a | DESCRIZIONE |
+| Parametro | Si applica a | Descrizione |
 | --- | --- | --- |
 ApplicationName |PS| Nome dell'applicazione che viene aggiornata. Esempi: fabric:/VisualObjects, fabric:/ClusterMonitor. |
 ApplicationTypeVersion|PS|Versione del tipo di applicazione a cui è destinato l'aggiornamento. |
@@ -62,7 +62,7 @@ Per visualizzare il campo descrizione completo, usare la barra di scorrimento or
 
 (PS=PowerShell, VS=Visual Studio)
 
-| Parametro | Si applica a | DESCRIZIONE |
+| Parametro | Si applica a | Descrizione |
 | --- | --- | --- |
 | ApplicationParameter |PS, VS| Specifica le sostituzioni per i parametri dell'applicazione.<br>I parametri delle applicazioni di PowerShell vengono specificati come coppie nome/valore di tabella hash. Ad esempio, @{"VotingData_MinReplicaSetSize" = "3". "VotingData_PartitionCount" = "1"}.<br>I parametri dell'applicazione di Visual Studio possono essere specificati nella finestra di dialogo Pubblica applicazione di Service Fabric nel campo **File di parametri dell'applicazione**.
 | Confirm |PS| I valori consentiti sono **true** e **false**. Richiede la conferma dell'utente prima di eseguire il cmdlet. |
@@ -82,7 +82,7 @@ Per visualizzare il campo descrizione completo, usare la barra di scorrimento or
 | UpgradeDomainTimeoutSec |PS, VS |Tempo massimo (in secondi) per l'aggiornamento di un singolo dominio di aggiornamento. Se viene raggiunto questo timeout, l'aggiornamento si arresta e procede in base all'impostazione di *FailureAction*. Il valore predefinito è mai (Infinito) ed è consigliabile personalizzarlo in base all'applicazione. |
 | UpgradeReplicaSetCheckTimeoutSec |PS, VS |Il valore è espresso in secondi.<br>**Servizio senza stato**: in un singolo dominio di aggiornamento Service Fabric prova a verificare che siano disponibili istanze aggiuntive del servizio. Se il numero di istanze di destinazione è maggiore di uno, Service Fabric attende che sia disponibile più di un'istanza fino al valore di timeout massimo. Questo timeout è specificato dalla proprietà *UpgradeReplicaSetCheckTimeoutSec*. Se il timeout scade, Service Fabric procede con l'aggiornamento indipendentemente dal numero di istanze del servizio. Se il numero di istanze di destinazione è pari a uno, Service Fabric non attende e procede immediatamente con l'aggiornamento.<br><br>**Servizio con stato**: in un singolo dominio di aggiornamento Service Fabric prova a verificare che il set di repliche abbia un quorum. Service Fabric attende che sia disponibile un quorum fino al valore di timeout massimo, (specificato dalla proprietà *UpgradeReplicaSetCheckTimeoutsec*). Se il timeout scade, Service Fabric procede con l'aggiornamento indipendentemente dal quorum. Il valore di questa impostazione è never (infinito) per il roll forward e 1200 secondi per il rollback. |
 | UpgradeTimeoutSec |PS, VS |Intervallo di timeout, in secondi, che si applica per l'intero aggiornamento. Se viene raggiunto questo timeout, l'aggiornamento si arresta e viene attivata l'azione specificata da *FailureAction*. Il valore predefinito è mai (Infinito) ed è consigliabile personalizzarlo in base all'applicazione. |
-| WhatIf | PS | I valori consentiti sono **true** e **false**. Mostra l'esito in caso di esecuzione del cmdlet. Il cmdlet non viene eseguito. |
+| Whatif | PS | I valori consentiti sono **true** e **false**. Mostra l'esito in caso di esecuzione del cmdlet. Il cmdlet non viene eseguito. |
 
 I criteri *MaxPercentUnhealthyServices*, *MaxPercentUnhealthyPartitionsPerService* e *MaxPercentUnhealthyReplicasPerPartition* possono essere specificati per tipo di servizio per un'istanza dell'applicazione. Impostando questi parametri "per servizio" un'applicazione può contenere tipi di servizi diversi con criteri di valutazione diversi. Ad esempio, un tipo di servizio gateway senza stato può avere un parametro *MaxPercentUnhealthyPartitionsPerService* diverso da un tipo di servizio motore con stato per una specifica istanza dell'applicazione.
 
@@ -92,15 +92,15 @@ Gli aggiornamenti dell'applicazione Service Fabric che impiegano l'interfaccia d
 
 ### <a name="required-parameters"></a>Parametri obbligatori
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | application-id  |ID dell'applicazione in corso di aggiornamento. <br> Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Ad esempio, se il nome dell'applicazione è ' fabric: / myapp/app1 ', l'identità dell'applicazione sarà ' myapp\~app1 "in 6.0 + e"MyApp/App1"nelle versioni precedenti.|
 application-version |Versione del tipo di applicazione a cui è destinato l'aggiornamento.|
-Parametri  |Elenco con codifica JSON di sostituzioni del parametro dell'applicazione da applicare quando si esegue l'aggiornamento dell'applicazione.|
+parameters  |Elenco con codifica JSON di sostituzioni del parametro dell'applicazione da applicare quando si esegue l'aggiornamento dell'applicazione.|
 
 ### <a name="optional-parameters"></a>Parametri facoltativi
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 default-service-health-policy | Specifica con codifica [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) dei criteri di integrità usati per impostazione predefinita per la valutazione dell'integrità di un tipo di servizio. Per impostazione predefinita la mappa è vuota. |
 failure-action | I valori consentiti sono **Rollback**, **Manual**, e **Invalid**. L'azione di compensazione da eseguire quando un aggiornamento di *monitoraggio* rileva violazioni dei criteri di integrità o dei criteri di monitoraggio. <br>**Rollback** specifica che l'aggiornamento eseguirà il rollback automaticamente alla versione precedente. <br>**Manual** indica che l'aggiornamento passerà alla modalità di aggiornamento *UnmonitoredManual*. <br>**Invalid** indica che l'azione di errore non è valida.|

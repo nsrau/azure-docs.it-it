@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
 ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60408556"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Creare, monitorare e gestire i file FTP usando App per la logica di Azure
@@ -61,7 +61,7 @@ Con App per la logica di Azure e il connettore FTP è possibile creare attività
    Nell'elenco delle azioni selezionare l'azione desiderata.
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Specificare i dettagli necessari per la connessione, quindi scegliere **Creare**.
 
@@ -69,7 +69,7 @@ Con App per la logica di Azure e il connettore FTP è possibile creare attività
 
 Per le richieste del contenuto del file, il trigger non recupera i file di dimensioni superiori a 50 MB. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello:
 
-* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)**.
+* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
 
 * Fare seguire al trigger un'azione che legga il file completo, ad esempio **Ottieni contenuto di file tramite percorso** e impostare l'azione per l'uso della [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -85,7 +85,7 @@ Questo trigger avvia un flusso di lavoro dell'app per la logica quando rileva ch
 
 La richiesta di contenuto del file, i trigger Impossibile ottenere i file di dimensioni superiori a 50 MB. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello: 
 
-* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)**.
+* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
 
 * Fare seguire al trigger un'azione che legga il file completo, ad esempio **Ottieni contenuto di file tramite percorso** e impostare l'azione per l'uso della [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -106,7 +106,7 @@ Ecco un esempio che illustra questo trigger: **Quando viene aggiunto o modificat
 
    ![Creare la connessione al server FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
-1. Accanto alla casella **Cartella** selezionare l'icona della cartella per visualizzare un elenco. Per trovare la cartella che si vuole monitorare per rilevare file nuovi o modificati, selezionare la parentesi uncinata chiusa (**>**), individuare la cartella e quindi selezionarla.
+1. Accanto alla casella **Cartella** selezionare l'icona della cartella per visualizzare un elenco. Per trovare la cartella che si vuole monitorare per rilevare file nuovi o modificati, selezionare la parentesi uncinata chiusa ( **>** ), individuare la cartella e quindi selezionarla.
 
    ![Trovare e selezionare la cartella da monitorare](./media/connectors-create-api-ftp/select-folder.png)  
 
@@ -124,7 +124,7 @@ Questa azione recupera il contenuto di un file su un server FTP quando il file v
 
 La richiesta di contenuto del file, i trigger Impossibile ottenere i file di dimensioni superiori a 50 MB. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello: 
 
-* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)**.
+* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
 
 * Fare seguire al trigger un'azione che legga il file completo, ad esempio **Ottieni contenuto di file tramite percorso** e impostare l'azione per l'uso della [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md).
 

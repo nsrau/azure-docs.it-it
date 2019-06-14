@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787577"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Panoramica del ridimensionamento automatico in Macchine virtuali di Microsoft Azure, Servizi cloud e App Web
@@ -43,7 +43,7 @@ I set di scalabilità di macchine virtuali usano i dati di telemetria degli agen
 ## <a name="custom-metrics"></a>Metriche personalizzate
 È anche possibile fare uso di eventuali metriche personalizzate generate dalle applicazioni usate. Se le applicazioni sono state configurate per l'invio di metriche ad Application Insights, è possibile usare tali metriche per prendere decisioni sulla scalabilità.
 
-## <a name="time"></a>Tempo
+## <a name="time"></a>Time
 Le regole basate sulla pianificazione sono basate su UTC. Quando si configurano le regole, è necessario impostare correttamente il fuso orario.  
 
 ## <a name="rules"></a>Regole
@@ -102,7 +102,6 @@ Per altre informazioni, vedere [Aumento delle prestazioni delle macchine virtual
 * [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Servizi supportati per il ridimensionamento automatico
-
 | Service | Schema e documenti |
 | --- | --- |
 | App Web |[Ridimensionamento di app Web](../../azure-monitor/platform/autoscale-get-started.md) |
@@ -121,3 +120,4 @@ Per altre informazioni sul ridimensionamento automatico, usare le procedure dett
 * [Usare le azioni di ridimensionamento automatico per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API REST per il ridimensionamento automatico](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Risoluzione dei problemi di ridimensionamento automatico con set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+

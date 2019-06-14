@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371454"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Iniziare con l'account di fatturazione per un contratto di Microsoft dal cliente
@@ -58,8 +58,8 @@ Ogni profilo di fatturazione ha i propri metodi di pagamento che consentono di p
 
 | Type             | Definizione  |
 |------------------|-------------|
-|Crediti Azure    |  I crediti vengono applicati automaticamente per l'importo fatturato totale sulla fattura per calcolare la quantità che è necessario pagare. Per altre informazioni, vedere [tenere traccia di saldo del credito di Azure per il profilo di fatturazione](billing-mca-check-azure-credits-balance.md). |
-|Assegno o bonifico | È possibile pagare dell'importo dovuto per ottenere la fattura tramite controllo o wire transfer. Vengono fornite le istruzioni per il pagamento della fattura |
+|Crediti di Azure    |  I crediti vengono applicati automaticamente per l'importo fatturato totale sulla fattura per calcolare la quantità che è necessario pagare. Per altre informazioni, vedere [tenere traccia di saldo del credito di Azure per il profilo di fatturazione](billing-mca-check-azure-credits-balance.md). |
+|Trasferimento di controllo o con transito | È possibile pagare dell'importo dovuto per ottenere la fattura tramite controllo o wire transfer. Vengono fornite le istruzioni per il pagamento della fattura |
 
 ### <a name="control-azure-marketplace-and-reservation-purchases-by-applying-policies"></a>Acquisti di controllo Azure Marketplace e prenotazione applicando i criteri
 
@@ -72,7 +72,7 @@ I piani di Azure vengono attivati automaticamente quando si crea un profilo di f
 | Pianificazione             | Definizione  |
 |------------------|-------------|
 |Piano di Microsoft Azure   | Consentire agli utenti di creare sottoscrizioni che è possono eseguire carichi di lavoro. Per altre informazioni, vedere [piano di Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|Piano di Microsoft Azure per sviluppo/test | Consentire ai sottoscrittori di Visual Studio creare le sottoscrizioni che sono limitate per lo sviluppo o test di carichi di lavoro. Queste sottoscrizioni ottengono i vantaggi, ad esempio inferiore tariffe e accedere a immagini esclusive macchina virtuale nel portale di Azure. Per altre informazioni, vedere [piano di Microsoft Azure per sviluppo/test](https://azure.microsoft.com/offers/ms-azr-0148g/)|
+|Piano di Microsoft Azure per sviluppo/Test | Consentire ai sottoscrittori di Visual Studio creare le sottoscrizioni che sono limitate per lo sviluppo o test di carichi di lavoro. Queste sottoscrizioni ottengono i vantaggi, ad esempio inferiore tariffe e accedere a immagini esclusive macchina virtuale nel portale di Azure. Per altre informazioni, vedere [piano di Microsoft Azure per sviluppo/test](https://azure.microsoft.com/offers/ms-azr-0148g/)|
 
 ## <a name="understand-invoice-sections"></a>Informazioni sulle sezioni della fattura
 

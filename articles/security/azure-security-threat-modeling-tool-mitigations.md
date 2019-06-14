@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 24aa49fd4ccccda372d2632ef4aee22bd5cb2bf6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611311"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Mitigazioni di Microsoft Threat Modeling Tool
@@ -31,7 +31,7 @@ Visitare **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** og
 
 Le soluzioni di prevenzione di Threat Modeling Tool sono suddivise in base al contesto di sicurezza dell'applicazione Web, costituito dai seguenti elementi:
 
-| Categoria | DESCRIZIONE |
+| Category | Descrizione |
 | -------- | ----------- |
 | **[Controllo e registrazione](./azure-security-threat-modeling-tool-auditing-and-logging.md)** | Chi ha fatto cosa e quando? Controllo e registrazione fanno riferimento al modo in cui l'applicazione registra gli eventi di sicurezza |
 | **[Autenticazione](./azure-security-threat-modeling-tool-authentication.md)** | Chi si sta autenticando? L'autenticazione è il processo che permette a un'entità di dimostrare l'identità di un'altra entità, in genere mediante l'uso di credenziali, come un nome utente e una password |
@@ -53,4 +53,4 @@ Di conseguenza, queste categorie vengono usate per focalizzarsi e definire le pr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle categorie di minacce utilizzate dallo strumento per generare possibili minacce di progettazione, visitare **[Minacce di Threat Modeling Tool](./azure-security-threat-modeling-tool-threats.md)**.
+Per altre informazioni sulle categorie di minacce utilizzate dallo strumento per generare possibili minacce di progettazione, visitare **[Minacce di Threat Modeling Tool](./azure-security-threat-modeling-tool-threats.md)** .

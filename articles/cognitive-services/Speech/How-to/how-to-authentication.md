@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 11d6256fb63452b849a80abab181876d14b3b6a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515046"
 ---
 # <a name="authenticate-to-the-speech-api"></a>Eseguire l'autenticazione a Speech API
@@ -35,7 +35,7 @@ Per l'uso a lungo termine o per una quota maggiore, iscriversi per ottenere un [
 
 Per usare l'API REST del Servizio di riconoscimento vocale, è necessario passare la chiave di sottoscrizione nel campo `Ocp-Apim-Subscription-Key` nell'intestazione della richiesta.
 
-Name| Format| DESCRIZIONE
+NOME| Format| Descrizione
 ----|-------|------------
 Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 

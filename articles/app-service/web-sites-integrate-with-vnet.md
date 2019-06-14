@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dcb128d8793e3438d87e728bde069d07c72cf97b
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: a5187ed299f77c11892c6e34c8dfd3f904c7e075
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493141"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067718"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità integrazione rete virtuale di Azure App Service e come configurarlo con le app di [servizio App di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Le [reti virtuali di Azure][VNETOverview] consentono di posizionare molte risorse di Azure in una rete instradabile non Internet.  
@@ -33,8 +33,8 @@ Questo documento tratta le due funzionalità integrazione rete virtuale, che vie
 
 Esistono due formati per la funzionalità integrazione rete virtuale
 
-1. Una versione consente l'integrazione con le reti virtuali nella stessa area. Il modulo della funzionalità richiede una subnet in una rete virtuale nella stessa area
-2. L'altra versione consente l'integrazione con le reti virtuali in altre aree o con reti virtuali classiche. Questa versione della funzionalità richiede la distribuzione di un Gateway di rete virtuale nella rete virtuale.
+1. Una versione consente l'integrazione con le reti virtuali nella stessa area. Questo form della funzionalità richiede una subnet in una rete virtuale nella stessa area. Questa funzionalità è ancora in anteprima, ma è supportata per i carichi di produzione di app di Windows con alcuni avvertimenti indicati di seguito.
+2. L'altra versione consente l'integrazione con le reti virtuali in altre aree o con reti virtuali classiche. Questa versione della funzionalità richiede la distribuzione di un Gateway di rete virtuale nella rete virtuale. Si tratta della funzionalità VPN basato su point-to-site.
 
 Un'app può usare solo una forma della funzionalità integrazione rete virtuale alla volta. La domanda è quale funzionalità usare. È possibile usare per molte operazioni. Tuttavia sono la ripetitività chiaro:
 
@@ -72,7 +72,7 @@ Integrazione rete virtuale viene usato con le reti virtuali nella stessa area de
 * accedere alle risorse nella rete virtuale si è connessi a
 * accedere alle risorse per le connessioni di peering tra cui le connessioni ExpressRoute
 
-Questa funzionalità è disponibile in anteprima, ma è supportata per i carichi di lavoro di produzione con le limitazioni seguenti:
+Questa funzionalità è disponibile in anteprima, ma è supportata per i carichi di produzione di app Windows con le limitazioni seguenti:
 
 * è possibile raggiungere solo gli indirizzi inclusi nell'intervallo di RFC 1918. Questi sono gli indirizzi in 10.0.0.0/8, 172.16.0.0/12, blocchi di indirizzi 192.168.0.0/16.
 * non è possibile raggiungere le risorse tra le connessioni peering globale
@@ -80,11 +80,12 @@ Questa funzionalità è disponibile in anteprima, ma è supportata per i carichi
 * la funzionalità è disponibile solo dalla più recente unità di scala del servizio App che supportano i piani di servizio App di PremiumV2.
 * la funzionalità non può essere usata dall'App piano isolato in un ambiente del servizio App
 * la funzionalità richiede una subnet inutilizzata con almeno 32 indirizzi in VNet di Resource Manager.
-* L'app e la rete virtuale deve essere nella stessa area
-* Un indirizzo viene usato per ogni istanza del piano di servizio App. Poiché le dimensioni della subnet non possono essere modificate dopo l'assegnazione, usare una subnet che può coprire abbondantemente le dimensioni massime di scalabilità. Un /27 con 32 indirizzi è la dimensione consigliata per poter contenere un piano di servizio app ridimensionato a 20 istanze.
+* L'app e la rete virtuale devono essere nella stessa area
+* Viene usato un indirizzo per ogni istanza del piano di servizio app. Poiché le dimensioni della subnet non possono essere modificate dopo l'assegnazione, usare una subnet che può coprire abbondantemente le dimensioni massime di scalabilità. Un /27 con 32 indirizzi è la dimensione consigliata per poter contenere un piano di servizio app ridimensionato a 20 istanze.
 * Non è possibile eliminare una rete virtuale con un'app integrata. È necessario innanzitutto rimuovere l'integrazione 
+* È possibile avere un solo integrazione rete virtuale a livello di area per ogni piano di servizio App. Più App nello stesso piano di servizio App possono usare la stessa rete virtuale. 
 
-Per usare la funzionalità integrazione rete virtuale con una VNet Resource Manager nella stessa area:
+La funzionalità è disponibile in anteprima per Linux. Per usare la funzionalità integrazione rete virtuale con una VNet Resource Manager nella stessa area:
 
 1. Passare all'interfaccia utente di Rete nel portale. Se l'app è in grado di usare la nuova funzionalità, si vedranno un'opzione per aggiungere rete virtuale (anteprima).  
 
@@ -110,7 +111,7 @@ Le app nel servizio App sono ospitate nei ruoli di lavoro. La base e versioni su
 
 Quando è abilitata l'integrazione rete virtuale, l'app verrà comunque effettuare chiamate in uscita a internet tramite gli stessi canali come di consueto. Gli indirizzi in uscita che sono elencati nel portale di proprietà dell'app sono comunque gli indirizzi usati dall'app. Quali sono le modifiche per l'app che le chiamate a endpoint del servizio servizi Web protetti o gli indirizzi RFC 1918 entra in una rete virtuale. 
 
-La funzionalità supporta solo un'interfaccia virtuale per ogni ruolo di lavoro.  Un'interfaccia virtuale per ogni ruolo di lavoro significa che un'interfaccia virtuale per ogni piano di servizio App. Tutte le app nello stesso piano di servizio App può usare l'integrazione rete virtuale stessa, ma se è necessario connettersi a una rete virtuale aggiuntiva, è necessario creare un altro piano di servizio App. L'interfaccia virtuale usato non è una risorsa che i clienti hanno accesso diretto a.
+La funzionalità supporta solo un'interfaccia virtuale per ogni ruolo di lavoro.  Un'interfaccia virtuale per ogni ruolo di lavoro indica una integrazione rete virtuale a livello di area per ogni piano di servizio App. Tutte le app nello stesso piano di servizio App può usare l'integrazione rete virtuale stessa, ma se è necessaria un'app per la connessione a una rete virtuale aggiuntiva, è necessario creare un altro piano di servizio App. L'interfaccia virtuale usato non è una risorsa che i clienti hanno accesso diretto a.
 
 A causa della natura del funzionamento di questa tecnologia, il traffico che viene usato con integrazione rete virtuale non viene visualizzato nei log dei flussi di Network Watcher o sicurezza di rete.  
 
@@ -119,16 +120,17 @@ A causa della natura del funzionamento di questa tecnologia, il traffico che vie
 Il Gateway necessarie funzionalità integrazione rete virtuale:
 
 * può essere usato per connettersi alle reti virtuali in tutte le aree siano essi le reti virtuali classiche o Resource Manager
-* consente a un'app di connettersi a 1 sola rete virtuale alla volta
-* consente di integrare fino a cinque reti virtuali in un piano di servizio app 
+* consente a un'app per la connessione a 1 sola rete virtuale alla volta
+* Consente di integrare in un piano di servizio App con reti virtuali fino a cinque 
 * consente la stessa rete virtuale essere usati da più App in un piano di servizio App senza conseguenze per il numero totale che può essere usato da un piano di servizio App.  Se si dispone di 6 le app usano la stessa rete virtuale nello stesso piano di servizio App, che viene conteggiata come 1 rete virtuale in uso. 
-* richiede un gateway di rete virtuale configurato con la VPN da punto a sito
-* supporta un contratto di servizio pari al 99,9% grazie al contratto di servizio sul gateway
+* richiede un Gateway di rete virtuale configurata con punto a sito VPN
+* Non è supportata per l'uso con le app Linux
+* Supporta un contratto di servizio del 99,9% a causa di un contratto di servizio nel gateway
 
 Questa funzionalità non supporta:
 
-* accesso alle risorse in ExpressRoute 
-* accesso alle risorse negli endpoint servizio 
+* Accesso alle risorse in ExpressRoute 
+* Accesso alle risorse negli endpoint servizio 
 
 ### <a name="getting-started"></a>Introduzione
 
@@ -200,7 +202,7 @@ L'interfaccia utente di Integrazione rete virtuale del piano di servizio app ill
 * **Sincronizza rete**. L'operazione di rete di sincronizzazione è solo per la funzionalità integrazione rete virtuale dipendente gateway. Esecuzione di un'operazione di rete di sincronizzazione assicura che i certificati e le informazioni di rete siano sincronizzati. Se si aggiunge o modifica il DNS della rete virtuale, è necessario eseguire un'operazione **Sincronizza rete**. Questa operazione riavvierà qualsiasi app con questa rete virtuale.
 * **Aggiungi route**. L'aggiunta di route indirizzerà il traffico in uscita nella rete virtuale.
 
-**Routing**: le route definite in una rete virtuale vengono usate per indirizzare il traffico dall'app alla propria rete virtuale. Se è necessario inviare altro traffico in uscita nella rete virtuale, è possibile aggiungere qui i blocchi di indirizzi. Capabilty funziona solo con il gateway è necessaria l'integrazione rete virtuale.
+**Routing**: le route definite in una rete virtuale vengono usate per indirizzare il traffico dall'app alla propria rete virtuale. Se è necessario inviare altro traffico in uscita nella rete virtuale, è possibile aggiungere qui i blocchi di indirizzi. Funzionalità funziona solo con il gateway necessario integrazione rete virtuale.
 
 **I certificati** quando il gateway necessario abilitata l'integrazione rete virtuale, è necessario uno scambio di certificati per garantire la sicurezza della connessione. Con i certificati si ottengono la configurazione DNS, le route e altre informazioni simili che descrivono la rete.
 Se vengono modificati i certificati o le informazioni di rete, è necessario fare clic su "Sincronizza rete". Quando si fa clic su "Sincronizza rete", si verifica una breve interruzione della connettività tra l'app e la rete virtuale. L'app non viene riavviata, ma la perdita di connettività potrebbe causare il funzionamento non corretto del sito. 

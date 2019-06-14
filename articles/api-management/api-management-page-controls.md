@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
 ms.openlocfilehash: d87293d89e4009512494bf47f9742ea5901f909a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60656926"
 ---
 # <a name="azure-api-management-page-controls"></a>Controlli pagina in Gestione API di Azure
@@ -40,7 +40,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 -   [app-actions](#app-actions)  
 -   [basic-signin](#basic-signin)  
 -   [paging-control](#paging-control)  
--   [provider](#providers)  
+-   [providers](#providers)  
 -   [search-control](#search-control)  
 -   [sign-up](#sign-up)  
 -   [subscribe-button](#subscribe-button)  
@@ -49,7 +49,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 ##  <a name="app-actions"></a> app-actions  
  Il controllo `app-actions` offre un'interfaccia utente per interagire con le applicazioni nella pagina del profilo utente nel portale per sviluppatori.  
   
- ![Controllo app&amp;#45;actions](./media/api-management-page-controls/APIM-app-actions-control.png "Controllo app-actions in Gestione API di Azure")  
+ ![Controllo app&#45;actions](./media/api-management-page-controls/APIM-app-actions-control.png "Controllo app-actions in Gestione API di Azure")  
   
 ### <a name="usage"></a>Uso  
   
@@ -59,7 +59,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
   
 ### <a name="parameters"></a>Parametri  
   
-|Parametro|DESCRIZIONE|  
+|Parametro|Descrizione|  
 |---------------|-----------------|  
 |appId|L'ID dell'applicazione.|  
   
@@ -153,7 +153,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 ##  <a name="sign-up"></a> sign-up  
  Il controllo `sign-up` permette di raccogliere le informazioni di profilo degli utenti nella pagina di iscrizione del portale per sviluppatori.  
   
- ![Controllo sign&amp;#45;up](./media/api-management-page-controls/APIM-sign-up-control.png "Controllo sign-up in Gestione API di Azure")  
+ ![Controllo sign&#45;up](./media/api-management-page-controls/APIM-sign-up-control.png "Controllo sign-up in Gestione API di Azure")  
   
 ### <a name="usage"></a>Uso  
   
@@ -172,7 +172,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 ##  <a name="subscribe-button"></a> subscribe-button  
  Il controllo `subscribe-button` consente di sottoscrivere un utente a un prodotto.  
   
- ![Controllo subscribe&amp;#45;button](./media/api-management-page-controls/APIM-subscribe-button-control.png "Controllo subscribe-button in Gestione API di Azure")  
+ ![Controllo subscribe&#45;button](./media/api-management-page-controls/APIM-subscribe-button-control.png "Controllo subscribe-button in Gestione API di Azure")  
   
 ### <a name="usage"></a>Uso  
   
@@ -191,7 +191,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
 ##  <a name="subscription-cancel"></a> subscription-cancel  
  Il controllo `subscription-cancel` consente di annullare la sottoscrizione a un prodotto nella pagina di profilo dell'utente nel portale per sviluppatori.  
   
- ![Controllo subscription&amp;#45;cancel](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Controllo subscription-cancel in Gestione API di Azure")  
+ ![Controllo subscription&#45;cancel](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Controllo subscription-cancel in Gestione API di Azure")  
   
 ### <a name="usage"></a>Uso  
   
@@ -203,7 +203,7 @@ Per usare un controllo, inserirlo nella posizione desiderata nel modello del por
   
 ### <a name="parameters"></a>Parametri  
   
-|Parametro|DESCRIZIONE|  
+|Parametro|Descrizione|  
 |---------------|-----------------|  
 |subscriptionId|L'ID della sottoscrizione da annullare.|  
 |cancelUrl|L'URL di annullamento della sottoscrizione.|  

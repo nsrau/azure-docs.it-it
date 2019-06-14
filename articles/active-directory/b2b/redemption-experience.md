@@ -5,60 +5,73 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 06/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
+ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99fe386ec75e60a16f3095f22dccc3852883f8aa
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: a80eaa134130195fce00ee6a4d68851e478c4532
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304522"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052499"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Riscatto dell'invito di Collaborazione B2B di Azure Active Directory
 
-Per collaborare con gli utenti delle organizzazioni partner usando Collaborazione B2B di Azure Active Directory (Azure AD), è possibile invitare gli utenti guest ad accedere alle app condivise. Dopo essere stato aggiunto alla directory dall'interfaccia utente o essere stato invitato attraverso PowerShell, l'utente guest deve eseguire il primo processo di consenso in cui accetta le [condizioni di privacy](#privacy-policy-agreement). Questo processo avviene in uno dei modi seguenti:
+Questo articolo descrive i modi in cui gli utenti guest possono accedere le risorse e il processo di consenso che verranno riscontrati. Se si invia un messaggio di posta elettronica di invito al guest, l'invito è incluso un collegamento guest può essere riscattato per ottenere l'accesso all'app o il portale. Messaggio di posta elettronica di invito è solo uno dei modi i guest possono ottenere accesso alle risorse. In alternativa, è possibile aggiungere utenti guest alla directory e assegnare loro un collegamento diretto per il portale o l'app che si vuole condividere. Indipendentemente dal metodo che usano, gli utenti guest vengono indirizzati attraverso un processo il primo consenso. Questo processo assicura che i guest per accettano i termini di privacy e accettano [le condizioni d'uso](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) è stato configurato.
 
-- Il mittente dell'invito guest invia un collegamento diretto a un'applicazione condivisa. L'invitato fa clic sul collegamento per accedere, accetta le condizioni di privacy e accede senza problemi alla risorsa condivisa. L'utente guest riceve comunque un invito via posta elettronica con un URL di riscatto, ma, se non in casi particolari, non è più necessario usare il messaggio di invito.  
-- L'utente guest riceve un invito via posta elettronica e fa clic sull'URL di riscatto. Durante il primo accesso, viene chiesto di accettare le condizioni di privacy.
-
-## <a name="redemption-through-a-direct-link"></a>Riscatto attraverso un collegamento diretto
-
-Un mittente dell'invito guest può invitare un utente guest inviando un [collegamento diretto a un'app condivisa](../manage-apps/end-user-experiences.md#direct-sign-on-links). Per l'utente guest, l'esperienza di riscatto è facile come accedere all'app condivisa. Può fare clic su un collegamento all'app, esaminare e accettare le condizioni di privacy e quindi accedere all'app senza problemi. Nella maggior parte dei casi, gli utenti guest non devono più fare clic su un URL di riscatto in un messaggio di invito.
-
-Se gli utenti guest sono stati invitati dall'interfaccia utente o si è scelto di inviare l'invito via posta elettronica nell'ambito dell'esperienza di invito di PowerShell, l'utente invitato riceve comunque un messaggio di posta elettronica di invito. Questo messaggio è utile per i casi seguenti:
-
-- L'utente non ha un account Microsoft o un account Azure AD. In questo caso, l'utente deve creare un account Microsoft prima di fare clic sul collegamento o può usare l'URL di riscatto nel messaggio di invito. Il processo di riscatto chiede automaticamente all'utente di creare un account Microsoft.
-- È a volte possibile che l'oggetto utente invitato non abbia un indirizzo di posta elettronica a causa di un conflitto con un oggetto contatto (ad esempio, un oggetto contatto di Outlook). In questo caso, l'utente deve fare clic sull'URL di riscatto nel messaggio di invito.
-- L'utente può accedere con un alias dell'indirizzo di posta elettronica invitato. Un alias è un indirizzo di posta elettronica aggiuntivo associato a un account di posta elettronica. In questo caso, l'utente deve fare clic sull'URL di riscatto nel messaggio di invito.
-
-Se questi particolari casi sono importanti per l'organizzazione, è consigliabile invitare gli utenti usando i metodi che inviano ancora l'invito via posta elettronica. Se un utente non rientra in uno di questi casi specifici, può fare clic sull'URL incluso in un invito ricevuto via posta elettronica per ottenere l'accesso.
+Quando si aggiunge un utente guest nella directory, l'account utente guest ha uno stato di consenso (visualizzabile in PowerShell) che inizialmente è impostato su **PendingAcceptance**. Questa impostazione rimane fino a quando l'utente guest accetta l'invito e acconsente all'informativa sulla privacy e condizioni d'uso. Successivamente, lo stato di consenso diventa **accettato**, e le pagine di consenso non è più vengono presentate al guest.
 
 ## <a name="redemption-through-the-invitation-email"></a>Riscatto con il messaggio di posta elettronica di invito
 
-Se invitati con un metodo che invia un invito via posta elettronica, gli utenti possono anche riscattare un invito usando il messaggio di posta elettronica. Un utente invitato può fare clic sull'URL di riscatto nel messaggio di posta elettronica e quindi esaminare e accettare le condizioni di privacy. Il processo viene descritto in modo più dettagliato qui:
+Quando si aggiunge un utente guest nella directory dalla [usando il portale di Azure](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal), viene inviata un'e-mail di invito al guest nel processo. È anche possibile scegliere di inviare messaggi di posta elettronica di invito, dopo aver [usando PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell) per aggiungere utenti guest alla directory. Ecco una descrizione dell'esperienza del guest quando si Riscatta il collegamento nel messaggio di posta elettronica.
 
-1.  Dopo essere stato invitato, l'invitato riceve un invito inviato via posta elettronica da **Microsoft Invitations** (Inviti Microsoft).
-2.  L'invitato seleziona **Get Started** (Inizia) nel messaggio di posta elettronica.
-3.  Se l'invitato non ha un account Azure AD o un account Microsoft, gli viene chiesto di creare un account Microsoft.
-4.  L'invitato viene reindirizzato alla schermata **Verifica le autorizzazioni**, dove può esaminare l'informativa sulla privacy dell'organizzazione che ha inviato l'invito e accettare le condizioni.
+1. Il guest riceve un' [posta elettronica di invito](https://docs.microsoft.com/azure/active-directory/b2b/invitation-email-elements) che viene inviato dal **Invitations Microsoft**.
+2. Le istruzioni SELECT guest **iniziare a usare** nel messaggio di posta elettronica.
+3. Se il guest non dispone di un account Azure AD, un Account Microsoft (MSA) o un account di posta elettronica in un'organizzazione federata, è richiesto di creare un account Microsoft (a meno che il [passcode monouso](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) funzionalità è abilitata, che non richiede un account Microsoft ).
+4. Il guest viene guidato la [esperienza di consenso](#consent-experience-for-the-guest) descritto di seguito.
 
-## <a name="privacy-policy-agreement"></a>Accettazione dell'informativa sulla privacy
+## <a name="redemption-through-a-direct-link"></a>Riscatto attraverso un collegamento diretto
 
-Dopo che un utente guest effettua l'accesso per usare le risorse di un'organizzazione partner per la prima volta, visualizza la schermata **Verifica le autorizzazioni**, dove può esaminare l'informativa sulla privacy dell'organizzazione che ha inviato l'invito. Per continuare, un utente deve accettare l'uso delle informazioni in conformità alle norme sulla privacy dell'organizzazione che ha inviato l'invito.
+Come alternativa al messaggio di posta elettronica di invito, è possibile assegnare un utente guest un collegamento diretto all'app o il portale. È necessario innanzitutto aggiungere l'utente guest alla directory tramite il [portale di Azure](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) oppure [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell). È possibile usare uno qualsiasi dei [soluzioni personalizzabili per distribuire applicazioni agli utenti](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), inclusi i collegamenti diretti sign-on. Quando un utente guest utilizza un collegamento diretto anziché l'invito tramite posta elettronica, sono comunque informazioni dettagliate tramite l'esperienza di consenso prima volta.
 
-![Screenshot che illustra le impostazioni utente nel riquadro di accesso](media/redemption-experience/ConsentScreen.png) 
+> [!IMPORTANT]
+> Il collegamento diretto deve essere specifico del tenant. In altre parole, è necessario includere un ID tenant o dominio verificato in modo che l'utente guest può essere autenticato nel tenant, in cui si trova l'app condivisa. Ad esempio un URL comune https://myapps.microsoft.com funzionerà per un utente guest perché si verrà reindirizzati al proprio tenant home per l'autenticazione. Di seguito sono riportati alcuni esempi di collegamenti diretti con contesto tenant:
+ > - Pannello di accesso delle App: https://myapps.microsoft.com/?tenantid=&lt; id tenant&gt; 
+ > - Pannello di accesso delle App per un dominio verificato: https://myapps.microsoft.com/&lt; verifica dominio&gt;
+ > - Portale di Azure: https://portal.azure.com/&lt; id tenant&gt;
+ > - App singole: informazioni su come usare un [collegamento diretto sign-on](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
-Per informazioni sul modo in cui un amministratore del tenant può collegarsi all'informativa sulla privacy dell'organizzazione, vedere [Procedura: Aggiungere le informazioni sulla privacy dell'organizzazione in Azure Active Directory](https://aka.ms/adprivacystatement).
+Esistono alcuni casi in cui il messaggio di posta elettronica di invito è consigliabile utilizzare un collegamento diretto. Se questi casi speciali sono importanti per l'organizzazione, è consigliabile invitare gli utenti con i metodi continuare a inviare l'invito tramite posta elettronica:
+ - L'utente non ha un account Azure AD, un account Microsoft o un account di posta elettronica in un'organizzazione federata. A meno che non si usa la funzionalità di passcode monouso, il guest deve riscattare l'invito tramite posta elettronica per essere illustrati i passaggi per la creazione di un account Microsoft.
+ - È a volte possibile che l'oggetto utente invitato non abbia un indirizzo di posta elettronica a causa di un conflitto con un oggetto contatto (ad esempio, un oggetto contatto di Outlook). In questo caso, l'utente deve fare clic sull'URL di riscatto nel messaggio di invito.
+ - L'utente può accedere con un alias dell'indirizzo di posta elettronica invitato. Un alias è un indirizzo di posta elettronica aggiuntivo associato a un account di posta elettronica. In questo caso, l'utente deve fare clic sull'URL di riscatto nel messaggio di invito.
 
-## <a name="terms-of-use"></a>Condizioni per l'utilizzo
+## <a name="consent-experience-for-the-guest"></a>Esperienza di consenso per l'utente guest
 
-È possibile presentare le condizioni d'uso per l'utente guest durante la procedura di riscatto iniziale utilizzando le condizioni di Azure AD di usare funzionalità. In Azure Active Directory è possibile accedere a questa funzionalità in **Gestisci** > **Relazioni aziendale** > **Condizioni per l'utilizzo** o in **Sicurezza** > **Accesso condizionale** > **Condizioni per l'utilizzo**. Per informazioni dettagliate, vedere [condizioni di Azure AD per l'utilizzo delle funzionalità](../conditional-access/terms-of-use.md).
+Quando un utente guest accede accedere alle risorse in un'organizzazione partner per la prima volta, si sta guidati le pagine seguenti. 
 
-![Screenshot che mostra le nuove condizioni per l'utilizzo](media/redemption-experience/organizational-relationships-terms-of-use.png) 
+1. Le verifiche di guest il **verificare le autorizzazioni** pagina di descrizione informativa sulla privacy dell'organizzazione che emette l'invito. Un utente deve disporre **Accept** l'uso delle loro informazioni in base ai criteri di privacy dell'organizzazione che emette l'invito per continuare.
+
+   ![Screenshot che mostra la pagina Verifica le autorizzazioni](media/redemption-experience/review-permissions.png) 
+
+   > [!NOTE]
+   > Per informazioni sul modo in cui un amministratore del tenant può collegarsi all'informativa sulla privacy dell'organizzazione, vedere [Procedura: Aggiungere le informazioni sulla privacy dell'organizzazione in Azure Active Directory](https://aka.ms/adprivacystatement).
+
+2. Se le condizioni d'uso sono configurate, il guest viene aperto ed esamina le condizioni d'uso e quindi seleziona **Accept**. 
+
+   ![Screenshot che mostra le nuove condizioni per l'utilizzo](media/redemption-experience/terms-of-use-accept.png) 
+
+   > [!NOTE]
+   > È possibile configurare vedere [le condizioni d'uso](../governance/active-directory-tou.md) nelle **Gestisci** > **relazioni aziendale** > **condizioni d'uso**.
+
+3. Se non diversamente specificato, il guest viene reindirizzato al pannello di accesso delle App, che elenca le applicazioni che può accedere l'utente guest.
+
+   ![Screenshot che mostra il pannello di accesso delle App](media/redemption-experience/myapps.png) 
+
+Nella directory, il guest **Invito accettato** valore diventa **Yes**. Se è stato creato un account Microsoft, il guest **origine** Mostra **Account Microsoft**. Per altre informazioni sulle proprietà dell'account utente guest, vedere [delle proprietà di un utente di collaborazione B2B di Azure AD](user-properties.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

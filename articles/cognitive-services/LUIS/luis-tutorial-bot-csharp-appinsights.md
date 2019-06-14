@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 56ceb48be9d5cc9d1cdceed7505e2e3e918a7286
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 6dbaa24df8b2917dd3f68d3851ca4662554ad00a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399670"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053259"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Aggiungere risultati LUIS ad Application Insights con un Bot in C#
 
 Questa esercitazione aggiunge le informazioni relative a risposte LUIS all'archivio dei dati di telemetria di [Application Insights](https://azure.microsoft.com/services/application-insights/). Dopo aver creato i dati, è possibile eseguire una query con la lingua di Kusto o Power BI per aggregare, analizzare e creare report sulla finalità ed entità del utterance in tempo reale. Questa analisi consente di determinare se è necessario aggiungere o modificare le finalità e le entità dell'app LUIS.
 
-Il bot viene compilato con Bot Framework 3.x e il bot per app Web di Azure. Oggetto [Bot Framework 4.x con l'esercitazione LUIS](luis-csharp-tutorial-bf-v4.md) è inoltre disponibile.
+Il bot viene compilato con Bot Framework 4.x e al bot di app Web di Azure. Oggetto [Bot Framework 4.x con l'esercitazione LUIS](luis-csharp-tutorial-bf-v4.md) è inoltre disponibile.
 
 In questa esercitazione si apprenderà come:
 
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Il bot app Web LUIS dell' **[esercitazione precedente](luis-csharp-tutorial-build-bot-framework-sample.md)** con Application Insights è attivato.
+* Un bot LUIS per app web dal **tutorial](luis-csharp-tutorial-bf-v4.md)** con Application Insights attivata.
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) è installato localmente nel computer.
 
 > [!Tip]
@@ -43,7 +43,7 @@ Tutto il codice di questa esercitazione è disponibile nel [repository GitHub Az
 
 ## <a name="review-luis-web-app-bot"></a>Revisione di un bot di app Web LUIS
 
-Questa esercitazione presuppone che si disponga di codice simile a quello riportato di seguito o che sia stata completata l'[altra esercitazione](luis-csharp-tutorial-build-bot-framework-sample.md):
+Questa esercitazione presuppone che si disponga di codice simile a quello riportato di seguito o che sia stata completata l'[altra esercitazione](luis-csharp-tutorial-bf-v4.md):
 
    [!code-csharp[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs "Web app bot with LUIS")]
 

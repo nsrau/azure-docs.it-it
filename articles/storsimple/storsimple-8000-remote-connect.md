@@ -16,10 +16,10 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 05bec60f4c56c98e9b910b50e858656a2e5554b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631780"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Connettersi in remoto al dispositivo StorSimple serie 8000
@@ -151,7 +151,7 @@ Eseguire le operazioni seguenti nella console seriale del dispositivo per abilit
 
 #### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Per abilitare la gestione remota tramite la console seriale del dispositivo:
 1. Nel menu della console seriale, selezionare l'opzione 1. Per altre informazioni sull'uso della console seriale del dispositivo, vedere [Connessione a Windows PowerShell per StorSimple tramite la console seriale del dispositivo](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. Al prompt dei comandi, digitare: 
+2. Al prompt dei comandi, digitare:
    
      `Enable-HcsRemoteManagement`
    
@@ -237,7 +237,7 @@ Eseguire la procedura seguente sul computer da cui si desidera effettuare la con
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
     Per il parametro -ComputerName nel cmdlet, specificare il <*numero di serie del dispositivo di destinazione*>. Questo numero di serie è stato mappato all'indirizzo IP di DATA 0 nel file hosts sull'host remoto; ad esempio, **SHX0991003G44MT** come illustrato nella figura seguente.
-5. Digitare: 
+5. Digitare:
    
      `Enter-PSSession $session`
 6. Sarà necessario attendere alcuni minuti, quindi verrà effettuata la connessione al dispositivo tramite HTTPS su SSL. Verrà visualizzato un messaggio indicante che è stata effettuata la connessione al dispositivo.

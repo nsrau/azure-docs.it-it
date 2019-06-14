@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60440621"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuire Azure AD Privileged Identity Management (PIM)
@@ -153,7 +153,7 @@ Per automatizzare i passaggi 3 e 4, è possibile usare la funzione per la verifi
 
 ![Crea una verifica di accesso](./media/pim-deployment-plan/create-access-review.png)
 
-È necessario impostare i revisori su **Membri (autonomo)**. In questo modo verrà inviato un messaggio di posta elettronica a tutti i membri del ruolo per chiedere loro di confermare se hanno bisogno dell'accesso. È anche necessario attivare **Richiedi il motivo all'approvazione** nelle impostazioni avanzate in modo che gli utenti possano indicare il motivo per cui devono disporre del ruolo. In base alle informazioni raccolte, sarà possibile rimuovere gli utenti dai ruoli non necessari e, nel caso di amministratori globali, delegare più ruoli di amministratore specifici.
+È necessario impostare i revisori su **Membri (autonomo)** . In questo modo verrà inviato un messaggio di posta elettronica a tutti i membri del ruolo per chiedere loro di confermare se hanno bisogno dell'accesso. È anche necessario attivare **Richiedi il motivo all'approvazione** nelle impostazioni avanzate in modo che gli utenti possano indicare il motivo per cui devono disporre del ruolo. In base alle informazioni raccolte, sarà possibile rimuovere gli utenti dai ruoli non necessari e, nel caso di amministratori globali, delegare più ruoli di amministratore specifici.
 
 Le verifiche di accesso si basano sulla posta elettronica per comunicare agli utenti di controllare il rispettivo accesso ai ruoli. Se si hanno alcuni account con privilegi a cui non è associato un indirizzo di posta elettronica, assicurarsi di specificare l'indirizzo di posta elettronica secondario per tali account. Per altre informazioni, vedere [Attributo proxyAddresses in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
@@ -353,7 +353,7 @@ Se PIM non ha funzionato come desiderato nell'ambiente di produzione, i passaggi
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Aprire **Azure AD Privileged Identity Management**.
 1. Fare clic su **Ruoli di Azure AD** e quindi su **Ruoli**.
-1. Per ogni ruolo configurato, fare clic sui puntini di sospensione (**...**) per tutti gli utenti con un'assegnazione idonea.
+1. Per ogni ruolo configurato, fare clic sui puntini di sospensione ( **...** ) per tutti gli utenti con un'assegnazione idonea.
 1. Fare clic sull'opzione **Rendi permanente** per rendere permanente l'assegnazione di ruolo.
 
 #### <a name="azure-resource-roles"></a>Ruoli delle risorse di Azure
@@ -362,7 +362,7 @@ Se PIM non ha funzionato come desiderato nell'ambiente di produzione, i passaggi
 1. Aprire **Azure AD Privileged Identity Management**.
 1. Fare clic su **Risorse di Azure** e quindi su una sottoscrizione o una risorsa per cui si vuole ripristinare lo stato precedente.
 1. Fare clic su **Ruoli**.
-1. Per ogni ruolo configurato, fare clic sui puntini di sospensione (**...**) per tutti gli utenti con un'assegnazione idonea.
+1. Per ogni ruolo configurato, fare clic sui puntini di sospensione ( **...** ) per tutti gli utenti con un'assegnazione idonea.
 1. Fare clic sull'opzione **Rendi permanente** per rendere permanente l'assegnazione di ruolo.
 
 ## <a name="step-4-next-steps-after-deploying-pim"></a>Passaggio 4. Operazioni successive alla distribuzione di PIM

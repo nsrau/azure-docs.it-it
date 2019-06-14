@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c34d8de3dfd06540dd50542ab19da0c1d9b1567
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242258"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
@@ -63,11 +63,11 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 | SO\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sì\*|No |Sì|Sì\*\*\*|N/D
-|Windows 8.1|Sì\*|N/D|Sì|Sì\*\*\*|N/D
-|Windows 8|Sì\*|N/D|Sì|Sì\*\*\*|N/D
-|Windows 7|Sì\*|N/D|Sì|Sì\*\*\*|N/D
-|Windows Server 2012 R2 o versione successiva|Sì\*\*|N/D|Sì|Sì\*\*\*|N/D
+|Windows 10|Sì\*|No|Yes|Sì\*\*\*|N/D
+|Windows 8.1|Sì\*|N/D|Yes|Sì\*\*\*|N/D
+|Windows 8|Sì\*|N/D|Yes|Sì\*\*\*|N/D
+|Windows 7|Sì\*|N/D|Yes|Sì\*\*\*|N/D
+|Windows Server 2012 R2 o versione successiva|Sì\*\*|N/D|Yes|Sì\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sì\*\*\*|Sì\*\*\*|Sì\*\*\*
 
 

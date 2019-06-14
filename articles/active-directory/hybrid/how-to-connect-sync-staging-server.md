@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381587"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Server di gestione temporanea e ripristino di emergenza
@@ -65,9 +65,9 @@ Se si sono apportate modifiche personalizzate al server primario e si desidera c
 
 #### <a name="import-and-synchronize"></a>Importare e sincronizzare
 1. Selezionare **Connettori** e quindi selezionare il primo connettore con il tipo **Servizi di dominio Active Directory**. Fare clic su **Run** (Esegui), selezionare **Full import** (Importazione completa) e fare clic su **OK**. Eseguire questi passaggi per tutti i connettori di questo tipo.
-2. Selezionare il connettore con il tipo **Azure Active Directory (Microsoft)**. Fare clic su **Run** (Esegui), selezionare **Full import** (Importazione completa) e fare clic su **OK**.
+2. Selezionare il connettore con il tipo **Azure Active Directory (Microsoft)** . Fare clic su **Run** (Esegui), selezionare **Full import** (Importazione completa) e fare clic su **OK**.
 3. Assicurarsi che la scheda Connectors (Connettori) sia ancora selezionata. Per ogni connettore con il tipo **Active Directory Domain Services** fare clic su **Run** (Esegui), selezionare **Delta Synchronization** (Sincronizzazione delta) e fare clic su **OK**.
-4. Selezionare il connettore con il tipo **Azure Active Directory (Microsoft)**. Fare clic su **Run** (Esegui), selezionare **Delta Synchronization** (Sincronizzazione delta) e quindi fare clic su **OK**.
+4. Selezionare il connettore con il tipo **Azure Active Directory (Microsoft)** . Fare clic su **Run** (Esegui), selezionare **Delta Synchronization** (Sincronizzazione delta) e quindi fare clic su **OK**.
 
 È stata eseguita l'esportazione delle modifiche in modalità di gestione temporanea in Azure AD e in AD locale (se si usa una distribuzione ibrida di Exchange). I passaggi successivi consentono di ispezionare quali sono gli elementi che stanno per essere modificati prima di avviare effettivamente l'esportazione nelle directory.
 

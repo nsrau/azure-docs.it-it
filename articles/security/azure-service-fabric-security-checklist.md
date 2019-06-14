@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 06a1903e5e27d748310c1b7846105b8069b73437
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611536"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Elenco di controllo per la sicurezza di Azure Service Fabric
@@ -31,7 +31,7 @@ Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la
 Usare l'elenco seguente per assicurarsi di non trascurare eventuali problemi importanti nella gestione e nella configurazione di una soluzione di Azure Service Fabric protetta.
 
 
-|Categoria dell'elenco di controllo| DESCRIZIONE |
+|Categoria dell'elenco di controllo| Descrizione |
 | ------------ | -------- |
 |[Controllo degli accessi in base al ruolo (RBAC)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles) | <ul><li>Il Controllo di accesso consente all'amministratore del cluster di limitare l'accesso a determinate operazioni del cluster per diversi gruppi di utenti, rendendo più sicuro il cluster.</li><li>Gli amministratori hanno accesso completo alle funzionalità di gestione, incluse funzionalità di lettura/scrittura. </li><li> Gli utenti, per impostazione predefinita, hanno solo l'accesso in lettura alle funzionalità di gestione, ad esempio funzionalità di query, e la possibilità di risolvere applicazioni e servizi.</li></ul>|
 |[Certificati X.509 e Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) | <ul><li>È consigliabile creare i [certificati](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates) usati nei cluster che eseguono carichi di lavoro di produzione con un servizio certificati di Windows Server configurato correttamente oppure ottenerli da un'[autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority) approvata.</li><li>Non usare mai in fase di produzione [certificati temporanei o di test](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-create-temporary-certificates-for-use-during-development) creati con strumenti come [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968.aspx). </li><li>È possibile usare un [certificato autofirmato](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security), ma lo si deve fare solo per i cluster di test e non nell'ambiente di produzione.</li></ul>|

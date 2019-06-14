@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372265"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Tenere traccia di saldo del credito di Azure per il contratto di clienti Microsoft
@@ -45,7 +45,7 @@ Questo articolo si applica a un account di fatturazione per un contratto di clie
 
    ![Screenshot del saldo del credito e le transazioni per un profilo di fatturazione](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
 
-   | Termine               | Definizione                           |
+   | Nome               | Definizione                           |
    |--------------------|--------------------------------------------------------|
    | Saldo stimato  | Quantità stimata di crediti che sono prendere in considerazione tutti fatturati e le transazioni in sospeso |
    | Saldo corrente    | Quantità di crediti al momento della stesura l'ultima fattura. Non include eventuali transazioni in sospeso |
@@ -57,9 +57,9 @@ Questo articolo si applica a un account di fatturazione per un contratto di clie
 
    ![Screenshot degli elenchi di crediti per un profilo di fatturazione](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
 
-   | Termine                 | Definizione                           |
+   | Nome                 | Definizione                           |
    |----------------------|--------------------------------------------------------|
-   | Source (Sorgente)               | L'origine di acquisizione del credito |
+   | `Source`               | L'origine di acquisizione del credito |
    | Data di inizio           | La data di quando è stato acquistato il credito |
    | Expiration date      | La data in cui scade la carta di credito |
    | Balance              | Il saldo l'ultima fattura |

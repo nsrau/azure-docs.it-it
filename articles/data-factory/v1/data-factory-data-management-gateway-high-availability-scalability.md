@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60488631"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway di gestione dati: disponibilità elevata e scalabilità (anteprima)
@@ -165,7 +165,7 @@ Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazion
 - Ogni nodo di Integration Runtime deve considerare attendibile questo certificato, nonché il computer client che esegue l'applicazione di gestione delle credenziali. 
   > [!NOTE]
   > L'applicazione di gestione delle credenziali viene usata durante l'impostazione sicura delle credenziali tramite Copia guidata nel portale di Azure. Può inoltre essere attivata da qualsiasi computer all'interno della stessa rete dell'archivio dati locale/privato.
-- I certificati con caratteri jolly sono supportati. Se il nome FQDN è **node1.domain.contoso.com**, è possibile usare ***.domain.contoso.com** come nome del soggetto del certificato.
+- I certificati con caratteri jolly sono supportati. Se il nome FQDN è **node1.domain.contoso.com**, è possibile usare * **.domain.contoso.com** come nome del soggetto del certificato.
 - I certificati SAN non sono consigliati poiché verrà usato solo l'ultimo elemento dei nomi alternativi dei soggetti, mentre tutti gli altri verranno ignorati a causa della limitazione attuale. ad esempio se si dispone di un certificato SAN i cui nomi alternativi dei soggetti sono **node1.domain.contoso.com** e **node2.domain.contoso.com**, è possibile usare solo questo certificato nel computer il cui nome di dominio completo è **node2.domain.contoso.com**.
 - Deve supportare tutte le dimensioni chiave supportate da Windows Server 2012 R2 per i certificati SSL.
 - Non sono supportati i certificati che usano chiavi CNG.
@@ -182,11 +182,11 @@ Nel portale di Azure è possibile visualizzare lo snapshot in tempo quasi reale 
 
 ![Gateway di gestione dati: monitoraggio di più nodi](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
 
-È possibile abilitare **Impostazioni avanzate** nella pagina **Gateway** per visualizzare le metriche avanzate, ad esempio **Rete (in/out)**, **Ruolo e Stato delle credenziali**, utile nel debug dei problemi del gateway, e **Processi simultanei (in esecuzione/limite)** che può essere modificata/cambiata in base alle esigenze durante l'ottimizzazione delle prestazioni. La tabella seguente contiene le descrizioni delle colonne dell'elenco **Nodi del gateway**:  
+È possibile abilitare **Impostazioni avanzate** nella pagina **Gateway** per visualizzare le metriche avanzate, ad esempio **Rete (in/out)** , **Ruolo e Stato delle credenziali**, utile nel debug dei problemi del gateway, e **Processi simultanei (in esecuzione/limite)** che può essere modificata/cambiata in base alle esigenze durante l'ottimizzazione delle prestazioni. La tabella seguente contiene le descrizioni delle colonne dell'elenco **Nodi del gateway**:  
 
-Proprietà monitoraggio | DESCRIZIONE
+Proprietà monitoraggio | Descrizione
 :------------------ | :---------- 
-Name | Nome del gateway logico e nodi associati al gateway.  
+NOME | Nome del gateway logico e nodi associati al gateway.  
 Stato | Stato del gateway logico e dei nodi del gateway. Esempio: Online/Offline/Limitato e così via. Per informazioni su questi stati, vedere la sezione [Stato del gateway](#gateway-status). 
 Version | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). 
 Memoria disponibile | Memoria disponibile in un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 

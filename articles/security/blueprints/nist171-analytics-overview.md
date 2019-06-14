@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: f79ba9ae60454d4e73c914fc1c8af675a6d07d5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608854"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Modello Blueprint per sicurezza e conformità di Azure - Analisi dei dati per NIST SP 800-171
@@ -53,7 +53,7 @@ Questa soluzione usa i servizi di Azure seguenti. Per altre informazioni, vedere
 - Azure Machine Learning
 - Monitoraggio di Azure (log)
 - Centro sicurezza di Azure
--  database SQL di Azure
+- database SQL di Azure
 - Archiviazione di Azure
 - Rete virtuale di Azure
     - (1) Rete /16

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538131"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Introduzione ai componenti di richiesta e risposta
@@ -69,14 +69,14 @@ Ecco come aggiungere un'azione di risposta HTTP:
 ## <a name="request-trigger"></a>Trigger di richiesta
 Ecco i dettagli per il trigger supportato da questo connettore. È disponibile un solo trigger di richiesta.
 
-| Trigger | DESCRIZIONE |
+| Trigger | Descrizione |
 | --- | --- |
 | Richiesta |Si verifica quando viene ricevuta una richiesta HTTP |
 
 ## <a name="response-action"></a>Azione di risposta
 Ecco i dettagli per l'azione supportata da questo connettore. Esiste una sola azione di risposta che può essere usata solo quando è accompagnata da un trigger di richiesta.
 
-| Azione | DESCRIZIONE |
+| Azione | Descrizione |
 | --- | --- |
 | response |Restituisce una risposta alla richiesta HTTP correlata |
 
@@ -86,7 +86,7 @@ Le tabelle seguenti descrivono i campi di input per il trigger e l'azione e i co
 #### <a name="request-trigger"></a>Trigger di richiesta
 Di seguito è riportato un campo di input per il trigger da una richiesta HTTP in ingresso.
 
-| Nome visualizzato | Nome proprietà | DESCRIZIONE |
+| `Display name` | Nome proprietà | Descrizione |
 | --- | --- | --- |
 | Schema JSON |schema |Lo schema JSON del corpo della richiesta HTTP |
 
@@ -96,19 +96,19 @@ Di seguito è riportato un campo di input per il trigger da una richiesta HTTP i
 
 Di seguito sono indicati i dettagli di output per la richiesta.
 
-| Nome proprietà | Tipo di dati | DESCRIZIONE |
+| Nome proprietà | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | headers |object |Intestazioni della richiesta |
-| Corpo |object |Oggetto della richiesta |
+| Body |object |Oggetto della richiesta |
 
 #### <a name="response-action"></a>Azione di risposta
 Di seguito sono riportati i campi di input per l'azione di risposta HTTP. Un asterisco (*) indica che è un campo obbligatorio.
 
-| Nome visualizzato | Nome proprietà | DESCRIZIONE |
+| `Display name` | Nome proprietà | Descrizione |
 | --- | --- | --- |
 | Codice di stato* |statusCode |Il codice di stato HTTP |
 | Headers |headers |Un oggetto JSON delle intestazioni HTTP da includere |
-| Corpo |Corpo |Il corpo della risposta |
+| Body |Corpo |Il corpo della risposta |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).

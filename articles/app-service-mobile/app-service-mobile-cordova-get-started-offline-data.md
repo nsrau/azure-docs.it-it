@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 44c54b570a38eb1a3b9ca773893599d1d497dfa2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110994"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Abilitare la sincronizzazione offline per l'app per dispositivi mobili Cordova
@@ -128,7 +128,7 @@ Per altre informazioni sulla funzionalità di sincronizzazione offline, vedere l
           syncContext.pull(new WindowsAzure.Query('todoitem'));
         }
 
-    Decidere quando effettuare il push delle modifiche nel back-end dell'app per dispositivi mobili chiamando **syncContext.push()**. Ad esempio, è possibile chiamare **syncBackend** in un gestore eventi associato a un pulsante di sincronizzazione.
+    Decidere quando effettuare il push delle modifiche nel back-end dell'app per dispositivi mobili chiamando **syncContext.push()** . Ad esempio, è possibile chiamare **syncBackend** in un gestore eventi associato a un pulsante di sincronizzazione.
 
 ## <a name="offline-sync-considerations"></a>Considerazioni sulla sincronizzazione offline
 
@@ -188,7 +188,7 @@ In questa sezione, l'app viene riconnessa al back-end del'app per dispositivi mo
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
-* [Visual Studio Tools per Apache Cordova]
+* [Strumenti di Visual Studio per Apache Cordova]
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Nell'[esempio di sincronizzazione offline] sono disponibili informazioni sulle funzionalità di sincronizzazione offline più avanzate, ad esempio la risoluzione dei conflitti.
@@ -207,7 +207,7 @@ In questa sezione, l'app viene riconnessa al back-end del'app per dispositivi mo
 [authentication]: app-service-mobile-cordova-get-started-users.md
 [Work with the .NET backend server SDK for Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Visual Studio Community 2015]: https://www.visualstudio.com/
-[Visual Studio Tools per Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
+[Strumenti di Visual Studio per Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/15/2018
 ms.author: alkohli
 ms.openlocfilehash: c83326212dc84348a04d54f04348a6c4c7699bde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631516"
 ---
 # <a name="storsimple-solution-support"></a>Supporto della soluzione StorSimple
@@ -89,7 +89,7 @@ Il supporto per problemi correlati a fatturazione e gestione delle sottoscrizion
 
 | **GRAVITÀ** |**SITUAZIONE DEL CLIENTE**                                                                                                                                | RISPOSTA PREVISTA DA PARTE DI MICROSOFT <sup>2                                                                                       | RISPOSTA PREVISTA DA PARTE DEL CLIENTE                                                                                                                                                       |
 |----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Una         | Impatto aziendale critico: <ul> <br> <li> L'azienda del cliente riscontra perdita o riduzione significativa delle prestazioni dei servizi. <sup>1</sup> <br> <li> Necessita di attenzione immediata.                          | Risposta iniziale: <sup>1</sup> <ul><br> <li>Massimo 1 ora per Premium. <br> <li> Massimo 2 ore per Standard. <br> <li> Tentativi di risoluzione per tutto il giorno, tutti i giorni. | <ul><li> Allocazione delle risorse appropriate per sostenere tentativi di risoluzione continui per tutto il giorno, tutti i giorni. <br> <li> Informazioni di contatto accurate per l'autore della richiesta di assistenza.                                                |
+| Una        | Impatto aziendale critico: <ul> <br> <li> L'azienda del cliente riscontra perdita o riduzione significativa delle prestazioni dei servizi. <sup>1</sup> <br> <li> Necessita di attenzione immediata.                          | Risposta iniziale: <sup>1</sup> <ul><br> <li>Massimo 1 ora per Premium. <br> <li> Massimo 2 ore per Standard. <br> <li> Tentativi di risoluzione per tutto il giorno, tutti i giorni. | <ul><li> Allocazione delle risorse appropriate per sostenere tentativi di risoluzione continui per tutto il giorno, tutti i giorni. <br> <li> Informazioni di contatto accurate per l'autore della richiesta di assistenza.                                                |
 | b        | Impatto aziendale moderato: <ul><br> <li> L'azienda del cliente riscontra perdita o riduzione moderata delle prestazioni dei servizi, ma è in grado di continuare a lavorare, sebbene in modo non ottimale. | Risposta iniziale: <sup>1</sup><ul><br> <li> Massimo 2 ore per Premium. <br> <li> Massimo 4 ore per Standard.                                      | <ul><li> Allocazione delle risorse appropriate per sostenere tentativi di risoluzione durante l'orario lavorativo, a meno che il cliente non rifiuti esplicitamente la soluzione 24x7. <br> <li> Informazioni di contatto accurate per l'autore della richiesta di assistenza. |
 | C        | Impatto aziendale minimo: <ul><br> <li> L'azienda del cliente riscontra impedimenti minimi o impercettibili per i servizi.                                 | Risposta iniziale: <sup>1</sup><ul> <br> <li> Massimo 4 ore per Premium. <br> <li> Massimo 8 ore per Standard.                                      | <ul><li>Informazioni di contatto accurate per l'autore della richiesta di assistenza                                                                                                                                    |
  

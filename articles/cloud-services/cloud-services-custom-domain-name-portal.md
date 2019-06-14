@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e210882cb773718f68e9178cbbce6874c2729744
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337477"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063622"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
-Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Se ad esempio il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come http://contoso.cloudapp.net. Azure assegna anche un indirizzo IP virtuale.
+Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Se ad esempio il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come `http://contoso.cloudapp.net`. Azure assegna anche un indirizzo IP virtuale.
 
 È tuttavia possibile esporre l'applicazione in un nome di dominio personalizzato, ad esempio **contoso.com**. In questo articolo viene illustrato come riservare o configurare un nome di dominio personalizzato per i ruoli Web del servizio cloud.
 
@@ -78,7 +78,7 @@ Per creare un record CNAME è necessario aggiungere una nuova voce nella tabella
      Salvare il nome di dominio utilizzato nell'URL restituito da uno dei metodi, poiché sarà necessario per la creazione di un record CNAME.
 2. Accedere al sito Web del registrar DNS e passare alla pagina di gestione dei DNS. Individuare collegamenti o aree del sito denominate **Domain Name**, **DNS** o **Name Server Management**.
 3. Trovare la sezione in cui è possibile selezionare o immettere CNAME. Può essere necessario selezionare un tipo di record in un elenco a discesa oppure passare a una pagina di impostazioni avanzate. Individuare i termini **CNAME**, **Alias** o **Subdomains** (Sottodomini).
-4. È inoltre necessario specificare il dominio o sottodominio alias per il record CNAME, ad esempio **www** se si desidera creare un alias per **www\.customdomain.com**. Se si desidera creare un alias per il dominio radice, è possibile che sia elencato con il simbolo '**\@**' negli strumenti DNS del registrar.
+4. È inoltre necessario specificare il dominio o sottodominio alias per il record CNAME, ad esempio **www** se si desidera creare un alias per **www\.customdomain.com**. Se si desidera creare un alias per il dominio radice, è possibile che sia elencato con il simbolo ' **\@** ' negli strumenti DNS del registrar.
 5. A questo punto, occorre fornire un nome host canonico, che in questo caso corrisponde al dominio **cloudapp.net** .
 
 Ad esempio, il record CNAME seguente inoltra tutto il traffico dagli **www\.contoso.com** al **contoso.cloudapp.net**, il nome di dominio personalizzato dell'applicazione distribuita:
@@ -113,7 +113,7 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP virtua
 3. Trovare la sezione in cui è possibile selezionare o immettere i record A. Può essere necessario selezionare un tipo di record in un elenco a discesa oppure passare a una pagina di impostazioni avanzate.
 4. Selezionare o immettere il dominio o sottodominio che utilizzerà il record A. Ad esempio, selezionare **www** se si desidera creare un alias per **www\.customdomain.com**. Se si vuole creare una voce con caratteri jolly per tutti i sottodomini, immettere '*****'. Questa esercitazione illustrerà come tutti i sottodomini **mail.customdomain.com**, **login.customdomain.com**, e **www\.customdomain.com**.
 
-    Se si desidera creare un record A per il dominio radice, è possibile che sia elencato con il simbolo '**\@**' negli strumenti DNS del registrar.
+    Se si desidera creare un record A per il dominio radice, è possibile che sia elencato con il simbolo ' **\@** ' negli strumenti DNS del registrar.
 5. Immettere l'indirizzo IP del servizio cloud nell'apposito campo. La voce del dominio usata nel record A verrà associata all'indirizzo IP della distribuzione del servizio cloud.
 
 Il record A seguente, ad esempio, inoltra tutto il traffico da **contoso.com** a **137.135.70.239**, che è l'indirizzo IP dell'applicazione distribuita:

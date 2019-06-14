@@ -1,20 +1,20 @@
 ---
-title: La scalabilità automatica e il Gateway applicazione ridondanza della zona in Azure
+title: La scalabilità automatica e il Gateway applicazione ridondanza della zona v2
 description: Questo articolo vengono presentate le Standard_v2 dell'applicazione di Azure e WAF_v2 SKU, che include le funzionalità di scalabilità automatica e la ridondanza della zona.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/1/2019
+ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 40564e52cbcde0e835ed97132196bf7ed084f5b7
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: 7cf6b4984f3941da3b2cd0e4eada5eb1d87f2b01
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431207"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054736"
 ---
-# <a name="autoscaling-and-zone-redundant-application-gateway"></a>La scalabilità automatica e il Gateway applicazione ridondanza della zona 
+# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>La scalabilità automatica e il Gateway applicazione ridondanza della zona v2 
 
 Il Gateway applicazione e Web Application Firewall (WAF) sono disponibili anche in un Standard_v2 e WAF_v2 SKU. Lo SKU v2 offre miglioramenti delle prestazioni e aggiunge il supporto per critici le nuove funzionalità quali la scalabilità automatica, ridondanza di zona e il supporto per i VIP statico. Le funzionalità esistenti in Standard Edition e lo SKU del WAF continuano a essere supportati nel nuovo SKU v2, con alcune eccezioni elencate nella [confronto](#differences-with-v1-sku) sezione.
 
@@ -71,7 +71,7 @@ Per altre informazioni sui prezzi, vedere la [pagina dei prezzi](https://azure.m
 Standard_v2 un Gateway applicazione viene eseguito il provisioning senza scalabilità automatica in modalità di ridimensionamento manuale con capacità fissa pari a cinque istanze.
 
 Fixed price = 744(hours) * $0.20 = $148.8 <br>
-Unità di capacità = unità di capacità (ore) 10 744 per ogni istanza * cinque istanze * $0,008 all'ora di unità di capacità = $297.6
+Unità di capacità = 744 (ore) * 10 unità di capacità per ogni istanza * 5 istanze * $0,008 all'ora di unità di capacità = $297.6
 
 Prezzo totale = $148.8 + $297.6 = $446.4
 
@@ -85,6 +85,9 @@ Prezzo unitario capacità = 744(hours) * Max (unità di calcolo di 25 o 50 per l
 
 Prezzo totale = $148. 23.81 8 + = $172.61
 
+> [!NOTE]
+> La funzione Max restituisce il valore più grande in una coppia di valori.
+
 **Esempio 3**
 
 WAF_v2 un Gateway applicazione viene eseguito il provisioning per un mese. Durante questo periodo, riceve 25 nuovi SSL connessioni/sec, Media di trasferimento dei dati 8.88 Mbps e 80 richiesta al secondo. Supponendo che le connessioni hanno breve durata e che il calcolo di unità di calcolo per l'applicazione supporta RPS 10 per ogni unità di calcolo, il prezzo sarebbe:
@@ -94,6 +97,9 @@ Prezzo fisso = 744(hours) * $0.36 = $267.84
 Prezzo unitario capacità = 744(hours) * Max (compute unit Max(25/50 for connections/sec, 80/10 WAF RPS), 8.88/2.22 unità di capacità per la velocità effettiva) * $0.0144 = 744 * 8 * 0.0144 = $85.71
 
 Prezzo totale = $267.84 + $85.71 = $353.55
+
+> [!NOTE]
+> La funzione Max restituisce il valore più grande in una coppia di valori.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Ridimensionamento WAF e Gateway applicazione v2
 
@@ -142,11 +148,12 @@ La tabella seguente confronta le funzionalità disponibili in ogni SKU.
 |Modalità FIPS|Attualmente non supportati.|
 |Modalità solo bilanciamento del carico interno|Non supportato attualmente. Le modalità pubblica e con bilanciamento del carico interno insieme non sono supportate.|
 |Integrazione di Netwatcher|Non supportati.|
-|Integrazione del centro di supporto di Azure|Non ancora disponibile.
+|Integrazione del Centro sicurezza di Azure|Non ancora disponibile.
 
 ## <a name="migrate-from-v1-to-v2"></a>Eseguire la migrazione dalla versione 1 alla versione 2
 
 Uno script Azure PowerShell è disponibile in PowerShell gallery per eseguire la migrazione da di v1/WAF del Gateway applicazione per il ridimensionamento automatico v2 SKU. Questo script consente di copiare la configurazione dal gateway di v1. Migrazione di traffico è comunque responsabilità dell'utente. Per altre informazioni, vedere [eseguire la migrazione di Gateway applicazione di Azure da v1 a v2](migrate-v1-v2.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Avvio rapido: Indirizzare il traffico Web con il gateway applicazione di Azure - Portale di Azure](quick-create-portal.md)

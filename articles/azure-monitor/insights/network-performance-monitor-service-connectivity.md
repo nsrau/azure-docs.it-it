@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: absha
-ms.openlocfilehash: 5b1c0212205575f1d40f320fb959d98e55d87fb9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: c5285ac95a2f5813949f22aae3849fd7f55b1ada
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65963585"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052097"
 ---
 # <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
 
@@ -64,7 +64,7 @@ Iniziare a creare i test per monitorare la connettività di rete agli endpoint d
 
     * Selezionare **Web** per monitorare la connettività a un servizio che risponde a richieste HTTP/S, ad esempio outlook.office365.com o bing.com.<br>
     * Selezionare **Rete** per monitorare la connettività a un servizio che risponde a una richiesta TCP, ma non risponde a richieste HTTP/S, ad esempio un server SQL, un server FTP o una porta SSH. 
-    * Ad esempio: Per creare un test web in un account di archiviazione blob, selezionare **Web** e immettere destinazione perché *yourstorageaccount*. blob.core.windows.net. Analogamente è possibile creare test per altri archiviazione tabelle, archiviazione code e file di Azure usando [questo collegamento.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * Ad esempio:  Per creare un test web in un account di archiviazione blob, selezionare **Web** e immettere destinazione perché *yourstorageaccount*. blob.core.windows.net. Analogamente è possibile creare test per altri archiviazione tabelle, archiviazione code e file di Azure usando [questo collegamento.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. Se non si vuole eseguire misure di rete, ad esempio latenza di rete, perdita di pacchetti e individuazione della topologia, deselezionare la casella di controllo **Esegui misure di rete**. Per sfruttare al meglio la funzionalità, lasciare questa opzione selezionata. 
 5. In **Destinazione** immettere l'indirizzo URL/FQDN/IP per cui si vuole monitorare la connettività di rete.
 6. In **Numero di porta** immettere il numero di porta del servizio di destinazione. 
@@ -129,7 +129,7 @@ Se si osserva un'anomalia, seguire questa procedura:
 * Se l'esecuzione dell'applicazione risulta rallentata, determinare se le prestazioni dell'applicazione non soddisfacenti sono dovute alla rete o a qualche problema da parte del provider dell'applicazione.
 
 ## <a name="gcc-office-urls-for-us-government-customers"></a>GCC Office URL per i clienti US Government
-Per un'area governo Virginia, solo gli URL DOD sono incorporati NPM. I clienti che usano GCC URL necessario creare test personalizzati e aggiungere ogni inidividually URL.
+Per un'area governo Virginia, solo gli URL DOD sono incorporati NPM. I clienti che usano GCC URL necessario creare test personalizzati e aggiungervi singolarmente ogni URL.
 
 | Campo | GCC |
 |:---   |:--- |

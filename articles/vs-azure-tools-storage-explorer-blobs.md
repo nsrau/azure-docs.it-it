@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60458567"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gestire le risorse di archiviazione BLOB di Azure con Storage Explorer
@@ -172,7 +172,7 @@ I passaggi seguenti illustrano come gestire i BLOB e le cartelle all'interno di 
      1. Sulla barra degli strumenti del riquadro principale selezionare **Carica** e quindi **Carica i file** dal menu a discesa.
 
         ![Menu Carica i file][15]
-     2. Nella finestra di dialogo **Carica i file** scegliere il pulsante con i puntini di sospensione (**…**) a destra della casella **File** per selezionare i file da caricare.
+     2. Nella finestra di dialogo **Carica i file** scegliere il pulsante con i puntini di sospensione ( **…** ) a destra della casella **File** per selezionare i file da caricare.
 
         ![Opzioni di Carica i file][16]
      3. Specificare un valore per tipo **Tipo BLOB**. Per altre informazioni, vedere [Creare il contenitore e impostare le autorizzazioni](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container).
@@ -183,7 +183,7 @@ I passaggi seguenti illustrano come gestire i BLOB e le cartelle all'interno di 
      1. Sulla barra degli strumenti del riquadro principale selezionare **Carica** e quindi **Upload Folder** (Carica cartella) dal menu a discesa.
 
         ![Menu di Upload Folder (Carica cartella)][17]
-     2. Nella finestra di dialogo **Upload Folder** (Carica cartella) scegliere il pulsante con i puntini di sospensione (**…**) a destra della casella di testo **Cartella** per selezionare la cartella di cui si vuole caricare il contenuto.
+     2. Nella finestra di dialogo **Upload Folder** (Carica cartella) scegliere il pulsante con i puntini di sospensione ( **…** ) a destra della casella di testo **Cartella** per selezionare la cartella di cui si vuole caricare il contenuto.
 
         ![Opzioni di Upload Folder (Carica cartella)][18]
      3. Specificare un valore per tipo **Tipo BLOB**. Per altre informazioni, vedere [Creare il contenitore e impostare le autorizzazioni](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container).

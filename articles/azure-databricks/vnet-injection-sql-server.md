@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770790"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Esercitazione: Eseguire una query un contenitore Linux Docker di SQL Server in una rete virtuale da un notebook di Azure Databricks
@@ -62,10 +62,10 @@ In questa esercitazione si apprenderà come:
 
 7. Aggiungere una regola per aprire la porta 22 per SSH. Usare le seguenti impostazioni:
     
-    |Impostazione|Valore consigliato|DESCRIZIONE|
+    |Impostazione|Valore consigliato|Descrizione|
     |-------|---------------|-----------|
     |`Source`|Indirizzi IP|Gli indirizzi IP consente di specificare che il traffico in ingresso da un'origine Specifica indirizzo IP verrà consentito o negato da questa regola.|
-    |Indirizzi IP di origine|< l'indirizzo ip pubblico\>|Immettere il proprio indirizzo IP pubblico. È possibile trovare l'indirizzo IP pubblico visitando [bing.com](https://www.bing.com/) e cercando **"my IP"**.|
+    |Indirizzi IP di origine|< l'indirizzo ip pubblico\>|Immettere il proprio indirizzo IP pubblico. È possibile trovare l'indirizzo IP pubblico visitando [bing.com](https://www.bing.com/) e cercando **"my IP"** .|
     |Intervalli di porte di origine|*|Consentire il traffico da qualsiasi porta.|
     |Destination|Indirizzi IP|Gli indirizzi IP consente di specificare che il traffico in uscita per una specifica origine, indirizzo IP verrà consentito o negato da questa regola.|
     |Indirizzi IP di destinazione|< l'indirizzo ip pubblico della macchina virtuale\>|Immettere l'indirizzo IP pubblico della macchina virtuale. È possibile trovarlo nel **Panoramica** pagina della macchina virtuale.|
@@ -78,7 +78,7 @@ In questa esercitazione si apprenderà come:
 
 8. Aggiungere una regola per aprire la porta 1433 per SQL con le impostazioni seguenti:
 
-    |Impostazione|Valore consigliato|DESCRIZIONE|
+    |Impostazione|Valore consigliato|Descrizione|
     |-------|---------------|-----------|
     |`Source`|Indirizzi IP|Gli indirizzi IP consente di specificare che il traffico in ingresso da un'origine Specifica indirizzo IP verrà consentito o negato da questa regola.|
     |Indirizzi IP di origine|10.179.0.0/16|Immettere l'intervallo di indirizzi della rete virtuale.|
@@ -87,7 +87,7 @@ In questa esercitazione si apprenderà come:
     |Indirizzi IP di destinazione|< l'indirizzo ip pubblico della macchina virtuale\>|Immettere l'indirizzo IP pubblico della macchina virtuale. È possibile trovarlo nel **Panoramica** pagina della macchina virtuale.|
     |Intervalli di porte di destinazione|1433|Aprire la porta 22 per SQL Server.|
     |Priorità|300|Assegnare una priorità alla regola.|
-    |NOME|sql-databricks-tutorial-vm|Assegnare un nome alla regola.|
+    |Name|sql-databricks-tutorial-vm|Assegnare un nome alla regola.|
 
     ![Aggiungi regola di sicurezza in ingresso per la porta 1433](./media/vnet-injection-sql-server/open-port2.png)
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 8fe0bf9c8827b7248195f89377176fd834845e32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615216"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio
@@ -43,12 +43,12 @@ Selezionando **Pubblica** viene visualizzata una finestra popup in cui è possib
 
 Fare clic su **Pubblica** nella finestra di dialogo. È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione Visual Objects include un servizio Web a cui è possibile accedere digitando [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) nella barra degli indirizzi del browser.  Sullo schermo verranno visualizzati dieci oggetti visivi mobili.
 
-**NOTA:** Se la distribuzione in `Cloud.xml` profilo (Azure Service Fabric), l'applicazione deve quindi essere disponibile all'indirizzo **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/**. Assicurarsi che `8081/TCP` sia stato configurato nel servizio di bilanciamento del carico (il servizio di bilanciamento del carico si trova nello stesso gruppo di risorse dell'istanza di Service Fabric).
+**NOTA:** Se la distribuzione in `Cloud.xml` profilo (Azure Service Fabric), l'applicazione deve quindi essere disponibile all'indirizzo **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/** . Assicurarsi che `8081/TCP` sia stato configurato nel servizio di bilanciamento del carico (il servizio di bilanciamento del carico si trova nello stesso gruppo di risorse dell'istanza di Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Passaggio 2: aggiornare l'applicazione Oggetti visivi di esempio
 È possibile osservare come con la versione distribuita al passaggio 1 gli oggetti visivi non ruotino. L'applicazione può essere aggiornata in modo che gli oggetti visivi ruotino.
 
-Selezionare il progetto VisualObjects.ActorService nella soluzione VisualObjects e aprire il file **VisualObjectActor.cs** . All'interno del file passare al metodo `MoveObject`, impostare come commento `visualObject.Move(false)` e rimuovere il commento `visualObject.Move(true)`. Questa modifica del codice fa ruotare gli oggetti dopo l'aggiornamento del servizio.  **A questo punto è possibile compilare la soluzione (non ricompilarla)**, in modo che vengano compilati solo i progetti modificati. Se si seleziona *Ricompila tutto*, è necessario aggiornare le versioni di tutti i progetti.
+Selezionare il progetto VisualObjects.ActorService nella soluzione VisualObjects e aprire il file **VisualObjectActor.cs** . All'interno del file passare al metodo `MoveObject`, impostare come commento `visualObject.Move(false)` e rimuovere il commento `visualObject.Move(true)`. Questa modifica del codice fa ruotare gli oggetti dopo l'aggiornamento del servizio.  **A questo punto è possibile compilare la soluzione (non ricompilarla)** , in modo che vengano compilati solo i progetti modificati. Se si seleziona *Ricompila tutto*, è necessario aggiornare le versioni di tutti i progetti.
 
 È inoltre necessario specificare la versione dell'applicazione. Per apportare le modifiche di versione, fare clic con il pulsante destro del mouse sul progetto **VisualObjects** e scegliere l'opzione **Modifica versioni del manifesto** di Visual Studio. Selezionando questa opzione viene visualizzata la finestra di dialogo per le versioni dell'edizione come segue:
 

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60441018"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
@@ -98,7 +98,7 @@ Il **servizio** filtro consente di selezionare da un elenco a discesa dei serviz
 - B2C
 - Accesso condizionale
 - Directory principale
-- Gestione entitlement
+- Gestione dei diritti
 - Identity Protection
 - Utenti invitati
 - PIM
@@ -127,12 +127,12 @@ Il **categoria** filtro consente di selezionare uno dei filtri indicati di segui
 
 Il **attività** filtro è basato sulla categoria e attività risorsa tipo selezione effettuata. È possibile selezionare un'attività specifica da visualizzare o selezionarle tutte. 
 
-È possibile ottenere l'elenco di tutte le attività di controllo usando l'API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, dove $tenantdomain è il nome del dominio. In alternativa, vedere l'articolo relativo agli [eventi del report di controllo](reference-audit-activities.md).
+È possibile ottenere l'elenco di tutte le attività di controllo usando l'API Graph https://graph.windows.net/ $tenantdomain/activities/auditActivityTypes?api-version=beta, dove $tenantdomain è il nome del dominio. In alternativa, vedere l'articolo relativo agli [eventi del report di controllo](reference-audit-activities.md).
 
 Il **stato** filtro consente di filtrare in base allo stato di un'operazione di controllo. Lo stato può essere uno dei seguenti:
 
 - Tutti
-- Success
+- Riuscito
 - Esito negativo
 
 Il **destinazione** filtro consente di cercare una determinata destinazione dal nome o il nome dell'entità utente (UPN). Il nome di destinazione e il nome UPN di maiuscole e minuscole. 
@@ -145,7 +145,7 @@ I valori possibili sono:
 - 1 mese
 - 7 giorni
 - 24 ore
-- Personalizzate
+- Personalizzato
 
 Quando si seleziona un intervallo di tempo personalizzato, è possibile configurare un'ora di inizio e un'ora di fine.
 

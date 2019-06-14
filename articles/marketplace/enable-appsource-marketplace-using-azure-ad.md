@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
 ms.openlocfilehash: 981d9427dc8407c7300f01c941e39ba9723d53a8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938094"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Abilitare un'inserzione nel Marketplace e in AppSource con Azure Active Directory
@@ -35,12 +35,12 @@ Le [opzioni di presentazione e i tipi di offerta](https://docs.microsoft.com/azu
 | **Tipo di offerta**    | **SSO di AAD necessario?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | Contattami | Versione di valutazione | Test drive | Transazione |
-| Macchina virtuale | N/D | No  | No  | No  |
+| Macchina virtuale | N/D | No | No | No |
 | App di Azure (modello di soluzione)  | N/D | N/D | N/D | N/D |
-| App gestite  | N/D | N/D | N/D | No  |
-| SaaS  | No  | Sì | Sì | Sì |
-| Contenitori  | N/D | N/D | N/D | No  |
-| Servizi di consulenza  | No  | N/D | N/D | N/D |
+| App gestite  | N/D | N/D | N/D | No |
+| SaaS  | No | Yes | Sì | Yes |
+| Contenitori  | N/D | N/D | N/D | No |
+| Servizi di consulenza  | No | N/D | N/D | N/D |
 
 Per altre informazioni sui requisiti tecnici SaaS, vedere la [Guida alla pubblicazione dell'offerta di applicazioni SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 

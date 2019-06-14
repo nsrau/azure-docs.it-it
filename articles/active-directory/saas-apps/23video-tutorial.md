@@ -16,10 +16,10 @@ ms.date: 05/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec0cfaaf0d4ae692581d63c7745660ffeacfb11f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60439567"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Esercitazione: Integrazione di Azure Active Directory con 23 Video
@@ -91,7 +91,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con 23 Video, è 
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente di test di 23 Video](#creating-a-23-video-test-user)**: per avere una controparte di Britta Simon in 23 Video collegata alla rappresentazione dell'utente in Azure AD.
+3. **[Creazione di un utente di test di 23 Video](#creating-a-23-video-test-user)** : per avere una controparte di Britta Simon in 23 Video collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 

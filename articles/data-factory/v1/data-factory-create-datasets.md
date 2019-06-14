@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487274"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Set di dati in Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](data-factory-create-datasets.md)
 > * [Versione 2 (corrente)](../concepts-datasets-linked-services.md)
 
@@ -81,13 +81,13 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 
 | Proprietà | Descrizione | Obbligatorio | Predefinito |
 | --- | --- | --- | --- |
-| name |Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Sì |ND |
+| name |Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Sì |NA |
 | type |Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [Tipo di set di dati](#Type). |Sì |ND |
-| structure |Schema del set di dati.<br/><br/>Per informazioni dettagliate, vedere [Struttura del set di dati](#Structure). |No  |ND |
-| typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio BLOB di Azure Blob, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e le relative proprietà, vedere la sezione [Tipo di set di dati](#Type). |Sì |ND |
-| external | Flag booleano per specificare se un set di dati è generato o meno in modo esplicito da una pipeline della data factory. Se il set di dati di input per un'attività non viene generato dalla pipeline corrente, impostare questo flag su true. Impostare questo flag su true per il set di dati di input della prima attività nella pipeline.  |No  |false |
-| availability | Definisce l'intervallo di elaborazione, ad esempio orario o giornaliero, o il modello di sezionamento per la produzione di set di dati. Ogni unità di dati usata e prodotta da un'esecuzione di attività prende il nome di sezione di dati. Se la disponibilità di un set di dati di output è impostata su giornaliera, ad esempio frequenza: giorno, intervallo: 1, viene prodotta una sezione ogni giorno. <br/><br/>Per informazioni dettagliate, vedere Disponibilità dei set di dati. <br/><br/>Per informazioni dettagliate sul modello di sezionamento dei set di dati, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md). |Sì |ND |
-| policy |Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <br/><br/>Per informazioni dettagliate, vedere la sezione [Criteri di set di dati](#Policy). |No  |ND |
+| structure |Schema del set di dati.<br/><br/>Per informazioni dettagliate, vedere [Struttura del set di dati](#Structure). |No |NA |
+| typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio BLOB di Azure Blob, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e le relative proprietà, vedere la sezione [Tipo di set di dati](#Type). |Sì |NA |
+| external | Flag booleano per specificare se un set di dati è generato o meno in modo esplicito da una pipeline della data factory. Se il set di dati di input per un'attività non viene generato dalla pipeline corrente, impostare questo flag su true. Impostare questo flag su true per il set di dati di input della prima attività nella pipeline.  |No |false |
+| availability | Definisce l'intervallo di elaborazione, ad esempio orario o giornaliero, o il modello di sezionamento per la produzione di set di dati. Ogni unità di dati usata e prodotta da un'esecuzione di attività prende il nome di sezione di dati. Se la disponibilità di un set di dati di output è impostata su giornaliera, ad esempio frequenza: giorno, intervallo: 1, viene prodotta una sezione ogni giorno. <br/><br/>Per informazioni dettagliate, vedere Disponibilità dei set di dati. <br/><br/>Per informazioni dettagliate sul modello di sezionamento dei set di dati, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md). |Sì |NA |
+| criterio |Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <br/><br/>Per informazioni dettagliate, vedere la sezione [Criteri di set di dati](#Policy). |No |ND |
 
 ## <a name="dataset-example"></a>Esempio di set di dati
 Nell'esempio seguente il set di dati rappresenta la tabella **MyTable** in un database SQL.
@@ -194,9 +194,9 @@ Ogni colonna della struttura contiene le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | name |Nome della colonna. |Sì |
-| type |Tipo di dati della colonna.  |No  |
-| culture |Cultura basata su .NET da usare quando il tipo è un tipo .NET: `Datetime` o `Datetimeoffset`. Il valore predefinito è `en-us`. |No  |
-| format |Stringa di formato da usare quando il tipo è un tipo .NET: `Datetime` o `Datetimeoffset`. |No  |
+| type |Tipo di dati della colonna.  |N. |
+| culture |Cultura basata su .NET da usare quando il tipo è un tipo .NET: `Datetime` o `Datetimeoffset`. Il valore predefinito è `en-us`. |No |
+| format |Stringa di formato da usare quando il tipo è un tipo .NET: `Datetime` o `Datetimeoffset`. |No |
 
 Attenersi alle linee guida seguenti per decidere quando includere le informazioni sulla struttura e quali elementi inserire nella sezione **structure** .
 
@@ -235,11 +235,11 @@ La tabella seguente descrive le proprietà che è possibile usare nella sezione 
 
 | Proprietà | Descrizione | Obbligatorio | Predefinito |
 | --- | --- | --- | --- |
-| frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: Minute, Hour, Day, Week, Month (minuto, ora, giorno, settimana, mese). |Sì |ND |
-| interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Frequency x interval" determina la frequenza con cui viene generata la sezione. Se ad esempio è necessario suddividere il set di dati su base oraria, impostare <b>frequency</b> su <b>Hour</b> e <b>interval</b> su <b>1</b>.<br/><br/>Notare che se si specifica **frequency** come **Minute**, è necessario impostare interval su un valore non inferiore a 15. |Sì |ND |
-| style |Specifica se la sezione deve essere generata all'inizio o alla fine dell'intervallo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **frequency** è impostata su **Month** e **style** è impostata su **EndOfInterval**, la sezione viene generata l'ultimo giorno del mese. Se **style** è impostata su **StartOfInterval**, la sezione viene generata il primo giorno del mese.<br/><br/>Se **frequency** è impostata su **Day** e **style** è impostata su **EndOfInterval**, la sezione viene generata nell'ultima ora del giorno.<br/><br/>Se **frequency** è impostata su **Hour** e **style** è impostata su **EndOfInterval**, la sezione viene generata alla fine dell'ora. Ad esempio, una sezione per il periodo 13.00 - 14.00 viene generata alle 14.00. |No  |EndOfInterval |
-| anchorDateTime |Definisce la posizione assoluta nel tempo usata dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati. <br/><br/>Si noti che se questa proprietà include parti della data più granulari rispetto alla frequenza specificata, le parti più granulari vengono ignorate. Ad esempio, se l'**intervallo** è **orario** (frequency: hour e interval: 1) e **AnchorDateTime** contiene **minuti e secondi**, le parti minuti e secondi di **AnchorDateTime** vengono ignorate. |No  |01/01/0001 |
-| offset |Intervallo di tempo in base al quale l'inizio e la fine di tutte le sezioni dei set di dati vengono spostate. <br/><br/>Notare che se si specifica sia **anchorDateTime** che **offset**, il risultato sarà lo spostamento combinato. |No  |ND |
+| frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: Minute, Hour, Day, Week, Month (minuto, ora, giorno, settimana, mese). |Sì |NA |
+| interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Frequency x interval" determina la frequenza con cui viene generata la sezione. Se ad esempio è necessario suddividere il set di dati su base oraria, impostare <b>frequency</b> su <b>Hour</b> e <b>interval</b> su <b>1</b>.<br/><br/>Notare che se si specifica **frequency** come **Minute**, è necessario impostare interval su un valore non inferiore a 15. |Sì |NA |
+| style |Specifica se la sezione deve essere generata all'inizio o alla fine dell'intervallo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **frequency** è impostata su **Month** e **style** è impostata su **EndOfInterval**, la sezione viene generata l'ultimo giorno del mese. Se **style** è impostata su **StartOfInterval**, la sezione viene generata il primo giorno del mese.<br/><br/>Se **frequency** è impostata su **Day** e **style** è impostata su **EndOfInterval**, la sezione viene generata nell'ultima ora del giorno.<br/><br/>Se **frequency** è impostata su **Hour** e **style** è impostata su **EndOfInterval**, la sezione viene generata alla fine dell'ora. Ad esempio, una sezione per il periodo 13.00 - 14.00 viene generata alle 14.00. |No |EndOfInterval |
+| anchorDateTime |Definisce la posizione assoluta nel tempo usata dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati. <br/><br/>Si noti che se questa proprietà include parti della data più granulari rispetto alla frequenza specificata, le parti più granulari vengono ignorate. Ad esempio, se l'**intervallo** è **orario** (frequency: hour e interval: 1) e **AnchorDateTime** contiene **minuti e secondi**, le parti minuti e secondi di **AnchorDateTime** vengono ignorate. |No |01/01/0001 |
+| offset |Intervallo di tempo in base al quale l'inizio e la fine di tutte le sezioni dei set di dati vengono spostate. <br/><br/>Notare che se si specifica sia **anchorDateTime** che **offset**, il risultato sarà lo spostamento combinato. |No |ND |
 
 ### <a name="offset-example"></a>Esempio di offset
 Per impostazione predefinita, le sezioni giornaliere (`"frequency": "Day", "interval": 1`) iniziano alle 00.00 (mezzanotte) UTC (Coordinated Universal Time). Se, invece, si desidera impostare l'ora di inizio alle 06:00 UTC, impostare l'offset come illustrato nel frammento riportato di seguito:
@@ -282,8 +282,8 @@ La sezione **policy** nella definizione del set di dati stabilisce i criteri o l
 ### <a name="validation-policies"></a>Criteri di convalida
 | Nome criterio | DESCRIZIONE | Applicato a | Obbligatorio | Predefinito |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Verifica che i dati presenti nell'**archiviazione BLOB di Azure** soddisfino i requisiti relativi alle dimensioni minime (in megabyte). |Archivio BLOB di Azure |No  |ND |
-| minimumRows |Verifica che i dati in un **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>Database SQL di Azure</li><li>Tabella di Azure</li></ul> |No  |ND |
+| minimumSizeMB |Verifica che i dati presenti nell'**archiviazione BLOB di Azure** soddisfino i requisiti relativi alle dimensioni minime (in megabyte). |Archivio BLOB di Azure |No |NA |
+| minimumRows |Verifica che i dati in un **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>Database SQL di Azure</li><li>Tabella di Azure</li></ul> |No |ND |
 
 #### <a name="examples"></a>Esempi
 **minimumSizeMB:**
@@ -316,12 +316,12 @@ I set di dati esterni sono quelli non prodotti da una pipeline in esecuzione nel
 
 A meno che non sia generato da Data Factory, il set di dati deve essere contrassegnato come **external**. Questa impostazione si applica in genere agli input della prima attività di una pipeline, a meno che non si usi il concatenamento di attività o di pipeline.
 
-| Name | DESCRIZIONE | Obbligatorio | Valore predefinito |
+| Name | Descrizione | Obbligatorio | Valore predefinito |
 | --- | --- | --- | --- |
-| dataDelay |Tempo di ritardo del controllo della disponibilità dei dati esterni per la sezione specificata. Ad esempio, è possibile ritardare un controllo orario usando questa impostazione.<br/><br/>Si applica solo all'ora corrente. Ad esempio, se in questo momento sono le 13:00 e questo valore è di 10 minuti, la convalida inizia alle 13:10.<br/><br/>Si noti che questa impostazione non influisce sulle sezioni passate. Le sezioni con **Slice End Time** + **dataDelay** < **Now** vengono elaborate senza alcun ritardo.<br/><br/>I valori orari superiori a 23:59 ore devono essere specificati nel formato `day.hours:minutes:seconds`. Per specificare 24 ore, ad esempio, non usare 24:00:00. Usare invece 1.00:00:00. Il valore 24:00:00 viene considerato 24 giorni (24.00:00:00). Per 1 giorno e 4 ore, specificare 1:04:00:00. |No  |0 |
-| retryInterval |Tempo di attesa tra un errore e il tentativo successivo. Questa impostazione si applica all'ora corrente. Se il tentativo precedente ha avuto esito negativo, il tentativo successivo si avvia dopo il periodo **retryInterval**. <br/><br/>Se in questo momento sono le 13:00, viene avviato il primo tentativo. Se la durata per completare il primo controllo di convalida è 1 minuto e l'operazione non è riuscita, il tentativo successivo è alle 13:00 + 1 min (durata) + 1 min (intervallo tentativi) = 13:02. <br/><br/>Per le sezioni passate, non si verifica alcun ritardo. La ripetizione avviene immediatamente. |No  |00:01:00 (1 minute) |
-| retryTimeout |Timeout per ogni nuovo tentativo.<br/><br/>Se questa proprietà è impostata su 10 minuti, la convalida deve essere completata entro 10 minuti. Se sono necessari più di 10 minuti per eseguire la convalida, il tentativo viene sospeso.<br/><br/>Se tutti i tentativi per la convalida raggiungono il timeout, la sezione viene contrassegnata come **TimedOut**. |No  |00:10:00 (10 minutes) |
-| maximumRetry |Numero di tentativi di controllo della disponibilità dei dati esterni. Il valore massimo consentito è 10. |No  |3 |
+| dataDelay |Tempo di ritardo del controllo della disponibilità dei dati esterni per la sezione specificata. Ad esempio, è possibile ritardare un controllo orario usando questa impostazione.<br/><br/>Si applica solo all'ora corrente. Ad esempio, se in questo momento sono le 13:00 e questo valore è di 10 minuti, la convalida inizia alle 13:10.<br/><br/>Si noti che questa impostazione non influisce sulle sezioni passate. Le sezioni con **Slice End Time** + **dataDelay** < **Now** vengono elaborate senza alcun ritardo.<br/><br/>I valori orari superiori a 23:59 ore devono essere specificati nel formato `day.hours:minutes:seconds`. Per specificare 24 ore, ad esempio, non usare 24:00:00. Usare invece 1.00:00:00. Il valore 24:00:00 viene considerato 24 giorni (24.00:00:00). Per 1 giorno e 4 ore, specificare 1:04:00:00. |N. |0 |
+| retryInterval |Tempo di attesa tra un errore e il tentativo successivo. Questa impostazione si applica all'ora corrente. Se il tentativo precedente ha avuto esito negativo, il tentativo successivo si avvia dopo il periodo **retryInterval**. <br/><br/>Se in questo momento sono le 13:00, viene avviato il primo tentativo. Se la durata per completare il primo controllo di convalida è 1 minuto e l'operazione non è riuscita, il tentativo successivo è alle 13:00 + 1 min (durata) + 1 min (intervallo tentativi) = 13:02. <br/><br/>Per le sezioni passate, non si verifica alcun ritardo. La ripetizione avviene immediatamente. |N. |00:01:00 (1 minute) |
+| retryTimeout |Timeout per ogni nuovo tentativo.<br/><br/>Se questa proprietà è impostata su 10 minuti, la convalida deve essere completata entro 10 minuti. Se sono necessari più di 10 minuti per eseguire la convalida, il tentativo viene sospeso.<br/><br/>Se tutti i tentativi per la convalida raggiungono il timeout, la sezione viene contrassegnata come **TimedOut**. |No |00:10:00 (10 minutes) |
+| maximumRetry |Numero di tentativi di controllo della disponibilità dei dati esterni. Il valore massimo consentito è 10. |No |3 |
 
 
 ## <a name="create-datasets"></a>Creare set di dati
