@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
 ms.openlocfilehash: 6ffce339fe7b1a434c8f007b417ee81a42529dfc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142365"
 ---
 # <a name="refresh-with-logic-apps"></a>Eseguire l'aggiornamento con App per la logica
@@ -67,7 +67,7 @@ Configurare l'attività HTTP come segue:
 |---------|---------|
 |**Metodo**     |POST         |
 |**URI**     | https://*l'area del server*/servers/*nome server aas*/models/*il nome del database*/ <br /> <br /> Ad esempio: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
-|**Intestazioni**     |   Content-Type, application/json <br /> <br />  ![Intestazioni](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**Intestazioni**     |   Content-Type, application/json <br /> <br />  ![Headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Corpo**     |   Per altre informazioni su che costituiscono il corpo della richiesta, vedere [asincrono di aggiornamento con l'API REST - POST /refreshes.](analysis-services-async-refresh.md#post-refreshes). |
 |**autenticazione**     |Autenticazione OAuth Active Directory         |
 |**Tenant**     |Immettere l'ID tenant di Azure Active Directory         |

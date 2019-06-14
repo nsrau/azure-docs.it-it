@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 43f68908c8549c2f1d8322b5c4ad3985618cfe6e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 89cee70c9d7c5dffdb3078756cf4fa94d7cd1a9a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695653"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078232"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Creare una topologia Apache Storm in Java
 
-Informazioni su come creare una topologia basata su Java per [Apache Storm](https://storm.apache.org/). In questo caso, si crea una topologia Storm che implementa un'applicazione di conteggio delle parole. Per compilare il progetto e creare il pacchetto si usa [Apache Maven](https://maven.apache.org/). Quindi, imparare a definire la topologia usando il [Apache Storm Flux](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) framework.
+Informazioni su come creare una topologia basata su Java per [Apache Storm](https://storm.apache.org/). In questo caso, si crea una topologia Storm che implementa un'applicazione di conteggio delle parole. Per compilare il progetto e creare il pacchetto si usa [Apache Maven](https://maven.apache.org/). Quindi, imparare a definire la topologia usando il [Apache Storm Flux](https://storm.apache.org/releases/2.0.0/flux.html) framework.
 
 Dopo aver completato i passaggi descritti in questo documento, è possibile distribuire la topologia ad Apache Storm in HDInsight.
 
@@ -621,7 +621,7 @@ C'è un intervallo di 5 secondi tra l'emissione di parole e i conteggi. Il compo
 
 ## <a name="convert-the-topology-to-flux"></a>Convertire la topologia in Flux
 
-[Flux](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) è un nuovo framework disponibile con Storm 0.10.0 e versioni successive, che consente di separare la configurazione dall'implementazione. I componenti sono ancora definiti in Java, ma la topologia viene definita mediante un file YAML. È possibile impacchettare una definizione di topologia predefinita con il progetto o usare un file autonomo per l'invio della topologia. Quando si invia la topologia a Storm, è possibile usare variabili di ambiente o file di configurazione per popolare i valori nella definizione della topologia YAML.
+[Flux](https://storm.apache.org/releases/2.0.0/flux.html) è un nuovo framework disponibile con Storm 0.10.0 e versioni successive, che consente di separare la configurazione dall'implementazione. I componenti sono ancora definiti in Java, ma la topologia viene definita mediante un file YAML. È possibile impacchettare una definizione di topologia predefinita con il progetto o usare un file autonomo per l'invio della topologia. Quando si invia la topologia a Storm, è possibile usare variabili di ambiente o file di configurazione per popolare i valori nella definizione della topologia YAML.
 
 Il file YAML definisce i componenti da usare per la topologia e i dati di flusso tra essi. È possibile includere un file YAML come parte del file con estensione JAR oppure usare un file esterno YAML.
 

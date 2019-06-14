@@ -15,10 +15,10 @@ ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 97764db40807214e756f119ca95fd640164f0cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851423"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure
@@ -41,9 +41,9 @@ La configurazione del portale non offre una soluzione pronta all'uso per present
 
 Prima di tutto, nella pagina **Autenticazione/Autorizzazione** nel portale di Azure configurare ogni provider di identità che si vuole abilitare.
 
-In **Azione da eseguire quando la richiesta non è autenticata** selezionare **Consenti richieste anonime (nessuna azione)**.
+In **Azione da eseguire quando la richiesta non è autenticata** selezionare **Consenti richieste anonime (nessuna azione)** .
 
-Nella pagina di accesso, sulla barra di spostamento o in qualsiasi altra posizione nell'app aggiungere un collegamento per l'accesso a ognuno dei provider abilitati (`/.auth/login/<provider>`). Ad esempio: 
+Nella pagina di accesso, sulla barra di spostamento o in qualsiasi altra posizione nell'app aggiungere un collegamento per l'accesso a ognuno dei provider abilitati (`/.auth/login/<provider>`). Ad esempio:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -65,7 +65,7 @@ Per reindirizzare l'utente dopo l'accesso a un URL personalizzato, usare il para
 
 In un accesso client l'applicazione esegue l'accesso manuale dell'utente al provider e poi invia il token di autenticazione al servizio app per la convalida (vedere [Flusso di autenticazione](overview-authentication-authorization.md#authentication-flow)). La convalida non garantisce effettivamente l'accesso alle risorse dell'app desiderate, ma il completamento della convalida fornisce un token di sessione da usare per accedere alle risorse dell'app. 
 
-Per convalidare il token del provider, l'app del servizio app deve essere innanzitutto configurata con il provider desiderato. In fase di esecuzione, dopo aver recuperato il token di autenticazione dal provider, inviare il token a `/.auth/login/<provider>` per la convalida. Ad esempio:  
+Per convalidare il token del provider, l'app del servizio app deve essere innanzitutto configurata con il provider desiderato. In fase di esecuzione, dopo aver recuperato il token di autenticazione dal provider, inviare il token a `/.auth/login/<provider>` per la convalida. Ad esempio: 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -96,7 +96,7 @@ Se il token del provider viene convalidato, l'API restituisce un token `authenti
 }
 ```
 
-Dopo aver ottenuto il token di sessione, è possibile accedere alle risorse dell'app protette aggiungendo l'intestazione `X-ZUMO-AUTH` alle richieste HTTP. Ad esempio:  
+Dopo aver ottenuto il token di sessione, è possibile accedere alle risorse dell'app protette aggiungendo l'intestazione `X-ZUMO-AUTH` alle richieste HTTP. Ad esempio: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -117,7 +117,7 @@ Ecco un semplice collegamento di disconnessione in una pagina Web:
 <a href="/.auth/logout">Sign out</a>
 ```
 
-Per impostazione predefinita, una corretta disconnessione reindirizza il client all'URL `/.auth/logout/done`. È possibile cambiare la pagina di reindirizzamento post-connessione aggiungendo il parametro di query `post_logout_redirect_uri`. Ad esempio: 
+Per impostazione predefinita, una corretta disconnessione reindirizza il client all'URL `/.auth/logout/done`. È possibile cambiare la pagina di reindirizzamento post-connessione aggiungendo il parametro di query `post_logout_redirect_uri`. Ad esempio:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -186,7 +186,7 @@ Quando il token di accesso del provider (non il [token di sessione](#extend-sess
 - **Account Microsoft**: In fase di [configurazione delle impostazioni di autenticazione dell'account Microsoft](configure-authentication-provider-microsoft.md), selezionare l'ambito `wl.offline_access`.
 - **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com) seguire anche questa procedura:
     1. Nella parte superiore della pagina selezionare **Lettura/scrittura**.
-    2. Nella finestra del browser a sinistra passare a **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
+    2. Nella finestra del browser a sinistra passare a **subscriptions** >  ** _\<subscription\_name_**  > **resourceGroups** >  _ **\<resource\_group\_name>** _ > **providers** > **Microsoft.Web** > **sites** >  _ **\<app\_name>** _ > **config** > **authsettings**. 
     3. Fare clic su **Modifica**.
     4. Modificare la proprietà seguente. Sostituire _\<app\_id>_ con l'ID dell'applicazione Azure Active Directory del servizio a cui si vuole accedere.
 
@@ -233,7 +233,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Sia l'account Microsoft che Azure Active Directory consentono l'accesso da più domini. L'account Microsoft consente, ad esempio, gli account _outlook.com_, _live.com_ e _hotmail.com_. Azure Active Directory consente un numero qualsiasi di domini personalizzati per gli account di accesso. Questo comportamento potrebbe essere inaccettabile per un'app interna a cui non si vuole concedere l'accesso agli utenti con un account _outlook.com_. Per limitare il nome di dominio degli account di accesso, seguire questa procedura.
 
-In [https://resources.azure.com](https://resources.azure.com) passare a **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
+In [https://resources.azure.com](https://resources.azure.com) passare a **subscriptions** >  ** _\< subscription\_ name_**  > **resourceGroups** >  _ **\< resource\_ group\_ name>** _ > **providers** > **Microsoft.Web** > **sites** >  _ **\< app\_ name>** _ > **config** > **authsettings**. 
 
 Fare clic su **Modifica**, modificare la proprietà seguente e quindi fare clic su **Put**. Assicurarsi di sostituire _\<domain\_name>_ con il dominio desiderato.
 

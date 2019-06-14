@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d006bd36cc8f8c84fb13bae43702a3e472f8876a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119372"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113285"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registrazione di informazioni sicurezza Abilita combinata (anteprima)
 
@@ -53,7 +53,7 @@ Se è stato configurato il sito all'elenco di assegnazione di zona in Internet E
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Criteri di accesso condizionale per la registrazione combinato
 
-Protezione di quando e come eseguire la registrazione degli utenti per Azure multi-Factor Authentication e reimpostazione della password self-service è ora possibile con azioni dell'utente in Criteri di accesso condizionale. Questa funzionalità di anteprima è disponibile per le organizzazioni che hanno attivato il [combinati anteprima registrazione](../authentication/concept-registration-mfa-sspr-combined.md). Questa funzionalità può essere abilitata nelle organizzazioni in cui si desidera che gli utenti la registrazione per Azure multi-Factor Authentication e SSPR da una posizione centrale, ad esempio un percorso di rete attendibili durante l'onboarding delle risorse Umane. Per altre informazioni sulla creazione di percorsi attendibili nell'accesso condizionale, vedere l'articolo [che cos'è la condizione della posizione nell'accesso condizionale di Azure Active Directory?](../conditional-access/location-condition.md#named-locations)
+Protezione di quando e come eseguire la registrazione degli utenti per Azure multi-Factor Authentication e reimpostazione della password self-service è ora possibile con azioni dell'utente in Criteri di accesso condizionale. Questa funzionalità di anteprima è disponibile per le organizzazioni che hanno attivato il [combinati anteprima registrazione](../authentication/concept-registration-mfa-sspr-combined.md). Questa funzionalità può essere abilitata nelle organizzazioni in cui si desidera che gli utenti la registrazione per Azure multi-Factor Authentication e SSPR da una posizione centrale, ad esempio un percorso di rete attendibili durante l'onboarding delle risorse Umane. Per altre informazioni sulla creazione di percorsi attendibili nell'accesso condizionale, vedere l'articolo [qual è la condizione della posizione in Active Directory accesso condizionale di Azure?](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Creare un criterio per richiedere la registrazione da un percorso attendibile
 
@@ -74,8 +74,8 @@ Il seguente criterio si applica a tutti gli utenti selezionati, che tentano di r
    1. Configurare **Sì**
    1. Includere **qualsiasi posizione**
    1. Escludere **tutte le posizioni attendibili**
-   1. Fare clic su **Fatto** nel pannello delle località
-   1. Fare clic su **Fatto** nel pannello delle condizioni
+   1. Fare clic su **** nel pannello delle località
+   1. Fare clic su **** nel pannello delle condizioni
 1. Sotto **controlli di accesso** > **Grant**
    1. Fare clic su **bloccare l'accesso**
    1. Quindi fare clic su **selezionare**
@@ -92,4 +92,4 @@ Il seguente criterio si applica a tutti gli utenti selezionati, che tentano di r
 
 [Risoluzione dei problemi di registrazione info di sicurezza combinati](howto-registration-mfa-sspr-combined-troubleshoot.md)
 
-[Che cos'è la condizione della posizione nell'accesso condizionale di Azure Active Directory?](../conditional-access/location-condition.md)
+[Che cos'è la condizione della posizione in Active Directory accesso condizionale di Azure?](../conditional-access/location-condition.md)

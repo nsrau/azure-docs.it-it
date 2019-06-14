@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538862"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrare le app basate su schermo 3270 su mainframe IBM in Azure usando connettore di App per la logica di Azure e IBM 3270
@@ -183,7 +183,7 @@ In questa modalità è definire il flusso o i passaggi per lo spostamento tra le
 
 1. Sotto **scegliere Nuovo nome del piano**, immettere un nome per il piano. Dal **tipo** elencare, selezionare il tipo di piano:
 
-   | Tipo di piano | DESCRIZIONE |
+   | Tipo di piano | Descrizione |
    |-----------|-------------|
    | **Processo** | Per autonoma o integrazione dei piani |
    | **Connettere** | Per i piani di Connect |
@@ -320,7 +320,7 @@ Tuttavia, se si tenta di salvare le modifiche al file di criteri di autorizzazio
 
 1. Per passare alla schermata successiva, scegli **successivo**.
 
-1. Al termine, scegliere, che mostra i valori dei parametri output.****
+1. Al termine, scegliere, che mostra i valori dei parametri output. ****
 
 <a name="add-metadata-integration-account"></a>
 
@@ -355,37 +355,37 @@ Al termine tutti questi passaggi, è possibile usare l'azione che crea nell'app 
    ![Selezionare l'azione 3270](./media/connectors-create-api-3270/select-3270-action.png)
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Se nessuna connessione esiste ancora, specificare le informazioni necessarie per la connessione e scegliere **Create**.
 
-   | Proprietà | Obbligatorio | Value | DESCRIZIONE |
+   | Proprietà | Obbligatorio | Value | Descrizione |
    |----------|----------|-------|-------------|
-   | **Connection Name** (Nome connessione) | Sì | <*nome connessione*> | Nome per la connessione |
-   | **ID Account di integrazione** | Sì | <*integration-account-name*> | Nome dell'account di integrazione |
-   | **URL firma di accesso condiviso dell'Account di integrazione** | Sì | <*integration-account-SAS-URL*> | URL di firma di accesso condiviso (SAS) dell'account di integrazione, che è possibile generare dalle impostazioni dell'account di integrazione nel portale di Azure. <p>1. L'integrazione di dal menu dell'account in **le impostazioni**, selezionare **URL di Callback**. <br>2. Nel riquadro di destra, copiare il **URL di Callback generato** valore. |
-   | **Server** | Sì | <*TN3270-server-name*> | Il nome del server per il servizio di TN3270 |
-   | **Porta** | No  | <*TN3270-server-port*> | La porta usata dal server TN3270. Se lasciato vuoto, il connettore Usa `23` come valore predefinito. |
-   | **Tipo di dispositivo** | No  | <*Modello di terminale IBM*> | Il nome del modello o il numero del terminale di IBM per emulare. Se lasciato vuoto, il connettore Usa valori predefiniti. |
-   | **Tabella codici** | No  | <*code-page-number*> | Il numero di pagina di codice per l'host. Se lasciato vuoto, il connettore Usa `37` come valore predefinito. |
-   | **Nome dell'unità logica** | No  | <*logical-unit-name*> | Il nome di unità logica specifica per richiedere dall'host |
-   | **Abilitare SSL?** | No  | Attiva o disattiva | Attivare o disattivare la crittografia SSL. |
-   | **Convalida del certificato ssl host?** | No  | Attiva o disattiva | Attivare o disattivare la convalida per il certificato del server. |
+   | **Connection Name** (Nome connessione) | Yes | <*nome connessione*> | Nome per la connessione |
+   | **ID Account di integrazione** | Yes | <*integration-account-name*> | Nome dell'account di integrazione |
+   | **URL firma di accesso condiviso dell'Account di integrazione** | Yes | <*integration-account-SAS-URL*> | URL di firma di accesso condiviso (SAS) dell'account di integrazione, che è possibile generare dalle impostazioni dell'account di integrazione nel portale di Azure. <p>1. L'integrazione di dal menu dell'account in **le impostazioni**, selezionare **URL di Callback**. <br>2. Nel riquadro di destra, copiare il **URL di Callback generato** valore. |
+   | **Server** | Yes | <*TN3270-server-name*> | Il nome del server per il servizio di TN3270 |
+   | **Porta** | No | <*TN3270-server-port*> | La porta usata dal server TN3270. Se lasciato vuoto, il connettore Usa `23` come valore predefinito. |
+   | **Tipo di dispositivo** | No | <*Modello di terminale IBM*> | Il nome del modello o il numero del terminale di IBM per emulare. Se lasciato vuoto, il connettore Usa valori predefiniti. |
+   | **Tabella codici** | No | <*code-page-number*> | Il numero di pagina di codice per l'host. Se lasciato vuoto, il connettore Usa `37` come valore predefinito. |
+   | **Nome dell'unità logica** | No | <*logical-unit-name*> | Il nome di unità logica specifica per richiedere dall'host |
+   | **Abilitare SSL?** | No | Attiva o disattiva | Attivare o disattivare la crittografia SSL. |
+   | **Convalida del certificato ssl host?** | No | Attiva o disattiva | Attivare o disattivare la convalida per il certificato del server. |
    ||||
 
-   Ad esempio: 
+   Ad esempio:
 
    ![Connection properties (Proprietà connessione)](./media/connectors-create-api-3270/connection-properties.png)
 
 1. Fornire le informazioni necessarie per l'azione:
 
-   | Proprietà | Obbligatorio | Value | DESCRIZIONE |
+   | Proprietà | Obbligatorio | Value | Descrizione |
    |----------|----------|-------|-------------|
-   | **Nome Hidx** | Sì | <*HIDX-file-name*> | Selezionare il file HIDX 3270 che si desidera utilizzare. |
-   | **Nome del metodo** | Sì | <*nome del metodo*> | Selezionare il metodo nel file HIDX che si desidera utilizzare. Dopo aver selezionato un metodo, il **Aggiungi nuovo parametro** verrà visualizzato l'elenco è possibile scegliere i parametri da usare con tale metodo. |
+   | **Nome Hidx** | Yes | <*HIDX-file-name*> | Selezionare il file HIDX 3270 che si desidera utilizzare. |
+   | **Nome del metodo** | Yes | <*nome del metodo*> | Selezionare il metodo nel file HIDX che si desidera utilizzare. Dopo aver selezionato un metodo, il **Aggiungi nuovo parametro** verrà visualizzato l'elenco è possibile scegliere i parametri da usare con tale metodo. |
    ||||
 
-   Ad esempio: 
+   Ad esempio:
 
    **Selezionare il file HIDX**
 
@@ -393,7 +393,7 @@ Al termine tutti questi passaggi, è possibile usare l'azione che crea nell'app 
 
    **Selezionare il metodo**
 
-   ![Seleziona metodo](./media/connectors-create-api-3270/select-method.png)
+   ![Metodo Select](./media/connectors-create-api-3270/select-method.png)
 
    **Selezionare i parametri**
 

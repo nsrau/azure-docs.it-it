@@ -8,10 +8,10 @@ ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 6ba17a3839390ed5fe503a6fe57b63d8fb119138
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713489"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache HBase tramite Azure HDInsight
@@ -219,7 +219,7 @@ Per connettersi con Apache Phoenix, è necessario specificare l'indirizzo IP di 
    ```
 
    > [!Note] 
-   > È possibile ottenere l'indirizzo IP del nodo ZooKeeper attivo nell'interfaccia utente di Ambari. Passare a **HBase** > **Quick Links** > **ZK\* (Active)** > **Zookeeper Info** (HBase > Collegamenti rapidi > ZK - attivo > Info su Zookeeper). 
+   > È possibile ottenere l'indirizzo IP del nodo ZooKeeper attivo nell'interfaccia utente di Ambari. Passare a **HBase** > **Quick Links** > **ZK\* (Active)**  > **Zookeeper Info** (HBase > Collegamenti rapidi > ZK - attivo > Info su Zookeeper). 
 
 3. Se sqlline.py si connette a Phoenix senza timeout, eseguire questo comando per convalidare la disponibilità e l'integrità di Phoenix:
 
@@ -277,7 +277,7 @@ Nei log dei server di area provare a identificare la sequenza temporale della cr
 
 Controllare lo stack di chiamate e provare a determinare quale cartella potrebbe causare il problema, ad esempio la cartella dei log write-ahead o quella dei file temporanei. In Cloud Explorer o con comandi HDFS provare quindi a individuare il file problematico, che è in genere un file \*-renamePending.json. \*-renamePending.json è un file journal usato per implementare l'operazione di ridenominazione atomica nel driver WASB. A causa di alcuni bug in questa implementazione, questi file possono essere ancora presenti in seguito ad arresti anomali dei processi e così via. Forzare l'eliminazione del file in Cloud Explorer o con comandi HDFS. 
 
-In questo percorso potrebbe essere talvolta presente anche un file con un nome simile a *$$$.$$$*. Per visualizzare questo file è necessario usare il comando HDFS `ls`. Non viene visualizzato in Cloud Explorer. Per eliminare il file, usare il comando HDFS `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.  
+In questo percorso potrebbe essere talvolta presente anche un file con un nome simile a *$$$.$$$* . Per visualizzare questo file è necessario usare il comando HDFS `ls`. Non viene visualizzato in Cloud Explorer. Per eliminare il file, usare il comando HDFS `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.  
 
 Dopo l'esecuzione di questi comandi, HMaster dovrebbe essere avviato immediatamente. 
 
@@ -311,7 +311,7 @@ In un cluster Linux potrebbe essere visualizzato un messaggio che indica che la 
    hbase hbck -ignorePreCheckPermission -fixAssignments 
    ```
 
-### <a name="additional-reading"></a>Informazioni aggiuntive
+### <a name="additional-reading"></a>Altre informazioni
 
 [Impossibile elaborare la tabella HBase](https://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 

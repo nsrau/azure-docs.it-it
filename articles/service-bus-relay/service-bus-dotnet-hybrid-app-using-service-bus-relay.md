@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60419910"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Esporre un servizio WCF locale a un'applicazione Web nel cloud usando Inoltro di Azure 
@@ -81,7 +81,7 @@ In primo luogo, viene creato un sistema di catalogo prodotti locale fittizio.  I
 ### <a name="create-the-project"></a>Creare il progetto
 1. Usando privilegi di amministratore, avviare Microsoft Visual. A tale scopo, fare clic con il tasto destro del mouse sull'icona del programma Visual Studio e quindi fare clic su **Esegui come amministratore**.
 2. In Visual Studio scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
-3. Da **Modelli installati** in **Visual C#** fare clic su **App console (.NET Framework)**. Nella casella **Nome** digitare il nome **ProductsServer**:
+3. Da **Modelli installati** in **Visual C#** fare clic su **App console (.NET Framework)** . Nella casella **Nome** digitare il nome **ProductsServer**:
 
    ![Finestra di dialogo Nuovo progetto][11]
 4. Fare clic su **OK** per creare il progetto **ProductsServer**.
@@ -229,7 +229,7 @@ In questa sezione viene creata una semplice applicazione ASP.NET per visualizzar
 
 1. Assicurarsi che Visual Studio sia in esecuzione con privilegi di amministratore.
 2. In Visual Studio scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
-3. Da **Modelli installati** in **Visual C#** fare clic su **Applicazione Web ASP.NET (.NET Framework)**. Assegnare al progetto il nome **ProductsPortal**. Fare quindi clic su **OK**.
+3. Da **Modelli installati** in **Visual C#** fare clic su **Applicazione Web ASP.NET (.NET Framework)** . Assegnare al progetto il nome **ProductsPortal**. Fare quindi clic su **OK**.
 
    ![Finestra di dialogo Nuovo progetto][15]
 

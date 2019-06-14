@@ -9,7 +9,7 @@ ms.date: 05/20/2019
 ms.author: saudas
 ms.openlocfilehash: 2d555908007f4e43a38b6d0eff909ef5050878ea
 ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "67069665"

@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: jhubbard
 ms.date: 03/12/2019
 ms.openlocfilehash: 760b292e75b4cc64b85eaf51ffad0521b721dabf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60330857"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Ruotare la protezione Transparent Data Encryption (TDE) tramite PowerShell
@@ -124,6 +124,6 @@ L'opzione Usa la [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvau
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- In caso di rischio per la sicurezza, consultare [Rimuovere una chiave potenzialmente compromessa](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) per informazioni su come rimuovere una protezione TDE potenzialmente compromessa 
+- In caso di rischio per la sicurezza, consultare Rimuovere una chiave potenzialmente compromessa per informazioni su come rimuovere una protezione TDE potenzialmente compromessa 
 
 - Iniziare a usare l'integrazione di Azure Key Vault e il supporto Bring Your Own Key per TDE: [Abilitare TDE con la propria chiave di Key Vault usando PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)

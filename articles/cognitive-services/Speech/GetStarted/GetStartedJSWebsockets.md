@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 17901ad40a48e9ee8d1a8b872b04ad52b75b3a52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515202"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Introduzione all'API Riconoscimento vocale in JavaScript
@@ -64,7 +64,7 @@ Aprire il file `samples\browser\Sample.html` nel browser preferito.
 
 In [questo articolo](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript) sono disponibili altre informazioni su come includere l'SDK nella pagina Web.
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 - L'API Riconoscimento vocale supporta tre [modalità di riconoscimento](../concepts.md#recognition-modes). È possibile cambiare la modalità aggiornando la funzionalità **Setup()** nel file Sample.html. L'esempio imposta la modalità su `Interactive` per impostazione predefinita. Per cambiare la modalità, aggiornare il parametro `SR.RecognitionMode.Interactive` con un'altra modalità. Ad esempio, impostare il parametro su `SR.RecognitionMode.Conversation`.
 - Per un elenco completo delle lingue supportate, vedere [Lingue supportate](../API-Reference-REST/supportedlanguages.md).

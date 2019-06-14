@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 51a0ee6f2d928d79e60ca9976d7651c70867a41f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717601"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemi noti del cluster Apache Spark in HDInsight
@@ -67,7 +67,7 @@ I cluster HDInsight Spark non supportano il connettore Spark-Phoenix.
 
 **Soluzione:**
 
-Usare il connettore Spark-HBase. Per istruzioni, vedere [How to use Spark-HBase connector](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/) (Come usare un connettore Spark-HBase).
+Usare il connettore Spark-HBase. Per istruzioni, vedere [How to use Spark-HBase connector](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/) (Come usare un connettore Spark-HBase).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problemi relativi ai notebook Jupyter
 Seguito alcuni problemi noti relativi ai notebook Jupyter.
@@ -107,7 +107,7 @@ Quando il cluster Spark esaurisce le risorse, si verifica il timeout dei kernel 
    * Arrestando altre applicazioni Spark da YARN.
 2. Riavviare il notebook che si stava cercando di avviare. Ora dovrebbero essere disponibili risorse sufficienti per creare una sessione.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
