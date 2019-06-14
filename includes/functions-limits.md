@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: 8f30d9fb2fcfe8f55af13d7726aa8458f8733b3f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9b98e1a1f5243584d0ca4b1490e25302ec26b465
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236006"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050557"
 ---
-| Resource | [Piano a consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Piano Premium](../articles/azure-functions/functions-scale.md#premium-plan-public-preview) | [Piano di servizio app](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
+| Resource | [Piano a consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Piano Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Piano di servizio app](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Scalabilità orizzontale | Aktivita typu EventDriven | Aktivita typu EventDriven | [Scalabilità manuale o automatica](../articles/app-service/web-sites-scale.md) | 
 |Default [durata del timeout](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
@@ -28,10 +28,10 @@ ms.locfileid: "66236006"
 | Domini personalizzati per applicazione</a> |500<sup>7</sup> |500 |500 |
 | Supporto per il dominio personalizzato [SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Non supportato, il certificato con caratteri jolly per *. azurewebsites.net disponibile per impostazione predefinita| unbounded connessioni SNI SSL e 1 IP SSL incluse |unbounded connessioni SNI SSL e 1 IP SSL incluse | 
 
-<sup>1</sup>per i limiti specifici per le varie opzioni di piano di servizio App, vedere la [limiti del piano di servizio App](../articles/azure-subscription-service-limits.md#app-service-limits).  
-<sup>2</sup>per impostazione predefinita, il timeout per il runtime 1.x di funzioni in un piano di servizio App è unbounded.  
-<sup>3</sup>richiede il piano di servizio App sia impostata su [Always On](../articles/azure-functions/functions-scale.md#always-on). Pagare in standard [tariffe](https://azure.microsoft.com/pricing/details/app-service/).  
+<sup>1</sup> per i limiti specifici per le varie opzioni di piano di servizio App, vedere la [limiti del piano di servizio App](../articles/azure-subscription-service-limits.md#app-service-limits).  
+<sup>2</sup> per impostazione predefinita, il timeout per il runtime 1.x di funzioni in un piano di servizio App è unbounded.  
+<sup>3</sup> richiede il piano di servizio App sia impostata su [Always On](../articles/azure-functions/functions-scale.md#always-on). Pagare in standard [tariffe](https://azure.microsoft.com/pricing/details/app-service/).  
 <sup>4</sup> questi limiti riguardano [impostata nell'host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
-<sup>5</sup> al numero effettivo di App per le funzioni che è possibile ospitare dipende l'attività delle App, le dimensioni di istanze delle macchine e l'utilizzo delle risorse corrispondenti.   
-<sup>6</sup>il limite di archiviazione è la dimensione totale del contenuto nell'archiviazione temporanea in tutte le app nello stesso piano di servizio App. Piano a consumo Usa file di Azure per l'archiviazione temporanea.  
-<sup>7</sup>quando l'app per le funzioni è ospitato un [piano a consumo](../articles/azure-functions/functions-scale.md#consumption-plan), solo l'opzione di CNAME è supportata. Per le app di funzione in una [Premium-piano](../articles/azure-functions/functions-scale.md#premium-plan-public-preview) o un' [piano di servizio App](../articles/azure-functions/functions-scale.md#app-service-plan), è possibile eseguire il mapping di un dominio personalizzato usando un record CNAME o un record. 
+<sup>5</sup> al numero effettivo di App per le funzioni che è possibile ospitare dipende l'attività delle App, le dimensioni di istanze delle macchine e l'utilizzo delle risorse corrispondenti.
+<sup>6</sup> il limite di archiviazione è la dimensione totale del contenuto nell'archiviazione temporanea in tutte le app nello stesso piano di servizio App. Piano a consumo Usa file di Azure per l'archiviazione temporanea.  
+<sup>7</sup> quando l'app per le funzioni è ospitato un [piano a consumo](../articles/azure-functions/functions-scale.md#consumption-plan), solo l'opzione di CNAME è supportata. Per le app di funzione in una [Premium-piano](../articles/azure-functions/functions-scale.md#premium-plan) o un' [piano di servizio App](../articles/azure-functions/functions-scale.md#app-service-plan), è possibile eseguire il mapping di un dominio personalizzato usando un record CNAME o un record.

@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: c195d0c4250022102e735cf584370278e354bc41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60545045"
 ---
 # <a name="sfctl"></a>sfctl
@@ -27,7 +27,7 @@ Comandi per la gestione di cluster ed entità di Service Fabric. Questa versione
 I comandi seguono il modello sostantivo-verbo. Per altre informazioni, vedere Sottogruppi.
 
 ## <a name="subgroups"></a>Sottogruppi
-|Sottogruppo|DESCRIZIONE|
+|Sottogruppo|Descrizione|
 | --- | --- |
 | [application](service-fabric-sfctl-application.md) | Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni. |
 | [chaos](service-fabric-sfctl-chaos.md) | Consente di avviare, arrestare e creare report nel servizio di test chaos. |

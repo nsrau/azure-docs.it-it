@@ -6,7 +6,7 @@ metadata:
   title: Gestione traffico
   meta.description: 'Learn how to use Traffic Manager to route incoming traffic for optimal application performance and reliability. Quickstarts, tutorials, samples, and more, show how to manage traffic to Azure or external service endpoints.'
   services: traffic-manager
-  author: KumudD
+  author: asudbring
   manager: twooley
   layout: LandingPage
   ms.service: traffic-manager
@@ -14,7 +14,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/28/2019
-  ms.author: kumud
+  ms.author: allensu
 abstract:
   description: 'Informazioni su come usare Gestione traffico di Azure. Guide introduttive, esercitazioni, esempi e altro ancora illustrano come gestire il traffico in ingresso per ottenere prestazioni ottimali delle applicazioni e come distribuire il traffico in Azure o endpoint di servizio esterni.'
 sections:

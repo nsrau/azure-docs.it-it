@@ -16,10 +16,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: 28d16bce6dbb5063c085e8c4393777ee9d152768
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345142"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Distribuire servizi Web di Azure Machine Learning Studio che usano i moduli Import Data ed Export Data
@@ -103,7 +103,7 @@ Per eseguire la distribuzione come servizio Web classico e creare un'applicazion
 2. Al termine dell'esecuzione fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]).
 3. Nel dashboard del servizio Web individuare la chiave API. Copiarla e salvarla per usarla in un secondo momento.
 4. Nella tabella **Default Endpoint** (Endpoint predefinito) fare clic sul collegamento **Esecuzione batch** per aprire la pagina della Guida dell'API.
-5. In Visual Studio creare un'applicazione console in C#: **Nuovo** > **Progetto** > **Visual C#** > **Desktop di Windows classico** > **App console (.NET Framework)**.
+5. In Visual Studio creare un'applicazione console in C#: **Nuovo** > **Progetto** > **Visual C#**  > **Desktop di Windows classico** > **App console (.NET Framework)** .
 6. Nella pagina della Guida di API individuare la sezione **Sample Code** (Codice di esempio) nella parte inferiore della pagina.
 7. Copiare e incollare il codice di esempio in C# nel file Program.cs e rimuovere tutti i riferimenti nell'archiviazione BLOB.
 8. Aggiornare il valore della variabile *apiKey* con la chiave API salvata in precedenza.
@@ -132,7 +132,7 @@ Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione p
 3. Nella pagina Deploy Experiment (Sperimentazione distribuzione) immettere un nome per il servizio Web e selezionare un piano tariffario, quindi fare clic su **Deploy**(Distribuzione).
 4. Nella pagina **Quickstart** (Avvio rapido) fare clic su **Consume** (Utilizzo).
 5. Nella sezione **Sample Code** (Codice di esempio) fare clic su **Batch**.
-6. In Visual Studio creare un'applicazione console in C#: **Nuovo** > **Progetto** > **Visual C#** > **Desktop di Windows classico** > **App console (.NET Framework)**.
+6. In Visual Studio creare un'applicazione console in C#: **Nuovo** > **Progetto** > **Visual C#**  > **Desktop di Windows classico** > **App console (.NET Framework)** .
 7. Copiare e incollare il codice di esempio in C# nel file Program.cs.
 8. Aggiornare il valore della variabile *apiKey* con la **chiave primaria** presente nella sezione **Basic consumption info** (Informazioni di base sul consumo).
 9. Individuare la dichiarazione *scoreRequest* e aggiornare i valori dei parametri del servizio Web passati ai moduli *Import Data* (Importa dati) e *Export Data* (Esporta dati). In questo caso, usare la query originale, ma definire un nome per la nuova tabella.

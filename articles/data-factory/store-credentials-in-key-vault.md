@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: a7d440509e2b823400cde83c1ac2ec054c37eb74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 71f78685ee5fa340ec22c63e3e7f057bef122474
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048528"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Archiviare le credenziali in Azure Key Vault
 
@@ -32,7 +32,7 @@ Questa funzionalità si basa sull'identità gestita factory dei dati. Informazio
 
 Per fare riferimento a una credenziale archiviata in Azure Key Vault, è necessario:
 
-1. **Recuperare l'identità di data factory gestiti** copiando il valore di "SERVICE IDENTITY APPLICATION ID" generato con la factory. Se si usa Azure Data factory di creazione dell'interfaccia utente, l'ID applicazione identità gestita verrà visualizzata nella finestra di creazione di un servizio collegato di Azure Key Vault; è anche possibile recuperarlo dal portale di Azure, fare riferimento a [Retrieve data factory di identità gestita](data-factory-service-identity.md#retrieve-managed-identity).
+1. **Recuperare l'identità di data factory gestiti** copiando il valore di "Managed Identity Application ID" generato con la factory. Se si usa Azure Data factory di creazione dell'interfaccia utente, l'ID applicazione identità gestita verrà visualizzata nella finestra di creazione di un servizio collegato di Azure Key Vault; è anche possibile recuperarlo dal portale di Azure, fare riferimento a [Retrieve data factory di identità gestita](data-factory-service-identity.md#retrieve-managed-identity).
 2. **Concedere all'identità gestito l'accesso ad Azure Key Vault.** Nell'insieme di credenziali delle chiavi -> accesso criteri -> Aggiungi nuovo -> cercare questo gestiti ID applicazione identità del concedere **ottenere** autorizzazione nell'elenco a discesa autorizzazioni segrete. Consente a questa factory designata di accedere al segreto nell'insieme di credenziali.
 3. **Creare un servizio collegato che punta ad Azure Key Vault.** Fare riferimento a [Servizio collegato di Azure Key Vault](#azure-key-vault-linked-service).
 4. **Creare il servizio collegato di archivio dati, nel cui riferimento il segreto corrispondente è archiviato nell'insieme di credenziali delle chiavi.** Vedere [Fare riferimento a un segreto nell'insieme di credenziali delle chiavi](#reference-secret-stored-in-key-vault).
@@ -43,12 +43,12 @@ Per il servizio collegato di Azure Key Vault sono supportate le proprietà segue
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **AzureKeyVault**. | Sì |
-| baseUrl | Specificare l'URL di Azure Key Vault. | Sì |
+| type | La proprietà type deve essere impostata su: **AzureKeyVault**. | Yes |
+| baseUrl | Specificare l'URL di Azure Key Vault. | Yes |
 
 **Nell'interfaccia utente:**
 
-Fare clic su **Connessioni** -> **Servizi collegati** -> **+Nuovo** -> cercare "Azure Key Vault":
+Fare clic su **Connessioni** -> **Servizi collegati** ->  **+Nuovo** -> cercare "Azure Key Vault":
 
 ![Cercare Azure Key Vault](media/store-credentials-in-key-vault/search-akv.png)
 
@@ -76,10 +76,10 @@ Quando si configura un campo nel servizio collegato che fa riferimento a un segr
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del campo deve essere impostata su: **AzureKeyVaultSecret**. | Sì |
-| secretName | Il nome del segreto in Azure Key Vault. | Sì |
-| secretVersion | La versione del segreto in Azure Key Vault.<br/>Se non specificata, usare sempre la versione più recente del segreto.<br/>Se specificata, corrisponde alla versione specificata.| No  |
-| store | Fa riferimento a un servizio collegato di Azure Key Vault che si usa per archiviare la credenziale. | Sì |
+| type | La proprietà type del campo deve essere impostata su: **AzureKeyVaultSecret**. | Yes |
+| secretName | Il nome del segreto in Azure Key Vault. | Yes |
+| secretVersion | La versione del segreto in Azure Key Vault.<br/>Se non specificata, usare sempre la versione più recente del segreto.<br/>Se specificata, corrisponde alla versione specificata.| No |
+| store | Fa riferimento a un servizio collegato di Azure Key Vault che si usa per archiviare la credenziale. | Yes |
 
 **Nell'interfaccia utente:**
 

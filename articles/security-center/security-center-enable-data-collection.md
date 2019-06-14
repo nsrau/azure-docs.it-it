@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 8fed3ce98b23c5ac1cc97b88a278c5946f06af8e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: b1280274122800147c442b73b360bc5141530a0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968615"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050591"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
-Il Centro sicurezza raccoglie i dati dai macchine virtuali di Azure (VM), il set di scalabilità di macchine virtuali, contenitori di IaaS e i computer non di Azure (incluso in locale) per monitorare le minacce e vulnerabilità di sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai log eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i log del sistema operativo (log eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso. L'agente Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo nell'area di lavoro.
+Centro sicurezza raccoglie i dati dalle macchine virtuali di Azure (VM), il set di scalabilità di macchine virtuali, contenitori di IaaS e computer non Azure (incluso in locale) per monitorare le minacce e vulnerabilità di sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai log eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i log del sistema operativo (log eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso. L'agente Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo nell'area di lavoro.
 
 La raccolta dei dati è fondamentale per ottenere visibilità sugli aggiornamenti mancanti, le impostazioni di sicurezza del sistema operativo non configurate correttamente, l'abilitazione della protezione degli endpoint e i rilevamenti dell'integrità e delle minacce. 
 
@@ -31,12 +31,11 @@ Questo articolo include le linee guida su come installare Microsoft Monitoring A
 > [!NOTE]
 > - Raccolta dei dati è necessaria solo per le risorse di calcolo (macchine virtuali, set di scalabilità di macchine virtuali, contenitori di IaaS e i computer non Azure). È possibile usufruire dei vantaggi del Centro sicurezza di Azure anche se non si esegue il provisioning di agenti. La sicurezza sarà tuttavia limitata e le funzionalità sopra elencate non saranno supportate.  
 > - Per l'elenco delle piattaforme supportate, vedere [Supported platforms in Azure Security Center](security-center-os-coverage.md) (Piattaforme supportate nel Centro sicurezza di Azure).
-> - La raccolta dei dati per il set di scalabilità di macchine virtuali non è attualmente supportata.
-> - L'archiviazione dei dati in Log Analitica, se si usa un'area di lavoro nuovo o esistente, potrebbe incorrere in addebiti aggiuntivi per l'archiviazione dei dati, vedere la pagina relativa ai prezzi per altri dettagli.
+> - L'archiviazione dei dati in Log Analitica, se si usa un'area di lavoro nuovo o esistente, possono venire addebitati costi aggiuntivi per l'archiviazione dei dati. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Abilitare il provisioning automatico di Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
 
-Per raccogliere i dati dai computer è consigliabile avere installato Microsoft Monitoring Agent.  L'installazione dell'agente può essere eseguita automaticamente (scelta consigliata) o manualmente.  
+Per raccogliere i dati dai computer, è necessario disporre di Microsoft Monitoring Agent installata.  Installazione dell'agente può essere eseguita automaticamente (scelta consigliata) oppure è possibile installare manualmente l'agente.  
 
 >[!NOTE]
 > Il provisioning automatico è disattivato per impostazione predefinita. Per fare in modo che il Centro sicurezza usi il provisioning automatico per impostazione predefinita, impostarlo su **Attivato**.
@@ -88,9 +87,7 @@ Per selezionare un'area di lavoro creata dal Centro sicurezza:
 
 > [!NOTE]
 > Il piano tariffario di Log Analytics per le aree di lavoro create dal Centro sicurezza non influisce sulla fatturazione del Centro sicurezza. Questa è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro. Per il livello Gratuito, il Centro sicurezza abilita la soluzione *SecurityCenterFree* nell'area di lavoro predefinita. Per il livello Standard, il Centro sicurezza abilita la soluzione *Security* nell'area di lavoro predefinita.
-> L'archiviazione di dati in Log Analytics può comportare costi aggiuntivi. Per altre informazioni, vedere la pagina relativa ai prezzi.
-
-Per altre informazioni sui prezzi, vedere [Prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
+> L'archiviazione dei dati in Log Analitica potrebbero subire addebiti aggiuntivi per l'archiviazione dei dati. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 Per altre informazioni sugli account di analitica di log esistente, vedere [clienti analitica di log esistente](security-center-faq.md#existingloganalyticscust).
 
@@ -102,7 +99,7 @@ Per usare l'area di lavoro Log Analytics esistente, è necessario disporre delle
 
 > [!NOTE]
 > Le soluzioni abilitate in questa area di lavoro verranno applicate alle macchine virtuali di Azure che sono ad essa connesse. Per le soluzioni a pagamento, ciò può comportare costi aggiuntivi. Per considerazioni sulla privacy dei dati, assicurarsi che l'area di lavoro selezionata si trovi nell'area geografica appropriata.
-> L'archiviazione dei dati di analitica log potrebbe incorrere in addebiti aggiuntivi per l'archiviazione dei dati, vedere la pagina relativa ai prezzi per altri dettagli.
+> L'archiviazione dei dati di analitica di log possono venire addebitati costi aggiuntivi per l'archiviazione dei dati. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 Per selezionare l'area di lavoro Log Analytics esistente:
 
@@ -150,7 +147,7 @@ Quando si seleziona un'area di lavoro in cui archiviare i dati, sono disponibili
 ## <a name="data-collection-tier"></a>Livello della raccolta dati
 La selezione di un livello di raccolta dati nel Centro sicurezza di Azure avrà effetto soltanto sull'archiviazione degli eventi di sicurezza nell'area di lavoro Log Analytics. L'agente di Log Analitica verrà ancora raccogliere e analizzare gli eventi di sicurezza necessari per rilevamento delle minacce del Centro sicurezza di Azure, indipendentemente dal quale livello degli eventi di sicurezza scelto per l'archiviazione nell'area di lavoro di Log Analitica (se presente). La scelta di archiviare gli eventi di sicurezza nell'area di lavoro consentirà l'esecuzione di operazioni di analisi, ricerca e controllo di tali eventi nell'area di lavoro. 
 > [!NOTE]
-> L'archiviazione dei dati di analitica log potrebbe incorrere in addebiti aggiuntivi per l'archiviazione dei dati, vedere la pagina relativa ai prezzi per altri dettagli.
+> L'archiviazione dei dati di analitica di log possono venire addebitati costi aggiuntivi per l'archiviazione dei dati. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 > 
 > È possibile scegliere i criteri di filtro adatti alle sottoscrizioni e alle aree di lavoro da quattro set di eventi da archiviare nell'area di lavoro: 
 
@@ -205,8 +202,10 @@ I casi d'uso seguenti specificano il funzionamento del provisioning automatico n
 
 - Microsoft Monitoring Agent è installato nel computer, ma non come un'estensione (agente diretto)<br>
 Se Microsoft Monitoring Agent è installata direttamente nella macchina virtuale (non come estensione di Azure), il Centro sicurezza installerà l'estensione Microsoft Monitoring Agent e può eseguire l'aggiornamento di Microsoft Monitoring agent alla versione più recente.
-L'agente installato continuerà a segnalare per le aree di lavoro già configurati e indicherà inoltre all'area di lavoro configurata nel Centro sicurezza (multihosting è supportata).
+L'agente installato continuerà a segnalare per le aree di lavoro già configurati e indicherà inoltre all'area di lavoro configurata nel Centro sicurezza (multihosting è supportato nei computer Windows).
 Se l'area di lavoro configurata è un'area di lavoro utente (non del Centro sicurezza predefinita dell'area di lavoro), allora sarà necessario installare la "protezione / soluzione"securityFree"su di esso per il Centro sicurezza avviare l'elaborazione eventi da macchine virtuali e computer di creazione di report all'area di lavoro.<br>
+<br>
+Per i computer Linux, il multihoming dell'agente non è ancora supportata, di conseguenza, se viene rilevata un'installazione di agente esistente, il provisioning automatico non avrà luogo e la configurazione dei computer non verrà modificata.
 <br>
 Per le macchine esistenti su onboarding di sottoscrizioni al Centro sicurezza prima 2019-03-17, quando viene rilevato un agente esistente, non verrà installata l'estensione Microsoft Monitoring Agent e il computer non sarà interessato. Per questi computer, vedere la raccomandazione "Risolvi problemi di integrità dell'agente nei computer di monitoraggio" per risolvere i problemi di installazione dell'agente in questi computer.
 

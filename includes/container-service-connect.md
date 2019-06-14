@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: container-service
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 06/05/2019
 ms.author: danlep
-ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fb6dec606169eb0bf2bfbeff042700cff441560b
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202823"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808912"
 ---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Stabilire una connessione remota a un cluster Kubernetes, DC/OS o Docker Swarm
 Dopo aver creato un cluster del servizio Azure Container è necessario connettersi al cluster per distribuire e gestire i carichi di lavoro. Questo articolo descrive come connettersi alla VM master del cluster da un computer remoto. 
@@ -32,7 +32,7 @@ Seguire questi passaggi per installare e configurare `kubectl` nel computer.
 > 
 
 ### <a name="install-kubectl"></a>Installare kubectl
-Un modo per installare questo strumento è usare il `az acs kubernetes install-cli` comando di Azure. Per eseguire questo comando, assicurarsi che si [installata](/cli/azure/install-az-cli2) la versione più recente della riga di comando di Azure e viene eseguito l'accesso a un account Azure (`az login`).
+Un modo per installare questo strumento è usare il `az acs kubernetes install-cli` comando di Azure. Per eseguire questo comando, [installare Azure CLI](/cli/azure/install-azure-cli) ed eseguire l'accesso a un account Azure con `az login`.
 
 ```azurecli
 # Linux or macOS
@@ -53,7 +53,7 @@ az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --na
 
 Questo comando scarica le credenziali del cluster in `$HOME/.kube/config` dove si prevede che sia disponibile `kubectl`.
 
-In alternativa è possibile usare `scp` per copiare in modo sicuro i file da `$HOME/.kube/config` nella VM master al computer locale. Ad esempio: 
+In alternativa è possibile usare `scp` per copiare in modo sicuro i file da `$HOME/.kube/config` nella VM master al computer locale. Ad esempio:
 
 ```bash
 mkdir $HOME/.kube
@@ -78,7 +78,7 @@ kubectl proxy
 
 L'interfaccia utente di Kubernetes è ora disponibile all'indirizzo: `http://localhost:8001/ui`.
 
-Per altre informazioni, vedere la [Guida rapida di Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/).
+Per altre informazioni, vedere la [Guida introduttiva a Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/).
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>Connettersi a un cluster DC/OS o Swarm
 
@@ -158,7 +158,7 @@ Impostare la variabile di ambiente DOCKER_HOST sulla porta locale configurata pe
 export DOCKER_HOST=:2375
 ```
 
-Eseguire i comandi di Docker che effettuano il tunneling al cluster Docker Swarm, Ad esempio: 
+Eseguire i comandi di Docker che effettuano il tunneling al cluster Docker Swarm, Ad esempio:
 
 ```bash
 docker info

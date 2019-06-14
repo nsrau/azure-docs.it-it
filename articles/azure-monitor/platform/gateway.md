@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60396334"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere computer senza accesso a internet usando il gateway di Analitica di Log in Monitoraggio di Azure
@@ -162,7 +162,7 @@ Nella tabella seguente evidenzia i parametri supportati dal programma di install
 |PORTNUMBER | Numero di porta TCP per il gateway per l'ascolto |
 |PROXY | Indirizzo IP del server proxy |
 |INSTALLDIR | Percorso completo per specificare directory di installazione dei file software gateway |
-|NOME UTENTE | Id utente per l'autenticazione con server proxy |
+|USERNAME | Id utente per l'autenticazione con server proxy |
 |PASSWORD | Password dell'utente di Id per l'autenticazione con il proxy |
 |LicenseAccepted | Specificare il valore **1** per verificare si accetta il contratto di licenza |
 |HASAUTH | Specificare il valore **1** quando vengono specificati i parametri nome utente/PASSWORD |

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: a0bb34f8a43199a5d3a18064bce92ef4bec543af
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66492847"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050653"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di funzioni di Azure
 
@@ -25,13 +25,13 @@ I modelli di hosting hanno diversi livelli di isolamento di rete disponibile. Sc
 
 * È disponibile un set di opzioni del piano di esecuzione in un'infrastruttura multi-tenant, con vari livelli di connettività di rete virtuale e le opzioni di scalabilità:
     * Il [piano a consumo](functions-scale.md#consumption-plan), che ridimensiona dinamicamente in risposta al carico e offre opzioni di isolamento rete minime.
-    * Il [Premium-piano](functions-scale.md#premium-plan-public-preview), che anche offre una scalabilità in modo dinamico, garantendo l'isolamento rete più completa.
+    * Il [Premium-piano](functions-scale.md#premium-plan), che anche offre una scalabilità in modo dinamico, garantendo l'isolamento rete più completa.
     * Azure [piano di servizio App](functions-scale.md#app-service-plan), che funziona su una scala fissa che offre isolamento di rete simili al piano Premium.
 * È possibile eseguire le funzioni in un' [ambiente del servizio App](../app-service/environment/intro.md). Questo metodo distribuisce la funzione nella rete virtuale e offre isolamento e controllo di rete completa.
 
 ## <a name="matrix-of-networking-features"></a>Matrice delle funzionalità di rete
 
-|                |[Piano a consumo](functions-scale.md#consumption-plan)|[Piano Premium (anteprima)](functions-scale.md#premium-plan-public-preview)|[Piano di servizio app](functions-scale.md#app-service-plan)|[Ambiente del servizio app](../app-service/environment/intro.md)|
+|                |[Piano a consumo](functions-scale.md#consumption-plan)|[Piano Premium (anteprima)](functions-scale.md#premium-plan)|[Piano di servizio app](functions-scale.md#app-service-plan)|[Ambiente del servizio app](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Restrizioni di IP in ingresso](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[Restrizioni di IP in uscita](#private-site-access)|❌No| ❌No|❌No|✅Yes|

@@ -264,7 +264,5 @@
   items:
     - name: Cluster Windows
       items:
-        - name: Eseguire la migrazione di cluster Windows a cluster Linux
-          href: ../hdinsight-migrate-from-windows-to-linux.md
         - name: Eseguire la migrazione di soluzioni .NET a cluster Linux
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md

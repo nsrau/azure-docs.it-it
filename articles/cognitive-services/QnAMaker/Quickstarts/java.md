@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4b3c51898e26be5c502dbe4575daadf8694ff3d1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f2803edf3f6a989f9b33543de9eb33f30ad2bfa8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791473"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071987"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-java"></a>Come usare l'API REST QnA Maker con Java 
 <a name="HOLTop"></a>
@@ -2133,6 +2133,6 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [!div class="nextstepaction"]
 > [Informazioni di riferimento sull'API REST QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
 [Panoramica di QnA Maker](../Overview/overview.md)

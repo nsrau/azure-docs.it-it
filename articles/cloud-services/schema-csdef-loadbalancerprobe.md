@@ -1,9 +1,8 @@
 ---
 title: Schema LoadBalancerProbe di definizione di Servizi cloud di Azure | Microsoft Docs
 ms.custom: ''
-origin.date: 04/14/2015
-ms.date: 11/06/2017
-ms.prod: azure
+ms.date: 04/14/2015
+services: cloud-services
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -11,14 +10,14 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: thraka
-ms.author: v-yiso
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: de365de7bf93c0a612f102b3ec2b25c79d1c3d18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60613873"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schema LoadBalancerProbe di definizione di Servizi cloud di Azure
@@ -60,7 +59,7 @@ L'elemento `LoadBalancerProbe` definisce il probe di integrità per un modello. 
 
 La tabella seguente descrive gli attributi dell'elemento `LoadBalancerProbe`:
 
-|Attributo|Type|DESCRIZIONE|
+|Attributo|Type|Descrizione|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Richiesto. Nome del probe di bilanciamento del carico. Il nome deve essere univoco.|
 | `protocol`          | `string` | Richiesto. Specifica il protocollo dell'endpoint. I possibili valori sono `http` o `tcp`. Se viene specificato `tcp`, è necessario ricevere una risposta ACK per completare il probe. Se viene specificato `http`, è necessario ricevere una risposta 200 OK dall'URI specificato per completare il probe.|

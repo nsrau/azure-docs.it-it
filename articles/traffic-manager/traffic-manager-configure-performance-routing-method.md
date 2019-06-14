@@ -2,21 +2,22 @@
 title: Configurare un metodo di routing del traffico delle prestazioni con Gestione traffico di Azure | Microsoft Docs
 description: Questo articolo descrive come configurare Gestione traffico per instradare il traffico all'endpoint con latenza più bassa
 services: traffic-manager
+manager: twooley
 documentationcenter: ''
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 4c948668e355b87026240588c6fac11d86e355b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 5e9b02a4145d86b86ea3ba0d509d06b7c148cc6d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883972"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048467"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Configurare un metodo di routing del traffico delle prestazioni
 
@@ -31,7 +32,7 @@ Il metodo di routing del traffico Prestazioni consente di indirizzare il traffic
     1. Nelle **impostazioni del metodo di routing del traffico** per **Metodo di routing** selezionare **Prestazioni**.
     2. Specificare le stesse le stesse **impostazioni di monitoraggio degli endpoint** per tutti gli endpoint in questo profilo come indicato di seguito:
         1. Selezionare il **protocollo** appropriato e specificare il numero di **porta**. 
-        2. In **Percorso** immettere una barra */*. Per monitorare gli endpoint, è necessario specificare un percorso e un nome file. Una barra ("/") è una voce valida per il percorso relativo e implica che il file si trovi nella directory radice (impostazione predefinita).
+        2. In **Percorso** immettere una barra */* . Per monitorare gli endpoint, è necessario specificare un percorso e un nome file. Una barra ("/") è una voce valida per il percorso relativo e implica che il file si trovi nella directory radice (impostazione predefinita).
         3. Nella parte superiore della pagina fare clic su **Salva**.
 5.  Verificare le modifiche apportate alla configurazione come indicato di seguito:
     1.  Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico e fare clic su tale profilo nei risultati visualizzati.

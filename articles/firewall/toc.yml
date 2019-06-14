@@ -39,6 +39,8 @@
   items:
     - name: Eseguire la distribuzione tramite Azure PowerShell
       href: deploy-ps.md
+    - name: Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
+      href: deploy-cli.md
     - name: Eseguire la distribuzione usando un modello
       href: deploy-template.md
     - name: Integrazione con il servizio di bilanciamento del carico

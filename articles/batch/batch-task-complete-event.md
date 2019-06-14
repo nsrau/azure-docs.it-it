@@ -2,7 +2,7 @@
 title: Evento di completamento attività di Azure Batch | Microsoft Docs
 description: Riferimento per l'evento di completamento dell'attività batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 04/20/2017
-ms.date: 05/14/2018
-ms.author: v-junlch
+ms.date: 04/20/2017
+ms.author: lahugh
 ms.openlocfilehash: b5fd1a8020c8e95323bc2333c0583dafe58e8456
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60549972"
 ---
 # <a name="task-complete-event"></a>Evento di completamento attività
@@ -55,9 +54,9 @@ ms.locfileid: "60549972"
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
-|jobId|string|ID del processo contenente l'attività.|
-|id|string|ID dell'attività.|
-|taskType|string|Tipo dell'attività. Il valore può essere "JobManager" per indicare che si tratta di un'attività del gestore di processi oppure 'User' per indicare che non si tratta di un'attività del gestore di processi. Questo evento non viene generato per le attività di preparazione del processo, le attività di rilascio del processo o le attività di avvio.|
+|jobId|String|ID del processo contenente l'attività.|
+|id|String|ID dell'attività.|
+|taskType|String|Tipo dell'attività. Il valore può essere "JobManager" per indicare che si tratta di un'attività del gestore di processi oppure 'User' per indicare che non si tratta di un'attività del gestore di processi. Questo evento non viene generato per le attività di preparazione del processo, le attività di rilascio del processo o le attività di avvio.|
 |systemTaskVersion|Int32|Contatore dei tentativi interni di esecuzione di un'attività. Il servizio Batch può ritentare internamente l'esecuzione di un'attività in funzione di problemi transitori. Questi problemi possono includere errori interni di pianificazione o tentativi di ripristino a seguito di nodi di calcolo in uno stato non valido.|
 |[nodeInfo](#nodeInfo)|Tipo complesso|Contiene informazioni sul nodo di calcolo in cui è stata eseguita l'attività.|
 |[multiInstanceSettings](#multiInstanceSettings)|Tipo complesso|Specifica che l'attività è un'attività con istanze multiple che richiede più nodi di calcolo.  Per informazioni dettagliate, vedere [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task).|
@@ -68,8 +67,8 @@ ms.locfileid: "60549972"
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
-|poolId|string|ID del pool in cui viene eseguita l'attività.|
-|nodeId|string|ID del nodo in cui viene eseguita l'attività.|
+|poolId|String|ID del pool in cui viene eseguita l'attività.|
+|nodeId|String|ID del nodo in cui viene eseguita l'attività.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
@@ -92,5 +91,3 @@ ms.locfileid: "60549972"
 |exitCode|Int32|Codice di uscita dell'attività.|
 |retryCount|Int32|Numero di tentativi di esecuzione dell'attività da parte del servizio Batch. L'attività viene ritentata se si conclude con un codice di uscita diverso da zero, fino al limite specificato in MaxTaskRetryCount.|
 |requeueCount|Int32|Numero di volte in cui l'attività è stata reinserita nella coda dal servizio Batch a seguito di una richiesta dell'utente.<br /><br /> Quando si rimuovono nodi da un pool (tramite ridimensionamento o riduzione del pool) o quando il processo viene disabilitato, l'utente può specificare che le attività in esecuzione sui nodi siano reinserite nella coda per l'esecuzione. Questo conteggio tiene traccia del numero di volte in cui l'attività è stata reinserita nella coda per questi motivi.|
-
-<!-- Update_Description: update metedata properties -->

@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: a6f2cf1dcee6a85376c8d767e57c504b6b246e5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60580460"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia del Catalogo dati di Azure
@@ -86,4 +86,4 @@ La registrazione è l'atto di estrazione dei metadati di asset di dati da un'ori
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Guida introduttiva: Creare un'istanza di Azure Data Catalog](data-catalog-get-started.md) 
+[Avvio rapido: Creare un'istanza di Azure Data Catalog](data-catalog-get-started.md) 

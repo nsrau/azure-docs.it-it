@@ -3,8 +3,8 @@ title: Esempio di script di Azure PowerShell - Instradare il traffico per la dis
 description: Esempio di script di Azure PowerShell - Instradare il traffico per la disponibilità elevata delle applicazioni
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: jeconnoc
+author: asudbring
+manager: twooley
 editor: ''
 tags: azure-infrastructure
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
-ms.author: kumud
-ms.openlocfilehash: db84de194832180b8e153cf6aa7e6c9fab5e6d61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 1c04859e2fe8841eb679f0b3e22b54ce71f88230
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66147426"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050965"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Instradare il traffico per la disponibilità elevata delle applicazioni con Azure PowerShell
 
@@ -52,7 +52,7 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, un'App Web
 | Comando | Note |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Crea un piano di servizio app. Equivale a una server farm per l'App Web di Azure. |
+| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Consente di creare un piano di servizio app. Equivale a una server farm per l'App Web di Azure. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Consente di creare un'App Web di Azure all'interno del piano di servizio app. |
 | [Set-AzResource](/powershell/module/az.resources/new-azresource) | Consente di creare un'App Web di Azure all'interno del piano di servizio app. |
 | [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Crea un profilo di Gestione traffico di Azure. |

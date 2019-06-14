@@ -14,10 +14,10 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 8925943b0a5d151d55adedcfe3f01b5a14c63c1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60613892"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Schema NetworkTrafficRules di definizione di Servizi cloud di Azure
@@ -76,7 +76,7 @@ L'elemento `Destinations` descrive una raccolta di RoleEndpoints con i quali è 
 ##  <a name="RoleEndpoint"></a>Elemento RoleEndpoint
 L'elemento `RoleEndpoint` descrive un endpoint in un ruolo per consentire le comunicazioni tra i due. È possibile specificare più elementi `RoleEndpoint` se sono presenti più di un endpoint nel ruolo.
 
-| Attributo      | Type     | DESCRIZIONE |
+| Attributo      | Type     | Descrizione |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Richiesto. Il nome dell'endpoint verso il quale consentire il traffico.|
 | `roleName`     | `string` | Richiesto. Il nome del ruolo Web con il quale consentire le comunicazioni.|
@@ -87,14 +87,14 @@ L'elemento `AllowAllTraffic` è una regola che consente a tutti i ruoli di comun
 ##  <a name="WhenSource"></a> Elemento WhenSource
 L'elemento `WhenSource` descrive una raccolta di ruoli che possono comunicare con gli endpoint definiti nel nodo `Destinations`.
 
-| Attributo | Type     | DESCRIZIONE |
+| Attributo | Type     | Descrizione |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Richiesto. Specifica la regola da applicare quando vengono consentite le comunicazioni. Al momento l'unico valore valido è `AnyRule`.|
   
 ##  <a name="FromRole"></a> Elemento FromRole
 L'elemento `FromRole` specifica i ruoli che possono comunicare con gli endpoint definiti nel nodo `Destinations`. È possibile specificare più elementi `FromRole` se sono presenti più ruoli in grado di comunicare con gli endpoint.
 
-| Attributo  | Type     | DESCRIZIONE |
+| Attributo  | Type     | Descrizione |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Richiesto. Il nome del ruolo da cui consentire la comunicazione.|
 

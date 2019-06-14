@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: kumud
 ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516543"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Configurare DHCPv6 per macchine virtuali Linux
@@ -56,7 +56,7 @@ Questo documento descrive come abilitare DHCPv6 in modo che la macchina virtuale
     ```
 A partire da Ubuntu 17.10, il meccanismo di configurazione di rete predefinito è [NETPLAN]( https://netplan.io).  In fase di installazione/creazione di istanze, NETPLAN legge la configurazione di rete da questo percorso file di configurazione YAML: / {lib,etc,run}/netplan/*.yaml.
 
-Includi un *dhcp6:true* istruzione per ogni interfaccia ethernet nella configurazione.  Ad esempio: 
+Includi un *dhcp6:true* istruzione per ogni interfaccia ethernet nella configurazione.  Ad esempio:
   
         network:
           version: 2

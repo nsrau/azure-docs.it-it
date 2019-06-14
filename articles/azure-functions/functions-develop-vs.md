@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c6104a977a02211dcab17a5f232991d0d9cbb852
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864539"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050745"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Sviluppare Funzioni di Azure con Visual Studio  
 
@@ -89,7 +89,7 @@ Per altre informazioni, vedere [Progetto di libreria di classi per Funzioni](fun
 
 ## <a name="configure-the-project-for-local-development"></a>Configurare il progetto per lo sviluppo locale
 
-Il runtime di Funzioni usa un account di archiviazione di Azure internamente. Per tutti i tipi di trigger diversi da HTTP e dai webhook, è necessario impostare la chiave **Values.AzureWebJobsStorage** su una stringa di connessione di account di archiviazione di Azure valida. L'app per le funzioni può usare anche l'[Emulatore di archiviazione di Azure](../storage/common/storage-use-emulator.md) per le impostazioni di connessione **AzureWebJobsStorage** necessarie per il progetto. Per usare l'emulatore, impostare il valore **AzureWebJobsStorage** su `UseDevelopmentStorage=true`. È necessario modificare questa impostazione per una connessione di archiviazione effettiva prima della distribuzione.
+Il runtime di Funzioni usa un account di archiviazione di Azure internamente. Per tutti i tipi di trigger diversi da HTTP e dai webhook, è necessario impostare la chiave **Values.AzureWebJobsStorage** su una stringa di connessione di account di archiviazione di Azure valida. L'app per le funzioni può usare anche l'[Emulatore di archiviazione di Azure](../storage/common/storage-use-emulator.md) per le impostazioni di connessione **AzureWebJobsStorage** necessarie per il progetto. Per usare l'emulatore, impostare il valore **AzureWebJobsStorage** su `UseDevelopmentStorage=true`. Modificare questa impostazione per una connessione di archiviazione effettivo prima della distribuzione.
 
 Per impostare la stringa di connessione dell'account di archiviazione:
 
@@ -181,9 +181,13 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 Per altre informazioni sull'utilizzo degli strumenti di base di Funzioni di Azure, vedere [Come scrivere codice per le funzioni di Azure e testarle in locale](functions-run-local.md).
 
-## <a name="publish-to-azure"></a>Pubblica in Azure
+## <a name="publish-to-azure"></a>Pubblicazione in Azure
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
+
+### <a name="deployment-technology"></a>Tecnologia di distribuzione
+
+Durante la pubblicazione da Visual Studio, una delle due tecnologie viene usata per eseguire la distribuzione: [Distribuzione Web](functions-deployment-technologies.md#web-deploy-msdeploy) e [Zipdeploy con abilitato eseguire dal pacchetto (scelta consigliata)](functions-deployment-technologies.md#zip-deploy).
 
 ## <a name="function-app-settings"></a>Impostazioni dell'app per le funzioni
 

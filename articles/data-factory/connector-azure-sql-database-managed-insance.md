@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f29db5786c682188b4eadec12275df46ae3b547
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e68b522d5a0fe7c359d83fc436aa7a1fd2159198
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048581"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiare dati da e verso l'Istanza gestita di database SQL di Azure con Azure Data Factory
 
@@ -29,7 +29,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 In particolare il connettore dell'Istanza gestita di database SQL di Azure supporta:
 
-- La copia dei dati tramite l'autenticazione di SQL o di Windows.
+- Copia dei dati tramite l'autenticazione di SQL.
 - Come origine, il recupero di dati tramite una query SQL o una stored procedure.
 - Come sink, l'accodamento di dati a una tabella di destinazione o la chiamata a una stored procedure con logica personalizzata durante la copia.
 
@@ -37,9 +37,9 @@ La funzionalità [Always Encrypted](https://docs.microsoft.com/sql/relational-da
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per copiare i dati da un'Istanza gestita di database SQL di Azure che si trova in una rete virtuale, configurare un runtime di integrazione self-hosted che possa accedere al database. Per altre informazioni, vedere [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
+Per accedere a istanza gestita di Azure SQL Database  **[endpoint pubblico](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)** , è possibile usare Azure Data factory gestito Azure runtime di integrazione. Assicurarsi che non solo consentono all'endpoint pubblico, ma anche consentire il traffico di endpoint pubblica nel gruppo di sicurezza di rete per rendere Azure Data factory di connettersi al database, seguendo [questo materiale sussidiario](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
-Se si effettua il provisioning del runtime di integrazione self-hosted nella stessa rete virtuale dell'istanza gestita, verificare che il computer del runtime di integrazione si trovi in una subnet diversa da quella dell'istanza gestita. Se si effettua il provisioning del runtime di integrazione self-hosted in una rete virtuale diversa da quella dell'istanza gestita, è consigliabile usare un peering di rete virtuale o stabilire una connessione tra reti virtuali. Per altre informazioni, vedere [Connettere un'applicazione a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-connect-app.md).
+Per accedere a istanza gestita di Azure SQL Database **endpoint privato**, configurare un [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md) che possa accedere al database. Se si esegue il provisioning di runtime di integrazione self-hosted nella stessa rete virtuale dell'istanza gestita, assicurarsi che il computer di runtime di integrazione sia in una subnet diversa da istanza gestita. Se si effettua il provisioning del runtime di integrazione self-hosted in una rete virtuale diversa da quella dell'istanza gestita, è consigliabile usare un peering di rete virtuale o stabilire una connessione tra reti virtuali. Per altre informazioni, vedere [Connettere un'applicazione a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-connect-app.md).
 
 ## <a name="get-started"></a>Attività iniziali
 
@@ -54,13 +54,8 @@ Per il servizio collegato dell'Istanza gestita di database SQL di Azure sono sup
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **SqlServer**. | Sì. |
-| connectionString |Questa proprietà specifica le informazioni di connectionString necessarie per connettersi all'istanza gestita usando l'autenticazione di SQL o di Windows. Per altre informazioni, vedere gli esempi seguenti. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault e, se si tratta dell'autenticazione SQL, eseguire il pull della configurazione `password` dalla stringa di connessione. Vedere gli esempi JSON sotto la tabella e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |Sì. |
-| userName |Questa proprietà specifica un nome utente se si usa l'autenticazione di Windows. Ad esempio, **nomedominio\\nomeutente**. | No. |
-| password |Questa proprietà specifica una password per l'account utente definito per il nome utente. Selezionare **SecureString** per archiviare le informazioni di connectionString in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No. |
-| connectVia | Questo [runtime di integrazione](concepts-integration-runtime.md) viene usato per connettersi all'archivio dati. Effettuare il provisioning del runtime di integrazione self-hosted nella stessa rete virtuale dell'istanza gestita. |Sì. |
-
->[!TIP]
->È possibile che venga visualizzato il codice di errore "UserErrorFailedToConnectToSqlServer" con un messaggio di questo tipo: "Il limite di sessioni per il database è XXX ed è stato raggiunto". Se si verifica questo errore, aggiungere `Pooling=false` alla stringa di connessione e riprovare.
+| connectionString |Questa proprietà specifica le informazioni di connectionString che ti serve per connettersi all'istanza gestita usando l'autenticazione di SQL. Per altre informazioni, vedere gli esempi seguenti. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault e, se si tratta dell'autenticazione SQL, eseguire il pull della configurazione `password` dalla stringa di connessione. Vedere gli esempi JSON sotto la tabella e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |Sì. |
+| connectVia | Questo [runtime di integrazione](concepts-integration-runtime.md) viene usato per connettersi all'archivio dati. È possibile usare il Runtime di integrazione Self-Hosted o il Runtime di integrazione di Azure (se l'istanza gestita ha endpoint pubblici e consentire ADF accedere). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |Sì. |
 
 **Esempio 1: Usare l'autenticazione di SQL**
 
@@ -72,7 +67,7 @@ Per il servizio collegato dell'Istanza gestita di database SQL di Azure sono sup
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+                "value": "Data Source=<servername:port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -102,32 +97,6 @@ Per il servizio collegato dell'Istanza gestita di database SQL di Azure sono sup
                     "type": "LinkedServiceReference" 
                 }, 
                 "secretName": "<secretName>" 
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-**Esempio 3: Usare l'autenticazione di Windows**
-
-```json
-{
-    "name": "AzureSqlMILinkedService",
-    "properties": {
-        "type": "SqlServer",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;"
-            },
-            "userName": "<domain\\username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
             }
         },
         "connectVia": {
@@ -180,9 +149,9 @@ Per copiare i dati dall'Istanza gestita di database SQL di Azure, impostare il t
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **SqlSource**. | Sì. |
-| sqlReaderQuery |Questa proprietà usa la query SQL personalizzata per leggere i dati. Un esempio è `select * from MyTable`. | No. |
-| sqlReaderStoredProcedureName |Questa proprietà definisce il nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. | No. |
-| storedProcedureParameters |Questi parametri sono relativi alla stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e l'uso di maiuscole e minuscole dei parametri devono corrispondere a quelli dei parametri della stored procedure. | No. |
+| sqlReaderQuery |Questa proprietà usa la query SQL personalizzata per leggere i dati. Un esempio è `select * from MyTable`. |No. |
+| sqlReaderStoredProcedureName |Questa proprietà definisce il nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No. |
+| storedProcedureParameters |Questi parametri sono relativi alla stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e l'uso di maiuscole e minuscole dei parametri devono corrispondere a quelli dei parametri della stored procedure. |No. |
 
 Tenere presente quanto segue:
 
@@ -278,22 +247,22 @@ GO
 
 ### <a name="azure-sql-database-managed-instance-as-a-sink"></a>Istanza gestita di database SQL di Azure come sink
 
+> [!TIP]
+> Altre informazioni sui comportamenti di scrittura supportati, configurazioni e consigliata da [procedure consigliate per il caricamento dei dati in istanza gestita di Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
+
 Per copiare i dati da un'Istanza gestita di database SQL di Azure, impostare il tipo di sink nell'attività di copia su **SqlSink**. Nella sezione sink dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del sink dell'attività di copia deve essere impostata su **SqlSink**. | Sì. |
-| writeBatchSize |Numero di righe nella tabella SQL inserimenti **per ogni batch**.<br/>I valori consentiti sono integer per il numero di righe. Per impostazione predefinita, Data Factory di determinare in modo dinamico le dimensioni del batch appropriato in base alla dimensione di riga.  |No  |
-| writeBatchTimeout |Questa proprietà specifica il tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono relativi all'intervallo di tempo. Ad esempio, "00:30:00" corrisponde a 30 minuti. | No. |
-| preCopyScript |Questa proprietà specifica una query SQL per l'attività di copia da eseguire prima di scrivere i dati nell'istanza gestita. Viene richiamata solo una volta per ogni esecuzione della copia. È possibile usare questa proprietà per pulire i dati precaricati. | No. |
-| sqlWriterStoredProcedureName |Questo è il nome della stored procedure che definisce come applicare i dati di origine nella tabella di destinazione. Un esempio di stored procedure consiste nell'eseguire operazioni di upsert o trasformazione usando la propria logica di business. <br/><br/>Questa stored procedure viene *richiamata per batch*. Per un'operazione che viene eseguita una sola volta e non ha nulla a che fare con i dati di origine, ad esempio un'eliminazione o un troncamento, usare la proprietà `preCopyScript`. | No. |
-| storedProcedureParameters |Questi parametri vengono usati per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e l'uso di maiuscole e minuscole dei parametri devono corrispondere a quelli dei parametri della stored procedure. | No. |
-| sqlWriterTableType |Questa proprietà specifica il nome di un tipo di tabella da usare nella stored procedure. Nel corso dell'attività di copia, i dati spostati vengono resi disponibili in una tabella temporanea di questo tipo. Il codice della stored procedure può quindi unire i dati di cui è in corso la copia con i dati esistenti. | No. |
+| writeBatchSize |Numero di righe nella tabella SQL inserimenti **per ogni batch**.<br/>I valori consentiti sono integer per il numero di righe. Per impostazione predefinita, Data Factory di determinare in modo dinamico le dimensioni del batch appropriato in base alla dimensione di riga.  |No |
+| writeBatchTimeout |Questa proprietà specifica il tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono relativi all'intervallo di tempo. Ad esempio, "00:30:00" corrisponde a 30 minuti. |No. |
+| preCopyScript |Questa proprietà specifica una query SQL per l'attività di copia da eseguire prima di scrivere i dati nell'istanza gestita. Viene richiamata solo una volta per ogni esecuzione della copia. È possibile usare questa proprietà per pulire i dati precaricati. |No. |
+| sqlWriterStoredProcedureName |Questo è il nome della stored procedure che definisce come applicare i dati di origine nella tabella di destinazione. <br/>Questa stored procedure viene *richiamata per batch*. Per un'operazione che viene eseguita una sola volta e non ha nulla a che fare con i dati di origine, ad esempio un'eliminazione o un troncamento, usare la proprietà `preCopyScript`. |No. |
+| storedProcedureParameters |Questi parametri vengono usati per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e l'uso di maiuscole e minuscole dei parametri devono corrispondere a quelli dei parametri della stored procedure. |No. |
+| sqlWriterTableType |Questa proprietà specifica il nome di un tipo di tabella da usare nella stored procedure. Nel corso dell'attività di copia, i dati spostati vengono resi disponibili in una tabella temporanea di questo tipo. Il codice della stored procedure può quindi unire i dati di cui è in corso la copia con i dati esistenti. |No. |
 
-> [!TIP]
-> Quando si copiano dati in un'Istanza gestita di database SQL di Azure, per impostazione predefinita l'attività di copia accoda i dati alla tabella di sink. Per eseguire un'operazione di upsert o altra logica di business, usare la stored procedure in SqlSink. Per altre informazioni, vedere [Richiamare una stored procedure da un sink SQL](#invoke-a-stored-procedure-from-a-sql-sink).
-
-**Esempio 1: Accodare dati**
+**Esempio 1: aggiungere dati**
 
 ```json
 "activities":[
@@ -325,9 +294,9 @@ Per copiare i dati da un'Istanza gestita di database SQL di Azure, impostare il 
 ]
 ```
 
-**Esempio 2: Richiamare una stored procedure durante la copia per un'operazione di upsert**
+**Esempio 2: richiamare una stored procedure durante la copia**
 
-Per altre informazioni, vedere [Richiamare una stored procedure da un sink SQL](#invoke-a-stored-procedure-from-a-sql-sink).
+Per altre informazioni, vedere [Richiamare una stored procedure da un sink SQL](#invoking-stored-procedure-for-sql-sink).
 
 ```json
 "activities":[
@@ -364,80 +333,69 @@ Per altre informazioni, vedere [Richiamare una stored procedure da un sink SQL](
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>Colonne Identity nel database di destinazione
+## <a name="best-practice-for-loading-data-into-azure-sql-database-managed-instance"></a>Procedure consigliate per il caricamento dei dati in istanza gestita di Azure SQL Database
 
-L'esempio seguente copia i dati da una tabella di origine senza una colonna identity in una tabella di destinazione in cui tale colonna è presente.
+Quando si copiano dati in istanza gestita di Azure SQL Database, potrebbe essere necessario il comportamento di scrittura diverse:
 
-**Tabella di origine**
+- **[Accodare](#append-data)** : i dati di origine contengono solo nuovi record;
+- **[Upsert](#upsert-data)** : i dati di origine contengono sia istruzioni inserts e updates;
+- **[Sovrascrivere](#overwrite-entire-table)** : Desidera ricaricare tabella intera dimensione ogni volta che;
+- **[Scrivere con logica personalizzata](#write-data-with-custom-logic)** : Ho bisogno di ulteriore elaborazione prima dell'inserimento finale nella tabella di destinazione.
+
+Vedere la sezioni rispettivamente su come configurare in Azure Data factory e le procedure consigliate.
+
+### <a name="append-data"></a>Aggiungere i dati
+
+Si tratta del comportamento predefinito di questo connettore di sink di istanza gestita di Azure SQL Database e si di ADF **bulk insert** per scrivere in modo efficiente alla tabella. È possibile semplicemente configurare l'origine e di conseguenza di sink nell'attività di copia.
+
+### <a name="upsert-data"></a>Eseguire l'upsert dei dati
+
+**Opzione ho** (consigliato soprattutto quando ci sono dati di grandi dimensioni da copiare): il **approccio ad alte prestazioni la maggior parte delle** eseguire upsert è il seguente: 
+
+- In primo luogo, utilizzare un [tabella temporanea](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) per eseguire il caricamento bulk tutti i record usando l'attività di copia. Come operazioni su tabelle temporanee non sono connessi, è possibile caricare milioni di record in pochi secondi.
+- Eseguire un'attività Stored Procedure in Azure Data factory per applicare una [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (o inserimento/aggiornamento) istruzione e utilizzare temporanea di tabella come origine per eseguire tutte le aggiorna o inserisce come una singola transazione, riducendo la quantità di round trip e operazioni di log. Al termine dell'attività Stored Procedure, tabelle temporanee possono essere troncate per la preparazione per il successivo ciclo di upsert. 
+
+Ad esempio, in Azure Data Factory, è possibile creare una pipeline con un' **attività di copia** concatenato con un **attività Stored Procedure** esito è positivo. La prima copia i dati dall'archivio di origine in una tabella temporanea, ad esempio " **##UpsertTempTable**" come nome della tabella nel set di dati, quindi quest'ultimo richiama una Stored Procedure per unire i dati di origine dalla stessa tabella in tabella di destinazione e la pulizia tabella temporanea.
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+Nel database, definire una Stored Procedure con logica di unione, simile alla seguente, che viene fatto riferimento dall'attività di Stored Procedure precedente. Supponendo che di destinazione **Marketing** tabella con tre colonne: **ProfileID**, **stato**, e **categoria**, e di eseguire l'operazione upsert in base il **ProfileID** colonna.
 
 ```sql
-create table dbo.SourceTbl
-(
-    name varchar(100),
-    age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+    MERGE TargetTable AS target
+    USING ##UpsertTempTable AS source
+    ON (target.[ProfileID] = source.[ProfileID])
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT matched THEN
+        INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-**Tabella di destinazione**
+**Opzione II:** in alternativa, è possibile effettuare [chiamare una stored procedure all'interno di attività di copia](#invoking-stored-procedure-for-sql-sink), durante la nota di questo approccio viene eseguito per ogni riga nella tabella di origine invece di uso di bulk insert come l'approccio predefinito Nell'attività di copia, pertanto non può essere inclusa per l'operazione upsert su larga scala.
 
-```sql
-create table dbo.TargetTbl
-(
-    identifier int identity(1,1),
-    name varchar(100),
-    age int
-)
-```
+### <a name="overwrite-entire-table"></a>Sovrascrivere l'intera tabella
 
-Si noti che la tabella di destinazione contiene una colonna identity.
+È possibile configurare **preCopyScript** sink proprietà nell'attività di copia, nel qual caso per ogni esecuzione attività di copia, Azure Data Factory esegue lo script prima di tutto, quindi eseguire la copia per inserire i dati. Ad esempio, per sovrascrivere l'intera tabella con i dati più recenti, è possibile specificare uno script per eliminare tutti i record prima del caricamento bulk dei nuovi dati dall'origine.
 
-**Definizione JSON del set di dati di origine**
+### <a name="write-data-with-custom-logic"></a>Scrivere i dati con logica personalizzata
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
+Analogamente a come descritto in [Upsert dati](#upsert-data) sezione quando è necessario applicare ulteriori operazioni di elaborazione prima dell'inserimento finale dei dati di origine nella tabella di destinazione, è possibile un) su larga scala, caricare in una tabella temporanea e richiamare una stored procedure, o b) richiamare una stored procedure durante la copia.
 
-**Definizione JSON del set di dati di destinazione**
+## <a name="invoking-stored-procedure-for-sql-sink"></a> Richiamare una stored procedure da un sink SQL
 
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
+Quando si copiano dati in istanza gestita di Azure SQL Database, è anche possibile configurare e richiamare una specificato dall'utente stored procedure con parametri aggiuntivi.
 
-Si noti che la tabella di origine e quella di destinazione hanno schemi diversi. La tabella di destinazione contiene una colonna Identity. In questo scenario specificare la proprietà "structure" nella definizione del set di dati di destinazione, che non include la colonna identity.
+> [!TIP]
+> Richiamo delle stored procedure elabora i dati row-by-row anziché operazione bulk, che non è consigliata per la copia su larga scala. Altre informazioni, vedere [procedure consigliate per il caricamento dei dati in istanza gestita di Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Richiamare una stored procedure da un sink SQL
-
-Quando si copiano dati in un'Istanza gestita di database SQL di Azure, è possibile configurare e richiamare una stored procedure specificando parametri aggiuntivi.
-
-È possibile usare una stored procedure quando non si possono usare i meccanismi di copia predefiniti. In genere viene usata quando è necessario eseguire un'operazione di upsert (aggiornamento + inserimento) o un'altra operazione di elaborazione prima dell'inserimento finale dei dati di origine nella tabella di destinazione. Altre operazioni di elaborazione possono includere attività come l'unione di colonne, la ricerca di valori aggiuntivi e l'inserimento in più tabelle.
+È possibile usare una stored procedure quando meccanismi di copia predefiniti non svolgono la funzione, ad esempio, applicare ulteriori operazioni di elaborazione prima dell'inserimento finale dei dati di origine nella tabella di destinazione. Alcuni esempi di elaborazione extra sono l'unione di colonne, la ricerca di altri valori e l'inserimento in più di una tabella.
 
 Nell'esempio seguente viene illustrato come usare una stored procedure per eseguire un'operazione upsert in una tabella del database SQL Server. Si presuppone che i dati di input e la tabella **Marketing** del sink abbiano tre colonne: **ProfileID**, **State** e **Category**. Eseguire l'operazione di upsert nella colonna **ProfileID** e applicarla solo a una categoria specifica.
 
@@ -514,9 +472,9 @@ Quando si copiano dati da o verso l'Istanza gestita di database SQL di Azure, ve
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |Datetime |
-| Datetime |Datetime |
-| datetime2 |Datetime |
+| date |DateTime |
+| Datetime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
@@ -530,18 +488,18 @@ Quando si copiano dati da o verso l'Istanza gestita di database SQL di Azure, ve
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
-|  timestamp |Byte[] |
+| timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |Xml |
+| xml |Xml |
 
 >[!NOTE]
 > Per i tipi di dati associati al tipo provvisorio Decimal, Azure Data Factory supporta attualmente la precisione fino a 28. Se si hanno dati che richiedono una precisione maggiore di 28, è consigliabile convertirli in una stringa in una query SQL.

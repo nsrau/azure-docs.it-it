@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e228e73283685988247c8d419ba0a97b8c7b2974
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24576a46b47b22ef447793b4105730ed2755701d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776153"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050621"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Eseguire il provisioning di nodi di calcolo Linux nei pool di Batch
 
@@ -91,8 +91,8 @@ node_count = 1
 
 # Initialize the Batch client
 creds = batchauth.SharedKeyCredentials(account, key)
-config = batch.BatchServiceClientConfiguration(creds, base_url = batch_url)
-client = batch.BatchServiceClient(config)
+config = batch.BatchServiceClientConfiguration(creds, batch_url)
+client = batch.BatchServiceClient(creds, batch_url)
 
 # Create the unbound pool
 new_pool = batchmodels.PoolAddParameter(id = pool_id, vm_size = vm_size)
@@ -216,8 +216,8 @@ La tabella seguente elenca le immagini di macchina virtuale del Marketplace comp
 
 | **Autore** | **Offerta** | **SKU dell'immagine** | **Versione** | **ID dello SKU dell'agente del nodo** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-|  o batch | rendering-centos73 | rendering | più recenti | batch.node.centos 7 |
-|  o batch | rendering-windows2016 | rendering | più recenti | batch.node.windows amd64 |
+| o batch | rendering-centos73 | rendering | più recenti | batch.node.centos 7 |
+| o batch | rendering-windows2016 | rendering | più recenti | batch.node.windows amd64 |
 | Canonical | UbuntuServer | 16.04-LTS | più recenti | batch.node.ubuntu 16.04 |
 | Canonical | UbuntuServer | 14.04.5-LTS | più recenti | batch.node.ubuntu 14.04 |
 | Credativ | Debian | 9 | più recenti | batch.node.debian 9 |

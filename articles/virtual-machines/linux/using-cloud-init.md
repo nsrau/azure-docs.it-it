@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 6dd1dd0ce2395e2b06d80385ffd299835a280526
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 377ad49ae3a5ae0f61cd0fd93b68dd817d617397
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614034"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050812"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Supporto di cloud-init per macchine virtuali in Azure
 Questo articolo descrive il supporto disponibile per [cloud-init](https://cloudinit.readthedocs.io) per configurare una macchina virtuale (VM) o i set di scalabilità di macchine virtuali in fase di provisioning in Azure. Questi script cloud-init vengono eseguiti al primo avvio dopo il provisioning delle risorse da parte di Azure.  
@@ -34,11 +34,11 @@ Cloud-init funziona anche fra distribuzioni. Ad esempio, non si usa **apt-get in
 
 | Editore | Offerta | SKU | Version | Pronta per cloud-init |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |più recenti |Sì | 
-|Canonical |UbuntuServer |17.10 |più recenti |Sì | 
-|Canonical |UbuntuServer |16.04-LTS |più recenti |Sì | 
-|Canonical |UbuntuServer |14.04.5-LTS |più recenti |Sì |
-|CoreOS |CoreOS |Stabile |più recenti |Sì |
+|Canonical |UbuntuServer |18.04-LTS |più recenti |sì | 
+|Canonical |UbuntuServer |17.10 |più recenti |sì | 
+|Canonical |UbuntuServer |16.04-LTS |più recenti |sì | 
+|Canonical |UbuntuServer |14.04.5-LTS |più recenti |sì |
+|CoreOS |CoreOS |Stabile |più recenti |sì |
 |OpenLogic |CentOS |7-CI |più recenti |preview |
 |RedHat |RHEL |7-RAW-CI |più recenti |preview |
 
@@ -79,7 +79,7 @@ L'esempio seguente crea una macchina virtuale denominata *centos74* e le chiavi 
 az vm create \
   --resource-group myResourceGroup \
   --name centos74 \
-  --image OpenLogic:CentOS:7-CI:latest \
+  --image OpenLogic:CentOS-CI:7-CI:latest \
   --custom-data cloud-init.txt \
   --generate-ssh-keys 
 ```

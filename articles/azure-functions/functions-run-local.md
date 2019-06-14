@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 3c8d64f34f01e4339b27bdeba455fac143ad53ff
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6c0732b33608105009eda9bba2e4970e8e12e652
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241164"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050574"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -173,7 +173,7 @@ Per altre informazioni, vedere [Concetti relativi a trigger e associazioni in Fu
 
 ## <a name="local-settings-file"></a>File di impostazioni locali
 
-Il file local.settings.json archivia le impostazioni di app, le stringhe di connessione e le impostazioni per Strumenti di base di Funzioni di Azure. Le impostazioni nel file local.settings.json vengono usate solo per gli strumenti delle funzioni durante l'esecuzione in locale. Per impostazione predefinita, queste impostazioni non vengono migrate automaticamente quando il progetto viene pubblicato in Azure. Utilizzare lo switch `--publish-local-settings` [durante la pubblicazione](#publish) per assicurarsi che queste impostazioni vengano aggiunte all'app della funzione in Azure. Si noti che i valori in **ConnectionStrings** non vengono mai pubblicati. Il file presenta la struttura seguente:
+Il file local.settings.json archivia le impostazioni di app, le stringhe di connessione e le impostazioni per Strumenti di base di Funzioni di Azure. Le impostazioni nel file local.settings.json vengono usate solo per gli strumenti delle funzioni durante l'esecuzione in locale. Per impostazione predefinita, queste impostazioni non vengono migrate automaticamente quando il progetto viene pubblicato in Azure. Utilizzare lo switch `--publish-local-settings` [durante la pubblicazione](#publish) per assicurarsi che queste impostazioni vengano aggiunte all'app della funzione in Azure. I valori in **ConnectionStrings** non vengono mai pubblicati. Il file presenta la struttura seguente:
 
 ```json
 {
@@ -419,43 +419,37 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a> Pubblicazione in Azure
 
-Core Tools supporta due tipi di distribuzione, la distribuzione di file di progetto della funzione direttamente nell'app per le funzioni e la distribuzione di un contenitore Linux personalizzato, supportato solo nella versione 2.x. È necessario avere già [creato un'app per le funzioni nella sottoscrizione di Azure](functions-cli-samples.md#create).
+Azure Functions Core Tools supporta due tipi di distribuzione: distribuzione di file di progetto (funzione) direttamente in app per le funzioni tramite [Zipdeploy](functions-deployment-technologies.md#zip-deploy) e [distribuendo un contenitore Docker personalizzato](functions-deployment-technologies.md#docker-container). È necessario disporre già [creata un'app per le funzioni nella sottoscrizione di Azure](functions-cli-samples.md#create), a cui si distribuirà il codice. I progetti che richiedono la compilazione devono essere compilati in modo che i file binari possano essere distribuiti.
 
-Nella versione 2.x è necessario aver [registrato le estensioni](#register-extensions) nel progetto prima della pubblicazione. I progetti che richiedono la compilazione devono essere compilati in modo che i file binari possano essere distribuiti.
+### <a name="project-file-deployment"></a>Distribuzione (file di progetto)
 
-### <a name="project-file-deployment"></a>Distribuzione dei file di progetto
-
-Il metodo di distribuzione più comune prevede l'uso di Core Tools per creare pacchetti per il progetto dell'app per le funzioni, i file binari e le dipendenze e distribuire il pacchetto nell'app per le funzioni. È anche possibile scegliere di [eseguire le funzioni direttamente dal pacchetto di distribuzione](run-functions-from-deployment-package.md).
-
-Per pubblicare un progetto Funzioni in un'app per le funzioni in Azure, usare il comando `publish`:
+Per pubblicare il codice locale in un'app per le funzioni in Azure, usare il `publish` comando:
 
 ```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
-Questo comando consente di pubblicare un'app per le funzioni esistente in Azure. Si verifica un errore se `<FunctionAppName>` non esiste nella propria sottoscrizione. Per informazioni su come creare un'app per le funzioni dal prompt dei comandi o dalla finestra del terminale usando l'interfaccia della riga di comando di Azure, vedere [Creare un'app per le funzioni per l'esecuzione senza server](./scripts/functions-cli-create-serverless.md).
-
-Il comando `publish` carica il contenuto della directory del progetto Funzioni. Se si eliminano i file in locale, il comando `publish` non li elimina da Azure. È possibile eliminare i file in Azure usando lo [strumento Kudu](functions-how-to-use-azure-function-app-settings.md#kudu) nel [portale di Azure].
+Questo comando consente di pubblicare un'app per le funzioni esistente in Azure. Si otterrà un errore se si prova a pubblicare una `<FunctionAppName>` che non esiste nella sottoscrizione. Per informazioni su come creare un'app per le funzioni dal prompt dei comandi o dalla finestra del terminale usando l'interfaccia della riga di comando di Azure, vedere [Creare un'app per le funzioni per l'esecuzione senza server](./scripts/functions-cli-create-serverless.md). Per impostazione predefinita, il comando abiliterà l'app venga eseguita [eseguiti dal pacchetto](run-functions-from-deployment-package.md) modalità.
 
 >[!IMPORTANT]
 > Quando si crea un'app per le funzioni nel portale di Azure, questa usa la versione 2.x del runtime di Funzioni per impostazione predefinita. Per far eseguire la versione 1.x del runtime all'app per le funzioni, osservare le istruzioni riportate in [Run on version 1.x](functions-versions.md#creating-1x-apps) (Esecuzione sulla versione 1.x).
 > Non è possibile modificare la versione di runtime per un'app per le funzioni che ha funzioni esistenti.
 
-Le opzioni di pubblicazione seguenti si applicano a entrambe le versioni 1.x e 2.x:
+Le opzioni di pubblicazione seguenti si applicano per entrambe le versioni, versioni 1.x e 2.x:
 
 | Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Pubblicare le impostazioni di local.settings.json in Azure, suggerendo di sovrascrivere eventuali impostazioni esistenti. Se si usa l'emulatore di archiviazione, si modifica l'impostazione dell'app portandola a [connessione di archiviazione effettiva](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Eliminare il prompt per sovrascrivere le impostazioni dell'app quando si usa `--publish-local-settings -i`.|
 
-Le opzioni di pubblicazione del progetto seguenti sono supportate solo nella versione 2.x:
+Le opzioni di pubblicazione seguenti sono supportate solo nella versione 2.x:
 
 | Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Pubblicare solo le impostazioni e ignorare il contenuto. Viene suggerito il valore predefinito. |
 |**`--list-ignored-files`** | Visualizza un elenco di file che vengono ignorati durante la pubblicazione basato sul file con estensione funcignore. |
 | **`--list-included-files`** | Visualizza un elenco di file che vengono pubblicati basato sul file con estensione .funcignore. |
-| **`--nozip`** | Disattiva la modalità `Run-From-Zip` predefinita. |
+| **`--nozip`** | Disattiva la modalità `Run-From-Package` predefinita. |
 | **`--build-native-deps`** | Ignora la generazione della cartella .wheels durante la pubblicazione delle app per le funzioni di python. |
 | **`--additional-packages`** | Elenco di pacchetti da installare durante la creazione di dipendenze native. Ad esempio: `python3-dev libevent-dev`. |
 | **`--force`** | Ignora la verifica preliminare alla pubblicazione in determinati scenari. |
@@ -463,9 +457,9 @@ Le opzioni di pubblicazione del progetto seguenti sono supportate solo nella ver
 | **`--no-build`** | Ignora la compilazione di funzioni dotnet. |
 | **`--dotnet-cli-params`** | Quando si pubblicano funzioni C# compilate (con estensione csproj), Core Tools chiama "dotnet build --output bin/publish". Tutti i parametri passati a questa opzione verranno aggiunti alla riga di comando. |
 
-### <a name="custom-container-deployment"></a>Distribuzione del contenitore personalizzato
+### <a name="deployment-custom-container"></a>Distribuzione (il contenitore personalizzato)
 
-Funzioni di Azure consente di distribuire il progetto della funzione in un contenitore Linux personalizzato. Per altre informazioni, consultare [Creare una funzione in Linux tramite un'immagine personalizzata (anteprima)](functions-create-function-linux-custom-image.md). La versione 2.x di Core Tools supporta la distribuzione di un contenitore personalizzato. I contenitori personalizzati devono disporre di un Dockerfile. Usare l'opzione --dockerfile su `func init`.
+Funzioni di Azure ti permette di distribuire il progetto di funzione in una [contenitore Docker personalizzato](functions-deployment-technologies.md#docker-container). Per altre informazioni, consultare [Creare una funzione in Linux tramite un'immagine personalizzata (anteprima)](functions-create-function-linux-custom-image.md). I contenitori personalizzati devono disporre di un Dockerfile. Per creare un'app con un Dockerfile, utilizzare l'opzione - dockerfile su `func init`.
 
 ```bash
 func deploy

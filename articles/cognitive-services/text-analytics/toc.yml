@@ -8,6 +8,7 @@
     - name: Esempi di scenari utente
       href: text-analytics-user-scenarios.md
 - name: Guide introduttive
+  expanded: true
   items:
     - name: API REST
       items:
@@ -33,6 +34,8 @@
           href: quickstarts/go-sdk.md
         - name: Ruby
           href: quickstarts/ruby-sdk.md
+        - name: Node.js
+          href: quickstarts/nodejs-sdk.md
 - name: Esercitazioni
   items:
     - name: Integrare Power BI per analizzare il feedback dei clienti

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: de652f508f6946219627b3a3d51b148cbee58dbf
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 300d96a792663a32a326d5d01f281b77ccf9c4bf
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966857"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050517"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Domande frequenti sul Centro sicurezza di Azure
 Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio che consente di prevenire, rilevare e rispondere alle minacce con visibilità e controllo maggiori sulla sicurezza delle risorse di Microsoft Azure.
@@ -58,7 +58,7 @@ Per altre informazioni sui ruoli e sulle azioni consentite in Centro sicurezza, 
 Il Centro sicurezza raccoglie i dati dal macchine virtuali di Azure (VM), set di scalabilità di macchine virtuali (VMSS), i contenitori di IaaS e i computer non di Azure (incluso in locale) per monitorare le minacce e vulnerabilità di sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai log eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi.
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Vengono fatturate per i log di monitoraggio di Azure nelle aree di lavoro create dal Centro sicurezza?
- No. Aree di lavoro create dal Centro sicurezza, benché siano configurate per i log di monitoraggio di Azure per la fatturazione di nodo, non comportano addebiti di log di monitoraggio di Azure. La fatturazione del Centro sicurezza è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro:
+No. Aree di lavoro create dal Centro sicurezza, benché siano configurate per i log di monitoraggio di Azure per la fatturazione di nodo, non comportano addebiti di log di monitoraggio di Azure. La fatturazione del Centro sicurezza è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro:
 
 - **Livello Gratuito**: il Centro sicurezza abilita la soluzione 'SecurityCenterFree' nell'area di lavoro predefinita. Non viene applicato alcun addebito per il livello Gratuito.
 - **Livello Standard**: il Centro sicurezza abilita la soluzione 'Security' nell'area di lavoro predefinita.
@@ -126,8 +126,10 @@ Per altre informazioni, vedere [provisioning automatico in caso di installazione
 
 ### Cosa accade se Microsoft Monitoring Agent è installato direttamente nel computer, ma non come estensione (agente diretto)?<a name="directagentinstalled"></a>
 Se Microsoft Monitoring Agent è installata direttamente nella macchina virtuale (non come estensione di Azure), il Centro sicurezza installerà l'estensione Microsoft Monitoring Agent e può eseguire l'aggiornamento di Microsoft Monitoring agent alla versione più recente.
-L'agente installato continuerà a segnalare per le aree di lavoro già configurati e indicherà inoltre all'area di lavoro configurata nel Centro sicurezza (multihosting è supportata).
+L'agente installato continuerà a segnalare per le aree di lavoro già configurati e indicherà inoltre all'area di lavoro configurata nel Centro sicurezza (multihosting è supportato nei computer Windows).
 Se l'area di lavoro configurata è un'area di lavoro utente (non del Centro sicurezza predefinita dell'area di lavoro), è necessario installare la "protezione / soluzione"SecurityCenterFree"su di esso per il Centro sicurezza avviare l'elaborazione eventi delle macchine virtuali e dei computer reporting a quella area di lavoro.
+
+Per i computer Linux, il multihoming dell'agente non è ancora supportata, di conseguenza, se viene rilevata un'installazione di agente esistente, il provisioning automatico non avrà luogo e la configurazione dei computer non verrà modificata.
 
 Per le macchine esistenti su onboarding di sottoscrizioni al Centro sicurezza prima 2019-03-17, quando viene rilevato un agente esistente, non verrà installata l'estensione Microsoft Monitoring Agent e il computer non sarà interessato. Per questi computer, vedere la raccomandazione "Risolvi problemi di integrità dell'agente nei computer di monitoraggio" per risolvere i problemi di installazione dell'agente in questi computer
 

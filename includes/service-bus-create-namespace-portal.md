@@ -9,10 +9,10 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111092"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Creare uno spazio dei nomi nel portale di Azure
@@ -33,7 +33,7 @@ Per creare uno spazio dei nomi:
     4. Per **Sottoscrizione** scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
     5. Per **Gruppo di risorse** scegliere un gruppo di risorse esistente in cui risiederà lo spazio dei nomi oppure crearne uno nuovo.      
     6. Per **Località**scegliere l'area in cui deve essere ospitato lo spazio dei nomi.
-    7. Selezionare **Create**. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
+    7. Selezionare **Create** (Crea). A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
    
         ![Crea spazio dei nomi](./media/service-bus-create-namespace-portal/create-namespace.png)
 4. Verificare se lo spazio dei nomi del bus di servizio è stato distribuito correttamente. Per vedere le notifiche, selezionare l'**icona del campanello (Avvisi)** sulla barra degli strumenti. Selezionare il **nome del gruppo di risorse** nella notifica, come illustrato nell'immagine. Viene visualizzato il gruppo di risorse che contiene lo spazio dei nomi del bus di servizio.

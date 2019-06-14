@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: aljo, anmola
-ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: caed77234646654d151b64d2c80b7231342f6d8c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837522"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050468"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Distribuire in un contenitore Reliable Services di Service Fabric e Reliable Actors in Windows
 
@@ -119,6 +119,16 @@ Questo documento fornisce linee guida per eseguire il servizio all'interno di un
    </ContainerHostPolicies>
    </Policies>
    ```
+
+> [!NOTE] 
+> Per impostazione predefinita, le applicazioni di Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di un endpoint che accetta le richieste specifiche dell'applicazione. Provare a disabilitare l'accesso quando l'applicazione include codice non attendibile. Per altre informazioni, vedi [le procedure consigliate in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Per disabilitare l'accesso al runtime di Service Fabric, aggiungere l'impostazione seguente nella sezione dei criteri del manifesto dell'applicazione corrispondente al manifesto del servizio importato, come indicato di seguito:
+>
+```xml
+  <Policies>
+      <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+  </Policies>
+```
+>
 
 10. Per testare questa applicazione, è necessario distribuirla in un cluster che esegue la versione 5.7 o versioni successive. Per le versioni runtime 6.1 o precedenti, è necessario modificare e aggiornare le impostazioni del cluster per abilitare questa funzionalità in anteprima. Seguire la procedura in questo [articolo](service-fabric-cluster-fabric-settings.md) per aggiungere l'impostazione illustrata di seguito.
     ```

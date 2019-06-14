@@ -4,12 +4,12 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25e67a5a6c3abebbac2e0489ff636ca1457b62ea
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476270"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807726"
 ---
 Quando un disco dati collegato a una macchina virtuale non è più necessario, è possibile scollegarlo con facilità. Quando si scollega un disco dalla macchina virtuale, quest'ultimo non viene rimosso dalla risorsa di archiviazione. Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.  
 
@@ -19,7 +19,7 @@ Quando un disco dati collegato a una macchina virtuale non è più necessario, �
 ## <a name="find-the-disk"></a>Trovare il disco
 Prima di poter scollegare un disco da una macchina virtuale, è necessario conoscere il numero LUN, che è un identificatore per il disco da scollegare. A tale scopo, seguire questi passaggi:
 
-1. Aprire l'interfaccia della riga di comando di Azure e [connettersi alla sottoscrizione di Azure](/cli/azure/authenticate-azure-cli). Assicurarsi che sia attiva la modalità Azure Service Management (`azure config mode asm`).
+1. Aprire l'interfaccia CLI di Azure e [connettersi alla sottoscrizione di Azure](/cli/azure/authenticate-azure-cli). Assicurarsi che sia attiva la modalità Azure Service Management (`azure config mode asm`).
 2. Trovare i dischi collegati alla macchina virtuale. Nell'esempio seguente vengono elencati i dischi della macchina virtuale denominata `myVM`:
 
     ```azurecli
