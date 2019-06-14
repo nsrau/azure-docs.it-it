@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 319def9072dbf38eff44ca4459428f1ef99a2b54
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867973"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metriche in Monitoraggio di Azure
@@ -52,7 +52,7 @@ Dati raccolti dalle metriche di monitoraggio di Azure vengono archiviati in un d
 * Alcune metriche possono avere più dimensioni, come descritto in [metriche multidimensionali](#multi-dimensional-metrics). Le metriche personalizzate possono avere fino a 10 dimensioni.
 
 ## <a name="multi-dimensional-metrics"></a>Metriche multidimensionali
-Una delle sfide per i dati di metrica è che spesso contiene informazioni limitate per fornire un contesto per i valori raccolti. Monitoraggio di Azure affronta questa sfida con le metriche multidimensionali. Le dimensioni di una metrica sono coppie nome/valore contenenti dati aggiuntivi per descrivere il valore della metrica. Ad esempio, una metrica _lo spazio su disco disponibile_ potrebbe avere una dimensione denominata _unità_ con i valori _c:_, _unità d:_, che consente la visualizzazione l'unità di spazio disponibile su disco in tutti o per ogni unità singolarmente.
+Una delle sfide per i dati di metrica è che spesso contiene informazioni limitate per fornire un contesto per i valori raccolti. Monitoraggio di Azure affronta questa sfida con le metriche multidimensionali. Le dimensioni di una metrica sono coppie nome/valore contenenti dati aggiuntivi per descrivere il valore della metrica. Ad esempio, una metrica _lo spazio su disco disponibile_ potrebbe avere una dimensione denominata _unità_ con i valori _c:_ , _unità d:_ , che consente la visualizzazione l'unità di spazio disponibile su disco in tutti o per ogni unità singolarmente.
 
 L'esempio seguente mostra due set di dati per un'ipotetica metrica denominata _Velocità effettiva di rete_. Il primo set di dati non ha dimensioni. Il secondo mostra i valori con due dimensioni, _Indirizzo IP_ e _Direzione_:
 
@@ -60,9 +60,9 @@ L'esempio seguente mostra due set di dati per un'ipotetica metrica denominata _V
 
 | Timestamp     | Valore della metrica |
 | ------------- |:-------------|
-| 8/9/2017 8:14 | 1.331,8 Kbps |
-| 8/9/2017 8:15 | 1.141,4 Kbps |
-| 8/9/2017 8:16 | 1.110,2 Kbps |
+| 8/9/2017 8:14 | 1\.331,8 Kbps |
+| 8/9/2017 8:15 | 1\.141,4 Kbps |
+| 8/9/2017 8:16 | 1\.110,2 Kbps |
 
 Questa metrica non dimensionale può solo rispondere a una domanda di base come "Qual è la velocità effettiva della rete in un determinato momento?"
 

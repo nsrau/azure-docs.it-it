@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa25e8a965b89c4e97263e3767a9400079fcad7a
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: ff8f27d727768f3f1135f8929310d5cfeffe874b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496797"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113528"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Come funziona: Azure Multi-Factor Authentication
 
@@ -50,7 +50,7 @@ Multi-Factor Authentication è inclusa in quanto parte delle offerte seguenti:
 Poiché la maggior parte degli utenti è abituata a usare le password solo per l'autenticazione, è importante che l'organizzazione si metta in comunicazione con tutti gli utenti per informarli in merito al processo. La consapevolezza può ridurre la probabilità che gli utenti contattino l'help desk per problemi di lieve entità riguardanti l'autenticazione a più fattori. Esistono tuttavia alcuni scenari in cui è necessario disabilitare temporaneamente MFA. Per sapere come gestire questi scenari, usare le linee guida seguenti:
 
 * Istruire il personale di supporto per le situazioni in cui l'utente non riesce ad accedere perché non ha accesso ai suoi metodi di autenticazione oppure perchè questi ultimi non funzionano correttamente.
-   * Usando i criteri di accesso condizionale per il servizio Azure MFA, il personale di supporto può aggiungere un utente a un gruppo che è escluso da un criterio che richiede un'autenticazione a più fattori.
+   * Usando i criteri di accesso condizionale per il servizio Azure MFA, il personale di supporto può aggiungere un utente a un gruppo che è escluso da un criterio che richiedono il MFA.
 * È consigliabile usare località denominate come un modo per ridurre al minimo la verifica in due passaggi richiede l'accesso condizionale. Con questa funzionalità, gli amministratori possono ignorare la verifica in due passaggi per gli utenti che accedono da una posizione sicura rete attendibile, ad esempio una rete segmento usato per l'onboarding di nuovi utenti.
 * Distribuire [Azure AD Identity Protection](../active-directory-identityprotection.md) e attivare la verifica in due passaggi basata su eventi di rischio.
 

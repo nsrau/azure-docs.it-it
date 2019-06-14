@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 5fbe08bb9ebc355074a790f7732c9de10eaad859
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707116"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI
@@ -36,7 +36,7 @@ I token dell'app sono token JSON Web (JWT, JSON Web Token) firmati da una delle 
 
 Il token dell'app può contenere le attestazioni seguenti:
 
-| Attestazione | DESCRIZIONE |    
+| Attestazione | Descrizione |    
 | --- | --- |
 | **ver** |Versione del token dell'app. La versione corrente è 0.2.0. |
 | **aud** |Destinatario previsto per il token. Per le raccolte di aree di lavoro di Power BI usare: *https:\//analysis.windows.net/powerbi/api*. |
@@ -92,7 +92,7 @@ Quando si usano token di incorporamento, può essere opportuno limitare l'uso de
 
 Di seguito sono riportati gli ambiti disponibili per le raccolte di aree di lavoro di Power BI.
 
-|`Scope`|DESCRIZIONE|
+|`Scope`|Descrizione|
 |---|---|
 |Dataset.Read|Concede l'autorizzazione per leggere il set di dati specificato.|
 |Dataset.Write|Concede l'autorizzazione per scrivere il set di dati specificato.|

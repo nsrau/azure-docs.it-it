@@ -12,10 +12,10 @@ ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 02111ac90fe97ddaddbd41ad42410e7e76f1c405
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61379282"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Che cos'è una knowledge base di QnA Maker?
@@ -36,13 +36,13 @@ Una singola QnA, rappresentata da un ID numerico di QnA, ha diverse varianti di 
 
 Quando si inseriscono contenuto avanzato in una knowledge base, QnA Maker prova a convertire il contenuto in un markdown. Leggere [questo](https://aka.ms/qnamaker-docs-markdown-support) blog per comprendere i formati markdown più comprensibili dai client chat.
 
-I campi di metadati sono costituiti da coppie chiave-valore separate da due punti **(Prodotto: Shredder)**. Sia la chiave che il valore deve essere di solo testo. La chiave dei metadati non deve contenere spazi. Metadati supportano un solo valore per ogni chiave.
+I campi di metadati sono costituiti da coppie chiave-valore separate da due punti **(Prodotto: Shredder)** . Sia la chiave che il valore deve essere di solo testo. La chiave dei metadati non deve contenere spazi. Metadati supportano un solo valore per ogni chiave.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Ciclo di vita di sviluppo di una knowledge](./development-lifecycle-knowledge-base.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Panoramica di QnA Maker](../Overview/overview.md)

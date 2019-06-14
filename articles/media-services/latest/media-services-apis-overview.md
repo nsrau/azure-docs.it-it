@@ -13,10 +13,10 @@ ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: ca4e343ea4774bbe4ff992ad671575b150b3c045
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65890972"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Sviluppo con servizi multimediali v3 API
@@ -59,7 +59,7 @@ Nella figura seguente, i numeri rappresentano il flusso delle richieste in ordin
 4. Il livello intermedio invia una richiesta all'API REST di Servizi multimediali di Azure con il token di Azure AD.
 5. Il livello intermedio ottiene nuovamente i dati da Servizi multimediali.
 
-### <a name="samples"></a>Campioni
+### <a name="samples"></a>Esempi
 
 Vedere i seguenti esempi che illustrano come connettersi con l'entità servizio di Azure AD:
 
@@ -115,7 +115,7 @@ Servizi multimediali ha le seguenti operazioni a esecuzione prolungata:
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Informazioni di riferimento su Go](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Vedere anche 
+### <a name="see-also"></a>Vedere anche
 
 - [EventGrid .NET SDK che include gli eventi per Servizi multimediali](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definizioni degli eventi di Servizi multimediali](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -134,7 +134,7 @@ Vedere [filtro, ordinamento, paging delle entità di servizi multimediali di Azu
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 

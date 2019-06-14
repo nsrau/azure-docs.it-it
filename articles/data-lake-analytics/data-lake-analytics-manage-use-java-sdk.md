@@ -10,10 +10,10 @@ ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: f2a4b98404139abead411c20648b82d9081481f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614982"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gestire Azure Data Lake Analytics usando un'app Java
@@ -33,7 +33,7 @@ Il frammento di codice seguente contiene il codice per l'autenticazione **non in
 ## <a name="create-a-java-application"></a>Creare un'applicazione Java
 1. Aprire IntelliJ e creare un progetto Java usando il modello **Command Line App**.
 2. Fare clic con il pulsante destro del mouse sul progetto sulla sinistra dello schermo e fare clic su **Add Framework Support**(Aggiungi supporto framework). Scegliere **Maven** e fare clic su **OK**.
-3. Aprire il file **"pom.xml"** appena creato e aggiungere il frammento di testo seguente tra il tag **\</version>** e il tag **\</project>**:
+3. Aprire il file **"pom.xml"** appena creato e aggiungere il frammento di testo seguente tra il tag **\</version>** e il tag **\</project>** :
 
 ```
 <repositories>
@@ -86,7 +86,7 @@ Il frammento di codice seguente contiene il codice per l'autenticazione **non in
 </dependencies>
 ```
 
-Passare a **File > Settings (Impostazioni) > Build (Compilazione) > Execution (Esecuzione) > Deployment (Distribuzione)**. Selezionare **Build Tools (Strumenti di compilazione) > Maven > Importing (Importazione)**. Selezionare **Import Maven projects automatically**(Importa automaticamente progetti Maven).
+Passare a **File > Settings (Impostazioni) > Build (Compilazione) > Execution (Esecuzione) > Deployment (Distribuzione)** . Selezionare **Build Tools (Strumenti di compilazione) > Maven > Importing (Importazione)** . Selezionare **Import Maven projects automatically**(Importa automaticamente progetti Maven).
 
 Aprire `Main.java` e sostituire il blocco di codice esistente con il frammento di codice seguente:
 

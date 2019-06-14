@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 2bde63bb668188936b3dd3cf5ecbf3b8c604eb95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 87693caa5343e359bb3ab424de489c2270bbca62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564334"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64704430"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestione degli errori nei criteri di Gestione API
 
@@ -77,15 +77,15 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
 
  Quando si verifica un errore e il controllo passa alla sezione di criteri `on-error`, l'errore viene conservato nella proprietà [context.LastError](api-management-policy-expressions.md#ContextVariables), accessibile dai criteri nella sezione `on-error`. LastError ha le seguenti proprietà.  
   
-| NOME     | Type   | DESCRIZIONE                                                                                               | Obbligatorio |
-|----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| `Source`   | string | Indica l'elemento in cui si è verificato l'errore. Può trattarsi di un criterio o di un nome di passaggio predefinito nella pipeline.     | Sì      |
-| `Reason`   | string | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No        |
-| `Message`  | string | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
-| `Scope`    | string | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No        |
-| `Section`  | string | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".       | No        |
-| `Path`     | string | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                        | No        |
-| `PolicyId` | string | Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore             | No        |
+| Name       | Type   | Descrizione                                                                                               | Obbligatorio |
+|------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
+| `Source`   | string | Indica l'elemento in cui si è verificato l'errore. Può trattarsi di un criterio o di un nome di passaggio predefinito nella pipeline.     | Yes      |
+| `Reason`   | string | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No       |
+| `Message`  | string | Descrizione dell'errore leggibile dall'utente.                                                                         | Yes      |
+| `Scope`    | string | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No       |
+| `Section`  | string | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".       | No       |
+| `Path`     | string | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                        | No       |
+| `PolicyId` | string | Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore             | No       |
 
 > [!TIP]
 > È possibile accedere al codice di stato tramite context.Response.StatusCode.  

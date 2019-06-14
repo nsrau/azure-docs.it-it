@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f2d1a5a342bfe4527c15a0721a8f852a269bef67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113507"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registrazione di informazioni di sicurezza combinati (anteprima)
 
@@ -46,15 +46,15 @@ Combinare i seguenti metodi di autenticazione supporta la registrazione e le azi
 
 |   | Register | Modifica | Delete |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sì (massimo 5) | No  | Yes |
+| Microsoft Authenticator | Sì (massimo 5) | No | Yes |
 | Altre app authenticator | Sì (massimo 5) | No | Yes |
-| token hardware | No  | No  | Yes |
+| token hardware | No | No | Yes |
 | Telefono | Yes | Sì | Yes |
 | Telefono alternativo | Yes | Sì | Yes |
-| Telefono ufficio | No | No | No  |
+| Telefono ufficio | No | No | No |
 | Email | Yes | Sì | Yes |
-| Domande di sicurezza | Yes | No  | Yes |
-| Password dell'app | Yes | No  | Yes |
+| Domande di sicurezza | Yes | No | Yes |
+| Password dell'app | Yes | No | Yes |
 
 > [!NOTE]
 > Le password dell'App sono disponibili solo per gli utenti che sono stati applicati per multi-Factor Authentication. Le password dell'App non sono disponibili agli utenti che sono abilitati per multi-Factor Authentication tramite criteri di accesso condizionale.

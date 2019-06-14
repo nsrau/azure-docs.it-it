@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8611338acf7a1299e9c3a4f5347fb633604254e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571368"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110404"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Verifiche di accesso di Usa Azure AD per gestire gli utenti esclusi dai criteri di accesso condizionale
 
@@ -32,27 +32,27 @@ In una situazione ideale, tutti gli utenti seguono gli stessi criteri di accesso
 
 ## <a name="why-would-you-exclude-users-from-policies"></a>Motivi per escludere utenti dai criteri
 
-Un amministratore IT potrebbe usare l'[accesso condizionale di Azure AD](../conditional-access/overview.md) per richiedere agli utenti di eseguire l'autenticazione usando Multi-Factor Authentication (MFA) oppure di accedere da una rete o un dispositivo attendibile. Durante la pianificazione della distribuzione, è possibile scoprire che alcuni di questi requisiti non possono essere soddisfatti da tutti gli utenti. Ad esempio, esistono utenti che lavorano da un ufficio remoto che non fa parte della rete interna o un dirigente che usa un telefono meno recente non supportato. L'azienda richiede che tali utenti siano autorizzati a effettuare l'accesso e svolgere il lavoro, di conseguenza, vengono esclusi dai criteri di accesso condizionale.
+Un amministratore IT, è possibile usare [accesso condizionale di Azure AD](../conditional-access/overview.md) richiedere agli utenti di eseguire l'autenticazione usando multi-factor authentication (MFA) oppure accesso da una rete attendibile o un dispositivo. Durante la pianificazione della distribuzione, è possibile scoprire che alcuni di questi requisiti non possono essere soddisfatti da tutti gli utenti. Ad esempio, esistono utenti che lavorano da un ufficio remoto che non fa parte della rete interna o un dirigente che usa un telefono meno recente non supportato. L'azienda richiede che tali utenti siano autorizzati a effettuare l'accesso e svolgere il lavoro, di conseguenza, sono escluse dai criteri di accesso condizionale.
 
-Come ulteriore esempio, si potrebbero usare [località denominate](../conditional-access/location-condition.md) nell'accesso condizionale per configurare un set di paesi e aree geografiche da cui non si vuole consentire agli utenti di accedere ai loro tenant.
+Come ulteriore esempio, è possibile usare [località denominate](../conditional-access/location-condition.md) nell'accesso condizionale per configurare un insieme di regioni e aree geografiche da cui si vuole consentire agli utenti di accedere ai loro tenant.
 
 ![Posizioni specifiche](./media/conditional-access-exclusion/named-locations.png)
 
 In alcuni casi, tuttavia, utenti potrebbero avere un motivo legittimo che eseguire l'accesso da questi paesi/aree bloccate. Ad esempio, potrebbero essere in viaggio in uno di questi paesi per motivi di lavoro o personali. In questo esempio, i criteri di accesso condizionale per bloccare questi paesi/aree geografiche può avere un gruppo di sicurezza cloud dedicato per gli utenti che sono esclusi dai criteri. Gli utenti che devono avere l'accesso anche in viaggio, possono aggiungersi al gruppo usando la [gestione gruppi self-service di Azure AD](../users-groups-roles/groups-self-service-management.md).
 
-Un altro esempio potrebbe essere la presenza di criteri di accesso condizionale che [bloccano l'autenticazione legacy per la maggior parte degli utenti](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft consiglia di bloccare l'uso di protocolli legacy nel tenant per migliorare il comportamento di sicurezza. Tuttavia, in presenza di utenti che devono assolutamente usare metodi di autenticazione legacy per accedere alle risorse tramite Office 2010 o client basati su SMTP/IMAP o POP, è possibile escludere gli utenti dai criteri che bloccano i metodi di autenticazione legacy.
+Un altro esempio potrebbe essere che si dispone di un criterio di accesso condizionale che [l'autenticazione legacy di blocchi per la maggior parte degli utenti](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft consiglia di bloccare l'uso di protocolli legacy nel tenant per migliorare il comportamento di sicurezza. Tuttavia, in presenza di utenti che devono assolutamente usare metodi di autenticazione legacy per accedere alle risorse tramite Office 2010 o client basati su SMTP/IMAP o POP, è possibile escludere gli utenti dai criteri che bloccano i metodi di autenticazione legacy.
 
 ## <a name="why-are-exclusions-challenging"></a>Perché le esclusioni sono complesse?
 
-In Azure AD, è possibile definire un set di utenti come ambito per i criteri di accesso condizionale. È anche possibile escludere alcuni di questi utenti, selezionare i ruoli Azure AD, singoli utenti o gli utenti guest di utenti. È importante ricordare che quando vengono configurate queste esclusioni, la finalità dei criteri non può essere applicata a questi utenti. Se le esclusioni venissero configurate come un elenco di singoli utenti o tramite un gruppo di sicurezza locale legacy, risulterebbero limitati la visibilità di questo elenco di esclusioni (gli utenti potrebbero non sapere della sua esistenza) e il controllo dell'amministratore IT (gli utenti possono richiedere l'inserimento nel gruppo di sicurezza per evitare i criteri). Inoltre, gli utenti che risultano qualificati per l'esclusione una volta, potrebbero non averne più bisogno o non essere più idonei.
+In Azure AD, è possibile definire l'ambito di un criterio di accesso condizionale per un set di utenti. È anche possibile escludere alcuni di questi utenti, selezionare i ruoli Azure AD, singoli utenti o gli utenti guest di utenti. È importante ricordare che quando vengono configurate queste esclusioni, la finalità dei criteri non può essere applicata a questi utenti. Se le esclusioni venissero configurate come un elenco di singoli utenti o tramite un gruppo di sicurezza locale legacy, risulterebbero limitati la visibilità di questo elenco di esclusioni (gli utenti potrebbero non sapere della sua esistenza) e il controllo dell'amministratore IT (gli utenti possono richiedere l'inserimento nel gruppo di sicurezza per evitare i criteri). Inoltre, gli utenti che risultano qualificati per l'esclusione una volta, potrebbero non averne più bisogno o non essere più idonei.
 
 All'inizio di un'esclusione, l'elenco di utenti che possono ignorare i criteri è in genere breve. Con il passare del tempo, il numero degli utenti esclusi cresce, così come l'elenco. A un certo punto, diventa necessario verificare l'elenco e accertarsi che ognuno di questi utenti debba continuare a essere escluso. La gestione dell'elenco da un punto di vista tecnico può essere relativamente semplice, ma chi prende le decisioni aziendali e come ci si può assicurare che tutto ciò sia controllabile?
 
-Tuttavia, se si configura l'esclusione per i criteri di accesso condizionale usando un gruppo di Azure AD, è possibile usare le verifiche di accesso come controllo compensatorio, al fine di promuovere la visibilità e ridurre il numero di utenti con un'eccezione.
+Tuttavia, se si configura l'esclusione per i criteri di accesso condizionale usando un gruppo di Azure AD, quindi è possibile utilizzare le verifiche di accesso come un controllo di compensazione, al fine di promuovere la visibilità e ridurre il numero di utenti che dispongono di un'eccezione.
 
-## <a name="how-to-create-an-exclusion-group-in-a-conditional-access-policy"></a>Come creare un gruppo di esclusione nei criteri di accesso condizionale
+## <a name="how-to-create-an-exclusion-group-in-a-conditional-access-policy"></a>Come creare un gruppo di esclusioni in Criteri di accesso condizionale
 
-Seguire questa procedura per creare un nuovo gruppo di Azure AD e criteri di accesso condizionale non applicabili a tale gruppo.
+Seguire questi passaggi per creare un nuovo gruppo di Azure AD e un criterio di accesso condizionale che non si applica a tale gruppo.
 
 ### <a name="create-an-exclusion-group"></a>Creare un gruppo di esclusione
 
@@ -70,11 +70,11 @@ Seguire questa procedura per creare un nuovo gruppo di Azure AD e criteri di acc
 
     ![Riquadro Nuovo gruppo](./media/conditional-access-exclusion/new-group.png)
 
-### <a name="create-a-conditional-access-policy-that-excludes-the-group"></a>Creare criteri di accesso condizionale che escludono il gruppo
+### <a name="create-a-conditional-access-policy-that-excludes-the-group"></a>Creare un criterio di accesso condizionale che esclude il gruppo
 
-È ora possibile creare criteri di accesso condizionale che usano questo gruppo di esclusione.
+A questo punto è possibile creare un criterio di accesso condizionale che utilizza questo gruppo di esclusione.
 
-1. Nel menu di spostamento a sinistra fare clic su **Azure Active Directory** e quindi su **Accesso condizionale** per aprire il pannello **Criteri**.
+1. Nel riquadro di spostamento a sinistra, fare clic su **Azure Active Directory** e quindi fare clic su **accesso condizionale** per aprire il **criteri** pannello.
 
 1. Fare clic su **Nuovi criteri** per aprire il riquadro **Nuovo**.
 
@@ -91,11 +91,11 @@ Seguire questa procedura per creare un nuovo gruppo di Azure AD e criteri di acc
     > [!NOTE]
     > Come procedura consigliata, è consigliabile escludere almeno un account amministratore dai criteri durante i test per assicurarsi di non rimanere bloccati fuori dal tenant.
 
-1. Continuare con la configurazione dei criteri di accesso condizionale in base ai requisiti dell'organizzazione.
+1. Continuare con l'impostazione di criteri di accesso condizionale in base alle esigenze dell'organizzazione.
 
     ![Selezionare gli utenti esclusi](./media/conditional-access-exclusion/select-excluded-users.png)
 
-Di seguito verranno illustrati due esempi in cui è possibile usare le verifiche di accesso per gestire le esclusioni nei criteri di accesso condizionale.
+Questo articolo verranno illustrati due esempi in cui è possibile usare le verifiche di accesso per gestire l'esclusione di criteri di accesso condizionale.
 
 ## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Esempio 1: Verifica di accesso per gli utenti che accedono da bloccato paesi/aree geografiche
 
@@ -120,7 +120,7 @@ Supponiamo di che avere un criterio di accesso condizionale che blocca l'accesso
 
 ## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Esempio 2 Verifica di accesso per gli utenti che accedono con l'autenticazione legacy
 
-Si supponga che esistano criteri di accesso condizionale per bloccare l'accesso per gli utenti che usano l'autenticazione legacy e versioni precedenti del client. I criteri includono un gruppo escluso dai criteri. Ecco una verifica di accesso consigliata per controllare i membri del gruppo.
+Supponiamo di che avere un criterio di accesso condizionale che blocca l'accesso per gli utenti che usano l'autenticazione legacy e versioni precedenti del client. I criteri includono un gruppo escluso dai criteri. Ecco una verifica di accesso consigliata per controllare i membri del gruppo.
 
 1. Questa verifica dovrà essere periodica.
 
@@ -140,7 +140,7 @@ Si supponga che esistano criteri di accesso condizionale per bloccare l'accesso 
 
 ## <a name="access-review-results-and-audit-logs"></a>Risultati delle verifiche di accesso e log di controllo
 
-Ora che tutti gli elementi sono pronti (gruppo, criteri di accesso condizionale e verifiche di accesso), è possibile monitorare e tenere traccia dei risultati di queste verifiche.
+Ora che hai tutti gli elementi sul posto, gruppi, criteri di accesso condizionale e le verifiche di accesso, è possibile monitorare e tenere traccia dei risultati di queste verifiche.
 
 1. Nel portale di Azure aprire il pannello **Verifiche di accesso**.
 

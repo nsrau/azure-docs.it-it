@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f9b9fc0a2939f601cbddafb6ac400130e794da2b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511131"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060873"
 ---
 # <a name="what-is-custom-speech"></a>Che cos'è riconoscimento vocale personalizzato?
 
@@ -52,7 +52,7 @@ Dopo aver creato un account Azure e una sottoscrizione di servizi di riconoscime
 
 1. Ottenere la chiave di sottoscrizione di servizi di riconoscimento vocale dal portale di Azure.
 2. Accedi per il [portale di riconoscimento vocale personalizzato](https://aka.ms/custom-speech).
-3. Selezionare la sottoscrizione che si desidera utilizzare e per creare un progetto di riconoscimento vocale.
+3. Selezionare la sottoscrizione che è necessario lavorare su e creare un progetto di riconoscimento vocale.
 4. Se si desidera modificare la sottoscrizione, usare il **rappresenta dalla ruota dentata** icona che si trova nel riquadro di spostamento superiore.
 
 ## <a name="how-to-create-a-project"></a>Come creare un progetto

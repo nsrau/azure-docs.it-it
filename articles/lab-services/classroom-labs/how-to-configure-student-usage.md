@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67faf268d265fd045c21b75b6f64840511a371d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067285"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurare le impostazioni e i criteri di utilizzo
 Questo articolo descrive come aggiungere utenti al lab, registrarli al lab, controllare il numero di ore in cui possono usare la macchina virtuale e altro ancora. 
@@ -80,19 +80,24 @@ Selezionare **Utenti** nel menu a sinistra per visualizzare l'elenco di utenti r
 È possibile impostare quote per utente usando la procedura seguente: 
 
 1. Selezionare **Utenti** nel menu a sinistra.
-2. Selezionare **Quota per user: unlimited** (Quota per utente: illimitata) sulla barra degli strumenti. 
-3. Nella pagina **Quota per user** (Quota per utente) selezionare una delle opzioni seguenti: 
-    1. **Nessuno**. Gli utenti possono usare le macchine virtuali solo durante l'orario pianificato o quando il proprietario del lab attiva le macchine virtuali appositamente per loro.
-    2. **Illimitato (impostazione predefinita)**. Gli utenti possono usare le macchine virtuali senza alcun vincolo temporale.
-    3. **Specificare il numero di ore per utente**. Gli utenti possono usare le macchine virtuali per il numero di ore specificato (riportato di seguito), in aggiunta all'orario pianificato. Se si seleziona questa opzione, immettere il **numero di ore** nella casella di testo. 
+2. Selezionare **Quota di ogni utente:** sulla barra degli strumenti. 
+3. Nel **Quota di ogni utente** , specificare il numero di ore da assegnare a ogni utente (studente): 
+    1. **0 ore (solo schedule)** . Gli utenti possono usare le proprie macchine virtuali solo durante l'orario pianificato oppure quando è il proprietario del lab consente di attivare le macchine virtuali per loro.
+
+        ![Zero ore - solo l'ora pianificata](../media/how-to-configure-student-usage/zero-hours.png)
+    1. **Numero totale di ore di laboratorio per ogni utente**. Gli utenti possono usare le proprie macchine virtuali per il numero di ore (specificato per questo campo) impostato **oltre all'ora pianificata**. Se si seleziona questa opzione, immettere il **numero di ore** nella casella di testo. 
 
         ![Numero di ore per utente](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
     4. Selezionare **Salva**. 
-5. Nella barra degli strumenti verranno visualizzati ora i valori modificati: **Quota per user (Quota per utente): &lt;numero di ore&gt;**. 
+5. Nella barra degli strumenti verranno visualizzati ora i valori modificati: **Quota per user (Quota per utente): &lt;numero di ore&gt;** . 
 
     ![Quota per user (Quota per utente)](../media/how-to-configure-student-usage/quota-per-user.png)
 
+
+
 > [!IMPORTANT]
+> Prima di inviare il collegamento di iscrizione agli studenti, docenti devono impostare la pianificazione per la classe se selezionare 0 ore di quota o specificare le ore di quota per l'ambiente lab.
+>
 > Il [tempo di esecuzione pianificato delle macchine virtuali](how-to-create-schedules.md) non interferisce con la quota assegnata a un utente. La quota è relativa al periodo di tempo non compreso nelle ore di pianificazione trascorso da uno studente sulle macchine virtuali. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Aggiungere gli utenti caricando un file CSV

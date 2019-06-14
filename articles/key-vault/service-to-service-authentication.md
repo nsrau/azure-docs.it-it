@@ -10,10 +10,10 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.openlocfilehash: defb67c7e100a50a81d55afee03aa84be8e1e8e9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64722462"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
@@ -88,7 +88,7 @@ Accedi a Visual Studio e utilizzare **degli strumenti**&nbsp;>&nbsp;**opzioni**&
 
 Se si verificano problemi con Visual Studio, ad esempio errori relativi al file del provider di token, esaminare con attenzione questi passaggi. 
 
-Potrebbe anche essere necessario eseguire di nuovo l'autenticazione del token per sviluppatori. A tale scopo passare a **Strumenti**&nbsp;>&nbsp;**Opzioni**>**&nbsp;&nbsp;Autenticazione servizi di Azure** e cercare un collegamento per **eseguire di nuovo l'autenticazione** nell'account selezionato.  Selezionare il collegamento per eseguire l'autenticazione. 
+Potrebbe anche essere necessario eseguire di nuovo l'autenticazione del token per sviluppatori. A tale scopo passare a **Strumenti**&nbsp;>&nbsp;**Opzioni**> **&nbsp;&nbsp;Autenticazione servizi di Azure** e cercare un collegamento per **eseguire di nuovo l'autenticazione** nell'account selezionato.  Selezionare il collegamento per eseguire l'autenticazione. 
 
 ### <a name="authenticating-with-azure-cli"></a>Autenticazione con l'interfaccia della riga di comando di Azure
 
@@ -177,7 +177,7 @@ Per usare un certificato per accedere ad Azure AD:
           CertificateStoreLocation={CertificateStore}
     ```
  
-    Sostituire *{AppId}*, *{TenantId}* e *{Thumbprint}* con i valori generati nel passaggio 1. Sostituire *{CertificateStore}* con `LocalMachine` o `CurrentUser`, a seconda del piano di distribuzione.
+    Sostituire *{AppId}* , *{TenantId}* e *{Thumbprint}* con i valori generati nel passaggio 1. Sostituire *{CertificateStore}* con `LocalMachine` o `CurrentUser`, a seconda del piano di distribuzione.
 
 4. Eseguire l'applicazione. 
 
@@ -191,7 +191,7 @@ Per accedere usando una credenziale segreta condivisa di Azure Active Directory:
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret} 
     ```
 
-    Sostituire _{AppId}_, _{TenantId}_ e _{ClientSecret}_ con i valori generati nel passaggio 1.
+    Sostituire _{AppId}_ , _{TenantId}_ e _{ClientSecret}_ con i valori generati nel passaggio 1.
 
 3. Eseguire l'applicazione. 
 

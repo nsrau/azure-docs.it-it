@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65790910"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Aggiungere analizzatori del linguaggio a un indice di Ricerca di Azure
@@ -63,7 +63,7 @@ Per altre informazioni sulle proprietà di indice, vedere [Create Index &#40;Azu
 |--------------|-----------------------------|--------------------------|  
 |Arabo|ar.microsoft|ar.lucene|  
 |Armeno||hy.lucene|  
-|Bengali|bn.microsoft||  
+|Bengalese|bn.microsoft||  
 |Basco||eu.lucene|  
 |Bulgaro|bg.microsoft|bg.lucene|  
 |Catalano|ca.microsoft|ca.lucene|  
@@ -120,7 +120,7 @@ Per altre informazioni sulle proprietà di indice, vedere [Create Index &#40;Azu
 
  Tutti gli analizzatori con nomi contenenti la parola **Lucene** sono basati sugli [analizzatori del linguaggio Apache Lucene](https://lucene.apache.org/core/4_9_0/core/overview-summary.html ).
 
-## <a name="see-also"></a>Vedere anche   
+## <a name="see-also"></a>Vedere anche  
  [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creare indice API REST per il servizio Ricerca di Azure)  
  [Classe AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
  [Video: module 7 of Azure Search MVA presentation](https://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps/07) (Video: modulo 7 di presentazione di Microsoft Virtual Academy su Ricerca di Azure).  

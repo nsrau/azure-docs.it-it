@@ -9,10 +9,10 @@ ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787296"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Usare le azioni di scalabilità automatica per inviare notifiche di avviso di webhook e posta elettronica in Monitoraggio di Azure
@@ -60,15 +60,15 @@ Quando si usa l'API REST o il modello di Resource Manager, includere l'elemento 
     ]
 ```
 
-| Campo | Obbligatorio? | DESCRIZIONE |
+| Campo | Obbligatorio? | Descrizione |
 | --- | --- | --- |
-| operation |Sì |Il valore deve essere "Scale" |
-| sendToSubscriptionAdministrator |Sì |Il valore deve essere "true" o "false" |
-| sendToSubscriptionCoAdministrators |Sì |Il valore deve essere "true" o "false" |
-| customEmails |Sì |Il valore può essere null [] o la matrice di stringhe di messaggi di posta elettronica |
-| Webhook |Sì |Il valore può essere null o un URI valido |
-| serviceUri |Sì |Un URI HTTPS valido |
-| properties |Sì |Il valore deve essere vuoto {} o può contenere coppie chiave-valore |
+| operation |sì |Il valore deve essere "Scale" |
+| sendToSubscriptionAdministrator |sì |Il valore deve essere "true" o "false" |
+| sendToSubscriptionCoAdministrators |sì |Il valore deve essere "true" o "false" |
+| customEmails |sì |Il valore può essere null [] o la matrice di stringhe di messaggi di posta elettronica |
+| Webhook |sì |Il valore può essere null o un URI valido |
+| serviceUri |sì |Un URI HTTPS valido |
+| properties |sì |Il valore deve essere vuoto {} o può contenere coppie chiave-valore |
 
 ## <a name="authentication-in-webhooks"></a>Autenticazione nei webhook
 È possibile autenticare il webhook usando l'autenticazione basata su token, che prevede il salvataggio dell'URI del webhook con un ID token come parametro di query. Ad esempio, https: \/ /mysamplealert/webcallback? tokenid = sometokenid & someparameter = somevalue
@@ -103,22 +103,22 @@ Quando viene generata la notifica di scalabilità automatica, nel payload del we
 ```
 
 
-| Campo | Obbligatorio? | DESCRIZIONE |
+| Campo | Obbligatorio? | Descrizione |
 | --- | --- | --- |
-| status |Sì |Stato che indica che è stata generata un'azione di scalabilità automatica |
-| operation |Sì |Per un aumento delle istanze, sarà "Scale Out", mentre per una riduzione delle istanze, sarà "Scale In" |
-| context |Sì |Contesto dell'azione di scalabilità automatica |
-|  timestamp |Sì |Timestamp in cui è stata attivata l'azione di scalabilità automatica |
-| id |Sì |ID di Resource Manager dell'impostazione di scalabilità automatica |
-| name |Sì |Nome dell'impostazione di scalabilità automatica |
-| informazioni dettagliate |Sì |Spiegazione dell'azione eseguita dal servizio di scalabilità automatica e della modifica al conteggio delle istanze |
-| subscriptionId |Sì |ID sottoscrizione della risorsa di destinazione da ridimensionare |
-| resourceGroupName |Sì |Nome del gruppo di risorse della risorsa di destinazione da ridimensionare |
-| resourceName |Sì |Nome della risorsa di destinazione da ridimensionare |
-| resourceType |Sì |I tre valori supportati: "microsoft.classiccompute/domainnames/slots/roles" (ruoli dei servizi cloud), "microsoft.compute/virtualmachinescalesets" (set di scalabilità di macchine virtuali) e "Microsoft.Web/serverfarms" (app Web) |
-| resourceId |Sì |ID di Resource Manager della risorsa di destinazione da ridimensionare |
-| portalLink |Sì |Collegamento del portale di Azure alla pagina di riepilogo della risorsa di destinazione |
-| oldCapacity |Sì |Conteggio delle istanze corrente (precedente) quando la scalabilità automatica ha eseguito un'azione di scalabilità |
-| newCapacity |Sì |Nuovo conteggio delle istanze in base al quale la scalabilità automatica ha ridimensionato la risorsa |
-| properties |No  |facoltativo. Set di coppie <chiave, valore> (ad esempio Dizionario <Stringa, Stringa>). Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, è possibile immettere chiavi e valori che possono essere passati usando il payload. Un metodo alternativo per passare le proprietà personalizzate alla chiamata al webhook in uscita è di usare l'URI del webhook stesso (sotto forma di parametri di query) |
+| status |sì |Stato che indica che è stata generata un'azione di scalabilità automatica |
+| operation |sì |Per un aumento delle istanze, sarà "Scale Out", mentre per una riduzione delle istanze, sarà "Scale In" |
+| context |sì |Contesto dell'azione di scalabilità automatica |
+| timestamp |sì |Timestamp in cui è stata attivata l'azione di scalabilità automatica |
+| id |Yes |ID di Resource Manager dell'impostazione di scalabilità automatica |
+| name |Yes |Nome dell'impostazione di scalabilità automatica |
+| dettagli |Yes |Spiegazione dell'azione eseguita dal servizio di scalabilità automatica e della modifica al conteggio delle istanze |
+| subscriptionId |Yes |ID sottoscrizione della risorsa di destinazione da ridimensionare |
+| resourceGroupName |Yes |Nome del gruppo di risorse della risorsa di destinazione da ridimensionare |
+| resourceName |Yes |Nome della risorsa di destinazione da ridimensionare |
+| resourceType |Yes |I tre valori supportati: "microsoft.classiccompute/domainnames/slots/roles" (ruoli dei servizi cloud), "microsoft.compute/virtualmachinescalesets" (set di scalabilità di macchine virtuali) e "Microsoft.Web/serverfarms" (app Web) |
+| resourceId |Yes |ID di Resource Manager della risorsa di destinazione da ridimensionare |
+| portalLink |Yes |Collegamento del portale di Azure alla pagina di riepilogo della risorsa di destinazione |
+| oldCapacity |Yes |Conteggio delle istanze corrente (precedente) quando la scalabilità automatica ha eseguito un'azione di scalabilità |
+| newCapacity |Yes |Nuovo conteggio delle istanze in base al quale la scalabilità automatica ha ridimensionato la risorsa |
+| properties |No |facoltativo. Set di coppie <chiave, valore> (ad esempio Dizionario <Stringa, Stringa>). Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, è possibile immettere chiavi e valori che possono essere passati usando il payload. Un metodo alternativo per passare le proprietà personalizzate alla chiamata al webhook in uscita è di usare l'URI del webhook stesso (sotto forma di parametri di query) |
 

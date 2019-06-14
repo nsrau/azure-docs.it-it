@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 5e93bb3b206fbef6beb09b7aca6df0742a80ccf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621514"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052677"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifesti delle applicazioni e dei servizi di Service Fabric
 Questo articolo illustra in che modo le applicazioni e i servizi di Service Fabric vengono definiti e sottoposti a controllo delle versioni con i file ApplicationManifest.xml e ServiceManifest.xml.  Per esempi più dettagliati, vedere [esempi del manifesto di servizio e dell'applicazione](service-fabric-manifest-examples.md).  Lo schema XML di questi file manifesto è documentato in [Documentazione dello schema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -74,7 +74,7 @@ Il manifesto del servizio definisce in modo dichiarativo il tipo di servizio e l
 
 L'eseguibile specificato da **EntryPoint** è in genere l'host del servizio a esecuzione prolungata. **SetupEntryPoint** è un punto di ingresso con privilegi che viene eseguito con le stesse credenziali di Service Fabric (in genere l'account *LocalSystem* ) prima di qualsiasi altro punto di ingresso.  La presenza di un punto di ingresso di configurazione separato consente di evitare di dover eseguire l'host del servizio con privilegi elevati per lunghi periodi di tempo. L'eseguibile specificato da **EntryPoint** viene eseguito dopo che **SetupEntryPoint** termina correttamente. Se il processo termina o si arresta in modo anomalo, il processo risultante viene monitorato e riavviato (iniziando di nuovo con **SetupEntryPoint**).  
 
-Gli scenari tipici per l'uso di **SetupEntryPoint** sono l'esecuzione di un file eseguibile prima dell'avvio del servizio o l'esecuzione di un'operazione con privilegi elevati. Ad esempio: 
+Gli scenari tipici per l'uso di **SetupEntryPoint** sono l'esecuzione di un file eseguibile prima dell'avvio del servizio o l'esecuzione di un'operazione con privilegi elevati. Ad esempio:
 
 * Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
 * Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.
@@ -96,7 +96,7 @@ Per altre informazioni su come configurare SetupEntryPoint, vedere [Configurare 
 </Settings>
 ```
 
-Un **endpoint** del servizio Service Fabric è un esempio di una risorsa Service Fabric; una risorsa Service Fabric può essere dichiarata/modificata senza modificare il codice compilato. È possibile controllare l'accesso alle risorse Service Fabric specificate nel manifesto del servizio tramite **SecurityGroup** nel manifesto dell'applicazione. Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se non è esplicitamente specificata una porta. Sono disponibili altre informazioni su come [specificare o eseguire l'override di risorse endpoint](service-fabric-service-manifest-resources.md).
+Un servizio di Service Fabric **Endpoint** è riportato un esempio di una risorsa di Service Fabric. Una risorsa di Service Fabric possono essere dichiarate/modificate senza modificare il codice compilato. È possibile controllare l'accesso alle risorse Service Fabric specificate nel manifesto del servizio tramite **SecurityGroup** nel manifesto dell'applicazione. Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se non è esplicitamente specificata una porta. Sono disponibili altre informazioni su come [specificare o eseguire l'override di risorse endpoint](service-fabric-service-manifest-resources.md).
 
 
 <!--
@@ -163,7 +163,11 @@ Analogamente ai manifesti dei servizi, gli attributi **Version** sono stringhe n
 
 **Certificates** (non impostato nell'esempio precedente) dichiara i certificati usati per [configurare gli endpoint HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) o [crittografare i segreti nel manifesto dell'applicazione](service-fabric-application-secret-management.md).
 
-**Policies** (non impostato nell'esempio precedente) descrive i criteri di raccolta dei log, [account RunAs predefinito](service-fabric-application-runas-security.md), [integrità](service-fabric-health-introduction.md#health-policies) e [accesso sicuro](service-fabric-application-runas-security.md) da impostare a livello di applicazione.
+**I criteri** (non impostato nell'esempio precedente) descrive la raccolta di log, [account RunAs predefinito](service-fabric-application-runas-security.md), [integrità](service-fabric-health-introduction.md#health-policies), e [accesso di sicurezza](service-fabric-application-runas-security.md) criteri da impostare in corrispondenza di livello di applicazione, ad esempio se i servizi hanno accesso al runtime di Service Fabric.
+
+> [!NOTE] 
+> Per impostazione predefinita, le applicazioni di Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di un endpoint che accetta le richieste specifiche dell'applicazione e le variabili di ambiente che puntano ai percorsi del file nell'host che contiene file specifici dell'applicazione e infrastruttura . Provare a disabilitare l'accesso quando l'applicazione include codice non attendibile (ad esempio codice la cui la provenienza è sconosciuta, o che il proprietario dell'applicazione sia in grado di non per essere sicuro per l'esecuzione). Per altre informazioni, vedi [le procedure consigliate in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+>
 
 **Principals** (non impostato nell'esempio precedente) descrive le entità di sicurezza (utenti o gruppi) necessarie per [eseguire i servizi e proteggere le risorse correlate](service-fabric-application-runas-security.md).  Alle entità di sicurezza viene fatto riferimento nelle sezioni **Policies**.
 

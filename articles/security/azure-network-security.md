@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587470"
 ---
 # <a name="azure-network-security"></a>Sicurezza di rete di Azure
@@ -284,9 +284,9 @@ Il gruppo di sicurezza di rete include alcune regole predefinite che è opportun
 
 -   **Consenti tutto il traffico all'interno di una rete virtuale specifica:** tutte le macchine virtuali nella stessa rete virtuale di Azure possono comunicare tra loro.
 
--   **Consenti il traffico in ingresso per il bilanciamento del carico di Azure:**  questa regola consente il traffico da qualsiasi indirizzo di origine a qualsiasi indirizzo di destinazione per il servizio di bilanciamento del carico di Azure.
+-   **Consenti il traffico in ingresso per il bilanciamento del carico di Azure:**   questa regola consente il traffico da qualsiasi indirizzo di origine a qualsiasi indirizzo di destinazione per il servizio di bilanciamento del carico di Azure.
 
--   **Nega tutto il traffico in ingresso:**  questa regola blocca tutto il traffico proveniente da Internet che è stato consentito in modo esplicito.
+-   **Nega tutto il traffico in ingresso:**   questa regola blocca tutto il traffico proveniente da Internet che è stato consentito in modo esplicito.
 
 -   **Consenti tutto il traffico in uscita verso Internet:** questa regola consente alle macchine virtuali di avviare connessioni a Internet. Se si preferisce che tali connessioni non vengano avviate, è necessario creare una regola per bloccare le connessioni o applicare il tunneling forzato.
 

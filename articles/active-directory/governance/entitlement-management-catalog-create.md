@@ -17,16 +17,16 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6d9220cd2162b4c8cb77c1e7abd0372052f5454
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64541616"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Creare e gestire un catalogo in Gestione dei diritti di Azure AD (anteprima)
 
 > [!IMPORTANT]
-> Gestione dei diritti di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
+> Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -34,11 +34,11 @@ ms.locfileid: "64541616"
 
 Un catalogo è un contenitore di risorse e i pacchetti di accesso. Si crea un catalogo quando si desidera raggruppare le risorse correlate e accedere ai pacchetti. Chiunque può creare il catalogo diventa il proprietario del catalogo prima. Un proprietario del catalogo possa aggiungere proprietari catalogo aggiuntivi.
 
-**Ruolo prerequisiti:** L'utente amministratore o creatore del catalogo
+**Ruolo prerequisito:** L'utente amministratore o creatore del catalogo
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Fare clic su **Azure Active Directory** e quindi fare clic su **governance delle identità**.
+1. Fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
 1. Nel menu a sinistra, fare clic su **cataloghi**.
 
@@ -62,9 +62,9 @@ Un catalogo è un contenitore di risorse e i pacchetti di accesso. Si crea un ca
 
 Per includere le risorse in un pacchetto di accesso, le risorse devono esistere in un catalogo. I tipi di risorse che è possibile aggiungere sono i gruppi, applicazioni e siti di SharePoint Online.
 
-**Ruolo prerequisiti:** L'utente amministratore o proprietario catalogo
+**Ruolo prerequisito:** L'utente amministratore o proprietario catalogo
 
-1. Nel portale di Azure, fare clic su **Azure Active Directory** e quindi fare clic su **governance delle identità**.
+1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
 1. Nel menu a sinistra, fare clic su **cataloghi** e quindi aprire il catalogo a cui si desidera aggiungere risorse a.
 
@@ -88,9 +88,9 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 
 È possibile rimuovere le risorse da un catalogo. Una risorsa può essere rimossa solo da un catalogo se non utilizzato in uno dei pacchetti di accesso del catalogo.
 
-**Ruolo prerequisiti:** L'utente amministratore o proprietario catalogo
+**Ruolo prerequisito:** L'utente amministratore o proprietario catalogo
 
-1. Nel portale di Azure, fare clic su **Azure Active Directory** e quindi fare clic su **governance delle identità**.
+1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
 1. Nel menu a sinistra, fare clic su **cataloghi** e quindi aprire il catalogo a cui si desidera rimuovere risorse dalla.
 
@@ -98,15 +98,15 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 
 1. Selezionare le risorse che si desidera rimuovere.
 
-1. Fare clic su **rimuovere** (oppure fare clic sui puntini di sospensione (**...** ) e quindi fare clic su **rimuovere risorse**).
+1. Fare clic su **rimuovere** (oppure fare clic sui puntini di sospensione ( **...** ) e quindi fare clic su **rimuovere risorse**).
 
 ## <a name="add-catalog-owners-or-access-package-managers"></a>Aggiungere i proprietari del catalogo o accedere a strumenti di gestione pacchetti
 
 Se si desidera delegare la gestione di pacchetti di accesso nel catalogo o il catalogo, i proprietari di catalogo aggiunti o accedere a strumenti di gestione pacchetti. Utente che crea un catalogo diventa il proprietario del catalogo prima.
 
-**Ruolo prerequisiti:** L'utente amministratore o proprietario catalogo
+**Ruolo prerequisito:** L'utente amministratore o proprietario catalogo
 
-1. Nel portale di Azure, fare clic su **Azure Active Directory** e quindi fare clic su **governance delle identità**.
+1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
 1. Nel menu a sinistra, fare clic su **cataloghi** e quindi aprire il catalogo da aggiungere agli amministratori.
 
@@ -120,9 +120,9 @@ Se si desidera delegare la gestione di pacchetti di accesso nel catalogo o il ca
 
 È possibile modificare il nome e una descrizione per un catalogo. Gli utenti visualizzano queste informazioni nei dettagli del pacchetto di un accesso.
 
-**Ruolo prerequisiti:** L'utente amministratore o proprietario catalogo
+**Ruolo prerequisito:** L'utente amministratore o proprietario catalogo
 
-1. Nel portale di Azure, fare clic su **Azure Active Directory** e quindi fare clic su **governance delle identità**.
+1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
 1. Nel menu a sinistra, fare clic su **cataloghi** e quindi aprire il catalogo da modificare.
 
@@ -136,9 +136,9 @@ Se si desidera delegare la gestione di pacchetti di accesso nel catalogo o il ca
 
 È possibile eliminare un catalogo, ma solo se non dispone di tutti i pacchetti di accesso.
 
-**Ruolo prerequisiti:** L'utente amministratore o proprietario catalogo
+**Ruolo prerequisito:** L'utente amministratore o proprietario catalogo
 
-1. Nel portale di Azure, fare clic su **Azure Active Directory** e quindi fare clic su **governance delle identità**.
+1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
 1. Nel menu a sinistra, fare clic su **cataloghi** e quindi aprire il catalogo a cui si desidera eliminare.
 

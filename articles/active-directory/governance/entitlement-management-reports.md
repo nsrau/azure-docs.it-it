@@ -17,22 +17,22 @@ ms.author: rolyon
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60a61a581574c77a57939ea23fdadc7b060b82af
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64541541"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>Visualizzazione di report e i log in Gestione dei diritti di Azure AD (anteprima)
 
 > [!IMPORTANT]
-> Gestione dei diritti di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
+> Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="view-resources-a-user-has-access-to"></a>Visualizzare le risorse di a che un utente può accedere
 
-1. Fare clic su **Azure Active Directory** e quindi fare clic su **governance delle identità**.
+1. Fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
 1. Nel menu a sinistra, fare clic su **report assegnazioni utente**.
 
@@ -44,7 +44,7 @@ ms.locfileid: "64541541"
 
     Viene visualizzato un elenco di risorse che l'utente può accedere. Include il pacchetto di accesso, criteri e le date.
 
-    ![Report sulle assegnazioni degli utenti](./media/entitlement-management-reports/user-assignments-report.png)
+    ![Report di assegnazioni di utenti](./media/entitlement-management-reports/user-assignments-report.png)
 
 ## <a name="determine-the-status-of-a-users-request"></a>Determinare lo stato della richiesta di un utente
 
@@ -62,7 +62,7 @@ Quando Azure AD riceve una nuova richiesta, viene scritto un record di controllo
 
 Azure AD verrà scritto il record di controllo aggiuntivi mentre la richiesta è in corso, tra cui:
 
-| Categoria | Attività | Stato della richiesta |
+| Category | Attività | Stato della richiesta |
 | :---- | :------------ | :------------ |
 | `EntitlementManagement` | `Auto approve access package assignment request` | Richiesta non richiede l'approvazione |
 | `UserManagement` | `Create request approval` | Richiesta richiede l'approvazione |

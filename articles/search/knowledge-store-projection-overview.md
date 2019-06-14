@@ -11,16 +11,16 @@ ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
 ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540815"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Utilizzo di proiezioni in un archivio della Knowledge base in ricerca di Azure
 
 > [!Note]
-> L'archivio della Knowledge Base è in anteprima e non è destinata all'uso in produzione. Il [API REST versione 2019-05-06-Preview](search-api-preview.md) fornisce questa funzionalità. Non sarà disponibile alcun supporto di .NET SDK in questo momento.
+> Il knowledge store è in anteprima e non ne è previsto l'uso in ambienti di produzione. Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
 >
 
 Ricerca di Azure consente di abilitare l'arricchimento dei contenuti tramite competenze cognitive per intelligenza artificiale e competenze personalizzate come parte dell'indicizzazione. Miglioramenti aggiungono struttura per i documenti ed eseguire una ricerca più efficaci. In molti casi, i documenti arricchiti sono utili per scenari differenti dalle ricerca, ad esempio per data mining della Knowledge Base.

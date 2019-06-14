@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 34857108cf7f0580c380ffbd4bbcedb5cd5a807a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6fc00bf0dfb83f349da91989a579f31be2027ff0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245030"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071676"
 ---
 # <a name="overview-of-azure-activity-log"></a>Panoramica del log attività di Azure
 
@@ -30,10 +30,10 @@ Il Log attività non include operazioni di lettura (GET) o quelle per le risorse
 
 
 > [!NOTE]
-> Il log attività di Azure è destinato principalmente alle attività che si verificano in Azure Resource Manager. Non rileva ugresources usando il modello classico/RDFE. Alcuni tipi di risorse classiche dispongono di un provider di risorse proxy in Azure Resource Manager (ad esempio, Microsoft.ClassicCompute). Se un utente interagisce con un tipo di risorsa classica tramite Azure Resource Manager con questi provider di risorse di proxy, le operazioni verranno visualizzate nel log attività. Se un utente interagisce con un tipo di risorsa classica all'esterno dei proxy di Azure Resource Manager, le azioni dell'utente verranno registrate solo nel log delle operazioni. È possibile esaminare il log delle operazioni in una sezione distinta del portale.
+> Il log attività di Azure è destinato principalmente alle attività che si verificano in Azure Resource Manager. Non tiene traccia delle risorse che usano il modello classico/RDFE. Alcuni tipi di risorse classiche dispongono di un provider di risorse proxy in Azure Resource Manager (ad esempio, Microsoft.ClassicCompute). Se un utente interagisce con un tipo di risorsa classica tramite Azure Resource Manager con questi provider di risorse di proxy, le operazioni verranno visualizzate nel log attività. Se un utente interagisce con un tipo di risorsa classica all'esterno dei proxy di Azure Resource Manager, le azioni dell'utente verranno registrate solo nel log delle operazioni. È possibile esaminare il log delle operazioni in una sezione distinta del portale.
 
 ## <a name="activity-log-retention"></a>Conservazione dei Log attività
-Eventi del Log attività vengono archiviati per 90 giorni. Per archiviare i dati per periodi più lunghi, [raccoglierli in Monitoraggio di Azure](activity-log-collect.md) oppure [esportarlo di archiviazione o hub eventi](activity-log-export.md).
+Una volta creato, le voci di Log attività non modificate o eliminate dal sistema. È inoltre, non è possibile modificarli nell'interfaccia o a livello di codice. Eventi del Log attività vengono archiviati per 90 giorni. Per archiviare i dati per periodi più lunghi, [raccoglierli in Monitoraggio di Azure](activity-log-collect.md) oppure [esportarlo di archiviazione o hub eventi](activity-log-export.md).
 
 ## <a name="view-the-activity-log"></a>Visualizzare il Log attività
 Visualizzare il Log attività per tutte le risorse dal **Monitor** menu nel portale di Azure. Visualizzare il Log attività per una determinata risorsa dal **Log attività** opzione nel menu della risorsa. È anche possibile recuperare i record del Log attività con PowerShell, CLI o l'API REST.  Visualizzare [visualizzazione e come recuperare le attività di Azure vengono registrati eventi](activity-log-view.md).

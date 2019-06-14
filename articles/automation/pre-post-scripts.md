@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7317b634ee4c8886ce5c99bb2b3395d7d1f646d5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8a11602919a8b68a078b0b2690411358b4b5f814
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65913871"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063502"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Gestire gli script di pre e post
 
@@ -64,11 +64,11 @@ Quando si configurano i pre-script e i post-script è possibile passare i parame
 
 Se è necessario un altro tipo di oggetto, è possibile eseguirne il cast in un altro tipo con la propria logica nel runbook.
 
-Oltre ai parametri standard dei runbook viene passato un parametro aggiuntivo. **SoftwareUpdateConfigurationRunContext**. Questo parametro è una stringa JSON e, se viene definito nello script pre o post, viene automaticamente passato alla distribuzione di aggiornamento. Il parametro contiene informazioni sulla distribuzione di aggiornamento costituite da un subset delle informazioni restituite dall'API [SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). La tabella seguente illustra le proprietà specificate nella variabile:
+Oltre ai parametri standard dei runbook viene passato un parametro aggiuntivo. **SoftwareUpdateConfigurationRunContext**. Questo parametro è una stringa JSON e se si definisce il parametro nello script pre o post, viene automaticamente passato per la distribuzione degli aggiornamenti. Il parametro contiene informazioni sulla distribuzione di aggiornamento costituite da un subset delle informazioni restituite dall'API [SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). La tabella seguente illustra le proprietà specificate nella variabile:
 
 ## <a name="stopping-a-deployment"></a>L'arresto di una distribuzione
 
-Se si vuole arrestare una distribuzione basata su uno script di Pre devi [throw](automation-runbook-execution.md#throw) un'eccezione. Se non si generano un'eccezione, verrà eseguito comunque la distribuzione e lo script di Post. Il [runbook di esempio](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) nella raccolta viene illustrato come è possibile eseguire questa operazione. Di seguito è riportato un frammento di codice da tale runbook.
+Se si desidera arrestare una distribuzione basata su uno script precedente, devi [throw](automation-runbook-execution.md#throw) un'eccezione. Se è non generare un'eccezione, verrà eseguito comunque la distribuzione e lo script di Post. Il [runbook di esempio](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) nella raccolta viene illustrato come è possibile eseguire questa operazione. Di seguito è riportato un frammento di codice da tale runbook.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -134,7 +134,7 @@ Un esempio completo con tutte le proprietà è disponibile in: [Software Update 
 > [!NOTE]
 > Il `SoftwareUpdateConfigurationRunContext` oggetto può contenere le voci duplicate per le macchine. Ciò può provocare Pre e post-script da eseguire più volte nello stesso computer. Per risolvere questo problema, usare `Sort-Object -Unique` selezionare solo i nomi di macchina virtuale univoci nello script.
 
-## <a name="samples"></a>Campioni
+## <a name="samples"></a>Esempi
 
 Esempi di pre-script e post-script sono disponibili nella [raccolta Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) o possono essere importati tramite il portale di Azure. Per importarli tramite il portale, nell'account di automazione selezionare **Raccolta di runbook** in **Automazione processi**. Usare **Update Management** come filtro.
 
@@ -206,11 +206,11 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="interacting-with-machines"></a>L'interazione con i computer
 
-Le attività di pre e post-esecuzione come un runbook nell'Account di automazione e non direttamente nei computer nella distribuzione. Le attività di pre e post, inoltre, eseguito nel contesto di Azure e non hanno accesso al computer Non Azure. Le sezioni seguenti illustrano come sia possibile interagire con i computer direttamente se sono una VM di Azure o un computer Non Azure:
+Le attività di pre e post-esecuzione come un runbook nell'Account di automazione e non direttamente nei computer nella distribuzione. Le attività di pre e post, inoltre, eseguito nel contesto di Azure e non hanno accesso al computer Non Azure. Le sezioni seguenti illustrano come sia possibile interagire con i computer direttamente se si tratta di una VM di Azure o un computer Non Azure:
 
 ### <a name="interacting-with-azure-machines"></a>L'interazione con le macchine di Azure
 
-Le attività di pre e post sono eseguiti come runbook e non vengono eseguiti in modo nativo in macchine virtuali di Azure nella distribuzione. Per interagire con le macchine virtuali di Azure, sono necessari gli elementi seguenti:
+Attività di pre e post vengono eseguite i runbook e in modo nativo non vengono eseguiti in macchine virtuali di Azure nella distribuzione. Per interagire con le macchine virtuali di Azure, sono necessari gli elementi seguenti:
 
 * Un account RunAs
 * Un runbook da eseguire
@@ -239,9 +239,10 @@ if (<My custom error logic>)
     throw "There was an error, abort deployment"
 }
 ```
+
 ## <a name="known-issues"></a>Problemi noti
 
-* Quando si usano pre-script o post-script, non è possibile passare oggetti o matrici ai parametri. Il runbook avrà esito negativo.
+* È possibile passare un valore booleano, oggetti o matrici per i parametri quando si usano gli script di pre e post. Il runbook avrà esito negativo. Per un elenco completo dei tipi supportati, vedere [parametri](#passing-parameters).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

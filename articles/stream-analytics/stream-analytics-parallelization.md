@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478879"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure
@@ -39,7 +39,7 @@ Tutti gli input di Analisi di flusso di Azure possono sfruttare i vantaggi del p
 Quando si usa Analisi di flusso di Azure, è possibile sfruttare il partizionamento negli output:
 -   Archiviazione di Azure Data Lake
 -   Funzioni di Azure
--   tabella di Azure
+-   Tabella di Azure
 -   Archiviazione BLOB (è necessario impostare la chiave di partizione in modo esplicito)
 -   Cosmos DB (è necessario impostare la chiave di partizione in modo esplicito)
 -   Hub eventi (è necessario impostare la chiave di partizione in modo esplicito)

@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979541"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
@@ -25,7 +25,7 @@ Lo schema usato dai Criteri di Azure è reperibile qui: [https://schema.manageme
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
 
 - mode
-- Parametri
+- parameters
 - nome visualizzato
 - description
 - regola dei criteri
@@ -154,7 +154,7 @@ Nella proprietà `metadata` è possibile usare **strongType** per fornire un ele
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
-## <a name="definition-location"></a>Località della definizione
+## <a name="definition-location"></a>Posizione della definizione
 
 Durante la creazione di iniziative o criteri è importante specificare la posizione della definizione. La posizione della definizione deve essere specificata come un gruppo di gestione o una sottoscrizione. Tale posizione determina l'ambito al quale la definizione delle iniziative o dei criteri può essere assegnata. Le risorse devono essere membri diretti o elementi figli all'interno della gerarchia della posizione della definizione da destinare all'assegnazione.
 
@@ -498,14 +498,14 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
 ### <a name="understanding-the--alias"></a>Informazioni sull'alias [*]
 
-Molti degli alias disponibili hanno una versione che viene visualizzata come un nome "normale" e un'altra a cui viene aggiunto **[\*]**. Ad esempio:
+Molti degli alias disponibili hanno una versione che viene visualizzata come un nome "normale" e un'altra a cui viene aggiunto **[\*]** . Ad esempio:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 L'alias 'normal' rappresenta il campo come valore singolo. Questo campo è per gli scenari di confronto di corrispondenza esatta quando l'intero set di valori deve essere esattamente come è definito, non è più e non minore.
 
-Il **[\*]** alias consente di confrontare il valore di ogni elemento della matrice e proprietà specifiche di ogni elemento. Questo approccio consente di confrontare le proprietà di elemento per 'Se nessuna delle', 'eventuale di' o ' se tutti gli oggetti di ' scenari. Usando **ipRules [\*]**, ad esempio potrebbe essere la convalida che ogni _azione_ viene _Deny_, ma non doversi preoccupare esistono regole quanti o quali l'indirizzo IP _valore_ è. Questa regola di esempio controlla la presenza di corrispondenze dei **ipRules [\*]. Value** al **10.0.4.1** e applica la **effectType** solo se non viene trovata almeno una corrispondenza:
+Il **[\*]** alias consente di confrontare il valore di ogni elemento della matrice e proprietà specifiche di ogni elemento. Questo approccio consente di confrontare le proprietà di elemento per 'Se nessuna delle', 'eventuale di' o ' se tutti gli oggetti di ' scenari. Usando **ipRules [\*]** , ad esempio potrebbe essere la convalida che ogni _azione_ viene _Deny_, ma non doversi preoccupare esistono regole quanti o quali l'indirizzo IP _valore_ è. Questa regola di esempio controlla la presenza di corrispondenze dei **ipRules [\*]. Value** al **10.0.4.1** e applica la **effectType** solo se non viene trovata almeno una corrispondenza:
 
 ```json
 "policyRule": {
@@ -614,4 +614,4 @@ L'esempio seguente illustra come creare un'iniziativa per la gestione di due tag
 - Comprendere come [a livello di codice, creare criteri](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
 - Informazioni su come [monitora e aggiorna le risorse non conformi](../how-to/remediate-resources.md).
-- Esaminare un gruppo di gestione riguarda [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).
+- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

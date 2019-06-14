@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/12/2019
 ms.author: juliako
-ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 49ab52f031e24ac77a534c86061fe831bbec39ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732993"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114662"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventi live e output live
 
@@ -54,14 +54,14 @@ Per un esempio di codice .NET, vedere [MediaV3LiveApp](https://github.com/Azure-
 
 ![codifica live](./media/live-streaming/live-encoding.svg)
 
-Quando si usa la codifica live con Servizi multimediali, è possibile configurare il codificatore live locale per l'invio di un video a bitrate singolo come feed di contributi all'evento live (tramite il protocollo RTMP o Mp4 frammentato). L'evento live codifica tale flusso a bitrate singolo in ingresso in un [flusso video con velocità in bit multipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) e lo rende disponibile per la distribuzione e la riproduzione in dispositivi tramite protocolli come MPEG-DASH, HLS e Smooth Streaming. Quando si crea questo tipo di evento live, specificare il tipo di codifica **Standard** (LiveEventEncodingType.Standard).
+Quando si usa la codifica live con Servizi multimediali, è possibile configurare il codificatore live locale per l'invio di un video a bitrate singolo come feed di contributi all'evento live (tramite il protocollo RTMP o Mp4 frammentato). Impostare quindi un evento Live, in modo che la codifica a bitrate singolo con tale in ingresso streaming in un [flusso video a velocità in bit più](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)e rende l'output disponibile per il recapito di riprodurre i dispositivi tramite i protocolli, ad esempio MPEG-DASH, HLS e Smooth Lo streaming.
 
-È possibile inviare il feed di contributi a risoluzioni fino a 1080p e a una frequenza pari a 30 fotogrammi al secondo, con codec video H.264/AVC e codec audio AAC (AAC-LC, HE-AACv1 o HE-AACv2). Vedere l'articolo [Confronto tra tipi di eventi live](live-event-types-comparison.md) per altri dettagli.
+Quando si usa la codifica live, è possibile inviare il contributo feed solo con risoluzioni risoluzione con risoluzione 1080p e una frequenza dei fotogrammi di 30 fotogrammi/secondo, con codec video video H.264/AVC e AAC (AAC-LC, HE-AACv1 o HE-AACv2) codec audio. Si noti che gli eventi Live di pass-through può supportare le risoluzioni fino a 4 KB su 60 fotogrammi al secondo. Vedere l'articolo [Confronto tra tipi di eventi live](live-event-types-comparison.md) per altri dettagli.
 
-Quando si usa la codifica live (evento Live impostato su **Standard**), il set di impostazioni di codifica definisce come viene codificato il flusso in ingresso con velocità in bit o livelli diversi. Per altre informazioni, vedere [Set di impostazioni di sistema](live-event-types-comparison.md#system-presets).
+Le risoluzioni e velocità in bit contenuti nell'output dal codificatore live è determinato dal set di impostazioni. Se si usa un' **Standard** live encoder (LiveEventEncodingType.Standard), il *Default720p* set di impostazioni specifica un set di coppie di velocità risoluzione/bit 6, passando da 720p a 3.5Mbps down 192 p a 200 kbps. In caso contrario, se si usa un' **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), il *Default1080p* set di impostazioni specifica un set di coppie di velocità risoluzione/bit 6, passando da 1080p in 3.5Mbps fino a 180p a 200 kbps. Per altre informazioni, vedere [Set di impostazioni di sistema](live-event-types-comparison.md#system-presets).
 
 > [!NOTE]
-> Attualmente, l'unico set di impostazioni consentito per il tipo di evento Live Standard ha valore *Default720p*. Se è necessario usare un set di impostazioni di codifica live personalizzato, contattare amshelp@microsoft.com. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che vi sia un solo livello a 720p e un massimo di 6 livelli.
+> Se è necessario personalizzare il set di impostazioni di codifica live, aprire un ticket di supporto tramite il portale di Azure. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che vi sia un solo a 720p (se la richiesta di un set di impostazioni per un codificatore live Standard) o a 1080p (se la richiesta di un set di impostazioni per un codificatore live Premium1080p) e al massimo 6 livelli.
 
 ## <a name="live-event-creation-options"></a>Opzioni di creazione di eventi live
 
@@ -93,6 +93,14 @@ Al termine della creazione dell'evento live, è possibile ottenere gli URL di in
 
     Il token di accesso deve essere univoco nel data center. Se l'applicazione deve usare un URL personalizzato, è consigliabile creare sempre una nuova istanza GUID per il token di accesso (anziché riutilizzare qualsiasi GUID esistente). 
 
+    Usare le API seguenti per abilitare l'URL personale e impostare il token di accesso su un GUID valido (ad esempio `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
+    
+    |Linguaggio|Abilitare l'URL personale|Impostare il token di accesso|
+    |---|---|---|
+    |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    
 ### <a name="live-ingest-url-naming-rules"></a>Regole di denominazione degli URL di inserimento live
 
 La stringa *casuale* sottostante è un numero esadecimale a 128 bit (costituito da 32 caratteri 0-9 a-f).<br/>

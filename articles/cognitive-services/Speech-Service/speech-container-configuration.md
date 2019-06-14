@@ -3,19 +3,19 @@ title: Configurare i contenitori di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Il contenitore di riconoscimento vocale
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.author: diberry
-ms.openlocfilehash: e2ed29bb61f553f68b9f9802884169361d5d983f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 2dd1769d2d0a940176fb51954f44859cb42f30d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797920"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072434"
 ---
 # <a name="configure-speech-service-containers"></a>Configurare i contenitori dei servizi di riconoscimento vocale
 
@@ -52,7 +52,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 |Obbligatorio| NOME | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
+|Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -92,7 +92,7 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Segnaposto | Value | Formato o esempio |
+| Placeholder | Value | Formato o esempio |
 |-------------|-------|---|
 |{BILLING_KEY} | La chiave di endpoint della risorsa di riconoscimento vocale. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | Il valore dell'endpoint di fatturazione inclusa la regione.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|

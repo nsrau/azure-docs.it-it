@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
 ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60633290"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installare e configurare l’adattatore StorSimple per SharePoint
@@ -44,8 +44,8 @@ RBS richiede l'utilizzo di un provider RBS, ad esempio l'adattatore StorSimple p
 L’implementazione di RBS  in Microsoft Azure StorSimple offre i vantaggi seguenti:
 
 * Spostando il contenuto BLOB in un server separato, è possibile ridurre il carico di query su SQL Server, migliorando la velocità di risposta di SQL Server. 
-* StorSimple di Azure utilizza deduplicazione e compressione per ridurre la dimensione dei dati, 
-* nonché protezione dei dati sotto forma di snapshot  locali e su cloud. Inoltre, se si colloca il database stesso nel dispositivo StorSimple, è possibile eseguire il backup del database del contenuto e dei BLOB insieme, in un modo coerente con l’arresto anomalo. Lo spostamento del database del contenuto nel dispositivo è supportato solo per il dispositivo StorSimple serie 8000,  e non per le serie 5000 e 7000.
+* StorSimple di Azure utilizza deduplicazione e compressione per ridurre la dimensione dei dati,
+* nonché protezione dei dati sotto forma di snapshot  locali e su cloud. Inoltre, se si colloca il database stesso nel dispositivo StorSimple, è possibile eseguire il backup del database del contenuto e dei BLOB insieme, in un modo coerente con l’arresto anomalo. Lo spostamento del database del contenuto nel dispositivo è supportato solo per il dispositivo StorSimple serie 8000, e non per le serie 5000 e 7000.
 * StorSimple di Azure include funzionalità di ripristino di emergenza tra cui il failover, il ripristino di file e volumi (inclusi i test di ripristino) e un ripristino rapido dei dati.
 * È possibile utilizzare software di ripristino di dati, ad esempio Kroll Ontrack PowerControls, con gli snapshot di StorSimple dei dati BLOB per eseguire il ripristino a livello di elemento di contenuto di SharePoint. Questo software di ripristino dati costituisce un acquisto separato.
 * L'adattatore StorSimple per SharePoint viene inserito nel portale di amministrazione centrale di SharePoint, consentendo di gestire l'intera soluzione SharePoint da una posizione centrale.
@@ -142,7 +142,7 @@ Assicurarsi che la server farm di SharePoint sia configurata correttamente, come
   5. In **Amministratori** fare clic su **Disattivo**.
   6. Fare clic su **OK**.
 
-## <a name="remote-blob-storage-rbs-prerequisites"></a>Prerequisiti di archiviazione BLOB remoti (RBS) 
+## <a name="remote-blob-storage-rbs-prerequisites"></a>Prerequisiti di archiviazione BLOB remoti (RBS)
 Verificare che sia in uso una versione supportata di SQL Server. Le seguenti versioni sono supportate e in grado di usare RBS:
 
 * SQL Server 2008 Enterprise Edition

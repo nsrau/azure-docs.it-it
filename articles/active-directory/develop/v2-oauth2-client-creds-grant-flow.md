@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 485f79f79c52067e89fa0a606e76a533c312fb84
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545102"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Piattaforma delle identità Microsoft e il flusso di credenziali client OAuth 2.0
@@ -120,7 +120,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 A questo punto, Azure AD applica che solo un amministratore tenant possa accedere in completa la richiesta. L'amministratore dovrà approvare tutte le autorizzazioni dirette dell'applicazione richieste per l'app nel portale di registrazione.
 
-##### <a name="successful-response"></a>Risposta riuscita
+##### <a name="successful-response"></a>Risposta con esito positivo
 
 Se l'amministratore approva le autorizzazioni per l'applicazione, la risposta con esito positivo si presenta come segue:
 
@@ -206,7 +206,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 Si noti che i parametri sono quasi uguali a quelli usati nella richiesta tramite segreto condiviso, con l'eccezione del parametro client_secret che viene sostituito da due parametri: client_assertion_type e client_assertion.
 
-### <a name="successful-response"></a>Risposta riuscita
+### <a name="successful-response"></a>Risposta con esito positivo
 
 Una risposta con esito positivo ha un aspetto simile al seguente:
 

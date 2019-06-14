@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: a5e5f4ab286289e223a2fe10ff8cf45f43309f04
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785948"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Copertura per la geocodifica in Mappe di Azure
@@ -51,7 +51,7 @@ La possibilità per la geocodifica in un paese/area geografica è dipendente dal
 | Dominicana, Repubblica                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Ecuador                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | El Salvador                                         |                 |                |       ✓      |      ✓     |          ✓         |
-| Isole Falkland (Isole Malvine)                                    |                 |                |              |      ✓     |          ✓         |
+| Isole Falkland                                    |                 |                |              |      ✓     |          ✓         |
 | Guayana francese                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Grenada                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Guadalupa                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -75,11 +75,11 @@ La possibilità per la geocodifica in un paese/area geografica è dipendente dal
 | Saint Martin                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Pierre e Miquelon                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Vincent e Grenadine                    |                 |                |              |      ✓     |          ✓         |
-| Saint-Martin                                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Sint Maarten                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Georgia del Sud e Sandwich Australi        |                 |                |              |      ✓     |          ✓         |
 | Suriname                                            |                 |                |              |      ✓     |          ✓         |
 | Trinidad e Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
-| Altre isole americane del Pacifico                |                 |                |              |      ✓     |          ✓         |
+| Altre isole minori degli Stati Uniti                |                 |                |              |      ✓     |          ✓         |
 | Stati Uniti d'America                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
@@ -90,11 +90,11 @@ La possibilità per la geocodifica in un paese/area geografica è dipendente dal
 
 | Paese/Area geografica                                      | Punti di indirizzo |Numeri di abitazione | Livello rete stradale | Livello città | Punti d'interesse |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
-| Samoa Americane                                      |                 |                |       ✓      |      ✓     |          ✓         |
+| Isole Samoa americane                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bangladesh                                          |                 |                |              |      ✓     |          ✓         |
 | Bhutan                                              |                 |                |              |      ✓     |          ✓         |
-| Territorio britannico dell'Oceano Indiano                      |                 |                |              |      ✓     |          ✓         |
+| Territorio britannico dell'oceano Indiano                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Cambogia                                            |                 |                |              |      ✓     |          ✓         |
 | Cina                                               |                 |                |              |      ✓     |          ✓         |
@@ -103,9 +103,9 @@ La possibilità per la geocodifica in un paese/area geografica è dipendente dal
 | Comore                                             |                 |                |              |      ✓     |          ✓         |
 | Isole Cook                                        |                 |                |              |      ✓     |          ✓         |
 | Figi                                                |                  |                |              |      ✓     |          ✓        |
-| Polinesia Francese                                    |                 |                |              |      ✓     |          ✓         |
+| Polinesia francese                                    |                 |                |              |      ✓     |          ✓         |
 | Isole Heard e McDonald                   |                 |                |              |      ✓     |          ✓         |
-| Hong Kong - R.A.S.                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| RAS di Hong Kong                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | India                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Giappone                                               |                 |                |              |      ✓     |          ✓         |
@@ -121,7 +121,7 @@ La possibilità per la geocodifica in un paese/area geografica è dipendente dal
 | Nuova Caledonia                                       |                 |                |              |      ✓     |          ✓         |
 | Nuova Zelanda                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Niue                                                |                 |                |              |      ✓     |          ✓         |
-| Isole Norfolk                                      |                 |                |              |      ✓     |          ✓         |
+| Isola di Norfolk                                      |                 |                |              |      ✓     |          ✓         |
 | Corea del Nord                                         |                 |                |              |      ✓     |          ✓         |
 | Marianne Settentrionali                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Pakistan                                            |                 |                |              |      ✓     |          ✓         |
@@ -130,7 +130,7 @@ La possibilità per la geocodifica in un paese/area geografica è dipendente dal
 | Isole Paracelso                                     |                 |                |              |      ✓     |                    |
 | Filippine                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
-| Samoa                                               |                 |                |              |      ✓     |          ✓         |
+| Isole Samoa                                               |                 |                |              |      ✓     |          ✓         |
 | Isole Senkaku/Diaoyutai                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapore                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Isole Salomone                                     |                 |                |              |      ✓     |          ✓         |
@@ -144,7 +144,7 @@ La possibilità per la geocodifica in un paese/area geografica è dipendente dal
 | Isole Turks e Caicos                            |                 |                |              |      ✓     |          ✓         |
 | Tuvalu                                              |                 |                |              |      ✓     |          ✓         |
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
-| Vietnam                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Vietnam                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Wallis e Futuna                                   |                 |                |              |      ✓     |          ✓         |
 
 ## <a name="europe"></a>Europa
@@ -232,22 +232,22 @@ La possibilità per la geocodifica in un paese/area geografica è dipendente dal
 | Burundi                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Camerun                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Cabo Verde                                          |                 |                |       ✓      |      ✓     |          ✓         |
-| Repubblica Centrafricana                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Ciad                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Repubblica del Congo                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Côte d'Ivoire (Costa d'Avorio)                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Repubblica centrafricana                            |                 |                |       ✓      |      ✓     |          ✓         |
+| Chad                                                |                 |                |       ✓      |      ✓     |          ✓         |
+| Congo                                               |                 |                |       ✓      |      ✓     |          ✓         |
+| Côte d’Ivoire (Costa d'Avorio)                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Congo, Repubblica democratica                    |                 |                |       ✓      |      ✓     |          ✓         |
 | Gibuti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egitto                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guinea Equatoriale, Repubblica                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Eritrea                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Etiopia                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Terre Australi Francesi|                        |                |              |      ✓     |          ✓         |
+| Terre australi francesi|                        |                |              |      ✓     |          ✓         |
 | Gabon                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Gambia                                              |                 |                |              |      ✓     |          ✓         |
 | Ghana                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Guinea                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Guinea-Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Iran                                                |                 |                |              |      ✓     |          ✓         |
 | Iraq                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Israele                                              |        ✓        |       ✓        |              |      ✓     |          ✓         |
@@ -282,12 +282,12 @@ La possibilità per la geocodifica in un paese/area geografica è dipendente dal
 | Seychelles                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Sierra Leone                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Somalia                                             |                 |                |              |      ✓     |          ✓         |
-| Sudafrica                                        |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Sud Africa                                        |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Sudan del Sud                                         |                 |                |       ✓      |      ✓     |          ✓         |
 | Sudan                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Swaziland                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Siria                                               |                 |                |              |      ✓     |          ✓         |
-| São Tomé e Príncipe                               |                 |                |       ✓      |      ✓     |          ✓         |
+| Tomé SAN e Príncipe                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Tanzania                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Togo                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Tunisia                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |

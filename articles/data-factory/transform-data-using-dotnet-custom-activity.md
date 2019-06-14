@@ -11,16 +11,16 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8076ae81b111aa6b524b7e286ed15ca0661d748b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165957"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062123"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-use-custom-activities.md)
 > * [Versione corrente](transform-data-using-dotnet-custom-activity.md)
 
@@ -102,16 +102,16 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 
 | Proprietà              | Descrizione                              | Obbligatorio |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | Nome dell'attività nella pipeline     | Sì      |
-| description           | Testo che descrive l'attività.  | N.       |
-| tipo                  | Per l'attività personalizzata, il tipo corrisponde a **Custom**. | Sì      |
-| linkedServiceName     | Servizio collegato ad Azure Batch. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  | Sì      |
-| command               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Sì      |
+| name                  | Nome dell'attività nella pipeline     | Yes      |
+| description           | Testo che descrive l'attività.  | No       |
+| type                  | Per l'attività personalizzata, il tipo corrisponde a **Custom**. | Yes      |
+| linkedServiceName     | Servizio collegato ad Azure Batch. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  | Yes      |
+| command               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Yes      |
 | resourceLinkedService | Servizio di Archiviazione di Azure collegato all'account di archiviazione in cui è archiviata l'applicazione personalizzata | No &#42;       |
 | folderPath            | Percorso della cartella dell'applicazione personalizzata e di tutte le relative dipendenze<br/><br/>Se sono presenti dipendenze archiviate nelle sottocartelle, vale a dire, in una struttura di cartelle gerarchiche in *folderPath*, la struttura di cartelle è attualmente di tipo flat quando i file vengono copiati in Azure Batch. Vale a dire, tutti i file vengono copiati in un'unica cartella senza sottocartelle. Per risolvere questo comportamento, è possibile comprimere i file, copiare il file compresso e quindi decomprimerlo con codice personalizzato nel percorso desiderato. | No &#42;       |
-| referenceObjects      | Matrice di servizi collegati e set di dati esistenti. I servizi collegati e i set di dati a cui si fa riferimento vengono passati all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a risorse di Data Factory | N.       |
-| extendedProperties    | Proprietà definite dall'utente che possono essere passate all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a proprietà aggiuntive | N.       |
-| retentionTimeInDays | Il tempo di conservazione per i file inviati per l'attività personalizzata. Valore predefinito è 30 giorni. | N. |
+| referenceObjects      | Matrice di servizi collegati e set di dati esistenti. I servizi collegati e i set di dati a cui si fa riferimento vengono passati all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a risorse di Data Factory | No       |
+| extendedProperties    | Proprietà definite dall'utente che possono essere passate all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a proprietà aggiuntive | No       |
+| retentionTimeInDays | Il tempo di conservazione per i file inviati per l'attività personalizzata. Valore predefinito è 30 giorni. | No |
 
 &#42; Le proprietà `resourceLinkedService` e `folderPath` devono essere specificate oppure omesse entrambe.
 
@@ -301,7 +301,7 @@ Activity Error section:
 Se si desidera usare il contenuto di stdout.txt nelle attività downstream, è possibile ottenere il percorso del file stdout.txt nell'espressione "\@activity('MyCustomActivity').output.outputs[0]".
 
 > [!IMPORTANT]
-> - Activity.json, linkedServices.json e datasets.json vengono archiviati nella cartella di runtime dell'attività Batch. Per questo esempio, the activity.json, linkedServices.json e datasets.json vengono archiviati nel percorso "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/". Se necessario, la pulizia di questi file deve essere eseguita separatamente.
+> - Activity.json, linkedServices.json e datasets.json vengono archiviati nella cartella di runtime dell'attività Batch. In questo esempio di Activity. JSON, linkedservices. JSON e Datasets. JSON vengono archiviati `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` percorso. Se necessario, la pulizia di questi file deve essere eseguita separatamente.
 > - Per i servizi collegati che usano il runtime di integrazione self-hosted, le informazioni riservate, come chiavi o password, vengono crittografate dal runtime di integrazione self-hosted per verificare che le credenziali rimangano nell'ambiente di rete privata definito dal cliente. Alcuni campi riservati potrebbero risultare mancanti se il codice dell'applicazione personalizzata fa riferimento a tali campi in questo modo. Se necessario, usare SecureString in extendedProperties anziché un riferimento a servizi collegati.
 
 ## <a name="pass-outputs-to-another-activity"></a>Passare gli output a un'altra attività

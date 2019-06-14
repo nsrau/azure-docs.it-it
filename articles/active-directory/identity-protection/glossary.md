@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5def46b6c12dc08c273ea7334516b63b7606477f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c371254f344b321969dcc9b3c36212b7536aa95a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452824"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109012"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossario di Azure Active Directory Identity Protection
 ### <a name="at-risk-user"></a>A rischio (utente)
@@ -35,7 +35,7 @@ Accesso da una posizione geografica non tipica per l'utente specifico, utenti si
 Modulo di sicurezza di Azure Active Directory che fornisce una visualizzazione consolidata degli eventi di rischio e delle potenziali vulnerabilità che interessano le identità di un'organizzazione.
 
 ### <a name="conditional-access"></a>Accesso condizionale
-Criteri per la protezione dell'accesso alle risorse. Le regole di accesso condizionale sono archiviate in Azure Active Directory e vengono valutate da Azure AD prima di concedere l'accesso alla risorsa.  Le regole includono la limitazione dell'accesso in base alla posizione dell'utente, all'integrità del dispositivo o al metodo di autenticazione dell'utente.
+Criteri per la protezione dell'accesso alle risorse. Regole di accesso condizionale vengono archiviate in Azure Active Directory e vengono valutate da Azure AD prima di concedere l'accesso alla risorsa.  Le regole includono la limitazione dell'accesso in base alla posizione dell'utente, all'integrità del dispositivo o al metodo di autenticazione dell'utente.
 
 ### <a name="credentials"></a>Credenziali
 Informazioni che includono l'identificazione e la prova dell'identificazione usata per ottenere l'accesso alle risorse locali e di rete. Tra le credenziali sono inclusi nomi utente e password, smart card e certificati.
@@ -146,7 +146,7 @@ Evento di rischio attivato quando un utente esegue l'accesso da una nuova posizi
 Vedere Livello di rischio (accesso)
 
 ### <a name="sign-in-risk-policy"></a>Criteri di rischio di accesso
-Criteri di accesso condizionale che valutano il rischio di un accesso specifico e applicano le azioni di mitigazione appropriate in base a condizioni e regole predefinite.
+Criteri di accesso condizionale che valutano il rischio di un accesso aggiuntivo specifico e applicano mitigazione in base a condizioni e regole predefinite.
 
 ### <a name="user-compromise-risk"></a>Rischio di compromissione dell'utente
 Vedere Livello di rischio (compromissione dell'utente)
@@ -155,7 +155,7 @@ Vedere Livello di rischio (compromissione dell'utente)
 Vedere Livello di rischio (compromissione dell'utente)
 
 ### <a name="user-risk-policy"></a>Criteri di rischio utente
-Criteri di accesso condizionale che valutano l'accesso specifico e applicano le azioni di mitigazione appropriate in base a condizioni e regole predefinite.
+Criteri di accesso condizionale che prende in considerazione l'Accedi e applica mitigazione in base a condizioni e regole predefinite.
 
 ### <a name="users-flagged-for-risk"></a>Utenti contrassegnati per il rischio
 Utenti con eventi di rischio, attivi o corretti
@@ -163,6 +163,6 @@ Utenti con eventi di rischio, attivi o corretti
 ### <a name="vulnerability"></a>Vulnerabilità
 Configurazione o condizione in Azure Active Directory che rende la directory vulnerabile ad attacchi o minacce.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 

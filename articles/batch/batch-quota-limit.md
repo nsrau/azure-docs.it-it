@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 820eddff7da3bb52ca94ea0cb7e2361d89892a4a
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: de32ae16ea4d3c52b8017f35ae5af6009ab59205
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595315"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080926"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 
@@ -32,12 +32,13 @@ Tenere presenti queste quote quando si progettano i carichi di lavoro di Batch e
 
 Se si prevede di eseguire carichi di lavoro di produzione in Batch, potrebbe essere necessario incrementare il valore predefinito di una o più quote. Per aumentare una quota, è possibile aprire una [richiesta di assistenza clienti](#increase-a-quota) online gratuitamente.
 
-> [!NOTE]
-> Una quota è un limite di credito, non una garanzia di capacità. Se si hanno esigenze di capacità su larga scala, contattare il supporto di Azure.
-
 ## <a name="resource-quotas"></a>Quote di risorse
-[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+Una quota è un limite di credito, non una garanzia di capacità. Se si hanno esigenze di capacità su larga scala, contattare il supporto di Azure.
+
+Si noti che le quote non sono garantiti anche i valori. Le quote possono variare in base alle modifiche apportate dal servizio Batch o una richiesta dell'utente per modificare un valore di quota.
+
+[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Quote di core in modalità di sottoscrizione utente
 
@@ -45,18 +46,22 @@ Se è stato creato un account Batch con modalità di allocazione pool impostata 
 
 ## <a name="pool-size-limits"></a>Limiti delle dimensioni del pool
 
+Limiti delle dimensioni del pool vengono impostate dal servizio Batch. A differenza [le quote di risorse](#resource-quotas), questi valori non possono essere modificati. Solo i pool con la comunicazione tra nodi e le immagini personalizzate hanno restrizioni diverse dalla quota standard.
+
 | **Risorsa** | **Limite Massimo** |
 | --- | --- |
 | **Nodi di calcolo nel [pool in cui è abilitata la comunicazione tra i nodi](batch-mpi.md)**  ||
 | Modalità di allocazione pool del servizio Batch | 100 |
 | Modalità di allocazione pool di sottoscrizione batch | 80 |
-| **Nodi di calcolo nel [pool creato con immagine di macchina virtuale personalizzata](batch-custom-images.md)**<sup>1</sup> ||
+| **Nodi di calcolo nel [pool creato con immagine di macchina virtuale personalizzata](batch-custom-images.md)** <sup>1</sup> ||
 | Nodi dedicati | 2000 |
-| Nodi per priorità bassa | 1000 |
+| Nodi a priorità bassa | 1000 |
 
 <sup>1</sup> Per pool non abilitati alla comunicazione tra i nodi.
 
 ## <a name="other-limits"></a>Altri limiti
+
+Impostare limiti aggiuntivi dal servizio Batch. A differenza [le quote di risorse](#resource-quotas), questi valori non possono essere modificati.
 
 | **Risorsa** | **Limite massimo** |
 | --- | --- |
@@ -84,7 +89,7 @@ Per richiedere un aumento di quota per la sottoscrizione o l'account Batch usand
 
 ### <a name="increase-cores-quota-in-batch"></a>Aumentare la quota di core batch 
 
-1. Selezionare il riquadro **Guida e supporto** nel dashboard del portale o il punto interrogativo (**?**) nell'angolo superiore destro del portale.
+1. Selezionare il riquadro **Guida e supporto** nel dashboard del portale o il punto interrogativo ( **?** ) nell'angolo superiore destro del portale.
 1. Selezionare **Nuova richiesta di supporto** > **Informazioni di base**.
 1. In **Nozioni di base**:
    

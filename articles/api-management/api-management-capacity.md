@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60658305"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacità di un'istanza di Gestione API di Azure
@@ -69,7 +69,7 @@ I picchi di **capacità** possono anche verificarsi a intermittenza o essere mag
 ![Metriche di capacità](./media/api-management-capacity/capacity-metric.png)  
 
 1. Nel [portale di Azure](https://portal.azure.com/) passare all'istanza di Gestione API.
-2. Selezionare **Metriche (anteprima)**.
+2. Selezionare **Metriche (anteprima)** .
 3. Dalla sezione viola selezionare la metrica**Capacità** tra le metriche disponibili e lasciare l'aggregazione predefinita **Media**.
 
     > [!TIP]

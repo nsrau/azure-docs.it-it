@@ -3,20 +3,20 @@ title: Installare ed eseguire i contenitori
 titlesuffix: Face - Azure Cognitive Services
 description: Scaricare, installare ed eseguire i contenitori per viso in questa esercitazione dettagliata.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 26ebeb463f42dce06c29a5bd3f69585430a2ee90
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: 4d3f3e64e109d0b1dc010be39b62b4f0bdc0573d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306646"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063604"
 ---
 # <a name="install-and-run-face-containers"></a>Installare ed eseguire i contenitori di viso
 
@@ -83,7 +83,7 @@ Dopo aver creato il contenitore nel [computer host](#the-host-computer), utilizz
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Il comando Usa i parametri seguenti.
 
-| Segnaposto | Value |
+| Placeholder | Value |
 |-------------|-------|
 |{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore e sono disponibile in Azure `Cognitive Services` **chiavi** pagina. |
 |{BILLING_ENDPOINT_URI} | Il valore URI dell'endpoint di fatturazione è disponibile in Azure `Cognitive Services` **Cenni preliminari su** pagina. Un esempio è `https://westus.api.cognitive.microsoft.com/face/v1.0`.|

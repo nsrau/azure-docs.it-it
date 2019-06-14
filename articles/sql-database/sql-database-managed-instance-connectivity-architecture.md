@@ -13,10 +13,10 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522323"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura della connettività per un'istanza gestita di Database SQL di Azure
@@ -99,7 +99,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 | NOME       |Port                        |Protocol|`Source`           |Destination|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gestione  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |MI SUBNET  |CONSENTI |
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |MI SUBNET  |CONSENTI |
 |mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |MI SUBNET  |CONSENTI |
 |health_probe|Qualsiasi                         |Qualsiasi     |AzureLoadBalancer|MI SUBNET  |CONSENTI |
 
@@ -107,7 +107,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 | NOME       |Port          |Protocol|`Source`           |Destination|Azione|
 |------------|--------------|--------|-----------------|-----------|------|
-|gestione  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |CONSENTI |
+|management  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |CONSENTI |
 |mi_subnet   |Qualsiasi           |Qualsiasi     |MI SUBNET        |MI SUBNET  |CONSENTI |
 
 > [!IMPORTANT]
@@ -122,7 +122,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="user-defined-routes"></a>route definite dall'utente
 
-|NOME|Prefisso indirizzo|Hop successivo|
+|Name|Prefisso indirizzo|Hop successivo|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|Rete virtuale|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

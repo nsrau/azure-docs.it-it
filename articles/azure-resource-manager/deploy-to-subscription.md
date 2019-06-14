@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: bdba294e1ee776d90b93f715e930ec26765abb7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129159"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
@@ -211,9 +211,9 @@ L'esempio seguente crea un gruppo di risorse e distribuisce un account di archiv
 }
 ```
 
-## <a name="create-policies"></a>Crea criteri
+## <a name="create-policies"></a>Creare criteri
 
-### <a name="assign-policy"></a>Assegna criteri
+### <a name="assign-policy"></a>Assegnare un criterio
 
 L'esempio seguente assegna una definizione di criteri esistente alla sottoscrizione. Se i criteri accettano parametri, specificarli come oggetto. Se non accettano parametri, usare l'oggetto vuoto predefinito.
 

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 82b2f5ca70927856aeac889675b5ec4a54ae034f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796754"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informazioni di riferimento per l'API Bing Local Business Search v7
@@ -46,12 +46,12 @@ La richiesta deve usare il protocollo HTTPS.
 > La lunghezza massima dell'URL è di 2048 caratteri. Per garantire che la lunghezza dell'URL non superi il limite, la lunghezza massima dei parametri di query deve essere inferiore a 1.500 caratteri. Se l'URL supera 2.048 caratteri, il server restituisce l'errore 404 Non trovato.  
   
   
-## <a name="headers"></a>Intestazioni  
+## <a name="headers"></a>Headers  
 Di seguito sono riportate le intestazioni che una richiesta e una risposta possono includere.  
   
 |Intestazione|Descrizione|  
 |------------|-----------------|  
-|Accetta|Intestazione di richiesta facoltativa.<br /><br /> Il tipo di contenuto multimediale predefinito è application/json. Per specificare che la risposta usi [JSON-LD](https://json-ld.org/), impostare l'intestazione Accept su application/ld+json.|  
+|Accept|Intestazione di richiesta facoltativa.<br /><br /> Il tipo di contenuto multimediale predefinito è application/json. Per specificare che la risposta usi [JSON-LD](https://json-ld.org/), impostare l'intestazione Accept su application/ld+json.|  
 |<a name="acceptlanguage" />Accept-Language|Intestazione di richiesta facoltativa.<br /><br /> Elenco delimitato da virgole di lingue da usare per le stringhe dell'interfaccia utente. L'elenco è in ordine decrescente di preferenza. Per altre informazioni, incluso il formato previsto, vedere [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Questa intestazione e il parametro di query [setLang](#setlang) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Se si imposta questa intestazione, è necessario inoltre specificare il parametro di query cc. Per determinare il mercato per cui restituire i risultati, Bing usa la prima lingua supportata individuata nell'elenco e la combina con il valore del parametro `cc`. Se l'elenco non include una lingua supportata, Bing trova la corrispondenza più vicina della lingua e il mercato che supporta la richiesta oppure usa un mercato aggregato o predefinito per i risultati. Per determinare il mercato usato da Bing, vedere l'intestazione BingAPIs-Market.<br /><br /> Usare questa intestazione e il parametro di query `cc` solo se si specificano più lingue. In caso contrario, usare i parametri di query [mkt](#mkt) e [setLang](#setlang).<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti di risposta si applicano alla lingua specificata.|  
 |<a name="market" />BingAPIs-Market|Intestazione della risposta.<br /><br /> Il mercato usato dalla richiesta. Il formato è \<languageCode\>-\<countryCode\>, ad esempio en-US.|  
 |<a name="traceid" />BingAPIs-TraceId|Intestazione della risposta.<br /><br /> L'ID della voce di registro che contiene i dettagli della richiesta. In caso di errore acquisire questo ID. Se non si riesce a individuare e risolvere il problema, includere questo ID con le altre informazioni inviate al team di supporto.|  
@@ -70,16 +70,16 @@ Di seguito sono riportate le intestazioni che una richiesta e una risposta posso
 La richiesta può includere i parametri di query seguenti. Vedere i parametri obbligatori nella colonna corrispondente. È necessario eseguire la codifica URL dei parametri della query.  
   
   
-|NOME|Value|Type|Obbligatorio|  
+|Name|Value|Type|Obbligatorio|  
 |----------|-----------|----------|--------------|
-|<a name="count" />count|Il numero di risultati da restituire, a partire dall'indice specificato da di `offset` parametro.|String|N.|   
-|<a name="localCategories" />localCategories|Elenco di opzioni che definiscono una ricerca in base alla categoria di attività commerciale.  Vedere [Ricerca in base a categorie di attività commerciali](local-categories.md).|String|N.|  
-|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Market Codes (Codici di mercato).<br /><br /> **NOTA:** attualmente l'API per la ricerca di aziende locali supporta solo la lingua e il mercato en-us.<br /><br />|String|Sì|
-|<a name="offset"/>offset|Indice per definire l'inizio dei risultati specificati dal parametro `count`.|Integer|N.|  
-|<a name="query" />q|Termine di ricerca dell'utente.|String|N.|  
-|<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />  Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](https://json-ld.org/).|String|N.|  
-|<a name="safesearch" />safeSearch|Filtro usato per filtrare il contenuto per adulti. Di seguito sono riportati i possibili valori di filtro con distinzione tra maiuscole e minuscole.<br /><ul><li>Disattivata: vengono restituite le pagine Web con testo, immagini o video per adulti.<br /><br/></li><li>Moderata: vengono restituite le pagine Web con testo per adulti, ma non le immagini o i video per adulti.<br /><br/></li><li>Completa: non vengono restituite le pagine Web con testo, immagini o video per adulti.</li></ul><br /> Il valore predefinito è Moderate.<br /><br /> **NOTA:** se la richiesta proviene da un mercato in cui il criterio per adulti di Bing richiede che `safeSearch` sia impostata su Completa, Bing ignora il valore di `safeSearch` e usa Completa.<br/><br/>**NOTA:** se si usa l'operatore di query `site:`, esiste la possibilità che la risposta possa includere contenuti per adulti indipendentemente dall'impostazione del parametro di query `safeSearch`. Usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti. |String|N.|  
-|<a name="setlang" />setLang|Lingua da usare per le stringhe dell'interfaccia utente. Specificare la lingua tramite il codice lingua a due lettere ISO 639-1. Ad esempio, il codice lingua per l'inglese è EN. L'impostazione predefinita è EN (inglese).<br /><br /> Sebbene sia facoltativo, è opportuno specificare sempre la lingua. In genere, si imposta `setLang` sulla stessa lingua specificata da `mkt`, a meno che non si intenda visualizzare le stringhe dell'interfaccia utente in un'altra lingua.<br /><br /> Questo parametro e l'intestazione [Accept-Language](#acceptlanguage) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti risposta si applicano anche alla lingua specificata.|String|N.| 
+|<a name="count" />count|Il numero di risultati da restituire, a partire dall'indice specificato da di `offset` parametro.|String|No|   
+|<a name="localCategories" />localCategories|Elenco di opzioni che definiscono una ricerca in base alla categoria di attività commerciale.  Vedere [Ricerca in base a categorie di attività commerciali](local-categories.md).|String|No|  
+|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Market Codes (Codici di mercato).<br /><br /> **NOTA:** attualmente l'API per la ricerca di aziende locali supporta solo la lingua e il mercato en-us.<br /><br />|String|Yes|
+|<a name="offset"/>offset|Indice per definire l'inizio dei risultati specificati dal parametro `count`.|Integer|No|  
+|<a name="query" />q|Termine di ricerca dell'utente.|String|No|  
+|<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />  Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](https://json-ld.org/).|String|No|  
+|<a name="safesearch" />safeSearch|Filtro usato per filtrare il contenuto per adulti. Di seguito sono riportati i possibili valori di filtro con distinzione tra maiuscole e minuscole.<br /><ul><li>Disattivata: vengono restituite le pagine Web con testo, immagini o video per adulti.<br /><br/></li><li>Moderata: vengono restituite le pagine Web con testo per adulti, ma non le immagini o i video per adulti.<br /><br/></li><li>Completa: non vengono restituite le pagine Web con testo, immagini o video per adulti.</li></ul><br /> Il valore predefinito è Moderate.<br /><br /> **NOTA:** se la richiesta proviene da un mercato in cui il criterio per adulti di Bing richiede che `safeSearch` sia impostata su Completa, Bing ignora il valore di `safeSearch` e usa Completa.<br/><br/>**NOTA:** se si usa l'operatore di query `site:`, esiste la possibilità che la risposta possa includere contenuti per adulti indipendentemente dall'impostazione del parametro di query `safeSearch`. Usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti. |String|No|  
+|<a name="setlang" />setLang|Lingua da usare per le stringhe dell'interfaccia utente. Specificare la lingua tramite il codice lingua a due lettere ISO 639-1. Ad esempio, il codice lingua per l'inglese è EN. L'impostazione predefinita è EN (inglese).<br /><br /> Sebbene sia facoltativo, è opportuno specificare sempre la lingua. In genere, si imposta `setLang` sulla stessa lingua specificata da `mkt`, a meno che non si intenda visualizzare le stringhe dell'interfaccia utente in un'altra lingua.<br /><br /> Questo parametro e l'intestazione [Accept-Language](#acceptlanguage) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti risposta si applicano anche alla lingua specificata.|String|No| 
 
 
 ## <a name="response-objects"></a>Oggetti della risposta  
@@ -107,7 +107,7 @@ Definisce l'errore che si è verificato.
 ### <a name="errorresponse"></a>ErrorResponse  
 Oggetto di livello superiore incluso nella risposta in caso di richiesta con esito negativo.  
   
-|NOME|Value|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo.|String|  
 |<a name="errors" />errors|Un elenco di errori che descrivono i motivi per cui la richiesta non ha avuto esito positivo.|[Error](#error)[]|  
@@ -117,16 +117,16 @@ Oggetto di livello superiore incluso nella risposta in caso di richiesta con esi
 ### <a name="license"></a>License  
 Definisce la licenza ai sensi della quale è possibile usare il testo o la foto.  
   
-|NOME|Value|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |name|Il nome della licenza.|String|  
 |url|L'URL di un sito Web in cui l'utente può ottenere ulteriori informazioni sulla licenza.<br /><br /> Usare il nome e l'URL per creare un collegamento ipertestuale.|String|  
 
 
-### <a name="link"></a>Collega  
+### <a name="link"></a>Collegamento  
 Definisce i componenti di un collegamento ipertestuale.  
   
-|NOME|Value|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo.|String|  
 |text|Testo visualizzato.|String|  
@@ -135,12 +135,12 @@ Definisce i componenti di un collegamento ipertestuale.
 
 
   
-### <a name="organization"></a>Azienda  
+### <a name="organization"></a>Organizzazione  
 Definisce un editore.  
   
 Si noti che un editore può fornire il proprio nome e/o il sito Web.  
   
-|NOME|Value|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |name|Nome dell'editore.|String|  
 |url|L'URL del sito Web dell'editore.<br /><br /> Si noti che l'editore potrebbe non fornire un sito Web.|String|  
@@ -150,10 +150,10 @@ Si noti che un editore può fornire il proprio nome e/o il sito Web.
 ### <a name="place"></a>Sul posto  
 Definisce le informazioni su un'attività commerciale locale, ad esempio un ristorante o un hotel.  
   
-|NOME|Value|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo, che può essere impostato su uno dei valori seguenti:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Ristorante</ul><li>|String|  
-|indirizzo|Indirizzo postale del luogo in cui si trova l'entità.|PostalAddress|  
+|Address|Indirizzo postale del luogo in cui si trova l'entità.|PostalAddress|  
 |entityPresentationInfo|Informazioni aggiuntive sull'entità, ad esempio gli hint che è possibile usare per determinare il tipo dell'entità. Ad esempio, se si tratta di un ristorante o di un hotel. Il campo `entityScenario` è impostato su ListItem.|EntityPresentationInfo|  
 |name|Nome dell'entità.|String|  
 |telephone|Numero di telefono dell'entità.|String|  
@@ -174,16 +174,16 @@ Definisce il contesto di query usato da Bing per la richiesta.
 
 ### <a name="identifiable"></a>Identifiable
 
-|NOME|Value|Type|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
-|ID|Identificatore di risorsa|String|
+|id|Identificatore di risorsa|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definisce un gruppo di risultati di ricerca, ad esempio la riga principale.
 
-|NOME|Value|Type|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
-|elementi|Elenco di risultati della ricerca da visualizzare nel gruppo.|RankingItem|
+|items|Elenco di risultati della ricerca da visualizzare nel gruppo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definisce un elemento dei risultati della ricerca da visualizzare.
@@ -198,7 +198,7 @@ Definisce un elemento dei risultati della ricerca da visualizzare.
 ### <a name="rankingresponse"></a>RankingResponse  
 Definisce il punto in cui il contenuto della pagina dei risultati della ricerca deve essere posizionato e in quale ordine.  
   
-|NOME|Value|  
+|Name|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|I risultati della ricerca da visualizzare nella riga principale.|  
 |<a name="ranking-pole" />pole|I risultati della ricerca che devono ottenere il trattamento più visibile, ad esempio la visualizzazione sopra la riga principale e la barra laterale.|  
@@ -209,7 +209,7 @@ Definisce l'oggetto di livello superiore incluso nella risposta quando la richie
   
 Si noti che se il servizio sospetta un attacco Denial of Service, la richiesta avrà esito positivo (con codice di stato HTTP 200 OK), ma il corpo della risposta sarà vuoto.  
   
-|NOME|Value|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo, che è impostato su SearchResponse.|String|  
 |places|Elenco di entità che sono rilevanti per la query di ricerca.|Oggetto JSON|  
@@ -222,7 +222,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   
 |Codice di stato|Descrizione|  
 |-----------------|-----------------|  
-|200|Riuscite.|  
+|200|Completamento della procedura.|  
 |400|Uno dei parametri di query manca o non è valido.|  
 |401|La chiave di sottoscrizione manca o non è valida.|  
 |403|L'utente viene autenticato, ad esempio è stata usata una chiave di sottoscrizione valida, ma non dispone dell'autorizzazione per la risorsa richiesta.<br /><br /> Bing può restituire questo stato anche se il chiamante ha superato la quota di query al mese.|  

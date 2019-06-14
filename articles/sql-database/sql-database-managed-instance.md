@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c09dd990bb377672cb34ebd73a5aa9e59bbc067f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098545"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070411"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Usare la sicurezza dei dati avanzata di database SQL con le reti virtuali e una compatibilità quasi del 100%
 
@@ -54,18 +54,18 @@ L'istanza gestita combina le migliori funzionalità disponibili sia nel database
 
 Nella tabella seguente sono elencate le principali funzionalità delle istanze gestite:
 
-|Funzionalità | DESCRIZIONE|
+|Funzionalità | Descrizione|
 |---|---|
 | Versione/build di SQL Server | Motore di database di SQL Server (ultima versione stabile) |
-| Backup automatici gestiti | Sì |
-| Monitoraggio predefinito e metriche dell'istanza e del database | Sì |
-| Applicazione automatica di patch software | Sì |
-| Funzionalità più recenti del motore di database | Sì |
+| Backup automatici gestiti | Yes |
+| Monitoraggio predefinito e metriche dell'istanza e del database | Yes |
+| Applicazione automatica di patch software | Yes |
+| Funzionalità più recenti del motore di database | Yes |
 | Numero di file di dati (RIGHE) per il database | Multipli |
 | Numero di file di log (LOG) per il database | 1 |
-| Rete virtuale: distribuzione di Azure Resource Manager | Sì |
-| Rete virtuale: modello di distribuzione classica | No  |
-| Supporto del portale | Sì|
+| Rete virtuale: distribuzione di Azure Resource Manager | Yes |
+| Rete virtuale: modello di distribuzione classica | No |
+| Supporto del portale | Yes|
 | Integration Services (SSIS) incorporato | No - SSIS fa parte di [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Services (SSAS) incorporato | No - SSAS fa parte di una [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) distinta |
 | Reporting Services (SSRS) incorporato | No - usare Power BI o SSRS IaaS |
@@ -78,7 +78,7 @@ Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) pe
 Nel modello vCore è possibile scegliere tra diverse generazioni di hardware.
 
 - Le CPU logiche di **quarta generazione** sono basate su processori Intel E5-2673 v3 (Haswell) da 2,4 GHz, unità SSD collegata, core fisici, 7 GB di RAM per core e dimensioni di calcolo comprese tra 8 e 24 vCore.
-- Le CPU logiche di **quinta generazione** sono basate su processori Intel E5-2673 v4 (Broadwell) da 2,3 GHz, unità SSD NVMe veloce, core logico con hyperthreading e dimensioni di calcolo comprese tra 8 e 80 core.
+- **Gen5** CPU logiche sono basate su Intel E5-2673 v4 processori 2,3 GHz (Broadwell), veloce SSD NVMe, hyperthreading core logico e dimensioni tra 4 e 80 core di calcolo.
 
 Per altre informazioni sulle differenze tra le generazioni di hardware, vedere [Limiti delle risorse per le istanze gestite](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -226,7 +226,7 @@ L'opzione di distribuzione dell'istanza gestita consente all'amministratore di s
 
 La tabella seguente mostra diverse proprietà, accessibili tramite Transact SQL, che è possibile usare per rilevare se l'applicazione funziona con l'istanza gestita e recuperare proprietà importanti.
 
-|Proprietà|Value|Comment|
+|Proprietà|Value|Commento|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Questo valore è uguale a quello del database SQL.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Questo valore è uguale a quello del database SQL.|
@@ -240,5 +240,5 @@ La tabella seguente mostra diverse proprietà, accessibili tramite Transact SQL,
 - Per altre informazioni sulla configurazione della rete virtuale, vedere l'articolo relativo alla [configurazione di una rete virtuale per l'istanza gestita](sql-database-managed-instance-connectivity-architecture.md).
 - Per una guida di avvio rapido sulla creazione di un'istanza gestita e il ripristino di un database da un file di backup, vedere [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).
 - Per un'esercitazione sull'uso di Servizio Migrazione del database di Azure per la migrazione, vedere l'articolo relativo alla [migrazione all'istanza gestita con Servizio Migrazione del database](../dms/tutorial-sql-server-to-managed-instance.md).
-- Per informazioni sul monitoraggio avanzato delle prestazioni del database dell'istanza gestita con intelligence predefinita per la risoluzione dei problemi, vedere [Monitorare il database SQL di Azure usando Analisi SQL di Azure](../azure-monitor/insights/azure-sql.md)
+- Per avanzate per il monitoraggio delle prestazioni di database di istanza gestita con intelligence incorporato di risoluzione dei problemi, vedere [Database SQL di Azure Monitor con Azure SQL Analitica](../azure-monitor/insights/azure-sql.md).
 - Per informazioni sui prezzi, vedere [Prezzi dell'istanza gestita di database SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).

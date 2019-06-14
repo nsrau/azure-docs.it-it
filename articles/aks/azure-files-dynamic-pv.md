@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9771c110e277d67bee329fe62434b18a01189476
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65072230"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061091"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con File di Azure nel servizio Azure Kubernetes
 
@@ -35,7 +35,7 @@ Una classe di archiviazione permette di definire come creare una condivisione fi
 * *Standard_RAGRS*: archiviazione con ridondanza geografica e accesso in lettura standard
 
 > [!NOTE]
-> File di Azure attualmente funziona solo con l'archiviazione Standard. Se si usa l'archiviazione Premium, il provisioning del volume non riesce.
+> File di Azure supportano archiviazione premium in cluster servizio contenitore di AZURE che esegue Kubernetes 1,13 o versione successiva.
 
 Per altre informazioni sulle classi di archiviazione Kubernetes per File di Azure, vedere [Kubernetes Storage Classes][kubernetes-storage-classes] (Classi di archiviazione Kubernetes).
 

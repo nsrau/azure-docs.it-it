@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60447875"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copiare i dati in Esplora dati di Azure usando Azure Data Factory 
@@ -46,7 +46,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 
     **Impostazione**  | **Descrizione campo**
     |---|---|
-    | **Nome** | Immettere un nome univoco globale per la data factory. Se viene visualizzato l'errore *"nome della Data factory \"LoadADXDemo\" non è disponibile"*, immettere un nome diverso per la data factory. Per le regole di denominazione di elementi di Data Factory, vedere [regole di denominazione di Data Factory](/azure/data-factory/naming-rules).|
+    | **Nome** | Immettere un nome univoco globale per la data factory. Se viene visualizzato l'errore *"nome della Data factory \"LoadADXDemo\" non è disponibile"* , immettere un nome diverso per la data factory. Per le regole di denominazione di elementi di Data Factory, vedere [regole di denominazione di Data Factory](/azure/data-factory/naming-rules).|
     | **Sottoscrizione** | selezionare la sottoscrizione di Azure in cui creare la data factory. |
     | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere il nome del nuovo gruppo di risorse. Selezionare **Usa esistente**, se si dispone di un gruppo di risorse. |
     | **Versione** | Selezionare **V2**. |
@@ -158,7 +158,7 @@ Azure Esplora dati nuovo servizio collegato viene creato per copiare i dati nell
     * Il secondo mapping si verifica quando vengono inseriti dati tabulari in Esplora dati di Azure. Viene eseguito il mapping in base alla [regole di mapping CSV](/azure/kusto/management/mappings#csv-mapping). Si noti che anche se i dati di origine non è in formato CSV, Azure Data Factory ha convertito i dati in un formato tabulare, di conseguenza, il mapping di CSV è il mapping solo rilevante in questa fase.
         * Sotto **proprietà del sink Azure Data Explorer (Kusto)** aggiungere il relativo **nome mapping inserimento** (facoltativo) il mapping di tale colonna può essere pertanto utilizzato.
         * Se **nome mapping inserimento** non è specificato, l'ordine "base al nome" mapping definito nel **mapping colonne** sezione verrà eseguita. Se il mapping di "base al nome" non riesce, Esplora dati di Azure tenterà di inserire i dati in un ordine "position dalla colonna" (esegue il mapping dalla posizione come valore predefinito).
-    * Selezionare **successivo**
+    * Selezionare **Avanti**
 
     ![Mapping di colonne di set di dati di destinazione](media/data-factory-load-data/destination-dataset-column-mapping.png)
 

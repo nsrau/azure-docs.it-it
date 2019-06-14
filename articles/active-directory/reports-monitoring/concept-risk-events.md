@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e50cc4ca9c98cb6a8e0f19cfcf6c1f86f1949beb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682938"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107688"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventi di rischio di Azure Active Directory
 
@@ -54,7 +54,7 @@ Le informazioni ottenute per un evento di rischio rilevato sono associate alla s
 * Con l'**edizione Azure AD Premium P2**, si ottengono le informazioni più dettagliate su tutti i rilevamenti sottostanti. 
 * Con il **Azure AD Premium P1 edition**avanzati, rilevamenti (ad esempio proprietà di accesso sconosciuto) non sono coperti dalla licenza in uso e verrà visualizzata sotto il nome del **Accedi con rischi aggiuntivi rilevati** . Inoltre, il livello di rischio e campi di dettagli di rischio sono nascoste.
 
-Sebbene il rilevamento di eventi di rischio rappresenti già un aspetto importante per la protezione delle identità, è anche possibile risolvere gli eventi manualmente o implementare risposte automatiche mediante la configurazione di criteri di accesso condizionale. Per altre informazioni, vedere [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+Mentre il rilevamento di eventi di rischio già rappresenta un aspetto importante della protezione delle identità, è possibile scegliere manualmente risolverli o implementare risposte automatiche mediante la configurazione di criteri di accesso condizionale. Per altre informazioni, vedere [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 ## <a name="risk-event-types"></a>Tipi di evento di rischio
 

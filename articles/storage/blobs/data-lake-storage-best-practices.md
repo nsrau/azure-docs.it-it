@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 8b39866b990812913924118c564a5e93f898b1cb
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 7cfe19614b2107161dcce9c80690333212162045
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939458"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061319"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen2
 
@@ -26,7 +26,7 @@ Azure Data Lake Storage Gen2 offre controlli di accesso POSIX per utenti, gruppi
 
 ### <a name="use-security-groups-versus-individual-users"></a>Confronto tra l'uso di gruppi di sicurezza e di singoli utenti
 
-Quando si usano Big Data in Data Lake Storage Gen2, probabilmente si usa un'entità servizio per consentire ai servizi, ad esempio Azure HDInsight, di usare i dati. In alcuni casi, tuttavia, singoli utenti potrebbero dover accedere ai dati. In questi casi è assolutamente consigliabile usare i [gruppi di sicurezza](../common/storage-auth-aad.md) di Azure Active Directory invece di assegnare singoli utenti a file e directory.
+Quando si lavora con big data in Data Lake Storage Gen2, è probabile che un'entità servizio viene utilizzata per consentire ai servizi, ad esempio Azure HDInsight per lavorare con i dati. In alcuni casi, tuttavia, singoli utenti potrebbero dover accedere ai dati. In questi casi è assolutamente consigliabile usare i [gruppi di sicurezza](../common/storage-auth-aad.md) di Azure Active Directory invece di assegnare singoli utenti a file e directory.
 
 Una volta assegnate le autorizzazioni a un gruppo di sicurezza, per aggiungere o eliminare utenti dal gruppo non sono necessari aggiornamenti a Data Lake Storage Gen2. Ciò consente inoltre di non superare il numero massimo di voci di controllo di accesso per ogni elenco di controllo di accesso. Questo numero è attualmente 32, compresi i quattro elenchi di controllo di accesso in stile POSIX che sono sempre associati a ogni file e directory: l'utente proprietario, il gruppo proprietario, la maschera e altro. Ogni directory può avere due tipi di elenco di controllo di accesso (ACL), l'ACL di accesso e l'ACL predefinito, per un totale di 64 voci di controllo di accesso. Per altre informazioni sugli elenchi di controllo di accesso, vedere [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md) (Controllo di accesso in Azure Data Lake Storage Gen2).
 
@@ -40,7 +40,7 @@ Le entità servizio di Azure Active Directory vengono in genere usate dai serviz
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Abilitare il firewall di Data Lake Storage Gen2 con l'accesso ai servizi di Azure
 
-Data Lake Storage Gen2 consente di attivare un firewall e limitare l'accesso solo ai servizi di Azure. Questo scenario è consigliato per limitare il vettore di attacchi esterni. Il firewall può essere abilitato per l'account di archiviazione nel portale di Azure tramite le opzioni **Firewall** > **Abilita firewall (ATTIVA)** > **Consenti l'accesso a Servizi di Azure**.
+Data Lake Storage Gen2 consente di attivare un firewall e limitare l'accesso solo ai servizi di Azure. Questo scenario è consigliato per limitare il vettore di attacchi esterni. Il firewall può essere abilitato per l'account di archiviazione nel portale di Azure tramite le opzioni **Firewall** > **Abilita firewall (ATTIVA)**  > **Consenti l'accesso a Servizi di Azure**.
 
 L'aggiunta di cluster Azure Databricks a una rete virtuale a cui potrebbe essere consentito l'accesso tramite il firewall dell'account di archiviazione richiede l'uso di una funzionalità di anteprima di Databricks. Per abilitare questa funzione, inserire una richiesta di supporto.
 

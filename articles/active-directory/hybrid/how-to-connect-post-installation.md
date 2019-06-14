@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571343"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Passaggi successivi e come gestire Azure AD Connect
@@ -56,12 +56,12 @@ Usare il portale di Azure per controllare lo stato di una sincronizzazione.
 Se è necessario eseguire un'attività di sincronizzazione, è possibile farlo:
 
 1. Fare doppio clic sul collegamento sul desktop di Azure AD Connect per avviare la procedura guidata.
-2. Fare clic su **Configure**.
+2. Fare clic su **configurare**.
 3. Nella schermata di attività, selezionare la **personalizzare le opzioni di sincronizzazione** e fare clic su **successivo**
 4. Immettere le credenziali di Azure AD
 5. Fare clic su **Avanti**. Fare clic su **Avanti**.  Fare clic su **Avanti**.
 5.  Nel **possa essere configurato** schermata, assicurarsi che le **avvia il processo di sincronizzazione al termine della configurazione** casella è selezionata.
-6.  Fare clic su **Configure**.
+6.  Fare clic su **configurare**.
 
 Per altre informazioni sull'utilità di pianificazione della sincronizzazione di Azure AD Connect, vedere [Utilità di pianificazione di Azure AD Connect](how-to-connect-sync-feature-scheduler.md).
 
@@ -72,7 +72,7 @@ La tabella seguente include un riepilogo di tali attività e una breve descrizio
 
 ![Elenco delle attività aggiuntive](./media/how-to-connect-post-installation/addtasks2.png)
 
-| Attività aggiuntive | DESCRIZIONE |
+| Attività aggiuntive | Descrizione |
 | --- | --- |
 |**Impostazioni di privacy**|Consente di visualizzare i dati di telemetria sono condiviso con Microsoft.|
 |**Visualizza la configurazione corrente**|Consente di visualizzare la soluzione Azure AD Connect corrente.  Include impostazioni generali, directory sincronizzate e impostazioni di sincronizzazione. |

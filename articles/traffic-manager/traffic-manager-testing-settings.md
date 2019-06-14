@@ -2,21 +2,20 @@
 title: Verificare le impostazioni di Gestione traffico di Azure
 description: Questo articolo illustra come verificare le impostazioni di Gestione traffico.
 services: traffic-manager
-author: rockboyfor
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/16/2017
-ms.date: 02/18/2019
-ms.author: v-yeche
-ms.openlocfilehash: 1e954e3c4ebba245d91cfb84ab583b314150e5b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/16/2017
+ms.author: allensu
+ms.openlocfilehash: 19ef08a40d0a84aecb070e71bbb8c9b6a88ae059
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771618"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070933"
 ---
 # <a name="verify-traffic-manager-settings"></a>Verificare le impostazioni di Gestione traffico
 
@@ -36,7 +35,7 @@ Per testare il profilo di Gestione traffico, vedere gli esempi seguenti.
 2. Digitare `ipconfig /flushdns` per scaricare la cache del resolver DNS.
 3. Digitare `nslookup <your Traffic Manager domain name>`. Il comando seguente, ad esempio, controlla il nome di dominio con il prefisso *myapp.contoso*
 
-        nslookup myapp.contoso.trafficmanager.cn
+        nslookup myapp.contoso.trafficmanager.net
 
     Un risultato tipico visualizza le informazioni seguenti:
 
@@ -72,5 +71,3 @@ In alternativa, sono disponibili servizi gratuiti di analisi approfondita e DNS 
 * [Informazioni sui metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
 * [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
 * [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
-
-<!-- Update_Description: update meta properties -->

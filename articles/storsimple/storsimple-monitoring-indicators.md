@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630609"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo
@@ -136,7 +136,7 @@ La figura seguente facilita l’identificazione dei LED sul controller primario.
 Utilizzare la tabella seguente per determinare se il modulo controller funziona correttamente.  
 
 ### <a name="controller-indicator-leds"></a>Indicatori LED del controller
-| LED | DESCRIZIONE |
+| LED | Descrizione |
 | --- | --- |
 | LED ID (blu) |Indica che è in corso l’identificazione del modulo. Se su un controller in esecuzione, il LED blu lampeggia, significa che tale controller è attivo mentre l'altro è in standby. Per ulteriori informazioni, vedere [Identificare un controller attivo sul dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED errore (ambra) |Indica un errore nel controller. |

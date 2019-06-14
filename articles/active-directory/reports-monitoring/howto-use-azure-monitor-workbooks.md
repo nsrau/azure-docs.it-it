@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6ae14ec152975717af5d55780bcc39aa87c4b01a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 6d461725d0d4c86ee7aa5b450d42c01ca77ffb16
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406603"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107669"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Come usare le cartelle di lavoro di monitoraggio di Azure per i report di Azure Active Directory
 
@@ -74,11 +74,11 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Tutti gli accessi
 
-- Esito positivo
+- Riuscito
 
-- In attesa dell'azione dell'utente
+- Azione dell'utente in sospeso
 
-- Errore
+- Esito negativo
 
 È possibile filtrare ogni tendenza per le categorie seguenti:
 
@@ -111,7 +111,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Tutti gli accessi
 
-- Esito positivo
+- Riuscito
 
 
 È possibile filtrare ogni tendenza per le categorie seguenti:
@@ -146,7 +146,7 @@ Questa cartella di lavoro vengono visualizzate le tendenze per gli accessi disab
 
 - Utenti
 
-![Accessi usando l'accesso condizionale](./media/howto-use-azure-monitor-workbooks/49.png)
+![Accessi con accesso condizionale](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
 Per gli accessi disabilitati, per ottenere una scomposizione, lo stato di accesso condizionale.
@@ -168,11 +168,11 @@ Questa cartella di lavoro vengono visualizzate le seguenti disabilitate Accedi t
 
 - Richiedere l'autenticazione MFA
  
-- Richiedere le condizioni d'uso
+- Richiedere le condizioni per l'utilizzo
 
 - Richiedere l'informativa sulla privacy
 
-- Altro
+- Altri
 
 
 È possibile filtrare ogni tendenza per le categorie seguenti:
@@ -208,11 +208,11 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Tutti gli accessi
 
-- Esito positivo
+- Riuscito
 
-- In attesa di un'azione
+- Azione in sospeso
 
-- Errore
+- Esito negativo
 
 
 È possibile filtrare ogni tendenza per le categorie seguenti:

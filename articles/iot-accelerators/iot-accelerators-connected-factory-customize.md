@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 7d4e95d066e191e1d5b6d083ede65843dbe73f31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450397"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080492"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizzare la modalità di visualizzazione dei dati dai server OPC UA da parte della soluzione Connected Factory
 
@@ -39,7 +39,7 @@ L'articolo illustra:
 
 ## <a name="data-sources"></a>Origini dati
 
-La soluzione Connected Factory visualizza dati dai server OPC UA connessi alla soluzione. L'installazione predefinita include diversi server OPC UA che eseguono una simulazione di fabbrica. È possibile aggiungere i propri server OPC UA che [si connettono tramite un gateway][lnk-connect-cf] alla soluzione.
+La soluzione Connected Factory visualizza dati dai server OPC UA connessi alla soluzione. L'installazione predefinita include diversi server OPC UA che eseguono una simulazione di fabbrica. È possibile aggiungere i propri server OPC UA che [argomento connect tramite un gateway] [lnk-connect-cf] alla soluzione.
 
 È possibile anche esplorare gli elementi dei dati che un server OPC UA connesso può inviare alla soluzione nel dashboard:
 
@@ -79,8 +79,6 @@ Il repository **azure-iot-connected-factory** include uno script PowerShell **bu
 
 Altre informazioni sull'acceleratore di soluzioni di connected factory sono disponibili negli articoli seguenti:
 
-* [Procedura dettagliata dell'acceleratore di soluzioni di connected factory ][lnk-rm-walkthrough]
-* [Distribuire un gateway per Connected Factory][lnk-connect-cf]
 * [Autorizzazioni per il sito azureiotsolutions.com][lnk-permissions]
 * [Domande frequenti su Connected Factory](iot-accelerators-faq-cf.md)
 * [Domande frequenti][lnk-faq]
@@ -93,7 +91,5 @@ Altre informazioni sull'acceleratore di soluzioni di connected factory sono disp
 [img-published]: ./media/iot-accelerators-connected-factory-customize/published.png
 
 
-[lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
-[lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-accelerators-permissions.md
 [lnk-faq]: iot-accelerators-faq.md

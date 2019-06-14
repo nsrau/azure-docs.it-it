@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
-ms.date: 05/22/2019
-ms.openlocfilehash: ef431754db222554c6543e12e4cb6cf0431f7b51
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.date: 06/13/2019
+ms.openlocfilehash: 15f64c7087ea4d24f271af67b251030a2196fa10
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755055"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070363"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Cenni preliminari su Azure SQL Database managed i limiti delle risorse di istanza
 
@@ -32,29 +32,29 @@ Istanza gestita ha le caratteristiche e i limiti delle risorse che dipendono l'i
 
 ### <a name="hardware-generation-characteristics"></a>Caratteristiche delle generazioni dell'hardware
 
-Istanza gestita di Database SQL Azure può essere distribuito in due generazioni di hardware: Gen4 che Gen5. Le generazioni hardware hanno caratteristiche diverse descritte nella tabella seguente:
+Istanza gestita di Database SQL Azure può essere distribuito in due generazioni di hardware: Gen4 che Gen5. Generazioni di hardware hanno caratteristiche diverse, come descritto nella tabella seguente:
 
 |   | **Quarta generazione** | **Quinta generazione** |
 | --- | --- | --- |
 | Hardware | Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico) | Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz, unità SSD NVMe veloce, vCore = 1 LP (hyperthread) |
-| vCore | 8, 16, 24 vCore | 8, 16, 24, 32, 40, 64, 80 vCore |
+| vCore | 8, 16, 24 vCore | 4, 8, 16, 24, 32, 40, 64, 80 Vcore |
 | Memoria (percentuale di memoria/core) | 7 GB per vCore | 5,1 GB per vCore |
-| Memoria di OLTP In memoria max | Limite di istanze: 3 GB per vCore<br/>Limiti del database:<br/> -8 core: 8GB per ogni database<br/> -16 core: 20GB per ogni database<br/> -24 core: 36GB per ogni database | Limite di istanze: 2,5 GB per vCore<br/>Limiti del database:<br/> -8 core: 13GB per ogni database<br/> -16 core: 32GB per ogni database |
+| Memoria di OLTP In memoria max | Limite di istanze: 3 GB per vCore<br/>Limiti del database:<br/> -8 core: 8 GB per ogni database<br/> -16 core: 20 GB per ogni database<br/> -24 core: 36 GB per ogni database | Limite di istanze: 2,5 GB per vCore<br/>Limiti del database:<br/> -8 core: 13 GB per ogni database<br/> -16 core: 32 GB per ogni database |
 | Archiviazione istanza massimo (generico) |  8 TB | 8 TB |
 | Istanza spazio di archiviazione massimo (Business Critical) | 1 TB | 1 TB, 2 TB o 4 TB in base al numero di core |
 
 ### <a name="service-tier-characteristics"></a>Caratteristiche del livello di servizio
 
-Istanza gestita ha due livelli di servizio - utilizzo generico e Business Critical. Questi livelli offrono funzionalità diverse, come descritto nella tabella seguente:
+Istanza gestita ha due livelli di servizio: Utilizzo generico e Business Critical. Questi livelli offrono funzionalità diverse, come descritto nella tabella seguente:
 
 | **Funzionalità** | **Utilizzo generico** | **Business Critical** |
 | --- | --- | --- |
-| Numero di vCore\* | Quarta generazione: 8, 16, 24<br/>Quinta generazione: 8, 16, 24, 32, 40, 64, 80 | Quarta generazione: 8, 16, 24, 32 <br/> Quinta generazione: 8, 16, 24, 32, 40, 64, 80 |
-| Memoria (percentuale di memoria/core) | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore) | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore) |
-| Spazio di archiviazione massimo istanza | 8 TB | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>- 1 TB per 8, 16 vCore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
+| Numero di vCore\* | Quarta generazione: 8, 16, 24<br/>Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 | Quarta generazione: 8, 16, 24, 32 <br/> Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 |
+| Memoria | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore) | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore) |
+| Spazio di archiviazione massimo istanza | -2 TB per 4 Vcore per utilizzo (solo Gen5)<br/>-8 TB per gli altri formati | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>-1 TB per 4, 8, 16 Vcore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
 | Quantità massima di risorse di archiviazione per database | Determinata dalla dimensione massima di archiviazione per ogni istanza | Determinata dalla dimensione massima di archiviazione per ogni istanza |
 | Numero massimo di database per istanza | 100 | 100 |
-| Numero massimo di file di database per istanza | Fino a 280 | 32.767 file per ogni database |
+| Numero massimo di file di database per istanza | Fino a 280 | 32\.767 file per ogni database |
 | Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes).| 11 K - 110 K (1375/vCore) |
 | Velocità effettiva di log | 3 MB/s per ogni vCore<br/>Max 22 MB/s per ogni istanza | 4 MB al secondo per vCore<br/>Numero massimo 48 MB/s per ogni istanza|
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes). | N/D |
@@ -62,10 +62,9 @@ Istanza gestita ha due livelli di servizio - utilizzo generico e Business Critic
 | Dimensioni max di tempDB | 192 - 1.920 GB (24 GB per vCore) | Nessun vincolo; limitato dalla dimensione massima di archiviazione dell'istanza |
 | Numero massimo di sessioni | 30000 | 30000 |
 
-**Note**:
-
-- La dimensione di archiviazione dell'istanza, che viene confrontata con la dimensione massima di archiviazione, include la dimensione dei dati e dei file di log presenti sia nel database utenti che in quello di sistema. Usare la vista di sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> per determinare lo spazio totale usato dai database. I log degli errori non vengono salvati in modo permanente e non sono inclusi nella dimensione. I backup non sono inclusi nella dimensione di archiviazione.
-- IOPS e velocità effettiva dipendono anche le dimensioni della pagina che non sono limitata in modo esplicito da istanza gestita.
+> [!NOTE]
+> - La dimensione di archiviazione dell'istanza, che viene confrontata con la dimensione massima di archiviazione, include la dimensione dei dati e dei file di log presenti sia nel database utenti che in quello di sistema. Usare la vista di sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> per determinare lo spazio totale usato dai database. I log degli errori non vengono salvati in modo permanente e non sono inclusi nella dimensione. I backup non sono inclusi nella dimensione di archiviazione.
+> - IOPS e velocità effettiva dipendono anche le dimensioni della pagina che non sono limitata in modo esplicito da istanza gestita.
 
 ## <a name="supported-regions"></a>Aree supportate
 
@@ -80,55 +79,33 @@ Istanza gestita supporta attualmente la distribuzione solo nei seguenti tipi di 
 - [Provider di servizi cloud (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 - [Sviluppo/test Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Sviluppo/test con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0023p/)
-
-> [!NOTE]
-> Questa limitazione è temporanea. In futuro verranno abilitati nuovi tipi di sottoscrizioni.
+- [Sottoscrizioni con credito Azure mensile per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
 
 ## <a name="regional-resource-limitations"></a>Limiti delle risorse a livello di area
 
 I tipi di sottoscrizioni supportati possono contenere un numero limitato di risorse per area. Istanza gestita presenta due limiti predefiniti per ogni area di Azure in base a un tipo di sottoscrizione di tipo:
 
 - **Limite di subnet**: numero massimo di subnet in cui vengono distribuite le istanze gestite in una singola area.
-- **Limite del numero di istanze**: numero massimo di istanze che possono essere distribuite in una singola area.
+- **limite di vCore**: Il numero massimo di Vcore che possono essere distribuite in tutte le istanze in una singola area.
 
 > [!Note]
 > Questi limiti sono le impostazioni predefinite e limiti tecnici non. I limiti possono essere maggiori su richiesta tramite la creazione di una speciale [richiesta di supporto nel portale di Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se sono necessarie più istanze gestite nell'area corrente. In alternativa, è possibile creare nuove istanze gestite in un'altra area di Azure senza inviare le richieste di supporto.
 
 La tabella seguente illustra i limiti a livello di area predefinita per le sottoscrizioni supportati:
 
-|Tipo di sottoscrizione| Numero massimo di subnet di istanza gestita | Numero massimo di istanze |Numero massimo di istanze gestite GP*|Numero massimo di istanze gestite BC*|
-| :---| :--- | :--- |:--- |:--- |
-|Pagamento in base al consumo|1*|4*|4*|1*|
-|CSP |1*|4*|4*|1*|
-|Sviluppo/test con pagamento in base al consumo|1*|4*|4*|1*|
-|Sviluppo/test Enterprise|1*|4*|4*|1*|
-|Contratto Enterprise|3**|12**|12**|3**|
+|Tipo di sottoscrizione| Numero massimo di subnet di istanza gestita | Numero massimo di unità vCore * |
+| :---| :--- | :--- |
+|Pagamento in base al consumo|3|320|
+|CSP |8 (15 in alcune aree * *)|960 (1440 in alcune aree * *)|
+|Sviluppo/test con pagamento in base al consumo|3|320|
+|Sviluppo/test Enterprise|3|320|
+|Contratto Enterprise|8 (15 in alcune aree * *)|960 (1440 in alcune aree * *)|
+|Visual Studio Enterprise|2 |64|
+|Visual Studio Professional e MSDN Platforms|2|32|
 
-\* È possibile distribuire 1 BC o 4 istanze di criteri di gruppo in una subnet, in modo che il numero totale delle "unità di istanze" nella subnet non superi mai il 4.
+\* Quando si pianificano le distribuzioni, è consigliabile che un vCore aziendali critici (BC) (a causa dell'aggiunta di ridondanza) utilizza 4 volte maggiore capacità rispetto a un Vcore per utilizzo generico generali (GP). In questo caso, per i calcoli, 1 GP vCore = 1 vCore di unit test e BC 1 vCore = 4 unità vCore. Per semplificare l'analisi di utilizzo con i limiti predefiniti, riepilogare le unità vCore tra tutte le subnet nell'area in cui le istanze gestite vengono distribuite e confrontano i risultati con i limiti di unità di istanza per il tipo di sottoscrizione. **Numero massimo di unità vCore** limite si applica a ogni sottoscrizione in un'area. Non sono previsti limiti per ogni singola subnet, ad eccezione del fatto che la somma di tutti i Vcore distribuito su più subnet deve essere inferiore o uguale a **: numero massimo di unità vCore**.
 
-** Viene applicato il numero massimo di istanze in un livello di servizio se non sono presenti istanze in un altro livello di servizio. Se si intende combinare criteri di gruppo e BC istanze all'interno della stessa subnet, usare la sezione seguente come riferimento per le combinazioni consentite. Il numero totale di subnet non può essere superiore a 3 e il numero totale di unità di istanza non può essere superiore a 12.
-
-
-> [!IMPORTANT]
-> Durante la pianificazione delle distribuzioni, tenere presente che un'istanza business critical (BC) (a causa della maggiore ridondanza) generalmente consuma 4 volte la capacità di un'istanza per utilizzo generico (GP). Quindi, ai fini dei calcoli, 1 istanza per utilizzo generico = 1 unità di istanza e 1 istanza business critical = 4 unità di istanza. Per semplificare l'analisi di utilizzo con i limiti predefiniti, riepilogare le unità di istanza tra tutte le subnet nell'area in cui le istanze gestite vengono distribuite e confrontano i risultati con i limiti di unità di istanza per il tipo di sottoscrizione.
-
-## <a name="strategies-for-deploying-mixed-general-purpose-and-business-critical-instances"></a>Strategie per la distribuzione mista di istanze per utilizzo generico e business critical
-
-Le sottoscrizioni di tipo [Contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) possono avere combinazioni di istanze per utilizzo generico e business critical. Esistono tuttavia alcuni vincoli relativi al posizionamento delle istanze nelle subnet.
-
-> [!Note]
-> I tipi di sottoscrizione [con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) e [Provider di servizi cloud (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) possono avere un'istanza business critical o fino a 4 istanze per utilizzo generico.
-
-Gli esempi seguenti illustrano casi di distribuzione con subnet non vuote e livelli di servizio misti Utilizzo generico e Business critical.
-
-|Numero di subnet|Subnet 1|Subnet 2|Subnet 3|
-|:---|:---|:---|:---|
-|1|1 BC e fino a 8 GP<br>2 BC e fino a 4 GP|N/D| N/D|
-|2|0 BC, fino a 4 GP|1 BC, fino a 4 GP<br>2 BC, 0 GP|N/D|
-|2|1 BC, 0 GP|0 BC, fino a 8 GP<br>1 BC, fino a 4 GP|N/D|
-|2|2 BC, 0 GP|0 BC, fino a 4 GP|N/D|
-|3|1 BC, 0 GP|1 BC, 0 GP|0 BC, fino a 4 GP|
-|3|1 BC, 0 GP|0 BC, fino a 4 GP|0 BC, fino a 4 GP|
+\* * VCore e subnet ampi sono disponibili nelle aree seguenti: Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Istanza gestita di ottenere una quota maggiore di quella per SQL
 
@@ -147,7 +124,7 @@ Per avviare il processo di acquisizione di una quota maggiore:
      ![Tipo di problema: Quota](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
 3. Fare clic su **Avanti**.
-4. Nella scheda Problema per la nuova richiesta di supporto:
+4. Nel **scheda problema** per la nuova richiesta di supporto:
    - Per **Gravità** selezionare il livello di gravità del problema.
    - In **Dettagli** inserire informazioni aggiuntive relative al problema riscontrato, inclusi i messaggi di errore.
    - In **Caricamento file** allegare un file con ulteriori informazioni (fino a 4 MB).
@@ -156,9 +133,9 @@ Per avviare il processo di acquisizione di una quota maggiore:
 
      > [!IMPORTANT]
      > Una richiesta valida deve includere:
-     > - L'area in cui è necessario aumentare il limite della sottoscrizione
-     > - Il numero di istanze necessario, per livello di servizio nelle subnet esistenti dopo l'aumento della quota (in caso occorra espandere una o più delle subnet esistenti)
-     > - Il numero di nuove subnet necessario e il numero totale di istanze per livello di servizio nelle nuove subnet (in caso occorra distribuire istanze gestite in nuove subnet).
+     > - Area nella sottoscrizione di cui deve essere aumentato limite.
+     > - Numero di Vcore, per ogni livello di servizio nella subnet esistenti dopo la quota necessario aumenta (se nessuna delle subnet esistente deve essere espanso.
+     > - Richiesto numero di nuove subnet e il numero totale di Vcore per ogni livello di servizio all'interno di nuove subnet (se è necessario distribuire le istanze gestite nelle nuove subnet).
 
 5. Fare clic su **Avanti**.
 6. Nella scheda Informazioni contatto della nuova richiesta di supporto immettere la modalità di contatto preferita (posta elettronica o telefono) e i dettagli di contatto.

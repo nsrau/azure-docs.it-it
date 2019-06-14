@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ecb704253597bf4eb5672fe924a0dafc4c1b3fd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726535"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usare l'autenticazione di Azure AD per accedere all'API di Servizi multimediali di Azure con .NET
@@ -92,7 +92,7 @@ L'esempio di codice seguente mostra come creare un token:
   
 Prima di iniziare la programmazione basata su Servizi multimediali, è necessario creare un'istanza di **CloudMediaContext** che rappresenta il contesto del server. **CloudMediaContext** contiene riferimenti a raccolte importanti composte da processi, asset, file, criteri di accesso e localizzatori. 
 
-È anche necessario passare l'**URI di risorsa per i servizi REST multimediali** al costruttore **CloudMediaContext**. Per ottenere l'URI di risorsa per i servizi REST multimediali, accedere al portale di Azure, selezionare l'account Servizi multimediali di Azure, fare clic su **Accesso API**, quindi selezionare **Connettersi all'API Servizi multimediali di Azure con l'autorizzazione utente (interattiva)**. 
+È anche necessario passare l'**URI di risorsa per i servizi REST multimediali** al costruttore **CloudMediaContext**. Per ottenere l'URI di risorsa per i servizi REST multimediali, accedere al portale di Azure, selezionare l'account Servizi multimediali di Azure, fare clic su **Accesso API**, quindi selezionare **Connettersi all'API Servizi multimediali di Azure con l'autorizzazione utente (interattiva)** . 
 
 L'esempio di codice seguente mostra come creare un'istanza **CloudMediaContext**:
 

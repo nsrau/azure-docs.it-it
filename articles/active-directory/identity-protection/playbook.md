@@ -17,19 +17,19 @@ ms.date: 06/27/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 697bb8a60861acb120e92d8fd1dda3892a957b57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294347"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108835"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Studio sulla protezione delle identità di Azure Active Directory
 
 Questo studio consente di:
 
 * Inserire i dati nell'ambiente Identity Protection simulando eventi di rischio e vulnerabilità
-* Impostare criteri di accesso condizionali basati sui rischi e testare l'impatto di questi criteri
+* Configurare i criteri di accesso condizionale basati sui rischi e testare l'impatto di questi criteri
 
 
 ## <a name="simulating-risk-events"></a>Simulazione di eventi di rischio
@@ -135,7 +135,7 @@ Per altre informazioni, vedere [Come configurare i criteri di rischio utente](ho
 6. Alzare di livello il rischio di utente di un account di test, ad esempio, simulando alcune volte uno degli eventi di rischio.
 7. Attendere alcuni minuti e poi verificare che il livello utente sia Medio. Se non lo è, simulare altri eventi di rischio per l'utente.
 8. Come valore di **Imponi criteri**, selezionare **Attivato**.
-9. A questo punto è possibile testare l'accesso condizionale basato sul rischio utente eseguendo l'accesso come un utente con un livello di rischio elevato.
+9. È ora possibile testare utente basati sul rischio di accesso condizionale effettuando l'accesso usando un utente con un livello di rischio elevato.
     
     
 
@@ -165,14 +165,14 @@ Per altre informazioni, vedere [Come configurare i criteri di rischio di accesso
 
 7. Fare clic su **Save**.
 
-8. A questo punto è possibile testare l'accesso condizionale basato sul rischio di accesso eseguendo l'accesso con una sessione a rischio, ad esempio Tor Browser. 
+8. È ora possibile testare l'accesso condizionale basati sul rischio di Accedi effettuando l'accesso usando una sessione a rischio (ad esempio, usando il browser Tor). 
 
  
 
 
 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 

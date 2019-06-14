@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc90d62f889bfd9f439a7e8955f049c6c979746
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09270d89ecaff02716d9916527d21ba2c5d30716
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437040"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107542"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Domande frequenti sui report di Azure Active Directory
 
@@ -135,7 +135,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: quali sono le novità di questa funzionalità?**
 
-**R:** i clienti ora possono risolvere i problemi relativi ai criteri di accesso condizionale tramite i report di tutti gli accessi. I clienti possono esaminare lo stato di accesso condizionale e approfondire i dettagli dei criteri applicati per l'accesso e il risultato per ogni criterio.
+**R:** I clienti possono ora risolvere i problemi di criteri di accesso condizionale tramite tutti i report degli accessi. I clienti possono esaminare lo stato di accesso condizionale e approfondire i dettagli dei criteri applicati per l'accesso e il risultato per ogni criterio.
 
 **D: come iniziare?**
 
@@ -143,19 +143,19 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 * Andare al report degli accessi nel [portale di Azure](https://portal.azure.com).
 * Fare clic sull'accesso di cui si desiderano risolvere i problemi.
-* Passare alla scheda **Accesso condizionale**. In questa scheda è possibile visualizzare tutti i criteri che hanno interessato l'accesso e il risultato per ogni criterio. 
+* Passare il **accesso condizionale** scheda. In questa scheda è possibile visualizzare tutti i criteri che hanno interessato l'accesso e il risultato per ogni criterio. 
     
-**D: quali sono i valori possibili per lo stato di accesso condizionale?**
+**D: Quali sono tutti i valori possibili per lo stato di accesso condizionale?**
 
-**R:** lo stato di accesso condizionale può avere i valori seguenti:
+**R:** Lo stato di accesso condizionale può avere i valori seguenti:
 
 * **Non applicato**: significa che non è presente alcun criterio di accesso condizionale con l'utente e l'app inclusi nell'ambito. 
 * **Operazione riuscita**: significa che è presente un criterio di accesso condizionale con l'utente e con l'app previsti e che i criteri di accesso condizionale sono stati soddisfatti correttamente. 
 * **Operazione non riuscita**: significa che è presente un criterio di accesso condizionale con l'utente e con l'app previsti e che i criteri di accesso condizionale non sono stati soddisfatti correttamente. 
     
-**D: quali sono i valori possibili per il risultato dei criteri di accesso condizionale?**
+**D: Quali sono tutti i valori possibili per il risultato di criteri di accesso condizionale?**
 
-**R:** un criterio di accesso condizionale può avere i risultati seguenti:
+**R:** Criteri di accesso condizionale possono avere i seguenti risultati:
 
 * **Operazione riuscita**: i criteri sono stati soddisfatti.
 * **Operazione non riuscita**: i criteri non sono stati soddisfatti.
@@ -166,6 +166,6 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **R:** il nome del criterio nel report di tutti gli accessi è basato sul nome del criterio di accesso condizionale al momento dell'accesso. Ciò può essere incoerente con il nome del criterio nell'accesso condizionale se è stato aggiornato il nome del criterio in un secondo momento, vale a dire, dopo l'accesso.
 
-**D: l'accesso è stato bloccato a causa di un criterio di accesso condizionale, ma il report sull'attività di accesso indica che è stato eseguito. Perché?**
+**D: L'accesso è stato bloccato a causa di un criterio di accesso condizionale, ma il rapporto attività di accesso mostra che l'accesso aggiuntivo è stata completata. Perché?**
 
-**R:** attualmente il report sugli accessi può visualizzare risultati non accurati per gli scenari di Exchange ActiveSync quando viene applicato l'accesso condizionale. In alcuni casi il risultato dell'accesso indica un esito positivo nel report, ma in realtà l'accesso non è riuscito a causa di un criterio di accesso condizionale. 
+**R:** Attualmente il report sugli accessi potrebbero non Visualizza risultati accurati per gli scenari di Exchange ActiveSync quando viene applicato l'accesso condizionale. Possono esserci casi quando il risultato di accesso nel report mostra un accesso aggiuntivo ha esito positivo, ma accesso in realtà non è riuscita a causa di un criterio di accesso condizionale. 

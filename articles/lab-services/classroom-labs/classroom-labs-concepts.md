@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 82f9d7090d7283e0b00b36e0928fffb3395ca4c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bbb486b0dbf1a5e25f5ee4d1f8e5e01b999a8ba
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679087"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067383"
 ---
 # <a name="classroom-labs-concepts"></a>Concetti sui lab per le classi
 Nell'elenco seguente contiene le definizioni e concetti di Lab Services:
 
 ## <a name="quota"></a>Quota
-La quota è il limite di tempo (in ore) che è possibile impostare un insegnante di uno studente a usare macchine virtuali. È possibile essere impostare su 0, illimitato, o un determinato numero di ore. Se la quota è impostata su 0, uno studente può usare solo la macchina virtuale durante l'esecuzione di una pianificazione o quando un insegnante accende manualmente la macchina virtuale per gli studenti.
+La quota è il limite di tempo (in ore) che è possibile impostare un insegnante di uno studente a usare macchine virtuali. Si può essere impostato su 0 o un determinato numero di ore. Se la quota è impostata su 0, uno studente può usare solo la macchina virtuale durante l'esecuzione di una pianificazione o quando un insegnante accende manualmente la macchina virtuale per gli studenti.
  
 ## <a name="schedules"></a>Pianificazioni
 Le pianificazioni sono gli slot di tempo (una sola volta o ricorrente) che un insegnante può creare per la classe. Tutte le macchine virtuali nel lab vengono avviate automaticamente all'inizio alla pianificazione e vengono arrestati alla fine della pianificazione. Ore associate alle quote non vengono utilizzate durante l'esecuzione di una pianificazione.

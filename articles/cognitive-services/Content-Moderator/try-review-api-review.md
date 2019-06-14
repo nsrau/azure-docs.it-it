@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 254269ccedc92b9dfc164cc4665a8a8513682773
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60607515"
 ---
 # <a name="create-human-reviews-rest"></a>Creazione di revisione umana (REST)
@@ -186,7 +186,7 @@ Selezionare **Send** (Invia). Se l'operazione ha esito positivo, il **stato dell
 
 Prendere nota dei seguenti campi nella risposta:
 
-- **Stato**
+- **status**
 - **reviewerResultTags**: Viene visualizzato se eventuali tag sono stati aggiunti manualmente dal team di revisione umana (illustrato il **createdBy** campo).
 - **metadata**: Vengono visualizzati i tag che sono stati aggiunti inizialmente durante la verifica prima che le modifiche apportate team di revisione umana.
 

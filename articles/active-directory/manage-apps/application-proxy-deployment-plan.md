@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388315"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108473"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Pianificare una distribuzione di Proxy applicazione Azure AD
 
@@ -62,9 +62,9 @@ La sezione seguente offre una visione più ampia della chiave di elementi che si
 
 Devono essere soddisfatti i requisiti di base seguenti per configurare e implementare Proxy applicazione Azure AD.
 
-*  **L'onboarding di Azure**: Prima di distribuire il proxy di applicazione, le identità utente devono essere sincronizzate da una directory in locale o create direttamente all'interno di tenant di Azure AD. Sincronizzazione delle identità consente ad Azure AD per autenticare preventivamente gli utenti prima di concedere loro l'accesso al Proxy applicazione di pubblicazione delle applicazioni e le informazioni di identificatore utente necessari per eseguire il single sign-on (SSO).
+*  **L'onboarding di Azure**: Prima di distribuire il proxy di applicazione, le identità utente devono essere sincronizzate da una directory in locale o create direttamente all'interno di tenant di Azure AD. La sincronizzazione delle identità consente ad Azure AD di preautenticare gli utenti prima di concedere loro l'accesso alle applicazioni pubblicate tramite proxy di applicazione e di ottenere le informazioni degli ID utente necessarie per eseguire l'accesso Single Sign-On (SSO).
 
-* **Requisiti di accesso condizionale**: Non è consigliabile tramite Proxy di applicazione per l'accesso intranet, perché ciò aggiunge latenza che hanno un impatto degli utenti. È consigliabile usare il Proxy di applicazione con i criteri pre-autenticazione e l'accesso condizionale per l'accesso remoto da internet.  Un approccio per fornire l'accesso condizionale per l'uso di intranet è per modernizzare le applicazioni in modo da poter diretly eseguire l'autenticazione con AAD. Fare riferimento a [risorse per la migrazione alle applicazioni di AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) per altre informazioni. 
+* **Requisiti di accesso condizionali**: Non è consigliabile tramite Proxy di applicazione per l'accesso intranet, perché ciò aggiunge latenza che hanno un impatto degli utenti. È consigliabile usare il Proxy di applicazione con la preautenticazione e criteri di accesso condizionale per l'accesso remoto da internet.  Un approccio per fornire l'accesso condizionale per l'uso di intranet è per modernizzare le applicazioni in modo da poter diretly eseguire l'autenticazione con AAD. Fare riferimento a [risorse per la migrazione alle applicazioni di AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) per altre informazioni. 
 
 * **Limiti dei servizi**: Per proteggere il consumo eccessivo di risorse di base a singoli tenant presenti sono limitazioni impostate per ogni tenant e applicazioni. Per visualizzare questi limiti si intende [restrizioni e limiti del servizio Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Queste soglie di limitazione si basano su un benchmark notevolmente superiori volume di utilizzo tipici e fornisce un buffer molto ampio per la maggior parte delle distribuzioni.
 
@@ -82,7 +82,7 @@ Devono essere soddisfatti i requisiti di base seguenti per configurare e impleme
 
    * **Installazione del connettore** richiede diritti di amministratore locale nel server di Windows che viene installata in. È inoltre richiesto un minimo di un *amministratore dell'applicazione* ruolo per autenticare e registrare l'istanza di connector per tenant di Azure AD. 
 
-   * **Pubblicazione dell'applicazione e l'amministrazione** richiedono il *amministratore applicazione* ruolo. Gli amministratori dell'applicazione possono gestire tutte le applicazioni nella directory comprese le registrazioni, le impostazioni SSO, utente e le assegnazioni di gruppi e licenze, le impostazioni del Proxy di applicazione e il consenso. Non concede la possibilità di gestire l'accesso condizionale. Il *amministratore applicazione Cloud* ruolo ha tutte le capacità dell'amministratore dell'applicazione, ad eccezione del fatto che non consente la gestione delle impostazioni del Proxy di applicazione.
+   * **Pubblicazione dell'applicazione e l'amministrazione** richiedono il *amministratore applicazione* ruolo. Gli amministratori dell'applicazione possono gestire tutte le applicazioni nella directory comprese le registrazioni, le impostazioni SSO, utente e le assegnazioni di gruppi e licenze, le impostazioni del Proxy di applicazione e il consenso. Non consente tuttavia di gestire l'accesso condizionale. Il *amministratore applicazione Cloud* ruolo ha tutte le capacità dell'amministratore dell'applicazione, ad eccezione del fatto che non consente la gestione delle impostazioni del Proxy di applicazione.
 
 * **Licenze**: Proxy dell'applicazione è disponibile tramite la sottoscrizione di Azure AD Basic. Vedere le [pagina dei prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) per un elenco completo di opzioni e funzionalità del servizio licenze.  
 
@@ -266,7 +266,7 @@ Le funzionalità seguenti possono essere utilizzate per supportare Proxy applica
 
 * Accesso condizionale basato su dispositivo: Assicurarsi che solo i dispositivi registrati, approvati e conformi possono accedere a dati aziendali con [accesso condizionale basato su dispositivo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications).
 
-* Accesso condizionale basato sull'applicazione: Lavoro non deve arrestare quando un utente non è nella rete aziendale. [Proteggere l'accesso alle App cloud e locali aziendali](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) e mantenere il controllo di accesso condizionale.
+* Accesso condizionale basato sull'applicazione: Lavoro non deve arrestare quando un utente non è nella rete aziendale. [Proteggere l'accesso alle App cloud e locali aziendali](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) e mantenere il controllo con l'accesso condizionale.
 
 * Accesso condizionale basati sul rischio: Proteggere i dati dai pirati informatici malintenzionati con un [criteri di accesso condizionale basati sul rischio](https://www.microsoft.com/cloud-platform/conditional-access) che possono essere applicati a tutte le App e tutti gli utenti, se in locale o nel cloud.
 

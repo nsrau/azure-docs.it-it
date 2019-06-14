@@ -1,25 +1,25 @@
 ---
 title: Log del server per Database di Azure per MySQL
-description: Descrive i log disponibili nel Database di Azure per MySQL e i parametri disponibili per l'abilitazione di diversi livelli di registrazione.
+description: Viene descritto il log query lente disponibili nel Database di Azure per MySQL e i parametri disponibili per l'abilitazione di diversi livelli di registrazione.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: 1a8956d40ef30e8d52fbdded3448019e14ab16a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525831"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062412"
 ---
-# <a name="server-logs-in-azure-database-for-mysql"></a>Log del server nel Database di Azure per MySQL
-Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi. 
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log query lente nel Database di Azure per MySQL
+Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
 
 Per altre informazioni sul log delle query lente MySQL, vedere la [sezione relativa ai log di query lente](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) del manuale di riferimento per MySQL.
 
-## <a name="access-server-logs"></a>Accesso ai log server
-È possibile elencare e scaricare i log del server del Database di Azure per MySQL usando il portale di Azure e l'interfaccia della riga di comando di Azure.
+## <a name="access-slow-query-logs"></a>Accedere ai log query lente
+È possibile elencare e scaricare i Database di Azure per i log di query lente MySQL usando il portale di Azure e la CLI di Azure.
 
 Nel portale di Azure selezionare il server del Database di Azure per MySQL. Nell'intestazione **Monitoraggio** selezionare la pagina **Log del server**.
 
@@ -30,8 +30,7 @@ I log sono disponibili per un massimo di sette giorni dalla data di creazione. S
 
 I log vengono ruotati ogni 24 ore o 7 GB, a seconda del valore raggiunto per primo.
 
-
-## <a name="configure-logging"></a>Configurare la registrazione 
+## <a name="configure-slow-query-logging"></a>Configurare la registrazione di query lente 
 Per impostazione predefinita il log delle query lente è disabilitato. Per abilitarlo, impostare slow_query_log su ON.
 
 Altri parametri che è possibile modificare includono:
@@ -73,10 +72,10 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 | `rows_sent_s` | Numero di righe inviate |
 | `rows_examined_s` | Numero di righe esaminate |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| `insert_id_s` | ID inserimento |
+| `insert_id_s` | Inserire ID |
 | `sql_text_s` | Query completa |
-| `server_id_s` | Id del server |
-| `thread_id_s` | ID thread |
+| `server_id_s` | ID del server |
+| `thread_id_s` | ID del thread |
 | `\_ResourceId` | URI della risorsa |
 
 ## <a name="next-steps"></a>Fasi successive

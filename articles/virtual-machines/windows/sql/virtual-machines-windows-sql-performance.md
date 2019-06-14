@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c1f40c62fce61ba16dfdf289d54cd19c3739ce21
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 3fda34e46ddb7ea17c98795ad6632841b79764eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393747"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076920"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Linee guida sulle prestazioni per SQL Server in Macchine virtuali di Azure
 
@@ -55,7 +55,7 @@ Per le applicazioni sensibili alle prestazioni, è consigliabile usare le seguen
 * **SQL Server Enterprise Edition**: DS3_v2 o versione successiva
 * **SQL Server Standard e Web Edition**: DS2_v2 o versione successiva
 
-Le macchine virtuali della [serie DSv2](../sizes-general.md#dsv2-series) supportano l'archiviazione premium, consigliata per prestazioni ottimali. Le dimensioni consigliate di seguito sono di base, ma le dimensioni effettive della macchina dipendono dalle esigenze del carico di lavoro richiesto. Le macchine virtuali della serie DSv2 sono macchine virtuali per utilizzo generico, adatte per un'ampia gamma di carichi di lavoro, mentre altre dimensioni delle macchine sono ottimizzate per carichi di lavoro specifici. Ad esempio, la [serie M](../sizes-memory.md#m-series) offre il maggior numero di vCPU e memoria per i carichi di lavoro più grandi di SQL Server. La [serie GS](../sizes-memory.md#gs-series) e la [serie DSv2 11-15](../sizes-memory.md#dsv2-series-11-15) sono ottimizzate per i requisiti di memoria di grandi dimensioni. Entrambe le serie sono disponibili anche in [dimensioni core vincolate](../../windows/constrained-vcpu.md), consentendo di risparmiare denaro per i carichi di lavoro con inferiori richieste di calcolo. Le macchine [serie Ls](../sizes-storage.md) sono ottimizzate per elevata velocità effettiva del disco e I/O. È importante prendere in considerazione il carico di lavoro specifico di SQL Server per la selezione della serie e delle dimensioni della macchina virtuale.
+Le macchine virtuali della [serie DSv2](../sizes-general.md#dsv2-series) supportano l'archiviazione premium, consigliata per prestazioni ottimali. Le dimensioni consigliate di seguito sono di base, ma le dimensioni effettive della macchina dipendono dalle esigenze del carico di lavoro richiesto. Le macchine virtuali della serie DSv2 sono macchine virtuali per utilizzo generico, adatte per un'ampia gamma di carichi di lavoro, mentre altre dimensioni delle macchine sono ottimizzate per carichi di lavoro specifici. Ad esempio, la [serie M](../sizes-memory.md#m-series) offre il maggior numero di vCPU e memoria per i carichi di lavoro più grandi di SQL Server. La [serie GS](../sizes-previous-gen.md#gs-series) e la [serie DSv2 11-15](../sizes-memory.md#dsv2-series-11-15) sono ottimizzate per i requisiti di memoria di grandi dimensioni. Entrambe le serie sono disponibili anche in [dimensioni core vincolate](../../windows/constrained-vcpu.md), consentendo di risparmiare denaro per i carichi di lavoro con inferiori richieste di calcolo. Le macchine [serie Ls](../sizes-storage.md) sono ottimizzate per elevata velocità effettiva del disco e I/O. È importante prendere in considerazione il carico di lavoro specifico di SQL Server per la selezione della serie e delle dimensioni della macchina virtuale.
 
 ## <a name="storage-guidance"></a>Linee guida per l'archiviazione
 

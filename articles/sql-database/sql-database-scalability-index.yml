@@ -6,16 +6,16 @@ metadata:
   title: Database SQL di Azure - scalabilità
   meta.description: Learn how to scale your Azure SQL Database.
   services: sql-database
-  author: WenJason
-  manager: digimobile
+  ms.subservice: scale-out
+  author: jovanpop-msft
+  manager: craigg
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang: null
   ms.topic: overview
-  origin.date: 01/25/2019
-  ms.date: 02/25/2019
-  ms.author: v-jay
+  ms.date: 01/25/2019
+  ms.author: jovanpop-msft
 sections:
   - items:
       - type: paragraph
@@ -26,22 +26,22 @@ sections:
         columns: 3
         items:
           - title: Aumentare
-            href: /sql-database/sql-database-scale-resources
+            href: /azure/sql-database/sql-database-scale-resources
             html: <p>Aggiungere o rimuovere facilmente risorse nel database SQL per trovare il miglior rapporto prezzo/prestazioni o ridurre i problemi di prestazioni.</p>
           - title: Scalabilità orizzontale in lettura
-            href: /sql-database/sql-database-read-scale-out
+            href: /azure/sql-database/sql-database-read-scale-out
             html: '<p>Il livello business critical fornisce una replica gratuita del database in cui è possibile eseguire report, analisi e altre query di sola lettura su una copia dei dati.</p>'
           - title: Partizionamento orizzontale del database
-            href: /sql-database/sql-database-elastic-scale-introduction
+            href: /azure/sql-database/sql-database-elastic-scale-introduction
             html: <p>È possibile usare più partizioni di database per lo scale-out del database oltre i limiti massimi di archiviazione e calcolo per singoli database.</p>
           - title: Query elastiche
-            href: /sql-database/sql-database-elastic-query-overview
+            href: /azure/sql-database/sql-database-elastic-query-overview
             html: <p>Le query elastiche consentono di eseguire query Transact-SQL standard su un set di partizioni di database distribuiti a livello globale.</p>
           - title: Transazioni elastiche
-            href: /sql-database/sql-database-elastic-transactions-overview
+            href: /azure/sql-database/sql-database-elastic-transactions-overview
             html: <p>Usare transazioni distribuite a livello globale per garantire un accesso a livello di transazione coerente ai dati distribuiti.</p>
           - title: Processi tra database
-            href: /sql-database/elastic-jobs-overview
+            href: /azure/sql-database/elastic-jobs-overview
             html: <p>Gestire un set di database tramite processi elastici tra database.</p>
   - title: Altre risorse
     items:

@@ -12,17 +12,17 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 05/07/2019
 ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65465213"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurare endpoint pubblici in istanza gestita di Database SQL di Azure
 
 Endpoint pubblico per un [istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) offre accesso ai dati a istanza gestita all'esterno di [rete virtuale](../virtual-network/virtual-networks-overview.md). Si è in grado di accedere all'istanza gestita da servizi di Azure multi-tenant, ad esempio Power BI, servizio App di Azure o una rete locale. Tramite l'endpoint pubblico in un'istanza gestita, non devi usare una VPN, che consentono di evitare problemi di velocità effettiva della VPN.
 
-In questo articolo si apprenderà come:
+L'articolo spiega come:
 
 > [!div class="checklist"]
 > - Abilitare un endpoint pubblico per l'istanza gestita nel portale di Azure
@@ -93,7 +93,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Selezionare il **regole di sicurezza in ingresso** scheda, e **Add** una regola con priorità più alta rispetto il **deny_all_inbound** regola con le impostazioni seguenti: </br> </br>
 
-    |Impostazione  |Valore suggerito  |Descrizione  |
+    |Impostazione  |Valore consigliato  |Descrizione  |
     |---------|---------|---------|
     |**Origine**     |Qualsiasi indirizzo IP o un tag di servizio         |<ul><li>Per i servizi di Azure, come Power BI, selezionare il Tag di servizio Cloud di Azure</li> <li>Per il computer o macchina virtuale di Azure, usare l'indirizzo IP NAT</li></ul> |
     |**Intervalli di porte di origine**     |*         |Lasciare questa opzione per * (qualsiasi) come le porte di origine sono in genere imprevedibili allocata in modo dinamico e come tale, |

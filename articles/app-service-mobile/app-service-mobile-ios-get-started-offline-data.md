@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62112651"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Sincronizzare offline le app per dispositivi mobili iOS
@@ -147,7 +147,7 @@ Aprire **QSDataModel.xcdatamodeld**. Qui sono definite quattro tabelle, tre usat
   * TodoItem: archivia gli elementi attività. Le colonne di sistema **createdAt**, **updatedAt** e **version** sono proprietà di sistema facoltative.
 
 > [!NOTE]
-> Mobile Apps SDK si riserva i nomi di colonna che iniziano con "**``**". Usare questo prefisso solo per le colonne di sistema. In caso contrario, quando si usa il back-end remoto, i nomi di colonna vengono modificati.
+> Mobile Apps SDK si riserva i nomi di colonna che iniziano con " **``** ". Usare questo prefisso solo per le colonne di sistema. In caso contrario, quando si usa il back-end remoto, i nomi di colonna vengono modificati.
 >
 >
 
@@ -162,9 +162,9 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 | Attributo | Type |
 | --- | --- |
 | id | Valore integer 64 |
-| itemId | string |
+| itemId | String |
 | properties | Dati binari |
-| tabella | string |
+| table | String |
 | tableKind | Integer 16 |
 
 
@@ -174,7 +174,7 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
 | Attributo | Type |
 | --- | --- |
-| id |string |
+| id |String |
 | operationId |Valore integer 64 |
 | properties |Dati binari |
 | tableKind |Integer 16 |
@@ -185,11 +185,11 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
 | Attributo | Type |
 | --- | --- |
-| id |string |
-| key |string |
+| id |String |
+| key |String |
 | keyType |Valore integer 64 |
-| tabella |string |
-| value |string |
+| table |String |
+| value |String |
 
 ### <a name="data-table"></a>Tabella dati
 
@@ -199,10 +199,10 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 | --- | --- | --- |
 | id | Stringa, contrassegnata come obbligatoria |chiave primaria nell'archivio remoto |
 | complete | Boolean | campo elemento ToDo |
-| text |string |campo elemento ToDo |
-| createdAt | Data | (facoltativo) viene mappato alla proprietà di sistema **createdAt** |
-| updatedAt | Data | (facoltativo) viene mappato alla proprietà di sistema **updatedAt** |
-| version | string | (facoltativo) viene usato per il rilevamento dei conflitti, viene mappato a version |
+| text |String |campo elemento ToDo |
+| createdAt | Date | (facoltativo) viene mappato alla proprietà di sistema **createdAt** |
+| updatedAt | Date | (facoltativo) viene mappato alla proprietà di sistema **updatedAt** |
+| version | String | (facoltativo) viene usato per il rilevamento dei conflitti, viene mappato a version |
 
 ## <a name="setup-sync"></a>Modificare il comportamento di sincronizzazione dell'app
 In questa sezione si modifica l'app in modo che non esegua la sincronizzazione all'avvio o quando si inseriscono e si aggiornano elementi, bensì solo quando si seleziona il pulsante di aggiornamento.

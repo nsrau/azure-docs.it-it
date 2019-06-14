@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00ed40bef3f3cbe59825f546ffa39c3ebfb2e41f
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 24b54a3645fe97903219841dd148c0942dfcda76
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003177"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112375"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Criterio di base: Richiedere l'autenticazione MFA per la gestione dei servizi (anteprima)
 
@@ -40,7 +40,7 @@ Per eseguire interactive sign-in usando [Azure Powershell](https://docs.microsof
 Connect-AzAccount
 ```
 
-Quando viene eseguito, questo cmdlet visualizzerà una stringa del token. Per accedere, copiare questa stringa e incollarla [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) in un browser. La sessione di PowerShell verrà autenticata per connettersi ad Azure.
+Quando viene eseguito, questo cmdlet visualizzerà una stringa del token. Per accedere, copiare questa stringa e incollarla [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)  in un browser. La sessione di PowerShell verrà autenticata per connettersi ad Azure.
 
 Per eseguire interactive sign-in usando [Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest), eseguire il [login az](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) comando.
 
@@ -73,7 +73,7 @@ Per abilitare questo criterio e proteggere gli amministratori:
 
 1. Accedi per il **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
-1. Nell'elenco dei criteri, selezionare **criterio di base: Richiedere l'autenticazione MFA per la gestione dei servizi (anteprima)**.
+1. Nell'elenco dei criteri, selezionare **criterio di base: Richiedere l'autenticazione MFA per la gestione dei servizi (anteprima)** .
 1. Impostare **abilitare i criteri** al **Usa i criteri immediatamente**.
 1. Aggiungere eventuali esclusioni utente facendo clic su **gli utenti** > **selezionare gli utenti esclusi** e scegliendo gli utenti che devono essere escluse. Fare clic su **selezionate** quindi **eseguita**.
 1. Fare clic su **salvare**.

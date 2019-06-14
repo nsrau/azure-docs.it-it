@@ -17,10 +17,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65191533"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Riferimento agli eventi di rischio in Azure Active Directory Identity Protection
@@ -89,7 +89,7 @@ Questo tipo di evento di rischio prende in considerazione oltre cronologia di ac
 È anche possibile eseguire questo rilevamento per l'autenticazione di base (o i protocolli legacy). Poiché questi protocolli non hanno proprietà moderne, ad esempio l'ID client, i dati di telemetria per ridurre i falsi positivi sono limitati. È consigliabile passare all'autenticazione moderna.
 
 
-## <a name="azure-ad-threat-intelligence"></a>Intelligence per le minacce di Azure AD
+## <a name="azure-ad-threat-intelligence"></a>Intelligence per le minacce AD Azure
 
 **Tipo di rilevamento:** Offline <br>
 **Nome precedente:** Questo rilevamento verrà visualizzato nei report di Azure AD Identity Protection legacy (gli utenti contrassegnati per il rischio, eventi di rischio) come "Utenti con credenziali perse"

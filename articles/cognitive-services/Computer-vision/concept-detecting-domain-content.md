@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60368077"
 ---
 # <a name="detect-domain-specific-content"></a>Rilevare contenuti specifici di dominio
@@ -100,7 +100,7 @@ La risposta JSON seguente mostra come includere l'analisi specifica di dominio c
 
 Visione artificiale supporta attualmente i modelli specifici di dominio seguenti:
 
-| Name | DESCRIZIONE |
+| NOME | Descrizione |
 |------|-------------|
 | celebrities | Riconoscimento di personaggi famosi, supportato per le immagini classificate nella categoria `people_` |
 | landmarks | Riconoscimento di luoghi di interesse, supportato per le immagini classificate nella categoria `outdoor_` o `building_` |

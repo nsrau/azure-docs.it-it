@@ -2,35 +2,60 @@
 title: Distribuire più istanze delle risorse di Azure | Documentazione Microsoft
 description: Usare l'operazione di copia e le matrici in un modello di Gestione risorse di Azure per eseguire più iterazioni durante la distribuzione delle risorse.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/01/2019
+ms.date: 06/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 05b68fde30587967f65ee362344eea9a258f89a7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205979"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807375"
 ---
-# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager
+# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Risorse, proprietà o iterazione delle variabili nei modelli di Azure Resource Manager
 
-Questo articolo illustra come eseguire un'iterazione del modello di Azure Resource Manager per creare più istanze di una risorsa. Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](resource-group-authoring-templates.md#condition).
+Questo articolo illustra come creare più di un'istanza di una risorsa, una variabile o una proprietà nel modello di Azure Resource Manager. Per creare più istanze, aggiungere il `copy` oggetti al modello.
 
-Per un'esercitazione, vedere [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md) (Esercitazione: Creare più istanze di risorse usando i modelli di Resource Manager).
+Se usato con una risorsa, l'oggetto di copia ha il formato seguente:
 
+```json
+"copy": {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
+}
+```
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Se usato con una variabile o proprietà, l'oggetto di copia ha il formato seguente:
+
+```json
+"copy": [
+  {
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
+  }
+]
+```
+
+Entrambi gli usi sono descritti più dettagliatamente in questo articolo. Per un'esercitazione, vedere [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md) (Esercitazione: Creare più istanze di risorse usando i modelli di Resource Manager).
+
+Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](resource-group-authoring-templates.md#condition).
+
+## <a name="copy-limits"></a>Copiare i limiti
+
+Per specificare il numero di iterazioni, fornire un valore per la proprietà count. Il conteggio non può essere maggiore di 800.
+
+Il conteggio non può essere un numero negativo. Se si distribuisce un modello con versione dell'API REST **2019 05-10** o versioni successive, è possibile impostare conteggio su zero. Le versioni precedenti dell'API REST non supportano zero per il conteggio. Attualmente, Azure o PowerShell non supportano zero per il conteggio, ma tale supporto verrà aggiunto nelle versioni future.
+
+I limiti per il conteggio sono gli stessi se usato con una risorsa, variabile o proprietà.
 
 ## <a name="resource-iteration"></a>Iterazione delle risorse
 
-Quando durante la distribuzione occorre decidere se creare una o più istanze di una risorsa, aggiungere un elemento `copy` al tipo di risorsa. Nell'elemento copy si specifica il numero di iterazioni e un nome per questo ciclo. Il valore del conteggio deve essere un numero intero positivo e non può essere maggiore di 800. 
+Quando durante la distribuzione occorre decidere se creare una o più istanze di una risorsa, aggiungere un elemento `copy` al tipo di risorsa. Nell'elemento di copia, specificare il numero di iterazioni e un nome per il ciclo.
 
 La risorsa da ricreare più volte assume il formato seguente:
 
@@ -71,7 +96,7 @@ Crea questi nomi:
 * storage1
 * storage2
 
-Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione copyIndex(). Il numero di iterazioni da eseguire viene comunque specificato nell'elemento copia, ma il valore di copyIndex è compensato dal valore specificato. Quindi l'esempio seguente:
+Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione copyIndex(). Il numero di iterazioni viene comunque specificato nell'elemento copy, ma il valore di copyIndex è compensato da quello specificato. Quindi l'esempio seguente:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -156,7 +181,7 @@ Per informazioni sull'uso di copy con i modelli annidati, vedere [tramite copia]
 Per creare più valori per una proprietà in una risorsa, aggiungere una matrice `copy` nell'elemento properties. Questa matrice contiene oggetti ai quali sono associate le proprietà riportate di seguito.
 
 * name: il nome della proprietà per la quale creare più valori
-* count: il numero di valori da creare. Il valore del conteggio deve essere un numero intero positivo e non può essere maggiore di 800.
+* count: il numero di valori da creare.
 * input: un oggetto che contiene i valori da assegnare alla proprietà  
 
 Nell'esempio seguente viene illustrato come applicare `copy` alla proprietà dataDisks in una macchina virtuale:
@@ -490,7 +515,7 @@ Nell'esempio seguente viene descritta l'implementazione:
 
 Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più istanze di una risorsa o proprietà.
 
-|Modello  |DESCRIZIONE  |
+|Modello  |Descrizione  |
 |---------|---------|
 |[Copia risorsa di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuisce più account di archiviazione con un numero di indice nel nome. |
 |[Copia seriale risorse di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuisce più account di archiviazione uno alla volta. Il nome include il numero di indice. |

@@ -3,7 +3,7 @@ title: Tipi di endpoint di Gestione traffico | Documentazione Microsoft
 description: Questo articolo illustra tipi diversi di endpoint che è possibile usare con Gestione traffico di Azure
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,18 +11,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
-ms.author: kumud
-ms.openlocfilehash: dc76f56b6c05f22a380ff33715fe22e8c72e4891
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.author: allensu
+ms.openlocfilehash: 469b6543b380cb6b3b10c3def8484bed944f8556
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508441"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071196"
 ---
 # <a name="traffic-manager-endpoints"></a>Endpoint di Gestione traffico
+
 Gestione traffico di Microsoft Azure consente di controllare la distribuzione del traffico di rete a distribuzioni di applicazioni in esecuzione in diversi data center. In Gestione traffico ogni distribuzione di applicazioni viene configurata come "endpoint". Quando Gestione traffico riceve una richiesta DNS, sceglie un endpoint disponibile da restituire nella risposta DNS. Gestione traffico basa la scelta sullo stato dell'endpoint corrente e sul metodo di routing del traffico. Per altre informazioni, vedere [Modalità di funzionamento di Gestione traffico](traffic-manager-how-it-works.md).
 
 Gli endpoint supportati da Gestione traffico sono di tre tipi:
+
 * **Endpoint di Azure** , usati per i servizi ospitati in Azure.
 * **Endpoint esterni** vengono usate per gli indirizzi IPv4 e IPv6, nomi di dominio completo, o per i servizi ospitati all'esterno di Azure che può essere locale o presso un provider di hosting diverso.
 * **Endpoint annidati** , usati per combinare i profili di Gestione traffico e creare schemi di routing del traffico più flessibili, per supportare le esigenze di distribuzioni più grandi e complesse.
@@ -42,14 +44,14 @@ In Gestione traffico gli endpoint di Azure vengono usati per i servizi basati su
 
 Le risorse PublicIPAddress sono risorse di Azure Resource Manager. Tali risorse non sono presenti nel modello di distribuzione classica. Sono quindi supportate unicamente nelle esperienze di Gestione traffico di tipo Azure Resource Manager. Gli altri tipi di endpoint sono supportati mediante Resource Manager e il modello di distribuzione classica.
 
-Quando si usano gli endpoint di Azure, Gestione trafficorileva l'arresto o l'avvio di una macchina virtuale IaaS "classica", di un servizio cloud o di un'app Web. Questo stato si riflette nello stato dell'endpoint. Per altri dettagli, vedere [Monitoraggio e failover degli endpoint di Gestione traffico](traffic-manager-monitoring.md#endpoint-and-profile-status). Quando il servizio sottostante viene arrestato, Gestione traffico non esegue controlli di integrità dell'endpoint e non indirizza il traffico all'endpoint stesso. Per l'istanza arrestata non si verifica alcun evento di fatturazione di Gestione traffico. Quando il servizio viene riavviato, la fatturazione riprende e l'endpoint è di nuovo idoneo a ricevere il traffico. Questo rilevamento non è applicabile agli endpoint PublicIpAddress.
+Quando si usano gli endpoint di Azure, gestione traffico rileva quando un'App Web è arrestata e avviata. Questo stato si riflette nello stato dell'endpoint. Per altri dettagli, vedere [Monitoraggio e failover degli endpoint di Gestione traffico](traffic-manager-monitoring.md#endpoint-and-profile-status). Quando il servizio sottostante viene arrestato, Gestione traffico non esegue controlli di integrità dell'endpoint e non indirizza il traffico all'endpoint stesso. Per l'istanza arrestata non si verifica alcun evento di fatturazione di Gestione traffico. Quando il servizio viene riavviato, la fatturazione riprende e l'endpoint è di nuovo idoneo a ricevere il traffico. Questo rilevamento non è applicabile agli endpoint PublicIpAddress.
 
 ## <a name="external-endpoints"></a>Endpoint esterni
 
 Gli endpoint esterni vengono usati per entrambi gli indirizzi IPv4 e IPv6, nomi di dominio completo, o per i servizi all'esterno di Azure. L'uso di endpoint per gli indirizzi IPv4/IPv6 consente a Gestione traffico di controllare l'integrità degli endpoint senza che sia necessario specificare un nome DNS. Di conseguenza, Gestione traffico può rispondere alle query con i record A/AAAA quando viene restituito l'endpoint in una risposta. I servizi esterni ad Azure possono includere un servizio ospitato in locale o da un provider diverso. Gli endpoint esterni possono essere usati singolarmente o combinati con Endpoint di Azure nello stesso profilo di Gestione traffico, ad eccezione degli endpoint specificati come indirizzi IPv4 o IPv6 che possono essere solo endpoint esterni. La combinazione di endpoint di Azure con endpoint esterni consente un'ampia gamma di scenari:
 
 * Offre maggiore ridondanza per un'applicazione locale esistente in un modello di failover attivo-passivo o attivo-attivo con l'utilizzo di Azure. 
-* Consente di instradare il traffico verso endpoint a cui non è associato un nome DNS. Consente inoltre di ridurre la latenza di ricerca DNS globale eliminando la necessità di eseguire una seconda query DNS per ottenere un indirizzo IP di un nome DNS restituito. 
+* Consente di instradare il traffico verso endpoint a cui non è associato un nome DNS. Consente inoltre di ridurre la latenza di ricerca DNS globale eliminando la necessità di eseguire una seconda query DNS per ottenere un indirizzo IP di un nome DNS restituito.
 * Consente di ridurre la latenza dell'applicazione per gli utenti in ogni parte del mondo ed estendere un'applicazione locale esistente ad altre aree geografiche in Azure. Per altre informazioni, vedere [Metodo di routing del traffico Prestazioni](traffic-manager-routing-methods.md#performance).
 * Offre capacità aggiuntiva a un'applicazione locale esistente, sia in modo continuativo sia come soluzione "burst nel cloud" per gestire un picco di domanda tramite Azure.
 

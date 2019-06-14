@@ -5,21 +5,21 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: 8a78a9b8f0772a83e45ac2b926878e61e6ee2e61
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 06/12/2019
+ms.openlocfilehash: 7a517be49a249b0b73c901137381bd05946aa4cc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926342"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065709"
 ---
-# <a name="server-logs-in-azure-database-for-mariadb"></a>Log del server in Database di Azure per MariaDB
+# <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Log query lente nel Database di Azure per MariaDB
 Nel Database di Azure per MariaDB, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
 
 Per altre informazioni sul log delle query lente, vedere la documentazione MariaDB per il [log delle query lente](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-## <a name="access-server-logs"></a>Accesso ai log server
-È possibile elencare e scaricare i log del server del Database di Azure per MariaDB usando il portale di Azure e l'interfaccia della riga di comando di Azure.
+## <a name="access-slow-query-logs"></a>Accedere ai log query lente
+È possibile elencare e scaricare i Database di Azure per i log di query lente MariaDB usando il portale di Azure e la CLI di Azure.
 
 Nel portale di Azure, selezionare il server Database di Azure per MariaDB. Nell'intestazione **Monitoraggio** selezionare la pagina **Log del server**.
 
@@ -30,7 +30,7 @@ I log sono disponibili per un massimo di sette giorni dalla data di creazione. S
 
 I log vengono ruotati ogni 24 ore o 7 GB, a seconda del valore raggiunto per primo.
 
-## <a name="configure-logging"></a>Configurare la registrazione
+## <a name="configure-slow-query-logging"></a>Configurare la registrazione di query lente
 Per impostazione predefinita il log delle query lente è disabilitato. Per abilitarlo, impostare slow_query_log su ON.
 
 Altri parametri che è possibile modificare includono:
@@ -74,8 +74,8 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 | `last_insert_id_s` | [last_insert_id](https://mariadb.com/kb/en/library/last_insert_id/) |
 | `insert_id_s` | Inserire ID |
 | `sql_text_s` | Query completa |
-| `server_id_s` | ID server |
-| `thread_id_s` | ID thread |
+| `server_id_s` | ID del server |
+| `thread_id_s` | ID del thread |
 | `\_ResourceId` | URI della risorsa |
 
 ## <a name="next-steps"></a>Passaggi successivi

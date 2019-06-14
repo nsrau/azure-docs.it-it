@@ -13,12 +13,12 @@ ms.date: 06/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b7e54f6acfe1cbbe6e46fe92d132ebdaa91ff33
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 510a5562740260eb2946ded074a5c37804c55375
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742349"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109515"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Come Azure AD offre Cloud disciplinato gestione per i carichi di lavoro in locale
 
@@ -89,7 +89,7 @@ Quando un'organizzazione è pronta per lo spostamento del sistema operativo che 
 
 ## <a name="cloud-governed-management-for-on-premises-federation-based-applications"></a>Gestione del cloud regolati per applicazioni locali basata su federazione
 
-Per un'organizzazione che usa già un provider di identità in locale, spostare le applicazioni in Azure AD consente l'accesso più sicuro e un'esperienza amministrativa semplificata per la gestione della federazione. Azure AD consente la configurazione di controlli di accesso per applicazione granulari, tra cui Azure multi-Factor Authentication, usando l'accesso condizionale di Azure AD. Azure AD supporta altre funzionalità, tra cui certificati di firma del token di specifiche dell'applicazione e date di scadenza dei certificati configurabili. Queste funzionalità, strumenti e linee guida consentono alle organizzazioni di ritirare i provider di identità in locale. Di Microsoft IT, per un esempio, è stato spostato 17,987 applicazioni da Microsoft interna Active Directory Federation Services (ADFS) in Azure AD.
+Per un'organizzazione che usa già un provider di identità in locale, spostare le applicazioni in Azure AD consente l'accesso più sicuro e un'esperienza amministrativa semplificata per la gestione della federazione. Azure AD consente la configurazione di controlli di accesso per applicazione granulari, tra cui Azure multi-Factor Authentication, utilizzando l'accesso condizionale di Azure AD. Azure AD supporta altre funzionalità, tra cui certificati di firma del token di specifiche dell'applicazione e date di scadenza dei certificati configurabili. Queste funzionalità, strumenti e linee guida consentono alle organizzazioni di ritirare i provider di identità in locale. Di Microsoft IT, per un esempio, è stato spostato 17,987 applicazioni da Microsoft interna Active Directory Federation Services (ADFS) in Azure AD.
 
 ![Evoluzione di Azure AD](media/cloud-governed-management-for-on-premises/image5.png)
 

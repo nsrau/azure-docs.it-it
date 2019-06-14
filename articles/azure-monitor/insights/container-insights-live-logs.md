@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
+ms.date: 06/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 8d4cc5e46066ad2f18d596d0484f62f478b4cc23
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 71c6f1936f8cbc700a24d0ffb497947c8c8d3a50
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514316"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075316"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Come visualizzare i log ed eventi in tempo reale (anteprima)
-Monitoraggio di Azure per contenitori include una funzionalità, che è attualmente in anteprima, che offre una visualizzazione in tempo reale i log dei contenitori di Azure Kubernetes Service (AKS) (stdout o stderr) e gli eventi senza dover eseguire i comandi di kubectl. Quando si seleziona l'opzione desiderata, un nuovo riquadro viene visualizzato sotto la tabella di dati delle prestazioni nel **i nodi**, **controller**, e **contenitori** visualizzazione. Mostra la registrazione in tempo reale e gli eventi generati dal modulo del contenitore per ulteriore assistenza nella risoluzione dei problemi in tempo reale. 
+Monitoraggio di Azure per contenitori include una funzionalità, che è attualmente in anteprima, che offre una visualizzazione in tempo reale i log dei contenitori di Azure Kubernetes Service (AKS) (stdout o stderr) e gli eventi senza dover eseguire i comandi di kubectl. Quando si seleziona l'opzione desiderata, un nuovo riquadro viene visualizzato sotto la tabella di dati delle prestazioni nel **i nodi**, **controller**, e **contenitori** visualizzazione. Mostra la registrazione in tempo reale e gli eventi generati dal modulo del contenitore per ulteriore assistenza nella risoluzione dei problemi in tempo reale.
 
 >[!NOTE]
 >**Collaboratore** accesso alla risorsa del cluster è necessario per usare questa funzionalità.
@@ -29,9 +29,9 @@ Monitoraggio di Azure per contenitori include una funzionalità, che è attualme
 
 I log in tempo reale supportano tre metodi diversi per controllare l'accesso ai log:
 
-1. Servizio Azure Kubernetes senza autorizzazione del controllo degli accessi in base al ruolo di Kubernetes abilitata 
+1. Servizio Azure Kubernetes senza autorizzazione del controllo degli accessi in base al ruolo di Kubernetes abilitata
 2. Servizio Azure Kubernetes con autorizzazione del controllo degli accessi in base al ruolo di Kubernetes abilitata
-3. Servizio contenitore di AZURE abilitata con Azure Active Directory (AD) basato su SAML single sign-in 
+3. Servizio contenitore di AZURE abilitata con Azure Active Directory (AD) basato su SAML single sign-in
 
 ## <a name="kubernetes-cluster-without-rbac-enabled"></a>Cluster Kubernetes con controllo degli accessi in base al ruolo abilitato
  
@@ -66,21 +66,21 @@ Se è stata abilitata l'autorizzazione del controllo degli accessi in base al ru
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. Se si sta configurando, per la prima volta, si crea l'associazione della regola cluster eseguendo il comando seguente: `kubectl create -f LogReaderRBAC.yaml`. Se è abilitato in precedenza il supporto per visualizzare in anteprima in tempo reale dei log prima è stato introdotto in tempo reale i registri eventi, per aggiornare la configurazione, eseguire il comando seguente: `kubectl apply -f LogReaderRBAC.yml`. 
+2. Se si sta configurando, per la prima volta, si crea l'associazione della regola cluster eseguendo il comando seguente: `kubectl create -f LogReaderRBAC.yaml`. Se è abilitato in precedenza il supporto per visualizzare in anteprima in tempo reale dei log prima è stato introdotto in tempo reale i registri eventi, per aggiornare la configurazione, eseguire il comando seguente: `kubectl apply -f LogReaderRBAC.yml`.
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Configurare il servizio Azure Kubernetes con Azure Active Directory
-Il servizio Azure Kubernetes può essere configurato in modo da usare Azure Active Directory (AD) per l'autenticazione utente. Se si sta configurando, per la prima volta, vedere [integrare Azure Active Directory con Azure Kubernetes Service](../../aks/azure-ad-integration.md). Durante la procedura per creare il [applicazione client](../../aks/azure-ad-integration.md#create-client-application), è necessario specificare due **URI di reindirizzamento** voci. I due URI sono:
 
-- https://ininprodeusuxbase.microsoft.com/*
-- https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html  
+Il servizio Azure Kubernetes può essere configurato in modo da usare Azure Active Directory (AD) per l'autenticazione utente. Se si sta configurando, per la prima volta, vedere [integrare Azure Active Directory con Azure Kubernetes Service](../../aks/azure-ad-integration.md). Durante la procedura per creare il [applicazione client](../../aks/azure-ad-integration.md#create-the-client-application), specificare quanto segue:
+
+- **(Facoltativo) URI di reindirizzamento**: Si tratta di un **Web** tipo di applicazione e il valore di URL di base devono essere `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+- Dopo la registrazione dell'applicazione, dal **Overview** pagina Scegli **autenticazione** nel riquadro a sinistra. Nel **Authentication** nella pagina **impostazioni avanzate** concedere in modo implicito **i token di accesso** e **i token ID** e quindi salvare il modifiche.
 
 >[!NOTE]
->La configurazione dell'autenticazione con Azure Active Directory per il Single Sign-On può essere eseguita solo durante la distribuzione iniziale di un nuovo cluster del servizio Azure Kubernetes. Non è possibile configurare l'accesso Single Sign-On per un cluster del servizio Azure Kubernetes già distribuito. È necessario configurare l'autenticazione dai **registrazione dell'App (legacy)** opzione in Azure AD per supportare l'uso di un carattere jolly dell'URI e mentre viene aggiunta all'elenco, registrarlo come una **native** app.
-> 
+>Configurazione dell'autenticazione con Azure Active Directory per single sign-on può essere eseguita solo durante la distribuzione iniziale di un nuovo cluster AKS. Non è possibile configurare l'accesso Single Sign-On per un cluster del servizio Azure Kubernetes già distribuito.
 
 ## <a name="view-live-logs-and-events"></a>Visualizzare i log in tempo reale ed eventi
 
-È possibile visualizzare gli eventi del log in tempo reale mentre vengono generati dal motore di contenitore del **i nodi**, **controller**, e **contenitori** visualizzazione. Nel riquadro proprietà, si seleziona **visualizzare i dati in tempo reale (anteprima)** opzione e un riquadro viene visualizzato sotto la tabella di dati delle prestazioni in cui è possibile visualizzare i log ed eventi in un flusso continuo. 
+È possibile visualizzare gli eventi del log in tempo reale mentre vengono generati dal motore di contenitore del **i nodi**, **controller**, e **contenitori** visualizzazione. Nel riquadro proprietà, si seleziona **visualizzare i dati in tempo reale (anteprima)** opzione e un riquadro viene visualizzato sotto la tabella di dati delle prestazioni in cui è possibile visualizzare i log ed eventi in un flusso continuo.
 
 ![Opzione di nodo proprietà riquadro Visualizza i log in tempo reale](./media/container-insights-live-logs/node-properties-live-logs-01.png)  
 
@@ -100,9 +100,11 @@ Dopo l'autenticazione, il riquadro dei log in tempo reale verrà visualizzato ne
     
   ![Dati recuperati nel riquadro dei log in tempo reale](./media/container-insights-live-logs/live-logs-pane-01.png)  
 
-Nella barra di ricerca, è possibile filtrare per parola chiave per evidenziare il testo nel log o l'evento e nella barra di ricerca all'estrema destra, Mostra il numero di risultati corrispondenti out del filtro.   
+Nella barra di ricerca, è possibile filtrare per parola chiave per evidenziare il testo nel log o l'evento e nella barra di ricerca all'estrema destra, Mostra il numero di risultati corrispondenti out del filtro.
 
   ![Esempio di filtro nel riquadro dei log in tempo reale](./media/container-insights-live-logs/live-logs-pane-filter-example-01.png)
+
+Durante la visualizzazione eventi, è inoltre possibile limitare i risultati usando il **filtro** partite trovato a destra della barra di ricerca. A seconda della risorsa per cui è stata selezionata, le partite elenca un pod, lo spazio dei nomi o cluster tra cui scegliere.  
 
 Per sospendere per lo scorrimento automatico e controllare il comportamento del riquadro e consentono di scorrere manualmente i nuovi dati di lettura, fare clic sui **scorrimento** opzione. Per abilitare nuovamente per lo scorrimento automatico, è sufficiente fare clic il **scorrimento** opzione nuovamente. È anche possibile sospendere il recupero dei dati di log o eventi facendo clic sui **sospendere** opzione e quando si è pronti per riprendere, è sufficiente fare clic su **riprodurre**.  
 

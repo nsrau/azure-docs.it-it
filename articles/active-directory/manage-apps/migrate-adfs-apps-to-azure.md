@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f77e322ffd7eec78fe13650f40c93f914706d557
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 272d5194b2922e57aca0d63fd62c222e17a29c53
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824617"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108244"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Spostare le app da Active Directory Federation Services (AD FS) ad Azure Active Directory (Azure AD) 
 
@@ -46,7 +46,7 @@ Molte organizzazioni hanno applicazioni line-of-business personalizzate o SaaS c
 Per un'organizzazione che usa già AD FS, Ping o un altro provider di autenticazione locale, lo spostamento delle app ad Azure AD offre i vantaggi seguenti:
 
 **Accesso più sicuro**
-- È possibile configurare controlli di accesso per applicazione granulari, tra cui Azure Multi-Factor Authentication, usando l'[accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md). I criteri possono essere applicati alle app SaaS e personalizzate così come eventualmente già applicati per Office 365.
+- Configurare controlli di accesso per applicazione granulari, tra cui Azure multi-Factor Authentication, usando [accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md). I criteri possono essere applicati alle app SaaS e personalizzate così come eventualmente già applicati per Office 365.
 - Per rilevare le minacce e proteggere l'accesso in base ad apprendimento automatico ed euristica per identificare il traffico rischioso, è possibile sfruttare [Azure AD Identity Protection](../active-directory-identityprotection.md).
 
 **Collaborazione B2B di Azure AD**
@@ -119,13 +119,13 @@ Sostituire {id-tenant} con l'ID del tenant, riportato come **ID directory** nel 
 
 La tabella seguente descrive i principali elementi di configurazione del provider di identità per configurare le impostazioni SSO nell'app, con i rispettivi valori o posizioni in AD FS e Azure AD. La tabella fa riferimento a un'app SaaS, che deve sapere dove inviare le richieste di autenticazione e come convalidare i token ricevuti.
 
-|Elemento di configurazione|Descrizione|ADFS|Azure AD|
+|Elemento di configurazione|Descrizione|AD FS|Azure AD|
 |---|---|---|---|
 |Metadati </br>di accesso </br>URL|URL di accesso del provider di identità dal punto di vista dell'app, ossia l'URL a cui l'utente verrà reindirizzato per l'accesso.|L'URL di accesso di AD FS è il nome del servizio federativo AD FS seguito da "/adfs/ls/", ad esempio https&#58;//fs.contoso.com/adfs/ls/|Il valore corrispondente per Azure AD segue questo modello, in cui {id-tenant} verrà sostituito con l'ID del tenant. Questo è riportato come **ID directory** nel portale di Azure in **Azure Active Directory** > **Proprietà**.</br></br>Per le app che usano il protocollo SAML-P è https&#58;//login.microsoftonline.com/{id-tenant}/saml2 </br></br>Per le app che usano il protocollo WS-Federation è https&#58;//login.microsoftonline.com/{id-tenant}/wsfed|
 |Metadati </br>disconnessione </br>URL|URL di disconnessione del provider di identità dal punto di vista dell'app, ossia l'URL a cui l'utente viene reindirizzato quando sceglie di disconnettersi dall'app.|Per AD FS, l'URL di disconnessione è uguale all'URL di accesso oppure è lo stesso URL con l'aggiunta di "wa=wsignout1.0", ad esempio https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|Il valore corrispondente per Azure AD varia a seconda che l'app supporti o meno la disconnessione SAML 2.0.</br></br>Se l'app supporta la disconnessione SAML, il valore segue questo modello, in cui {id-tenant} verrà sostituito con l'ID del tenant. Questo è riportato come **ID directory** nel portale di Azure in **Azure Active Directory** > **Proprietà**: https&#58;//login.microsoftonline.com/{id-tenant}/saml2</br></br>Se l'app non supporta la disconnessione SAML, è https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
-|Token </br>per la firma di </br>certificato|Certificato la cui chiave privata viene usata dal provider di identità per firmare i token rilasciati. Verifica che il token provenga dallo stesso provider di identità per cui è stato configurato il trust nell'app.|Il certificato per la firma di token di AD FS si trova in **Certificati** in Gestione AD FS.|In Azure AD, il certificato per la firma di token è riportato nel portale di Azure sotto l'intestazione **Certificato di firma SAML** nelle proprietà **Single Sign-On** dell'applicazione, da dove può essere scaricato per il caricamento nell'app.</br></br> Se l'applicazione ha più certificati, si trovano tutti nel file XML dei metadati di federazione.|
+|token </br>per la firma di </br>certificato|Certificato la cui chiave privata viene usata dal provider di identità per firmare i token rilasciati. Verifica che il token provenga dallo stesso provider di identità per cui è stato configurato il trust nell'app.|Il certificato per la firma di token di AD FS si trova in **Certificati** in Gestione AD FS.|In Azure AD, il certificato per la firma di token è riportato nel portale di Azure sotto l'intestazione **Certificato di firma SAML** nelle proprietà **Single Sign-On** dell'applicazione, da dove può essere scaricato per il caricamento nell'app.</br></br> Se l'applicazione ha più certificati, si trovano tutti nel file XML dei metadati di federazione.|
 |Identificatore/</br>"autorità di certificazione"|Identificatore del provider di identità dal punto di vista dell'app, talvolta denominato "ID autorità di certificazione".</br></br>Nel token SAML, il valore è presente come elemento **Issuer**.|L'identificatore per AD FS è in genere l'identificatore del servizio federativo riportato in **Servizio** > **Modifica proprietà servizio federativo** in Gestione AD FS. Ad esempio, http&#58;//fs.contoso.com/adfs/services/trust|Il valore corrispondente per Azure AD segue questo modello, in cui {id-tenant} verrà sostituito con l'ID del tenant. Questo è riportato come **ID directory** nel portale di Azure in **Azure Active Directory** > **Proprietà**: https&#58;//sts.windows.net/{id-tenant}/|
-|Metadati </br>federazione </br>Metadati|Posizione dei metadati di federazione disponibili pubblicamente del provider di identità. Alcune app usano i metadati di federazione come alternativa alla configurazione di URL, identificatore e certificato per la firma di token eseguita singolarmente dall'amministratore.|L'URL dei metadati di federazione di AD FS è indicato in **Servizio** > **Endpoint** > **Metadati** > **Tipo: Metadati federazione**. Ad esempio: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Il valore corrispondente per Azure AD segue il modello https&#58;//login.microsoftonline.com/{NomeDominioTenant}/FederationMetadata/2007-06/FederationMetadata.xml. Il valore di {NomeDominioTenant} verrà sostituito con il nome del tenant nel formato "contoso.onmicrosoft.com". </br></br>Per altre informazioni, vedere [Metadati della federazione](../develop/azure-ad-federation-metadata.md).
+|Metadati </br>federazione </br>metadata|Posizione dei metadati di federazione disponibili pubblicamente del provider di identità. Alcune app usano i metadati di federazione come alternativa alla configurazione di URL, identificatore e certificato per la firma di token eseguita singolarmente dall'amministratore.|L'URL dei metadati di federazione di AD FS è indicato in **Servizio** > **Endpoint** > **Metadati** > **Tipo: Metadati federazione**. Ad esempio: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Il valore corrispondente per Azure AD segue il modello https&#58;//login.microsoftonline.com/{NomeDominioTenant}/FederationMetadata/2007-06/FederationMetadata.xml. Il valore di {NomeDominioTenant} verrà sostituito con il nome del tenant nel formato "contoso.onmicrosoft.com". </br></br>Per altre informazioni, vedere [Metadati della federazione](../develop/azure-ad-federation-metadata.md).
 
 ## <a name="moving-saas-apps"></a>Spostamento delle app SaaS
 Lo spostamento di app SaaS da AD FS o altro provider di identità ad Azure AD è attualmente un processo manuale. Per istruzioni per app specifiche, vedere l'[elenco delle esercitazioni sull'integrazione delle app SaaS disponibili nel Marketplace](../saas-apps/tutorial-list.md).
@@ -155,7 +155,7 @@ Attualmente è possibile spostare facilmente le app SAML 2.0 che usano il set st
 - Attestazioni personalizzate. Per informazioni sui mapping di attestazioni supportati, vedere [Mapping delle attestazioni in Azure Active Directory](../develop/active-directory-claims-mapping.md) e [Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 Oltre alle attestazioni personalizzate e agli elementi **NameID**, le configurazioni che richiedono passaggi di configurazione aggiuntivi in Azure AD come parte della migrazione sono le seguenti:
-- Regole di Multi-Factor Authentication o di autorizzazione personalizzate in AD FS, configurate con la funzionalità di [accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md).
+- Regole di Multi-Factor Authentication o di autorizzazione personalizzate in AD FS, Configurarli tramite le [accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md) funzionalità.
 - App con più endpoint SAML, configurate in Azure AD con PowerShell. Questa funzionalità non è disponibile nel portale.
 - App WS-Federation come le app SharePoint che richiedono token SAML versione 1.1, che devono essere configurate manualmente con PowerShell.
 

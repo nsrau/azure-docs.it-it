@@ -9,10 +9,10 @@ author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
 ms.openlocfilehash: 623e993dfbe6bbb3297fa6470865ab1a04f55b37
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123174"
 ---
 >[!IMPORTANT]
@@ -29,7 +29,7 @@ Se non si prevede di usare le risorse create, eliminare l'intero gruppo di risor
 
 1. Nell'elenco selezionare il gruppo di risorse creato.
 
-1. Nella parte destra della finestra selezionare il pulsante con i puntini di sospensione (**...**).
+1. Nella parte destra della finestra selezionare il pulsante con i puntini di sospensione ( **...** ).
 
 1. Selezionare **Elimina gruppo di risorse**.
 

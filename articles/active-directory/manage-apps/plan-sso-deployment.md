@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29569302d20e23c95b6508a5b58c7ed96e005885
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: bd8cebbd7c60715bc90412d9f53458edfee6c56d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66499250"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108194"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Pianificare una distribuzione di single sign-on
 
@@ -146,7 +146,7 @@ Per informazioni su MCAS, vedere la [Panoramica di Microsoft Cloud App Security]
 
 Grazie all'accesso condizionale, è possibile automatizzare le decisioni di controllo di accesso basato su criteri per le app cloud.
 
-I criteri di accesso condizionale vengono applicati dopo il completamento dell'autenticazione con primo fattore. Pertanto, l'accesso condizionale non è come una prima linea di difesa per gli scenari, ad esempio attacchi di tipo denial of service (DoS), ma è possibile usare i segnali provenienti da questi eventi per determinare l'accesso. Ad esempio il livello di rischio di accesso, è utilizzabile percorso della richiesta e così via. Per altre informazioni sull'accesso condizionale, vedere [la panoramica](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) e il [piano di distribuzione](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
+Criteri di accesso condizionale vengono applicati dopo il primo-factor authentication è stato completato. Pertanto, l'accesso condizionale non è come una prima linea di difesa per gli scenari, ad esempio attacchi di tipo denial of service (DoS), ma è possibile usare i segnali provenienti da questi eventi per determinare l'accesso. Ad esempio il livello di rischio di accesso, è utilizzabile percorso della richiesta e così via. Per altre informazioni sull'accesso condizionale, vedere [la panoramica](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) e il [piano di distribuzione](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
 
 ## <a name="azure-sso-technical-requirements"></a>Requisiti tecnici di Azure l'accesso SSO
 

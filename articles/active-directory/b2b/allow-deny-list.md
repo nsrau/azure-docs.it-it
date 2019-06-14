@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b302ec0265473e09b3960660b10661faa1960442
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fa975446c19db3176fdb89ccfb1a987b1fda049d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812972"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113229"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche
 
@@ -64,7 +64,7 @@ Per aggiungere un elenco di accesso consentito:
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory** > **Utenti** > **Impostazioni utente**.
 3. In **Utenti esterni** selezionare **Manage external collaboration settings** (Gestisci impostazioni di collaborazione esterna).
-4. In **Restrizioni di collaborazione** selezionare **Consenti l'invio di inviti solo ai domini specificati (più restrittivo)**.
+4. In **Restrizioni di collaborazione** selezionare **Consenti l'invio di inviti solo ai domini specificati (più restrittivo)** .
 5. In **DOMINI DI DESTINAZIONE** immettere il nome di uno dei domini che si vuole consentire. Per specificare più domini, immettere ognuno in una nuova riga. Ad esempio:
 
    ![Mostra l'opzione Consenti con i domini aggiunti](./media/allow-deny-list/AllowListSettings.png)
@@ -157,7 +157,7 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica di Azure AD B2B, vedere [Informazioni su Collaborazione B2B di Azure AD](what-is-b2b.md)
-- Per informazioni sull'accesso condizionale e la collaborazione B2B, vedere [Accesso condizionale per gli utenti di Collaborazione B2B](conditional-access.md).
+- Per informazioni su collaborazione B2B e accesso condizionale, vedere [accesso condizionale per gli utenti di collaborazione B2B](conditional-access.md).
 
 
 

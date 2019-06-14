@@ -9,10 +9,10 @@ ms.date: 12/12/2018
 ms.author: jaredro
 ms.custom: seodec18
 ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869972"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurare ExpressRoute globale raggiungere tramite la CLI di Azure
@@ -54,7 +54,7 @@ az account set --subscription <your subscription ID>
 
 Quando si esegue il comando per abilitare la connettività, tenere presenti i requisiti seguenti per i valori dei parametri:
 
-* *peer-circuit* deve essere l'ID risorsa completo. Ad esempio: 
+* *peer-circuit* deve essere l'ID risorsa completo. Ad esempio:
 
   > /subscriptions/{id_sottoscrizione}/resourceGroups/{gruppo_risorse}/providers/Microsoft.Network/expressRouteCircuits/{nome_circuito}
 

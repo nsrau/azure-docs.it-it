@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 100bbb6e0ed8e2ea5b35e30e7759a3b11c169b60
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919302"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077634"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -90,7 +90,7 @@ Per altre informazioni sulle autorizzazioni necessarie per creare un peering di 
 
 È previsto un addebito nominale per il traffico in ingresso e in uscita che usa una connessione con peering reti virtuali. Per altre informazioni sui prezzi per il peering reti virtuali e per il peering globale di reti virtuali, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Il transito nel gateway è una proprietà del peering che consente a una rete virtuale di usare un gateway VPN in una rete virtuale con peering per la connettività cross-premise o da rete virtuale a rete virtuale. Il traffico che attraversa un gateway remoto in questo scenario è soggetto ai [costi del gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) e non verranno addebitati [costi per il peering reti virtuali.](https://azure.microsoft.com/pricing/details/virtual-network) Ad esempio, se VNetA dispone di un gateway VPN per la connettività da sito locale e VNetB è stato eseguito il peering da VNetA con le proprietà appropriate configurate, il traffico da VNetB in locale verrà addebitato solo in uscita per ogni gateway VPN prezzi. Le tariffe del peering reti virtuali non si applicano. Informazioni su come [configurare il transito nel gateway VPN per il peering di rete virtuale.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Il transito gateway è una proprietà di peering che consente a una rete virtuale di usare un gateway VPN o ExpressRoute in una rete virtuale con peering di cross-premise o la connettività VNet-to-VNet. Il traffico passa attraverso un gateway remoto in questo scenario è soggetto alle [gli addebiti di gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) o gateway ExpressRoute addebiti e non comporta [quelli per il peering della rete virtuale.](https://azure.microsoft.com/pricing/details/virtual-network) Ad esempio, se VNetA dispone di un gateway VPN per la connettività da sito locale e VNetB è stato eseguito il peering da VNetA con le proprietà appropriate configurate, il traffico da VNetB in locale verrà addebitato solo in uscita per prezzi di gateway VPN o ExpressRoute prezzi. Le tariffe del peering reti virtuali non si applicano. Informazioni su come [configurare il transito nel gateway VPN per il peering di rete virtuale.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

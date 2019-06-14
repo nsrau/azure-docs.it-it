@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070345"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
@@ -60,7 +60,7 @@ Le istanze gestite sono backup automatici, in modo che gli utenti possono creare
   - Opzioni nastro: `REWIND`, `NOREWIND`, `UNLOAD`, e `NOUNLOAD` non sono supportati.
   - Opzioni specifiche dei log: `NORECOVERY`, `STANDBY`, e `NO_TRUNCATE` non sono supportati.
 
- Limitazioni: 
+Limitazioni: 
 
 - Con un'istanza gestita, è possibile eseguire il backup di un database di istanza da un backup con un massimo di 32 strisce, sufficiente per i database fino a 4 TB se viene utilizzata la compressione dei backup.
 - La dimensione massima striscia di backup usando il `BACKUP` comando in un'istanza gestita corrisponde a 195 GB, ovvero le dimensioni massime del blob. Aumentare il numero di set di stripe nel comando backup per ridurre le dimensioni dei singoli set di stripe e restare nel limite consentito.
@@ -276,6 +276,7 @@ Per altre informazioni, vedere [ALTER DATABASE](https://docs.microsoft.com/sql/t
 
 ### <a name="sql-server-agent"></a>Agente SQL Server
 
+- Abilitazione e disabilitazione di SQL Server Agent non è supportato in istanza gestita. SQL Agent è sempre in esecuzione.
 - Le impostazioni di SQL Server Agent sono di sola lettura. La procedura `sp_set_agent_properties` non è supportata in istanza gestita. 
 - Processi
   - I passaggi dei processi T-SQL sono supportati.
@@ -427,7 +428,7 @@ Le seguenti opzioni di database sono set o sottoposto a override e non può esse
 - Qualsiasi filegroup con ottimizzazione per la memoria esistente viene rinominato come XTP. 
 - `SINGLE_USER` e `RESTRICTED_USER` vengono convertiti in Opzioni `MULTI_USER`.
 
- Limitazioni: 
+Limitazioni: 
 
 - `.BAK` non è possibile ripristinare i file che contengono più set di backup. 
 - `.BAK` non è possibile ripristinare i file che contengono più file di log.
@@ -456,13 +457,13 @@ Il broker di servizio tra istanze non è supportato:
 - `Extended stored procedures` non sono supportate, che include `sp_addextendedproc`  e `sp_dropextendedproc`. Visualizzare [stored procedure estese](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db` non sono supportate. Vedere [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
-## <a name="Environment"></a>Vincoli Environmet
+## <a name="Environment"></a>Vincoli dell'ambiente
 
 ### <a name="subnet"></a>Subnet
 - Nella subnet sono riservate per l'istanza gestita è possibile inserire qualsiasi altra risorsa (ad esempio macchine virtuali). Queste risorse vengano inserite in altre subnet.
 - Subnet deve essere un numero sufficiente di disponibili [gli indirizzi IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Valore minimo è 16, mentre è consigliato disporre di almeno 32 indirizzi IP nella subnet.
 - [Gli endpoint di servizio non possono essere associati a subnet dell'istanza gestita](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Assicurarsi che l'opzione endpoint di servizio viene disabilitato quando si crea la rete virtuale.
-- Il numero e tipi di istanze che è possibile inserire nella subnet hanno alcune [limiti e vincoli](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- Tipi di istanze che è possibile distribuire in un'area e il numero di Vcore presentano alcuni [limiti e vincoli](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - Esistono tuttavia alcuni [regole di sicurezza che devono essere applicate nella subnet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
 ### <a name="vnet"></a>Rete virtuale

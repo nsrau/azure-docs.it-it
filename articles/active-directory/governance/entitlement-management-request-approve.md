@@ -17,16 +17,16 @@ ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b2d07638f6c6f153ee3640273fbee5e56df0ab2
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64541526"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>Approvare o rifiutare le richieste di accesso nella gestione dei diritti di Azure AD (anteprima)
 
 > [!IMPORTANT]
-> Gestione dei diritti di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
+> Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -36,7 +36,7 @@ Con la gestione dei diritti di Azure AD, è possibile configurare i criteri per 
 
 Il primo passaggio per approvare o rifiutare le richieste di accesso è per trovare e aprire la richiesta di accesso in attesa di approvazione. Esistono due modi per aprire la richiesta di accesso.
 
-**Ruolo prerequisiti:** Responsabile approvazione
+**Ruolo prerequisito:** Responsabile approvazione
 
 1. Cercare un messaggio di posta elettronica da Microsoft Azure in cui viene chiesto di approvare o rifiutare una richiesta. Di seguito è riportato un messaggio di posta elettronica di esempio:
 
@@ -58,9 +58,9 @@ Se non si ha l'indirizzo di posta elettronica, è possibile trovare le richieste
 
 Dopo avere aperto una richiesta di accesso in attesa di approvazione, è possibile visualizzare i dettagli che consentono di rendere un'approvazione o negare delle decisioni.
 
-**Ruolo prerequisiti:** Responsabile approvazione
+**Ruolo prerequisito:** Responsabile approvazione
 
-1. Scegliere il **vista** collegamento per aprire il riquadro di richiesta di accesso.
+1. Fare clic sul collegamento **Visualizza** per aprire il riquadro Richiesta di accesso.
 
 1. Fare clic su **dettagli** per visualizzarne i dettagli della richiesta di accesso.
 
@@ -70,9 +70,9 @@ Dopo avere aperto una richiesta di accesso in attesa di approvazione, è possibi
 
 1. Se necessario, immettere un motivo.
 
-    ![Il portale di accesso - richiesta di accesso](./media/entitlement-management-shared/my-access-approve-request.png)
+    ![Portale di Accesso personale - Richiesta di accesso](./media/entitlement-management-shared/my-access-approve-request.png)
 
-1. Fare clic su **Submit** per inviare la decisione.
+1. Fare clic su **Invia** per inviare la decisione.
 
     Se un criterio è configurato con più responsabili approvazione, solo un responsabile approvazione deve prendere una decisione sull'approvazione in sospeso. Dopo che un responsabile approvazione ha inviato la propria decisione alla richiesta di accesso, la richiesta viene completata e non è più disponibile per altri responsabili dell'approvazione di approvare o negare la richiesta. Altri responsabili approvazione è possono visualizzare la decisione di richiesta e l'elemento decisivo nel portale di accesso personale. A questo punto, è supportata solo l'approvazione fase singola.
 

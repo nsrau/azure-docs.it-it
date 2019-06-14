@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be6fc2b7d6da85778524cb8986f399c341370c1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 4b4f1563aa0437cd45c297b95a83119318a24624
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307031"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109582"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Che cos'è Azure AD Identity Governance?
 
@@ -60,7 +60,7 @@ In genere, l'IT delega le decisioni in merito all'approvazione dell'accesso ai d
 
 Le organizzazioni possono automatizzare il processo di gestione del ciclo di vita degli accessi grazie a tecnologie come i [gruppi dinamici](../users-groups-roles/groups-dynamic-membership.md), associati al provisioning degli utenti in [app SaaS](../saas-apps/tutorial-list.md) o [app integrate con SCIM](../manage-apps/use-scim-to-provision-users-and-groups.md).  Possono anche controllare quali [utenti guest hanno accesso alle applicazioni locali](../b2b/hybrid-cloud-to-on-premises.md).  I diritti di accesso possono quindi essere riesaminati regolarmente usando le [verifiche di accesso ricorrenti di Azure AD](access-reviews-overview.md).
 
-Quando un utente tenta di accedere alle applicazioni, Azure AD applica criteri di [accesso condizionale](/azure/active-directory/conditional-access/). Ad esempio, i criteri di accesso condizionale possono includere la visualizzazione di [condizioni per l'utilizzo](../conditional-access/terms-of-use.md) e [garantire che l'utente abbia accettato le condizioni](../conditional-access/require-tou.md) prima di poter accedere a un'applicazione.
+Quando un utente tenta di accedere alle applicazioni, Azure AD applica [accesso condizionale](/azure/active-directory/conditional-access/) i criteri. Ad esempio, i criteri di accesso condizionale possono includere la visualizzazione di un [le condizioni d'uso](../conditional-access/terms-of-use.md) e [garantire che l'utente ha accettato le condizioni](../conditional-access/require-tou.md) prima di poter accedere a un'applicazione.
 
 ## <a name="privileged-access-lifecycle"></a>Ciclo di vita dell'accesso con privilegi
 
@@ -68,7 +68,7 @@ In passato, l'accesso con privilegi è stato descritto da altri fornitori come f
 
 ![Ciclo di vita dell'accesso con privilegi](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-Azure AD Privileged Identity Management (PIM) fornisce controlli aggiuntivi mirati alla protezione dei diritti di accesso alle risorse in Azure AD, Azure e altri Microsoft Online Services.  Le funzionalità di accesso just-in-time e avviso di modifica del ruolo fornite da Azure AD Privileged Identity Management, sommate all'autenticazione a più fattori e all'accesso condizionale, forniscono un set completo di controlli di governance per la protezione delle risorse aziendali, compresi directory, Office 365 e ruoli delle risorse di Azure. Come con altre forme di accesso, le organizzazioni possono usare le verifiche di accesso per configurare la ricertificazione ricorrente dell'accesso per tutti gli utenti con ruoli di amministratore.
+Azure AD Privileged Identity Management (PIM) fornisce controlli aggiuntivi mirati alla protezione dei diritti di accesso alle risorse in Azure AD, Azure e altri Microsoft Online Services.  L'accesso just-in-time e il ruolo modificare avvisi funzionalità fornite da Azure AD Privileged Identity Management, oltre all'autenticazione a più fattori e l'accesso condizionale, fornire che un set completo di controlli di governance per consentire sicura alle risorse dell'azienda (directory, Office 365 e i ruoli delle risorse di Azure). Come con altre forme di accesso, le organizzazioni possono usare le verifiche di accesso per configurare la ricertificazione ricorrente dell'accesso per tutti gli utenti con ruoli di amministratore.
 
 ## <a name="getting-started"></a>Introduzione
 

@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719738"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
@@ -26,7 +26,7 @@ Le modalità di blocco non possono tuttavia essere modificate al di fuori di Blu
 
 Le risorse create dagli artefatti nell'assegnazione di un progetto hanno quattro stati: **Non bloccato**, **Sola lettura**, **Impossibile modificare/eliminare** e **Impossibile eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
 
-|Mode|Tipo di risorsa artefatto|Stato|DESCRIZIONE|
+|Modalità|Tipo di risorsa artefatto|Stato|Descrizione|
 |-|-|-|-|
 |Non bloccare|*|Non bloccato|Le risorse non sono protette da Blueprints. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
 |Sola lettura|Gruppo di risorse|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
@@ -56,7 +56,7 @@ In virtù del controllo degli accessi in base al ruolo, alle risorse artefatto v
 
 Il [negare le proprietà di assegnazione](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) di ogni modalità è come segue:
 
-|Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|Modalità |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
 |Sola lettura |**\*** |**\*/read** |SystemDefined (Everyone) |assegnazione del progetto e definite dall'utente **excludedPrincipals** |Gruppo di risorse - _true_; Risorse - _false_ |
 |Non eliminare |**\*/Delete** | |SystemDefined (Everyone) |assegnazione del progetto e definite dall'utente **excludedPrincipals** |Gruppo di risorse - _true_; Risorse - _false_ |

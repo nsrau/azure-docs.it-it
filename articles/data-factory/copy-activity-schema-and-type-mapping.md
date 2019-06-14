@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 9108f83e854b51720c64c5a74a828543cc5e7688
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875813"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapping dello schema nell'attività di copia
@@ -91,17 +91,17 @@ Le proprietà seguenti sono supportate in `translator`  ->  `mappings` -> oggett
 | Proprietà | Descrizione                                                  | Obbligatorio |
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Nome della colonna di origine o sink.                           | Sì      |
-| ordinal  | Indice della colonna. Iniziare con 1. <br>Applicare e obbligatorio quando si utilizzando delimitato da testo senza intestazione riga. | No        |
-| path     | Espressione di percorso JSON per ogni campo da estrarre o eseguire il mapping. Applicare per i dati gerarchici, ad esempio MongoDB/REST.<br>Per i campi sotto l'oggetto radice, percorso JSON inizia con la radice $; per i campi nella matrice scelta dalla `collectionReference` percorso JSON di proprietà, inizia dall'elemento matrice. | No        |
-| type     | Tipo di dati provvisori Data Factory della colonna di origine o sink. | No        |
-| culture  | Impostazioni cultura della colonna di origine o sink. <br>Si applicano quando il tipo è `Datetime` o `Datetimeoffset`. Il valore predefinito è `en-us`. | No        |
-| format   | Stringa da utilizzare quando il tipo è di formato `Datetime` o `Datetimeoffset`. Per informazioni su come formattare datetime, vedere [Stringhe di formato di data e ora personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). | No        |
+| ordinal  | Indice della colonna. Iniziare con 1. <br>Applicare e obbligatorio quando si utilizzando delimitato da testo senza intestazione riga. | No       |
+| path     | Espressione di percorso JSON per ogni campo da estrarre o eseguire il mapping. Applicare per i dati gerarchici, ad esempio MongoDB/REST.<br>Per i campi sotto l'oggetto radice, percorso JSON inizia con la radice $; per i campi nella matrice scelta dalla `collectionReference` percorso JSON di proprietà, inizia dall'elemento matrice. | No       |
+| type     | Tipo di dati provvisori Data Factory della colonna di origine o sink. | No       |
+| culture  | Impostazioni cultura della colonna di origine o sink. <br>Si applicano quando il tipo è `Datetime` o `Datetimeoffset`. Il valore predefinito è `en-us`. | No       |
+| format   | Stringa da utilizzare quando il tipo è di formato `Datetime` o `Datetimeoffset`. Per informazioni su come formattare datetime, vedere [Stringhe di formato di data e ora personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). | No       |
 
 Le proprietà seguenti sono supportate in `translator`  ->  `mappings` oltre all'oggetto con `source` e `sink`:
 
 | Proprietà            | Descrizione                                                  | Obbligatoria |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| collectionReference | Supportato solo quando i dati gerarchici, ad esempio MongoDB/REST sono origine.<br>Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. | No        |
+| collectionReference | Supportato solo quando i dati gerarchici, ad esempio MongoDB/REST sono origine.<br>Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. | No       |
 
 ### <a name="alternative-column-mapping"></a>Mapping di colonna alternativi
 
@@ -205,7 +205,7 @@ La sintassi di `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyNam
 |:--- |:--- |:--- |
 | type | La proprietà type del convertitore dell'attività di copia deve essere impostata su: **TabularTranslator** | Sì |
 | schemaMapping | Una raccolta di coppie chiave-valore, che rappresenta la relazione di mapping **dal lato di origine al sink lato**.<br/>- **Chiave:** origine rappresenta. Per la **origine tabulari**, specificare il nome della colonna definite nella struttura di set di dati, per **origine gerarchici**, specificare l'espressione di percorso JSON per ogni campo da estrarre ed eseguire il mapping.<br>- **Valore:** rappresenta sink. Per la **sink tabulari**, specificare il nome della colonna definite nella struttura di set di dati, per **sink gerarchici**, specificare l'espressione di percorso JSON per ogni campo da estrarre ed eseguire il mapping. <br>Nel caso i dati gerarchici, per i campi sotto l'oggetto radice, percorso JSON inizia con la radice $; per i campi nella matrice scelta dalla `collectionReference` percorso JSON di proprietà, inizia dall'elemento matrice.  | Sì |
-| collectionReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. Questa proprietà è supportata solo quando l'origine è costituita da dati gerarchici. | No  |
+| collectionReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. Questa proprietà è supportata solo quando l'origine è costituita da dati gerarchici. | No |
 
 **Esempio: copiare da MongoDB a Oracle:**
 
@@ -236,7 +236,7 @@ Se ad esempio si ha un il documento di MongoDB con il contenuto seguente:
 }
 ```
 
-e si vuole copiare tale contenuto in una tabella SQL di Azure nel formato seguente, rendendo flat i dati nella matrice *(order_pd e order_price)* e nel crossjoin con le informazioni radice comuni *(numero, data e città)*:
+e si vuole copiare tale contenuto in una tabella SQL di Azure nel formato seguente, rendendo flat i dati nella matrice *(order_pd e order_price)* e nel crossjoin con le informazioni radice comuni *(numero, data e città)* :
 
 | orderNumber | orderDate | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0cb6e2b1df062c3d056bd9a5aa0c1ff89f6636a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fa3c6bf39dbef601fe64e125999f519f725f2e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60469112"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083779"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegare i ruoli di amministratore in Azure Active Directory
 
@@ -87,7 +87,7 @@ Quando uno sviluppatore di applicazioni crea una nuova registrazione di applicaz
 
 Per una delega dell'accesso alle app ancora più granulare, è possibile assegnare la proprietà di singole applicazioni aziendali. Questa delega si integra al supporto esistente per l'assegnazione dei proprietari delle registrazioni di applicazioni. La proprietà viene assegnata a livello di singola applicazione aziendale nel pannello Applicazioni aziendali. Il vantaggio è dato dal fatto che gli utenti possono gestire solo le applicazioni aziendali di cui sono proprietari. Se ad esempio si assegna un proprietario per l'applicazione Salesforce, tale proprietario può gestire l'accesso e la configurazione per Salesforce e non per altre applicazioni. Un'applicazione aziendale può avere molti proprietari e un utente può essere proprietario per molte applicazioni aziendali. Sono disponibili due ruoli di proprietario di app:
 
-* Il ruolo **Proprietario di applicazioni aziendali** consente di gestire le applicazioni aziendali di cui si è proprietari, tra cui le impostazioni dell'accesso Single Sign-on, le assegnazioni di utenti e gruppi e l'aggiunta di altri proprietari. Non consente tuttavia di gestire le impostazioni di proxy dell'applicazione o l'accesso condizionale.
+* Il ruolo **Proprietario di applicazioni aziendali** consente di gestire le applicazioni aziendali di cui si è proprietari, tra cui le impostazioni dell'accesso Single Sign-on, le assegnazioni di utenti e gruppi e l'aggiunta di altri proprietari. Non concede la possibilità di gestire le impostazioni del Proxy di applicazione o l'accesso condizionale.
 * Il ruolo **Proprietario delle registrazioni dell'applicazione** consente di gestire le registrazioni per l'app di cui si è proprietari, tra cui il manifesto dell'applicazione e l'aggiunta di altri proprietari.
 
 ## <a name="develop-a-security-plan"></a>Sviluppare un piano di sicurezza

@@ -17,23 +17,23 @@ ms.date: 03/14/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b94e9b7267c956c07f4171f8cce46c6159affd90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 942f7e43a549b5aa1a21284949ffc12ef3c8d75f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459705"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108922"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Procedura: Configurare i criteri di rischio utente
 
-Con il rischio utente, Azure AD rileva la probabilità che un account utente sia stato compromesso. Gli amministratori possono configurare criteri di accesso condizionale per il rischio utente per rispondere automaticamente a un determinato livello di rischio utente.
+Con il rischio utente, Azure AD rileva la probabilità che un account utente sia stato compromesso. Come amministratore, è possibile configurare un criterio di accesso condizionale, per rispondere automaticamente a un livello di rischio utente specifico di rischio utente.
  
 Questo articolo fornisce le informazioni necessarie per configurare i criteri di rischio utente.
 
 
 ## <a name="what-is-a-user-risk-policy"></a>Cosa sono i criteri di rischio utente?
 
-Azure AD analizza ogni accesso di un utente. L'obiettivo dell'analisi è rilevare eventuali azioni sospette compiute contestualmente alla procedura di accesso. In Azure AD, le azioni sospette che il sistema è in grado di rilevare prendono il nome di "eventi di rischio". Mentre alcuni eventi di rischio possono essere rilevati in tempo reale, altri richiedono più tempo. Per rilevare un trasferimento impossibile in una posizione atipica, ad esempio, il sistema richiede un periodo di apprendimento iniziale di 14 giorni per capire il comportamento normale dell'utente. Sono disponibili varie opzioni per risolvere gli eventi di rischio rilevati. È possibile, ad esempio, risolvere manualmente singoli eventi di rischio oppure ricorrere a criteri di accesso condizionale per il rischio di accesso o il rischio utente.
+Azure AD analizza ogni accesso di un utente. L'obiettivo dell'analisi è rilevare eventuali azioni sospette compiute contestualmente alla procedura di accesso. In Azure AD, le azioni sospette che il sistema è in grado di rilevare prendono il nome di "eventi di rischio". Mentre alcuni eventi di rischio possono essere rilevati in tempo reale, altri richiedono più tempo. Per rilevare un trasferimento impossibile in una posizione atipica, ad esempio, il sistema richiede un periodo di apprendimento iniziale di 14 giorni per capire il comportamento normale dell'utente. Sono disponibili varie opzioni per risolvere gli eventi di rischio rilevati. Ad esempio, è possibile risolvere gli eventi di rischio di singoli manualmente oppure è possibile ottenerli risolto con un rischio di accesso o un criterio di accesso condizionale di rischio utente.
 
 Tutti gli eventi di rischio rilevati per un utente e non risolti prendono il nome di "eventi di rischio attivi". Con "rischio utente" si intendono gli eventi di rischio attivi associati a un utente. Sulla base del rischio utente, Azure AD calcola la probabilità (bassa, media, elevata) che un utente sia stato compromesso. Questa probabilità viene definita "livello di rischio utente".
 

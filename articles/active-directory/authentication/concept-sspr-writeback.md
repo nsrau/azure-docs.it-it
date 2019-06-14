@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2dbf27301e738978e7f03d2423a4d23fd63c97b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823291"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113505"
 ---
 # <a name="what-is-password-writeback"></a>Che cos'è il writeback delle password?
 
@@ -51,7 +51,7 @@ Il writeback delle password offre:
 
 Per usare il writeback delle password, è necessario disporre una delle licenze seguenti assegnate nel tenant:
 
-* Azure AD P1 Premium
+* Azure AD Premium P1
 * Azure AD P2 Premium
 * Enterprise Mobility + Security E3 o A3
 * Enterprise Mobility + Security E5 o A5
@@ -152,7 +152,6 @@ Il writeback delle password viene eseguito in tutte le situazioni seguenti:
    * Qualsiasi operazione self-service forzata di modifica della password dell'amministratore, ad esempio in seguito a scadenza della password
    * Qualsiasi reimpostazione password self-service dell'amministratore originata dal [portale di reimpostazione password](https://passwordreset.microsoftonline.com)
    * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dal [portale di Azure](https://portal.azure.com)
-   * Qualsiasi password dell'utente finale avviata dall'amministratore di reimpostare la password dal [interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>Operazioni di writeback non supportate
 
@@ -162,6 +161,7 @@ Il writeback delle password *non* viene eseguito nelle situazioni seguenti:
    * Qualsiasi reimpostazione, da parte dell'utente finale, della propria password tramite PowerShell versione 1, versione 2 o l'API Graph di Azure AD
 * **Operazioni degli amministratori non supportate**
    * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore da PowerShell versione 1, versione 2 o dall'API Graph di Azure AD
+   * Qualsiasi password dell'utente finale avviata dall'amministratore di reimpostare la password dal [interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com)
 
 > [!WARNING]
 > Utilizzo della casella di controllo "Cambiamento obbligatorio password all'accesso successivo" in strumenti di amministrazione Active Directory in locale come Active Directory Users e computer o il centro di amministrazione di Active Directory non è supportato. Quando si modifica una password locale non selezionare questa opzione.

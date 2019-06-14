@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956854"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108311"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemi di accesso a un'applicazione Microsoft
 
@@ -45,7 +45,7 @@ Di seguito è riportato un elenco delle aree problematiche generali che è possi
 
 -   [Problemi relativi ai gruppi](#problems-with-groups)
 
--   [Problemi relativi ai criteri di accesso condizionale](#problems-with-conditional-access-policies)
+-   [Problemi con i criteri di accesso condizionale](#problems-with-conditional-access-policies)
 
 -   [Problemi relativi al consenso dell'applicazione](#problems-with-application-consent)
 
@@ -67,7 +67,7 @@ Di seguito sono riportati alcuni problemi comuni che vengono riscontrati quando 
 
   * Verificare che **Multi-Factor Authentication** non blocchi l'accesso utente. [Controllare lo stato di autenticazione a più fattori di un utente](#check-a-users-multi-factor-authentication-status) o [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info)
 
-  * Verificare che un criterio di **accesso condizionale** o di **protezione delle identità** non blocchi l'accesso utente. [Controllare un criterio specifico di accesso condizionale](#problems-with-conditional-access-policies), [Controllare i criteri di accesso condizionale di un'applicazione specifica](#check-a-specific-applications-conditional-access-policy) o [Disabilitare un criterio specifico di accesso condizionale](#disable-a-specific-conditional-access-policy)
+  * Verificare che un criterio di **accesso condizionale** o di **protezione delle identità** non blocchi l'accesso utente. [Controllare un criterio di accesso condizionale specifico](#problems-with-conditional-access-policies) oppure [controllare i criteri di accesso condizionale di un'applicazione specifica](#check-a-specific-applications-conditional-access-policy) o [disabilitare un criterio di accesso condizionale specifico](#disable-a-specific-conditional-access-policy)
 
   * Verificare che le **informazioni di contatto per l'autenticazione** di un utente siano aggiornate per permettere l'applicazione di Multi-Factor Authentication o di criteri di accesso condizionale. [Controllare lo stato di autenticazione a più fattori di un utente](#check-a-users-multi-factor-authentication-status) o [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info)
 
@@ -417,9 +417,9 @@ Per assegnare una licenza a un gruppo, seguire questa procedura:
     > 
     >
 
-## <a name="problems-with-conditional-access-policies"></a>Problemi relativi ai criteri di accesso condizionale
+## <a name="problems-with-conditional-access-policies"></a>Problemi con i criteri di accesso condizionale
 
-### <a name="check-a-specific-conditional-access-policy"></a>Selezionare un criterio di accesso condizionale specifico
+### <a name="check-a-specific-conditional-access-policy"></a>Controllare un criterio di accesso condizionale specifico
 
 Per verificare o convalidare un singolo criterio di accesso condizionale:
 
@@ -431,7 +431,7 @@ Per verificare o convalidare un singolo criterio di accesso condizionale:
 
 4. Scegliere **Applicazioni aziendali** dal menu di navigazione.
 
-5. Fare clic sulla voce di navigazione **Accesso condizionale**.
+5. Scegliere il **accesso condizionale** elemento di navigazione.
 
 6. Fare clic sul criterio che si desidera controllare.
 
@@ -444,7 +444,7 @@ Per verificare o convalidare un singolo criterio di accesso condizionale:
 
 ### <a name="check-a-specific-applications-conditional-access-policy"></a>Controllare i criteri di accesso condizionale di un'applicazione specifica
 
-Per verificare o convalidare i criteri di accesso condizionale attualmente configurati di una singola applicazione:
+Per verificare o convalidare una singola applicazione attualmente configurati criteri di accesso condizionale:
 
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
@@ -463,7 +463,7 @@ Per verificare o convalidare i criteri di accesso condizionale attualmente confi
      >
      >
 
-7.  Fare clic sulla voce di navigazione **Accesso condizionale**.
+7.  Scegliere il **accesso condizionale** elemento di navigazione.
 
 8.  Fare clic sul criterio che si desidera controllare.
 
@@ -486,7 +486,7 @@ Per verificare o convalidare un singolo criterio di accesso condizionale:
 
 4.  Scegliere **Applicazioni aziendali** dal menu di navigazione.
 
-5.  Fare clic sulla voce di navigazione **Accesso condizionale**.
+5.  Scegliere il **accesso condizionale** elemento di navigazione.
 
 6.  Fare clic sul criterio che si desidera controllare.
 
@@ -512,7 +512,7 @@ L'accesso all'applicazione può essere bloccato poiché non è stata eseguita l'
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Eseguire un'operazione di consenso a livello di amministratore per qualsiasi applicazione
 
--   **Solo per le applicazioni sviluppate usando il modello di applicazione V1**, è possibile imporre questo consenso a livello di amministratore aggiungendo "**?prompt=admin\_consent**" alla fine dell'URL di accesso di un'applicazione.
+-   **Solo per le applicazioni sviluppate usando il modello di applicazione V1**, è possibile imporre questo consenso a livello di amministratore aggiungendo " **?prompt=admin\_consent**" alla fine dell'URL di accesso di un'applicazione.
 
 -   Per **qualsiasi applicazione sviluppata usando il modello di applicazione V2**, è possibile applicare questo consenso a livello di amministratore attenendosi alle istruzioni riportate nella sezione **Richiedere le autorizzazioni da un amministratore di directory** di [Uso dell'endpoint di consenso dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 

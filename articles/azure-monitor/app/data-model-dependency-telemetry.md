@@ -13,17 +13,17 @@ ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60901026"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria di dipendenza: Modello di dati di Application Insights
 
 In [Application Insights](../../azure-monitor/app/app-insights-overview.md), la telemetria delle dipendenze rappresenta un'interazione del componente monitorato con un componente remoto, ad esempio SQL o un endpoint HTTP.
 
-## <a name="name"></a>NOME
+## <a name="name"></a>Name
 
 Nome del comando avviato con questa chiamata delle dipendenze. Valore di cardinalità basso. Esempi sono il nome della stored procedure e il modello di percorso URL.
 
@@ -51,7 +51,7 @@ Durata della richiesta in formato: `DD.HH:MM:SS.MMMMMM`. Deve essere inferiore a
 
 Codice risultato di una chiamata delle dipendenze. Esempi sono il codice di errore SQL e il codice di stato HTTP.
 
-## <a name="success"></a>Success
+## <a name="success"></a>Riuscito
 
 Indicazione di chiamata con esito positivo o con esito negativo.
 

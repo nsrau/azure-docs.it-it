@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 01020a23b102c896bbeb3d8cf455afabfc164917
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1e96431af575533566786341750e17e7a7f446e0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165287"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075982"
 ---
 ## <a name="prepare-for-akv-integration"></a>Preparare l'integrazione di AKV
 Per usare l'integrazione dell'insieme di credenziali delle chiavi di Azure per configurare la macchina virtuale di SQL Server, sono necessari diversi prerequisiti: 
@@ -32,7 +32,7 @@ Le sezioni seguenti descrivono tali prerequisiti e le informazioni da raccoglier
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ### <a id="install"></a> Installare Azure PowerShell
-Assicurarsi che sia installata la versione più recente di Azure PowerShell SDK. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
+Assicurarsi di che avere installato il modulo Azure PowerShell più recente. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a id="register"></a> Registrare un'applicazione in Azure Active Directory
 

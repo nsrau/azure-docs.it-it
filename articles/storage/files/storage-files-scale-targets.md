@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: c765c3e29166358f3504949136a67d8d0db96be8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190020"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078156"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 
@@ -38,20 +38,22 @@ La risorsa padre per una condivisione file di Azure è un account di archiviazio
 
 Esistono tre categorie di limitazioni da considerare per le condivisioni file premium: gli account di archiviazione, condivisioni e file.
 
-Ad esempio:  Una singola condivisione può raggiungere 100.000 IOPS e un singolo file possono aumentare fino a 5.000 IOPS. Quindi, ad esempio, se si dispone di tre file in una condivisione, il numero massimo di IOPS è possibile ottenere da tale condivisione è 15.000.
+Ad esempio: Una singola condivisione può raggiungere 100.000 IOPS e un singolo file possono aumentare fino a 5.000 IOPS. Quindi, ad esempio, se si dispone di tre file in una condivisione, il numero massimo di IOPS è possibile ottenere da tale condivisione è 15.000.
 
 ### <a name="premium-filestorage-account-limits"></a>Limiti dell'account FileStorage Premium
 
-Vengono effettuato il provisioning di condivisioni file Premium in un account di archiviazione speciale **filestorage (anteprima)**. Questo account dispone di obiettivi di scalabilità leggermente diverso rispetto all'account di archiviazione usato per le condivisioni di file standard. Per obiettivi di scalabilità di account di archiviazione, fare riferimento alla tabella il [obiettivi di scalabilità di account di archiviazione di Azure](#azure-storage-account-scale-targets) sezione.
+Vengono effettuato il provisioning di condivisioni file Premium in un account di archiviazione speciale **filestorage (anteprima)** . Questo account dispone di obiettivi di scalabilità leggermente diverso rispetto all'account di archiviazione usato per le condivisioni di file standard. Per obiettivi di scalabilità di account di archiviazione, fare riferimento alla tabella il [obiettivi di scalabilità di account di archiviazione di Azure](#azure-storage-account-scale-targets) sezione.
 
 > [!IMPORTANT]
 > Limiti dell'account di archiviazione si applicano a tutte le condivisioni. Scalabilità per il numero massimo di account di archiviazione solo è realizzabile se è presente solo una condivisione per ogni account di archiviazione.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
+
 ## <a name="azure-file-sync-scale-targets"></a>Obiettivi di scalabilità di Sincronizzazione file di Azure
 
-Con Sincronizzazione file di Azure si è tentato di progettare nella misura massima senza limiti di utilizzo, ma non sempre è possibile. La tabella seguente indica i limiti dei test e le destinazioni con limiti rigidi:
+Sincronizzazione file di Azure è stato progettato per supportare un utilizzo senza limiti, cosa però non sempre possibile. La tabella seguente indica i limiti dei test Microsoft e anche le destinazioni con limiti rigidi:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
@@ -82,11 +84,11 @@ Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di
 | Velocità effettiva di caricamento | 20 oggetti al secondo |
 | Velocità effettiva di download dello spazio dei nomi* | 400 oggetti al secondo |
 
-* Quando viene creato un nuovo endpoint del server, l'agente di Sincronizzazione file di Azure non scarica il contenuto di alcun file. Sincronizza prima di tutto lo spazio dei nomi completo e quindi attiva il richiamo in background per scaricare i file, interamente o, se è abilitato il cloud a più livelli, in base ai criteri di suddivisione in livelli cloud impostati nell'endpoint del server.
+\* Quando viene creato un nuovo endpoint del server, l'agente di Sincronizzazione file di Azure non scarica il contenuto di alcun file. Sincronizza prima di tutto lo spazio dei nomi completo e quindi attiva il richiamo in background per scaricare i file, interamente o, se è abilitato il cloud a più livelli, in base ai criteri di suddivisione in livelli cloud impostati nell'endpoint del server.
 
 | Sincronizzazione continua  |   |
 |-|--|
-| Numero di oggetti sincronizzati| 125.000 oggetti (circa 1% di varianza) |
+| Numero di oggetti sincronizzati| 125\.000 oggetti (circa 1% di varianza) |
 | Dimensioni del set di dati| 50 GiB |
 | Dimensioni medie dei file | ~500 KiB |
 | Velocità effettiva di caricamento | 30 oggetti al secondo |
@@ -102,7 +104,7 @@ Come indicazione generale per la distribuzione, è necessario tenere presenti al
 - La velocità effettiva degli oggetti cambia all'incirca in misura proporzionale al numero di gruppi di sincronizzazione nel server. La suddivisione dei dati in più gruppi di sincronizzazione in un server produce una maggiore velocità effettiva, che è limitata anche dal server e dalla rete.
 - La velocità effettiva degli oggetti è inversamente proporzionale alla velocità effettiva in MiB al secondo. Per i file più piccoli, si riscontrerà una velocità effettiva maggiore per quanto riguarda il numero di oggetti elaborati al secondo, ma con una minore velocità effettiva in MiB al secondo. Al contrario, per i file di dimensioni maggiori, si otterrà un numero minore di oggetti elaborati al secondo, ma con una maggiore velocità effettiva in MiB al secondo. La velocità effettiva in MiB al secondo è limitata dagli obiettivi di scalabilità di File di Azure.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)

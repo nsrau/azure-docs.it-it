@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.openlocfilehash: 1c7133801eb0d95616cacf501162e6cee3da7c80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477911"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Usare Visual Studio per visualizzare i processi di Analisi di flusso di Azure
@@ -87,6 +87,6 @@ I risultati di **Test connessione** verranno visualizzati nella finestra **Outpu
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Monitorare e gestire i processi di Analisi di flusso di Azure con Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
-* [Guida introduttiva: Creare un processo di Stream Analitica con Visual Studio](stream-analytics-quick-create-vs.md)
+* [Avvio rapido: Creare un processo di Stream Analitica con Visual Studio](stream-analytics-quick-create-vs.md)
 * [Esercitazione: Distribuire un processo Azure Stream Analitica con integrazione continua/distribuzione continua con pipeline di Azure](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Eseguire integrazione e sviluppo in modo continuo con gli strumenti di Analisi di flusso](stream-analytics-tools-for-visual-studio-cicd.md)

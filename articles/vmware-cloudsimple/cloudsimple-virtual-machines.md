@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 77a2901ae2d81f42780110b1576c1f32c7ff397b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209496"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>Panoramica delle macchine virtuali CloudSimple
@@ -31,7 +31,7 @@ Le macchine virtuali CloudSimple dal portale di Azure forniscono un meccanismo s
   * Aggiungere o rimuovere interfacce di rete
 * Operazioni di potenza della VM CloudSimple
   * Accensione e spegnimento
-  * Ripristina macchina virtuale
+  * Reimpostazione della macchina virtuale
 * Elimina macchina virtuale
 
 ## <a name="next-steps"></a>Passaggi successivi

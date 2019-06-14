@@ -7,18 +7,18 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pabutler
-ms.openlocfilehash: b8113552edf9dd2f886b5752b2ebc69afc0fda08
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: fff89dd8a17aaf6d45462edeaa22f1d2efc8d02b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942345"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064313"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Visualizzare lo stato di pubblicazione delle offerte di Azure Marketplace e AppSource
 
 Dopo aver creato un'offerta e in particolare durante il processo di pubblicazione, è possibile visualizzare lo stato dell'offerta nel portale Cloud Partner.  Lo stato di pubblicazione generale è disponibile nelle pagine [**Tutte le offerte**](../portal-tour/cpp-all-offers-page.md) e [**Approvazioni**](../portal-tour/cpp-approvals-page.md) del portale.  Per ogni offerta deve essere visualizzato uno degli indicatori di stato seguenti.  
 
-|            Stato              |   DESCRIZIONE                                                           |
+|            Stato              |   Descrizione                                                           |
 |            ------              |   -----------                                                           |
 | **-**                          | L'offerta è stata creata, ma processo di pubblicazione non è iniziato.            |
 | **Pubblicazione in corso**        | L'offerta sta attraversando le varie fasi del processo di pubblicazione.   |
@@ -39,7 +39,7 @@ La scheda **Stato** dell'esempio successivo relativa a un servizio di consulenza
 
 ![Scheda Stato relativa a un servizio di consulenza contenente un errore](./media/consulting-service-error.png)
 
-La scheda Stato dell'esempio finale relativo a un'applicazione di Azure mostra un problema di revisione Microsoft critico.  È presente un collegamento ipertestuale all'elemento VSTS che contiene informazioni dettagliate su questo problema di revisione.  Per altre informazioni, vedere [Pubblicare un'offerta di applicazione di Azure](cpp-publish-offer.md).
+La scheda Stato dell'esempio finale relativo a un'applicazione di Azure mostra un problema di revisione Microsoft critico.  Contiene un collegamento ipertestuale all'elemento di DevOps di Azure che contiene informazioni dettagliate su questo problema di revisione.  Per altre informazioni, vedere [Pubblicare un'offerta di applicazione di Azure](cpp-publish-offer.md).
 
 ![Scheda Stato relativa a un'app di Azure contenente un problema di revisione](../azure-applications/media/status-tab-ms-review.png)
 

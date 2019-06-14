@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128101"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Come usare Node.js SDK per App per dispositivi mobili
@@ -192,7 +192,7 @@ var mobile = azureMobileApps({ homePage: true });
 
 Node.js Server SDK (azure-mobile-apps) offre diversi meccanismi per esporre le tabelle dati archiviate nel database SQL di Azure come API Web. Offre cinque operazioni:
 
-| Operazione | DESCRIZIONE |
+| Operazione | Descrizione |
 | --- | --- |
 | GET /tables/*tablename* |Ottenere tutti i record nella tabella. |
 | GET /tables/*tablename*/:id |Ottenere un record specifico nella tabella. |
@@ -370,7 +370,7 @@ module.exports = {
 
 Quasi tutte le impostazioni nel file azureMobile.js hanno un'impostazione app equivalente nel [portale di Azure]. Usare l'elenco seguente per configurare l'app in **Impostazioni app**:
 
-| Impostazione app | Impostazione in azureMobile.js | DESCRIZIONE | Valori validi |
+| Impostazione app | Impostazione in azureMobile.js | Descrizione | Valori validi |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |name |Nome dell'app |string |
 | **MS_MobileLoggingLevel** |logging.level |Livello log minimo di messaggi da registrare |error, warning, info, verbose, debug, silly |
@@ -404,13 +404,13 @@ L'uso del database SQL di Azure come archivio dati è identico in tutti i tipi d
 1. Nella casella **Gruppo di risorse** immettere lo stesso nome dell'app.
 1. Viene selezionato il piano di servizio app predefinito. Per modificare il piano di servizio App:
 
-   a. Selezionare **Piano di servizio app** > **+Crea nuovo**.
+   a. Selezionare **Piano di servizio app** >  **+Crea nuovo**.
 
    b. Specificare un nome del nuovo piano del servizio app e selezionare un percorso appropriato.
 
    c. Selezionare un piano tariffario appropriato per il servizio. Selezionare **Visualizza tutto** per visualizzare altre opzioni sui prezzi, ad esempio **Gratuito** e **Condiviso**.
 
-   d. Fare clic sul pulsante **Seleziona**.
+   d. Scegliere il **seleziona** pulsante.
 
    e. Nel riquadro **Piano di servizio app** fare clic su **OK**.
 1. Selezionare **Create**.
@@ -422,7 +422,7 @@ L'operazione di provisioning di un back-end di App per dispositivi mobili può r
 > [!NOTE]
 > Se nella stessa posizione del back-end di App per dispositivi mobili è già presente un database, è possibile scegliere **Usare un database esistente** e quindi selezionare questo database. Non è consigliabile usare un database in una posizione diversa, a causa di latenze più elevate.
 
-1. Nel nuovo back-end di App per dispositivi mobili selezionare **Impostazioni** > **App per dispositivi mobili** > **Dati** > **+Aggiungi**.
+1. Nel nuovo back-end di App per dispositivi mobili selezionare **Impostazioni** > **App per dispositivi mobili** > **Dati** >  **+Aggiungi**.
 1. Nel riquadro **Aggiungi connessione dati** selezionare **Database SQL - Configura le impostazioni obbligatorie** > **Crea un nuovo database**. Immettere il nome del nuovo database nella casella **Nome**.
 1. Selezionare **Server**. Nel riquadro **Nuovo server** immettere un nome di server univoco nella casella **Nome server** e specificare un account di accesso amministratore server e una password idonei. Verificare che l'opzione **Consenti ai servizi di Azure di accedere al server** sia selezionata. Selezionare **OK**.
 

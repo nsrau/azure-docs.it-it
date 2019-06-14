@@ -17,10 +17,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075371"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App daemon che chiama le API - web acquisire un token
@@ -65,7 +65,7 @@ L'ambito utilizzato per le credenziali del client deve essere sempre resourceId 
 
 > [!IMPORTANT]
 > Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa di accettare un token di accesso di v1.0, Azure AD analizza i destinatari desiderati dall'ambito richiesto prendendo tutto ciò che precede l'ultima barra e usato come identificatore di risorsa.
-> Pertanto se, ad esempio SQL di Azure (**https://database.windows.net**) la risorsa si aspetta che un gruppo di destinatari che terminano con una barra (per SQL di Azure: `https://database.windows.net/`), è necessario richiedere un ambito di `https://database.windows.net//.default` (si noti la barra doppia). Vedere anche MSAL.NET problema [747 #](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Barra finale dell'url della risorsa viene omesso, che ha causato un errore di autenticazione sql.
+> Pertanto se, ad esempio SQL di Azure ( **https://database.windows.net** ) la risorsa si aspetta che un gruppo di destinatari che terminano con una barra (per SQL di Azure: `https://database.windows.net/` ), è necessario richiedere un ambito di `https://database.windows.net//.default` (si noti la barra doppia). Vedere anche MSAL.NET problema [747 #](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Barra finale dell'url della risorsa viene omesso, che ha causato un errore di autenticazione sql.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 

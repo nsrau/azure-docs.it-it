@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: c4e101e45dc1641c5731e246f7fdeeb37ebc0823
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864408"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Strumenti di sviluppo nella macchina virtuali per data science
@@ -31,7 +31,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 |    |           |
 | ------------- | ------------- |
-| Informazioni   | IDE di uso generale      |
+| Che cos'è?   | IDE di uso generale      |
 | Versioni supportate della macchina virtuale per data science      | Windows      |
 | Usi tipici      | Sviluppo di software    |
 | Come viene configurata o installata sulla macchina virtuale per data science?      | Carico di lavoro di data science (strumenti Python e R), carico di lavoro di Azure (Hadoop e Data Lake), Node.js, strumenti di SQL Server, [Azure Machine Learning per Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
@@ -42,7 +42,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 |    |           |
 | ------------- | ------------- |
-| Informazioni   | IDE di uso generale      |
+| Che cos'è?   | IDE di uso generale      |
 | Versioni supportate della macchina virtuale per data science      | Windows, Linux     |
 | Usi tipici      | Editor di codice e integrazione di Git   |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) in Windows, collegamento sul desktop o terminale (`code`) in Linux    |
@@ -52,7 +52,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 |    |           |
 | ------------- | ------------- |
-| Informazioni   | Client IDE per R    |
+| Che cos'è?   | Client IDE per R    |
 | Versioni supportate della macchina virtuale per data science      | Windows, Linux      |
 | Usi tipici      |  Sviluppo R     |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files\RStudio\bin\rstudio.exe`) in Windows, collegamento sul desktop (`/usr/bin/rstudio`) in Linux      |
@@ -62,7 +62,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 |    |           |
 | ------------- | ------------- |
-| Informazioni   | IDE basato sul Web per R    |
+| Che cos'è?   | IDE basato sul Web per R    |
 | Versioni supportate della macchina virtuale per data science      | Linux      |
 | Usi tipici      |  Sviluppo R     |
 | Come usarla o eseguirla?      | Abilitare il servizio con _systemctl enable rstudio-server_, quindi avviare il servizio con _systemctl start rstudio-server_. È quindi possibile accedere a RStudio Server http:\// i-vm-ip:8787.       |
@@ -72,7 +72,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 |    |           |
 | ------------- | ------------- |
-| Informazioni   | IDE client per il linguaggio Julia   |
+| Che cos'è?   | IDE client per il linguaggio Julia   |
 | Versioni supportate della macchina virtuale per data science      | Windows, Linux      |
 | Usi tipici      |  Sviluppo di Julia     |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`C:\JuliaPro-0.5.1.1\Juno.bat`) in Windows, collegamento sul desktop (`/opt/JuliaPro-VERSION/Juno`) in Linux      |
@@ -82,7 +82,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 |    |           |
 | ------------- | ------------- |
-| Informazioni   | IDE client per il linguaggio Python    |
+| Che cos'è?   | IDE client per il linguaggio Python    |
 | Versioni supportate della macchina virtuale per data science      | Linux      |
 | Usi tipici      |  Sviluppo Python     |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`/usr/bin/pycharm`) in Linux      |
@@ -94,7 +94,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 |    |           |
 | ------------- | ------------- |
-| Informazioni   | Strumento di visualizzazione dei dati interattivo e di BI    |
+| Che cos'è?   | Strumento di visualizzazione dei dati interattivo e di BI    |
 | Versioni supportate della macchina virtuale per data science      | Windows  |
 | Usi tipici      |  Visualizzazione dei dati e creazione di dashboard   |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
