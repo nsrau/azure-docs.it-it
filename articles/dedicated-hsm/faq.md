@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 5/8/2019
 ms.author: barclayn
 ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467733"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
@@ -97,7 +97,7 @@ Sì, è possibile sincronizzare i moduli di protezione hardware locali con HSM d
 
 ### <a name="q-can-i-encrypt-data-used-by-other-azure-services-using-keys-stored-in-dedicated-hsm"></a>D: È possibile crittografare i dati usati da altri servizi di Azure con chiavi archiviate in HSM dedicato?
 
- No. I moduli di protezione hardware dedicati di Azure sono accessibili solo dall'interno della propria rete virtuale.
+No. I moduli di protezione hardware dedicati di Azure sono accessibili solo dall'interno della propria rete virtuale.
 
 ### <a name="q-can-i-import-keys-from-an-existing-on-premises-hsm-to-dedicated-hsm"></a>D: È possibile importare chiavi da un modulo di protezione hardware locale esistente a HSM dedicato?
 
@@ -143,7 +143,7 @@ HSM dedicato di Azure è ideale per gli scenari di migrazione, vale a dire se si
 
 ### <a name="q-can-dedicated-hsm-be-used-with-office-365-customer-key-azure-information-protection-azure-data-lake-store-disk-encryption-azure-storage-encryption-azure-sql-tde"></a>D: Un modulo di protezione hardware dedicato può essere usato con Customer Key di Office 365, Azure Information Protection, Azure Data Lake Store, Crittografia dischi, crittografia di Archiviazione di Azure, Azure SQL TDE?
 
- No. Il provisioning di HSM dedicato viene effettuato direttamente nello spazio di indirizzi IP privato del cliente, dunque non è accessibile da altri servizi di Azure o Microsoft.
+No. Il provisioning di HSM dedicato viene effettuato direttamente nello spazio di indirizzi IP privato del cliente, dunque non è accessibile da altri servizi di Azure o Microsoft.
 
 ## <a name="administration-access-and-control"></a>Amministrazione, accesso e controllo
 
@@ -161,7 +161,7 @@ Il dispositivo HSM viene fornito con un utente predefinita dell'amministratore c
 
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>D: Microsoft o chiunque in Microsoft può accedere alle chiavi in HSM dedicato?
 
- No. Microsoft non ha alcun accesso alle chiavi archiviate nei moduli di protezione hardware dedicati allocati ai clienti.
+No. Microsoft non ha alcun accesso alle chiavi archiviate nei moduli di protezione hardware dedicati allocati ai clienti.
 
 ### <a name="q-can-i-upgrade-softwarefirmware-on-hsms-allocated-to-me"></a>D: I clienti possono eseguire l'aggiornamento del software/firmware nei moduli di protezione hardware ad essi allocati?
 
@@ -195,7 +195,7 @@ Sì. I moduli devono soddisfare i requisiti di disponibilità elevata per SafeNe
 
 ### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>D: È possibile aggiungere moduli di protezione hardware Luna 5/6 da reti locali a un gruppo di disponibilità elevata con HSM dedicato di Azure?
 
- No.
+No.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>D: Quanti moduli di protezione hardware è possibile aggiungere alla stessa configurazione con disponibilità elevata da una singola applicazione?
 

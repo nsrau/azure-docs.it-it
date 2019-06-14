@@ -16,10 +16,10 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60302732"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Usare Gestione dispositivi StorSimple per gestire gli avvisi per l'array virtuale StorSimple
@@ -143,8 +143,8 @@ Nelle tabelle seguenti sono elencati alcuni avvisi di StorSimple che potrebbero 
 
 | Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
-| Non è stato possibile completare il backup di <*nome dispositivo*\>. |Il processo di backup non è riuscito. |Non è stato possibile creare un backup. Considerare uno degli aspetti seguenti:<ul><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di backup. Assicurarsi che non siano presenti problemi di connettività. Per altre informazioni sulle risoluzione dei problemi di connettività, vedere l'[interfaccia utente Web locale](storsimple-ova-web-ui-admin.md) del dispositivo virtuale.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul>  Risolvere i problemi, cancellare l'avviso e ripetere l'operazione. |
-| Non è stato possibile completare la creazione del clone di <*nome dispositivo*\>. |Il processo di clonazione non è riuscito. |Impossibile creare un clone. Considerare uno degli aspetti seguenti:<ul><li>L'elenco di backup potrebbe non essere valido. Aggiornare l'elenco per verificare che sia ancora valido.</li><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di clonazione. Assicurarsi che non siano presenti problemi di connettività.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul> Risolvere i problemi, cancellare l'avviso e ripetere l'operazione. |
+| Non è stato possibile completare il backup di <*nome dispositivo*\>. |Il processo di backup non è riuscito. |Non è stato possibile creare un backup. Considerare uno degli aspetti seguenti:<ul><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di backup. Assicurarsi che non siano presenti problemi di connettività. Per altre informazioni sulle risoluzione dei problemi di connettività, vedere l'[interfaccia utente Web locale](storsimple-ova-web-ui-admin.md) del dispositivo virtuale.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul> Risolvere i problemi, cancellare l'avviso e ripetere l'operazione. |
+| Non è stato possibile completare la creazione del clone di <*nome dispositivo*\>. |Il processo di clonazione non è riuscito. |Impossibile creare un clone. Considerare uno degli aspetti seguenti:<ul><li>L'elenco di backup potrebbe non essere valido. Aggiornare l'elenco per verificare che sia ancora valido.</li><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di clonazione. Assicurarsi che non siano presenti problemi di connettività.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul>Risolvere i problemi, cancellare l'avviso e ripetere l'operazione. |
 
 ### <a name="networking-alerts"></a>Avvisi di rete
 

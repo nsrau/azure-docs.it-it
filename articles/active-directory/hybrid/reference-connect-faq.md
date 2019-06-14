@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65137795"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Domande frequenti su Azure Active Directory Connect
@@ -62,7 +62,7 @@ Sì, questo scenario è supportato. Fare riferimento a [Supporto di più domini]
 **D: La presenza di più connettori per lo stesso dominio di Active Directory è supportata in Azure AD Connect?**  
 No, la presenza di più connettori per lo stesso dominio di AD non è supportata. 
 
-**D: È possibile spostare il database di Azure AD Connect da un database locale a un'istanza di SQL Server remota?**   
+**D: È possibile spostare il database di Azure AD Connect da un database locale a un'istanza di SQL Server remota?**    
 Sì. I passaggi seguenti rappresentano materiale sussidiario su come eseguire questa operazione. È attualmente in corso la preparazione di un documento più dettagliato.
 1. Eseguire il backup del database LocalDB ADSync.
 Il modo più semplice per eseguire questa operazione consiste nell'usare SQL Server Management Studio, installato nello stesso computer in cui è installato Azure AD Connect. Connettersi a *(LocalDb).\ADSync* e quindi eseguire il backup del database ADSync.
@@ -117,7 +117,7 @@ Di seguito è riportato un documento informativo che presenta alcune delle proce
 - Mantenere la coerenza tra i server di Azure AD Connect versione quanto più possibile 
 
 **D: Si può consentire ad Azure AD Connect di creare l'account Azure AD Connector nel computer del gruppo di lavoro?**
- No.  Per consentire a Azure AD Connect per creare automaticamente l'account Azure AD Connector, la macchina deve essere aggiunto al dominio.  
+No.  Per consentire a Azure AD Connect per creare automaticamente l'account Azure AD Connector, la macchina deve essere aggiunto al dominio.  
 
 ## <a name="network"></a>Rete
 **D: Un firewall, un dispositivo di rete o un altro meccanismo limita il tempo massimo di apertura delle connessioni all'interno della rete. Quale deve essere la soglia di timeout lato client quando si usa Azure AD Connect?**  
@@ -147,10 +147,10 @@ Seguire il materiale sussidiario illustrato nell'articolo [Rinnovare i certifica
 
 ## <a name="environment"></a>Environment
 **D: Il fatto di rinominare il server dopo l'installazione di Azure AD Connect è supportato?**  
- No. La modifica del nome del server impedisce al motore di sincronizzazione di connettersi all'istanza del database SQL e il servizio non può essere avviato.
+No. La modifica del nome del server impedisce al motore di sincronizzazione di connettersi all'istanza del database SQL e il servizio non può essere avviato.
 
 **D: Le regole di sincronizzazione di prossima generazione crittografiche (NGC) sono supportate in un computer abilitato FIPS?**  
- No.  Non sono supportate.
+No.  Non sono supportate.
 
 ## <a name="identity-data"></a>Dati di identità
 **D: Perché l'attributo userPrincipalName (UPN) in Azure AD non corrisponde all'UPN locale?**  
@@ -172,16 +172,16 @@ No, l'impostazione manuale dell'attributo ImmutableId di oggetti contatto o grup
 Fatta eccezione per i cmdlet documentati in questo sito, i cmdlet di PowerShell disponibili in Azure AD Connect non sono supportati per l'uso da parte degli utenti.
 
 **D: È possibile usare le opzioni "Server esportazione" e "Server importazione" disponibili in Synchronization Service Manager per spostare la configurazione da un server all'altro?**  
- No. Questa opzione non recupera tutte le impostazioni di configurazione e non deve essere usata. Usare invece la procedura guidata per creare la configurazione di base per il secondo server e usare l'editor delle regole di sincronizzazione per generare script di PowerShell e spostare regole personalizzate da un server all'altro. Per altre informazioni, vedere [Migrazione swing](how-to-upgrade-previous-version.md#swing-migration).
+No. Questa opzione non recupera tutte le impostazioni di configurazione e non deve essere usata. Usare invece la procedura guidata per creare la configurazione di base per il secondo server e usare l'editor delle regole di sincronizzazione per generare script di PowerShell e spostare regole personalizzate da un server all'altro. Per altre informazioni, vedere [Migrazione swing](how-to-upgrade-previous-version.md#swing-migration).
 
-**D: È possibile memorizzare nella cache le password per la pagina di accesso di Azure ed è possibile evitare questa memorizzazione se la password contiene un elemento di input con l'attributo *autocomplete = "false"*?**  
+**D: È possibile memorizzare nella cache le password per la pagina di accesso di Azure ed è possibile evitare questa memorizzazione se la password contiene un elemento di input con l'attributo *autocomplete = "false"* ?**  
 La modifica degli attributi HTML del campo **Password**, tra cui il tag autocomplete, non è attualmente supportata. È attualmente in fase di elaborazione una funzionalità che consente la creazione di codice JavaScript personalizzato che consenta di aggiungere qualsiasi attributo al campo **Password**.
 
 **D: La pagina di accesso di Azure visualizza i nomi utente che in precedenza hanno eseguito l'accesso correttamente. Questo comportamento può essere disattivato?**  
 La modifica degli attributi HTML del campo di input **Password**, tra cui il tag autocomplete, non è attualmente supportata. È attualmente in fase di elaborazione una funzionalità che consente la creazione di codice JavaScript personalizzato che consenta di aggiungere qualsiasi attributo al campo **Password**.
 
 **D: Esiste un modo per impedire sessioni simultanee?**  
- No.
+No.
 
 ## <a name="auto-upgrade"></a>Aggiornamento automatico
 

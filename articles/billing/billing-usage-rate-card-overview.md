@@ -17,10 +17,10 @@ ms.date: 5/10/2018
 ms.author: erikre
 ms.custom: seodec18
 ms.openlocfilehash: 99772579fd28b0880d497abb038fb25fd2a6139e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369268"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Usare le API di fatturazione di Azure per ottenere informazioni approfondite sull'uso di Azure a livello di codice
@@ -40,7 +40,7 @@ Per ottenere una stima dei dati di consumo di Azure usare l'[API di uso delle ri
 
 * **Controllo degli accessi in base al ruolo di Azure**: configurare i propri criteri di accesso nel [portale di Azure](https://portal.azure.com) o tramite i [cmdlet di Azure PowerShell](/powershell/azure/overview) per specificare quali utenti o applicazioni possono avere accesso ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
 * **Aggregazioni orarie o giornaliere** : i chiamanti possono specificare se desiderano i dati di utilizzo di Azure in intervalli orari o giornalieri. L’impostazione predefinita è rappresentata dagli intervalli giornalieri.
-*  **Metadati dell'istanza (inclusi i tag delle risorse)**: nella risposta vengono forniti i dettagli a livello di istanza, ad esempio l'URI della risorsa completo (/subscriptions/{subscription-id}/..), insieme alle informazioni sul gruppo di risorse e ai tag delle risorse. Tali metadati aiutano gli utenti ad allocare l’utilizzo in modo deterministico e programmatico in base ai tag, per casi di utilizzo come l’addebito delle tariffe.
+* **Metadati dell'istanza (inclusi i tag delle risorse)** : nella risposta vengono forniti i dettagli a livello di istanza, ad esempio l'URI della risorsa completo (/subscriptions/{subscription-id}/..), insieme alle informazioni sul gruppo di risorse e ai tag delle risorse. Tali metadati aiutano gli utenti ad allocare l’utilizzo in modo deterministico e programmatico in base ai tag, per casi di utilizzo come l’addebito delle tariffe.
 * **Metadati delle risorse**: dettagli delle risorse, ad esempio il nome, la categoria e la sottocategoria del misuratore, l'unità e l'area, per fornire ai chiamanti una migliore comprensione delle risorse utilizzate. Stiamo inoltre lavorando per allineare la terminologia dei metadati delle risorse nel portale di Azure, il CSV di utilizzo di Azure, il CSV di fatturazione EA e altre esperienze pubbliche, per consentire agli utenti di correlare i dati delle diverse esperienze.
 * **Utilizzo per differenti tipi di offerte**: i dati di utilizzo sono accessibili per tutti i tipi di offerta, tra cui il pagamento in base al consumo, MSDN, l’impegno monetario, il credito monetari ed EA, eccetto [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
 

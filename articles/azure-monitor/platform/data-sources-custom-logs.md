@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996527"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Log personalizzati in Monitoraggio di Azure
@@ -29,7 +29,7 @@ I file di log da raccogliere devono soddisfare i criteri seguenti.
 
 - Il log deve avere una sola voce per ogni riga o usare un timestamp che corrisponde a uno dei formati seguenti all'inizio di ogni voce.
 
-    AAAA-MM-GG HH:MM:SS <br>M/G/AAAA HH:MM:SS AM/PM<br>Lun GG,AAAA HH:MM:SS<br />aaMMgg hh: mm:ss<br />ggMMaa HH:mm:ss<br />MMM g hh:mm:ss<br />gg/MMM/aaaa:HH:mm:ss zzz<br />aaaa-MM-ggTHH:mm:ssK
+    AAAA-MM-GG HH:MM:SS<br>M/G/AAAA HH:MM:SS AM/PM<br>Lun GG,AAAA HH:MM:SS<br />aaMMgg hh: mm:ss<br />ggMMaa HH:mm:ss<br />MMM g hh:mm:ss<br />gg/MMM/aaaa:HH:mm:ss zzz<br />aaaa-MM-ggTHH:mm:ssK
 
 - Il file di log non deve consentire registrazioni circolari o rotazioni dei log in cui il file viene sovrascritto con le nuove voci.
 - Il file di log deve usare la codifica ASCII o UTF-8.  Non sono supportati altri formati, ad esempio UTF-16.
@@ -86,7 +86,7 @@ Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la da
 
 La tabella seguente fornisce esempi di percorsi validi per specificare file di log diversi.
 
-| DESCRIZIONE | `Path` |
+| Descrizione | `Path` |
 |:--- |:--- |
 | Tutti i file in *C:\Logs* con estensione txt nell'agente Windows |C:\Logs\\\*.txt |
 | Tutti i file in *C:\Logs* il cui nome inizia con log e aventi un'estensione txt nell'agente Windows |C:\Logs\log\*.txt |
@@ -134,7 +134,7 @@ Il tipo dei record del log personalizzato corrisponde al nome del log specificat
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | TimeGenerated |Data e ora di raccolta del record con Monitoraggio di Azure.  Se il log usa un delimitatore basato sul tempo, questa proprietà indica la data e l'ora raccolte dalla voce. |
-| SourceSystem |Tipo di agente da cui è stato raccolto il record. <br> OpsManager: agente Windows, con connessione diretta o System Center Operations Manager <br>  Linux – Tutti gli agenti Linux |
+| SourceSystem |Tipo di agente da cui è stato raccolto il record. <br> OpsManager: agente Windows, con connessione diretta o System Center Operations Manager <br> Linux – Tutti gli agenti Linux |
 | RawData |Testo completo della voce raccolta. È più probabile che si desideri [analizzare i dati in singole proprietà](../log-query/parse-text.md). |
 | ManagementGroupName |Nome del gruppo di gestione per gli agenti System Center Operations Manager.  Per gli altri agenti, corrisponde ad AOI-\<ID area di lavoro\> |
 

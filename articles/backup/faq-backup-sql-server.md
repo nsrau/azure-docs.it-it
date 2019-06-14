@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: sachdevaswati
 ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700177"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sul database di SQL Server che eseguono un backup delle macchine Virtuali di Azure
@@ -37,7 +37,7 @@ In alcune circostanze, il servizio Backup di Azure attiva backup correttive. Cor
 Auto-correzione come una funzionalità è abilitata per tutti gli utenti per impostazione predefinita. Tuttavia nel caso in cui si sceglie di rifiutare esplicitamente di esso, quindi eseguire il seguente:
 
   * Nell'istanza di SQL Server, nelle *C:\Program Files\Azure del carico di lavoro Backup\bin* cartella, creare o modificare le **ExtensionSettingsOverrides.json** file.
-  * Nel **ExtensionSettingsOverrides.json**, impostare *{"EnableAutoHealer": false}*.
+  * Nel **ExtensionSettingsOverrides.json**, impostare *{"EnableAutoHealer": false}* .
   * Salvare le modifiche e chiudere il file.
   * Nell'istanza di SQL Server, aprire **attività di gestione** e quindi riavviare il **AzureWLBackupCoordinatorSvc** servizio.  
 
@@ -59,13 +59,13 @@ Sì. È possibile imitare la velocità di esecuzione del criterio di backup per 
 In base alle limitazioni di SQL, è possibile eseguire copia solo backup completo nella Replica secondaria; Tuttavia, non è consentito il backup completo.
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>È possibile proteggere disponibilità gruppi locali?
- No. Backup di Azure protegge i database di SQL Server in esecuzione in Azure. Se un gruppo di disponibilità (AG) viene distribuito tra le macchine locali e Azure, il gruppo di disponibilità può essere protette solo se la replica primaria è in esecuzione in Azure. Inoltre, Backup di Azure protegge solo i nodi che eseguono nella stessa area di Azure come l'insieme di credenziali di servizi di ripristino.
+No. Backup di Azure protegge i database di SQL Server in esecuzione in Azure. Se un gruppo di disponibilità (AG) viene distribuito tra le macchine locali e Azure, il gruppo di disponibilità può essere protette solo se la replica primaria è in esecuzione in Azure. Inoltre, Backup di Azure protegge solo i nodi che eseguono nella stessa area di Azure come l'insieme di credenziali di servizi di ripristino.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>È possibile proteggere i gruppi di disponibilità in aree geografiche?
 L'insieme di credenziali di servizi di ripristino di Backup di Azure può rilevare e proteggere tutti i nodi che si trovano nella stessa area dell'insieme di credenziali. Se il gruppo di disponibilità SQL Server Always On si estende su più aree di Azure, configurare il backup dall'area che contiene il nodo primario. Backup di Azure è in grado di rilevare e proteggere tutti i database nel gruppo di disponibilità in base alle preferenze di backup. Quando le preferenze di backup non viene soddisfatta, i backup non riescono e viene visualizzato l'avviso di errore.
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>I processi di backup con esito positivo determinano la creazione di avvisi?
- No. I processi di backup con esito positivo non generano avvisi. Gli avvisi vengono inviati solo per i processi di backup con esito negativo. Dettagli del comportamento per gli avvisi del portale è documentato [qui](backup-azure-monitoring-built-in-monitor.md). Tuttavia, nel caso in cui si è interessati sono presenti avvisi relativi anche per i processi completati, è possibile usare [il monitoraggio tramite Monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md).
+No. I processi di backup con esito positivo non generano avvisi. Gli avvisi vengono inviati solo per i processi di backup con esito negativo. Dettagli del comportamento per gli avvisi del portale è documentato [qui](backup-azure-monitoring-built-in-monitor.md). Tuttavia, nel caso in cui si è interessati sono presenti avvisi relativi anche per i processi completati, è possibile usare [il monitoraggio tramite Monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>È possibile visualizzare i processi di backup nel menu processi di Backup pianificati?
 Il **processo di Backup** menu visualizzerà soltanto ad hoc dei processi di backup. Per il processo pianificato, usare [il monitoraggio tramite Monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md).

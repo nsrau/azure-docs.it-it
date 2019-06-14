@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64917653"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protezione password di Azure AD locale - Domande frequenti
@@ -76,7 +76,7 @@ Questo requisito dipende dal comportamento di base di Windows.
 
 **D: è disponibile un modo per configurare un agente del controller di dominio per l'uso di un server proxy specifico?**
 
- No. Poiché il server proxy è senza stato, non ha importanza quale server proxy specifico venga usato.
+No. Poiché il server proxy è senza stato, non ha importanza quale server proxy specifico venga usato.
 
 **D: è possibile distribuire il servizio proxy di Password di protezione di Azure AD side-by-side con altri servizi come Azure AD Connect?**
 
@@ -96,19 +96,19 @@ Se però i controller di dominio correnti già operano a livelli di prestazioni 
 
 **D: si vuole testare la funzionalità Password di protezione di Azure AD solo in pochi controller di dominio presenti nel dominio. È possibile forzare le modifiche delle password utente a usare tali controller di dominio specifici?**
 
- No. È il sistema operativo client Windows a controllare quale controller di dominio viene usato quando un utente modifica la password. Il controller di dominio viene selezionato in base a fattori come le assegnazioni di subnet e siti di Active Directory, la configurazione di rete specifica dell'ambiente e così via. Password di protezione di Azure AD non controlla questi fattori e non può influire sulla selezione del controller di dominio per la modifica della password di un utente.
+No. È il sistema operativo client Windows a controllare quale controller di dominio viene usato quando un utente modifica la password. Il controller di dominio viene selezionato in base a fattori come le assegnazioni di subnet e siti di Active Directory, la configurazione di rete specifica dell'ambiente e così via. Password di protezione di Azure AD non controlla questi fattori e non può influire sulla selezione del controller di dominio per la modifica della password di un utente.
 
 Un modo per raggiungere parzialmente questo obiettivo consiste nel distribuire Password di protezione di Azure AD in tutti i controller di dominio presenti in un determinato sito di Active Directory. Questo approccio garantirà una copertura ragionevole per i client Windows assegnati al sito e, di conseguenza, anche per gli utenti che accedono a tali client e modificano le loro password.
 
 **D: se si installa il servizio agente del controller di dominio di Password di protezione di Azure AD solo nel controller di dominio primario (PDC), saranno protetti anche tutti gli altri controller di dominio presenti nel dominio?**
 
- No. Quando la password di un utente viene modificata in un determinato controller di dominio non primario, la password non crittografata non viene mai inviata al controller di dominio primario (questa è un'idea errata molto diffusa). Dopo che una nuova password viene accettata in un controller di dominio, quest'ultimo usa tale password per crearne i vari hash specifici del protocollo di autenticazione e quindi rende permanenti gli hash nella directory. La password non crittografata non diventa permanente. Gli hash aggiornati vengono poi replicati nel controller di dominio primario. Le password utente possono in alcune circostanze essere modificate direttamente nel controller di dominio primario, anche in questo caso in base a vari fattori come la topologia di rete e la struttura del sito di Active Directory. Vedere la domanda precedente.
+No. Quando la password di un utente viene modificata in un determinato controller di dominio non primario, la password non crittografata non viene mai inviata al controller di dominio primario (questa è un'idea errata molto diffusa). Dopo che una nuova password viene accettata in un controller di dominio, quest'ultimo usa tale password per crearne i vari hash specifici del protocollo di autenticazione e quindi rende permanenti gli hash nella directory. La password non crittografata non diventa permanente. Gli hash aggiornati vengono poi replicati nel controller di dominio primario. Le password utente possono in alcune circostanze essere modificate direttamente nel controller di dominio primario, anche in questo caso in base a vari fattori come la topologia di rete e la struttura del sito di Active Directory. Vedere la domanda precedente.
 
 In sintesi, la distribuzione del servizio agente del controller di dominio di Password di protezione di Azure AD nel controller di dominio primario è necessaria per raggiungere una copertura di sicurezza della funzionalità pari al 100% all'interno del dominio. La distribuzione della funzionalità nel solo controller di dominio primario non offre i vantaggi di sicurezza di Password di protezione di Azure AD per gli altri controller di dominio presenti nel dominio.
 
 **D: è disponibile un Management Pack di System Center Operations Manager per Password di protezione di Azure AD?**
 
- No.
+No.
 
 **D: Il motivo per cui Azure ancora Rifiuta password vulnerabili anche se è stata configurata il criteri in modalità di controllo?**
 

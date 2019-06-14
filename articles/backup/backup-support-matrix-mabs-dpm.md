@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 704bb409d2b21e2ae258dbb2d627b1c088d80db7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254644"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con System Center DPM o un Server di Backup di Microsoft Azure
@@ -75,7 +75,7 @@ Backup di Azure è possibile eseguire il backup di istanze DPM/MABS che eseguono
 
 **Scenario** | **DPM/MABS** 
 --- | --- 
-**Server di Backup di Microsoft Azure in una macchina virtuale di Azure** |  Windows Server 2012 R2.<br/><br/> Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> È consigliabile iniziare con un'immagine del marketplace.<br/><br/> Minimo A2 Standard con due core e 3,5 GB di RAM. 
+**Server di Backup di Microsoft Azure in una macchina virtuale di Azure** | Windows Server 2012 R2.<br/><br/> Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> È consigliabile iniziare con un'immagine del marketplace.<br/><br/> Minimo A2 Standard con due core e 3,5 GB di RAM. 
 **DPM in una macchina virtuale di Azure** | System Center 2012 R2 con Update 3 o versioni successive.<br/><br/> Sistema operativo Windows [richiesto da System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> È consigliabile iniziare con un'immagine del marketplace.<br/><br/> Minimo A2 Standard con due core e 3,5 GB di RAM. 
 **Server di Backup di Microsoft Azure in locale** | Sistemi operativi a 64 bit supportati:<br/><br/> MABS v3 e versioni successive: Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> MABS v2 e versioni successive: Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> Tutte le versioni del server di Backup di Microsoft Azure: Windows Server 2012 R2, Windows Server 2012 (Standard, Datacenter, Foundation).<br/><br/>Tutte le versioni del server di Backup di Microsoft Azure: Windows Storage Server 2012 R2, Windows Server 2012 (Standard, Workgroup).
 **DPM in locale** | Server fisico/macchina virtuale Hyper-V: System Center 2012 SP1 o versioni successive.<br/><br/> Macchina virtuale VMware: System Center 2012 R2 con Update 5 o versioni successive. 
