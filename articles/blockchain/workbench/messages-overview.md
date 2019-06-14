@@ -118,7 +118,7 @@ Per la richiesta sono necessari i campi seguenti:
 | applicationName      | Nome dell'applicazione |
 | version              | Versione dell'applicazione. Obbligatoria se sono presenti più versioni dell'applicazione abilitata. In caso contrario, la versione è facoltativa. Per altre informazioni sul controllo delle versioni dell'applicazione, vedere [Controllo delle versioni dell'applicazione Azure Blockchain Workbench](version-app.md). |
 | workflowName         | Nome del flusso di lavoro |
-| Parametri           | Input di parametri per la creazione del contratto |
+| parameters           | Input di parametri per la creazione del contratto |
 | connectionId         | Identificatore univoco della connessione blockchain |
 | messageSchemaVersion | Versione dello schema di messaggistica |
 | messageName          | **CreateContractRequest** |
