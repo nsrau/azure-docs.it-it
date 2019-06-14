@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465678"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usare Azure Media Content Moderator per rilevare eventuali contenuti pornografici e per adulti 
@@ -44,7 +44,7 @@ L'output JSON include gli elementi seguenti:
 
 ### <a name="root-json-elements"></a>Elementi JSON radice
 
-| Elemento | DESCRIZIONE |
+| Elemento | Descrizione |
 | --- | --- |
 | version |Versione di Content Moderator. |
 | timescale |"Scatti" al secondo del video. |
@@ -57,7 +57,7 @@ L'output JSON include gli elementi seguenti:
 
 ### <a name="fragments-json-elements"></a>Elementi JSON dei frammenti
 
-|Elemento|DESCRIZIONE|
+|Elemento|Descrizione|
 |---|---|
 | start |Ora di inizio del primo evento in "tick". |
 | duration |Lunghezza del frammento in "tick". |
@@ -66,13 +66,13 @@ L'output JSON include gli elementi seguenti:
 
 ### <a name="events-json-elements"></a>Elementi JSON degli eventi
 
-|Elemento|DESCRIZIONE|
+|Elemento|Descrizione|
 |---|---|
 | reviewRecommended | `true` o `false` a seconda che le soglie interne vengano superate da **adultScore** o **racyScore**. |
 | adultScore | Punteggio di attendibilità per eventuali contenuti per adulti, su una scala compresa tra 0,00 e 0,99. |
 | racyScore | Punteggio di attendibilità per eventuali contenuti pornografici, su una scala compresa tra 0,00 e 0,99. |
 | index | Indice del fotogramma su una scala dal primo all'ultimo indice di fotogramma. |
-|  timestamp | Percorso del fotogramma in "tick". |
+| timestamp | Percorso del fotogramma in "tick". |
 | shotIndex | Indice dello scatto padre. |
 
 

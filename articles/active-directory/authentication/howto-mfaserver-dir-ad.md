@@ -12,16 +12,19 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f97b4ee364ecadde7738b8fe077f21d5732365f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82aa566c5bcd6347a6f62b2f693a7ad796347438
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358419"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055991"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integrazione di directory tra il server Azure MFA e Active Directory
 
 Usare la sezione Integrazione directory del server Azure MFA per l'integrazione con Active Directory o un'altra directory LDAP. È possibile configurare attributi corrispondenti allo schema di directory e impostare la sincronizzazione automatica degli utenti.
+
+> [!IMPORTANT]
+> A partire dal 1 ° luglio 2019, Microsoft non offrirà non è più Server MFA per le nuove distribuzioni. Nuovi clienti che si vuole richiedere l'autenticazione mfa agli utenti devono usare Azure multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il Server MFA prima del 1 ° luglio sarà in grado di scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
 ## <a name="settings"></a>Impostazioni
 
@@ -29,7 +32,7 @@ Per impostazione predefinita, il server Azure Multi-Factor Authentication (MFA) 
 
 ![Modifica configurazione LDAP nel Server MFA](./media/howto-mfaserver-dir-ad/dirint.png)
 
-| Funzionalità | DESCRIZIONE |
+| Funzionalità | Descrizione |
 | --- | --- |
 | Usa Active Directory |Selezionare l'opzione Usa Active Directory per usare Active Directory per l'importazione e la sincronizzazione.  Questa è l'impostazione predefinita. <br>Note: Per un corretto funzionamento dell'integrazione con Active Directory, è necessario aggiungere il computer a un dominio e accedere con un account di dominio. |
 | Includi domini trusted |Selezionare **Includi domini attendibili** per fare in modo che l'agente provi a connettersi ai domini ritenuti attendibili dal dominio corrente, a un altro dominio nella foresta o a domini coinvolti in un trust tra foreste.  Se non si importano o sincronizzano utenti da domini trusted, deselezionare la casella di controllo per migliorare le prestazioni.  La casella di controllo è selezionata per impostazione predefinita. |
@@ -39,7 +42,7 @@ Per impostazione predefinita, il server Azure Multi-Factor Authentication (MFA) 
 
 La tabella seguente illustra le impostazioni di configurazione per LDAP.
 
-| Funzionalità | DESCRIZIONE |
+| Funzionalità | Descrizione |
 | --- | --- |
 | Server |Immettere il nome host o indirizzo IP del server che esegue la directory LDAP.  È anche possibile specificare un server di backup separato da un punto e virgola. <br>Note: se per Tipo di binding è selezionato SSL, è necessario un nome host completo. |
 | Nome distinto di base |Immettere il nome distinto dell'oggetto directory di base da cui vengono avviate tutte le query su directory.  Ad esempio, dc=abc,dc=com. |
@@ -70,7 +73,7 @@ Gli attributi possono essere immessi manualmente e non devono corrispondere nece
 
 ![Personalizzare gli attributi di integrazione di directory nel Server MFA](./media/howto-mfaserver-dir-ad/dirint3.png)
 
-| Funzionalità | DESCRIZIONE |
+| Funzionalità | Descrizione |
 | --- | --- |
 | Identificatore univoco |Immettere il nome dell'attributo da usare come identificatore univoco di record contenitori, gruppi di sicurezza e utenti.  In Active Directory si usa in genere objectGUID. In altre implementazioni LDAP è possibile usare entryUUID o un valore simile.  Il valore predefinito è objectGUID. |
 | Tipo di identificatore univoco |Selezionare il tipo di attributo dell'identificatore univoco.  In Active Directory l'attributo objectGUID è di tipo GUID. In altre implementazioni LDAP è possibile usare il tipo Stringa o Matrice di byte ASCII.  Il valore predefinito è GUID. <br><br>È importante impostare correttamente questo tipo, perché il relativo identificatore univoco fa riferimento agli elementi di sincronizzazione. Il tipo identificatore univoco viene usato per trovare direttamente l'oggetto nella directory.  Se si imposta questo tipo su Stringa mentre nella directory il valore viene archiviato come matrice di byte di caratteri ASCII, la sincronizzazione non può funzionare correttamente. |
@@ -82,7 +85,7 @@ Gli attributi possono essere immessi manualmente e non devono corrispondere nece
 | Cognome |Immettere il nome dell'attributo che contiene il cognome in un record utente.  Il valore predefinito è sn. |
 | Indirizzo di posta elettronica |Immettere il nome dell'attributo che contiene l'indirizzo e-mail in un record utente.  L'indirizzo di posta elettronica viene usato per inviare all'utente messaggi di benvenuto e di aggiornamento.  Il valore predefinito è mail. |
 | Gruppo utenti |Immettere il nome dell'attributo che contiene il gruppo utenti in un record utente.  Il gruppo utenti consente di filtrare utenti nell'agente e nei report del portale di gestione del server Multi-Factor Authentication. |
-| DESCRIZIONE |Immettere il nome dell'attributo che contiene la descrizione in un record utente.  La descrizione viene usata solo per le ricerche.  Il valore predefinito è description. |
+| Descrizione |Immettere il nome dell'attributo che contiene la descrizione in un record utente.  La descrizione viene usata solo per le ricerche.  Il valore predefinito è description. |
 | Lingua telefonata |Immettere il nome dell'attributo che contiene il nome breve della lingua da usare per le chiamate vocali all'utente. |
 | Lingua SMS |Immettere il nome dell'attributo che contiene il nome breve della lingua da usare per i messaggi SMS inviati all'utente. |
 | Lingua app mobile |Immettere il nome dell'attributo che contiene il nome breve della lingua da usare per i messaggi SMS inviati dall'app telefono all'utente. |
@@ -93,7 +96,7 @@ Gli attributi possono essere immessi manualmente e non devono corrispondere nece
 | Cellulare |Immettere il nome dell'attributo che contiene il numero di telefono cellulare in un record utente.  Il valore predefinito è mobile. |
 | Fax |Immettere il nome dell'attributo che contiene il numero di fax in un record utente.  Il valore predefinito è facsimileTelephoneNumber. |
 | Telefono IP |Immettere il nome dell'attributo che contiene il numero di telefono IP in un record utente.  Il valore predefinito è ipPhone. |
-| Personalizzate |Immettere il nome dell'attributo che contiene un numero di telefono personalizzato in un record utente.  Il valore predefinito è blank. |
+| Personalizzato |Immettere il nome dell'attributo che contiene un numero di telefono personalizzato in un record utente.  Il valore predefinito è blank. |
 | Estensione |Immettere il nome dell'attributo che contiene l'interno telefonico in un record utente.  Il valore di questo campo viene usato come interno solo per il numero di telefono principale.  Il valore predefinito è blank. <br><br>Se l'attributo Estensione non è specificato, è possibile includere l'interno come parte dell'attributo del telefono. In questo caso, anteporre una "x" all'interno in modo che venga analizzato correttamente.  Ad esempio, 555-123-4567 x890 indica che 555-123-4567 è il numero di telefono e 890 è l'interno. |
 | Pulsante Ripristina impostazioni predefinite |Fare clic su **Ripristina impostazioni predefinite** per ripristinare il valore predefinito di tutti gli attributi.  Le impostazioni predefinite dovrebbero funzionare correttamente con lo schema normale di Active Directory o ADAM. |
 
@@ -115,13 +118,13 @@ Se la directory LDAP supporta ed è configurata per DirSync, il polling delle mo
 
 La tabella seguente contiene informazioni aggiuntive su ciascuna delle impostazioni della scheda Sincronizzazione.
 
-| Funzionalità | DESCRIZIONE |
+| Funzionalità | Descrizione |
 | --- | --- |
 | Abilita sincronizzazione con Active Directory |Se questa opzione è selezionata, il servizio del server Multi-Factor Authentication esegue periodicamente il polling delle modifiche ad Active Directory. <br><br>Note: affinché il servizio del server Multi-Factor Authentication possa iniziare a elaborare le modifiche, è necessario aggiungere almeno un elemento di sincronizzazione ed eseguire una sincronizzazione. |
 | Sincronizza ogni |Specificare l'intervallo di attesa tra il polling e l'elaborazione delle modifiche da parte del servizio del server Multi-Factor Authentication. <br><br> Note: l'intervallo specificato corrisponde al lasso di tempo che intercorre tra l'inizio di ogni ciclo.  Se il tempo impiegato per l'elaborazione delle modifiche supera l'intervallo specificato, il servizio riesegue subito il polling. |
 | Rimuovi utenti non più presenti in Active Directory |Se questa opzione è selezionata, il servizio del server Multi-Factor Authentication elabora gli oggetti contrassegnati per la rimozione dell'utente di Active Directory eliminato e rimuove l'utente del server Multi-Factor Authentication correlato. |
 | Esegui sempre una sincronizzazione completa |Se questa opzione è selezionata, il servizio del server Multi-Factor Authentication esegue sempre una sincronizzazione completa.  Se invece è deselezionata, il servizio del server Multi-Factor Authentication effettua una sincronizzazione incrementale eseguendo query solo sugli utenti modificati.  Per impostazione predefinita, questa opzione è deselezionata. <br><br>Se l'opzione è deselezionata, il server Azure MFA esegue una sincronizzazione incrementale solo se la directory supporta il controllo DirSync e l'account usato per il binding alla directory è autorizzato a eseguire query incrementali su DirSync.  Se l'account non ha le autorizzazioni appropriate o se nella sincronizzazione sono coinvolti più domini, il server Azure MFA esegue una sincronizzazione completa. |
-| Richiedi l'approvazione dell'amministratore per la disabilitazione o la rimozione di più di X utenti |È possibile configurare gli elementi di sincronizzazione per disabilitare o rimuovere gli utenti che non sono più membri del contenitore o del gruppo di sicurezza dell'elemento.  Come misura di sicurezza, è possibile anche richiedere l'approvazione dell'amministratore quando il numero di utenti da disabilitare o rimuovere supera una determinata soglia.  Se questa opzione è selezionata, viene richiesta l'approvazione per la soglia specificata.  Il valore predefinito è 5 e l'intervallo valido è compreso tra 1 e 999. <br><br>  L'approvazione viene facilitata inviando prima una notifica e-mail agli amministratori. La notifica tramite posta elettronica fornisce istruzioni per verificare e approvare la disabilitazione e la rimozione degli utenti.  L'approvazione viene richiesta all'avvio dell'interfaccia utente del server Multi-Factor Authentication. |
+| Richiedi l'approvazione dell'amministratore per la disabilitazione o la rimozione di più di X utenti |È possibile configurare gli elementi di sincronizzazione per disabilitare o rimuovere gli utenti che non sono più membri del contenitore o del gruppo di sicurezza dell'elemento.  Come misura di sicurezza, è possibile anche richiedere l'approvazione dell'amministratore quando il numero di utenti da disabilitare o rimuovere supera una determinata soglia.  Se questa opzione è selezionata, viene richiesta l'approvazione per la soglia specificata.  Il valore predefinito è 5 e l'intervallo valido è compreso tra 1 e 999. <br><br> L'approvazione viene facilitata inviando prima una notifica e-mail agli amministratori. La notifica tramite posta elettronica fornisce istruzioni per verificare e approvare la disabilitazione e la rimozione degli utenti.  L'approvazione viene richiesta all'avvio dell'interfaccia utente del server Multi-Factor Authentication. |
 
 Il pulsante **Sincronizza** consente di eseguire una sincronizzazione completa per gli elementi di sincronizzazione specificati.  È necessario eseguire una sincronizzazione completa ogni volta che vengono aggiunti, modificati, rimossi o riordinati elementi di sincronizzazione.  È necessario eseguirla anche prima di attivare il servizio ADSync di Multi-Factor Authentication, perché imposta il punto di partenza da cui il servizio eseguirà il polling delle modifiche incrementali.  Se sono state apportate modifiche agli elementi di sincronizzazione, ma non è ancora stata eseguita una sincronizzazione completa, verrà richiesto di eseguirla.
 
